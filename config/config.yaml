@@ -1,0 +1,24 @@
+data:
+  csv_dir: "data/te_csv"
+  index_csv: "data/index.csv"
+  theta_unit: "deg"             # o "rad" se vuoi
+  normalize:
+    x: true
+    y: true
+
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  seed: 42
+
+train:
+  batch_size: 4096
+  num_workers: 4
+  lr: 1.0e-3
+  max_epochs: 200
+  patience: 20
+
+model:
+  hidden: [256, 256, 128]
+  dropout: 0.0
