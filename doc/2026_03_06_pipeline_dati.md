@@ -1,7 +1,7 @@
-# 20260306 Pipeline Dati
+﻿# 20260306 Pipeline Dati
 
 ## Obiettivo
-Pianificare `data_loader.py` per:
+Pianificare `scripts/data_loader.py` per:
 - isolare i tratti validi con `DataValid`;
 - costruire campioni forward/backward coerenti su 0-360 gradi;
 - normalizzare velocita, coppia e temperatura come da range del Report Machine Learning.
@@ -107,3 +107,13 @@ Fallback:
 - layer di mapping colonne configurabile
 - resampling uniforme prima di FFT
 - flag quality per escludere condizioni non affidabili.
+
+## 9) Stato implementazione (2026-03-06)
+
+Fase 1 avviata: creato `scripts/data_loader.py` con:
+- supporto formato preprocessato (4 colonne FW/BW) e fallback raw;
+- filtro `DataValid == 1` quando disponibile nel raw;
+- parsing metadati da filename (`rpm`, `Nm`, `degC`);
+- normalizzazione `v_norm`, `tau_norm`, `T_norm` in `[-1,1]` secondo i range del report;
+- output point-wise con campi `theta/sin/cos`, `dir_flag`, `te_target`, metadati e target armonici opzionali.
+

@@ -5,7 +5,7 @@
 - Architettura tecnica iniziale definita a livello documentale (PINN + decomposizione armonica + training in due stadi).
 - Analisi fisica completata sui riferimenti caricati in `/reference`, con focus su Eq. (29)-(30) del paper MMT.
 - Pipeline dati definita a livello di piano, inclusa logica `DataValid` e normalizzazione delle variabili operative.
-- Implementazione Python non ancora avviata (in attesa/procedura conforme ad `AGENTS.md`).
+- Fase 1 avviata: implementato `scripts/data_loader.py` con filtro DataValid e normalizzazione delle feature operative (conforme ad `AGENTS.md`).
 
 ## Specifiche Tecniche PINN
 
@@ -41,6 +41,7 @@ con stima/predizione di `A_k` e `phi_k` condizionata da velocita, coppia, temper
 
 - Regola critica: prima di implementare una nuova funzionalita, creare prima un documento tecnico in `/doc` e attendere conferma esplicita utente (come da `AGENTS.md`).
 - Nessuna implementazione codice per nuove feature senza conferma successiva alla consegna documentale.
+- Governance documentale: `AGENTS.md` e `PROJECT_MASTER.md` restano in root; in `/doc` vanno solo i documenti tecnici/progetto aggiornabili.
 - Nei log tecnici futuri citare sempre i file sorgente con formato:
   - `?F:<file_path>?L<linea>?`
 - Mantenere esplicito il legame tra scelte implementative e vincoli fisici (accuratezza, stabilita, costo computazionale).
@@ -53,7 +54,7 @@ con stima/predizione di `A_k` e `phi_k` condizionata da velocita, coppia, temper
 
 ## Obiettivo Immediato
 
-Implementare `data_loader.py` con:
+Completare integrazione di `scripts/data_loader.py` con:
 
 - uso esplicito di `DataValid` per isolamento del giro utile `0 deg -> 360 deg`;
 - gestione forward/backward coerente;
@@ -69,4 +70,8 @@ Implementare `data_loader.py` con:
 - `reference/RCIM_ML-compensation.pdf`
 - `reference/SpiegazioneSerieDati.pdf`
 - `reference/Report Machine Learning.pdf`
+
+
+
+
 
