@@ -206,5 +206,6 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# VSCode Settings
+# VSCode \ Visual Studio Settings
 .vscode/
+.vs/
