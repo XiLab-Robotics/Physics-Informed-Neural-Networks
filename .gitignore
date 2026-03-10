@@ -209,3 +209,6 @@ __marimo__/
 # VSCode \ Visual Studio Settings
 .vscode/
 .vs/
+
+# Reference Old Codes
+/reference/codes/*
