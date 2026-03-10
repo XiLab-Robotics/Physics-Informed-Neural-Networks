@@ -149,6 +149,7 @@ Available project documents:
 * `doc/06_Programming_Style_Guide.md`
 * `doc/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
 * `doc/2026-03-10-02-49-17_dataset_processing_pipeline.md`
+* `doc/2026-03-10-03-04-57_script_config_documentation_structure.md`
 
 These documents summarize:
 
