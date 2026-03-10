@@ -56,7 +56,7 @@ This ensures improved generalization, physical interpretability, and robustness 
 
 The repository follows a modular PyTorch Lightning architecture.
 
-```
+```graph
 .
 ├── configs/                # YAML configuration files
 ├── data/                   # Dataset loaders and preprocessing
@@ -95,7 +95,7 @@ All comments in source files follow the internal style convention:
 
 Example:
 
-```
+```text
 # Ensure Inputs are Properly Normalized Before Forward Pass
 ```
 
@@ -201,8 +201,8 @@ The full style guide is documented in:
 
 The network predicts:
 
-```
-RTE_hat = f_theta(x)
+```math
+RTE_{hat} = f_{theta}(x)
 ```
 
 where `x` includes angular position and optional operating conditions.
@@ -211,8 +211,8 @@ where `x` includes angular position and optional operating conditions.
 
 The total loss is defined as:
 
-```
-L_total = L_data + lambda_phys * L_physics + lambda_reg * L_reg
+```math
+L_{total} = L_{data} + lambda_{phys} * L_{physics} + lambda_{reg} * L_{reg}
 ```
 
 Where:
@@ -264,7 +264,7 @@ Training is performed using PyTorch Lightning.
 
 ### Example Command
 
-```
+```bash
 python training/train.py --config configs/pinn_default.yaml
 ```
 
@@ -332,8 +332,9 @@ TwinCAT integration features:
 
 ## Requirements
 
-* Python 3.10+
-* PyTorch
+* Python 3.10
+* NVIDIA GPU with compatible drivers for CUDA execution
+* PyTorch with CUDA support
 * PyTorch Lightning
 * NumPy
 * SciPy
@@ -348,6 +349,36 @@ The current project bootstrap also includes:
 * Git submodule in `reference/agents` from `vizra-ai/claude-code-agents`
 
 These setup choices are intended to support reproducible development, documentation lookup, and future agent-assisted workflows.
+
+### Environment Installation For A New User
+
+Create and activate the Conda environment:
+
+```powershell
+conda create -y -n standard_ml_codex_env python=3.10
+conda activate standard_ml_codex_env
+python -m pip install --upgrade pip
+```
+
+Install PyTorch with the official CUDA wheel index.
+
+Note: the local machine may expose CUDA Toolkit `13.1`, but the official PyTorch stable installer currently publishes CUDA wheels for `cu118`, `cu126`, and `cu128`. This project uses the latest official stable CUDA wheel exposed on the PyTorch installer page:
+
+```powershell
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+```
+
+Install the remaining Python dependencies:
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+Optional verification:
+
+```powershell
+python -c "import torch, lightning; print(torch.__version__); print(lightning.__version__); print(torch.cuda.is_available())"
+```
 
 ---
 
