@@ -9,13 +9,17 @@ The objective is to:
 - add a project-level `requirements.txt`;
 - document a reproducible installation flow for new users;
 - keep the environment compatible with future training, evaluation, and export utilities;
-- preserve a CPU-first setup path that remains simple to reproduce on Windows.
+- configure the environment for NVIDIA GPU execution on Windows with CUDA-enabled PyTorch wheels.
 
 This setup decision is aligned with the current repository direction:
 
 - PyTorch is the main deep learning framework;
 - PyTorch Lightning is the training orchestration layer;
 - the workflow must remain compatible with future TwinCAT-oriented export and runtime simplification.
+
+Current local hardware/toolchain observation:
+
+- `nvcc --version` reports `Cuda compilation tools, release 13.1, V13.1.115` on March 10, 2026.
 
 ## Technical Approach
 
@@ -49,10 +53,22 @@ The dependency baseline will be organized around four groups:
 Planned installation strategy:
 
 - keep Python at `3.10` in the Conda environment;
-- install dependencies with `python -m pip install -r requirements.txt`;
+- install GPU-enabled PyTorch from the official PyTorch wheel index;
+- install the remaining dependencies with `python -m pip install -r requirements.txt`;
 - verify installation through direct imports of `torch`, `lightning`, and the main scientific packages.
 
-The setup will assume a CPU-first default. If a GPU-specific installation is needed later, the project can add a separate documented path without changing the baseline onboarding flow.
+CUDA decision:
+
+- the local CUDA Toolkit is `13.1`;
+- according to the official PyTorch "Get Started Locally" page checked on March 10, 2026, the published stable pip wheels are exposed for `CUDA 11.8`, `CUDA 12.6`, and `CUDA 12.8`;
+- no official `cu130` / `cu131` wheel selection is currently exposed on that page;
+- the practical installation path will therefore use the latest official stable CUDA wheel published by PyTorch at this time, namely `cu128`.
+
+Planned PyTorch installation command:
+
+- `python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128`
+
+If future project components require audio operators, `torchaudio` can be added later without changing the main setup structure.
 
 ## Involved Components
 
@@ -71,11 +87,12 @@ The setup will assume a CPU-first default. If a GPU-specific installation is nee
 ## Implementation Steps
 
 1. Create the technical document and register it in the main `README.md`.
-2. Add the root `requirements.txt` with the agreed dependency list.
+2. Add the root `requirements.txt` with the agreed dependency list excluding `torch` and `torchvision`, which will be installed from the official CUDA wheel index.
 3. Update `README.md` with the exact setup commands for a new user:
    - create the Conda environment;
    - activate it;
    - upgrade `pip`;
+   - install GPU-enabled PyTorch from the official PyTorch index;
    - install from `requirements.txt`.
 4. Install the dependencies into `standard_ml_codex_env`.
 5. Run a lightweight verification step by importing the installed packages and printing their versions.
