@@ -362,10 +362,10 @@ python -m pip install --upgrade pip
 
 Install PyTorch with the official CUDA wheel index.
 
-Note: the local machine may expose CUDA Toolkit `13.1`, but the official PyTorch stable installer currently publishes CUDA wheels for `cu118`, `cu126`, and `cu128`. This project uses the latest official stable CUDA wheel exposed on the PyTorch installer page:
+Note: this workstation reports local CUDA Toolkit `13.1`, and the official PyTorch wheel index exposes `cu130` wheels for Windows + Python 3.10. This project therefore installs the CUDA 13.x build directly from the official PyTorch index:
 
 ```powershell
-python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
 
 Install the remaining Python dependencies:

@@ -60,13 +60,12 @@ Planned installation strategy:
 CUDA decision:
 
 - the local CUDA Toolkit is `13.1`;
-- according to the official PyTorch "Get Started Locally" page checked on March 10, 2026, the published stable pip wheels are exposed for `CUDA 11.8`, `CUDA 12.6`, and `CUDA 12.8`;
-- no official `cu130` / `cu131` wheel selection is currently exposed on that page;
-- the practical installation path will therefore use the latest official stable CUDA wheel published by PyTorch at this time, namely `cu128`.
+- the official PyTorch wheel index checked on March 10, 2026 exposes `cu130` wheels for Windows and Python 3.10;
+- the project will therefore align the installation with the local NVIDIA CUDA 13.x toolchain and use the official `cu130` index.
 
 Planned PyTorch installation command:
 
-- `python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128`
+- `python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130`
 
 If future project components require audio operators, `torchaudio` can be added later without changing the main setup structure.
 
