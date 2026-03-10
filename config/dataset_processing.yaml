@@ -1,0 +1,20 @@
+paths:
+  dataset_root: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\data\datasets
+
+dataset:
+  reduction_ratio: 81.0
+  angular_window_deg:
+    minimum: 0.0
+    maximum: 360.0
+
+directions:
+  use_forward_direction: true
+  use_backward_direction: true
+
+split:
+  validation_split: 0.2
+  random_seed: 42
+
+dataloader:
+  batch_size: 8
+  num_workers: 0
