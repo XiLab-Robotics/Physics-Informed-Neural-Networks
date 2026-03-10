@@ -16,8 +16,8 @@ Important repository observation recorded on March 10, 2026:
 
 - the folder present in the repository is `data/datasets`, not `data/dataset`;
 - the available CSV files are already a validated TE dataset, not the raw acquisition dataset;
-- all inspected CSV files share the same header:
-  - `Poisition_Output_Reducer_Fw`
+- all inspected CSV files share the same header, including the original forward-position typo:
+  - `Poisition_Output_Reducer_Fw` (literal CSV typo)
   - `Transmission_Error_Fw`
   - `Position_Output_Reducer_Bw`
   - `Transmission_Error_Bw`
@@ -44,7 +44,7 @@ For the CSV files currently stored in `data/datasets`:
 - convert each CSV into two directional samples:
   - one forward TE curve;
   - one backward TE curve;
-- normalize the column naming inconsistency (`Poisition_Output_Reducer_Fw` typo) inside the loader layer;
+- normalize the original CSV header typo `Poisition_Output_Reducer_Fw` inside the loader layer while keeping dataset compatibility;
 - expose a processed sample format directly usable for PyTorch training.
 
 Observed dataset characteristics:

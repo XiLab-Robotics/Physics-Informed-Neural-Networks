@@ -50,6 +50,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for creating persistent `doc/reference_codes/` notes from the reference-code submodules.
 - [technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md](./technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md)
   Technical document for the first modular PyTorch Lightning feedforward baseline for TE regression.
+- [technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md](./technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md)
+  Technical document for clarifying the original CSV header typo `Poisition_Output_Reducer_Fw` versus the normalized internal column naming.
 
 ### Script Documentation
 

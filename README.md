@@ -173,6 +173,7 @@ Technical documents:
 * `doc/technical/2026-03-10-15-33-05_reference_code_submodule_migration.md`
 * `doc/technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
 * `doc/technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
+* `doc/technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
 
 Script documentation:
 

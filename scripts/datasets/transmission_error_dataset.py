@@ -35,6 +35,8 @@ FILENAME_PATTERN = re.compile(
     r"(?P<speed_rpm>[0-9.]+)rpm(?P<torque_nm>[0-9.]+)Nm(?P<temperature_deg>[0-9.]+)deg\.csv$"
 )
 
+# Keep compatibility with the original dataset header typo while also accepting
+# the corrected spelling if a future normalized dataset version is introduced.
 FORWARD_POSITION_COLUMN_CANDIDATES = [
     "Poisition_Output_Reducer_Fw",
     "Position_Output_Reducer_Fw",
@@ -165,6 +167,7 @@ def load_validated_te_dataframe(csv_file_path: str) -> pd.DataFrame:
     validated_dataframe = pd.read_csv(csv_file_path)
 
     # Resolve Forward Position Column
+    # `Poisition_Output_Reducer_Fw` is the literal typo present in the original CSV files.
     forward_position_column = None
     for candidate_column in FORWARD_POSITION_COLUMN_CANDIDATES:
         if candidate_column in validated_dataframe.columns:
