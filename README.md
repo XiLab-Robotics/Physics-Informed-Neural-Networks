@@ -175,6 +175,7 @@ Technical documents:
 * `doc/technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
 * `doc/technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
 * `doc/technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
+* `doc/technical/2026-03-10-16-45-41_project_usage_guide_refresh.md`
 
 Script documentation:
 

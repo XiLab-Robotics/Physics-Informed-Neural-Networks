@@ -2,14 +2,15 @@
 
 ## Overview
 
-This guide explains how to use the currently available scripts in the repository.
+This guide explains how to use the runnable workflows currently available in the repository.
 
 At the moment, the implemented workflows are:
 
 - dataset processing through the validated TE dataset utilities;
-- dataset visualization through the TE plotting script.
+- dataset visualization through the TE plotting script;
+- feedforward neural-network training through a PyTorch Lightning baseline.
 
-Training, inference, and export workflows are planned but are not implemented yet as runnable project scripts. This guide marks those parts explicitly to avoid ambiguity.
+Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
 
 ## Prerequisites
 
@@ -49,20 +50,29 @@ If the dataset is moved in the future, update this YAML file before running the 
 The current usage flow mainly relies on these folders:
 
 - `scripts/datasets/`
-  Dataset processing and visualization scripts.
+  Dataset processing and visualization utilities.
+
+- `training/`
+  PyTorch Lightning training entry point, datamodule, and regression module.
+
+- `models/`
+  Neural-network backbones and the model factory.
 
 - `config/`
-  YAML files for path selection and runtime options.
+  YAML files for dataset processing, visualization, and training configuration.
 
 - `data/datasets/`
   Validated Transmission Error CSV dataset.
+
+- `output/`
+  Generated artifacts such as plots, logs, and model checkpoints.
 
 - `doc/`
   Technical, script-level, and user-facing documentation.
 
 ## Dataset Processing
 
-## What The Processing Script Does
+## What The Processing Module Does
 
 The dataset-processing logic lives in:
 
@@ -78,11 +88,12 @@ This module:
   - `TE = theta_out - 81 * theta_in`
   - `DataValid` masks
 
-Important note:
+Important dataset note:
 
 - the CSV files currently present in the repository are already validated TE files;
 - they do not contain raw encoder columns or `DataValid Forward` / `DataValid Backward` flags;
-- the raw TE reconstruction helpers are present for future raw datasets, but they are not exercised by the current repository files.
+- the forward-position CSV header contains the original typo `Poisition_Output_Reducer_Fw`;
+- the loader keeps compatibility with that original header and normalizes it internally to `position_output_reducer_fw_deg`.
 
 ## Dataset Processing Configuration
 
@@ -114,7 +125,7 @@ Current configurable sections:
   Seed used for split reproducibility.
 
 - `dataloader.batch_size`
-  Batch size used by the generated dataloaders.
+  Batch size used by the generated curve dataloaders.
 
 - `dataloader.num_workers`
   Number of PyTorch dataloader workers.
@@ -182,7 +193,7 @@ The regression target is:
 
 ## Flatten A Padded Batch Into Point-Wise Tensors
 
-If the future model is trained point by point rather than sequence by sequence, you can flatten the padded batch.
+If the model is trained point by point rather than sequence by sequence, you can flatten the padded batch.
 
 ```powershell
 python -c "from scripts.datasets.transmission_error_dataset import create_transmission_error_dataloaders_from_config, flatten_curve_batch; bundle=create_transmission_error_dataloaders_from_config(); batch=next(iter(bundle['train_dataloader'])); flat=flatten_curve_batch(batch); print(flat['input_tensor'].shape); print(flat['target_tensor'].shape)"
@@ -266,25 +277,202 @@ If you prefer to keep the configured dataset root but change the selected file:
 python -m scripts.datasets.visualize_transmission_error --file-index 10 --save-path output\te_curve_10.png
 ```
 
-## Use A Different Visualization Config
+## Feedforward Training Baseline
 
-If you create another visualization YAML file:
+## What The Training Workflow Does
+
+The first training entry point is:
+
+- `training/train_feedforward_network.py`
+
+This workflow trains a feedforward regression baseline implemented with PyTorch Lightning.
+
+The training stack is composed of:
+
+- `models/feedforward_network.py`
+  Feedforward backbone with hidden layers, activation, optional layer normalization, and dropout.
+
+- `models/model_factory.py`
+  Model selection layer used to instantiate the requested architecture.
+
+- `training/transmission_error_datamodule.py`
+  Lightning datamodule that reuses the TE curve dataset and converts curves into point-wise batches.
+
+- `training/transmission_error_regression_module.py`
+  Generic Lightning regression module with normalization, loss computation, optimizer setup, and validation metrics.
+
+- `config/feedforward_network_training.yaml`
+  Main training configuration file for the baseline.
+
+## Current Baseline Assumptions
+
+The current baseline:
+
+- trains point-wise on TE curve samples rather than with recurrent sequence modeling;
+- computes normalization statistics from the training split only;
+- uses the normalized tensors during optimization and reports interpretable metrics on denormalized TE values;
+- uses validation-based early stopping and checkpoint selection.
+
+This is the first baseline only. It does not replace the future need for LSTM, RNN, or PINN models.
+
+## Training Configuration
+
+The training settings are stored in:
+
+- `config/feedforward_network_training.yaml`
+
+Main configurable sections:
+
+- `paths.dataset_config_path`
+  Dataset-processing config used by the Lightning datamodule.
+
+- `paths.output_root`
+  Root output directory for logs and checkpoints.
+
+- `experiment.run_name`
+  Name of the training run output folder.
+
+- `experiment.model_type`
+  Requested architecture name resolved by the model factory.
+
+- `dataset.curve_batch_size`
+  Number of directional curves loaded per batch before point extraction.
+
+- `dataset.point_stride`
+  Downsampling stride used when extracting point-wise samples from each curve.
+
+- `dataset.maximum_points_per_curve`
+  Optional cap on the number of points taken from each curve.
+
+- `dataset.num_workers`
+  PyTorch dataloader worker count.
+
+- `dataset.pin_memory`
+  Pin-memory flag for the dataloaders.
+
+- `model.input_size`
+  Expected point-wise feature dimension.
+
+- `model.hidden_size`
+  Hidden-layer sizes for the feedforward backbone.
+
+- `model.output_size`
+  Output dimension of the regression model.
+
+- `model.activation_name`
+  Activation function used in the hidden layers.
+
+- `model.dropout_probability`
+  Dropout probability used after hidden activations.
+
+- `model.use_layer_norm`
+  Enables or disables `LayerNorm` in the hidden stages.
+
+- `training.learning_rate`
+  Optimizer learning rate.
+
+- `training.weight_decay`
+  `AdamW` weight decay.
+
+- `training.min_epochs`
+  Minimum number of epochs.
+
+- `training.max_epochs`
+  Maximum number of epochs.
+
+- `training.patience`
+  Early-stopping patience.
+
+- `training.min_delta`
+  Minimum monitored improvement threshold.
+
+- `training.log_every_n_steps`
+  Lightning logging frequency.
+
+- `training.fast_dev_run`
+  Lightning developer-mode shortcut.
+
+- `training.deterministic`
+  Deterministic training flag.
+
+## Run The Default Training Command
+
+From the project root:
 
 ```powershell
-python -m scripts.datasets.visualize_transmission_error --config-path config\visualization.yaml --save-path output\custom_plot.png
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
 
-This is useful when multiple plot presets are needed later.
+This command:
+
+- loads `config/feedforward_network_training.yaml`;
+- builds the datamodule from `config/dataset_processing.yaml`;
+- computes training normalization statistics;
+- creates the feedforward model;
+- starts Lightning training and validation;
+- writes artifacts under `output/feedforward_network/<run_name>/`.
+
+## Run Training With A Custom Config Path
+
+If you want to launch the same workflow with a different YAML file:
+
+```powershell
+conda run -n standard_ml_codex_env python -c "from training.train_feedforward_network import train_feedforward_network; train_feedforward_network(r'config\feedforward_network_training.yaml')"
+```
+
+This is the current way to override the training config path because the script does not yet expose CLI arguments for that option.
+
+## Typical Training Outputs
+
+The baseline writes outputs under the configured root directory, currently:
+
+- `output/feedforward_network/`
+
+For the default run name, the typical output location is:
+
+- `output/feedforward_network/te_feedforward_baseline/`
+
+Typical generated artifacts include:
+
+- a copy of the effective training config;
+- TensorBoard logs;
+- Lightning checkpoints;
+- a text file containing the best checkpoint path.
+
+## Inspect Training Logs With TensorBoard
+
+After a real training run, you can inspect logs with:
+
+```powershell
+tensorboard --logdir output\feedforward_network
+```
+
+Then open the local TensorBoard URL shown in the terminal.
+
+## Current Training Metrics
+
+The Lightning regression module currently logs:
+
+- `train_loss`
+- `train_mae`
+- `train_rmse`
+- `val_loss`
+- `val_mae`
+- `val_rmse`
+
+The best checkpoint and early stopping are both driven by `val_mae`.
 
 ## Typical Workflow For The Current Project
 
-If you want to inspect and prepare the current dataset, use this sequence:
+If you want to inspect the dataset and train the current baseline, use this sequence:
 
 1. Activate the environment.
 2. Check `config/dataset_processing.yaml`.
-3. Build dataloaders from Python and inspect one batch.
-4. Use the visualization script to inspect one or more TE curves.
-5. Adjust YAML configuration if you want different split settings or plotting defaults.
+3. Check `config/feedforward_network_training.yaml`.
+4. Inspect one dataset batch if needed.
+5. Visualize one or more TE curves.
+6. Start the feedforward Lightning training run.
+7. Inspect logs and checkpoints under `output/feedforward_network/`.
 
 Example sequence:
 
@@ -292,58 +480,46 @@ Example sequence:
 conda activate standard_ml_codex_env
 python -c "from scripts.datasets.transmission_error_dataset import create_transmission_error_dataloaders_from_config; bundle=create_transmission_error_dataloaders_from_config(); print(len(bundle['train_dataset'])); print(len(bundle['validation_dataset']))"
 python -m scripts.datasets.visualize_transmission_error --file-index 0 --save-path output\te_curve_0.png
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
-
-## Training Status
-
-Training is not yet implemented as a runnable project script.
-
-This means there is currently no entry point such as:
-
-- `scripts/training/train_model.py`
-- `scripts/training/lightning_datamodule.py`
-- `scripts/training/evaluate_model.py`
-
-So, at the moment, you cannot run a documented project training command from this repository.
 
 ## Inference Status
 
-Inference is also not yet implemented as a runnable project script.
+Inference and export are not yet implemented as runnable project scripts.
 
 This means there is currently no entry point such as:
 
-- `scripts/inference/run_inference.py`
-- `scripts/inference/export_onnx.py`
-- `scripts/inference/runtime_validation.py`
+- `inference/run_inference.py`
+- `inference/export_onnx.py`
+- `inference/runtime_validation.py`
 
-So, at the moment, you cannot run a documented project inference command from this repository.
+So, at the moment, you cannot run a documented project inference or export command from this repository.
 
 ## What Is Already Ready For The Next Step
 
-Even though training and inference scripts are not available yet, the repository already has:
+The repository now already has:
 
 - a validated TE dataset;
 - a YAML-driven dataset-processing configuration;
-- PyTorch datasets and dataloaders;
+- PyTorch datasets and curve dataloaders;
 - a TE visualization utility;
-- technical and script-level documentation aligned with the current structure.
+- a modular PyTorch Lightning feedforward training baseline;
+- a reusable datamodule and regression module structure for future architectures;
+- technical, script-level, and user-facing documentation aligned with the current structure.
 
-This is enough to start implementing:
+This is enough to extend the project toward:
 
-1. a LightningDataModule
-2. a LightningModule
-3. a training entry point
-4. an evaluation entry point
-5. an inference/export entry point
+1. recurrent sequence models such as RNN or LSTM
+2. evaluation entry points
+3. inference/export utilities
+4. PINN-specific losses and training flows
 
 ## Recommended Next Development Order
 
 To extend the repository cleanly, the recommended order is:
 
-1. add `scripts/datasets/` data-module integration for Lightning
-2. add `config/training.yaml`
-3. add `scripts/training/train_model.py`
-4. add `scripts/training/evaluate_model.py`
-5. add `scripts/inference/` utilities
-
-This keeps the project consistent with the current `scripts/`, `config/`, and `doc/` structure.
+1. add a sequence-aware recurrent baseline on top of the current `training/` and `models/` structure
+2. add a dedicated evaluation entry point
+3. add inference and export utilities
+4. extend the regression module toward physics-informed loss composition
+5. add PINN-specific training and validation workflows

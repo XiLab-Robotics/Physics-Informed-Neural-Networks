@@ -54,6 +54,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for clarifying the original CSV header typo `Poisition_Output_Reducer_Fw` versus the normalized internal column naming.
 - [technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md](./technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md)
   Technical document for requiring a detailed `project_usage_guide.md` update before commit whenever repository functionality changes.
+- [technical/2026-03-10-16-45-41_project_usage_guide_refresh.md](./technical/2026-03-10-16-45-41_project_usage_guide_refresh.md)
+  Technical document for refreshing `project_usage_guide.md` so it matches the current runnable training and dataset workflows.
 
 ### Script Documentation
 
