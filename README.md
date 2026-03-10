@@ -88,6 +88,7 @@ Additional working folders already used in the project lifecycle:
 
 * `reference/` for PDFs, reports, and external code references
 * `doc/` for internal synthesized project documents and coding style notes
+* `agents/` for external agent and subagent repositories used as reusable workflow references
 
 All comments in source files follow the internal style convention:
 
@@ -160,6 +161,7 @@ Technical documents:
 * `doc/technical/2026-03-10-03-23-28_script_docs_folder_mirroring.md`
 * `doc/technical/2026-03-10-03-27-42_project_usage_guide.md`
 * `doc/technical/2026-03-10-13-05-10_relative_config_paths.md`
+* `doc/technical/2026-03-10-15-13-29_agent_submodule_reorganization.md`
 
 Script documentation:
 
@@ -367,7 +369,14 @@ The current project bootstrap also includes:
 
 * Conda environment: `standard_ml_codex_env`
 * Global Codex MCP connection to Context7 for up-to-date library documentation
-* Git submodule in `reference/agents` from `vizra-ai/claude-code-agents`
+* Git submodules in `agents/` for reusable external agent collections
+
+Current agent submodules:
+
+* `agents/claude-code-agents` -> `https://github.com/vizra-ai/claude-code-agents.git`
+* `agents/claude-code-subagents` -> `https://github.com/0xfurai/claude-code-subagents.git`
+* `agents/awesome-claude-code-subagents` -> `https://github.com/VoltAgent/awesome-claude-code-subagents.git`
+* `agents/wshobson-agents` -> `https://github.com/wshobson/agents.git`
 
 These setup choices are intended to support reproducible development, documentation lookup, and future agent-assisted workflows.
 

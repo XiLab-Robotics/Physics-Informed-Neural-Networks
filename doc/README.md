@@ -29,6 +29,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the `scripts/`, `config/`, and per-script documentation repository rules.
 - [technical/2026-03-10-03-16-44_doc_folder_reorganization.md](./technical/2026-03-10-03-16-44_doc_folder_reorganization.md)
   Technical document for the grouped `doc/` folder reorganization.
+- [technical/2026-03-10-15-13-29_agent_submodule_reorganization.md](./technical/2026-03-10-15-13-29_agent_submodule_reorganization.md)
+  Technical document for moving the existing agent submodule and adding the requested `agents/` submodule collection.
 
 ### Script Documentation
 
