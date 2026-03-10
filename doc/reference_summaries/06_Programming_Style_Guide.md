@@ -2,9 +2,9 @@
 
 ## Reference Sources
 
-- `reference/codes/blind_handover_controller-master.zip`
-- `reference/codes/mediapipe_gesture_recognition-master.zip`
-- `reference/codes/multimodal_fusion-master.zip`
+- `reference/codes/blind_handover_controller`
+- `reference/codes/mediapipe_gesture_recognition`
+- `reference/codes/multimodal_fusion`
 
 The main style baseline is `blind_handover_controller`, while the other two repositories reinforce the same naming, comment, structure, and implementation patterns.
 

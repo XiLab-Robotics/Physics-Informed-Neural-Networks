@@ -10,3 +10,12 @@
 [submodule "agents/wshobson-agents"]
 	path = agents/wshobson-agents
 	url = https://github.com/wshobson/agents.git
+[submodule "reference/codes/blind_handover_controller"]
+	path = reference/codes/blind_handover_controller
+	url = https://github.com/davideferrari95/blind_handover_controller.git
+[submodule "reference/codes/multimodal_fusion"]
+	path = reference/codes/multimodal_fusion
+	url = https://github.com/davideferrari95/multimodal_fusion.git
+[submodule "reference/codes/mediapipe_gesture_recognition"]
+	path = reference/codes/mediapipe_gesture_recognition
+	url = https://github.com/davideferrari95/mediapipe_gesture_recognition.git

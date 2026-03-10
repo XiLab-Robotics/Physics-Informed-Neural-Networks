@@ -86,7 +86,7 @@ The repository follows a modular PyTorch Lightning architecture.
 
 Additional working folders already used in the project lifecycle:
 
-* `reference/` for PDFs, reports, and external code references
+* `reference/` for PDFs, reports, and external code references, including Git submodules under `reference/codes/`
 * `doc/` for internal synthesized project documents and coding style notes
 * `agents/` for external agent and subagent repositories used as reusable workflow references
 
@@ -163,6 +163,7 @@ Technical documents:
 * `doc/technical/2026-03-10-13-05-10_relative_config_paths.md`
 * `doc/technical/2026-03-10-15-13-29_agent_submodule_reorganization.md`
 * `doc/technical/2026-03-10-15-25-39_commit_workflow_rule_update.md`
+* `doc/technical/2026-03-10-15-33-05_reference_code_submodule_migration.md`
 
 Script documentation:
 

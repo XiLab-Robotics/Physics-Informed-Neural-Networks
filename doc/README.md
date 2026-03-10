@@ -33,6 +33,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for moving the existing agent submodule and adding the requested `agents/` submodule collection.
 - [technical/2026-03-10-15-25-39_commit_workflow_rule_update.md](./technical/2026-03-10-15-25-39_commit_workflow_rule_update.md)
   Technical document for enforcing the technical-document approval workflow plus a mandatory final Git commit.
+- [technical/2026-03-10-15-33-05_reference_code_submodule_migration.md](./technical/2026-03-10-15-33-05_reference_code_submodule_migration.md)
+  Technical document for replacing the archived reference code `.zip` files in `reference/codes/` with Git submodules.
 
 ### Script Documentation
 
