@@ -148,6 +148,7 @@ Available project documents:
 * `doc/05_Data_Series_Explanation_Project_Summary.md`
 * `doc/06_Programming_Style_Guide.md`
 * `doc/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
+* `doc/2026-03-10-02-49-17_dataset_processing_pipeline.md`
 
 These documents summarize:
 
