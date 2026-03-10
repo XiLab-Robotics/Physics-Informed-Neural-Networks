@@ -37,6 +37,11 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/datasets/visualize_transmission_error.md](./scripts/datasets/visualize_transmission_error.md)
   Script-level documentation for the TE curve visualization utility.
 
+### Guides
+
+- [guide/project_usage_guide.md](./guide/project_usage_guide.md)
+  Practical user guide for environment activation, dataset processing, and TE visualization.
+
 ## Usage
 
 - Use these documents as the working baseline for dataset interpretation, TE modeling, ML compensation, and code implementation choices.

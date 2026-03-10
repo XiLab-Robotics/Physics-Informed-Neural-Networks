@@ -158,11 +158,16 @@ Technical documents:
 * `doc/technical/2026-03-10-03-16-44_doc_folder_reorganization.md`
 * `doc/technical/2026-03-10-03-21-23_script_document_naming_cleanup.md`
 * `doc/technical/2026-03-10-03-23-28_script_docs_folder_mirroring.md`
+* `doc/technical/2026-03-10-03-27-42_project_usage_guide.md`
 
 Script documentation:
 
 * `doc/scripts/datasets/transmission_error_dataset.md`
 * `doc/scripts/datasets/visualize_transmission_error.md`
+
+Guides:
+
+* `doc/guide/project_usage_guide.md`
 
 These documents summarize:
 
