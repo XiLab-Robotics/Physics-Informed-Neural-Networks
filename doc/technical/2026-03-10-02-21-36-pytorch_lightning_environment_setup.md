@@ -77,7 +77,7 @@ If future project components require audio operators, `torchaudio` can be added 
 - `README.md`
   Main onboarding and setup instructions for new users.
 
-- `doc/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
+- `doc/technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
   Technical decision record for this environment setup feature.
 
 - `standard_ml_codex_env`

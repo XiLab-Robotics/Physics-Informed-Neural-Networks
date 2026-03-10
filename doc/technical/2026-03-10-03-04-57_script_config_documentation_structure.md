@@ -61,7 +61,7 @@ Documentation policy for each script:
 
 ## Involved Components
 
-- `doc/2026-03-10-03-04-57_script_config_documentation_structure.md`
+- `doc/technical/2026-03-10-03-04-57_script_config_documentation_structure.md`
   Technical rule document for repository script/config/documentation organization.
 
 - `README.md`

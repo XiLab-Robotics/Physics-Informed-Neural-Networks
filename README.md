@@ -127,7 +127,7 @@ Preprocessing steps:
 * Feature normalization
 * Cycle segmentation
 
-The operational meaning of zeroing, cumulative positions, and `DataValid` windows is documented in `doc/05_Data_Series_Explanation_Project_Summary.md`.
+The operational meaning of zeroing, cumulative positions, and `DataValid` windows is documented in `doc/reference_summaries/05_Data_Series_Explanation_Project_Summary.md`.
 
 ---
 
@@ -141,15 +141,28 @@ Main entry point:
 
 Available project documents:
 
-* `doc/01_Dataset_Operations_Guide.md`
-* `doc/02_MMT_TEModeling_Project_Summary.md`
-* `doc/03_RCIM_ML_Compensation_Project_Summary.md`
-* `doc/04_Machine_Learning_Report_Project_Summary.md`
-* `doc/05_Data_Series_Explanation_Project_Summary.md`
-* `doc/06_Programming_Style_Guide.md`
-* `doc/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
-* `doc/2026-03-10-02-49-17_dataset_processing_pipeline.md`
-* `doc/2026-03-10-03-04-57_script_config_documentation_structure.md`
+Reference summaries:
+
+* `doc/reference_summaries/01_Dataset_Operations_Guide.md`
+* `doc/reference_summaries/02_MMT_TEModeling_Project_Summary.md`
+* `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
+* `doc/reference_summaries/04_Machine_Learning_Report_Project_Summary.md`
+* `doc/reference_summaries/05_Data_Series_Explanation_Project_Summary.md`
+* `doc/reference_summaries/06_Programming_Style_Guide.md`
+
+Technical documents:
+
+* `doc/technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
+* `doc/technical/2026-03-10-02-49-17_dataset_processing_pipeline.md`
+* `doc/technical/2026-03-10-03-04-57_script_config_documentation_structure.md`
+* `doc/technical/2026-03-10-03-16-44_doc_folder_reorganization.md`
+* `doc/technical/2026-03-10-03-21-23_script_document_naming_cleanup.md`
+* `doc/technical/2026-03-10-03-23-28_script_docs_folder_mirroring.md`
+
+Script documentation:
+
+* `doc/scripts/datasets/transmission_error_dataset.md`
+* `doc/scripts/datasets/visualize_transmission_error.md`
 
 These documents summarize:
 
@@ -159,7 +172,7 @@ These documents summarize:
 * Test-rig workflow and TwinCAT implementation details
 * Coding style conventions derived from prior repositories
 
-All future feature-level technical documents must also be stored in `doc/` and linked from this main project document.
+All future feature-level technical documents must also be stored in `doc/technical/` and linked from this main project document.
 
 ---
 
@@ -170,7 +183,7 @@ The following rules are mandatory for all future project work:
 * Use English as the primary project language for file names, identifiers, instructions, comments, and technical documentation.
 * Adopt the coding style of `blind_handover_controller` rigorously.
 * Always take into account the documents in `reference/` or their summaries in `doc/` before making design or implementation decisions.
-* Before implementing any feature, create a technical project document in `doc/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+* Before implementing any feature, create a technical project document in `doc/technical/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 * Each technical project document must contain the sections:
   * `Overview`
   * `Technical Approach`
@@ -195,7 +208,7 @@ The main conventions are:
 
 The full style guide is documented in:
 
-* `doc/06_Programming_Style_Guide.md`
+* `doc/reference_summaries/06_Programming_Style_Guide.md`
 
 ---
 

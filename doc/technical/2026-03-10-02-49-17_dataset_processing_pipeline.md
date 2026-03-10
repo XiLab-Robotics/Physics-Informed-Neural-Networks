@@ -103,7 +103,7 @@ The visualization utility will:
 
 ## Involved Components
 
-- `doc/2026-03-10-02-49-17_dataset_processing_pipeline.md`
+- `doc/technical/2026-03-10-02-49-17_dataset_processing_pipeline.md`
   Technical record for this feature.
 
 - `README.md`
