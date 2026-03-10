@@ -176,6 +176,7 @@ Technical documents:
 * `doc/technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
 * `doc/technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
 * `doc/technical/2026-03-10-16-45-41_project_usage_guide_refresh.md`
+* `doc/technical/2026-03-10-16-55-13_dataloader_worker_tuning.md`
 
 Script documentation:
 

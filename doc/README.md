@@ -56,6 +56,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for requiring a detailed `project_usage_guide.md` update before commit whenever repository functionality changes.
 - [technical/2026-03-10-16-45-41_project_usage_guide_refresh.md](./technical/2026-03-10-16-45-41_project_usage_guide_refresh.md)
   Technical document for refreshing `project_usage_guide.md` so it matches the current runnable training and dataset workflows.
+- [technical/2026-03-10-16-55-13_dataloader_worker_tuning.md](./technical/2026-03-10-16-55-13_dataloader_worker_tuning.md)
+  Technical document for tuning the default dataloader worker and memory-pinning settings of the current feedforward training workflow.
 
 ### Script Documentation
 

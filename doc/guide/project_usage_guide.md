@@ -346,9 +346,11 @@ Main configurable sections:
 
 - `dataset.num_workers`
   PyTorch dataloader worker count.
+  The current default is `4`, which is a conservative multiprocessing setting for this Windows-based training environment.
 
 - `dataset.pin_memory`
   Pin-memory flag for the dataloaders.
+  The current default is `true` to improve host-to-device transfer when training on GPU.
 
 - `model.input_size`
   Expected point-wise feature dimension.
@@ -407,10 +409,25 @@ This command:
 
 - loads `config/feedforward_network_training.yaml`;
 - builds the datamodule from `config/dataset_processing.yaml`;
+- uses `num_workers: 4` and `pin_memory: true` in the point-wise dataloaders by default;
 - computes training normalization statistics;
 - creates the feedforward model;
 - starts Lightning training and validation;
 - writes artifacts under `output/feedforward_network/<run_name>/`.
+
+## Current Dataloader Runtime Defaults
+
+The current feedforward-training config now uses these dataloader defaults:
+
+- `dataset.num_workers: 4`
+- `dataset.pin_memory: true`
+
+These values were selected as the first practical tuning step after the initial stable baseline:
+
+- `num_workers: 4` reduces dataloader bottlenecks without jumping immediately to aggressive multiprocessing values on Windows;
+- `pin_memory: true` is appropriate when the training run uses CUDA, which is the current expected setup for this repository.
+
+If the project is later executed on CPU-only hardware or on a different workstation, these values can still be adjusted directly in `config/feedforward_network_training.yaml`.
 
 ## Run Training With A Custom Config Path
 
