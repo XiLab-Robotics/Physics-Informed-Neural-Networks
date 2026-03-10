@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for refreshing `project_usage_guide.md` so it matches the current runnable training and dataset workflows.
 - [technical/2026-03-10-16-55-13_dataloader_worker_tuning.md](./technical/2026-03-10-16-55-13_dataloader_worker_tuning.md)
   Technical document for tuning the default dataloader worker and memory-pinning settings of the current feedforward training workflow.
+- [technical/2026-03-10-18-11-49_training_entry_point_import_fix.md](./technical/2026-03-10-18-11-49_training_entry_point_import_fix.md)
+  Technical document for fixing direct execution of the feedforward training entry point when the repository root is missing from `sys.path`.
 
 ### Script Documentation
 

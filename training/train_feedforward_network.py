@@ -4,6 +4,14 @@ from __future__ import annotations
 from pathlib import Path
 from pprint import pformat
 import shutil
+import sys
+
+
+PROJECT_PATH = Path(__file__).resolve().parents[1]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
 
 # Import PyTorch Lightning Utilities
 from lightning.pytorch import Trainer
@@ -25,7 +33,6 @@ from training.transmission_error_datamodule import TransmissionErrorDataModule
 from training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
 
-PROJECT_PATH = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "feedforward_network_training.yaml"
 
 # Set Torch Matmul Precision

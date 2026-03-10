@@ -405,6 +405,8 @@ From the project root:
 conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
 
+The direct script execution shown above is supported from the repository root. The training entry point bootstraps the project root into `sys.path`, so the internal `models/`, `training/`, and `scripts/` imports resolve correctly even when the file is launched directly.
+
 This command:
 
 - loads `config/feedforward_network_training.yaml`;
