@@ -2,9 +2,15 @@
 
 ## Documentation
 
+- Use English as the primary project language for file names, identifiers, instructions, comments, and technical documentation.
 - Use the `context7` MCP server before implementing or recommending library-specific code for Next.js, React, PyTorch, PyTorch Lightning, NumPy, SciPy, scikit-learn, or adjacent ML tooling.
 - Prefer Context7 documentation over memory when API details, configuration keys, or version-specific behavior may have changed.
 - If Context7 is unavailable, state that explicitly and fall back to local code inspection plus primary official documentation.
+- Always keep the documents in `reference/` or their summaries in `doc/` in scope before making design or implementation choices.
+- Before implementing any feature, create a technical project document in `doc/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+- Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
+- Every new technical project document must also be referenced from the main project document in `README.md`.
+- Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
 
 ## Domain Notes
 
@@ -15,6 +21,7 @@
 ## Coding Style
 
 - Mirror the style used in `blind_handover_controller`, with the same conventions also reinforced by `mediapipe_gesture_recognition` and `multimodal_fusion`.
+- Treat the `blind_handover_controller` style as a strict default, not a loose inspiration.
 - Prefer verbose, domain-explicit names such as `train_dataloader`, `trajectory_execution_received`, `human_radius`, `admittance_weight`, and `joint_states`.
 - Keep module-level constants and configuration flags in full uppercase, for example `PACKAGE_PATH`, `DEVICE`, `MODEL_TYPE`, `GRIPPER_OPEN`.
 - Use `PascalCase` for most classes, but preserve the existing mixed robotics naming when it improves domain clarity, such as `Handover_Controller`, `UR_RTDE_Move`, `UR_Toolbox`, and callback suffixes like `jointStatesCallback`.

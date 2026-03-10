@@ -156,6 +156,26 @@ These documents summarize:
 * Test-rig workflow and TwinCAT implementation details
 * Coding style conventions derived from prior repositories
 
+All future feature-level technical documents must also be stored in `doc/` and linked from this main project document.
+
+---
+
+## Critical Project Rules
+
+The following rules are mandatory for all future project work:
+
+* Use English as the primary project language for file names, identifiers, instructions, comments, and technical documentation.
+* Adopt the coding style of `blind_handover_controller` rigorously.
+* Always take into account the documents in `reference/` or their summaries in `doc/` before making design or implementation decisions.
+* Before implementing any feature, create a technical project document in `doc/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+* Each technical project document must contain the sections:
+  * `Overview`
+  * `Technical Approach`
+  * `Involved Components`
+  * `Implementation Steps`
+* Every newly created technical project document must be added as a reference in this main project document.
+* No implementation code should be written before the user has explicitly approved the technical document for that feature.
+
 ---
 
 ## Coding Style
