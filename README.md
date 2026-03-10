@@ -84,6 +84,11 @@ The repository follows a modular PyTorch Lightning architecture.
 └── README.md
 ```
 
+Additional working folders already used in the project lifecycle:
+
+* `reference/` for PDFs, reports, and external code references
+* `doc/` for internal synthesized project documents and coding style notes
+
 All comments in source files follow the internal style convention:
 
 > Concise imperative descriptions with capitalized key words.
@@ -121,6 +126,53 @@ Preprocessing steps:
 * Outlier rejection
 * Feature normalization
 * Cycle segmentation
+
+The operational meaning of zeroing, cumulative positions, and `DataValid` windows is documented in `doc/05_Data_Series_Explanation_Project_Summary.md`.
+
+---
+
+## Documentation
+
+The project documentation derived from the reference material is stored in `doc/`.
+
+Main entry point:
+
+* `doc/README.md`
+
+Available project documents:
+
+* `doc/01_Dataset_Operations_Guide.md`
+* `doc/02_MMT_TEModeling_Project_Summary.md`
+* `doc/03_RCIM_ML_Compensation_Project_Summary.md`
+* `doc/04_Machine_Learning_Report_Project_Summary.md`
+* `doc/05_Data_Series_Explanation_Project_Summary.md`
+* `doc/06_Programming_Style_Guide.md`
+
+These documents summarize:
+
+* Dataset provenance and operational usage
+* Analytical TE modeling theory
+* ML-based online compensation strategy
+* Test-rig workflow and TwinCAT implementation details
+* Coding style conventions derived from prior repositories
+
+---
+
+## Coding Style
+
+The coding style of this repository is intentionally aligned with previous XiLAB robotics and ML repositories, especially `blind_handover_controller`.
+
+The main conventions are:
+
+* Explicit domain-oriented variable names
+* Uppercase module-level constants
+* Frequent title-case comments before logical code blocks
+* Short one-line docstrings
+* Clear staged implementations instead of overly compact abstractions
+
+The full style guide is documented in:
+
+* `doc/06_Programming_Style_Guide.md`
 
 ---
 
@@ -265,6 +317,16 @@ TwinCAT integration features:
 * NumPy
 * SciPy
 * TwinCAT 3 (for deployment phase)
+
+## Initial Setup
+
+The current project bootstrap also includes:
+
+* Conda environment: `standard_ml_codex_env`
+* Global Codex MCP connection to Context7 for up-to-date library documentation
+* Git submodule in `reference/agents` from `vizra-ai/claude-code-agents`
+
+These setup choices are intended to support reproducible development, documentation lookup, and future agent-assisted workflows.
 
 ---
 
