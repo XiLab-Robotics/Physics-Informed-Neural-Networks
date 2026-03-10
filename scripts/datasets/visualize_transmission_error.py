@@ -18,6 +18,7 @@ import yaml
 from scripts.datasets.transmission_error_dataset import build_validated_directional_samples
 from scripts.datasets.transmission_error_dataset import collect_dataset_csv_paths
 from scripts.datasets.transmission_error_dataset import load_dataset_processing_config
+from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 
 
 PACKAGE_PATH = Path(__file__).resolve().parent
@@ -29,7 +30,7 @@ def load_visualization_config(config_path: str | Path = DEFAULT_VISUALIZATION_CO
     """ Load Visualization Config """
 
     # Resolve Config Path
-    resolved_config_path = Path(config_path).resolve()
+    resolved_config_path = resolve_project_relative_path(config_path)
 
     # Validate Config Path
     assert resolved_config_path.exists(), f"Visualization Config Path does not exist | {resolved_config_path}"
@@ -167,11 +168,11 @@ def main() -> None:
     # Load Configurations
     visualization_config = load_visualization_config(config_path=command_line_arguments.config_path)
     dataset_processing_config = load_dataset_processing_config(
-        config_path=visualization_config["paths"]["dataset_config_path"]
+        config_path=resolve_project_relative_path(visualization_config["paths"]["dataset_config_path"])
     )
 
     # Resolve Runtime Parameters
-    dataset_root = Path(dataset_processing_config["paths"]["dataset_root"]).resolve()
+    dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
     file_index = (
         int(command_line_arguments.file_index)
         if command_line_arguments.file_index is not None

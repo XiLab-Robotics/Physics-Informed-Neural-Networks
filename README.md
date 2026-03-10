@@ -159,6 +159,7 @@ Technical documents:
 * `doc/technical/2026-03-10-03-21-23_script_document_naming_cleanup.md`
 * `doc/technical/2026-03-10-03-23-28_script_docs_folder_mirroring.md`
 * `doc/technical/2026-03-10-03-27-42_project_usage_guide.md`
+* `doc/technical/2026-03-10-13-05-10_relative_config_paths.md`
 
 Script documentation:
 

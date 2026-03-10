@@ -1,5 +1,5 @@
 paths:
-  dataset_config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\dataset_processing.yaml
+  dataset_config_path: config/dataset_processing.yaml
 
 selection:
   file_index: 0

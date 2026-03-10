@@ -1,5 +1,5 @@
 paths:
-  dataset_root: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\data\datasets
+  dataset_root: data/datasets
 
 dataset:
   reduction_ratio: 81.0

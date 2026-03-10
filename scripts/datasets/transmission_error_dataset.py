@@ -57,11 +57,25 @@ class TransmissionErrorCurveSample:
     transmission_error_deg: np.ndarray
 
 
+def resolve_project_relative_path(path_value: str | Path) -> Path:
+    """ Resolve Project Relative Path """
+
+    # Convert To Path
+    resolved_path = Path(path_value)
+
+    # Resolve Absolute Path
+    if resolved_path.is_absolute():
+        return resolved_path.resolve()
+
+    # Resolve Project Relative Path
+    return (PROJECT_PATH / resolved_path).resolve()
+
+
 def load_dataset_processing_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
     """ Load Dataset Processing Config """
 
     # Resolve Config Path
-    resolved_config_path = Path(config_path).resolve()
+    resolved_config_path = resolve_project_relative_path(config_path)
 
     # Validate Config Path
     assert resolved_config_path.exists(), f"Dataset Config Path does not exist | {resolved_config_path}"
@@ -83,7 +97,7 @@ def resolve_dataset_root_from_config(config_path: str | Path = DEFAULT_CONFIG_PA
     dataset_processing_config = load_dataset_processing_config(config_path=config_path)
 
     # Resolve Dataset Root
-    dataset_root = Path(dataset_processing_config["paths"]["dataset_root"]).resolve()
+    dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
 
     return dataset_root
 
@@ -632,7 +646,7 @@ def create_transmission_error_dataloaders_from_config(
     dataset_processing_config = load_dataset_processing_config(config_path=config_path)
 
     # Extract Paths
-    dataset_root = Path(dataset_processing_config["paths"]["dataset_root"]).resolve()
+    dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
 
     # Extract Dataloader Parameters
     dataloader_config = dataset_processing_config["dataloader"]

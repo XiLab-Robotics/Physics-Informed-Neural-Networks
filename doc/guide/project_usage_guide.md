@@ -37,8 +37,10 @@ The default repository setting is:
 
 ```yaml
 paths:
-  dataset_root: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\data\datasets
+  dataset_root: data/datasets
 ```
+
+This path is interpreted relative to the repository root.
 
 If the dataset is moved in the future, update this YAML file before running the scripts.
 
@@ -91,7 +93,7 @@ The processing settings are stored in:
 Current configurable sections:
 
 - `paths.dataset_root`
-  Root folder of the CSV dataset.
+  Root folder of the CSV dataset, relative to the project root.
 
 - `dataset.reduction_ratio`
   Reducer ratio used by the raw TE helper path.
@@ -214,7 +216,7 @@ The visualization settings are stored in:
 Main configurable fields:
 
 - `paths.dataset_config_path`
-  Path to the dataset-processing YAML config.
+  Path to the dataset-processing YAML config, relative to the project root.
 
 - `selection.file_index`
   Default file index when no explicit CSV path is provided.
