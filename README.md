@@ -151,6 +151,13 @@ Reference summaries:
 * `doc/reference_summaries/05_Data_Series_Explanation_Project_Summary.md`
 * `doc/reference_summaries/06_Programming_Style_Guide.md`
 
+Reference code notes:
+
+* `doc/reference_codes/README.md`
+* `doc/reference_codes/blind_handover_controller_reference.md`
+* `doc/reference_codes/mediapipe_gesture_recognition_reference.md`
+* `doc/reference_codes/multimodal_fusion_reference.md`
+
 Technical documents:
 
 * `doc/technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
@@ -164,6 +171,7 @@ Technical documents:
 * `doc/technical/2026-03-10-15-13-29_agent_submodule_reorganization.md`
 * `doc/technical/2026-03-10-15-25-39_commit_workflow_rule_update.md`
 * `doc/technical/2026-03-10-15-33-05_reference_code_submodule_migration.md`
+* `doc/technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
 
 Script documentation:
 

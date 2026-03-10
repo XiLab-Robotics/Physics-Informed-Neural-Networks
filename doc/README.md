@@ -19,6 +19,17 @@ This folder contains the internal project documents derived from the reference P
 - [reference_summaries/06_Programming_Style_Guide.md](./reference_summaries/06_Programming_Style_Guide.md)
   Coding style mapped from `blind_handover_controller`, `mediapipe_gesture_recognition`, and `multimodal_fusion`.
 
+### Reference Code Notes
+
+- [reference_codes/README.md](./reference_codes/README.md)
+  Index of detailed notes extracted from the reference-code submodules.
+- [reference_codes/blind_handover_controller_reference.md](./reference_codes/blind_handover_controller_reference.md)
+  Main style baseline for naming, comments, structure, utilities, and Lightning training flow.
+- [reference_codes/mediapipe_gesture_recognition_reference.md](./reference_codes/mediapipe_gesture_recognition_reference.md)
+  Supporting reference for Hydra-based configuration and ML training utilities.
+- [reference_codes/multimodal_fusion_reference.md](./reference_codes/multimodal_fusion_reference.md)
+  Supporting reference for compact ROS pipelines, explicit label mapping, and simple Lightning baselines.
+
 ### Technical Documents
 
 - [technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md](./technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md)
@@ -35,6 +46,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for enforcing the technical-document approval workflow plus a mandatory final Git commit.
 - [technical/2026-03-10-15-33-05_reference_code_submodule_migration.md](./technical/2026-03-10-15-33-05_reference_code_submodule_migration.md)
   Technical document for replacing the archived reference code `.zip` files in `reference/codes/` with Git submodules.
+- [technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md](./technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md)
+  Technical document for creating persistent `doc/reference_codes/` notes from the reference-code submodules.
 
 ### Script Documentation
 
@@ -52,4 +65,5 @@ This folder contains the internal project documents derived from the reference P
 
 - Use these documents as the working baseline for dataset interpretation, TE modeling, ML compensation, and code implementation choices.
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
+- Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
