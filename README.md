@@ -179,6 +179,7 @@ Technical documents:
 * `doc/technical/2026-03-10-16-55-13_dataloader_worker_tuning.md`
 * `doc/technical/2026-03-10-18-11-49_training_entry_point_import_fix.md`
 * `doc/technical/2026-03-10-18-35-11_training_terminal_output_cleanup.md`
+* `doc/technical/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md`
 
 Script documentation:
 
@@ -222,8 +223,10 @@ The following rules are mandatory for all future project work:
   * wait for explicit user approval;
   * execute the approved modifications;
   * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
+  * if the approved work introduces a new third-party library, update `requirements.txt` and every relevant setup or usage reference before the final commit;
   * create a Git commit immediately after the modifications are completed.
 * Before the final commit, `doc/guide/project_usage_guide.md` must be updated whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
+* Before the final commit, every newly introduced third-party library must be added to `requirements.txt` and to any relevant installation or usage documentation so the project remains reproducible.
 * Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
 
 ---
@@ -416,17 +419,12 @@ conda activate standard_ml_codex_env
 python -m pip install --upgrade pip
 ```
 
-Install PyTorch with the official CUDA wheel index.
+Install the project dependencies.
 
-Note: this workstation reports local CUDA Toolkit `13.1`, and the official PyTorch wheel index exposes `cu130` wheels for Windows + Python 3.10. This project therefore installs the CUDA 13.x build directly from the official PyTorch index:
-
-```powershell
-python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
-```
-
-Install the remaining Python dependencies:
+Note: this workstation reports local CUDA Toolkit `13.1`, and the official PyTorch wheel index exposes `cu130` wheels for Windows + Python 3.10. The repository now tracks `torch` directly in `requirements.txt`, but for the current GPU setup it is still better to install the CUDA-enabled PyTorch wheel explicitly from the official index first:
 
 ```powershell
+python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
 ```
 

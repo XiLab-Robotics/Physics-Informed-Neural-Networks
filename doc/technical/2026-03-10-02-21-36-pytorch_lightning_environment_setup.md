@@ -53,8 +53,9 @@ The dependency baseline will be organized around four groups:
 Planned installation strategy:
 
 - keep Python at `3.10` in the Conda environment;
-- install GPU-enabled PyTorch from the official PyTorch wheel index;
-- install the remaining dependencies with `python -m pip install -r requirements.txt`;
+- keep the full Python dependency list tracked in `requirements.txt`, including `torch`;
+- install the CUDA-enabled `torch` wheel explicitly from the official PyTorch index;
+- install the remaining tracked dependencies with `python -m pip install -r requirements.txt`;
 - verify installation through direct imports of `torch`, `lightning`, and the main scientific packages.
 
 CUDA decision:
@@ -63,11 +64,12 @@ CUDA decision:
 - the official PyTorch wheel index checked on March 10, 2026 exposes `cu130` wheels for Windows and Python 3.10;
 - the project will therefore align the installation with the local NVIDIA CUDA 13.x toolchain and use the official `cu130` index.
 
-Planned PyTorch installation command:
+Planned installation command:
 
-- `python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130`
+- `python -m pip install torch --index-url https://download.pytorch.org/whl/cu130`
+- `python -m pip install -r requirements.txt`
 
-If future project components require audio operators, `torchaudio` can be added later without changing the main setup structure.
+If future project components require `torchvision` or `torchaudio`, they can be added later once they become actual repository dependencies.
 
 ## Involved Components
 
@@ -86,12 +88,12 @@ If future project components require audio operators, `torchaudio` can be added 
 ## Implementation Steps
 
 1. Create the technical document and register it in the main `README.md`.
-2. Add the root `requirements.txt` with the agreed dependency list excluding `torch` and `torchvision`, which will be installed from the official CUDA wheel index.
+2. Add the root `requirements.txt` with the agreed dependency list, including `torch`, and keep it aligned with the actual imported third-party libraries.
 3. Update `README.md` with the exact setup commands for a new user:
    - create the Conda environment;
    - activate it;
    - upgrade `pip`;
-   - install GPU-enabled PyTorch from the official PyTorch index;
-   - install from `requirements.txt`.
+   - install the CUDA-enabled `torch` wheel explicitly from the official PyTorch index;
+   - install the remaining tracked dependencies from `requirements.txt`.
 4. Install the dependencies into `standard_ml_codex_env`.
 5. Run a lightweight verification step by importing the installed packages and printing their versions.

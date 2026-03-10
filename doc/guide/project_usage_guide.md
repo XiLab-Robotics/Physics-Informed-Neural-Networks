@@ -16,6 +16,15 @@ Recurrent models, LSTM-based models, inference/export flows, and PINN-specific t
 
 Before using the scripts, make sure the project environment is installed and activated.
 
+If the environment is not ready yet, install the tracked project dependencies first:
+
+```powershell
+python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
+python -m pip install -r requirements.txt
+```
+
+This keeps the dependency installation aligned with `requirements.txt` while still pulling the CUDA-enabled `torch` build from the official PyTorch wheel index for the current Windows setup.
+
 ### 1. Activate The Conda Environment
 
 ```powershell
