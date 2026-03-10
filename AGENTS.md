@@ -7,10 +7,16 @@
 - Prefer Context7 documentation over memory when API details, configuration keys, or version-specific behavior may have changed.
 - If Context7 is unavailable, state that explicitly and fall back to local code inspection plus primary official documentation.
 - Always keep the documents in `reference/` or their summaries in `doc/` in scope before making design or implementation choices.
-- Before implementing any feature, create a technical project document in `doc/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+- Before implementing any feature, create a technical project document in `doc/technical/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
+- Follow this mandatory execution sequence for every user-requested repository change:
+  1. Create the technical project document first.
+  2. Wait for the user's explicit approval.
+  3. Execute the approved modifications.
+  4. Create a Git commit immediately after the modifications are completed.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
+- Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
 
 ## Domain Notes
 

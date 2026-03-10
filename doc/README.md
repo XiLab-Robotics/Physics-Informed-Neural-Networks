@@ -31,6 +31,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the grouped `doc/` folder reorganization.
 - [technical/2026-03-10-15-13-29_agent_submodule_reorganization.md](./technical/2026-03-10-15-13-29_agent_submodule_reorganization.md)
   Technical document for moving the existing agent submodule and adding the requested `agents/` submodule collection.
+- [technical/2026-03-10-15-25-39_commit_workflow_rule_update.md](./technical/2026-03-10-15-25-39_commit_workflow_rule_update.md)
+  Technical document for enforcing the technical-document approval workflow plus a mandatory final Git commit.
 
 ### Script Documentation
 

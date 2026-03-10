@@ -162,6 +162,7 @@ Technical documents:
 * `doc/technical/2026-03-10-03-27-42_project_usage_guide.md`
 * `doc/technical/2026-03-10-13-05-10_relative_config_paths.md`
 * `doc/technical/2026-03-10-15-13-29_agent_submodule_reorganization.md`
+* `doc/technical/2026-03-10-15-25-39_commit_workflow_rule_update.md`
 
 Script documentation:
 
@@ -199,6 +200,12 @@ The following rules are mandatory for all future project work:
   * `Implementation Steps`
 * Every newly created technical project document must be added as a reference in this main project document.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
+* Every user-requested repository change must follow this sequence:
+  * create the technical project document first;
+  * wait for explicit user approval;
+  * execute the approved modifications;
+  * create a Git commit immediately after the modifications are completed.
+* Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
 
 ---
 
