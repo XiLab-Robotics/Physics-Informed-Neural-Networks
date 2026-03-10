@@ -174,6 +174,7 @@ Technical documents:
 * `doc/technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
 * `doc/technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
 * `doc/technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
+* `doc/technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
 
 Script documentation:
 
@@ -216,7 +217,9 @@ The following rules are mandatory for all future project work:
   * create the technical project document first;
   * wait for explicit user approval;
   * execute the approved modifications;
+  * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
   * create a Git commit immediately after the modifications are completed.
+* Before the final commit, `doc/guide/project_usage_guide.md` must be updated whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 * Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
 
 ---

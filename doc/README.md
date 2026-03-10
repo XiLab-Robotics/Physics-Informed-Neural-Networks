@@ -52,6 +52,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the first modular PyTorch Lightning feedforward baseline for TE regression.
 - [technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md](./technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md)
   Technical document for clarifying the original CSV header typo `Poisition_Output_Reducer_Fw` versus the normalized internal column naming.
+- [technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md](./technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md)
+  Technical document for requiring a detailed `project_usage_guide.md` update before commit whenever repository functionality changes.
 
 ### Script Documentation
 

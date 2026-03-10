@@ -14,8 +14,10 @@
   1. Create the technical project document first.
   2. Wait for the user's explicit approval.
   3. Execute the approved modifications.
-  4. Create a Git commit immediately after the modifications are completed.
+  4. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
+  5. Create a Git commit immediately after the modifications are completed.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
+- Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 - Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
 
 ## Domain Notes
