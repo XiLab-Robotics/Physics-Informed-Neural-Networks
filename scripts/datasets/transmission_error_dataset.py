@@ -35,8 +35,12 @@ FILENAME_PATTERN = re.compile(
     r"(?P<speed_rpm>[0-9.]+)rpm(?P<torque_nm>[0-9.]+)Nm(?P<temperature_deg>[0-9.]+)deg\.csv$"
 )
 
+FORWARD_POSITION_COLUMN_CANDIDATES = [
+    "Poisition_Output_Reducer_Fw",
+    "Position_Output_Reducer_Fw",
+]
+
 VALIDATED_COLUMN_MAP = {
-    "Poisition_Output_Reducer_Fw": "position_output_reducer_fw_deg",
     "Transmission_Error_Fw": "transmission_error_fw_deg",
     "Position_Output_Reducer_Bw": "position_output_reducer_bw_deg",
     "Transmission_Error_Bw": "transmission_error_bw_deg",
@@ -160,15 +164,32 @@ def load_validated_te_dataframe(csv_file_path: str) -> pd.DataFrame:
     # Load CSV File
     validated_dataframe = pd.read_csv(csv_file_path)
 
-    # Validate Expected Columns
+    # Resolve Forward Position Column
+    forward_position_column = None
+    for candidate_column in FORWARD_POSITION_COLUMN_CANDIDATES:
+        if candidate_column in validated_dataframe.columns:
+            forward_position_column = candidate_column
+            break
+
+    assert forward_position_column is not None, (
+        f"Forward Position column not found | Expected one of: {FORWARD_POSITION_COLUMN_CANDIDATES} | "
+        f"Given: {validated_dataframe.columns.tolist()}"
+    )
+
+    # Validate Remaining Columns
     csv_columns = set(validated_dataframe.columns.tolist())
-    expected_columns = set(VALIDATED_COLUMN_MAP.keys())
+    expected_columns = set(VALIDATED_COLUMN_MAP.keys()) | {forward_position_column}
     assert csv_columns == expected_columns, (
         f"Unexpected CSV columns detected | Expected: {sorted(expected_columns)} | Given: {sorted(csv_columns)}"
     )
 
     # Normalize Column Names
-    validated_dataframe = validated_dataframe.rename(columns=VALIDATED_COLUMN_MAP)
+    validated_dataframe = validated_dataframe.rename(
+        columns={
+            forward_position_column: "position_output_reducer_fw_deg",
+            **VALIDATED_COLUMN_MAP,
+        }
+    )
 
     return validated_dataframe
 

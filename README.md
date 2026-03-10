@@ -172,11 +172,13 @@ Technical documents:
 * `doc/technical/2026-03-10-15-25-39_commit_workflow_rule_update.md`
 * `doc/technical/2026-03-10-15-33-05_reference_code_submodule_migration.md`
 * `doc/technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
+* `doc/technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
 
 Script documentation:
 
 * `doc/scripts/datasets/transmission_error_dataset.md`
 * `doc/scripts/datasets/visualize_transmission_error.md`
+* `doc/scripts/training/train_feedforward_network.md`
 
 Guides:
 

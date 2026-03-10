@@ -48,6 +48,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for replacing the archived reference code `.zip` files in `reference/codes/` with Git submodules.
 - [technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md](./technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md)
   Technical document for creating persistent `doc/reference_codes/` notes from the reference-code submodules.
+- [technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md](./technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md)
+  Technical document for the first modular PyTorch Lightning feedforward baseline for TE regression.
 
 ### Script Documentation
 
@@ -55,6 +57,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the TE dataset parser, PyTorch dataset, and dataloader utilities.
 - [scripts/datasets/visualize_transmission_error.md](./scripts/datasets/visualize_transmission_error.md)
   Script-level documentation for the TE curve visualization utility.
+- [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
+  Script-level documentation for the first PyTorch Lightning feedforward training entry point.
 
 ### Guides
 
