@@ -2,9 +2,9 @@ from __future__ import annotations
 
 # Import Python Utilities
 from pathlib import Path
-from pprint import pformat
 import shutil
 import sys
+import warnings
 
 
 PROJECT_PATH = Path(__file__).resolve().parents[1]
@@ -15,13 +15,42 @@ if str(PROJECT_PATH) not in sys.path:
 
 # Import PyTorch Lightning Utilities
 from lightning.pytorch import Trainer
-from lightning.pytorch.callbacks import Callback
 from lightning.pytorch.callbacks import EarlyStopping
 from lightning.pytorch.callbacks import ModelCheckpoint
+from lightning.pytorch.callbacks import TQDMProgressBar
 from lightning.pytorch.loggers import TensorBoardLogger
 
 # Import PyTorch Utilities
 import torch
+
+# Import Terminal Formatting Utilities
+try:
+    from colorama import Fore
+    from colorama import Style
+    from colorama import init as colorama_init
+except ImportError:
+
+    class _PlainTerminalColor:
+        BLACK = ""
+        BLUE = ""
+        CYAN = ""
+        GREEN = ""
+        MAGENTA = ""
+        RED = ""
+        RESET = ""
+        WHITE = ""
+        YELLOW = ""
+        BRIGHT = ""
+        NORMAL = ""
+        RESET_ALL = ""
+
+    Fore = _PlainTerminalColor()
+    Style = _PlainTerminalColor()
+
+    def colorama_init(*args, **kwargs) -> None:
+        """ Fallback Colorama Init """
+
+        return None
 
 # Import YAML Utilities
 import yaml
@@ -34,37 +63,256 @@ from training.transmission_error_regression_module import TransmissionErrorRegre
 
 
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "feedforward_network_training.yaml"
+SECTION_DIVIDER_WIDTH = 96
+KEY_LABEL_WIDTH = 34
+PROGRESS_BAR_REFRESH_RATE = 10
+
+INPUT_FEATURE_NAME_LIST = [
+    "angular_position_deg",
+    "input_speed_rpm",
+    "input_torque_nm",
+    "oil_temperature_deg",
+    "direction_flag",
+]
+TARGET_FEATURE_NAME_LIST = [
+    "transmission_error_deg",
+]
 
 # Set Torch Matmul Precision
 torch.set_float32_matmul_precision("high")
 
+# Initialize Terminal Colors
+colorama_init(autoreset=True)
 
-class StartTrainingCallback(Callback):
-    """ Start Training Callback """
-
-    def on_train_start(self, trainer, pl_module) -> None:
-        """ On Train Start """
-
-        print("\nStart Training Process\n")
-
-    def on_train_end(self, trainer, pl_module) -> None:
-        """ On Train End """
-
-        print("\nTraining Done\n")
+# Suppress Known Lightning Internal Warning
+warnings.filterwarnings(
+    "ignore",
+    message=r"`isinstance\(treespec, LeafSpec\)` is deprecated.*",
+    category=DeprecationWarning,
+)
 
 
-class StartValidationCallback(Callback):
-    """ Start Validation Callback """
+def format_terminal_value(value: object) -> str:
+    """ Format Terminal Value """
 
-    def on_validation_start(self, trainer, pl_module) -> None:
-        """ On Validation Start """
+    if isinstance(value, float):
+        if abs(value) >= 1.0e-4:
+            return f"{value:.6f}"
+        return f"{value:.6e}"
 
-        print("\nStart Validation Process\n")
+    if isinstance(value, Path):
+        return str(value)
 
-    def on_validation_end(self, trainer, pl_module) -> None:
-        """ On Validation End """
+    if isinstance(value, (list, tuple)):
+        formatted_value_list = [format_terminal_value(item) for item in value]
+        return "[" + ", ".join(formatted_value_list) + "]"
 
-        print("\nValidation Done\n")
+    if value is None:
+        return "None"
+
+    return str(value)
+
+
+def print_section_header(section_title: str) -> None:
+    """ Print Section Header """
+
+    print()
+    print(Fore.CYAN + Style.BRIGHT + "=" * SECTION_DIVIDER_WIDTH)
+    print(Fore.CYAN + Style.BRIGHT + section_title)
+    print(Fore.CYAN + Style.BRIGHT + "=" * SECTION_DIVIDER_WIDTH)
+
+
+def print_subsection_header(subsection_title: str) -> None:
+    """ Print Subsection Header """
+
+    print()
+    print(Fore.MAGENTA + Style.BRIGHT + subsection_title)
+    print(Fore.MAGENTA + "-" * len(subsection_title))
+
+
+def print_key_value(label: str, value: object, value_color: str = Fore.WHITE) -> None:
+    """ Print Key Value """
+
+    formatted_label = f"{label:<{KEY_LABEL_WIDTH}}"
+    formatted_value = format_terminal_value(value)
+    print(f"{Fore.WHITE}{Style.BRIGHT}{formatted_label}{Style.RESET_ALL}{value_color}{formatted_value}{Style.RESET_ALL}")
+
+
+def print_info_message(message: str) -> None:
+    """ Print Info Message """
+
+    print(f"{Fore.BLUE}{Style.BRIGHT}[INFO]{Style.RESET_ALL} {message}")
+
+
+def print_success_message(message: str) -> None:
+    """ Print Success Message """
+
+    print(f"{Fore.GREEN}{Style.BRIGHT}[DONE]{Style.RESET_ALL} {message}")
+
+
+def print_warning_message(message: str) -> None:
+    """ Print Warning Message """
+
+    print(f"{Fore.YELLOW}{Style.BRIGHT}[WARN]{Style.RESET_ALL} {message}")
+
+
+def print_feature_statistics(
+    feature_name_list: list[str],
+    mean_value_list: list[float],
+    std_value_list: list[float],
+) -> None:
+    """ Print Feature Statistics """
+
+    for feature_name, feature_mean, feature_std in zip(feature_name_list, mean_value_list, std_value_list):
+        print_key_value(
+            label=f"{feature_name} | mean",
+            value=feature_mean,
+            value_color=Fore.YELLOW,
+        )
+        print_key_value(
+            label=f"{feature_name} | std",
+            value=feature_std,
+            value_color=Fore.YELLOW,
+        )
+
+
+def print_training_configuration_summary(training_config: dict) -> None:
+    """ Print Training Configuration Summary """
+
+    # Read Config Sections
+    path_config = training_config["paths"]
+    experiment_config = training_config["experiment"]
+    dataset_config = training_config["dataset"]
+    model_config = training_config["model"]
+    optimization_config = training_config["training"]
+
+    # Print Config Overview
+    print_section_header("Feedforward Training Configuration")
+    print_info_message("Resolved YAML configuration for the current training run")
+
+    # Print Path Configuration
+    print_subsection_header("Paths")
+    print_key_value("Dataset Config Path", path_config["dataset_config_path"], value_color=Fore.YELLOW)
+    print_key_value("Output Root", path_config["output_root"], value_color=Fore.YELLOW)
+
+    # Print Experiment Configuration
+    print_subsection_header("Experiment")
+    print_key_value("Run Name", experiment_config["run_name"], value_color=Fore.YELLOW)
+    print_key_value("Model Type", experiment_config["model_type"], value_color=Fore.YELLOW)
+
+    # Print Dataset Configuration
+    print_subsection_header("Dataset")
+    print_key_value("Curve Batch Size", dataset_config["curve_batch_size"], value_color=Fore.YELLOW)
+    print_key_value("Point Stride", dataset_config["point_stride"], value_color=Fore.YELLOW)
+    print_key_value("Maximum Points Per Curve", dataset_config["maximum_points_per_curve"], value_color=Fore.YELLOW)
+    print_key_value("Num Workers", dataset_config["num_workers"], value_color=Fore.YELLOW)
+    print_key_value("Pin Memory", dataset_config["pin_memory"], value_color=Fore.YELLOW)
+
+    # Print Model Configuration
+    print_subsection_header("Model")
+    print_key_value("Input Size", model_config["input_size"], value_color=Fore.YELLOW)
+    print_key_value("Hidden Layers", model_config["hidden_size"], value_color=Fore.YELLOW)
+    print_key_value("Output Size", model_config["output_size"], value_color=Fore.YELLOW)
+    print_key_value("Activation", model_config["activation_name"], value_color=Fore.YELLOW)
+    print_key_value("Dropout Probability", model_config["dropout_probability"], value_color=Fore.YELLOW)
+    print_key_value("Use Layer Norm", model_config["use_layer_norm"], value_color=Fore.YELLOW)
+
+    # Print Optimization Configuration
+    print_subsection_header("Optimization")
+    print_key_value("Learning Rate", optimization_config["learning_rate"], value_color=Fore.YELLOW)
+    print_key_value("Weight Decay", optimization_config["weight_decay"], value_color=Fore.YELLOW)
+    print_key_value("Min Epochs", optimization_config["min_epochs"], value_color=Fore.YELLOW)
+    print_key_value("Max Epochs", optimization_config["max_epochs"], value_color=Fore.YELLOW)
+    print_key_value("Patience", optimization_config["patience"], value_color=Fore.YELLOW)
+    print_key_value("Min Delta", optimization_config["min_delta"], value_color=Fore.YELLOW)
+    print_key_value("Log Every N Steps", optimization_config["log_every_n_steps"], value_color=Fore.YELLOW)
+    print_key_value("Fast Dev Run", optimization_config["fast_dev_run"], value_color=Fore.YELLOW)
+    print_key_value("Deterministic", optimization_config["deterministic"], value_color=Fore.YELLOW)
+
+
+def print_dataset_summary(
+    datamodule: TransmissionErrorDataModule,
+    input_feature_dim: int,
+    target_feature_dim: int,
+) -> None:
+    """ Print Dataset Summary """
+
+    print_section_header("Dataset Summary")
+    print_key_value("Input Feature Dim", input_feature_dim, value_color=Fore.YELLOW)
+    print_key_value("Target Feature Dim", target_feature_dim, value_color=Fore.YELLOW)
+    print_key_value("Train Curves", len(datamodule.train_dataset), value_color=Fore.YELLOW)
+    print_key_value("Validation Curves", len(datamodule.validation_dataset), value_color=Fore.YELLOW)
+    print_key_value("Point Stride", datamodule.point_stride, value_color=Fore.YELLOW)
+    print_key_value("Maximum Points Per Curve", datamodule.maximum_points_per_curve, value_color=Fore.YELLOW)
+    print_key_value("Persistent Workers", datamodule.num_workers > 0, value_color=Fore.YELLOW)
+
+
+def print_model_summary(regression_backbone: torch.nn.Module) -> None:
+    """ Print Model Summary """
+
+    # Compute Parameter Counts
+    trainable_parameter_count = sum(parameter.numel() for parameter in regression_backbone.parameters() if parameter.requires_grad)
+    total_parameter_count = sum(parameter.numel() for parameter in regression_backbone.parameters())
+    frozen_parameter_count = total_parameter_count - trainable_parameter_count
+
+    # Print Compact Model Summary
+    print_section_header("Model Summary")
+    print_key_value("Backbone", regression_backbone.__class__.__name__, value_color=Fore.YELLOW)
+    print_key_value("Trainable Parameters", trainable_parameter_count, value_color=Fore.YELLOW)
+    print_key_value("Frozen Parameters", frozen_parameter_count, value_color=Fore.YELLOW)
+    print_key_value("Total Parameters", total_parameter_count, value_color=Fore.YELLOW)
+
+
+def print_normalization_statistics_summary(
+    normalization_statistics,
+) -> None:
+    """ Print Normalization Statistics Summary """
+
+    print_section_header("Normalization Statistics")
+
+    # Print Input Normalization Statistics
+    print_subsection_header("Input Features")
+    print_feature_statistics(
+        feature_name_list=INPUT_FEATURE_NAME_LIST,
+        mean_value_list=normalization_statistics.input_feature_mean.tolist(),
+        std_value_list=normalization_statistics.input_feature_std.tolist(),
+    )
+
+    # Print Target Normalization Statistics
+    print_subsection_header("Target")
+    print_feature_statistics(
+        feature_name_list=TARGET_FEATURE_NAME_LIST,
+        mean_value_list=normalization_statistics.target_mean.tolist(),
+        std_value_list=normalization_statistics.target_std.tolist(),
+    )
+
+
+def print_runtime_summary() -> None:
+    """ Print Runtime Summary """
+
+    print_section_header("Runtime Summary")
+    print_key_value("CUDA Available", torch.cuda.is_available(), value_color=Fore.YELLOW)
+    print_key_value("CUDA Device Count", torch.cuda.device_count(), value_color=Fore.YELLOW)
+    if torch.cuda.is_available():
+        print_key_value("CUDA Device Name", torch.cuda.get_device_name(0), value_color=Fore.YELLOW)
+    else:
+        print_warning_message("CUDA is not available -> training will run on CPU")
+
+
+def print_output_artifact_summary(
+    output_directory: Path,
+    logger: TensorBoardLogger,
+    best_model_path: str,
+) -> None:
+    """ Print Output Artifact Summary """
+
+    print_section_header("Output Artifacts")
+    print_key_value("Output Directory", output_directory, value_color=Fore.YELLOW)
+    print_key_value("Checkpoint Directory", output_directory / "checkpoints", value_color=Fore.YELLOW)
+    print_key_value("Config Snapshot", output_directory / "feedforward_network_training.yaml", value_color=Fore.YELLOW)
+    if logger.log_dir:
+        print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
+    print_key_value("Best Checkpoint", best_model_path, value_color=Fore.YELLOW)
 
 
 def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
@@ -147,20 +395,15 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     )
 
     # Print Training Summary
-    print("\nFeedforward Training Configuration:\n")
-    print(pformat(training_config, sort_dicts=False))
-    print("\nDataset Summary:\n")
-    print(f"    Input Feature Dim: {input_feature_dim}")
-    print(f"    Target Feature Dim: {target_feature_dim}")
-    print(f"    Train Curves: {len(datamodule.train_dataset)}")
-    print(f"    Validation Curves: {len(datamodule.validation_dataset)}")
-    print(f"    Point Stride: {datamodule.point_stride}")
-    print(f"    Maximum Points Per Curve: {datamodule.maximum_points_per_curve}")
-    print("\nNormalization Statistics:\n")
-    print(f"    Input Feature Mean: {normalization_statistics.input_feature_mean.tolist()}")
-    print(f"    Input Feature Std: {normalization_statistics.input_feature_std.tolist()}")
-    print(f"    Target Mean: {normalization_statistics.target_mean.tolist()}")
-    print(f"    Target Std: {normalization_statistics.target_std.tolist()}")
+    print_training_configuration_summary(training_config=training_config)
+    print_dataset_summary(
+        datamodule=datamodule,
+        input_feature_dim=input_feature_dim,
+        target_feature_dim=target_feature_dim,
+    )
+    print_model_summary(regression_backbone=regression_backbone)
+    print_normalization_statistics_summary(normalization_statistics=normalization_statistics)
+    print_runtime_summary()
 
     # Create Logger And Callbacks
     logger = TensorBoardLogger(save_dir=str(output_directory / "logs"), name="", version="")
@@ -179,6 +422,10 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         min_delta=float(training_config["training"]["min_delta"]),
         verbose=True,
     )
+    progress_bar_callback = TQDMProgressBar(
+        refresh_rate=PROGRESS_BAR_REFRESH_RATE,
+        leave=True,
+    )
 
     # Create Trainer
     trainer = Trainer(
@@ -189,18 +436,27 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         log_every_n_steps=int(training_config["training"]["log_every_n_steps"]),
         deterministic=bool(training_config["training"]["deterministic"]),
         fast_dev_run=bool(training_config["training"]["fast_dev_run"]),
+        enable_model_summary=False,
+        enable_progress_bar=True,
         logger=logger,
         callbacks=[
-            StartTrainingCallback(),
-            StartValidationCallback(),
             checkpoint_callback,
             early_stopping_callback,
+            progress_bar_callback,
         ],
     )
 
     # Start Training
+    print_section_header("Training Loop")
+    print_info_message("Starting Lightning fit loop")
     trainer.fit(regression_module, datamodule=datamodule)
+    print_success_message("Training loop completed")
+
+    # Start Validation
+    print_section_header("Validation Loop")
+    print_info_message("Starting final Lightning validation loop")
     trainer.validate(regression_module, datamodule=datamodule)
+    print_success_message("Validation loop completed")
 
     # Save Best Checkpoint Path
     best_model_path = checkpoint_callback.best_model_path
@@ -216,8 +472,12 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         if logger_directory.exists():
             shutil.copyfile(best_model_path_file, logger_directory / "best_checkpoint_path.txt")
 
-    print("\nBest Checkpoint:\n")
-    print(f"    {best_model_path}")
+    print_output_artifact_summary(
+        output_directory=output_directory,
+        logger=logger,
+        best_model_path=best_model_path,
+    )
+    print_success_message("Feedforward training workflow completed")
 
 
 if __name__ == "__main__":

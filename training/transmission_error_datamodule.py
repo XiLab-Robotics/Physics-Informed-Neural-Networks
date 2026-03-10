@@ -296,12 +296,14 @@ class TransmissionErrorDataModule(LightningDataModule):
         """ Train Dataloader """
 
         assert self.train_dataset is not None, "Train Dataset is not initialized"
+        use_persistent_workers = self.num_workers > 0
 
         return DataLoader(
             self.train_dataset,
             batch_size=self.curve_batch_size,
             shuffle=True,
             num_workers=self.num_workers,
+            persistent_workers=use_persistent_workers,
             pin_memory=self.pin_memory,
             collate_fn=partial(
                 collate_transmission_error_points,
@@ -315,12 +317,14 @@ class TransmissionErrorDataModule(LightningDataModule):
         """ Validation Dataloader """
 
         assert self.validation_dataset is not None, "Validation Dataset is not initialized"
+        use_persistent_workers = self.num_workers > 0
 
         return DataLoader(
             self.validation_dataset,
             batch_size=self.curve_batch_size,
             shuffle=False,
             num_workers=self.num_workers,
+            persistent_workers=use_persistent_workers,
             pin_memory=self.pin_memory,
             collate_fn=partial(
                 collate_transmission_error_points,

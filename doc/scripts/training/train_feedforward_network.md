@@ -60,6 +60,8 @@ Typical generated artifacts include:
 - Lightning checkpoints;
 - a text file containing the best checkpoint path.
 
+During execution, the script also prints a structured terminal summary with colorized section headers, compact dataset and normalization statistics, and a final artifact summary.
+
 ## Practical Use
 
 Typical usage from the project root:
@@ -67,3 +69,5 @@ Typical usage from the project root:
 ```powershell
 conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
+
+The direct script command prints a compact terminal report before training, keeps the Lightning progress bars active, and avoids the previous raw configuration dump.

@@ -25,7 +25,7 @@ conda activate standard_ml_codex_env
 ### 2. Verify The Main Dependencies
 
 ```powershell
-python -c "import torch, lightning, pandas, matplotlib; print(torch.__version__); print(lightning.__version__)"
+python -c "import torch, lightning, pandas, matplotlib, colorama; print(torch.__version__); print(lightning.__version__)"
 ```
 
 ### 3. Check The Dataset Path
@@ -287,6 +287,8 @@ The first training entry point is:
 
 This workflow trains a feedforward regression baseline implemented with PyTorch Lightning.
 
+The script now prints a structured terminal summary with colorized section headers on Windows terminals, so the training configuration and run artifacts are easier to inspect than with the earlier raw dictionary dump.
+
 The training stack is composed of:
 
 - `models/feedforward_network.py`
@@ -412,8 +414,10 @@ This command:
 - loads `config/feedforward_network_training.yaml`;
 - builds the datamodule from `config/dataset_processing.yaml`;
 - uses `num_workers: 4` and `pin_memory: true` in the point-wise dataloaders by default;
+- enables `persistent_workers` internally when dataloader multiprocessing is active;
 - computes training normalization statistics;
 - creates the feedforward model;
+- prints a compact colorized summary for configuration, dataset, normalization, runtime, and output artifacts;
 - starts Lightning training and validation;
 - writes artifacts under `output/feedforward_network/<run_name>/`.
 

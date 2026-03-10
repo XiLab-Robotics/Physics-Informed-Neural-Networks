@@ -178,6 +178,7 @@ Technical documents:
 * `doc/technical/2026-03-10-16-45-41_project_usage_guide_refresh.md`
 * `doc/technical/2026-03-10-16-55-13_dataloader_worker_tuning.md`
 * `doc/technical/2026-03-10-18-11-49_training_entry_point_import_fix.md`
+* `doc/technical/2026-03-10-18-35-11_training_terminal_output_cleanup.md`
 
 Script documentation:
 

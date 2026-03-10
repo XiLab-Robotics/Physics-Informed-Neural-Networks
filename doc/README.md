@@ -60,6 +60,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for tuning the default dataloader worker and memory-pinning settings of the current feedforward training workflow.
 - [technical/2026-03-10-18-11-49_training_entry_point_import_fix.md](./technical/2026-03-10-18-11-49_training_entry_point_import_fix.md)
   Technical document for fixing direct execution of the feedforward training entry point when the repository root is missing from `sys.path`.
+- [technical/2026-03-10-18-35-11_training_terminal_output_cleanup.md](./technical/2026-03-10-18-35-11_training_terminal_output_cleanup.md)
+  Technical document for making the feedforward training terminal output cleaner, colorized, and less noisy on Windows.
 
 ### Script Documentation
 
