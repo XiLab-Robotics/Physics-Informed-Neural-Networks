@@ -209,9 +209,3 @@ __marimo__/
 # VSCode \ Visual Studio Settings
 .vscode/
 .vs/
-
-# Reference Old Codes
-/reference/codes/*
-!/reference/codes/blind_handover_controller
-!/reference/codes/multimodal_fusion
-!/reference/codes/mediapipe_gesture_recognition
