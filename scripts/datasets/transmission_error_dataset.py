@@ -518,12 +518,21 @@ def flatten_curve_batch(curve_batch_dictionary: dict[str, Any]) -> dict[str, tor
         "angular_position_deg": flattened_angular_position_deg,
     }
 
-def split_directional_file_manifest(directional_file_manifest: list[tuple[Path, str]], validation_split: float = 0.2, random_seed: int = 42) -> tuple[list[tuple[Path, str]], list[tuple[Path, str]]]:
+def split_directional_file_manifest(
+    directional_file_manifest: list[tuple[Path, str]],
+    validation_split: float = 0.2,
+    test_split: float = 0.0,
+    random_seed: int = 42,
+) -> tuple[list[tuple[Path, str]], list[tuple[Path, str]], list[tuple[Path, str]]]:
 
     """ Split Directional File Manifest """
 
     # Validate Split Configuration
     assert 0.0 < validation_split < 1.0, f"Validation Split must be between 0 and 1 | {validation_split}"
+    assert 0.0 <= test_split < 1.0, f"Test Split must be between 0 and 1 | {test_split}"
+    assert (validation_split + test_split) < 1.0, (
+        f"Validation Split + Test Split must stay below 1 | {validation_split} + {test_split}"
+    )
 
     # Collect Unique CSV Paths
     unique_csv_file_paths = sorted({csv_file_path for csv_file_path, _ in directional_file_manifest})
@@ -536,23 +545,34 @@ def split_directional_file_manifest(directional_file_manifest: list[tuple[Path, 
     # Build Split Indices
     validation_file_count = max(1, int(round(len(unique_csv_file_paths) * validation_split)))
     if validation_file_count >= len(unique_csv_file_paths): validation_file_count = len(unique_csv_file_paths) - 1
+    remaining_file_count_after_validation = len(unique_csv_file_paths) - validation_file_count
+
+    test_file_count = int(round(len(unique_csv_file_paths) * test_split))
+    if test_split > 0.0: test_file_count = max(1, test_file_count)
+    if test_file_count >= remaining_file_count_after_validation: test_file_count = remaining_file_count_after_validation - 1
 
     validation_csv_file_paths = set(unique_csv_file_paths[:validation_file_count])
+    test_csv_file_paths = set(unique_csv_file_paths[validation_file_count:(validation_file_count + test_file_count)])
 
     # Split Manifest
     train_directional_file_manifest = [(csv_file_path, direction_label) for csv_file_path, direction_label in directional_file_manifest if csv_file_path not in validation_csv_file_paths]
     validation_directional_file_manifest = [(csv_file_path, direction_label) for csv_file_path, direction_label in directional_file_manifest if csv_file_path in validation_csv_file_paths]
+    if len(test_csv_file_paths) > 0:
+        train_directional_file_manifest = [(csv_file_path, direction_label) for csv_file_path, direction_label in train_directional_file_manifest if csv_file_path not in test_csv_file_paths]
+    test_directional_file_manifest = [(csv_file_path, direction_label) for csv_file_path, direction_label in directional_file_manifest if csv_file_path in test_csv_file_paths]
 
     # Validate Split Results
     assert len(train_directional_file_manifest) > 0, "Train Directional File Manifest is empty"
     assert len(validation_directional_file_manifest) > 0, "Validation Directional File Manifest is empty"
+    if test_split > 0.0: assert len(test_directional_file_manifest) > 0, "Test Directional File Manifest is empty"
 
-    return train_directional_file_manifest, validation_directional_file_manifest
+    return train_directional_file_manifest, validation_directional_file_manifest, test_directional_file_manifest
 
 def create_transmission_error_dataloaders(
     dataset_root: str | Path = DEFAULT_DATASET_PATH,
     batch_size: int = 8,
     validation_split: float = 0.2,
+    test_split: float = 0.0,
     random_seed: int = 42,
     num_workers: int = 0,
     use_forward_direction: bool = True,
@@ -569,15 +589,17 @@ def create_transmission_error_dataloaders(
     )
 
     # Split Manifest
-    train_directional_file_manifest, validation_directional_file_manifest = split_directional_file_manifest(
+    train_directional_file_manifest, validation_directional_file_manifest, test_directional_file_manifest = split_directional_file_manifest(
         directional_file_manifest=directional_file_manifest,
         validation_split=validation_split,
+        test_split=test_split,
         random_seed=random_seed,
     )
 
     # Build Dataset Objects
     train_dataset = TransmissionErrorCurveDataset(dataset_root=dataset_root, directional_file_manifest=train_directional_file_manifest)
     validation_dataset = TransmissionErrorCurveDataset(dataset_root=dataset_root, directional_file_manifest=validation_directional_file_manifest)
+    test_dataset = TransmissionErrorCurveDataset(dataset_root=dataset_root, directional_file_manifest=test_directional_file_manifest) if len(test_directional_file_manifest) > 0 else None
 
     # Build Train DataLoader
     train_dataloader = DataLoader(
@@ -597,11 +619,25 @@ def create_transmission_error_dataloaders(
         collate_fn=collate_transmission_error_curves,
     )
 
+    # Build Test DataLoader
+    test_dataloader = None
+    if test_dataset is not None:
+
+        test_dataloader = DataLoader(
+            test_dataset,
+            batch_size=batch_size,
+            shuffle=False,
+            num_workers=num_workers,
+            collate_fn=collate_transmission_error_curves,
+        )
+
     return {
         "train_dataset": train_dataset,
         "validation_dataset": validation_dataset,
+        "test_dataset": test_dataset,
         "train_dataloader": train_dataloader,
         "validation_dataloader": validation_dataloader,
+        "test_dataloader": test_dataloader,
     }
 
 def create_transmission_error_dataloaders_from_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
@@ -623,6 +659,7 @@ def create_transmission_error_dataloaders_from_config(config_path: str | Path = 
         dataset_root=dataset_root,
         batch_size=int(dataloader_config["batch_size"]),
         validation_split=float(split_config["validation_split"]),
+        test_split=float(split_config.get("test_split", 0.0)),
         random_seed=int(split_config["random_seed"]),
         num_workers=int(dataloader_config["num_workers"]),
         use_forward_direction=bool(direction_config["use_forward_direction"]),

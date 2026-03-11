@@ -238,11 +238,14 @@ def print_dataset_summary(datamodule: TransmissionErrorDataModule, input_feature
 
     """ Print Dataset Summary """
 
+    dataset_split_summary = datamodule.get_dataset_split_summary()
+
     print_section_header("Dataset Summary")
     print_key_value("Input Feature Dim", input_feature_dim, value_color=Fore.YELLOW)
     print_key_value("Target Feature Dim", target_feature_dim, value_color=Fore.YELLOW)
-    print_key_value("Train Curves", len(datamodule.train_dataset), value_color=Fore.YELLOW)
-    print_key_value("Validation Curves", len(datamodule.validation_dataset), value_color=Fore.YELLOW)
+    print_key_value("Train Curves", dataset_split_summary.train_curve_count, value_color=Fore.YELLOW)
+    print_key_value("Validation Curves", dataset_split_summary.validation_curve_count, value_color=Fore.YELLOW)
+    print_key_value("Test Curves", dataset_split_summary.test_curve_count, value_color=Fore.YELLOW)
     print_key_value("Point Stride", datamodule.point_stride, value_color=Fore.YELLOW)
     print_key_value("Maximum Points Per Curve", datamodule.maximum_points_per_curve, value_color=Fore.YELLOW)
     print_key_value("Persistent Workers", datamodule.num_workers > 0, value_color=Fore.YELLOW)
@@ -304,9 +307,145 @@ def print_output_artifact_summary(output_directory: Path, logger: TensorBoardLog
     print_key_value("Output Directory", output_directory, value_color=Fore.YELLOW)
     print_key_value("Checkpoint Directory", output_directory / "checkpoints", value_color=Fore.YELLOW)
     print_key_value("Config Snapshot", output_directory / "feedforward_network_training.yaml", value_color=Fore.YELLOW)
+    print_key_value("Metrics Snapshot", output_directory / "training_test_metrics.yaml", value_color=Fore.YELLOW)
+    print_key_value("Run Report", output_directory / "training_test_report.md", value_color=Fore.YELLOW)
 
     if logger.log_dir: print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
     print_key_value("Best Checkpoint", best_model_path, value_color=Fore.YELLOW)
+
+def serialize_metric_dictionary(metric_dictionary: dict[str, object]) -> dict[str, object]:
+
+    """ Serialize Metric Dictionary """
+
+    serialized_metric_dictionary: dict[str, object] = {}
+
+    for metric_name, metric_value in metric_dictionary.items():
+
+        if isinstance(metric_value, torch.Tensor):
+            serialized_metric_dictionary[metric_name] = float(metric_value.detach().cpu().item())
+            continue
+
+        if isinstance(metric_value, float):
+            serialized_metric_dictionary[metric_name] = float(metric_value)
+            continue
+
+        if isinstance(metric_value, int):
+            serialized_metric_dictionary[metric_name] = int(metric_value)
+            continue
+
+        serialized_metric_dictionary[metric_name] = str(metric_value)
+
+    return serialized_metric_dictionary
+
+def save_metrics_snapshot(
+    output_directory: Path,
+    training_config: dict,
+    datamodule: TransmissionErrorDataModule,
+    best_model_path: str,
+    validation_metric_list: list[dict[str, object]],
+    test_metric_list: list[dict[str, object]],
+) -> dict[str, object]:
+
+    """ Save Metrics Snapshot """
+
+    dataset_split_summary = datamodule.get_dataset_split_summary()
+    normalization_statistics = datamodule.get_normalization_statistics()
+
+    validation_metric_dictionary = serialize_metric_dictionary(validation_metric_list[0] if len(validation_metric_list) > 0 else {})
+    test_metric_dictionary = serialize_metric_dictionary(test_metric_list[0] if len(test_metric_list) > 0 else {})
+
+    metrics_snapshot_dictionary: dict[str, object] = {
+        "run_name": training_config["experiment"]["run_name"],
+        "best_checkpoint_path": best_model_path,
+        "dataset_split": {
+            "train_curves": dataset_split_summary.train_curve_count,
+            "validation_curves": dataset_split_summary.validation_curve_count,
+            "test_curves": dataset_split_summary.test_curve_count,
+        },
+        "normalization_statistics": {
+            "input_feature_mean": [float(value) for value in normalization_statistics.input_feature_mean.tolist()],
+            "input_feature_std": [float(value) for value in normalization_statistics.input_feature_std.tolist()],
+            "target_mean": [float(value) for value in normalization_statistics.target_mean.tolist()],
+            "target_std": [float(value) for value in normalization_statistics.target_std.tolist()],
+        },
+        "validation_metrics": validation_metric_dictionary,
+        "test_metrics": test_metric_dictionary,
+    }
+
+    metrics_snapshot_path = output_directory / "training_test_metrics.yaml"
+    with metrics_snapshot_path.open("w", encoding="utf-8") as metrics_file:
+        yaml.safe_dump(metrics_snapshot_dictionary, metrics_file, sort_keys=False)
+
+    return metrics_snapshot_dictionary
+
+def build_metric_interpretation(metric_dictionary: dict[str, object], metric_prefix: str) -> str:
+
+    """ Build Metric Interpretation """
+
+    metric_mae = metric_dictionary.get(f"{metric_prefix}_mae")
+    metric_rmse = metric_dictionary.get(f"{metric_prefix}_rmse")
+
+    if isinstance(metric_mae, (int, float)) and isinstance(metric_rmse, (int, float)):
+        return (
+            f"The held-out {metric_prefix} error stayed finite with MAE={metric_mae:.6f} deg and "
+            f"RMSE={metric_rmse:.6f} deg, which indicates a numerically stable baseline run."
+        )
+
+    return f"The held-out {metric_prefix} metrics were not fully available in serialized form, so only raw metric files should be trusted."
+
+def save_training_test_report(
+    output_directory: Path,
+    training_config: dict,
+    metrics_snapshot_dictionary: dict[str, object],
+) -> None:
+
+    """ Save Training Test Report """
+
+    dataset_split_dictionary = metrics_snapshot_dictionary["dataset_split"]
+    validation_metric_dictionary = metrics_snapshot_dictionary["validation_metrics"]
+    test_metric_dictionary = metrics_snapshot_dictionary["test_metrics"]
+
+    report_line_list = [
+        "# Feedforward Training And Testing Report",
+        "",
+        "## Overview",
+        "",
+        f"- Run Name: `{training_config['experiment']['run_name']}`",
+        f"- Model Type: `{training_config['experiment']['model_type']}`",
+        f"- Best Checkpoint: `{metrics_snapshot_dictionary['best_checkpoint_path']}`",
+        "",
+        "## Dataset Split",
+        "",
+        f"- Train Curves: `{dataset_split_dictionary['train_curves']}`",
+        f"- Validation Curves: `{dataset_split_dictionary['validation_curves']}`",
+        f"- Test Curves: `{dataset_split_dictionary['test_curves']}`",
+        "",
+        "## Validation Metrics",
+        "",
+    ]
+
+    for metric_name, metric_value in validation_metric_dictionary.items():
+        report_line_list.append(f"- {metric_name}: `{format_terminal_value(metric_value)}`")
+
+    report_line_list.extend([
+        "",
+        "## Test Metrics",
+        "",
+    ])
+
+    for metric_name, metric_value in test_metric_dictionary.items():
+        report_line_list.append(f"- {metric_name}: `{format_terminal_value(metric_value)}`")
+
+    report_line_list.extend([
+        "",
+        "## Interpretation",
+        "",
+        build_metric_interpretation(validation_metric_dictionary, "val"),
+        build_metric_interpretation(test_metric_dictionary, "test"),
+    ])
+
+    report_path = output_directory / "training_test_report.md"
+    report_path.write_text("\n".join(report_line_list) + "\n", encoding="utf-8")
 
 def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
 
@@ -452,16 +591,56 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     # Start Validation
     print_section_header("Validation Loop")
     print_info_message("Starting final Lightning validation loop")
-    trainer.validate(regression_module, datamodule=datamodule)
+    validation_metric_list = trainer.validate(regression_module, datamodule=datamodule)
     print_success_message("Validation loop completed")
 
     # Save Best Checkpoint Path
     best_model_path = checkpoint_callback.best_model_path
     if not best_model_path: best_model_path = "Best checkpoint not available | fast_dev_run or checkpointing disabled"
 
+    # Load Best Checkpoint For Final Held-Out Evaluation
+    best_regression_module = regression_module
+    if Path(best_model_path).exists():
+
+        print_section_header("Best Checkpoint Evaluation")
+        print_info_message("Loading best checkpoint for reproducible validation and test evaluation")
+        best_regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
+            checkpoint_path=best_model_path,
+            regression_model=create_model(
+                model_type=str(training_config["experiment"]["model_type"]),
+                model_configuration=training_config["model"],
+            ),
+            input_feature_dim=input_feature_dim,
+            target_feature_dim=target_feature_dim,
+            normalization_statistics=normalization_statistics,
+        )
+        validation_metric_list = trainer.validate(best_regression_module, datamodule=datamodule)
+        print_success_message("Best-checkpoint validation loop completed")
+
+    # Start Testing
+    print_section_header("Test Loop")
+    print_info_message("Starting held-out Lightning test loop")
+    test_metric_list = trainer.test(best_regression_module, datamodule=datamodule)
+    print_success_message("Test loop completed")
+
     # Save Best Checkpoint Path To File For Easy Reference
     best_model_path_file = output_directory / "best_checkpoint_path.txt"
     best_model_path_file.write_text(best_model_path, encoding="utf-8")
+
+    # Save Machine-Readable Metrics And Human-Readable Report
+    metrics_snapshot_dictionary = save_metrics_snapshot(
+        output_directory=output_directory,
+        training_config=training_config,
+        datamodule=datamodule,
+        best_model_path=best_model_path,
+        validation_metric_list=validation_metric_list,
+        test_metric_list=test_metric_list,
+    )
+    save_training_test_report(
+        output_directory=output_directory,
+        training_config=training_config,
+        metrics_snapshot_dictionary=metrics_snapshot_dictionary,
+    )
 
     # Save Last Logger Configuration
     if logger.log_dir:

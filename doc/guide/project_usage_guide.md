@@ -8,7 +8,7 @@ At the moment, the implemented workflows are:
 
 - dataset processing through the validated TE dataset utilities;
 - dataset visualization through the TE plotting script;
-- feedforward neural-network training through a PyTorch Lightning baseline.
+- feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline.
 
 Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
 
@@ -130,6 +130,9 @@ Current configurable sections:
 - `split.validation_split`
   Train/validation file split ratio.
 
+- `split.test_split`
+  Held-out test file split ratio.
+
 - `split.random_seed`
   Seed used for split reproducibility.
 
@@ -143,10 +146,10 @@ Current configurable sections:
 
 The most direct way to use the processing utilities is from Python.
 
-### Example: Build Train And Validation Dataloaders From Config
+### Example: Build Train, Validation, And Test Dataloaders From Config
 
 ```powershell
-python -c "from scripts.datasets.transmission_error_dataset import create_transmission_error_dataloaders_from_config; bundle=create_transmission_error_dataloaders_from_config(); print(len(bundle['train_dataset'])); print(len(bundle['validation_dataset']))"
+python -c "from scripts.datasets.transmission_error_dataset import create_transmission_error_dataloaders_from_config; bundle=create_transmission_error_dataloaders_from_config(); print(len(bundle['train_dataset'])); print(len(bundle['validation_dataset'])); print(len(bundle['test_dataset']))"
 ```
 
 What this does:
@@ -154,12 +157,14 @@ What this does:
 - reads `config/dataset_processing.yaml`;
 - collects CSV files from the configured dataset root;
 - creates forward and backward directional samples;
-- splits the files into train and validation sets;
+- splits the files into train, validation, and test sets;
 - returns a dictionary containing:
   - `train_dataset`
   - `validation_dataset`
+  - `test_dataset`
   - `train_dataloader`
   - `validation_dataloader`
+  - `test_dataloader`
 
 ### Example: Inspect One Training Batch
 
@@ -322,7 +327,9 @@ The current baseline:
 - trains point-wise on TE curve samples rather than with recurrent sequence modeling;
 - computes normalization statistics from the training split only;
 - uses the normalized tensors during optimization and reports interpretable metrics on denormalized TE values;
-- uses validation-based early stopping and checkpoint selection.
+- uses validation-based early stopping and checkpoint selection;
+- reloads the best checkpoint for the final validation and held-out test evaluation;
+- saves machine-readable and human-readable reports for each completed run.
 
 This is the first baseline only. It does not replace the future need for LSTM, RNN, or PINN models.
 
@@ -331,6 +338,10 @@ This is the first baseline only. It does not replace the future need for LSTM, R
 The training settings are stored in:
 
 - `config/feedforward_network_training.yaml`
+
+An additional lighter proof-run configuration is also available in:
+
+- `config/feedforward_network_training_trial.yaml`
 
 Main configurable sections:
 
@@ -422,14 +433,49 @@ This command:
 
 - loads `config/feedforward_network_training.yaml`;
 - builds the datamodule from `config/dataset_processing.yaml`;
+- uses `validation_split` plus `test_split` from the dataset config to create three file-level subsets;
 - uses `num_workers: 4` and `pin_memory: true` in the point-wise dataloaders by default;
 - enables `persistent_workers` internally when dataloader multiprocessing is active;
 - computes training normalization statistics;
 - creates the feedforward model;
 - prints a compact colorized summary for configuration, dataset, normalization, runtime, and output artifacts;
 - suppresses the current low-signal Lightning `litlogger` startup tip and the known `_pytree` sanity-check warning;
-- starts Lightning training and validation;
+- starts Lightning training, validation, and held-out testing;
+- reloads the best checkpoint before the final evaluation phase;
 - writes artifacts under `output/feedforward_network/<run_name>/`.
+
+Typical artifacts now include:
+
+- `feedforward_network_training.yaml`
+  Snapshot of the effective run configuration.
+
+- `checkpoints/`
+  Best and last Lightning checkpoints.
+
+- `best_checkpoint_path.txt`
+  Plain-text pointer to the selected best checkpoint.
+
+- `training_test_metrics.yaml`
+  Machine-readable validation and test metrics.
+
+- `training_test_report.md`
+  Human-readable training and testing summary.
+
+## Run The Lightweight Proof Configuration
+
+If you want a faster verification run before trying the default baseline, use the trial config:
+
+```powershell
+conda run -n standard_ml_codex_env python -c "from training.train_feedforward_network import train_feedforward_network; train_feedforward_network('config/feedforward_network_training_trial.yaml')"
+```
+
+This proof configuration:
+
+- uses `run_name: te_feedforward_trial`;
+- increases `dataset.point_stride` to reduce the sampled points per curve;
+- caps the point count with `dataset.maximum_points_per_curve: 200`;
+- reduces the epoch budget to a short verification range;
+- still executes validation, held-out testing, and report generation.
 
 ## Current Dataloader Runtime Defaults
 

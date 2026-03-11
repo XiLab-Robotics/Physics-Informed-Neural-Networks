@@ -30,6 +30,15 @@ class NormalizationStatistics:
     target_mean: torch.Tensor
     target_std: torch.Tensor
 
+@dataclass
+class DatasetSplitSummary:
+
+    """ Dataset Split Summary """
+
+    train_curve_count: int
+    validation_curve_count: int
+    test_curve_count: int
+
 def extract_point_tensor_from_curve_sample(curve_sample_dictionary: dict[str, Any], point_stride: int = 1, maximum_points_per_curve: int | None = None) -> dict[str, torch.Tensor]:
 
     """ Extract Point Tensor From Curve Sample """
@@ -155,6 +164,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         # Initialize Runtime Attributes
         self.train_dataset: TransmissionErrorCurveDataset | None = None
         self.validation_dataset: TransmissionErrorCurveDataset | None = None
+        self.test_dataset: TransmissionErrorCurveDataset | None = None
         self.input_feature_dim: int | None = None
         self.target_feature_dim: int | None = None
         self.normalization_statistics: NormalizationStatistics | None = None
@@ -164,7 +174,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         """ Setup DataModule """
 
         # Skip Repeated Setup If Datasets Are Already Available
-        if self.train_dataset is not None and self.validation_dataset is not None: return
+        if self.train_dataset is not None and self.validation_dataset is not None and self.test_dataset is not None: return
 
         # Load Dataset Processing Configuration
         dataset_processing_config = load_dataset_processing_config(self.dataset_config_path)
@@ -180,9 +190,10 @@ class TransmissionErrorDataModule(LightningDataModule):
         )
 
         # Split Directional File Manifest
-        train_directional_file_manifest, validation_directional_file_manifest = split_directional_file_manifest(
+        train_directional_file_manifest, validation_directional_file_manifest, test_directional_file_manifest = split_directional_file_manifest(
             directional_file_manifest=directional_file_manifest,
             validation_split=float(dataset_processing_config["split"]["validation_split"]),
+            test_split=float(dataset_processing_config["split"].get("test_split", 0.0)),
             random_seed=int(dataset_processing_config["split"]["random_seed"]),
         )
 
@@ -196,6 +207,12 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.validation_dataset = TransmissionErrorCurveDataset(
             dataset_root=dataset_root,
             directional_file_manifest=validation_directional_file_manifest,
+        )
+
+        # Build Test Dataset Object
+        self.test_dataset = TransmissionErrorCurveDataset(
+            dataset_root=dataset_root,
+            directional_file_manifest=test_directional_file_manifest,
         )
 
         # Read Feature Dimensions
@@ -283,6 +300,20 @@ class TransmissionErrorDataModule(LightningDataModule):
         assert self.normalization_statistics is not None, "Normalization Statistics are not available before setup"
         return self.normalization_statistics
 
+    def get_dataset_split_summary(self) -> DatasetSplitSummary:
+
+        """ Get Dataset Split Summary """
+
+        assert self.train_dataset is not None, "Train Dataset is not initialized"
+        assert self.validation_dataset is not None, "Validation Dataset is not initialized"
+        assert self.test_dataset is not None, "Test Dataset is not initialized"
+
+        return DatasetSplitSummary(
+            train_curve_count=len(self.train_dataset),
+            validation_curve_count=len(self.validation_dataset),
+            test_curve_count=len(self.test_dataset),
+        )
+
     def train_dataloader(self) -> DataLoader:
 
         """ Train Dataloader """
@@ -312,6 +343,27 @@ class TransmissionErrorDataModule(LightningDataModule):
 
         return DataLoader(
             self.validation_dataset,
+            batch_size=self.curve_batch_size,
+            shuffle=False,
+            num_workers=self.num_workers,
+            persistent_workers=(self.num_workers > 0),
+            pin_memory=self.pin_memory,
+            collate_fn=partial(
+                collate_transmission_error_points,
+                point_stride=self.point_stride,
+                maximum_points_per_curve=self.maximum_points_per_curve,
+                shuffle_points=False,
+            ),
+        )
+
+    def test_dataloader(self) -> DataLoader:
+
+        """ Test Dataloader """
+
+        assert self.test_dataset is not None, "Test Dataset is not initialized"
+
+        return DataLoader(
+            self.test_dataset,
             batch_size=self.curve_batch_size,
             shuffle=False,
             num_workers=self.num_workers,

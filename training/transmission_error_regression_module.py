@@ -152,6 +152,12 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="val")
 
+    def test_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
+
+        """ Test Step """
+
+        return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="test")
+
     def configure_optimizers(self):
 
         """ Configure Optimizers """

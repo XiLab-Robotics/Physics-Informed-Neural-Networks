@@ -21,7 +21,8 @@ The script coordinates the full baseline-training flow:
 5. build the generic Lightning regression module;
 6. create callbacks, logger, and trainer;
 7. run training and validation;
-8. save the effective training configuration and checkpoint path.
+8. reload the best checkpoint and run held-out testing;
+9. save the effective training configuration, checkpoint path, metrics snapshot, and markdown report.
 
 ## Main Components Used
 
@@ -31,9 +32,11 @@ Provides:
 
 - dataset batching parameters;
 - point subsampling stride;
+- optional maximum point cap per curve;
 - model architecture;
 - optimizer settings;
-- early-stopping configuration.
+- early-stopping configuration;
+- output run naming for trial or baseline execution.
 
 ### `training/transmission_error_datamodule.py`
 
@@ -58,9 +61,11 @@ Typical generated artifacts include:
 - a copy of the training config;
 - TensorBoard logs;
 - Lightning checkpoints;
-- a text file containing the best checkpoint path.
+- a text file containing the best checkpoint path;
+- a YAML file containing final validation and test metrics;
+- a markdown report summarizing the executed run.
 
-During execution, the script also prints a structured terminal summary with colorized section headers, compact dataset and normalization statistics, and a final artifact summary.
+During execution, the script also prints a structured terminal summary with colorized section headers, compact dataset and normalization statistics, and a final artifact summary. The dataset summary now includes train, validation, and held-out test curve counts.
 
 ## Practical Use
 
@@ -70,4 +75,10 @@ Typical usage from the project root:
 conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
 
-The direct script command prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, and suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning.
+To run the lighter proof configuration used for a quick end-to-end verification:
+
+```powershell
+conda run -n standard_ml_codex_env python -c "from training.train_feedforward_network import train_feedforward_network; train_feedforward_network('config/feedforward_network_training_trial.yaml')"
+```
+
+The training entry point prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning, and writes both validation and test results for the selected best checkpoint.

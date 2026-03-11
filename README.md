@@ -188,6 +188,7 @@ Technical documents:
 * `doc/technical/2026-03-11-15-57-47_manual_refactoring_style_propagation.md`
 * `doc/technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md`
 * `doc/technical/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md`
+* `doc/technical/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md`
 
 Script documentation:
 
