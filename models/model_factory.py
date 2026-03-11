@@ -17,7 +17,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
     # Validate Model Type
     normalized_model_type = model_type.lower()
 
-    # Create Feedforward Model
+    # Create Requested Feedforward Model
     if normalized_model_type == "feedforward":
         return FeedForwardNetwork(
             input_size=int(model_configuration["input_size"]),

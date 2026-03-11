@@ -53,7 +53,7 @@ class FeedForwardNetwork(nn.Module):
         self.dropout_probability = dropout_probability
         self.use_layer_norm = use_layer_norm
 
-        # Build Hidden Network
+        # Build Hidden Feedforward Layers
         network_layers: list[nn.Module] = []
         previous_feature_size = input_size
 
@@ -66,22 +66,20 @@ class FeedForwardNetwork(nn.Module):
             network_layers.append(nn.Linear(previous_feature_size, current_hidden_size))
 
             # Append Layer Normalization
-            if self.use_layer_norm:
-                network_layers.append(nn.LayerNorm(current_hidden_size))
+            if self.use_layer_norm: network_layers.append(nn.LayerNorm(current_hidden_size))
 
             # Append Activation Function
             network_layers.append(get_activation_module(self.activation_name))
 
             # Append Dropout
-            if self.dropout_probability > 0.0:
-                network_layers.append(nn.Dropout(self.dropout_probability))
+            if self.dropout_probability > 0.0: network_layers.append(nn.Dropout(self.dropout_probability))
 
             previous_feature_size = current_hidden_size
 
-        # Append Output Layer
+        # Append Final Output Layer
         network_layers.append(nn.Linear(previous_feature_size, output_size))
 
-        # Create Sequential Network
+        # Create Sequential Feedforward Network
         self.network = nn.Sequential(*network_layers)
 
     def forward(self, input_tensor):

@@ -15,8 +15,7 @@ import yaml
 
 # Import PyTorch Utilities
 import torch
-from torch.utils.data import DataLoader
-from torch.utils.data import Dataset
+from torch.utils.data import DataLoader, Dataset
 
 
 PACKAGE_PATH = Path(__file__).resolve().parent
@@ -105,9 +104,7 @@ def resolve_dataset_root_from_config(config_path: str | Path = DEFAULT_CONFIG_PA
     dataset_processing_config = load_dataset_processing_config(config_path=config_path)
 
     # Resolve Dataset Root
-    dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
-
-    return dataset_root
+    return resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
 
 def collect_dataset_csv_paths(dataset_root: str | Path = DEFAULT_DATASET_PATH) -> list[Path]:
 
@@ -326,13 +323,13 @@ def build_validated_directional_sample(
 
     # Select Direction Columns
     if direction_label == FORWARD_DIRECTION:
-        angular_position_key = "position_output_reducer_fw_deg"
+        angular_position_key  = "position_output_reducer_fw_deg"
         transmission_error_key = "transmission_error_fw_deg"
-        direction_flag = FORWARD_DIRECTION_FLAG
+        direction_flag         = FORWARD_DIRECTION_FLAG
     else:
-        angular_position_key = "position_output_reducer_bw_deg"
+        angular_position_key  = "position_output_reducer_bw_deg"
         transmission_error_key = "transmission_error_bw_deg"
-        direction_flag = BACKWARD_DIRECTION_FLAG
+        direction_flag         = BACKWARD_DIRECTION_FLAG
 
     # Extract Directional Arrays
     angular_position_deg = validated_dataframe[angular_position_key].to_numpy(dtype=np.float32)
@@ -375,7 +372,7 @@ def build_validated_directional_samples(csv_file_path: str | Path) -> list[Trans
     """ Build Validated Directional Samples """
 
     # Build Forward And Backward Samples
-    forward_sample = build_validated_directional_sample(csv_file_path=csv_file_path, direction_label=FORWARD_DIRECTION)
+    forward_sample  = build_validated_directional_sample(csv_file_path=csv_file_path, direction_label=FORWARD_DIRECTION)
     backward_sample = build_validated_directional_sample(csv_file_path=csv_file_path, direction_label=BACKWARD_DIRECTION)
 
     return [forward_sample, backward_sample]
@@ -397,10 +394,8 @@ def build_directional_file_manifest(
     # Build Manifest
     directional_file_manifest: list[tuple[Path, str]] = []
     for csv_file_path in csv_file_paths:
-        if use_forward_direction:
-            directional_file_manifest.append((csv_file_path, FORWARD_DIRECTION))
-        if use_backward_direction:
-            directional_file_manifest.append((csv_file_path, BACKWARD_DIRECTION))
+        if use_forward_direction: directional_file_manifest.append((csv_file_path, FORWARD_DIRECTION))
+        if use_backward_direction: directional_file_manifest.append((csv_file_path, BACKWARD_DIRECTION))
 
     return directional_file_manifest
 
@@ -415,6 +410,7 @@ class TransmissionErrorCurveDataset(Dataset):
         use_backward_direction: bool = True,
         directional_file_manifest: list[tuple[str | Path, str]] | None = None,
     ) -> None:
+
         # Initialize Dataset Configuration
         self.dataset_root = Path(dataset_root).resolve()
         self.use_forward_direction = use_forward_direction
@@ -428,6 +424,7 @@ class TransmissionErrorCurveDataset(Dataset):
                 use_backward_direction=self.use_backward_direction,
             )
         else:
+            # Resolve Manifest Paths Before Saving Them
             built_manifest = [(Path(csv_file_path).resolve(), direction_label) for csv_file_path, direction_label in directional_file_manifest]
 
         # Save Manifest
@@ -457,10 +454,10 @@ class TransmissionErrorCurveDataset(Dataset):
         sequence_length = transmission_error_curve_sample.angular_position_deg.shape[0]
 
         angular_position_column = transmission_error_curve_sample.angular_position_deg.astype(np.float32)
-        speed_column = np.full(sequence_length, transmission_error_curve_sample.speed_rpm, dtype=np.float32)
-        torque_column = np.full(sequence_length, transmission_error_curve_sample.torque_nm, dtype=np.float32)
+        speed_column            = np.full(sequence_length, transmission_error_curve_sample.speed_rpm, dtype=np.float32)
+        torque_column           = np.full(sequence_length, transmission_error_curve_sample.torque_nm, dtype=np.float32)
         oil_temperature_column = np.full(sequence_length, transmission_error_curve_sample.oil_temperature_deg, dtype=np.float32)
-        direction_column = np.full(sequence_length, transmission_error_curve_sample.direction_flag, dtype=np.float32)
+        direction_column        = np.full(sequence_length, transmission_error_curve_sample.direction_flag, dtype=np.float32)
 
         input_feature_matrix = np.column_stack(
             [
@@ -549,8 +546,8 @@ def flatten_curve_batch(curve_batch_dictionary: dict[str, Any]) -> dict[str, tor
     valid_mask = curve_batch_dictionary["valid_mask"]
 
     # Flatten Valid Samples
-    flattened_input_tensor = input_tensor[valid_mask]
-    flattened_target_tensor = target_tensor[valid_mask]
+    flattened_input_tensor         = input_tensor[valid_mask]
+    flattened_target_tensor        = target_tensor[valid_mask]
     flattened_angular_position_deg = angular_position_deg[valid_mask]
 
     return {
@@ -580,8 +577,7 @@ def split_directional_file_manifest(
 
     # Build Split Indices
     validation_file_count = max(1, int(round(len(unique_csv_file_paths) * validation_split)))
-    if validation_file_count >= len(unique_csv_file_paths):
-        validation_file_count = len(unique_csv_file_paths) - 1
+    if validation_file_count >= len(unique_csv_file_paths): validation_file_count = len(unique_csv_file_paths) - 1
 
     validation_csv_file_paths = set(unique_csv_file_paths[:validation_file_count])
 
@@ -676,7 +672,7 @@ def create_transmission_error_dataloaders_from_config(
 
     # Extract Dataloader Parameters
     dataloader_config = dataset_processing_config["dataloader"]
-    split_config = dataset_processing_config["split"]
+    split_config      = dataset_processing_config["split"]
     direction_config = dataset_processing_config["directions"]
 
     return create_transmission_error_dataloaders(

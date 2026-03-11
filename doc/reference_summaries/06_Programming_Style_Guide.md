@@ -79,6 +79,8 @@ The main style baseline is `blind_handover_controller`, while the other two repo
 
 - Keep them short, one line, in title case.
 - They usually describe the class or function directly, without extra prose.
+- For top-level definitions, leave one blank line between the `def` or `class` line and the docstring.
+- Apply the same blank-line rule to `@dataclass(...)` declarations followed by `class`.
 
 Correct examples:
 
@@ -86,17 +88,65 @@ Correct examples:
 - `""" Compute Loss """`
 - `""" Cartesian Goal Callback """`
 
+Spacing examples:
+
+```python
+def resolve_project_relative_path(path_value: str | Path) -> Path:
+
+    """ Resolve Project Relative Path """
+```
+
+```python
+@dataclass(frozen=True)
+class TransmissionErrorCurveSample:
+
+    """ Transmission Error Curve Sample """
+```
+
 ## Code Structure
 
 - Prefer explicit and progressive code.
 - Break the reasoning into well-named intermediate blocks.
 - Avoid overly compact abstractions when they reduce readability.
 - Separate logical groups with comments.
+- Keep one blank line between consecutive top-level definitions.
+
+## Manual Refactoring Patterns
+
+The manual refactoring applied to `training/train_feedforward_network.py` in commit `228a999c94eb67d1c07eebfbd87c05903e99b694` is now an approved repository-specific refinement of the baseline style.
+
+Apply these patterns conservatively:
+
+- use compact grouped imports when the grouping remains readable;
+- keep helper signatures on one line when they are short enough to stay readable;
+- use inline `if` statements only when the branch is obvious in context and the resulting line stays readable;
+- collapse single obvious follow-up statements when they remain easy to scan;
+- prefer more explicit section comments that explain intent, not only the operation being executed;
+- preserve engineering readability over compactness when the two conflict.
+
+Representative examples:
+
+```python
+import sys, shutil, logging, warnings
+```
+
+```python
+if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
+```
+
+```python
+# Early Stopping Callback To Stop Training If Validation MAE Does Not Improve For A Certain Number Of Epochs
+```
+
+```python
+if logger.log_dir: print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
+```
 
 ## Imports
 
 - Organize imports in grouped blocks.
 - Add short heading comments above important import groups.
+- When several imports belong to the same compact utility group and the result stays readable, it is acceptable to combine them on one line.
 
 Typical pattern:
 
@@ -138,4 +188,6 @@ assert len(joint_positions) == 6, f"Joint Positions Length must be 6 | {len(join
 - Every non-trivial function should be split into blocks with title-case comments.
 - Configurations and constants should remain semantically transparent.
 - ML code should remain understandable from an engineering perspective and compatible with future export or deployment.
+- Apply the approved blank-line spacing rules to top-level functions, classes, and dataclasses.
+- Use the manually refactored `training/train_feedforward_network.py` style as the repository reference when choosing between equally valid compact layouts.
 - When in doubt, follow the pattern used in `blind_handover_controller`.

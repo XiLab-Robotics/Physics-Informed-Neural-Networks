@@ -74,6 +74,10 @@ This folder contains the internal project documents derived from the reference P
   Technical document for extending the approved function-spacing convention to all project-authored Python scripts.
 - [technical/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md](./technical/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md)
   Technical document for extending the approved blank-line spacing convention to top-level class and dataclass declarations.
+- [technical/2026-03-11-15-57-47_manual_refactoring_style_propagation.md](./technical/2026-03-11-15-57-47_manual_refactoring_style_propagation.md)
+  Technical document for propagating the broader manual coding style introduced in commit `228a999c94eb67d1c07eebfbd87c05903e99b694` to the remaining project scripts.
+- [technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md](./technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md)
+  Technical document for updating the persistent programming style guide with the approved spacing rules and the broader manual refactoring conventions.
 
 ### Script Documentation
 

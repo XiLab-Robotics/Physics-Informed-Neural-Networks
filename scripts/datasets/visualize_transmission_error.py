@@ -8,8 +8,8 @@ import sys
 # Import Plotting Utilities
 import matplotlib
 
-if "--save-path" in sys.argv:
-    matplotlib.use("Agg")
+# Use Non-Interactive Backend When The Figure Will Be Written To Disk
+if "--save-path" in sys.argv: matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 import yaml
@@ -121,6 +121,8 @@ def visualize_transmission_error_curves(
 
     # Plot Directional Curves
     for transmission_error_curve_sample in directional_sample_list:
+
+        # Select Direction-Specific Plot Style
         if transmission_error_curve_sample.direction_label == "forward":
             line_color = "tab:blue"
             line_label = "Forward TE"

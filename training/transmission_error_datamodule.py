@@ -42,10 +42,9 @@ def extract_point_tensor_from_curve_sample(
 
     # Validate Sampling Parameters
     assert point_stride > 0, f"Point Stride must be positive | {point_stride}"
-    if maximum_points_per_curve is not None:
-        assert maximum_points_per_curve > 0, (
-            f"Maximum Points Per Curve must be positive | {maximum_points_per_curve}"
-        )
+    if maximum_points_per_curve is not None: assert maximum_points_per_curve > 0, (
+        f"Maximum Points Per Curve must be positive | {maximum_points_per_curve}"
+    )
 
     # Extract Curve Tensors
     input_tensor = curve_sample_dictionary["input_tensor"].float()
@@ -66,6 +65,7 @@ def extract_point_tensor_from_curve_sample(
 
     # Reduce Number Of Points Per Curve
     if maximum_points_per_curve is not None and len(point_index_tensor) > maximum_points_per_curve:
+        # Distribute Reduced Indices Across The Full Curve Span
         reduced_index_positions = torch.linspace(
             0,
             len(point_index_tensor) - 1,
@@ -178,9 +178,8 @@ class TransmissionErrorDataModule(LightningDataModule):
     def setup(self, stage: str | None = None) -> None:
         """ Setup DataModule """
 
-        # Skip Repeated Setup
-        if self.train_dataset is not None and self.validation_dataset is not None:
-            return
+        # Skip Repeated Setup If Datasets Are Already Available
+        if self.train_dataset is not None and self.validation_dataset is not None: return
 
         # Load Dataset Processing Configuration
         dataset_processing_config = load_dataset_processing_config(self.dataset_config_path)
@@ -299,14 +298,13 @@ class TransmissionErrorDataModule(LightningDataModule):
         """ Train Dataloader """
 
         assert self.train_dataset is not None, "Train Dataset is not initialized"
-        use_persistent_workers = self.num_workers > 0
 
         return DataLoader(
             self.train_dataset,
             batch_size=self.curve_batch_size,
             shuffle=True,
             num_workers=self.num_workers,
-            persistent_workers=use_persistent_workers,
+            persistent_workers=(self.num_workers > 0),
             pin_memory=self.pin_memory,
             collate_fn=partial(
                 collate_transmission_error_points,
@@ -320,14 +318,13 @@ class TransmissionErrorDataModule(LightningDataModule):
         """ Validation Dataloader """
 
         assert self.validation_dataset is not None, "Validation Dataset is not initialized"
-        use_persistent_workers = self.num_workers > 0
 
         return DataLoader(
             self.validation_dataset,
             batch_size=self.curve_batch_size,
             shuffle=False,
             num_workers=self.num_workers,
-            persistent_workers=use_persistent_workers,
+            persistent_workers=(self.num_workers > 0),
             pin_memory=self.pin_memory,
             collate_fn=partial(
                 collate_transmission_error_points,

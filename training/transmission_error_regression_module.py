@@ -49,9 +49,8 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Initialize Normalization State
         self.normalization_statistics_initialized = False
 
-        # Load Normalization Statistics
-        if normalization_statistics is not None:
-            self.set_normalization_statistics(normalization_statistics)
+        # Load Normalization Statistics If Available At Construction Time
+        if normalization_statistics is not None: self.set_normalization_statistics(normalization_statistics)
 
     def set_normalization_statistics(self, normalization_statistics: NormalizationStatistics) -> None:
         """ Set Normalization Statistics """
@@ -149,6 +148,7 @@ class TransmissionErrorRegressionModule(LightningModule):
     def configure_optimizers(self):
         """ Configure Optimizers """
 
+        # Configure AdamW Optimizer
         return torch.optim.AdamW(
             self.parameters(),
             lr=float(self.hparams.learning_rate),

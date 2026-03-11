@@ -185,6 +185,8 @@ Technical documents:
 * `doc/technical/2026-03-11-13-36-18_function_definition_spacing_normalization.md`
 * `doc/technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md`
 * `doc/technical/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md`
+* `doc/technical/2026-03-11-15-57-47_manual_refactoring_style_propagation.md`
+* `doc/technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md`
 
 Script documentation:
 
