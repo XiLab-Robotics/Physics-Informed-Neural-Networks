@@ -23,6 +23,7 @@ from scripts.datasets.transmission_error_dataset import split_directional_file_m
 
 @dataclass
 class NormalizationStatistics:
+
     """ Normalization Statistics """
 
     input_feature_mean: torch.Tensor
@@ -139,6 +140,7 @@ def collate_transmission_error_points(
 
 
 class TransmissionErrorDataModule(LightningDataModule):
+
     """ Transmission Error DataModule """
 
     def __init__(

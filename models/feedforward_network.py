@@ -24,6 +24,7 @@ def get_activation_module(activation_name: str) -> nn.Module:
 
 
 class FeedForwardNetwork(nn.Module):
+
     """ Feedforward Network """
 
     def __init__(

@@ -72,6 +72,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for normalizing blank-line spacing around top-level function definitions in the feedforward training entry point.
 - [technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md](./technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md)
   Technical document for extending the approved function-spacing convention to all project-authored Python scripts.
+- [technical/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md](./technical/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md)
+  Technical document for extending the approved blank-line spacing convention to top-level class and dataclass declarations.
 
 ### Script Documentation
 

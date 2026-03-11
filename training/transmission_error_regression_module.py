@@ -12,6 +12,7 @@ from training.transmission_error_datamodule import NormalizationStatistics
 
 
 class TransmissionErrorRegressionModule(LightningModule):
+
     """ Transmission Error Regression Module """
 
     def __init__(

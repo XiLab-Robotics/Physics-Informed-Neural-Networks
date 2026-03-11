@@ -51,6 +51,7 @@ VALIDATED_COLUMN_MAP = {
 
 @dataclass(frozen=True)
 class TransmissionErrorCurveSample:
+
     """ Transmission Error Curve Sample """
 
     source_file_path: Path
@@ -404,6 +405,7 @@ def build_directional_file_manifest(
     return directional_file_manifest
 
 class TransmissionErrorCurveDataset(Dataset):
+
     """ Transmission Error Curve Dataset """
 
     def __init__(
