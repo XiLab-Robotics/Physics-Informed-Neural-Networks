@@ -3,18 +3,14 @@ from __future__ import annotations
 # Import Python Utilities
 from collections.abc import Iterator
 from contextlib import contextmanager
-import logging
 from pathlib import Path
-import shutil
-import sys
-import warnings
+import sys, shutil, logging, warnings
 
-
+# Define Project Path
 PROJECT_PATH = Path(__file__).resolve().parents[1]
 
 # Ensure Repository Root Is Available For Direct Script Execution
-if str(PROJECT_PATH) not in sys.path:
-    sys.path.insert(0, str(PROJECT_PATH))
+if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import PyTorch Lightning Utilities
 from lightning.pytorch import Trainer
@@ -28,9 +24,11 @@ import torch
 
 # Import Terminal Formatting Utilities
 try:
+
     from colorama import Fore
     from colorama import Style
     from colorama import init as colorama_init
+
 except ImportError:
 
     class _PlainTerminalColor:
@@ -51,6 +49,7 @@ except ImportError:
     Style = _PlainTerminalColor()
 
     def colorama_init(*args, **kwargs) -> None:
+
         """ Fallback Colorama Init """
 
         return None
@@ -64,26 +63,13 @@ from scripts.datasets.transmission_error_dataset import resolve_project_relative
 from training.transmission_error_datamodule import TransmissionErrorDataModule
 from training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
-
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "feedforward_network_training.yaml"
 SECTION_DIVIDER_WIDTH = 96
 KEY_LABEL_WIDTH = 34
 PROGRESS_BAR_REFRESH_RATE = 10
-LIGHTNING_INFO_LOGGER_NAME_LIST = [
-    "lightning.pytorch.utilities.rank_zero",
-    "lightning.fabric.utilities.rank_zero",
-]
-
-INPUT_FEATURE_NAME_LIST = [
-    "angular_position_deg",
-    "input_speed_rpm",
-    "input_torque_nm",
-    "oil_temperature_deg",
-    "direction_flag",
-]
-TARGET_FEATURE_NAME_LIST = [
-    "transmission_error_deg",
-]
+LIGHTNING_INFO_LOGGER_NAME_LIST = ["lightning.pytorch.utilities.rank_zero", "lightning.fabric.utilities.rank_zero"]
+INPUT_FEATURE_NAME_LIST = ["angular_position_deg", "input_speed_rpm", "input_torque_nm", "oil_temperature_deg", "direction_flag"]
+TARGET_FEATURE_NAME_LIST = ["transmission_error_deg"]
 
 # Set Torch Matmul Precision
 torch.set_float32_matmul_precision("high")
@@ -92,27 +78,24 @@ torch.set_float32_matmul_precision("high")
 colorama_init(autoreset=True)
 
 # Suppress Known Lightning Internal Warning
-warnings.filterwarnings(
-    "ignore",
-    message=r"`isinstance\(treespec, LeafSpec\)` is deprecated.*",
-    category=FutureWarning,
-    module=r"lightning\.pytorch\.utilities\._pytree",
-)
-
+warnings.filterwarnings("ignore", message=r"`isinstance\(treespec, LeafSpec\)` is deprecated.*", category=FutureWarning, module=r"lightning\.pytorch\.utilities\._pytree")
 
 def format_terminal_value(value: object) -> str:
 
     """ Format Terminal Value """
 
     if isinstance(value, float):
-        if abs(value) >= 1.0e-4:
-            return f"{value:.6f}"
+
+        # Format Float With 6 Decimal Places If Not Too Small, Otherwise Use Scientific Notation
+        if abs(value) >= 1.0e-4:return f"{value:.6f}"
         return f"{value:.6e}"
 
     if isinstance(value, Path):
         return str(value)
 
     if isinstance(value, (list, tuple)):
+
+        # Recursively Format Each Item In The List Or Tuple
         formatted_value_list = [format_terminal_value(item) for item in value]
         return "[" + ", ".join(formatted_value_list) + "]"
 
@@ -172,48 +155,40 @@ def suppress_lightning_info_logs() -> Iterator[None]:
     # Store Current Logger Levels
     logger_state_list: list[tuple[logging.Logger, int]] = []
 
+    # Set Lightning Loggers To Warning Level To Suppress Info Logs
     for logger_name in LIGHTNING_INFO_LOGGER_NAME_LIST:
         lightning_logger = logging.getLogger(logger_name)
         logger_state_list.append((lightning_logger, lightning_logger.level))
         lightning_logger.setLevel(logging.WARNING)
 
     try:
+
         yield
+
     finally:
 
         # Restore Previous Logger Levels
         for lightning_logger, previous_log_level in logger_state_list:
             lightning_logger.setLevel(previous_log_level)
 
-def print_feature_statistics(
-    feature_name_list: list[str],
-    mean_value_list: list[float],
-    std_value_list: list[float],
-) -> None:
+def print_feature_statistics(feature_name_list: list[str], mean_value_list: list[float], std_value_list: list[float]) -> None:
 
     """ Print Feature Statistics """
 
     for feature_name, feature_mean, feature_std in zip(feature_name_list, mean_value_list, std_value_list):
-        print_key_value(
-            label=f"{feature_name} | mean",
-            value=feature_mean,
-            value_color=Fore.YELLOW,
-        )
-        print_key_value(
-            label=f"{feature_name} | std",
-            value=feature_std,
-            value_color=Fore.YELLOW,
-        )
+
+        print_key_value(label=f"{feature_name} | mean", value=feature_mean, value_color=Fore.YELLOW)
+        print_key_value(label=f"{feature_name} | std", value=feature_std, value_color=Fore.YELLOW)
 
 def print_training_configuration_summary(training_config: dict) -> None:
 
     """ Print Training Configuration Summary """
 
     # Read Config Sections
-    path_config = training_config["paths"]
-    experiment_config = training_config["experiment"]
-    dataset_config = training_config["dataset"]
-    model_config = training_config["model"]
+    path_config         = training_config["paths"]
+    experiment_config   = training_config["experiment"]
+    dataset_config      = training_config["dataset"]
+    model_config        = training_config["model"]
     optimization_config = training_config["training"]
 
     # Print Config Overview
@@ -259,11 +234,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
     print_key_value("Fast Dev Run", optimization_config["fast_dev_run"], value_color=Fore.YELLOW)
     print_key_value("Deterministic", optimization_config["deterministic"], value_color=Fore.YELLOW)
 
-def print_dataset_summary(
-    datamodule: TransmissionErrorDataModule,
-    input_feature_dim: int,
-    target_feature_dim: int,
-) -> None:
+def print_dataset_summary(datamodule: TransmissionErrorDataModule, input_feature_dim: int, target_feature_dim: int) -> None:
 
     """ Print Dataset Summary """
 
@@ -292,9 +263,7 @@ def print_model_summary(regression_backbone: torch.nn.Module) -> None:
     print_key_value("Frozen Parameters", frozen_parameter_count, value_color=Fore.YELLOW)
     print_key_value("Total Parameters", total_parameter_count, value_color=Fore.YELLOW)
 
-def print_normalization_statistics_summary(
-    normalization_statistics,
-) -> None:
+def print_normalization_statistics_summary(normalization_statistics) -> None:
 
     """ Print Normalization Statistics Summary """
 
@@ -323,16 +292,11 @@ def print_runtime_summary() -> None:
     print_section_header("Runtime Summary")
     print_key_value("CUDA Available", torch.cuda.is_available(), value_color=Fore.YELLOW)
     print_key_value("CUDA Device Count", torch.cuda.device_count(), value_color=Fore.YELLOW)
-    if torch.cuda.is_available():
-        print_key_value("CUDA Device Name", torch.cuda.get_device_name(0), value_color=Fore.YELLOW)
-    else:
-        print_warning_message("CUDA is not available -> training will run on CPU")
 
-def print_output_artifact_summary(
-    output_directory: Path,
-    logger: TensorBoardLogger,
-    best_model_path: str,
-) -> None:
+    if torch.cuda.is_available(): print_key_value("CUDA Device Name", torch.cuda.get_device_name(0), value_color=Fore.YELLOW)
+    else: print_warning_message("CUDA is not available -> training will run on CPU")
+
+def print_output_artifact_summary(output_directory: Path, logger: TensorBoardLogger, best_model_path: str) -> None:
 
     """ Print Output Artifact Summary """
 
@@ -340,8 +304,8 @@ def print_output_artifact_summary(
     print_key_value("Output Directory", output_directory, value_color=Fore.YELLOW)
     print_key_value("Checkpoint Directory", output_directory / "checkpoints", value_color=Fore.YELLOW)
     print_key_value("Config Snapshot", output_directory / "feedforward_network_training.yaml", value_color=Fore.YELLOW)
-    if logger.log_dir:
-        print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
+
+    if logger.log_dir: print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
     print_key_value("Best Checkpoint", best_model_path, value_color=Fore.YELLOW)
 
 def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
@@ -405,16 +369,15 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Validate Model Input Size
     configured_input_size = int(training_config["model"]["input_size"])
-    assert configured_input_size == input_feature_dim, (
-        f"Configured Input Size and Dataset Input Feature Dim mismatch | "
-        f"{configured_input_size} vs {input_feature_dim}"
-    )
+    assert configured_input_size == input_feature_dim, (f"Configured Input Size and Dataset Input Feature Dim mismatch | {configured_input_size} vs {input_feature_dim}")
 
-    # Create Regression Model
+    # Create Regression Backbone Model
     regression_backbone = create_model(
         model_type=str(training_config["experiment"]["model_type"]),
         model_configuration=training_config["model"],
     )
+
+    # Create Regression Lightning Module
     regression_module = TransmissionErrorRegressionModule(
         regression_model=regression_backbone,
         input_feature_dim=input_feature_dim,
@@ -426,17 +389,15 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Print Training Summary
     print_training_configuration_summary(training_config=training_config)
-    print_dataset_summary(
-        datamodule=datamodule,
-        input_feature_dim=input_feature_dim,
-        target_feature_dim=target_feature_dim,
-    )
+    print_dataset_summary(datamodule=datamodule, input_feature_dim=input_feature_dim, target_feature_dim=target_feature_dim)
     print_model_summary(regression_backbone=regression_backbone)
     print_normalization_statistics_summary(normalization_statistics=normalization_statistics)
     print_runtime_summary()
 
-    # Create Logger And Callbacks
+    # Create Logger
     logger = TensorBoardLogger(save_dir=str(output_directory / "logs"), name="", version="")
+
+    # Checkpoint Callback To Save Best Model Based On Validation MAE, As Well As The Last Model For Resuming Training If Needed
     checkpoint_callback = ModelCheckpoint(
         dirpath=str(output_directory / "checkpoints"),
         filename="feedforward-{epoch:03d}-{val_mae:.8f}",
@@ -445,6 +406,8 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         save_top_k=1,
         save_last=True,
     )
+
+    # Early Stopping Callback To Stop Training If Validation MAE Does Not Improve For A Certain Number Of Epochs
     early_stopping_callback = EarlyStopping(
         monitor="val_mae",
         mode="min",
@@ -452,13 +415,16 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         min_delta=float(training_config["training"]["min_delta"]),
         verbose=True,
     )
+
+    # Progress Bar Callback To Display Training Progress
     progress_bar_callback = TQDMProgressBar(
         refresh_rate=PROGRESS_BAR_REFRESH_RATE,
         leave=True,
     )
 
-    # Create Trainer
+    # Create Trainer - Suppress Lightning Internal Info Logs To Reduce Terminal Clutter During Training
     with suppress_lightning_info_logs():
+
         trainer = Trainer(
             accelerator="auto",
             devices="auto",
@@ -491,26 +457,22 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Save Best Checkpoint Path
     best_model_path = checkpoint_callback.best_model_path
-    if not best_model_path:
-        best_model_path = "Best checkpoint not available | fast_dev_run or checkpointing disabled"
+    if not best_model_path: best_model_path = "Best checkpoint not available | fast_dev_run or checkpointing disabled"
 
+    # Save Best Checkpoint Path To File For Easy Reference
     best_model_path_file = output_directory / "best_checkpoint_path.txt"
     best_model_path_file.write_text(best_model_path, encoding="utf-8")
 
     # Save Last Logger Configuration
     if logger.log_dir:
+
         logger_directory = Path(logger.log_dir)
-        if logger_directory.exists():
-            shutil.copyfile(best_model_path_file, logger_directory / "best_checkpoint_path.txt")
+        if logger_directory.exists(): shutil.copyfile(best_model_path_file, logger_directory / "best_checkpoint_path.txt")
 
-    print_output_artifact_summary(
-        output_directory=output_directory,
-        logger=logger,
-        best_model_path=best_model_path,
-    )
+    print_output_artifact_summary(output_directory=output_directory, logger=logger, best_model_path=best_model_path)
     print_success_message("Feedforward training workflow completed")
-
 
 if __name__ == "__main__":
 
+    # Train Feedforward Network
     train_feedforward_network()
