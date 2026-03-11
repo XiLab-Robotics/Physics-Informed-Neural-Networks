@@ -36,6 +36,7 @@ def extract_point_tensor_from_curve_sample(
     point_stride: int = 1,
     maximum_points_per_curve: int | None = None,
 ) -> dict[str, torch.Tensor]:
+
     """ Extract Point Tensor From Curve Sample """
 
     # Validate Sampling Parameters
@@ -83,13 +84,13 @@ def extract_point_tensor_from_curve_sample(
         "angular_position_deg": point_angular_position_deg,
     }
 
-
 def collate_transmission_error_points(
     batch_dictionary_list: list[dict[str, Any]],
     point_stride: int = 1,
     maximum_points_per_curve: int | None = None,
     shuffle_points: bool = True,
 ) -> dict[str, Any]:
+
     """ Collate Transmission Error Points """
 
     # Validate Batch Input

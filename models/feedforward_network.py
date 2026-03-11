@@ -5,6 +5,7 @@ import torch.nn as nn
 
 
 def get_activation_module(activation_name: str) -> nn.Module:
+
     """ Get Activation Module """
 
     # Supported Activations
