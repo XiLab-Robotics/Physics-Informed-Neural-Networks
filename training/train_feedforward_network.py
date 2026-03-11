@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+from collections.abc import Iterator
 from contextlib import contextmanager
 import logging
 from pathlib import Path
@@ -164,7 +165,7 @@ def print_warning_message(message: str) -> None:
 
 
 @contextmanager
-def suppress_lightning_info_logs() -> None:
+def suppress_lightning_info_logs() -> Iterator[None]:
     """ Suppress Lightning Info Logs """
 
     # Store Current Logger Levels

@@ -66,6 +66,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for formalizing dependency tracking in the workflow and auditing current imports against `requirements.txt`.
 - [technical/2026-03-11-13-06-15_lightning_training_noise_followup.md](./technical/2026-03-11-13-06-15_lightning_training_noise_followup.md)
   Technical document for removing the remaining Lightning startup tip and `_pytree` sanity-check warning from feedforward training output.
+- [technical/2026-03-11-13-28-06_contextmanager_return_type_fix.md](./technical/2026-03-11-13-28-06_contextmanager_return_type_fix.md)
+  Technical document for correcting the generator-based context-manager return annotation in the training entry point.
 
 ### Script Documentation
 
