@@ -78,6 +78,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for propagating the broader manual coding style introduced in commit `228a999c94eb67d1c07eebfbd87c05903e99b694` to the remaining project scripts.
 - [technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md](./technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md)
   Technical document for updating the persistent programming style guide with the approved spacing rules and the broader manual refactoring conventions.
+- [technical/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md](./technical/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md)
+  Technical document for aligning the persistent programming style guide with the latest approved manual code-style refactoring commit.
 
 ### Script Documentation
 
