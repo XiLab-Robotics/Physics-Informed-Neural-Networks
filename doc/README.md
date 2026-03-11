@@ -70,6 +70,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for correcting the generator-based context-manager return annotation in the training entry point.
 - [technical/2026-03-11-13-36-18_function_definition_spacing_normalization.md](./technical/2026-03-11-13-36-18_function_definition_spacing_normalization.md)
   Technical document for normalizing blank-line spacing around top-level function definitions in the feedforward training entry point.
+- [technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md](./technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md)
+  Technical document for extending the approved function-spacing convention to all project-authored Python scripts.
 
 ### Script Documentation
 

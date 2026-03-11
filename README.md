@@ -183,6 +183,7 @@ Technical documents:
 * `doc/technical/2026-03-11-13-06-15_lightning_training_noise_followup.md`
 * `doc/technical/2026-03-11-13-28-06_contextmanager_return_type_fix.md`
 * `doc/technical/2026-03-11-13-36-18_function_definition_spacing_normalization.md`
+* `doc/technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md`
 
 Script documentation:
 
