@@ -70,4 +70,4 @@ Typical usage from the project root:
 conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
 
-The direct script command prints a compact terminal report before training, keeps the Lightning progress bars active, and avoids the previous raw configuration dump.
+The direct script command prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, and suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning.

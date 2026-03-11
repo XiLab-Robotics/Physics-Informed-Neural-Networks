@@ -427,6 +427,7 @@ This command:
 - computes training normalization statistics;
 - creates the feedforward model;
 - prints a compact colorized summary for configuration, dataset, normalization, runtime, and output artifacts;
+- suppresses the current low-signal Lightning `litlogger` startup tip and the known `_pytree` sanity-check warning;
 - starts Lightning training and validation;
 - writes artifacts under `output/feedforward_network/<run_name>/`.
 

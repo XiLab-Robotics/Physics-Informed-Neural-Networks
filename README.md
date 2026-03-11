@@ -180,6 +180,7 @@ Technical documents:
 * `doc/technical/2026-03-10-18-11-49_training_entry_point_import_fix.md`
 * `doc/technical/2026-03-10-18-35-11_training_terminal_output_cleanup.md`
 * `doc/technical/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md`
+* `doc/technical/2026-03-11-13-06-15_lightning_training_noise_followup.md`
 
 Script documentation:
 
