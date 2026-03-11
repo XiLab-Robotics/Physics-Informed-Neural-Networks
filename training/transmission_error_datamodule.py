@@ -20,7 +20,6 @@ from scripts.datasets.transmission_error_dataset import load_dataset_processing_
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 from scripts.datasets.transmission_error_dataset import split_directional_file_manifest
 
-
 @dataclass
 class NormalizationStatistics:
 
@@ -31,20 +30,13 @@ class NormalizationStatistics:
     target_mean: torch.Tensor
     target_std: torch.Tensor
 
-
-def extract_point_tensor_from_curve_sample(
-    curve_sample_dictionary: dict[str, Any],
-    point_stride: int = 1,
-    maximum_points_per_curve: int | None = None,
-) -> dict[str, torch.Tensor]:
+def extract_point_tensor_from_curve_sample(curve_sample_dictionary: dict[str, Any], point_stride: int = 1, maximum_points_per_curve: int | None = None) -> dict[str, torch.Tensor]:
 
     """ Extract Point Tensor From Curve Sample """
 
     # Validate Sampling Parameters
     assert point_stride > 0, f"Point Stride must be positive | {point_stride}"
-    if maximum_points_per_curve is not None: assert maximum_points_per_curve > 0, (
-        f"Maximum Points Per Curve must be positive | {maximum_points_per_curve}"
-    )
+    if maximum_points_per_curve is not None: assert maximum_points_per_curve > 0, (f"Maximum Points Per Curve must be positive | {maximum_points_per_curve}")
 
     # Extract Curve Tensors
     input_tensor = curve_sample_dictionary["input_tensor"].float()
@@ -55,9 +47,7 @@ def extract_point_tensor_from_curve_sample(
     assert input_tensor.ndim == 2, f"Input Tensor must be rank-2 | {tuple(input_tensor.shape)}"
     assert target_tensor.ndim == 2, f"Target Tensor must be rank-2 | {tuple(target_tensor.shape)}"
     assert angular_position_deg.ndim == 2, f"Angular Position Tensor must be rank-2 | {tuple(angular_position_deg.shape)}"
-    assert input_tensor.shape[0] == target_tensor.shape[0] == angular_position_deg.shape[0], (
-        "Input, Target, and Angular Position tensors must share the same sequence length"
-    )
+    assert input_tensor.shape[0] == target_tensor.shape[0] == angular_position_deg.shape[0], ("Input, Target, and Angular Position tensors must share the same sequence length")
 
     # Build Point Indices
     point_index_tensor = torch.arange(0, input_tensor.shape[0], point_stride, dtype=torch.long)
@@ -65,13 +55,9 @@ def extract_point_tensor_from_curve_sample(
 
     # Reduce Number Of Points Per Curve
     if maximum_points_per_curve is not None and len(point_index_tensor) > maximum_points_per_curve:
+
         # Distribute Reduced Indices Across The Full Curve Span
-        reduced_index_positions = torch.linspace(
-            0,
-            len(point_index_tensor) - 1,
-            steps=maximum_points_per_curve,
-            dtype=torch.float32,
-        ).round().long()
+        reduced_index_positions = torch.linspace(0, len(point_index_tensor) - 1, steps=maximum_points_per_curve, dtype=torch.float32,).round().long()
         point_index_tensor = point_index_tensor.index_select(0, reduced_index_positions)
 
     # Extract Point Tensors
@@ -85,12 +71,7 @@ def extract_point_tensor_from_curve_sample(
         "angular_position_deg": point_angular_position_deg,
     }
 
-def collate_transmission_error_points(
-    batch_dictionary_list: list[dict[str, Any]],
-    point_stride: int = 1,
-    maximum_points_per_curve: int | None = None,
-    shuffle_points: bool = True,
-) -> dict[str, Any]:
+def collate_transmission_error_points(batch_dictionary_list: list[dict[str, Any]], point_stride: int = 1, maximum_points_per_curve: int | None = None, shuffle_points: bool = True) -> dict[str, Any]:
 
     """ Collate Transmission Error Points """
 
@@ -105,12 +86,15 @@ def collate_transmission_error_points(
 
     # Extract Point Samples From Each Curve
     for curve_sample_dictionary in batch_dictionary_list:
+
+        # Extract Point Sample Dictionary From Curve Sample Dictionary
         point_sample_dictionary = extract_point_tensor_from_curve_sample(
             curve_sample_dictionary=curve_sample_dictionary,
             point_stride=point_stride,
             maximum_points_per_curve=maximum_points_per_curve,
         )
 
+        # Append Point Tensors To Batch Lists
         input_tensor_list.append(point_sample_dictionary["input_tensor"])
         target_tensor_list.append(point_sample_dictionary["target_tensor"])
         angular_position_tensor_list.append(point_sample_dictionary["angular_position_deg"])
@@ -123,6 +107,7 @@ def collate_transmission_error_points(
 
     # Shuffle Points Inside Batch
     if shuffle_points and input_tensor.shape[0] > 1:
+
         permutation_indices = torch.randperm(input_tensor.shape[0])
         input_tensor = input_tensor.index_select(0, permutation_indices)
         target_tensor = target_tensor.index_select(0, permutation_indices)
@@ -137,7 +122,6 @@ def collate_transmission_error_points(
         "direction_label": [curve_sample_dictionary["direction_label"] for curve_sample_dictionary in batch_dictionary_list],
         "source_file_path": [curve_sample_dictionary["source_file_path"] for curve_sample_dictionary in batch_dictionary_list],
     }
-
 
 class TransmissionErrorDataModule(LightningDataModule):
 
@@ -176,6 +160,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.normalization_statistics: NormalizationStatistics | None = None
 
     def setup(self, stage: str | None = None) -> None:
+
         """ Setup DataModule """
 
         # Skip Repeated Setup If Datasets Are Already Available
@@ -201,11 +186,13 @@ class TransmissionErrorDataModule(LightningDataModule):
             random_seed=int(dataset_processing_config["split"]["random_seed"]),
         )
 
-        # Build Dataset Objects
+        # Build Train Dataset Object
         self.train_dataset = TransmissionErrorCurveDataset(
             dataset_root=dataset_root,
             directional_file_manifest=train_directional_file_manifest,
         )
+
+        # Build Validation Dataset Object
         self.validation_dataset = TransmissionErrorCurveDataset(
             dataset_root=dataset_root,
             directional_file_manifest=validation_directional_file_manifest,
@@ -219,10 +206,8 @@ class TransmissionErrorDataModule(LightningDataModule):
         # Compute Normalization Statistics
         self.normalization_statistics = self.compute_normalization_statistics(self.train_dataset)
 
-    def compute_normalization_statistics(
-        self,
-        curve_dataset: TransmissionErrorCurveDataset,
-    ) -> NormalizationStatistics:
+    def compute_normalization_statistics(self, curve_dataset: TransmissionErrorCurveDataset) -> NormalizationStatistics:
+
         """ Compute Normalization Statistics """
 
         # Initialize Accumulators
@@ -234,6 +219,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
         # Scan Training Curves
         for curve_index in range(len(curve_dataset)):
+
             curve_sample_dictionary = curve_dataset[curve_index]
             point_sample_dictionary = extract_point_tensor_from_curve_sample(
                 curve_sample_dictionary=curve_sample_dictionary,
@@ -277,24 +263,28 @@ class TransmissionErrorDataModule(LightningDataModule):
         )
 
     def get_input_feature_dim(self) -> int:
+
         """ Get Input Feature Dim """
 
         assert self.input_feature_dim is not None, "Input Feature Dim is not available before setup"
         return self.input_feature_dim
 
     def get_target_feature_dim(self) -> int:
+
         """ Get Target Feature Dim """
 
         assert self.target_feature_dim is not None, "Target Feature Dim is not available before setup"
         return self.target_feature_dim
 
     def get_normalization_statistics(self) -> NormalizationStatistics:
+
         """ Get Normalization Statistics """
 
         assert self.normalization_statistics is not None, "Normalization Statistics are not available before setup"
         return self.normalization_statistics
 
     def train_dataloader(self) -> DataLoader:
+
         """ Train Dataloader """
 
         assert self.train_dataset is not None, "Train Dataset is not initialized"
@@ -315,6 +305,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         )
 
     def val_dataloader(self) -> DataLoader:
+
         """ Validation Dataloader """
 
         assert self.validation_dataset is not None, "Validation Dataset is not initialized"

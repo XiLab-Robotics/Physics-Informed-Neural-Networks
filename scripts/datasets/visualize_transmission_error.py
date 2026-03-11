@@ -1,18 +1,15 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse
+import sys, argparse, yaml
 from pathlib import Path
-import sys
 
 # Import Plotting Utilities
 import matplotlib
+import matplotlib.pyplot as plt
 
 # Use Non-Interactive Backend When The Figure Will Be Written To Disk
 if "--save-path" in sys.argv: matplotlib.use("Agg")
-
-import matplotlib.pyplot as plt
-import yaml
 
 # Import Dataset Utilities
 from scripts.datasets.transmission_error_dataset import build_validated_directional_samples
@@ -20,11 +17,9 @@ from scripts.datasets.transmission_error_dataset import collect_dataset_csv_path
 from scripts.datasets.transmission_error_dataset import load_dataset_processing_config
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 
-
 PACKAGE_PATH = Path(__file__).resolve().parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
 DEFAULT_VISUALIZATION_CONFIG_PATH = PROJECT_PATH / "config" / "visualization.yaml"
-
 
 def load_visualization_config(config_path: str | Path = DEFAULT_VISUALIZATION_CONFIG_PATH) -> dict:
 
@@ -59,18 +54,21 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=DEFAULT_VISUALIZATION_CONFIG_PATH,
         help="Path to the visualization YAML configuration file.",
     )
+
     argument_parser.add_argument(
         "--csv-path",
         type=Path,
         default=None,
         help="Optional path to a specific CSV file to visualize.",
     )
+
     argument_parser.add_argument(
         "--file-index",
         type=int,
         default=None,
         help="Dataset CSV index used when --csv-path is not provided.",
     )
+
     argument_parser.add_argument(
         "--save-path",
         type=Path,
@@ -80,16 +78,13 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
     return argument_parser.parse_args()
 
-def resolve_csv_file_path(
-    dataset_root: Path,
-    csv_path: Path | None,
-    file_index: int,
-) -> Path:
+def resolve_csv_file_path(dataset_root: Path, csv_path: Path | None, file_index: int) -> Path:
 
     """ Resolve CSV File Path """
 
     # Return Explicit CSV Path
     if csv_path is not None:
+
         resolved_csv_path = csv_path.resolve()
         assert resolved_csv_path.exists(), f"CSV Path does not exist | {resolved_csv_path}"
         return resolved_csv_path
@@ -124,9 +119,12 @@ def visualize_transmission_error_curves(
 
         # Select Direction-Specific Plot Style
         if transmission_error_curve_sample.direction_label == "forward":
+
             line_color = "tab:blue"
             line_label = "Forward TE"
+
         else:
+
             line_color = "tab:orange"
             line_label = "Backward TE"
 
@@ -156,8 +154,8 @@ def visualize_transmission_error_curves(
         resolved_save_path.parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(resolved_save_path, dpi=figure_dpi)
         print(f"Saved Transmission Error plot | {resolved_save_path}")
-    else:
-        plt.show()
+
+    else: plt.show()
 
     plt.close()
 
@@ -176,13 +174,12 @@ def main() -> None:
 
     # Resolve Runtime Parameters
     dataset_root = resolve_project_relative_path(dataset_processing_config["paths"]["dataset_root"])
-    file_index = (
-        int(command_line_arguments.file_index)
-        if command_line_arguments.file_index is not None
-        else int(visualization_config["selection"]["file_index"])
-    )
+    file_index = (int(command_line_arguments.file_index) if command_line_arguments.file_index is not None else int(visualization_config["selection"]["file_index"]))
     save_path = command_line_arguments.save_path
+
     if save_path is None:
+
+        # Resolve Save Path From Config
         configured_save_path = visualization_config["output"]["save_path"]
         save_path = None if configured_save_path in ["", None] else Path(configured_save_path)
 
@@ -202,6 +199,6 @@ def main() -> None:
         figure_dpi=int(visualization_config["plot"]["figure_dpi"]),
     )
 
-
 if __name__ == "__main__":
+
     main()

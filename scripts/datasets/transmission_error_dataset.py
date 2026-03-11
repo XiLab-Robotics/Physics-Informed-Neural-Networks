@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import random
-import re
+import re, random
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -17,7 +16,6 @@ import yaml
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-
 PACKAGE_PATH = Path(__file__).resolve().parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "dataset_processing.yaml"
@@ -30,23 +28,17 @@ BACKWARD_DIRECTION = "backward"
 FORWARD_DIRECTION_FLAG = 1.0
 BACKWARD_DIRECTION_FLAG = -1.0
 
-FILENAME_PATTERN = re.compile(
-    r"(?P<speed_rpm>[0-9.]+)rpm(?P<torque_nm>[0-9.]+)Nm(?P<temperature_deg>[0-9.]+)deg\.csv$"
-)
+FILENAME_PATTERN = re.compile(r"(?P<speed_rpm>[0-9.]+)rpm(?P<torque_nm>[0-9.]+)Nm(?P<temperature_deg>[0-9.]+)deg\.csv$")
 
 # Keep compatibility with the original dataset header typo while also accepting
 # the corrected spelling if a future normalized dataset version is introduced.
-FORWARD_POSITION_COLUMN_CANDIDATES = [
-    "Poisition_Output_Reducer_Fw",
-    "Position_Output_Reducer_Fw",
-]
+FORWARD_POSITION_COLUMN_CANDIDATES = ["Poisition_Output_Reducer_Fw", "Position_Output_Reducer_Fw"]
 
 VALIDATED_COLUMN_MAP = {
     "Transmission_Error_Fw": "transmission_error_fw_deg",
     "Position_Output_Reducer_Bw": "position_output_reducer_bw_deg",
     "Transmission_Error_Bw": "transmission_error_bw_deg",
 }
-
 
 @dataclass(frozen=True)
 class TransmissionErrorCurveSample:
@@ -61,7 +53,6 @@ class TransmissionErrorCurveSample:
     oil_temperature_deg: float
     angular_position_deg: np.ndarray
     transmission_error_deg: np.ndarray
-
 
 def resolve_project_relative_path(path_value: str | Path) -> Path:
 
@@ -181,25 +172,14 @@ def load_validated_te_dataframe(csv_file_path: str) -> pd.DataFrame:
     # Validate Remaining Columns
     csv_columns = set(validated_dataframe.columns.tolist())
     expected_columns = set(VALIDATED_COLUMN_MAP.keys()) | {forward_position_column}
-    assert csv_columns == expected_columns, (
-        f"Unexpected CSV columns detected | Expected: {sorted(expected_columns)} | Given: {sorted(csv_columns)}"
-    )
+    assert csv_columns == expected_columns, (f"Unexpected CSV columns detected | Expected: {sorted(expected_columns)} | Given: {sorted(csv_columns)}")
 
     # Normalize Column Names
-    validated_dataframe = validated_dataframe.rename(
-        columns={
-            forward_position_column: "position_output_reducer_fw_deg",
-            **VALIDATED_COLUMN_MAP,
-        }
-    )
+    validated_dataframe = validated_dataframe.rename(columns={forward_position_column: "position_output_reducer_fw_deg", **VALIDATED_COLUMN_MAP})
 
     return validated_dataframe
 
-def compute_transmission_error(
-    theta_input_deg: np.ndarray,
-    theta_output_deg: np.ndarray,
-    reduction_ratio: float = REDUCTION_RATIO,
-) -> np.ndarray:
+def compute_transmission_error(theta_input_deg: np.ndarray, theta_output_deg: np.ndarray, reduction_ratio: float = REDUCTION_RATIO) -> np.ndarray:
 
     """ Compute Transmission Error """
 
@@ -208,21 +188,14 @@ def compute_transmission_error(
     theta_output_deg = np.asarray(theta_output_deg, dtype=np.float64)
 
     # Validate Input Shape
-    assert theta_input_deg.shape == theta_output_deg.shape, (
-        f"Theta Input and Theta Output shape mismatch | {theta_input_deg.shape} vs {theta_output_deg.shape}"
-    )
+    assert theta_input_deg.shape == theta_output_deg.shape, (f"Theta Input and Theta Output shape mismatch | {theta_input_deg.shape} vs {theta_output_deg.shape}")
 
     # Compute Transmission Error
     transmission_error_deg = theta_output_deg - reduction_ratio * theta_input_deg
 
     return transmission_error_deg
 
-def extract_valid_rotation_window(
-    output_position_deg: np.ndarray,
-    data_valid_flag: np.ndarray,
-    minimum_position_deg: float = 0.0,
-    maximum_position_deg: float = 360.0,
-) -> np.ndarray:
+def extract_valid_rotation_window(output_position_deg: np.ndarray, data_valid_flag: np.ndarray, minimum_position_deg: float = 0.0, maximum_position_deg: float = 360.0) -> np.ndarray:
 
     """ Extract Valid Rotation Window """
 
@@ -231,9 +204,7 @@ def extract_valid_rotation_window(
     data_valid_flag = np.asarray(data_valid_flag).astype(bool)
 
     # Validate Input Shape
-    assert output_position_deg.shape == data_valid_flag.shape, (
-        f"Output Position and DataValid shape mismatch | {output_position_deg.shape} vs {data_valid_flag.shape}"
-    )
+    assert output_position_deg.shape == data_valid_flag.shape, (f"Output Position and DataValid shape mismatch | {output_position_deg.shape} vs {data_valid_flag.shape}")
 
     # Build DataValid Mask
     valid_data_mask = data_valid_flag
@@ -268,10 +239,7 @@ def build_raw_directional_sample(
     assert direction_label in [FORWARD_DIRECTION, BACKWARD_DIRECTION], f"Unsupported Direction Label | {direction_label}"
 
     # Extract Valid Rotation Window
-    valid_rotation_mask = extract_valid_rotation_window(
-        output_position_deg=output_position_deg,
-        data_valid_flag=data_valid_flag,
-    )
+    valid_rotation_mask = extract_valid_rotation_window(output_position_deg=output_position_deg, data_valid_flag=data_valid_flag)
 
     # Compute Transmission Error
     transmission_error_deg = compute_transmission_error(
@@ -302,10 +270,7 @@ def build_raw_directional_sample(
         transmission_error_deg=transmission_error_deg,
     )
 
-def build_validated_directional_sample(
-    csv_file_path: str | Path,
-    direction_label: str,
-) -> TransmissionErrorCurveSample:
+def build_validated_directional_sample(csv_file_path: str | Path, direction_label: str) -> TransmissionErrorCurveSample:
 
     """ Build Validated Directional Sample """
 
@@ -323,11 +288,14 @@ def build_validated_directional_sample(
 
     # Select Direction Columns
     if direction_label == FORWARD_DIRECTION:
-        angular_position_key  = "position_output_reducer_fw_deg"
+
+        angular_position_key   = "position_output_reducer_fw_deg"
         transmission_error_key = "transmission_error_fw_deg"
         direction_flag         = FORWARD_DIRECTION_FLAG
+
     else:
-        angular_position_key  = "position_output_reducer_bw_deg"
+
+        angular_position_key   = "position_output_reducer_bw_deg"
         transmission_error_key = "transmission_error_bw_deg"
         direction_flag         = BACKWARD_DIRECTION_FLAG
 
@@ -377,11 +345,7 @@ def build_validated_directional_samples(csv_file_path: str | Path) -> list[Trans
 
     return [forward_sample, backward_sample]
 
-def build_directional_file_manifest(
-    dataset_root: str | Path = DEFAULT_DATASET_PATH,
-    use_forward_direction: bool = True,
-    use_backward_direction: bool = True,
-) -> list[tuple[Path, str]]:
+def build_directional_file_manifest(dataset_root: str | Path = DEFAULT_DATASET_PATH, use_forward_direction: bool = True, use_backward_direction: bool = True) -> list[tuple[Path, str]]:
 
     """ Build Directional File Manifest """
 
@@ -393,7 +357,10 @@ def build_directional_file_manifest(
 
     # Build Manifest
     directional_file_manifest: list[tuple[Path, str]] = []
+
     for csv_file_path in csv_file_paths:
+
+        # Validate CSV File By Attempting To Build Directional Samples
         if use_forward_direction: directional_file_manifest.append((csv_file_path, FORWARD_DIRECTION))
         if use_backward_direction: directional_file_manifest.append((csv_file_path, BACKWARD_DIRECTION))
 
@@ -416,16 +383,17 @@ class TransmissionErrorCurveDataset(Dataset):
         self.use_forward_direction = use_forward_direction
         self.use_backward_direction = use_backward_direction
 
-        # Build Directional Manifest
         if directional_file_manifest is None:
+
+            # Build Directional Manifest
             built_manifest = build_directional_file_manifest(
                 dataset_root=self.dataset_root,
                 use_forward_direction=self.use_forward_direction,
                 use_backward_direction=self.use_backward_direction,
             )
-        else:
-            # Resolve Manifest Paths Before Saving Them
-            built_manifest = [(Path(csv_file_path).resolve(), direction_label) for csv_file_path, direction_label in directional_file_manifest]
+
+        # Resolve Manifest Paths Before Saving Them
+        else: built_manifest = [(Path(csv_file_path).resolve(), direction_label) for csv_file_path, direction_label in directional_file_manifest]
 
         # Save Manifest
         self.directional_file_manifest = built_manifest
@@ -434,21 +402,20 @@ class TransmissionErrorCurveDataset(Dataset):
         assert len(self.directional_file_manifest) > 0, "Directional File Manifest is empty"
 
     def __len__(self) -> int:
+
         """ Return Dataset Length """
 
         return len(self.directional_file_manifest)
 
     def __getitem__(self, dataset_index: int) -> dict[str, Any]:
+
         """ Return Dataset Item """
 
         # Parse Manifest Entry
         csv_file_path, direction_label = self.directional_file_manifest[dataset_index]
 
         # Build Directional Sample
-        transmission_error_curve_sample = build_validated_directional_sample(
-            csv_file_path=csv_file_path,
-            direction_label=direction_label,
-        )
+        transmission_error_curve_sample = build_validated_directional_sample(csv_file_path=csv_file_path, direction_label=direction_label)
 
         # Build Input Feature Matrix
         sequence_length = transmission_error_curve_sample.angular_position_deg.shape[0]
@@ -495,10 +462,7 @@ def collate_transmission_error_curves(batch_dictionary_list: list[dict[str, Any]
 
     # Collect Batch Dimensions
     batch_size = len(batch_dictionary_list)
-    sequence_length_tensor = torch.tensor(
-        [sample_dictionary["sequence_length"] for sample_dictionary in batch_dictionary_list],
-        dtype=torch.long,
-    )
+    sequence_length_tensor = torch.tensor([sample_dictionary["sequence_length"] for sample_dictionary in batch_dictionary_list], dtype=torch.long)
     maximum_sequence_length = int(sequence_length_tensor.max().item())
     input_feature_dim = batch_dictionary_list[0]["input_tensor"].shape[-1]
     target_feature_dim = batch_dictionary_list[0]["target_tensor"].shape[-1]
@@ -511,6 +475,7 @@ def collate_transmission_error_curves(batch_dictionary_list: list[dict[str, Any]
 
     # Fill Padded Tensors
     for batch_index, sample_dictionary in enumerate(batch_dictionary_list):
+
         current_sequence_length = int(sample_dictionary["sequence_length"])
 
         input_tensor[batch_index, :current_sequence_length] = sample_dictionary["input_tensor"]
@@ -526,10 +491,7 @@ def collate_transmission_error_curves(batch_dictionary_list: list[dict[str, Any]
         "sequence_length": sequence_length_tensor,
         "speed_rpm": torch.tensor([sample_dictionary["speed_rpm"] for sample_dictionary in batch_dictionary_list], dtype=torch.float32),
         "torque_nm": torch.tensor([sample_dictionary["torque_nm"] for sample_dictionary in batch_dictionary_list], dtype=torch.float32),
-        "oil_temperature_deg": torch.tensor(
-            [sample_dictionary["oil_temperature_deg"] for sample_dictionary in batch_dictionary_list],
-            dtype=torch.float32,
-        ),
+        "oil_temperature_deg": torch.tensor([sample_dictionary["oil_temperature_deg"] for sample_dictionary in batch_dictionary_list], dtype=torch.float32),
         "direction_flag": torch.tensor([sample_dictionary["direction_flag"] for sample_dictionary in batch_dictionary_list], dtype=torch.float32),
         "direction_label": [sample_dictionary["direction_label"] for sample_dictionary in batch_dictionary_list],
         "source_file_path": [sample_dictionary["source_file_path"] for sample_dictionary in batch_dictionary_list],
@@ -556,11 +518,7 @@ def flatten_curve_batch(curve_batch_dictionary: dict[str, Any]) -> dict[str, tor
         "angular_position_deg": flattened_angular_position_deg,
     }
 
-def split_directional_file_manifest(
-    directional_file_manifest: list[tuple[Path, str]],
-    validation_split: float = 0.2,
-    random_seed: int = 42,
-) -> tuple[list[tuple[Path, str]], list[tuple[Path, str]]]:
+def split_directional_file_manifest(directional_file_manifest: list[tuple[Path, str]], validation_split: float = 0.2, random_seed: int = 42) -> tuple[list[tuple[Path, str]], list[tuple[Path, str]]]:
 
     """ Split Directional File Manifest """
 
@@ -582,16 +540,8 @@ def split_directional_file_manifest(
     validation_csv_file_paths = set(unique_csv_file_paths[:validation_file_count])
 
     # Split Manifest
-    train_directional_file_manifest = [
-        (csv_file_path, direction_label)
-        for csv_file_path, direction_label in directional_file_manifest
-        if csv_file_path not in validation_csv_file_paths
-    ]
-    validation_directional_file_manifest = [
-        (csv_file_path, direction_label)
-        for csv_file_path, direction_label in directional_file_manifest
-        if csv_file_path in validation_csv_file_paths
-    ]
+    train_directional_file_manifest = [(csv_file_path, direction_label) for csv_file_path, direction_label in directional_file_manifest if csv_file_path not in validation_csv_file_paths]
+    validation_directional_file_manifest = [(csv_file_path, direction_label) for csv_file_path, direction_label in directional_file_manifest if csv_file_path in validation_csv_file_paths]
 
     # Validate Split Results
     assert len(train_directional_file_manifest) > 0, "Train Directional File Manifest is empty"
@@ -626,16 +576,10 @@ def create_transmission_error_dataloaders(
     )
 
     # Build Dataset Objects
-    train_dataset = TransmissionErrorCurveDataset(
-        dataset_root=dataset_root,
-        directional_file_manifest=train_directional_file_manifest,
-    )
-    validation_dataset = TransmissionErrorCurveDataset(
-        dataset_root=dataset_root,
-        directional_file_manifest=validation_directional_file_manifest,
-    )
+    train_dataset = TransmissionErrorCurveDataset(dataset_root=dataset_root, directional_file_manifest=train_directional_file_manifest)
+    validation_dataset = TransmissionErrorCurveDataset(dataset_root=dataset_root, directional_file_manifest=validation_directional_file_manifest)
 
-    # Build DataLoaders
+    # Build Train DataLoader
     train_dataloader = DataLoader(
         train_dataset,
         batch_size=batch_size,
@@ -643,6 +587,8 @@ def create_transmission_error_dataloaders(
         num_workers=num_workers,
         collate_fn=collate_transmission_error_curves,
     )
+
+    # Build Validation DataLoader
     validation_dataloader = DataLoader(
         validation_dataset,
         batch_size=batch_size,
@@ -658,9 +604,7 @@ def create_transmission_error_dataloaders(
         "validation_dataloader": validation_dataloader,
     }
 
-def create_transmission_error_dataloaders_from_config(
-    config_path: str | Path = DEFAULT_CONFIG_PATH,
-) -> dict[str, Any]:
+def create_transmission_error_dataloaders_from_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
 
     """ Create Transmission Error Dataloaders From Config """
 

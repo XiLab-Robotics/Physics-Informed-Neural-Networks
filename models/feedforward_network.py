@@ -3,7 +3,6 @@ from __future__ import annotations
 # Import PyTorch Utilities
 import torch.nn as nn
 
-
 def get_activation_module(activation_name: str) -> nn.Module:
 
     """ Get Activation Module """
@@ -21,7 +20,6 @@ def get_activation_module(activation_name: str) -> nn.Module:
     assert activation_key in activation_module_map, f"Unsupported Activation Name | {activation_name}"
 
     return activation_module_map[activation_key]()
-
 
 class FeedForwardNetwork(nn.Module):
 
@@ -83,6 +81,7 @@ class FeedForwardNetwork(nn.Module):
         self.network = nn.Sequential(*network_layers)
 
     def forward(self, input_tensor):
+
         """ Forward Pass """
 
         return self.network(input_tensor)

@@ -10,7 +10,6 @@ import torch.nn as nn
 # Import DataModule Utilities
 from training.transmission_error_datamodule import NormalizationStatistics
 
-
 class TransmissionErrorRegressionModule(LightningModule):
 
     """ Transmission Error Regression Module """
@@ -53,6 +52,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         if normalization_statistics is not None: self.set_normalization_statistics(normalization_statistics)
 
     def set_normalization_statistics(self, normalization_statistics: NormalizationStatistics) -> None:
+
         """ Set Normalization Statistics """
 
         # Validate Statistics Shapes
@@ -83,29 +83,34 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.normalization_statistics_initialized = True
 
     def normalize_input_tensor(self, input_tensor: torch.Tensor) -> torch.Tensor:
+
         """ Normalize Input Tensor """
 
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
         return (input_tensor - self.input_feature_mean) / self.input_feature_std
 
     def normalize_target_tensor(self, target_tensor: torch.Tensor) -> torch.Tensor:
+
         """ Normalize Target Tensor """
 
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
         return (target_tensor - self.target_mean) / self.target_std
 
     def denormalize_target_tensor(self, normalized_target_tensor: torch.Tensor) -> torch.Tensor:
+
         """ Denormalize Target Tensor """
 
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
         return (normalized_target_tensor * self.target_std) + self.target_mean
 
     def forward(self, normalized_input_tensor: torch.Tensor) -> torch.Tensor:
+
         """ Forward Pass """
 
         return self.regression_model(normalized_input_tensor)
 
     def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
+
         """ Compute Loss """
 
         # Extract Batch Tensors
@@ -136,21 +141,20 @@ class TransmissionErrorRegressionModule(LightningModule):
         return loss
 
     def training_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
+
         """ Training Step """
 
         return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="train")
 
     def validation_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
+
         """ Validation Step """
 
         return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="val")
 
     def configure_optimizers(self):
+
         """ Configure Optimizers """
 
         # Configure AdamW Optimizer
-        return torch.optim.AdamW(
-            self.parameters(),
-            lr=float(self.hparams.learning_rate),
-            weight_decay=float(self.hparams.weight_decay),
-        )
+        return torch.optim.AdamW(self.parameters(), lr=float(self.hparams.learning_rate), weight_decay=float(self.hparams.weight_decay))

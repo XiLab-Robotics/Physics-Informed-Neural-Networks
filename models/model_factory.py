@@ -9,7 +9,6 @@ import torch.nn as nn
 # Import Project Models
 from models.feedforward_network import FeedForwardNetwork
 
-
 def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Module:
 
     """ Create Model """
