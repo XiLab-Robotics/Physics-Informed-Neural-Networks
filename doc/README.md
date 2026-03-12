@@ -116,6 +116,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for refining the three configuration tables so each one repeats the config name and uses more consistent centered alignment.
 - [technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md](./technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md)
   Technical document for declaring the approved analytical PDF as the project golden standard and encoding its style rules for future reports.
+- [technical/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md](./technical/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md)
+  Technical document for refactoring the styled PDF exporter to match repository coding style and clarifying that the style rules also apply to utility/report scripts.
 
 ### Script Documentation
 
