@@ -193,6 +193,7 @@ Technical documents:
 * `doc/technical/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md`
 * `doc/technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
 * `doc/technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
+* `doc/technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md`
 
 Script documentation:
 
@@ -238,11 +239,15 @@ The following rules are mandatory for all future project work:
   * `Involved Components`
   * `Implementation Steps`
 * Every newly created technical project document must be added as a reference in this main project document.
+* Before executing any training campaign, a preliminary planning report must be created in `doc/reports/` describing the relevant parameters, their effects, and the candidate configuration table to be tested.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
+* No training campaign should be executed before the user has explicitly approved both the technical document and the preliminary training-planning report for that campaign.
 * Every user-requested repository change must follow this sequence:
   * create the technical project document first;
+  * if the request includes training execution, create the preliminary planning report in `doc/reports/` before requesting approval;
   * wait for explicit user approval;
   * execute the approved modifications;
+  * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/` with metrics tables, interpretation, best-configuration summary, and future improvement proposals;
   * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
   * if the approved work introduces a new third-party library, update `requirements.txt` and every relevant setup or usage reference before the final commit;
   * create a Git commit immediately after the modifications are completed.

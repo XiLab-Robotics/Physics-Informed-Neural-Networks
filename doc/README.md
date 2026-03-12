@@ -90,6 +90,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for executing and comparing the pending baseline and workstation-oriented feedforward training variants.
 - [technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md](./technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md)
   Technical document for executing a mixed campaign that combines longer schedules, denser point sampling, larger batches, and larger feedforward models.
+- [technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md](./technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md)
+  Technical document for making preliminary planning reports and final results reports mandatory companions to every future training campaign.
 
 ### Script Documentation
 
