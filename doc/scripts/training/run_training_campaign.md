@@ -1,0 +1,88 @@
+# Training Campaign Runner
+
+## Overview
+
+This script executes multiple training YAML files one by one through a persistent filesystem queue.
+
+It is stored in:
+
+- `training/run_training_campaign.py`
+
+The runner is meant for long unattended campaigns where the user wants to prepare several configurations in advance and collect an indexed execution report afterward.
+
+## Main Role
+
+The script coordinates the batch-training flow:
+
+1. optionally copy selected YAML files into the pending queue;
+2. discover queued YAML files in `config/training/queue/pending/`;
+3. move each file into `running/` before execution;
+4. dispatch the YAML to the correct training entry point based on `experiment.model_type`;
+5. capture the terminal output into a campaign log file;
+6. move the YAML into `completed/` or `failed/`;
+7. write a campaign manifest and markdown execution report.
+
+## Main Components Used
+
+### `config/training/feedforward/presets/`
+
+Reusable feedforward training presets that should be copied into the queue when preparing a campaign.
+
+### `config/training/queue/`
+
+Persistent queue folders:
+
+- `pending/`
+- `running/`
+- `completed/`
+- `failed/`
+
+### `training/train_feedforward_network.py`
+
+Current single-run feedforward training entry point reused by the batch runner through a subprocess.
+
+### `output/training_campaigns/`
+
+Campaign-level artifact root that stores:
+
+- `campaign_manifest.yaml`
+- `campaign_execution_report.md`
+- `logs/*.log`
+
+## Outputs
+
+For each batch execution, the runner generates:
+
+- a queue-state transition for every YAML file;
+- a campaign manifest with machine-readable run metadata;
+- a campaign markdown report summarizing all runs;
+- one terminal log per queued YAML file;
+- references to the per-run training artifacts already produced by the underlying trainer.
+
+## Practical Use
+
+Queue existing presets without executing them yet:
+
+```powershell
+python training/run_training_campaign.py `
+  config/training/feedforward/presets/baseline.yaml `
+  config/training/feedforward/presets/high_epoch.yaml `
+  --enqueue-only
+```
+
+Process everything currently waiting in the pending queue:
+
+```powershell
+python training/run_training_campaign.py
+```
+
+Queue selected presets and execute them immediately in the same command:
+
+```powershell
+python training/run_training_campaign.py `
+  config/training/feedforward/presets/baseline.yaml `
+  config/training/feedforward/presets/high_density.yaml `
+  --campaign-name feedforward_density_check
+```
+
+The generated campaign report is intended to be the technical source index for the mandatory final report in `doc/reports/campaign_results/`.

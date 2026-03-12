@@ -1,17 +1,17 @@
 paths:
-  dataset_config_path: config/dataset_processing.yaml
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
   output_root: output/feedforward_network
 
 experiment:
-  run_name: te_feedforward_high_epoch
+  run_name: te_feedforward_trial
   model_type: feedforward
 
 dataset:
-  curve_batch_size: 2
-  point_stride: 20
-  maximum_points_per_curve: null
-  num_workers: 8
-  pin_memory: true
+  curve_batch_size: 8
+  point_stride: 200
+  maximum_points_per_curve: 200
+  num_workers: 0
+  pin_memory: false
 
 model:
   input_size: 5
@@ -27,9 +27,9 @@ model:
 training:
   learning_rate: 0.001
   weight_decay: 0.0001
-  min_epochs: 20
-  max_epochs: 250
-  patience: 35
+  min_epochs: 3
+  max_epochs: 12
+  patience: 3
   min_delta: 1.0e-5
   log_every_n_steps: 1
   fast_dev_run: false

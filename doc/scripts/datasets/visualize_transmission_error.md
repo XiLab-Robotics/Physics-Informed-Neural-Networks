@@ -14,8 +14,8 @@ The script is intended to provide a quick visual inspection tool for the process
 
 The script:
 
-- reads YAML runtime settings from `config/visualization.yaml`;
-- reads the dataset root through `config/dataset_processing.yaml`;
+- reads YAML runtime settings from `config/visualization/transmission_error_visualization.yaml`;
+- reads the dataset root through `config/datasets/transmission_error_dataset.yaml`;
 - selects one CSV file either by path or by file index;
 - loads forward and backward TE curves;
 - plots TE against output position;
@@ -62,8 +62,8 @@ Coordinates configuration loading, CSV selection, and plotting.
 ### Inputs
 
 - validated TE CSV files in `data/datasets`
-- visualization config in `config/visualization.yaml`
-- dataset config in `config/dataset_processing.yaml`
+- visualization config in `config/visualization/transmission_error_visualization.yaml`
+- dataset config in `config/datasets/transmission_error_dataset.yaml`
 
 ### Outputs
 

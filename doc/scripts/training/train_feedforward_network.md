@@ -26,7 +26,7 @@ The script coordinates the full baseline-training flow:
 
 ## Main Components Used
 
-### `config/feedforward_network_training.yaml`
+### `config/training/feedforward/presets/baseline.yaml`
 
 Provides:
 
@@ -75,10 +75,16 @@ Typical usage from the project root:
 conda run -n standard_ml_codex_env python training/train_feedforward_network.py
 ```
 
+To run an explicit configuration path from the command line:
+
+```powershell
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/high_epoch.yaml
+```
+
 To run the lighter proof configuration used for a quick end-to-end verification:
 
 ```powershell
-conda run -n standard_ml_codex_env python -c "from training.train_feedforward_network import train_feedforward_network; train_feedforward_network('config/feedforward_network_training_trial.yaml')"
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 The training entry point prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning, and writes both validation and test results for the selected best checkpoint.

@@ -208,12 +208,14 @@ Technical documents:
   * `doc/technical/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md`
   * `doc/technical/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md`
   * `doc/technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md`
+  * `doc/technical/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md`
 
 Script documentation:
 
 * `doc/scripts/datasets/transmission_error_dataset.md`
 * `doc/scripts/datasets/visualize_transmission_error.md`
 * `doc/scripts/training/train_feedforward_network.md`
+* `doc/scripts/training/run_training_campaign.md`
 
 Reports:
 

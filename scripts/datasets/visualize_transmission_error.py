@@ -19,7 +19,7 @@ from scripts.datasets.transmission_error_dataset import resolve_project_relative
 
 PACKAGE_PATH = Path(__file__).resolve().parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
-DEFAULT_VISUALIZATION_CONFIG_PATH = PROJECT_PATH / "config" / "visualization.yaml"
+DEFAULT_VISUALIZATION_CONFIG_PATH = PROJECT_PATH / "config" / "visualization" / "transmission_error_visualization.yaml"
 
 def load_visualization_config(config_path: str | Path = DEFAULT_VISUALIZATION_CONFIG_PATH) -> dict:
 

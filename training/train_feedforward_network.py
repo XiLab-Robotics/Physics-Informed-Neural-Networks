@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import sys, shutil, logging, warnings
+import sys, shutil, logging, warnings, argparse
 from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
@@ -63,7 +63,7 @@ from scripts.datasets.transmission_error_dataset import resolve_project_relative
 from training.transmission_error_datamodule import TransmissionErrorDataModule
 from training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
-DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "feedforward_network_training.yaml"
+DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "training" / "feedforward" / "presets" / "baseline.yaml"
 SECTION_DIVIDER_WIDTH = 96
 KEY_LABEL_WIDTH = 34
 PROGRESS_BAR_REFRESH_RATE = 10
@@ -651,7 +651,33 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     print_output_artifact_summary(output_directory=output_directory, logger=logger, best_model_path=best_model_path)
     print_success_message("Feedforward training workflow completed")
 
-if __name__ == "__main__":
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """ Parse Command Line Arguments """
+
+    # Initialize Argument Parser
+    argument_parser = argparse.ArgumentParser(description="Train the feedforward Transmission Error baseline.")
+
+    # Add Config Path Argument
+    argument_parser.add_argument(
+        "--config-path",
+        type=Path,
+        default=DEFAULT_CONFIG_PATH,
+        help="Path to the YAML training configuration file.",
+    )
+
+    return argument_parser.parse_args()
+
+def main() -> None:
+
+    """ Main Function """
+
+    # Parse Command Line Arguments
+    command_line_arguments = parse_command_line_arguments()
 
     # Train Feedforward Network
-    train_feedforward_network()
+    train_feedforward_network(config_path=command_line_arguments.config_path)
+
+if __name__ == "__main__":
+
+    main()

@@ -8,7 +8,8 @@ At the moment, the implemented workflows are:
 
 - dataset processing through the validated TE dataset utilities;
 - dataset visualization through the TE plotting script;
-- feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline.
+- feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline;
+- persistent batch training campaigns through a queue-based runner.
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility.
 
 Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
@@ -42,7 +43,7 @@ python -c "import torch, lightning, pandas, matplotlib, colorama; print(torch.__
 
 The current dataset path is configured in:
 
-- `config/dataset_processing.yaml`
+- `config/datasets/transmission_error_dataset.yaml`
 
 The default repository setting is:
 
@@ -72,13 +73,22 @@ The current usage flow mainly relies on these folders:
   Neural-network backbones and the model factory.
 
 - `config/`
-  YAML files for dataset processing, visualization, and training configuration.
+  YAML files grouped by dataset, visualization, and training workflows.
+
+- `config/training/feedforward/presets/`
+  Reusable feedforward training presets.
+
+- `config/training/queue/`
+  Persistent batch-training queue folders.
 
 - `data/datasets/`
   Validated Transmission Error CSV dataset.
 
 - `output/`
   Generated artifacts such as plots, logs, and model checkpoints.
+
+- `output/training_campaigns/`
+  Campaign-level manifests, markdown execution reports, and batch logs.
 
 - `doc/`
   Technical, script-level, and user-facing documentation.
@@ -168,7 +178,7 @@ Important dataset note:
 
 The processing settings are stored in:
 
-- `config/dataset_processing.yaml`
+- `config/datasets/transmission_error_dataset.yaml`
 
 Current configurable sections:
 
@@ -214,7 +224,7 @@ python -c "from scripts.datasets.transmission_error_dataset import create_transm
 
 What this does:
 
-- reads `config/dataset_processing.yaml`;
+- reads `config/datasets/transmission_error_dataset.yaml`;
 - collects CSV files from the configured dataset root;
 - creates forward and backward directional samples;
 - splits the files into train, validation, and test sets;
@@ -296,7 +306,7 @@ This script:
 
 The visualization settings are stored in:
 
-- `config/visualization.yaml`
+- `config/visualization/transmission_error_visualization.yaml`
 
 Main configurable fields:
 
@@ -328,7 +338,7 @@ python -m scripts.datasets.visualize_transmission_error --save-path output\te_cu
 
 What happens:
 
-- the script reads the default YAML files in `config/`;
+- the script reads the default YAML files in `config/visualization/` and `config/datasets/`;
 - it selects the dataset file indicated by `selection.file_index`;
 - it generates forward and backward TE curves;
 - it saves the image to `output\te_curve.png`.
@@ -377,7 +387,7 @@ The training stack is composed of:
 - `training/transmission_error_regression_module.py`
   Generic Lightning regression module with normalization, loss computation, optimizer setup, and validation metrics.
 
-- `config/feedforward_network_training.yaml`
+- `config/training/feedforward/presets/baseline.yaml`
   Main training configuration file for the baseline.
 
 ## Current Baseline Assumptions
@@ -397,17 +407,17 @@ This is the first baseline only. It does not replace the future need for LSTM, R
 
 The training settings are stored in:
 
-- `config/feedforward_network_training.yaml`
+- `config/training/feedforward/presets/baseline.yaml`
 
 An additional lighter proof-run configuration is also available in:
 
-- `config/feedforward_network_training_trial.yaml`
+- `config/training/feedforward/presets/trial.yaml`
 
 More aggressive workstation-oriented variants are also available in:
 
-- `config/feedforward_network_training_high_density.yaml`
-- `config/feedforward_network_training_high_epoch.yaml`
-- `config/feedforward_network_training_high_compute.yaml`
+- `config/training/feedforward/presets/high_density.yaml`
+- `config/training/feedforward/presets/high_epoch.yaml`
+- `config/training/feedforward/presets/high_compute.yaml`
 
 Main configurable sections:
 
@@ -497,8 +507,8 @@ The direct script execution shown above is supported from the repository root. T
 
 This command:
 
-- loads `config/feedforward_network_training.yaml`;
-- builds the datamodule from `config/dataset_processing.yaml`;
+- loads `config/training/feedforward/presets/baseline.yaml`;
+- builds the datamodule from `config/datasets/transmission_error_dataset.yaml`;
 - uses `validation_split` plus `test_split` from the dataset config to create three file-level subsets;
 - uses `num_workers: 4` and `pin_memory: true` in the point-wise dataloaders by default;
 - enables `persistent_workers` internally when dataloader multiprocessing is active;
@@ -532,7 +542,7 @@ Typical artifacts now include:
 If you want a faster verification run before trying the default baseline, use the trial config:
 
 ```powershell
-conda run -n standard_ml_codex_env python -c "from training.train_feedforward_network import train_feedforward_network; train_feedforward_network('config/feedforward_network_training_trial.yaml')"
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 This proof configuration:
@@ -547,7 +557,7 @@ This proof configuration:
 
 If the workstation has strong CPU and GPU resources, the repository now also provides three heavier training configurations.
 
-### `config/feedforward_network_training_high_density.yaml`
+### `config/training/feedforward/presets/high_density.yaml`
 
 Use this when the first priority is denser sampling of each TE curve:
 
@@ -557,7 +567,7 @@ Use this when the first priority is denser sampling of each TE curve:
 
 This is the recommended first upgrade over the baseline when the goal is to test whether more curve detail improves the results.
 
-### `config/feedforward_network_training_high_epoch.yaml`
+### `config/training/feedforward/presets/high_epoch.yaml`
 
 Use this when the first priority is a longer convergence window:
 
@@ -567,7 +577,7 @@ Use this when the first priority is a longer convergence window:
 
 This is useful when the baseline appears stable but not yet fully converged.
 
-### `config/feedforward_network_training_high_compute.yaml`
+### `config/training/feedforward/presets/high_compute.yaml`
 
 Use this when the goal is to push both data density and model capacity:
 
@@ -590,17 +600,17 @@ These values were selected as the first practical tuning step after the initial 
 - `num_workers: 4` reduces dataloader bottlenecks without jumping immediately to aggressive multiprocessing values on Windows;
 - `pin_memory: true` is appropriate when the training run uses CUDA, which is the current expected setup for this repository.
 
-If the project is later executed on CPU-only hardware or on a different workstation, these values can still be adjusted directly in `config/feedforward_network_training.yaml`.
+If the project is later executed on CPU-only hardware or on a different workstation, these values can still be adjusted directly in `config/training/feedforward/presets/baseline.yaml`.
 
 ## Run Training With A Custom Config Path
 
 If you want to launch the same workflow with a different YAML file:
 
 ```powershell
-conda run -n standard_ml_codex_env python -c "from training.train_feedforward_network import train_feedforward_network; train_feedforward_network(r'config\feedforward_network_training.yaml')"
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/baseline.yaml
 ```
 
-This is the current way to override the training config path because the script does not yet expose CLI arguments for that option.
+The script now exposes `--config-path`, so custom YAML files can be launched directly without using `python -c`.
 
 ## Typical Training Outputs
 
@@ -642,13 +652,87 @@ The Lightning regression module currently logs:
 
 The best checkpoint and early stopping are both driven by `val_mae`.
 
+## Batch Training Campaigns
+
+## What The Batch Runner Does
+
+The batch training entry point is:
+
+- `training/run_training_campaign.py`
+
+This runner:
+
+- optionally copies one or more YAML files into the queue;
+- executes queued YAML files sequentially;
+- moves each configuration across `pending/`, `running/`, `completed/`, and `failed/`;
+- captures one terminal log per queue item;
+- generates a campaign manifest and markdown execution report under `output/training_campaigns/`.
+
+## Queue Layout
+
+The persistent queue folders are:
+
+- `config/training/queue/pending/`
+- `config/training/queue/running/`
+- `config/training/queue/completed/`
+- `config/training/queue/failed/`
+
+Keep reusable presets under:
+
+- `config/training/feedforward/presets/`
+
+Copy presets into `pending/` when preparing a campaign. Do not move the canonical preset files themselves.
+
+## Queue Presets Without Running Them Yet
+
+```powershell
+python training/run_training_campaign.py `
+  config/training/feedforward/presets/baseline.yaml `
+  config/training/feedforward/presets/high_epoch.yaml `
+  --enqueue-only
+```
+
+## Run Everything Currently Pending
+
+```powershell
+python training/run_training_campaign.py
+```
+
+## Queue And Run In One Command
+
+```powershell
+python training/run_training_campaign.py `
+  config/training/feedforward/presets/baseline.yaml `
+  config/training/feedforward/presets/high_density.yaml `
+  --campaign-name feedforward_density_check
+```
+
+## Batch Runner Outputs
+
+Each campaign writes a new folder under:
+
+- `output/training_campaigns/`
+
+Typical generated artifacts:
+
+- `campaign_manifest.yaml`
+  Machine-readable index of executed queue items and artifact paths.
+
+- `campaign_execution_report.md`
+  Human-readable execution report listing what was tested and where the per-run results are stored.
+
+- `logs/*.log`
+  Full terminal output captured for each queued YAML file.
+
+Use the generated campaign execution report as the source index for the required final report in `doc/reports/campaign_results/`.
+
 ## Typical Workflow For The Current Project
 
 If you want to inspect the dataset and train the current baseline, use this sequence:
 
 1. Activate the environment.
-2. Check `config/dataset_processing.yaml`.
-3. Check `config/feedforward_network_training.yaml`.
+2. Check `config/datasets/transmission_error_dataset.yaml`.
+3. Check `config/training/feedforward/presets/baseline.yaml`.
 4. Inspect one dataset batch if needed.
 5. Visualize one or more TE curves.
 6. Start the feedforward Lightning training run.

@@ -18,7 +18,7 @@ from torch.utils.data import DataLoader, Dataset
 
 PACKAGE_PATH = Path(__file__).resolve().parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
-DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "dataset_processing.yaml"
+DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "datasets" / "transmission_error_dataset.yaml"
 DEFAULT_DATASET_PATH = PROJECT_PATH / "data" / "datasets"
 REDUCTION_RATIO = 81.0
 

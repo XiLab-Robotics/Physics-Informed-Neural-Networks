@@ -35,7 +35,7 @@ Loads the YAML configuration used for dataset paths and dataloader settings.
 
 ### `resolve_dataset_root_from_config`
 
-Reads the dataset root directly from `config/dataset_processing.yaml`.
+Reads the dataset root directly from `config/datasets/transmission_error_dataset.yaml`.
 
 ### `collect_dataset_csv_paths`
 
@@ -117,7 +117,7 @@ Builds train and validation dataloaders directly from the YAML configuration fil
 ### Inputs
 
 - validated TE CSV files in `data/datasets`
-- YAML config in `config/dataset_processing.yaml`
+- YAML config in `config/datasets/transmission_error_dataset.yaml`
 
 ### Outputs
 

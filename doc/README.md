@@ -122,6 +122,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for changing the repository workflow so every Git commit requires a final explicit user approval after the work is completed.
 - [technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md](./technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md)
   Technical document for shortening the styled PDF exporter comments and aligning the persistent coding-style rules with the latest user-approved manual refactor.
+- [technical/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md](./technical/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md)
+  Technical document for reorganizing `config/`, introducing a queue-based batch training workflow, and generating campaign execution reports for later post-training analysis.
 
 ### Script Documentation
 
@@ -131,6 +133,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the TE curve visualization utility.
 - [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
+- [scripts/training/run_training_campaign.md](./scripts/training/run_training_campaign.md)
+  Script-level documentation for the persistent queue-based batch training runner.
 
 ### Reports
 
