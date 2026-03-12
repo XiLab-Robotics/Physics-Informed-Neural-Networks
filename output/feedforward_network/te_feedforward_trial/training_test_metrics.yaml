@@ -1,0 +1,32 @@
+run_name: te_feedforward_trial
+best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\feedforward_network\te_feedforward_trial\checkpoints\feedforward-epoch=003-val_mae=0.00375716.ckpt
+dataset_split:
+  train_curves: 1356
+  validation_curves: 388
+  test_curves: 194
+normalization_statistics:
+  input_feature_mean:
+  - 179.10281372070312
+  - 703.3919677734375
+  - 893.3742065429688
+  - 30.1460018157959
+  - 1.1977195754298009e-05
+  input_feature_std:
+  - 104.2593994140625
+  - 479.4212951660156
+  - 545.5789184570312
+  - 4.0999555587768555
+  - 1.0
+  target_mean:
+  - -0.01749577187001705
+  target_std:
+  - 0.04559748247265816
+validation_metrics:
+  val_loss: 0.011192978359758854
+  val_mae: 0.0037571617867797613
+  val_rmse: 0.0045546977780759335
+test_metrics:
+  test_loss: 0.009340869262814522
+  test_mae: 0.003583362093195319
+  test_rmse: 0.004295234568417072
