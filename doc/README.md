@@ -82,6 +82,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for aligning the persistent programming style guide with the latest approved manual code-style refactoring commit.
 - [technical/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md](./technical/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md)
   Technical document for adding a proof feedforward training run, a held-out test phase, and a per-run result report artifact.
+- [technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md](./technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md)
+  Technical document for writing a full analytical report of the feedforward proof run with narrative interpretation and comparison against the reference papers.
 
 ### Script Documentation
 
@@ -91,6 +93,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the TE curve visualization utility.
 - [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
+
+### Reports
+
+- [reports/2026-03-12-feedforward_trial_analytical_report.md](./reports/2026-03-12-feedforward_trial_analytical_report.md)
+  Full analytical report for the executed feedforward proof run, including interpretation and comparison against the reference papers.
 
 ### Guides
 

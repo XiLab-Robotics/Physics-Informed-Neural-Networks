@@ -189,12 +189,17 @@ Technical documents:
 * `doc/technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md`
 * `doc/technical/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md`
 * `doc/technical/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md`
+* `doc/technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md`
 
 Script documentation:
 
 * `doc/scripts/datasets/transmission_error_dataset.md`
 * `doc/scripts/datasets/visualize_transmission_error.md`
 * `doc/scripts/training/train_feedforward_network.md`
+
+Reports:
+
+* `doc/reports/2026-03-12-feedforward_trial_analytical_report.md`
 
 Guides:
 
