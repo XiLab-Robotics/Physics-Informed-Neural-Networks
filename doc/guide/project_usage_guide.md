@@ -9,6 +9,7 @@ At the moment, the implemented workflows are:
 - dataset processing through the validated TE dataset utilities;
 - dataset visualization through the TE plotting script;
 - feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline.
+- styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility.
 
 Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
 
@@ -61,6 +62,9 @@ The current usage flow mainly relies on these folders:
 - `scripts/datasets/`
   Dataset processing and visualization utilities.
 
+- `scripts/reports/`
+  Styled report-export utilities.
+
 - `training/`
   PyTorch Lightning training entry point, datamodule, and regression module.
 
@@ -78,6 +82,52 @@ The current usage flow mainly relies on these folders:
 
 - `doc/`
   Technical, script-level, and user-facing documentation.
+
+- `doc/reports/analysis/`
+  Analytical reports and their polished PDF artifacts.
+
+## Styled Report PDF Export
+
+## What The Styled PDF Export Does
+
+The styled PDF export entry point is:
+
+- `scripts/reports/generate_styled_report_pdf.py`
+
+This utility:
+
+- reads a canonical Markdown report;
+- converts the supported Markdown structure into styled HTML;
+- applies a print-oriented visual layout with stronger hierarchy and table rendering;
+- exports the final PDF through headless Chrome or Edge.
+
+The current main target is:
+
+- `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
+
+## Regenerate The Styled Training-Configuration PDF
+
+```powershell
+python scripts/reports/generate_styled_report_pdf.py `
+  --input-markdown-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md `
+  --output-html-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report_preview.html `
+  --output-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
+  --report-subtitle "Feedforward Transmission Error Baseline" `
+  --report-category "Analysis Report" `
+  --keep-html
+```
+
+What this does:
+
+- preserves the Markdown file as the canonical content source;
+- regenerates a styled HTML preview;
+- overwrites the PDF with the improved visual layout.
+
+Notes:
+
+- the script auto-detects local Chrome or Edge installations on Windows;
+- if both are missing, the export will fail until a compatible browser path is provided explicitly;
+- the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.
 
 ## Dataset Processing
 

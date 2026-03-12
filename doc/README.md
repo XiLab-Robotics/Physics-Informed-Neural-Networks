@@ -104,6 +104,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for renaming the current report files so they include the full timestamp in their filenames.
 - [technical/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md](./technical/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md)
   Technical document for reorganizing the technical-document tree by day and the report tree by report type.
+- [technical/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md](./technical/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md)
+  Technical document for regenerating the training-configuration analysis PDF with a much stronger visual layout and print-oriented styling.
 
 ### Script Documentation
 
