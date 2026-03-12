@@ -1,0 +1,33 @@
+paths:
+  dataset_config_path: config/dataset_processing.yaml
+  output_root: output/feedforward_network
+experiment:
+  run_name: te_feedforward_high_compute
+  model_type: feedforward
+dataset:
+  curve_batch_size: 6
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 256
+  - 256
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+training:
+  learning_rate: 0.0007
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false

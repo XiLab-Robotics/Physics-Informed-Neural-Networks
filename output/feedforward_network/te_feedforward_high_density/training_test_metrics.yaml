@@ -1,0 +1,32 @@
+run_name: te_feedforward_high_density
+best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\feedforward_network\te_feedforward_high_density\checkpoints\feedforward-epoch=041-val_mae=0.00307732.ckpt
+dataset_split:
+  train_curves: 1356
+  validation_curves: 388
+  test_curves: 194
+normalization_statistics:
+  input_feature_mean:
+  - 179.94888305664062
+  - 497.88775634765625
+  - 896.0166625976562
+  - 30.364072799682617
+  - -7.554168064416444e-07
+  input_feature_std:
+  - 103.92868041992188
+  - 466.8202819824219
+  - 543.8321533203125
+  - 4.080521583557129
+  - 1.0
+  target_mean:
+  - -0.017238687723875046
+  target_std:
+  - 0.04652012884616852
+validation_metrics:
+  val_loss: 0.007662465330213308
+  val_mae: 0.003077319823205471
+  val_rmse: 0.0036415494978427887
+test_metrics:
+  test_loss: 0.008528306148946285
+  test_mae: 0.0035189990885555744
+  test_rmse: 0.0040460145100951195
