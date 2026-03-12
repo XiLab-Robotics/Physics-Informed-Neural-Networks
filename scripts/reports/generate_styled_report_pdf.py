@@ -6,6 +6,7 @@ import argparse
 import html
 import re
 import subprocess
+import tempfile
 
 from pathlib import Path
 from typing import Sequence
@@ -311,7 +312,9 @@ def render_paragraph(paragraph_lines: Sequence[str]) -> str:
     normalized_word_count = len(paragraph_text.rstrip(":").split())
 
     if paragraph_text.endswith(":") and normalized_word_count <= 6:
-        return f'<p class="block-label">{convert_inline_markup(paragraph_text[:-1])}</p>'
+        label_text = convert_inline_markup(paragraph_text[:-1])
+
+        return f'<p class="block-label">{label_text}</p>'
 
     return f'<p>{convert_inline_markup(paragraph_text)}</p>'
 
@@ -327,16 +330,53 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
     report_title = markdown_lines[0][2:].strip()
     body_lines = markdown_lines[1:]
     current_index = 0
-    body_html_tokens: list[str] = []
     paragraph_lines: list[str] = []
-    current_section_open = False
+    document_html_tokens: list[str] = []
+    current_section_title = ""
+    current_section_slug = ""
+    current_section_body_tokens: list[str] = []
+    current_subsection_title = ""
+    current_subsection_body_tokens: list[str] = []
 
     def flush_paragraph() -> None:
         nonlocal paragraph_lines
 
         if paragraph_lines:
-            body_html_tokens.append(render_paragraph(paragraph_lines))
+            target_token_list = current_subsection_body_tokens if current_subsection_title else current_section_body_tokens
+            target_token_list.append(render_paragraph(paragraph_lines))
             paragraph_lines = []
+
+    def flush_subsection() -> None:
+        nonlocal current_subsection_title, current_subsection_body_tokens
+
+        flush_paragraph()
+
+        if not current_subsection_title:
+            return
+
+        if current_subsection_body_tokens:
+            subsection_title_html = convert_inline_markup(current_subsection_title)
+            current_section_body_tokens.append(
+                f'<div class="subsection-block"><h3>{subsection_title_html}</h3>{"".join(current_subsection_body_tokens)}</div>'
+            )
+
+        current_subsection_title = ""
+        current_subsection_body_tokens = []
+
+    def flush_section() -> None:
+        nonlocal current_section_title, current_section_slug, current_section_body_tokens
+
+        flush_subsection()
+
+        if current_section_title and current_section_body_tokens:
+            section_title_html = convert_inline_markup(current_section_title)
+            document_html_tokens.append(
+                f'<section class="section-card section-{current_section_slug}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'
+            )
+
+        current_section_title = ""
+        current_section_slug = ""
+        current_section_body_tokens = []
 
     while current_index < len(body_lines):
         current_line = body_lines[current_index].rstrip()
@@ -348,49 +388,39 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
             continue
 
         if current_line.startswith("## "):
-            flush_paragraph()
-
-            if current_section_open:
-                body_html_tokens.append("</section>")
-
-            section_title = current_line[3:].strip()
-            section_slug = slugify(section_title)
-            body_html_tokens.append(
-                f'<section class="section-card section-{section_slug}"><h2>{convert_inline_markup(section_title)}</h2>'
-            )
-            current_section_open = True
+            flush_section()
+            current_section_title = current_line[3:].strip()
+            current_section_slug = slugify(current_section_title)
             current_index += 1
             continue
 
         if current_line.startswith("### "):
-            flush_paragraph()
-            subsection_title = current_line[4:].strip()
-            body_html_tokens.append(f"<h3>{convert_inline_markup(subsection_title)}</h3>")
+            flush_subsection()
+            current_subsection_title = current_line[4:].strip()
             current_index += 1
             continue
 
         if is_table_row(current_line):
             flush_paragraph()
             table_html, current_index = render_table(body_lines, current_index)
-            body_html_tokens.append(table_html)
+            target_token_list = current_subsection_body_tokens if current_subsection_title else current_section_body_tokens
+            target_token_list.append(table_html)
             continue
 
         if is_list_item(current_line):
             flush_paragraph()
             indentation_width, _, _ = get_list_item_metadata(current_line)
             list_html, current_index = render_list(body_lines, current_index, indentation_width)
-            body_html_tokens.append(list_html)
+            target_token_list = current_subsection_body_tokens if current_subsection_title else current_section_body_tokens
+            target_token_list.append(list_html)
             continue
 
         paragraph_lines.append(current_line)
         current_index += 1
 
-    flush_paragraph()
+    flush_section()
 
-    if current_section_open:
-        body_html_tokens.append("</section>")
-
-    return report_title, "\n".join(body_html_tokens)
+    return report_title, "\n".join(document_html_tokens)
 
 
 def build_html_document(
@@ -414,7 +444,7 @@ def build_html_document(
   <style>
     @page {{
       size: A4;
-      margin: 16mm 15mm 18mm 15mm;
+      margin: 13mm 10mm 15mm 10mm;
     }}
 
     * {{
@@ -424,18 +454,16 @@ def build_html_document(
     html {{
       print-color-adjust: exact;
       -webkit-print-color-adjust: exact;
-      background: #eef2f1;
+      background: #ffffff;
     }}
 
     body {{
       margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-      color: #1e2a29;
-      background:
-        radial-gradient(circle at top left, rgba(222, 160, 87, 0.14), transparent 34%),
-        linear-gradient(180deg, #f7f5ef 0%, #f2f0e8 100%);
-      line-height: 1.56;
-      font-size: 11pt;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: #16193B;
+      background: #ffffff;
+      line-height: 1.48;
+      font-size: 9.35pt;
     }}
 
     .page-shell {{
@@ -443,121 +471,114 @@ def build_html_document(
     }}
 
     .hero {{
-      position: relative;
-      overflow: hidden;
-      padding: 22px 24px 20px 24px;
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(18, 65, 67, 0.96) 0%, rgba(35, 92, 97, 0.92) 48%, rgba(165, 106, 54, 0.88) 100%);
-      color: #f5efe2;
-      box-shadow: 0 16px 38px rgba(37, 52, 51, 0.18);
-      margin-bottom: 18px;
-    }}
-
-    .hero::after {{
-      content: "";
-      position: absolute;
-      inset: auto -36px -30px auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      filter: blur(1px);
+      padding: 16px 18px 15px 18px;
+      border-radius: 14px;
+      border: 1px solid #7FB2F0;
+      background: linear-gradient(180deg, #35478C 0%, #16193B 100%);
+      color: #ffffff;
+      margin-bottom: 14px;
     }}
 
     .hero-badge {{
       display: inline-block;
-      padding: 6px 10px;
+      padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-      font-size: 9pt;
+      background: rgba(173, 213, 247, 0.16);
+      border: 1px solid rgba(173, 213, 247, 0.36);
+      font-size: 7.6pt;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }}
 
     .hero h1 {{
-      margin: 0 0 8px 0;
-      font-family: "Segoe UI Semibold", "Trebuchet MS", sans-serif;
-      font-size: 24pt;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      margin: 0 0 5px 0;
+      font-family: "Segoe UI Semibold", "Arial", sans-serif;
+      font-size: 19pt;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
     }}
 
     .hero-subtitle {{
-      margin: 0 0 12px 0;
-      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-      font-size: 11pt;
-      color: rgba(255, 246, 228, 0.9);
+      margin: 0 0 8px 0;
+      font-size: 9.2pt;
+      color: rgba(255, 255, 255, 0.86);
     }}
 
     .hero-note {{
       margin: 0;
-      max-width: 86%;
-      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-      font-size: 9.5pt;
-      color: rgba(255, 246, 228, 0.84);
+      max-width: 88%;
+      font-size: 8.2pt;
+      color: rgba(255, 255, 255, 0.76);
     }}
 
     .section-card {{
-      break-inside: avoid;
-      margin: 0 0 14px 0;
-      padding: 14px 16px 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(30, 42, 41, 0.08);
-      background: rgba(255, 255, 255, 0.76);
-      box-shadow: 0 8px 22px rgba(61, 73, 73, 0.08);
+      break-inside: auto;
+      margin: 0 0 10px 0;
+      padding: 11px 12px 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #ADD5F7;
+      background: #ffffff;
     }}
 
     h2 {{
-      margin: 0 0 12px 0;
-      padding-bottom: 8px;
-      border-bottom: 2px solid rgba(188, 123, 68, 0.22);
-      font-family: "Segoe UI Semibold", "Trebuchet MS", sans-serif;
-      font-size: 15pt;
-      line-height: 1.22;
-      color: #183c3d;
+      margin: 0 0 10px 0;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #7FB2F0;
+      font-family: "Segoe UI Semibold", "Arial", sans-serif;
+      font-size: 13.1pt;
+      line-height: 1.2;
+      color: #16193B;
+      break-after: avoid-page;
     }}
 
     h3 {{
-      margin: 16px 0 8px 0;
-      font-family: "Segoe UI Semibold", "Trebuchet MS", sans-serif;
-      font-size: 11.6pt;
-      color: #234d4d;
+      margin: 0 0 6px 0;
+      font-family: "Segoe UI Semibold", "Arial", sans-serif;
+      font-size: 10.3pt;
+      color: #35478C;
+      break-after: avoid-page;
     }}
 
     p {{
-      margin: 7px 0;
+      margin: 5px 0;
       orphans: 3;
       widows: 3;
     }}
 
     .block-label {{
-      margin: 14px 0 8px 0;
-      font-family: "Segoe UI Semibold", "Trebuchet MS", sans-serif;
-      font-size: 9.5pt;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #9a5a25;
+      margin: 8px 0 4px 0;
+      font-family: "Segoe UI Semibold", "Arial", sans-serif;
+      font-size: 8pt;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #4E7AC7;
+    }}
+
+    .subsection-block {{
+      break-inside: avoid-page;
+      margin: 10px 0 0 0;
+      padding: 9px 10px 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(173, 213, 247, 0.9);
+      background: #ffffff;
     }}
 
     .report-list {{
-      margin: 8px 0 10px 0;
-      padding-left: 22px;
+      margin: 4px 0 7px 0;
+      padding-left: 18px;
     }}
 
     .report-list li {{
-      margin: 5px 0;
-      padding-left: 3px;
+      margin: 3px 0;
+      padding-left: 2px;
     }}
 
     .report-list ul,
     .report-list ol {{
-      margin-top: 6px;
-      padding-left: 20px;
+      margin-top: 4px;
+      padding-left: 16px;
     }}
 
     .li-body {{
@@ -565,52 +586,75 @@ def build_html_document(
     }}
 
     .list-continuation {{
-      margin-top: 6px;
+      margin-top: 4px;
       margin-bottom: 0;
-      color: #334746;
+      color: #35478C;
     }}
 
     code {{
-      padding: 1px 6px 2px 6px;
-      border-radius: 6px;
-      background: rgba(24, 60, 61, 0.08);
-      color: #123c43;
+      padding: 1px 5px 2px 5px;
+      border-radius: 5px;
+      background: #F4F8FE;
+      color: #16193B;
       font-family: "Consolas", "Cascadia Mono", "Courier New", monospace;
-      font-size: 9.2pt;
+      font-size: 8.2pt;
+      word-break: break-word;
     }}
 
     strong {{
-      color: #173b3d;
+      color: #16193B;
     }}
 
     .table-wrap {{
-      margin: 12px 0 14px 0;
+      margin: 9px 0 10px 0;
       overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(24, 60, 61, 0.09);
-      background: #fffdf8;
+      border-radius: 10px;
+      border: 1px solid #ADD5F7;
+      background: #ffffff;
     }}
 
     .report-table {{
       width: 100%;
+      table-layout: fixed;
       border-collapse: collapse;
-      font-size: 9.25pt;
+      font-size: 7.2pt;
+      line-height: 1.26;
     }}
 
     .report-table thead {{
-      background: linear-gradient(180deg, #1f4c4f 0%, #2f6365 100%);
-      color: #fff8ec;
+      background: #35478C;
+      color: #ffffff;
     }}
 
     .report-table th,
     .report-table td {{
-      padding: 8px 9px;
-      border-bottom: 1px solid rgba(24, 60, 61, 0.09);
+      padding: 5px 5px;
+      border-bottom: 1px solid #D8E8FA;
       vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
     }}
 
     .report-table tbody tr:nth-child(even) {{
-      background: rgba(242, 235, 221, 0.42);
+      background: #F7FBFF;
+    }}
+
+    .report-table th:nth-child(1), .report-table td:nth-child(1) {{ width: 8%; }}
+    .report-table th:nth-child(2), .report-table td:nth-child(2) {{ width: 9%; }}
+    .report-table th:nth-child(3), .report-table td:nth-child(3) {{ width: 18%; }}
+    .report-table th:nth-child(4), .report-table td:nth-child(4) {{ width: 7%; }}
+    .report-table th:nth-child(5), .report-table td:nth-child(5) {{ width: 7%; }}
+    .report-table th:nth-child(6), .report-table td:nth-child(6) {{ width: 10%; }}
+    .report-table th:nth-child(7), .report-table td:nth-child(7) {{ width: 6%; }}
+    .report-table th:nth-child(8), .report-table td:nth-child(8) {{ width: 8%; }}
+    .report-table th:nth-child(9), .report-table td:nth-child(9) {{ width: 15%; }}
+    .report-table th:nth-child(10), .report-table td:nth-child(10) {{ width: 7%; }}
+    .report-table th:nth-child(11), .report-table td:nth-child(11) {{ width: 5%; }}
+
+    .report-table code {{
+      background: rgba(173, 213, 247, 0.18);
+      font-size: 7.1pt;
     }}
 
     .align-right {{
@@ -626,13 +670,11 @@ def build_html_document(
     }}
 
     .section-final-recommendation {{
-      border-color: rgba(188, 123, 68, 0.22);
-      background:
-        linear-gradient(180deg, rgba(255, 251, 244, 0.96) 0%, rgba(248, 243, 232, 0.92) 100%);
+      border-color: #7FB2F0;
     }}
 
     .section-comparing-trial-baseline-and-workstation-variants .table-wrap {{
-      box-shadow: inset 0 0 0 1px rgba(24, 60, 61, 0.04);
+      margin-bottom: 12px;
     }}
   </style>
 </head>
@@ -664,20 +706,24 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
     html_uri = html_path.resolve().as_uri()
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
 
-    subprocess.run(
-        [
-            str(browser_executable_path),
-            "--headless",
-            "--disable-gpu",
-            "--allow-file-access-from-files",
-            f"--print-to-pdf={pdf_path.resolve()}",
-            "--no-pdf-header-footer",
-            html_uri,
-        ],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    with tempfile.TemporaryDirectory(prefix="codex_report_chrome_") as temporary_profile_path:
+        subprocess.run(
+            [
+                str(browser_executable_path),
+                "--headless",
+                "--disable-gpu",
+                "--disable-breakpad",
+                "--disable-crash-reporter",
+                f"--user-data-dir={temporary_profile_path}",
+                "--allow-file-access-from-files",
+                f"--print-to-pdf={pdf_path.resolve()}",
+                "--no-pdf-header-footer",
+                html_uri,
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
 
 
 def main() -> None:

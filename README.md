@@ -200,6 +200,7 @@ Technical documents:
   * `doc/technical/2026-03-12/2026-03-12-15-36-51_report_filename_timestamp_normalization.md`
   * `doc/technical/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md`
   * `doc/technical/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md`
+  * `doc/technical/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md`
 
 Script documentation:
 

@@ -106,6 +106,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for reorganizing the technical-document tree by day and the report tree by report type.
 - [technical/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md](./technical/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md)
   Technical document for regenerating the training-configuration analysis PDF with a much stronger visual layout and print-oriented styling.
+- [technical/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md](./technical/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md)
+  Technical document for redesigning the analytical PDF again with a restrained blue palette, white background, better page flow, and more professional typography.
 
 ### Script Documentation
 
