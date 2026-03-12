@@ -105,6 +105,8 @@ The current main target is:
 
 - `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
 
+Treat that PDF as the project golden standard for future styled analytical reports.
+
 ## Regenerate The Styled Training-Configuration PDF
 
 ```powershell
@@ -126,6 +128,14 @@ What this does:
 Notes:
 
 - the script auto-detects local Chrome or Edge installations on Windows;
+- future styled analytical PDFs should preserve the same design direction:
+  - white page background with restrained blue accents;
+  - rounded section cards and professional typography;
+  - safe A4 margins with no clipped borders or overflowing content;
+  - split comparison tables when necessary for readability;
+  - repeated `Config` anchors across split comparison tables;
+  - centered alignment for comparison matrices when it improves readability;
+  - mandatory post-export inspection of the real PDF output.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
 - the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.
 

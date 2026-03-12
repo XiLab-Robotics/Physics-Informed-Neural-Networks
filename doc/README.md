@@ -114,6 +114,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for fixing the remaining technical-table fit issues in the analytical PDF and enforcing post-export PDF validation.
 - [technical/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md](./technical/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md)
   Technical document for refining the three configuration tables so each one repeats the config name and uses more consistent centered alignment.
+- [technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md](./technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md)
+  Technical document for declaring the approved analytical PDF as the project golden standard and encoding its style rules for future reports.
 
 ### Script Documentation
 
@@ -133,7 +135,7 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md](./reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md)
   Detailed explanation of the training configuration entries, their practical effects, and a comparison between trial, baseline, and heavier workstation-oriented variants.
 - [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf](./reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf)
-  PDF export of the detailed training-configuration analysis report.
+  PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 
 #### Campaign Plans
 
@@ -153,6 +155,7 @@ This folder contains the internal project documents derived from the reference P
 ## Usage
 
 - Use these documents as the working baseline for dataset interpretation, TE modeling, ML compensation, and code implementation choices.
+- Treat `reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the visual golden standard for future styled analytical PDF reports.
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.

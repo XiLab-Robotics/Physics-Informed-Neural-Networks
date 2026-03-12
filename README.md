@@ -204,6 +204,7 @@ Technical documents:
   * `doc/technical/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md`
   * `doc/technical/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md`
   * `doc/technical/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md`
+  * `doc/technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md`
 
 Script documentation:
 
@@ -216,7 +217,7 @@ Reports:
 * `Analysis`
   * `doc/reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
   * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
-  * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
+  * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` -> golden standard visual reference for future styled analytical PDFs
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 * `Campaign Results`
@@ -253,6 +254,8 @@ The following rules are mandatory for all future project work:
   * `Implementation Steps`
 * Every newly created technical project document must be added as a reference in this main project document.
 * Before executing any training campaign, a preliminary planning report must be created in `doc/reports/campaign_plans/` describing the relevant parameters, their effects, and the candidate configuration table to be tested.
+* Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the golden standard for future styled analytical PDF reports.
+* Future styled PDFs must preserve the same professional report direction: white background, restrained blue accents, rounded cards, safe A4 margins, split comparison tables when needed, repeated `Config` anchors across split tables, and a final post-export PDF inspection.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
 * No training campaign should be executed before the user has explicitly approved both the technical document and the preliminary training-planning report for that campaign.
 * Every user-requested repository change must follow this sequence:
