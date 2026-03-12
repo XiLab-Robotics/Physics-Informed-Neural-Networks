@@ -213,25 +213,25 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
         campaign_summary_html = render_split_configuration_table(
             table_title="Campaign Summary",
             header_cells=header_cells[:3],
-            alignments=alignments[:3],
+            alignments=("align-center", "align-center", "align-center"),
             body_rows=body_rows,
             selected_indexes=(0, 1, 2),
             table_class_name="report-table report-table-summary",
         )
         data_pipeline_settings_html = render_split_configuration_table(
             table_title="Data Pipeline Settings",
-            header_cells=header_cells[3:8],
-            alignments=alignments[3:8],
+            header_cells=(header_cells[0], *header_cells[3:8]),
+            alignments=("align-center", "align-center", "align-center", "align-center", "align-center", "align-center"),
             body_rows=body_rows,
-            selected_indexes=(3, 4, 5, 6, 7),
+            selected_indexes=(0, 3, 4, 5, 6, 7),
             table_class_name="report-table report-table-technical-data",
         )
         model_schedule_settings_html = render_split_configuration_table(
             table_title="Model And Schedule Settings",
-            header_cells=header_cells[8:11],
-            alignments=alignments[8:11],
+            header_cells=(header_cells[0], *header_cells[8:11]),
+            alignments=("align-center", "align-center", "align-center", "align-center"),
             body_rows=body_rows,
-            selected_indexes=(8, 9, 10),
+            selected_indexes=(0, 8, 9, 10),
             table_class_name="report-table report-table-technical-schedule",
         )
 
@@ -797,9 +797,9 @@ def build_html_document(
       font-size: 8pt;
     }}
 
-    .report-table-summary th:nth-child(1), .report-table-summary td:nth-child(1) {{ width: 12%; }}
-    .report-table-summary th:nth-child(2), .report-table-summary td:nth-child(2) {{ width: 16%; }}
-    .report-table-summary th:nth-child(3), .report-table-summary td:nth-child(3) {{ width: 72%; }}
+    .report-table-summary th:nth-child(1), .report-table-summary td:nth-child(1) {{ width: 20%; }}
+    .report-table-summary th:nth-child(2), .report-table-summary td:nth-child(2) {{ width: 22%; }}
+    .report-table-summary th:nth-child(3), .report-table-summary td:nth-child(3) {{ width: 58%; }}
 
     .report-table-technical-data,
     .report-table-technical-schedule {{
@@ -813,15 +813,26 @@ def build_html_document(
       padding: 5px 4px;
     }}
 
+    .report-table-summary th,
+    .report-table-summary td,
+    .report-table-technical-data th,
+    .report-table-technical-data td,
+    .report-table-technical-schedule th,
+    .report-table-technical-schedule td {{
+      text-align: center;
+    }}
+
     .report-table-technical-data th:nth-child(1), .report-table-technical-data td:nth-child(1) {{ width: 16%; }}
     .report-table-technical-data th:nth-child(2), .report-table-technical-data td:nth-child(2) {{ width: 17%; }}
-    .report-table-technical-data th:nth-child(3), .report-table-technical-data td:nth-child(3) {{ width: 26%; }}
-    .report-table-technical-data th:nth-child(4), .report-table-technical-data td:nth-child(4) {{ width: 14%; }}
-    .report-table-technical-data th:nth-child(5), .report-table-technical-data td:nth-child(5) {{ width: 27%; }}
+    .report-table-technical-data th:nth-child(3), .report-table-technical-data td:nth-child(3) {{ width: 17%; }}
+    .report-table-technical-data th:nth-child(4), .report-table-technical-data td:nth-child(4) {{ width: 18%; }}
+    .report-table-technical-data th:nth-child(5), .report-table-technical-data td:nth-child(5) {{ width: 16%; }}
+    .report-table-technical-data th:nth-child(6), .report-table-technical-data td:nth-child(6) {{ width: 16%; }}
 
-    .report-table-technical-schedule th:nth-child(1), .report-table-technical-schedule td:nth-child(1) {{ width: 42%; }}
+    .report-table-technical-schedule th:nth-child(1), .report-table-technical-schedule td:nth-child(1) {{ width: 18%; }}
     .report-table-technical-schedule th:nth-child(2), .report-table-technical-schedule td:nth-child(2) {{ width: 34%; }}
     .report-table-technical-schedule th:nth-child(3), .report-table-technical-schedule td:nth-child(3) {{ width: 24%; }}
+    .report-table-technical-schedule th:nth-child(4), .report-table-technical-schedule td:nth-child(4) {{ width: 24%; }}
 
     .report-table-technical-data td,
     .report-table-technical-schedule td,

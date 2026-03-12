@@ -112,6 +112,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for correcting the analytical PDF printable margins and replacing the dense configuration table with a cleaner professional layout.
 - [technical/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md](./technical/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md)
   Technical document for fixing the remaining technical-table fit issues in the analytical PDF and enforcing post-export PDF validation.
+- [technical/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md](./technical/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md)
+  Technical document for refining the three configuration tables so each one repeats the config name and uses more consistent centered alignment.
 
 ### Script Documentation
 
