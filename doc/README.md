@@ -92,6 +92,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for executing a mixed campaign that combines longer schedules, denser point sampling, larger batches, and larger feedforward models.
 - [technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md](./technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md)
   Technical document for making preliminary planning reports and final results reports mandatory companions to every future training campaign.
+- [technical/2026-03-12-15-36-51_report_filename_timestamp_normalization.md](./technical/2026-03-12-15-36-51_report_filename_timestamp_normalization.md)
+  Technical document for renaming the current report files so they include the full timestamp in their filenames.
 
 ### Script Documentation
 
@@ -104,15 +106,15 @@ This folder contains the internal project documents derived from the reference P
 
 ### Reports
 
-- [reports/2026-03-12-feedforward_trial_analytical_report.md](./reports/2026-03-12-feedforward_trial_analytical_report.md)
+- [reports/2026-03-12-13-18-30_feedforward_trial_analytical_report.md](./reports/2026-03-12-13-18-30_feedforward_trial_analytical_report.md)
   Full analytical report for the executed feedforward proof run, including interpretation and comparison against the reference papers.
-- [reports/2026-03-12-training_configuration_analysis_report.md](./reports/2026-03-12-training_configuration_analysis_report.md)
+- [reports/2026-03-12-13-38-17_training_configuration_analysis_report.md](./reports/2026-03-12-13-38-17_training_configuration_analysis_report.md)
   Detailed explanation of the training configuration entries, their practical effects, and a comparison between trial, baseline, and heavier workstation-oriented variants.
-- [reports/2026-03-12-training_configuration_analysis_report.pdf](./reports/2026-03-12-training_configuration_analysis_report.pdf)
+- [reports/2026-03-12-13-38-17_training_configuration_analysis_report.pdf](./reports/2026-03-12-13-38-17_training_configuration_analysis_report.pdf)
   PDF export of the detailed training-configuration analysis report.
-- [reports/2026-03-12-feedforward_variant_comparison_report.md](./reports/2026-03-12-feedforward_variant_comparison_report.md)
+- [reports/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
-- [reports/2026-03-12-mixed_training_campaign_plan_report.md](./reports/2026-03-12-mixed_training_campaign_plan_report.md)
+- [reports/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md](./reports/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md)
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
 
 ### Guides

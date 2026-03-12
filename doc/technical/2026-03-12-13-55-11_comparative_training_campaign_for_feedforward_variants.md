@@ -68,7 +68,7 @@ Because these runs can be long, the implementation should avoid changing the tra
   Main project document that must reference this technical document.
 - `doc/README.md`
   Internal documentation index for technical documents.
-- `doc/reports/2026-03-12-training_configuration_analysis_report.md`
+- `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
   Existing report that defines the rationale behind the selected configurations.
 - `doc/technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
   This technical execution-planning document.

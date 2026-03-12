@@ -58,7 +58,7 @@ The report should therefore avoid overclaiming and should explicitly separate:
 
 The resulting document should be added to the project documentation tree in a stable location so it can be cited later, for example under:
 
-- `doc/reports/2026-03-12-feedforward_trial_analytical_report.md`
+- `doc/reports/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
 
 If a new `doc/reports/` section is introduced, the internal documentation index should be updated accordingly.
 

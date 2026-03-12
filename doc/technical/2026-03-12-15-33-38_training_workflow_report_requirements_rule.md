@@ -8,7 +8,7 @@ The requested rule has two mandatory reporting stages:
 
 1. **Before any training execution**
    create not only the technical document already required by the repository, but also a preliminary planning report similar in structure and depth to:
-   - `doc/reports/2026-03-12-training_configuration_analysis_report.md`
+   - `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
 
    This preliminary report must describe:
    - all relevant training parameters;
@@ -62,7 +62,7 @@ The rule should be written clearly enough that future training work cannot skip 
   Main project document that must reference this technical document and may need to reflect the strengthened workflow rule.
 - `doc/README.md`
   Internal documentation index that must include this technical document.
-- `doc/reports/2026-03-12-training_configuration_analysis_report.md`
+- `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
   Reference example for the required preliminary planning-report style.
 - `doc/technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md`
   This technical planning document.

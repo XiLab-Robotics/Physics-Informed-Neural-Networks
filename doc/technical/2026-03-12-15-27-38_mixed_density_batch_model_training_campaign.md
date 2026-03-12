@@ -114,7 +114,7 @@ This means the campaign should not force one identical `curve_batch_size` across
   Main project document that must reference this technical document.
 - `doc/README.md`
   Internal documentation index for the technical-document set.
-- `doc/reports/2026-03-12-feedforward_variant_comparison_report.md`
+- `doc/reports/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
   Current comparison report showing that `high_epoch` is the strongest reference so far.
 - `doc/technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
   This technical planning document.
