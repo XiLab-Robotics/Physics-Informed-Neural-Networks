@@ -52,8 +52,11 @@
 - Use short docstrings in title case, usually one line, for classes and methods.
 - Add frequent section comments before logical blocks. The preferred pattern is imperative or descriptive title case, for example `# Initialize Admittance Controller`, `# Compute Cartesian Velocity`, `# Save Model`.
 - Keep comments capitalized and high-signal. It is acceptable to use arrows or quick clarifiers like `->`, parentheses, or acronym-heavy labels when that improves readability.
+- Keep section comments short. Prefer compact labels such as `# Resolve Browser Path` or `# Flush Pending Paragraph` over sentence-length explanations that restate the code line by line.
 - Prefer explicit staged code over compact abstraction. Compute intermediate variables step by step and label each stage with comments.
 - Keep small conditionals inline when they are obvious in context, for example `if not self.use_admittance: self.ft_sensor_data = Wrench()`.
+- Compact grouped imports, one-line helper signatures, and short inline validations are preferred when they remain easy to scan.
+- When a user performs a manual refactor that sharpens the local style of a file, treat that version as the immediate reference for future edits to similar files.
 - Use informative assertions and explicit runtime checks with descriptive messages.
 - Use type hints where they are already natural in the surrounding file, especially for tensors, arrays, ROS messages, loaders, and return values.
 - Favor aligned or visually structured assignments when several related values are initialized together.

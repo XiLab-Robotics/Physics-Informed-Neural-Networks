@@ -207,6 +207,7 @@ Technical documents:
   * `doc/technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md`
   * `doc/technical/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md`
   * `doc/technical/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md`
+  * `doc/technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md`
 
 Script documentation:
 
@@ -248,6 +249,7 @@ The following rules are mandatory for all future project work:
 * Use English as the primary project language for file names, identifiers, instructions, comments, and technical documentation.
 * Adopt the coding style of `blind_handover_controller` rigorously.
 * Apply the same coding-style discipline to utility scripts and report exporters, not only to training or model code.
+* Keep section comments short and operational. Prefer compact labels over sentence-length explanations when the code is already explicit.
 * Always take into account the documents in `reference/` or their summaries in `doc/` before making design or implementation decisions.
 * Before implementing any feature, create a technical project document in `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 * Each technical project document must contain the sections:
@@ -287,6 +289,7 @@ The main conventions are:
 * Explicit domain-oriented variable names
 * Uppercase module-level constants
 * Frequent title-case comments before logical code blocks
+* Short operational comments instead of long explanatory prose
 * Short one-line docstrings
 * Clear staged implementations instead of overly compact abstractions
 

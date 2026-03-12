@@ -120,6 +120,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for refactoring the styled PDF exporter to match repository coding style and clarifying that the style rules also apply to utility/report scripts.
 - [technical/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md](./technical/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md)
   Technical document for changing the repository workflow so every Git commit requires a final explicit user approval after the work is completed.
+- [technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md](./technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md)
+  Technical document for shortening the styled PDF exporter comments and aligning the persistent coding-style rules with the latest user-approved manual refactor.
 
 ### Script Documentation
 

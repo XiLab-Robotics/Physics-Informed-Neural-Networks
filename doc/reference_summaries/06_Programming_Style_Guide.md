@@ -74,6 +74,9 @@ The main style baseline is `blind_handover_controller`, while the other two repo
 - Capitalize the main words.
 - Place comments before distinct logical blocks.
 - It is acceptable to use `->`, parentheses, or technical acronyms when they improve readability.
+- Keep section comments short and scannable.
+- Prefer compact labels such as `# Resolve Browser Path`, `# Validate Table Structure`, or `# Flush Pending Paragraph`.
+- Avoid sentence-length comments that narrate every small step of an obvious parsing or rendering operation.
 
 ## Docstrings
 
@@ -125,7 +128,9 @@ class TransmissionErrorRegressionModule(LightningModule):
 
 ## Manual Refactoring Patterns
 
-The latest manual refactoring applied across the Python scripts in commit `f624b975ab4c1829854a2c1b6dd63c945206ebd7` is now the approved repository-specific refinement of the baseline style.
+The broad manual refactoring applied across the Python scripts in commit `f624b975ab4c1829854a2c1b6dd63c945206ebd7` remains the repository-wide baseline refinement.
+
+The later exporter-focused manual refactoring in commit `0c8b5003ddcce34d672b2822c2afe8e357a1fb26` further clarified how that style should be applied in compact utility scripts.
 
 Apply these patterns conservatively:
 
@@ -136,7 +141,8 @@ Apply these patterns conservatively:
 - use inline `if` statements only when the branch is obvious in context and the resulting line stays readable;
 - compact asserts, list comprehensions, and call expressions when the result remains easy to scan;
 - collapse single obvious follow-up statements when they remain easy to scan;
-- prefer more explicit section comments that explain intent, not only the operation being executed;
+- keep section comments short, operational, and easy to scan;
+- prefer comment labels that mark intent without turning into sentence-length prose;
 - preserve engineering readability over compactness when the two conflict.
 
 Representative examples:
@@ -150,7 +156,7 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 ```
 
 ```python
-# Early Stopping Callback To Stop Training If Validation MAE Does Not Improve For A Certain Number Of Epochs
+# Resolve Browser Path
 ```
 
 ```python
@@ -216,8 +222,10 @@ assert len(joint_positions) == 6, f"Joint Positions Length must be 6 | {len(join
 
 - Every new file should use explicit and readable naming.
 - Every non-trivial function should be split into blocks with title-case comments.
+- Keep those block comments compact unless extra detail is genuinely needed for domain logic or safety.
 - Configurations and constants should remain semantically transparent.
 - ML code should remain understandable from an engineering perspective and compatible with future export or deployment.
 - Apply the approved blank-line spacing rules to top-level functions, classes, dataclasses, and documented methods.
-- Use the latest manually refactored Python-script style from commit `f624b975ab4c1829854a2c1b6dd63c945206ebd7` as the repository reference when choosing between equally valid compact layouts.
+- Use the latest relevant manually refactored Python-script style as the repository reference when choosing between equally valid compact layouts.
+- For compact utility and exporter scripts, treat commit `0c8b5003ddcce34d672b2822c2afe8e357a1fb26` as the sharper reference for comment length, grouped imports, and concise helper layout.
 - When in doubt, follow the pattern used in `blind_handover_controller`.
