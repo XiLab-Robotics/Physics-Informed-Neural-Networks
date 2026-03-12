@@ -103,7 +103,7 @@ The visualization utility will:
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-02-49-17_dataset_processing_pipeline.md`
+- `doc/technical/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md`
   Technical record for this feature.
 
 - `README.md`
@@ -132,3 +132,4 @@ The visualization utility will:
 5. Implement a PyTorch `Dataset` class and `DataLoader` factory around directional TE samples.
 6. Implement a visualization script for TE versus output angular position.
 7. Run a lightweight verification on a subset of CSV files and confirm shape, metadata, and plot generation.
+

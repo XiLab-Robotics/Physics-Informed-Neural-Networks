@@ -45,7 +45,7 @@ The documentation will remain in English and will avoid repository-internal nois
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
+- `doc/technical/2026-03-10/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
 - `doc/reference_codes/README.md`
 - `doc/reference_codes/blind_handover_controller_reference.md`
 - `doc/reference_codes/mediapipe_gesture_recognition_reference.md`
@@ -67,3 +67,4 @@ The documentation will remain in English and will avoid repository-internal nois
 5. Update `README.md` and `doc/README.md` so the new technical document and the new `doc/reference_codes/` section are discoverable from the project documentation indexes.
 6. Verify the created documentation files and repository status.
 7. Create a Git commit with a repository-aligned title and body summarizing the new reference-code documentation.
+

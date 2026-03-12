@@ -32,10 +32,10 @@ The planned cleanup is:
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
+- `doc/technical/2026-03-10/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
 - `README.md`
 - `doc/README.md`
-- `doc/technical/2026-03-10-02-49-17_dataset_processing_pipeline.md`
+- `doc/technical/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md`
 - `scripts/datasets/transmission_error_dataset.py`
 - any additional repository-authored documentation files that mention `Poisition_Output_Reducer_Fw`
 
@@ -47,3 +47,4 @@ The planned cleanup is:
 4. Keep the loader compatible with the real dataset header and review code comments/docstrings for ambiguity.
 5. Verify the final wording with a repository-wide search.
 6. Create a Git commit with a repository-aligned title and body summarizing the clarification.
+

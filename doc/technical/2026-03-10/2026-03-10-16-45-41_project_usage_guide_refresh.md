@@ -45,7 +45,7 @@ The refreshed guide should remain procedural and explicit, with concrete command
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-16-45-41_project_usage_guide_refresh.md`
+- `doc/technical/2026-03-10/2026-03-10-16-45-41_project_usage_guide_refresh.md`
 - `doc/guide/project_usage_guide.md`
 - `README.md`
 - `doc/README.md`
@@ -61,3 +61,4 @@ The refreshed guide should remain procedural and explicit, with concrete command
 4. Align the guide wording with the current dataset-header clarification and current repository folder structure.
 5. Verify that the guide no longer claims training is unavailable.
 6. Create a Git commit summarizing the usage-guide refresh.
+

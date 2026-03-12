@@ -86,9 +86,9 @@ The exact parameter values should be chosen after reviewing the current datamodu
   Main project document that must reference this technical document and, after approval, the final report artifact.
 - `doc/README.md`
   Internal documentation index that must be updated for the new report.
-- `doc/reports/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
+- `doc/reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
   Existing analytical report that should be reused and extended rather than duplicated conceptually.
-- `doc/technical/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md`
+- `doc/technical/2026-03-12/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md`
   This technical planning document.
 - `config/feedforward_network_training_trial.yaml`
   Executed proof-run configuration.
@@ -126,3 +126,4 @@ The exact parameter values should be chosen after reviewing the current datamodu
 7. Export the final report to PDF using a viable local conversion path if available, otherwise document the exact export limitation and the fallback artifact produced.
 8. Update the documentation indexes so the new report and PDF artifact are discoverable.
 9. Create the required Git commit immediately after the approved documentation update is completed.
+

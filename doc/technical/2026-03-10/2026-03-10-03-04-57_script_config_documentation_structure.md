@@ -61,7 +61,7 @@ Documentation policy for each script:
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-03-04-57_script_config_documentation_structure.md`
+- `doc/technical/2026-03-10/2026-03-10-03-04-57_script_config_documentation_structure.md`
   Technical rule document for repository script/config/documentation organization.
 
 - `README.md`
@@ -88,3 +88,4 @@ Documentation policy for each script:
 5. Update imports and command-line entry points accordingly.
 6. Add markdown documentation files for each migrated Python script.
 7. Validate imports, dataloader creation, and visualization execution using the new paths.
+

@@ -160,41 +160,45 @@ Reference code notes:
 
 Technical documents:
 
-* `doc/technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
-* `doc/technical/2026-03-10-02-49-17_dataset_processing_pipeline.md`
-* `doc/technical/2026-03-10-03-04-57_script_config_documentation_structure.md`
-* `doc/technical/2026-03-10-03-16-44_doc_folder_reorganization.md`
-* `doc/technical/2026-03-10-03-21-23_script_document_naming_cleanup.md`
-* `doc/technical/2026-03-10-03-23-28_script_docs_folder_mirroring.md`
-* `doc/technical/2026-03-10-03-27-42_project_usage_guide.md`
-* `doc/technical/2026-03-10-13-05-10_relative_config_paths.md`
-* `doc/technical/2026-03-10-15-13-29_agent_submodule_reorganization.md`
-* `doc/technical/2026-03-10-15-25-39_commit_workflow_rule_update.md`
-* `doc/technical/2026-03-10-15-33-05_reference_code_submodule_migration.md`
-* `doc/technical/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
-* `doc/technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
-* `doc/technical/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
-* `doc/technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
-* `doc/technical/2026-03-10-16-45-41_project_usage_guide_refresh.md`
-* `doc/technical/2026-03-10-16-55-13_dataloader_worker_tuning.md`
-* `doc/technical/2026-03-10-18-11-49_training_entry_point_import_fix.md`
-* `doc/technical/2026-03-10-18-35-11_training_terminal_output_cleanup.md`
-* `doc/technical/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md`
-* `doc/technical/2026-03-11-13-06-15_lightning_training_noise_followup.md`
-* `doc/technical/2026-03-11-13-28-06_contextmanager_return_type_fix.md`
-* `doc/technical/2026-03-11-13-36-18_function_definition_spacing_normalization.md`
-* `doc/technical/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md`
-* `doc/technical/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md`
-* `doc/technical/2026-03-11-15-57-47_manual_refactoring_style_propagation.md`
-* `doc/technical/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md`
-* `doc/technical/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md`
-* `doc/technical/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md`
-* `doc/technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md`
-* `doc/technical/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md`
-* `doc/technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
-* `doc/technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
-* `doc/technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md`
-* `doc/technical/2026-03-12-15-36-51_report_filename_timestamp_normalization.md`
+* `2026-03-10`
+  * `doc/technical/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
+  * `doc/technical/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md`
+  * `doc/technical/2026-03-10/2026-03-10-03-04-57_script_config_documentation_structure.md`
+  * `doc/technical/2026-03-10/2026-03-10-03-16-44_doc_folder_reorganization.md`
+  * `doc/technical/2026-03-10/2026-03-10-03-21-23_script_document_naming_cleanup.md`
+  * `doc/technical/2026-03-10/2026-03-10-03-23-28_script_docs_folder_mirroring.md`
+  * `doc/technical/2026-03-10/2026-03-10-03-27-42_project_usage_guide.md`
+  * `doc/technical/2026-03-10/2026-03-10-13-05-10_relative_config_paths.md`
+  * `doc/technical/2026-03-10/2026-03-10-15-13-29_agent_submodule_reorganization.md`
+  * `doc/technical/2026-03-10/2026-03-10-15-25-39_commit_workflow_rule_update.md`
+  * `doc/technical/2026-03-10/2026-03-10-15-33-05_reference_code_submodule_migration.md`
+  * `doc/technical/2026-03-10/2026-03-10-15-58-05_reference_code_style_reference_docs.md`
+  * `doc/technical/2026-03-10/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
+  * `doc/technical/2026-03-10/2026-03-10-16-32-23_dataset_header_typo_clarification.md`
+  * `doc/technical/2026-03-10/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
+  * `doc/technical/2026-03-10/2026-03-10-16-45-41_project_usage_guide_refresh.md`
+  * `doc/technical/2026-03-10/2026-03-10-16-55-13_dataloader_worker_tuning.md`
+  * `doc/technical/2026-03-10/2026-03-10-18-11-49_training_entry_point_import_fix.md`
+  * `doc/technical/2026-03-10/2026-03-10-18-35-11_training_terminal_output_cleanup.md`
+  * `doc/technical/2026-03-10/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md`
+* `2026-03-11`
+  * `doc/technical/2026-03-11/2026-03-11-13-06-15_lightning_training_noise_followup.md`
+  * `doc/technical/2026-03-11/2026-03-11-13-28-06_contextmanager_return_type_fix.md`
+  * `doc/technical/2026-03-11/2026-03-11-13-36-18_function_definition_spacing_normalization.md`
+  * `doc/technical/2026-03-11/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md`
+  * `doc/technical/2026-03-11/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md`
+  * `doc/technical/2026-03-11/2026-03-11-15-57-47_manual_refactoring_style_propagation.md`
+  * `doc/technical/2026-03-11/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md`
+  * `doc/technical/2026-03-11/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md`
+  * `doc/technical/2026-03-11/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md`
+* `2026-03-12`
+  * `doc/technical/2026-03-12/2026-03-12-13-13-27_feedforward_trial_analytical_report.md`
+  * `doc/technical/2026-03-12/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md`
+  * `doc/technical/2026-03-12/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
+  * `doc/technical/2026-03-12/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
+  * `doc/technical/2026-03-12/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md`
+  * `doc/technical/2026-03-12/2026-03-12-15-36-51_report_filename_timestamp_normalization.md`
+  * `doc/technical/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md`
 
 Script documentation:
 
@@ -204,11 +208,14 @@ Script documentation:
 
 Reports:
 
-* `doc/reports/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
-* `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
-* `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
-* `doc/reports/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
-* `doc/reports/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+* `Analysis`
+  * `doc/reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
+  * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
+  * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
+* `Campaign Plans`
+  * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+* `Campaign Results`
+  * `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
 
 Guides:
 
@@ -222,7 +229,7 @@ These documents summarize:
 * Test-rig workflow and TwinCAT implementation details
 * Coding style conventions derived from prior repositories
 
-All future feature-level technical documents must also be stored in `doc/technical/` and linked from this main project document.
+All future feature-level technical documents must also be stored in the appropriate day folder under `doc/technical/YYYY-MM-DD/` and linked from this main project document.
 
 ---
 
@@ -233,22 +240,22 @@ The following rules are mandatory for all future project work:
 * Use English as the primary project language for file names, identifiers, instructions, comments, and technical documentation.
 * Adopt the coding style of `blind_handover_controller` rigorously.
 * Always take into account the documents in `reference/` or their summaries in `doc/` before making design or implementation decisions.
-* Before implementing any feature, create a technical project document in `doc/technical/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+* Before implementing any feature, create a technical project document in `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 * Each technical project document must contain the sections:
   * `Overview`
   * `Technical Approach`
   * `Involved Components`
   * `Implementation Steps`
 * Every newly created technical project document must be added as a reference in this main project document.
-* Before executing any training campaign, a preliminary planning report must be created in `doc/reports/` describing the relevant parameters, their effects, and the candidate configuration table to be tested.
+* Before executing any training campaign, a preliminary planning report must be created in `doc/reports/campaign_plans/` describing the relevant parameters, their effects, and the candidate configuration table to be tested.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
 * No training campaign should be executed before the user has explicitly approved both the technical document and the preliminary training-planning report for that campaign.
 * Every user-requested repository change must follow this sequence:
   * create the technical project document first;
-  * if the request includes training execution, create the preliminary planning report in `doc/reports/` before requesting approval;
+  * if the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before requesting approval;
   * wait for explicit user approval;
   * execute the approved modifications;
-  * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/` with metrics tables, interpretation, best-configuration summary, and future improvement proposals;
+  * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` with metrics tables, interpretation, best-configuration summary, and future improvement proposals;
   * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
   * if the approved work introduces a new third-party library, update `requirements.txt` and every relevant setup or usage reference before the final commit;
   * create a Git commit immediately after the modifications are completed.
@@ -481,3 +488,4 @@ Davide Ferrari
 ## License
 
 Specify appropriate license (e.g., MIT, BSD-3, or proprietary industrial use).
+

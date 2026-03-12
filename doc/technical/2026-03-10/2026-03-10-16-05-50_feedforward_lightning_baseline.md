@@ -165,7 +165,7 @@ This is the main compatibility point that avoids rewriting the data layer later.
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
+- `doc/technical/2026-03-10/2026-03-10-16-05-50_feedforward_lightning_baseline.md`
 - `README.md`
 - `doc/README.md`
 - `config/feedforward_network_training.yaml`
@@ -191,3 +191,4 @@ This is the main compatibility point that avoids rewriting the data layer later.
    - validation metric logging;
    - checkpoint generation.
 8. Create a Git commit with a repository-aligned title and body summarizing the full baseline implementation.
+

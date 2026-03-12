@@ -40,11 +40,11 @@ Because PyTorch on this project is CUDA-sensitive, the documentation should stil
   Root Python dependency manifest.
 - `doc/guide/project_usage_guide.md`
   User-facing setup and runtime instructions.
-- `doc/technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
+- `doc/technical/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
   Existing technical document that currently explains why `torch` was excluded from `requirements.txt`.
 - `doc/README.md`
   Internal documentation index.
-- `doc/technical/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md`
+- `doc/technical/2026-03-10/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md`
   This technical planning document.
 
 ## Implementation Steps
@@ -56,3 +56,4 @@ Because PyTorch on this project is CUDA-sensitive, the documentation should stil
 5. Remove or clarify the current `torchvision` setup reference if it is not part of the actual codebase requirements.
 6. Verify the resulting dependency list against the repository imports once more.
 7. Commit the rule update and dependency audit changes immediately after implementation.
+

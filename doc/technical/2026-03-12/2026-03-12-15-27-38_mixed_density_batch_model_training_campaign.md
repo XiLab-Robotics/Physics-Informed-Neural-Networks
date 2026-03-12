@@ -114,9 +114,9 @@ This means the campaign should not force one identical `curve_batch_size` across
   Main project document that must reference this technical document.
 - `doc/README.md`
   Internal documentation index for the technical-document set.
-- `doc/reports/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
+- `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
   Current comparison report showing that `high_epoch` is the strongest reference so far.
-- `doc/technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
+- `doc/technical/2026-03-12/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
   This technical planning document.
 - `config/feedforward_network_training_high_epoch.yaml`
   Best current schedule reference.
@@ -149,3 +149,4 @@ This means the campaign should not force one identical `curve_batch_size` across
    - the `9` new mixed configurations as the main result set.
 7. Identify which combination is the best current workstation-scale feedforward configuration.
 8. Create the required Git commit immediately after the approved campaign summary documentation is completed.
+

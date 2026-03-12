@@ -45,7 +45,7 @@ This keeps `reference/codes/` as the place for external code references while re
 - `reference/codes/blind_handover_controller-master.zip` -> `reference/codes/blind_handover_controller`
 - `reference/codes/multimodal_fusion-master.zip` -> `reference/codes/multimodal_fusion`
 - `reference/codes/mediapipe_gesture_recognition-master.zip` -> `reference/codes/mediapipe_gesture_recognition`
-- `doc/technical/2026-03-10-15-33-05_reference_code_submodule_migration.md`
+- `doc/technical/2026-03-10/2026-03-10-15-33-05_reference_code_submodule_migration.md`
 
 ## Implementation Steps
 
@@ -55,3 +55,4 @@ This keeps `reference/codes/` as the place for external code references while re
 4. Update `.gitmodules` and any relevant repository documentation to reflect the new reference-code layout.
 5. Verify the final repository state with `git status` and submodule path checks.
 6. Create a Git commit with a repository-aligned title and an accurate description of the migration.
+

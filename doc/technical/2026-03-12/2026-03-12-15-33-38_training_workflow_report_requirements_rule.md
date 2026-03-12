@@ -8,7 +8,7 @@ The requested rule has two mandatory reporting stages:
 
 1. **Before any training execution**
    create not only the technical document already required by the repository, but also a preliminary planning report similar in structure and depth to:
-   - `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
+   - `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
 
    This preliminary report must describe:
    - all relevant training parameters;
@@ -38,11 +38,11 @@ The new rule should extend that existing workflow specifically for training requ
 
 The intended future sequence for any training campaign should become:
 
-1. create the technical document in `doc/technical/`;
-2. create a **preliminary training report** in `doc/reports/` describing the parameters, planned comparisons, and rationale;
+1. create the technical document in the appropriate day folder under `doc/technical/YYYY-MM-DD/`;
+2. create a **preliminary training report** in `doc/reports/campaign_plans/` describing the parameters, planned comparisons, and rationale;
 3. wait for the user's explicit approval;
 4. execute the approved training runs;
-5. create a **post-training results report** in `doc/reports/` summarizing metrics, interpretation, best configuration, and future suggestions;
+5. create a **post-training results report** in `doc/reports/campaign_results/` summarizing metrics, interpretation, best configuration, and future suggestions;
 6. update any relevant user-facing guide if the runnable workflow or recommended default configuration changes;
 7. create the required Git commit.
 
@@ -62,9 +62,9 @@ The rule should be written clearly enough that future training work cannot skip 
   Main project document that must reference this technical document and may need to reflect the strengthened workflow rule.
 - `doc/README.md`
   Internal documentation index that must include this technical document.
-- `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
+- `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
   Reference example for the required preliminary planning-report style.
-- `doc/technical/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md`
+- `doc/technical/2026-03-12/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md`
   This technical planning document.
 
 ## Implementation Steps
@@ -77,3 +77,4 @@ The rule should be written clearly enough that future training work cannot skip 
 3. Keep the wording specific to training work so general non-training repository changes do not inherit unnecessary extra steps.
 4. Update any additional documentation indexes or workflow guides that should reflect the new rule.
 5. Create the required Git commit immediately after the approved documentation update is completed.
+

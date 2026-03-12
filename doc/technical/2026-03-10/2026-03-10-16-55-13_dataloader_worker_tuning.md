@@ -63,7 +63,7 @@ The tuning should not:
 
 ## Involved Components
 
-- `doc/technical/2026-03-10-16-55-13_dataloader_worker_tuning.md`
+- `doc/technical/2026-03-10/2026-03-10-16-55-13_dataloader_worker_tuning.md`
 - `README.md`
 - `doc/README.md`
 - `doc/guide/project_usage_guide.md`
@@ -78,3 +78,4 @@ The tuning should not:
 3. Verify that the current datamodule and training workflow still run correctly in `standard_ml_codex_env`.
 4. Update `doc/guide/project_usage_guide.md` so the training section documents the new default dataloader settings and their meaning.
 5. Verify repository status and create a Git commit summarizing the tuning change.
+

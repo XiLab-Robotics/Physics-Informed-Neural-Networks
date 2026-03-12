@@ -44,7 +44,7 @@ This rule is procedural and documentation-focused. It does not directly change r
 - `README.md`
 - `doc/README.md`
 - `doc/guide/project_usage_guide.md`
-- `doc/technical/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
+- `doc/technical/2026-03-10/2026-03-10-16-41-20_project_usage_guide_update_rule.md`
 
 ## Implementation Steps
 
@@ -54,3 +54,4 @@ This rule is procedural and documentation-focused. It does not directly change r
 4. After user approval, update `doc/README.md` to reference this technical document.
 5. Verify that the new workflow wording is consistent with the existing technical-document approval and mandatory-commit rules.
 6. Create a Git commit summarizing the approved rule change.
+

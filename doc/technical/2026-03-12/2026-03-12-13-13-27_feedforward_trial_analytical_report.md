@@ -58,7 +58,7 @@ The report should therefore avoid overclaiming and should explicitly separate:
 
 The resulting document should be added to the project documentation tree in a stable location so it can be cited later, for example under:
 
-- `doc/reports/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
+- `doc/reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
 
 If a new `doc/reports/` section is introduced, the internal documentation index should be updated accordingly.
 
@@ -68,7 +68,7 @@ If a new `doc/reports/` section is introduced, the internal documentation index 
   Main project document that must reference this technical document.
 - `doc/README.md`
   Internal documentation index that should stay aligned with the new report location.
-- `doc/technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md`
+- `doc/technical/2026-03-12/2026-03-12-13-13-27_feedforward_trial_analytical_report.md`
   This technical planning document.
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
   Main reference for ML compensation expectations and TwinCAT constraints.
@@ -101,3 +101,4 @@ If a new `doc/reports/` section is introduced, the internal documentation index 
    - proof-run configuration lighter than the default baseline.
 7. Conclude the report with concrete next steps for stronger validation.
 8. Create the required Git commit immediately after the approved documentation update is completed.
+

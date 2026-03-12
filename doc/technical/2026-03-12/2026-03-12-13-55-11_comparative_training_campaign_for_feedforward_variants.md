@@ -68,9 +68,9 @@ Because these runs can be long, the implementation should avoid changing the tra
   Main project document that must reference this technical document.
 - `doc/README.md`
   Internal documentation index for technical documents.
-- `doc/reports/2026-03-12-13-38-17_training_configuration_analysis_report.md`
+- `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
   Existing report that defines the rationale behind the selected configurations.
-- `doc/technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
+- `doc/technical/2026-03-12/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
   This technical execution-planning document.
 - `config/feedforward_network_training.yaml`
   Current baseline configuration to execute.
@@ -102,3 +102,4 @@ Because these runs can be long, the implementation should avoid changing the tra
 5. Write a comparison report that includes the already executed `trial` run as historical reference and the four newly executed runs as the main comparison set.
 6. Update `doc/guide/project_usage_guide.md` only if the approved work changes the documented runnable workflow beyond adding executed results.
 7. Create the required Git commit immediately after the approved run summary documentation is completed.
+

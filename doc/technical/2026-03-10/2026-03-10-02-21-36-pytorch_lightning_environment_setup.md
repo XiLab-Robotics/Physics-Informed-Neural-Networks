@@ -79,7 +79,7 @@ If future project components require `torchvision` or `torchaudio`, they can be 
 - `README.md`
   Main onboarding and setup instructions for new users.
 
-- `doc/technical/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
+- `doc/technical/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
   Technical decision record for this environment setup feature.
 
 - `standard_ml_codex_env`
@@ -97,3 +97,4 @@ If future project components require `torchvision` or `torchaudio`, they can be 
    - install the remaining tracked dependencies from `requirements.txt`.
 4. Install the dependencies into `standard_ml_codex_env`.
 5. Run a lightweight verification step by importing the installed packages and printing their versions.
+
