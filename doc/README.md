@@ -110,6 +110,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for redesigning the analytical PDF again with a restrained blue palette, white background, better page flow, and more professional typography.
 - [technical/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md](./technical/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md)
   Technical document for correcting the analytical PDF printable margins and replacing the dense configuration table with a cleaner professional layout.
+- [technical/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md](./technical/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md)
+  Technical document for fixing the remaining technical-table fit issues in the analytical PDF and enforcing post-export PDF validation.
 
 ### Script Documentation
 
