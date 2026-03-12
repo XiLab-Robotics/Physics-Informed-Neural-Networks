@@ -192,6 +192,7 @@ Technical documents:
 * `doc/technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md`
 * `doc/technical/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md`
 * `doc/technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md`
+* `doc/technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md`
 
 Script documentation:
 
@@ -205,6 +206,7 @@ Reports:
 * `doc/reports/2026-03-12-training_configuration_analysis_report.md`
 * `doc/reports/2026-03-12-training_configuration_analysis_report.pdf`
 * `doc/reports/2026-03-12-feedforward_variant_comparison_report.md`
+* `doc/reports/2026-03-12-mixed_training_campaign_plan_report.md`
 
 Guides:
 

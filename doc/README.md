@@ -88,6 +88,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for producing a detailed training-configuration explanation report plus a PDF export and heavier workstation-oriented configuration proposals.
 - [technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md](./technical/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md)
   Technical document for executing and comparing the pending baseline and workstation-oriented feedforward training variants.
+- [technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md](./technical/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md)
+  Technical document for executing a mixed campaign that combines longer schedules, denser point sampling, larger batches, and larger feedforward models.
 
 ### Script Documentation
 
@@ -108,6 +110,8 @@ This folder contains the internal project documents derived from the reference P
   PDF export of the detailed training-configuration analysis report.
 - [reports/2026-03-12-feedforward_variant_comparison_report.md](./reports/2026-03-12-feedforward_variant_comparison_report.md)
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
+- [reports/2026-03-12-mixed_training_campaign_plan_report.md](./reports/2026-03-12-mixed_training_campaign_plan_report.md)
+  Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
 
 ### Guides
 
