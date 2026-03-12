@@ -209,3 +209,6 @@ __marimo__/
 # VSCode \ Visual Studio Settings
 .vscode/
 .vs/
+
+# Report Export Temporary Files
+doc/reports/analysis/.tmp_chrome_profiles/

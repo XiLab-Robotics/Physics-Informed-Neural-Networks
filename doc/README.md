@@ -108,6 +108,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for regenerating the training-configuration analysis PDF with a much stronger visual layout and print-oriented styling.
 - [technical/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md](./technical/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md)
   Technical document for redesigning the analytical PDF again with a restrained blue palette, white background, better page flow, and more professional typography.
+- [technical/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md](./technical/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md)
+  Technical document for correcting the analytical PDF printable margins and replacing the dense configuration table with a cleaner professional layout.
 
 ### Script Documentation
 

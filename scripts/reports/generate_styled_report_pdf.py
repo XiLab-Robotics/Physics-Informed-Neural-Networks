@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import html
 import re
+import shutil
 import subprocess
 import tempfile
 
@@ -196,6 +197,41 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
     alignments = extract_table_alignments(table_lines[1])
     body_rows = table_lines[2:]
 
+    if header_cells == [
+        "Config",
+        "Status",
+        "Main Intent",
+        "Curve Batch",
+        "Point Stride",
+        "Max Points/Curve",
+        "Workers",
+        "Pin Memory",
+        "Hidden Layers",
+        "Epoch Budget",
+        "Patience",
+    ]:
+        campaign_summary_html = render_split_configuration_table(
+            table_title="Campaign Summary",
+            header_cells=header_cells[:3],
+            alignments=alignments[:3],
+            body_rows=body_rows,
+            selected_indexes=(0, 1, 2),
+            table_class_name="report-table report-table-summary",
+        )
+        technical_settings_html = render_split_configuration_table(
+            table_title="Technical Settings",
+            header_cells=header_cells[3:],
+            alignments=alignments[3:],
+            body_rows=body_rows,
+            selected_indexes=(3, 4, 5, 6, 7, 8, 9, 10),
+            table_class_name="report-table report-table-technical",
+        )
+
+        return (
+            f'<div class="split-table-grid">{campaign_summary_html}{technical_settings_html}</div>',
+            current_index,
+        )
+
     table_html_tokens = ['<div class="table-wrap">', '<table class="report-table">', "<thead>", "<tr>"]
 
     for header_index, header_cell in enumerate(header_cells):
@@ -220,6 +256,50 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
     table_html_tokens.extend(["</tbody>", "</table>", "</div>"])
 
     return "".join(table_html_tokens), current_index
+
+
+def render_split_configuration_table(
+    table_title: str,
+    header_cells: Sequence[str],
+    alignments: Sequence[str],
+    body_rows: Sequence[str],
+    selected_indexes: Sequence[int],
+    table_class_name: str,
+) -> str:
+    """Render one half of the split configuration table."""
+
+    table_html_tokens = [
+        '<div class="table-wrap table-wrap-split">',
+        f'<div class="table-caption">{html.escape(table_title)}</div>',
+        f'<table class="{table_class_name}">',
+        "<thead>",
+        "<tr>",
+    ]
+
+    for header_index, header_cell in enumerate(header_cells):
+        alignment_class = alignments[header_index] if header_index < len(alignments) else "align-center"
+        table_html_tokens.append(
+            f'<th class="{alignment_class}">{convert_inline_markup(header_cell)}</th>'
+        )
+
+    table_html_tokens.extend(["</tr>", "</thead>", "<tbody>"])
+
+    for body_row in body_rows:
+        row_cells = split_table_row(body_row)
+        table_html_tokens.append("<tr>")
+
+        for output_index, source_index in enumerate(selected_indexes):
+            body_cell = row_cells[source_index]
+            alignment_class = alignments[output_index] if output_index < len(alignments) else "align-left"
+            table_html_tokens.append(
+                f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>'
+            )
+
+        table_html_tokens.append("</tr>")
+
+    table_html_tokens.extend(["</tbody>", "</table>", "</div>"])
+
+    return "".join(table_html_tokens)
 
 
 def render_list(markdown_lines: Sequence[str], start_index: int, base_indentation: int) -> tuple[str, int]:
@@ -444,7 +524,7 @@ def build_html_document(
   <style>
     @page {{
       size: A4;
-      margin: 13mm 10mm 15mm 10mm;
+      margin: 14mm 13mm 16mm 13mm;
     }}
 
     * {{
@@ -468,6 +548,8 @@ def build_html_document(
 
     .page-shell {{
       width: 100%;
+      max-width: 180mm;
+      margin: 0 auto;
     }}
 
     .hero {{
@@ -520,6 +602,7 @@ def build_html_document(
       border-radius: 12px;
       border: 1px solid #ADD5F7;
       background: #ffffff;
+      max-width: 100%;
     }}
 
     h2 {{
@@ -563,6 +646,7 @@ def build_html_document(
       border-radius: 10px;
       border: 1px solid rgba(173, 213, 247, 0.9);
       background: #ffffff;
+      max-width: 100%;
     }}
 
     .report-list {{
@@ -611,6 +695,7 @@ def build_html_document(
       border-radius: 10px;
       border: 1px solid #ADD5F7;
       background: #ffffff;
+      max-width: 100%;
     }}
 
     .report-table {{
@@ -626,6 +711,10 @@ def build_html_document(
       color: #ffffff;
     }}
 
+    .report-table thead tr {{
+      height: 30px;
+    }}
+
     .report-table th,
     .report-table td {{
       padding: 5px 5px;
@@ -638,6 +727,18 @@ def build_html_document(
 
     .report-table tbody tr:nth-child(even) {{
       background: #F7FBFF;
+    }}
+
+    .report-table th {{
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      border-right: 1px solid rgba(255, 255, 255, 0.46);
+      font-weight: 700;
+    }}
+
+    .report-table th:last-child {{
+      border-right: none;
     }}
 
     .report-table th:nth-child(1), .report-table td:nth-child(1) {{ width: 8%; }}
@@ -655,6 +756,53 @@ def build_html_document(
     .report-table code {{
       background: rgba(173, 213, 247, 0.18);
       font-size: 7.1pt;
+    }}
+
+    .split-table-grid {{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      width: 100%;
+      max-width: 100%;
+    }}
+
+    .table-wrap-split {{
+      break-inside: avoid-page;
+    }}
+
+    .table-caption {{
+      padding: 8px 10px 7px 10px;
+      border-bottom: 1px solid #ADD5F7;
+      background: #F7FBFF;
+      font-family: "Segoe UI Semibold", "Arial", sans-serif;
+      font-size: 8.5pt;
+      color: #16193B;
+    }}
+
+    .report-table-summary {{
+      font-size: 8pt;
+    }}
+
+    .report-table-summary th:nth-child(1), .report-table-summary td:nth-child(1) {{ width: 12%; }}
+    .report-table-summary th:nth-child(2), .report-table-summary td:nth-child(2) {{ width: 16%; }}
+    .report-table-summary th:nth-child(3), .report-table-summary td:nth-child(3) {{ width: 72%; }}
+
+    .report-table-technical {{
+      font-size: 7.55pt;
+    }}
+
+    .report-table-technical th:nth-child(1), .report-table-technical td:nth-child(1) {{ width: 11%; }}
+    .report-table-technical th:nth-child(2), .report-table-technical td:nth-child(2) {{ width: 12%; }}
+    .report-table-technical th:nth-child(3), .report-table-technical td:nth-child(3) {{ width: 16%; }}
+    .report-table-technical th:nth-child(4), .report-table-technical td:nth-child(4) {{ width: 9%; }}
+    .report-table-technical th:nth-child(5), .report-table-technical td:nth-child(5) {{ width: 12%; }}
+    .report-table-technical th:nth-child(6), .report-table-technical td:nth-child(6) {{ width: 20%; }}
+    .report-table-technical th:nth-child(7), .report-table-technical td:nth-child(7) {{ width: 13%; }}
+    .report-table-technical th:nth-child(8), .report-table-technical td:nth-child(8) {{ width: 7%; }}
+
+    .report-table-technical td,
+    .report-table-summary td {{
+      vertical-align: middle;
     }}
 
     .align-right {{
@@ -705,8 +853,16 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
 
     html_uri = html_path.resolve().as_uri()
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_profile_root = pdf_path.parent / ".tmp_chrome_profiles"
+    temporary_profile_root.mkdir(parents=True, exist_ok=True)
+    temporary_profile_path = Path(
+        tempfile.mkdtemp(
+            prefix="codex_report_chrome_",
+            dir=temporary_profile_root,
+        )
+    )
 
-    with tempfile.TemporaryDirectory(prefix="codex_report_chrome_") as temporary_profile_path:
+    try:
         subprocess.run(
             [
                 str(browser_executable_path),
@@ -724,6 +880,9 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
             capture_output=True,
             text=True,
         )
+    finally:
+        shutil.rmtree(temporary_profile_path, ignore_errors=True)
+        shutil.rmtree(temporary_profile_root, ignore_errors=True)
 
 
 def main() -> None:
