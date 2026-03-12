@@ -3,16 +3,10 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse
-import html
-import re
-import shutil
-import subprocess
-import tempfile
-
+import argparse, html, tempfile
+import re, shutil, subprocess
 from pathlib import Path
 from typing import Sequence
-
 
 # Browser And Report Constants
 CHROME_EXECUTABLE_CANDIDATE_PATHS = (
@@ -48,20 +42,8 @@ CONFIGURATION_TABLE_HEADER_CELLS = (
 )
 
 CAMPAIGN_SUMMARY_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
-DATA_PIPELINE_ALIGNMENTS = (
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-)
-MODEL_AND_SCHEDULE_ALIGNMENTS = (
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-    ALIGN_CENTER,
-)
+DATA_PIPELINE_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
+MODEL_AND_SCHEDULE_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
 
 BROWSER_PDF_EXPORT_ARGUMENTS = (
     "--headless",
@@ -398,58 +380,27 @@ REPORT_STYLESHEET = """
     }
 """
 
-
 def build_argument_parser() -> argparse.ArgumentParser:
 
     """ Build Argument Parser """
 
-    argument_parser = argparse.ArgumentParser(
-        description="Generate a styled HTML and PDF report from a Markdown source.",
-    )
+    # Initialize Argument Parser
+    argument_parser = argparse.ArgumentParser(description="Generate a styled HTML and PDF report from a Markdown source.")
 
     # Configure Report Paths
-    argument_parser.add_argument(
-        "--input-markdown-path",
-        required=True,
-        help="Path to the Markdown source report.",
-    )
-    argument_parser.add_argument(
-        "--output-html-path",
-        required=True,
-        help="Path to the generated styled HTML file.",
-    )
-    argument_parser.add_argument(
-        "--output-pdf-path",
-        required=True,
-        help="Path to the generated styled PDF file.",
-    )
+    argument_parser.add_argument("--input-markdown-path", required=True, help="Path to the Markdown source report.")
+    argument_parser.add_argument("--output-html-path", required=True, help="Path to the generated styled HTML file.")
+    argument_parser.add_argument("--output-pdf-path", required=True, help="Path to the generated styled PDF file.")
 
     # Configure Report Labels
-    argument_parser.add_argument(
-        "--report-subtitle",
-        default=DEFAULT_REPORT_SUBTITLE,
-        help="Subtitle displayed below the report title.",
-    )
-    argument_parser.add_argument(
-        "--report-category",
-        default=DEFAULT_REPORT_CATEGORY,
-        help="Category badge displayed in the cover block.",
-    )
+    argument_parser.add_argument("--report-subtitle", default=DEFAULT_REPORT_SUBTITLE, help="Subtitle displayed below the report title.")
+    argument_parser.add_argument("--report-category", default=DEFAULT_REPORT_CATEGORY, help="Category badge displayed in the cover block.")
 
     # Configure Export Environment
-    argument_parser.add_argument(
-        "--chrome-executable-path",
-        default="",
-        help="Optional explicit Chrome or Edge executable path.",
-    )
-    argument_parser.add_argument(
-        "--keep-html",
-        action="store_true",
-        help="Keep the generated HTML file after PDF export.",
-    )
+    argument_parser.add_argument("--chrome-executable-path", default="", help="Optional explicit Chrome or Edge executable path.")
+    argument_parser.add_argument("--keep-html", action="store_true", help="Keep the generated HTML file after PDF export.")
 
     return argument_parser
-
 
 def detect_browser_executable(explicit_path: str) -> Path:
 
@@ -457,6 +408,7 @@ def detect_browser_executable(explicit_path: str) -> Path:
 
     # Resolve Explicit Browser Path
     if explicit_path:
+
         explicit_browser_path = Path(explicit_path)
 
         if not explicit_browser_path.exists():
@@ -469,19 +421,16 @@ def detect_browser_executable(explicit_path: str) -> Path:
         if candidate_browser_path.exists():
             return candidate_browser_path
 
-    raise FileNotFoundError(
-        "Could not detect a local Chrome/Edge executable for headless PDF export."
-    )
-
+    raise FileNotFoundError("Could not detect a local Chrome/Edge executable for headless PDF export.")
 
 def slugify(raw_text: str) -> str:
 
     """ Slugify Heading Text """
 
+    # Replace Non-Alphanumeric Sequences With Dashes, And Trim Leading/Trailing Dashes
     normalized_text = re.sub(r"[^a-zA-Z0-9]+", "-", raw_text.strip().lower())
 
     return normalized_text.strip("-") or "section"
-
 
 def convert_inline_markup(raw_text: str) -> str:
 
@@ -495,6 +444,7 @@ def convert_inline_markup(raw_text: str) -> str:
         if not code_split_token:
             continue
 
+        # Convert Inline Code Segments With Escaping
         if code_split_token.startswith("`") and code_split_token.endswith("`"):
             html_tokens.append(f"<code>{html.escape(code_split_token[1:-1])}</code>")
             continue
@@ -506,19 +456,21 @@ def convert_inline_markup(raw_text: str) -> str:
             lambda match_object: f"<strong>{match_object.group(1)}</strong>",
             escaped_token,
         )
+
+        # Append Processed Token
         html_tokens.append(escaped_token)
 
     return "".join(html_tokens)
-
 
 def split_table_row(markdown_row: str) -> list[str]:
 
     """ Split Table Row """
 
+    # Trim Leading And Trailing Pipes, Then Split On Pipes With Optional Surrounding Whitespace
     normalized_row = markdown_row.strip().strip("|")
 
+    # Trim Cells For Alignment Markers, Preserve Content For Rendering
     return [cell.strip() for cell in normalized_row.split("|")]
-
 
 def extract_table_alignments(separator_row: str) -> list[str]:
 
@@ -527,55 +479,55 @@ def extract_table_alignments(separator_row: str) -> list[str]:
     alignments: list[str] = []
 
     for separator_cell in split_table_row(separator_row):
+
+        # Trim Whitespace To Analyze Alignment Markers
         stripped_separator_cell = separator_cell.strip()
 
-        if stripped_separator_cell.startswith(":") and stripped_separator_cell.endswith(":"):
-            alignments.append(ALIGN_CENTER)
-        elif stripped_separator_cell.endswith(":"):
-            alignments.append(ALIGN_RIGHT)
-        else:
-            alignments.append(ALIGN_LEFT)
+        # Determine Alignment Based On Presence Of Leading And Trailing Colons, With Fallback To Left Alignment
+        if stripped_separator_cell.startswith(":") and stripped_separator_cell.endswith(":"): alignments.append(ALIGN_CENTER)
+        elif stripped_separator_cell.endswith(":"): alignments.append(ALIGN_RIGHT)
+        else: alignments.append(ALIGN_LEFT)
 
     return alignments
-
 
 def is_heading(markdown_line: str) -> bool:
 
     """ Check Heading Line """
 
+    # Heading Starts with '#' at Line Beginning To Avoid False Positives
     return markdown_line.startswith("#")
-
 
 def is_table_row(markdown_line: str) -> bool:
 
     """ Check Table Row """
 
+    # A Table Row Must Contain At Least One Pipe Character
     return markdown_line.strip().startswith("|")
-
 
 def is_list_item(markdown_line: str) -> bool:
 
     """ Check List Item """
 
+    # A List Item Starts With Optional Indentation Followed By A Bullet Token ('-', '*', Or A Number With A Period)
     return bool(re.match(r"^(\s*)([-*]|\d+\.)\s+.+$", markdown_line))
-
 
 def get_list_item_metadata(markdown_line: str) -> tuple[int, str, str]:
 
     """ Get List Item Metadata """
 
+    # Extract Leading Indentation, Bullet Token, And Item Content With A Regular Expression
     match_object = re.match(r"^(\s*)([-*]|\d+\.)\s+(.+)$", markdown_line)
 
-    if match_object is None:
-        raise ValueError(f"Line is not a list item: {markdown_line}")
+    # Check For Valid List Item Format
+    if match_object is None: raise ValueError(f"Line is not a list item: {markdown_line}")
 
+    # Calculate Indentation Width By Replacing Tabs With Spaces, Determine List Type Based On Bullet Token, And Trim Item Content
     indentation_width = len(match_object.group(1).replace("\t", "    "))
     bullet_token = match_object.group(2)
     item_content = match_object.group(3).strip()
     list_tag = "ol" if bullet_token.endswith(".") else "ul"
 
     return indentation_width, list_tag, item_content
-
 
 def collect_table_lines(markdown_lines: Sequence[str], start_index: int) -> tuple[list[str], int]:
 
@@ -584,12 +536,12 @@ def collect_table_lines(markdown_lines: Sequence[str], start_index: int) -> tupl
     table_lines: list[str] = []
     current_index = start_index
 
+    # Collect Consecutive Table Rows Starting From The Given Index, Which Should Point To The Header Row Of The Table
     while current_index < len(markdown_lines) and is_table_row(markdown_lines[current_index]):
         table_lines.append(markdown_lines[current_index])
         current_index += 1
 
     return table_lines, current_index
-
 
 def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[str]) -> str:
 
@@ -598,13 +550,12 @@ def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[
     header_html_tokens: list[str] = []
 
     for header_index, header_cell in enumerate(header_cells):
+
+        # Determine Alignment For Header Cell Based On Corresponding Alignment Marker In Separator Row, With Fallback To Left
         alignment_class = alignments[header_index] if header_index < len(alignments) else ALIGN_LEFT
-        header_html_tokens.append(
-            f'<th class="{alignment_class}">{convert_inline_markup(header_cell)}</th>'
-        )
+        header_html_tokens.append(f'<th class="{alignment_class}">{convert_inline_markup(header_cell)}</th>')
 
     return "".join(header_html_tokens)
-
 
 def render_table_body_rows(body_rows: Sequence[str], alignments: Sequence[str]) -> str:
 
@@ -613,53 +564,47 @@ def render_table_body_rows(body_rows: Sequence[str], alignments: Sequence[str]) 
     body_html_tokens: list[str] = []
 
     for body_row in body_rows:
+
         body_html_tokens.append("<tr>")
 
         for cell_index, body_cell in enumerate(split_table_row(body_row)):
+
+            # Determine Alignment For Body Cell Based On Corresponding Alignment Marker In Separator Row, With Fallback To Left
             alignment_class = alignments[cell_index] if cell_index < len(alignments) else ALIGN_LEFT
-            body_html_tokens.append(
-                f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>'
-            )
+            body_html_tokens.append(f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>')
 
         body_html_tokens.append("</tr>")
 
     return "".join(body_html_tokens)
 
-
-def render_split_table_body_rows(
-    body_rows: Sequence[str],
-    alignments: Sequence[str],
-    selected_indexes: Sequence[int],
-) -> str:
+def render_split_table_body_rows(body_rows: Sequence[str], alignments: Sequence[str], selected_indexes: Sequence[int]) -> str:
 
     """ Render Split Table Body Rows """
 
     body_html_tokens: list[str] = []
 
     for body_row in body_rows:
+
+        # Split Each Body Row Into Cells
         row_cells = split_table_row(body_row)
         body_html_tokens.append("<tr>")
 
         for output_index, source_index in enumerate(selected_indexes):
+
+            # Determine Alignment For Body Cell Based On Corresponding Alignment Marker In Separator Row, With Fallback To Left
             body_cell = row_cells[source_index]
             alignment_class = alignments[output_index] if output_index < len(alignments) else ALIGN_LEFT
-            body_html_tokens.append(
-                f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>'
-            )
+            body_html_tokens.append(f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>')
 
         body_html_tokens.append("</tr>")
 
     return "".join(body_html_tokens)
 
-
-def render_standard_table(
-    header_cells: Sequence[str],
-    alignments: Sequence[str],
-    body_rows: Sequence[str],
-) -> str:
+def render_standard_table(header_cells: Sequence[str], alignments: Sequence[str], body_rows: Sequence[str]) -> str:
 
     """ Render Standard Table """
 
+    # Render Table Header And Body Separately
     header_html = render_table_header_cells(header_cells, alignments)
     body_html = render_table_body_rows(body_rows, alignments)
 
@@ -674,7 +619,6 @@ def render_standard_table(
         "</tbody></table></div>"
     )
 
-
 def render_split_configuration_table(
     table_title: str,
     header_cells: Sequence[str],
@@ -686,6 +630,7 @@ def render_split_configuration_table(
 
     """ Render Split Configuration Table """
 
+    # Render Table Header And Body Separately With Selected Columns For Body
     header_html = render_table_header_cells(header_cells, alignments)
     body_html = render_split_table_body_rows(body_rows, alignments, selected_indexes)
 
@@ -700,7 +645,6 @@ def render_split_configuration_table(
         f"{body_html}"
         "</tbody></table></div>"
     )
-
 
 def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
 
@@ -719,10 +663,7 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
     # Render Data Pipeline Settings Table
     data_pipeline_html = render_split_configuration_table(
         table_title="Data Pipeline Settings",
-        header_cells=(
-            CONFIGURATION_TABLE_HEADER_CELLS[0],
-            *CONFIGURATION_TABLE_HEADER_CELLS[3:8],
-        ),
+        header_cells=(CONFIGURATION_TABLE_HEADER_CELLS[0], *CONFIGURATION_TABLE_HEADER_CELLS[3:8]),
         alignments=DATA_PIPELINE_ALIGNMENTS,
         body_rows=body_rows,
         selected_indexes=(0, 3, 4, 5, 6, 7),
@@ -732,10 +673,7 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
     # Render Model And Schedule Settings Table
     model_and_schedule_html = render_split_configuration_table(
         table_title="Model And Schedule Settings",
-        header_cells=(
-            CONFIGURATION_TABLE_HEADER_CELLS[0],
-            *CONFIGURATION_TABLE_HEADER_CELLS[8:11],
-        ),
+        header_cells=(CONFIGURATION_TABLE_HEADER_CELLS[0], *CONFIGURATION_TABLE_HEADER_CELLS[8:11]),
         alignments=MODEL_AND_SCHEDULE_ALIGNMENTS,
         body_rows=body_rows,
         selected_indexes=(0, 8, 9, 10),
@@ -750,7 +688,6 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
         "</div>"
     )
 
-
 def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, int]:
 
     """ Render Table """
@@ -758,9 +695,10 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
     # Collect Table Lines
     table_lines, current_index = collect_table_lines(markdown_lines, start_index)
 
-    if len(table_lines) < 2:
-        raise ValueError("Expected at least header and separator row in Markdown table.")
+    # Validate Table Structure And Extract Header Cells, Alignments, And Body Rows
+    if len(table_lines) < 2: raise ValueError("Expected at least header and separator row in Markdown table.")
 
+    # Parse Header Cells From First Row, And Alignment Markers From Second Row
     header_cells = split_table_row(table_lines[0])
     alignments = extract_table_alignments(table_lines[1])
     body_rows = table_lines[2:]
@@ -772,29 +710,33 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
     # Render Generic Markdown Table
     return render_standard_table(header_cells, alignments, body_rows), current_index
 
-
 def render_list(markdown_lines: Sequence[str], start_index: int, base_indentation: int) -> tuple[str, int]:
 
     """ Render List """
 
+    # Determine List Type From First Item
     _, current_list_tag, _ = get_list_item_metadata(markdown_lines[start_index])
     current_index = start_index
     list_item_html_tokens: list[str] = []
 
     while current_index < len(markdown_lines):
+
+        # Get Current Line
         current_line = markdown_lines[current_index]
 
+        # Check For Non-Empty Content
         if not current_line.strip():
             current_index += 1
             continue
 
-        if not is_list_item(current_line):
-            break
+        # Check For List Item
+        if not is_list_item(current_line): break
 
+        # Get List Item Metadata And Check For Valid Nesting Based On Indentation Width And List Type
         indentation_width, list_tag, item_content = get_list_item_metadata(current_line)
 
-        if indentation_width < base_indentation or list_tag != current_list_tag:
-            break
+        # Check For Valid Nesting Based On Indentation Width And List Type, With Fallback To Ending The Current List
+        if indentation_width < base_indentation or list_tag != current_list_tag: break
 
         # Render Nested List Branch
         if indentation_width > base_indentation:
@@ -819,21 +761,26 @@ def render_list(markdown_lines: Sequence[str], start_index: int, base_indentatio
 
         # Collect Continuation Paragraphs And Nested Blocks
         while current_index < len(markdown_lines):
+
+            # Get Lookahead Line And Check For Non-Empty Content
             lookahead_line = markdown_lines[current_index]
 
+            # Skip Empty Lines Between List Items
             if not lookahead_line.strip():
                 current_index += 1
                 continue
 
-            if is_heading(lookahead_line) or is_table_row(lookahead_line):
-                break
+            # Check For Heading Or Table Row To Avoid Incorrectly Associating Them With The Current List Item
+            if is_heading(lookahead_line) or is_table_row(lookahead_line): break
 
+            # Check For Nested List Item And Render Nested List Branch If Detected
             if is_list_item(lookahead_line):
+
+                # Get and Check Indentation Width Of Lookahead List Item
                 next_indentation_width, _, _ = get_list_item_metadata(lookahead_line)
+                if next_indentation_width <= base_indentation: break
 
-                if next_indentation_width <= base_indentation:
-                    break
-
+                # Render Nested List Branch And Append To Current List Item's HTML Tokens
                 nested_list_html, current_index = render_list(
                     markdown_lines=markdown_lines,
                     start_index=current_index,
@@ -849,34 +796,32 @@ def render_list(markdown_lines: Sequence[str], start_index: int, base_indentatio
         item_body_html = convert_inline_markup(item_content)
 
         if continuation_lines:
+
+            # Get Continuation Text and Render With Distinct Styling To Differentiate From Main Item Content
             continuation_text = " ".join(continuation_lines)
-            item_body_html += (
-                f'<p class="list-continuation">{convert_inline_markup(continuation_text)}</p>'
-            )
+            item_body_html += (f'<p class="list-continuation">{convert_inline_markup(continuation_text)}</p>')
 
-        list_item_html_tokens.append(
-            f'<li><div class="li-body">{item_body_html}</div>{"".join(nested_html_tokens)}</li>'
-        )
+        # Append List Item HTML With Any Nested List HTML Tokens To The List's HTML Tokens
+        list_item_html_tokens.append(f'<li><div class="li-body">{item_body_html}</div>{"".join(nested_html_tokens)}</li>')
 
-    return (
-        f'<{current_list_tag} class="report-list">{"".join(list_item_html_tokens)}</{current_list_tag}>',
-        current_index,
-    )
-
+    # Return Rendered List HTML And Updated Index Pointing To The First Line After The List Block
+    return (f'<{current_list_tag} class="report-list">{"".join(list_item_html_tokens)}</{current_list_tag}>', current_index)
 
 def render_paragraph(paragraph_lines: Sequence[str]) -> str:
 
     """ Render Paragraph """
 
+    # Normalize Paragraph Text By Joining Lines With Spaces, And Stripping Leading/Trailing Whitespace
     paragraph_text = " ".join(markdown_line.strip() for markdown_line in paragraph_lines).strip()
     normalized_word_count = len(paragraph_text.rstrip(":").split())
 
+    # If Paragraph Ends With A Colon And Has A Reasonable Word Count, Render It As A Block Label With Distinct Styling
     if paragraph_text.endswith(":") and normalized_word_count <= 6:
         label_text = convert_inline_markup(paragraph_text[:-1])
         return f'<p class="block-label">{label_text}</p>'
 
+    # Otherwise, Render It As A Standard Paragraph With Inline Markup Converted
     return f"<p>{convert_inline_markup(paragraph_text)}</p>"
-
 
 def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
@@ -884,6 +829,7 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
     markdown_lines = markdown_text.splitlines()
 
+    # Validate That The Markdown Starts With An H1 Heading To Extract The Report Title
     if not markdown_lines or not markdown_lines[0].startswith("# "):
         raise ValueError("Expected the report Markdown to start with one H1 heading.")
 
@@ -906,10 +852,10 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
         nonlocal paragraph_lines
 
         if paragraph_lines:
-            if current_subsection_title:
-                current_subsection_body_tokens.append(render_paragraph(paragraph_lines))
-            else:
-                current_section_body_tokens.append(render_paragraph(paragraph_lines))
+
+            # Render Accumulated Paragraph Lines And Append To Current Section Or Subsection Body Tokens
+            if current_subsection_title: current_subsection_body_tokens.append(render_paragraph(paragraph_lines))
+            else: current_section_body_tokens.append(render_paragraph(paragraph_lines))
 
             paragraph_lines = []
 
@@ -919,16 +865,16 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
         nonlocal current_subsection_title, current_subsection_body_tokens
 
+        # Process Paragraph Lines
         flush_paragraph()
 
-        if not current_subsection_title:
-            return
+        if not current_subsection_title: return
 
         if current_subsection_body_tokens:
+
+            # Render Subsection Title And Wrap It With A Container Along With The Subsection Body Tokens, Then Append To Current Section Body Tokens
             subsection_title_html = convert_inline_markup(current_subsection_title)
-            current_section_body_tokens.append(
-                f'<div class="subsection-block"><h3>{subsection_title_html}</h3>{"".join(current_subsection_body_tokens)}</div>'
-            )
+            current_section_body_tokens.append(f'<div class="subsection-block"><h3>{subsection_title_html}</h3>{"".join(current_subsection_body_tokens)}</div>')
 
         current_subsection_title = ""
         current_subsection_body_tokens = []
@@ -939,22 +885,26 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
         nonlocal current_section_title, current_section_slug, current_section_body_tokens
 
+        # Process Subsection
         flush_subsection()
 
         if current_section_title and current_section_body_tokens:
+
+            # Render Section Title And Wrap It With A Container Along With The Section Body Tokens, Then Append To Document HTML Tokens
             section_title_html = convert_inline_markup(current_section_title)
-            document_html_tokens.append(
-                f'<section class="section-card section-{current_section_slug}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'
-            )
+            document_html_tokens.append(f'<section class="section-card section-{current_section_slug}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>')
 
         current_section_title = ""
         current_section_slug = ""
         current_section_body_tokens = []
 
     while current_index < len(body_lines):
+
+        # Get Current Stripped Line
         current_line = body_lines[current_index].rstrip()
         stripped_line = current_line.strip()
 
+        # Check For Empty Line To Determine Paragraph Boundaries, And Flush Accumulated Paragraph Lines When Detected
         if not stripped_line:
             flush_paragraph()
             current_index += 1
@@ -977,26 +927,28 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
         # Render Table Block
         if is_table_row(current_line):
+
+            # Process Paragraph Lines Before Rendering Table To Avoid Incorrectly Associating Them With The Table Block
             flush_paragraph()
             table_html, current_index = render_table(body_lines, current_index)
 
-            if current_subsection_title:
-                current_subsection_body_tokens.append(table_html)
-            else:
-                current_section_body_tokens.append(table_html)
+            # Append Rendered Table HTML To Current Section Or Subsection Body Tokens
+            if current_subsection_title: current_subsection_body_tokens.append(table_html)
+            else: current_section_body_tokens.append(table_html)
 
             continue
 
         # Render List Block
         if is_list_item(current_line):
+
+            # Process Paragraph Lines Before Rendering List To Avoid Incorrectly Associating Them With The List Block
             flush_paragraph()
             indentation_width, _, _ = get_list_item_metadata(current_line)
             list_html, current_index = render_list(body_lines, current_index, indentation_width)
 
-            if current_subsection_title:
-                current_subsection_body_tokens.append(list_html)
-            else:
-                current_section_body_tokens.append(list_html)
+            # Append Rendered List HTML To Current Section Or Subsection Body Tokens
+            if current_subsection_title: current_subsection_body_tokens.append(list_html)
+            else: current_section_body_tokens.append(list_html)
 
             continue
 
@@ -1008,13 +960,7 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
     return report_title, "\n".join(document_html_tokens)
 
-
-def build_html_document(
-    report_title: str,
-    report_subtitle: str,
-    report_category: str,
-    body_html: str,
-) -> str:
+def build_html_document(report_title: str, report_subtitle: str, report_category: str, body_html: str) -> str:
 
     """ Build HTML Document """
 
@@ -1047,7 +993,6 @@ def build_html_document(
 </html>
 """
 
-
 def write_text_file(file_path: Path, file_content: str) -> None:
 
     """ Write Text File """
@@ -1057,7 +1002,6 @@ def write_text_file(file_path: Path, file_content: str) -> None:
 
     # Save Text Content
     file_path.write_text(file_content, encoding="utf-8")
-
 
 def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path: Path) -> None:
 
@@ -1076,6 +1020,7 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
     )
 
     try:
+
         # Export PDF Through Headless Browser
         subprocess.run(
             [
@@ -1089,11 +1034,12 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
             capture_output=True,
             text=True,
         )
+
     finally:
+
         # Remove Temporary Browser Profile
         shutil.rmtree(temporary_profile_path, ignore_errors=True)
         shutil.rmtree(temporary_profile_root, ignore_errors=True)
-
 
 def main() -> None:
 
@@ -1133,6 +1079,6 @@ def main() -> None:
 
     print(f"Styled PDF generated at: {output_pdf_path}")
 
-
 if __name__ == "__main__":
+
     main()
