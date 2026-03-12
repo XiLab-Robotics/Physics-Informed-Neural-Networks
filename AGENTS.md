@@ -23,10 +23,12 @@
   5. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, and proposed future improvements.
   6. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
   7. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
-  8. Create a Git commit immediately after the modifications are completed.
+  8. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
+  9. Create the Git commit only after the user explicitly approves it.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
 - Do not execute any training campaign until both the technical document and the preliminary training-planning report in `doc/reports/campaign_plans/` have been created and explicitly approved by the user.
 - Do not treat a styled PDF export as complete until the exported PDF has been checked against the project golden standard for layout discipline and readability.
+- Do not create a Git commit immediately after finishing the work. Always stop, report completion, and wait for explicit user approval before committing.
 - Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 - Before the final commit, whenever the approved work introduces a new third-party dependency, update `requirements.txt` and any relevant installation or usage documentation so the environment remains reproducible.
 - Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
@@ -56,4 +58,3 @@
 - Use type hints where they are already natural in the surrounding file, especially for tensors, arrays, ROS messages, loaders, and return values.
 - Favor aligned or visually structured assignments when several related values are initialized together.
 - Preserve the existing print/debug style when needed: explicit status messages, sometimes colorized, with direct wording rather than generic logging prose.
-

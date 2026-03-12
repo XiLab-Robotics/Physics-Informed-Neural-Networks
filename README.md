@@ -206,6 +206,7 @@ Technical documents:
   * `doc/technical/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md`
   * `doc/technical/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md`
   * `doc/technical/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md`
+  * `doc/technical/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md`
 
 Script documentation:
 
@@ -268,7 +269,9 @@ The following rules are mandatory for all future project work:
   * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` with metrics tables, interpretation, best-configuration summary, and future improvement proposals;
   * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
   * if the approved work introduces a new third-party library, update `requirements.txt` and every relevant setup or usage reference before the final commit;
-  * create a Git commit immediately after the modifications are completed.
+  * tell the user the work is complete and ask for explicit approval to commit;
+  * create the Git commit only after the user explicitly approves it.
+* Do not create a Git commit immediately after finishing the work. Always stop and wait for explicit user approval before committing.
 * Before the final commit, `doc/guide/project_usage_guide.md` must be updated whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 * Before the final commit, every newly introduced third-party library must be added to `requirements.txt` and to any relevant installation or usage documentation so the project remains reproducible.
 * Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
@@ -498,4 +501,3 @@ Davide Ferrari
 ## License
 
 Specify appropriate license (e.g., MIT, BSD-3, or proprietary industrial use).
-
