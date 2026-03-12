@@ -320,9 +320,7 @@ def build_validated_directional_sample(csv_file_path: str | Path, direction_labe
 
     # Validate Final Arrays
     assert angular_position_deg.size > 0, f"Empty Angular Position array after processing | {csv_file_path} | {direction_label}"
-    assert transmission_error_deg.size == angular_position_deg.size, (
-        f"Transmission Error length mismatch | {transmission_error_deg.size} vs {angular_position_deg.size}"
-    )
+    assert transmission_error_deg.size == angular_position_deg.size, (f"Transmission Error length mismatch | {transmission_error_deg.size} vs {angular_position_deg.size}")
 
     return TransmissionErrorCurveSample(
         source_file_path=csv_file_path,
@@ -530,9 +528,7 @@ def split_directional_file_manifest(
     # Validate Split Configuration
     assert 0.0 < validation_split < 1.0, f"Validation Split must be between 0 and 1 | {validation_split}"
     assert 0.0 <= test_split < 1.0, f"Test Split must be between 0 and 1 | {test_split}"
-    assert (validation_split + test_split) < 1.0, (
-        f"Validation Split + Test Split must stay below 1 | {validation_split} + {test_split}"
-    )
+    assert (validation_split + test_split) < 1.0, (f"Validation Split + Test Split must stay below 1 | {validation_split} + {test_split}")
 
     # Collect Unique CSV Paths
     unique_csv_file_paths = sorted({csv_file_path for csv_file_path, _ in directional_file_manifest})
