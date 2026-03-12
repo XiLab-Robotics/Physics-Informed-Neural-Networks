@@ -343,6 +343,12 @@ An additional lighter proof-run configuration is also available in:
 
 - `config/feedforward_network_training_trial.yaml`
 
+More aggressive workstation-oriented variants are also available in:
+
+- `config/feedforward_network_training_high_density.yaml`
+- `config/feedforward_network_training_high_epoch.yaml`
+- `config/feedforward_network_training_high_compute.yaml`
+
 Main configurable sections:
 
 - `paths.dataset_config_path`
@@ -476,6 +482,41 @@ This proof configuration:
 - caps the point count with `dataset.maximum_points_per_curve: 200`;
 - reduces the epoch budget to a short verification range;
 - still executes validation, held-out testing, and report generation.
+
+## Workstation-Oriented Training Variants
+
+If the workstation has strong CPU and GPU resources, the repository now also provides three heavier training configurations.
+
+### `config/feedforward_network_training_high_density.yaml`
+
+Use this when the first priority is denser sampling of each TE curve:
+
+- lower `point_stride` than the baseline;
+- larger `curve_batch_size`;
+- higher dataloader worker count.
+
+This is the recommended first upgrade over the baseline when the goal is to test whether more curve detail improves the results.
+
+### `config/feedforward_network_training_high_epoch.yaml`
+
+Use this when the first priority is a longer convergence window:
+
+- same basic data density as the baseline;
+- longer epoch budget;
+- higher early-stopping patience.
+
+This is useful when the baseline appears stable but not yet fully converged.
+
+### `config/feedforward_network_training_high_compute.yaml`
+
+Use this when the goal is to push both data density and model capacity:
+
+- denser point sampling;
+- larger curve batches;
+- larger hidden layers;
+- longer epoch budget.
+
+This is the most compute-heavy feedforward variant currently defined in the repository and is best treated as an offline benchmark rather than as the first PLC-oriented baseline.
 
 ## Current Dataloader Runtime Defaults
 

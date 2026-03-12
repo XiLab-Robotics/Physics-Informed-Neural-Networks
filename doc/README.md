@@ -84,6 +84,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for adding a proof feedforward training run, a held-out test phase, and a per-run result report artifact.
 - [technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md](./technical/2026-03-12-13-13-27_feedforward_trial_analytical_report.md)
   Technical document for writing a full analytical report of the feedforward proof run with narrative interpretation and comparison against the reference papers.
+- [technical/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md](./technical/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md)
+  Technical document for producing a detailed training-configuration explanation report plus a PDF export and heavier workstation-oriented configuration proposals.
 
 ### Script Documentation
 
@@ -98,6 +100,10 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/2026-03-12-feedforward_trial_analytical_report.md](./reports/2026-03-12-feedforward_trial_analytical_report.md)
   Full analytical report for the executed feedforward proof run, including interpretation and comparison against the reference papers.
+- [reports/2026-03-12-training_configuration_analysis_report.md](./reports/2026-03-12-training_configuration_analysis_report.md)
+  Detailed explanation of the training configuration entries, their practical effects, and a comparison between trial, baseline, and heavier workstation-oriented variants.
+- [reports/2026-03-12-training_configuration_analysis_report.pdf](./reports/2026-03-12-training_configuration_analysis_report.pdf)
+  PDF export of the detailed training-configuration analysis report.
 
 ### Guides
 
