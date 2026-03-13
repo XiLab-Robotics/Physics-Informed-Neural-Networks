@@ -153,6 +153,9 @@ Notes:
   - mandatory post-export inspection of the real PDF output;
   - explicit checks that `Config`-like identifier columns are not crushed while short numeric metric columns are not oversized;
   - explicit checks that metric headers do not get forced into wrapped or right-edge-stressed layouts by poor width allocation;
+  - explicit checks that long headers wrap inside their own cells instead of spilling into adjacent columns;
+  - explicit checks that wrapped identifier cells break at meaningful token boundaries rather than leaving isolated one- or two-letter fragments;
+  - explicit checks that content stays comfortably inside each cell and does not sit almost on the borders;
   - if the PDF evidence is inconclusive, the report must not be considered validated yet.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
 - the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.

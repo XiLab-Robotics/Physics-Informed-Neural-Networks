@@ -214,6 +214,8 @@ Technical documents:
   * `doc/technical/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md`
   * `doc/technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md`
   * `doc/technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md`
+* `2026-03-14`
+  * `doc/technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md`
 
 Script documentation:
 
@@ -275,6 +277,9 @@ The following rules are mandatory for all future project work:
 * Future styled PDFs must preserve the same professional report direction: white background, restrained blue accents, rounded cards, safe A4 margins, split comparison tables when needed, repeated `Config` anchors across split tables, and a final post-export PDF inspection.
 * Styled PDF validation must catch not only clipping but also poor table balance such as crushed `Config` columns, oversized numeric columns, wrapped metric headers caused by bad width allocation, and right-edge pressure.
 * If the validation evidence for the real exported PDF is inconclusive, the PDF-report task must stay open until the layout is proved acceptable or explicitly escalated to the user.
+* Long table headers must remain visually contained inside their own cells. If needed, they should wrap within the cell instead of spilling across column boundaries.
+* Identifier-style table values should wrap at meaningful token boundaries whenever possible. Avoid arbitrary one-letter or two-letter fragments at the end of a wrapped line.
+* Table width balancing should start from roughly even columns, then shift space moderately toward genuinely longer content while keeping short columns tighter without over-compressing them.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
 * No training campaign should be executed before the user has explicitly approved both the technical document and the preliminary training-planning report for that campaign.
 * Every user-requested repository change must follow this sequence:

@@ -76,6 +76,11 @@ RANKING_TABLE_HEADER_CELL_GROUPS = (
     ("Config", "Test RMSE [deg]", "Test MAE [deg]", "Runtime"),
 )
 
+SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
+    ("large", "batch"),
+    ("big", "model"),
+}
+
 BROWSER_PDF_EXPORT_ARGUMENTS = (
     "--headless",
     "--disable-gpu",
@@ -333,31 +338,47 @@ REPORT_STYLESHEET = """
       padding: 4px 4px;
     }
 
+    .report-table-historical-results th,
+    .report-table-phase-results th,
+    .report-table-ranking-results th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.16;
+    }
+
     .report-table-historical-results th:nth-child(1), .report-table-historical-results td:nth-child(1) { width: 12%; }
     .report-table-historical-results th:nth-child(2), .report-table-historical-results td:nth-child(2) { width: 13%; }
     .report-table-historical-results th:nth-child(3), .report-table-historical-results td:nth-child(3) { width: 9%; }
-    .report-table-historical-results th:nth-child(4), .report-table-historical-results td:nth-child(4) { width: 10%; }
-    .report-table-historical-results th:nth-child(5), .report-table-historical-results td:nth-child(5) { width: 14%; }
-    .report-table-historical-results th:nth-child(6), .report-table-historical-results td:nth-child(6) { width: 14%; }
-    .report-table-historical-results th:nth-child(7), .report-table-historical-results td:nth-child(7) { width: 14%; }
-    .report-table-historical-results th:nth-child(8), .report-table-historical-results td:nth-child(8) { width: 14%; }
+    .report-table-historical-results th:nth-child(4), .report-table-historical-results td:nth-child(4) { width: 12%; }
+    .report-table-historical-results th:nth-child(5), .report-table-historical-results td:nth-child(5) { width: 13.5%; }
+    .report-table-historical-results th:nth-child(6), .report-table-historical-results td:nth-child(6) { width: 13.5%; }
+    .report-table-historical-results th:nth-child(7), .report-table-historical-results td:nth-child(7) { width: 13.5%; }
+    .report-table-historical-results th:nth-child(8), .report-table-historical-results td:nth-child(8) { width: 13.5%; }
 
-    .report-table-phase-results th:nth-child(1), .report-table-phase-results td:nth-child(1) { width: 30%; }
-    .report-table-phase-results th:nth-child(2), .report-table-phase-results td:nth-child(2) { width: 9%; }
-    .report-table-phase-results th:nth-child(3), .report-table-phase-results td:nth-child(3) { width: 12%; }
-    .report-table-phase-results th:nth-child(4), .report-table-phase-results td:nth-child(4) { width: 12.25%; }
-    .report-table-phase-results th:nth-child(5), .report-table-phase-results td:nth-child(5) { width: 12.25%; }
-    .report-table-phase-results th:nth-child(6), .report-table-phase-results td:nth-child(6) { width: 12.25%; }
-    .report-table-phase-results th:nth-child(7), .report-table-phase-results td:nth-child(7) { width: 12.25%; }
+    .report-table-phase-results th:nth-child(1), .report-table-phase-results td:nth-child(1) { width: 27%; }
+    .report-table-phase-results th:nth-child(2), .report-table-phase-results td:nth-child(2) { width: 10%; }
+    .report-table-phase-results th:nth-child(3), .report-table-phase-results td:nth-child(3) { width: 11%; }
+    .report-table-phase-results th:nth-child(4), .report-table-phase-results td:nth-child(4) { width: 13%; }
+    .report-table-phase-results th:nth-child(5), .report-table-phase-results td:nth-child(5) { width: 13%; }
+    .report-table-phase-results th:nth-child(6), .report-table-phase-results td:nth-child(6) { width: 13%; }
+    .report-table-phase-results th:nth-child(7), .report-table-phase-results td:nth-child(7) { width: 13%; }
 
-    .report-table-ranking-results th:nth-child(1), .report-table-ranking-results td:nth-child(1) { width: 48%; }
-    .report-table-ranking-results th:nth-child(2), .report-table-ranking-results td:nth-child(2) { width: 16%; }
-    .report-table-ranking-results th:nth-child(3), .report-table-ranking-results td:nth-child(3) { width: 16%; }
-    .report-table-ranking-results th:nth-child(4), .report-table-ranking-results td:nth-child(4) { width: 20%; }
+    .report-table-ranking-results th:nth-child(1), .report-table-ranking-results td:nth-child(1) { width: 42%; }
+    .report-table-ranking-results th:nth-child(2), .report-table-ranking-results td:nth-child(2) { width: 20%; }
+    .report-table-ranking-results th:nth-child(3), .report-table-ranking-results td:nth-child(3) { width: 20%; }
+    .report-table-ranking-results th:nth-child(4), .report-table-ranking-results td:nth-child(4) { width: 18%; }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
       font-size: 7.1pt;
+    }
+
+    .semantic-wrap-code {
+      word-break: normal;
+      overflow-wrap: normal;
+      hyphens: none;
     }
 
     .split-table-grid {
@@ -530,6 +551,75 @@ def convert_inline_markup(raw_text: str) -> str:
 
     return "".join(html_tokens)
 
+def group_identifier_tokens(raw_identifier_text: str) -> list[str]:
+
+    """ Group Identifier Tokens """
+
+    grouped_tokens: list[str] = []
+    identifier_tokens = raw_identifier_text.split("_")
+    token_index = 0
+
+    while token_index < len(identifier_tokens):
+
+        # Resolve Compound Token
+        if (
+            token_index + 1 < len(identifier_tokens)
+            and (identifier_tokens[token_index], identifier_tokens[token_index + 1]) in SEMANTIC_IDENTIFIER_TOKEN_PAIRS
+        ):
+            grouped_tokens.append(f"{identifier_tokens[token_index]}_{identifier_tokens[token_index + 1]}")
+            token_index += 2
+            continue
+
+        grouped_tokens.append(identifier_tokens[token_index])
+        token_index += 1
+
+    return grouped_tokens
+
+def render_inline_code(raw_code_text: str, use_semantic_identifier_wrap: bool = False) -> str:
+
+    """ Render Inline Code """
+
+    # Render Default Inline Code
+    if not use_semantic_identifier_wrap or "_" not in raw_code_text:
+        return f"<code>{html.escape(raw_code_text)}</code>"
+
+    # Group Identifier Tokens
+    grouped_tokens = group_identifier_tokens(raw_code_text)
+    grouped_tokens_html = html.escape(grouped_tokens[0]) if grouped_tokens else ""
+
+    for grouped_token in grouped_tokens[1:]:
+        grouped_tokens_html += f"_<wbr>{html.escape(grouped_token)}"
+
+    return f'<code class="semantic-wrap-code">{grouped_tokens_html}</code>'
+
+def convert_inline_markup_with_semantic_identifier_wrap(raw_text: str) -> str:
+
+    """ Convert Inline Markup With Semantic Identifier Wrap """
+
+    # Split Inline Code Segments
+    code_split_tokens = re.split(r"(`[^`]+`)", raw_text)
+    html_tokens: list[str] = []
+
+    for code_split_token in code_split_tokens:
+        if not code_split_token:
+            continue
+
+        # Render Inline Code Token
+        if code_split_token.startswith("`") and code_split_token.endswith("`"):
+            html_tokens.append(render_inline_code(code_split_token[1:-1], use_semantic_identifier_wrap=True))
+            continue
+
+        # Render Plain Text Token
+        escaped_token = html.escape(code_split_token)
+        escaped_token = re.sub(
+            r"\*\*(.+?)\*\*",
+            lambda match_object: f"<strong>{match_object.group(1)}</strong>",
+            escaped_token,
+        )
+        html_tokens.append(escaped_token)
+
+    return "".join(html_tokens)
+
 def split_table_row(markdown_row: str) -> list[str]:
 
     """ Split Table Row """
@@ -639,7 +729,9 @@ def render_table_body_rows(body_rows: Sequence[str], alignments: Sequence[str]) 
 
             # Resolve Cell Alignment
             alignment_class = alignments[cell_index] if cell_index < len(alignments) else ALIGN_LEFT
-            body_html_tokens.append(f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>')
+            body_html_tokens.append(
+                f'<td class="{alignment_class}">{convert_inline_markup_with_semantic_identifier_wrap(body_cell) if cell_index == 0 else convert_inline_markup(body_cell)}</td>'
+            )
 
         body_html_tokens.append("</tr>")
 
@@ -662,7 +754,9 @@ def render_split_table_body_rows(body_rows: Sequence[str], alignments: Sequence[
             # Resolve Cell Alignment
             body_cell = row_cells[source_index]
             alignment_class = alignments[output_index] if output_index < len(alignments) else ALIGN_LEFT
-            body_html_tokens.append(f'<td class="{alignment_class}">{convert_inline_markup(body_cell)}</td>')
+            body_html_tokens.append(
+                f'<td class="{alignment_class}">{convert_inline_markup_with_semantic_identifier_wrap(body_cell) if output_index == 0 else convert_inline_markup(body_cell)}</td>'
+            )
 
         body_html_tokens.append("</tr>")
 

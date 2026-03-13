@@ -136,6 +136,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md](./technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md)
   Technical document for repairing the mixed-campaign PDF table widths and tightening the rule so future table-layout defects must be caught before task closure.
 
+#### 2026-03-14
+
+- [technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md](./technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md)
+  Technical document for fixing remaining header spill and semantic config wrapping issues in the campaign-results PDF tables.
+
 ### Script Documentation
 
 - [scripts/datasets/transmission_error_dataset.md](./scripts/datasets/transmission_error_dataset.md)
