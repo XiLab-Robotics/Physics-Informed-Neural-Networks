@@ -156,6 +156,8 @@ Notes:
   - explicit checks that long headers wrap inside their own cells instead of spilling into adjacent columns;
   - explicit checks that wrapped identifier cells break at meaningful token boundaries rather than leaving isolated one- or two-letter fragments;
   - explicit checks that content stays comfortably inside each cell and does not sit almost on the borders;
+  - explicit checks that table-cell content remains vertically centered, especially in rows mixing one-line and multi-line values;
+  - explicit checks that major sections do not start near the bottom of a page and then immediately continue on the next page when a clean page-start is possible;
   - if the PDF evidence is inconclusive, the report must not be considered validated yet.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
 - the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.

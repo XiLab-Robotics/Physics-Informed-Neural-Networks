@@ -81,6 +81,11 @@ SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
     ("big", "model"),
 }
 
+FORCED_PAGE_BREAK_SECTION_SLUGS = {
+    "phase-2-results",
+    "cross-campaign-ranking",
+}
+
 BROWSER_PDF_EXPORT_ARGUMENTS = (
     "--headless",
     "--disable-gpu",
@@ -172,6 +177,16 @@ REPORT_STYLESHEET = """
       border: 1px solid #ADD5F7;
       background: #ffffff;
       max-width: 100%;
+    }
+
+    .section-keep-together {
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+    }
+
+    .section-force-page-break {
+      break-before: page;
+      page-break-before: always;
     }
 
     h2 {
@@ -288,7 +303,7 @@ REPORT_STYLESHEET = """
     .report-table td {
       padding: 5px 5px;
       border-bottom: 1px solid #D8E8FA;
-      vertical-align: top;
+      vertical-align: middle;
       overflow-wrap: anywhere;
       word-break: break-word;
       hyphens: auto;
@@ -1083,7 +1098,15 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
             # Append Section Block
             section_title_html = convert_inline_markup(current_section_title)
-            document_html_tokens.append(f'<section id="{current_section_slug}" class="section-card section-{current_section_slug}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>')
+            section_class_names = ["section-card", f"section-{current_section_slug}"]
+
+            if current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS:
+                section_class_names.append("section-keep-together")
+                section_class_names.append("section-force-page-break")
+
+            document_html_tokens.append(
+                f'<section id="{current_section_slug}" class="{" ".join(section_class_names)}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'
+            )
 
         current_section_title = ""
         current_section_slug = ""

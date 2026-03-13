@@ -216,6 +216,7 @@ Technical documents:
   * `doc/technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md`
 * `2026-03-14`
   * `doc/technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md`
+  * `doc/technical/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md`
 
 Script documentation:
 
@@ -280,6 +281,8 @@ The following rules are mandatory for all future project work:
 * Long table headers must remain visually contained inside their own cells. If needed, they should wrap within the cell instead of spilling across column boundaries.
 * Identifier-style table values should wrap at meaningful token boundaries whenever possible. Avoid arbitrary one-letter or two-letter fragments at the end of a wrapped line.
 * Table width balancing should start from roughly even columns, then shift space moderately toward genuinely longer content while keeping short columns tighter without over-compressing them.
+* Table content should be centered vertically inside cells by default; mixed multi-line and single-line rows must not look top-aligned.
+* Major sections in styled PDFs should not begin at the bottom of one page and continue immediately on the next when the section could cleanly start on the next page instead.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
 * No training campaign should be executed before the user has explicitly approved both the technical document and the preliminary training-planning report for that campaign.
 * Every user-requested repository change must follow this sequence:

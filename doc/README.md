@@ -140,6 +140,8 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md](./technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md)
   Technical document for fixing remaining header spill and semantic config wrapping issues in the campaign-results PDF tables.
+- [technical/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md](./technical/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md)
+  Technical document for enforcing vertical table-cell centering and cleaner section page-break behavior in the campaign-results PDF.
 
 ### Script Documentation
 

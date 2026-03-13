@@ -27,6 +27,8 @@
 - When a table header is too long for its current width, keep it inside its own cell by wrapping it cleanly inside that cell. Never allow a header label to visually spill into the neighboring column.
 - When identifier-style values such as `Config` names wrap, prefer semantically meaningful breakpoints such as underscore-delimited token groups. Avoid arbitrary one- or two-letter trailing fragments.
 - When balancing table columns, start from broadly similar widths, widen only the columns that clearly need more room, and redistribute the reduction across the others without over-compressing them. Do not allow text to sit too close to the borders or escape its own cell.
+- Vertically center table-cell content by default. Keep the existing horizontal alignment choices, but do not leave mixed single-line and multi-line cells visually top-aligned.
+- During styled PDF validation, explicitly check that no major section starts at the bottom of a page only to continue immediately on the next page. If that happens and the section can reasonably fit on the next page, move the section start to the next page instead.
 - Follow this mandatory execution sequence for every user-requested repository change:
   1. Create the technical project document first.
   2. If the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before asking for approval.
