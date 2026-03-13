@@ -1,0 +1,32 @@
+run_name: te_feedforward_stride10_long
+best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\feedforward_network\te_feedforward_stride10_long\checkpoints\feedforward-epoch=107-val_mae=0.00305276.ckpt
+dataset_split:
+  train_curves: 1356
+  validation_curves: 388
+  test_curves: 194
+normalization_statistics:
+  input_feature_mean:
+  - 179.94888305664062
+  - 497.88775634765625
+  - 896.0166625976562
+  - 30.364072799682617
+  - -7.554168064416444e-07
+  input_feature_std:
+  - 103.92868041992188
+  - 466.8202819824219
+  - 543.8321533203125
+  - 4.080521583557129
+  - 1.0
+  target_mean:
+  - -0.017238687723875046
+  target_std:
+  - 0.04652012884616852
+validation_metrics:
+  val_loss: 0.007750086952000856
+  val_mae: 0.0030527557246387005
+  val_rmse: 0.00358755374327302
+test_metrics:
+  test_loss: 0.008708570152521133
+  test_mae: 0.00348338158801198
+  test_rmse: 0.004049783572554588

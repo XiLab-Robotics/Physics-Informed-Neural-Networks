@@ -1,0 +1,32 @@
+run_name: te_feedforward_stride5_long_large_batch_big_model
+best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\feedforward_network\te_feedforward_stride5_long_large_batch_big_model\checkpoints\feedforward-epoch=104-val_mae=0.00310436.ckpt
+dataset_split:
+  train_curves: 1356
+  validation_curves: 388
+  test_curves: 194
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.007793812546879053
+  val_mae: 0.0031043565832078457
+  val_rmse: 0.0036664099898189306
+test_metrics:
+  test_loss: 0.008566945791244507
+  test_mae: 0.0034718408714979887
+  test_rmse: 0.004003706853836775
