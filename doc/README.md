@@ -124,6 +124,15 @@ This folder contains the internal project documents derived from the reference P
   Technical document for shortening the styled PDF exporter comments and aligning the persistent coding-style rules with the latest user-approved manual refactor.
 - [technical/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md](./technical/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md)
   Technical document for reorganizing `config/`, introducing a queue-based batch training workflow, and generating campaign execution reports for later post-training analysis.
+- [technical/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md](./technical/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md)
+  Technical document for automatic campaign YAML generation, active-campaign state tracking, protected-file warnings, and completion/cancellation handling.
+
+#### 2026-03-13
+
+- [technical/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md](./technical/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md)
+  Technical document for writing the final mixed-campaign results report and selecting the best current feedforward training preset.
+- [technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md](./technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md)
+  Technical document for making PDF export and PDF validation mandatory for final campaign-results reports.
 
 ### Script Documentation
 
@@ -156,6 +165,15 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
+- [reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md](./reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md)
+  Final results report for the completed mixed feedforward campaign, including the recommended best-training preset selection.
+
+### Running State
+
+- [running/README.md](./running/README.md)
+  Explanation of the persistent prepared/active campaign state workflow.
+- [running/active_training_campaign.yaml](./running/active_training_campaign.yaml)
+  Current prepared or active training campaign state, including protected files and launch commands.
 
 ### Guides
 

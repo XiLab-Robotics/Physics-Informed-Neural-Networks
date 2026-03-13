@@ -209,6 +209,10 @@ Technical documents:
   * `doc/technical/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md`
   * `doc/technical/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md`
   * `doc/technical/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md`
+  * `doc/technical/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md`
+* `2026-03-13`
+  * `doc/technical/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md`
+  * `doc/technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md`
 
 Script documentation:
 
@@ -227,6 +231,7 @@ Reports:
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 * `Campaign Results`
   * `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
+  * `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
 
 Guides:
 
@@ -261,6 +266,10 @@ The following rules are mandatory for all future project work:
   * `Implementation Steps`
 * Every newly created technical project document must be added as a reference in this main project document.
 * Before executing any training campaign, a preliminary planning report must be created in `doc/reports/campaign_plans/` describing the relevant parameters, their effects, and the candidate configuration table to be tested.
+* For every approved training campaign preparation, the campaign YAML files and the exact launch command must also be generated automatically.
+* The current prepared or active training campaign must be tracked persistently in `doc/running/active_training_campaign.yaml`.
+* While a campaign is prepared or active, any modification to a protected campaign file must trigger a `CRITICAL WARNING` and wait for explicit user approval.
+* Every final campaign-results report must be produced both as Markdown and as a validated PDF export.
 * Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the golden standard for future styled analytical PDF reports.
 * Future styled PDFs must preserve the same professional report direction: white background, restrained blue accents, rounded cards, safe A4 margins, split comparison tables when needed, repeated `Config` anchors across split tables, and a final post-export PDF inspection.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
@@ -269,8 +278,9 @@ The following rules are mandatory for all future project work:
   * create the technical project document first;
   * if the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before requesting approval;
   * wait for explicit user approval;
+  * if the approved work is a training campaign, generate the campaign YAML files, store the campaign state, and provide the exact launch command;
   * execute the approved modifications;
-  * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` with metrics tables, interpretation, best-configuration summary, and future improvement proposals;
+  * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` with metrics tables, interpretation, best-configuration summary, future improvement proposals, and a validated PDF export;
   * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
   * if the approved work introduces a new third-party library, update `requirements.txt` and every relevant setup or usage reference before the final commit;
   * tell the user the work is complete and ask for explicit approval to commit;

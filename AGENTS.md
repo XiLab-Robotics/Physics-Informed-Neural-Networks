@@ -11,6 +11,14 @@
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
 - Before executing any training campaign or training-related experiment, create a preliminary planning report in `doc/reports/campaign_plans/` that explains the relevant parameters, their meanings and effects, and the candidate configuration table to be tested. Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md` as the reference style and depth.
+- For every approved training campaign preparation, automatically generate the campaign YAML files and provide the exact terminal command needed to launch the campaign. Do not treat campaign preparation as complete if only the planning report exists.
+- Track the current prepared or active training campaign persistently in `doc/running/active_training_campaign.yaml`.
+- Treat the files listed in `doc/running/active_training_campaign.yaml` as protected campaign files while the campaign is prepared or active.
+- If a future user request would modify a protected campaign file while the campaign is prepared or active, issue a `CRITICAL WARNING` and wait for explicit user approval before making the edit.
+- When the user says that the campaign has started, update `doc/running/active_training_campaign.yaml` accordingly before doing unrelated work that could affect the campaign baseline.
+- When the user says that the campaign is finished, inspect the stored campaign state and gather the campaign artifacts needed for the final post-training results report, but still wait for explicit approval before writing that report.
+- When the user says that the campaign is cancelled, inspect the stored campaign state and evaluate completed, failed, running, and pending results before making any queue or artifact cleanup decision.
+- Every final campaign-results report must be delivered both as Markdown and as a PDF export, and the real exported PDF must be validated before the task is considered complete.
 - Treat `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the visual golden standard for future styled analytical PDFs in this repository.
 - Future styled analytical PDFs must preserve the same restrained professional direction: white page background, restrained blue accents, rounded section cards, readable A4-safe margins, and no clipped borders or overcrowded blocks.
 - When comparison matrices are split across multiple tables, repeat the key row anchor such as `Config` in each table and prefer centered comparison-friendly alignment unless a different alignment clearly improves readability.
@@ -19,12 +27,13 @@
   1. Create the technical project document first.
   2. If the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before asking for approval.
   3. Wait for the user's explicit approval.
-  4. Execute the approved modifications.
-  5. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, and proposed future improvements.
-  6. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
-  7. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
-  8. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
-  9. Create the Git commit only after the user explicitly approves it.
+  4. If the approved work is a training campaign, generate the campaign YAML files, store the campaign state, and provide the exact launch command.
+  5. Execute the approved modifications.
+  6. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, proposed future improvements, and a validated PDF export.
+  7. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
+  8. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
+  9. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
+  10. Create the Git commit only after the user explicitly approves it.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
 - Do not execute any training campaign until both the technical document and the preliminary training-planning report in `doc/reports/campaign_plans/` have been created and explicitly approved by the user.
 - Do not treat a styled PDF export as complete until the exported PDF has been checked against the project golden standard for layout discipline and readability.

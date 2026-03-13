@@ -90,6 +90,9 @@ The current usage flow mainly relies on these folders:
 - `output/training_campaigns/`
   Campaign-level manifests, markdown execution reports, and batch logs.
 
+- `doc/running/`
+  Persistent state for the currently prepared or active training campaign.
+
 - `doc/`
   Technical, script-level, and user-facing documentation.
 
@@ -116,6 +119,8 @@ The current main target is:
 - `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
 
 Treat that PDF as the project golden standard for future styled analytical reports.
+
+The same export direction now also applies to final campaign-results reports.
 
 ## Regenerate The Styled Training-Configuration PDF
 
@@ -419,6 +424,10 @@ More aggressive workstation-oriented variants are also available in:
 - `config/training/feedforward/presets/high_epoch.yaml`
 - `config/training/feedforward/presets/high_compute.yaml`
 
+The current recommended practical feedforward preset is:
+
+- `config/training/feedforward/presets/best_training.yaml`
+
 Main configurable sections:
 
 - `paths.dataset_config_path`
@@ -588,6 +597,18 @@ Use this when the goal is to push both data density and model capacity:
 
 This is the most compute-heavy feedforward variant currently defined in the repository and is best treated as an offline benchmark rather than as the first PLC-oriented baseline.
 
+### `config/training/feedforward/presets/best_training.yaml`
+
+Use this when you want the current best practical feedforward training preset derived from the completed mixed campaign:
+
+- `point_stride = 5`
+- `curve_batch_size = 4`
+- standard `128-128-64` architecture
+- long `20-250` epoch schedule
+- no large-model complexity penalty
+
+This preset is the current recommended default because it achieved the best held-out `test_mae` across the currently executed feedforward configurations while remaining relatively efficient.
+
 ## Current Dataloader Runtime Defaults
 
 The current feedforward-training config now uses these dataloader defaults:
@@ -611,6 +632,12 @@ conda run -n standard_ml_codex_env python training/train_feedforward_network.py 
 ```
 
 The script now exposes `--config-path`, so custom YAML files can be launched directly without using `python -c`.
+
+To launch the current best practical feedforward preset directly:
+
+```powershell
+conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
+```
 
 ## Typical Training Outputs
 
@@ -683,6 +710,10 @@ Keep reusable presets under:
 
 Copy presets into `pending/` when preparing a campaign. Do not move the canonical preset files themselves.
 
+Campaign-specific YAML files can also be stored in dedicated folders such as:
+
+- `config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/`
+
 ## Queue Presets Without Running Them Yet
 
 ```powershell
@@ -725,6 +756,34 @@ Typical generated artifacts:
   Full terminal output captured for each queued YAML file.
 
 Use the generated campaign execution report as the source index for the required final report in `doc/reports/campaign_results/`.
+
+Final campaign-results deliverables must include:
+
+- the canonical Markdown report;
+- the styled PDF export;
+- a real PDF validation pass before the task is closed.
+
+## Active Campaign State
+
+The currently prepared or active campaign is tracked in:
+
+- `doc/running/active_training_campaign.yaml`
+
+This state file stores:
+
+- campaign name;
+- planning report path;
+- campaign configuration file list;
+- launch commands;
+- protected files that should not be modified silently while the campaign is active.
+
+Operational rule:
+
+- approved campaign preparation must now include generated YAML files and the exact launch command;
+- when the user confirms that the campaign has started, the campaign state should be updated to `running`;
+- while the campaign is prepared or running, any edit to a protected campaign file requires a `CRITICAL WARNING` and explicit user approval first;
+- when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
+- when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
 ## Typical Workflow For The Current Project
 

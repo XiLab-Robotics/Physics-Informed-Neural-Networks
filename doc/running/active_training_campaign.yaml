@@ -1,0 +1,52 @@
+campaign_name: mixed_training_campaign_2026_03_12_15_32_28
+status: completed
+planning_report_path: doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md
+campaign_config_directory: config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign
+queue_root: config/training/queue
+campaign_output_root: output/training_campaigns
+campaign_output_directory: output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28
+launch_mode: queue_runner_with_campaign_file_arguments
+activation_pending_user_confirmation: false
+started_at: 2026-03-12T18:52:00
+completed_at: 2026-03-13T00:00:00
+queue_config_path_list:
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/01_stride10_long.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/02_stride5_long.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/03_stride1_long.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/04_stride10_long_large_batch.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/05_stride5_long_large_batch.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/06_stride1_long_large_batch.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/07_stride10_long_large_batch_big_model.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/08_stride5_long_large_batch_big_model.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/09_stride1_long_large_batch_big_model.yaml
+run_name_list:
+  - te_feedforward_stride10_long
+  - te_feedforward_stride5_long
+  - te_feedforward_stride1_long
+  - te_feedforward_stride10_long_large_batch
+  - te_feedforward_stride5_long_large_batch
+  - te_feedforward_stride1_long_large_batch
+  - te_feedforward_stride10_long_large_batch_big_model
+  - te_feedforward_stride5_long_large_batch_big_model
+  - te_feedforward_stride1_long_large_batch_big_model
+protected_file_list:
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/01_stride10_long.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/02_stride5_long.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/03_stride1_long.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/04_stride10_long_large_batch.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/05_stride5_long_large_batch.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/06_stride1_long_large_batch.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/07_stride10_long_large_batch_big_model.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/08_stride5_long_large_batch_big_model.yaml
+  - config/training/feedforward/campaigns/2026-03-12_mixed_training_campaign/09_stride1_long_large_batch_big_model.yaml
+  - training/run_training_campaign.py
+  - training/train_feedforward_network.py
+  - training/transmission_error_datamodule.py
+  - training/transmission_error_regression_module.py
+  - models/model_factory.py
+  - models/feedforward_network.py
+  - scripts/datasets/transmission_error_dataset.py
+launch_command_list:
+  - conda activate standard_ml_codex_env
+  - $campaign_config_list = Get-ChildItem config\training\feedforward\campaigns\2026-03-12_mixed_training_campaign\*.yaml | Sort-Object Name | ForEach-Object { $_.FullName }
+  - conda run -n standard_ml_codex_env python training\run_training_campaign.py @campaign_config_list --campaign-name mixed_training_campaign_2026_03_12_15_32_28 --planning-report-path doc\reports\campaign_plans\2026-03-12-15-32-28_mixed_training_campaign_plan_report.md
