@@ -10,6 +10,8 @@ It is stored in:
 
 The runner is meant for long unattended campaigns where the user wants to prepare several configurations in advance and collect an indexed execution report afterward.
 
+For the current feedforward workflow, the runner now reuses the same in-process terminal behavior as `training/train_feedforward_network.py` instead of flattening the child output through a captured subprocess pipe.
+
 ## Main Role
 
 The script coordinates the batch-training flow:
@@ -18,7 +20,7 @@ The script coordinates the batch-training flow:
 2. discover queued YAML files in `config/training/queue/pending/`;
 3. move each file into `running/` before execution;
 4. dispatch the YAML to the correct training entry point based on `experiment.model_type`;
-5. capture the terminal output into a campaign log file;
+5. mirror the live terminal output to both the active console and a per-run campaign log file;
 6. move the YAML into `completed/` or `failed/`;
 7. write a campaign manifest and markdown execution report.
 
@@ -39,7 +41,7 @@ Persistent queue folders:
 
 ### `training/train_feedforward_network.py`
 
-Current single-run feedforward training entry point reused by the batch runner through a subprocess.
+Current single-run feedforward training entry point reused directly by the batch runner for the supported feedforward workflow.
 
 ### `output/training_campaigns/`
 
@@ -54,6 +56,8 @@ Campaign-level artifact root that stores:
 For each batch execution, the runner generates:
 
 - a queue-state transition for every YAML file;
+- the same terminal logging and Lightning progress-bar behavior used by the direct single-run training script for supported model types;
+- a compact campaign-progress summary before and after each run, including `current/total` status;
 - a campaign manifest with machine-readable run metadata;
 - a campaign markdown report summarizing all runs;
 - one terminal log per queued YAML file;
@@ -86,3 +90,5 @@ python training/run_training_campaign.py `
 ```
 
 The generated campaign report is intended to be the technical source index for the mandatory final report in `doc/reports/campaign_results/`.
+
+During execution, the campaign runner now keeps the direct single-run training output visible in the terminal, so the user can observe startup messages, Lightning progress bars, validation/test phases, and final artifact summaries without waiting for the campaign to finish.

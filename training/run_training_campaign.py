@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse, shutil, subprocess, sys
+import argparse, shutil, sys, traceback
+from collections.abc import Callable, Iterator
+from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -21,11 +23,11 @@ from scripts.datasets.transmission_error_dataset import resolve_project_relative
 
 DEFAULT_QUEUE_ROOT = PROJECT_PATH / "config" / "training" / "queue"
 DEFAULT_CAMPAIGN_OUTPUT_ROOT = PROJECT_PATH / "output" / "training_campaigns"
-SUPPORTED_MODEL_ENTRYPOINT_DICTIONARY = {
-    "feedforward": PROJECT_PATH / "training" / "train_feedforward_network.py",
-}
+SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {"feedforward": "training/train_feedforward_network.py"}
 CONFIG_SNAPSHOT_FILENAME_LIST = ["feedforward_network_training.yaml", "training_config.yaml"]
 TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
+SECTION_DIVIDER_WIDTH = 96
+CAMPAIGN_PROGRESS_BAR_WIDTH = 24
 
 @dataclass(frozen=True)
 class QueueDirectories:
@@ -73,23 +75,135 @@ class TrainingRunResult:
     campaign_name: str | None
     error_message: str | None
 
+class TeeTerminalStream:
+
+    """ Tee Terminal Stream """
+
+    def __init__(self, terminal_stream, log_file) -> None:
+
+        """ Initialize Tee Terminal Stream """
+
+        self.terminal_stream = terminal_stream
+        self.log_file = log_file
+
+    def write(self, message: str) -> int:
+
+        """ Write Message """
+
+        if message == "":
+            return 0
+
+        self.terminal_stream.write(message)
+        self.terminal_stream.flush()
+
+        log_message = message.replace("\r", "\n")
+        self.log_file.write(log_message)
+        self.log_file.flush()
+        return len(message)
+
+    def flush(self) -> None:
+
+        """ Flush Streams """
+
+        self.terminal_stream.flush()
+        self.log_file.flush()
+
+    def isatty(self) -> bool:
+
+        """ Check Interactive Terminal """
+
+        terminal_isatty = getattr(self.terminal_stream, "isatty", None)
+        if callable(terminal_isatty): return bool(terminal_isatty())
+        return False
+
+    @property
+    def encoding(self) -> str:
+
+        """ Resolve Encoding """
+
+        return getattr(self.terminal_stream, "encoding", None) or "utf-8"
+
+    def __getattr__(self, attribute_name: str):
+
+        """ Forward Missing Attributes """
+
+        return getattr(self.terminal_stream, attribute_name)
+
 def print_info_message(message: str) -> None:
 
     """ Print Info Message """
 
-    print(f"[INFO] {message}")
+    print(f"[INFO] {message}", flush=True)
 
 def print_success_message(message: str) -> None:
 
     """ Print Success Message """
 
-    print(f"[DONE] {message}")
+    print(f"[DONE] {message}", flush=True)
 
 def print_warning_message(message: str) -> None:
 
     """ Print Warning Message """
 
-    print(f"[WARN] {message}")
+    print(f"[WARN] {message}", flush=True)
+
+def build_campaign_progress_bar(completed_run_count: int, total_run_count: int) -> str:
+
+    """ Build Campaign Progress Bar """
+
+    if total_run_count <= 0:
+        return "[" + "-" * CAMPAIGN_PROGRESS_BAR_WIDTH + "]"
+
+    filled_width = int((completed_run_count / total_run_count) * CAMPAIGN_PROGRESS_BAR_WIDTH)
+    empty_width = CAMPAIGN_PROGRESS_BAR_WIDTH - filled_width
+    return "[" + "#" * filled_width + "-" * empty_width + "]"
+
+def print_campaign_run_header(
+    campaign_name: str,
+    queue_index: int,
+    queue_total: int,
+    run_name: str,
+    queue_config_path: Path,
+    source_config_path: Path | None,
+) -> None:
+
+    """ Print Campaign Run Header """
+
+    progress_bar = build_campaign_progress_bar(completed_run_count=max(queue_index - 1, 0), total_run_count=queue_total)
+
+    print()
+    print("=" * SECTION_DIVIDER_WIDTH, flush=True)
+    print(f"Campaign Progress {queue_index}/{queue_total} {progress_bar}", flush=True)
+    print("=" * SECTION_DIVIDER_WIDTH, flush=True)
+    print_info_message(f"Campaign Name | {campaign_name}")
+    print_info_message(f"Run Name | {run_name}")
+    print_info_message(f"Queue Config | {queue_config_path}")
+    print_info_message(f"Source Config | {source_config_path if source_config_path is not None else 'N/A'}")
+
+def print_campaign_run_footer(
+    queue_index: int,
+    queue_total: int,
+    run_name: str,
+    queue_status: str,
+    duration_seconds: float,
+    completed_count: int,
+    failed_count: int,
+) -> None:
+
+    """ Print Campaign Run Footer """
+
+    progress_bar = build_campaign_progress_bar(completed_run_count=queue_index, total_run_count=queue_total)
+    duration_string = format_duration_seconds(duration_seconds)
+
+    print()
+    print("=" * SECTION_DIVIDER_WIDTH, flush=True)
+    print(f"Campaign Progress {queue_index}/{queue_total} {progress_bar}", flush=True)
+    print("=" * SECTION_DIVIDER_WIDTH, flush=True)
+
+    if queue_status == "completed": print_success_message(f"Run Completed | {run_name} | Duration {duration_string}")
+    else: print_warning_message(f"Run Failed | {run_name} | Duration {duration_string}")
+
+    print_info_message(f"Cumulative Status | Completed {completed_count} | Failed {failed_count}")
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
@@ -304,12 +418,34 @@ def resolve_training_entrypoint_path(model_type: str) -> Path:
 
     # Model Type is Case-Insensitive
     normalized_model_type = model_type.lower()
-    assert normalized_model_type in SUPPORTED_MODEL_ENTRYPOINT_DICTIONARY, (
+    assert normalized_model_type in SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY, (
         f"Unsupported Model Type for Campaign Runner | {model_type} | "
-        f"Supported: {sorted(SUPPORTED_MODEL_ENTRYPOINT_DICTIONARY.keys())}"
+        f"Supported: {sorted(SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY.keys())}"
     )
 
-    return SUPPORTED_MODEL_ENTRYPOINT_DICTIONARY[normalized_model_type]
+    return (PROJECT_PATH / SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY[normalized_model_type]).resolve()
+
+def run_feedforward_training(config_path: str | Path) -> None:
+
+    """ Run Feedforward Training """
+
+    from training.train_feedforward_network import train_feedforward_network
+
+    train_feedforward_network(config_path=config_path)
+
+def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
+
+    """ Resolve Training Handler """
+
+    supported_model_handler_dictionary = {"feedforward": run_feedforward_training}
+
+    normalized_model_type = model_type.lower()
+    assert normalized_model_type in supported_model_handler_dictionary, (
+        f"Unsupported Model Type for Campaign Runner | {model_type} | "
+        f"Supported: {sorted(supported_model_handler_dictionary.keys())}"
+    )
+
+    return supported_model_handler_dictionary[normalized_model_type]
 
 def resolve_output_directory(training_config: dict[str, Any]) -> Path:
 
@@ -351,34 +487,33 @@ def build_training_command(training_entrypoint_path: Path, running_config_path: 
         str(running_config_path),
     ]
 
-def tee_subprocess_output(command: list[str], log_path: Path) -> int:
+@contextmanager
+def tee_terminal_output(log_path: Path, command: list[str]) -> Iterator[None]:
 
-    """ Tee Subprocess Output """
+    """ Tee Terminal Output """
 
-    with log_path.open("w", encoding="utf-8") as log_file:
+    with log_path.open("w", encoding="utf-8", newline="\n") as log_file:
 
         # Write Command Header
         log_file.write(f"Command: {' '.join(command)}\n")
         log_file.write(f"Working Directory: {PROJECT_PATH}\n\n")
         log_file.flush()
 
-        # Start Subprocess
-        process = subprocess.Popen(
-            command,
-            cwd=str(PROJECT_PATH),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            bufsize=1,
-        )
+        original_stdout = sys.stdout
+        original_stderr = sys.stderr
+        sys.stdout = TeeTerminalStream(terminal_stream=original_stdout, log_file=log_file)
+        sys.stderr = TeeTerminalStream(terminal_stream=original_stderr, log_file=log_file)
 
-        assert process.stdout is not None, "Process stdout pipe is not available"
+        try:
 
-        for terminal_output_line in process.stdout:
-            print(terminal_output_line, end="")
-            log_file.write(terminal_output_line)
+            yield
 
-        return process.wait()
+        finally:
+
+            sys.stdout.flush()
+            sys.stderr.flush()
+            sys.stdout = original_stdout
+            sys.stderr = original_stderr
 
 def format_duration_seconds(duration_seconds: float) -> str:
 
@@ -396,6 +531,8 @@ def execute_queue_item(
     log_directory: Path,
     campaign_name: str,
     planning_report_path: str | None,
+    queue_index: int,
+    queue_total: int,
 ) -> TrainingRunResult:
 
     """ Execute Queue Item """
@@ -422,13 +559,28 @@ def execute_queue_item(
 
     try:
 
-        # Resolve Output Directory and Training Entrypoint Path
+        # Resolve Output Directory, Entrypoint Path, and Training Handler
         output_directory = resolve_output_directory(training_config=training_config)
         training_entrypoint_path = resolve_training_entrypoint_path(model_type=model_type)
+        training_handler = resolve_training_handler(model_type=model_type)
         command = build_training_command(training_entrypoint_path=training_entrypoint_path, running_config_path=running_queue_config_path)
-        process_return_code = tee_subprocess_output(command=command, log_path=log_path)
+
+        # Mirror Terminal Output While Preserving Interactive Training Behavior
+        with tee_terminal_output(log_path=log_path, command=command):
+
+            print_campaign_run_header(
+                campaign_name=run_campaign_name,
+                queue_index=queue_index,
+                queue_total=queue_total,
+                run_name=run_name,
+                queue_config_path=running_queue_config_path,
+                source_config_path=queue_item_context.source_config_path,
+            )
+            training_handler(running_queue_config_path)
+
+        process_return_code = 0
         queue_status = "completed" if process_return_code == 0 else "failed"
-        error_message = None if process_return_code == 0 else f"Training subprocess exited with code {process_return_code}"
+        error_message = None if process_return_code == 0 else f"Training run exited with code {process_return_code}"
 
     except KeyboardInterrupt:
 
@@ -442,6 +594,7 @@ def execute_queue_item(
         error_message = str(error)
         with log_path.open("a", encoding="utf-8") as log_file:
             log_file.write(f"\n[RUNNER ERROR] {error}\n")
+            log_file.write(traceback.format_exc())
 
     # Move Config from Running to Completed or Failed
     final_queue_directory = queue_directories.completed if queue_status == "completed" else queue_directories.failed
@@ -695,11 +848,6 @@ def main() -> None:
 
     for queue_index, queue_item_context in enumerate(queue_item_context_list, start=1):
 
-        print_info_message(
-            f"Starting Queue Item {queue_index}/{len(queue_item_context_list)} | "
-            f"{queue_item_context.queue_config_path.name}"
-        )
-
         # Execute Queue Item and Append Result to List
         training_run_result = execute_queue_item(
             queue_item_context=queue_item_context,
@@ -707,6 +855,8 @@ def main() -> None:
             log_directory=log_directory,
             campaign_name=campaign_name,
             planning_report_path=planning_report_path,
+            queue_index=queue_index,
+            queue_total=len(queue_item_context_list),
         )
         training_run_result_list.append(training_run_result)
 
@@ -730,15 +880,19 @@ def main() -> None:
             training_run_result_list=training_run_result_list,
         )
 
-        if training_run_result.queue_status == "completed":
+        completed_count = sum(training_run_result.queue_status == "completed" for training_run_result in training_run_result_list)
+        failed_count = sum(training_run_result.queue_status == "failed" for training_run_result in training_run_result_list)
+        print_campaign_run_footer(
+            queue_index=queue_index,
+            queue_total=len(queue_item_context_list),
+            run_name=training_run_result.run_name,
+            queue_status=training_run_result.queue_status,
+            duration_seconds=training_run_result.duration_seconds,
+            completed_count=completed_count,
+            failed_count=failed_count,
+        )
 
-            # Training Completed Successfully
-            print_success_message(f"Completed Queue Item | {training_run_result.run_name}")
-
-        else:
-
-            # Training Failed
-            print_warning_message(f"Failed Queue Item | {training_run_result.run_name}")
+        if training_run_result.queue_status != "completed":
 
             # If --stop-on-error was Requested, Stop the Campaign After the First Failure
             if command_line_arguments.stop_on_error:

@@ -700,7 +700,9 @@ This runner:
 - optionally copies one or more YAML files into the queue;
 - executes queued YAML files sequentially;
 - moves each configuration across `pending/`, `running/`, `completed/`, and `failed/`;
-- captures one terminal log per queue item;
+- keeps the same direct terminal logging behavior as the underlying single-run training script for supported model types;
+- mirrors that live output into one terminal log per queue item;
+- prints a compact campaign-progress summary before and after each run;
 - generates a campaign manifest and markdown execution report under `output/training_campaigns/`.
 
 ## Queue Layout
@@ -737,6 +739,8 @@ python training/run_training_campaign.py `
 python training/run_training_campaign.py
 ```
 
+When the queued model type is currently supported by the in-process runner layer, the terminal now shows the same structured sections and Lightning progress bars used by `training/train_feedforward_network.py`. This removes the earlier delayed startup silence and avoids the previous broken Unicode progress-bar output caused by piped subprocess capture.
+
 ## Queue And Run In One Command
 
 ```powershell
@@ -761,7 +765,7 @@ Typical generated artifacts:
   Human-readable execution report listing what was tested and where the per-run results are stored.
 
 - `logs/*.log`
-  Full terminal output captured for each queued YAML file.
+  Full terminal output mirrored for each queued YAML file while the same output stays visible live in the active terminal.
 
 Use the generated campaign execution report as the source index for the required final report in `doc/reports/campaign_results/`.
 

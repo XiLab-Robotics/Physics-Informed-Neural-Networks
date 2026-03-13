@@ -217,6 +217,7 @@ Technical documents:
 * `2026-03-14`
   * `doc/technical/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md`
   * `doc/technical/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md`
+  * `doc/technical/2026-03-14/2026-03-14-00-37-25_campaign_training_terminal_logging_alignment.md`
 
 Script documentation:
 
