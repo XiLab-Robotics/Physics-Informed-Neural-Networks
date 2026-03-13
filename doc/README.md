@@ -133,6 +133,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for writing the final mixed-campaign results report and selecting the best current feedforward training preset.
 - [technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md](./technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md)
   Technical document for making PDF export and PDF validation mandatory for final campaign-results reports.
+- [technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md](./technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md)
+  Technical document for repairing the mixed-campaign PDF table widths and tightening the rule so future table-layout defects must be caught before task closure.
 
 ### Script Documentation
 

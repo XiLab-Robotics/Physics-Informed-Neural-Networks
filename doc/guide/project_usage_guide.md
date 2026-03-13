@@ -150,7 +150,10 @@ Notes:
   - split comparison tables when necessary for readability;
   - repeated `Config` anchors across split comparison tables;
   - centered alignment for comparison matrices when it improves readability;
-  - mandatory post-export inspection of the real PDF output.
+  - mandatory post-export inspection of the real PDF output;
+  - explicit checks that `Config`-like identifier columns are not crushed while short numeric metric columns are not oversized;
+  - explicit checks that metric headers do not get forced into wrapped or right-edge-stressed layouts by poor width allocation;
+  - if the PDF evidence is inconclusive, the report must not be considered validated yet.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
 - the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.
 

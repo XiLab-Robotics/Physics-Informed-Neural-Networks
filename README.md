@@ -213,6 +213,7 @@ Technical documents:
 * `2026-03-13`
   * `doc/technical/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md`
   * `doc/technical/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md`
+  * `doc/technical/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md`
 
 Script documentation:
 
@@ -272,6 +273,8 @@ The following rules are mandatory for all future project work:
 * Every final campaign-results report must be produced both as Markdown and as a validated PDF export.
 * Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the golden standard for future styled analytical PDF reports.
 * Future styled PDFs must preserve the same professional report direction: white background, restrained blue accents, rounded cards, safe A4 margins, split comparison tables when needed, repeated `Config` anchors across split tables, and a final post-export PDF inspection.
+* Styled PDF validation must catch not only clipping but also poor table balance such as crushed `Config` columns, oversized numeric columns, wrapped metric headers caused by bad width allocation, and right-edge pressure.
+* If the validation evidence for the real exported PDF is inconclusive, the PDF-report task must stay open until the layout is proved acceptable or explicitly escalated to the user.
 * No implementation code should be written before the user has explicitly approved the technical document for that feature.
 * No training campaign should be executed before the user has explicitly approved both the technical document and the preliminary training-planning report for that campaign.
 * Every user-requested repository change must follow this sequence:

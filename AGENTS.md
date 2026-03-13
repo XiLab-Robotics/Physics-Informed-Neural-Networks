@@ -22,7 +22,8 @@
 - Treat `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the visual golden standard for future styled analytical PDFs in this repository.
 - Future styled analytical PDFs must preserve the same restrained professional direction: white page background, restrained blue accents, rounded section cards, readable A4-safe margins, and no clipped borders or overcrowded blocks.
 - When comparison matrices are split across multiple tables, repeat the key row anchor such as `Config` in each table and prefer centered comparison-friendly alignment unless a different alignment clearly improves readability.
-- After regenerating any styled PDF, validate the real exported PDF output and not only the HTML source. Explicitly check for clipped borders, wrapped headers, broken table fit, and margin violations before closing the task.
+- After regenerating any styled PDF, validate the real exported PDF output and not only the HTML source. Explicitly check for clipped borders, wrapped headers, broken table fit, crushed identifier columns, oversized numeric columns, and right-edge pressure before closing the task.
+- If the PDF-validation evidence is inconclusive or does not prove that the real exported tables are well balanced, treat the PDF task as still open and continue until the layout issue is either fixed or clearly escalated to the user.
 - Follow this mandatory execution sequence for every user-requested repository change:
   1. Create the technical project document first.
   2. If the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before asking for approval.

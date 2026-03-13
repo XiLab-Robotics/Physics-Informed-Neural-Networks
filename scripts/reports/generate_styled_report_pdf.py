@@ -27,6 +27,11 @@ ALIGN_LEFT = "align-left"
 ALIGN_CENTER = "align-center"
 ALIGN_RIGHT = "align-right"
 
+GENERIC_TABLE_CLASS_NAME = "report-table report-table-generic"
+HISTORICAL_REFERENCE_TABLE_CLASS_NAME = "report-table report-table-historical-results"
+PHASE_RESULTS_TABLE_CLASS_NAME = "report-table report-table-phase-results"
+RANKING_RESULTS_TABLE_CLASS_NAME = "report-table report-table-ranking-results"
+
 CONFIGURATION_TABLE_HEADER_CELLS = (
     "Config",
     "Status",
@@ -44,6 +49,32 @@ CONFIGURATION_TABLE_HEADER_CELLS = (
 CAMPAIGN_SUMMARY_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
 DATA_PIPELINE_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
 MODEL_AND_SCHEDULE_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
+
+HISTORICAL_REFERENCE_TABLE_HEADER_CELLS = (
+    "Config",
+    "Status",
+    "Best Epoch",
+    "Approx. Wall Time",
+    "Val MAE [deg]",
+    "Val RMSE [deg]",
+    "Test MAE [deg]",
+    "Test RMSE [deg]",
+)
+
+PHASE_RESULTS_TABLE_HEADER_CELLS = (
+    "Config",
+    "Best Epoch",
+    "Wall Time",
+    "Val MAE [deg]",
+    "Val RMSE [deg]",
+    "Test MAE [deg]",
+    "Test RMSE [deg]",
+)
+
+RANKING_TABLE_HEADER_CELL_GROUPS = (
+    ("Config", "Test MAE [deg]", "Test RMSE [deg]", "Runtime"),
+    ("Config", "Test RMSE [deg]", "Test MAE [deg]", "Runtime"),
+)
 
 BROWSER_PDF_EXPORT_ARGUMENTS = (
     "--headless",
@@ -274,17 +305,55 @@ REPORT_STYLESHEET = """
       border-right: none;
     }
 
-    .report-table th:nth-child(1), .report-table td:nth-child(1) { width: 8%; }
-    .report-table th:nth-child(2), .report-table td:nth-child(2) { width: 9%; }
-    .report-table th:nth-child(3), .report-table td:nth-child(3) { width: 18%; }
-    .report-table th:nth-child(4), .report-table td:nth-child(4) { width: 7%; }
-    .report-table th:nth-child(5), .report-table td:nth-child(5) { width: 7%; }
-    .report-table th:nth-child(6), .report-table td:nth-child(6) { width: 10%; }
-    .report-table th:nth-child(7), .report-table td:nth-child(7) { width: 6%; }
-    .report-table th:nth-child(8), .report-table td:nth-child(8) { width: 8%; }
-    .report-table th:nth-child(9), .report-table td:nth-child(9) { width: 15%; }
-    .report-table th:nth-child(10), .report-table td:nth-child(10) { width: 7%; }
-    .report-table th:nth-child(11), .report-table td:nth-child(11) { width: 5%; }
+    .report-table-generic th:nth-child(1), .report-table-generic td:nth-child(1) { width: 8%; }
+    .report-table-generic th:nth-child(2), .report-table-generic td:nth-child(2) { width: 9%; }
+    .report-table-generic th:nth-child(3), .report-table-generic td:nth-child(3) { width: 18%; }
+    .report-table-generic th:nth-child(4), .report-table-generic td:nth-child(4) { width: 7%; }
+    .report-table-generic th:nth-child(5), .report-table-generic td:nth-child(5) { width: 7%; }
+    .report-table-generic th:nth-child(6), .report-table-generic td:nth-child(6) { width: 10%; }
+    .report-table-generic th:nth-child(7), .report-table-generic td:nth-child(7) { width: 6%; }
+    .report-table-generic th:nth-child(8), .report-table-generic td:nth-child(8) { width: 8%; }
+    .report-table-generic th:nth-child(9), .report-table-generic td:nth-child(9) { width: 15%; }
+    .report-table-generic th:nth-child(10), .report-table-generic td:nth-child(10) { width: 7%; }
+    .report-table-generic th:nth-child(11), .report-table-generic td:nth-child(11) { width: 5%; }
+
+    .report-table-historical-results,
+    .report-table-phase-results,
+    .report-table-ranking-results {
+      font-size: 7.05pt;
+      line-height: 1.22;
+    }
+
+    .report-table-historical-results th,
+    .report-table-historical-results td,
+    .report-table-phase-results th,
+    .report-table-phase-results td,
+    .report-table-ranking-results th,
+    .report-table-ranking-results td {
+      padding: 4px 4px;
+    }
+
+    .report-table-historical-results th:nth-child(1), .report-table-historical-results td:nth-child(1) { width: 12%; }
+    .report-table-historical-results th:nth-child(2), .report-table-historical-results td:nth-child(2) { width: 13%; }
+    .report-table-historical-results th:nth-child(3), .report-table-historical-results td:nth-child(3) { width: 9%; }
+    .report-table-historical-results th:nth-child(4), .report-table-historical-results td:nth-child(4) { width: 10%; }
+    .report-table-historical-results th:nth-child(5), .report-table-historical-results td:nth-child(5) { width: 14%; }
+    .report-table-historical-results th:nth-child(6), .report-table-historical-results td:nth-child(6) { width: 14%; }
+    .report-table-historical-results th:nth-child(7), .report-table-historical-results td:nth-child(7) { width: 14%; }
+    .report-table-historical-results th:nth-child(8), .report-table-historical-results td:nth-child(8) { width: 14%; }
+
+    .report-table-phase-results th:nth-child(1), .report-table-phase-results td:nth-child(1) { width: 30%; }
+    .report-table-phase-results th:nth-child(2), .report-table-phase-results td:nth-child(2) { width: 9%; }
+    .report-table-phase-results th:nth-child(3), .report-table-phase-results td:nth-child(3) { width: 12%; }
+    .report-table-phase-results th:nth-child(4), .report-table-phase-results td:nth-child(4) { width: 12.25%; }
+    .report-table-phase-results th:nth-child(5), .report-table-phase-results td:nth-child(5) { width: 12.25%; }
+    .report-table-phase-results th:nth-child(6), .report-table-phase-results td:nth-child(6) { width: 12.25%; }
+    .report-table-phase-results th:nth-child(7), .report-table-phase-results td:nth-child(7) { width: 12.25%; }
+
+    .report-table-ranking-results th:nth-child(1), .report-table-ranking-results td:nth-child(1) { width: 48%; }
+    .report-table-ranking-results th:nth-child(2), .report-table-ranking-results td:nth-child(2) { width: 16%; }
+    .report-table-ranking-results th:nth-child(3), .report-table-ranking-results td:nth-child(3) { width: 16%; }
+    .report-table-ranking-results th:nth-child(4), .report-table-ranking-results td:nth-child(4) { width: 20%; }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
@@ -599,7 +668,12 @@ def render_split_table_body_rows(body_rows: Sequence[str], alignments: Sequence[
 
     return "".join(body_html_tokens)
 
-def render_standard_table(header_cells: Sequence[str], alignments: Sequence[str], body_rows: Sequence[str]) -> str:
+def render_standard_table(
+    header_cells: Sequence[str],
+    alignments: Sequence[str],
+    body_rows: Sequence[str],
+    table_class_name: str = GENERIC_TABLE_CLASS_NAME,
+) -> str:
 
     """ Render Standard Table """
 
@@ -609,7 +683,7 @@ def render_standard_table(header_cells: Sequence[str], alignments: Sequence[str]
 
     return (
         '<div class="table-wrap">'
-        '<table class="report-table">'
+        f'<table class="{table_class_name}">'
         "<thead><tr>"
         f"{header_html}"
         "</tr></thead>"
@@ -687,6 +761,26 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
         "</div>"
     )
 
+def resolve_standard_table_class_name(header_cells: Sequence[str]) -> str:
+
+    """ Resolve Standard Table Class Name """
+
+    normalized_header_cells = tuple(header_cells)
+
+    # Resolve Historical Comparison Table
+    if normalized_header_cells == HISTORICAL_REFERENCE_TABLE_HEADER_CELLS:
+        return HISTORICAL_REFERENCE_TABLE_CLASS_NAME
+
+    # Resolve Phase Result Table
+    if normalized_header_cells == PHASE_RESULTS_TABLE_HEADER_CELLS:
+        return PHASE_RESULTS_TABLE_CLASS_NAME
+
+    # Resolve Ranking Table
+    if normalized_header_cells in RANKING_TABLE_HEADER_CELL_GROUPS:
+        return RANKING_RESULTS_TABLE_CLASS_NAME
+
+    return GENERIC_TABLE_CLASS_NAME
+
 def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, int]:
 
     """ Render Table """
@@ -706,8 +800,11 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
     if tuple(header_cells) == CONFIGURATION_TABLE_HEADER_CELLS:
         return render_configuration_split_tables(body_rows), current_index
 
+    # Resolve Table Class
+    table_class_name = resolve_standard_table_class_name(header_cells)
+
     # Render Generic Markdown Table
-    return render_standard_table(header_cells, alignments, body_rows), current_index
+    return render_standard_table(header_cells, alignments, body_rows, table_class_name=table_class_name), current_index
 
 def render_list(markdown_lines: Sequence[str], start_index: int, base_indentation: int) -> tuple[str, int]:
 
@@ -873,7 +970,8 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
             # Append Subsection Block
             subsection_title_html = convert_inline_markup(current_subsection_title)
-            current_section_body_tokens.append(f'<div class="subsection-block"><h3>{subsection_title_html}</h3>{"".join(current_subsection_body_tokens)}</div>')
+            subsection_slug = slugify(current_subsection_title)
+            current_section_body_tokens.append(f'<div id="{subsection_slug}" class="subsection-block"><h3>{subsection_title_html}</h3>{"".join(current_subsection_body_tokens)}</div>')
 
         current_subsection_title = ""
         current_subsection_body_tokens = []
@@ -891,7 +989,7 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
 
             # Append Section Block
             section_title_html = convert_inline_markup(current_section_title)
-            document_html_tokens.append(f'<section class="section-card section-{current_section_slug}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>')
+            document_html_tokens.append(f'<section id="{current_section_slug}" class="section-card section-{current_section_slug}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>')
 
         current_section_title = ""
         current_section_slug = ""
