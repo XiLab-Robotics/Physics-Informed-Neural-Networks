@@ -4,7 +4,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import argparse, html, tempfile
-import re, shutil, subprocess
+import re, shutil, subprocess, time
 from pathlib import Path
 from typing import Sequence
 
@@ -94,6 +94,9 @@ BROWSER_PDF_EXPORT_ARGUMENTS = (
     "--allow-file-access-from-files",
     "--no-pdf-header-footer",
 )
+
+CLEANUP_RETRY_COUNT = 6
+CLEANUP_RETRY_DELAY_SECONDS = 0.5
 
 REPORT_STYLESHEET = """
     @page {
@@ -494,7 +497,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     # Configure Report Paths
     argument_parser.add_argument("--input-markdown-path", required=True, help="Path to the Markdown source report.")
-    argument_parser.add_argument("--output-html-path", required=True, help="Path to the generated styled HTML file.")
+    argument_parser.add_argument("--output-html-path", default="", help="Optional path to a generated styled HTML preview file.")
     argument_parser.add_argument("--output-pdf-path", required=True, help="Path to the generated styled PDF file.")
 
     # Configure Report Labels
@@ -506,6 +509,63 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--keep-html", action="store_true", help="Keep the generated HTML file after PDF export.")
 
     return argument_parser
+
+def remove_temporary_directory(directory_path: Path) -> None:
+
+    """ Remove Temporary Directory """
+
+    # Skip Missing Directory
+    if not directory_path.exists():
+        return
+
+    # Retry Directory Cleanup
+    for cleanup_attempt_index in range(CLEANUP_RETRY_COUNT):
+        try:
+            shutil.rmtree(directory_path)
+            return
+        except OSError:
+            if cleanup_attempt_index == CLEANUP_RETRY_COUNT - 1:
+                print(f"[WARN] Temporary directory cleanup skipped | {directory_path}")
+                return
+            time.sleep(CLEANUP_RETRY_DELAY_SECONDS)
+
+def remove_temporary_file(file_path: Path) -> None:
+
+    """ Remove Temporary File """
+
+    # Skip Missing File
+    if not file_path.exists():
+        return
+
+    # Retry File Cleanup
+    for cleanup_attempt_index in range(CLEANUP_RETRY_COUNT):
+        try:
+            file_path.unlink()
+            return
+        except OSError:
+            if cleanup_attempt_index == CLEANUP_RETRY_COUNT - 1:
+                print(f"[WARN] Temporary file cleanup skipped | {file_path}")
+                return
+            time.sleep(CLEANUP_RETRY_DELAY_SECONDS)
+
+def resolve_output_html_path(output_html_path: str, output_pdf_path: Path, keep_html: bool) -> tuple[Path, bool]:
+
+    """ Resolve Output HTML Path """
+
+    # Use Explicit Preview Path
+    if output_html_path:
+        return Path(output_html_path), False
+
+    # Create Persistent Preview Path
+    if keep_html:
+        persistent_output_html_path = output_pdf_path.with_name(f"{output_pdf_path.stem}_preview.html")
+        return persistent_output_html_path, False
+
+    # Create Temporary Preview Path
+    temporary_html_directory_path = Path(tempfile.mkdtemp(prefix="codex_report_html_"))
+    temporary_output_html_path = temporary_html_directory_path / f"{output_pdf_path.stem}_preview.html"
+
+    return temporary_output_html_path, True
 
 def detect_browser_executable(explicit_path: str) -> Path:
 
@@ -1224,12 +1284,9 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
     # Resolve Export Paths
     html_uri = html_path.resolve().as_uri()
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
-    temporary_profile_root = pdf_path.parent / ".tmp_chrome_profiles"
-    temporary_profile_root.mkdir(parents=True, exist_ok=True)
     temporary_profile_path = Path(
         tempfile.mkdtemp(
             prefix="codex_report_chrome_",
-            dir=temporary_profile_root,
         )
     )
 
@@ -1252,8 +1309,7 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
     finally:
 
         # Remove Temporary Browser Profile
-        shutil.rmtree(temporary_profile_path, ignore_errors=True)
-        shutil.rmtree(temporary_profile_root, ignore_errors=True)
+        remove_temporary_directory(temporary_profile_path)
 
 def main() -> None:
 
@@ -1265,8 +1321,12 @@ def main() -> None:
 
     # Resolve Report Paths
     input_markdown_path = Path(parsed_arguments.input_markdown_path)
-    output_html_path = Path(parsed_arguments.output_html_path)
     output_pdf_path = Path(parsed_arguments.output_pdf_path)
+    output_html_path, use_temporary_html_path = resolve_output_html_path(
+        output_html_path=parsed_arguments.output_html_path,
+        output_pdf_path=output_pdf_path,
+        keep_html=parsed_arguments.keep_html,
+    )
 
     # Render Styled HTML Document
     markdown_text = input_markdown_path.read_text(encoding="utf-8")
@@ -1287,9 +1347,12 @@ def main() -> None:
         pdf_path=output_pdf_path,
     )
 
-    # Optionally Remove HTML Preview
-    if not parsed_arguments.keep_html and output_html_path.exists():
-        output_html_path.unlink()
+    # Remove Temporary HTML Preview
+    if use_temporary_html_path:
+        remove_temporary_file(output_html_path)
+        remove_temporary_directory(output_html_path.parent)
+    elif not parsed_arguments.keep_html and output_html_path.exists():
+        remove_temporary_file(output_html_path)
 
     print(f"Styled PDF generated at: {output_pdf_path}")
 

@@ -138,18 +138,28 @@ The same export direction now also applies to final campaign-results reports.
 ```powershell
 python scripts/reports/generate_styled_report_pdf.py `
   --input-markdown-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md `
+  --output-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
+  --report-subtitle "Feedforward Transmission Error Baseline" `
+  --report-category "Analysis Report"
+```
+
+What this does:
+
+- preserves the Markdown file as the canonical content source;
+- uses a temporary styled HTML preview internally for the browser export;
+- overwrites the PDF with the improved visual layout.
+
+If a persistent HTML preview is explicitly needed, request it on purpose:
+
+```powershell
+python scripts/reports/generate_styled_report_pdf.py `
+  --input-markdown-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md `
   --output-html-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report_preview.html `
   --output-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
   --report-subtitle "Feedforward Transmission Error Baseline" `
   --report-category "Analysis Report" `
   --keep-html
 ```
-
-What this does:
-
-- preserves the Markdown file as the canonical content source;
-- regenerates a styled HTML preview;
-- overwrites the PDF with the improved visual layout.
 
 Notes:
 
@@ -169,9 +179,10 @@ Notes:
   - explicit checks that content stays comfortably inside each cell and does not sit almost on the borders;
   - explicit checks that table-cell content remains vertically centered, especially in rows mixing one-line and multi-line values;
   - explicit checks that major sections do not start near the bottom of a page and then immediately continue on the next page when a clean page-start is possible;
-  - if the PDF evidence is inconclusive, the report must not be considered validated yet.
+- if the PDF evidence is inconclusive, the report must not be considered validated yet.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
-- the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.
+- the default workflow no longer leaves a persistent preview HTML file behind;
+- temporary browser-profile directories are created outside the repository tree and should no longer pollute `doc/reports/...`.
 
 ## Validate The Real Exported PDF
 

@@ -6,13 +6,14 @@ from __future__ import annotations
 import argparse, shutil
 from pathlib import Path
 
+# Import PDF Utilities
 try:
-    import fitz  # PyMuPDF
+    import pymupdf
 except ImportError as import_error:
-    fitz = None
-    FITZ_IMPORT_ERROR = import_error
+    pymupdf = None
+    PYMUPDF_IMPORT_ERROR = import_error
 else:
-    FITZ_IMPORT_ERROR = None
+    PYMUPDF_IMPORT_ERROR = None
 
 
 # Validation Constants
@@ -83,11 +84,11 @@ def resolve_render_scale(render_scale: float) -> float:
 def ensure_pdf_renderer_is_available() -> None:
     """ Ensure PDF Renderer Is Available """
 
-    if FITZ_IMPORT_ERROR is not None:
+    if PYMUPDF_IMPORT_ERROR is not None:
         raise RuntimeError(
             "PyMuPDF is required to validate exported PDFs. "
             "Install the tracked dependencies with `python -m pip install -r requirements.txt`."
-        ) from FITZ_IMPORT_ERROR
+        ) from PYMUPDF_IMPORT_ERROR
 
 
 def rasterize_pdf_pages(
@@ -97,14 +98,18 @@ def rasterize_pdf_pages(
 ) -> list[Path]:
     """ Rasterize PDF Pages """
 
-    pdf_document = fitz.open(input_pdf_path)
+    # Open Exported PDF
+    pdf_document = pymupdf.open(input_pdf_path)
     assert pdf_document.page_count > 0, f"PDF contains no pages | {input_pdf_path}"
 
+    # Configure Raster Export
     rendered_image_path_list: list[Path] = []
     page_index_width = max(3, len(str(pdf_document.page_count)))
-    render_matrix = fitz.Matrix(render_scale, render_scale)
+    render_matrix = pymupdf.Matrix(render_scale, render_scale)
 
     try:
+
+        # Rasterize Each Page
         for page_index in range(pdf_document.page_count):
             page = pdf_document.load_page(page_index)
             page_pixmap = page.get_pixmap(matrix=render_matrix, alpha=False)
@@ -115,6 +120,8 @@ def rasterize_pdf_pages(
 
             rendered_image_path_list.append(page_image_path)
     finally:
+
+        # Close PDF Document
         pdf_document.close()
 
     return rendered_image_path_list
