@@ -220,6 +220,7 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-00-37-25_campaign_training_terminal_logging_alignment.md`
   * `doc/technical/2026-03-14/2026-03-14-00-56-05_best_training_logging_validation_campaign.md`
   * `doc/technical/2026-03-14/2026-03-14-02-07-47_best_training_logging_validation_campaign_results_report.md`
+  * `doc/technical/2026-03-14/2026-03-14-02-19-57_campaign_runner_colorama_shutdown_fix.md`
 
 Script documentation:
 

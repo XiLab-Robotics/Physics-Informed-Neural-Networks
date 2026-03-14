@@ -85,6 +85,27 @@ class TeeTerminalStream:
 
         self.terminal_stream = terminal_stream
         self.log_file = log_file
+        self.log_file_is_available = True
+
+    def write_log_message(self, log_message: str) -> None:
+
+        """ Write Log Message """
+
+        if not self.log_file_is_available:
+            return
+
+        if getattr(self.log_file, "closed", False):
+            self.log_file_is_available = False
+            return
+
+        try:
+
+            self.log_file.write(log_message)
+            self.log_file.flush()
+
+        except (OSError, ValueError):
+
+            self.log_file_is_available = False
 
     def write(self, message: str) -> int:
 
@@ -97,8 +118,7 @@ class TeeTerminalStream:
         self.terminal_stream.flush()
 
         log_message = message.replace("\r", "\n")
-        self.log_file.write(log_message)
-        self.log_file.flush()
+        self.write_log_message(log_message)
         return len(message)
 
     def flush(self) -> None:
@@ -106,7 +126,21 @@ class TeeTerminalStream:
         """ Flush Streams """
 
         self.terminal_stream.flush()
-        self.log_file.flush()
+
+        if not self.log_file_is_available:
+            return
+
+        if getattr(self.log_file, "closed", False):
+            self.log_file_is_available = False
+            return
+
+        try:
+
+            self.log_file.flush()
+
+        except (OSError, ValueError):
+
+            self.log_file_is_available = False
 
     def isatty(self) -> bool:
 
