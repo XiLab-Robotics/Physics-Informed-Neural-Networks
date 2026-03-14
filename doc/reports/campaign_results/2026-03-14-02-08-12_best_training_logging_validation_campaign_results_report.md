@@ -148,6 +148,47 @@ The next useful follow-up tasks are:
 2. clean the mirrored log serialization so stored logs do not keep ANSI escape sequences or mangled progress glyphs;
 3. re-run a short one-item validation campaign after that fix to confirm both live terminal output and stored logs are clean.
 
+## Post-Fix Rerun Addendum
+
+After the original report was completed, the same one-item campaign was rerun after applying the shutdown fix documented in:
+
+- `doc/technical/2026-03-14/2026-03-14-02-19-57_campaign_runner_colorama_shutdown_fix.md`
+
+The rerun completed successfully under:
+
+- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
+
+### What Changed After The Fix
+
+- the final `colorama` shutdown exception did **not** reappear in the rerun terminal output;
+- the campaign still completed with `1` completed run and `0` failed runs;
+- the live terminal behavior remained readable and consistent with the single-run training script;
+- the stored mirrored log still needs cleanup because ANSI/progress serialization artifacts remain visible.
+
+### Updated Rerun Metrics
+
+The shared run output directory `output/feedforward_network/te_feedforward_best_training/` now reflects the rerun artifacts rather than the original first-run artifacts.
+
+| Execution | Best Epoch | Wall Time | Val MAE [deg] | Val RMSE [deg] | Test MAE [deg] | Test RMSE [deg] |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Original campaign run | 63 | 15.4 min | 0.003171 | 0.003759 | 0.003579 | 0.004121 |
+| Post-fix rerun | 46 | 15.1 min | 0.003039 | 0.003567 | 0.003409 | 0.003948 |
+
+### Interpretation Of The Addendum
+
+This rerun closes one of the two residual issues from the original report:
+
+- resolved: shutdown exception after successful completion;
+- still open: mirrored log-file cleanliness.
+
+It also shows slightly improved numerical results in the rerun, but those updated metrics should not be retroactively treated as the original campaign outcome. They belong to the post-fix confirmation run.
+
+### Rerun-Specific Artifact References
+
+- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
+- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
+- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-02-22-52_001_01_best_training_logging_validation.log`
+
 ## Artifact References
 
 Campaign-level references:
@@ -158,7 +199,8 @@ Campaign-level references:
 
 Run-level references:
 
-- `output/feedforward_network/te_feedforward_best_training/best_checkpoint_path.txt`
-- `output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml`
-- `output/feedforward_network/te_feedforward_best_training/training_test_report.md`
-- `output/feedforward_network/te_feedforward_best_training/checkpoints/feedforward-epoch=063-val_mae=0.00317104.ckpt`
+- `output/feedforward_network/te_feedforward_best_training/best_checkpoint_path.txt` -> now points to the post-fix rerun checkpoint
+- `output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml` -> now reflects the post-fix rerun metrics
+- `output/feedforward_network/te_feedforward_best_training/training_test_report.md` -> now reflects the post-fix rerun summary
+- `output/feedforward_network/te_feedforward_best_training/checkpoints/feedforward-epoch=063-val_mae=0.00317104.ckpt` -> original campaign best checkpoint
+- `output/feedforward_network/te_feedforward_best_training/checkpoints/feedforward-epoch=046-val_mae=0.00303861.ckpt` -> post-fix rerun best checkpoint

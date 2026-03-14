@@ -10,7 +10,8 @@ At the moment, the implemented workflows are:
 - dataset visualization through the TE plotting script;
 - feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline;
 - persistent batch training campaigns through a queue-based runner.
-- styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility.
+- styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
+- real exported PDF validation through a dedicated page-rasterization utility.
 
 Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
 
@@ -36,7 +37,7 @@ conda activate standard_ml_codex_env
 ### 2. Verify The Main Dependencies
 
 ```powershell
-python -c "import torch, lightning, pandas, matplotlib, colorama; print(torch.__version__); print(lightning.__version__)"
+python -c "import torch, lightning, pandas, matplotlib, colorama, fitz; print(torch.__version__); print(lightning.__version__); print(fitz.__doc__.split()[0])"
 ```
 
 ### 3. Check The Dataset Path
@@ -99,7 +100,7 @@ The current usage flow mainly relies on these folders:
 - `doc/reports/analysis/`
   Analytical reports and their polished PDF artifacts.
 
-## Styled Report PDF Export
+## Styled Report PDF Export And Validation
 
 ## What The Styled PDF Export Does
 
@@ -113,6 +114,16 @@ This utility:
 - converts the supported Markdown structure into styled HTML;
 - applies a print-oriented visual layout with stronger hierarchy and table rendering;
 - exports the final PDF through headless Chrome or Edge.
+
+The permanent validation entry point is:
+
+- `scripts/reports/validate_report_pdf.py`
+
+This utility:
+
+- opens the real exported PDF artifact;
+- rasterizes each PDF page to PNG through `PyMuPDF`;
+- gives a deterministic validation output that can be inspected visually without rebuilding ad hoc tooling.
 
 The current main target is:
 
@@ -161,6 +172,32 @@ Notes:
   - if the PDF evidence is inconclusive, the report must not be considered validated yet.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
 - the generated HTML preview can be deleted after inspection if only the PDF artifact is needed.
+
+## Validate The Real Exported PDF
+
+After every styled report export, validate the real PDF artifact rather than relying only on the HTML preview.
+
+```powershell
+python scripts/reports/validate_report_pdf.py `
+  --input-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
+  --output-image-directory .temp/pdf_validation_training_configuration_analysis `
+  --clean-output-directory
+```
+
+What this does:
+
+- reads the exported PDF directly;
+- rasterizes every page into `.png` images;
+- overwrites the previous validation image folder when `--clean-output-directory` is used.
+
+Use the generated page images to verify the actual PDF layout:
+
+- borders are not clipped;
+- section cards fit inside the A4 margins;
+- long headers stay inside their own columns;
+- identifier-like cells wrap at meaningful token boundaries;
+- numeric columns are not oversized while identifier columns are crushed;
+- major sections do not start at the bottom of a page unless the continuation remains visually coherent.
 
 ## Dataset Processing
 

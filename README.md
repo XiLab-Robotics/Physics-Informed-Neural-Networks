@@ -221,6 +221,8 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-00-56-05_best_training_logging_validation_campaign.md`
   * `doc/technical/2026-03-14/2026-03-14-02-07-47_best_training_logging_validation_campaign_results_report.md`
   * `doc/technical/2026-03-14/2026-03-14-02-19-57_campaign_runner_colorama_shutdown_fix.md`
+  * `doc/technical/2026-03-14/2026-03-14-02-43-38_best_training_logging_validation_report_addendum.md`
+  * `doc/technical/2026-03-14/2026-03-14-02-56-20_permanent_pdf_validation_tooling.md`
 
 Script documentation:
 
