@@ -1,14 +1,14 @@
-[submodule "agents/claude-code-agents"]
-	path = agents/claude-code-agents
+[submodule "reference/agents/claude-code-agents"]
+	path = reference/agents/claude-code-agents
 	url = https://github.com/vizra-ai/claude-code-agents.git
-[submodule "agents/claude-code-subagents"]
-	path = agents/claude-code-subagents
+[submodule "reference/agents/claude-code-subagents"]
+	path = reference/agents/claude-code-subagents
 	url = https://github.com/0xfurai/claude-code-subagents.git
-[submodule "agents/awesome-claude-code-subagents"]
-	path = agents/awesome-claude-code-subagents
+[submodule "reference/agents/awesome-claude-code-subagents"]
+	path = reference/agents/awesome-claude-code-subagents
 	url = https://github.com/VoltAgent/awesome-claude-code-subagents.git
-[submodule "agents/wshobson-agents"]
-	path = agents/wshobson-agents
+[submodule "reference/agents/wshobson-agents"]
+	path = reference/agents/wshobson-agents
 	url = https://github.com/wshobson/agents.git
 [submodule "reference/codes/blind_handover_controller"]
 	path = reference/codes/blind_handover_controller

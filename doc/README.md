@@ -142,6 +142,10 @@ This folder contains the internal project documents derived from the reference P
   Technical document for fixing remaining header spill and semantic config wrapping issues in the campaign-results PDF tables.
 - [technical/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md](./technical/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md)
   Technical document for enforcing vertical table-cell centering and cleaner section page-break behavior in the campaign-results PDF.
+- [technical/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md](./technical/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md)
+  Technical document for evaluating a cleaner internal code layout and moving the external agent submodules under `reference/agents/`.
+- [technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md](./technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md)
+  Technical document for moving root `models/` and `training/` source code under `scripts/`, reserving root `models/` for artifacts, and relocating agent submodules under `reference/agents/`.
 
 ### Script Documentation
 

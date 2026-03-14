@@ -8,7 +8,7 @@ It trains a modular feedforward regression baseline implemented with PyTorch Lig
 
 The script is stored in:
 
-- `training/train_feedforward_network.py`
+- `scripts/training/train_feedforward_network.py`
 
 ## Main Role
 
@@ -38,15 +38,15 @@ Provides:
 - early-stopping configuration;
 - output run naming for trial or baseline execution.
 
-### `training/transmission_error_datamodule.py`
+### `scripts/training/transmission_error_datamodule.py`
 
 Wraps the existing curve dataset and converts it into point-wise batches for the feedforward baseline.
 
-### `models/feedforward_network.py`
+### `scripts/models/feedforward_network.py`
 
 Implements the actual MLP backbone.
 
-### `training/transmission_error_regression_module.py`
+### `scripts/training/transmission_error_regression_module.py`
 
 Implements the Lightning training logic, normalization, optimizer, and regression metrics.
 
@@ -72,19 +72,19 @@ During execution, the script also prints a structured terminal summary with colo
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
 ```
 
 To run an explicit configuration path from the command line:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/high_epoch.yaml
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/high_epoch.yaml
 ```
 
 To run the lighter proof configuration used for a quick end-to-end verification:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 The training entry point prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning, and writes both validation and test results for the selected best checkpoint.

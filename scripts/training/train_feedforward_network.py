@@ -7,7 +7,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 # Define Project Path
-PROJECT_PATH = Path(__file__).resolve().parents[1]
+PROJECT_PATH = Path(__file__).resolve().parents[2]
 
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
@@ -58,10 +58,10 @@ except ImportError:
 import yaml
 
 # Import Project Models And Training Utilities
-from models.model_factory import create_model
+from scripts.models.model_factory import create_model
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
-from training.transmission_error_datamodule import TransmissionErrorDataModule
-from training.transmission_error_regression_module import TransmissionErrorRegressionModule
+from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
+from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "training" / "feedforward" / "presets" / "baseline.yaml"
 SECTION_DIVIDER_WIDTH = 96

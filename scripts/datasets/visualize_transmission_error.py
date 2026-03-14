@@ -4,6 +4,13 @@ from __future__ import annotations
 import sys, argparse, yaml
 from pathlib import Path
 
+# Define Package And Project Paths
+PACKAGE_PATH = Path(__file__).resolve().parent
+PROJECT_PATH = PACKAGE_PATH.parents[1]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
+
 # Import Plotting Utilities
 import matplotlib
 import matplotlib.pyplot as plt
@@ -17,8 +24,7 @@ from scripts.datasets.transmission_error_dataset import collect_dataset_csv_path
 from scripts.datasets.transmission_error_dataset import load_dataset_processing_config
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 
-PACKAGE_PATH = Path(__file__).resolve().parent
-PROJECT_PATH = PACKAGE_PATH.parents[1]
+# Define Default Visualization Config Path
 DEFAULT_VISUALIZATION_CONFIG_PATH = PROJECT_PATH / "config" / "visualization" / "transmission_error_visualization.yaml"
 
 def load_visualization_config(config_path: str | Path = DEFAULT_VISUALIZATION_CONFIG_PATH) -> dict:

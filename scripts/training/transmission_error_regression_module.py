@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 
 # Import DataModule Utilities
-from training.transmission_error_datamodule import NormalizationStatistics
+from scripts.training.transmission_error_datamodule import NormalizationStatistics
 
 class TransmissionErrorRegressionModule(LightningModule):
 

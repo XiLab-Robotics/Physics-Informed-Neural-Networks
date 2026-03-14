@@ -6,11 +6,11 @@ This script executes multiple training YAML files one by one through a persisten
 
 It is stored in:
 
-- `training/run_training_campaign.py`
+- `scripts/training/run_training_campaign.py`
 
 The runner is meant for long unattended campaigns where the user wants to prepare several configurations in advance and collect an indexed execution report afterward.
 
-For the current feedforward workflow, the runner now reuses the same in-process terminal behavior as `training/train_feedforward_network.py` instead of flattening the child output through a captured subprocess pipe.
+For the current feedforward workflow, the runner now reuses the same in-process terminal behavior as `scripts/training/train_feedforward_network.py` instead of flattening the child output through a captured subprocess pipe.
 
 ## Main Role
 
@@ -39,7 +39,7 @@ Persistent queue folders:
 - `completed/`
 - `failed/`
 
-### `training/train_feedforward_network.py`
+### `scripts/training/train_feedforward_network.py`
 
 Current single-run feedforward training entry point reused directly by the batch runner for the supported feedforward workflow.
 
@@ -68,7 +68,7 @@ For each batch execution, the runner generates:
 Queue existing presets without executing them yet:
 
 ```powershell
-python training/run_training_campaign.py `
+python scripts/training/run_training_campaign.py `
   config/training/feedforward/presets/baseline.yaml `
   config/training/feedforward/presets/high_epoch.yaml `
   --enqueue-only
@@ -77,13 +77,13 @@ python training/run_training_campaign.py `
 Process everything currently waiting in the pending queue:
 
 ```powershell
-python training/run_training_campaign.py
+python scripts/training/run_training_campaign.py
 ```
 
 Queue selected presets and execute them immediately in the same command:
 
 ```powershell
-python training/run_training_campaign.py `
+python scripts/training/run_training_campaign.py `
   config/training/feedforward/presets/baseline.yaml `
   config/training/feedforward/presets/high_density.yaml `
   --campaign-name feedforward_density_check

@@ -13,7 +13,7 @@ from typing import Any
 import yaml
 
 # Define Project Path
-PROJECT_PATH = Path(__file__).resolve().parents[1]
+PROJECT_PATH = Path(__file__).resolve().parents[2]
 
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
@@ -23,7 +23,7 @@ from scripts.datasets.transmission_error_dataset import resolve_project_relative
 
 DEFAULT_QUEUE_ROOT = PROJECT_PATH / "config" / "training" / "queue"
 DEFAULT_CAMPAIGN_OUTPUT_ROOT = PROJECT_PATH / "output" / "training_campaigns"
-SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {"feedforward": "training/train_feedforward_network.py"}
+SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {"feedforward": "scripts/training/train_feedforward_network.py"}
 CONFIG_SNAPSHOT_FILENAME_LIST = ["feedforward_network_training.yaml", "training_config.yaml"]
 TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 SECTION_DIVIDER_WIDTH = 96
@@ -463,7 +463,7 @@ def run_feedforward_training(config_path: str | Path) -> None:
 
     """ Run Feedforward Training """
 
-    from training.train_feedforward_network import train_feedforward_network
+    from scripts.training.train_feedforward_network import train_feedforward_network
 
     train_feedforward_network(config_path=config_path)
 

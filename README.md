@@ -53,8 +53,9 @@ This ensures improved generalization, physical interpretability, and robustness 
 ---
 
 ## Repository Structure
+The repository currently keeps project-authored Python code under `scripts/`, external references under `reference/`, and reserves root `models/` for trained or exported model artifacts.
 
-The repository follows a modular PyTorch Lightning architecture.
+The conceptual architecture sketch below is legacy. For current repository navigation, treat `scripts/`, `reference/agents/`, and root `models/` as the authoritative structure.
 
 ```graph
 .
@@ -86,9 +87,9 @@ The repository follows a modular PyTorch Lightning architecture.
 
 Additional working folders already used in the project lifecycle:
 
-* `reference/` for PDFs, reports, and external code references, including Git submodules under `reference/codes/`
+* `reference/` for PDFs, reports, and external references, including Git submodules under `reference/codes/` and `reference/agents/`
 * `doc/` for internal synthesized project documents and coding style notes
-* `agents/` for external agent and subagent repositories used as reusable workflow references
+* `models/` for trained checkpoints and exported model artifacts
 
 All comments in source files follow the internal style convention:
 
@@ -226,6 +227,8 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-03-07-08_pdf_tooling_style_and_cleanup_fixes.md`
   * `doc/technical/2026-03-14/2026-03-14-03-14-39_validate_report_pdf_style_refactor.md`
   * `doc/technical/2026-03-14/2026-03-14-03-18-45_validate_report_pdf_manual_style_rule_update.md`
+  * `doc/technical/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md`
+  * `doc/technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md`
 
 Script documentation:
 
@@ -399,7 +402,7 @@ Training is performed using PyTorch Lightning.
 ### Example Command
 
 ```bash
-python training/train.py --config configs/pinn_default.yaml
+python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/baseline.yaml
 ```
 
 ---
@@ -480,14 +483,14 @@ The current project bootstrap also includes:
 
 * Conda environment: `standard_ml_codex_env`
 * Global Codex MCP connection to Context7 for up-to-date library documentation
-* Git submodules in `agents/` for reusable external agent collections
+* Git submodules in `reference/agents/` for reusable external agent collections
 
 Current agent submodules:
 
-* `agents/claude-code-agents` -> `https://github.com/vizra-ai/claude-code-agents.git`
-* `agents/claude-code-subagents` -> `https://github.com/0xfurai/claude-code-subagents.git`
-* `agents/awesome-claude-code-subagents` -> `https://github.com/VoltAgent/awesome-claude-code-subagents.git`
-* `agents/wshobson-agents` -> `https://github.com/wshobson/agents.git`
+* `reference/agents/claude-code-agents` -> `https://github.com/vizra-ai/claude-code-agents.git`
+* `reference/agents/claude-code-subagents` -> `https://github.com/0xfurai/claude-code-subagents.git`
+* `reference/agents/awesome-claude-code-subagents` -> `https://github.com/VoltAgent/awesome-claude-code-subagents.git`
+* `reference/agents/wshobson-agents` -> `https://github.com/wshobson/agents.git`
 
 These setup choices are intended to support reproducible development, documentation lookup, and future agent-assisted workflows.
 

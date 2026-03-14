@@ -67,11 +67,14 @@ The current usage flow mainly relies on these folders:
 - `scripts/reports/`
   Styled report-export utilities.
 
-- `training/`
+- `scripts/training/`
   PyTorch Lightning training entry point, datamodule, and regression module.
 
-- `models/`
+- `scripts/models/`
   Neural-network backbones and the model factory.
+
+- `models/`
+  Reserved root folder for trained checkpoints and exported model artifacts.
 
 - `config/`
   YAML files grouped by dataset, visualization, and training workflows.
@@ -428,7 +431,7 @@ python -m scripts.datasets.visualize_transmission_error --file-index 10 --save-p
 
 The first training entry point is:
 
-- `training/train_feedforward_network.py`
+- `scripts/training/train_feedforward_network.py`
 
 This workflow trains a feedforward regression baseline implemented with PyTorch Lightning.
 
@@ -436,16 +439,16 @@ The script now prints a structured terminal summary with colorized section heade
 
 The training stack is composed of:
 
-- `models/feedforward_network.py`
+- `scripts/models/feedforward_network.py`
   Feedforward backbone with hidden layers, activation, optional layer normalization, and dropout.
 
-- `models/model_factory.py`
+- `scripts/models/model_factory.py`
   Model selection layer used to instantiate the requested architecture.
 
-- `training/transmission_error_datamodule.py`
+- `scripts/training/transmission_error_datamodule.py`
   Lightning datamodule that reuses the TE curve dataset and converts curves into point-wise batches.
 
-- `training/transmission_error_regression_module.py`
+- `scripts/training/transmission_error_regression_module.py`
   Generic Lightning regression module with normalization, loss computation, optimizer setup, and validation metrics.
 
 - `config/training/feedforward/presets/baseline.yaml`
@@ -565,10 +568,10 @@ Main configurable sections:
 From the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
 ```
 
-The direct script execution shown above is supported from the repository root. The training entry point bootstraps the project root into `sys.path`, so the internal `models/`, `training/`, and `scripts/` imports resolve correctly even when the file is launched directly.
+The direct script execution shown above is supported from the repository root. The training entry point bootstraps the project root into `sys.path`, so the internal `scripts.models`, `scripts.training`, and `scripts.datasets` imports resolve correctly even when the file is launched directly.
 
 This command:
 
@@ -607,7 +610,7 @@ Typical artifacts now include:
 If you want a faster verification run before trying the default baseline, use the trial config:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 This proof configuration:
@@ -684,7 +687,7 @@ If the project is later executed on CPU-only hardware or on a different workstat
 If you want to launch the same workflow with a different YAML file:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/baseline.yaml
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/baseline.yaml
 ```
 
 The script now exposes `--config-path`, so custom YAML files can be launched directly without using `python -c`.
@@ -692,7 +695,7 @@ The script now exposes `--config-path`, so custom YAML files can be launched dir
 To launch the current best practical feedforward preset directly:
 
 ```powershell
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
 ```
 
 ## Typical Training Outputs
@@ -741,7 +744,7 @@ The best checkpoint and early stopping are both driven by `val_mae`.
 
 The batch training entry point is:
 
-- `training/run_training_campaign.py`
+- `scripts/training/run_training_campaign.py`
 
 This runner:
 
@@ -775,7 +778,7 @@ Campaign-specific YAML files can also be stored in dedicated folders such as:
 ## Queue Presets Without Running Them Yet
 
 ```powershell
-python training/run_training_campaign.py `
+python scripts/training/run_training_campaign.py `
   config/training/feedforward/presets/baseline.yaml `
   config/training/feedforward/presets/high_epoch.yaml `
   --enqueue-only
@@ -784,15 +787,15 @@ python training/run_training_campaign.py `
 ## Run Everything Currently Pending
 
 ```powershell
-python training/run_training_campaign.py
+python scripts/training/run_training_campaign.py
 ```
 
-When the queued model type is currently supported by the in-process runner layer, the terminal now shows the same structured sections and Lightning progress bars used by `training/train_feedforward_network.py`. This removes the earlier delayed startup silence and avoids the previous broken Unicode progress-bar output caused by piped subprocess capture.
+When the queued model type is currently supported by the in-process runner layer, the terminal now shows the same structured sections and Lightning progress bars used by `scripts/training/train_feedforward_network.py`. This removes the earlier delayed startup silence and avoids the previous broken Unicode progress-bar output caused by piped subprocess capture.
 
 ## Queue And Run In One Command
 
 ```powershell
-python training/run_training_campaign.py `
+python scripts/training/run_training_campaign.py `
   config/training/feedforward/presets/baseline.yaml `
   config/training/feedforward/presets/high_density.yaml `
   --campaign-name feedforward_density_check
@@ -863,7 +866,7 @@ Example sequence:
 conda activate standard_ml_codex_env
 python -c "from scripts.datasets.transmission_error_dataset import create_transmission_error_dataloaders_from_config; bundle=create_transmission_error_dataloaders_from_config(); print(len(bundle['train_dataset'])); print(len(bundle['validation_dataset']))"
 python -m scripts.datasets.visualize_transmission_error --file-index 0 --save-path output\te_curve_0.png
-conda run -n standard_ml_codex_env python training/train_feedforward_network.py
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
 ```
 
 ## Inference Status
@@ -901,8 +904,9 @@ This is enough to extend the project toward:
 
 To extend the repository cleanly, the recommended order is:
 
-1. add a sequence-aware recurrent baseline on top of the current `training/` and `models/` structure
+1. add a sequence-aware recurrent baseline on top of the current `scripts/training/` and `scripts/models/` structure
 2. add a dedicated evaluation entry point
 3. add inference and export utilities
 4. extend the regression module toward physics-informed loss composition
 5. add PINN-specific training and validation workflows
+
