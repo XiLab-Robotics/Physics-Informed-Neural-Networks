@@ -7,55 +7,29 @@ import argparse, shutil
 from pathlib import Path
 
 # Import PDF Utilities
-try:
-    import pymupdf
-except ImportError as import_error:
-    pymupdf = None
-    PYMUPDF_IMPORT_ERROR = import_error
-else:
-    PYMUPDF_IMPORT_ERROR = None
-
+try: import pymupdf
+except ImportError as import_error: pymupdf, PYMUPDF_IMPORT_ERROR = None, import_error
+else: PYMUPDF_IMPORT_ERROR = None
 
 # Validation Constants
 DEFAULT_RENDER_SCALE = 1.8
-
 
 def build_argument_parser() -> argparse.ArgumentParser:
 
     """ Build Argument Parser """
 
     # Initialize Argument Parser
-    argument_parser = argparse.ArgumentParser(
-        description="Rasterize the real exported PDF into validation PNG pages."
-    )
+    argument_parser = argparse.ArgumentParser(description="Rasterize the real exported PDF into validation PNG pages.")
 
     # Configure Validation Paths
-    argument_parser.add_argument(
-        "--input-pdf-path",
-        required=True,
-        help="Path to the exported PDF file that must be validated.",
-    )
-    argument_parser.add_argument(
-        "--output-image-directory",
-        required=True,
-        help="Directory where the rasterized PDF pages will be written.",
-    )
+    argument_parser.add_argument("--input-pdf-path", required=True, help="Path to the exported PDF file that must be validated.")
+    argument_parser.add_argument("--output-image-directory", required=True, help="Directory where the rasterized PDF pages will be written.")
 
     # Configure Validation Rendering
-    argument_parser.add_argument(
-        "--render-scale",
-        type=float,
-        default=DEFAULT_RENDER_SCALE,
-        help="Zoom multiplier used during PDF rasterization.",
-    )
-    argument_parser.add_argument(
-        "--clean-output-directory",
-        action="store_true",
-        help="Delete the output image directory before writing the new validation pages.",
-    )
+    argument_parser.add_argument("--render-scale", type=float, default=DEFAULT_RENDER_SCALE, help="Zoom multiplier used during PDF rasterization.")
+    argument_parser.add_argument("--clean-output-directory", action="store_true", help="Delete the output image directory before writing the new validation pages.")
 
     return argument_parser
-
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
@@ -68,7 +42,6 @@ def parse_command_line_arguments() -> argparse.Namespace:
     parsed_arguments = argument_parser.parse_args()
 
     return parsed_arguments
-
 
 def resolve_input_pdf_path(input_pdf_path: str) -> Path:
 
@@ -83,7 +56,6 @@ def resolve_input_pdf_path(input_pdf_path: str) -> Path:
     assert resolved_input_pdf_path.suffix.lower() == ".pdf", f"Input file is not a PDF | {resolved_input_pdf_path}"
 
     return resolved_input_pdf_path
-
 
 def prepare_output_image_directory(output_image_directory: str, clean_output_directory: bool) -> Path:
 
@@ -101,7 +73,6 @@ def prepare_output_image_directory(output_image_directory: str, clean_output_dir
 
     return resolved_output_image_directory
 
-
 def resolve_render_scale(render_scale: float) -> float:
 
     """ Resolve Render Scale """
@@ -110,7 +81,6 @@ def resolve_render_scale(render_scale: float) -> float:
     assert render_scale > 0.0, f"Render scale must be positive | {render_scale}"
 
     return render_scale
-
 
 def ensure_pdf_renderer_is_available() -> None:
 
@@ -122,7 +92,6 @@ def ensure_pdf_renderer_is_available() -> None:
             "PyMuPDF is required to validate exported PDFs. "
             "Install the tracked dependencies with `python -m pip install -r requirements.txt`."
         ) from PYMUPDF_IMPORT_ERROR
-
 
 def build_page_image_name(input_pdf_path: Path, page_index: int, page_count: int) -> str:
 
@@ -137,12 +106,7 @@ def build_page_image_name(input_pdf_path: Path, page_index: int, page_count: int
 
     return page_image_name
 
-
-def rasterize_pdf_pages(
-    input_pdf_path: Path,
-    output_image_directory: Path,
-    render_scale: float,
-) -> list[Path]:
+def rasterize_pdf_pages(input_pdf_path: Path, output_image_directory: Path, render_scale: float) -> list[Path]:
 
     """ Rasterize PDF Pages """
 
@@ -158,17 +122,23 @@ def rasterize_pdf_pages(
 
         # Rasterize Each PDF Page
         for page_index in range(pdf_document.page_count):
+
+            # Load PDF Page and Render to Pixmap
             page = pdf_document.load_page(page_index)
             page_pixmap = page.get_pixmap(matrix=render_matrix, alpha=False)
 
+            # Build Page Image Name
             page_image_name = build_page_image_name(
                 input_pdf_path=input_pdf_path,
                 page_index=page_index,
                 page_count=pdf_document.page_count,
             )
+
+            # Save Rasterized Page Image 
             page_image_path = output_image_directory / page_image_name
             page_pixmap.save(page_image_path)
 
+            # Append Rendered Image Path to List
             rendered_image_path_list.append(page_image_path)
 
     finally:
@@ -178,13 +148,7 @@ def rasterize_pdf_pages(
 
     return rendered_image_path_list
 
-
-def print_validation_summary(
-    input_pdf_path: Path,
-    output_image_directory: Path,
-    render_scale: float,
-    rendered_image_path_list: list[Path],
-) -> None:
+def print_validation_summary(input_pdf_path: Path, output_image_directory: Path, render_scale: float, rendered_image_path_list: list[Path]) -> None:
 
     """ Print Validation Summary """
 
@@ -209,7 +173,6 @@ def print_validation_summary(
     # Print Validation Footer
     print("")
     print("[DONE] PDF validation rasterization completed")
-
 
 def main() -> None:
 
@@ -243,7 +206,6 @@ def main() -> None:
         render_scale=render_scale,
         rendered_image_path_list=rendered_image_path_list,
     )
-
 
 if __name__ == "__main__":
 

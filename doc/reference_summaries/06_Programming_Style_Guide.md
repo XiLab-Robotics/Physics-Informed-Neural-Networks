@@ -132,17 +132,22 @@ The broad manual refactoring applied across the Python scripts in commit `f624b9
 
 The later exporter-focused manual refactoring in commit `0c8b5003ddcce34d672b2822c2afe8e357a1fb26` further clarified how that style should be applied in compact utility scripts.
 
+The later manual refactoring of `scripts/reports/validate_report_pdf.py` further sharpened the preferred style for very small utility scripts that still need explicit staged logic.
+
 Apply these patterns conservatively:
 
 - use compact grouped imports when the grouping remains readable;
 - reduce unnecessary blank lines between adjacent top-level blocks when readability is preserved;
 - keep helper signatures on one line when they are short enough to stay readable;
 - keep short method signatures on one line when wrapping is unnecessary;
+- keep short `try/except/else` import guards on one line when the whole block remains immediately readable;
+- keep short parser `add_argument(...)` calls on one line when each declaration still scans cleanly;
 - use inline `if` statements only when the branch is obvious in context and the resulting line stays readable;
 - compact asserts, list comprehensions, and call expressions when the result remains easy to scan;
 - collapse single obvious follow-up statements when they remain easy to scan;
 - keep section comments short, operational, and easy to scan;
 - prefer comment labels that mark intent without turning into sentence-length prose;
+- for compact utility scripts, allow a tighter vertical rhythm between small staged helpers when the file remains easy to scan top-to-bottom;
 - preserve engineering readability over compactness when the two conflict.
 
 Representative examples:
@@ -165,6 +170,16 @@ if logger.log_dir: print_key_value("TensorBoard Log Directory", logger.log_dir, 
 
 ```python
 import re, random
+```
+
+```python
+try: import pymupdf
+except ImportError as import_error: pymupdf, PYMUPDF_IMPORT_ERROR = None, import_error
+else: PYMUPDF_IMPORT_ERROR = None
+```
+
+```python
+argument_parser.add_argument("--render-scale", type=float, default=DEFAULT_RENDER_SCALE, help="Zoom multiplier used during PDF rasterization.")
 ```
 
 ```python
@@ -228,4 +243,5 @@ assert len(joint_positions) == 6, f"Joint Positions Length must be 6 | {len(join
 - Apply the approved blank-line spacing rules to top-level functions, classes, dataclasses, and documented methods.
 - Use the latest relevant manually refactored Python-script style as the repository reference when choosing between equally valid compact layouts.
 - For compact utility and exporter scripts, treat commit `0c8b5003ddcce34d672b2822c2afe8e357a1fb26` as the sharper reference for comment length, grouped imports, and concise helper layout.
+- For very small validation and reporting utilities, also treat the manual `scripts/reports/validate_report_pdf.py` refactor as a reference for compact import guards, one-line parser declarations, and tighter helper spacing when readability remains high.
 - When in doubt, follow the pattern used in `blind_handover_controller`.
