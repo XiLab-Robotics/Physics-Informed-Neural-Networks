@@ -224,6 +224,7 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-02-43-38_best_training_logging_validation_report_addendum.md`
   * `doc/technical/2026-03-14/2026-03-14-02-56-20_permanent_pdf_validation_tooling.md`
   * `doc/technical/2026-03-14/2026-03-14-03-07-08_pdf_tooling_style_and_cleanup_fixes.md`
+  * `doc/technical/2026-03-14/2026-03-14-03-14-39_validate_report_pdf_style_refactor.md`
 
 Script documentation:
 
