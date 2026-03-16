@@ -70,6 +70,13 @@ PROGRESS_BAR_REFRESH_RATE = 10
 LIGHTNING_INFO_LOGGER_NAME_LIST = ["lightning.pytorch.utilities.rank_zero", "lightning.fabric.utilities.rank_zero"]
 INPUT_FEATURE_NAME_LIST = ["angular_position_deg", "input_speed_rpm", "input_torque_nm", "oil_temperature_deg", "direction_flag"]
 TARGET_FEATURE_NAME_LIST = ["transmission_error_deg"]
+DEFAULT_RUNTIME_CONFIG_DICTIONARY = {
+    "accelerator": "auto",
+    "devices": "auto",
+    "precision": "32",
+    "benchmark": True,
+    "use_non_blocking_transfer": True,
+}
 
 # Set Torch Matmul Precision
 torch.set_float32_matmul_precision("high")
@@ -190,6 +197,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
     dataset_config      = training_config["dataset"]
     model_config        = training_config["model"]
     optimization_config = training_config["training"]
+    runtime_config      = resolve_runtime_config(training_config=training_config)
 
     # Print Config Overview
     print_section_header("Feedforward Training Configuration")
@@ -233,6 +241,14 @@ def print_training_configuration_summary(training_config: dict) -> None:
     print_key_value("Log Every N Steps", optimization_config["log_every_n_steps"], value_color=Fore.YELLOW)
     print_key_value("Fast Dev Run", optimization_config["fast_dev_run"], value_color=Fore.YELLOW)
     print_key_value("Deterministic", optimization_config["deterministic"], value_color=Fore.YELLOW)
+
+    # Print Runtime Configuration
+    print_subsection_header("Runtime")
+    print_key_value("Accelerator", runtime_config["accelerator"], value_color=Fore.YELLOW)
+    print_key_value("Devices", runtime_config["devices"], value_color=Fore.YELLOW)
+    print_key_value("Precision", runtime_config["precision"], value_color=Fore.YELLOW)
+    print_key_value("Benchmark", runtime_config["benchmark"], value_color=Fore.YELLOW)
+    print_key_value("Non-Blocking Transfer", runtime_config["use_non_blocking_transfer"], value_color=Fore.YELLOW)
 
 def print_dataset_summary(datamodule: TransmissionErrorDataModule, input_feature_dim: int, target_feature_dim: int) -> None:
 
@@ -288,11 +304,16 @@ def print_normalization_statistics_summary(normalization_statistics) -> None:
         std_value_list=normalization_statistics.target_std.tolist(),
     )
 
-def print_runtime_summary() -> None:
+def print_runtime_summary(runtime_config: dict[str, object]) -> None:
 
     """ Print Runtime Summary """
 
     print_section_header("Runtime Summary")
+    print_key_value("Configured Accelerator", runtime_config["accelerator"], value_color=Fore.YELLOW)
+    print_key_value("Configured Devices", runtime_config["devices"], value_color=Fore.YELLOW)
+    print_key_value("Configured Precision", runtime_config["precision"], value_color=Fore.YELLOW)
+    print_key_value("cuDNN Benchmark", runtime_config["benchmark"], value_color=Fore.YELLOW)
+    print_key_value("Non-Blocking Transfer", runtime_config["use_non_blocking_transfer"], value_color=Fore.YELLOW)
     print_key_value("CUDA Available", torch.cuda.is_available(), value_color=Fore.YELLOW)
     print_key_value("CUDA Device Count", torch.cuda.device_count(), value_color=Fore.YELLOW)
 
@@ -464,6 +485,30 @@ def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
 
     return training_config
 
+def resolve_runtime_config(training_config: dict) -> dict[str, object]:
+
+    """ Resolve Runtime Config """
+
+    # Initialize Default Runtime Configuration
+    runtime_config = dict(DEFAULT_RUNTIME_CONFIG_DICTIONARY)
+
+    # Merge User Runtime Configuration If Available
+    raw_runtime_config = training_config.get("runtime", {})
+    if isinstance(raw_runtime_config, dict):
+        runtime_config.update(raw_runtime_config)
+
+    # Disable Benchmark In Deterministic Mode
+    if bool(training_config["training"]["deterministic"]) and bool(runtime_config["benchmark"]):
+
+        print_warning_message("Deterministic mode is enabled -> disabling cuDNN benchmark to avoid conflicting runtime behavior")
+        runtime_config["benchmark"] = False
+
+    # Warn If Non-Blocking Transfer Has Limited Value
+    if bool(runtime_config["use_non_blocking_transfer"]) and not bool(training_config["dataset"]["pin_memory"]):
+        print_warning_message("Non-blocking transfer is enabled but pin_memory is disabled -> host-to-device copy overlap may be limited")
+
+    return runtime_config
+
 def save_training_config_snapshot(training_config: dict, output_directory: Path) -> None:
 
     """ Save Training Config Snapshot """
@@ -481,6 +526,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Load Training Configuration
     training_config = load_training_config(config_path=config_path)
+    runtime_config = resolve_runtime_config(training_config=training_config)
 
     # Resolve Output Directory
     output_root = resolve_project_relative_path(training_config["paths"]["output_root"])
@@ -498,6 +544,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         maximum_points_per_curve=training_config["dataset"]["maximum_points_per_curve"],
         num_workers=int(training_config["dataset"]["num_workers"]),
         pin_memory=bool(training_config["dataset"]["pin_memory"]),
+        use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
     )
     datamodule.setup(stage="fit")
 
@@ -531,7 +578,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     print_dataset_summary(datamodule=datamodule, input_feature_dim=input_feature_dim, target_feature_dim=target_feature_dim)
     print_model_summary(regression_backbone=regression_backbone)
     print_normalization_statistics_summary(normalization_statistics=normalization_statistics)
-    print_runtime_summary()
+    print_runtime_summary(runtime_config=runtime_config)
 
     # Create Logger
     logger = TensorBoardLogger(save_dir=str(output_directory / "logs"), name="", version="")
@@ -565,8 +612,10 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     with suppress_lightning_info_logs():
 
         trainer = Trainer(
-            accelerator="auto",
-            devices="auto",
+            accelerator=runtime_config["accelerator"],
+            devices=runtime_config["devices"],
+            precision=runtime_config["precision"],
+            benchmark=bool(runtime_config["benchmark"]),
             min_epochs=int(training_config["training"]["min_epochs"]),
             max_epochs=int(training_config["training"]["max_epochs"]),
             log_every_n_steps=int(training_config["training"]["log_every_n_steps"]),

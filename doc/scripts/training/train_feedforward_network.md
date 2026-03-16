@@ -35,6 +35,7 @@ Provides:
 - optional maximum point cap per curve;
 - model architecture;
 - optimizer settings;
+- runtime accelerator, precision, and transfer settings;
 - early-stopping configuration;
 - output run naming for trial or baseline execution.
 
@@ -67,6 +68,8 @@ Typical generated artifacts include:
 
 During execution, the script also prints a structured terminal summary with colorized section headers, compact dataset and normalization statistics, and a final artifact summary. The dataset summary now includes train, validation, and held-out test curve counts.
 
+The runtime summary now also reports the configured accelerator, device selection, precision mode, cuDNN benchmark flag, and whether explicit non-blocking tensor transfer is enabled.
+
 ## Practical Use
 
 Typical usage from the project root:
@@ -88,3 +91,5 @@ conda run -n standard_ml_codex_env python scripts/training/train_feedforward_net
 ```
 
 The training entry point prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning, and writes both validation and test results for the selected best checkpoint.
+
+The current implementation also exposes a runtime configuration block in the YAML presets so GPU-oriented options such as mixed precision, cuDNN benchmarking, and non-blocking batch transfer can be enabled or disabled explicitly without editing the Python source.

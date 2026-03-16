@@ -146,6 +146,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for evaluating a cleaner internal code layout and moving the external agent submodules under `reference/agents/`.
 - [technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md](./technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md)
   Technical document for moving root `models/` and `training/` source code under `scripts/`, reserving root `models/` for artifacts, and relocating agent submodules under `reference/agents/`.
+- [technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md](./technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md)
+  Technical document for reviewing the current GPU training path and proposing practical transfer, precision, and Trainer-level performance optimizations.
 
 ### Script Documentation
 

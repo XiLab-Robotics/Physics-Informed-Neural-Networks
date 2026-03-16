@@ -229,6 +229,7 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-03-18-45_validate_report_pdf_manual_style_rule_update.md`
   * `doc/technical/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md`
   * `doc/technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md`
+  * `doc/technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md`
 
 Script documentation:
 

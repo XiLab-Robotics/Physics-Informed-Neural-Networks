@@ -39,6 +39,30 @@ class DatasetSplitSummary:
     validation_curve_count: int
     test_curve_count: int
 
+def move_batch_tensor_collection_to_device(batch_value: Any, device: torch.device, use_non_blocking_transfer: bool = False) -> Any:
+
+    """ Move Batch Tensor Collection To Device """
+
+    # Move Tensor To Requested Device
+    if isinstance(batch_value, torch.Tensor):
+
+        non_blocking_transfer_is_enabled = use_non_blocking_transfer and device.type == "cuda"
+        return batch_value.to(device=device, non_blocking=non_blocking_transfer_is_enabled)
+
+    # Recursively Move Dictionary Values
+    if isinstance(batch_value, dict):
+        return {key: move_batch_tensor_collection_to_device(value, device=device, use_non_blocking_transfer=use_non_blocking_transfer) for key, value in batch_value.items()}
+
+    # Recursively Move Tuple Values
+    if isinstance(batch_value, tuple):
+        return tuple(move_batch_tensor_collection_to_device(value, device=device, use_non_blocking_transfer=use_non_blocking_transfer) for value in batch_value)
+
+    # Recursively Move List Values
+    if isinstance(batch_value, list):
+        return [move_batch_tensor_collection_to_device(value, device=device, use_non_blocking_transfer=use_non_blocking_transfer) for value in batch_value]
+
+    return batch_value
+
 def extract_point_tensor_from_curve_sample(curve_sample_dictionary: dict[str, Any], point_stride: int = 1, maximum_points_per_curve: int | None = None) -> dict[str, torch.Tensor]:
 
     """ Extract Point Tensor From Curve Sample """
@@ -144,6 +168,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         maximum_points_per_curve: int | None = None,
         num_workers: int = 0,
         pin_memory: bool = False,
+        use_non_blocking_transfer: bool = False,
     ) -> None:
 
         super().__init__()
@@ -160,6 +185,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.maximum_points_per_curve = maximum_points_per_curve
         self.num_workers = num_workers
         self.pin_memory = pin_memory
+        self.use_non_blocking_transfer = use_non_blocking_transfer
 
         # Initialize Runtime Attributes
         self.train_dataset: TransmissionErrorCurveDataset | None = None
@@ -375,4 +401,14 @@ class TransmissionErrorDataModule(LightningDataModule):
                 maximum_points_per_curve=self.maximum_points_per_curve,
                 shuffle_points=False,
             ),
+        )
+
+    def transfer_batch_to_device(self, batch: Any, device: torch.device, dataloader_idx: int) -> Any:
+
+        """ Transfer Batch To Device """
+
+        return move_batch_tensor_collection_to_device(
+            batch_value=batch,
+            device=device,
+            use_non_blocking_transfer=self.use_non_blocking_transfer,
         )

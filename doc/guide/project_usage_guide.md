@@ -563,6 +563,21 @@ Main configurable sections:
 - `training.deterministic`
   Deterministic training flag.
 
+- `runtime.accelerator`
+  Lightning accelerator selection, typically `auto` or `gpu`.
+
+- `runtime.devices`
+  Lightning device selection, typically `auto` or an explicit GPU count.
+
+- `runtime.precision`
+  Trainer precision mode such as `"32"`, `"16-mixed"`, or `"bf16-mixed"`.
+
+- `runtime.benchmark`
+  Enables cuDNN benchmarking for stable-shape CUDA workloads.
+
+- `runtime.use_non_blocking_transfer`
+  Enables explicit non-blocking tensor transfer during batch-to-device movement when the host batch is pinned.
+
 ## Run The Default Training Command
 
 From the project root:
@@ -580,6 +595,7 @@ This command:
 - uses `validation_split` plus `test_split` from the dataset config to create three file-level subsets;
 - uses `num_workers: 4` and `pin_memory: true` in the point-wise dataloaders by default;
 - enables `persistent_workers` internally when dataloader multiprocessing is active;
+- uses explicit recursive tensor transfer to the selected device, with optional `non_blocking=True` support controlled by the runtime config;
 - computes training normalization statistics;
 - creates the feedforward model;
 - prints a compact colorized summary for configuration, dataset, normalization, runtime, and output artifacts;
@@ -620,6 +636,8 @@ This proof configuration:
 - caps the point count with `dataset.maximum_points_per_curve: 200`;
 - reduces the epoch budget to a short verification range;
 - still executes validation, held-out testing, and report generation.
+
+The trial preset keeps `runtime.use_non_blocking_transfer: false` because it also keeps `pin_memory: false`, so asynchronous host-to-device copies would provide little practical benefit there.
 
 ## Workstation-Oriented Training Variants
 
@@ -667,6 +685,20 @@ Use this when you want the current best practical feedforward training preset de
 - no large-model complexity penalty
 
 This preset is the current recommended default because it achieved the best held-out `test_mae` across the currently executed feedforward configurations while remaining relatively efficient.
+
+## GPU Runtime Optimization Notes
+
+The repository now exposes explicit runtime controls for the GPU path without forcing aggressive settings by default.
+
+Recommended practical usage:
+
+- keep `runtime.precision: "32"` as the accuracy-safe baseline;
+- try `runtime.precision: "16-mixed"` only when the GPU path is already numerically stable and faster throughput matters;
+- try `runtime.precision: "bf16-mixed"` only if the local GPU stack supports it reliably;
+- keep `runtime.benchmark: true` for this feedforward workload because tensor shapes are stable enough to benefit;
+- keep `runtime.use_non_blocking_transfer: true` only when `dataset.pin_memory: true` is also enabled.
+
+The current optimization pass is aimed at reducing CPU-to-GPU transfer stalls and exposing useful Lightning runtime flags. It is not intended to force full GPU saturation if that adds instability or unnecessary complexity.
 
 ## Current Dataloader Runtime Defaults
 

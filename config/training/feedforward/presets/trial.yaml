@@ -34,3 +34,10 @@ training:
   log_every_n_steps: 1
   fast_dev_run: false
   deterministic: false
+
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: "32"
+  benchmark: true
+  use_non_blocking_transfer: false
