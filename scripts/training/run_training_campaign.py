@@ -20,14 +20,25 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Dataset Utilities
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
+from scripts.training import shared_training_infrastructure
 
 DEFAULT_QUEUE_ROOT = PROJECT_PATH / "config" / "training" / "queue"
 DEFAULT_CAMPAIGN_OUTPUT_ROOT = PROJECT_PATH / "output" / "training_campaigns"
 SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {"feedforward": "scripts/training/train_feedforward_network.py"}
-CONFIG_SNAPSHOT_FILENAME_LIST = ["feedforward_network_training.yaml", "training_config.yaml"]
+CONFIG_SNAPSHOT_FILENAME_LIST = [
+    shared_training_infrastructure.LEGACY_FEEDFORWARD_CONFIG_FILENAME,
+    shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME,
+]
+METRICS_SNAPSHOT_FILENAME_LIST = [
+    shared_training_infrastructure.COMMON_METRICS_FILENAME,
+    shared_training_infrastructure.LEGACY_FEEDFORWARD_METRICS_FILENAME,
+]
 TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 SECTION_DIVIDER_WIDTH = 96
 CAMPAIGN_PROGRESS_BAR_WIDTH = 24
+CAMPAIGN_LEADERBOARD_FILENAME = "campaign_leaderboard.yaml"
+CAMPAIGN_BEST_RUN_FILENAME = "campaign_best_run.yaml"
+CAMPAIGN_BEST_RUN_REPORT_FILENAME = "campaign_best_run.md"
 
 @dataclass(frozen=True)
 class QueueDirectories:
@@ -58,6 +69,7 @@ class TrainingRunResult:
     final_queue_config_path: Path
     source_config_path: Path | None
     run_name: str
+    run_instance_id: str
     model_type: str
     queue_status: str
     start_time: str
@@ -312,6 +324,15 @@ def load_yaml_dictionary(config_path: str | Path) -> dict[str, Any]:
 
     return yaml_dictionary
 
+def save_yaml_dictionary(yaml_dictionary: dict[str, Any], output_path: Path) -> None:
+
+    """ Save YAML Dictionary """
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with output_path.open("w", encoding="utf-8") as output_file:
+        yaml.safe_dump(yaml_dictionary, output_file, sort_keys=False)
+
 def discover_pending_queue_paths(queue_directories: QueueDirectories) -> list[Path]:
 
     """ Discover Pending Queue Paths """
@@ -463,6 +484,7 @@ def run_feedforward_training(config_path: str | Path) -> None:
 
     """ Run Feedforward Training """
 
+    # Load Training Config and Initialize Training Components
     from scripts.training.train_feedforward_network import train_feedforward_network
 
     train_feedforward_network(config_path)
@@ -473,6 +495,7 @@ def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
 
     supported_model_handler_dictionary = {"feedforward": run_feedforward_training}
 
+    # Model Type is Case-Insensitive
     normalized_model_type = model_type.lower()
     assert normalized_model_type in supported_model_handler_dictionary, (
         f"Unsupported Model Type for Campaign Runner | {model_type} | "
@@ -485,10 +508,8 @@ def resolve_output_directory(training_config: dict[str, Any]) -> Path:
 
     """ Resolve Output Directory """
 
-    # Resolve the Output Root Path Relative to the Project Path
-    output_root = resolve_project_relative_path(training_config["paths"]["output_root"])
-    run_name = str(training_config["experiment"]["run_name"])
-    return (output_root / run_name).resolve()
+    # Output Directory is Resolved from Training Config
+    return shared_training_infrastructure.resolve_output_directory(training_config)
 
 def resolve_config_snapshot_path(output_directory: Path) -> Path | None:
 
@@ -501,13 +522,26 @@ def resolve_config_snapshot_path(output_directory: Path) -> Path | None:
 
     return None
 
+def resolve_metrics_snapshot_path(output_directory: Path) -> Path | None:
+
+    """ Resolve Metrics Snapshot Path """
+
+    # Resolve Metrics Snapshot Path Candidates in Order and Return the First One That Exists
+    for metrics_snapshot_filename in METRICS_SNAPSHOT_FILENAME_LIST:
+        metrics_snapshot_path = output_directory / metrics_snapshot_filename
+        if metrics_snapshot_path.exists(): return metrics_snapshot_path.resolve()
+
+    return None
+
 def read_best_checkpoint_path(best_checkpoint_reference_path: Path | None) -> str | None:
 
     """ Read Best Checkpoint Path """
 
+    # If the Best Checkpoint Reference Path Does Not Exist, Return None
     if best_checkpoint_reference_path is None or not best_checkpoint_reference_path.exists():
         return None
 
+    # Read the Best Checkpoint Path from the Reference File and Return It
     return best_checkpoint_reference_path.read_text(encoding="utf-8").strip() or None
 
 def build_training_command(training_entrypoint_path: Path, running_config_path: Path) -> list[str]:
@@ -553,6 +587,7 @@ def format_duration_seconds(duration_seconds: float) -> str:
 
     """ Format Duration Seconds """
 
+    # Format Duration in Seconds as HH:MM:SS
     total_seconds = max(int(round(duration_seconds)), 0)
     hours = total_seconds // 3600
     minutes = (total_seconds % 3600) // 60
@@ -572,19 +607,22 @@ def execute_queue_item(
     """ Execute Queue Item """
 
     # Move Config from Pending to Running
-    training_config = queue_item_context.training_config
+    original_training_config = queue_item_context.training_config
     original_queue_config_path = queue_item_context.queue_config_path
     running_queue_config_path = build_available_path(queue_directories.running / original_queue_config_path.name)
     shutil.move(str(original_queue_config_path), str(running_queue_config_path))
 
     # Resolve Run Name, Model Type, and Output Directory
-    experiment_dictionary = training_config.get("experiment", {}) if isinstance(training_config.get("experiment"), dict) else {}
+    experiment_dictionary = original_training_config.get("experiment", {}) if isinstance(original_training_config.get("experiment"), dict) else {}
     run_name = str(experiment_dictionary.get("run_name", running_queue_config_path.stem))
     model_type = str(experiment_dictionary.get("model_type", "unknown"))
-    output_directory = (PROJECT_PATH / "output" / run_name).resolve()
+    prepared_training_config = shared_training_infrastructure.prepare_output_artifact_training_config(original_training_config)
+    run_instance_id = shared_training_infrastructure.resolve_run_instance_id(prepared_training_config)
+    output_directory = resolve_output_directory(prepared_training_config)
+    save_yaml_dictionary(prepared_training_config, running_queue_config_path)
 
     # Resolve Campaign Name and Planning Report Path from Metadata if Available
-    metadata_dictionary = training_config.get("metadata", {}) if isinstance(training_config.get("metadata"), dict) else {}
+    metadata_dictionary = prepared_training_config.get("metadata", {}) if isinstance(prepared_training_config.get("metadata"), dict) else {}
     run_campaign_name = str(metadata_dictionary.get("campaign_name")) if metadata_dictionary.get("campaign_name") not in [None, ""] else campaign_name
     run_planning_report_path = (str(metadata_dictionary.get("planning_report_path")) if metadata_dictionary.get("planning_report_path") not in [None, ""] else planning_report_path)
 
@@ -594,7 +632,6 @@ def execute_queue_item(
     try:
 
         # Resolve Output Directory, Entrypoint Path, and Training Handler
-        output_directory = resolve_output_directory(training_config)
         training_entrypoint_path = resolve_training_entrypoint_path(model_type)
         training_handler = resolve_training_handler(model_type)
         command = build_training_command(training_entrypoint_path, running_queue_config_path)
@@ -639,9 +676,8 @@ def execute_queue_item(
     end_datetime = datetime.now()
     best_checkpoint_reference_path = (output_directory / "best_checkpoint_path.txt").resolve()
     if not best_checkpoint_reference_path.exists(): best_checkpoint_reference_path = None
-    metrics_path = (output_directory / "training_test_metrics.yaml").resolve()
-    if not metrics_path.exists(): metrics_path = None
-    training_report_path = (output_directory / "training_test_report.md").resolve()
+    metrics_path = resolve_metrics_snapshot_path(output_directory)
+    training_report_path = (output_directory / shared_training_infrastructure.COMMON_RUN_REPORT_FILENAME).resolve()
     if not training_report_path.exists(): training_report_path = None
 
     # Build and Return Training Run Result
@@ -650,6 +686,7 @@ def execute_queue_item(
         final_queue_config_path=final_queue_config_path,
         source_config_path=queue_item_context.source_config_path,
         run_name=run_name,
+        run_instance_id=run_instance_id,
         model_type=model_type,
         queue_status=queue_status,
         start_time=start_datetime.isoformat(timespec="seconds"),
@@ -691,6 +728,7 @@ def build_manifest_dictionary(
                 "final_queue_config_path": format_path_for_report(training_run_result.final_queue_config_path),
                 "source_config_path": format_path_for_report(training_run_result.source_config_path),
                 "run_name": training_run_result.run_name,
+                "run_instance_id": training_run_result.run_instance_id,
                 "model_type": training_run_result.model_type,
                 "queue_status": training_run_result.queue_status,
                 "start_time": training_run_result.start_time,
@@ -732,6 +770,7 @@ def write_campaign_manifest(
         training_run_result_list,
     )
 
+    # Ensure Manifest Directory Exists and Write Manifest to YAML File
     with manifest_path.open("w", encoding="utf-8") as manifest_file:
         yaml.safe_dump(manifest_dictionary, manifest_file, sort_keys=False)
 
@@ -797,6 +836,7 @@ def write_campaign_execution_report(
             f"- Queue Config: `{format_path_for_report(training_run_result.final_queue_config_path)}`",
             f"- Source Config: `{format_path_for_report(training_run_result.source_config_path)}`",
             f"- Model Type: `{training_run_result.model_type}`",
+            f"- Run Instance Id: `{training_run_result.run_instance_id}`",
             f"- Queue Status: `{training_run_result.queue_status}`",
             f"- Start Time: `{training_run_result.start_time}`",
             f"- End Time: `{training_run_result.end_time}`",
@@ -822,7 +862,8 @@ def write_campaign_execution_report(
         "",
         "Recommended references for the final report:",
         "",
-        "- `training_test_metrics.yaml` for numeric comparison tables.",
+        "- `metrics_summary.yaml` for the common numeric comparison tables.",
+        "- `training_test_metrics.yaml` when legacy feedforward compatibility files are still needed.",
         "- `training_test_report.md` for per-run interpretation notes.",
         "- `best_checkpoint_path.txt` for checkpoint traceability.",
         "- `logs/*.log` for terminal-level diagnostics and failure analysis.",
@@ -831,6 +872,95 @@ def write_campaign_execution_report(
 
     # Write Report to Markdown File
     report_path.write_text("\n".join(report_line_list), encoding="utf-8")
+
+def build_campaign_registry_entry_list(training_run_result_list: list[TrainingRunResult]) -> list[dict[str, Any]]:
+
+    """ Build Campaign Registry Entry List """
+
+    campaign_registry_entry_list: list[dict[str, Any]] = []
+
+    # Only Include Completed Runs with Available Metrics Snapshots in the Registry
+    for training_run_result in training_run_result_list:
+        if training_run_result.queue_status != "completed" or training_run_result.metrics_path is None:
+            continue
+
+        # Load Metrics Snapshot and Build Registry Entry for the Training Run Result
+        metrics_snapshot_dictionary = shared_training_infrastructure.load_yaml_snapshot(training_run_result.metrics_path)
+        campaign_registry_entry_list.append(shared_training_infrastructure.build_registry_entry(metrics_snapshot_dictionary))
+
+    return shared_training_infrastructure.sort_registry_entries(campaign_registry_entry_list)
+
+def write_campaign_best_run_artifacts(campaign_output_directory: Path, campaign_name: str, training_run_result_list: list[TrainingRunResult]) -> None:
+
+    """ Write Campaign Best Run Artifacts """
+
+    # Build Campaign Registry Entry List from Completed Runs with Metrics Snapshots and Sort by Selection Policy
+    campaign_registry_entry_list = build_campaign_registry_entry_list(training_run_result_list)
+    if len(campaign_registry_entry_list) == 0:
+        return
+
+    # The First Entry in the Sorted Registry List is the Best Run According to the Selection Policy
+    best_registry_entry = campaign_registry_entry_list[0]
+    leaderboard_path = campaign_output_directory / CAMPAIGN_LEADERBOARD_FILENAME
+    best_run_path = campaign_output_directory / CAMPAIGN_BEST_RUN_FILENAME
+    best_run_report_path = campaign_output_directory / CAMPAIGN_BEST_RUN_REPORT_FILENAME
+
+    # Write the Full Campaign Registry and the Best Run Snapshot to YAML Files
+    shared_training_infrastructure.save_yaml_snapshot(
+        {
+            "schema_version": 1,
+            "campaign_name": campaign_name,
+            "selection_policy": dict(shared_training_infrastructure.SELECTION_POLICY_DICTIONARY),
+            "updated_at": datetime.now().isoformat(timespec="seconds"),
+            "entry_count": len(campaign_registry_entry_list),
+            "entry_list": campaign_registry_entry_list,
+        },
+        leaderboard_path,
+    )
+
+    # The Best Run Snapshot Contains the Same Information as the Full Registry but Only for the Best Run
+    shared_training_infrastructure.save_yaml_snapshot(
+        {
+            "schema_version": 1,
+            "campaign_name": campaign_name,
+            "selection_policy": dict(shared_training_infrastructure.SELECTION_POLICY_DICTIONARY),
+            "updated_at": datetime.now().isoformat(timespec="seconds"),
+            "best_entry": best_registry_entry,
+        },
+        best_run_path,
+    )
+
+    # Write a Markdown Report Highlighting the Best Run
+    best_run_report_line_list = [
+        "# Campaign Best Run",
+        "",
+        "## Overview",
+        "",
+        f"- Campaign Name: `{campaign_name}`",
+        f"- Run Name: `{best_registry_entry['run_name']}`",
+        f"- Run Instance Id: `{best_registry_entry['run_instance_id']}`",
+        f"- Model Family: `{best_registry_entry['model_family']}`",
+        f"- Model Type: `{best_registry_entry['model_type']}`",
+        f"- Test MAE: `{best_registry_entry['test_mae']}`",
+        f"- Test RMSE: `{best_registry_entry['test_rmse']}`",
+        f"- Validation MAE: `{best_registry_entry['val_mae']}`",
+        f"- Output Directory: `{best_registry_entry['output_directory']}`",
+        f"- Metrics Snapshot: `{best_registry_entry['metrics_path']}`",
+        f"- Report Path: `{best_registry_entry['report_path']}`",
+        f"- Best Checkpoint Path: `{best_registry_entry['best_checkpoint_path']}`",
+        "",
+        "## Selection Policy",
+        "",
+        f"- Primary Metric: `{shared_training_infrastructure.SELECTION_POLICY_DICTIONARY['primary_metric']}`",
+        f"- First Tie Breaker: `{shared_training_infrastructure.SELECTION_POLICY_DICTIONARY['first_tie_breaker']}`",
+        f"- Second Tie Breaker: `{shared_training_infrastructure.SELECTION_POLICY_DICTIONARY['second_tie_breaker']}`",
+        f"- Third Tie Breaker: `{shared_training_infrastructure.SELECTION_POLICY_DICTIONARY['third_tie_breaker']}`",
+        "",
+    ]
+    best_run_report_path.write_text("\n".join(best_run_report_line_list) + "\n", encoding="utf-8")
+
+    # Update the Shared Training Infrastructure Program Registry with the Best Run Entry for This Campaign
+    shared_training_infrastructure.update_program_registry(best_registry_entry)
 
 def main() -> None:
 
@@ -914,6 +1044,10 @@ def main() -> None:
             training_run_result_list,
         )
 
+        # Update the Campaign Best Run Artifacts and Registry
+        write_campaign_best_run_artifacts(campaign_output_directory, campaign_name, training_run_result_list)
+
+        # Print Campaign Run Footer with Updated Summary Statistics
         completed_count = sum(training_run_result.queue_status == "completed" for training_run_result in training_run_result_list)
         failed_count = sum(training_run_result.queue_status == "failed" for training_run_result in training_run_result_list)
         print_campaign_run_footer(

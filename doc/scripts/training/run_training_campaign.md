@@ -49,6 +49,9 @@ Campaign-level artifact root that stores:
 
 - `campaign_manifest.yaml`
 - `campaign_execution_report.md`
+- `campaign_leaderboard.yaml`
+- `campaign_best_run.yaml`
+- `campaign_best_run.md`
 - `logs/*.log`
 
 ## Outputs
@@ -60,6 +63,7 @@ For each batch execution, the runner generates:
 - a compact campaign-progress summary before and after each run, including `current/total` status;
 - a campaign manifest with machine-readable run metadata;
 - a campaign markdown report summarizing all runs;
+- an explicit campaign-local leaderboard and best-run record;
 - one terminal log per queued YAML file;
 - references to the per-run training artifacts already produced by the underlying trainer.
 
@@ -92,3 +96,5 @@ python scripts/training/run_training_campaign.py `
 The generated campaign report is intended to be the technical source index for the mandatory final report in `doc/reports/campaign_results/`.
 
 During execution, the campaign runner now keeps the direct single-run training output visible in the terminal, so the user can observe startup messages, Lightning progress bars, validation/test phases, and final artifact summaries without waiting for the campaign to finish.
+
+The underlying run artifacts are now expected under `output/training_runs/<model_family>/<run_instance_id>/`, while campaign summaries remain under `output/training_campaigns/<campaign_id>/`.

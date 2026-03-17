@@ -38,6 +38,8 @@ def build_smoke_test_summary(
         "output_directory": str(output_directory),
         "experiment": {
             "run_name": experiment_identity.run_name,
+            "output_run_name": shared_training_infrastructure.resolve_output_run_name(training_config),
+            "run_instance_id": shared_training_infrastructure.resolve_run_instance_id(training_config),
             "model_family": experiment_identity.model_family,
             "model_type": experiment_identity.model_type,
         },
@@ -54,15 +56,22 @@ def run_training_smoke_test(config_path: Path, output_suffix: str = "smoke_test"
 
     assert fast_dev_run_batches > 0, f"fast_dev_run_batches must be positive | {fast_dev_run_batches}"
 
-    training_config = shared_training_infrastructure.load_training_config(config_path)
-    output_directory = shared_training_infrastructure.resolve_output_directory(training_config, output_suffix)
+    # Prepare Training Config and Output Directory
+    training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
+        shared_training_infrastructure.load_training_config(config_path),
+        artifact_kind=shared_training_infrastructure.SMOKE_TEST_OUTPUT_ARTIFACT_KIND,
+        run_name_suffix=output_suffix,
+    )
+    output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
+    shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
 
     # Initialize Training Components
     datamodule, regression_backbone, regression_module, normalization_statistics = shared_training_infrastructure.initialize_training_components(training_config)
     input_feature_dim = datamodule.get_input_feature_dim()
     target_feature_dim = datamodule.get_target_feature_dim()
 
+    # Initialize Lightning Trainer
     trainer = Trainer(
         default_root_dir=str(output_directory),
         accelerator="cpu",
@@ -75,6 +84,8 @@ def run_training_smoke_test(config_path: Path, output_suffix: str = "smoke_test"
         fast_dev_run=fast_dev_run_batches,
         deterministic=True,
     )
+
+    # Run Training Loop
     trainer.fit(regression_module, datamodule=datamodule)
 
     # Save Checkpoint After Training Loop Completes
@@ -113,6 +124,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
     """ Parse Command Line Arguments """
 
+    # Define Command Line Arguments
     argument_parser = argparse.ArgumentParser(description="Run a minimal Lightning smoke test for the current TE training workflow.")
     argument_parser.add_argument("--config-path", type=Path, default=shared_training_infrastructure.DEFAULT_CONFIG_PATH, help="Path to the YAML training configuration file.")
     argument_parser.add_argument("--output-suffix", type=str, default="smoke_test", help="Suffix appended to the run directory for the smoke-test artifacts.")

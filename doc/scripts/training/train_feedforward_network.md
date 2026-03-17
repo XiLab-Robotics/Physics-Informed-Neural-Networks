@@ -60,20 +60,30 @@ Implements the Lightning training logic, normalization, optimizer, and regressio
 
 ## Outputs
 
-The script writes its outputs under the configured root directory, currently:
+The script writes its outputs under the configured training-run root, currently:
 
-- `output/feedforward_network/`
+- `output/training_runs/feedforward/`
 
 Typical generated artifacts include:
 
 - a copy of the training config under `training_config.yaml`;
 - the legacy feedforward config snapshot under `feedforward_network_training.yaml`;
+- a run metadata snapshot under `run_metadata.yaml`;
 - TensorBoard logs;
 - Lightning checkpoints;
 - a text file containing the best checkpoint path;
 - a family-agnostic YAML metrics artifact under `metrics_summary.yaml`;
 - the legacy feedforward metrics snapshot under `training_test_metrics.yaml`;
 - a markdown report summarizing the executed run.
+- automatic family/program best-result registries under:
+  - `output/registries/families/feedforward/`
+  - `output/registries/program/`
+
+Each physical run now writes into an immutable timestamped directory such as:
+
+- `output/training_runs/feedforward/2026-03-17-20-05-11__te_feedforward_baseline/`
+
+This directory is the `run_instance_id` location. The logical experiment name remains `experiment.run_name`.
 
 During execution, the script also prints a structured terminal summary with colorized section headers, compact dataset and normalization statistics, and a final artifact summary. The dataset summary now includes train, validation, and held-out test curve counts.
 

@@ -27,9 +27,11 @@ The script writes:
 
 - `validation_summary.yaml`
 
-under a run-suffixed output directory such as:
+under a dedicated validation-artifact directory such as:
 
-- `output/feedforward_network/te_feedforward_trial_validation_check/`
+- `output/validation_checks/feedforward/2026-03-17-20-05-11__te_feedforward_trial_wave0_validation/`
+
+The validation output folder is now separated from normal training runs so sanity-check artifacts do not pollute the training-run tree.
 
 ## Practical Use
 

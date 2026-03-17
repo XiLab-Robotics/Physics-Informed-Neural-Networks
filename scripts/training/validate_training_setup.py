@@ -35,6 +35,8 @@ def build_validation_summary(
         "output_directory": str(output_directory),
         "experiment": {
             "run_name": experiment_identity.run_name,
+            "output_run_name": shared_training_infrastructure.resolve_output_run_name(training_config),
+            "run_instance_id": shared_training_infrastructure.resolve_run_instance_id(training_config),
             "model_family": experiment_identity.model_family,
             "model_type": experiment_identity.model_type,
         },
@@ -57,9 +59,14 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
     """ Validate Training Setup """
 
     # Load Training Config And Resolve Output Directory
-    training_config = shared_training_infrastructure.load_training_config(config_path)
-    output_directory = shared_training_infrastructure.resolve_output_directory(training_config, output_suffix)
+    training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
+        shared_training_infrastructure.load_training_config(config_path),
+        artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
+        run_name_suffix=output_suffix,
+    )
+    output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
+    shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
 
     # Initialize Training Components
     datamodule, regression_backbone, regression_module, _ = shared_training_infrastructure.initialize_training_components(training_config)

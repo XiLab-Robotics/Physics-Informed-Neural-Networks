@@ -105,8 +105,20 @@ The current usage flow mainly relies on these folders:
 - `output/`
   Generated artifacts such as plots, logs, and model checkpoints.
 
+- `output/training_runs/`
+  Immutable per-run training artifacts grouped by model family.
+
+- `output/validation_checks/`
+  One-batch validation artifacts grouped by model family.
+
+- `output/smoke_tests/`
+  Minimal Lightning smoke-test artifacts grouped by model family.
+
 - `output/training_campaigns/`
   Campaign-level manifests, markdown execution reports, and batch logs.
+
+- `output/registries/`
+  Family-level and program-level best-result registries.
 
 - `doc/running/`
   Persistent state for the currently prepared or active training campaign.
@@ -285,7 +297,7 @@ This command verifies:
 - batch shape correctness;
 - finite loss and metrics on one batch.
 
-It writes a `validation_summary.yaml` file under a run-suffixed output directory.
+It writes a `validation_summary.yaml` file under `output/validation_checks/<model_family>/<run_instance_id>/`.
 
 ## Run The Minimal Lightning Smoke Test
 
@@ -308,7 +320,7 @@ It writes:
 - `smoke_test_summary.yaml`
 - `smoke_test_checkpoint.ckpt`
 
-under a run-suffixed output directory.
+under `output/smoke_tests/<model_family>/<run_instance_id>/`.
 
 ## Shared Training Artifacts
 
@@ -579,7 +591,8 @@ Main configurable sections:
   Dataset-processing config used by the Lightning datamodule.
 
 - `paths.output_root`
-  Root output directory for logs and checkpoints.
+  Root output directory for immutable training runs.
+  The current feedforward presets now point to `output/training_runs/feedforward`.
 
 - `experiment.run_name`
   Name of the training run output folder.
@@ -688,12 +701,15 @@ This command:
 - suppresses the current low-signal Lightning `litlogger` startup tip and the known `_pytree` sanity-check warning;
 - starts Lightning training, validation, and held-out testing;
 - reloads the best checkpoint before the final evaluation phase;
-- writes artifacts under `output/feedforward_network/<run_name>/`.
+- writes artifacts under `output/training_runs/<model_family>/<run_instance_id>/`.
 
 Typical artifacts now include:
 
 - `feedforward_network_training.yaml`
   Snapshot of the effective run configuration.
+
+- `run_metadata.yaml`
+  Explicit run-artifact identity including `run_instance_id`.
 
 - `checkpoints/`
   Best and last Lightning checkpoints.
@@ -706,6 +722,10 @@ Typical artifacts now include:
 
 - `training_test_report.md`
   Human-readable training and testing summary.
+
+- family/program best-result registries under:
+  - `output/registries/families/<model_family>/`
+  - `output/registries/program/`
 
 ## Run The Lightweight Proof Configuration
 
@@ -818,27 +838,29 @@ conda run -n standard_ml_codex_env python scripts/training/train_feedforward_net
 
 ## Typical Training Outputs
 
-The baseline writes outputs under the configured root directory, currently:
+The baseline writes outputs under the configured training-run root, currently:
 
-- `output/feedforward_network/`
+- `output/training_runs/feedforward/`
 
-For the default run name, the typical output location is:
+For the default run name, a typical output location is:
 
-- `output/feedforward_network/te_feedforward_baseline/`
+- `output/training_runs/feedforward/2026-03-17-20-05-11__te_feedforward_baseline/`
 
 Typical generated artifacts include:
 
 - a copy of the effective training config;
 - TensorBoard logs;
 - Lightning checkpoints;
-- a text file containing the best checkpoint path.
+- a text file containing the best checkpoint path;
+- a run metadata snapshot;
+- updated best-result registries.
 
 ## Inspect Training Logs With TensorBoard
 
 After a real training run, you can inspect logs with:
 
 ```powershell
-tensorboard --logdir output\feedforward_network
+tensorboard --logdir output\training_runs\feedforward
 ```
 
 Then open the local TensorBoard URL shown in the terminal.
@@ -873,6 +895,7 @@ This runner:
 - mirrors that live output into one terminal log per queue item;
 - prints a compact campaign-progress summary before and after each run;
 - generates a campaign manifest and markdown execution report under `output/training_campaigns/`.
+- generates explicit `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and `campaign_best_run.md` files inside each campaign folder.
 
 ## Queue Layout
 
@@ -933,6 +956,15 @@ Typical generated artifacts:
 - `campaign_execution_report.md`
   Human-readable execution report listing what was tested and where the per-run results are stored.
 
+- `campaign_leaderboard.yaml`
+  Ranked campaign-local comparison entries using the repository selection policy.
+
+- `campaign_best_run.yaml`
+  Machine-readable winner of the campaign.
+
+- `campaign_best_run.md`
+  Human-readable summary of the campaign winner.
+
 - `logs/*.log`
   Full terminal output mirrored for each queued YAML file while the same output stays visible live in the active terminal.
 
@@ -976,7 +1008,7 @@ If you want to inspect the dataset and train the current baseline, use this sequ
 4. Inspect one dataset batch if needed.
 5. Visualize one or more TE curves.
 6. Start the feedforward Lightning training run.
-7. Inspect logs and checkpoints under `output/feedforward_network/`.
+7. Inspect logs and checkpoints under `output/training_runs/` and check the best-result registries under `output/registries/`.
 
 Example sequence:
 

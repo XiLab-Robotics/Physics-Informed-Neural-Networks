@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward
+run_name: te_feedforward_trial
+run_instance_id: 2026-03-17-19-49-41__te_feedforward_trial
+output_directory: output/training_runs/feedforward/2026-03-17-19-49-41__te_feedforward_trial

@@ -170,6 +170,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for moving the TE implementation backlog into a privileged live location under `doc/running/`.
 - [technical/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md](./technical/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md)
   Technical document for cleaning up redundant `variable=variable` function-call arguments while preserving explicit keywords where they improve readability.
+- [technical/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md](./technical/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md)
+  Technical document for reorganizing training outputs by artifact type and adding explicit campaign, family, and program best-result registries.
 
 ### Script Documentation
 

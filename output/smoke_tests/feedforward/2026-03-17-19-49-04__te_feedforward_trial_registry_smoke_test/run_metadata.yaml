@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: smoke_test
+model_family: feedforward
+run_name: te_feedforward_trial_registry_smoke_test
+run_instance_id: 2026-03-17-19-49-04__te_feedforward_trial_registry_smoke_test
+output_directory: output/smoke_tests/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_smoke_test

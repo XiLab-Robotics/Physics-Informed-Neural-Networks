@@ -4,6 +4,7 @@ from __future__ import annotations
 from copy import deepcopy
 from dataclasses import asdict
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -30,12 +31,34 @@ DEFAULT_RUNTIME_CONFIG_DICTIONARY = {
     "benchmark": True,
     "use_non_blocking_transfer": True,
 }
+TRAINING_RUN_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
+OUTPUT_PATH = PROJECT_PATH / "output"
+VALIDATION_OUTPUT_ROOT = OUTPUT_PATH / "validation_checks"
+SMOKE_TEST_OUTPUT_ROOT = OUTPUT_PATH / "smoke_tests"
+REGISTRY_OUTPUT_ROOT = OUTPUT_PATH / "registries"
+FAMILY_REGISTRY_OUTPUT_ROOT = REGISTRY_OUTPUT_ROOT / "families"
+PROGRAM_REGISTRY_OUTPUT_ROOT = REGISTRY_OUTPUT_ROOT / "program"
+RUN_OUTPUT_ARTIFACT_KIND = "training_run"
+VALIDATION_OUTPUT_ARTIFACT_KIND = "validation_check"
+SMOKE_TEST_OUTPUT_ARTIFACT_KIND = "smoke_test"
 COMMON_TRAINING_CONFIG_FILENAME = "training_config.yaml"
 COMMON_METRICS_FILENAME = "metrics_summary.yaml"
 COMMON_VALIDATION_FILENAME = "validation_summary.yaml"
 COMMON_SMOKE_TEST_FILENAME = "smoke_test_summary.yaml"
+COMMON_RUN_METADATA_FILENAME = "run_metadata.yaml"
+COMMON_RUN_REPORT_FILENAME = "training_test_report.md"
 LEGACY_FEEDFORWARD_CONFIG_FILENAME = "feedforward_network_training.yaml"
 LEGACY_FEEDFORWARD_METRICS_FILENAME = "training_test_metrics.yaml"
+FAMILY_LEADERBOARD_FILENAME = "leaderboard.yaml"
+FAMILY_BEST_FILENAME = "latest_family_best.yaml"
+PROGRAM_BEST_FILENAME = "current_best_solution.yaml"
+SELECTION_POLICY_DICTIONARY = {
+    "primary_metric": "test_mae",
+    "first_tie_breaker": "test_rmse",
+    "second_tie_breaker": "val_mae",
+    "third_tie_breaker": "trainable_parameter_count",
+    "direction": "minimize",
+}
 
 @dataclass
 class ExperimentIdentity:
@@ -55,6 +78,17 @@ class ModelParameterSummary:
     trainable_parameter_count: int
     frozen_parameter_count: int
     total_parameter_count: int
+
+@dataclass
+class RunArtifactIdentity:
+
+    """ Run Artifact Identity """
+
+    artifact_kind: str
+    model_family: str
+    run_name: str
+    run_instance_id: str
+    output_directory: Path
 
 def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
 
@@ -77,6 +111,14 @@ def clone_training_config(training_config: dict[str, Any]) -> dict[str, Any]:
     """ Clone Training Config """
 
     return deepcopy(training_config)
+
+def sanitize_name(name: str) -> str:
+
+    """ Sanitize Name """
+
+    sanitized_name = "".join(character.lower() if character.isalnum() else "_" for character in name.strip())
+    sanitized_name = sanitized_name.strip("_")
+    return sanitized_name or "run"
 
 def resolve_experiment_identity(training_config: dict[str, Any]) -> ExperimentIdentity:
 
@@ -127,14 +169,119 @@ def build_run_name(training_config: dict[str, Any], run_name_suffix: str | None 
     if not run_name_suffix: return experiment_identity.run_name
     return f"{experiment_identity.run_name}_{run_name_suffix}"
 
-def resolve_output_directory(training_config: dict[str, Any], run_name_suffix: str | None = None) -> Path:
+def build_run_instance_id(run_name: str) -> str:
+
+    """ Build Run Instance Id """
+
+    timestamp_string = datetime.now().strftime(TRAINING_RUN_TIMESTAMP_FORMAT)
+    return f"{timestamp_string}__{sanitize_name(run_name)}"
+
+def prepare_output_artifact_training_config(
+    training_config: dict[str, Any],
+    artifact_kind: str = RUN_OUTPUT_ARTIFACT_KIND,
+    run_name_suffix: str | None = None,
+    run_instance_id: str | None = None,
+) -> dict[str, Any]:
+
+    """ Prepare Output Artifact Training Config """
+
+    # Clone the Training Config
+    prepared_training_config = clone_training_config(training_config)
+    prepared_run_name = build_run_name(prepared_training_config, run_name_suffix)
+    resolved_run_instance_id = run_instance_id or build_run_instance_id(prepared_run_name)
+    metadata_dictionary = prepared_training_config.setdefault("metadata", {})
+
+    # Persist Output Artifact Identity Inside Training Metadata
+    metadata_dictionary["output_artifact_kind"] = artifact_kind
+    metadata_dictionary["output_run_name"] = prepared_run_name
+    metadata_dictionary["run_instance_id"] = resolved_run_instance_id
+
+    return prepared_training_config
+
+def resolve_output_artifact_kind(training_config: dict[str, Any]) -> str:
+
+    """ Resolve Output Artifact Kind """
+
+    # Check Training Metadata for Explicit Output Artifact Kind
+    metadata_dictionary = training_config.get("metadata", {})
+    if isinstance(metadata_dictionary, dict):
+        output_artifact_kind = str(metadata_dictionary.get("output_artifact_kind", RUN_OUTPUT_ARTIFACT_KIND)).strip()
+        if output_artifact_kind:
+            return output_artifact_kind
+
+    return RUN_OUTPUT_ARTIFACT_KIND
+
+def resolve_output_run_name(training_config: dict[str, Any]) -> str:
+
+    """ Resolve Output Run Name """
+
+    # Check Training Metadata for Explicit Output Run Name
+    metadata_dictionary = training_config.get("metadata", {})
+    if isinstance(metadata_dictionary, dict):
+        output_run_name = str(metadata_dictionary.get("output_run_name", "")).strip()
+        if output_run_name:
+            return output_run_name
+
+    return build_run_name(training_config)
+
+def resolve_run_instance_id(training_config: dict[str, Any]) -> str:
+
+    """ Resolve Run Instance Id """
+
+    # Check Training Metadata for Explicit run_instance_id
+    metadata_dictionary = training_config.get("metadata", {})
+    assert isinstance(metadata_dictionary, dict), "Training metadata dictionary is required to resolve run_instance_id"
+
+    # If run_instance_id is Present and Non-Empty in Metadata
+    run_instance_id = str(metadata_dictionary.get("run_instance_id", "")).strip()
+    assert run_instance_id, "Training metadata must contain a non-empty run_instance_id"
+    return run_instance_id
+
+def resolve_output_root(training_config: dict[str, Any]) -> Path:
+
+    """ Resolve Output Root """
+
+    # Determine Output Root Directory Based on Output Artifact Kind and Experiment Identity
+    experiment_identity = resolve_experiment_identity(training_config)
+    output_artifact_kind = resolve_output_artifact_kind(training_config)
+
+    # Resolve Output Root Directory Based
+    if output_artifact_kind == RUN_OUTPUT_ARTIFACT_KIND:
+        return resolve_project_relative_path(training_config["paths"]["output_root"])
+
+    # For Validation Checks and Smoke Tests
+    if output_artifact_kind == VALIDATION_OUTPUT_ARTIFACT_KIND:
+        return (VALIDATION_OUTPUT_ROOT / experiment_identity.model_family).resolve()
+
+    # Smoke Test Outputs are Organized Under a Separate Root Directory
+    if output_artifact_kind == SMOKE_TEST_OUTPUT_ARTIFACT_KIND:
+        return (SMOKE_TEST_OUTPUT_ROOT / experiment_identity.model_family).resolve()
+
+    raise ValueError(f"Unsupported output_artifact_kind | {output_artifact_kind}")
+
+def resolve_output_directory(training_config: dict[str, Any]) -> Path:
 
     """ Resolve Output Directory """
 
-    # Construct Output Directory Path Based on Training Config and Experiment Identity
-    output_root = resolve_project_relative_path(training_config["paths"]["output_root"])
-    run_name = build_run_name(training_config, run_name_suffix)
-    return output_root / run_name
+    # Construct Output Directory Path Based on Prepared Training Metadata
+    output_root = resolve_output_root(training_config)
+    run_instance_id = resolve_run_instance_id(training_config)
+    return output_root / run_instance_id
+
+def resolve_run_artifact_identity(training_config: dict[str, Any]) -> RunArtifactIdentity:
+
+    """ Resolve Run Artifact Identity """
+
+    # Resolve Experiment Identity
+    experiment_identity = resolve_experiment_identity(training_config)
+    output_directory = resolve_output_directory(training_config)
+    return RunArtifactIdentity(
+        artifact_kind=resolve_output_artifact_kind(training_config),
+        model_family=experiment_identity.model_family,
+        run_name=resolve_output_run_name(training_config),
+        run_instance_id=resolve_run_instance_id(training_config),
+        output_directory=output_directory,
+    )
 
 def summarize_model_parameters(regression_backbone: nn.Module) -> ModelParameterSummary:
 
@@ -328,6 +475,7 @@ def build_comparison_payload(
 def build_common_metrics_snapshot(
     training_config: dict[str, Any],
     config_path: str | Path,
+    output_directory: Path,
     datamodule: TransmissionErrorDataModule,
     parameter_summary: ModelParameterSummary,
     runtime_config: dict[str, object],
@@ -340,6 +488,7 @@ def build_common_metrics_snapshot(
 
     # Resolve Experiment Identity and Dataset Split Summary for Snapshot
     experiment_identity = resolve_experiment_identity(training_config)
+    run_artifact_identity = resolve_run_artifact_identity(training_config)
     dataset_split_summary = datamodule.get_dataset_split_summary()
     normalization_statistics = datamodule.get_normalization_statistics()
 
@@ -350,8 +499,14 @@ def build_common_metrics_snapshot(
     return {
         "schema_version": 1,
         "config_path": str(resolve_project_relative_path(config_path)),
-        "experiment": asdict(experiment_identity),
+        "experiment": {
+            **asdict(experiment_identity),
+            "output_run_name": run_artifact_identity.run_name,
+            "run_instance_id": run_artifact_identity.run_instance_id,
+            "output_artifact_kind": run_artifact_identity.artifact_kind,
+        },
         "artifacts": {
+            "output_directory": str(output_directory),
             "best_checkpoint_path": best_model_path,
         },
         "dataset_split": asdict(dataset_split_summary),
@@ -372,6 +527,35 @@ def build_common_metrics_snapshot(
             test_metric_dictionary,
         ),
     }
+
+def format_project_relative_path(path_value: str | Path | None) -> str:
+
+    """ Format Project Relative Path """
+
+    if path_value is None:
+        return "N/A"
+
+    # Handle Special Case for Checkpoint Paths When Best Checkpoint is Not Available
+    if isinstance(path_value, str) and "Best checkpoint not available" in path_value:
+        return path_value
+
+    resolved_path = Path(path_value).resolve()
+
+    # Format Path as Project-Relative if Possible, Otherwise Return Absolute Path
+    try: return resolved_path.relative_to(PROJECT_PATH).as_posix()
+    except ValueError: return resolved_path.as_posix()
+
+def load_yaml_snapshot(input_path: Path) -> dict[str, Any]:
+
+    """ Load YAML Snapshot """
+
+    # Load the YAML Snapshot from the Specified Input Path
+    with input_path.open("r", encoding="utf-8") as input_file:
+        snapshot_dictionary = yaml.safe_load(input_file)
+
+    # Validate that the Loaded Snapshot is a Dictionary
+    assert isinstance(snapshot_dictionary, dict), f"YAML snapshot must contain a dictionary | {input_path}"
+    return snapshot_dictionary
 
 def save_yaml_snapshot(snapshot_dictionary: dict[str, Any], output_path: Path) -> None:
 
@@ -406,3 +590,187 @@ def save_common_metrics_snapshot(metrics_snapshot_dictionary: dict[str, Any], ou
     # Optionally Save a Legacy Metrics Format for Feedforward Models for Backwards Compatibility
     if experiment_identity.model_family == "feedforward":
         save_yaml_snapshot(metrics_snapshot_dictionary, output_directory / LEGACY_FEEDFORWARD_METRICS_FILENAME)
+
+def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[str, Any]:
+
+    """ Build Registry Entry """
+
+    # Extract Relevant Information from the Common Metrics Snapshot to Build a Registry Entry
+    experiment_dictionary = metrics_snapshot_dictionary["experiment"]
+    comparison_payload = metrics_snapshot_dictionary["comparison_payload"]
+    model_summary_dictionary = metrics_snapshot_dictionary["model_summary"]
+    artifacts_dictionary = metrics_snapshot_dictionary["artifacts"]
+
+    return {
+        "run_instance_id": experiment_dictionary["run_instance_id"],
+        "run_name": experiment_dictionary["run_name"],
+        "output_run_name": experiment_dictionary["output_run_name"],
+        "output_artifact_kind": experiment_dictionary["output_artifact_kind"],
+        "model_family": comparison_payload["model_family"],
+        "model_type": comparison_payload["model_type"],
+        "trainable_parameter_count": model_summary_dictionary["trainable_parameter_count"],
+        "total_parameter_count": model_summary_dictionary["total_parameter_count"],
+        "val_mae": comparison_payload.get("val_mae"),
+        "val_rmse": comparison_payload.get("val_rmse"),
+        "test_mae": comparison_payload.get("test_mae"),
+        "test_rmse": comparison_payload.get("test_rmse"),
+        "output_directory": format_project_relative_path(artifacts_dictionary.get("output_directory")),
+        "best_checkpoint_path": format_project_relative_path(artifacts_dictionary.get("best_checkpoint_path")),
+        "metrics_path": (
+            f"{format_project_relative_path(artifacts_dictionary.get('output_directory'))}/{COMMON_METRICS_FILENAME}"
+            if artifacts_dictionary.get("output_directory") not in [None, ""]
+            else "N/A"
+        ),
+        "report_path": (
+            f"{format_project_relative_path(artifacts_dictionary.get('output_directory'))}/{COMMON_RUN_REPORT_FILENAME}"
+            if artifacts_dictionary.get("output_directory") not in [None, ""]
+            else "N/A"
+        ),
+        "selection_policy": dict(SELECTION_POLICY_DICTIONARY),
+        "selected_at": datetime.now().isoformat(timespec="seconds"),
+    }
+
+def resolve_selection_value(metric_value: object) -> float:
+
+    """ Resolve Selection Value """
+
+    # Convert the Metric Value to a Float if it is a Numeric Type
+    if isinstance(metric_value, (int, float)):
+        return float(metric_value)
+
+    return float("inf")
+
+def build_selection_key(registry_entry: dict[str, Any]) -> tuple[float, float, float, float, str]:
+
+    """ Build Selection Key """
+
+    # Build a Selection Key Tuple Based on the Registry Entry's Metrics
+    return (
+        resolve_selection_value(registry_entry.get("test_mae")),
+        resolve_selection_value(registry_entry.get("test_rmse")),
+        resolve_selection_value(registry_entry.get("val_mae")),
+        resolve_selection_value(registry_entry.get("trainable_parameter_count")),
+        str(registry_entry.get("run_instance_id", "")),
+    )
+
+def sort_registry_entries(registry_entry_list: list[dict[str, Any]]) -> list[dict[str, Any]]:
+
+    """ Sort Registry Entries """
+
+    # Sort the Registry Entry List Based on the Selection Key Built from Each Entry's Metrics
+    return sorted(registry_entry_list, key=build_selection_key)
+
+def load_registry_entry_list(leaderboard_path: Path) -> list[dict[str, Any]]:
+
+    """ Load Registry Entry List """
+
+    if not leaderboard_path.exists():
+        return []
+
+    # Load the Leaderboard YAML Snapshot and Extract the Registry Entry List, Validating its Structure
+    leaderboard_dictionary = load_yaml_snapshot(leaderboard_path)
+    registry_entry_list = leaderboard_dictionary.get("entry_list", [])
+    assert isinstance(registry_entry_list, list), f"Registry entry_list must be a list | {leaderboard_path}"
+    return [registry_entry for registry_entry in registry_entry_list if isinstance(registry_entry, dict)]
+
+def build_family_registry_directory(model_family: str) -> Path:
+
+    """ Build Family Registry Directory """
+
+    # Construct the Family Registry Directory Path Based on the Model Family Name
+    return (FAMILY_REGISTRY_OUTPUT_ROOT / model_family).resolve()
+
+def update_family_registry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[str, Any]:
+
+    """ Update Family Registry """
+
+    # Build a Registry Entry from the Common Metrics Snapshot and Update the Family Registry Leaderboard
+    registry_entry = build_registry_entry(metrics_snapshot_dictionary)
+    family_registry_directory = build_family_registry_directory(registry_entry["model_family"])
+    leaderboard_path = family_registry_directory / FAMILY_LEADERBOARD_FILENAME
+    best_entry_path = family_registry_directory / FAMILY_BEST_FILENAME
+
+    # Load Existing Registry Entries, Filter Out Any Entry with the Same run_instance_id
+    existing_registry_entry_list = load_registry_entry_list(leaderboard_path)
+    filtered_registry_entry_list = [
+        existing_registry_entry
+        for existing_registry_entry in existing_registry_entry_list
+        if existing_registry_entry.get("run_instance_id") != registry_entry["run_instance_id"]
+    ]
+    filtered_registry_entry_list.append(registry_entry)
+    sorted_registry_entry_list = sort_registry_entries(filtered_registry_entry_list)
+    best_registry_entry = sorted_registry_entry_list[0]
+
+    # Build the Leaderboard and Best Entry Dictionaries with Updated Information and Save Them as YAML Snapshots
+    leaderboard_dictionary = {
+        "schema_version": 1,
+        "model_family": registry_entry["model_family"],
+        "selection_policy": dict(SELECTION_POLICY_DICTIONARY),
+        "updated_at": datetime.now().isoformat(timespec="seconds"),
+        "entry_count": len(sorted_registry_entry_list),
+        "entry_list": sorted_registry_entry_list,
+    }
+
+    # Best Entry Dictionary
+    best_entry_dictionary = {
+        "schema_version": 1,
+        "model_family": registry_entry["model_family"],
+        "selection_policy": dict(SELECTION_POLICY_DICTIONARY),
+        "updated_at": datetime.now().isoformat(timespec="seconds"),
+        "best_entry": best_registry_entry,
+    }
+
+    # Save the Updated Leaderboard and Best Entry as YAML Snapshots in the Family Registry Directory
+    save_yaml_snapshot(leaderboard_dictionary, leaderboard_path)
+    save_yaml_snapshot(best_entry_dictionary, best_entry_path)
+
+    return best_registry_entry
+
+def update_program_registry(best_registry_entry: dict[str, Any]) -> dict[str, Any]:
+
+    """ Update Program Registry """
+
+    program_best_path = PROGRAM_REGISTRY_OUTPUT_ROOT / PROGRAM_BEST_FILENAME
+    current_best_entry = None
+
+    # If a Current Best Entry Exists in the Program Registry, Load it for Comparison
+    if program_best_path.exists():
+        program_best_dictionary = load_yaml_snapshot(program_best_path)
+        loaded_best_entry = program_best_dictionary.get("best_entry")
+        if isinstance(loaded_best_entry, dict):
+            current_best_entry = loaded_best_entry
+
+    # Compare the New Best Registry Entry with the Current Best Entry
+    selected_best_entry = best_registry_entry
+    if isinstance(current_best_entry, dict) and build_selection_key(current_best_entry) <= build_selection_key(best_registry_entry):
+        selected_best_entry = current_best_entry
+
+    # Build the Program Best Dictionary with the Selected Best Entry
+    program_best_dictionary = {
+        "schema_version": 1,
+        "selection_policy": dict(SELECTION_POLICY_DICTIONARY),
+        "updated_at": datetime.now().isoformat(timespec="seconds"),
+        "best_entry": selected_best_entry,
+    }
+
+    # Save the Updated Program Best Dictionary as a YAML Snapshot in the Program Registry Directory
+    save_yaml_snapshot(program_best_dictionary, program_best_path)
+    return selected_best_entry
+
+def save_run_metadata_snapshot(training_config: dict[str, Any], output_directory: Path) -> None:
+
+    """ Save Run Metadata Snapshot """
+
+    # Resolve Run Artifact Identity and Save it as a YAML Snapshot in the Output Directory for Reference and Traceability
+    run_artifact_identity = resolve_run_artifact_identity(training_config)
+    save_yaml_snapshot(
+        {
+            "schema_version": 1,
+            "artifact_kind": run_artifact_identity.artifact_kind,
+            "model_family": run_artifact_identity.model_family,
+            "run_name": run_artifact_identity.run_name,
+            "run_instance_id": run_artifact_identity.run_instance_id,
+            "output_directory": format_project_relative_path(run_artifact_identity.output_directory),
+        },
+        output_directory / COMMON_RUN_METADATA_FILENAME,
+    )

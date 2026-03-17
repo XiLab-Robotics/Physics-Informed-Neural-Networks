@@ -55,6 +55,11 @@ Delivered:
 - common artifact names:
   - `training_config.yaml`
   - `metrics_summary.yaml`
+- category-specific output roots:
+  - `output/training_runs/`
+  - `output/validation_checks/`
+  - `output/smoke_tests/`
+  - `output/registries/`
 - reusable one-batch validation entry point:
   - `scripts/training/validate_training_setup.py`
 - reusable Lightning smoke-test entry point:
@@ -152,6 +157,11 @@ Entry rule:
 
 - the live backlog is now the privileged operational view of the TE program
 - technical documents remain the historical planning baseline and design rationale
+- output artifacts now follow the privileged category-specific structure rather than the old flat family-root convention
+- best-result visibility should be read from:
+  - campaign-level `campaign_best_run.yaml`
+  - family-level `latest_family_best.yaml`
+  - program-level `current_best_solution.yaml`
 - future updates to program status should land here whenever:
   - a wave starts or finishes
   - a model family is promoted or deferred

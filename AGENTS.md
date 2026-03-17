@@ -12,12 +12,30 @@
 - Every new technical project document must also be referenced from the main project document in `README.md`.
 - Before executing any training campaign or training-related experiment, create a preliminary planning report in `doc/reports/campaign_plans/` that explains the relevant parameters, their meanings and effects, and the candidate configuration table to be tested. Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md` as the reference style and depth.
 - For every approved training campaign preparation, automatically generate the campaign YAML files and provide the exact terminal command needed to launch the campaign. Do not treat campaign preparation as complete if only the planning report exists.
+- Store future training artifacts by artifact type instead of mixing them in one family-flat root:
+  - `output/training_runs/<model_family>/<run_instance_id>/`
+  - `output/validation_checks/<model_family>/<run_instance_id>/`
+  - `output/smoke_tests/<model_family>/<run_instance_id>/`
+  - `output/training_campaigns/<campaign_id>/`
+  - `output/registries/families/<model_family>/`
+  - `output/registries/program/`
+- Treat the logical experiment `run_name` and the physical artifact `run_instance_id` as different concepts. New training runs must write into immutable timestamped `run_instance_id` folders rather than reusing `output/<family>/<run_name>/`.
+- Do not introduce new training artifacts under legacy flat family roots such as `output/feedforward_network/<run_name>/` except when explicitly maintaining backward-compatible historical references.
 - Track the current prepared or active training campaign persistently in `doc/running/active_training_campaign.yaml`.
 - Treat the files listed in `doc/running/active_training_campaign.yaml` as protected campaign files while the campaign is prepared or active.
 - If a future user request would modify a protected campaign file while the campaign is prepared or active, issue a `CRITICAL WARNING` and wait for explicit user approval before making the edit.
 - When the user says that the campaign has started, update `doc/running/active_training_campaign.yaml` accordingly before doing unrelated work that could affect the campaign baseline.
 - When the user says that the campaign is finished, inspect the stored campaign state and gather the campaign artifacts needed for the final post-training results report, but still wait for explicit approval before writing that report.
 - When the user says that the campaign is cancelled, inspect the stored campaign state and evaluate completed, failed, running, and pending results before making any queue or artifact cleanup decision.
+- Every completed training campaign must expose its winner explicitly inside the campaign output folder through:
+  - `campaign_leaderboard.yaml`
+  - `campaign_best_run.yaml`
+  - `campaign_best_run.md`
+- Keep family-level and program-level best-result registries updated after training or campaign completion:
+  - `output/registries/families/<model_family>/leaderboard.yaml`
+  - `output/registries/families/<model_family>/latest_family_best.yaml`
+  - `output/registries/program/current_best_solution.yaml`
+- Best-result selection must remain explicit and inspectable. Serialize the ranking policy together with the winning entry instead of relying on manual folder inspection.
 - Every final campaign-results report must be delivered both as Markdown and as a PDF export, and the real exported PDF must be validated before the task is considered complete.
 - Treat `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the visual golden standard for future styled analytical PDFs in this repository.
 - Future styled analytical PDFs must preserve the same restrained professional direction: white page background, restrained blue accents, rounded section cards, readable A4-safe margins, and no clipped borders or overcrowded blocks.

@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: feedforward
+run_name: te_feedforward_trial_registry_validation
+run_instance_id: 2026-03-17-19-49-04__te_feedforward_trial_registry_validation
+output_directory: output/validation_checks/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_validation

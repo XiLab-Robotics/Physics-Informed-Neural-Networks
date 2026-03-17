@@ -27,9 +27,11 @@ The script writes:
 - `smoke_test_summary.yaml`
 - `smoke_test_checkpoint.ckpt`
 
-under a run-suffixed output directory such as:
+under a dedicated smoke-test artifact directory such as:
 
-- `output/feedforward_network/te_feedforward_trial_smoke_test/`
+- `output/smoke_tests/feedforward/2026-03-17-20-05-11__te_feedforward_trial_wave0_smoke_test/`
+
+The smoke-test output folder is now separated from normal training runs so quick infrastructure checks remain easy to distinguish from real experiments.
 
 ## Practical Use
 
