@@ -96,7 +96,7 @@ def resolve_csv_file_path(dataset_root: Path, csv_path: Path | None, file_index:
         return resolved_csv_path
 
     # Collect Dataset CSV Paths
-    csv_file_paths = collect_dataset_csv_paths(dataset_root=dataset_root)
+    csv_file_paths = collect_dataset_csv_paths(dataset_root)
 
     # Validate File Index
     assert 0 <= file_index < len(csv_file_paths), f"File Index out of range | {file_index} | Dataset size: {len(csv_file_paths)}"
@@ -173,7 +173,7 @@ def main() -> None:
     command_line_arguments = parse_command_line_arguments()
 
     # Load Configurations
-    visualization_config = load_visualization_config(config_path=command_line_arguments.config_path)
+    visualization_config = load_visualization_config(command_line_arguments.config_path)
     dataset_processing_config = load_dataset_processing_config(
         config_path=resolve_project_relative_path(visualization_config["paths"]["dataset_config_path"])
     )
@@ -191,18 +191,18 @@ def main() -> None:
 
     # Resolve CSV Path
     csv_file_path = resolve_csv_file_path(
-        dataset_root=dataset_root,
-        csv_path=command_line_arguments.csv_path,
-        file_index=file_index,
+        dataset_root,
+        command_line_arguments.csv_path,
+        file_index,
     )
 
     # Visualize Curves
     visualize_transmission_error_curves(
-        csv_file_path=csv_file_path,
-        save_path=save_path,
-        figure_width=float(visualization_config["plot"]["figure_width"]),
-        figure_height=float(visualization_config["plot"]["figure_height"]),
-        figure_dpi=int(visualization_config["plot"]["figure_dpi"]),
+        csv_file_path,
+        save_path,
+        float(visualization_config["plot"]["figure_width"]),
+        float(visualization_config["plot"]["figure_height"]),
+        int(visualization_config["plot"]["figure_dpi"]),
     )
 
 if __name__ == "__main__":

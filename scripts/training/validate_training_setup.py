@@ -27,7 +27,7 @@ def build_validation_summary(
     """ Build Validation Summary """
 
     # Resolve Experiment Identity For Validation Summary
-    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
 
     return {
         "schema_version": 1,
@@ -57,7 +57,7 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
     """ Validate Training Setup """
 
     # Load Training Config And Resolve Output Directory
-    training_config = shared_training_infrastructure.load_training_config(config_path=config_path)
+    training_config = shared_training_infrastructure.load_training_config(config_path)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config, output_suffix)
     output_directory.mkdir(parents=True, exist_ok=True)
 
@@ -67,11 +67,11 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
     target_feature_dim = datamodule.get_target_feature_dim()
 
     # Fetch First Batch And Validate Batch Dictionary
-    batch_dictionary = shared_training_infrastructure.fetch_first_batch(datamodule=datamodule, split_name="train")
+    batch_dictionary = shared_training_infrastructure.fetch_first_batch(datamodule, split_name="train")
     batch_summary = shared_training_infrastructure.validate_batch_dictionary(
-        batch_dictionary=batch_dictionary,
-        input_feature_dim=input_feature_dim,
-        target_feature_dim=target_feature_dim,
+        batch_dictionary,
+        input_feature_dim,
+        target_feature_dim,
     )
 
     # Set Models To Evaluation Mode For Validation Check
@@ -80,21 +80,21 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
 
     # Compute Batch Outputs And Metrics With No Gradient Tracking For Validation Check
     with torch.no_grad():
-        batch_output_dictionary = regression_module.compute_batch_outputs(batch_dictionary=batch_dictionary)
+        batch_output_dictionary = regression_module.compute_batch_outputs(batch_dictionary)
 
     # Build Validation Summary And Save Snapshot For Validation Check
     validation_summary = build_validation_summary(
-        config_path=shared_training_infrastructure.resolve_project_relative_path(config_path),
-        output_directory=output_directory,
-        batch_summary=batch_summary,
-        batch_output_dictionary=batch_output_dictionary,
-        training_config=training_config,
+        shared_training_infrastructure.resolve_project_relative_path(config_path),
+        output_directory,
+        batch_summary,
+        batch_output_dictionary,
+        training_config,
     )
 
     # Save Validation Summary Snapshot For Validation Check
     shared_training_infrastructure.save_yaml_snapshot(
-        snapshot_dictionary=validation_summary,
-        output_path=output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME,
+        validation_summary,
+        output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME,
     )
 
     print(f"[DONE] Validation setup check completed | {output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME}")
@@ -118,8 +118,8 @@ def main() -> None:
 
     # Run Validation Check For Training Setup
     validate_training_setup(
-        config_path=command_line_arguments.config_path,
-        output_suffix=command_line_arguments.output_suffix,
+        command_line_arguments.config_path,
+        command_line_arguments.output_suffix,
     )
 
 if __name__ == "__main__":

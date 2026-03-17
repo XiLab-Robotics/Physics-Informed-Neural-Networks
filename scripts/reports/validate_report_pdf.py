@@ -129,9 +129,9 @@ def rasterize_pdf_pages(input_pdf_path: Path, output_image_directory: Path, rend
 
             # Build Page Image Name
             page_image_name = build_page_image_name(
-                input_pdf_path=input_pdf_path,
-                page_index=page_index,
-                page_count=pdf_document.page_count,
+                input_pdf_path,
+                page_index,
+                pdf_document.page_count,
             )
 
             # Save Rasterized Page Image 
@@ -184,8 +184,8 @@ def main() -> None:
     # Resolve Validation Inputs
     input_pdf_path = resolve_input_pdf_path(parsed_arguments.input_pdf_path)
     output_image_directory = prepare_output_image_directory(
-        output_image_directory=parsed_arguments.output_image_directory,
-        clean_output_directory=parsed_arguments.clean_output_directory,
+        parsed_arguments.output_image_directory,
+        parsed_arguments.clean_output_directory,
     )
     render_scale = resolve_render_scale(parsed_arguments.render_scale)
 
@@ -194,17 +194,17 @@ def main() -> None:
 
     # Rasterize Exported PDF Pages
     rendered_image_path_list = rasterize_pdf_pages(
-        input_pdf_path=input_pdf_path,
-        output_image_directory=output_image_directory,
-        render_scale=render_scale,
+        input_pdf_path,
+        output_image_directory,
+        render_scale,
     )
 
     # Print Validation Summary
     print_validation_summary(
-        input_pdf_path=input_pdf_path,
-        output_image_directory=output_image_directory,
-        render_scale=render_scale,
-        rendered_image_path_list=rendered_image_path_list,
+        input_pdf_path,
+        output_image_directory,
+        render_scale,
+        rendered_image_path_list,
     )
 
 if __name__ == "__main__":

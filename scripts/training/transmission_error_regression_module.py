@@ -153,7 +153,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         """ Compute Loss """
 
         # Compute Batch Outputs And Metrics
-        batch_output_dictionary = self.compute_batch_outputs(batch_dictionary=batch_dictionary)
+        batch_output_dictionary = self.compute_batch_outputs(batch_dictionary)
         input_tensor = batch_output_dictionary["input_tensor"]
         loss = batch_output_dictionary["loss"]
         mae = batch_output_dictionary["mae"]
@@ -172,21 +172,21 @@ class TransmissionErrorRegressionModule(LightningModule):
         """ Training Step """
 
         # Compute Loss And Metrics For Training Step
-        return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="train")
+        return self.compute_loss(batch_dictionary, "train")
 
     def validation_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
         """ Validation Step """
 
         # Compute Loss And Metrics For Validation Step
-        return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="val")
+        return self.compute_loss(batch_dictionary, "val")
 
     def test_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
         """ Test Step """
 
         # Compute Loss And Metrics For Test Step
-        return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="test")
+        return self.compute_loss(batch_dictionary, "test")
 
     def configure_optimizers(self):
 

@@ -239,6 +239,7 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md`
   * `doc/technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md`
   * `doc/technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md`
+  * `doc/technical/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md`
 
 Script documentation:
 

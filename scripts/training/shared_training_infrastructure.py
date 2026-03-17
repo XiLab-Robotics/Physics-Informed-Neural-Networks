@@ -133,7 +133,7 @@ def resolve_output_directory(training_config: dict[str, Any], run_name_suffix: s
 
     # Construct Output Directory Path Based on Training Config and Experiment Identity
     output_root = resolve_project_relative_path(training_config["paths"]["output_root"])
-    run_name = build_run_name(training_config=training_config, run_name_suffix=run_name_suffix)
+    run_name = build_run_name(training_config, run_name_suffix)
     return output_root / run_name
 
 def summarize_model_parameters(regression_backbone: nn.Module) -> ModelParameterSummary:
@@ -158,7 +158,7 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
     """ Create DataModule From Training Config """
 
     # Resolve Runtime Config for DataModule Creation
-    runtime_config = resolve_runtime_config(training_config=training_config)
+    runtime_config = resolve_runtime_config(training_config)
 
     # Create and Return TransmissionErrorDataModule
     return TransmissionErrorDataModule(
@@ -214,7 +214,7 @@ def initialize_training_components(
     """ Initialize Training Components """
 
     # Create DataModule and Setup to Access Dataset Statistics
-    datamodule = create_datamodule_from_training_config(training_config=training_config)
+    datamodule = create_datamodule_from_training_config(training_config)
     datamodule.setup(stage="fit")
 
     # Create Regression Backbone and Regression Module Based on Training Config and Dataset Statistics
@@ -224,17 +224,17 @@ def initialize_training_components(
 
     # Validate Normalization Statistics Dimensions Match Dataset Feature Dimensions
     regression_backbone = create_regression_backbone_from_training_config(
-        training_config=training_config,
-        input_feature_dim=input_feature_dim,
+        training_config,
+        input_feature_dim,
     )
 
     # Validate Normalization Statistics Dimensions Match Dataset Feature Dimensions
     regression_module = create_regression_module_from_training_config(
-        training_config=training_config,
-        regression_backbone=regression_backbone,
-        input_feature_dim=input_feature_dim,
-        target_feature_dim=target_feature_dim,
-        normalization_statistics=normalization_statistics,
+        training_config,
+        regression_backbone,
+        input_feature_dim,
+        target_feature_dim,
+        normalization_statistics,
     )
 
     return datamodule, regression_backbone, regression_module, normalization_statistics
@@ -339,7 +339,7 @@ def build_common_metrics_snapshot(
     """ Build Common Metrics Snapshot """
 
     # Resolve Experiment Identity and Dataset Split Summary for Snapshot
-    experiment_identity = resolve_experiment_identity(training_config=training_config)
+    experiment_identity = resolve_experiment_identity(training_config)
     dataset_split_summary = datamodule.get_dataset_split_summary()
     normalization_statistics = datamodule.get_normalization_statistics()
 
@@ -366,10 +366,10 @@ def build_common_metrics_snapshot(
         "validation_metrics": validation_metric_dictionary,
         "test_metrics": test_metric_dictionary,
         "comparison_payload": build_comparison_payload(
-            experiment_identity=experiment_identity,
-            parameter_summary=parameter_summary,
-            validation_metric_dictionary=validation_metric_dictionary,
-            test_metric_dictionary=test_metric_dictionary,
+            experiment_identity,
+            parameter_summary,
+            validation_metric_dictionary,
+            test_metric_dictionary,
         ),
     }
 

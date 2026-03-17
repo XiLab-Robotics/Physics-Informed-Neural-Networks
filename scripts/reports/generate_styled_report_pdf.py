@@ -894,32 +894,32 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
 
     # Render Campaign Summary
     campaign_summary_html = render_split_configuration_table(
-        table_title="Campaign Summary",
-        header_cells=CONFIGURATION_TABLE_HEADER_CELLS[:3],
-        alignments=CAMPAIGN_SUMMARY_ALIGNMENTS,
-        body_rows=body_rows,
-        selected_indexes=(0, 1, 2),
-        table_class_name="report-table report-table-summary",
+        "Campaign Summary",
+        CONFIGURATION_TABLE_HEADER_CELLS[:3],
+        CAMPAIGN_SUMMARY_ALIGNMENTS,
+        body_rows,
+        (0, 1, 2),
+        "report-table report-table-summary",
     )
 
     # Render Data Pipeline Settings
     data_pipeline_html = render_split_configuration_table(
-        table_title="Data Pipeline Settings",
-        header_cells=(CONFIGURATION_TABLE_HEADER_CELLS[0], *CONFIGURATION_TABLE_HEADER_CELLS[3:8]),
-        alignments=DATA_PIPELINE_ALIGNMENTS,
-        body_rows=body_rows,
-        selected_indexes=(0, 3, 4, 5, 6, 7),
-        table_class_name="report-table report-table-technical-data",
+        "Data Pipeline Settings",
+        (CONFIGURATION_TABLE_HEADER_CELLS[0], *CONFIGURATION_TABLE_HEADER_CELLS[3:8]),
+        DATA_PIPELINE_ALIGNMENTS,
+        body_rows,
+        (0, 3, 4, 5, 6, 7),
+        "report-table report-table-technical-data",
     )
 
     # Render Model And Schedule Settings
     model_and_schedule_html = render_split_configuration_table(
-        table_title="Model And Schedule Settings",
-        header_cells=(CONFIGURATION_TABLE_HEADER_CELLS[0], *CONFIGURATION_TABLE_HEADER_CELLS[8:11]),
-        alignments=MODEL_AND_SCHEDULE_ALIGNMENTS,
-        body_rows=body_rows,
-        selected_indexes=(0, 8, 9, 10),
-        table_class_name="report-table report-table-technical-schedule",
+        "Model And Schedule Settings",
+        (CONFIGURATION_TABLE_HEADER_CELLS[0], *CONFIGURATION_TABLE_HEADER_CELLS[8:11]),
+        MODEL_AND_SCHEDULE_ALIGNMENTS,
+        body_rows,
+        (0, 8, 9, 10),
+        "report-table report-table-technical-schedule",
     )
 
     return (
@@ -973,7 +973,7 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
     table_class_name = resolve_standard_table_class_name(header_cells)
 
     # Render Generic Markdown Table
-    return render_standard_table(header_cells, alignments, body_rows, table_class_name=table_class_name), current_index
+    return render_standard_table(header_cells, alignments, body_rows, table_class_name), current_index
 
 def render_list(markdown_lines: Sequence[str], start_index: int, base_indentation: int) -> tuple[str, int]:
 
@@ -1006,9 +1006,9 @@ def render_list(markdown_lines: Sequence[str], start_index: int, base_indentatio
         # Render Nested List Branch
         if indentation_width > base_indentation:
             nested_list_html, current_index = render_list(
-                markdown_lines=markdown_lines,
-                start_index=current_index,
-                base_indentation=indentation_width,
+                markdown_lines,
+                current_index,
+                indentation_width,
             )
 
             if list_item_html_tokens:
@@ -1047,9 +1047,9 @@ def render_list(markdown_lines: Sequence[str], start_index: int, base_indentatio
 
                 # Render Nested List Branch
                 nested_list_html, current_index = render_list(
-                    markdown_lines=markdown_lines,
-                    start_index=current_index,
-                    base_indentation=next_indentation_width,
+                    markdown_lines,
+                    current_index,
+                    next_indentation_width,
                 )
                 nested_html_tokens.append(nested_list_html)
                 continue
@@ -1323,28 +1323,28 @@ def main() -> None:
     input_markdown_path = Path(parsed_arguments.input_markdown_path)
     output_pdf_path = Path(parsed_arguments.output_pdf_path)
     output_html_path, use_temporary_html_path = resolve_output_html_path(
-        output_html_path=parsed_arguments.output_html_path,
-        output_pdf_path=output_pdf_path,
-        keep_html=parsed_arguments.keep_html,
+        parsed_arguments.output_html_path,
+        output_pdf_path,
+        parsed_arguments.keep_html,
     )
 
     # Render Styled HTML Document
     markdown_text = input_markdown_path.read_text(encoding="utf-8")
     report_title, body_html = render_markdown_body(markdown_text)
     html_document = build_html_document(
-        report_title=report_title,
-        report_subtitle=parsed_arguments.report_subtitle,
-        report_category=parsed_arguments.report_category,
-        body_html=body_html,
+        report_title,
+        parsed_arguments.report_subtitle,
+        parsed_arguments.report_category,
+        body_html,
     )
     write_text_file(output_html_path, html_document)
 
     # Export Final PDF Report
     browser_executable_path = detect_browser_executable(parsed_arguments.chrome_executable_path)
     convert_html_to_pdf(
-        browser_executable_path=browser_executable_path,
-        html_path=output_html_path,
-        pdf_path=output_pdf_path,
+        browser_executable_path,
+        output_html_path,
+        output_pdf_path,
     )
 
     # Remove Temporary HTML Preview

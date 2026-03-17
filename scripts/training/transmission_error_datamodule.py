@@ -47,19 +47,19 @@ def move_batch_tensor_collection_to_device(batch_value: Any, device: torch.devic
     if isinstance(batch_value, torch.Tensor):
 
         non_blocking_transfer_is_enabled = use_non_blocking_transfer and device.type == "cuda"
-        return batch_value.to(device=device, non_blocking=non_blocking_transfer_is_enabled)
+        return batch_value.to(device, non_blocking=non_blocking_transfer_is_enabled)
 
     # Recursively Move Dictionary Values
     if isinstance(batch_value, dict):
-        return {key: move_batch_tensor_collection_to_device(value, device=device, use_non_blocking_transfer=use_non_blocking_transfer) for key, value in batch_value.items()}
+        return {key: move_batch_tensor_collection_to_device(value, device, use_non_blocking_transfer) for key, value in batch_value.items()}
 
     # Recursively Move Tuple Values
     if isinstance(batch_value, tuple):
-        return tuple(move_batch_tensor_collection_to_device(value, device=device, use_non_blocking_transfer=use_non_blocking_transfer) for value in batch_value)
+        return tuple(move_batch_tensor_collection_to_device(value, device, use_non_blocking_transfer) for value in batch_value)
 
     # Recursively Move List Values
     if isinstance(batch_value, list):
-        return [move_batch_tensor_collection_to_device(value, device=device, use_non_blocking_transfer=use_non_blocking_transfer) for value in batch_value]
+        return [move_batch_tensor_collection_to_device(value, device, use_non_blocking_transfer) for value in batch_value]
 
     return batch_value
 
@@ -122,9 +122,9 @@ def collate_transmission_error_points(batch_dictionary_list: list[dict[str, Any]
 
         # Extract Point Sample Dictionary From Curve Sample Dictionary
         point_sample_dictionary = extract_point_tensor_from_curve_sample(
-            curve_sample_dictionary=curve_sample_dictionary,
-            point_stride=point_stride,
-            maximum_points_per_curve=maximum_points_per_curve,
+            curve_sample_dictionary,
+            point_stride,
+            maximum_points_per_curve,
         )
 
         # Append Point Tensors To Batch Lists
@@ -210,17 +210,17 @@ class TransmissionErrorDataModule(LightningDataModule):
 
         # Build Directional File Manifest
         directional_file_manifest = build_directional_file_manifest(
-            dataset_root=dataset_root,
-            use_forward_direction=bool(dataset_processing_config["directions"]["use_forward_direction"]),
-            use_backward_direction=bool(dataset_processing_config["directions"]["use_backward_direction"]),
+            dataset_root,
+            bool(dataset_processing_config["directions"]["use_forward_direction"]),
+            bool(dataset_processing_config["directions"]["use_backward_direction"]),
         )
 
         # Split Directional File Manifest
         train_directional_file_manifest, validation_directional_file_manifest, test_directional_file_manifest = split_directional_file_manifest(
-            directional_file_manifest=directional_file_manifest,
-            validation_split=float(dataset_processing_config["split"]["validation_split"]),
-            test_split=float(dataset_processing_config["split"].get("test_split", 0.0)),
-            random_seed=int(dataset_processing_config["split"]["random_seed"]),
+            directional_file_manifest,
+            float(dataset_processing_config["split"]["validation_split"]),
+            float(dataset_processing_config["split"].get("test_split", 0.0)),
+            int(dataset_processing_config["split"]["random_seed"]),
         )
 
         # Build Train Dataset Object
@@ -265,9 +265,9 @@ class TransmissionErrorDataModule(LightningDataModule):
 
             curve_sample_dictionary = curve_dataset[curve_index]
             point_sample_dictionary = extract_point_tensor_from_curve_sample(
-                curve_sample_dictionary=curve_sample_dictionary,
-                point_stride=self.point_stride,
-                maximum_points_per_curve=self.maximum_points_per_curve,
+                curve_sample_dictionary,
+                self.point_stride,
+                self.maximum_points_per_curve,
             )
 
             input_tensor = point_sample_dictionary["input_tensor"].double()
@@ -408,7 +408,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         """ Transfer Batch To Device """
 
         return move_batch_tensor_collection_to_device(
-            batch_value=batch,
-            device=device,
-            use_non_blocking_transfer=self.use_non_blocking_transfer,
+            batch,
+            device,
+            self.use_non_blocking_transfer,
         )

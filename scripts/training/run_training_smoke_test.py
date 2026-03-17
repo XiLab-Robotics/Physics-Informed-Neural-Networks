@@ -30,7 +30,7 @@ def build_smoke_test_summary(
 
     """ Build Smoke Test Summary """
 
-    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
 
     return {
         "schema_version": 1,
@@ -85,8 +85,8 @@ def run_training_smoke_test(config_path: Path, output_suffix: str = "smoke_test"
     reloaded_regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
         checkpoint_path=str(checkpoint_path),
         regression_model=shared_training_infrastructure.create_regression_backbone_from_training_config(
-            training_config=training_config,
-            input_feature_dim=input_feature_dim,
+            training_config,
+            input_feature_dim,
         ),
         input_feature_dim=input_feature_dim,
         target_feature_dim=target_feature_dim,
@@ -96,11 +96,11 @@ def run_training_smoke_test(config_path: Path, output_suffix: str = "smoke_test"
 
     # Build Smoke Test Summary
     smoke_test_summary = build_smoke_test_summary(
-        config_path=shared_training_infrastructure.resolve_project_relative_path(config_path),
-        output_directory=output_directory,
-        checkpoint_path=checkpoint_path,
-        training_config=training_config,
-        fast_dev_run_batches=fast_dev_run_batches,
+        shared_training_infrastructure.resolve_project_relative_path(config_path),
+        output_directory,
+        checkpoint_path,
+        training_config,
+        fast_dev_run_batches,
     )
 
     # Save Smoke Test Summary
@@ -128,9 +128,9 @@ def main() -> None:
 
     # Run Training Smoke Test
     run_training_smoke_test(
-        config_path=command_line_arguments.config_path,
-        output_suffix=command_line_arguments.output_suffix,
-        fast_dev_run_batches=command_line_arguments.fast_dev_run_batches,
+        command_line_arguments.config_path,
+        command_line_arguments.output_suffix,
+        command_line_arguments.fast_dev_run_batches,
     )
 
 if __name__ == "__main__":

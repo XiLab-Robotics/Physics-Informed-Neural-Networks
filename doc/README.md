@@ -168,6 +168,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the shared training, smoke-test, validation, and metrics infrastructure required before implementing the planned TE model families.
 - [technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md](./technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md)
   Technical document for moving the TE implementation backlog into a privileged live location under `doc/running/`.
+- [technical/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md](./technical/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md)
+  Technical document for cleaning up redundant `variable=variable` function-call arguments while preserving explicit keywords where they improve readability.
 
 ### Script Documentation
 

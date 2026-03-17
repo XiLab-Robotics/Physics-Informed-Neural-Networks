@@ -191,7 +191,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
     dataset_config      = training_config["dataset"]
     model_config        = training_config["model"]
     optimization_config = training_config["training"]
-    runtime_config      = resolve_runtime_config(training_config=training_config)
+    runtime_config      = resolve_runtime_config(training_config)
 
     # Print Config Overview
     print_section_header("Feedforward Training Configuration")
@@ -489,14 +489,14 @@ def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
     """ Load Training Config """
 
     # Resolve Config Path
-    return shared_training_infrastructure.load_training_config(config_path=config_path)
+    return shared_training_infrastructure.load_training_config(config_path)
 
 def resolve_runtime_config(training_config: dict) -> dict[str, object]:
 
     """ Resolve Runtime Config """
 
     # Initialize Default Runtime Configuration
-    runtime_config = shared_training_infrastructure.resolve_runtime_config(training_config=training_config)
+    runtime_config = shared_training_infrastructure.resolve_runtime_config(training_config)
 
     # Disable Benchmark In Deterministic Mode
     if bool(training_config["training"]["deterministic"]) and bool(runtime_config["benchmark"]):
@@ -515,11 +515,11 @@ def save_training_config_snapshot(training_config: dict, output_directory: Path)
     """ Save Training Config Snapshot """
 
     # Resolve Experiment Identity For Snapshot Saving
-    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     shared_training_infrastructure.save_training_config_snapshot(
-        training_config=training_config,
-        output_directory=output_directory,
-        experiment_identity=experiment_identity,
+        training_config,
+        output_directory,
+        experiment_identity,
     )
 
 def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> None:
@@ -527,29 +527,29 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     """ Train Feedforward Network """
 
     # Load Training Configuration
-    training_config = load_training_config(config_path=config_path)
-    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
-    runtime_config = resolve_runtime_config(training_config=training_config)
+    training_config = load_training_config(config_path)
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
+    runtime_config = resolve_runtime_config(training_config)
 
     # Resolve Output Directory
-    output_directory = shared_training_infrastructure.resolve_output_directory(training_config=training_config)
+    output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # Save Configuration Snapshot
-    save_training_config_snapshot(training_config=training_config, output_directory=output_directory)
+    save_training_config_snapshot(training_config, output_directory)
 
     # Initialize Shared Training Components
     datamodule, regression_backbone, regression_module, normalization_statistics = shared_training_infrastructure.initialize_training_components(training_config)
     input_feature_dim = datamodule.get_input_feature_dim()
     target_feature_dim = datamodule.get_target_feature_dim()
-    parameter_summary = shared_training_infrastructure.summarize_model_parameters(regression_backbone=regression_backbone)
+    parameter_summary = shared_training_infrastructure.summarize_model_parameters(regression_backbone)
 
     # Print Training Summary
-    print_training_configuration_summary(training_config=training_config)
-    print_dataset_summary(datamodule=datamodule, input_feature_dim=input_feature_dim, target_feature_dim=target_feature_dim)
-    print_model_summary(regression_backbone=regression_backbone)
-    print_normalization_statistics_summary(normalization_statistics=normalization_statistics)
-    print_runtime_summary(runtime_config=runtime_config)
+    print_training_configuration_summary(training_config)
+    print_dataset_summary(datamodule, input_feature_dim, target_feature_dim)
+    print_model_summary(regression_backbone)
+    print_normalization_statistics_summary(normalization_statistics)
+    print_runtime_summary(runtime_config)
 
     # Create Logger
     logger = TensorBoardLogger(save_dir=str(output_directory / "logs"), name="", version="")
@@ -650,28 +650,28 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Save Machine-Readable Metrics And Human-Readable Report
     metrics_snapshot_dictionary = shared_training_infrastructure.build_common_metrics_snapshot(
-        training_config=training_config,
-        config_path=config_path,
-        datamodule=datamodule,
-        parameter_summary=parameter_summary,
-        runtime_config=runtime_config,
-        best_model_path=best_model_path,
-        validation_metric_list=validation_metric_list,
-        test_metric_list=test_metric_list,
+        training_config,
+        config_path,
+        datamodule,
+        parameter_summary,
+        runtime_config,
+        best_model_path,
+        validation_metric_list,
+        test_metric_list,
     )
 
     # Save Metrics Snapshot
     shared_training_infrastructure.save_common_metrics_snapshot(
-        metrics_snapshot_dictionary=metrics_snapshot_dictionary,
-        output_directory=output_directory,
-        experiment_identity=experiment_identity,
+        metrics_snapshot_dictionary,
+        output_directory,
+        experiment_identity,
     )
 
     # Save Training/Test Report
     save_training_test_report(
-        output_directory=output_directory,
-        training_config=training_config,
-        metrics_snapshot_dictionary=metrics_snapshot_dictionary,
+        output_directory,
+        training_config,
+        metrics_snapshot_dictionary,
     )
 
     # Save Last Logger Configuration
@@ -681,7 +681,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         if logger_directory.exists(): shutil.copyfile(best_model_path_file, logger_directory / "best_checkpoint_path.txt")
 
     # Print Output Artifact Summary
-    print_output_artifact_summary(output_directory=output_directory, logger=logger, best_model_path=best_model_path)
+    print_output_artifact_summary(output_directory, logger, best_model_path)
     print_success_message("Feedforward training workflow completed")
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -709,7 +709,7 @@ def main() -> None:
     command_line_arguments = parse_command_line_arguments()
 
     # Train Feedforward Network
-    train_feedforward_network(config_path=command_line_arguments.config_path)
+    train_feedforward_network(command_line_arguments.config_path)
 
 if __name__ == "__main__":
 

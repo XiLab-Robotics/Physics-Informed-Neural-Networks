@@ -149,6 +149,8 @@ Apply these patterns conservatively:
 - prefer comment labels that mark intent without turning into sentence-length prose;
 - for compact utility scripts, allow a tighter vertical rhythm between small staged helpers when the file remains easy to scan top-to-bottom;
 - preserve engineering readability over compactness when the two conflict.
+- when a helper or utility call passes a local variable with the same parameter name and the argument order is short and obvious, prefer positional arguments over redundant `name=name` repetition;
+- keep explicit keyword arguments for readability-critical calls, especially booleans, flags, constructor-style calls, and filesystem operations such as `mkdir(parents=True, exist_ok=True)`.
 
 Representative examples:
 
