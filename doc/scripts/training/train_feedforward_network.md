@@ -24,6 +24,12 @@ The script coordinates the full baseline-training flow:
 8. reload the best checkpoint and run held-out testing;
 9. save the effective training configuration, checkpoint path, metrics snapshot, and markdown report.
 
+The current implementation now also uses the shared Wave 0 training infrastructure, so the feedforward path acts as the first validated consumer of:
+
+- explicit `model_family` identity;
+- a common metrics schema;
+- shared validation and smoke-test utilities.
+
 ## Main Components Used
 
 ### `config/training/feedforward/presets/baseline.yaml`
@@ -33,6 +39,7 @@ Provides:
 - dataset batching parameters;
 - point subsampling stride;
 - optional maximum point cap per curve;
+- explicit `experiment.model_family` identity for the shared training infrastructure;
 - model architecture;
 - optimizer settings;
 - runtime accelerator, precision, and transfer settings;
@@ -59,11 +66,13 @@ The script writes its outputs under the configured root directory, currently:
 
 Typical generated artifacts include:
 
-- a copy of the training config;
+- a copy of the training config under `training_config.yaml`;
+- the legacy feedforward config snapshot under `feedforward_network_training.yaml`;
 - TensorBoard logs;
 - Lightning checkpoints;
 - a text file containing the best checkpoint path;
-- a YAML file containing final validation and test metrics;
+- a family-agnostic YAML metrics artifact under `metrics_summary.yaml`;
+- the legacy feedforward metrics snapshot under `training_test_metrics.yaml`;
 - a markdown report summarizing the executed run.
 
 During execution, the script also prints a structured terminal summary with colorized section headers, compact dataset and normalization statistics, and a final artifact summary. The dataset summary now includes train, validation, and held-out test curve counts.
@@ -88,6 +97,18 @@ To run the lighter proof configuration used for a quick end-to-end verification:
 
 ```powershell
 conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+```
+
+Before a longer run, you can now validate the shared training wiring with:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/validate_training_setup.py --config-path config/training/feedforward/presets/trial.yaml --output-suffix validation_check
+```
+
+You can also run the minimal Lightning smoke test with:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/run_training_smoke_test.py --config-path config/training/feedforward/presets/trial.yaml --output-suffix smoke_test --fast-dev-run-batches 1
 ```
 
 The training entry point prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning, and writes both validation and test results for the selected best checkpoint.

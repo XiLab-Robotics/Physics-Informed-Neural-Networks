@@ -1,0 +1,138 @@
+from __future__ import annotations
+
+# Import Python Utilities
+import sys, argparse
+from pathlib import Path
+
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[2]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
+
+# Import PyTorch Lightning Utilities
+from lightning.pytorch import Trainer
+
+# Import YAML Utilities
+import yaml
+
+# Import Project Utilities
+from scripts.training import shared_training_infrastructure
+from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
+
+def build_smoke_test_summary(
+    config_path: Path,
+    output_directory: Path,
+    checkpoint_path: Path,
+    training_config: dict[str, object],
+    fast_dev_run_batches: int,
+) -> dict[str, object]:
+
+    """ Build Smoke Test Summary """
+
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
+
+    return {
+        "schema_version": 1,
+        "config_path": str(config_path),
+        "output_directory": str(output_directory),
+        "experiment": {
+            "run_name": experiment_identity.run_name,
+            "model_family": experiment_identity.model_family,
+            "model_type": experiment_identity.model_type,
+        },
+        "fast_dev_run_batches": int(fast_dev_run_batches),
+        "checkpoint_path": str(checkpoint_path),
+        "checks": {
+            "checkpoint_exists": bool(checkpoint_path.exists()),
+        },
+    }
+
+def run_training_smoke_test(config_path: Path, output_suffix: str = "smoke_test", fast_dev_run_batches: int = 1) -> None:
+
+    """ Run Training Smoke Test """
+
+    assert fast_dev_run_batches > 0, f"fast_dev_run_batches must be positive | {fast_dev_run_batches}"
+
+    training_config = shared_training_infrastructure.load_training_config(config_path)
+    output_directory = shared_training_infrastructure.resolve_output_directory(training_config, output_suffix)
+    output_directory.mkdir(parents=True, exist_ok=True)
+
+    # Initialize Training Components
+    datamodule, regression_backbone, regression_module, normalization_statistics = shared_training_infrastructure.initialize_training_components(training_config)
+    input_feature_dim = datamodule.get_input_feature_dim()
+    target_feature_dim = datamodule.get_target_feature_dim()
+
+    trainer = Trainer(
+        default_root_dir=str(output_directory),
+        accelerator="cpu",
+        devices=1,
+        precision="32",
+        logger=False,
+        enable_checkpointing=False,
+        enable_model_summary=False,
+        enable_progress_bar=False,
+        fast_dev_run=fast_dev_run_batches,
+        deterministic=True,
+    )
+    trainer.fit(regression_module, datamodule=datamodule)
+
+    # Save Checkpoint After Training Loop Completes
+    checkpoint_path = output_directory / "smoke_test_checkpoint.ckpt"
+    trainer.save_checkpoint(str(checkpoint_path))
+
+    # Reload the Regression Module from the Checkpoint
+    reloaded_regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
+        checkpoint_path=str(checkpoint_path),
+        regression_model=shared_training_infrastructure.create_regression_backbone_from_training_config(
+            training_config=training_config,
+            input_feature_dim=input_feature_dim,
+        ),
+        input_feature_dim=input_feature_dim,
+        target_feature_dim=target_feature_dim,
+        normalization_statistics=normalization_statistics,
+    )
+    reloaded_regression_module.eval()
+
+    # Build Smoke Test Summary
+    smoke_test_summary = build_smoke_test_summary(
+        config_path=shared_training_infrastructure.resolve_project_relative_path(config_path),
+        output_directory=output_directory,
+        checkpoint_path=checkpoint_path,
+        training_config=training_config,
+        fast_dev_run_batches=fast_dev_run_batches,
+    )
+
+    # Save Smoke Test Summary
+    with (output_directory / shared_training_infrastructure.COMMON_SMOKE_TEST_FILENAME).open("w", encoding="utf-8") as output_file:
+        yaml.safe_dump(smoke_test_summary, output_file, sort_keys=False)
+
+    print(f"[DONE] Training smoke test completed | {output_directory / shared_training_infrastructure.COMMON_SMOKE_TEST_FILENAME}")
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """ Parse Command Line Arguments """
+
+    argument_parser = argparse.ArgumentParser(description="Run a minimal Lightning smoke test for the current TE training workflow.")
+    argument_parser.add_argument("--config-path", type=Path, default=shared_training_infrastructure.DEFAULT_CONFIG_PATH, help="Path to the YAML training configuration file.")
+    argument_parser.add_argument("--output-suffix", type=str, default="smoke_test", help="Suffix appended to the run directory for the smoke-test artifacts.")
+    argument_parser.add_argument("--fast-dev-run-batches", type=int, default=1, help="Number of fast_dev_run batches used by Lightning.")
+    return argument_parser.parse_args()
+
+def main() -> None:
+
+    """ Main Function """
+
+    # Parse Command Line Arguments
+    command_line_arguments = parse_command_line_arguments()
+
+    # Run Training Smoke Test
+    run_training_smoke_test(
+        config_path=command_line_arguments.config_path,
+        output_suffix=command_line_arguments.output_suffix,
+        fast_dev_run_batches=command_line_arguments.fast_dev_run_batches,
+    )
+
+if __name__ == "__main__":
+
+    main()

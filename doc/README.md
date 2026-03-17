@@ -164,6 +164,8 @@ This folder contains the internal project documents derived from the reference P
   Technical note for keeping Lightweight Transformer and Neural ODE families explicitly in scope as low-priority exploratory options.
 - [technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md](./technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md)
   Technical review note for adding explicit State-Space, Mixture-of-Experts, and optional Kernel/GP families to the TE planning set.
+- [technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md](./technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md)
+  Technical document for the shared training, smoke-test, validation, and metrics infrastructure required before implementing the planned TE model families.
 
 ### Script Documentation
 
@@ -175,6 +177,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
 - [scripts/training/run_training_campaign.md](./scripts/training/run_training_campaign.md)
   Script-level documentation for the persistent queue-based batch training runner.
+- [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
+  Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
+- [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
+  Script-level documentation for the minimal Lightning smoke-test entry point used by the shared Wave 0 training infrastructure.
 
 ### Reports
 

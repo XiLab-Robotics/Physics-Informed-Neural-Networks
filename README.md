@@ -237,6 +237,7 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
   * `doc/technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md`
   * `doc/technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md`
+  * `doc/technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md`
 
 Script documentation:
 
@@ -244,6 +245,8 @@ Script documentation:
 * `doc/scripts/datasets/visualize_transmission_error.md`
 * `doc/scripts/training/train_feedforward_network.md`
 * `doc/scripts/training/run_training_campaign.md`
+* `doc/scripts/training/validate_training_setup.md`
+* `doc/scripts/training/run_training_smoke_test.md`
 
 Reports:
 

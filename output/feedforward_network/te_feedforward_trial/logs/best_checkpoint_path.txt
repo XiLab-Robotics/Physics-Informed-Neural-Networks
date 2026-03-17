@@ -1,1 +1,1 @@
-C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\feedforward_network\te_feedforward_trial\checkpoints\feedforward-epoch=003-val_mae=0.00375716.ckpt
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\feedforward_network\te_feedforward_trial\checkpoints\feedforward-epoch=007-val_mae=0.00361790.ckpt

@@ -9,6 +9,8 @@ At the moment, the implemented workflows are:
 - dataset processing through the validated TE dataset utilities;
 - dataset visualization through the TE plotting script;
 - feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline;
+- one-batch training-setup validation for the shared Wave 0 training infrastructure;
+- minimal Lightning smoke-test execution for the shared Wave 0 training infrastructure;
 - persistent batch training campaigns through a queue-based runner.
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility.
@@ -80,7 +82,7 @@ The current usage flow mainly relies on these folders:
   Styled report-export utilities.
 
 - `scripts/training/`
-  PyTorch Lightning training entry point, datamodule, and regression module.
+  PyTorch Lightning training entry point, datamodule, regression module, and Wave 0 validation/smoke-test utilities.
 
 - `scripts/models/`
   Neural-network backbones and the model factory.
@@ -92,7 +94,7 @@ The current usage flow mainly relies on these folders:
   YAML files grouped by dataset, visualization, and training workflows.
 
 - `config/training/feedforward/presets/`
-  Reusable feedforward training presets.
+  Reusable feedforward training presets with explicit `model_family` identity for the shared training infrastructure.
 
 - `config/training/queue/`
   Persistent batch-training queue folders.
@@ -249,6 +251,78 @@ Important dataset note:
 - they do not contain raw encoder columns or `DataValid Forward` / `DataValid Backward` flags;
 - the forward-position CSV header contains the original typo `Poisition_Output_Reducer_Fw`;
 - the loader keeps compatibility with that original header and normalizes it internally to `position_output_reducer_fw_deg`.
+
+## Shared Training Validation And Smoke-Test
+
+## What Wave 0 Added
+
+The repository now exposes two reusable pre-campaign training checks:
+
+- `scripts/training/validate_training_setup.py`
+- `scripts/training/run_training_smoke_test.py`
+
+These utilities are intended to be reused across future model families, not only by the current feedforward baseline.
+
+They rely on a shared training infrastructure that now standardizes:
+
+- `experiment.model_family` in the training presets;
+- a common metrics artifact schema;
+- common output artifact names such as `training_config.yaml` and `metrics_summary.yaml`.
+
+## Run The One-Batch Validation Check
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/validate_training_setup.py `
+  --config-path config/training/feedforward/presets/trial.yaml `
+  --output-suffix validation_check
+```
+
+This command verifies:
+
+- config loading;
+- datamodule setup;
+- model instantiation;
+- batch shape correctness;
+- finite loss and metrics on one batch.
+
+It writes a `validation_summary.yaml` file under a run-suffixed output directory.
+
+## Run The Minimal Lightning Smoke Test
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/run_training_smoke_test.py `
+  --config-path config/training/feedforward/presets/trial.yaml `
+  --output-suffix smoke_test `
+  --fast-dev-run-batches 1
+```
+
+This command verifies:
+
+- a minimal Lightning `fit` path;
+- one-batch train/validation execution through `fast_dev_run`;
+- manual checkpoint save;
+- checkpoint reload.
+
+It writes:
+
+- `smoke_test_summary.yaml`
+- `smoke_test_checkpoint.ckpt`
+
+under a run-suffixed output directory.
+
+## Shared Training Artifacts
+
+The feedforward training workflow now writes:
+
+- `training_config.yaml`
+- `metrics_summary.yaml`
+
+and still preserves the legacy feedforward artifact names:
+
+- `feedforward_network_training.yaml`
+- `training_test_metrics.yaml`
+
+This allows the repository to move toward cross-family comparability without breaking the current feedforward reporting path.
 
 ## Dataset Processing Configuration
 

@@ -4,6 +4,7 @@ paths:
 
 experiment:
   run_name: te_feedforward_best_training
+  model_family: feedforward
   model_type: feedforward
 
 dataset:

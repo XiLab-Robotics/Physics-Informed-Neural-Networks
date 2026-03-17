@@ -60,23 +60,17 @@ import yaml
 # Import Project Models And Training Utilities
 from scripts.models.model_factory import create_model
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
+from scripts.training import shared_training_infrastructure
 from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
-DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "training" / "feedforward" / "presets" / "baseline.yaml"
+DEFAULT_CONFIG_PATH = shared_training_infrastructure.DEFAULT_CONFIG_PATH
 SECTION_DIVIDER_WIDTH = 96
 KEY_LABEL_WIDTH = 34
 PROGRESS_BAR_REFRESH_RATE = 10
 LIGHTNING_INFO_LOGGER_NAME_LIST = ["lightning.pytorch.utilities.rank_zero", "lightning.fabric.utilities.rank_zero"]
 INPUT_FEATURE_NAME_LIST = ["angular_position_deg", "input_speed_rpm", "input_torque_nm", "oil_temperature_deg", "direction_flag"]
 TARGET_FEATURE_NAME_LIST = ["transmission_error_deg"]
-DEFAULT_RUNTIME_CONFIG_DICTIONARY = {
-    "accelerator": "auto",
-    "devices": "auto",
-    "precision": "32",
-    "benchmark": True,
-    "use_non_blocking_transfer": True,
-}
 
 # Set Torch Matmul Precision
 torch.set_float32_matmul_precision("high")
@@ -211,6 +205,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
     # Print Experiment Configuration
     print_subsection_header("Experiment")
     print_key_value("Run Name", experiment_config["run_name"], value_color=Fore.YELLOW)
+    print_key_value("Model Family", experiment_config.get("model_family", experiment_config["model_type"]), value_color=Fore.YELLOW)
     print_key_value("Model Type", experiment_config["model_type"], value_color=Fore.YELLOW)
 
     # Print Dataset Configuration
@@ -254,8 +249,10 @@ def print_dataset_summary(datamodule: TransmissionErrorDataModule, input_feature
 
     """ Print Dataset Summary """
 
+    # Get Dataset Split Summary From The DataModule
     dataset_split_summary = datamodule.get_dataset_split_summary()
 
+    # Print Dataset Summary Statistics
     print_section_header("Dataset Summary")
     print_key_value("Input Feature Dim", input_feature_dim, value_color=Fore.YELLOW)
     print_key_value("Target Feature Dim", target_feature_dim, value_color=Fore.YELLOW)
@@ -308,6 +305,7 @@ def print_runtime_summary(runtime_config: dict[str, object]) -> None:
 
     """ Print Runtime Summary """
 
+    # Print Runtime Configuration Summary
     print_section_header("Runtime Summary")
     print_key_value("Configured Accelerator", runtime_config["accelerator"], value_color=Fore.YELLOW)
     print_key_value("Configured Devices", runtime_config["devices"], value_color=Fore.YELLOW)
@@ -317,6 +315,7 @@ def print_runtime_summary(runtime_config: dict[str, object]) -> None:
     print_key_value("CUDA Available", torch.cuda.is_available(), value_color=Fore.YELLOW)
     print_key_value("CUDA Device Count", torch.cuda.device_count(), value_color=Fore.YELLOW)
 
+    # Print CUDA Device Name If Available, Otherwise Print Warning About CPU Training
     if torch.cuda.is_available(): print_key_value("CUDA Device Name", torch.cuda.get_device_name(0), value_color=Fore.YELLOW)
     else: print_warning_message("CUDA is not available -> training will run on CPU")
 
@@ -324,13 +323,15 @@ def print_output_artifact_summary(output_directory: Path, logger: TensorBoardLog
 
     """ Print Output Artifact Summary """
 
+    # Print Output Artifact Summary
     print_section_header("Output Artifacts")
     print_key_value("Output Directory", output_directory, value_color=Fore.YELLOW)
     print_key_value("Checkpoint Directory", output_directory / "checkpoints", value_color=Fore.YELLOW)
-    print_key_value("Config Snapshot", output_directory / "feedforward_network_training.yaml", value_color=Fore.YELLOW)
-    print_key_value("Metrics Snapshot", output_directory / "training_test_metrics.yaml", value_color=Fore.YELLOW)
+    print_key_value("Config Snapshot", output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME, value_color=Fore.YELLOW)
+    print_key_value("Metrics Snapshot", output_directory / shared_training_infrastructure.COMMON_METRICS_FILENAME, value_color=Fore.YELLOW)
     print_key_value("Run Report", output_directory / "training_test_report.md", value_color=Fore.YELLOW)
 
+    # Print Logger Artifact Summary
     if logger.log_dir: print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
     print_key_value("Best Checkpoint", best_model_path, value_color=Fore.YELLOW)
 
@@ -342,18 +343,22 @@ def serialize_metric_dictionary(metric_dictionary: dict[str, object]) -> dict[st
 
     for metric_name, metric_value in metric_dictionary.items():
 
+        # Handle Tensors By Detaching, Moving To CPU, And Converting To Float
         if isinstance(metric_value, torch.Tensor):
             serialized_metric_dictionary[metric_name] = float(metric_value.detach().cpu().item())
             continue
 
+        # Handle Floats Directly, Otherwise Convert To String For Safe YAML Serialization
         if isinstance(metric_value, float):
             serialized_metric_dictionary[metric_name] = float(metric_value)
             continue
 
+        # Handle Integers Directly, Otherwise Convert To String For Safe YAML Serialization
         if isinstance(metric_value, int):
             serialized_metric_dictionary[metric_name] = int(metric_value)
             continue
 
+        # For Other Types, Convert To String For Safe YAML Serialization
         serialized_metric_dictionary[metric_name] = str(metric_value)
 
     return serialized_metric_dictionary
@@ -369,12 +374,15 @@ def save_metrics_snapshot(
 
     """ Save Metrics Snapshot """
 
+    # Get Dataset Split Summary And Normalization Statistics From The DataModule
     dataset_split_summary = datamodule.get_dataset_split_summary()
     normalization_statistics = datamodule.get_normalization_statistics()
 
+    # Serialize Validation And Test Metric Dictionaries For Snapshot Saving
     validation_metric_dictionary = serialize_metric_dictionary(validation_metric_list[0] if len(validation_metric_list) > 0 else {})
     test_metric_dictionary = serialize_metric_dictionary(test_metric_list[0] if len(test_metric_list) > 0 else {})
 
+    # Build Metrics Snapshot Dictionary
     metrics_snapshot_dictionary: dict[str, object] = {
         "run_name": training_config["experiment"]["run_name"],
         "best_checkpoint_path": best_model_path,
@@ -393,7 +401,8 @@ def save_metrics_snapshot(
         "test_metrics": test_metric_dictionary,
     }
 
-    metrics_snapshot_path = output_directory / "training_test_metrics.yaml"
+    # Save The Metrics Snapshot To The Output Directory In YAML Format
+    metrics_snapshot_path = output_directory / shared_training_infrastructure.LEGACY_FEEDFORWARD_METRICS_FILENAME
     with metrics_snapshot_path.open("w", encoding="utf-8") as metrics_file:
         yaml.safe_dump(metrics_snapshot_dictionary, metrics_file, sort_keys=False)
 
@@ -403,9 +412,11 @@ def build_metric_interpretation(metric_dictionary: dict[str, object], metric_pre
 
     """ Build Metric Interpretation """
 
+    # Extract MAE And RMSE Values From The Metric Dictionary For The Given Prefix
     metric_mae = metric_dictionary.get(f"{metric_prefix}_mae")
     metric_rmse = metric_dictionary.get(f"{metric_prefix}_rmse")
 
+    # Interpret The Metrics Based On Their Values
     if isinstance(metric_mae, (int, float)) and isinstance(metric_rmse, (int, float)):
         return (
             f"The held-out {metric_prefix} error stayed finite with MAE={metric_mae:.6f} deg and "
@@ -414,49 +425,53 @@ def build_metric_interpretation(metric_dictionary: dict[str, object], metric_pre
 
     return f"The held-out {metric_prefix} metrics were not fully available in serialized form, so only raw metric files should be trusted."
 
-def save_training_test_report(
-    output_directory: Path,
-    training_config: dict,
-    metrics_snapshot_dictionary: dict[str, object],
-) -> None:
+def save_training_test_report(output_directory: Path, training_config: dict, metrics_snapshot_dictionary: dict[str, object]) -> None:
 
     """ Save Training Test Report """
 
+    # Extract Relevant Information From The Metrics Snapshot Dictionary To Build The Report
+    experiment_dictionary = metrics_snapshot_dictionary["experiment"]
     dataset_split_dictionary = metrics_snapshot_dictionary["dataset_split"]
     validation_metric_dictionary = metrics_snapshot_dictionary["validation_metrics"]
     test_metric_dictionary = metrics_snapshot_dictionary["test_metrics"]
 
+    # Build The Report As A List Of Lines To Be Joined With Newlines For Output
     report_line_list = [
         "# Feedforward Training And Testing Report",
         "",
         "## Overview",
         "",
-        f"- Run Name: `{training_config['experiment']['run_name']}`",
-        f"- Model Type: `{training_config['experiment']['model_type']}`",
-        f"- Best Checkpoint: `{metrics_snapshot_dictionary['best_checkpoint_path']}`",
+        f"- Run Name: `{experiment_dictionary['run_name']}`",
+        f"- Model Family: `{experiment_dictionary['model_family']}`",
+        f"- Model Type: `{experiment_dictionary['model_type']}`",
+        f"- Best Checkpoint: `{metrics_snapshot_dictionary['artifacts']['best_checkpoint_path']}`",
         "",
         "## Dataset Split",
         "",
-        f"- Train Curves: `{dataset_split_dictionary['train_curves']}`",
-        f"- Validation Curves: `{dataset_split_dictionary['validation_curves']}`",
-        f"- Test Curves: `{dataset_split_dictionary['test_curves']}`",
+        f"- Train Curves: `{dataset_split_dictionary['train_curve_count']}`",
+        f"- Validation Curves: `{dataset_split_dictionary['validation_curve_count']}`",
+        f"- Test Curves: `{dataset_split_dictionary['test_curve_count']}`",
         "",
         "## Validation Metrics",
         "",
     ]
 
+    # Add Each Validation Metric To The Report
     for metric_name, metric_value in validation_metric_dictionary.items():
         report_line_list.append(f"- {metric_name}: `{format_terminal_value(metric_value)}`")
 
+    # Add Each Test Metric To The Report
     report_line_list.extend([
         "",
         "## Test Metrics",
         "",
     ])
 
+    # Add Each Test Metric To The Report
     for metric_name, metric_value in test_metric_dictionary.items():
         report_line_list.append(f"- {metric_name}: `{format_terminal_value(metric_value)}`")
 
+    # Add Interpretation Of The Metrics To The Report
     report_line_list.extend([
         "",
         "## Interpretation",
@@ -465,6 +480,7 @@ def save_training_test_report(
         build_metric_interpretation(test_metric_dictionary, "test"),
     ])
 
+    # Save The Report To The Output Directory As A Markdown File
     report_path = output_directory / "training_test_report.md"
     report_path.write_text("\n".join(report_line_list) + "\n", encoding="utf-8")
 
@@ -473,29 +489,14 @@ def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
     """ Load Training Config """
 
     # Resolve Config Path
-    resolved_config_path = resolve_project_relative_path(config_path)
-    assert resolved_config_path.exists(), f"Training Config Path does not exist | {resolved_config_path}"
-
-    # Load YAML Configuration
-    with resolved_config_path.open("r", encoding="utf-8") as config_file:
-        training_config = yaml.safe_load(config_file)
-
-    # Validate Configuration
-    assert isinstance(training_config, dict), "Training Config must be a dictionary"
-
-    return training_config
+    return shared_training_infrastructure.load_training_config(config_path=config_path)
 
 def resolve_runtime_config(training_config: dict) -> dict[str, object]:
 
     """ Resolve Runtime Config """
 
     # Initialize Default Runtime Configuration
-    runtime_config = dict(DEFAULT_RUNTIME_CONFIG_DICTIONARY)
-
-    # Merge User Runtime Configuration If Available
-    raw_runtime_config = training_config.get("runtime", {})
-    if isinstance(raw_runtime_config, dict):
-        runtime_config.update(raw_runtime_config)
+    runtime_config = shared_training_infrastructure.resolve_runtime_config(training_config=training_config)
 
     # Disable Benchmark In Deterministic Mode
     if bool(training_config["training"]["deterministic"]) and bool(runtime_config["benchmark"]):
@@ -513,12 +514,13 @@ def save_training_config_snapshot(training_config: dict, output_directory: Path)
 
     """ Save Training Config Snapshot """
 
-    # Create Output Directory
-    output_directory.mkdir(parents=True, exist_ok=True)
-
-    # Save Config Snapshot
-    with (output_directory / "feedforward_network_training.yaml").open("w", encoding="utf-8") as config_file:
-        yaml.safe_dump(training_config, config_file, sort_keys=False)
+    # Resolve Experiment Identity For Snapshot Saving
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
+    shared_training_infrastructure.save_training_config_snapshot(
+        training_config=training_config,
+        output_directory=output_directory,
+        experiment_identity=experiment_identity,
+    )
 
 def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> None:
 
@@ -526,52 +528,21 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Load Training Configuration
     training_config = load_training_config(config_path=config_path)
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config=training_config)
     runtime_config = resolve_runtime_config(training_config=training_config)
 
     # Resolve Output Directory
-    output_root = resolve_project_relative_path(training_config["paths"]["output_root"])
-    output_directory = output_root / training_config["experiment"]["run_name"]
+    output_directory = shared_training_infrastructure.resolve_output_directory(training_config=training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # Save Configuration Snapshot
     save_training_config_snapshot(training_config=training_config, output_directory=output_directory)
 
-    # Initialize DataModule
-    datamodule = TransmissionErrorDataModule(
-        dataset_config_path=training_config["paths"]["dataset_config_path"],
-        curve_batch_size=int(training_config["dataset"]["curve_batch_size"]),
-        point_stride=int(training_config["dataset"]["point_stride"]),
-        maximum_points_per_curve=training_config["dataset"]["maximum_points_per_curve"],
-        num_workers=int(training_config["dataset"]["num_workers"]),
-        pin_memory=bool(training_config["dataset"]["pin_memory"]),
-        use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
-    )
-    datamodule.setup(stage="fit")
-
-    # Read Dataset Statistics
+    # Initialize Shared Training Components
+    datamodule, regression_backbone, regression_module, normalization_statistics = shared_training_infrastructure.initialize_training_components(training_config)
     input_feature_dim = datamodule.get_input_feature_dim()
     target_feature_dim = datamodule.get_target_feature_dim()
-    normalization_statistics = datamodule.get_normalization_statistics()
-
-    # Validate Model Input Size
-    configured_input_size = int(training_config["model"]["input_size"])
-    assert configured_input_size == input_feature_dim, (f"Configured Input Size and Dataset Input Feature Dim mismatch | {configured_input_size} vs {input_feature_dim}")
-
-    # Create Regression Backbone Model
-    regression_backbone = create_model(
-        model_type=str(training_config["experiment"]["model_type"]),
-        model_configuration=training_config["model"],
-    )
-
-    # Create Regression Lightning Module
-    regression_module = TransmissionErrorRegressionModule(
-        regression_model=regression_backbone,
-        input_feature_dim=input_feature_dim,
-        target_feature_dim=target_feature_dim,
-        learning_rate=float(training_config["training"]["learning_rate"]),
-        weight_decay=float(training_config["training"]["weight_decay"]),
-        normalization_statistics=normalization_statistics,
-    )
+    parameter_summary = shared_training_infrastructure.summarize_model_parameters(regression_backbone=regression_backbone)
 
     # Print Training Summary
     print_training_configuration_summary(training_config=training_config)
@@ -651,6 +622,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     best_regression_module = regression_module
     if Path(best_model_path).exists():
 
+        # Load The Best Checkpoint For Reproducible Validation And Test Evaluation
         print_section_header("Best Checkpoint Evaluation")
         print_info_message("Loading best checkpoint for reproducible validation and test evaluation")
         best_regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
@@ -677,14 +649,25 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     best_model_path_file.write_text(best_model_path, encoding="utf-8")
 
     # Save Machine-Readable Metrics And Human-Readable Report
-    metrics_snapshot_dictionary = save_metrics_snapshot(
-        output_directory=output_directory,
+    metrics_snapshot_dictionary = shared_training_infrastructure.build_common_metrics_snapshot(
         training_config=training_config,
+        config_path=config_path,
         datamodule=datamodule,
+        parameter_summary=parameter_summary,
+        runtime_config=runtime_config,
         best_model_path=best_model_path,
         validation_metric_list=validation_metric_list,
         test_metric_list=test_metric_list,
     )
+
+    # Save Metrics Snapshot
+    shared_training_infrastructure.save_common_metrics_snapshot(
+        metrics_snapshot_dictionary=metrics_snapshot_dictionary,
+        output_directory=output_directory,
+        experiment_identity=experiment_identity,
+    )
+
+    # Save Training/Test Report
     save_training_test_report(
         output_directory=output_directory,
         training_config=training_config,
@@ -697,6 +680,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
         logger_directory = Path(logger.log_dir)
         if logger_directory.exists(): shutil.copyfile(best_model_path_file, logger_directory / "best_checkpoint_path.txt")
 
+    # Print Output Artifact Summary
     print_output_artifact_summary(output_directory=output_directory, logger=logger, best_model_path=best_model_path)
     print_success_message("Feedforward training workflow completed")
 

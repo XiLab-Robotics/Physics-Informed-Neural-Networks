@@ -86,6 +86,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         """ Normalize Input Tensor """
 
+        # Ensure Normalization Statistics Are Initialized Before Normalizing
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
         return (input_tensor - self.input_feature_mean) / self.input_feature_std
 
@@ -93,6 +94,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         """ Normalize Target Tensor """
 
+        # Ensure Normalization Statistics Are Initialized Before Normalizing
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
         return (target_tensor - self.target_mean) / self.target_std
 
@@ -100,6 +102,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         """ Denormalize Target Tensor """
 
+        # Ensure Normalization Statistics Are Initialized Before Denormalizing
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
         return (normalized_target_tensor * self.target_std) + self.target_mean
 
@@ -107,11 +110,12 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         """ Forward Pass """
 
+        # Forward Pass Through Regression Model In Normalized Space
         return self.regression_model(normalized_input_tensor)
 
-    def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
+    def compute_batch_outputs(self, batch_dictionary: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
 
-        """ Compute Loss """
+        """ Compute Batch Outputs """
 
         # Extract Batch Tensors
         input_tensor = batch_dictionary["input_tensor"].float()
@@ -124,13 +128,36 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Forward Pass
         normalized_prediction_tensor = self(normalized_input_tensor)
 
-        # Compute Training Loss In Normalized Space
+        # Compute Loss In Normalized Space
         loss = self.loss_function(normalized_prediction_tensor, normalized_target_tensor)
 
         # Denormalize Predictions For Interpretable Metrics
         prediction_tensor = self.denormalize_target_tensor(normalized_prediction_tensor)
         mae = torch.mean(torch.abs(prediction_tensor - target_tensor))
         rmse = torch.sqrt(torch.mean(torch.square(prediction_tensor - target_tensor)))
+
+        return {
+            "input_tensor": input_tensor,
+            "target_tensor": target_tensor,
+            "normalized_input_tensor": normalized_input_tensor,
+            "normalized_target_tensor": normalized_target_tensor,
+            "normalized_prediction_tensor": normalized_prediction_tensor,
+            "prediction_tensor": prediction_tensor,
+            "loss": loss,
+            "mae": mae,
+            "rmse": rmse,
+        }
+
+    def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
+
+        """ Compute Loss """
+
+        # Compute Batch Outputs And Metrics
+        batch_output_dictionary = self.compute_batch_outputs(batch_dictionary=batch_dictionary)
+        input_tensor = batch_output_dictionary["input_tensor"]
+        loss = batch_output_dictionary["loss"]
+        mae = batch_output_dictionary["mae"]
+        rmse = batch_output_dictionary["rmse"]
 
         # Log Metrics
         batch_size = int(input_tensor.shape[0])
@@ -144,18 +171,21 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         """ Training Step """
 
+        # Compute Loss And Metrics For Training Step
         return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="train")
 
     def validation_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
         """ Validation Step """
 
+        # Compute Loss And Metrics For Validation Step
         return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="val")
 
     def test_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
         """ Test Step """
 
+        # Compute Loss And Metrics For Test Step
         return self.compute_loss(batch_dictionary=batch_dictionary, log_prefix="test")
 
     def configure_optimizers(self):
