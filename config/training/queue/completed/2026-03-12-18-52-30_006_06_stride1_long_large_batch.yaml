@@ -1,6 +1,6 @@
 paths:
   dataset_config_path: config/datasets/transmission_error_dataset.yaml
-  output_root: output/feedforward_network
+  output_root: output/training_runs/feedforward
 
 experiment:
   run_name: te_feedforward_stride1_long_large_batch

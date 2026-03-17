@@ -12,9 +12,9 @@ The analyzed run is:
 - Model Type: `feedforward`
 - Training Config: `config/feedforward_network_training_trial.yaml`
 - Dataset Config: `config/dataset_processing.yaml`
-- Metrics Artifact: `output/feedforward_network/te_feedforward_trial/training_test_metrics.yaml`
-- Auto-Generated Summary: `output/feedforward_network/te_feedforward_trial/training_test_report.md`
-- Best Checkpoint: `output/feedforward_network/te_feedforward_trial/checkpoints/feedforward-epoch=003-val_mae=0.00375716.ckpt`
+- Metrics Artifact: `output/training_runs/feedforward/legacy__te_feedforward_trial/training_test_metrics.yaml`
+- Auto-Generated Summary: `output/training_runs/feedforward/legacy__te_feedforward_trial/training_test_report.md`
+- Best Checkpoint: `output/training_runs/feedforward/legacy__te_feedforward_trial/checkpoints/feedforward-epoch=003-val_mae=0.00375716.ckpt`
 
 ## Executed Workflow
 

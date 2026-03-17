@@ -1,0 +1,67 @@
+schema_version: 1
+config_path: output/training_runs/feedforward/legacy__te_feedforward_high_epoch/training_config.yaml
+experiment:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_high_epoch
+  output_run_name: te_feedforward_high_epoch
+  run_instance_id: legacy__te_feedforward_high_epoch
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: output/training_runs/feedforward/legacy__te_feedforward_high_epoch
+  best_checkpoint_path: output/training_runs/feedforward/legacy__te_feedforward_high_epoch/checkpoints/feedforward-epoch=094-val_mae=0.00300707.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 26241
+  frozen_parameter_count: 0
+  total_parameter_count: 26241
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9093780517578
+  - 497.9171142578125
+  - 896.0161743164062
+  - 30.364057540893555
+  - -1.5107782473933185e-06
+  input_feature_std:
+  - 103.93248748779297
+  - 466.84625244140625
+  - 543.8324584960938
+  - 4.0805206298828125
+  - 1.0
+  target_mean:
+  - -0.017237065359950066
+  target_std:
+  - 0.046520497649908066
+validation_metrics:
+  val_loss: 0.0074418652802705765
+  val_mae: 0.0030070722568780184
+  val_rmse: 0.0034505752846598625
+test_metrics:
+  test_loss: 0.007991391234099865
+  test_mae: 0.0033352654427289963
+  test_rmse: 0.003766961395740509
+comparison_payload:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_high_epoch
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 26241
+  total_parameter_count: 26241
+  val_mae: 0.0030070722568780184
+  val_rmse: 0.0034505752846598625
+  test_mae: 0.0033352654427289963
+  test_rmse: 0.003766961395740509
+  deployment_notes: ''
+  interpretability_notes: ''
+run_name: te_feedforward_high_epoch
+best_checkpoint_path: output/training_runs/feedforward/legacy__te_feedforward_high_epoch/checkpoints/feedforward-epoch=094-val_mae=0.00300707.ckpt

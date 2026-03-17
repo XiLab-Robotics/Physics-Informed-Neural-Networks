@@ -231,11 +231,11 @@ Campaign-level references:
 
 Best practical mixed-campaign run:
 
-- `output/feedforward_network/te_feedforward_stride5_long_large_batch/`
+- `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/`
 
 Strong historical comparison run:
 
-- `output/feedforward_network/te_feedforward_high_epoch/`
+- `output/training_runs/feedforward/legacy__te_feedforward_high_epoch/`
 
 Each run folder includes:
 

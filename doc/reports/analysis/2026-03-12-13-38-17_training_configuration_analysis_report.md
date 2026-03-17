@@ -23,7 +23,7 @@ This document should be read together with:
 - `training/transmission_error_datamodule.py`
 - `training/transmission_error_regression_module.py`
 - `models/feedforward_network.py`
-- `output/feedforward_network/te_feedforward_trial/training_test_metrics.yaml`
+- `output/training_runs/feedforward/legacy__te_feedforward_trial/training_test_metrics.yaml`
 
 ## What The Current Training Pipeline Actually Does
 

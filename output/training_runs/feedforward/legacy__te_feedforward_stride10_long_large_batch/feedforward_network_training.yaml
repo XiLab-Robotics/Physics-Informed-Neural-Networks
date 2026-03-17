@@ -1,0 +1,41 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/feedforward
+experiment:
+  run_name: te_feedforward_stride10_long_large_batch
+  model_type: feedforward
+metadata:
+  campaign_name: mixed_training_campaign_2026_03_12_15_32_28
+  planning_report_path: doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md
+  phase_name: phase_2_density_plus_long_schedule_plus_large_batch
+  campaign_config_id: stride10_long_large_batch
+  notes: Mild dense sampling with long schedule and larger batch regime.
+  output_artifact_kind: training_run
+  output_run_name: te_feedforward_stride10_long_large_batch
+  run_instance_id: legacy__te_feedforward_stride10_long_large_batch
+dataset:
+  curve_batch_size: 8
+  point_stride: 10
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 128
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false

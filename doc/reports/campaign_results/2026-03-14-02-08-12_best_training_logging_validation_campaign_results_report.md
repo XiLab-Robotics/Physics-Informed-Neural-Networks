@@ -167,7 +167,7 @@ The rerun completed successfully under:
 
 ### Updated Rerun Metrics
 
-The shared run output directory `output/feedforward_network/te_feedforward_best_training/` now reflects the rerun artifacts rather than the original first-run artifacts.
+The shared run output directory `output/training_runs/feedforward/legacy__te_feedforward_best_training/` now reflects the rerun artifacts rather than the original first-run artifacts.
 
 | Execution | Best Epoch | Wall Time | Val MAE [deg] | Val RMSE [deg] | Test MAE [deg] | Test RMSE [deg] |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -199,8 +199,8 @@ Campaign-level references:
 
 Run-level references:
 
-- `output/feedforward_network/te_feedforward_best_training/best_checkpoint_path.txt` -> now points to the post-fix rerun checkpoint
-- `output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml` -> now reflects the post-fix rerun metrics
-- `output/feedforward_network/te_feedforward_best_training/training_test_report.md` -> now reflects the post-fix rerun summary
-- `output/feedforward_network/te_feedforward_best_training/checkpoints/feedforward-epoch=063-val_mae=0.00317104.ckpt` -> original campaign best checkpoint
-- `output/feedforward_network/te_feedforward_best_training/checkpoints/feedforward-epoch=046-val_mae=0.00303861.ckpt` -> post-fix rerun best checkpoint
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/best_checkpoint_path.txt` -> now points to the post-fix rerun checkpoint
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml` -> now reflects the post-fix rerun metrics
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_report.md` -> now reflects the post-fix rerun summary
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/checkpoints/feedforward-epoch=063-val_mae=0.00317104.ckpt` -> original campaign best checkpoint
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/checkpoints/feedforward-epoch=046-val_mae=0.00303861.ckpt` -> post-fix rerun best checkpoint

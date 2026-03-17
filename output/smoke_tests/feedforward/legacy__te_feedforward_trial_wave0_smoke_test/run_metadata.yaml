@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: smoke_test
+model_family: feedforward
+run_name: te_feedforward_trial
+run_instance_id: legacy__te_feedforward_trial_wave0_smoke_test
+output_directory: output/smoke_tests/feedforward/legacy__te_feedforward_trial_wave0_smoke_test

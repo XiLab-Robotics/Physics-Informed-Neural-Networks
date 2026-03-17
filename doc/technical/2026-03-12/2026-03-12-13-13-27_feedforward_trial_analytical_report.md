@@ -4,7 +4,7 @@
 
 The user requested a complete written report for the already executed proof training run of the feedforward baseline.
 
-The current auto-generated report under `output/feedforward_network/te_feedforward_trial/` is intentionally compact. It records the run name, split sizes, best checkpoint, and final validation/test metrics, but it does not yet provide:
+The current auto-generated report under `output/training_runs/feedforward/legacy__te_feedforward_trial/` is intentionally compact. It records the run name, split sizes, best checkpoint, and final validation/test metrics, but it does not yet provide:
 
 - a narrative explanation of what was executed;
 - an explicit interpretation of whether the trial run should be considered successful;
@@ -80,11 +80,11 @@ If a new `doc/reports/` section is introduced, the internal documentation index 
   Proof-run configuration used for the executed training and testing.
 - `config/dataset_processing.yaml`
   Dataset split definition used for the run.
-- `output/feedforward_network/te_feedforward_trial/training_test_metrics.yaml`
+- `output/training_runs/feedforward/legacy__te_feedforward_trial/training_test_metrics.yaml`
   Machine-readable metrics for the completed proof run.
-- `output/feedforward_network/te_feedforward_trial/training_test_report.md`
+- `output/training_runs/feedforward/legacy__te_feedforward_trial/training_test_report.md`
   Compact auto-generated run summary that will be expanded into a proper analytical report.
-- `output/feedforward_network/te_feedforward_trial/best_checkpoint_path.txt`
+- `output/training_runs/feedforward/legacy__te_feedforward_trial/best_checkpoint_path.txt`
   Best checkpoint reference for the executed run.
 
 ## Implementation Steps

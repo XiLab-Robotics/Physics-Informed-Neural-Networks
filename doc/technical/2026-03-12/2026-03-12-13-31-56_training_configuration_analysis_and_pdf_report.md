@@ -106,7 +106,7 @@ The exact parameter values should be chosen after reviewing the current datamodu
   Lightning regression logic for normalization, loss, and metric computation.
 - `training/train_feedforward_network.py`
   Main training entry point whose workflow and artifact generation behavior must be described.
-- `output/feedforward_network/te_feedforward_trial/`
+- `output/training_runs/feedforward/legacy__te_feedforward_trial/`
   Existing proof-run artifacts that should be cited in the report.
 
 ## Implementation Steps

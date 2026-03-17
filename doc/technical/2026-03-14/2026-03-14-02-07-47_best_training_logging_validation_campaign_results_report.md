@@ -23,7 +23,7 @@ The final report should synthesize four evidence sources:
 
 1. the persistent campaign state in `doc/running/active_training_campaign.yaml`;
 2. the campaign-level execution artifacts under `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`;
-3. the per-run metrics and training summary in `output/feedforward_network/te_feedforward_best_training/`;
+3. the per-run metrics and training summary in `output/training_runs/feedforward/legacy__te_feedforward_best_training/`;
 4. the observed terminal behavior reported during the real campaign execution.
 
 The report should not present this campaign as a pure model-comparison study. It is primarily a workflow-validation campaign with one configuration. The report therefore needs to cover:
@@ -47,9 +47,9 @@ The PDF export should reuse the existing styled-report pipeline so the final del
   Machine-readable campaign execution record.
 - `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
   Human-readable campaign execution summary.
-- `output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml`
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml`
   Canonical numeric metrics for the executed run.
-- `output/feedforward_network/te_feedforward_best_training/training_test_report.md`
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_report.md`
   Per-run interpretation summary.
 - `scripts/reports/generate_styled_report_pdf.py`
   Existing exporter used to generate the styled final PDF.

@@ -126,7 +126,7 @@ This means the campaign should not force one identical `curve_batch_size` across
   Existing larger-model reference.
 - `training/train_feedforward_network.py`
   Single training entry point to reuse for the campaign.
-- `output/feedforward_network/`
+- `output/training_runs/feedforward/`
   Artifact root where the new experiment folders would be generated after approval.
 
 ## Implementation Steps

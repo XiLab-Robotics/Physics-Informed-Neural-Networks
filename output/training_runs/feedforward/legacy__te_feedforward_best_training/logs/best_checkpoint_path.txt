@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\feedforward\legacy__te_feedforward_best_training\checkpoints\feedforward-epoch=046-val_mae=0.00303861.ckpt

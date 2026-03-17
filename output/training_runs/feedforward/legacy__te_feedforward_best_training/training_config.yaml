@@ -1,0 +1,43 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/feedforward
+experiment:
+  run_name: te_feedforward_best_training
+  model_type: feedforward
+metadata:
+  campaign_name: best_training_logging_validation_campaign_2026_03_14_00_56_06
+  planning_report_path: doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
+  source_preset_path: config/training/feedforward/presets/best_training.yaml
+  phase_name: single_run_logging_validation
+  campaign_config_id: best_training_logging_validation
+  notes: Validate the updated live campaign logging on the current best practical
+    feedforward preset.
+  output_artifact_kind: training_run
+  output_run_name: te_feedforward_best_training
+  run_instance_id: legacy__te_feedforward_best_training
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 128
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false

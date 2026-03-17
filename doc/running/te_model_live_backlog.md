@@ -24,10 +24,11 @@ Historical rationale and approval history remain in:
 - Current Completed Wave: `Wave 0`
 - Current Focus: prepare `Wave 1` structured-baseline planning
 - Current Best Implemented Family: `feedforward`
+- Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Canonical Baseline Verification Artifacts:
-  - `output/feedforward_network/te_feedforward_trial/metrics_summary.yaml`
-  - `output/feedforward_network/te_feedforward_trial_wave0_validation/validation_summary.yaml`
-  - `output/feedforward_network/te_feedforward_trial_wave0_smoke_test/smoke_test_summary.yaml`
+  - `output/training_runs/feedforward/2026-03-17-19-49-41__te_feedforward_trial/metrics_summary.yaml`
+  - `output/validation_checks/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_validation/validation_summary.yaml`
+  - `output/smoke_tests/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_smoke_test/smoke_test_summary.yaml`
 
 ## Completed
 

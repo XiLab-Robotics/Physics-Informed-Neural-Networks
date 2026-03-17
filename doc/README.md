@@ -172,6 +172,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for cleaning up redundant `variable=variable` function-call arguments while preserving explicit keywords where they improve readability.
 - [technical/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md](./technical/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md)
   Technical document for reorganizing training outputs by artifact type and adding explicit campaign, family, and program best-result registries.
+- [technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md](./technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md)
+  Technical document for migrating the historical `output/feedforward_network/` artifacts into the new training-run structure and rewriting repository-authored path references.
 
 ### Script Documentation
 

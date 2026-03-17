@@ -82,7 +82,7 @@ Because these runs can be long, the implementation should avoid changing the tra
   Most aggressive workstation-oriented configuration to execute.
 - `training/train_feedforward_network.py`
   Single training entry point used for all runs.
-- `output/feedforward_network/`
+- `output/training_runs/feedforward/`
   Artifact root where the four new experiment outputs will be generated.
 
 ## Implementation Steps

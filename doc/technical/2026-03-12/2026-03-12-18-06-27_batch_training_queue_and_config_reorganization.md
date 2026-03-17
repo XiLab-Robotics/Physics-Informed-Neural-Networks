@@ -147,7 +147,7 @@ This execution report is not a substitute for the required final campaign-result
   Existing location for mandatory pre-training planning reports.
 - `doc/reports/campaign_results/`
   Existing location for mandatory post-training results reports.
-- `output/feedforward_network/`
+- `output/training_runs/feedforward/`
   Existing per-run artifact root that the campaign manifest must reference.
 - `output/training_campaigns/`
   Proposed new campaign-level artifact root for batch execution metadata and log indexing.

@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: feedforward
+run_name: te_feedforward_trial
+run_instance_id: legacy__te_feedforward_trial_wave0_validation
+output_directory: output/validation_checks/feedforward/legacy__te_feedforward_trial_wave0_validation

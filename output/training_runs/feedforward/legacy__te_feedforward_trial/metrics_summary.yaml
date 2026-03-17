@@ -1,0 +1,67 @@
+schema_version: 1
+config_path: output/training_runs/feedforward/legacy__te_feedforward_trial/training_config.yaml
+experiment:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_trial
+  output_run_name: te_feedforward_trial
+  run_instance_id: legacy__te_feedforward_trial
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: output/training_runs/feedforward/legacy__te_feedforward_trial
+  best_checkpoint_path: output/training_runs/feedforward/legacy__te_feedforward_trial/checkpoints/feedforward-epoch=007-val_mae=0.00361790.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 26241
+  frozen_parameter_count: 0
+  total_parameter_count: 26241
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: false
+normalization_statistics:
+  input_feature_mean:
+  - 179.10281372070312
+  - 703.3919677734375
+  - 893.3742065429688
+  - 30.1460018157959
+  - 1.1977195754298009e-05
+  input_feature_std:
+  - 104.2593994140625
+  - 479.4212951660156
+  - 545.5789184570312
+  - 4.0999555587768555
+  - 1.0
+  target_mean:
+  - -0.01749577187001705
+  target_std:
+  - 0.04559748247265816
+validation_metrics:
+  val_loss: 0.010226720944046974
+  val_mae: 0.003617898328229785
+  val_rmse: 0.004350285045802593
+test_metrics:
+  test_loss: 0.008880575187504292
+  test_mae: 0.0035353449638932943
+  test_rmse: 0.004211485385894775
+comparison_payload:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_trial
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 26241
+  total_parameter_count: 26241
+  val_mae: 0.003617898328229785
+  val_rmse: 0.004350285045802593
+  test_mae: 0.0035353449638932943
+  test_rmse: 0.004211485385894775
+  deployment_notes: ''
+  interpretability_notes: ''
+run_name: te_feedforward_trial
+best_checkpoint_path: output/training_runs/feedforward/legacy__te_feedforward_trial/checkpoints/feedforward-epoch=007-val_mae=0.00361790.ckpt

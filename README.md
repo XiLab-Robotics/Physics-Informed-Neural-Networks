@@ -241,6 +241,7 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md`
   * `doc/technical/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md`
   * `doc/technical/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md`
+  * `doc/technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md`
 
 Script documentation:
 

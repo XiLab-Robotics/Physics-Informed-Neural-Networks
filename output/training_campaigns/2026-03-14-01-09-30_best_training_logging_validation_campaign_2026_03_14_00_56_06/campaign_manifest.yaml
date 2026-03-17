@@ -14,13 +14,13 @@ run_list:
   end_time: '2026-03-14T01:24:57'
   duration_seconds: 926.53
   process_return_code: 0
-  output_directory: output/feedforward_network/te_feedforward_best_training
-  config_snapshot_path: output/feedforward_network/te_feedforward_best_training/feedforward_network_training.yaml
-  best_checkpoint_reference_path: output/feedforward_network/te_feedforward_best_training/best_checkpoint_path.txt
+  output_directory: output/training_runs/feedforward/legacy__te_feedforward_best_training
+  config_snapshot_path: output/training_runs/feedforward/legacy__te_feedforward_best_training/feedforward_network_training.yaml
+  best_checkpoint_reference_path: output/training_runs/feedforward/legacy__te_feedforward_best_training/best_checkpoint_path.txt
   best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
     - Codex\output\feedforward_network\te_feedforward_best_training\checkpoints\feedforward-epoch=063-val_mae=0.00317104.ckpt
-  metrics_path: output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml
-  training_report_path: output/feedforward_network/te_feedforward_best_training/training_test_report.md
+  metrics_path: output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml
+  training_report_path: output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_report.md
   log_path: output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-01-09-30_001_01_best_training_logging_validation.log
   planning_report_path: doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
   campaign_name: best_training_logging_validation_campaign_2026_03_14_00_56_06

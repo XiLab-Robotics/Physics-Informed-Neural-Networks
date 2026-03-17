@@ -29,12 +29,12 @@
 - Duration: `00:15:27`
 - Process Return Code: `0`
 - Planning Report Path: `doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
-- Output Directory: `output/feedforward_network/te_feedforward_best_training`
-- Config Snapshot: `output/feedforward_network/te_feedforward_best_training/feedforward_network_training.yaml`
-- Best Checkpoint Pointer: `output/feedforward_network/te_feedforward_best_training/best_checkpoint_path.txt`
+- Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_best_training`
+- Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_best_training/feedforward_network_training.yaml`
+- Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_best_training/best_checkpoint_path.txt`
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\feedforward_network\te_feedforward_best_training\checkpoints\feedforward-epoch=063-val_mae=0.00317104.ckpt`
-- Metrics Snapshot: `output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml`
-- Training Report: `output/feedforward_network/te_feedforward_best_training/training_test_report.md`
+- Metrics Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml`
+- Training Report: `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_report.md`
 - Terminal Log: `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-01-09-30_001_01_best_training_logging_validation.log`
 - Error Message: `N/A`
 

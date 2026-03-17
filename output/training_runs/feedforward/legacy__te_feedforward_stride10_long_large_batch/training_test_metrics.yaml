@@ -1,0 +1,67 @@
+schema_version: 1
+config_path: output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch/training_config.yaml
+experiment:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_stride10_long_large_batch
+  output_run_name: te_feedforward_stride10_long_large_batch
+  run_instance_id: legacy__te_feedforward_stride10_long_large_batch
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch
+  best_checkpoint_path: output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch/checkpoints/feedforward-epoch=111-val_mae=0.00306641.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 26241
+  frozen_parameter_count: 0
+  total_parameter_count: 26241
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.94888305664062
+  - 497.88775634765625
+  - 896.0166625976562
+  - 30.364072799682617
+  - -7.554168064416444e-07
+  input_feature_std:
+  - 103.92868041992188
+  - 466.8202819824219
+  - 543.8321533203125
+  - 4.080521583557129
+  - 1.0
+  target_mean:
+  - -0.017238687723875046
+  target_std:
+  - 0.04652012884616852
+validation_metrics:
+  val_loss: 0.007707638666033745
+  val_mae: 0.003066405886784196
+  val_rmse: 0.003765346249565482
+test_metrics:
+  test_loss: 0.008466927334666252
+  test_mae: 0.003432839410379529
+  test_rmse: 0.004123336635529995
+comparison_payload:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_stride10_long_large_batch
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 26241
+  total_parameter_count: 26241
+  val_mae: 0.003066405886784196
+  val_rmse: 0.003765346249565482
+  test_mae: 0.003432839410379529
+  test_rmse: 0.004123336635529995
+  deployment_notes: ''
+  interpretability_notes: ''
+run_name: te_feedforward_stride10_long_large_batch
+best_checkpoint_path: output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch/checkpoints/feedforward-epoch=111-val_mae=0.00306641.ckpt

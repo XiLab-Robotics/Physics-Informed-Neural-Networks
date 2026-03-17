@@ -40,8 +40,8 @@ This approach is preferred over calling the current validation pass a "test" bec
 
 The report artifact should be saved under the run output directory so it remains tied to the exact executed experiment, for example under:
 
-- `output/feedforward_network/<run_name>/training_test_report.md`
-- `output/feedforward_network/<run_name>/training_test_metrics.yaml`
+- `output/training_runs/feedforward/<run_instance_id>/training_test_report.md`
+- `output/training_runs/feedforward/<run_instance_id>/training_test_metrics.yaml`
 
 ## Involved Components
 
@@ -61,7 +61,7 @@ The report artifact should be saved under the run output directory so it remains
   Training entry point that must execute final validation, testing, and report generation.
 - `doc/guide/project_usage_guide.md`
   User-facing guide that must be updated before the final commit because the runnable training workflow will gain explicit testing/report behavior.
-- `output/feedforward_network/`
+- `output/training_runs/feedforward/`
   Run artifact root where the proof-run checkpoints, logs, and result report will be stored.
 
 ## Implementation Steps

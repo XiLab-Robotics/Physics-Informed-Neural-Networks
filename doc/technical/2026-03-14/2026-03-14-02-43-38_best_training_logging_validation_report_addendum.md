@@ -6,7 +6,7 @@ The existing campaign results report for the best-training logging-validation ru
 
 - the `colorama` shutdown exception is now resolved;
 - the mirrored log-file cleanliness issue is still present;
-- the shared output folder `output/feedforward_network/te_feedforward_best_training/` now contains rerun artifacts with improved metrics.
+- the shared output folder `output/training_runs/feedforward/legacy__te_feedforward_best_training/` now contains rerun artifacts with improved metrics.
 
 This creates a documentation problem rather than a training problem. The historical report should not be silently rewritten as if the first run had always included the shutdown fix, but it also should not remain unqualified now that a post-fix rerun exists and confirms the runner improvement.
 
@@ -33,7 +33,7 @@ This keeps the report historically honest while still making it useful to a read
   First campaign artifact root referenced by the current report.
 - `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
   Post-fix rerun artifact root that confirms the shutdown fix and provides the updated campaign execution record.
-- `output/feedforward_network/te_feedforward_best_training/training_test_metrics.yaml`
+- `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml`
   Current shared run-level metrics file now reflecting the rerun.
 - `README.md`
   Main project index that must reference this technical note.

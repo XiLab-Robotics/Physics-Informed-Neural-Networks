@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward
+run_name: te_feedforward_stride1_long_large_batch
+run_instance_id: legacy__te_feedforward_stride1_long_large_batch
+output_directory: output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch

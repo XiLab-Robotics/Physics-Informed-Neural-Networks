@@ -208,11 +208,11 @@ The next most useful experiments are:
 
 The generated run folders are:
 
-- `output/feedforward_network/te_feedforward_trial/`
-- `output/feedforward_network/te_feedforward_baseline/`
-- `output/feedforward_network/te_feedforward_high_density/`
-- `output/feedforward_network/te_feedforward_high_epoch/`
-- `output/feedforward_network/te_feedforward_high_compute/`
+- `output/training_runs/feedforward/legacy__te_feedforward_trial/`
+- `output/training_runs/feedforward/legacy__te_feedforward_baseline/`
+- `output/training_runs/feedforward/legacy__te_feedforward_high_density/`
+- `output/training_runs/feedforward/legacy__te_feedforward_high_epoch/`
+- `output/training_runs/feedforward/legacy__te_feedforward_high_compute/`
 
 Each completed run contains:
 

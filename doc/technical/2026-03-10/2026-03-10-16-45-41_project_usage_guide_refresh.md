@@ -29,7 +29,7 @@ The updated guide should:
   - `models/feedforward_network.py`
   - `models/model_factory.py`
   - `config/feedforward_network_training.yaml`
-- explain the training outputs written under `output/feedforward_network/`;
+- explain the training outputs written under `output/training_runs/feedforward/`;
 - explain the current baseline assumptions:
   - point-wise training on TE curve samples;
   - normalization based on training-split statistics;
