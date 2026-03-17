@@ -25,7 +25,11 @@ Historical rationale and approval history remain in:
 - Current Focus: prepare `Wave 1` structured-baseline planning
 - Current Best Implemented Family: `feedforward`
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
-- Canonical Baseline Verification Artifacts:
+- Current Reference Feedforward Baseline Run:
+  - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/metrics_summary.yaml`
+  - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/training_test_report.md`
+  - `output/registries/families/feedforward/latest_family_best.yaml`
+- Wave 0 Verification Artifacts:
   - `output/training_runs/feedforward/2026-03-17-19-49-41__te_feedforward_trial/metrics_summary.yaml`
   - `output/validation_checks/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_validation/validation_summary.yaml`
   - `output/smoke_tests/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_smoke_test/smoke_test_summary.yaml`
@@ -73,6 +77,7 @@ Verification:
 - one-batch validation completed successfully
 - smoke test with checkpoint save/reload completed successfully
 - feedforward `trial` run completed successfully with the common metrics schema
+- Wave 0 `trial` artifacts are verification-only and are not the canonical program baseline
 
 ## In Progress
 
@@ -85,6 +90,7 @@ Verification:
 Immediate next step:
 
 - create the campaign plan report for the structured baseline wave
+- use the registry-selected feedforward best run as the comparison baseline for future Wave 1 results
 
 Included families:
 
@@ -159,6 +165,7 @@ Entry rule:
 - the live backlog is now the privileged operational view of the TE program
 - technical documents remain the historical planning baseline and design rationale
 - output artifacts now follow the privileged category-specific structure rather than the old flat family-root convention
+- the canonical feedforward reference baseline is the registry-selected best historical run, not the Wave 0 `trial` verification run
 - best-result visibility should be read from:
   - campaign-level `campaign_best_run.yaml`
   - family-level `latest_family_best.yaml`

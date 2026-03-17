@@ -176,6 +176,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for migrating the historical `output/feedforward_network/` artifacts into the new training-run structure and rewriting repository-authored path references.
 - [technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md](./technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md)
   Technical document for removing the remaining feedforward-specific legacy snapshot compatibility from the active training pipeline.
+- [technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md](./technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md)
+  Technical document for formalizing the registry-selected feedforward run as the canonical reference baseline before Wave 1.
 
 ### Script Documentation
 

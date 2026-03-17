@@ -243,6 +243,7 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md`
   * `doc/technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md`
   * `doc/technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md`
+  * `doc/technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md`
 
 Script documentation:
 
