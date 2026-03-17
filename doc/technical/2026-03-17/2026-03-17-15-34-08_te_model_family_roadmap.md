@@ -258,9 +258,57 @@ Recommendation:
 
 - keep in scope as an explicit low-priority exploratory family after `TCN`, `GRU`, and `LSTM`.
 
+#### 5. Explicit State-Space Sequence Model
+
+Principle:
+
+- use a compact learned state-space operator to propagate sequence information with more structured dynamics than a plain recurrent model and less direct attention cost than a transformer.
+
+Advantages:
+
+- potentially good long-context efficiency;
+- conceptually well positioned between `TCN` and attention-based sequence modeling;
+- may offer a cleaner compact-dynamics bias than a generic transformer.
+
+Disadvantages:
+
+- still more complex than the main temporal baselines;
+- currently weaker short-term justification than `TCN`, `GRU`, or `LSTM`.
+
+Recommendation:
+
+- keep in scope as a separate low-priority exploratory temporal family after the main temporal wave.
+
 ### Middle-Ground Models Between Standard ML And Full PINNs
 
 This family is likely the most strategic for the repository. It introduces physical or structural bias without immediately requiring complete residual equations.
+
+#### 0. Mixture-Of-Experts / Regime-Conditioned Model
+
+Principle:
+
+- use a lightweight gating mechanism or explicit regime conditioning so partially specialized experts model different operating regions such as speed, torque, temperature, or motion-direction regimes.
+
+Why it fits this problem:
+
+- TE behavior can vary meaningfully across operating conditions;
+- a single global model may average across regimes that are better handled by specialized submodels;
+- the idea can be applied to MLP, harmonic-head, or residual backbones.
+
+Advantages:
+
+- potentially better cross-regime generalization;
+- interpretable regime specialization when the gating remains simple;
+- can improve fit without requiring a fully different model family for each operating region.
+
+Disadvantages:
+
+- adds gating complexity and possible instability;
+- can become unnecessarily complicated if the operating dependence is already smooth enough for one model.
+
+Recommendation:
+
+- add as a medium-priority structured or hybrid family after the main structured baselines.
 
 #### 1. Fourier-Feature MLP
 
@@ -409,7 +457,7 @@ Recommendation:
 
 #### 7. Low-Priority Exploratory Status
 
-Both `Lightweight Transformer` and `Neural ODE` families remain within the project scope.
+`Lightweight Transformer`, `State-Space Sequence Model`, and `Neural ODE` families remain within the project scope.
 
 They are not excluded. They are simply deferred until:
 
@@ -571,6 +619,8 @@ At the planning level, the strongest candidates are:
 Hamiltonian-inspired networks are intellectually interesting, but they currently look less aligned with the available measurements than Fourier, harmonic, or Laplacian hybrids.
 
 `Lightweight Transformer` and `Neural ODE` should remain visible as low-priority exploratory branches, but they should not displace the main roadmap unless later evidence clearly justifies them.
+
+`Mixture-of-Experts / Regime-Conditioned Model` should remain visible as an added practical family because it is more likely than many other missing candidates to help under heterogeneous operating regimes.
 
 ## Involved Components
 

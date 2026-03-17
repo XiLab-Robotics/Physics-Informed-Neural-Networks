@@ -339,11 +339,59 @@ This family stays in scope, but not in the main execution path, because:
 
 Keep it as an explicit low-priority exploratory branch after the main temporal wave.
 
+## State-Space Sequence Model
+
+### Principle
+
+Use a compact learned state-space operator for sequence propagation, aiming to capture longer or more structured context without relying directly on standard recurrence or full attention.
+
+### Why It Is Worth Keeping
+
+This family is different enough from both `TCN` and lightweight transformer models to deserve explicit visibility:
+
+- it may offer a better compact-dynamics bias than attention;
+- it may scale more cleanly than recurrent models for some context lengths.
+
+### Why It Still Stays Low Priority
+
+- the main temporal candidates still have the strongest short-term justification;
+- the repository does not yet have evidence that this added sequence sophistication is needed.
+
+### Recommendation
+
+Keep it as an explicit low-priority exploratory temporal branch after the main temporal wave.
+
 ## Structured Hybrid Families Between Standard ML And PINNs
 
 This branch is likely the most valuable scientific middle ground for the project.
 
 It preserves the practical strengths of standard models while injecting problem-specific structure.
+
+## Mixture-Of-Experts / Regime-Conditioned Model
+
+### Principle
+
+Use a lightweight gating strategy or explicit regime specialization so different experts model different operating-condition regions.
+
+### Why It Is A Good Addition
+
+This family is particularly relevant for the TE problem because speed, torque, temperature, and direction can define partially distinct operating regimes. A single global model may be statistically convenient while still being suboptimal physically.
+
+### Main Advantages
+
+- can improve cross-regime specialization;
+- can remain relatively interpretable if the gating logic is kept simple;
+- can be combined with structured backbones such as residual or harmonic-head models.
+
+### Main Disadvantages
+
+- adds routing complexity;
+- can become unstable or collapse if the mixture is too flexible;
+- may be unnecessary if the operating dependence is smooth enough for a single model.
+
+### Recommendation
+
+This is a realistic medium-priority addition and is more compelling than many other missing architecture families.
 
 ## Fourier-Feature Network
 
@@ -502,6 +550,32 @@ This family stays in scope, but not in the primary backlog, because the reposito
 
 Keep it as an explicit low-priority exploratory branch after the main hybrid wave and before advanced physics-informed exploration, only if a defensible formulation emerges.
 
+## Kernel Ridge / Gaussian Process Benchmark
+
+### Principle
+
+Use smooth non-neural regression as an additional benchmark family, primarily to test sample efficiency and smooth structured regression behavior.
+
+### Why It Is Worth Keeping
+
+This is not a likely final deployment winner, but it can be a stronger smooth-regression reference than trees alone and can help judge whether the neural families are really necessary.
+
+### Main Advantages
+
+- strong benchmark value;
+- potentially useful smoothness bias;
+- possible uncertainty information in Gaussian-process-style variants.
+
+### Main Disadvantages
+
+- weaker scalability;
+- weaker deployment fit;
+- lower practical value as a final architecture.
+
+### Recommendation
+
+Keep it only as an optional low-priority benchmark branch.
+
 ## Full PINNs
 
 ## What PINNs Can Add
@@ -564,12 +638,15 @@ The correct approach is:
 | GRU / LSTM | Recurrent sequence modeling | Captures history-dependent behavior | Harder training and export | Medium | Medium to high |
 | TCN | Convolutional sequence modeling | Better engineering compromise than RNN in many cases | Window tuning still needed | Medium | High |
 | Lightweight Transformer | Compact attention-based sequence modeling | Potential broader-context modeling | Higher complexity than other temporal baselines | Medium to low | Low |
+| State-Space Sequence Model | Compact learned sequence dynamics | Potential longer-context efficiency with structured dynamics | Lower short-term justification than main temporal baselines | Medium to low | Low |
+| Mixture-of-Experts | Regime-specialized prediction with lightweight gating | Better cross-regime specialization | Gating complexity and expert collapse risk | Medium to high | Medium to high |
 | Fourier-feature network | Spectral encoding before regression | Strong periodic inductive bias | Frequency design sensitivity | High | Very high |
 | Harmonic-head network | Predict harmonic coefficients directly | Strong interpretability and deployment bridge | Harmonic dictionary limitations | High | Very high |
 | Laplacian-regularized network | Smoothness or graph consistency constraints | Better physical plausibility | Over-smoothing risk | High | High |
 | SIREN | Periodic activations | Strong fine harmonic expressivity | Sensitive optimization | Medium | Medium |
 | Hamiltonian-inspired network | Structured energy-based latent dynamics | Potential long-term physics elegance | Weak fit to current formulation | Low to medium | Low |
 | Neural ODE | Continuous-state latent dynamics | Bridge toward continuous and differential modeling | Formulation and solver complexity | Low to medium | Low |
+| Kernel Ridge / Gaussian Process | Smooth non-neural regression benchmark | Stronger smooth-regression reference than trees alone | Scalability and deployment limitations | Low to medium | Low |
 | Full PINN | Data + explicit physics residuals | Maximum physics integration | Highest formulation and training complexity | Medium if designed carefully | Deferred until prerequisites are fixed |
 
 ## Recommended Execution Order

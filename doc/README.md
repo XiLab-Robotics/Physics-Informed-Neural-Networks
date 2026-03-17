@@ -162,6 +162,8 @@ This folder contains the internal project documents derived from the reference P
   Technical backlog document for implementing, validating, smoke-testing, and comparing all approved TE model families through campaign waves.
 - [technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md](./technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md)
   Technical note for keeping Lightweight Transformer and Neural ODE families explicitly in scope as low-priority exploratory options.
+- [technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md](./technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md)
+  Technical review note for adding explicit State-Space, Mixture-of-Experts, and optional Kernel/GP families to the TE planning set.
 
 ### Script Documentation
 
