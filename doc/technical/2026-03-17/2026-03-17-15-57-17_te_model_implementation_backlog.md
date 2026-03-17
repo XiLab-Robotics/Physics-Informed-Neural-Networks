@@ -366,11 +366,38 @@ Promotion criterion:
 
 - strong candidate if it matches or beats recurrent models with easier training and runtime behavior.
 
+#### 9. Lightweight Transformer Exploratory Baseline
+
+Implementation backlog:
+
+- implement a compact attention-based temporal model only after the main temporal families are already comparable;
+- keep the sequence interface aligned with the `GRU`, `LSTM`, and `TCN` families;
+- constrain parameter count and context length so the family remains a genuine lightweight baseline.
+
+Smoke-test backlog:
+
+- verify sequence tensor layout, masking or padding path if used, and one forward-loss pass.
+
+Validation backlog:
+
+- verify no future-context leakage;
+- verify consistent handling of sequence length and ordering;
+- verify that the architecture remains numerically stable on short and medium windows.
+
+Campaign backlog:
+
+- limited exploratory campaign after the main temporal wave;
+- refined campaign only if it shows value beyond `TCN`, `GRU`, or `LSTM`.
+
+Promotion criterion:
+
+- promote only if broader-context modeling yields a clear gain that simpler temporal families do not achieve.
+
 ### Hybrid Structured Model Backlog
 
 These families are the main bridge between standard ML and full PINNs.
 
-#### 9. Fourier-Feature Network
+#### 10. Fourier-Feature Network
 
 Implementation backlog:
 
@@ -395,7 +422,7 @@ Promotion criterion:
 
 - high-priority promotion if it improves harmonic fidelity and generalization simultaneously.
 
-#### 10. Harmonic-Head Network
+#### 11. Harmonic-Head Network
 
 Implementation backlog:
 
@@ -421,7 +448,7 @@ Promotion criterion:
 
 - promote if it offers strong accuracy with superior interpretability and deployment readiness.
 
-#### 11. Laplacian-Regularized Or Smoothness-Constrained Network
+#### 12. Laplacian-Regularized Or Smoothness-Constrained Network
 
 Implementation backlog:
 
@@ -447,7 +474,7 @@ Promotion criterion:
 
 - keep if it improves robustness and harmonic realism without oversmoothing the TE curves.
 
-#### 12. SIREN / Periodic-Activation Network
+#### 13. SIREN / Periodic-Activation Network
 
 Implementation backlog:
 
@@ -471,7 +498,7 @@ Promotion criterion:
 
 - keep as a specialist family if it captures fine periodic detail better than Fourier-feature MLPs.
 
-#### 13. Hamiltonian-Inspired Exploratory Model
+#### 14. Hamiltonian-Inspired Exploratory Model
 
 Implementation backlog:
 
@@ -494,11 +521,38 @@ Promotion criterion:
 
 - low priority; keep only if it reveals a physically meaningful advantage not captured by the more direct hybrid models.
 
+#### 15. Neural ODE / Continuous-State Exploratory Model
+
+Implementation backlog:
+
+- define whether the independent variable is angle, time, or a mixed formulation before implementation;
+- define the latent continuous state and the solver strategy;
+- keep the first variant intentionally narrow and exploratory.
+
+Smoke-test backlog:
+
+- verify one forward pass through the ODE block and one backward pass with finite gradients.
+
+Validation backlog:
+
+- verify consistency of the chosen continuous variable definition;
+- verify solver stability on representative batches;
+- verify that the formulation is not leaking future information through the sequence or integration setup.
+
+Campaign backlog:
+
+- only a limited exploratory campaign after the stronger hybrid families are already benchmarked;
+- refined campaign only if the formulation proves scientifically meaningful and empirically promising.
+
+Promotion criterion:
+
+- promote only if continuous-state modeling captures behavior that the main temporal and hybrid families still miss.
+
 ### PINN Preparation And PINN Backlog
 
 The PINN track should be separated into preparation and implementation.
 
-#### 14. PINN Formulation Package
+#### 16. PINN Formulation Package
 
 Implementation backlog:
 
@@ -519,7 +573,7 @@ Promotion criterion:
 
 - the first PINN implementation must not start before this package is approved.
 
-#### 15. First PINN Baseline
+#### 17. First PINN Baseline
 
 Implementation backlog:
 
@@ -576,6 +630,10 @@ Expected outcome:
 
 - determine whether history dependence is real and valuable enough to justify sequence models.
 
+Deferred exploratory extension:
+
+- `Lightweight Transformer` may enter only after the main temporal wave if the earlier temporal families leave credible evidence that broader-context modeling is still underexploited.
+
 #### Campaign Wave C. Hybrid Structured Campaign
 
 Included families:
@@ -588,6 +646,10 @@ Included families:
 Expected outcome:
 
 - identify the best bridge architecture between standard ML and PINNs.
+
+Deferred exploratory extension:
+
+- `Neural ODE` may enter after the main hybrid wave if a defensible continuous-state formulation becomes clear.
 
 #### Campaign Wave D. PINN Preparation And First PINN Campaign
 
@@ -730,14 +792,16 @@ A simpler structured or hybrid model should win over a heavier family if the met
 14. After approval, implement and validate Fourier-feature, harmonic-head, Laplacian-regularized, and optional `SIREN` models.
 15. Add smoke-tests for each hybrid family and run the approved hybrid campaign.
 16. Produce the hybrid-model results report and validated PDF export.
-17. Prepare the dedicated PINN formulation document and obtain explicit approval for it.
-18. Prepare the PINN campaign plan report only after the formulation is approved.
-19. Implement, validate, and smoke-test the first PINN baseline, then run the approved PINN campaign.
-20. Produce the PINN results report and validated PDF export.
-21. Create a cross-wave comparison analysis that ranks all sufficiently evaluated families.
-22. Select the candidate best solution based on accuracy, stability, interpretability, complexity, and deployment viability.
-23. Prepare the best-solution confirmation campaign plan report.
-24. After approval, rerun the best solution with the selected best hyperparameters and any required comparison reruns.
-25. Produce the final best-solution report and validated PDF export, including architecture analysis, expected behavior, comparison against earlier architectures, and future recommendations.
-26. Update `doc/guide/project_usage_guide.md` before any final commit if the approved implementation changes the runnable workflows.
-27. Stop after reporting completion and explicitly ask the user for approval before creating any Git commit.
+17. If justified after the temporal wave, implement, validate, smoke-test, and benchmark the low-priority `Lightweight Transformer` exploratory family.
+18. If justified after the hybrid wave, implement, validate, smoke-test, and benchmark the low-priority `Neural ODE` exploratory family.
+19. Prepare the dedicated PINN formulation document and obtain explicit approval for it.
+20. Prepare the PINN campaign plan report only after the formulation is approved.
+21. Implement, validate, and smoke-test the first PINN baseline, then run the approved PINN campaign.
+22. Produce the PINN results report and validated PDF export.
+23. Create a cross-wave comparison analysis that ranks all sufficiently evaluated families.
+24. Select the candidate best solution based on accuracy, stability, interpretability, complexity, and deployment viability.
+25. Prepare the best-solution confirmation campaign plan report.
+26. After approval, rerun the best solution with the selected best hyperparameters and any required comparison reruns.
+27. Produce the final best-solution report and validated PDF export, including architecture analysis, expected behavior, comparison against earlier architectures, and future recommendations.
+28. Update `doc/guide/project_usage_guide.md` before any final commit if the approved implementation changes the runnable workflows.
+29. Stop after reporting completion and explicitly ask the user for approval before creating any Git commit.

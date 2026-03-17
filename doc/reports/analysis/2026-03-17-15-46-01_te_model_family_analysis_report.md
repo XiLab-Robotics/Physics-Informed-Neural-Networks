@@ -310,6 +310,35 @@ This family often captures local and mid-range dependencies with less training f
 
 This is the strongest non-recurrent competitor to `LSTM` for the repository.
 
+## Lightweight Transformer
+
+### Principle
+
+Use a compact attention-based sequence model over short or medium TE windows.
+
+### Why It Remains Low Priority
+
+This family stays in scope, but not in the main execution path, because:
+
+- the useful context length is not yet proven to be large enough to justify attention;
+- the repository still has stronger lower-cost temporal candidates such as lagged-feature MLP, `GRU`, `LSTM`, and especially `TCN`;
+- deployment and runtime transparency are currently better served by the simpler temporal families.
+
+### Main Advantages
+
+- potentially better modeling of broader context interactions;
+- flexible sequence representation if the dataset later expands to richer windows.
+
+### Main Disadvantages
+
+- higher tuning and implementation cost than the main temporal baselines;
+- weaker immediate fit with compact deployment goals;
+- lower short-term value than the other temporal families already prioritized.
+
+### Recommendation
+
+Keep it as an explicit low-priority exploratory branch after the main temporal wave.
+
 ## Structured Hybrid Families Between Standard ML And PINNs
 
 This branch is likely the most valuable scientific middle ground for the project.
@@ -444,6 +473,35 @@ Hamiltonian methods shine when the system state, conjugate variables, and energy
 
 Keep this as a research branch, not as a first implementation target.
 
+## Neural ODE / Continuous-State Hybrid
+
+### Principle
+
+Model the evolution of a latent state continuously over angle or time, then decode that state into TE predictions.
+
+### Why It Remains Low Priority
+
+This family stays in scope, but not in the primary backlog, because the repository still lacks a sufficiently fixed continuous-state formulation:
+
+- the independent variable is not yet fixed cleanly as angle, time, or a mixed formulation;
+- the latent state does not yet have a well-defined physical interpretation;
+- the expected advantage over simpler temporal or hybrid models is not yet demonstrated.
+
+### Main Advantages
+
+- interesting bridge between sequence learning and future differential or physics-informed formulations;
+- potentially useful if later evidence supports continuous-state modeling.
+
+### Main Disadvantages
+
+- heavier training and solver complexity;
+- harder validation and deployment path;
+- easier to overcomplicate the problem before the main structured baselines are exhausted.
+
+### Recommendation
+
+Keep it as an explicit low-priority exploratory branch after the main hybrid wave and before advanced physics-informed exploration, only if a defensible formulation emerges.
+
 ## Full PINNs
 
 ## What PINNs Can Add
@@ -505,11 +563,13 @@ The correct approach is:
 | Lagged-feature MLP | Fixed temporal window without recurrence | Cheap memory test | Manual window design | Medium to high | High |
 | GRU / LSTM | Recurrent sequence modeling | Captures history-dependent behavior | Harder training and export | Medium | Medium to high |
 | TCN | Convolutional sequence modeling | Better engineering compromise than RNN in many cases | Window tuning still needed | Medium | High |
+| Lightweight Transformer | Compact attention-based sequence modeling | Potential broader-context modeling | Higher complexity than other temporal baselines | Medium to low | Low |
 | Fourier-feature network | Spectral encoding before regression | Strong periodic inductive bias | Frequency design sensitivity | High | Very high |
 | Harmonic-head network | Predict harmonic coefficients directly | Strong interpretability and deployment bridge | Harmonic dictionary limitations | High | Very high |
 | Laplacian-regularized network | Smoothness or graph consistency constraints | Better physical plausibility | Over-smoothing risk | High | High |
 | SIREN | Periodic activations | Strong fine harmonic expressivity | Sensitive optimization | Medium | Medium |
 | Hamiltonian-inspired network | Structured energy-based latent dynamics | Potential long-term physics elegance | Weak fit to current formulation | Low to medium | Low |
+| Neural ODE | Continuous-state latent dynamics | Bridge toward continuous and differential modeling | Formulation and solver complexity | Low to medium | Low |
 | Full PINN | Data + explicit physics residuals | Maximum physics integration | Highest formulation and training complexity | Medium if designed carefully | Deferred until prerequisites are fixed |
 
 ## Recommended Execution Order

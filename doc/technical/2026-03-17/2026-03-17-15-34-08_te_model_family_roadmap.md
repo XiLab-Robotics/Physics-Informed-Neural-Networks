@@ -256,7 +256,7 @@ Disadvantages:
 
 Recommendation:
 
-- low priority for now.
+- keep in scope as an explicit low-priority exploratory family after `TCN`, `GRU`, and `LSTM`.
 
 ### Middle-Ground Models Between Standard ML And Full PINNs
 
@@ -405,7 +405,17 @@ Disadvantages:
 
 Recommendation:
 
-- secondary exploratory option after sequence baselines are understood.
+- keep in scope as an explicit low-priority exploratory family after the main hybrid models and before or alongside advanced physics-informed exploration, depending on the final formulation.
+
+#### 7. Low-Priority Exploratory Status
+
+Both `Lightweight Transformer` and `Neural ODE` families remain within the project scope.
+
+They are not excluded. They are simply deferred until:
+
+- the main structured, temporal, and hybrid families have been compared;
+- the repository has evidence that longer-context or continuous-state modeling is still missing something important;
+- or the user explicitly promotes one of these families into an earlier execution wave.
 
 ### Full PINN Directions
 
@@ -559,6 +569,8 @@ At the planning level, the strongest candidates are:
 `LSTM` remains a valid candidate, especially if hysteresis and transient evolution are confirmed by the data, but it should not automatically be assumed to beat a good structured static model.
 
 Hamiltonian-inspired networks are intellectually interesting, but they currently look less aligned with the available measurements than Fourier, harmonic, or Laplacian hybrids.
+
+`Lightweight Transformer` and `Neural ODE` should remain visible as low-priority exploratory branches, but they should not displace the main roadmap unless later evidence clearly justifies them.
 
 ## Involved Components
 

@@ -235,6 +235,7 @@ Technical documents:
 * `2026-03-17`
   * `doc/technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
   * `doc/technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
+  * `doc/technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md`
 
 Script documentation:
 

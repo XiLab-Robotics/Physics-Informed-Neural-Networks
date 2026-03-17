@@ -160,6 +160,8 @@ This folder contains the internal project documents derived from the reference P
   Technical planning document for the TE model-family roadmap across standard, temporal, hybrid, and PINN approaches.
 - [technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md](./technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md)
   Technical backlog document for implementing, validating, smoke-testing, and comparing all approved TE model families through campaign waves.
+- [technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md](./technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md)
+  Technical note for keeping Lightweight Transformer and Neural ODE families explicitly in scope as low-priority exploratory options.
 
 ### Script Documentation
 
