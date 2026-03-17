@@ -328,13 +328,7 @@ The feedforward training workflow now writes:
 
 - `training_config.yaml`
 - `metrics_summary.yaml`
-
-and still preserves the legacy feedforward artifact names:
-
-- `feedforward_network_training.yaml`
-- `training_test_metrics.yaml`
-
-This allows the repository to move toward cross-family comparability without breaking the current feedforward reporting path.
+- `run_metadata.yaml`
 
 ## Dataset Processing Configuration
 
@@ -705,7 +699,7 @@ This command:
 
 Typical artifacts now include:
 
-- `feedforward_network_training.yaml`
+- `training_config.yaml`
   Snapshot of the effective run configuration.
 
 - `run_metadata.yaml`
@@ -717,7 +711,7 @@ Typical artifacts now include:
 - `best_checkpoint_path.txt`
   Plain-text pointer to the selected best checkpoint.
 
-- `training_test_metrics.yaml`
+- `metrics_summary.yaml`
   Machine-readable validation and test metrics.
 
 - `training_test_report.md`

@@ -47,8 +47,6 @@ COMMON_VALIDATION_FILENAME = "validation_summary.yaml"
 COMMON_SMOKE_TEST_FILENAME = "smoke_test_summary.yaml"
 COMMON_RUN_METADATA_FILENAME = "run_metadata.yaml"
 COMMON_RUN_REPORT_FILENAME = "training_test_report.md"
-LEGACY_FEEDFORWARD_CONFIG_FILENAME = "feedforward_network_training.yaml"
-LEGACY_FEEDFORWARD_METRICS_FILENAME = "training_test_metrics.yaml"
 FAMILY_LEADERBOARD_FILENAME = "leaderboard.yaml"
 FAMILY_BEST_FILENAME = "latest_family_best.yaml"
 PROGRAM_BEST_FILENAME = "current_best_solution.yaml"
@@ -567,7 +565,7 @@ def save_yaml_snapshot(snapshot_dictionary: dict[str, Any], output_path: Path) -
     with output_path.open("w", encoding="utf-8") as output_file:
         yaml.safe_dump(snapshot_dictionary, output_file, sort_keys=False)
 
-def save_training_config_snapshot(training_config: dict[str, Any], output_directory: Path, experiment_identity: ExperimentIdentity) -> None:
+def save_training_config_snapshot(training_config: dict[str, Any], output_directory: Path) -> None:
 
     """ Save Training Config Snapshot """
 
@@ -576,20 +574,12 @@ def save_training_config_snapshot(training_config: dict[str, Any], output_direct
     # Save the Training Config Snapshot to the Output Directory
     save_yaml_snapshot(training_config, output_directory / COMMON_TRAINING_CONFIG_FILENAME)
 
-    # Optionally Save a Legacy Config Format for Feedforward Models for Backwards Compatibility
-    if experiment_identity.model_family == "feedforward":
-        save_yaml_snapshot(training_config, output_directory / LEGACY_FEEDFORWARD_CONFIG_FILENAME)
-
-def save_common_metrics_snapshot(metrics_snapshot_dictionary: dict[str, Any], output_directory: Path, experiment_identity: ExperimentIdentity) -> None:
+def save_common_metrics_snapshot(metrics_snapshot_dictionary: dict[str, Any], output_directory: Path) -> None:
 
     """ Save Common Metrics Snapshot """
 
     # Save the Common Metrics Snapshot to the Output Directory
     save_yaml_snapshot(metrics_snapshot_dictionary, output_directory / COMMON_METRICS_FILENAME)
-
-    # Optionally Save a Legacy Metrics Format for Feedforward Models for Backwards Compatibility
-    if experiment_identity.model_family == "feedforward":
-        save_yaml_snapshot(metrics_snapshot_dictionary, output_directory / LEGACY_FEEDFORWARD_METRICS_FILENAME)
 
 def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[str, Any]:
 

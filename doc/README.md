@@ -174,6 +174,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for reorganizing training outputs by artifact type and adding explicit campaign, family, and program best-result registries.
 - [technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md](./technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md)
   Technical document for migrating the historical `output/feedforward_network/` artifacts into the new training-run structure and rewriting repository-authored path references.
+- [technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md](./technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md)
+  Technical document for removing the remaining feedforward-specific legacy snapshot compatibility from the active training pipeline.
 
 ### Script Documentation
 

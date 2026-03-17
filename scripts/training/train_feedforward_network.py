@@ -54,12 +54,8 @@ except ImportError:
 
         return None
 
-# Import YAML Utilities
-import yaml
-
 # Import Project Models And Training Utilities
 from scripts.models.model_factory import create_model
-from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 from scripts.training import shared_training_infrastructure
 from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
@@ -346,79 +342,6 @@ def print_output_artifact_summary(output_directory: Path, logger: TensorBoardLog
     if logger.log_dir: print_key_value("TensorBoard Log Directory", logger.log_dir, value_color=Fore.YELLOW)
     print_key_value("Best Checkpoint", best_model_path, value_color=Fore.YELLOW)
 
-def serialize_metric_dictionary(metric_dictionary: dict[str, object]) -> dict[str, object]:
-
-    """ Serialize Metric Dictionary """
-
-    serialized_metric_dictionary: dict[str, object] = {}
-
-    for metric_name, metric_value in metric_dictionary.items():
-
-        # Handle Tensors By Detaching, Moving To CPU, And Converting To Float
-        if isinstance(metric_value, torch.Tensor):
-            serialized_metric_dictionary[metric_name] = float(metric_value.detach().cpu().item())
-            continue
-
-        # Handle Floats Directly, Otherwise Convert To String For Safe YAML Serialization
-        if isinstance(metric_value, float):
-            serialized_metric_dictionary[metric_name] = float(metric_value)
-            continue
-
-        # Handle Integers Directly, Otherwise Convert To String For Safe YAML Serialization
-        if isinstance(metric_value, int):
-            serialized_metric_dictionary[metric_name] = int(metric_value)
-            continue
-
-        # For Other Types, Convert To String For Safe YAML Serialization
-        serialized_metric_dictionary[metric_name] = str(metric_value)
-
-    return serialized_metric_dictionary
-
-def save_metrics_snapshot(
-    output_directory: Path,
-    training_config: dict,
-    datamodule: TransmissionErrorDataModule,
-    best_model_path: str,
-    validation_metric_list: list[dict[str, object]],
-    test_metric_list: list[dict[str, object]],
-) -> dict[str, object]:
-
-    """ Save Metrics Snapshot """
-
-    # Get Dataset Split Summary And Normalization Statistics From The DataModule
-    dataset_split_summary = datamodule.get_dataset_split_summary()
-    normalization_statistics = datamodule.get_normalization_statistics()
-
-    # Serialize Validation And Test Metric Dictionaries For Snapshot Saving
-    validation_metric_dictionary = serialize_metric_dictionary(validation_metric_list[0] if len(validation_metric_list) > 0 else {})
-    test_metric_dictionary = serialize_metric_dictionary(test_metric_list[0] if len(test_metric_list) > 0 else {})
-
-    # Build Metrics Snapshot Dictionary
-    metrics_snapshot_dictionary: dict[str, object] = {
-        "run_name": training_config["experiment"]["run_name"],
-        "best_checkpoint_path": best_model_path,
-        "dataset_split": {
-            "train_curves": dataset_split_summary.train_curve_count,
-            "validation_curves": dataset_split_summary.validation_curve_count,
-            "test_curves": dataset_split_summary.test_curve_count,
-        },
-        "normalization_statistics": {
-            "input_feature_mean": [float(value) for value in normalization_statistics.input_feature_mean.tolist()],
-            "input_feature_std": [float(value) for value in normalization_statistics.input_feature_std.tolist()],
-            "target_mean": [float(value) for value in normalization_statistics.target_mean.tolist()],
-            "target_std": [float(value) for value in normalization_statistics.target_std.tolist()],
-        },
-        "validation_metrics": validation_metric_dictionary,
-        "test_metrics": test_metric_dictionary,
-    }
-
-    # Save The Metrics Snapshot To The Output Directory In YAML Format
-    metrics_snapshot_path = output_directory / shared_training_infrastructure.LEGACY_FEEDFORWARD_METRICS_FILENAME
-    with metrics_snapshot_path.open("w", encoding="utf-8") as metrics_file:
-        yaml.safe_dump(metrics_snapshot_dictionary, metrics_file, sort_keys=False)
-
-    return metrics_snapshot_dictionary
-
 def build_metric_interpretation(metric_dictionary: dict[str, object], metric_prefix: str) -> str:
 
     """ Build Metric Interpretation """
@@ -521,25 +444,12 @@ def resolve_runtime_config(training_config: dict) -> dict[str, object]:
 
     return runtime_config
 
-def save_training_config_snapshot(training_config: dict, output_directory: Path) -> None:
-
-    """ Save Training Config Snapshot """
-
-    # Resolve Experiment Identity For Snapshot Saving
-    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
-    shared_training_infrastructure.save_training_config_snapshot(
-        training_config,
-        output_directory,
-        experiment_identity,
-    )
-
 def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> None:
 
     """ Train Feedforward Network """
 
     # Load Training Configuration
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(load_training_config(config_path))
-    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     runtime_config = resolve_runtime_config(training_config)
 
     # Resolve Output Directory
@@ -547,7 +457,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # Save Configuration Snapshot
-    save_training_config_snapshot(training_config, output_directory)
+    shared_training_infrastructure.save_training_config_snapshot(training_config, output_directory)
     shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
 
     # Initialize Shared Training Components
@@ -677,7 +587,6 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     shared_training_infrastructure.save_common_metrics_snapshot(
         metrics_snapshot_dictionary,
         output_directory,
-        experiment_identity,
     )
 
     # Save Training/Test Report

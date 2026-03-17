@@ -67,6 +67,11 @@ For each batch execution, the runner generates:
 - one terminal log per queued YAML file;
 - references to the per-run training artifacts already produced by the underlying trainer.
 
+The runner now resolves canonical per-run snapshots from:
+
+- `training_config.yaml`
+- `metrics_summary.yaml`
+
 ## Practical Use
 
 Queue existing presets without executing them yet:

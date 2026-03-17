@@ -67,13 +67,11 @@ The script writes its outputs under the configured training-run root, currently:
 Typical generated artifacts include:
 
 - a copy of the training config under `training_config.yaml`;
-- the legacy feedforward config snapshot under `feedforward_network_training.yaml`;
 - a run metadata snapshot under `run_metadata.yaml`;
 - TensorBoard logs;
 - Lightning checkpoints;
 - a text file containing the best checkpoint path;
 - a family-agnostic YAML metrics artifact under `metrics_summary.yaml`;
-- the legacy feedforward metrics snapshot under `training_test_metrics.yaml`;
 - a markdown report summarizing the executed run.
 - automatic family/program best-result registries under:
   - `output/registries/families/feedforward/`

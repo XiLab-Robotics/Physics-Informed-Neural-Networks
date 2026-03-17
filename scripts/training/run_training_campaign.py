@@ -25,14 +25,6 @@ from scripts.training import shared_training_infrastructure
 DEFAULT_QUEUE_ROOT = PROJECT_PATH / "config" / "training" / "queue"
 DEFAULT_CAMPAIGN_OUTPUT_ROOT = PROJECT_PATH / "output" / "training_campaigns"
 SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {"feedforward": "scripts/training/train_feedforward_network.py"}
-CONFIG_SNAPSHOT_FILENAME_LIST = [
-    shared_training_infrastructure.LEGACY_FEEDFORWARD_CONFIG_FILENAME,
-    shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME,
-]
-METRICS_SNAPSHOT_FILENAME_LIST = [
-    shared_training_infrastructure.COMMON_METRICS_FILENAME,
-    shared_training_infrastructure.LEGACY_FEEDFORWARD_METRICS_FILENAME,
-]
 TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 SECTION_DIVIDER_WIDTH = 96
 CAMPAIGN_PROGRESS_BAR_WIDTH = 24
@@ -515,23 +507,19 @@ def resolve_config_snapshot_path(output_directory: Path) -> Path | None:
 
     """ Resolve Config Snapshot Path """
 
-    # Resolve Config Snapshot Path Candidates in Order and Return the First One That Exists
-    for config_snapshot_filename in CONFIG_SNAPSHOT_FILENAME_LIST:
-        config_snapshot_path = output_directory / config_snapshot_filename
-        if config_snapshot_path.exists(): return config_snapshot_path.resolve()
-
-    return None
+    # Resolve Config Snapshot Path
+    config_snapshot_path = output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME
+    if not config_snapshot_path.exists(): return None
+    return config_snapshot_path.resolve()
 
 def resolve_metrics_snapshot_path(output_directory: Path) -> Path | None:
 
     """ Resolve Metrics Snapshot Path """
 
-    # Resolve Metrics Snapshot Path Candidates in Order and Return the First One That Exists
-    for metrics_snapshot_filename in METRICS_SNAPSHOT_FILENAME_LIST:
-        metrics_snapshot_path = output_directory / metrics_snapshot_filename
-        if metrics_snapshot_path.exists(): return metrics_snapshot_path.resolve()
-
-    return None
+    # Resolve Metrics Snapshot Path
+    metrics_snapshot_path = output_directory / shared_training_infrastructure.COMMON_METRICS_FILENAME
+    if not metrics_snapshot_path.exists(): return None
+    return metrics_snapshot_path.resolve()
 
 def read_best_checkpoint_path(best_checkpoint_reference_path: Path | None) -> str | None:
 
@@ -863,7 +851,6 @@ def write_campaign_execution_report(
         "Recommended references for the final report:",
         "",
         "- `metrics_summary.yaml` for the common numeric comparison tables.",
-        "- `training_test_metrics.yaml` when legacy feedforward compatibility files are still needed.",
         "- `training_test_report.md` for per-run interpretation notes.",
         "- `best_checkpoint_path.txt` for checkpoint traceability.",
         "- `logs/*.log` for terminal-level diagnostics and failure analysis.",
