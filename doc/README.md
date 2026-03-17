@@ -154,6 +154,13 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md](./technical/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md)
   Technical document for validating and executing the project environment migration from Python 3.10 to Python 3.12.
 
+#### 2026-03-17
+
+- [technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md](./technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md)
+  Technical planning document for the TE model-family roadmap across standard, temporal, hybrid, and PINN approaches.
+- [technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md](./technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md)
+  Technical backlog document for implementing, validating, smoke-testing, and comparing all approved TE model families through campaign waves.
+
 ### Script Documentation
 
 - [scripts/datasets/transmission_error_dataset.md](./scripts/datasets/transmission_error_dataset.md)
@@ -175,6 +182,8 @@ This folder contains the internal project documents derived from the reference P
   Detailed explanation of the training configuration entries, their practical effects, and a comparison between trial, baseline, and heavier workstation-oriented variants.
 - [reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf](./reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf)
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
+- [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
+  Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
 
 #### Campaign Plans
 

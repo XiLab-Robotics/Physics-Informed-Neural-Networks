@@ -232,6 +232,9 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md`
 * `2026-03-16`
   * `doc/technical/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md`
+* `2026-03-17`
+  * `doc/technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
+  * `doc/technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
 
 Script documentation:
 
@@ -246,6 +249,7 @@ Reports:
   * `doc/reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
   * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
   * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` -> golden standard visual reference for future styled analytical PDFs
+  * `doc/reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md`
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 * `Campaign Results`
