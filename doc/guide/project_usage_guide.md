@@ -22,11 +22,23 @@ Before using the scripts, make sure the project environment is installed and act
 If the environment is not ready yet, install the tracked project dependencies first:
 
 ```powershell
+conda create -y -n standard_ml_codex_env python=3.12
+conda activate standard_ml_codex_env
+python -m pip install --upgrade pip
 python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
 ```
 
 This keeps the dependency installation aligned with `requirements.txt` while still pulling the CUDA-enabled `torch` build from the official PyTorch wheel index for the current Windows setup.
+
+If you are upgrading an existing `standard_ml_codex_env` from Python 3.10, rebuild the binary packages after the interpreter update:
+
+```powershell
+conda install -y -n standard_ml_codex_env python=3.12
+conda activate standard_ml_codex_env
+python -m pip install --force-reinstall --no-cache-dir -r requirements.txt
+python -m pip install --force-reinstall --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu130
+```
 
 ### 1. Activate The Conda Environment
 

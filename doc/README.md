@@ -149,6 +149,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md](./technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md)
   Technical document for reviewing the current GPU training path and proposing practical transfer, precision, and Trainer-level performance optimizations.
 
+#### 2026-03-16
+
+- [technical/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md](./technical/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md)
+  Technical document for validating and executing the project environment migration from Python 3.10 to Python 3.12.
+
 ### Script Documentation
 
 - [scripts/datasets/transmission_error_dataset.md](./scripts/datasets/transmission_error_dataset.md)
@@ -202,4 +207,3 @@ This folder contains the internal project documents derived from the reference P
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
-

@@ -230,6 +230,8 @@ Technical documents:
   * `doc/technical/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md`
   * `doc/technical/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md`
   * `doc/technical/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md`
+* `2026-03-16`
+  * `doc/technical/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md`
 
 Script documentation:
 
@@ -470,7 +472,7 @@ TwinCAT integration features:
 
 ## Requirements
 
-* Python 3.10
+* Python 3.12
 * NVIDIA GPU with compatible drivers for CUDA execution
 * PyTorch with CUDA support
 * PyTorch Lightning
@@ -500,18 +502,27 @@ These setup choices are intended to support reproducible development, documentat
 Create and activate the Conda environment:
 
 ```powershell
-conda create -y -n standard_ml_codex_env python=3.10
+conda create -y -n standard_ml_codex_env python=3.12
 conda activate standard_ml_codex_env
 python -m pip install --upgrade pip
 ```
 
 Install the project dependencies.
 
-Note: this workstation reports local CUDA Toolkit `13.1`, and the official PyTorch wheel index exposes `cu130` wheels for Windows + Python 3.10. The repository now tracks `torch` directly in `requirements.txt`, but for the current GPU setup it is still better to install the CUDA-enabled PyTorch wheel explicitly from the official index first:
+Note: this workstation reports local CUDA Toolkit `13.1`, and the official PyTorch wheel index exposes `cu130` wheels for Windows + Python 3.12. The repository now tracks `torch` directly in `requirements.txt`, but for the current GPU setup it is still better to install the CUDA-enabled PyTorch wheel explicitly from the official index first:
 
 ```powershell
 python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
+```
+
+If you are upgrading an existing `standard_ml_codex_env` created with Python 3.10, update the interpreter first and then rebuild the binary wheels inside the environment:
+
+```powershell
+conda install -y -n standard_ml_codex_env python=3.12
+conda activate standard_ml_codex_env
+python -m pip install --force-reinstall --no-cache-dir -r requirements.txt
+python -m pip install --force-reinstall --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
 
 Optional verification:

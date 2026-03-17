@@ -52,7 +52,7 @@ The dependency baseline will be organized around four groups:
 
 Planned installation strategy:
 
-- keep Python at `3.10` in the Conda environment;
+- keep Python at `3.12` in the Conda environment;
 - keep the full Python dependency list tracked in `requirements.txt`, including `torch`;
 - install the CUDA-enabled `torch` wheel explicitly from the official PyTorch index;
 - install the remaining tracked dependencies with `python -m pip install -r requirements.txt`;
@@ -61,7 +61,7 @@ Planned installation strategy:
 CUDA decision:
 
 - the local CUDA Toolkit is `13.1`;
-- the official PyTorch wheel index checked on March 10, 2026 exposes `cu130` wheels for Windows and Python 3.10;
+- the official PyTorch wheel index checked again on March 16, 2026 exposes `cu130` wheels for Windows and Python 3.12;
 - the project will therefore align the installation with the local NVIDIA CUDA 13.x toolchain and use the official `cu130` index.
 
 Planned installation command:
