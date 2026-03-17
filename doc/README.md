@@ -166,6 +166,8 @@ This folder contains the internal project documents derived from the reference P
   Technical review note for adding explicit State-Space, Mixture-of-Experts, and optional Kernel/GP families to the TE planning set.
 - [technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md](./technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md)
   Technical document for the shared training, smoke-test, validation, and metrics infrastructure required before implementing the planned TE model families.
+- [technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md](./technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md)
+  Technical document for moving the TE implementation backlog into a privileged live location under `doc/running/`.
 
 ### Script Documentation
 
@@ -209,8 +211,10 @@ This folder contains the internal project documents derived from the reference P
 
 ### Running State
 
+- [running/te_model_live_backlog.md](./running/te_model_live_backlog.md)
+  Privileged live backlog for the TE model implementation program, including current wave status, next steps, and deferred branches.
 - [running/README.md](./running/README.md)
-  Explanation of the persistent prepared/active campaign state workflow.
+  Explanation of the persistent running-state workflow, including the live backlog and active campaign tracking.
 - [running/active_training_campaign.yaml](./running/active_training_campaign.yaml)
   Current prepared or active training campaign state, including protected files and launch commands.
 

@@ -238,6 +238,7 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md`
   * `doc/technical/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md`
   * `doc/technical/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md`
+  * `doc/technical/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md`
 
 Script documentation:
 
@@ -264,6 +265,11 @@ Reports:
 Guides:
 
 * `doc/guide/project_usage_guide.md`
+
+Running State:
+
+* `doc/running/te_model_live_backlog.md` -> privileged operational backlog for the TE model program
+* `doc/running/active_training_campaign.yaml`
 
 These documents summarize:
 
