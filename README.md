@@ -259,6 +259,8 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
+  * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
 
 Script documentation:
 

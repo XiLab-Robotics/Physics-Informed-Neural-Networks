@@ -39,10 +39,10 @@ The preferred repository-local tool environment for PDF validation is:
 Typical usage for the current explanatory model reports:
 
 ```powershell
-python scripts/reports/run_report_pipeline.py `
+conda run -n standard_ml_codex_env python scripts/reports/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
-  --prefer-tool-env
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe
 ```
 
 If the local report tool environment does not exist yet, bootstrap it once:
@@ -82,3 +82,5 @@ python scripts/reports/run_report_pipeline.py `
 - The runner does not replace the specialized report scripts; it orchestrates them.
 - PDF export still depends on a local Chrome or Edge installation.
 - PDF validation depends on a Python environment where `PyMuPDF` is available.
+- On Windows, `--validation-python-path` can be the simplest option when the main Conda environment already contains `PyMuPDF`.
+- Validation page images use compact names such as `page_001.png`, which avoids deep-path failures during raster export.

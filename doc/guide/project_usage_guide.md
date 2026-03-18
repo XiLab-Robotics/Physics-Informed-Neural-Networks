@@ -174,6 +174,9 @@ The diagram-generation utility:
 - produces both conceptual diagrams and architecture-style diagrams;
 - keeps the visual language and layout of those diagrams consistent across model families;
 - enforces built-in fit checks so card content does not silently overflow;
+- vertically centers each slide composition below the diagram header instead of compacting all content at the top;
+- uses distributed fan-in anchors so dense neuron connections do not collapse into one arrival point;
+- prefers multiline wrapping and spacing over over-aggressive text shrinking in compact cards;
 - uses true directional connectors for architecture diagrams instead of pseudo-arrow text.
 
 The report-pipeline runner:
@@ -253,10 +256,10 @@ Use the orchestration runner when you want one repository-owned command for:
 For the current four structured-model explanatory reports:
 
 ```powershell
-python scripts/reports/run_report_pipeline.py `
+conda run -n standard_ml_codex_env python scripts/reports/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
-  --prefer-tool-env
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe
 ```
 
 If the repository-local validation environment does not exist yet, bootstrap it once:
@@ -274,6 +277,8 @@ What this does:
 - exports the matching PDFs;
 - writes validation images under `.temp/report_pipeline/pdf_validation/`;
 - avoids repeating the individual commands manually.
+
+On Windows, the explicit validation interpreter can be preferable when `PyMuPDF` is already installed in the main Conda environment and you want to avoid bootstrapping a separate tool environment.
 
 Useful options:
 
@@ -319,7 +324,8 @@ What this does:
 
 - reads the exported PDF directly;
 - rasterizes every page into `.png` images;
-- overwrites the previous validation image folder when `--clean-output-directory` is used.
+- overwrites the previous validation image folder when `--clean-output-directory` is used;
+- uses compact page names such as `page_001.png`, which avoids Windows path-length failures in deep validation folders.
 
 Use the generated page images to verify the actual PDF layout:
 

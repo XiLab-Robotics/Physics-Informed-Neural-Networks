@@ -10,8 +10,8 @@
       <stop offset="0%" stop-color="#F6FAFF"/>
       <stop offset="100%" stop-color="#EEF5FF"/>
     </linearGradient>
-    <marker id="arrow_head" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#4E7AC7"/>
+    <marker id="arrow_head" markerWidth="11" markerHeight="11" refX="9.4" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L11,5.5 L0,11 Z" fill="#4E7AC7"/>
     </marker>
     <style>
       .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
@@ -30,87 +30,89 @@
   <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
   <text x="64" y="68" class="canvas-title">Residual Harmonic Network Structure</text>
   <text x="64" y="98" class="canvas-subtitle">Structured harmonic path, residual MLP path, and explicit additive merge</text>
-  <rect x="46" y="266" width="190" height="118" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M64, 266 H218 Q236, 266 236, 284 V312 H46 V284 Q46, 266 64, 266 Z" fill="url(#card_header)"/>
-  <line x1="46" y1="312" x2="236" y2="312" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="141" y="297" text-anchor="middle" class="card-title">Shared Input</text>
-  <text x="141" y="352.0" text-anchor="middle" class="card-text">Angle and conditions</text>
-  <rect x="292" y="148" width="226" height="204" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
-  <path d="M310, 148 H500 Q518, 148 518, 166 V194 H292 V166 Q292, 148 310, 148 Z" fill="url(#card_header)"/>
-  <line x1="292" y1="194" x2="518" y2="194" stroke="#7FB2F0" stroke-width="2"/>
-  <text x="405.0" y="179" text-anchor="middle" class="card-title">Structured Path</text>
-  <rect x="316" y="221.0" width="178" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="405.0" y="240.0" text-anchor="middle" class="flow-row-text">Harmonic basis</text>
-  <line x1="405.0" y1="251.0" x2="405.0" y2="257.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
-  <rect x="316" y="259.0" width="178" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="405.0" y="278.0" text-anchor="middle" class="flow-row-text">Coefficient resolver</text>
-  <line x1="405.0" y1="289.0" x2="405.0" y2="295.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
-  <rect x="316" y="297.0" width="178" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="405.0" y="316.0" text-anchor="middle" class="flow-row-text">Structured output H</text>
-  <rect x="292" y="398" width="226" height="204" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M310, 398 H500 Q518, 398 518, 416 V444 H292 V416 Q292, 398 310, 398 Z" fill="url(#card_header)"/>
-  <line x1="292" y1="444" x2="518" y2="444" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="405.0" y="429" text-anchor="middle" class="card-title">Residual Path</text>
-  <rect x="316" y="471.0" width="178" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="405.0" y="490.0" text-anchor="middle" class="flow-row-text">Normalized input</text>
-  <line x1="405.0" y1="501.0" x2="405.0" y2="507.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
-  <rect x="316" y="509.0" width="178" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="405.0" y="528.0" text-anchor="middle" class="flow-row-text">Dense residual MLP</text>
-  <line x1="405.0" y1="539.0" x2="405.0" y2="545.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
-  <rect x="316" y="547.0" width="178" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="405.0" y="566.0" text-anchor="middle" class="flow-row-text">Residual output R</text>
-  <line x1="236.0" y1="312.0" x2="292.0" y2="250.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
-  <line x1="236.0" y1="338.0" x2="292.0" y2="500.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
-  <circle cx="612" cy="411" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="612" y="415" text-anchor="middle" class="node-label">z1</text>
-  <circle cx="612" cy="469" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="612" y="473" text-anchor="middle" class="node-label">z2</text>
-  <circle cx="612" cy="527" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="612" y="531" text-anchor="middle" class="node-label">z3</text>
-  <circle cx="612" cy="585" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="612" y="589" text-anchor="middle" class="node-label">z4</text>
-  <circle cx="726" cy="440" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="726" y="444" text-anchor="middle" class="node-label">r1</text>
-  <circle cx="726" cy="498" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="726" y="502" text-anchor="middle" class="node-label">r2</text>
-  <circle cx="726" cy="556" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="726" y="560" text-anchor="middle" class="node-label">r3</text>
-  <circle cx="840" cy="498" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="840" y="502" text-anchor="middle" class="node-label">R</text>
-  <line x1="626.5" y1="414.7" x2="711.5" y2="436.3" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="623.9" y1="420.1" x2="714.1" y2="488.9" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="621.3" y1="422.8" x2="716.7" y2="544.2" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="626.5" y1="465.3" x2="711.5" y2="443.7" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="626.5" y1="472.7" x2="711.5" y2="494.3" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="623.9" y1="478.1" x2="714.1" y2="546.9" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="623.9" y1="517.9" x2="714.1" y2="449.1" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="626.5" y1="523.3" x2="711.5" y2="501.7" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="626.5" y1="530.7" x2="711.5" y2="552.3" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="621.3" y1="573.2" x2="716.7" y2="451.8" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="623.9" y1="575.9" x2="714.1" y2="507.1" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="626.5" y1="581.3" x2="711.5" y2="559.7" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="739.4" y1="446.8" x2="826.6" y2="491.2" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="741.0" y1="498.0" x2="825.0" y2="498.0" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <line x1="739.4" y1="549.2" x2="826.6" y2="504.8" stroke="#C8DCF8" stroke-width="1.5" marker-end="url(#arrow_head)"/>
-  <rect x="610" y="172" width="192" height="104" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M628, 172 H784 Q802, 172 802, 190 V218 H610 V190 Q610, 172 628, 172 Z" fill="url(#card_header)"/>
-  <line x1="610" y1="218" x2="802" y2="218" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="706" y="203" text-anchor="middle" class="card-title">Structured Output</text>
-  <text x="706" y="251.0" text-anchor="middle" class="card-text">H</text>
-  <rect x="936" y="276" width="164" height="112" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M954, 276 H1082 Q1100, 276 1100, 294 V322 H936 V294 Q936, 276 954, 276 Z" fill="url(#card_header)"/>
-  <line x1="936" y1="322" x2="1100" y2="322" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1018" y="307" text-anchor="middle" class="card-title">Add</text>
-  <text x="1018" y="359.0" text-anchor="middle" class="card-text">H plus R</text>
-  <rect x="1120" y="276" width="116" height="112" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M1138, 276 H1218 Q1236, 276 1236, 294 V322 H1120 V294 Q1120, 276 1138, 276 Z" fill="url(#card_header)"/>
-  <line x1="1120" y1="322" x2="1236" y2="322" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1178" y="307" text-anchor="middle" class="card-title">TE</text>
-  <text x="1178" y="359.0" text-anchor="middle" class="card-text">Output</text>
-  <line x1="518.0" y1="250.0" x2="610.0" y2="224.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
-  <line x1="802.0" y1="212.0" x2="936.0" y2="312.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
-  <line x1="855.0" y1="498.0" x2="936.0" y2="344.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
-  <line x1="1100.0" y1="332.0" x2="1120.0" y2="332.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
-  <text x="610" y="620" class="tiny">Training can log H, R, and H + R separately for diagnostics.</text>
+  <g transform="translate(0,17.0)">
+  <rect x="46" y="286" width="190" height="118" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M64, 286 H218 Q236, 286 236, 304 V332 H46 V304 Q46, 286 64, 286 Z" fill="url(#card_header)"/>
+  <line x1="46" y1="332" x2="236" y2="332" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="141" y="317" text-anchor="middle" class="card-title">Shared Input</text>
+  <text x="141.0" y="372.0" text-anchor="middle" class="card-text">Angle and conditions</text>
+  <rect x="302" y="174" width="226" height="188" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M320, 174 H510 Q528, 174 528, 192 V220 H302 V192 Q302, 174 320, 174 Z" fill="url(#card_header)"/>
+  <line x1="302" y1="220" x2="528" y2="220" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="415.0" y="205" text-anchor="middle" class="card-title">Structured Path</text>
+  <rect x="326" y="252.0" width="178" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="415.0" y="266.0" text-anchor="middle" class="flow-row-text">Harmonic basis</text>
+  <line x1="415.0" y1="273.0" x2="415.0" y2="277.0" stroke="#4E7AC7" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="326" y="282.0" width="178" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="415.0" y="296.0" text-anchor="middle" class="flow-row-text">Coefficient resolver</text>
+  <line x1="415.0" y1="303.0" x2="415.0" y2="307.0" stroke="#4E7AC7" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="326" y="312.0" width="178" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="415.0" y="326.0" text-anchor="middle" class="flow-row-text">Structured output H</text>
+  <rect x="302" y="414" width="226" height="188" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M320, 414 H510 Q528, 414 528, 432 V460 H302 V432 Q302, 414 320, 414 Z" fill="url(#card_header)"/>
+  <line x1="302" y1="460" x2="528" y2="460" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="415.0" y="445" text-anchor="middle" class="card-title">Residual Path</text>
+  <rect x="326" y="492.0" width="178" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="415.0" y="506.0" text-anchor="middle" class="flow-row-text">Normalized input</text>
+  <line x1="415.0" y1="513.0" x2="415.0" y2="517.0" stroke="#4E7AC7" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="326" y="522.0" width="178" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="415.0" y="536.0" text-anchor="middle" class="flow-row-text">Dense residual MLP</text>
+  <line x1="415.0" y1="543.0" x2="415.0" y2="547.0" stroke="#4E7AC7" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="326" y="552.0" width="178" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="415.0" y="566.0" text-anchor="middle" class="flow-row-text">Residual output R</text>
+  <path d="M236.0,322.0 L268.0,322.0 L268.0,268.0 L302.0,268.0" fill="none" stroke="#4E7AC7" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M236.0,352.0 L268.0,352.0 L268.0,508.0 L302.0,508.0" fill="none" stroke="#4E7AC7" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <circle cx="620" cy="423" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="620" y="427" text-anchor="middle" class="node-label">z1</text>
+  <circle cx="620" cy="481" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="620" y="485" text-anchor="middle" class="node-label">z2</text>
+  <circle cx="620" cy="539" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="620" y="543" text-anchor="middle" class="node-label">z3</text>
+  <circle cx="620" cy="597" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="620" y="601" text-anchor="middle" class="node-label">z4</text>
+  <circle cx="734" cy="452" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="734" y="456" text-anchor="middle" class="node-label">r1</text>
+  <circle cx="734" cy="510" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="734" y="514" text-anchor="middle" class="node-label">r2</text>
+  <circle cx="734" cy="568" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="734" y="572" text-anchor="middle" class="node-label">r3</text>
+  <circle cx="848" cy="510" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="848" y="514" text-anchor="middle" class="node-label">R</text>
+  <line x1="633.4" y1="416.3" x2="720.6" y2="458.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="635.0" y1="423.0" x2="720.6" y2="516.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="429.7" x2="720.6" y2="574.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="474.3" x2="719.2" y2="454.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="635.0" y1="481.0" x2="719.2" y2="512.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="487.7" x2="719.2" y2="570.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="532.3" x2="719.2" y2="449.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="635.0" y1="539.0" x2="719.2" y2="507.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="545.7" x2="719.2" y2="565.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="590.3" x2="720.6" y2="445.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="635.0" y1="597.0" x2="720.6" y2="503.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="633.4" y1="603.7" x2="720.6" y2="561.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="749.0" y1="452.0" x2="834.6" y2="516.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="749.0" y1="510.0" x2="833.0" y2="510.0" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="749.0" y1="568.0" x2="834.6" y2="503.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="620" y="192" width="192" height="104" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M638, 192 H794 Q812, 192 812, 210 V238 H620 V210 Q620, 192 638, 192 Z" fill="url(#card_header)"/>
+  <line x1="620" y1="238" x2="812" y2="238" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="716" y="223" text-anchor="middle" class="card-title">Structured Output</text>
+  <text x="716.0" y="271.0" text-anchor="middle" class="card-text">H</text>
+  <rect x="946" y="286" width="166" height="112" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M964, 286 H1094 Q1112, 286 1112, 304 V332 H946 V304 Q946, 286 964, 286 Z" fill="url(#card_header)"/>
+  <line x1="946" y1="332" x2="1112" y2="332" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1029" y="317" text-anchor="middle" class="card-title">Add</text>
+  <text x="1029.0" y="369.0" text-anchor="middle" class="card-text">H plus R</text>
+  <rect x="1130" y="286" width="110" height="112" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M1148, 286 H1222 Q1240, 286 1240, 304 V332 H1130 V304 Q1130, 286 1148, 286 Z" fill="url(#card_header)"/>
+  <line x1="1130" y1="332" x2="1240" y2="332" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1185" y="317" text-anchor="middle" class="card-title">TE</text>
+  <text x="1185.0" y="369.0" text-anchor="middle" class="card-text">Output</text>
+  <line x1="528.0" y1="268.0" x2="620.0" y2="244.0" stroke="#4E7AC7" stroke-width="3.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M812.0,244.0 L900.0,244.0 L900.0,322.0 L946.0,322.0" fill="none" stroke="#4E7AC7" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M863.0,510.0 L900.0,510.0 L900.0,360.0 L946.0,360.0" fill="none" stroke="#4E7AC7" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="1112.0" y1="342.0" x2="1130.0" y2="342.0" stroke="#4E7AC7" stroke-width="3.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <text x="612" y="624" class="tiny">Training can log H, R, and H + R separately for diagnostics.</text>
+  </g>
 
 </svg>

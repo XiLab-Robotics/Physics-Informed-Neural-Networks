@@ -104,8 +104,8 @@ def build_page_image_name(input_pdf_path: Path, page_index: int, page_count: int
     page_index_width = max(3, len(str(page_count)))
     page_number = page_index + 1
 
-    # Build Page Image Name
-    page_image_name = f"{input_pdf_path.stem}_page_{page_number:0{page_index_width}d}.png"
+    # Build Compact Page Image Name To Avoid Windows Path-Length Failures
+    page_image_name = f"page_{page_number:0{page_index_width}d}.png"
 
     return page_image_name
 

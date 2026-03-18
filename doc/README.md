@@ -209,6 +209,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for a focused section-comment retrofit of the remaining model scripts that still underuse internal `# ...` stage markers.
 - [technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md](./technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md)
   Technical document for auditing all Python comments under `scripts/` and correcting only the ones whose meaning no longer matches the code they describe.
+- [technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md](./technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md)
+  Technical document for the second pass of model-report diagram refinement, focused on connector pile-up, slide centering, multiline card layout, and safer routing.
 
 ### Script Documentation
 
