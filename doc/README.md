@@ -181,6 +181,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md](./technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md)
   Technical document for preparing Wave 1 structured-baseline implementation and the first exploratory campaign against the formalized feedforward reference baseline.
 
+#### 2026-03-18
+
+- [technical/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md](./technical/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md)
+  Technical document for making model-level explanatory reports mandatory whenever a new model or new model-specific training workflow is introduced.
+
 ### Script Documentation
 
 - [scripts/datasets/transmission_error_dataset.md](./scripts/datasets/transmission_error_dataset.md)

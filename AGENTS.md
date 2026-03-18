@@ -10,6 +10,16 @@
 - Before implementing any feature, create a technical project document inside the day-based folder `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
+- Whenever a new model family, model variant, or materially new model-specific training workflow is introduced, create a dedicated explanatory report that helps the reader understand the model before reading the code.
+- The explanatory report for a new model must include:
+  - an accurate model description;
+  - the operating principle;
+  - a conceptual map or schematic explanation of the network or algorithm structure;
+  - the main advantages and disadvantages in the project context;
+  - a technical section explaining the implemented Python files, classes, and functions for the model.
+- If the new model also requires a new training file or a materially new training workflow, the same explanatory report must additionally include:
+  - a high-level explanation of how the training workflow operates;
+  - a detailed explanation of the implemented Python training functions and code structure.
 - Before executing any training campaign or training-related experiment, create a preliminary planning report in `doc/reports/campaign_plans/` that explains the relevant parameters, their meanings and effects, and the candidate configuration table to be tested. Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md` as the reference style and depth.
 - For every approved training campaign preparation, automatically generate the campaign YAML files and provide the exact terminal command needed to launch the campaign. Do not treat campaign preparation as complete if only the planning report exists.
 - Store future training artifacts by artifact type instead of mixing them in one family-flat root:

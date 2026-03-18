@@ -245,6 +245,8 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md`
   * `doc/technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md`
   * `doc/technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md`
+* `2026-03-18`
+  * `doc/technical/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md`
 
 Script documentation:
 
