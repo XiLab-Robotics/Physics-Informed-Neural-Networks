@@ -264,6 +264,9 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-21-37-34_feedforward_conceptual_diagram_additional_row_spacing_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-21-41-40_feedforward_architecture_external_connector_clearance_alignment.md`
   * `doc/technical/2026-03-18/2026-03-18-21-45-17_feedforward_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-55-38_harmonic_diagram_flow_card_and_connector_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-22-11-16_harmonic_conditioning_branch_visible_shaft_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-22-17-00_harmonic_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md`

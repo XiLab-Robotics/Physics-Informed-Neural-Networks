@@ -874,7 +874,7 @@ def build_harmonic_conceptual_diagram() -> str:
     body = ""
     body += draw_card(
         64,
-        186,
+        185,
         220,
         194,
         "Raw Angle",
@@ -883,29 +883,37 @@ def build_harmonic_conceptual_diagram() -> str:
     )
     body += draw_flow_card(
         334,
-        158,
+        146,
         286,
-        248,
+        272,
         "Harmonic Basis",
         ["Constant term", "Sine channels", "Cosine channels", "Truncated at order K"],
         note="Periodic bias is explicit",
         accent=True,
+        flow_gap=26,
+        note_gap=14,
+        bottom_note_clearance=10,
+        connector_min_span=10,
     )
     body += draw_flow_card(
         680,
-        158,
+        146,
         286,
-        248,
+        272,
         "Coefficient Resolver",
         ["Static coefficients", "Optional linear conditioning", "Operating-state shift"],
         note="Interpretable coefficient space",
+        flow_gap=26,
+        note_gap=14,
+        bottom_note_clearance=10,
+        connector_min_span=10,
     )
-    body += draw_card(1024, 186, 194, 194, "Prediction", ["Basis-weight product", "Term summation", "Scalar TE output"], note="Compact periodic model")
+    body += draw_card(1024, 185, 194, 194, "Prediction", ["Basis-weight product", "Term summation", "Scalar TE output"], note="Compact periodic model")
 
     # Draw Main Flow Arrows
-    body += draw_box_connector(64, 186, 220, 194, "right", 334, 158, 286, 248, "left")
-    body += draw_box_connector(334, 158, 286, 248, "right", 680, 158, 286, 248, "left")
-    body += draw_box_connector(680, 158, 286, 248, "right", 1024, 186, 194, 194, "left")
+    body += draw_box_connector(64, 185, 220, 194, "right", 334, 146, 286, 272, "left")
+    body += draw_box_connector(334, 146, 286, 272, "right", 680, 146, 286, 272, "left")
+    body += draw_box_connector(680, 146, 286, 272, "right", 1024, 185, 194, 194, "left")
 
     # Draw Interpretation Card
     body += draw_card(
@@ -918,7 +926,7 @@ def build_harmonic_conceptual_diagram() -> str:
         align="center",
     )
 
-    return content + wrap_centered_body(body, 158, 568)
+    return content + wrap_centered_body(body, 146, 568)
 
 def build_harmonic_architecture_diagram() -> str:
 
@@ -929,7 +937,7 @@ def build_harmonic_architecture_diagram() -> str:
 
     # Draw Main Computational Blocks
     body = ""
-    body += draw_card(54, 258, 180, 124, "Angle Input", ["Theta"], align="center")
+    body += draw_card(54, 242, 180, 124, "Angle Input", ["Theta"], align="center")
     body += draw_card(
         274,
         140,
@@ -953,27 +961,29 @@ def build_harmonic_architecture_diagram() -> str:
         align="center",
         note_align="center",
     )
-    body += draw_card(836, 258, 168, 124, "Multiply", ["Term-wise\nproduct"], align="center")
-    body += draw_card(1052, 258, 156, 124, "Sum", ["Transmission\nerror"], align="center")
+    body += draw_card(836, 242, 168, 124, "Multiply", ["Term-wise\nproduct"], align="center")
+    body += draw_card(1052, 242, 156, 124, "Sum", ["Transmission\nerror"], align="center")
 
     # Draw Main Computational Flow
-    body += draw_box_connector(54, 258, 180, 124, "right", 274, 140, 234, 328, "left")
+    body += draw_box_connector(54, 242, 180, 124, "right", 274, 140, 234, 328, "left")
     body += draw_box_connector(274, 140, 234, 328, "right", 552, 140, 234, 328, "left")
-    body += draw_box_connector(552, 140, 234, 328, "right", 836, 258, 168, 124, "left")
-    body += draw_box_connector(836, 258, 168, 124, "right", 1052, 258, 156, 124, "left")
+    body += draw_box_connector(552, 140, 234, 328, "right", 836, 242, 168, 124, "left")
+    body += draw_box_connector(836, 242, 168, 124, "right", 1052, 242, 156, 124, "left")
 
     # Draw Conditioning Branch
     body += draw_flow_card(
-        548,
-        500,
+        519,
+        512,
         300,
-        144,
+        160,
         "Conditioning Path",
         ["Speed, torque, temp, dir", "Linear shift in coefficient space"],
+        flow_gap=26,
+        connector_min_span=10,
     )
-    body += draw_box_connector(548, 500, 300, 144, "top", 552, 140, 234, 328, "bottom", lane_y=484, stroke_width=2.2)
+    body += draw_arrow(669.0, 504.0, 669.0, 480.0, stroke_width=2.2)
 
-    return content + wrap_centered_body(body, 140, 644)
+    return content + wrap_centered_body(body, 140, 672)
 
 def build_periodic_conceptual_diagram() -> str:
 

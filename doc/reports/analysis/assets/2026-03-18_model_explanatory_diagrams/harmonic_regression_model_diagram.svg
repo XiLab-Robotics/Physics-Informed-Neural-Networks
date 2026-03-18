@@ -30,56 +30,56 @@
   <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
   <text x="64" y="68" class="canvas-title">Harmonic Regression</text>
   <text x="64" y="98" class="canvas-subtitle">Explicit periodic model with a truncated harmonic series</text>
-  <g transform="translate(0,53.0)">
-  <rect x="64" y="186" width="220" height="194" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M82, 186 H266 Q284, 186 284, 204 V232 H64 V204 Q64, 186 82, 186 Z" fill="url(#card_header)"/>
-  <line x1="64" y1="232" x2="284" y2="232" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="174" y="217" text-anchor="middle" class="card-title">Raw Angle</text>
-  <text x="88.0" y="265.0" text-anchor="start" class="card-text">Angle sample</text>
-  <text x="88.0" y="285.0" text-anchor="start" class="card-text">Degree-to-radian</text>
-  <text x="88.0" y="305.0" text-anchor="start" class="card-text">conversion</text>
-  <text x="88.0" y="325.0" text-anchor="start" class="card-text">Periodic meaning preserved</text>
-  <text x="88.0" y="357.0" text-anchor="start" class="card-note">Phase stays explicit</text>
-  <rect x="334" y="158" width="286" height="248" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
-  <path d="M352, 158 H602 Q620, 158 620, 176 V204 H334 V176 Q334, 158 352, 158 Z" fill="url(#card_header)"/>
-  <line x1="334" y1="204" x2="620" y2="204" stroke="#7FB2F0" stroke-width="2"/>
-  <text x="477.0" y="189" text-anchor="middle" class="card-title">Harmonic Basis</text>
-  <rect x="358" y="228.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="477.0" y="242.0" text-anchor="middle" class="flow-row-text">Constant term</text>
-  <line x1="477.0" y1="251.0" x2="477.0" y2="257.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="358" y="264.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="477.0" y="278.0" text-anchor="middle" class="flow-row-text">Sine channels</text>
-  <line x1="477.0" y1="287.0" x2="477.0" y2="293.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="358" y="300.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="477.0" y="314.0" text-anchor="middle" class="flow-row-text">Cosine channels</text>
-  <line x1="477.0" y1="323.0" x2="477.0" y2="329.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="358" y="336.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="477.0" y="350.0" text-anchor="middle" class="flow-row-text">Truncated at order K</text>
-  <text x="477.0" y="394.0" text-anchor="middle" class="card-note">Periodic bias is explicit</text>
-  <rect x="680" y="158" width="286" height="248" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M698, 158 H948 Q966, 158 966, 176 V204 H680 V176 Q680, 158 698, 158 Z" fill="url(#card_header)"/>
-  <line x1="680" y1="204" x2="966" y2="204" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="823.0" y="189" text-anchor="middle" class="card-title">Coefficient Resolver</text>
-  <rect x="704" y="246.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="823.0" y="260.0" text-anchor="middle" class="flow-row-text">Static coefficients</text>
-  <line x1="823.0" y1="269.0" x2="823.0" y2="275.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="704" y="282.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="823.0" y="296.0" text-anchor="middle" class="flow-row-text">Optional linear conditioning</text>
-  <line x1="823.0" y1="305.0" x2="823.0" y2="311.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="704" y="318.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="823.0" y="332.0" text-anchor="middle" class="flow-row-text">Operating-state shift</text>
-  <text x="823.0" y="376.0" text-anchor="middle" class="card-note">Interpretable coefficient space</text>
-  <rect x="1024" y="186" width="194" height="194" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M1042, 186 H1200 Q1218, 186 1218, 204 V232 H1024 V204 Q1024, 186 1042, 186 Z" fill="url(#card_header)"/>
-  <line x1="1024" y1="232" x2="1218" y2="232" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1121" y="217" text-anchor="middle" class="card-title">Prediction</text>
-  <text x="1048.0" y="275.0" text-anchor="start" class="card-text">Basis-weight product</text>
-  <text x="1048.0" y="295.0" text-anchor="start" class="card-text">Term summation</text>
-  <text x="1048.0" y="315.0" text-anchor="start" class="card-text">Scalar TE output</text>
-  <text x="1048.0" y="347.0" text-anchor="start" class="card-note">Compact periodic model</text>
-  <path d="M292.0,283.0 L307.0,283.0 L307.0,282.0 L322.0,282.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <g transform="translate(0,59.0)">
+  <rect x="64" y="185" width="220" height="194" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M82, 185 H266 Q284, 185 284, 203 V231 H64 V203 Q64, 185 82, 185 Z" fill="url(#card_header)"/>
+  <line x1="64" y1="231" x2="284" y2="231" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="174" y="216" text-anchor="middle" class="card-title">Raw Angle</text>
+  <text x="88.0" y="264.0" text-anchor="start" class="card-text">Angle sample</text>
+  <text x="88.0" y="284.0" text-anchor="start" class="card-text">Degree-to-radian</text>
+  <text x="88.0" y="304.0" text-anchor="start" class="card-text">conversion</text>
+  <text x="88.0" y="324.0" text-anchor="start" class="card-text">Periodic meaning preserved</text>
+  <text x="88.0" y="356.0" text-anchor="start" class="card-note">Phase stays explicit</text>
+  <rect x="334" y="146" width="286" height="272" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M352, 146 H602 Q620, 146 620, 164 V192 H334 V164 Q334, 146 352, 146 Z" fill="url(#card_header)"/>
+  <line x1="334" y1="192" x2="620" y2="192" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="477.0" y="177" text-anchor="middle" class="card-title">Harmonic Basis</text>
+  <rect x="358" y="209.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="477.0" y="223.0" text-anchor="middle" class="flow-row-text">Constant term</text>
+  <line x1="477.0" y1="232.0" x2="477.0" y2="246.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="358" y="253.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="477.0" y="267.0" text-anchor="middle" class="flow-row-text">Sine channels</text>
+  <line x1="477.0" y1="276.0" x2="477.0" y2="290.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="358" y="297.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="477.0" y="311.0" text-anchor="middle" class="flow-row-text">Cosine channels</text>
+  <line x1="477.0" y1="320.0" x2="477.0" y2="334.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="358" y="341.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="477.0" y="355.0" text-anchor="middle" class="flow-row-text">Truncated at order K</text>
+  <text x="477.0" y="411.0" text-anchor="middle" class="card-note">Periodic bias is explicit</text>
+  <rect x="680" y="146" width="286" height="272" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M698, 146 H948 Q966, 146 966, 164 V192 H680 V164 Q680, 146 698, 146 Z" fill="url(#card_header)"/>
+  <line x1="680" y1="192" x2="966" y2="192" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="823.0" y="177" text-anchor="middle" class="card-title">Coefficient Resolver</text>
+  <rect x="704" y="231.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="823.0" y="245.0" text-anchor="middle" class="flow-row-text">Static coefficients</text>
+  <line x1="823.0" y1="254.0" x2="823.0" y2="268.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="704" y="275.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="823.0" y="289.0" text-anchor="middle" class="flow-row-text">Optional linear conditioning</text>
+  <line x1="823.0" y1="298.0" x2="823.0" y2="312.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="704" y="319.0" width="238" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="823.0" y="333.0" text-anchor="middle" class="flow-row-text">Operating-state shift</text>
+  <text x="823.0" y="389.0" text-anchor="middle" class="card-note">Interpretable coefficient space</text>
+  <rect x="1024" y="185" width="194" height="194" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M1042, 185 H1200 Q1218, 185 1218, 203 V231 H1024 V203 Q1024, 185 1042, 185 Z" fill="url(#card_header)"/>
+  <line x1="1024" y1="231" x2="1218" y2="231" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1121" y="216" text-anchor="middle" class="card-title">Prediction</text>
+  <text x="1048.0" y="274.0" text-anchor="start" class="card-text">Basis-weight product</text>
+  <text x="1048.0" y="294.0" text-anchor="start" class="card-text">Term summation</text>
+  <text x="1048.0" y="314.0" text-anchor="start" class="card-text">Scalar TE output</text>
+  <text x="1048.0" y="346.0" text-anchor="start" class="card-note">Compact periodic model</text>
+  <path d="M292.0,282.0 L307.0,282.0 L307.0,282.0 L322.0,282.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   <path d="M628.0,282.0 L648.0,282.0 L648.0,282.0 L668.0,282.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M974.0,282.0 L993.0,282.0 L993.0,283.0 L1012.0,283.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M974.0,282.0 L993.0,282.0 L993.0,282.0 L1012.0,282.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   <rect x="118" y="462" width="1044" height="106" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
   <path d="M136, 462 H1144 Q1162, 462 1162, 480 V508 H118 V480 Q118, 462 136, 462 Z" fill="url(#card_header)"/>
   <line x1="118" y1="508" x2="1162" y2="508" stroke="#ADD5F7" stroke-width="2"/>

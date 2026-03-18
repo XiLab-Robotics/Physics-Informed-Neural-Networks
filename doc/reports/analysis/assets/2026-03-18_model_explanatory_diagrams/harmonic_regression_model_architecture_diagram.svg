@@ -30,12 +30,12 @@
   <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
   <text x="64" y="68" class="canvas-title">Harmonic Computational Structure</text>
   <text x="64" y="98" class="canvas-subtitle">Basis generation, coefficient resolution, term-wise multiplication, and final summation</text>
-  <g transform="translate(0,24.0)">
-  <rect x="54" y="258" width="180" height="124" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M72, 258 H216 Q234, 258 234, 276 V304 H54 V276 Q54, 258 72, 258 Z" fill="url(#card_header)"/>
-  <line x1="54" y1="304" x2="234" y2="304" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="144" y="289" text-anchor="middle" class="card-title">Angle Input</text>
-  <text x="144.0" y="347.0" text-anchor="middle" class="card-text">Theta</text>
+  <g transform="translate(0,10.0)">
+  <rect x="54" y="242" width="180" height="124" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M72, 242 H216 Q234, 242 234, 260 V288 H54 V260 Q54, 242 72, 242 Z" fill="url(#card_header)"/>
+  <line x1="54" y1="288" x2="234" y2="288" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="144" y="273" text-anchor="middle" class="card-title">Angle Input</text>
+  <text x="144.0" y="331.0" text-anchor="middle" class="card-text">Theta</text>
   <rect x="274" y="140" width="234" height="328" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
   <path d="M292, 140 H490 Q508, 140 508, 158 V186 H274 V158 Q274, 140 292, 140 Z" fill="url(#card_header)"/>
   <line x1="274" y1="186" x2="508" y2="186" stroke="#7FB2F0" stroke-width="2"/>
@@ -58,32 +58,32 @@
   <text x="669.0" y="347.0" text-anchor="middle" class="card-text">Optional conditioned shift</text>
   <text x="669.0" y="379.0" text-anchor="middle" class="card-note">Static or operating-state</text>
   <text x="669.0" y="397.0" text-anchor="middle" class="card-note">conditioned</text>
-  <rect x="836" y="258" width="168" height="124" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M854, 258 H986 Q1004, 258 1004, 276 V304 H836 V276 Q836, 258 854, 258 Z" fill="url(#card_header)"/>
-  <line x1="836" y1="304" x2="1004" y2="304" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="920" y="289" text-anchor="middle" class="card-title">Multiply</text>
-  <text x="920.0" y="337.0" text-anchor="middle" class="card-text">Term-wise</text>
-  <text x="920.0" y="357.0" text-anchor="middle" class="card-text">product</text>
-  <rect x="1052" y="258" width="156" height="124" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M1070, 258 H1190 Q1208, 258 1208, 276 V304 H1052 V276 Q1052, 258 1070, 258 Z" fill="url(#card_header)"/>
-  <line x1="1052" y1="304" x2="1208" y2="304" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1130" y="289" text-anchor="middle" class="card-title">Sum</text>
-  <text x="1130.0" y="337.0" text-anchor="middle" class="card-text">Transmission</text>
-  <text x="1130.0" y="357.0" text-anchor="middle" class="card-text">error</text>
-  <path d="M242.0,320.0 L252.0,320.0 L252.0,304.0 L262.0,304.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="836" y="242" width="168" height="124" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M854, 242 H986 Q1004, 242 1004, 260 V288 H836 V260 Q836, 242 854, 242 Z" fill="url(#card_header)"/>
+  <line x1="836" y1="288" x2="1004" y2="288" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="920" y="273" text-anchor="middle" class="card-title">Multiply</text>
+  <text x="920.0" y="321.0" text-anchor="middle" class="card-text">Term-wise</text>
+  <text x="920.0" y="341.0" text-anchor="middle" class="card-text">product</text>
+  <rect x="1052" y="242" width="156" height="124" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M1070, 242 H1190 Q1208, 242 1208, 260 V288 H1052 V260 Q1052, 242 1070, 242 Z" fill="url(#card_header)"/>
+  <line x1="1052" y1="288" x2="1208" y2="288" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1130" y="273" text-anchor="middle" class="card-title">Sum</text>
+  <text x="1130.0" y="321.0" text-anchor="middle" class="card-text">Transmission</text>
+  <text x="1130.0" y="341.0" text-anchor="middle" class="card-text">error</text>
+  <path d="M242.0,304.0 L252.0,304.0 L252.0,304.0 L262.0,304.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   <path d="M516.0,304.0 L528.0,304.0 L528.0,304.0 L540.0,304.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M794.0,304.0 L809.0,304.0 L809.0,320.0 L824.0,320.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M1012.0,320.0 L1026.0,320.0 L1026.0,320.0 L1040.0,320.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="548" y="500" width="300" height="144" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M566, 500 H830 Q848, 500 848, 518 V546 H548 V518 Q548, 500 566, 500 Z" fill="url(#card_header)"/>
-  <line x1="548" y1="546" x2="848" y2="546" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="698.0" y="531" text-anchor="middle" class="card-title">Conditioning Path</text>
-  <rect x="572" y="568.0" width="252" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="698.0" y="582.0" text-anchor="middle" class="flow-row-text">Speed, torque, temp, dir</text>
-  <line x1="698.0" y1="591.0" x2="698.0" y2="597.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="572" y="604.0" width="252" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
-  <text x="698.0" y="618.0" text-anchor="middle" class="flow-row-text">Linear shift in coefficient space</text>
-  <path d="M698.0,492.0 L698.0,484.0 L669.0,484.0 L669.0,480.0" fill="none" stroke="#4E7AC7" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M794.0,304.0 L809.0,304.0 L809.0,304.0 L824.0,304.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M1012.0,304.0 L1026.0,304.0 L1026.0,304.0 L1040.0,304.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="519" y="512" width="300" height="160" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M537, 512 H801 Q819, 512 819, 530 V558 H519 V530 Q519, 512 537, 512 Z" fill="url(#card_header)"/>
+  <line x1="519" y1="558" x2="819" y2="558" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="669.0" y="543" text-anchor="middle" class="card-title">Conditioning Path</text>
+  <rect x="543" y="584.0" width="252" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="669.0" y="598.0" text-anchor="middle" class="flow-row-text">Speed, torque, temp, dir</text>
+  <line x1="669.0" y1="607.0" x2="669.0" y2="621.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="543" y="628.0" width="252" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="669.0" y="642.0" text-anchor="middle" class="flow-row-text">Linear shift in coefficient space</text>
+  <line x1="669.0" y1="504.0" x2="669.0" y2="480.0" stroke="#4E7AC7" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   </g>
 
 </svg>
