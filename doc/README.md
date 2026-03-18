@@ -205,6 +205,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for fully removing the remaining standardized report-pipeline runtime temp root and leaving the repository without runtime temporary folders.
 - [technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md](./technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md)
   Technical document for making frequent internal section comments an explicit persistent style rule and retrofitting that style into the recent report scripts.
+- [technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md](./technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md)
+  Technical document for a focused section-comment retrofit of the remaining model scripts that still underuse internal `# ...` stage markers.
 
 ### Script Documentation
 

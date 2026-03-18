@@ -27,6 +27,7 @@ class ResidualHarmonicNetwork(nn.Module):
 
         super().__init__()
 
+        # Resolve Default Residual Widths
         residual_hidden_size = residual_hidden_size or [64, 64]
 
         # Initialize Structured Harmonic Branch
@@ -50,6 +51,8 @@ class ResidualHarmonicNetwork(nn.Module):
         # Optionally Freeze Structured Parameters
         self.freeze_structured_branch = freeze_structured_branch
         if self.freeze_structured_branch:
+
+            # Disable Structured Gradients
             for structured_parameter in self.structured_branch.parameters():
                 structured_parameter.requires_grad = False
 
@@ -59,7 +62,11 @@ class ResidualHarmonicNetwork(nn.Module):
 
         # Forward Pass Through Structured Harmonic Branch
         structured_prediction_tensor = self.structured_branch.forward_with_input_context(input_tensor, normalized_input_tensor)
+
+        # Forward Pass Through Residual Neural Branch
         residual_prediction_tensor = self.residual_branch(normalized_input_tensor)
+
+        # Combine Structured And Residual Predictions
         return structured_prediction_tensor + residual_prediction_tensor
 
     def compute_auxiliary_output_dictionary(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> dict[str, torch.Tensor]:
@@ -68,8 +75,11 @@ class ResidualHarmonicNetwork(nn.Module):
 
         # Forward Pass Through Structured Harmonic Branch
         structured_prediction_tensor = self.structured_branch.forward_with_input_context(input_tensor, normalized_input_tensor)
+
+        # Forward Pass Through Residual Neural Branch
         residual_prediction_tensor = self.residual_branch(normalized_input_tensor)
 
+        # Return Branch-Level Diagnostics
         return {
             "structured_prediction_tensor": structured_prediction_tensor,
             "residual_prediction_tensor": residual_prediction_tensor,

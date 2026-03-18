@@ -257,6 +257,7 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md`
   * `doc/technical/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md`
   * `doc/technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md`
+  * `doc/technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md`
 
 Script documentation:
 

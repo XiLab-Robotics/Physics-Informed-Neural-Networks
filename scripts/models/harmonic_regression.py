@@ -82,6 +82,8 @@ class HarmonicRegression(nn.Module):
 
         # Build Harmonic Feature Tensor
         harmonic_feature_tensor = self.build_harmonic_feature_tensor(angular_position_deg)
+
+        # Resolve Harmonic Coefficients
         coefficient_tensor = self.resolve_coefficient_tensor(normalized_condition_tensor)
 
         # Compute Harmonic Regression

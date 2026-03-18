@@ -81,8 +81,12 @@ class PeriodicFeatureNetwork(nn.Module):
 
         # Build Periodic Feature Tensor
         feature_tensor_list.append(self.build_periodic_feature_tensor(angular_position_deg))
+
+        # Append Normalized Condition Features
         feature_tensor_list.append(normalized_input_tensor[:, 1:])
 
         # Concatenate Features
         expanded_feature_tensor = torch.cat(feature_tensor_list, dim=-1)
+
+        # Run Expanded Feedforward Backbone
         return self.feature_network(expanded_feature_tensor)

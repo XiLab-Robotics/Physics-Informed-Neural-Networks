@@ -19,6 +19,7 @@ def get_activation_module(activation_name: str) -> nn.Module:
     activation_key = activation_name.lower()
     assert activation_key in activation_module_map, f"Unsupported Activation Name | {activation_name}"
 
+    # Instantiate Activation Module
     return activation_module_map[activation_key]()
 
 class FeedForwardNetwork(nn.Module):
@@ -72,6 +73,7 @@ class FeedForwardNetwork(nn.Module):
             # Append Dropout
             if self.dropout_probability > 0.0: network_layers.append(nn.Dropout(self.dropout_probability))
 
+            # Update Previous Feature Size
             previous_feature_size = current_hidden_size
 
         # Append Final Output Layer
@@ -84,4 +86,5 @@ class FeedForwardNetwork(nn.Module):
 
         """ Forward Pass """
 
+        # Run Dense Network
         return self.network(input_tensor)
