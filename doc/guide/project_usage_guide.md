@@ -147,17 +147,40 @@ This utility:
 - reads a canonical Markdown report;
 - converts the supported Markdown structure into styled HTML;
 - applies a print-oriented visual layout with stronger hierarchy and table rendering;
+- preserves repository-local embedded report images such as conceptual model diagrams;
 - exports the final PDF through headless Chrome or Edge.
 
 The permanent validation entry point is:
 
 - `scripts/reports/validate_report_pdf.py`
 
+The repository also now exposes a diagram-generation utility used by the model explanatory reports:
+
+- `scripts/reports/generate_model_report_diagrams.py`
+
+The standardized orchestration entry point is:
+
+- `scripts/reports/run_report_pipeline.py`
+
 This utility:
 
 - opens the real exported PDF artifact;
 - rasterizes each PDF page to PNG through `PyMuPDF`;
 - gives a deterministic validation output that can be inspected visually without rebuilding ad hoc tooling.
+
+The diagram-generation utility:
+
+- regenerates the repository-owned SVG figures used in the model explanatory reports;
+- produces both conceptual diagrams and architecture-style diagrams;
+- keeps the visual language and layout of those diagrams consistent across model families;
+- enforces built-in fit checks so card content does not silently overflow;
+- uses true directional connectors for architecture diagrams instead of pseudo-arrow text.
+
+The report-pipeline runner:
+
+- orchestrates diagram regeneration, PDF export, and PDF validation in one command;
+- standardizes temporary artifacts under `.temp/report_pipeline/`;
+- can use a repository-local validation environment under `.tools/report_pdf_env/`.
 
 The current main target is:
 
@@ -198,6 +221,7 @@ python scripts/reports/generate_styled_report_pdf.py `
 Notes:
 
 - the script auto-detects local Chrome or Edge installations on Windows;
+- repository-local Markdown image assets are now supported for styled reports, so explanatory model diagrams can appear in both Markdown and PDF form;
 - future styled analytical PDFs should preserve the same design direction:
   - white page background with restrained blue accents;
   - rounded section cards and professional typography;
@@ -216,7 +240,69 @@ Notes:
 - if the PDF evidence is inconclusive, the report must not be considered validated yet.
 - if both are missing, the export will fail until a compatible browser path is provided explicitly;
 - the default workflow no longer leaves a persistent preview HTML file behind;
-- temporary browser-profile directories are created outside the repository tree and should no longer pollute `doc/reports/...`.
+- temporary browser-profile directories are now standardized under `.temp/report_pipeline/browser_profiles/`.
+
+## Run The Standardized Report Pipeline
+
+Use the orchestration runner when you want one repository-owned command for:
+
+- diagram regeneration;
+- styled PDF export;
+- raster validation of the real exported PDF.
+
+For the current four structured-model explanatory reports:
+
+```powershell
+python scripts/reports/run_report_pipeline.py `
+  --use-model-explanatory-reports `
+  --regenerate-diagrams `
+  --prefer-tool-env
+```
+
+If the repository-local validation environment does not exist yet, bootstrap it once:
+
+```powershell
+python scripts/reports/run_report_pipeline.py `
+  --use-model-explanatory-reports `
+  --regenerate-diagrams `
+  --bootstrap-tool-env
+```
+
+What this does:
+
+- optionally regenerates the repository-owned explanatory SVGs;
+- exports the matching PDFs;
+- writes validation images under `.temp/report_pipeline/pdf_validation/`;
+- avoids repeating the individual commands manually.
+
+Useful options:
+
+- `--clean-temp`
+  Reset the standardized report-pipeline temp root before the run.
+- `--cleanup-validation-images`
+  Delete validation PNG pages after a successful run.
+- `--validation-python-path`
+  Use an explicit Python interpreter for PDF validation.
+- `--skip-pdf-export`
+  Reuse already exported PDFs and only validate them.
+- `--skip-pdf-validation`
+  Export PDFs without the validation step.
+
+## Regenerate The Model Report Diagrams
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/reports/generate_model_report_diagrams.py
+```
+
+This command regenerates the current SVG assets stored under:
+
+- `doc/reports/analysis/assets/2026-03-18_model_explanatory_diagrams/`
+
+Use it whenever:
+
+- a conceptual or architecture diagram is updated;
+- the layout of the model-report figures needs correction;
+- the explanatory reports must be refreshed before PDF export.
 
 ## Validate The Real Exported PDF
 

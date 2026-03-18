@@ -247,6 +247,16 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md`
 * `2026-03-18`
   * `doc/technical/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md`
+  * `doc/technical/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md`
+  * `doc/technical/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md`
+  * `doc/technical/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md`
+  * `doc/technical/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md`
+  * `doc/technical/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md`
+  * `doc/technical/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md`
+  * `doc/technical/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md`
+  * `doc/technical/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md`
+  * `doc/technical/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md`
+  * `doc/technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md`
 
 Script documentation:
 
@@ -257,6 +267,8 @@ Script documentation:
 * `doc/scripts/training/run_training_campaign.md`
 * `doc/scripts/training/validate_training_setup.md`
 * `doc/scripts/training/run_training_smoke_test.md`
+* `doc/scripts/reports/generate_model_report_diagrams.md`
+* `doc/scripts/reports/run_report_pipeline.md`
 
 Reports:
 
@@ -265,6 +277,14 @@ Reports:
   * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
   * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` -> golden standard visual reference for future styled analytical PDFs
   * `doc/reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md`
+  * `doc/reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md`
+  * `doc/reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf`
+  * `doc/reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.md`
+  * `doc/reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.pdf`
+  * `doc/reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.md`
+  * `doc/reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.pdf`
+  * `doc/reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.md`
+  * `doc/reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.pdf`
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`

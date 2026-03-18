@@ -8,6 +8,11 @@ import re, shutil, subprocess, time
 from pathlib import Path
 from typing import Sequence
 
+PROJECT_PATH = Path(__file__).resolve().parents[2]
+REPORT_PIPELINE_TEMP_ROOT = PROJECT_PATH / ".temp" / "report_pipeline"
+HTML_PREVIEW_TEMP_ROOT = REPORT_PIPELINE_TEMP_ROOT / "html_previews"
+BROWSER_PROFILE_TEMP_ROOT = REPORT_PIPELINE_TEMP_ROOT / "browser_profiles"
+
 # Browser And Report Constants
 CHROME_EXECUTABLE_CANDIDATE_PATHS = (
     Path("C:/Program Files/Google/Chrome/Application/chrome.exe"),
@@ -16,6 +21,7 @@ CHROME_EXECUTABLE_CANDIDATE_PATHS = (
     Path("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
 )
 
+# Report Constants
 DEFAULT_REPORT_SUBTITLE = "Feedforward Transmission Error Baseline"
 DEFAULT_REPORT_CATEGORY = "Analysis Report"
 HERO_NOTE_TEXT = (
@@ -23,15 +29,18 @@ HERO_NOTE_TEXT = (
     "for improved readability, section hierarchy, and table presentation."
 )
 
+# Report Styles
 ALIGN_LEFT = "align-left"
 ALIGN_CENTER = "align-center"
 ALIGN_RIGHT = "align-right"
 
+# Report Tables
 GENERIC_TABLE_CLASS_NAME = "report-table report-table-generic"
 HISTORICAL_REFERENCE_TABLE_CLASS_NAME = "report-table report-table-historical-results"
 PHASE_RESULTS_TABLE_CLASS_NAME = "report-table report-table-phase-results"
 RANKING_RESULTS_TABLE_CLASS_NAME = "report-table report-table-ranking-results"
 
+# Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
     "Config",
     "Status",
@@ -46,10 +55,12 @@ CONFIGURATION_TABLE_HEADER_CELLS = (
     "Patience",
 )
 
+# Table Row Alignments
 CAMPAIGN_SUMMARY_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
 DATA_PIPELINE_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
 MODEL_AND_SCHEDULE_ALIGNMENTS = (ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER, ALIGN_CENTER)
 
+# Table Header Cells
 HISTORICAL_REFERENCE_TABLE_HEADER_CELLS = (
     "Config",
     "Status",
@@ -61,6 +72,7 @@ HISTORICAL_REFERENCE_TABLE_HEADER_CELLS = (
     "Test RMSE [deg]",
 )
 
+# Table Header Cells
 PHASE_RESULTS_TABLE_HEADER_CELLS = (
     "Config",
     "Best Epoch",
@@ -71,21 +83,25 @@ PHASE_RESULTS_TABLE_HEADER_CELLS = (
     "Test RMSE [deg]",
 )
 
+# Table Header Cells
 RANKING_TABLE_HEADER_CELL_GROUPS = (
     ("Config", "Test MAE [deg]", "Test RMSE [deg]", "Runtime"),
     ("Config", "Test RMSE [deg]", "Test MAE [deg]", "Runtime"),
 )
 
+# Report Section Identifiers
 SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
     ("large", "batch"),
     ("big", "model"),
 }
 
+# Report Page Breaks
 FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "phase-2-results",
     "cross-campaign-ranking",
 }
 
+# Browser And Report Constants
 BROWSER_PDF_EXPORT_ARGUMENTS = (
     "--headless",
     "--disable-gpu",
@@ -98,6 +114,7 @@ BROWSER_PDF_EXPORT_ARGUMENTS = (
 CLEANUP_RETRY_COUNT = 6
 CLEANUP_RETRY_DELAY_SECONDS = 0.5
 
+# Report Styles
 REPORT_STYLESHEET = """
     @page {
       size: A4;
@@ -224,6 +241,37 @@ REPORT_STYLESHEET = """
       letter-spacing: 0;
       text-transform: none;
       color: #4E7AC7;
+    }
+
+    .report-figure {
+      margin: 10px auto 12px auto;
+      padding: 4px 0 8px 0;
+      border-radius: 10px;
+      border: none;
+      background: #ffffff;
+      text-align: center;
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+      width: 100%;
+    }
+
+    .report-figure img {
+      display: block;
+      width: 100%;
+      max-width: 150mm;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .report-figure-caption {
+      margin: 9px auto 0 auto;
+      max-width: 150mm;
+      font-size: 8pt;
+      color: #35478C;
+      line-height: 1.34;
+      text-align: center;
     }
 
     .subsection-block {
@@ -548,6 +596,17 @@ def remove_temporary_file(file_path: Path) -> None:
                 return
             time.sleep(CLEANUP_RETRY_DELAY_SECONDS)
 
+def create_workspace_temp_directory(parent_directory_path: Path, prefix: str) -> Path:
+
+    """ Create Workspace Temp Directory """
+
+    # Create Temporary Directory
+    parent_directory_path.mkdir(parents=True, exist_ok=True)
+    directory_name = f"{prefix}_{time.time_ns()}"
+    temporary_directory_path = (parent_directory_path / directory_name).resolve()
+    temporary_directory_path.mkdir(parents=True, exist_ok=True)
+    return temporary_directory_path
+
 def resolve_output_html_path(output_html_path: str, output_pdf_path: Path, keep_html: bool) -> tuple[Path, bool]:
 
     """ Resolve Output HTML Path """
@@ -562,7 +621,7 @@ def resolve_output_html_path(output_html_path: str, output_pdf_path: Path, keep_
         return persistent_output_html_path, False
 
     # Create Temporary Preview Path
-    temporary_html_directory_path = Path(tempfile.mkdtemp(prefix="codex_report_html_"))
+    temporary_html_directory_path = create_workspace_temp_directory(HTML_PREVIEW_TEMP_ROOT, "codex_report_html")
     temporary_output_html_path = temporary_html_directory_path / f"{output_pdf_path.stem}_preview.html"
 
     return temporary_output_html_path, True
@@ -595,6 +654,46 @@ def slugify(raw_text: str) -> str:
     normalized_text = re.sub(r"[^a-zA-Z0-9]+", "-", raw_text.strip().lower())
 
     return normalized_text.strip("-") or "section"
+
+def parse_markdown_image(markdown_text: str) -> tuple[str, str] | None:
+
+    """ Parse Markdown Image """
+
+    # Validate Markdown Text
+    image_match = re.fullmatch(r"!\[(.*?)\]\((.+?)\)", markdown_text.strip())
+    if image_match is None:
+        return None
+
+    # Extract Markdown Image Fields
+    image_alt_text = image_match.group(1).strip()
+    image_path = image_match.group(2).strip()
+    return image_alt_text, image_path
+
+def render_markdown_image(markdown_text: str, markdown_directory: Path) -> str:
+
+    """ Render Markdown Image """
+
+    # Validate Markdown Text
+    parsed_image = parse_markdown_image(markdown_text)
+    if parsed_image is None:
+        raise ValueError(f"Markdown text is not an image block | {markdown_text}")
+
+    # Resolve Markdown Image Path
+    image_alt_text, image_path = parsed_image
+    resolved_image_path = (markdown_directory / image_path).resolve()
+    assert resolved_image_path.exists(), f"Markdown image path does not exist | {resolved_image_path}"
+
+    # Get Markdown Image HTML
+    image_uri = resolved_image_path.as_uri()
+    escaped_alt_text = html.escape(image_alt_text)
+    caption_html = f'<figcaption class="report-figure-caption">{escaped_alt_text}</figcaption>' if escaped_alt_text else ""
+
+    return (
+        '<figure class="report-figure">'
+        f'<img src="{html.escape(image_uri)}" alt="{escaped_alt_text}" />'
+        f"{caption_html}"
+        "</figure>"
+    )
 
 def convert_inline_markup(raw_text: str) -> str:
 
@@ -662,6 +761,7 @@ def render_inline_code(raw_code_text: str, use_semantic_identifier_wrap: bool = 
     grouped_tokens = group_identifier_tokens(raw_code_text)
     grouped_tokens_html = html.escape(grouped_tokens[0]) if grouped_tokens else ""
 
+    # Render Grouped Identifier Tokens
     for grouped_token in grouped_tokens[1:]:
         grouped_tokens_html += f"_<wbr>{html.escape(grouped_token)}"
 
@@ -1072,12 +1172,16 @@ def render_list(markdown_lines: Sequence[str], start_index: int, base_indentatio
     # Return List HTML
     return (f'<{current_list_tag} class="report-list">{"".join(list_item_html_tokens)}</{current_list_tag}>', current_index)
 
-def render_paragraph(paragraph_lines: Sequence[str]) -> str:
+def render_paragraph(paragraph_lines: Sequence[str], markdown_directory: Path) -> str:
 
     """ Render Paragraph """
 
     # Normalize Paragraph Text
     paragraph_text = " ".join(markdown_line.strip() for markdown_line in paragraph_lines).strip()
+    parsed_image = parse_markdown_image(paragraph_text)
+    if parsed_image is not None:
+        return render_markdown_image(paragraph_text, markdown_directory)
+
     normalized_word_count = len(paragraph_text.rstrip(":").split())
 
     # Render Short Label Paragraph
@@ -1088,11 +1192,12 @@ def render_paragraph(paragraph_lines: Sequence[str]) -> str:
     # Render Standard Paragraph
     return f"<p>{convert_inline_markup(paragraph_text)}</p>"
 
-def render_markdown_body(markdown_text: str) -> tuple[str, str]:
+def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, str]:
 
     """ Render Markdown Body """
 
     markdown_lines = markdown_text.splitlines()
+    markdown_directory = markdown_path.parent.resolve()
 
     # Validate Report Heading
     if not markdown_lines or not markdown_lines[0].startswith("# "):
@@ -1119,8 +1224,8 @@ def render_markdown_body(markdown_text: str) -> tuple[str, str]:
         if paragraph_lines:
 
             # Append Paragraph HTML
-            if current_subsection_title: current_subsection_body_tokens.append(render_paragraph(paragraph_lines))
-            else: current_section_body_tokens.append(render_paragraph(paragraph_lines))
+            if current_subsection_title: current_subsection_body_tokens.append(render_paragraph(paragraph_lines, markdown_directory))
+            else: current_section_body_tokens.append(render_paragraph(paragraph_lines, markdown_directory))
 
             paragraph_lines = []
 
@@ -1284,11 +1389,7 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
     # Resolve Export Paths
     html_uri = html_path.resolve().as_uri()
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
-    temporary_profile_path = Path(
-        tempfile.mkdtemp(
-            prefix="codex_report_chrome_",
-        )
-    )
+    temporary_profile_path = create_workspace_temp_directory(BROWSER_PROFILE_TEMP_ROOT, "codex_report_chrome")
 
     try:
 
@@ -1330,7 +1431,7 @@ def main() -> None:
 
     # Render Styled HTML Document
     markdown_text = input_markdown_path.read_text(encoding="utf-8")
-    report_title, body_html = render_markdown_body(markdown_text)
+    report_title, body_html = render_markdown_body(markdown_text, input_markdown_path)
     html_document = build_html_document(
         report_title,
         parsed_arguments.report_subtitle,

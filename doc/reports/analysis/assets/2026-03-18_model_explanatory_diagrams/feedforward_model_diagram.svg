@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Feedforward TE Model Diagram</title>
+  <desc id="desc">Conceptual flow diagram of the feedforward transmission-error model.</desc>
+  <defs>
+    <linearGradient id="canvas_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35478C"/>
+      <stop offset="100%" stop-color="#16193B"/>
+    </linearGradient>
+    <linearGradient id="card_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <marker id="arrow_head" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4E7AC7"/>
+    </marker>
+    <style>
+      .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .canvas-subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #dfeaff; }
+      .card-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .card-text { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+      .card-note { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .tiny { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .node-label { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .node-small-label { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .flow-row-text { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1280" height="720" rx="28" fill="#FFFFFF"/>
+  <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
+  <text x="64" y="68" class="canvas-title">Feedforward TE Baseline</text>
+  <text x="64" y="98" class="canvas-subtitle">Generic point-wise nonlinear regressor without explicit periodic decomposition</text>
+  <rect x="76" y="184" width="214" height="190" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M94, 184 H272 Q290, 184 290, 202 V230 H76 V202 Q76, 184 94, 184 Z" fill="url(#card_header)"/>
+  <line x1="76" y1="230" x2="290" y2="230" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="183" y="215" text-anchor="middle" class="card-title">Input Point</text>
+  <text x="100" y="263.0" text-anchor="start" class="card-text">Angle sample</text>
+  <text x="100" y="283.0" text-anchor="start" class="card-text">Speed and torque</text>
+  <text x="100" y="303.0" text-anchor="start" class="card-text">Temperature</text>
+  <text x="100" y="323.0" text-anchor="start" class="card-text">Direction</text>
+  <text x="100" y="347.0" text-anchor="start" class="card-note">Five raw operating features</text>
+  <rect x="350" y="184" width="208" height="190" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M368, 184 H540 Q558, 184 558, 202 V230 H350 V202 Q350, 184 368, 184 Z" fill="url(#card_header)"/>
+  <line x1="350" y1="230" x2="558" y2="230" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="454" y="215" text-anchor="middle" class="card-title">Normalization</text>
+  <text x="374" y="273.0" text-anchor="start" class="card-text">Input scaling</text>
+  <text x="374" y="293.0" text-anchor="start" class="card-text">Target scaling</text>
+  <text x="374" y="313.0" text-anchor="start" class="card-text">Train-set mean and std</text>
+  <text x="374" y="337.0" text-anchor="start" class="card-note">Shared preprocessing stage</text>
+  <rect x="622" y="154" width="314" height="248" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M640, 154 H918 Q936, 154 936, 172 V200 H622 V172 Q622, 154 640, 154 Z" fill="url(#card_header)"/>
+  <line x1="622" y1="200" x2="936" y2="200" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="779.0" y="185" text-anchor="middle" class="card-title">FeedForward Network</text>
+  <rect x="646" y="216" width="266" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="779.0" y="235.0" text-anchor="middle" class="flow-row-text">Linear block</text>
+  <line x1="779.0" y1="246" x2="779.0" y2="252" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="646" y="254" width="266" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="779.0" y="273.0" text-anchor="middle" class="flow-row-text">Optional layer normalization</text>
+  <line x1="779.0" y1="284" x2="779.0" y2="290" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="646" y="292" width="266" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="779.0" y="311.0" text-anchor="middle" class="flow-row-text">Activation and dropout</text>
+  <line x1="779.0" y1="322" x2="779.0" y2="328" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="646" y="330" width="266" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="779.0" y="349.0" text-anchor="middle" class="flow-row-text">Scalar output head</text>
+  <text x="779.0" y="381" text-anchor="middle" class="card-note">Learns TE structure implicitly</text>
+  <rect x="996" y="184" width="208" height="190" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M1014, 184 H1186 Q1204, 184 1204, 202 V230 H996 V202 Q996, 184 1014, 184 Z" fill="url(#card_header)"/>
+  <line x1="996" y1="230" x2="1204" y2="230" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1100" y="215" text-anchor="middle" class="card-title">Prediction</text>
+  <text x="1020" y="273.0" text-anchor="start" class="card-text">Normalized TE</text>
+  <text x="1020" y="293.0" text-anchor="start" class="card-text">Denormalized scalar TE</text>
+  <text x="1020" y="313.0" text-anchor="start" class="card-text">MAE and RMSE logging</text>
+  <text x="1020" y="337.0" text-anchor="start" class="card-note">Single-point inference output</text>
+  <line x1="290.0" y1="279.0" x2="350.0" y2="279.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="558.0" y1="279.0" x2="622.0" y2="279.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="936.0" y1="279.0" x2="996.0" y2="279.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <rect x="118" y="462" width="1044" height="106" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M136, 462 H1144 Q1162, 462 1162, 480 V508 H118 V480 Q118, 462 136, 462 Z" fill="url(#card_header)"/>
+  <line x1="118" y1="508" x2="1162" y2="508" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="640" y="493" text-anchor="middle" class="card-title">Reading Key</text>
+  <text x="640" y="542.0" text-anchor="middle" class="card-text">Best used as a neutral nonlinear baseline before adding explicit periodic or physics-aware structure.</text>
+
+</svg>

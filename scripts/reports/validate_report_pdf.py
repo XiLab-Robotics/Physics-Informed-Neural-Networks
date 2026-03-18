@@ -8,7 +8,10 @@ from pathlib import Path
 
 # Import PDF Utilities
 try: import pymupdf
-except ImportError as import_error: pymupdf, PYMUPDF_IMPORT_ERROR = None, import_error
+except ImportError:
+    try: import fitz as pymupdf
+    except ImportError as import_error: pymupdf, PYMUPDF_IMPORT_ERROR = None, import_error
+    else: PYMUPDF_IMPORT_ERROR = None
 else: PYMUPDF_IMPORT_ERROR = None
 
 # Validation Constants
@@ -111,11 +114,14 @@ def rasterize_pdf_pages(input_pdf_path: Path, output_image_directory: Path, rend
     """ Rasterize PDF Pages """
 
     # Open Exported PDF
-    pdf_document = pymupdf.open(input_pdf_path)
+    if hasattr(pymupdf, "open"): pdf_document = pymupdf.open(input_pdf_path)
+    elif hasattr(pymupdf, "Document"): pdf_document = pymupdf.Document(input_pdf_path)
+    else: raise RuntimeError("PyMuPDF binding does not expose `open` or `Document`.")
     assert pdf_document.page_count > 0, f"PDF contains no pages | {input_pdf_path}"
 
     # Configure Raster Export
     rendered_image_path_list: list[Path] = []
+    assert hasattr(pymupdf, "Matrix"), "PyMuPDF binding does not expose `Matrix`."
     render_matrix = pymupdf.Matrix(render_scale, render_scale)
 
     try:

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Harmonic Regression TE Model Diagram</title>
+  <desc id="desc">Conceptual flow diagram of the harmonic regression transmission-error model.</desc>
+  <defs>
+    <linearGradient id="canvas_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35478C"/>
+      <stop offset="100%" stop-color="#16193B"/>
+    </linearGradient>
+    <linearGradient id="card_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <marker id="arrow_head" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4E7AC7"/>
+    </marker>
+    <style>
+      .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .canvas-subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #dfeaff; }
+      .card-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .card-text { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+      .card-note { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .tiny { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .node-label { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .node-small-label { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .flow-row-text { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1280" height="720" rx="28" fill="#FFFFFF"/>
+  <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
+  <text x="64" y="68" class="canvas-title">Harmonic Regression</text>
+  <text x="64" y="98" class="canvas-subtitle">Explicit periodic model with a truncated harmonic series</text>
+  <rect x="64" y="188" width="208" height="188" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M82, 188 H254 Q272, 188 272, 206 V234 H64 V206 Q64, 188 82, 188 Z" fill="url(#card_header)"/>
+  <line x1="64" y1="234" x2="272" y2="234" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="168" y="219" text-anchor="middle" class="card-title">Raw Angle</text>
+  <text x="88" y="276.0" text-anchor="start" class="card-text">Angle sample</text>
+  <text x="88" y="296.0" text-anchor="start" class="card-text">Degree-to-radian conversion</text>
+  <text x="88" y="316.0" text-anchor="start" class="card-text">Periodic interpretation preserved</text>
+  <text x="88" y="340.0" text-anchor="start" class="card-note">Phase information stays explicit</text>
+  <rect x="332" y="158" width="284" height="248" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M350, 158 H598 Q616, 158 616, 176 V204 H332 V176 Q332, 158 350, 158 Z" fill="url(#card_header)"/>
+  <line x1="332" y1="204" x2="616" y2="204" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="474.0" y="189" text-anchor="middle" class="card-title">Harmonic Basis</text>
+  <rect x="356" y="220" width="236" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="474.0" y="239.0" text-anchor="middle" class="flow-row-text">Constant term</text>
+  <line x1="474.0" y1="250" x2="474.0" y2="256" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="356" y="258" width="236" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="474.0" y="277.0" text-anchor="middle" class="flow-row-text">Sine channels</text>
+  <line x1="474.0" y1="288" x2="474.0" y2="294" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="356" y="296" width="236" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="474.0" y="315.0" text-anchor="middle" class="flow-row-text">Cosine channels</text>
+  <line x1="474.0" y1="326" x2="474.0" y2="332" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="356" y="334" width="236" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="474.0" y="353.0" text-anchor="middle" class="flow-row-text">Truncated at order K</text>
+  <text x="474.0" y="385" text-anchor="middle" class="card-note">Periodic bias is explicit</text>
+  <rect x="676" y="158" width="282" height="248" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M694, 158 H940 Q958, 158 958, 176 V204 H676 V176 Q676, 158 694, 158 Z" fill="url(#card_header)"/>
+  <line x1="676" y1="204" x2="958" y2="204" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="817.0" y="189" text-anchor="middle" class="card-title">Coefficient Resolver</text>
+  <rect x="700" y="239.0" width="234" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="817.0" y="258.0" text-anchor="middle" class="flow-row-text">Static coefficients</text>
+  <line x1="817.0" y1="269.0" x2="817.0" y2="275.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="700" y="277.0" width="234" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="817.0" y="296.0" text-anchor="middle" class="flow-row-text">Optional linear conditioning</text>
+  <line x1="817.0" y1="307.0" x2="817.0" y2="313.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="700" y="315.0" width="234" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="817.0" y="334.0" text-anchor="middle" class="flow-row-text">Shift by operating state</text>
+  <text x="817.0" y="366.0" text-anchor="middle" class="card-note">Interpretable coefficient space</text>
+  <rect x="1018" y="188" width="198" height="188" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M1036, 188 H1198 Q1216, 188 1216, 206 V234 H1018 V206 Q1018, 188 1036, 188 Z" fill="url(#card_header)"/>
+  <line x1="1018" y1="234" x2="1216" y2="234" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1117" y="219" text-anchor="middle" class="card-title">Prediction</text>
+  <text x="1042" y="276.0" text-anchor="start" class="card-text">Basis-weight product</text>
+  <text x="1042" y="296.0" text-anchor="start" class="card-text">Term summation</text>
+  <text x="1042" y="316.0" text-anchor="start" class="card-text">Scalar TE output</text>
+  <text x="1042" y="340.0" text-anchor="start" class="card-note">Compact periodic estimator</text>
+  <line x1="272.0" y1="282.0" x2="332.0" y2="282.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="616.0" y1="282.0" x2="676.0" y2="282.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="958.0" y1="282.0" x2="1018.0" y2="282.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <rect x="122" y="462" width="1036" height="106" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M140, 462 H1140 Q1158, 462 1158, 480 V508 H122 V480 Q122, 462 140, 462 Z" fill="url(#card_header)"/>
+  <line x1="122" y1="508" x2="1158" y2="508" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="640" y="493" text-anchor="middle" class="card-title">Interpretation</text>
+  <text x="640" y="542.0" text-anchor="middle" class="card-text">Each coefficient directly maps to a harmonic contribution, which keeps the model compact and inspectable.</text>
+
+</svg>

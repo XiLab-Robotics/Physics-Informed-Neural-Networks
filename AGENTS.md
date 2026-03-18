@@ -17,6 +17,12 @@
   - a conceptual map or schematic explanation of the network or algorithm structure;
   - the main advantages and disadvantages in the project context;
   - a technical section explaining the implemented Python files, classes, and functions for the model.
+- When the user requests conceptual maps, schematic explanations, or architecture framing for a model, the explanatory report must also include generated visual material such as diagrams or schematic images rather than remaining text-only.
+- These visual assets must be integrated into both the Markdown report and the final PDF deliverable, and they should be stored in a consistent, discoverable report-local location.
+- When model-report diagrams are generated, they must be checked after generation to ensure labels stay inside their boxes, spacing remains balanced, and the real visual output does not contain obvious overflow or crowding defects.
+- For explanatory model reports, prefer providing both:
+  - a conceptual diagram that explains the model logic;
+  - an architecture-style diagram that explains the concrete network or computational structure.
 - If the new model also requires a new training file or a materially new training workflow, the same explanatory report must additionally include:
   - a high-level explanation of how the training workflow operates;
   - a detailed explanation of the implemented Python training functions and code structure.
@@ -94,6 +100,7 @@
 - Group imports in blocks with sparse spacing and short heading comments such as `# Import ROS Messages` or `# Import PyTorch Lightning Utilities`.
 - Use short docstrings in title case, usually one line, for classes and methods.
 - Add frequent section comments before logical blocks. The preferred pattern is imperative or descriptive title case, for example `# Initialize Admittance Controller`, `# Compute Cartesian Velocity`, `# Save Model`.
+- Do not rely on docstrings alone inside non-trivial functions. Use section comments frequently enough that the control flow stays visually scannable while reading the function body.
 - Keep comments capitalized and high-signal. It is acceptable to use arrows or quick clarifiers like `->`, parentheses, or acronym-heavy labels when that improves readability.
 - Keep section comments short. Prefer compact labels such as `# Resolve Browser Path` or `# Flush Pending Paragraph` over sentence-length explanations that restate the code line by line.
 - Prefer explicit staged code over compact abstraction. Compute intermediate variables step by step and label each stage with comments.

@@ -185,6 +185,26 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md](./technical/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md)
   Technical document for making model-level explanatory reports mandatory whenever a new model or new model-specific training workflow is introduced.
+- [technical/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md](./technical/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md)
+  Technical document for creating retroactive explanatory reports for the already implemented structured TE model families.
+- [technical/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md](./technical/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md)
+  Technical document for exporting the existing model-explanatory reports to styled PDFs and validating the real exported artifacts.
+- [technical/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md](./technical/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md)
+  Technical document for requiring visual conceptual diagrams and image assets inside future model-explanatory reports and their PDF exports.
+- [technical/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md](./technical/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md)
+  Technical document for retroactively adding diagrams to the existing structured-model reports and preserving those images in the exported PDFs.
+- [technical/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md](./technical/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md)
+  Technical document for correcting diagram layout defects, introducing reusable diagram generation, removing figure-background clashes, and adding both conceptual and architecture diagrams to the model reports.
+- [technical/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md](./technical/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md)
+  Technical document for correcting diagram geometry defects, improving figure centering, replacing pseudo-arrows with real connectors, and revalidating the SVG and PDF outputs.
+- [technical/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md](./technical/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md)
+  Technical document for standardizing the report-generation pipeline with a repository-owned orchestrator, a persistent PDF-validation tooling environment, and cleaner temporary-artifact management.
+- [technical/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md](./technical/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md)
+  Technical document for removing obsolete report-pipeline temporary environments and retaining only the intended standardized temporary layout.
+- [technical/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md](./technical/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md)
+  Technical document for fully removing the remaining standardized report-pipeline runtime temp root and leaving the repository without runtime temporary folders.
+- [technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md](./technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md)
+  Technical document for making frequent internal section comments an explicit persistent style rule and retrofitting that style into the recent report scripts.
 
 ### Script Documentation
 
@@ -192,6 +212,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the TE dataset parser, PyTorch dataset, and dataloader utilities.
 - [scripts/datasets/visualize_transmission_error.md](./scripts/datasets/visualize_transmission_error.md)
   Script-level documentation for the TE curve visualization utility.
+- [scripts/reports/generate_model_report_diagrams.md](./scripts/reports/generate_model_report_diagrams.md)
+  Script-level documentation for the SVG generator used by the model explanatory reports.
+- [scripts/reports/run_report_pipeline.md](./scripts/reports/run_report_pipeline.md)
+  Script-level documentation for the orchestration runner that standardizes diagram regeneration, styled PDF export, and PDF validation.
 - [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
 - [scripts/training/train_tree_regressor.md](./scripts/training/train_tree_regressor.md)
@@ -215,6 +239,22 @@ This folder contains the internal project documents derived from the reference P
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 - [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
   Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
+- [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md)
+  Explanatory report for the implemented feedforward TE baseline, including conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
+- [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf)
+  Styled PDF export of the feedforward model explanatory report with integrated conceptual diagram.
+- [reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.md](./reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.md)
+  Explanatory report for the implemented harmonic-regression TE baseline, including the harmonic principle, coefficient modes, and repository integration details.
+- [reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.pdf)
+  Styled PDF export of the harmonic-regression model explanatory report with integrated conceptual diagram.
+- [reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.md](./reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.md)
+  Explanatory report for the implemented periodic-feature TE network, including periodic feature expansion, conceptual structure, and training integration notes.
+- [reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.pdf)
+  Styled PDF export of the periodic-feature network explanatory report with integrated conceptual diagram.
+- [reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.md](./reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.md)
+  Explanatory report for the implemented residual-harmonic TE network, including branch decomposition, auxiliary outputs, and structured-vs-residual training diagnostics.
+- [reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.pdf)
+  Styled PDF export of the residual-harmonic network explanatory report with integrated conceptual diagram.
 
 #### Campaign Plans
 

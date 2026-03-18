@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Residual Harmonic Network TE Model Diagram</title>
+  <desc id="desc">Conceptual flow diagram of the residual harmonic network transmission-error model.</desc>
+  <defs>
+    <linearGradient id="canvas_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35478C"/>
+      <stop offset="100%" stop-color="#16193B"/>
+    </linearGradient>
+    <linearGradient id="card_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <marker id="arrow_head" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4E7AC7"/>
+    </marker>
+    <style>
+      .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .canvas-subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #dfeaff; }
+      .card-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .card-text { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+      .card-note { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .tiny { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .node-label { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .node-small-label { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .flow-row-text { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1280" height="720" rx="28" fill="#FFFFFF"/>
+  <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
+  <text x="64" y="68" class="canvas-title">Residual Harmonic Network</text>
+  <text x="64" y="98" class="canvas-subtitle">Structured harmonic branch plus neural residual correction</text>
+  <rect x="60" y="236" width="218" height="176" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M78, 236 H260 Q278, 236 278, 254 V282 H60 V254 Q60, 236 78, 236 Z" fill="url(#card_header)"/>
+  <line x1="60" y1="282" x2="278" y2="282" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="169" y="267" text-anchor="middle" class="card-title">Shared Input</text>
+  <text x="84" y="318.0" text-anchor="start" class="card-text">Angle sample</text>
+  <text x="84" y="338.0" text-anchor="start" class="card-text">Normalized operating state</text>
+  <text x="84" y="358.0" text-anchor="start" class="card-text">Common input to both branches</text>
+  <text x="84" y="382.0" text-anchor="start" class="card-note">One point feeds both paths</text>
+  <rect x="350" y="148" width="258" height="212" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M368, 148 H590 Q608, 148 608, 166 V194 H350 V166 Q350, 148 368, 148 Z" fill="url(#card_header)"/>
+  <line x1="350" y1="194" x2="608" y2="194" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="479.0" y="179" text-anchor="middle" class="card-title">Structured Branch</text>
+  <rect x="374" y="211.0" width="210" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="479.0" y="230.0" text-anchor="middle" class="flow-row-text">Harmonic basis</text>
+  <line x1="479.0" y1="241.0" x2="479.0" y2="247.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="374" y="249.0" width="210" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="479.0" y="268.0" text-anchor="middle" class="flow-row-text">Coefficient resolution</text>
+  <line x1="479.0" y1="279.0" x2="479.0" y2="285.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="374" y="287.0" width="210" height="28" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="479.0" y="306.0" text-anchor="middle" class="flow-row-text">Structured TE prediction</text>
+  <text x="479.0" y="338.0" text-anchor="middle" class="card-note">Can be frozen or joint-trained</text>
+  <rect x="350" y="388" width="258" height="180" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M368, 388 H590 Q608, 388 608, 406 V434 H350 V406 Q350, 388 368, 388 Z" fill="url(#card_header)"/>
+  <line x1="350" y1="434" x2="608" y2="434" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="479.0" y="419" text-anchor="middle" class="card-title">Residual Branch</text>
+  <rect x="374" y="454.0" width="210" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="479.0" y="473.0" text-anchor="middle" class="flow-row-text">Dense residual MLP</text>
+  <line x1="479.0" y1="484.0" x2="479.0" y2="490.0" stroke="#4E7AC7" stroke-width="2.6" marker-end="url(#arrow_head)"/>
+  <rect x="374" y="492.0" width="210" height="28" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="479.0" y="511.0" text-anchor="middle" class="flow-row-text">Learns remaining error</text>
+  <text x="479.0" y="543.0" text-anchor="middle" class="card-note">Only models what the harmonic branch misses</text>
+  <rect x="702" y="254" width="152" height="104" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M720, 254 H836 Q854, 254 854, 272 V300 H702 V272 Q702, 254 720, 254 Z" fill="url(#card_header)"/>
+  <line x1="702" y1="300" x2="854" y2="300" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="778" y="285" text-anchor="middle" class="card-title">Add</text>
+  <text x="778" y="333.0" text-anchor="middle" class="card-text">H plus R</text>
+  <rect x="946" y="186" width="224" height="240" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M964, 186 H1152 Q1170, 186 1170, 204 V232 H946 V204 Q946, 186 964, 186 Z" fill="url(#card_header)"/>
+  <line x1="946" y1="232" x2="1170" y2="232" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1058" y="217" text-anchor="middle" class="card-title">Outputs</text>
+  <text x="1058" y="290.0" text-anchor="middle" class="card-text">Structured prediction</text>
+  <text x="1058" y="310.0" text-anchor="middle" class="card-text">Residual prediction</text>
+  <text x="1058" y="330.0" text-anchor="middle" class="card-text">Total prediction</text>
+  <text x="1058" y="350.0" text-anchor="middle" class="card-text">Structured diagnostics</text>
+  <text x="1058" y="374.0" text-anchor="middle" class="card-note">Useful for branch-level analysis</text>
+  <line x1="278.0" y1="292.0" x2="350.0" y2="252.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="278.0" y1="350.0" x2="350.0" y2="478.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="608.0" y1="254.0" x2="702.0" y2="286.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="608.0" y1="478.0" x2="702.0" y2="326.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <line x1="854.0" y1="306.0" x2="946.0" y2="306.0" stroke="#4E7AC7" stroke-width="3.5" marker-end="url(#arrow_head)"/>
+  <rect x="110" y="576" width="1012" height="112" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M128, 576 H1104 Q1122, 576 1122, 594 V622 H110 V594 Q110, 576 128, 576 Z" fill="url(#card_header)"/>
+  <line x1="110" y1="622" x2="1122" y2="622" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="616" y="607" text-anchor="middle" class="card-title">Interpretation</text>
+  <text x="616" y="659.0" text-anchor="middle" class="card-text">The network keeps the interpretable periodic backbone and learns only the unexplained residual component.</text>
+
+</svg>
