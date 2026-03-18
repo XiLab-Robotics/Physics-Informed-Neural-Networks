@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: smoke_test
+model_family: harmonic_regression
+run_name: te_harmonic_order06_static_wave1_smoke_test
+run_instance_id: 2026-03-17-21-42-09__te_harmonic_order06_static_wave1_smoke_test
+output_directory: output/smoke_tests/harmonic_regression/2026-03-17-21-42-09__te_harmonic_order06_static_wave1_smoke_test

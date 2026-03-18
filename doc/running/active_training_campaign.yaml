@@ -1,28 +1,63 @@
-campaign_name: best_training_logging_validation_campaign_2026_03_14_00_56_06
-status: completed
-planning_report_path: doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
-campaign_config_directory: config/training/feedforward/campaigns/2026-03-14_best_training_logging_validation_campaign
+campaign_name: wave1_structured_baseline_campaign_2026_03_17_21_01_47
+status: prepared
+planning_report_path: doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md
+campaign_config_directory: config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign
 queue_root: config/training/queue
 campaign_output_root: output/training_campaigns
-campaign_output_directory: output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06
+campaign_output_directory: null
 launch_mode: queue_runner_with_campaign_file_arguments
-activation_pending_user_confirmation: false
-started_at: 2026-03-14T01:10:07
-completed_at: 2026-03-14T02:06:10
+activation_pending_user_confirmation: true
+started_at: null
+completed_at: null
 queue_config_path_list:
-  - config/training/feedforward/campaigns/2026-03-14_best_training_logging_validation_campaign/01_best_training_logging_validation.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/01_harmonic_order06_static.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/02_harmonic_order12_static.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/03_harmonic_order12_linear_conditioned.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/04_periodic_mlp_h04_standard.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/05_periodic_mlp_h08_standard.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/06_periodic_mlp_h08_wide.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/07_residual_h12_small_frozen.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/08_residual_h12_small_joint.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/09_random_forest_tabular.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/10_hist_gbr_tabular.yaml
 run_name_list:
-  - te_feedforward_best_training
+  - te_harmonic_order06_static
+  - te_harmonic_order12_static
+  - te_harmonic_order12_linear_conditioned
+  - te_periodic_mlp_h04_standard
+  - te_periodic_mlp_h08_standard
+  - te_periodic_mlp_h08_wide
+  - te_residual_h12_small_frozen
+  - te_residual_h12_small_joint
+  - te_tree_random_forest
+  - te_tree_hist_gbr
 protected_file_list:
-  - config/training/feedforward/campaigns/2026-03-14_best_training_logging_validation_campaign/01_best_training_logging_validation.yaml
+  - doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/01_harmonic_order06_static.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/02_harmonic_order12_static.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/03_harmonic_order12_linear_conditioned.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/04_periodic_mlp_h04_standard.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/05_periodic_mlp_h08_standard.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/06_periodic_mlp_h08_wide.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/07_residual_h12_small_frozen.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/08_residual_h12_small_joint.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/09_random_forest_tabular.yaml
+  - config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/10_hist_gbr_tabular.yaml
   - scripts/training/run_training_campaign.py
   - scripts/training/train_feedforward_network.py
-  - scripts/training/transmission_error_datamodule.py
+  - scripts/training/train_tree_regressor.py
+  - scripts/training/tree_regression_support.py
+  - scripts/training/validate_training_setup.py
+  - scripts/training/run_training_smoke_test.py
   - scripts/training/transmission_error_regression_module.py
   - scripts/models/model_factory.py
   - scripts/models/feedforward_network.py
+  - scripts/models/harmonic_regression.py
+  - scripts/models/periodic_feature_network.py
+  - scripts/models/residual_harmonic_network.py
   - scripts/datasets/transmission_error_dataset.py
+  - doc/running/te_model_live_backlog.md
+  - doc/guide/project_usage_guide.md
 launch_command_list:
   - conda activate standard_ml_codex_env
-  - python scripts\training\run_training_campaign.py config\training\feedforward\campaigns\2026-03-14_best_training_logging_validation_campaign\01_best_training_logging_validation.yaml --campaign-name best_training_logging_validation_campaign_2026_03_14_00_56_06 --planning-report-path doc\reports\campaign_plans\2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
-
+  - python scripts\training\run_training_campaign.py config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\01_harmonic_order06_static.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\02_harmonic_order12_static.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\03_harmonic_order12_linear_conditioned.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\04_periodic_mlp_h04_standard.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\05_periodic_mlp_h08_standard.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\06_periodic_mlp_h08_wide.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\07_residual_h12_small_frozen.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\08_residual_h12_small_joint.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\09_random_forest_tabular.yaml config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\10_hist_gbr_tabular.yaml --campaign-name wave1_structured_baseline_campaign_2026_03_17_21_01_47 --planning-report-path doc\reports\campaign_plans\2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md

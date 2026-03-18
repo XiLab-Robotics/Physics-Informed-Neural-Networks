@@ -22,7 +22,7 @@ Historical rationale and approval history remain in:
 
 - Program State: active
 - Current Completed Wave: `Wave 0`
-- Current Focus: prepare `Wave 1` structured-baseline planning
+- Current Focus: `Wave 1` structured-baseline campaign prepared and ready for execution
 - Current Best Implemented Family: `feedforward`
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Current Reference Feedforward Baseline Run:
@@ -81,39 +81,18 @@ Verification:
 
 ## In Progress
 
-- no active implementation wave at the moment
+- `Wave 1` structured baseline implementation completed
+- `Wave 1` campaign package generated and registered as `prepared`
+- representative validation and smoke-test verification completed for all Wave 1 families
 
 ## Next Up
 
-### Wave 1. Structured Baseline Planning
-
-Immediate next step:
-
-- create the campaign plan report for the structured baseline wave
-- use the registry-selected feedforward best run as the comparison baseline for future Wave 1 results
-
-Included families:
-
-- harmonic regression baseline
-- periodic-feature feedforward MLP
-- residual MLP over harmonic or analytical baseline
-- tree-based benchmark
-
-Expected outputs:
-
-- campaign plan report in `doc/reports/campaign_plans/`
-- generated campaign YAML files after approval
-- campaign state registration in `doc/running/active_training_campaign.yaml`
-
 ### Wave 1. Structured Baseline Implementation
 
-After campaign-plan approval:
+Current next step:
 
-- implement the four structured baseline families
-- add smoke-test support for each family
-- add one-batch validation support for each family
-- run the approved structured-baseline campaign
-- write the structured-baseline results report with validated PDF export
+- launch the approved structured-baseline campaign when the user decides to start it
+- write the structured-baseline results report with validated PDF export after campaign completion
 
 ## Deferred / Low Priority
 
@@ -137,10 +116,10 @@ Entry rule:
 
 ### Wave 1. Structured Static Baselines
 
-- planning report: pending
-- implementation: pending
-- smoke-tests: pending
-- validation checks: pending
+- planning report: completed
+- implementation: completed
+- smoke-tests: completed
+- validation checks: completed
 - campaign execution: pending
 - results report: pending
 
@@ -166,6 +145,7 @@ Entry rule:
 - technical documents remain the historical planning baseline and design rationale
 - output artifacts now follow the privileged category-specific structure rather than the old flat family-root convention
 - the canonical feedforward reference baseline is the registry-selected best historical run, not the Wave 0 `trial` verification run
+- the Wave 1 structured-baseline campaign is now prepared and tracked in `doc/running/active_training_campaign.yaml`
 - best-result visibility should be read from:
   - campaign-level `campaign_best_run.yaml`
   - family-level `latest_family_best.yaml`

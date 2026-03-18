@@ -2,7 +2,7 @@
 
 ## Overview
 
-This script runs a minimal Lightning smoke test for the current TE training workflow.
+This script runs a minimal smoke test for the current TE training workflow.
 
 The script is stored in:
 
@@ -10,7 +10,7 @@ The script is stored in:
 
 ## Main Role
 
-The script provides a lightweight batch-level fit verification for a registered model family without launching a full training run.
+The script provides a lightweight fit verification for a registered model family without launching a full training run.
 
 It verifies:
 
@@ -19,6 +19,8 @@ It verifies:
 3. one minimal Lightning `fit` path through `fast_dev_run`;
 4. manual checkpoint save;
 5. checkpoint reload through `load_from_checkpoint`.
+
+For tree baselines, the same entry point switches to a reduced fit, serialized model save, reload, and finite-prediction check.
 
 ## Main Output
 
@@ -49,3 +51,7 @@ Use this script when:
 - a new model family has just been added;
 - the training infrastructure was refactored;
 - a minimal checkpoint save/reload verification is needed before a campaign.
+
+Operational note:
+
+- the smoke test now forces single-process execution for the check artifact (`num_workers = 0`, no pinned-memory transfer for the check, and `n_jobs = 1` when relevant) so Wave 1 verification remains stable in restricted environments.

@@ -1,0 +1,16 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\04_periodic_mlp_h04_standard.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\smoke_tests\periodic_mlp\2026-03-17-21-42-46__te_periodic_mlp_h04_standard_wave1_smoke_test
+experiment:
+  run_name: te_periodic_mlp_h04_standard
+  output_run_name: te_periodic_mlp_h04_standard_wave1_smoke_test
+  run_instance_id: 2026-03-17-21-42-46__te_periodic_mlp_h04_standard_wave1_smoke_test
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+fast_dev_run_batches: 1
+checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\smoke_tests\periodic_mlp\2026-03-17-21-42-46__te_periodic_mlp_h04_standard_wave1_smoke_test\smoke_test_checkpoint.ckpt
+checks:
+  checkpoint_exists: true

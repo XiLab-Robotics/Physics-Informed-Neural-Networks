@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: harmonic_regression
+run_name: te_harmonic_order06_static_wave1_validation
+run_instance_id: 2026-03-17-21-29-07__te_harmonic_order06_static_wave1_validation
+output_directory: output/validation_checks/harmonic_regression/2026-03-17-21-29-07__te_harmonic_order06_static_wave1_validation

@@ -1,0 +1,54 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/periodic_mlp
+
+experiment:
+  run_name: te_periodic_mlp_h08_standard
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+
+metadata:
+  campaign_name: wave1_structured_baseline_campaign_2026_03_17_21_01_47
+  planning_report_path: doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md
+  phase_name: periodic_feature_mlp
+  campaign_config_id: periodic_mlp_h08_standard
+  notes: Periodic MLP with deeper harmonic feature expansion.
+  random_seed: 42
+
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+    - 128
+    - 128
+    - 64
+  activation_name: GELU
+  dropout_probability: 0.10
+  use_layer_norm: true
+  harmonic_order: 8
+  include_raw_angle_feature: true
+
+training:
+  learning_rate: 0.0010
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-5
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: "32"
+  benchmark: true
+  use_non_blocking_transfer: true

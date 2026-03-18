@@ -188,9 +188,10 @@ def print_training_configuration_summary(training_config: dict) -> None:
     model_config        = training_config["model"]
     optimization_config = training_config["training"]
     runtime_config      = resolve_runtime_config(training_config)
+    model_type_display_name = str(experiment_config["model_type"]).replace("_", " ").title()
 
     # Print Config Overview
-    print_section_header("Feedforward Training Configuration")
+    print_section_header(f"{model_type_display_name} Training Configuration")
     print_info_message("Resolved YAML configuration for the current training run")
 
     # Print Path Configuration
@@ -368,10 +369,11 @@ def save_training_test_report(output_directory: Path, training_config: dict, met
     dataset_split_dictionary = metrics_snapshot_dictionary["dataset_split"]
     validation_metric_dictionary = metrics_snapshot_dictionary["validation_metrics"]
     test_metric_dictionary = metrics_snapshot_dictionary["test_metrics"]
+    model_family_display_name = str(experiment_dictionary["model_family"]).replace("_", " ").title()
 
     # Build The Report As A List Of Lines To Be Joined With Newlines For Output
     report_line_list = [
-        "# Feedforward Training And Testing Report",
+        f"# {model_family_display_name} Training And Testing Report",
         "",
         "## Overview",
         "",
@@ -450,6 +452,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Load Training Configuration
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(load_training_config(config_path))
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     runtime_config = resolve_runtime_config(training_config)
 
     # Resolve Output Directory
@@ -479,7 +482,7 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
     # Checkpoint Callback To Save Best Model Based On Validation MAE, As Well As The Last Model For Resuming Training If Needed
     checkpoint_callback = ModelCheckpoint(
         dirpath=str(output_directory / "checkpoints"),
-        filename="feedforward-{epoch:03d}-{val_mae:.8f}",
+        filename=f"{experiment_identity.model_type}" + "-{epoch:03d}-{val_mae:.8f}",
         monitor="val_mae",
         mode="min",
         save_top_k=1,
@@ -608,14 +611,14 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
     # Print Output Artifact Summary
     print_output_artifact_summary(output_directory, logger, best_model_path)
-    print_success_message("Feedforward training workflow completed")
+    print_success_message(f"{experiment_identity.model_type} training workflow completed")
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
     """ Parse Command Line Arguments """
 
     # Initialize Argument Parser
-    argument_parser = argparse.ArgumentParser(description="Train the feedforward Transmission Error baseline.")
+    argument_parser = argparse.ArgumentParser(description="Train the configured static TE neural baseline.")
 
     # Add Config Path Argument
     argument_parser.add_argument(
@@ -634,7 +637,7 @@ def main() -> None:
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()
 
-    # Train Feedforward Network
+    # Train Static Neural Model
     train_feedforward_network(command_line_arguments.config_path)
 
 if __name__ == "__main__":

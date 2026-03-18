@@ -9,8 +9,10 @@ At the moment, the implemented workflows are:
 - dataset processing through the validated TE dataset utilities;
 - dataset visualization through the TE plotting script;
 - feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline;
+- structured static neural baselines through harmonic, periodic-feature, and residual-harmonic training configurations;
+- tree-based structured baselines through `RandomForestRegressor` and `HistGradientBoostingRegressor`;
 - one-batch training-setup validation for the shared Wave 0 training infrastructure;
-- minimal Lightning smoke-test execution for the shared Wave 0 training infrastructure;
+- minimal neural or tree smoke-test execution for the shared training infrastructure;
 - persistent batch training campaigns through a queue-based runner.
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility.
@@ -82,7 +84,7 @@ The current usage flow mainly relies on these folders:
   Styled report-export utilities.
 
 - `scripts/training/`
-  PyTorch Lightning training entry point, datamodule, regression module, and Wave 0 validation/smoke-test utilities.
+  Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
 - `scripts/models/`
   Neural-network backbones and the model factory.
@@ -95,6 +97,9 @@ The current usage flow mainly relies on these folders:
 
 - `config/training/feedforward/presets/`
   Reusable feedforward training presets with explicit `model_family` identity for the shared training infrastructure.
+
+- `config/training/wave1_structured_baselines/campaigns/`
+  Wave 1 structured-baseline campaign YAML packages across harmonic, periodic-feature, residual, and tree families.
 
 - `config/training/queue/`
   Persistent batch-training queue folders.
@@ -281,6 +286,8 @@ They rely on a shared training infrastructure that now standardizes:
 - a common metrics artifact schema;
 - common output artifact names such as `training_config.yaml` and `metrics_summary.yaml`.
 
+The same checks now also support the Wave 1 tree baselines through a reduced `scikit-learn` fit/predict path.
+
 ## Run The One-Batch Validation Check
 
 ```powershell
@@ -296,6 +303,8 @@ This command verifies:
 - model instantiation;
 - batch shape correctness;
 - finite loss and metrics on one batch.
+
+For tree models, the check uses a reduced train/validation sample subset instead of the neural batch path.
 
 It writes a `validation_summary.yaml` file under `output/validation_checks/<model_family>/<run_instance_id>/`.
 
@@ -314,6 +323,8 @@ This command verifies:
 - one-batch train/validation execution through `fast_dev_run`;
 - manual checkpoint save;
 - checkpoint reload.
+
+For tree models, the check uses reduced train/eval subsets together with serialized model save/reload validation.
 
 It writes:
 
@@ -517,22 +528,45 @@ If you prefer to keep the configured dataset root but change the selected file:
 python -m scripts.datasets.visualize_transmission_error --file-index 10 --save-path output\te_curve_10.png
 ```
 
-## Feedforward Training Baseline
+## Structured Baseline Training
 
-## What The Training Workflow Does
+## What The Training Workflows Do
 
-The first training entry point is:
+The static neural training entry point is:
 
 - `scripts/training/train_feedforward_network.py`
 
-This workflow trains a feedforward regression baseline implemented with PyTorch Lightning.
+This workflow trains the static neural TE baselines implemented with PyTorch Lightning:
+
+- `feedforward`
+- `harmonic_regression`
+- `periodic_mlp`
+- `residual_harmonic_mlp`
+
+The tree-based training entry point is:
+
+- `scripts/training/train_tree_regressor.py`
+
+This workflow trains the current tabular structured baselines:
+
+- `random_forest`
+- `hist_gradient_boosting`
 
 The script now prints a structured terminal summary with colorized section headers on Windows terminals, so the training configuration and run artifacts are easier to inspect than with the earlier raw dictionary dump.
 
-The training stack is composed of:
+The structured baseline stack is composed of:
 
 - `scripts/models/feedforward_network.py`
   Feedforward backbone with hidden layers, activation, optional layer normalization, and dropout.
+
+- `scripts/models/harmonic_regression.py`
+  Harmonic regression backbone with optional operating-condition terms.
+
+- `scripts/models/periodic_feature_network.py`
+  Periodic-feature MLP backbone using harmonic feature expansion before the residual MLP.
+
+- `scripts/models/residual_harmonic_network.py`
+  Harmonic structured head plus residual MLP refinement backbone.
 
 - `scripts/models/model_factory.py`
   Model selection layer used to instantiate the requested architecture.
@@ -543,19 +577,26 @@ The training stack is composed of:
 - `scripts/training/transmission_error_regression_module.py`
   Generic Lightning regression module with normalization, loss computation, optimizer setup, and validation metrics.
 
+- `scripts/training/tree_regression_support.py`
+  Shared flattening, estimator, metrics, and serialization utilities for the tree baselines.
+
 - `config/training/feedforward/presets/baseline.yaml`
   Main training configuration file for the baseline.
 
-## Current Baseline Assumptions
+- `config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/`
+  First prepared structured-baseline campaign package for Wave 1.
 
-The current baseline:
+## Current Structured-Baseline Assumptions
+
+The current static baseline program:
 
 - trains point-wise on TE curve samples rather than with recurrent sequence modeling;
 - computes normalization statistics from the training split only;
 - uses the normalized tensors during optimization and reports interpretable metrics on denormalized TE values;
 - uses validation-based early stopping and checkpoint selection;
 - reloads the best checkpoint for the final validation and held-out test evaluation;
-- saves machine-readable and human-readable reports for each completed run.
+- saves machine-readable and human-readable reports for each completed run;
+- ranks all completed families through the shared registry artifacts.
 
 This is the first baseline only. It does not replace the future need for LSTM, RNN, or PINN models.
 
@@ -578,6 +619,10 @@ More aggressive workstation-oriented variants are also available in:
 The current recommended practical feedforward preset is:
 
 - `config/training/feedforward/presets/best_training.yaml`
+
+The first prepared Wave 1 structured campaign package is available in:
+
+- `config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/`
 
 Main configurable sections:
 
@@ -830,11 +875,29 @@ To launch the current best practical feedforward preset directly:
 conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
 ```
 
+To launch one prepared Wave 1 structured-neural candidate directly:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py `
+  --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/07_residual_h12_small_frozen.yaml
+```
+
+To launch one prepared Wave 1 tree candidate directly:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/train_tree_regressor.py `
+  --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/09_random_forest_tabular.yaml
+```
+
 ## Typical Training Outputs
 
-The baseline writes outputs under the configured training-run root, currently:
+The structured baselines write outputs under the configured family-specific training-run roots, for example:
 
 - `output/training_runs/feedforward/`
+- `output/training_runs/harmonic_regression/`
+- `output/training_runs/periodic_mlp/`
+- `output/training_runs/residual_harmonic_mlp/`
+- `output/training_runs/tree/`
 
 For the default run name, a typical output location is:
 
@@ -849,7 +912,7 @@ Typical generated artifacts include:
 - a run metadata snapshot;
 - updated best-result registries.
 
-## Inspect Training Logs With TensorBoard
+## Inspect Neural Training Logs With TensorBoard
 
 After a real training run, you can inspect logs with:
 
@@ -861,7 +924,7 @@ Then open the local TensorBoard URL shown in the terminal.
 
 ## Current Training Metrics
 
-The Lightning regression module currently logs:
+The static neural regression module currently logs:
 
 - `train_loss`
 - `train_mae`
@@ -871,6 +934,8 @@ The Lightning regression module currently logs:
 - `val_rmse`
 
 The best checkpoint and early stopping are both driven by `val_mae`.
+
+The tree baselines do not generate TensorBoard logs. Their ranking relies on the shared `metrics_summary.yaml` snapshots and the registry files.
 
 ## Batch Training Campaigns
 
@@ -992,6 +1057,12 @@ Operational rule:
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
 - when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
+Current prepared Wave 1 campaign:
+
+- campaign name: `wave1_structured_baseline_campaign_2026_03_17_21_01_47`
+- planning report: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- config package: `config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/`
+
 ## Typical Workflow For The Current Project
 
 If you want to inspect the dataset and train the current baseline, use this sequence:
@@ -1001,7 +1072,7 @@ If you want to inspect the dataset and train the current baseline, use this sequ
 3. Check `config/training/feedforward/presets/baseline.yaml`.
 4. Inspect one dataset batch if needed.
 5. Visualize one or more TE curves.
-6. Start the feedforward Lightning training run.
+6. Start the selected structured baseline training run.
 7. Inspect logs and checkpoints under `output/training_runs/` and check the best-result registries under `output/registries/`.
 
 Example sequence:
@@ -1034,6 +1105,8 @@ The repository now already has:
 - PyTorch datasets and curve dataloaders;
 - a TE visualization utility;
 - a modular PyTorch Lightning feedforward training baseline;
+- additional Wave 1 structured-neural baselines;
+- tree-based structured benchmarks under the same artifact contract;
 - a reusable datamodule and regression module structure for future architectures;
 - technical, script-level, and user-facing documentation aligned with the current structure.
 
@@ -1048,9 +1121,10 @@ This is enough to extend the project toward:
 
 To extend the repository cleanly, the recommended order is:
 
-1. add a sequence-aware recurrent baseline on top of the current `scripts/training/` and `scripts/models/` structure
-2. add a dedicated evaluation entry point
-3. add inference and export utilities
-4. extend the regression module toward physics-informed loss composition
-5. add PINN-specific training and validation workflows
+1. execute and analyze the prepared Wave 1 structured-baseline campaign
+2. add a sequence-aware recurrent baseline on top of the current `scripts/training/` and `scripts/models/` structure
+3. add a dedicated evaluation entry point
+4. add inference and export utilities
+5. extend the regression module toward physics-informed loss composition
+6. add PINN-specific training and validation workflows
 

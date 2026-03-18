@@ -2,7 +2,7 @@
 
 ## Overview
 
-This script runs a one-batch validation check for the current TE training setup.
+This script runs a lightweight validation check for the current TE training setup.
 
 The script is stored in:
 
@@ -20,6 +20,8 @@ It checks:
 4. batch retrieval from the training split;
 5. tensor-shape consistency;
 6. finite loss and metric computation on one batch.
+
+For tree baselines, the same entry point switches to a small tabular fit-and-predict check instead of the neural batch path.
 
 ## Main Output
 
@@ -49,3 +51,7 @@ Use this script when:
 - a new model family is registered in the model factory;
 - the datamodule or regression module wiring is changed;
 - a quick pre-campaign sanity check is needed.
+
+Operational note:
+
+- the validation check now forces single-process execution (`num_workers = 0`, no pinned-memory transfer for the check, and `n_jobs = 1` when relevant) so the artifact remains robust in restricted Windows environments.

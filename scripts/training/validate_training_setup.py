@@ -12,9 +12,13 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import PyTorch Utilities
 import torch
+import numpy as np
 
 # Import Project Utilities
 from scripts.training import shared_training_infrastructure
+from scripts.training import tree_regression_support
+
+TREE_MODEL_TYPE_LIST = ["random_forest", "hist_gradient_boosting"]
 
 def build_validation_summary(
     config_path: Path,
@@ -64,9 +68,76 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
         run_name_suffix=output_suffix,
     )
+
+    # Force Single-Process Validation To Keep The Check Robust In Restricted Environments
+    training_config["dataset"]["num_workers"] = 0
+    training_config["dataset"]["pin_memory"] = False
+    if "n_jobs" in training_config["model"]:
+        training_config["model"]["n_jobs"] = 1
+
+    # Prepare Output Directory
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
     shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
+
+    # Run Tree-Specific Validation For The Scikit-Learn Baselines
+    if experiment_identity.model_type in TREE_MODEL_TYPE_LIST:
+
+        # Build Dataset Splits And Estimator
+        datamodule, split_dictionary = tree_regression_support.build_tree_split_bundle(training_config)
+        estimator = tree_regression_support.build_tree_estimator(training_config)
+        train_input = split_dictionary["train_input"][:tree_regression_support.TREE_VALIDATION_SAMPLE_COUNT]
+        train_target = split_dictionary["train_target"][:tree_regression_support.TREE_VALIDATION_SAMPLE_COUNT]
+        validation_input = split_dictionary["validation_input"][:tree_regression_support.TREE_VALIDATION_SAMPLE_COUNT]
+        validation_target = split_dictionary["validation_target"][:tree_regression_support.TREE_VALIDATION_SAMPLE_COUNT]
+
+        # Fit The Estimator On The Flattened Train Split
+        estimator.fit(train_input, train_target)
+        validation_prediction_vector = estimator.predict(validation_input)
+        validation_metric_dictionary = tree_regression_support.compute_regression_metric_dictionary(
+            validation_target,
+            validation_prediction_vector,
+        )
+
+        # Build Validation Summary
+        validation_summary = {
+            "schema_version": 1,
+            "config_path": str(shared_training_infrastructure.resolve_project_relative_path(config_path)),
+            "output_directory": str(output_directory),
+            "experiment": {
+                "run_name": experiment_identity.run_name,
+                "output_run_name": shared_training_infrastructure.resolve_output_run_name(training_config),
+                "run_instance_id": shared_training_infrastructure.resolve_run_instance_id(training_config),
+                "model_family": experiment_identity.model_family,
+                "model_type": experiment_identity.model_type,
+            },
+            "batch_summary": {
+                "point_batch_size": int(validation_input.shape[0]),
+                "input_feature_dim": int(validation_input.shape[1]),
+                "target_feature_dim": 1,
+                "curve_count": int(datamodule.get_dataset_split_summary().validation_curve_count),
+            },
+            "checks": {
+                "finite_loss": bool(torch.isfinite(torch.tensor(validation_metric_dictionary["loss"])).item()),
+                "finite_mae": bool(torch.isfinite(torch.tensor(validation_metric_dictionary["mae"])).item()),
+                "finite_rmse": bool(torch.isfinite(torch.tensor(validation_metric_dictionary["rmse"])).item()),
+                "finite_prediction_tensor": bool(np.isfinite(validation_prediction_vector).all()),
+            },
+            "metrics": {
+                "loss": float(validation_metric_dictionary["loss"]),
+                "mae": float(validation_metric_dictionary["mae"]),
+                "rmse": float(validation_metric_dictionary["rmse"]),
+            },
+        }
+
+        # Save Validation Summary
+        shared_training_infrastructure.save_yaml_snapshot(
+            validation_summary,
+            output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME,
+        )
+        print(f"[DONE] Validation setup check completed | {output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME}")
+        return
 
     # Initialize Training Components
     datamodule, regression_backbone, regression_module, _ = shared_training_infrastructure.initialize_training_components(training_config)

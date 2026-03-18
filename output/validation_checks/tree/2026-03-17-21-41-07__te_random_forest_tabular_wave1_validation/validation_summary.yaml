@@ -1,0 +1,25 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\wave1_structured_baselines\campaigns\2026-03-17_wave1_structured_baseline_campaign\09_random_forest_tabular.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\tree\2026-03-17-21-41-07__te_random_forest_tabular_wave1_validation
+experiment:
+  run_name: te_random_forest_tabular
+  output_run_name: te_random_forest_tabular_wave1_validation
+  run_instance_id: 2026-03-17-21-41-07__te_random_forest_tabular_wave1_validation
+  model_family: tree
+  model_type: random_forest
+batch_summary:
+  point_batch_size: 2048
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 388
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 3.288860657243187e-06
+  mae: 0.0016354692265462825
+  rmse: 0.0018135216175285

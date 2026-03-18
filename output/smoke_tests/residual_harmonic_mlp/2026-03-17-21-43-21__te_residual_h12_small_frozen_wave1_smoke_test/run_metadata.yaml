@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: smoke_test
+model_family: residual_harmonic_mlp
+run_name: te_residual_h12_small_frozen_wave1_smoke_test
+run_instance_id: 2026-03-17-21-43-21__te_residual_h12_small_frozen_wave1_smoke_test
+output_directory: output/smoke_tests/residual_harmonic_mlp/2026-03-17-21-43-21__te_residual_h12_small_frozen_wave1_smoke_test

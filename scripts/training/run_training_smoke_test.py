@@ -15,10 +15,14 @@ from lightning.pytorch import Trainer
 
 # Import YAML Utilities
 import yaml
+import numpy as np
 
 # Import Project Utilities
 from scripts.training import shared_training_infrastructure
+from scripts.training import tree_regression_support
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
+
+TREE_MODEL_TYPE_LIST = ["random_forest", "hist_gradient_boosting"]
 
 def build_smoke_test_summary(
     config_path: Path,
@@ -62,9 +66,54 @@ def run_training_smoke_test(config_path: Path, output_suffix: str = "smoke_test"
         artifact_kind=shared_training_infrastructure.SMOKE_TEST_OUTPUT_ARTIFACT_KIND,
         run_name_suffix=output_suffix,
     )
+
+    # Force Single-Process Smoke Testing To Keep The Check Robust In Restricted Environments
+    training_config["dataset"]["num_workers"] = 0
+    training_config["dataset"]["pin_memory"] = False
+    if "n_jobs" in training_config["model"]:
+        training_config["model"]["n_jobs"] = 1
+
+    # Prepare Output Directory
+    experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
     shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
+
+    # Run Tree-Specific Smoke Test For The Scikit-Learn Baselines
+    if experiment_identity.model_type in TREE_MODEL_TYPE_LIST:
+
+        # Build Dataset Splits And Estimator
+        datamodule, split_dictionary = tree_regression_support.build_tree_split_bundle(training_config)
+        estimator = tree_regression_support.build_tree_estimator(training_config)
+        train_input = split_dictionary["train_input"][:tree_regression_support.TREE_SMOKE_TRAIN_SAMPLE_COUNT]
+        train_target = split_dictionary["train_target"][:tree_regression_support.TREE_SMOKE_TRAIN_SAMPLE_COUNT]
+        validation_input = split_dictionary["validation_input"][:tree_regression_support.TREE_SMOKE_EVAL_SAMPLE_COUNT]
+
+        # Fit The Estimator On The Flattened Train Split
+        estimator.fit(train_input, train_target)
+        checkpoint_path = tree_regression_support.save_tree_model(estimator, output_directory)
+        reloaded_estimator = tree_regression_support.load_tree_model(checkpoint_path)
+        reloaded_prediction_vector = reloaded_estimator.predict(validation_input)
+
+        # Build Smoke Test Summary
+        smoke_test_summary = build_smoke_test_summary(
+            shared_training_infrastructure.resolve_project_relative_path(config_path),
+            output_directory,
+            checkpoint_path,
+            training_config,
+            fast_dev_run_batches,
+        )
+
+        # Perform Smoke Test Checks
+        smoke_test_summary["checks"]["reload_prediction_finite"] = bool(np.isfinite(reloaded_prediction_vector).all())
+        smoke_test_summary["checks"]["checkpoint_exists"] = bool(checkpoint_path.exists())
+
+        # Save Smoke Test Summary
+        with (output_directory / shared_training_infrastructure.COMMON_SMOKE_TEST_FILENAME).open("w", encoding="utf-8") as output_file:
+            yaml.safe_dump(smoke_test_summary, output_file, sort_keys=False)
+
+        print(f"[DONE] Training smoke test completed | {output_directory / shared_training_infrastructure.COMMON_SMOKE_TEST_FILENAME}")
+        return
 
     # Initialize Training Components
     datamodule, regression_backbone, regression_module, normalization_statistics = shared_training_infrastructure.initialize_training_components(training_config)

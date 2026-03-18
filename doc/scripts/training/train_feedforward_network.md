@@ -1,10 +1,15 @@
-# Feedforward Training Script
+# Structured Neural Training Script
 
 ## Overview
 
-This script is the first neural-network training entry point for the Transmission Error project.
+This script is the main static neural-network training entry point for the Transmission Error project.
 
-It trains a modular feedforward regression baseline implemented with PyTorch Lightning and built on top of the existing TE dataset pipeline.
+It trains the modular PyTorch Lightning baselines that share the point-wise TE regression path, including:
+
+- `feedforward`
+- `harmonic_regression`
+- `periodic_mlp`
+- `residual_harmonic_mlp`
 
 The script is stored in:
 
@@ -12,19 +17,19 @@ The script is stored in:
 
 ## Main Role
 
-The script coordinates the full baseline-training flow:
+The script coordinates the full structured-neural training flow:
 
 1. load the YAML training configuration;
 2. initialize the Lightning datamodule;
 3. compute training-set normalization statistics;
-4. instantiate the feedforward backbone through the model factory;
+4. instantiate the requested static neural backbone through the model factory;
 5. build the generic Lightning regression module;
 6. create callbacks, logger, and trainer;
 7. run training and validation;
 8. reload the best checkpoint and run held-out testing;
 9. save the effective training configuration, checkpoint path, metrics snapshot, and markdown report.
 
-The current implementation now also uses the shared Wave 0 training infrastructure, so the feedforward path acts as the first validated consumer of:
+The current implementation now also uses the shared training infrastructure, so the structured-neural path acts as the current reusable consumer of:
 
 - explicit `model_family` identity;
 - a common metrics schema;
@@ -52,7 +57,19 @@ Wraps the existing curve dataset and converts it into point-wise batches for the
 
 ### `scripts/models/feedforward_network.py`
 
-Implements the actual MLP backbone.
+Implements the base MLP backbone.
+
+### `scripts/models/harmonic_regression.py`
+
+Implements the harmonic structured baseline.
+
+### `scripts/models/periodic_feature_network.py`
+
+Implements the periodic-feature MLP baseline.
+
+### `scripts/models/residual_harmonic_network.py`
+
+Implements the harmonic-plus-residual MLP baseline.
 
 ### `scripts/training/transmission_error_regression_module.py`
 
@@ -60,9 +77,12 @@ Implements the Lightning training logic, normalization, optimizer, and regressio
 
 ## Outputs
 
-The script writes its outputs under the configured training-run root, currently:
+The script writes its outputs under the configured training-run root for the selected family, for example:
 
 - `output/training_runs/feedforward/`
+- `output/training_runs/harmonic_regression/`
+- `output/training_runs/periodic_mlp/`
+- `output/training_runs/residual_harmonic_mlp/`
 
 Typical generated artifacts include:
 
@@ -74,7 +94,7 @@ Typical generated artifacts include:
 - a family-agnostic YAML metrics artifact under `metrics_summary.yaml`;
 - a markdown report summarizing the executed run.
 - automatic family/program best-result registries under:
-  - `output/registries/families/feedforward/`
+  - `output/registries/families/<model_family>/`
   - `output/registries/program/`
 
 Each physical run now writes into an immutable timestamped directory such as:
@@ -99,6 +119,13 @@ To run an explicit configuration path from the command line:
 
 ```powershell
 conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/high_epoch.yaml
+```
+
+To run one of the structured Wave 1 neural baselines:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py `
+  --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/04_periodic_mlp_h04_standard.yaml
 ```
 
 To run the lighter proof configuration used for a quick end-to-end verification:

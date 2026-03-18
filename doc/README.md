@@ -178,6 +178,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for removing the remaining feedforward-specific legacy snapshot compatibility from the active training pipeline.
 - [technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md](./technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md)
   Technical document for formalizing the registry-selected feedforward run as the canonical reference baseline before Wave 1.
+- [technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md](./technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md)
+  Technical document for preparing Wave 1 structured-baseline implementation and the first exploratory campaign against the formalized feedforward reference baseline.
 
 ### Script Documentation
 
@@ -187,6 +189,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the TE curve visualization utility.
 - [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
+- [scripts/training/train_tree_regressor.md](./scripts/training/train_tree_regressor.md)
+  Script-level documentation for the tree-based structured-baseline training entry point.
 - [scripts/training/run_training_campaign.md](./scripts/training/run_training_campaign.md)
   Script-level documentation for the persistent queue-based batch training runner.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
@@ -211,6 +215,8 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md](./reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md)
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
+- [reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md](./reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md)
+  Planning report for the first Wave 1 structured-baseline exploratory campaign across harmonic, periodic-feature, residual, and tree-based model families.
 
 #### Campaign Results
 

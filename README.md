@@ -244,12 +244,14 @@ Technical documents:
   * `doc/technical/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md`
   * `doc/technical/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md`
   * `doc/technical/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md`
+  * `doc/technical/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md`
 
 Script documentation:
 
 * `doc/scripts/datasets/transmission_error_dataset.md`
 * `doc/scripts/datasets/visualize_transmission_error.md`
 * `doc/scripts/training/train_feedforward_network.md`
+* `doc/scripts/training/train_tree_regressor.md`
 * `doc/scripts/training/run_training_campaign.md`
 * `doc/scripts/training/validate_training_setup.md`
 * `doc/scripts/training/run_training_smoke_test.md`
@@ -263,6 +265,7 @@ Reports:
   * `doc/reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md`
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+  * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 * `Campaign Results`
   * `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
   * `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`

@@ -113,6 +113,35 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Forward Pass Through Regression Model In Normalized Space
         return self.regression_model(normalized_input_tensor)
 
+    def forward_regression_model(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
+
+        """ Forward Regression Model """
+
+        auxiliary_output_dictionary: dict[str, torch.Tensor] = {}
+
+        # Prefer Context-Aware Model Forward When The Backbone Needs Raw And Normalized Views Together
+        if hasattr(self.regression_model, "compute_auxiliary_output_dictionary"):
+
+            # Compute Auxiliary Output Dictionary
+            computed_auxiliary_output_dictionary = self.regression_model.compute_auxiliary_output_dictionary(input_tensor, normalized_input_tensor)
+            assert isinstance(computed_auxiliary_output_dictionary, dict), "Auxiliary Output Dictionary must be a dictionary"
+            assert "prediction_tensor" in computed_auxiliary_output_dictionary, "Auxiliary Output Dictionary must contain prediction_tensor"
+
+            # Extract Prediction And Auxiliary Output Tensors
+            prediction_tensor = computed_auxiliary_output_dictionary["prediction_tensor"]
+            auxiliary_output_dictionary = {
+                key: value
+                for key, value in computed_auxiliary_output_dictionary.items()
+                if key != "prediction_tensor" and isinstance(value, torch.Tensor)
+            }
+            return prediction_tensor, auxiliary_output_dictionary
+
+        # Fallback To A Simpler Context-Aware Forward Signature
+        if hasattr(self.regression_model, "forward_with_input_context"):
+            return self.regression_model.forward_with_input_context(input_tensor, normalized_input_tensor), auxiliary_output_dictionary
+
+        return self(normalized_input_tensor), auxiliary_output_dictionary
+
     def compute_batch_outputs(self, batch_dictionary: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
 
         """ Compute Batch Outputs """
@@ -126,7 +155,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         normalized_target_tensor = self.normalize_target_tensor(target_tensor)
 
         # Forward Pass
-        normalized_prediction_tensor = self(normalized_input_tensor)
+        normalized_prediction_tensor, auxiliary_output_dictionary = self.forward_regression_model(input_tensor, normalized_input_tensor)
 
         # Compute Loss In Normalized Space
         loss = self.loss_function(normalized_prediction_tensor, normalized_target_tensor)
@@ -136,7 +165,8 @@ class TransmissionErrorRegressionModule(LightningModule):
         mae = torch.mean(torch.abs(prediction_tensor - target_tensor))
         rmse = torch.sqrt(torch.mean(torch.square(prediction_tensor - target_tensor)))
 
-        return {
+        # Create Batch Output Dictionary
+        batch_output_dictionary = {
             "input_tensor": input_tensor,
             "target_tensor": target_tensor,
             "normalized_input_tensor": normalized_input_tensor,
@@ -147,6 +177,10 @@ class TransmissionErrorRegressionModule(LightningModule):
             "mae": mae,
             "rmse": rmse,
         }
+
+        # Merge Optional Auxiliary Prediction Tensors Returned By Structured Models
+        batch_output_dictionary.update(auxiliary_output_dictionary)
+        return batch_output_dictionary
 
     def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
 
@@ -164,6 +198,15 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.log(f"{log_prefix}_loss", loss, on_step=False, on_epoch=True, prog_bar=True, batch_size=batch_size)
         self.log(f"{log_prefix}_mae", mae, on_step=False, on_epoch=True, prog_bar=(log_prefix != "train"), batch_size=batch_size)
         self.log(f"{log_prefix}_rmse", rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+
+        # Log Structured-Only Diagnostics When Available
+        structured_prediction_tensor = batch_output_dictionary.get("structured_prediction_tensor")
+        if isinstance(structured_prediction_tensor, torch.Tensor):
+            structured_prediction_denormalized = self.denormalize_target_tensor(structured_prediction_tensor)
+            structured_mae = torch.mean(torch.abs(structured_prediction_denormalized - batch_output_dictionary["target_tensor"]))
+            structured_rmse = torch.sqrt(torch.mean(torch.square(structured_prediction_denormalized - batch_output_dictionary["target_tensor"])))
+            self.log(f"{log_prefix}_structured_mae", structured_mae, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+            self.log(f"{log_prefix}_structured_rmse", structured_rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
 
         return loss
 

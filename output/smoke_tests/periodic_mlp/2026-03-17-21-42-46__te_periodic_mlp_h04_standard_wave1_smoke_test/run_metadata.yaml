@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: smoke_test
+model_family: periodic_mlp
+run_name: te_periodic_mlp_h04_standard_wave1_smoke_test
+run_instance_id: 2026-03-17-21-42-46__te_periodic_mlp_h04_standard_wave1_smoke_test
+output_directory: output/smoke_tests/periodic_mlp/2026-03-17-21-42-46__te_periodic_mlp_h04_standard_wave1_smoke_test

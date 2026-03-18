@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: periodic_mlp
+run_name: te_periodic_mlp_h04_standard_wave1_validation
+run_instance_id: 2026-03-17-21-29-07__te_periodic_mlp_h04_standard_wave1_validation
+output_directory: output/validation_checks/periodic_mlp/2026-03-17-21-29-07__te_periodic_mlp_h04_standard_wave1_validation

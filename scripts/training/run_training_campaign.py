@@ -24,7 +24,14 @@ from scripts.training import shared_training_infrastructure
 
 DEFAULT_QUEUE_ROOT = PROJECT_PATH / "config" / "training" / "queue"
 DEFAULT_CAMPAIGN_OUTPUT_ROOT = PROJECT_PATH / "output" / "training_campaigns"
-SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {"feedforward": "scripts/training/train_feedforward_network.py"}
+SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {
+    "feedforward": "scripts/training/train_feedforward_network.py",
+    "harmonic_regression": "scripts/training/train_feedforward_network.py",
+    "periodic_mlp": "scripts/training/train_feedforward_network.py",
+    "residual_harmonic_mlp": "scripts/training/train_feedforward_network.py",
+    "random_forest": "scripts/training/train_tree_regressor.py",
+    "hist_gradient_boosting": "scripts/training/train_tree_regressor.py",
+}
 TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 SECTION_DIVIDER_WIDTH = 96
 CAMPAIGN_PROGRESS_BAR_WIDTH = 24
@@ -481,11 +488,28 @@ def run_feedforward_training(config_path: str | Path) -> None:
 
     train_feedforward_network(config_path)
 
+def run_tree_regression_training(config_path: str | Path) -> None:
+
+    """ Run Tree Regression Training """
+
+    from scripts.training.train_tree_regressor import train_tree_regressor
+
+    # Load Training Config and Initialize Training Components
+    train_tree_regressor(config_path)
+
 def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
 
     """ Resolve Training Handler """
 
-    supported_model_handler_dictionary = {"feedforward": run_feedforward_training}
+    # Supported Model Types
+    supported_model_handler_dictionary = {
+        "feedforward": run_feedforward_training,
+        "harmonic_regression": run_feedforward_training,
+        "periodic_mlp": run_feedforward_training,
+        "residual_harmonic_mlp": run_feedforward_training,
+        "random_forest": run_tree_regression_training,
+        "hist_gradient_boosting": run_tree_regression_training,
+    }
 
     # Model Type is Case-Insensitive
     normalized_model_type = model_type.lower()

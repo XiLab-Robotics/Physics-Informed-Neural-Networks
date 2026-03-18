@@ -10,7 +10,7 @@ It is stored in:
 
 The runner is meant for long unattended campaigns where the user wants to prepare several configurations in advance and collect an indexed execution report afterward.
 
-For the current feedforward workflow, the runner now reuses the same in-process terminal behavior as `scripts/training/train_feedforward_network.py` instead of flattening the child output through a captured subprocess pipe.
+For the current structured-baseline workflow, the runner now reuses the same in-process terminal behavior as the underlying trainer instead of flattening the child output through a captured subprocess pipe.
 
 ## Main Role
 
@@ -30,6 +30,10 @@ The script coordinates the batch-training flow:
 
 Reusable feedforward training presets that should be copied into the queue when preparing a campaign.
 
+### `config/training/wave1_structured_baselines/campaigns/`
+
+Campaign-specific YAML packages for the first structured-baseline wave, including harmonic, periodic-feature, residual, and tree-based candidates.
+
 ### `config/training/queue/`
 
 Persistent queue folders:
@@ -41,7 +45,19 @@ Persistent queue folders:
 
 ### `scripts/training/train_feedforward_network.py`
 
-Current single-run feedforward training entry point reused directly by the batch runner for the supported feedforward workflow.
+Current single-run static neural training entry point reused directly by the batch runner for:
+
+- `feedforward`
+- `harmonic_regression`
+- `periodic_mlp`
+- `residual_harmonic_mlp`
+
+### `scripts/training/train_tree_regressor.py`
+
+Current single-run tree training entry point reused directly by the batch runner for:
+
+- `random_forest`
+- `hist_gradient_boosting`
 
 ### `output/training_campaigns/`
 
@@ -103,3 +119,5 @@ The generated campaign report is intended to be the technical source index for t
 During execution, the campaign runner now keeps the direct single-run training output visible in the terminal, so the user can observe startup messages, Lightning progress bars, validation/test phases, and final artifact summaries without waiting for the campaign to finish.
 
 The underlying run artifacts are now expected under `output/training_runs/<model_family>/<run_instance_id>/`, while campaign summaries remain under `output/training_campaigns/<campaign_id>/`.
+
+The same runner can now dispatch both neural and tree-based structured baselines inside one campaign, provided each YAML exposes a supported `experiment.model_type`.
