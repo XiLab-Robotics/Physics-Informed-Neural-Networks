@@ -267,6 +267,13 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-21-55-38_harmonic_diagram_flow_card_and_connector_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-22-11-16_harmonic_conditioning_branch_visible_shaft_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-22-17-00_harmonic_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
+  * `doc/technical/2026-03-18/2026-03-18-22-35-34_periodic_diagram_layout_and_connector_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-22-44-13_periodic_architecture_concat_lane_and_input_clearance_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-22-50-06_periodic_architecture_concat_endpoint_swap_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-23-00-16_periodic_architecture_concat_clearance_extension.md`
+  * `doc/technical/2026-03-18/2026-03-18-23-11-26_periodic_architecture_vertical_alignment_and_right_margin_rebalance.md`
+  * `doc/technical/2026-03-18/2026-03-18-23-31-24_periodic_architecture_horizontal_compaction_and_feature_route_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-23-34-49_periodic_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md`

@@ -31,58 +31,73 @@
   <text x="64" y="68" class="canvas-title">Periodic Feature Network Structure</text>
   <text x="64" y="98" class="canvas-subtitle">Feature-expansion front end plus dense neural backbone</text>
   <g transform="translate(0,67.0)">
-  <rect x="52" y="272" width="164" height="116" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M70, 272 H198 Q216, 272 216, 290 V318 H52 V290 Q52, 272 70, 272 Z" fill="url(#card_header)"/>
-  <line x1="52" y1="318" x2="216" y2="318" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="134" y="303" text-anchor="middle" class="card-title">Angle</text>
-  <text x="134.0" y="357.0" text-anchor="middle" class="card-text">Theta</text>
-  <rect x="254" y="142" width="252" height="332" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
-  <path d="M272, 142 H488 Q506, 142 506, 160 V188 H254 V160 Q254, 142 272, 142 Z" fill="url(#card_header)"/>
-  <line x1="254" y1="188" x2="506" y2="188" stroke="#7FB2F0" stroke-width="2"/>
-  <text x="380" y="173" text-anchor="middle" class="card-title">Feature Expansion</text>
-  <text x="380.0" y="261.0" text-anchor="middle" class="card-text">sin(theta)</text>
-  <text x="380.0" y="281.0" text-anchor="middle" class="card-text">cos(theta)</text>
-  <text x="380.0" y="301.0" text-anchor="middle" class="card-text">sin(2 theta)</text>
-  <text x="380.0" y="321.0" text-anchor="middle" class="card-text">cos(2 theta)</text>
-  <text x="380.0" y="341.0" text-anchor="middle" class="card-text">Higher-order channels</text>
-  <text x="380.0" y="361.0" text-anchor="middle" class="card-text">Optional raw angle</text>
-  <text x="380.0" y="393.0" text-anchor="middle" class="card-note">2K or 2K + 1 periodic</text>
-  <text x="380.0" y="411.0" text-anchor="middle" class="card-note">channels</text>
-  <rect x="548" y="236" width="198" height="198" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M566, 236 H728 Q746, 236 746, 254 V282 H548 V254 Q548, 236 566, 236 Z" fill="url(#card_header)"/>
-  <line x1="548" y1="282" x2="746" y2="282" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="647" y="267" text-anchor="middle" class="card-title">Conditions</text>
-  <text x="647.0" y="317.0" text-anchor="middle" class="card-text">Speed</text>
-  <text x="647.0" y="337.0" text-anchor="middle" class="card-text">Torque</text>
-  <text x="647.0" y="357.0" text-anchor="middle" class="card-text">Temperature</text>
-  <text x="647.0" y="377.0" text-anchor="middle" class="card-text">Direction</text>
-  <text x="647.0" y="409.0" text-anchor="middle" class="card-note">Normalized inputs</text>
-  <rect x="790" y="266" width="176" height="128" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M808, 266 H948 Q966, 266 966, 284 V312 H790 V284 Q790, 266 808, 266 Z" fill="url(#card_header)"/>
-  <line x1="790" y1="312" x2="966" y2="312" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="878" y="297" text-anchor="middle" class="card-title">Concat</text>
-  <text x="878.0" y="347.0" text-anchor="middle" class="card-text">Expanded feature</text>
-  <text x="878.0" y="367.0" text-anchor="middle" class="card-text">vector</text>
-  <circle cx="1020" cy="233" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1020" y="237" text-anchor="middle" class="node-label">h1</text>
-  <circle cx="1020" cy="299" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1020" y="303" text-anchor="middle" class="node-label">h2</text>
-  <circle cx="1020" cy="365" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1020" y="369" text-anchor="middle" class="node-label">h3</text>
-  <circle cx="1020" cy="431" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1020" y="435" text-anchor="middle" class="node-label">h4</text>
-  <circle cx="1130" cy="266" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1130" y="270" text-anchor="middle" class="node-label">h1</text>
-  <circle cx="1130" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1130" y="336" text-anchor="middle" class="node-label">h2</text>
-  <circle cx="1130" cy="398" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1130" y="402" text-anchor="middle" class="node-label">h3</text>
-  <circle cx="1230" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="1230" y="336" text-anchor="middle" class="node-label">TE</text>
-  <path d="M224.0,330.0 L233.0,330.0 L233.0,308.0 L242.0,308.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M514.0,236.0 L718.0,236.0 L718.0,310.0 L778.0,310.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M754.0,369.0 L758.0,369.0 L758.0,356.0 L778.0,356.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M966.0,332.0 L998.0,332.0" fill="none" stroke="#4E7AC7" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="52" y="274" width="150" height="116" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M70, 274 H184 Q202, 274 202, 292 V320 H52 V292 Q52, 274 70, 274 Z" fill="url(#card_header)"/>
+  <line x1="52" y1="320" x2="202" y2="320" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="127" y="305" text-anchor="middle" class="card-title">Angle</text>
+  <text x="127.0" y="359.0" text-anchor="middle" class="card-text">Theta</text>
+  <rect x="244" y="142" width="228" height="332" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M262, 142 H454 Q472, 142 472, 160 V188 H244 V160 Q244, 142 262, 142 Z" fill="url(#card_header)"/>
+  <line x1="244" y1="188" x2="472" y2="188" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="358" y="173" text-anchor="middle" class="card-title">Feature Expansion</text>
+  <text x="358.0" y="261.0" text-anchor="middle" class="card-text">sin(theta)</text>
+  <text x="358.0" y="281.0" text-anchor="middle" class="card-text">cos(theta)</text>
+  <text x="358.0" y="301.0" text-anchor="middle" class="card-text">sin(2 theta)</text>
+  <text x="358.0" y="321.0" text-anchor="middle" class="card-text">cos(2 theta)</text>
+  <text x="358.0" y="341.0" text-anchor="middle" class="card-text">Higher-order channels</text>
+  <text x="358.0" y="361.0" text-anchor="middle" class="card-text">Optional raw angle</text>
+  <text x="358.0" y="393.0" text-anchor="middle" class="card-note">2K or 2K + 1 periodic</text>
+  <text x="358.0" y="411.0" text-anchor="middle" class="card-note">channels</text>
+  <rect x="500" y="215" width="170" height="198" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M518, 215 H652 Q670, 215 670, 233 V261 H500 V233 Q500, 215 518, 215 Z" fill="url(#card_header)"/>
+  <line x1="500" y1="261" x2="670" y2="261" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="585" y="246" text-anchor="middle" class="card-title">Conditions</text>
+  <text x="585.0" y="296.0" text-anchor="middle" class="card-text">Speed</text>
+  <text x="585.0" y="316.0" text-anchor="middle" class="card-text">Torque</text>
+  <text x="585.0" y="336.0" text-anchor="middle" class="card-text">Temperature</text>
+  <text x="585.0" y="356.0" text-anchor="middle" class="card-text">Direction</text>
+  <text x="585.0" y="388.0" text-anchor="middle" class="card-note">Normalized inputs</text>
+  <rect x="742" y="268" width="156" height="128" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M760, 268 H880 Q898, 268 898, 286 V314 H742 V286 Q742, 268 760, 268 Z" fill="url(#card_header)"/>
+  <line x1="742" y1="314" x2="898" y2="314" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="820" y="299" text-anchor="middle" class="card-title">Concat</text>
+  <text x="820.0" y="349.0" text-anchor="middle" class="card-text">Expanded feature</text>
+  <text x="820.0" y="369.0" text-anchor="middle" class="card-text">vector</text>
+  <circle cx="970" cy="233" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="237" text-anchor="middle" class="node-label">h1</text>
+  <circle cx="970" cy="299" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="303" text-anchor="middle" class="node-label">h2</text>
+  <circle cx="970" cy="365" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="369" text-anchor="middle" class="node-label">h3</text>
+  <circle cx="970" cy="431" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="435" text-anchor="middle" class="node-label">h4</text>
+  <circle cx="1066" cy="266" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1066" y="270" text-anchor="middle" class="node-label">h1</text>
+  <circle cx="1066" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1066" y="336" text-anchor="middle" class="node-label">h2</text>
+  <circle cx="1066" cy="398" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1066" y="402" text-anchor="middle" class="node-label">h3</text>
+  <circle cx="1146" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1146" y="336" text-anchor="middle" class="node-label">TE</text>
+  <line x1="983.4" y1="226.3" x2="1052.6" y2="272.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="233.0" x2="1052.6" y2="338.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="239.7" x2="1052.6" y2="404.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="292.3" x2="1051.2" y2="268.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="299.0" x2="1051.2" y2="334.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="305.7" x2="1051.2" y2="400.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="358.3" x2="1051.2" y2="263.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="365.0" x2="1051.2" y2="329.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="371.7" x2="1051.2" y2="395.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="424.3" x2="1052.6" y2="259.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="431.0" x2="1052.6" y2="325.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="437.7" x2="1052.6" y2="391.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="1081.0" y1="266.0" x2="1132.6" y2="338.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="1081.0" y1="332.0" x2="1131.0" y2="332.0" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="1081.0" y1="398.0" x2="1132.6" y2="325.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="210.0" y1="332.0" x2="232.0" y2="332.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M480.0,430.0 L700.0,430.0 L700.0,350.0 L716.0,350.0 L730.0,350.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="678.0" y1="314.0" x2="730.0" y2="314.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="906.0" y1="332.0" x2="943.0" y2="332.0" stroke="#4E7AC7" stroke-width="2.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   <text x="286" y="556" class="tiny">Periodic structure is handcrafted in front. Nonlinear interaction learning happens in the MLP.</text>
   </g>
 

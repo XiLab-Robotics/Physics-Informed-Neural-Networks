@@ -994,32 +994,41 @@ def build_periodic_conceptual_diagram() -> str:
 
     # Draw Conceptual Body
     body = ""
-    body += draw_card(58, 188, 204, 190, "Raw Angle", ["Angle sample", "Used to build", "periodic channels"], note="Angle drives expansion")
+    body += draw_card(58, 187, 204, 190, "Raw Angle", ["Angle sample", "Used to build", "periodic channels"], note="Angle drives expansion")
     body += draw_flow_card(
         316,
-        156,
+        146,
         292,
-        252,
+        272,
         "Periodic Feature Builder",
         ["sin(theta) and cos(theta)", "Higher-order channels", "Optional raw normalized angle"],
         note="Periodic prior enters as features",
         accent=True,
+        flow_gap=26,
+        note_gap=14,
+        bottom_note_clearance=10,
+        connector_min_span=10,
     )
-    body += draw_card(670, 188, 224, 190, "Concatenation", ["Periodic channels", "Operating-state features", "One expanded vector"], note="Structured plus generic inputs")
+    body += draw_card(670, 187, 224, 190, "Concatenation", ["Periodic channels", "Operating-state features", "One expanded vector"], note="Structured plus generic inputs")
     body += draw_flow_card(
         952,
-        156,
+        146,
         264,
-        252,
+        272,
         "FeedForward Backbone",
         ["Dense nonlinear mixing", "Interaction learning", "Scalar TE head"],
         note="Flexible regressor on structured inputs",
+        flow_gap=26,
+        note_gap=14,
+        bottom_note_clearance=10,
+        connector_min_span=10,
     )
 
     # Draw Main Flow Arrows
-    body += draw_box_connector(58, 188, 204, 190, "right", 316, 156, 292, 252, "left")
-    body += draw_box_connector(316, 156, 292, 252, "right", 670, 188, 224, 190, "left")
-    body += draw_box_connector(670, 188, 224, 190, "right", 952, 156, 264, 252, "left")
+    connector_y = 282.0
+    body += draw_arrow(270.0, connector_y, 304.0, connector_y, stroke_width=2.4)
+    body += draw_arrow(616.0, connector_y, 658.0, connector_y, stroke_width=2.4)
+    body += draw_arrow(902.0, connector_y, 940.0, connector_y, stroke_width=2.4)
 
     # Draw Interpretation Card
     body += draw_card(
@@ -1032,7 +1041,7 @@ def build_periodic_conceptual_diagram() -> str:
         align="center",
     )
 
-    return content + wrap_centered_body(body, 156, 570)
+    return content + wrap_centered_body(body, 146, 570)
 
 def build_periodic_architecture_diagram() -> str:
 
@@ -1043,12 +1052,39 @@ def build_periodic_architecture_diagram() -> str:
 
     # Draw Static Architecture Blocks
     body = ""
-    body += draw_card(52, 272, 164, 116, "Angle", ["Theta"], align="center")
+    angle_card_x = 52
+    angle_card_width = 150
+    angle_card_height = 116
+    feature_card_x = 244
+    feature_card_y = 142
+    feature_card_width = 228
+    feature_card_height = 332
+    conditions_card_x = 500
+    conditions_card_width = 170
+    conditions_card_height = 198
+    concat_card_x = 742
+    concat_card_y = 268
+    concat_card_width = 156
+    concat_card_height = 128
+
+    concat_center_y = concat_card_y + (concat_card_height / 2.0)
+    concat_upper_branch_y = concat_center_y - 18.0
+    concat_lower_branch_y = concat_center_y + 18.0
+    angle_card_y = int(concat_center_y - (angle_card_height / 2.0))
+    conditions_card_y = int(concat_upper_branch_y - (conditions_card_height / 2.0))
+    angle_center_y = angle_card_y + (angle_card_height / 2.0)
+    conditions_center_y = conditions_card_y + (conditions_card_height / 2.0)
+    neural_backbone_base_y = int(concat_center_y)
+
+    assert abs(angle_center_y - concat_center_y) <= 0.1, "Periodic angle and concat cards are not vertically aligned"
+    assert abs(conditions_center_y - concat_upper_branch_y) <= 0.1, "Periodic conditions branch is not aligned to the concat entry"
+
+    body += draw_card(angle_card_x, angle_card_y, angle_card_width, angle_card_height, "Angle", ["Theta"], align="center")
     body += draw_card(
-        254,
-        142,
-        252,
-        332,
+        feature_card_x,
+        feature_card_y,
+        feature_card_width,
+        feature_card_height,
         "Feature Expansion",
         ["sin(theta)", "cos(theta)", "sin(2 theta)", "cos(2 theta)", "Higher-order channels", "Optional raw angle"],
         note="2K or 2K + 1 periodic\nchannels",
@@ -1057,33 +1093,80 @@ def build_periodic_architecture_diagram() -> str:
         note_align="center",
     )
     body += draw_card(
-        548,
-        236,
-        198,
-        198,
+        conditions_card_x,
+        conditions_card_y,
+        conditions_card_width,
+        conditions_card_height,
         "Conditions",
         ["Speed", "Torque", "Temperature", "Direction"],
         note="Normalized inputs",
         align="center",
         note_align="center",
     )
-    body += draw_card(790, 266, 176, 128, "Concat", ["Expanded feature\nvector"], align="center")
+    body += draw_card(concat_card_x, concat_card_y, concat_card_width, concat_card_height, "Concat", ["Expanded feature\nvector"], align="center")
 
     # Draw Neural Backbone
     layer_block_svg, _ = draw_layer_block(
-        [1020, 1130, 1230],
+        [970, 1066, 1146],
         [["h1", "h2", "h3", "h4"], ["h1", "h2", "h3"], ["TE"]],
-        base_y=332,
+        base_y=neural_backbone_base_y,
         layer_gap=66,
         radius=15,
+        draw_connections=True,
+        connection_color="#C8DCF8",
+        connection_stroke_width=1.2,
+        connection_use_arrow_head=False,
     )
     body += layer_block_svg
 
     # Draw Routed Input Flow
-    body += draw_box_connector(52, 272, 164, 116, "right", 254, 142, 252, 332, "left")
-    body += draw_box_connector(254, 142, 252, 332, "right", 790, 266, 176, 128, "left", source_offset=-72, target_offset=-20, lane_x=718)
-    body += draw_box_connector(548, 236, 198, 198, "right", 790, 266, 176, 128, "left", source_offset=34, target_offset=26, lane_x=758)
-    body += draw_polyline_arrow([(966, 332), (998, 332)], stroke_width=2.0)
+    angle_connector_start_x = angle_card_x + angle_card_width + BOX_CONNECTOR_START_CLEARANCE
+    angle_connector_end_x = feature_card_x - BOX_CONNECTOR_END_CLEARANCE
+    body += draw_arrow(angle_connector_start_x, angle_center_y, angle_connector_end_x, angle_center_y, stroke_width=2.4)
+
+    feature_source_border_x, feature_source_border_y = resolve_card_side_point(
+        feature_card_x,
+        feature_card_y,
+        feature_card_width,
+        feature_card_height,
+        "right",
+        122,
+    )
+    feature_start_x, feature_start_y = offset_point_from_side(
+        feature_source_border_x,
+        feature_source_border_y,
+        "right",
+        BOX_CONNECTOR_START_CLEARANCE,
+    )
+    feature_concat_end_x = concat_card_x - BOX_CONNECTOR_END_CLEARANCE
+    feature_route_mid_x = 700.0
+    feature_route_entry_x = 716.0
+    body += draw_polyline_arrow(
+        [
+            (feature_start_x, feature_start_y),
+            (feature_route_mid_x, feature_start_y),
+            (feature_route_mid_x, concat_lower_branch_y),
+            (feature_route_entry_x, concat_lower_branch_y),
+            (feature_concat_end_x, concat_lower_branch_y),
+        ],
+        stroke_width=2.4,
+    )
+    conditions_connector_start_x = conditions_card_x + conditions_card_width + BOX_CONNECTOR_START_CLEARANCE
+    conditions_connector_end_x = concat_card_x - BOX_CONNECTOR_END_CLEARANCE
+    body += draw_arrow(
+        conditions_connector_start_x,
+        conditions_center_y,
+        conditions_connector_end_x,
+        conditions_center_y,
+        stroke_width=2.4,
+    )
+    body += draw_arrow(
+        concat_card_x + concat_card_width + BOX_CONNECTOR_START_CLEARANCE,
+        concat_center_y,
+        943.0,
+        concat_center_y,
+        stroke_width=2.0,
+    )
     body += '  <text x="286" y="556" class="tiny">Periodic structure is handcrafted in front. Nonlinear interaction learning happens in the MLP.</text>\n'
 
     return content + wrap_centered_body(body, 142, 556)
