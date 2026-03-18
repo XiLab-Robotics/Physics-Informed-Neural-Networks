@@ -258,6 +258,12 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md`
   * `doc/technical/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-15-44_feedforward_architecture_diagram_root_cause_and_layout_repair.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-25-59_feedforward_conceptual_diagram_flow_card_spacing_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-32-27_feedforward_conceptual_diagram_note_clearance_and_connector_length_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-37-34_feedforward_conceptual_diagram_additional_row_spacing_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-41-40_feedforward_architecture_external_connector_clearance_alignment.md`
+  * `doc/technical/2026-03-18/2026-03-18-21-45-17_feedforward_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md`

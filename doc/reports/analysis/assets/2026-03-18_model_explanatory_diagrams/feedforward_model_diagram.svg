@@ -30,7 +30,7 @@
   <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
   <text x="64" y="68" class="canvas-title">Feedforward TE Baseline</text>
   <text x="64" y="98" class="canvas-subtitle">Generic point-wise nonlinear regressor without explicit periodic decomposition</text>
-  <g transform="translate(0,52.0)">
+  <g transform="translate(0,69.0)">
   <rect x="74" y="182" width="214" height="196" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
   <path d="M92, 182 H270 Q288, 182 288, 200 V228 H74 V200 Q74, 182 92, 182 Z" fill="url(#card_header)"/>
   <line x1="74" y1="228" x2="288" y2="228" stroke="#ADD5F7" stroke-width="2"/>
@@ -48,22 +48,22 @@
   <text x="370.0" y="292.0" text-anchor="start" class="card-text">Target scaling</text>
   <text x="370.0" y="312.0" text-anchor="start" class="card-text">Train-set mean and std</text>
   <text x="370.0" y="344.0" text-anchor="start" class="card-note">Shared preprocessing</text>
-  <rect x="618" y="164" width="304" height="232" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
-  <path d="M636, 164 H904 Q922, 164 922, 182 V210 H618 V182 Q618, 164 636, 164 Z" fill="url(#card_header)"/>
-  <line x1="618" y1="210" x2="922" y2="210" stroke="#7FB2F0" stroke-width="2"/>
-  <text x="770.0" y="195" text-anchor="middle" class="card-title">FeedForward Network</text>
-  <rect x="642" y="230.0" width="256" height="20" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="770.0" y="245.0" text-anchor="middle" class="flow-row-text">Linear block</text>
-  <line x1="770.0" y1="253.0" x2="770.0" y2="258.0" stroke="#4E7AC7" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="642" y="262.0" width="256" height="20" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="770.0" y="277.0" text-anchor="middle" class="flow-row-text">Optional layer norm</text>
-  <line x1="770.0" y1="285.0" x2="770.0" y2="290.0" stroke="#4E7AC7" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="642" y="294.0" width="256" height="20" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="770.0" y="309.0" text-anchor="middle" class="flow-row-text">Activation and dropout</text>
-  <line x1="770.0" y1="317.0" x2="770.0" y2="322.0" stroke="#4E7AC7" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <rect x="642" y="326.0" width="256" height="20" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
-  <text x="770.0" y="341.0" text-anchor="middle" class="flow-row-text">Scalar output head</text>
-  <text x="770.0" y="382.0" text-anchor="middle" class="card-note">Learns TE structure implicitly</text>
+  <rect x="618" y="130" width="304" height="300" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M636, 130 H904 Q922, 130 922, 148 V176 H618 V148 Q618, 130 636, 130 Z" fill="url(#card_header)"/>
+  <line x1="618" y1="176" x2="922" y2="176" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="770.0" y="161" text-anchor="middle" class="card-title">FeedForward Network</text>
+  <rect x="642" y="198.0" width="256" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="770.0" y="212.0" text-anchor="middle" class="flow-row-text">Linear block</text>
+  <line x1="770.0" y1="221.0" x2="770.0" y2="239.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="642" y="246.0" width="256" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="770.0" y="260.0" text-anchor="middle" class="flow-row-text">Optional layer norm</text>
+  <line x1="770.0" y1="269.0" x2="770.0" y2="287.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="642" y="294.0" width="256" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="770.0" y="308.0" text-anchor="middle" class="flow-row-text">Activation and dropout</text>
+  <line x1="770.0" y1="317.0" x2="770.0" y2="335.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="642" y="342.0" width="256" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="770.0" y="356.0" text-anchor="middle" class="flow-row-text">Scalar output head</text>
+  <text x="770.0" y="418.0" text-anchor="middle" class="card-note">Learns TE structure implicitly</text>
   <rect x="980" y="182" width="226" height="196" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
   <path d="M998, 182 H1188 Q1206, 182 1206, 200 V228 H980 V200 Q980, 182 998, 182 Z" fill="url(#card_header)"/>
   <line x1="980" y1="228" x2="1206" y2="228" stroke="#ADD5F7" stroke-width="2"/>

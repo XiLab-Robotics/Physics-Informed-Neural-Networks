@@ -40,6 +40,12 @@ CONTENT_REGION_TOP = HEADER_BOTTOM + 28
 CONTENT_REGION_BOTTOM = SVG_HEIGHT - 34
 BOX_CONNECTOR_START_CLEARANCE = 8
 BOX_CONNECTOR_END_CLEARANCE = 12
+FLOW_CARD_ROW_HEIGHT = 18
+FLOW_CARD_ROW_GAP = 18
+FLOW_CARD_NOTE_GAP = 10
+FLOW_CARD_CONNECTOR_TOP_CLEARANCE = 5
+FLOW_CARD_CONNECTOR_BOTTOM_CLEARANCE = 7
+FLOW_CARD_CONNECTOR_MIN_SPAN = 6
 
 @dataclass(frozen=True)
 class TextLine:
@@ -275,6 +281,14 @@ def draw_flow_card(
     rows: list[str | TextLine],
     note: str | None = "",
     accent: bool = False,
+    row_height: int = FLOW_CARD_ROW_HEIGHT,
+    flow_gap: int = FLOW_CARD_ROW_GAP,
+    note_gap: float | None = None,
+    bottom_note_clearance: float = 0.0,
+    connector_top_clearance: float = FLOW_CARD_CONNECTOR_TOP_CLEARANCE,
+    connector_bottom_clearance: float = FLOW_CARD_CONNECTOR_BOTTOM_CLEARANCE,
+    connector_min_span: float = FLOW_CARD_CONNECTOR_MIN_SPAN,
+    connector_stroke_width: float = 1.4,
 ) -> str:
 
     """ Draw Flow Card """
@@ -284,13 +298,12 @@ def draw_flow_card(
     note_line_list = normalize_text_line_list([note] if note else None, "card-note")
 
     # Resolve Flow Geometry
-    row_height = 20
-    flow_gap = 12
     content_height = height - CARD_HEADER_HEIGHT - (2 * CARD_PADDING_Y)
     flow_height = (len(row_line_list) * row_height) + (max(0, len(row_line_list) - 1) * flow_gap)
     note_height = compute_text_block_height(note_line_list, NOTE_LINE_HEIGHT)
-    note_gap = CARD_NOTE_GAP if note_line_list else 0.0
-    required_height = flow_height + note_gap + note_height
+    resolved_note_gap = (FLOW_CARD_NOTE_GAP if note_gap is None else note_gap) if note_line_list else 0.0
+    bottom_clearance = bottom_note_clearance if note_line_list else 0.0
+    required_height = flow_height + resolved_note_gap + note_height + bottom_clearance
     assert required_height <= content_height, f"Flow card content overflows | {title}"
 
     # Draw Flow Card Shell
@@ -316,19 +329,26 @@ def draw_flow_card(
         )
         content.append(draw_text_line(x + width / 2.0, row_center_y + 5.0, "middle", text_line))
 
-        # Draw Compact Vertical Connector Between Rows
+        # Draw Centered Vertical Connector Between Rows
         if row_index < len(row_line_list) - 1:
-            arrow_start_y = row_y + row_height + 3
-            arrow_end_y = row_y + row_height + flow_gap - 4
+            next_row_y = row_y + row_height + flow_gap
+            arrow_start_y = row_y + row_height + connector_top_clearance
+            arrow_end_y = next_row_y - connector_bottom_clearance
+            assert arrow_end_y - arrow_start_y >= connector_min_span, f"Flow connector clearance collapsed | {title}"
             content.append(
-                f'  <line x1="{x + width / 2:.1f}" y1="{arrow_start_y:.1f}" x2="{x + width / 2:.1f}" y2="{arrow_end_y:.1f}" '
-                f'stroke="{ARROW_COLOR}" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow_head)"/>'
+                draw_arrow(
+                    x + width / 2.0,
+                    arrow_start_y,
+                    x + width / 2.0,
+                    arrow_end_y,
+                    stroke_width=connector_stroke_width,
+                ).rstrip()
             )
         current_y += row_height + flow_gap
 
     # Draw Optional Note
     if note_line_list:
-        current_y += note_gap
+        current_y += resolved_note_gap
         for note_index, note_line in enumerate(note_line_list):
             content.append(draw_text_line(x + width / 2.0, current_y + 12.0, "middle", note_line))
             current_y += NOTE_LINE_HEIGHT
@@ -561,6 +581,7 @@ def draw_dense_connections(
     target_radius: int,
     color: str = SOFT_ARROW_COLOR,
     stroke_width: float = 1.4,
+    use_arrow_head: bool = True,
 ) -> str:
 
     """ Draw Dense Connections """
@@ -619,8 +640,15 @@ def draw_dense_connections(
                 end_x, end_y = compute_point_fan_anchor(target_x, target_y, target_rank, len(source_coordinates))
 
             content.append(
-                f'  <line x1="{start_x:.1f}" y1="{start_y:.1f}" x2="{end_x:.1f}" y2="{end_y:.1f}" '
-                f'stroke="{color}" stroke-width="{stroke_width}" stroke-linecap="round" marker-end="url(#arrow_head)"/>'
+                draw_arrow(
+                    start_x,
+                    start_y,
+                    end_x,
+                    end_y,
+                    color=color,
+                    stroke_width=stroke_width,
+                    use_arrow_head=use_arrow_head,
+                ).rstrip()
             )
 
     return "\n".join(content) + ("\n" if content else "")
@@ -633,6 +661,9 @@ def draw_layer_block(
     layer_gap: int,
     radius: int,
     draw_connections: bool = False,
+    connection_color: str = SOFT_ARROW_COLOR,
+    connection_stroke_width: float = 1.4,
+    connection_use_arrow_head: bool = True,
 ) -> tuple[str, list[list[tuple[int, int]]]]:
 
     """ Draw Layer Block """
@@ -666,6 +697,9 @@ def draw_layer_block(
                     layer_centers[layer_index + 1],
                     source_radius=radius,
                     target_radius=radius,
+                    color=connection_color,
+                    stroke_width=connection_stroke_width,
+                    use_arrow_head=connection_use_arrow_head,
                 ).rstrip()
             )
 
@@ -695,20 +729,24 @@ def build_feedforward_conceptual_diagram() -> str:
     body += draw_card(346, 182, 214, 196, "Normalization", ["Input scaling", "Target scaling", "Train-set mean and std"], note="Shared preprocessing")
     body += draw_flow_card(
         618,
-        164,
+        130,
         304,
-        232,
+        300,
         "FeedForward Network",
         ["Linear block", "Optional layer norm", "Activation and dropout", "Scalar output head"],
         note="Learns TE structure implicitly",
         accent=True,
+        flow_gap=30,
+        note_gap=16,
+        bottom_note_clearance=14,
+        connector_min_span=10,
     )
     body += draw_card(980, 182, 226, 196, "Prediction", ["Normalized TE", "Denormalized scalar TE", "MAE and RMSE logging"], note="Single-point inference")
 
     # Draw Main Flow Arrows
     body += draw_box_connector(74, 182, 214, 196, "right", 346, 182, 214, 196, "left")
-    body += draw_box_connector(346, 182, 214, 196, "right", 618, 164, 304, 232, "left")
-    body += draw_box_connector(618, 164, 304, 232, "right", 980, 182, 226, 196, "left")
+    body += draw_box_connector(346, 182, 214, 196, "right", 618, 130, 304, 300, "left")
+    body += draw_box_connector(618, 130, 304, 300, "right", 980, 182, 226, 196, "left")
 
     # Draw Interpretation Card
     body += draw_card(
@@ -721,7 +759,7 @@ def build_feedforward_conceptual_diagram() -> str:
         align="center",
     )
 
-    return content + wrap_centered_body(body, 164, 564)
+    return content + wrap_centered_body(body, 130, 564)
 
 def build_feedforward_architecture_diagram() -> str:
 
@@ -732,11 +770,39 @@ def build_feedforward_architecture_diagram() -> str:
 
     # Draw Architecture Body
     body = ""
+    input_card_x = 56
+    input_card_y = 162
+    input_card_width = 206
+    input_card_height = 394
+    input_center_y = input_card_y + (input_card_height / 2.0)
+
+    annotation_title_y = 128
+    annotation_note_y = 152
+    first_layer_x = 392
+    layer_x_positions = [first_layer_x, 548, 732, 916]
+    layer_base_y = int(input_center_y)
+    layer_gap = 74
+    layer_radius = 17
+    top_neuron_y = layer_base_y - (((5 - 1) * layer_gap) // 2)
+    annotation_gap = top_neuron_y - annotation_note_y
+    assert annotation_gap >= 56, f"Feedforward annotation gap too small | {annotation_gap}"
+
+    output_card_width = 160
+    output_card_height = 128
+    output_card_x = 1048
+    output_card_y = int(layer_base_y - (output_card_height / 2.0))
+    output_center_y = output_card_y + (output_card_height / 2.0)
+    assert abs(output_center_y - layer_base_y) <= 0.1, "Feedforward output card is not vertically aligned"
+
+    external_connector_stroke_width = 2.4
+    external_connector_start_clearance = BOX_CONNECTOR_START_CLEARANCE
+    external_connector_end_clearance = BOX_CONNECTOR_END_CLEARANCE
+
     body += draw_card(
-        56,
-        162,
-        206,
-        394,
+        input_card_x,
+        input_card_y,
+        input_card_width,
+        input_card_height,
         "Inputs",
         [
             TextLine("Angle", extra_gap_after=2.0),
@@ -749,30 +815,53 @@ def build_feedforward_architecture_diagram() -> str:
         align="center",
         note_align="center",
     )
-    body += draw_card(1036, 286, 160, 128, "Output", ["Transmission\nerror"], align="center")
-    body += '  <text x="300" y="142" class="label">Example hidden layout: 5 to 4 to 4 to 3 to 1</text>\n'
-    body += '  <text x="300" y="166" class="tiny">The actual hidden width is configured by the training YAML.</text>\n'
+    body += draw_card(output_card_x, output_card_y, output_card_width, output_card_height, "Output", ["Transmission\nerror"], align="center")
+    body += f'  <text x="300" y="{annotation_title_y}" class="label">Example hidden layout: 5 to 4 to 4 to 3 to 1</text>\n'
+    body += f'  <text x="300" y="{annotation_note_y}" class="tiny">The actual hidden width is configured by the training YAML.</text>\n'
 
     # Draw Dense Layer Stack
     layer_block_svg, layer_centers = draw_layer_block(
-        [324, 508, 692, 876],
+        layer_x_positions,
         [
             ["a", "s", "q", "t", "d"],
             ["h1", "h2", "h3", "h4"],
             ["h1", "h2", "h3", "h4"],
             ["h1", "h2", "h3"],
         ],
-        base_y=360,
-        layer_gap=74,
-        radius=17,
+        base_y=layer_base_y,
+        layer_gap=layer_gap,
+        radius=layer_radius,
+        draw_connections=True,
+        connection_color="#C8DCF8",
+        connection_stroke_width=1.3,
+        connection_use_arrow_head=False,
     )
     body += layer_block_svg
 
     # Draw Input And Output Routing
-    body += draw_box_connector(56, 162, 206, 394, "right", 307, 310, 34, 100, "left", target_offset=0.0)
-    body += draw_polyline_arrow([(893, 360), (964, 360), (964, 350), (1024, 350)], color="#BFD8FA", stroke_width=2.0)
+    input_connector_start_x = input_card_x + input_card_width + external_connector_start_clearance
+    input_connector_end_x = layer_x_positions[0] - layer_radius - external_connector_end_clearance
+    output_connector_start_x = layer_x_positions[-1] + layer_radius + external_connector_start_clearance
+    output_connector_end_x = output_card_x - external_connector_end_clearance
+    assert input_connector_end_x - input_connector_start_x >= 90, "Feedforward input connector is too short"
+    assert output_connector_end_x - output_connector_start_x >= 90, "Feedforward output connector is too short"
 
-    return content + wrap_centered_body(body, 162, 556)
+    body += draw_arrow(
+        input_connector_start_x,
+        input_center_y,
+        input_connector_end_x,
+        input_center_y,
+        stroke_width=external_connector_stroke_width,
+    )
+    body += draw_arrow(
+        output_connector_start_x,
+        layer_base_y,
+        output_connector_end_x,
+        layer_base_y,
+        stroke_width=external_connector_stroke_width,
+    )
+
+    return content + wrap_centered_body(body, annotation_title_y, input_card_y + input_card_height)
 
 def build_harmonic_conceptual_diagram() -> str:
 

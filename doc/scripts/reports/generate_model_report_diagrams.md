@@ -63,9 +63,12 @@ The current generator now enforces a stricter diagram-layout policy:
 - card headers and card content are laid out as separate regions;
 - card text is vertically balanced inside the usable content area;
 - whole-slide compositions are centered below the diagram header instead of being compacted at the top;
-- dense neuron-to-neuron arrows can be simplified or omitted entirely when they reduce readability;
+- dense neuron-to-neuron connectivity can be rendered as distributed plain lines when arrowheads reduce readability;
+- flow-card internal arrows keep explicit clearance from both the source row and the next row;
+- flow cards can reserve explicit bottom clearance for their note text and minimum visible shaft length for internal arrows;
 - box-to-box connectors use orthogonal routing so arrows enter and leave cards perpendicularly;
 - arrowheads stop short of the target border instead of sitting on top of the card stroke;
+- architecture diagrams can use straight external connectors when vertical alignment removes the need for elbow routing;
 - compact cards prefer multiline wrapping and spacing over aggressive text shrinking;
 - directional links use real arrowheads instead of textual pseudo-arrows inside the drawing.
 
