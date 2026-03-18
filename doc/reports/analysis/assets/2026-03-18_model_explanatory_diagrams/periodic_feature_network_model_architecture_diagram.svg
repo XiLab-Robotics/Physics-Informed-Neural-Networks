@@ -10,8 +10,8 @@
       <stop offset="0%" stop-color="#F6FAFF"/>
       <stop offset="100%" stop-color="#EEF5FF"/>
     </linearGradient>
-    <marker id="arrow_head" markerWidth="11" markerHeight="11" refX="9.4" refY="5.5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L11,5.5 L0,11 Z" fill="#4E7AC7"/>
+    <marker id="arrow_head" markerWidth="8" markerHeight="8" refX="6.8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4E7AC7"/>
     </marker>
     <style>
       .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
@@ -40,23 +40,23 @@
   <path d="M272, 142 H488 Q506, 142 506, 160 V188 H254 V160 Q254, 142 272, 142 Z" fill="url(#card_header)"/>
   <line x1="254" y1="188" x2="506" y2="188" stroke="#7FB2F0" stroke-width="2"/>
   <text x="380" y="173" text-anchor="middle" class="card-title">Feature Expansion</text>
-  <text x="380.0" y="259.0" text-anchor="middle" class="card-text">sin(theta)</text>
-  <text x="380.0" y="279.0" text-anchor="middle" class="card-text">cos(theta)</text>
-  <text x="380.0" y="299.0" text-anchor="middle" class="card-text">sin(2 theta)</text>
-  <text x="380.0" y="319.0" text-anchor="middle" class="card-text">cos(2 theta)</text>
-  <text x="380.0" y="339.0" text-anchor="middle" class="card-text">Higher-order channels</text>
-  <text x="380.0" y="359.0" text-anchor="middle" class="card-text">Optional raw angle</text>
-  <text x="380.0" y="391.0" text-anchor="middle" class="card-note">2K or 2K + 1 periodic</text>
-  <text x="380.0" y="409.0" text-anchor="middle" class="card-note">channels</text>
-  <rect x="548" y="326" width="198" height="198" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
-  <path d="M566, 326 H728 Q746, 326 746, 344 V372 H548 V344 Q548, 326 566, 326 Z" fill="url(#card_header)"/>
-  <line x1="548" y1="372" x2="746" y2="372" stroke="#ADD5F7" stroke-width="2"/>
-  <text x="647" y="357" text-anchor="middle" class="card-title">Conditions</text>
-  <text x="647.0" y="406.0" text-anchor="middle" class="card-text">Speed</text>
-  <text x="647.0" y="426.0" text-anchor="middle" class="card-text">Torque</text>
-  <text x="647.0" y="446.0" text-anchor="middle" class="card-text">Temperature</text>
-  <text x="647.0" y="466.0" text-anchor="middle" class="card-text">Direction</text>
-  <text x="647.0" y="498.0" text-anchor="middle" class="card-note">Normalized inputs</text>
+  <text x="380.0" y="261.0" text-anchor="middle" class="card-text">sin(theta)</text>
+  <text x="380.0" y="281.0" text-anchor="middle" class="card-text">cos(theta)</text>
+  <text x="380.0" y="301.0" text-anchor="middle" class="card-text">sin(2 theta)</text>
+  <text x="380.0" y="321.0" text-anchor="middle" class="card-text">cos(2 theta)</text>
+  <text x="380.0" y="341.0" text-anchor="middle" class="card-text">Higher-order channels</text>
+  <text x="380.0" y="361.0" text-anchor="middle" class="card-text">Optional raw angle</text>
+  <text x="380.0" y="393.0" text-anchor="middle" class="card-note">2K or 2K + 1 periodic</text>
+  <text x="380.0" y="411.0" text-anchor="middle" class="card-note">channels</text>
+  <rect x="548" y="236" width="198" height="198" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M566, 236 H728 Q746, 236 746, 254 V282 H548 V254 Q548, 236 566, 236 Z" fill="url(#card_header)"/>
+  <line x1="548" y1="282" x2="746" y2="282" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="647" y="267" text-anchor="middle" class="card-title">Conditions</text>
+  <text x="647.0" y="317.0" text-anchor="middle" class="card-text">Speed</text>
+  <text x="647.0" y="337.0" text-anchor="middle" class="card-text">Torque</text>
+  <text x="647.0" y="357.0" text-anchor="middle" class="card-text">Temperature</text>
+  <text x="647.0" y="377.0" text-anchor="middle" class="card-text">Direction</text>
+  <text x="647.0" y="409.0" text-anchor="middle" class="card-note">Normalized inputs</text>
   <rect x="790" y="266" width="176" height="128" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
   <path d="M808, 266 H948 Q966, 266 966, 284 V312 H790 V284 Q790, 266 808, 266 Z" fill="url(#card_header)"/>
   <line x1="790" y1="312" x2="966" y2="312" stroke="#ADD5F7" stroke-width="2"/>
@@ -79,25 +79,10 @@
   <text x="1130" y="402" text-anchor="middle" class="node-label">h3</text>
   <circle cx="1230" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
   <text x="1230" y="336" text-anchor="middle" class="node-label">TE</text>
-  <line x1="1033.4" y1="226.3" x2="1116.6" y2="272.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1035.0" y1="233.0" x2="1116.6" y2="338.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="239.7" x2="1116.6" y2="404.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="292.3" x2="1115.2" y2="268.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1035.0" y1="299.0" x2="1115.2" y2="334.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="305.7" x2="1115.2" y2="400.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="358.3" x2="1115.2" y2="263.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1035.0" y1="365.0" x2="1115.2" y2="329.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="371.7" x2="1115.2" y2="395.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="424.3" x2="1116.6" y2="259.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1035.0" y1="431.0" x2="1116.6" y2="325.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1033.4" y1="437.7" x2="1116.6" y2="391.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1145.0" y1="266.0" x2="1216.6" y2="338.7" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1145.0" y1="332.0" x2="1215.0" y2="332.0" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="1145.0" y1="398.0" x2="1216.6" y2="325.3" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="216.0" y1="330.0" x2="254.0" y2="330.0" stroke="#4E7AC7" stroke-width="3.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <path d="M506.0,266.0 L676.0,266.0 L676.0,214.0 L790.0,214.0 L790.0,304.0" fill="none" stroke="#4E7AC7" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="746.0" y1="424.0" x2="790.0" y2="356.0" stroke="#4E7AC7" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="966.0" y1="332.0" x2="1005.0" y2="332.0" stroke="#4E7AC7" stroke-width="3.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M224.0,330.0 L233.0,330.0 L233.0,308.0 L242.0,308.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M514.0,236.0 L718.0,236.0 L718.0,310.0 L778.0,310.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M754.0,369.0 L758.0,369.0 L758.0,356.0 L778.0,356.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M966.0,332.0 L998.0,332.0" fill="none" stroke="#4E7AC7" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   <text x="286" y="556" class="tiny">Periodic structure is handcrafted in front. Nonlinear interaction learning happens in the MLP.</text>
   </g>
 

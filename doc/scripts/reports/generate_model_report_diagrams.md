@@ -63,8 +63,9 @@ The current generator now enforces a stricter diagram-layout policy:
 - card headers and card content are laid out as separate regions;
 - card text is vertically balanced inside the usable content area;
 - whole-slide compositions are centered below the diagram header instead of being compacted at the top;
-- dense neural connections are anchored at neuron borders instead of circle centers;
-- dense fan-in links use distributed destination anchors so arrows do not collapse into a single arrival point;
+- dense neuron-to-neuron arrows can be simplified or omitted entirely when they reduce readability;
+- box-to-box connectors use orthogonal routing so arrows enter and leave cards perpendicularly;
+- arrowheads stop short of the target border instead of sitting on top of the card stroke;
 - compact cards prefer multiline wrapping and spacing over aggressive text shrinking;
 - directional links use real arrowheads instead of textual pseudo-arrows inside the drawing.
 

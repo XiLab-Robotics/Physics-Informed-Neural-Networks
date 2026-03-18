@@ -27,7 +27,6 @@ MODEL_EXPLANATORY_REPORT_PATHS = (
     PROJECT_PATH / "doc" / "reports" / "analysis" / "2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.md",
 )
 
-
 def build_argument_parser() -> argparse.ArgumentParser:
 
     """ Build Argument Parser """
@@ -100,7 +99,6 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     return argument_parser
 
-
 def parse_command_line_arguments() -> argparse.Namespace:
 
     """ Parse Command-Line Arguments """
@@ -109,7 +107,6 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser = build_argument_parser()
     parsed_arguments = argument_parser.parse_args()
     return parsed_arguments
-
 
 def resolve_markdown_path_list(input_markdown_paths: list[str], use_model_explanatory_reports: bool) -> list[Path]:
 
@@ -134,7 +131,6 @@ def resolve_markdown_path_list(input_markdown_paths: list[str], use_model_explan
 
     return unique_markdown_path_list
 
-
 def resolve_pdf_output_path(markdown_path: Path) -> Path:
 
     """ Resolve PDF Output Path """
@@ -143,7 +139,6 @@ def resolve_pdf_output_path(markdown_path: Path) -> Path:
     pdf_output_path = markdown_path.with_suffix(".pdf")
     return pdf_output_path
 
-
 def resolve_validation_output_directory(pdf_output_path: Path) -> Path:
 
     """ Resolve Validation Output Directory """
@@ -151,7 +146,6 @@ def resolve_validation_output_directory(pdf_output_path: Path) -> Path:
     # Map PDF Name To Validation Folder
     validation_output_directory = REPORT_VALIDATION_ROOT / pdf_output_path.stem
     return validation_output_directory
-
 
 def resolve_tool_env_python_path() -> Path:
 
@@ -164,7 +158,6 @@ def resolve_tool_env_python_path() -> Path:
     # Resolve Unix Tool Env Path
     return REPORT_TOOL_ENV_PATH / "bin" / "python"
 
-
 def remove_directory_if_present(directory_path: Path) -> None:
 
     """ Remove Directory If Present """
@@ -173,14 +166,12 @@ def remove_directory_if_present(directory_path: Path) -> None:
     if directory_path.exists():
         shutil.rmtree(directory_path)
 
-
 def ensure_temp_root_exists() -> None:
 
     """ Ensure Temp Root Exists """
 
     # Create Standard Temp Root
     REPORT_PIPELINE_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-
 
 def run_subprocess(command: list[str], description: str) -> None:
 
@@ -191,7 +182,6 @@ def run_subprocess(command: list[str], description: str) -> None:
 
     # Execute Command
     subprocess.run(command, check=True)
-
 
 def bootstrap_tool_env(tool_env_python_path: Path) -> None:
 
@@ -212,7 +202,6 @@ def bootstrap_tool_env(tool_env_python_path: Path) -> None:
         [str(tool_env_python_path), "-m", "pip", "install", "pymupdf"],
         "Install PyMuPDF in report tool environment",
     )
-
 
 def python_has_pdf_renderer(python_executable_path: Path) -> bool:
 
@@ -246,7 +235,6 @@ def python_has_pdf_renderer(python_executable_path: Path) -> bool:
 
     # Report Available Renderer
     return True
-
 
 def resolve_validation_python_path(
     explicit_validation_python_path: str,
@@ -290,7 +278,6 @@ def resolve_validation_python_path(
         "or pass `--validation-python-path` explicitly."
     )
 
-
 def regenerate_diagrams_if_requested(regenerate_diagrams: bool) -> None:
 
     """ Regenerate Diagrams If Requested """
@@ -304,7 +291,6 @@ def regenerate_diagrams_if_requested(regenerate_diagrams: bool) -> None:
         [str(CURRENT_PYTHON_EXECUTABLE), str(DIAGRAM_GENERATOR_PATH)],
         "Regenerate explanatory diagrams",
     )
-
 
 def export_pdf_if_requested(markdown_path: Path, pdf_output_path: Path, skip_pdf_export: bool) -> None:
 
@@ -326,7 +312,6 @@ def export_pdf_if_requested(markdown_path: Path, pdf_output_path: Path, skip_pdf
         ],
         f"Export styled PDF | {pdf_output_path.name}",
     )
-
 
 def validate_pdf_if_requested(
     pdf_output_path: Path,
@@ -360,7 +345,6 @@ def validate_pdf_if_requested(
     if cleanup_validation_images:
         remove_directory_if_present(validation_output_directory)
 
-
 def print_pipeline_summary(markdown_path_list: list[Path], validation_python_path: Path, skip_pdf_validation: bool) -> None:
 
     """ Print Pipeline Summary """
@@ -385,7 +369,6 @@ def print_pipeline_summary(markdown_path_list: list[Path], validation_python_pat
         if not skip_pdf_validation:
             print(f"  Validation Images                 {validation_output_directory}")
         print("")
-
 
 def main() -> None:
 

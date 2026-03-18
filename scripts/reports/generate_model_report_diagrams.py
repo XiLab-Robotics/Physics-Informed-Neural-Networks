@@ -38,7 +38,8 @@ HEADER_HEIGHT = 92
 HEADER_BOTTOM = HEADER_Y + HEADER_HEIGHT
 CONTENT_REGION_TOP = HEADER_BOTTOM + 28
 CONTENT_REGION_BOTTOM = SVG_HEIGHT - 34
-
+BOX_CONNECTOR_START_CLEARANCE = 8
+BOX_CONNECTOR_END_CLEARANCE = 12
 
 @dataclass(frozen=True)
 class TextLine:
@@ -49,7 +50,6 @@ class TextLine:
     css_class: str = "card-text"
     font_size: float | None = None
     extra_gap_after: float = 0.0
-
 
 def escape_xml(raw_text: str) -> str:
 
@@ -63,7 +63,6 @@ def escape_xml(raw_text: str) -> str:
         .replace('"', "&quot;")
         .replace("'", "&apos;")
     )
-
 
 def build_svg_document(title: str, description: str, body_content: str) -> str:
 
@@ -82,8 +81,8 @@ def build_svg_document(title: str, description: str, body_content: str) -> str:
       <stop offset="0%" stop-color="#F6FAFF"/>
       <stop offset="100%" stop-color="#EEF5FF"/>
     </linearGradient>
-    <marker id="arrow_head" markerWidth="11" markerHeight="11" refX="9.4" refY="5.5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L11,5.5 L0,11 Z" fill="{ARROW_COLOR}"/>
+    <marker id="arrow_head" markerWidth="8" markerHeight="8" refX="6.8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="{ARROW_COLOR}"/>
     </marker>
     <style>
       .canvas-title {{ font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }}
@@ -103,7 +102,6 @@ def build_svg_document(title: str, description: str, body_content: str) -> str:
 </svg>
 """
 
-
 def draw_header(title: str, subtitle: str) -> str:
 
     """ Draw Header """
@@ -114,7 +112,6 @@ def draw_header(title: str, subtitle: str) -> str:
         f'  <text x="64" y="68" class="canvas-title">{escape_xml(title)}</text>\n'
         f'  <text x="64" y="98" class="canvas-subtitle">{escape_xml(subtitle)}</text>\n'
     )
-
 
 def wrap_centered_body(body_content: str, content_top: float, content_bottom: float) -> str:
 
@@ -128,7 +125,6 @@ def wrap_centered_body(body_content: str, content_top: float, content_bottom: fl
     # Wrap Body In A Centered Group
     return f'  <g transform="translate(0,{y_offset:.1f})">\n{body_content}  </g>\n'
 
-
 def resolve_text_anchor(align: str, x: int, width: int) -> tuple[str, int]:
 
     """ Resolve Text Anchor """
@@ -139,7 +135,6 @@ def resolve_text_anchor(align: str, x: int, width: int) -> tuple[str, int]:
 
     # Resolve Left Alignment
     return "start", x + CARD_PADDING_X
-
 
 def normalize_text_line_list(raw_line_list: list[str | TextLine] | None, default_css_class: str) -> list[TextLine]:
 
@@ -163,7 +158,6 @@ def normalize_text_line_list(raw_line_list: list[str | TextLine] | None, default
 
     return normalized_line_list
 
-
 def compute_text_block_height(text_line_list: list[TextLine], default_line_height: float) -> float:
 
     """ Compute Text Block Height """
@@ -181,7 +175,6 @@ def compute_text_block_height(text_line_list: list[TextLine], default_line_heigh
 
     return total_height
 
-
 def draw_text_line(x: float, y: float, text_anchor: str, text_line: TextLine) -> str:
 
     """ Draw Text Line """
@@ -192,7 +185,6 @@ def draw_text_line(x: float, y: float, text_anchor: str, text_line: TextLine) ->
         f'  <text x="{x:.1f}" y="{y:.1f}" text-anchor="{text_anchor}" class="{text_line.css_class}"{style_attribute}>'
         f"{escape_xml(text_line.text)}</text>"
     )
-
 
 def validate_card_content(title: str, height: int, body_line_list: list[TextLine], note_line_list: list[TextLine]) -> None:
 
@@ -211,7 +203,6 @@ def validate_card_content(title: str, height: int, body_line_list: list[TextLine
 
     # Validate Card Fit
     assert required_height <= content_height, f"Card content overflows | {title}"
-
 
 def draw_card(
     x: int,
@@ -244,7 +235,7 @@ def draw_card(
     content_bottom = y + height - CARD_PADDING_Y
     content_height = content_bottom - content_top
     body_height = compute_text_block_height(body_line_list, CARD_LINE_HEIGHT)
-    note_height = compute_text_block_height(note_line_list, CARD_LINE_HEIGHT)
+    note_height = compute_text_block_height(note_line_list, NOTE_LINE_HEIGHT)
     note_gap = CARD_NOTE_GAP if body_line_list and note_line_list else 0.0
     required_height = body_height + note_gap + note_height
     current_y = content_top + max(0.0, (content_height - required_height) / 2.0) + 14
@@ -275,7 +266,6 @@ def draw_card(
 
     return "\n".join(content) + "\n"
 
-
 def draw_flow_card(
     x: int,
     y: int,
@@ -294,7 +284,7 @@ def draw_flow_card(
     note_line_list = normalize_text_line_list([note] if note else None, "card-note")
 
     # Resolve Flow Geometry
-    row_height = 18
+    row_height = 20
     flow_gap = 12
     content_height = height - CARD_HEADER_HEIGHT - (2 * CARD_PADDING_Y)
     flow_height = (len(row_line_list) * row_height) + (max(0, len(row_line_list) - 1) * flow_gap)
@@ -329,10 +319,10 @@ def draw_flow_card(
         # Draw Compact Vertical Connector Between Rows
         if row_index < len(row_line_list) - 1:
             arrow_start_y = row_y + row_height + 3
-            arrow_end_y = row_y + row_height + flow_gap - 5
+            arrow_end_y = row_y + row_height + flow_gap - 4
             content.append(
                 f'  <line x1="{x + width / 2:.1f}" y1="{arrow_start_y:.1f}" x2="{x + width / 2:.1f}" y2="{arrow_end_y:.1f}" '
-                f'stroke="{ARROW_COLOR}" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow_head)"/>'
+                f'stroke="{ARROW_COLOR}" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow_head)"/>'
             )
         current_y += row_height + flow_gap
 
@@ -346,7 +336,6 @@ def draw_flow_card(
                 current_y += note_line.extra_gap_after
 
     return "\n".join(content) + "\n"
-
 
 def draw_arrow(
     x1: float,
@@ -369,7 +358,6 @@ def draw_arrow(
         f'  <line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
         f'stroke="{color}" stroke-width="{stroke_width}" stroke-linecap="round"{marker_suffix}/>\n'
     )
-
 
 def draw_polyline_arrow(
     point_list: list[tuple[float, float]],
@@ -395,6 +383,88 @@ def draw_polyline_arrow(
         f'stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>\n'
     )
 
+def resolve_card_side_point(x: float, y: float, width: float, height: float, side: str, offset: float = 0.0) -> tuple[float, float]:
+
+    """ Resolve Card Side Point """
+
+    # Resolve Horizontal Sides
+    if side == "left":  return x, y + (height / 2.0) + offset
+    if side == "right": return x + width, y + (height / 2.0) + offset
+
+    # Resolve Vertical Sides
+    if side == "top":    return x + (width / 2.0) + offset, y
+    if side == "bottom": return x + (width / 2.0) + offset, y + height
+
+    raise ValueError(f"Unsupported card side | {side}")
+
+def offset_point_from_side(point_x: float, point_y: float, side: str, distance: float) -> tuple[float, float]:
+
+    """ Offset Point From Side """
+
+    # Offset Outside The Source Or Target Side
+    if side == "left":   return point_x - distance, point_y
+    if side == "right":  return point_x + distance, point_y
+    if side == "top":    return point_x, point_y - distance
+    if side == "bottom": return point_x, point_y + distance
+
+    raise ValueError(f"Unsupported card side | {side}")
+
+def draw_box_connector(
+    source_x: float,
+    source_y: float,
+    source_width: float,
+    source_height: float,
+    source_side: str,
+    target_x: float,
+    target_y: float,
+    target_width: float,
+    target_height: float,
+    target_side: str,
+    *,
+    source_offset: float = 0.0,
+    target_offset: float = 0.0,
+    lane_x: float | None = None,
+    lane_y: float | None = None,
+    color: str = ARROW_COLOR,
+    stroke_width: float = 2.4,
+) -> str:
+
+    """ Draw Box Connector """
+
+    # Resolve Border Anchors
+    source_border_x, source_border_y = resolve_card_side_point(source_x, source_y, source_width, source_height, source_side, source_offset)
+    target_border_x, target_border_y = resolve_card_side_point(target_x, target_y, target_width, target_height, target_side, target_offset)
+
+    # Resolve Clearance Points
+    start_x, start_y = offset_point_from_side(source_border_x, source_border_y, source_side, BOX_CONNECTOR_START_CLEARANCE)
+    end_x, end_y = offset_point_from_side(target_border_x, target_border_y, target_side, BOX_CONNECTOR_END_CLEARANCE)
+
+    # Route Horizontal-To-Horizontal Connector
+    if source_side in {"left", "right"} and target_side in {"left", "right"}:
+        elbow_x = lane_x if lane_x is not None else (start_x + end_x) / 2.0
+        return draw_polyline_arrow(
+            [(start_x, start_y), (elbow_x, start_y), (elbow_x, end_y), (end_x, end_y)],
+            color=color,
+            stroke_width=stroke_width,
+        )
+
+    # Route Vertical-To-Vertical Connector
+    if source_side in {"top", "bottom"} and target_side in {"top", "bottom"}:
+        elbow_y = lane_y if lane_y is not None else (start_y + end_y) / 2.0
+        return draw_polyline_arrow(
+            [(start_x, start_y), (start_x, elbow_y), (end_x, elbow_y), (end_x, end_y)],
+            color=color,
+            stroke_width=stroke_width,
+        )
+
+    # Route Mixed Connector Through Explicit Or Derived Lanes
+    resolved_lane_x = lane_x if lane_x is not None else start_x
+    resolved_lane_y = lane_y if lane_y is not None else end_y
+    return draw_polyline_arrow(
+        [(start_x, start_y), (resolved_lane_x, start_y), (resolved_lane_x, resolved_lane_y), (end_x, resolved_lane_y), (end_x, end_y)],
+        color=color,
+        stroke_width=stroke_width,
+    )
 
 def compute_circle_border_point(source_x: float, source_y: float, target_x: float, target_y: float, radius: float) -> tuple[float, float]:
 
@@ -412,7 +482,6 @@ def compute_circle_border_point(source_x: float, source_y: float, target_x: floa
     # Project Point To Circle Border
     scale = radius / distance
     return source_x + delta_x * scale, source_y + delta_y * scale
-
 
 def compute_distributed_circle_anchor(
     circle_x: float,
@@ -449,7 +518,6 @@ def compute_distributed_circle_anchor(
         circle_y + math.sin(angle) * circle_radius,
     )
 
-
 def compute_point_fan_anchor(point_x: float, point_y: float, rank_index: int, rank_count: int, spread: float = 26.0) -> tuple[float, float]:
 
     """ Compute Point Fan Anchor """
@@ -460,7 +528,6 @@ def compute_point_fan_anchor(point_x: float, point_y: float, rank_index: int, ra
     # Spread Anchors Vertically Around The Point
     offset = -spread / 2.0 + spread * (rank_index / (rank_count - 1))
     return point_x, point_y + offset
-
 
 def draw_circle(
     x: int,
@@ -485,7 +552,6 @@ def draw_circle(
         content.append(f'  <text x="{x}" y="{y + 4}" text-anchor="middle" class="{label_class}">{escape_xml(label)}</text>')
 
     return "\n".join(content) + "\n"
-
 
 def draw_dense_connections(
     source_coordinates: list[tuple[int, int]],
@@ -559,7 +625,6 @@ def draw_dense_connections(
 
     return "\n".join(content) + ("\n" if content else "")
 
-
 def draw_layer_block(
     x_positions: list[int],
     layer_nodes: list[list[str]],
@@ -567,6 +632,7 @@ def draw_layer_block(
     base_y: int,
     layer_gap: int,
     radius: int,
+    draw_connections: bool = False,
 ) -> tuple[str, list[list[tuple[int, int]]]]:
 
     """ Draw Layer Block """
@@ -591,19 +657,19 @@ def draw_layer_block(
 
         layer_centers.append(current_layer_centers)
 
-    # Draw Inter-Layer Connectivity
-    for layer_index in range(len(layer_centers) - 1):
-        content.append(
-            draw_dense_connections(
-                layer_centers[layer_index],
-                layer_centers[layer_index + 1],
-                source_radius=radius,
-                target_radius=radius,
-            ).rstrip()
-        )
+    # Draw Inter-Layer Connectivity When Requested
+    if draw_connections:
+        for layer_index in range(len(layer_centers) - 1):
+            content.append(
+                draw_dense_connections(
+                    layer_centers[layer_index],
+                    layer_centers[layer_index + 1],
+                    source_radius=radius,
+                    target_radius=radius,
+                ).rstrip()
+            )
 
     return "\n".join(content) + "\n", layer_centers
-
 
 def write_svg(output_name: str, title: str, description: str, body_content: str) -> None:
 
@@ -615,7 +681,6 @@ def write_svg(output_name: str, title: str, description: str, body_content: str)
     # Write SVG File
     output_path = OUTPUT_DIRECTORY / output_name
     output_path.write_text(build_svg_document(title, description, body_content), encoding="utf-8")
-
 
 def build_feedforward_conceptual_diagram() -> str:
 
@@ -633,7 +698,7 @@ def build_feedforward_conceptual_diagram() -> str:
         164,
         304,
         232,
-        "Feedforward Network",
+        "FeedForward Network",
         ["Linear block", "Optional layer norm", "Activation and dropout", "Scalar output head"],
         note="Learns TE structure implicitly",
         accent=True,
@@ -641,9 +706,9 @@ def build_feedforward_conceptual_diagram() -> str:
     body += draw_card(980, 182, 226, 196, "Prediction", ["Normalized TE", "Denormalized scalar TE", "MAE and RMSE logging"], note="Single-point inference")
 
     # Draw Main Flow Arrows
-    body += draw_arrow(288, 280, 346, 280)
-    body += draw_arrow(560, 280, 618, 280)
-    body += draw_arrow(922, 280, 980, 280)
+    body += draw_box_connector(74, 182, 214, 196, "right", 346, 182, 214, 196, "left")
+    body += draw_box_connector(346, 182, 214, 196, "right", 618, 164, 304, 232, "left")
+    body += draw_box_connector(618, 164, 304, 232, "right", 980, 182, 226, 196, "left")
 
     # Draw Interpretation Card
     body += draw_card(
@@ -657,7 +722,6 @@ def build_feedforward_conceptual_diagram() -> str:
     )
 
     return content + wrap_centered_body(body, 164, 564)
-
 
 def build_feedforward_architecture_diagram() -> str:
 
@@ -686,8 +750,8 @@ def build_feedforward_architecture_diagram() -> str:
         note_align="center",
     )
     body += draw_card(1036, 286, 160, 128, "Output", ["Transmission\nerror"], align="center")
-    body += '  <text x="300" y="164" class="label">Example hidden layout: 5 to 4 to 4 to 3 to 1</text>\n'
-    body += '  <text x="300" y="188" class="tiny">The actual hidden width is configured by the training YAML.</text>\n'
+    body += '  <text x="300" y="142" class="label">Example hidden layout: 5 to 4 to 4 to 3 to 1</text>\n'
+    body += '  <text x="300" y="166" class="tiny">The actual hidden width is configured by the training YAML.</text>\n'
 
     # Draw Dense Layer Stack
     layer_block_svg, layer_centers = draw_layer_block(
@@ -705,13 +769,10 @@ def build_feedforward_architecture_diagram() -> str:
     body += layer_block_svg
 
     # Draw Input And Output Routing
-    body += draw_arrow(262, 360, 300, 360)
-    for output_index, (source_x, source_y) in enumerate(layer_centers[-1]):
-        target_y = 324 + output_index * 26
-        body += draw_arrow(source_x + 17, source_y, 1036, target_y, color="#BFD8FA", stroke_width=1.8)
+    body += draw_box_connector(56, 162, 206, 394, "right", 307, 310, 34, 100, "left", target_offset=0.0)
+    body += draw_polyline_arrow([(893, 360), (964, 360), (964, 350), (1024, 350)], color="#BFD8FA", stroke_width=2.0)
 
     return content + wrap_centered_body(body, 162, 556)
-
 
 def build_harmonic_conceptual_diagram() -> str:
 
@@ -750,12 +811,12 @@ def build_harmonic_conceptual_diagram() -> str:
         ["Static coefficients", "Optional linear conditioning", "Operating-state shift"],
         note="Interpretable coefficient space",
     )
-    body += draw_card(1024, 186, 194, 194, "Prediction", ["Basis-weight product", "Term summation", "Scalar TE output"], note="Compact periodic estimator")
+    body += draw_card(1024, 186, 194, 194, "Prediction", ["Basis-weight product", "Term summation", "Scalar TE output"], note="Compact periodic model")
 
     # Draw Main Flow Arrows
-    body += draw_arrow(284, 282, 334, 282)
-    body += draw_arrow(620, 282, 680, 282)
-    body += draw_arrow(966, 282, 1024, 282)
+    body += draw_box_connector(64, 186, 220, 194, "right", 334, 158, 286, 248, "left")
+    body += draw_box_connector(334, 158, 286, 248, "right", 680, 158, 286, 248, "left")
+    body += draw_box_connector(680, 158, 286, 248, "right", 1024, 186, 194, 194, "left")
 
     # Draw Interpretation Card
     body += draw_card(
@@ -769,7 +830,6 @@ def build_harmonic_conceptual_diagram() -> str:
     )
 
     return content + wrap_centered_body(body, 158, 568)
-
 
 def build_harmonic_architecture_diagram() -> str:
 
@@ -808,10 +868,10 @@ def build_harmonic_architecture_diagram() -> str:
     body += draw_card(1052, 258, 156, 124, "Sum", ["Transmission\nerror"], align="center")
 
     # Draw Main Computational Flow
-    body += draw_arrow(234, 320, 274, 320)
-    body += draw_arrow(508, 320, 552, 320)
-    body += draw_arrow(786, 320, 836, 320)
-    body += draw_arrow(1004, 320, 1052, 320)
+    body += draw_box_connector(54, 258, 180, 124, "right", 274, 140, 234, 328, "left")
+    body += draw_box_connector(274, 140, 234, 328, "right", 552, 140, 234, 328, "left")
+    body += draw_box_connector(552, 140, 234, 328, "right", 836, 258, 168, 124, "left")
+    body += draw_box_connector(836, 258, 168, 124, "right", 1052, 258, 156, 124, "left")
 
     # Draw Conditioning Branch
     body += draw_flow_card(
@@ -822,10 +882,9 @@ def build_harmonic_architecture_diagram() -> str:
         "Conditioning Path",
         ["Speed, torque, temp, dir", "Linear shift in coefficient space"],
     )
-    body += draw_arrow(698, 500, 698, 468, stroke_width=2.8)
+    body += draw_box_connector(548, 500, 300, 144, "top", 552, 140, 234, 328, "bottom", lane_y=484, stroke_width=2.2)
 
     return content + wrap_centered_body(body, 140, 644)
-
 
 def build_periodic_conceptual_diagram() -> str:
 
@@ -853,15 +912,15 @@ def build_periodic_conceptual_diagram() -> str:
         156,
         264,
         252,
-        "Feedforward Backbone",
+        "FeedForward Backbone",
         ["Dense nonlinear mixing", "Interaction learning", "Scalar TE head"],
         note="Flexible regressor on structured inputs",
     )
 
     # Draw Main Flow Arrows
-    body += draw_arrow(262, 282, 316, 282)
-    body += draw_arrow(608, 282, 670, 282)
-    body += draw_arrow(894, 282, 952, 282)
+    body += draw_box_connector(58, 188, 204, 190, "right", 316, 156, 292, 252, "left")
+    body += draw_box_connector(316, 156, 292, 252, "right", 670, 188, 224, 190, "left")
+    body += draw_box_connector(670, 188, 224, 190, "right", 952, 156, 264, 252, "left")
 
     # Draw Interpretation Card
     body += draw_card(
@@ -875,7 +934,6 @@ def build_periodic_conceptual_diagram() -> str:
     )
 
     return content + wrap_centered_body(body, 156, 570)
-
 
 def build_periodic_architecture_diagram() -> str:
 
@@ -901,7 +959,7 @@ def build_periodic_architecture_diagram() -> str:
     )
     body += draw_card(
         548,
-        326,
+        236,
         198,
         198,
         "Conditions",
@@ -923,14 +981,13 @@ def build_periodic_architecture_diagram() -> str:
     body += layer_block_svg
 
     # Draw Routed Input Flow
-    body += draw_arrow(216, 330, 254, 330)
-    body += draw_polyline_arrow([(506, 266), (676, 266), (676, 214), (790, 214), (790, 304)], stroke_width=2.8)
-    body += draw_arrow(746, 424, 790, 356, stroke_width=2.8)
-    body += draw_arrow(966, 332, 1005, 332)
+    body += draw_box_connector(52, 272, 164, 116, "right", 254, 142, 252, 332, "left")
+    body += draw_box_connector(254, 142, 252, 332, "right", 790, 266, 176, 128, "left", source_offset=-72, target_offset=-20, lane_x=718)
+    body += draw_box_connector(548, 236, 198, 198, "right", 790, 266, 176, 128, "left", source_offset=34, target_offset=26, lane_x=758)
+    body += draw_polyline_arrow([(966, 332), (998, 332)], stroke_width=2.0)
     body += '  <text x="286" y="556" class="tiny">Periodic structure is handcrafted in front. Nonlinear interaction learning happens in the MLP.</text>\n'
 
     return content + wrap_centered_body(body, 142, 556)
-
 
 def build_residual_conceptual_diagram() -> str:
 
@@ -941,7 +998,7 @@ def build_residual_conceptual_diagram() -> str:
 
     # Draw Branch Blocks
     body = ""
-    body += draw_card(60, 242, 220, 170, "Shared Input", ["Angle sample", "Normalized operating state", "Common input to both branches"], note="One point feeds both paths")
+    body += draw_card(60, 230, 224, 196, "Shared Input", ["Angle sample", "Normalized operating state", "Common input to", "both branches"], note="Shared entry point")
     body += draw_flow_card(
         352,
         162,
@@ -969,15 +1026,15 @@ def build_residual_conceptual_diagram() -> str:
         252,
         "Outputs",
         ["Structured prediction", "Residual prediction", "Total prediction", "Structured diagnostics"],
-        note="Useful for branch-level analysis",
+        note="Branch-level diagnostics",
     )
 
     # Draw Branch Routing
-    body += draw_polyline_arrow([(280, 296), (316, 296), (316, 260), (352, 260)], stroke_width=2.8)
-    body += draw_polyline_arrow([(280, 350), (316, 350), (316, 488), (352, 488)], stroke_width=2.8)
-    body += draw_arrow(616, 260, 716, 298)
-    body += draw_arrow(616, 488, 716, 338)
-    body += draw_arrow(866, 318, 952, 318)
+    body += draw_box_connector(60, 230, 224, 196, "right", 352, 162, 264, 196, "left", source_offset=-30, target_offset=-24, lane_x=320, stroke_width=2.4)
+    body += draw_box_connector(60, 230, 224, 196, "right", 352, 404, 264, 168, "left", source_offset=30, target_offset=18, lane_x=320, stroke_width=2.4)
+    body += draw_box_connector(352, 162, 264, 196, "right", 716, 266, 150, 104, "left", target_offset=-20)
+    body += draw_box_connector(352, 404, 264, 168, "right", 716, 266, 150, 104, "left", target_offset=20)
+    body += draw_box_connector(716, 266, 150, 104, "right", 952, 190, 222, 252, "left")
 
     # Draw Interpretation Card
     body += draw_card(
@@ -991,7 +1048,6 @@ def build_residual_conceptual_diagram() -> str:
     )
 
     return content + wrap_centered_body(body, 162, 694)
-
 
 def build_residual_architecture_diagram() -> str:
 
@@ -1022,8 +1078,8 @@ def build_residual_architecture_diagram() -> str:
     )
 
     # Draw Input Routing
-    body += draw_polyline_arrow([(236, 322), (268, 322), (268, 268), (302, 268)], stroke_width=2.8)
-    body += draw_polyline_arrow([(236, 352), (268, 352), (268, 508), (302, 508)], stroke_width=2.8)
+    body += draw_box_connector(46, 286, 190, 118, "right", 302, 174, 226, 188, "left", source_offset=-18, target_offset=-18, lane_x=268, stroke_width=2.2)
+    body += draw_box_connector(46, 286, 190, 118, "right", 302, 414, 226, 188, "left", source_offset=18, target_offset=18, lane_x=268, stroke_width=2.2)
 
     # Draw Residual Neural Stack
     layer_block_svg, layer_centers = draw_layer_block(
@@ -1038,18 +1094,17 @@ def build_residual_architecture_diagram() -> str:
     # Draw Merge Blocks
     body += draw_card(620, 192, 192, 104, "Structured Output", ["H"], align="center")
     body += draw_card(946, 286, 166, 112, "Add", ["H plus R"], align="center")
-    body += draw_card(1130, 286, 110, 112, "TE", ["Output"], align="center")
+    body += draw_card(1150, 286, 90, 112, "TE", ["Output"], align="center")
 
     # Draw Merge Routing
-    body += draw_arrow(528, 268, 620, 244)
-    body += draw_polyline_arrow([(812, 244), (900, 244), (900, 322), (946, 322)], stroke_width=2.8)
+    body += draw_box_connector(302, 174, 226, 188, "right", 620, 192, 192, 104, "left", target_offset=0, lane_x=568, stroke_width=2.2)
+    body += draw_box_connector(620, 192, 192, 104, "right", 946, 286, 166, 112, "left", target_offset=-10, lane_x=900, stroke_width=2.2)
     residual_output_x, residual_output_y = layer_centers[-1][0]
-    body += draw_polyline_arrow([(residual_output_x + 15, residual_output_y), (900, residual_output_y), (900, 360), (946, 360)], stroke_width=2.8)
-    body += draw_arrow(1112, 342, 1130, 342)
+    body += draw_polyline_arrow([(residual_output_x + 18, residual_output_y), (900, residual_output_y), (900, 360), (934, 360)], stroke_width=2.2)
+    body += draw_box_connector(946, 286, 166, 112, "right", 1150, 286, 90, 112, "left", stroke_width=2.2)
     body += '  <text x="612" y="624" class="tiny">Training can log H, R, and H + R separately for diagnostics.</text>\n'
 
     return content + wrap_centered_body(body, 174, 624)
-
 
 def generate_all_diagrams() -> None:
 
@@ -1110,7 +1165,6 @@ def generate_all_diagrams() -> None:
         "Architecture-style diagram of the residual harmonic network with structured and residual branches.",
         build_residual_architecture_diagram(),
     )
-
 
 def main() -> None:
 

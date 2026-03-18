@@ -211,6 +211,12 @@ This folder contains the internal project documents derived from the reference P
   Technical document for auditing all Python comments under `scripts/` and correcting only the ones whose meaning no longer matches the code they describe.
 - [technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md](./technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md)
   Technical document for the second pass of model-report diagram refinement, focused on connector pile-up, slide centering, multiline card layout, and safer routing.
+- [technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md](./technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md)
+  Technical document for the third pass of model-report diagram refinement, focused on simplifying neuron arrows, enforcing perpendicular box routing, arrowhead clearance, and model-specific spacing fixes.
+- [technical/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md](./technical/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md)
+  Technical document for a formatting-only cleanup that normalizes redundant blank lines between top-level definitions in the model-report diagram generator.
+- [technical/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md](./technical/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md)
+  Technical document for a formatting-only repository-wide cleanup that normalizes redundant blank lines between top-level definitions across the Python scripts under `scripts/`.
 
 ### Script Documentation
 

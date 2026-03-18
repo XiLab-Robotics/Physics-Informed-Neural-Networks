@@ -175,7 +175,9 @@ The diagram-generation utility:
 - keeps the visual language and layout of those diagrams consistent across model families;
 - enforces built-in fit checks so card content does not silently overflow;
 - vertically centers each slide composition below the diagram header instead of compacting all content at the top;
-- uses distributed fan-in anchors so dense neuron connections do not collapse into one arrival point;
+- simplifies or removes dense neuron-to-neuron arrows when they hurt readability more than they help explanation;
+- routes box-to-box connectors with 90-degree turns so arrows enter and leave cards perpendicularly;
+- keeps arrowheads clear of the box border instead of letting the tip overlap the stroke;
 - prefers multiline wrapping and spacing over over-aggressive text shrinking in compact cards;
 - uses true directional connectors for architecture diagrams instead of pseudo-arrow text.
 

@@ -10,8 +10,8 @@
       <stop offset="0%" stop-color="#F6FAFF"/>
       <stop offset="100%" stop-color="#EEF5FF"/>
     </linearGradient>
-    <marker id="arrow_head" markerWidth="11" markerHeight="11" refX="9.4" refY="5.5" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L11,5.5 L0,11 Z" fill="#4E7AC7"/>
+    <marker id="arrow_head" markerWidth="8" markerHeight="8" refX="6.8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4E7AC7"/>
     </marker>
     <style>
       .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
@@ -35,21 +35,21 @@
   <path d="M74, 162 H244 Q262, 162 262, 180 V208 H56 V180 Q56, 162 74, 162 Z" fill="url(#card_header)"/>
   <line x1="56" y1="208" x2="262" y2="208" stroke="#ADD5F7" stroke-width="2"/>
   <text x="159" y="193" text-anchor="middle" class="card-title">Inputs</text>
-  <text x="159.0" y="316.0" text-anchor="middle" class="card-text">Angle</text>
-  <text x="159.0" y="338.0" text-anchor="middle" class="card-text">Speed</text>
-  <text x="159.0" y="360.0" text-anchor="middle" class="card-text">Torque</text>
-  <text x="159.0" y="382.0" text-anchor="middle" class="card-text">Temperature</text>
-  <text x="159.0" y="404.0" text-anchor="middle" class="card-text">Direction</text>
-  <text x="159.0" y="436.0" text-anchor="middle" class="card-note">Five normalized scalar</text>
-  <text x="159.0" y="454.0" text-anchor="middle" class="card-note">features</text>
+  <text x="159.0" y="318.0" text-anchor="middle" class="card-text">Angle</text>
+  <text x="159.0" y="340.0" text-anchor="middle" class="card-text">Speed</text>
+  <text x="159.0" y="362.0" text-anchor="middle" class="card-text">Torque</text>
+  <text x="159.0" y="384.0" text-anchor="middle" class="card-text">Temperature</text>
+  <text x="159.0" y="406.0" text-anchor="middle" class="card-text">Direction</text>
+  <text x="159.0" y="438.0" text-anchor="middle" class="card-note">Five normalized scalar</text>
+  <text x="159.0" y="456.0" text-anchor="middle" class="card-note">features</text>
   <rect x="1036" y="286" width="160" height="128" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
   <path d="M1054, 286 H1178 Q1196, 286 1196, 304 V332 H1036 V304 Q1036, 286 1054, 286 Z" fill="url(#card_header)"/>
   <line x1="1036" y1="332" x2="1196" y2="332" stroke="#ADD5F7" stroke-width="2"/>
   <text x="1116" y="317" text-anchor="middle" class="card-title">Output</text>
   <text x="1116.0" y="367.0" text-anchor="middle" class="card-text">Transmission</text>
   <text x="1116.0" y="387.0" text-anchor="middle" class="card-text">error</text>
-  <text x="300" y="164" class="label">Example hidden layout: 5 to 4 to 4 to 3 to 1</text>
-  <text x="300" y="188" class="tiny">The actual hidden width is configured by the training YAML.</text>
+  <text x="300" y="142" class="label">Example hidden layout: 5 to 4 to 4 to 3 to 1</text>
+  <text x="300" y="166" class="tiny">The actual hidden width is configured by the training YAML.</text>
   <circle cx="324" cy="212" r="17" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
   <text x="324" y="216" text-anchor="middle" class="node-label">a</text>
   <circle cx="324" cy="286" r="17" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
@@ -82,58 +82,8 @@
   <text x="876" y="364" text-anchor="middle" class="node-label">h2</text>
   <circle cx="876" cy="434" r="17" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
   <text x="876" y="438" text-anchor="middle" class="node-label">h3</text>
-  <line x1="339.2" y1="204.5" x2="492.8" y2="256.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="209.4" x2="492.8" y2="330.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="214.6" x2="492.8" y2="404.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="219.5" x2="492.8" y2="478.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="278.5" x2="491.4" y2="252.9" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="283.4" x2="491.4" y2="326.9" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="288.6" x2="491.4" y2="400.9" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="293.5" x2="491.4" y2="474.9" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="352.5" x2="491.0" y2="249.0" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="357.4" x2="491.0" y2="323.0" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="362.6" x2="491.0" y2="397.0" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="367.5" x2="491.0" y2="471.0" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="426.5" x2="491.4" y2="245.1" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="431.4" x2="491.4" y2="319.1" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="436.6" x2="491.4" y2="393.1" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="441.5" x2="491.4" y2="467.1" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="500.5" x2="492.8" y2="241.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="505.4" x2="492.8" y2="315.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="340.8" y1="510.6" x2="492.8" y2="389.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="339.2" y1="515.5" x2="492.8" y2="463.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="241.5" x2="676.8" y2="256.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="246.4" x2="676.8" y2="330.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="251.6" x2="676.8" y2="404.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="256.5" x2="676.8" y2="478.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="315.5" x2="675.2" y2="251.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="320.4" x2="675.2" y2="325.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="325.6" x2="675.2" y2="399.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="330.5" x2="675.2" y2="473.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="389.5" x2="675.2" y2="246.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="394.4" x2="675.2" y2="320.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="399.6" x2="675.2" y2="394.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="404.5" x2="675.2" y2="468.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="463.5" x2="676.8" y2="241.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="468.4" x2="676.8" y2="315.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="524.8" y1="473.6" x2="676.8" y2="389.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="523.2" y1="478.5" x2="676.8" y2="463.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="241.5" x2="860.8" y2="293.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="709.0" y1="249.0" x2="860.8" y2="367.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="256.5" x2="860.8" y2="441.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="315.5" x2="859.2" y2="288.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="709.0" y1="323.0" x2="859.2" y2="362.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="330.5" x2="859.2" y2="436.6" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="389.5" x2="859.2" y2="283.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="709.0" y1="397.0" x2="859.2" y2="357.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="404.5" x2="859.2" y2="431.4" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="463.5" x2="860.8" y2="278.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="709.0" y1="471.0" x2="860.8" y2="352.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="707.2" y1="478.5" x2="860.8" y2="426.5" stroke="#C8DCF8" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="262.0" y1="360.0" x2="300.0" y2="360.0" stroke="#4E7AC7" stroke-width="3.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="893.0" y1="286.0" x2="1036.0" y2="324.0" stroke="#BFD8FA" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="893.0" y1="360.0" x2="1036.0" y2="350.0" stroke="#BFD8FA" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow_head)"/>
-  <line x1="893.0" y1="434.0" x2="1036.0" y2="376.0" stroke="#BFD8FA" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M270.0,359.0 L282.5,359.0 L282.5,360.0 L295.0,360.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M893.0,360.0 L964.0,360.0 L964.0,350.0 L1024.0,350.0" fill="none" stroke="#BFD8FA" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
   </g>
 
 </svg>

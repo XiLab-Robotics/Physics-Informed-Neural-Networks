@@ -260,6 +260,9 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md`
+  * `doc/technical/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md`
+  * `doc/technical/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
 
 Script documentation:
