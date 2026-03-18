@@ -483,7 +483,7 @@ def run_feedforward_training(config_path: str | Path) -> None:
 
     """ Run Feedforward Training """
 
-    # Load Training Config and Initialize Training Components
+    # Import The Feedforward-Oriented Training Entrypoint Lazily
     from scripts.training.train_feedforward_network import train_feedforward_network
 
     train_feedforward_network(config_path)
@@ -494,7 +494,7 @@ def run_tree_regression_training(config_path: str | Path) -> None:
 
     from scripts.training.train_tree_regressor import train_tree_regressor
 
-    # Load Training Config and Initialize Training Components
+    # Dispatch To The Tree Regression Training Entrypoint
     train_tree_regressor(config_path)
 
 def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
@@ -531,7 +531,7 @@ def resolve_config_snapshot_path(output_directory: Path) -> Path | None:
 
     """ Resolve Config Snapshot Path """
 
-    # Resolve Config Snapshot Path
+    # Resolve Canonical Config Snapshot Path
     config_snapshot_path = output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME
     if not config_snapshot_path.exists(): return None
     return config_snapshot_path.resolve()
@@ -540,7 +540,7 @@ def resolve_metrics_snapshot_path(output_directory: Path) -> Path | None:
 
     """ Resolve Metrics Snapshot Path """
 
-    # Resolve Metrics Snapshot Path
+    # Resolve Canonical Metrics Snapshot Path
     metrics_snapshot_path = output_directory / shared_training_infrastructure.COMMON_METRICS_FILENAME
     if not metrics_snapshot_path.exists(): return None
     return metrics_snapshot_path.resolve()

@@ -207,6 +207,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for making frequent internal section comments an explicit persistent style rule and retrofitting that style into the recent report scripts.
 - [technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md](./technical/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md)
   Technical document for a focused section-comment retrofit of the remaining model scripts that still underuse internal `# ...` stage markers.
+- [technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md](./technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md)
+  Technical document for auditing all Python comments under `scripts/` and correcting only the ones whose meaning no longer matches the code they describe.
 
 ### Script Documentation
 

@@ -49,14 +49,14 @@ def build_tree_training_report(metrics_snapshot_dictionary: dict[str, object]) -
     for metric_name, metric_value in validation_metric_dictionary.items():
         report_line_list.append(f"- {metric_name}: `{metric_value}`")
 
-    # Build Test Metrics Report
+    # Add Test Metrics Section Header
     report_line_list.extend([
         "",
         "## Test Metrics",
         "",
     ])
 
-    # Build Test Metrics Report
+    # Append Test Metric Lines
     for metric_name, metric_value in test_metric_dictionary.items():
         report_line_list.append(f"- {metric_name}: `{metric_value}`")
 

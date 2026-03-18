@@ -396,14 +396,14 @@ def save_training_test_report(output_directory: Path, training_config: dict, met
     for metric_name, metric_value in validation_metric_dictionary.items():
         report_line_list.append(f"- {metric_name}: `{format_terminal_value(metric_value)}`")
 
-    # Add Each Test Metric To The Report
+    # Add Test Metrics Section Header
     report_line_list.extend([
         "",
         "## Test Metrics",
         "",
     ])
 
-    # Add Each Test Metric To The Report
+    # Add Each Test Metric Line To The Report
     for metric_name, metric_value in test_metric_dictionary.items():
         report_line_list.append(f"- {metric_name}: `{format_terminal_value(metric_value)}`")
 

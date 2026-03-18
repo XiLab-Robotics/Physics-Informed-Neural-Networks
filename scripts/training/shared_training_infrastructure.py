@@ -243,11 +243,11 @@ def resolve_output_root(training_config: dict[str, Any]) -> Path:
     experiment_identity = resolve_experiment_identity(training_config)
     output_artifact_kind = resolve_output_artifact_kind(training_config)
 
-    # Resolve Output Root Directory Based
+    # Resolve Standard Training-Run Output Root
     if output_artifact_kind == RUN_OUTPUT_ARTIFACT_KIND:
         return resolve_project_relative_path(training_config["paths"]["output_root"])
 
-    # For Validation Checks and Smoke Tests
+    # Resolve Validation Output Root
     if output_artifact_kind == VALIDATION_OUTPUT_ARTIFACT_KIND:
         return (VALIDATION_OUTPUT_ROOT / experiment_identity.model_family).resolve()
 
@@ -342,7 +342,7 @@ def create_regression_module_from_training_config(
 
     """ Create Regression Module From Training Config """
 
-    # Validate Configured Learning Rate and Weight Decay
+    # Build Regression Module With Optimization Hyperparameters
     return TransmissionErrorRegressionModule(
         regression_model=regression_backbone,
         input_feature_dim=input_feature_dim,
@@ -367,13 +367,13 @@ def initialize_training_components(
     target_feature_dim = datamodule.get_target_feature_dim()
     normalization_statistics = datamodule.get_normalization_statistics()
 
-    # Validate Normalization Statistics Dimensions Match Dataset Feature Dimensions
+    # Build Regression Backbone From The Resolved Dataset Feature Dimensions
     regression_backbone = create_regression_backbone_from_training_config(
         training_config,
         input_feature_dim,
     )
 
-    # Validate Normalization Statistics Dimensions Match Dataset Feature Dimensions
+    # Build Regression Module With Shared Normalization Statistics
     regression_module = create_regression_module_from_training_config(
         training_config,
         regression_backbone,
