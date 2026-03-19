@@ -132,7 +132,7 @@ The current usage flow mainly relies on these folders:
   Technical, script-level, and user-facing documentation.
 
 - `doc/reports/analysis/`
-  Analytical reports and their polished PDF artifacts.
+  Analysis reports grouped by purpose (`model_explanatory/`, `training_analysis/`, `analytical_studies/`, `family_studies/`).
 
 ## Styled Report PDF Export And Validation
 
@@ -189,7 +189,7 @@ The report-pipeline runner:
 
 The current main target is:
 
-- `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
+- `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf`
 
 Treat that PDF as the project golden standard for future styled analytical reports.
 
@@ -199,8 +199,8 @@ The same export direction now also applies to final campaign-results reports.
 
 ```powershell
 python scripts/reports/generate_styled_report_pdf.py `
-  --input-markdown-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md `
-  --output-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
+  --input-markdown-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.md" `
+  --output-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
   --report-subtitle "Feedforward Transmission Error Baseline" `
   --report-category "Analysis Report"
 ```
@@ -215,9 +215,9 @@ If a persistent HTML preview is explicitly needed, request it on purpose:
 
 ```powershell
 python scripts/reports/generate_styled_report_pdf.py `
-  --input-markdown-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md `
-  --output-html-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report_preview.html `
-  --output-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
+  --input-markdown-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.md" `
+  --output-html-path "doc/reports/analysis/training_analysis/Training Configuration Analysis_preview.html" `
+  --output-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
   --report-subtitle "Feedforward Transmission Error Baseline" `
   --report-category "Analysis Report" `
   --keep-html
@@ -303,7 +303,7 @@ conda run -n standard_ml_codex_env python scripts/reports/generate_model_report_
 
 This command regenerates the current SVG assets stored under:
 
-- `doc/reports/analysis/assets/2026-03-18_model_explanatory_diagrams/`
+- `doc/reports/analysis/model_explanatory/<Model Name>/assets/`
 
 Use it whenever:
 
@@ -317,7 +317,7 @@ After every styled report export, validate the real PDF artifact rather than rel
 
 ```powershell
 python scripts/reports/validate_report_pdf.py `
-  --input-pdf-path doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf `
+  --input-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
   --output-image-directory .temp/pdf_validation_training_configuration_analysis `
   --clean-output-directory
 ```

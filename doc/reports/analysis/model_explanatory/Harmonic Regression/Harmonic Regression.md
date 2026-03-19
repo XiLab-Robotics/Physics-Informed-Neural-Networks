@@ -1,4 +1,4 @@
-# Harmonic Regression Model Explanatory Report
+# Harmonic Regression
 
 ## Overview
 

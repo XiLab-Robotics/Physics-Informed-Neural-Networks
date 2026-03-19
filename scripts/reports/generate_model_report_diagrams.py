@@ -8,7 +8,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[2]
-OUTPUT_DIRECTORY = PROJECT_PATH / "doc" / "reports" / "analysis" / "assets" / "2026-03-18_model_explanatory_diagrams"
+MODEL_EXPLANATORY_REPORT_ROOT = PROJECT_PATH / "doc" / "reports" / "analysis" / "model_explanatory"
+FEEDFORWARD_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "FeedForward Network" / "assets"
+HARMONIC_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "Harmonic Regression" / "assets"
+PERIODIC_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "Periodic Feature Network" / "assets"
+RESIDUAL_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "Residual Harmonic Network" / "assets"
 
 SVG_WIDTH = 1280
 SVG_HEIGHT = 720
@@ -705,15 +709,14 @@ def draw_layer_block(
 
     return "\n".join(content) + "\n", layer_centers
 
-def write_svg(output_name: str, title: str, description: str, body_content: str) -> None:
+def write_svg(output_path: Path, title: str, description: str, body_content: str) -> None:
 
     """ Write SVG """
 
     # Ensure Output Directory Exists
-    OUTPUT_DIRECTORY.mkdir(parents=True, exist_ok=True)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Write SVG File
-    output_path = OUTPUT_DIRECTORY / output_name
     output_path.write_text(build_svg_document(title, description, body_content), encoding="utf-8")
 
 def build_feedforward_conceptual_diagram() -> str:
@@ -1520,13 +1523,13 @@ def generate_all_diagrams() -> None:
 
     # Generate Feedforward Diagrams
     write_svg(
-        "feedforward_model_diagram.svg",
+        FEEDFORWARD_ASSET_DIRECTORY / "feedforward_model_diagram.svg",
         "Feedforward TE Model Diagram",
         "Conceptual flow diagram of the feedforward transmission-error model.",
         build_feedforward_conceptual_diagram(),
     )
     write_svg(
-        "feedforward_model_architecture_diagram.svg",
+        FEEDFORWARD_ASSET_DIRECTORY / "feedforward_model_architecture_diagram.svg",
         "Feedforward TE Architecture Diagram",
         "Architecture-style diagram of a feedforward multilayer perceptron for transmission-error prediction.",
         build_feedforward_architecture_diagram(),
@@ -1534,13 +1537,13 @@ def generate_all_diagrams() -> None:
 
     # Generate Harmonic Diagrams
     write_svg(
-        "harmonic_regression_model_diagram.svg",
+        HARMONIC_ASSET_DIRECTORY / "harmonic_regression_model_diagram.svg",
         "Harmonic Regression TE Model Diagram",
         "Conceptual flow diagram of the harmonic regression transmission-error model.",
         build_harmonic_conceptual_diagram(),
     )
     write_svg(
-        "harmonic_regression_model_architecture_diagram.svg",
+        HARMONIC_ASSET_DIRECTORY / "harmonic_regression_model_architecture_diagram.svg",
         "Harmonic Regression TE Architecture Diagram",
         "Architecture-style computational graph of the harmonic regression transmission-error model.",
         build_harmonic_architecture_diagram(),
@@ -1548,13 +1551,13 @@ def generate_all_diagrams() -> None:
 
     # Generate Periodic-Feature Diagrams
     write_svg(
-        "periodic_feature_network_model_diagram.svg",
+        PERIODIC_ASSET_DIRECTORY / "periodic_feature_network_model_diagram.svg",
         "Periodic Feature Network TE Model Diagram",
         "Conceptual flow diagram of the periodic feature network transmission-error model.",
         build_periodic_conceptual_diagram(),
     )
     write_svg(
-        "periodic_feature_network_model_architecture_diagram.svg",
+        PERIODIC_ASSET_DIRECTORY / "periodic_feature_network_model_architecture_diagram.svg",
         "Periodic Feature Network TE Architecture Diagram",
         "Architecture-style diagram of periodic feature expansion followed by a dense neural network.",
         build_periodic_architecture_diagram(),
@@ -1562,13 +1565,13 @@ def generate_all_diagrams() -> None:
 
     # Generate Residual-Harmonic Diagrams
     write_svg(
-        "residual_harmonic_network_model_diagram.svg",
+        RESIDUAL_ASSET_DIRECTORY / "residual_harmonic_network_model_diagram.svg",
         "Residual Harmonic Network TE Model Diagram",
         "Conceptual flow diagram of the residual harmonic network transmission-error model.",
         build_residual_conceptual_diagram(),
     )
     write_svg(
-        "residual_harmonic_network_model_architecture_diagram.svg",
+        RESIDUAL_ASSET_DIRECTORY / "residual_harmonic_network_model_architecture_diagram.svg",
         "Residual Harmonic Network TE Architecture Diagram",
         "Architecture-style diagram of the residual harmonic network with structured and residual branches.",
         build_residual_architecture_diagram(),
@@ -1582,7 +1585,7 @@ def main() -> None:
     generate_all_diagrams()
 
     # Print Completion Marker
-    print(f"[DONE] Model report diagrams generated | {OUTPUT_DIRECTORY}")
+    print(f"[DONE] Model report diagrams generated | {MODEL_EXPLANATORY_REPORT_ROOT}")
 
 
 if __name__ == "__main__":

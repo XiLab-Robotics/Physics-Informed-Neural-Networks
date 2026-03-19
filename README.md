@@ -280,6 +280,7 @@ Technical documents:
   * `doc/technical/2026-03-19/2026-03-19-15-05-06_residual_conceptual_orthogonal_tail_rebalancing.md`
   * `doc/technical/2026-03-19/2026-03-19-15-17-28_residual_conceptual_vertical_gap_rebalance.md`
   * `doc/technical/2026-03-19/2026-03-19-15-19-09_residual_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
+  * `doc/technical/2026-03-19/2026-03-19-15-39-12_analysis_report_directory_reorganization_and_universal_model_report_naming.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md`
@@ -302,18 +303,18 @@ Script documentation:
 Reports:
 
 * `Analysis`
-  * `doc/reports/analysis/2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
-  * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md`
-  * `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` -> golden standard visual reference for future styled analytical PDFs
-  * `doc/reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md`
-  * `doc/reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md`
-  * `doc/reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf`
-  * `doc/reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.md`
-  * `doc/reports/analysis/2026-03-18-00-31-58_harmonic_regression_model_explanatory_report.pdf`
-  * `doc/reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.md`
-  * `doc/reports/analysis/2026-03-18-00-32-37_periodic_feature_network_model_explanatory_report.pdf`
-  * `doc/reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.md`
-  * `doc/reports/analysis/2026-03-18-00-33-16_residual_harmonic_network_model_explanatory_report.pdf`
+  * `doc/reports/analysis/analytical_studies/FeedForward Trial Analytical Report.md`
+  * `doc/reports/analysis/training_analysis/Training Configuration Analysis.md`
+  * `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf` -> golden standard visual reference for future styled analytical PDFs
+  * `doc/reports/analysis/family_studies/TE Model Family Analysis.md`
+  * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.md`
+  * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.pdf`
+  * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.md`
+  * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.pdf`
+  * `doc/reports/analysis/model_explanatory/Periodic Feature Network/Periodic Feature Network.md`
+  * `doc/reports/analysis/model_explanatory/Periodic Feature Network/Periodic Feature Network.pdf`
+  * `doc/reports/analysis/model_explanatory/Residual Harmonic Network/Residual Harmonic Network.md`
+  * `doc/reports/analysis/model_explanatory/Residual Harmonic Network/Residual Harmonic Network.pdf`
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
@@ -363,7 +364,7 @@ The following rules are mandatory for all future project work:
 * The current prepared or active training campaign must be tracked persistently in `doc/running/active_training_campaign.yaml`.
 * While a campaign is prepared or active, any modification to a protected campaign file must trigger a `CRITICAL WARNING` and wait for explicit user approval.
 * Every final campaign-results report must be produced both as Markdown and as a validated PDF export.
-* Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the golden standard for future styled analytical PDF reports.
+* Use `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf` as the golden standard for future styled analytical PDF reports.
 * Future styled PDFs must preserve the same professional report direction: white background, restrained blue accents, rounded cards, safe A4 margins, split comparison tables when needed, repeated `Config` anchors across split tables, and a final post-export PDF inspection.
 * Styled PDF validation must catch not only clipping but also poor table balance such as crushed `Config` columns, oversized numeric columns, wrapped metric headers caused by bad width allocation, and right-edge pressure.
 * If the validation evidence for the real exported PDF is inconclusive, the PDF-report task must stay open until the layout is proved acceptable or explicitly escalated to the user.

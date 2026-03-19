@@ -1,4 +1,4 @@
-# Feedforward Model Explanatory Report
+# FeedForward Network
 
 ## Overview
 

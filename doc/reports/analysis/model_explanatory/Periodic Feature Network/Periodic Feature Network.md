@@ -1,4 +1,4 @@
-# Periodic Feature Network Model Explanatory Report
+# Periodic Feature Network
 
 ## Overview
 

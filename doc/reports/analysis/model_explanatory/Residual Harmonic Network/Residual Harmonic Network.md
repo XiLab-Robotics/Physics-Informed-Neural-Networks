@@ -1,4 +1,4 @@
-# Residual Harmonic Network Model Explanatory Report
+# Residual Harmonic Network
 
 ## Overview
 
