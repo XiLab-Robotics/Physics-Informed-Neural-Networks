@@ -274,6 +274,12 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-23-11-26_periodic_architecture_vertical_alignment_and_right_margin_rebalance.md`
   * `doc/technical/2026-03-18/2026-03-18-23-31-24_periodic_architecture_horizontal_compaction_and_feature_route_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-23-34-49_periodic_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
+  * `doc/technical/2026-03-18/2026-03-18-23-44-19_residual_diagram_symmetry_spacing_and_alignment_refinement.md`
+  * `doc/technical/2026-03-19/2026-03-19-11-01-56_residual_connector_tail_and_flow_note_clearance_refinement.md`
+  * `doc/technical/2026-03-19/2026-03-19-14-58-22_residual_architecture_orthogonal_tail_rebalancing.md`
+  * `doc/technical/2026-03-19/2026-03-19-15-05-06_residual_conceptual_orthogonal_tail_rebalancing.md`
+  * `doc/technical/2026-03-19/2026-03-19-15-17-28_residual_conceptual_vertical_gap_rebalance.md`
+  * `doc/technical/2026-03-19/2026-03-19-15-19-09_residual_explanatory_report_pdf_regeneration_with_updated_diagrams.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
   * `doc/technical/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md`
   * `doc/technical/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md`

@@ -1178,58 +1178,174 @@ def build_residual_conceptual_diagram() -> str:
     # Draw Header
     content = draw_header("Residual Harmonic Network", "Structured harmonic branch plus neural residual correction")
 
-    # Draw Branch Blocks
+    # Resolve Symmetric Layout
     body = ""
-    body += draw_card(60, 230, 224, 196, "Shared Input", ["Angle sample", "Normalized operating state", "Common input to", "both branches"], note="Shared entry point")
+    centerline_y = 360.0
+    shared_input_x = 60
+    shared_input_y = 262
+    shared_input_width = 224
+    shared_input_height = 196
+    structured_branch_x = 368
+    structured_branch_y = 122
+    structured_branch_width = 264
+    structured_branch_height = 240
+    residual_branch_x = 368
+    residual_branch_y = 384
+    residual_branch_width = 264
+    residual_branch_height = 188
+    add_card_x = 732
+    add_card_y = 308
+    add_card_width = 150
+    add_card_height = 104
+    outputs_card_x = 968
+    outputs_card_y = 234
+    outputs_card_width = 222
+    outputs_card_height = 252
+
+    shared_input_center_y = shared_input_y + (shared_input_height / 2.0)
+    structured_branch_center_y = structured_branch_y + (structured_branch_height / 2.0)
+    residual_branch_center_y = residual_branch_y + (residual_branch_height / 2.0)
+    add_card_center_y = add_card_y + (add_card_height / 2.0)
+    outputs_card_center_y = outputs_card_y + (outputs_card_height / 2.0)
+
+    assert abs(shared_input_center_y - centerline_y) <= 0.1, "Residual conceptual shared input is not centered on the merge axis"
+    assert abs(add_card_center_y - centerline_y) <= 0.1, "Residual conceptual add card is not centered on the merge axis"
+    assert abs(outputs_card_center_y - centerline_y) <= 0.1, "Residual conceptual outputs card is not centered on the merge axis"
+    assert abs(((structured_branch_center_y + residual_branch_center_y) / 2.0) - centerline_y) <= 0.1, "Residual conceptual branches are not mirrored around the merge axis"
+
+    # Draw Branch Blocks
+    body += draw_card(
+        shared_input_x,
+        shared_input_y,
+        shared_input_width,
+        shared_input_height,
+        "Shared Input",
+        ["Angle sample", "Normalized operating state", "Shared by both branches"],
+        note="Common entry point",
+    )
     body += draw_flow_card(
-        352,
-        162,
-        264,
-        196,
+        structured_branch_x,
+        structured_branch_y,
+        structured_branch_width,
+        structured_branch_height,
         "Structured Branch",
         ["Harmonic basis", "Coefficient resolution", "Structured TE prediction"],
         note="Can be frozen or joint-trained",
         accent=True,
+        flow_gap=30,
+        note_gap=8,
+        bottom_note_clearance=14,
+        connector_min_span=12,
     )
     body += draw_flow_card(
-        352,
-        404,
-        264,
-        168,
+        residual_branch_x,
+        residual_branch_y,
+        residual_branch_width,
+        residual_branch_height,
         "Residual Branch",
         ["Dense residual MLP", "Learns remaining error"],
         note="Only models the remaining error",
+        flow_gap=30,
+        note_gap=8,
+        bottom_note_clearance=14,
+        connector_min_span=12,
     )
-    body += draw_card(716, 266, 150, 104, "Add", ["H plus R"], align="center")
+    body += draw_card(add_card_x, add_card_y, add_card_width, add_card_height, "Add", ["H plus R"], align="center")
     body += draw_card(
-        952,
-        190,
-        222,
-        252,
+        outputs_card_x,
+        outputs_card_y,
+        outputs_card_width,
+        outputs_card_height,
         "Outputs",
         ["Structured prediction", "Residual prediction", "Total prediction", "Structured diagnostics"],
         note="Branch-level diagnostics",
     )
 
-    # Draw Branch Routing
-    body += draw_box_connector(60, 230, 224, 196, "right", 352, 162, 264, 196, "left", source_offset=-30, target_offset=-24, lane_x=320, stroke_width=2.4)
-    body += draw_box_connector(60, 230, 224, 196, "right", 352, 404, 264, 168, "left", source_offset=30, target_offset=18, lane_x=320, stroke_width=2.4)
-    body += draw_box_connector(352, 162, 264, 196, "right", 716, 266, 150, 104, "left", target_offset=-20)
-    body += draw_box_connector(352, 404, 264, 168, "right", 716, 266, 150, 104, "left", target_offset=20)
-    body += draw_box_connector(716, 266, 150, 104, "right", 952, 190, 222, 252, "left")
+    # Draw Symmetric Branch Routing
+    body += draw_box_connector(
+        shared_input_x,
+        shared_input_y,
+        shared_input_width,
+        shared_input_height,
+        "right",
+        structured_branch_x,
+        structured_branch_y,
+        structured_branch_width,
+        structured_branch_height,
+        "left",
+        source_offset=-28,
+        target_offset=36,
+        lane_x=324,
+        stroke_width=2.4,
+    )
+    body += draw_box_connector(
+        shared_input_x,
+        shared_input_y,
+        shared_input_width,
+        shared_input_height,
+        "right",
+        residual_branch_x,
+        residual_branch_y,
+        residual_branch_width,
+        residual_branch_height,
+        "left",
+        source_offset=28,
+        target_offset=-36,
+        lane_x=324,
+        stroke_width=2.4,
+    )
+    body += draw_box_connector(
+        structured_branch_x,
+        structured_branch_y,
+        structured_branch_width,
+        structured_branch_height,
+        "right",
+        add_card_x,
+        add_card_y,
+        add_card_width,
+        add_card_height,
+        "left",
+        source_offset=56,
+        target_offset=-20,
+        lane_x=670,
+        stroke_width=2.4,
+    )
+    body += draw_box_connector(
+        residual_branch_x,
+        residual_branch_y,
+        residual_branch_width,
+        residual_branch_height,
+        "right",
+        add_card_x,
+        add_card_y,
+        add_card_width,
+        add_card_height,
+        "left",
+        source_offset=-56,
+        target_offset=20,
+        lane_x=670,
+        stroke_width=2.4,
+    )
+    body += draw_arrow(
+        add_card_x + add_card_width + BOX_CONNECTOR_START_CLEARANCE,
+        add_card_center_y,
+        outputs_card_x - BOX_CONNECTOR_END_CLEARANCE,
+        add_card_center_y,
+        stroke_width=2.4,
+    )
 
     # Draw Interpretation Card
     body += draw_card(
         112,
-        588,
+        594,
         1012,
-        106,
+        100,
         "Interpretation",
         ["The network keeps the interpretable periodic backbone and learns only the unexplained residual component."],
         align="center",
     )
 
-    return content + wrap_centered_body(body, 162, 694)
+    return content + wrap_centered_body(body, 108, 694)
 
 def build_residual_architecture_diagram() -> str:
 
@@ -1238,55 +1354,165 @@ def build_residual_architecture_diagram() -> str:
     # Draw Header
     content = draw_header("Residual Harmonic Network Structure", "Structured harmonic path, residual MLP path, and explicit additive merge")
 
-    # Draw Static Branch Blocks
+    # Resolve Symmetric Architecture Geometry
     body = ""
-    body += draw_card(46, 286, 190, 118, "Shared Input", ["Angle and conditions"], align="center")
+    centerline_y = 360.0
+    shared_input_x = 46
+    shared_input_y = 301
+    shared_input_width = 190
+    shared_input_height = 118
+    structured_path_x = 314
+    structured_path_y = 114
+    structured_path_width = 236
+    structured_path_height = 228
+    residual_path_x = 314
+    residual_path_y = 378
+    residual_path_width = 236
+    residual_path_height = 228
+    structured_output_x = 642
+    structured_output_y = 200
+    structured_output_width = 180
+    structured_output_height = 104
+    add_card_x = 952
+    add_card_y = 304
+    add_card_width = 154
+    add_card_height = 112
+    te_card_x = 1150
+    te_card_y = 304
+    te_card_width = 90
+    te_card_height = 112
+
+    shared_input_center_y = shared_input_y + (shared_input_height / 2.0)
+    structured_path_center_y = structured_path_y + (structured_path_height / 2.0)
+    residual_path_center_y = residual_path_y + (residual_path_height / 2.0)
+    structured_output_center_y = structured_output_y + (structured_output_height / 2.0)
+    add_card_center_y = add_card_y + (add_card_height / 2.0)
+    te_card_center_y = te_card_y + (te_card_height / 2.0)
+
+    assert abs(shared_input_center_y - centerline_y) <= 0.1, "Residual architecture shared input is not centered on the merge axis"
+    assert abs(add_card_center_y - centerline_y) <= 0.1, "Residual architecture add card is not centered on the merge axis"
+    assert abs(te_card_center_y - centerline_y) <= 0.1, "Residual architecture TE card is not centered on the merge axis"
+    assert abs(((structured_path_center_y + residual_path_center_y) / 2.0) - centerline_y) <= 0.1, "Residual architecture branch cards are not mirrored around the merge axis"
+
+    # Draw Static Branch Blocks
+    body += draw_card(shared_input_x, shared_input_y, shared_input_width, shared_input_height, "Shared Input", ["Angle and conditions"], align="center")
     body += draw_flow_card(
-        302,
-        174,
-        226,
-        188,
+        structured_path_x,
+        structured_path_y,
+        structured_path_width,
+        structured_path_height,
         "Structured Path",
         ["Harmonic basis", "Coefficient resolver", "Structured output H"],
         accent=True,
+        flow_gap=30,
+        connector_min_span=12,
     )
     body += draw_flow_card(
-        302,
-        414,
-        226,
-        188,
+        residual_path_x,
+        residual_path_y,
+        residual_path_width,
+        residual_path_height,
         "Residual Path",
         ["Normalized input", "Dense residual MLP", "Residual output R"],
+        flow_gap=30,
+        connector_min_span=12,
     )
 
-    # Draw Input Routing
-    body += draw_box_connector(46, 286, 190, 118, "right", 302, 174, 226, 188, "left", source_offset=-18, target_offset=-18, lane_x=268, stroke_width=2.2)
-    body += draw_box_connector(46, 286, 190, 118, "right", 302, 414, 226, 188, "left", source_offset=18, target_offset=18, lane_x=268, stroke_width=2.2)
+    # Draw Symmetric Input Routing
+    body += draw_box_connector(
+        shared_input_x,
+        shared_input_y,
+        shared_input_width,
+        shared_input_height,
+        "right",
+        structured_path_x,
+        structured_path_y,
+        structured_path_width,
+        structured_path_height,
+        "left",
+        source_offset=-24,
+        target_offset=48,
+        lane_x=273,
+        stroke_width=2.2,
+    )
+    body += draw_box_connector(
+        shared_input_x,
+        shared_input_y,
+        shared_input_width,
+        shared_input_height,
+        "right",
+        residual_path_x,
+        residual_path_y,
+        residual_path_width,
+        residual_path_height,
+        "left",
+        source_offset=24,
+        target_offset=-48,
+        lane_x=273,
+        stroke_width=2.2,
+    )
 
     # Draw Residual Neural Stack
     layer_block_svg, layer_centers = draw_layer_block(
-        [620, 734, 848],
+        [620, 716, 812],
         [["z1", "z2", "z3", "z4"], ["r1", "r2", "r3"], ["R"]],
-        base_y=510,
+        base_y=468,
         layer_gap=58,
         radius=15,
+        draw_connections=True,
+        connection_color="#C8DCF8",
+        connection_stroke_width=1.2,
+        connection_use_arrow_head=False,
     )
     body += layer_block_svg
 
     # Draw Merge Blocks
-    body += draw_card(620, 192, 192, 104, "Structured Output", ["H"], align="center")
-    body += draw_card(946, 286, 166, 112, "Add", ["H plus R"], align="center")
-    body += draw_card(1150, 286, 90, 112, "TE", ["Output"], align="center")
+    body += draw_card(structured_output_x, structured_output_y, structured_output_width, structured_output_height, "Structured Output", ["H"], align="center")
+    body += draw_card(add_card_x, add_card_y, add_card_width, add_card_height, "Add", ["H plus R"], align="center")
+    body += draw_card(te_card_x, te_card_y, te_card_width, te_card_height, "TE", ["Output"], align="center")
 
     # Draw Merge Routing
-    body += draw_box_connector(302, 174, 226, 188, "right", 620, 192, 192, 104, "left", target_offset=0, lane_x=568, stroke_width=2.2)
-    body += draw_box_connector(620, 192, 192, 104, "right", 946, 286, 166, 112, "left", target_offset=-10, lane_x=900, stroke_width=2.2)
+    structured_connector_start_x = structured_path_x + structured_path_width + BOX_CONNECTOR_START_CLEARANCE
+    structured_connector_end_x = structured_output_x - BOX_CONNECTOR_END_CLEARANCE
+    body += draw_arrow(
+        structured_connector_start_x,
+        structured_path_center_y + 24.0,
+        structured_connector_end_x,
+        structured_path_center_y + 24.0,
+        stroke_width=2.2,
+    )
+    structured_merge_start_x = structured_output_x + structured_output_width + BOX_CONNECTOR_START_CLEARANCE
     residual_output_x, residual_output_y = layer_centers[-1][0]
-    body += draw_polyline_arrow([(residual_output_x + 18, residual_output_y), (900, residual_output_y), (900, 360), (934, 360)], stroke_width=2.2)
-    body += draw_box_connector(946, 286, 166, 112, "right", 1150, 286, 90, 112, "left", stroke_width=2.2)
+    residual_merge_start_x = residual_output_x + 18.0
+    add_merge_end_x = add_card_x - BOX_CONNECTOR_END_CLEARANCE
+    body += draw_polyline_arrow(
+        [
+            (structured_merge_start_x, structured_output_center_y),
+            (885.0, structured_output_center_y),
+            (885.0, centerline_y - 20.0),
+            (add_merge_end_x, centerline_y - 20.0),
+        ],
+        stroke_width=2.2,
+    )
+    body += draw_polyline_arrow(
+        [
+            (residual_merge_start_x, residual_output_y),
+            (885.0, residual_output_y),
+            (885.0, centerline_y + 20.0),
+            (add_merge_end_x, centerline_y + 20.0),
+        ],
+        stroke_width=2.2,
+    )
+    body += draw_arrow(
+        add_card_x + add_card_width + BOX_CONNECTOR_START_CLEARANCE,
+        add_card_center_y,
+        te_card_x - BOX_CONNECTOR_END_CLEARANCE,
+        add_card_center_y,
+        stroke_width=2.2,
+    )
     body += '  <text x="612" y="624" class="tiny">Training can log H, R, and H + R separately for diagnostics.</text>\n'
 
-    return content + wrap_centered_body(body, 174, 624)
+    return content + wrap_centered_body(body, 114, 624)
 
 def generate_all_diagrams() -> None:
 
