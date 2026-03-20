@@ -284,18 +284,26 @@ This folder contains the internal project documents derived from the reference P
   Learning guide that explains the feedforward architecture as the baseline MLP for the TE curriculum, with implementation and training context.
 - [reports/analysis/learning_guides/FeedForward%20Network/FeedForward%20Network.pdf](./reports/analysis/learning_guides/FeedForward%20Network/FeedForward%20Network.pdf)
   Styled PDF export of the feedforward network learning guide.
+- [reports/analysis/learning_guides/FeedForward%20Network/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/FeedForward%20Network/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the feedforward network video guide package.
 - [reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.md](./reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.md)
   Learning guide that explains harmonic regression as the periodic structured baseline and its repository integration.
 - [reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.pdf](./reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.pdf)
   Styled PDF export of the harmonic regression learning guide.
+- [reports/analysis/learning_guides/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the harmonic regression video guide package.
 - [reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
   Learning guide that explains the periodic-feature hybrid architecture that combines explicit periodic encoding with an MLP backend.
 - [reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
   Styled PDF export of the periodic-feature network learning guide.
+- [reports/analysis/learning_guides/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the periodic-feature network video guide package.
 - [reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
   Learning guide that explains the residual-harmonic hybrid architecture and its structured-plus-residual decomposition.
 - [reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
   Styled PDF export of the residual-harmonic network learning guide.
+- [reports/analysis/learning_guides/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the residual-harmonic network video guide package.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md)
   Explanatory report for the implemented feedforward TE baseline, including conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf)

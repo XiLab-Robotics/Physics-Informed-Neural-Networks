@@ -323,12 +323,16 @@ Reports:
   * `doc/reports/analysis/learning_guides/TE Model Curriculum/TE Model Curriculum.pdf`
   * `doc/reports/analysis/learning_guides/FeedForward Network/FeedForward Network.md`
   * `doc/reports/analysis/learning_guides/FeedForward Network/FeedForward Network.pdf`
+  * `doc/reports/analysis/learning_guides/FeedForward Network/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/learning_guides/Harmonic Regression/Harmonic Regression.md`
   * `doc/reports/analysis/learning_guides/Harmonic Regression/Harmonic Regression.pdf`
+  * `doc/reports/analysis/learning_guides/Harmonic Regression/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/learning_guides/Periodic Feature Network/Periodic Feature Network.md`
   * `doc/reports/analysis/learning_guides/Periodic Feature Network/Periodic Feature Network.pdf`
+  * `doc/reports/analysis/learning_guides/Periodic Feature Network/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/learning_guides/Residual Harmonic Network/Residual Harmonic Network.md`
   * `doc/reports/analysis/learning_guides/Residual Harmonic Network/Residual Harmonic Network.pdf`
+  * `doc/reports/analysis/learning_guides/Residual Harmonic Network/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.pdf`
   * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.md`
