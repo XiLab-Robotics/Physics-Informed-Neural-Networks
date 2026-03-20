@@ -20,6 +20,9 @@
 - When the user requests conceptual maps, schematic explanations, or architecture framing for a model, the explanatory report must also include generated visual material such as diagrams or schematic images rather than remaining text-only.
 - These visual assets must be integrated into both the Markdown report and the final PDF deliverable, and they should be stored in a consistent, discoverable report-local location.
 - When model-report diagrams are generated, they must be checked after generation to ensure labels stay inside their boxes, spacing remains balanced, and the real visual output does not contain obvious overflow or crowding defects.
+- When a new learning guide is created under `doc/reports/analysis/learning_guides/`, create a PDF companion for that guide in the same report-local folder.
+- For learning guides, do not generate or finalize the PDF companion until the user has explicitly approved the generated guide images or diagrams.
+- If the user identifies layout defects in learning-guide images, treat the learning-guide PDF task as still open, correct the figures first, obtain image approval, and only then export and validate the PDF.
 - For explanatory model reports, prefer providing both:
   - a conceptual diagram that explains the model logic;
   - an architecture-style diagram that explains the concrete network or computational structure.
