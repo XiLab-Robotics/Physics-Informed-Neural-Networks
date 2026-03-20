@@ -291,6 +291,7 @@ Technical documents:
   * `doc/technical/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md`
   * `doc/technical/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md`
   * `doc/technical/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md`
+  * `doc/technical/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md`
 
 Script documentation:
 
@@ -320,6 +321,14 @@ Reports:
   * `doc/reports/analysis/learning_guides/Training, Validation, And Testing/Training, Validation, And Testing.pdf`
   * `doc/reports/analysis/learning_guides/TE Model Curriculum/TE Model Curriculum.md`
   * `doc/reports/analysis/learning_guides/TE Model Curriculum/TE Model Curriculum.pdf`
+  * `doc/reports/analysis/learning_guides/FeedForward Network/FeedForward Network.md`
+  * `doc/reports/analysis/learning_guides/FeedForward Network/FeedForward Network.pdf`
+  * `doc/reports/analysis/learning_guides/Harmonic Regression/Harmonic Regression.md`
+  * `doc/reports/analysis/learning_guides/Harmonic Regression/Harmonic Regression.pdf`
+  * `doc/reports/analysis/learning_guides/Periodic Feature Network/Periodic Feature Network.md`
+  * `doc/reports/analysis/learning_guides/Periodic Feature Network/Periodic Feature Network.pdf`
+  * `doc/reports/analysis/learning_guides/Residual Harmonic Network/Residual Harmonic Network.md`
+  * `doc/reports/analysis/learning_guides/Residual Harmonic Network/Residual Harmonic Network.pdf`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.pdf`
   * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.md`
