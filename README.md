@@ -290,6 +290,7 @@ Technical documents:
 * `2026-03-20`
   * `doc/technical/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md`
   * `doc/technical/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md`
+  * `doc/technical/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md`
 
 Script documentation:
 
@@ -307,6 +308,9 @@ Reports:
 
 * `Analysis`
   * `doc/reports/analysis/analytical_studies/FeedForward Trial Analytical Report.md`
+  * `doc/reports/analysis/learning_guides/Neural Network Foundations/video_guide_package/video_guide_source_brief.md`
+  * `doc/reports/analysis/learning_guides/Training, Validation, And Testing/video_guide_package/video_guide_source_brief.md`
+  * `doc/reports/analysis/learning_guides/TE Model Curriculum/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/training_analysis/Training Configuration Analysis.md`
   * `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf` -> golden standard visual reference for future styled analytical PDFs
   * `doc/reports/analysis/family_studies/TE Model Family Analysis.md`

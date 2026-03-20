@@ -224,6 +224,8 @@ This folder contains the internal project documents derived from the reference P
   Technical planning document for a beginner-to-university learning guide covering neural-network foundations, training/validation/testing, and the TE model-family curriculum from feedforward baselines to planned advanced architectures.
 - [technical/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md](./technical/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md)
   Technical planning document for exporting the learning guides to PDF and requiring explicit user approval of generated guide images before final PDF generation.
+- [technical/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md](./technical/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md)
+  Technical planning document for preparing NotebookLM-ready video-guide source packages and adding the related approval-gated workflow rule for future learning-guide videos.
 
 ### Script Documentation
 
@@ -262,14 +264,20 @@ This folder contains the internal project documents derived from the reference P
   Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
 - [reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
   Styled PDF export of the neural-network foundations learning guide.
+- [reports/analysis/learning_guides/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the neural-network foundations video guide package.
 - [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
   Learning guide that explains dataset splits, optimizer-driven training, validation logic, test-set discipline, and TE-specific evaluation pitfalls.
 - [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf)
   Styled PDF export of the training, validation, and testing learning guide.
+- [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the training, validation, and testing video guide package.
 - [reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md](./reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
   Curriculum guide that introduces the TE model families from feedforward and harmonic baselines through the planned temporal, hybrid, and PINN directions.
 - [reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf](./reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf)
   Styled PDF export of the TE model curriculum learning guide.
+- [reports/analysis/learning_guides/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md)
+  NotebookLM-oriented source brief for the TE model curriculum video guide package.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md)
   Explanatory report for the implemented feedforward TE baseline, including conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf)

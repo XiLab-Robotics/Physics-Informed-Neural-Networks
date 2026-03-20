@@ -23,6 +23,15 @@
 - When a new learning guide is created under `doc/reports/analysis/learning_guides/`, create a PDF companion for that guide in the same report-local folder.
 - For learning guides, do not generate or finalize the PDF companion until the user has explicitly approved the generated guide images or diagrams.
 - If the user identifies layout defects in learning-guide images, treat the learning-guide PDF task as still open, correct the figures first, obtain image approval, and only then export and validate the PDF.
+- After a learning-guide Markdown document and its approved PDF companion are complete, prepare a report-local `video_guide_package/` for that guide when the user explicitly approves the video-guide preparation phase.
+- Each approved `video_guide_package/` for a learning guide must contain at least:
+  - `video_guide_source_brief.md`;
+  - `video_guide_terminology_sheet.md`;
+  - `video_guide_narration_outline.md`;
+  - `video_guide_figure_reference.md`;
+  - `video_guide_fact_boundary_notes.md` when the guide contains roadmap, implementation-status, or planned-model content.
+- Build `video_guide_package/` documents as repository-owned `NotebookLM` sources rather than generic prompts. They must preserve terminology, chapter order, scope boundaries, and the distinction between implemented versus planned repository capabilities.
+- Do not generate or finalize a `NotebookLM` video guide immediately after the package is prepared. Stop after the source package is ready, report completion, and wait for the user's explicit approval before creating or finalizing the actual video-guide generation step.
 - For explanatory model reports, prefer providing both:
   - a conceptual diagram that explains the model logic;
   - an architecture-style diagram that explains the concrete network or computational structure.
