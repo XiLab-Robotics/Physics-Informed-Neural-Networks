@@ -218,6 +218,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md](./technical/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md)
   Technical document for a formatting-only repository-wide cleanup that normalizes redundant blank lines between top-level definitions across the Python scripts under `scripts/`.
 
+#### 2026-03-20
+
+- [technical/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md](./technical/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md)
+  Technical planning document for a beginner-to-university learning guide covering neural-network foundations, training/validation/testing, and the TE model-family curriculum from feedforward baselines to planned advanced architectures.
+
 ### Script Documentation
 
 - [scripts/datasets/transmission_error_dataset.md](./scripts/datasets/transmission_error_dataset.md)
@@ -251,6 +256,12 @@ This folder contains the internal project documents derived from the reference P
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 - [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
   Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
+- [reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
+  Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
+- [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
+  Learning guide that explains dataset splits, optimizer-driven training, validation logic, test-set discipline, and TE-specific evaluation pitfalls.
+- [reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md](./reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
+  Curriculum guide that introduces the TE model families from feedforward and harmonic baselines through the planned temporal, hybrid, and PINN directions.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md)
   Explanatory report for the implemented feedforward TE baseline, including conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.pdf)

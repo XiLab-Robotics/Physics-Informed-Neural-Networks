@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#f7fafc"/>
+  <text x="60" y="70" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#183b56">From Inputs To A Neural Network</text>
+  <text x="60" y="105" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#486581">Single neuron intuition, then dense-layer stacking for richer nonlinear regression.</text>
+
+  <rect x="55" y="150" width="270" height="470" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="85" y="195" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#1f2937">Inputs</text>
+  <rect x="95" y="245" width="190" height="60" rx="18" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <rect x="95" y="335" width="190" height="60" rx="18" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <rect x="95" y="425" width="190" height="60" rx="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="95" y="515" width="190" height="60" rx="18" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="190" y="283" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1f2937">Angle</text>
+  <text x="190" y="373" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1f2937">Speed</text>
+  <text x="190" y="463" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1f2937">Torque</text>
+  <text x="190" y="553" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1f2937">Temperature</text>
+
+  <rect x="410" y="150" width="360" height="470" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="440" y="195" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#1f2937">One Neuron</text>
+  <circle cx="590" cy="355" r="105" fill="#eff6ff" stroke="#3b82f6" stroke-width="4"/>
+  <text x="590" y="340" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#1d4ed8">w*x + b</text>
+  <text x="590" y="380" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#1f2937">Activation</text>
+  <rect x="462" y="492" width="256" height="92" rx="18" fill="#ecfccb" stroke="#84cc16" stroke-width="2"/>
+  <text x="590" y="530" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#365314">Learns one nonlinear</text>
+  <text x="590" y="560" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#365314">response</text>
+
+  <rect x="850" y="150" width="290" height="470" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="880" y="195" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#1f2937">MLP</text>
+  <text x="995" y="228" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#486581">Several neurons and layers</text>
+  <text x="995" y="252" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#486581">build richer features.</text>
+  <circle cx="920" cy="310" r="18" fill="#93c5fd"/>
+  <circle cx="920" cy="370" r="18" fill="#93c5fd"/>
+  <circle cx="920" cy="430" r="18" fill="#93c5fd"/>
+  <circle cx="980" cy="285" r="18" fill="#86efac"/>
+  <circle cx="980" cy="350" r="18" fill="#86efac"/>
+  <circle cx="980" cy="415" r="18" fill="#86efac"/>
+  <circle cx="1040" cy="320" r="18" fill="#fde68a"/>
+  <circle cx="1040" cy="390" r="18" fill="#fde68a"/>
+  <circle cx="1090" cy="355" r="20" fill="#fca5a5"/>
+  <line x1="938" y1="310" x2="962" y2="285" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="310" x2="962" y2="350" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="310" x2="962" y2="415" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="370" x2="962" y2="285" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="370" x2="962" y2="350" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="370" x2="962" y2="415" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="430" x2="962" y2="285" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="430" x2="962" y2="350" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="938" y1="430" x2="962" y2="415" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="998" y1="285" x2="1022" y2="320" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="998" y1="350" x2="1022" y2="320" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="998" y1="415" x2="1022" y2="320" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="998" y1="285" x2="1022" y2="390" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="998" y1="350" x2="1022" y2="390" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="998" y1="415" x2="1022" y2="390" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1058" y1="320" x2="1070" y2="355" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="1058" y1="390" x2="1070" y2="355" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="884" y="494" width="222" height="88" rx="18" fill="#eef2ff" stroke="#818cf8" stroke-width="2"/>
+  <text x="995" y="528" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#312e81">Learns layered</text>
+  <text x="995" y="556" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#312e81">feature combinations</text>
+
+  <line x1="285" y1="275" x2="470" y2="300" stroke="#64748b" stroke-width="3"/>
+  <line x1="285" y1="365" x2="470" y2="335" stroke="#64748b" stroke-width="3"/>
+  <line x1="285" y1="455" x2="470" y2="375" stroke="#64748b" stroke-width="3"/>
+  <line x1="285" y1="545" x2="470" y2="410" stroke="#64748b" stroke-width="3"/>
+  <line x1="695" y1="355" x2="930" y2="355" stroke="#64748b" stroke-width="4"/>
+</svg>

@@ -287,6 +287,8 @@ Technical documents:
   * `doc/technical/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md`
   * `doc/technical/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md`
   * `doc/technical/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md`
+* `2026-03-20`
+  * `doc/technical/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md`
 
 Script documentation:
 
@@ -307,6 +309,9 @@ Reports:
   * `doc/reports/analysis/training_analysis/Training Configuration Analysis.md`
   * `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf` -> golden standard visual reference for future styled analytical PDFs
   * `doc/reports/analysis/family_studies/TE Model Family Analysis.md`
+  * `doc/reports/analysis/learning_guides/Neural Network Foundations/Neural Network Foundations.md`
+  * `doc/reports/analysis/learning_guides/Training, Validation, And Testing/Training, Validation, And Testing.md`
+  * `doc/reports/analysis/learning_guides/TE Model Curriculum/TE Model Curriculum.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.pdf`
   * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.md`
