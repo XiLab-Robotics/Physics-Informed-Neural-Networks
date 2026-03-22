@@ -1,0 +1,51 @@
+site_name: Physics-Informed Neural Networks Docs POC
+site_description: Isolated MkDocs proof of concept for repository code and guide documentation.
+site_dir: .temp/mkdocs_poc_site
+
+docs_dir: doc_site_poc
+
+nav:
+  - Home: index.md
+  - Usage Guide: guide/project_usage_guide.md
+  - API Reference:
+      - Current FeedForward Network Module: reference/feedforward_network.md
+      - Current FeedForward Training Script: reference/train_feedforward_network.md
+      - Documented FeedForward Network Mirror: reference/feedforward_network_documented.md
+      - Documented FeedForward Training Mirror: reference/train_feedforward_network_documented.md
+      - Rich Training API Demo: reference/rich_training_api_demo.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - .
+          options:
+            show_source: false
+            show_root_heading: true
+            show_root_toc_entry: true
+            heading_level: 2
+            merge_init_into_class: true
+            show_signature_annotations: true
+            docstring_style: google
+            docstring_section_style: list
+            members_order: source
+            separate_signature: true
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite

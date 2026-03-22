@@ -24,6 +24,18 @@ At the time this handoff was written, the intended local delta on this machine i
 - `doc/technical/2026-03-22/2026-03-22-10-05-00_code_documentation_platform_evaluation.md`
 - `doc/technical/2026-03-22/2026-03-22-10-20-00_code_documentation_comparison_report_and_pdf.md`
 - `doc/technical/2026-03-22/2026-03-22-10-50-00_code_documentation_report_table_header_fix.md`
+- `doc/technical/2026-03-22/2026-03-22-11-05-00_mkdocs_proof_of_concept.md`
+- `doc/technical/2026-03-22/2026-03-22-11-28-00_docstring_standard_and_rich_api_poc.md`
+- `doc/technical/2026-03-22/2026-03-22-12-05-00_documentation_direction_docstring_standard_and_dual_poc.md`
+- `doc/technical/2026-03-22/2026-03-22-12-40-00_sphinx_documentation_architecture_backlog_and_github_pages_plan.md`
+- `doc/technical/2026-03-22/2026-03-22-13-00-00_ur_rtde_visual_reference_archival.md`
+- `mkdocs.poc.yml`
+- `doc_site_poc/`
+- `poc_sources/`
+- `sphinx_poc/`
+- `.tools/sphinx_poc_env/`
+- `.tools/mkdocs_poc_env/`
+- `reference/documentation_visual_references/ur_rtde_api_reference_example.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
 - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.pdf`
@@ -426,6 +438,11 @@ The following technical document was created on this machine:
 - `doc/technical/2026-03-22/2026-03-22-10-05-00_code_documentation_platform_evaluation.md`
 - `doc/technical/2026-03-22/2026-03-22-10-20-00_code_documentation_comparison_report_and_pdf.md`
 - `doc/technical/2026-03-22/2026-03-22-10-50-00_code_documentation_report_table_header_fix.md`
+- `doc/technical/2026-03-22/2026-03-22-11-05-00_mkdocs_proof_of_concept.md`
+- `doc/technical/2026-03-22/2026-03-22-11-28-00_docstring_standard_and_rich_api_poc.md`
+- `mkdocs.poc.yml`
+- `doc_site_poc/`
+- `.tools/mkdocs_poc_env/`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
 - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.pdf`
@@ -903,3 +920,207 @@ The other Codex instance can decide later whether to:
 - leave them in place temporarily;
 - remove the empty directories during the post-campaign cleanup;
 - confirm with the user before deleting them.
+
+## MkDocs Proof Of Concept State
+
+An isolated MkDocs proof of concept was implemented after approval.
+
+### Created Files And Paths
+
+- `mkdocs.poc.yml`
+- `doc_site_poc/index.md`
+- `doc_site_poc/guide/project_usage_guide.md`
+- `doc_site_poc/reference/feedforward_network.md`
+- `doc_site_poc/reference/train_feedforward_network.md`
+- `doc_site_poc/reference/rich_training_api_demo.md`
+- `poc_sources/__init__.py`
+- `poc_sources/rich_training_api_demo.py`
+- `.tools/mkdocs_poc_env/`
+
+### Purpose Of The POC
+
+The proof of concept validates whether:
+
+- a guide page;
+- a generated Python API reference page;
+- and a simple portal navigation
+
+can coexist cleanly in a future documentation site built with:
+
+- `MkDocs`
+- `Material for MkDocs`
+- `mkdocstrings`
+
+### Current Scope
+
+The current POC covers:
+
+- a landing page;
+- a compact mirrored usage-guide page;
+- an API reference page for:
+  - `scripts.models.feedforward_network`
+- an additional API reference page for:
+  - `scripts.training.train_feedforward_network`
+- a standalone rich-docstring API reference page for:
+  - `poc_sources.rich_training_api_demo`
+
+### Rich API Direction
+
+The richer API proof of concept was added because the user wants documentation
+closer in spirit to the public `ur_rtde` API site:
+
+- site root:
+  - <https://sdurobotics.gitlab.io/ur_rtde/>
+- API reference:
+  - <https://sdurobotics.gitlab.io/ur_rtde/api/api.html>
+
+The isolated conclusion reached on this machine is:
+
+- no separate hosting platform is required;
+- `GitHub Pages` is sufficient for publishing a static documentation site;
+- the main quality gap is currently source-docstring depth, not hosting;
+- `MkDocs` can remain viable if the repository later adopts structured
+  `Google-style` docstrings for important modules.
+
+### Official Docstring Direction
+
+The current isolated recommendation is now explicit:
+
+- official repository docstring standard for generated API documentation:
+  - `Google-style`
+
+The intended scope is:
+
+- apply it first to public or workflow-critical modules that should appear in
+  the generated code-reference site;
+- keep the existing section comments inside function bodies, because docstrings
+  and implementation comments solve different readability problems.
+
+### Rich API Demo Implementation
+
+The isolated POC now also includes:
+
+- explicit `Google-style` docstring parsing in `mkdocs.poc.yml`;
+- a standalone package:
+  - `poc_sources/`
+- one demo module:
+  - `poc_sources/rich_training_api_demo.py`
+- a generated reference page:
+  - `doc_site_poc/reference/rich_training_api_demo.md`
+- mirrored repository modules with richer docstrings:
+  - `poc_sources/mirrored_repo/feedforward_network_documented.py`
+  - `poc_sources/mirrored_repo/train_feedforward_network_documented.py`
+- generated reference pages for those mirrored modules:
+  - `doc_site_poc/reference/feedforward_network_documented.md`
+  - `doc_site_poc/reference/train_feedforward_network_documented.md`
+
+The demo module was intentionally created outside the canonical source tree so
+the documentation experiment could proceed without rewriting shared repository
+modules during the active campaign on the other PC.
+
+### Local Build Result
+
+The proof of concept was built successfully with:
+
+```powershell
+.tools\mkdocs_poc_env\Scripts\python.exe -m mkdocs build -f mkdocs.poc.yml --strict
+```
+
+The generated site output path is:
+
+- `.temp/mkdocs_poc_site/`
+
+### Important Note About Build Warnings
+
+The build succeeded, but the current `Material for MkDocs` package prints a warning about the future `MkDocs 2.0` direction and plugin compatibility.
+
+This warning does not block the present POC build.
+
+However, the synchronized integration phase should re-check the ecosystem state before promoting the proof of concept into the canonical repository documentation platform.
+
+An additional non-blocking build note appeared after enabling richer API
+rendering:
+
+- `mkdocstrings` reports that signature formatting is improved when either
+  `Black` or `Ruff` is installed in the tool environment.
+
+This is an isolated tooling refinement and does not require any canonical
+repository file change.
+
+### Dual-Portal Comparison State
+
+An isolated `Sphinx + Read the Docs` proof of concept was also created so the
+project can compare platform fit against the `ur_rtde` reference style.
+
+Created files and paths:
+
+- `sphinx_poc/source/conf.py`
+- `sphinx_poc/source/index.rst`
+- `sphinx_poc/source/guide/index.rst`
+- `sphinx_poc/source/api/index.rst`
+- `sphinx_poc/source/api/feedforward_network_documented.rst`
+- `sphinx_poc/source/api/train_feedforward_network_documented.rst`
+- `.tools/sphinx_poc_env/`
+
+Local build command:
+
+```powershell
+.tools\sphinx_poc_env\Scripts\python.exe -m sphinx -W -b html sphinx_poc\source .temp\sphinx_poc_site
+```
+
+Generated output path:
+
+- `.temp/sphinx_poc_site/`
+
+Current isolated conclusion:
+
+- `MkDocs` remains the better overall fit for the repository if guides and code
+  reference must live together in one Markdown-first portal;
+- `Sphinx + RTD` is visually closer to the user's `ur_rtde` API reference and
+  may remain the stronger option if API-reference fidelity becomes more
+  important than broader documentation unification.
+
+### GitHub Pages Direction
+
+The user approved `GitHub Pages` as the future publication target.
+
+Current isolated conclusion:
+
+- no external hosting platform is required;
+- the eventual synchronized integration should publish the chosen static site on
+  `GitHub Pages`;
+- the canonical `README.md` should later receive an online documentation link
+  only during synchronized integration, not during isolated mode.
+
+### Sphinx Backlog Master Plan
+
+A full isolated backlog and execution plan was created for the now-selected
+`Sphinx + RTD` direction:
+
+- `doc/technical/2026-03-22/2026-03-22-12-40-00_sphinx_documentation_architecture_backlog_and_github_pages_plan.md`
+
+That document contains:
+
+- the target `Sphinx` architecture for the repository;
+- the proposed final section structure of the documentation site;
+- the complete inventory of current learning guides;
+- the complete inventory of current Python modules under `scripts/`;
+- a batch roadmap for staged API integration;
+- a batch roadmap for learning-guide and model-reference integration;
+- the `GitHub Pages` publication plan;
+- the future `README.md` online documentation link plan;
+- synchronized-integration checklists for the other Codex instance.
+
+### Archived External Visual Reference
+
+The external PDF print used as the main API-visual reference was moved out of
+the temporary workspace and archived in a stable repository path:
+
+- `reference/documentation_visual_references/ur_rtde_api_reference_example.pdf`
+
+This file should be treated as a visual benchmark for:
+
+- API page density;
+- parameter-section readability;
+- note-block clarity;
+- general `Sphinx + RTD` structural direction.
