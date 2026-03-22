@@ -20,6 +20,7 @@ This file is intentionally standalone and should be treated as the authoritative
 At the time this handoff was written, the intended local delta on this machine is:
 
 - `doc/technical/2026-03-20/2026-03-20-17-01-59_notebooklm_export_ingestion_and_archive.md`
+- `doc/technical/2026-03-22/2026-03-22-09-50-07_additional_notebooklm_guide_archives.md`
 - `readme.temp.md`
 
 No shared index file should remain modified here.
@@ -52,6 +53,12 @@ Three `NotebookLM` export bundles were found under `.temp/`:
 - `.temp/Neural Network Foundations/`
 - `.temp/TE Model Curriculum - From Baselines to Physics-Informed Neural Networks/`
 - `.temp/Multilayer Perceptrons - Foundations of Neural Network Architecture/`
+
+Three additional `NotebookLM` export bundles were later added under `.temp/`:
+
+- `.temp/FeedForward Network/`
+- `.temp/Harmonic Regression/`
+- `.temp/Training, Validation, and Testing Workflow for TE Models/`
 
 ### Bundle 1: Neural Network Foundations
 
@@ -409,6 +416,7 @@ Original -> Target
 The following technical document was created on this machine:
 
 - `doc/technical/2026-03-20/2026-03-20-17-01-59_notebooklm_export_ingestion_and_archive.md`
+- `doc/technical/2026-03-22/2026-03-22-09-50-07_additional_notebooklm_guide_archives.md`
 
 Its purpose is to preserve the reasoning behind:
 
@@ -751,6 +759,10 @@ What was actually done on this machine:
 - created one technical planning note with the full archive strategy;
 - created the standalone archive root `doc/imports/notebooklm_exports/`;
 - renamed and moved the `NotebookLM` exported files into the standalone archive structure;
+- extended the standalone archive with three additional guide bundles:
+  - `feedforward_network`
+  - `harmonic_regression`
+  - `training_validation_and_testing`
 - avoided permanent edits to shared README index files after conflict risk was recognized;
 - created this handoff file so the other Codex instance can complete the work later without losing context.
 
@@ -767,6 +779,9 @@ The imported files were moved into:
 - `doc/imports/notebooklm_exports/neural_network_foundations/`
 - `doc/imports/notebooklm_exports/te_model_curriculum/`
 - `doc/imports/notebooklm_exports/multilayer_perceptrons/`
+- `doc/imports/notebooklm_exports/feedforward_network/`
+- `doc/imports/notebooklm_exports/harmonic_regression/`
+- `doc/imports/notebooklm_exports/training_validation_and_testing/`
 
 Each bundle now uses the subfolders:
 
@@ -821,6 +836,51 @@ Each bundle now uses the subfolders:
   -> `doc/imports/notebooklm_exports/multilayer_perceptrons/images/multilayer_perceptrons_notebooklm_supporting_figure.png`
 - `.temp/Multilayer Perceptrons - Foundations of Neural Network Architecture/Oltre la Linea_ Come le Reti Neurali Risolvono l'Enigma dello XOR.pdf`
   -> `doc/imports/notebooklm_exports/multilayer_perceptrons/pdf/multilayer_perceptrons_notebooklm_supporting_brief.pdf`
+
+#### FeedForward Network
+
+- `.temp/FeedForward Network/FeedForward_Network_Baseline.pdf`
+  -> `doc/imports/notebooklm_exports/feedforward_network/pdf/feedforward_network_notebooklm_slides.pdf`
+- `.temp/FeedForward Network/FeedForward_Network_Baseline.pptx`
+  -> `doc/imports/notebooklm_exports/feedforward_network/slides/feedforward_network_notebooklm_slides.pptx`
+- `.temp/FeedForward Network/Guida ai Concetti Fondamentali_ Il Neurone Artificiale nella Meccanica Industriale.pdf`
+  -> `doc/imports/notebooklm_exports/feedforward_network/pdf/feedforward_network_notebooklm_supporting_brief.pdf`
+- `.temp/FeedForward Network/La_Rete_FeedForward.mp4`
+  -> `doc/imports/notebooklm_exports/feedforward_network/video/feedforward_network_notebooklm_video_overview.mp4`
+- `.temp/FeedForward Network/NotebookLM Mind Map.png`
+  -> `doc/imports/notebooklm_exports/feedforward_network/images/feedforward_network_notebooklm_mind_map.png`
+- `.temp/FeedForward Network/unnamed.png`
+  -> `doc/imports/notebooklm_exports/feedforward_network/images/feedforward_network_notebooklm_supporting_figure.png`
+
+#### Harmonic Regression
+
+- `.temp/Harmonic Regression/Dall'Ingranaggio alla Funzione_ Guida alla Regressione Armonica per l'Errore di Trasmissione.pdf`
+  -> `doc/imports/notebooklm_exports/harmonic_regression/pdf/harmonic_regression_notebooklm_supporting_brief.pdf`
+- `.temp/Harmonic Regression/Harmonic_Regression_Blueprint.pdf`
+  -> `doc/imports/notebooklm_exports/harmonic_regression/pdf/harmonic_regression_notebooklm_slides.pdf`
+- `.temp/Harmonic Regression/Harmonic_Regression_Blueprint.pptx`
+  -> `doc/imports/notebooklm_exports/harmonic_regression/slides/harmonic_regression_notebooklm_slides.pptx`
+- `.temp/Harmonic Regression/NotebookLM Mind Map.png`
+  -> `doc/imports/notebooklm_exports/harmonic_regression/images/harmonic_regression_notebooklm_mind_map.png`
+- `.temp/Harmonic Regression/Regressione_Armonica.mp4`
+  -> `doc/imports/notebooklm_exports/harmonic_regression/video/harmonic_regression_notebooklm_video_overview.mp4`
+- `.temp/Harmonic Regression/unnamed.png`
+  -> `doc/imports/notebooklm_exports/harmonic_regression/images/harmonic_regression_notebooklm_supporting_figure.png`
+
+#### Training, Validation, And Testing
+
+- `.temp/Training, Validation, and Testing Workflow for TE Models/Addestramento,_Validazione,_Test.mp4`
+  -> `doc/imports/notebooklm_exports/training_validation_and_testing/video/training_validation_and_testing_notebooklm_video_overview.mp4`
+- `.temp/Training, Validation, and Testing Workflow for TE Models/Manuale dei Fondamenti Dati_ L'Arte della Suddivisione dei Dataset.pdf`
+  -> `doc/imports/notebooklm_exports/training_validation_and_testing/pdf/training_validation_and_testing_notebooklm_supporting_brief.pdf`
+- `.temp/Training, Validation, and Testing Workflow for TE Models/NotebookLM Mind Map.png`
+  -> `doc/imports/notebooklm_exports/training_validation_and_testing/images/training_validation_and_testing_notebooklm_mind_map.png`
+- `.temp/Training, Validation, and Testing Workflow for TE Models/TE_Dataset_Discipline.pdf`
+  -> `doc/imports/notebooklm_exports/training_validation_and_testing/pdf/training_validation_and_testing_notebooklm_slides.pdf`
+- `.temp/Training, Validation, and Testing Workflow for TE Models/TE_Dataset_Discipline.pptx`
+  -> `doc/imports/notebooklm_exports/training_validation_and_testing/slides/training_validation_and_testing_notebooklm_slides.pptx`
+- `.temp/Training, Validation, and Testing Workflow for TE Models/unnamed.png`
+  -> `doc/imports/notebooklm_exports/training_validation_and_testing/images/training_validation_and_testing_notebooklm_supporting_figure.png`
 
 ## Remaining Temporary State
 
