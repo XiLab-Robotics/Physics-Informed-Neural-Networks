@@ -39,6 +39,8 @@ GENERIC_TABLE_CLASS_NAME = "report-table report-table-generic"
 HISTORICAL_REFERENCE_TABLE_CLASS_NAME = "report-table report-table-historical-results"
 PHASE_RESULTS_TABLE_CLASS_NAME = "report-table report-table-phase-results"
 RANKING_RESULTS_TABLE_CLASS_NAME = "report-table report-table-ranking-results"
+DECISION_MATRIX_TABLE_CLASS_NAME = "report-table report-table-decision-matrix"
+COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME = "report-table report-table-comparative-example"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -89,6 +91,23 @@ RANKING_TABLE_HEADER_CELL_GROUPS = (
     ("Config", "Test RMSE [deg]", "Test MAE [deg]", "Runtime"),
 )
 
+DECISION_MATRIX_TABLE_HEADER_CELLS = (
+    "Platform",
+    "Python API Docs",
+    "Markdown Integration",
+    "Automation",
+    "Visual Quality",
+    "Import Risk",
+    "Repository Fit",
+)
+
+COMPARATIVE_EXAMPLE_TABLE_HEADER_CELLS = (
+    "Platform",
+    "Example Module Result",
+    "Example Guide Result",
+    "Integration Quality For This Repo",
+)
+
 # Report Section Identifiers
 SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
     ("large", "batch"),
@@ -98,6 +117,7 @@ SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
 # Report Page Breaks
 FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "phase-2-results",
+    "comparative-example-summary",
     "cross-campaign-ranking",
 }
 
@@ -435,6 +455,57 @@ REPORT_STYLESHEET = """
     .report-table-ranking-results th:nth-child(2), .report-table-ranking-results td:nth-child(2) { width: 20%; }
     .report-table-ranking-results th:nth-child(3), .report-table-ranking-results td:nth-child(3) { width: 20%; }
     .report-table-ranking-results th:nth-child(4), .report-table-ranking-results td:nth-child(4) { width: 18%; }
+
+    .report-table-decision-matrix {
+      font-size: 6.9pt;
+      line-height: 1.18;
+    }
+
+    .report-table-decision-matrix th,
+    .report-table-decision-matrix td {
+      padding: 4px 4px;
+      text-align: center;
+    }
+
+    .report-table-decision-matrix th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-decision-matrix th:nth-child(1), .report-table-decision-matrix td:nth-child(1) { width: 18%; }
+    .report-table-decision-matrix th:nth-child(2), .report-table-decision-matrix td:nth-child(2) { width: 13%; }
+    .report-table-decision-matrix th:nth-child(3), .report-table-decision-matrix td:nth-child(3) { width: 14%; }
+    .report-table-decision-matrix th:nth-child(4), .report-table-decision-matrix td:nth-child(4) { width: 11%; }
+    .report-table-decision-matrix th:nth-child(5), .report-table-decision-matrix td:nth-child(5) { width: 14%; }
+    .report-table-decision-matrix th:nth-child(6), .report-table-decision-matrix td:nth-child(6) { width: 12%; }
+    .report-table-decision-matrix th:nth-child(7), .report-table-decision-matrix td:nth-child(7) { width: 18%; }
+
+    .report-table-comparative-example {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-comparative-example th,
+    .report-table-comparative-example td {
+      padding: 4px 4px;
+      text-align: center;
+    }
+
+    .report-table-comparative-example th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-comparative-example th:nth-child(1), .report-table-comparative-example td:nth-child(1) { width: 17%; }
+    .report-table-comparative-example th:nth-child(2), .report-table-comparative-example td:nth-child(2) { width: 25%; }
+    .report-table-comparative-example th:nth-child(3), .report-table-comparative-example td:nth-child(3) { width: 19%; }
+    .report-table-comparative-example th:nth-child(4), .report-table-comparative-example td:nth-child(4) { width: 39%; }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
@@ -1047,6 +1118,14 @@ def resolve_standard_table_class_name(header_cells: Sequence[str]) -> str:
     # Resolve Ranking Table
     if normalized_header_cells in RANKING_TABLE_HEADER_CELL_GROUPS:
         return RANKING_RESULTS_TABLE_CLASS_NAME
+
+    # Resolve Decision Matrix Table
+    if normalized_header_cells == DECISION_MATRIX_TABLE_HEADER_CELLS:
+        return DECISION_MATRIX_TABLE_CLASS_NAME
+
+    # Resolve Comparative Example Table
+    if normalized_header_cells == COMPARATIVE_EXAMPLE_TABLE_HEADER_CELLS:
+        return COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

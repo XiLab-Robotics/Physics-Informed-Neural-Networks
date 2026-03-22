@@ -21,6 +21,12 @@ At the time this handoff was written, the intended local delta on this machine i
 
 - `doc/technical/2026-03-20/2026-03-20-17-01-59_notebooklm_export_ingestion_and_archive.md`
 - `doc/technical/2026-03-22/2026-03-22-09-50-07_additional_notebooklm_guide_archives.md`
+- `doc/technical/2026-03-22/2026-03-22-10-05-00_code_documentation_platform_evaluation.md`
+- `doc/technical/2026-03-22/2026-03-22-10-20-00_code_documentation_comparison_report_and_pdf.md`
+- `doc/technical/2026-03-22/2026-03-22-10-50-00_code_documentation_report_table_header_fix.md`
+- `scripts/reports/generate_styled_report_pdf.py`
+- `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
+- `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.pdf`
 - `readme.temp.md`
 
 No shared index file should remain modified here.
@@ -417,6 +423,12 @@ The following technical document was created on this machine:
 
 - `doc/technical/2026-03-20/2026-03-20-17-01-59_notebooklm_export_ingestion_and_archive.md`
 - `doc/technical/2026-03-22/2026-03-22-09-50-07_additional_notebooklm_guide_archives.md`
+- `doc/technical/2026-03-22/2026-03-22-10-05-00_code_documentation_platform_evaluation.md`
+- `doc/technical/2026-03-22/2026-03-22-10-20-00_code_documentation_comparison_report_and_pdf.md`
+- `doc/technical/2026-03-22/2026-03-22-10-50-00_code_documentation_report_table_header_fix.md`
+- `scripts/reports/generate_styled_report_pdf.py`
+- `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
+- `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.pdf`
 
 Its purpose is to preserve the reasoning behind:
 
