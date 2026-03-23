@@ -78,6 +78,11 @@ Three additional `NotebookLM` export bundles were later added under `.temp/`:
 - `.temp/Harmonic Regression/`
 - `.temp/Training, Validation, and Testing Workflow for TE Models/`
 
+Two further `NotebookLM` export bundles were later added under `.temp/`:
+
+- `.temp/Periodic Feature Network/`
+- `.temp/Residual Harmonic Network/`
+
 ### Bundle 1: Neural Network Foundations
 
 Observed files:
@@ -111,6 +116,28 @@ Observed files:
 - `Modellare_Pattern_Periodici.mp4`
 - `Oltre la Linea_ Come le Reti Neurali Risolvono l'Enigma dello XOR.pdf`
 
+### Bundle 7: Periodic Feature Network
+
+Observed files:
+
+- `La Magia della Periodicità_ Guida alla Periodic Feature Network.pdf`
+- `La_Rete_a_Caratteristiche_Periodiche.mp4`
+- `NotebookLM Mind Map.png`
+- `Periodic_Feature_Network.pdf`
+- `Periodic_Feature_Network.pptx`
+- `unnamed.png`
+
+### Bundle 8: Residual Harmonic Network
+
+Observed files:
+
+- `La Residual Harmonic Network_ Un Ponte tra Fisica e Deep Learning attraverso la Decomposizione Additiva.pdf`
+- `NotebookLM Mind Map.png`
+- `Residual_Harmonic_Network.pdf`
+- `Residual_Harmonic_Network.pptx`
+- `Rete_Armonica_Residua.mp4`
+- `unnamed.png`
+
 ## Existing Canonical Repository Context
 
 Two of the imported bundles correspond to existing canonical repository-authored learning guides:
@@ -122,6 +149,12 @@ The `Multilayer Perceptrons` bundle does not yet have an exact canonical peer fo
 
 - `doc/reports/analysis/learning_guides/FeedForward Network/`
 - `doc/reports/analysis/learning_guides/Harmonic Regression/`
+- `doc/reports/analysis/learning_guides/Periodic Feature Network/`
+- `doc/reports/analysis/learning_guides/Residual Harmonic Network/`
+
+The two new imported bundles correspond directly to existing canonical
+repository-authored guides:
+
 - `doc/reports/analysis/learning_guides/Periodic Feature Network/`
 - `doc/reports/analysis/learning_guides/Residual Harmonic Network/`
 
@@ -1124,3 +1157,64 @@ This file should be treated as a visual benchmark for:
 - parameter-section readability;
 - note-block clarity;
 - general `Sphinx + RTD` structural direction.
+
+## 2026-03-23 - Isolated Mode Reopened
+
+Timestamp:
+
+- `2026-03-23 10:59:43` (`Europe/Rome`)
+
+User instruction:
+
+- `riapri la modalità isolata`
+
+Operational status:
+
+- isolated mode is active again;
+- canonical shared repository files must remain untouched unless the user later
+  explicitly requests synchronized integration or explicitly overrides the
+  isolation rule for a specific file;
+- future work should prefer new standalone artifacts in isolated or temporary
+  paths and must keep this handoff file updated.
+
+Current conflict-avoidance baseline:
+
+- continue avoiding direct edits to likely shared files such as `README.md`,
+  `doc/README.md`, campaign-tracked files, and current canonical guide indexes;
+- treat previously prepared isolated artifacts as provisional until a later
+  repository-aware integration phase is explicitly requested.
+
+### 2026-03-23 - Periodic And Residual NotebookLM Archive Applied
+
+After the user explicitly approved the technical note
+`doc/technical/2026-03-23/2026-03-23-11-02-32_periodic_and_residual_notebooklm_guide_archives.md`,
+the isolated archive step was executed.
+
+The following standalone archive trees were created and populated:
+
+- `doc/imports/notebooklm_exports/periodic_feature_network/`
+- `doc/imports/notebooklm_exports/residual_harmonic_network/`
+
+Archived file set for `periodic_feature_network`:
+
+- `images/periodic_feature_network_notebooklm_mind_map.png`
+- `images/periodic_feature_network_notebooklm_supporting_figure.png`
+- `pdf/periodic_feature_network_notebooklm_slides.pdf`
+- `pdf/periodic_feature_network_notebooklm_supporting_brief.pdf`
+- `slides/periodic_feature_network_notebooklm_slides.pptx`
+- `video/periodic_feature_network_notebooklm_video_overview.mp4`
+
+Archived file set for `residual_harmonic_network`:
+
+- `images/residual_harmonic_network_notebooklm_mind_map.png`
+- `images/residual_harmonic_network_notebooklm_supporting_figure.png`
+- `pdf/residual_harmonic_network_notebooklm_slides.pdf`
+- `pdf/residual_harmonic_network_notebooklm_supporting_brief.pdf`
+- `slides/residual_harmonic_network_notebooklm_slides.pptx`
+- `video/residual_harmonic_network_notebooklm_video_overview.mp4`
+
+Verification outcome:
+
+- both `.temp/Periodic Feature Network/` and
+  `.temp/Residual Harmonic Network/` are now empty;
+- no shared index file was modified during this isolated archive step.
