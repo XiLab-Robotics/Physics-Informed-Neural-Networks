@@ -1,3 +1,5 @@
+"""Feedforward network components for TE regression baselines."""
+
 from __future__ import annotations
 
 # Import PyTorch Utilities
@@ -5,7 +7,19 @@ import torch.nn as nn
 
 def get_activation_module(activation_name: str) -> nn.Module:
 
-    """ Get Activation Module """
+    """Return the activation layer instance for one configured activation name.
+
+    Args:
+        activation_name: Case-insensitive activation identifier supported by the
+            repository feedforward baselines.
+
+    Returns:
+        A newly instantiated PyTorch activation module.
+
+    Raises:
+        AssertionError: If the requested activation name is not supported by
+            the repository activation map.
+    """
 
     # Supported Activations
     activation_module_map = {
@@ -24,7 +38,13 @@ def get_activation_module(activation_name: str) -> nn.Module:
 
 class FeedForwardNetwork(nn.Module):
 
-    """ Feedforward Network """
+    """Dense multilayer perceptron used by the static TE regression baselines.
+
+    The network builds a stack of linear layers followed by optional layer
+    normalization, one activation per hidden layer, and optional dropout.
+    The final layer maps the last hidden representation to the scalar or vector
+    regression output configured by ``output_size``.
+    """
 
     def __init__(
         self,
@@ -35,6 +55,23 @@ class FeedForwardNetwork(nn.Module):
         dropout_probability: float = 0.10,
         use_layer_norm: bool = True,
     ) -> None:
+        """Initialize the feedforward regression backbone.
+
+        Args:
+            input_size: Number of scalar input features provided to the model.
+            hidden_size: Hidden-layer widths in execution order.
+            output_size: Number of regression outputs produced by the final
+                linear layer.
+            activation_name: Activation identifier resolved through
+                :func:`get_activation_module`.
+            dropout_probability: Dropout probability applied after each hidden
+                activation when greater than zero.
+            use_layer_norm: Whether to insert ``LayerNorm`` after each hidden
+                linear layer.
+
+        Raises:
+            AssertionError: If an invalid architecture value is provided.
+        """
 
         super().__init__()
 
@@ -84,7 +121,15 @@ class FeedForwardNetwork(nn.Module):
 
     def forward(self, input_tensor):
 
-        """ Forward Pass """
+        """Run the dense regression backbone on one input tensor.
+
+        Args:
+            input_tensor: Batched input tensor whose last dimension matches
+                ``input_size``.
+
+        Returns:
+            Output tensor produced by the sequential dense network.
+        """
 
         # Run Dense Network
         return self.network(input_tensor)

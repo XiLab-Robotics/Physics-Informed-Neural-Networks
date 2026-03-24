@@ -1,11 +1,10 @@
 API Reference
 =============
 
-This section is the canonical entry shell for generated API documentation.
+This section contains the first canonical API slice integrated into the Sphinx portal.
 
-Batch 0 does not yet expose real module pages.
+.. toctree::
+   :maxdepth: 2
 
-The first planned canonical API slice will start from:
-
-- ``scripts/models/feedforward_network.py``
-- ``scripts/training/train_feedforward_network.py``
+   models/index
+   training/index

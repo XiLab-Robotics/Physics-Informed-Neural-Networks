@@ -22,4 +22,7 @@ The following work is intentionally deferred:
 
    getting_started/index
    guide/index
+   learning_guides/index
    api/index
+   technical/index
+   reports/index

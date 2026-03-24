@@ -341,6 +341,8 @@ This folder contains the internal project documents derived from the reference P
   Explicit checklist for the isolated-work recovery and the first canonical Sphinx integration steps.
 - [technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md](./technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md)
   Technical implementation note for the canonical Batch 0 Sphinx foundation.
+- [technical/2026-03-24/2026-03-24-19-59-54_sphinx_canonical_integration_phase1.md](./technical/2026-03-24/2026-03-24-19-59-54_sphinx_canonical_integration_phase1.md)
+  Technical implementation note for the first canonical integration phase after the Sphinx foundation batch.
 
 #### Campaign Results
 

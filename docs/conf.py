@@ -12,6 +12,7 @@ author = "XiLab Robotics"
 release = "Batch 0"
 
 extensions = [
+    "myst_parser",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
@@ -24,6 +25,11 @@ html_theme = "sphinx_rtd_theme"
 html_title = "Physics-Informed Neural Networks Docs"
 html_static_path = ["_static"]
 
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",
+}
+
 autodoc_member_order = "bysource"
 autodoc_typehints = "description"
 autodoc_class_signature = "mixed"
@@ -35,3 +41,5 @@ napoleon_include_init_with_doc = True
 napoleon_include_private_with_doc = False
 napoleon_use_admonition_for_notes = True
 napoleon_use_admonition_for_examples = False
+
+myst_heading_anchors = 3
