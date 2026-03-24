@@ -303,6 +303,7 @@ Technical documents:
   * `doc/technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_checklist.md`
   * `doc/technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md`
   * `doc/technical/2026-03-24/2026-03-24-19-59-54_sphinx_canonical_integration_phase1.md`
+  * `doc/technical/2026-03-24/2026-03-24-20-05-31_sphinx_canonical_integration_phase2.md`
 
 Script documentation:
 

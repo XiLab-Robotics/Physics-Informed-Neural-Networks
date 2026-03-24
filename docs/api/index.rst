@@ -8,3 +8,4 @@ This section contains the first canonical API slice integrated into the Sphinx p
 
    models/index
    training/index
+   reports/index

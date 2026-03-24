@@ -14,7 +14,8 @@ The following work is intentionally deferred:
 - learning-guide migration;
 - NotebookLM media migration;
 - GitHub Pages publication;
-- large-scale canonical docstring rewrites.
+- large-scale canonical docstring rewrites;
+- promotion of historical proof-of-concept trees as canonical roots.
 
 .. toctree::
    :maxdepth: 2
@@ -26,3 +27,4 @@ The following work is intentionally deferred:
    api/index
    technical/index
    reports/index
+   archives/index
