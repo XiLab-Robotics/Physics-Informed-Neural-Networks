@@ -1,3 +1,5 @@
+"""Lightning regression module for normalized TE prediction workflows."""
+
 from __future__ import annotations
 
 # Import PyTorch Lightning Utilities
@@ -12,7 +14,7 @@ from scripts.training.transmission_error_datamodule import NormalizationStatisti
 
 class TransmissionErrorRegressionModule(LightningModule):
 
-    """ Transmission Error Regression Module """
+    """LightningModule that wraps TE backbones, normalization, and metrics."""
 
     def __init__(
         self,
@@ -23,6 +25,17 @@ class TransmissionErrorRegressionModule(LightningModule):
         weight_decay: float = 1.0e-4,
         normalization_statistics: NormalizationStatistics | None = None,
     ) -> None:
+        """Initialize the TE regression LightningModule.
+
+        Args:
+            regression_model: Backbone model operating on normalized inputs.
+            input_feature_dim: Number of model input features.
+            target_feature_dim: Number of regression targets.
+            learning_rate: AdamW learning rate.
+            weight_decay: AdamW weight decay.
+            normalization_statistics: Optional normalization tensors loaded at
+                construction time.
+        """
 
         super().__init__()
 
@@ -53,7 +66,12 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def set_normalization_statistics(self, normalization_statistics: NormalizationStatistics) -> None:
 
-        """ Set Normalization Statistics """
+        """Load normalization tensors into the module buffers.
+
+        Args:
+            normalization_statistics: Input and target statistics computed from
+                the training split.
+        """
 
         # Validate Statistics Shapes
         assert normalization_statistics.input_feature_mean.shape == self.input_feature_mean.shape, (
@@ -84,7 +102,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def normalize_input_tensor(self, input_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Normalize Input Tensor """
+        """Normalize model inputs with the registered training statistics."""
 
         # Ensure Normalization Statistics Are Initialized Before Normalizing
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
@@ -92,7 +110,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def normalize_target_tensor(self, target_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Normalize Target Tensor """
+        """Normalize regression targets with the registered statistics."""
 
         # Ensure Normalization Statistics Are Initialized Before Normalizing
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
@@ -100,7 +118,7 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def denormalize_target_tensor(self, normalized_target_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Denormalize Target Tensor """
+        """Map normalized target predictions back to physical TE units."""
 
         # Ensure Normalization Statistics Are Initialized Before Denormalizing
         assert self.normalization_statistics_initialized, "Normalization Statistics must be initialized before training"
@@ -108,14 +126,24 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def forward(self, normalized_input_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Forward Pass """
+        """Run the backbone on normalized inputs only."""
 
         # Forward Pass Through Regression Model In Normalized Space
         return self.regression_model(normalized_input_tensor)
 
     def forward_regression_model(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
 
-        """ Forward Regression Model """
+        """Run the backbone while supporting structured auxiliary outputs.
+
+        Args:
+            input_tensor: Raw input tensor before normalization-aware routing.
+            normalized_input_tensor: Normalized model input tensor.
+
+        Returns:
+            tuple[torch.Tensor, dict[str, torch.Tensor]]: Prediction tensor in
+            normalized space plus any auxiliary structured outputs emitted by
+            the backbone.
+        """
 
         auxiliary_output_dictionary: dict[str, torch.Tensor] = {}
 
@@ -144,7 +172,15 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def compute_batch_outputs(self, batch_dictionary: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
 
-        """ Compute Batch Outputs """
+        """Compute normalized loss terms and denormalized TE metrics.
+
+        Args:
+            batch_dictionary: Point-level batch emitted by the datamodule.
+
+        Returns:
+            dict[str, torch.Tensor]: Batch outputs including normalized
+            predictions, denormalized predictions, and metric tensors.
+        """
 
         # Extract Batch Tensors
         input_tensor = batch_dictionary["input_tensor"].float()
@@ -184,7 +220,16 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
 
-        """ Compute Loss """
+        """Compute and log one split-specific loss bundle.
+
+        Args:
+            batch_dictionary: Point-level batch emitted by the datamodule.
+            log_prefix: Prefix used for Lightning metric names such as
+                `train`, `val`, or `test`.
+
+        Returns:
+            torch.Tensor: Scalar normalized-space MSE loss.
+        """
 
         # Compute Batch Outputs And Metrics
         batch_output_dictionary = self.compute_batch_outputs(batch_dictionary)
@@ -212,28 +257,28 @@ class TransmissionErrorRegressionModule(LightningModule):
 
     def training_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
-        """ Training Step """
+        """Run one Lightning training step and return the loss tensor."""
 
         # Compute Loss And Metrics For Training Step
         return self.compute_loss(batch_dictionary, "train")
 
     def validation_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
-        """ Validation Step """
+        """Run one Lightning validation step and return the loss tensor."""
 
         # Compute Loss And Metrics For Validation Step
         return self.compute_loss(batch_dictionary, "val")
 
     def test_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:
 
-        """ Test Step """
+        """Run one Lightning test step and return the loss tensor."""
 
         # Compute Loss And Metrics For Test Step
         return self.compute_loss(batch_dictionary, "test")
 
     def configure_optimizers(self):
 
-        """ Configure Optimizers """
+        """Configure the AdamW optimizer for TE regression training."""
 
         # Configure AdamW Optimizer
         return torch.optim.AdamW(self.parameters(), lr=float(self.hparams.learning_rate), weight_decay=float(self.hparams.weight_decay))

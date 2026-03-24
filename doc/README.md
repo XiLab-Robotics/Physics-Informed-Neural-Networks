@@ -345,6 +345,8 @@ This folder contains the internal project documents derived from the reference P
   Technical implementation note for the first canonical integration phase after the Sphinx foundation batch.
 - [technical/2026-03-24/2026-03-24-20-05-31_sphinx_canonical_integration_phase2.md](./technical/2026-03-24/2026-03-24-20-05-31_sphinx_canonical_integration_phase2.md)
   Technical implementation note for the second canonical integration phase that exposes recovered isolated documentation assets and the styled PDF exporter inside the Sphinx portal.
+- [technical/2026-03-24/2026-03-24-20-13-56_sphinx_canonical_integration_phase3_core_training_infrastructure.md](./technical/2026-03-24/2026-03-24-20-13-56_sphinx_canonical_integration_phase3_core_training_infrastructure.md)
+  Technical implementation note for the next canonical Sphinx integration batch focused on the shared training infrastructure API surface.
 
 #### Campaign Results
 
