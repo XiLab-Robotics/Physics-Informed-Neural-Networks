@@ -351,6 +351,8 @@ This folder contains the internal project documents derived from the reference P
   Technical implementation note for the next canonical Sphinx integration batch focused on model-family API coverage and model-factory routing.
 - [technical/2026-03-24/2026-03-24-20-58-19_isolated_integration_reconciliation_and_learning_guide_migration.md](./technical/2026-03-24/2026-03-24-20-58-19_isolated_integration_reconciliation_and_learning_guide_migration.md)
   Technical reconciliation note for completing the still-open isolated-branch integration work around learning-guide migration and NotebookLM media relocation.
+- [technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md](./technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md)
+  Technical verification note for checking whether any isolated-branch work still remains outside the canonical repository state after reconciliation.
 
 #### Campaign Results
 
