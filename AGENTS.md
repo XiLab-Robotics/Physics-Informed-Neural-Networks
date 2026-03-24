@@ -8,6 +8,7 @@
 - If Context7 is unavailable, state that explicitly and fall back to local code inspection plus primary official documentation.
 - Always keep the documents in `reference/` or their summaries in `doc/` in scope before making design or implementation choices.
 - Before implementing any feature, create a technical project document inside the day-based folder `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+- Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
 - Whenever a new model family, model variant, or materially new model-specific training workflow is introduced, create a dedicated explanatory report that helps the reader understand the model before reading the code.

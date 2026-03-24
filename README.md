@@ -298,6 +298,7 @@ Technical documents:
 * `2026-03-24`
   * `doc/technical/2026-03-24/2026-03-24-10-00-00_campaign_launcher_location_reorganization.md`
   * `doc/technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
+  * `doc/technical/2026-03-24/2026-03-24-16-00-12_local_machine_timestamp_rule_for_technical_docs.md`
 
 Script documentation:
 
@@ -388,6 +389,7 @@ The following rules are mandatory for all future project work:
 * Keep section comments short and operational. Prefer compact labels over sentence-length explanations when the code is already explicit.
 * Always take into account the documents in `reference/` or their summaries in `doc/` before making design or implementation decisions.
 * Before implementing any feature, create a technical project document in `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+* Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 * Each technical project document must contain the sections:
   * `Overview`
   * `Technical Approach`
