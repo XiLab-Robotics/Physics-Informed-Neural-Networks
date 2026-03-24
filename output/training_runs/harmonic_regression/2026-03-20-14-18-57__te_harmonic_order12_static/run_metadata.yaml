@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: harmonic_regression
+run_name: te_harmonic_order12_static
+run_instance_id: 2026-03-20-14-18-57__te_harmonic_order12_static
+output_directory: output/training_runs/harmonic_regression/2026-03-20-14-18-57__te_harmonic_order12_static

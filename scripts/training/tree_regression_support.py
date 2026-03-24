@@ -114,11 +114,14 @@ def build_tree_estimator(training_config: dict[str, Any]):
 
     # Build Random Forest Regressor
     if model_type == "random_forest":
+        configured_n_jobs = int(model_configuration.get("n_jobs", 1))
+        resolved_n_jobs = configured_n_jobs if configured_n_jobs > 0 else 1
+
         return RandomForestRegressor(
             n_estimators=int(model_configuration["n_estimators"]),
             max_depth=model_configuration.get("max_depth"),
             min_samples_leaf=int(model_configuration.get("min_samples_leaf", 1)),
-            n_jobs=int(model_configuration.get("n_jobs", -1)),
+            n_jobs=resolved_n_jobs,
             random_state=random_seed,
         )
 

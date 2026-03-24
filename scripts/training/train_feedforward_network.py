@@ -1,3 +1,5 @@
+"""Feedforward TE training entry point and terminal-reporting helpers."""
+
 from __future__ import annotations
 
 # Import Python Utilities
@@ -79,7 +81,14 @@ warnings.filterwarnings("ignore", message=r"`isinstance\(treespec, LeafSpec\)` i
 
 def format_terminal_value(value: object) -> str:
 
-    """ Format Terminal Value """
+    """Format one value for compact terminal rendering.
+
+    Args:
+        value: Arbitrary runtime value to render for the terminal summary.
+
+    Returns:
+        String representation aligned with the training terminal style.
+    """
 
     if isinstance(value, float):
 
@@ -179,7 +188,12 @@ def print_feature_statistics(feature_name_list: list[str], mean_value_list: list
 
 def print_training_configuration_summary(training_config: dict) -> None:
 
-    """ Print Training Configuration Summary """
+    """Print the resolved training configuration in the repository terminal style.
+
+    Args:
+        training_config: Fully resolved training configuration dictionary for
+            the current run.
+    """
 
     # Read Config Sections
     path_config         = training_config["paths"]
@@ -216,11 +230,40 @@ def print_training_configuration_summary(training_config: dict) -> None:
     # Print Model Configuration
     print_subsection_header("Model")
     print_key_value("Input Size", model_config["input_size"], value_color=Fore.YELLOW)
-    print_key_value("Hidden Layers", model_config["hidden_size"], value_color=Fore.YELLOW)
-    print_key_value("Output Size", model_config["output_size"], value_color=Fore.YELLOW)
-    print_key_value("Activation", model_config["activation_name"], value_color=Fore.YELLOW)
-    print_key_value("Dropout Probability", model_config["dropout_probability"], value_color=Fore.YELLOW)
-    print_key_value("Use Layer Norm", model_config["use_layer_norm"], value_color=Fore.YELLOW)
+    print_key_value("Output Size", model_config.get("output_size", 1), value_color=Fore.YELLOW)
+
+    # Resolve Model-Specific Configuration Fields
+    normalized_model_type = str(experiment_config["model_type"]).strip().lower()
+
+    # Print Feedforward Network Configuration
+    if normalized_model_type in ["feedforward", "periodic_mlp"]:
+        print_key_value("Hidden Layers", model_config["hidden_size"], value_color=Fore.YELLOW)
+        print_key_value("Activation", model_config["activation_name"], value_color=Fore.YELLOW)
+        print_key_value("Dropout Probability", model_config["dropout_probability"], value_color=Fore.YELLOW)
+        print_key_value("Use Layer Norm", model_config["use_layer_norm"], value_color=Fore.YELLOW)
+
+        # Print Periodic MLP Configuration
+        if normalized_model_type == "periodic_mlp":
+            print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+            print_key_value("Include Raw Angle Feature", model_config.get("include_raw_angle_feature", True), value_color=Fore.YELLOW)
+
+    # Print Harmonic Regression Configuration
+    elif normalized_model_type == "harmonic_regression":
+        print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+        print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
+
+    # Print Residual Harmonic Regression Configuration
+    elif normalized_model_type == "residual_harmonic_mlp":
+        print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+        print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
+        print_key_value("Residual Hidden Layers", model_config["residual_hidden_size"], value_color=Fore.YELLOW)
+        print_key_value("Residual Activation", model_config.get("residual_activation_name", "GELU"), value_color=Fore.YELLOW)
+        print_key_value("Residual Dropout Probability", model_config.get("residual_dropout_probability", 0.10), value_color=Fore.YELLOW)
+        print_key_value("Residual Use Layer Norm", model_config.get("residual_use_layer_norm", True), value_color=Fore.YELLOW)
+        print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
+
+    # Print Model Config Keys
+    else: print_key_value("Model Config Keys", sorted(model_config.keys()), value_color=Fore.YELLOW)
 
     # Print Optimization Configuration
     print_subsection_header("Optimization")
@@ -362,7 +405,14 @@ def build_metric_interpretation(metric_dictionary: dict[str, object], metric_pre
 
 def save_training_test_report(output_directory: Path, training_config: dict, metrics_snapshot_dictionary: dict[str, object]) -> None:
 
-    """ Save Training Test Report """
+    """Write the Markdown training and test summary for one completed run.
+
+    Args:
+        output_directory: Run artifact directory where the report will be saved.
+        training_config: Resolved training configuration used for the run.
+        metrics_snapshot_dictionary: Serialized metrics payload returned by the
+            shared training infrastructure.
+    """
 
     # Extract Relevant Information From The Metrics Snapshot Dictionary To Build The Report
     experiment_dictionary = metrics_snapshot_dictionary["experiment"]
@@ -422,14 +472,29 @@ def save_training_test_report(output_directory: Path, training_config: dict, met
 
 def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict:
 
-    """ Load Training Config """
+    """Load one training configuration file through the shared infrastructure.
+
+    Args:
+        config_path: Training YAML path to load.
+
+    Returns:
+        Parsed training configuration dictionary.
+    """
 
     # Resolve Config Path
     return shared_training_infrastructure.load_training_config(config_path)
 
 def resolve_runtime_config(training_config: dict) -> dict[str, object]:
 
-    """ Resolve Runtime Config """
+    """Resolve runtime execution options for the current training configuration.
+
+    Args:
+        training_config: Parsed training configuration dictionary.
+
+    Returns:
+        Runtime configuration dictionary after repository-specific checks and
+        warning-driven adjustments.
+    """
 
     # Initialize Default Runtime Configuration
     runtime_config = shared_training_infrastructure.resolve_runtime_config(training_config)
@@ -448,7 +513,16 @@ def resolve_runtime_config(training_config: dict) -> dict[str, object]:
 
 def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> None:
 
-    """ Train Feedforward Network """
+    """Run the full feedforward TE training workflow for one configuration.
+
+    This entry point loads the configuration, prepares artifact directories,
+    initializes the datamodule and model stack, runs training, validation, and
+    held-out testing, then serializes the common artifact contract used by the
+    repository registries and campaign tooling.
+
+    Args:
+        config_path: Path to the YAML training configuration to execute.
+    """
 
     # Load Training Configuration
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(load_training_config(config_path))
@@ -615,7 +689,12 @@ def train_feedforward_network(config_path: str | Path = DEFAULT_CONFIG_PATH) -> 
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
-    """ Parse Command Line Arguments """
+    """Parse the command-line arguments for the training entry point.
+
+    Returns:
+        Parsed command-line namespace containing the selected configuration
+        path.
+    """
 
     # Initialize Argument Parser
     argument_parser = argparse.ArgumentParser(description="Train the configured static TE neural baseline.")
@@ -632,7 +711,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
 def main() -> None:
 
-    """ Main Function """
+    """Run the command-line training entry point."""
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()

@@ -1,4 +1,4 @@
-""" Generate Styled HTML And PDF Report """
+"""Styled Markdown-to-PDF report exporter for repository analysis artifacts."""
 
 from __future__ import annotations
 
@@ -39,6 +39,8 @@ GENERIC_TABLE_CLASS_NAME = "report-table report-table-generic"
 HISTORICAL_REFERENCE_TABLE_CLASS_NAME = "report-table report-table-historical-results"
 PHASE_RESULTS_TABLE_CLASS_NAME = "report-table report-table-phase-results"
 RANKING_RESULTS_TABLE_CLASS_NAME = "report-table report-table-ranking-results"
+DECISION_MATRIX_TABLE_CLASS_NAME = "report-table report-table-decision-matrix"
+COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME = "report-table report-table-comparative-example"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -89,6 +91,23 @@ RANKING_TABLE_HEADER_CELL_GROUPS = (
     ("Config", "Test RMSE [deg]", "Test MAE [deg]", "Runtime"),
 )
 
+DECISION_MATRIX_TABLE_HEADER_CELLS = (
+    "Platform",
+    "Python API Docs",
+    "Markdown Integration",
+    "Automation",
+    "Visual Quality",
+    "Import Risk",
+    "Repository Fit",
+)
+
+COMPARATIVE_EXAMPLE_TABLE_HEADER_CELLS = (
+    "Platform",
+    "Example Module Result",
+    "Example Guide Result",
+    "Integration Quality For This Repo",
+)
+
 # Report Section Identifiers
 SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
     ("large", "batch"),
@@ -98,6 +117,7 @@ SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
 # Report Page Breaks
 FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "phase-2-results",
+    "comparative-example-summary",
     "cross-campaign-ranking",
 }
 
@@ -436,6 +456,57 @@ REPORT_STYLESHEET = """
     .report-table-ranking-results th:nth-child(3), .report-table-ranking-results td:nth-child(3) { width: 20%; }
     .report-table-ranking-results th:nth-child(4), .report-table-ranking-results td:nth-child(4) { width: 18%; }
 
+    .report-table-decision-matrix {
+      font-size: 6.9pt;
+      line-height: 1.18;
+    }
+
+    .report-table-decision-matrix th,
+    .report-table-decision-matrix td {
+      padding: 4px 4px;
+      text-align: center;
+    }
+
+    .report-table-decision-matrix th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-decision-matrix th:nth-child(1), .report-table-decision-matrix td:nth-child(1) { width: 18%; }
+    .report-table-decision-matrix th:nth-child(2), .report-table-decision-matrix td:nth-child(2) { width: 13%; }
+    .report-table-decision-matrix th:nth-child(3), .report-table-decision-matrix td:nth-child(3) { width: 14%; }
+    .report-table-decision-matrix th:nth-child(4), .report-table-decision-matrix td:nth-child(4) { width: 11%; }
+    .report-table-decision-matrix th:nth-child(5), .report-table-decision-matrix td:nth-child(5) { width: 14%; }
+    .report-table-decision-matrix th:nth-child(6), .report-table-decision-matrix td:nth-child(6) { width: 12%; }
+    .report-table-decision-matrix th:nth-child(7), .report-table-decision-matrix td:nth-child(7) { width: 18%; }
+
+    .report-table-comparative-example {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-comparative-example th,
+    .report-table-comparative-example td {
+      padding: 4px 4px;
+      text-align: center;
+    }
+
+    .report-table-comparative-example th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-comparative-example th:nth-child(1), .report-table-comparative-example td:nth-child(1) { width: 17%; }
+    .report-table-comparative-example th:nth-child(2), .report-table-comparative-example td:nth-child(2) { width: 25%; }
+    .report-table-comparative-example th:nth-child(3), .report-table-comparative-example td:nth-child(3) { width: 19%; }
+    .report-table-comparative-example th:nth-child(4), .report-table-comparative-example td:nth-child(4) { width: 39%; }
+
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
       font-size: 7.1pt;
@@ -538,7 +609,12 @@ REPORT_STYLESHEET = """
 
 def build_argument_parser() -> argparse.ArgumentParser:
 
-    """ Build Argument Parser """
+    """Build the exporter command-line parser.
+
+    Returns:
+        argparse.ArgumentParser: Parser configured for Markdown input, HTML
+        preview handling, PDF output, report labels, and browser resolution.
+    """
 
     # Initialize Argument Parser
     argument_parser = argparse.ArgumentParser(description="Generate a styled HTML and PDF report from a Markdown source.")
@@ -628,7 +704,18 @@ def resolve_output_html_path(output_html_path: str, output_pdf_path: Path, keep_
 
 def detect_browser_executable(explicit_path: str) -> Path:
 
-    """ Detect Browser Executable """
+    """Resolve the browser executable used for headless PDF export.
+
+    Args:
+        explicit_path: Optional browser path provided by the caller.
+
+    Returns:
+        Path: Resolved Chrome or Edge executable path.
+
+    Raises:
+        FileNotFoundError: If no valid explicit path is provided and no known
+            local Chrome or Edge installation can be detected.
+    """
 
     # Resolve Explicit Browser Path
     if explicit_path:
@@ -1048,6 +1135,14 @@ def resolve_standard_table_class_name(header_cells: Sequence[str]) -> str:
     if normalized_header_cells in RANKING_TABLE_HEADER_CELL_GROUPS:
         return RANKING_RESULTS_TABLE_CLASS_NAME
 
+    # Resolve Decision Matrix Table
+    if normalized_header_cells == DECISION_MATRIX_TABLE_HEADER_CELLS:
+        return DECISION_MATRIX_TABLE_CLASS_NAME
+
+    # Resolve Comparative Example Table
+    if normalized_header_cells == COMPARATIVE_EXAMPLE_TABLE_HEADER_CELLS:
+        return COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME
+
     return GENERIC_TABLE_CLASS_NAME
 
 def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, int]:
@@ -1341,7 +1436,18 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
 def build_html_document(report_title: str, report_subtitle: str, report_category: str, body_html: str) -> str:
 
-    """ Build HTML Document """
+    """Assemble the standalone HTML document used for preview and PDF export.
+
+    Args:
+        report_title: Main report title shown in the hero block.
+        report_subtitle: Subtitle shown below the report title.
+        report_category: Category badge displayed in the hero block.
+        body_html: Rendered report body HTML.
+
+    Returns:
+        str: Complete HTML document with the repository report stylesheet
+        embedded inline.
+    """
 
     # Escape Header Text
     escaped_title = html.escape(report_title)
@@ -1384,7 +1490,16 @@ def write_text_file(file_path: Path, file_content: str) -> None:
 
 def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path: Path) -> None:
 
-    """ Convert HTML To PDF """
+    """Export a rendered HTML report to PDF through a headless browser.
+
+    Args:
+        browser_executable_path: Resolved Chrome or Edge executable.
+        html_path: Local HTML file generated by the report pipeline.
+        pdf_path: Final PDF output path.
+
+    Raises:
+        subprocess.CalledProcessError: If the browser export command fails.
+    """
 
     # Resolve Export Paths
     html_uri = html_path.resolve().as_uri()
@@ -1414,7 +1529,12 @@ def convert_html_to_pdf(browser_executable_path: Path, html_path: Path, pdf_path
 
 def main() -> None:
 
-    """ Run Export Pipeline """
+    """Run the styled Markdown-to-PDF export pipeline.
+
+    The pipeline resolves paths, renders the Markdown source into the custom
+    HTML layout, exports the PDF through a headless browser, and cleans
+    temporary workspace artifacts unless an HTML preview is explicitly kept.
+    """
 
     # Parse Command-Line Arguments
     argument_parser = build_argument_parser()

@@ -1,0 +1,33 @@
+schema_version: 1
+model_family: residual_harmonic_mlp
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-03-20T17:15:25'
+best_entry:
+  run_instance_id: 2026-03-20-16-58-34__te_residual_h12_small_joint_recovery
+  run_name: te_residual_h12_small_joint_recovery
+  output_run_name: te_residual_h12_small_joint_recovery
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.0030163314659148455
+  val_rmse: 0.003534027375280857
+  test_mae: 0.0034657062496989965
+  test_rmse: 0.003967077471315861
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/checkpoints/residual_harmonic_mlp-epoch=056-val_mae=0.00301633.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T17:15:25'

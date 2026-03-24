@@ -8,6 +8,7 @@
 - If Context7 is unavailable, state that explicitly and fall back to local code inspection plus primary official documentation.
 - Always keep the documents in `reference/` or their summaries in `doc/` in scope before making design or implementation choices.
 - Before implementing any feature, create a technical project document inside the day-based folder `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+- Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
 - Whenever a new model family, model variant, or materially new model-specific training workflow is introduced, create a dedicated explanatory report that helps the reader understand the model before reading the code.
@@ -20,10 +21,10 @@
 - When the user requests conceptual maps, schematic explanations, or architecture framing for a model, the explanatory report must also include generated visual material such as diagrams or schematic images rather than remaining text-only.
 - These visual assets must be integrated into both the Markdown report and the final PDF deliverable, and they should be stored in a consistent, discoverable report-local location.
 - When model-report diagrams are generated, they must be checked after generation to ensure labels stay inside their boxes, spacing remains balanced, and the real visual output does not contain obvious overflow or crowding defects.
-- When a new learning guide is created under `doc/reports/analysis/learning_guides/`, create a PDF companion for that guide in the same report-local folder.
+- When a new learning guide is created under `doc/guide/`, create a PDF companion for that guide in the same guide-local folder.
 - For learning guides, do not generate or finalize the PDF companion until the user has explicitly approved the generated guide images or diagrams.
 - If the user identifies layout defects in learning-guide images, treat the learning-guide PDF task as still open, correct the figures first, obtain image approval, and only then export and validate the PDF.
-- After a learning-guide Markdown document and its approved PDF companion are complete, prepare a report-local `video_guide_package/` for that guide when the user explicitly approves the video-guide preparation phase.
+- After a learning-guide Markdown document and its approved PDF companion are complete, prepare a guide-local `video_guide_package/` for that guide when the user explicitly approves the video-guide preparation phase.
 - Each approved `video_guide_package/` for a learning guide must contain at least:
   - `video_guide_source_brief.md`;
   - `video_guide_terminology_sheet.md`;

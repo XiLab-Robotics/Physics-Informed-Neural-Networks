@@ -1,3 +1,5 @@
+"""One-batch validation check for TE training and tree baselines."""
+
 from __future__ import annotations
 
 # Import Python Utilities
@@ -28,7 +30,19 @@ def build_validation_summary(
     training_config: dict[str, object],
 ) -> dict[str, object]:
 
-    """ Build Validation Summary """
+    """Build the persisted validation summary for one setup check.
+
+    Args:
+        config_path: Canonical training configuration path.
+        output_directory: Validation artifact directory.
+        batch_summary: Structural batch summary from the validation step.
+        batch_output_dictionary: Output tensors and metrics computed by the
+            regression module.
+        training_config: Prepared training configuration with artifact metadata.
+
+    Returns:
+        dict[str, object]: YAML-serializable validation summary.
+    """
 
     # Resolve Experiment Identity For Validation Summary
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
@@ -60,7 +74,12 @@ def build_validation_summary(
 
 def validate_training_setup(config_path: Path, output_suffix: str = "validation_check") -> None:
 
-    """ Validate Training Setup """
+    """Run a lightweight validation check for the configured training setup.
+
+    Args:
+        config_path: YAML training configuration path.
+        output_suffix: Suffix appended to the validation artifact run name.
+    """
 
     # Load Training Config And Resolve Output Directory
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
@@ -179,7 +198,7 @@ def validate_training_setup(config_path: Path, output_suffix: str = "validation_
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
-    """ Parse Command Line Arguments """
+    """Parse command-line arguments for the validation helper script."""
 
     # Create Argument Parser For Validation Check
     argument_parser = argparse.ArgumentParser(description="Run a one-batch validation check for the current TE training setup.")
@@ -189,7 +208,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
 def main() -> None:
 
-    """ Main Function """
+    """Run the validation helper entry point from the command line."""
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()

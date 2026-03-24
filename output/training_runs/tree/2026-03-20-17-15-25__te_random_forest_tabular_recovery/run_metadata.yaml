@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: tree
+run_name: te_random_forest_tabular_recovery
+run_instance_id: 2026-03-20-17-15-25__te_random_forest_tabular_recovery
+output_directory: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery

@@ -1,0 +1,68 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-03-20-14-18-30_006_06_periodic_mlp_h08_wide.yaml
+experiment:
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_h08_wide
+  output_run_name: te_periodic_mlp_h08_wide
+  run_instance_id: 2026-03-20-14-52-40__te_periodic_mlp_h08_wide
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_mlp\2026-03-20-14-52-40__te_periodic_mlp_h08_wide
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_mlp\2026-03-20-14-52-40__te_periodic_mlp_h08_wide\checkpoints\periodic_mlp-epoch=046-val_mae=0.00308864.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 47745
+  frozen_parameter_count: 0
+  total_parameter_count: 47745
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.007856791839003563
+  val_mae: 0.0030886391177773476
+  val_rmse: 0.003652627347037196
+test_metrics:
+  test_loss: 0.009058128111064434
+  test_mae: 0.0035897025372833014
+  test_rmse: 0.004143117927014828
+comparison_payload:
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_h08_wide
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 47745
+  total_parameter_count: 47745
+  val_mae: 0.0030886391177773476
+  val_rmse: 0.003652627347037196
+  test_mae: 0.0035897025372833014
+  test_rmse: 0.004143117927014828
+  deployment_notes: ''
+  interpretability_notes: ''

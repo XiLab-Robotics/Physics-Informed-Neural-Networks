@@ -1,3 +1,5 @@
+"""Shared training utilities for TE run identity, artifacts, and registries."""
+
 from __future__ import annotations
 
 # Import Python Utilities
@@ -61,7 +63,7 @@ SELECTION_POLICY_DICTIONARY = {
 @dataclass
 class ExperimentIdentity:
 
-    """ Experiment Identity """
+    """Logical experiment identity resolved from a training configuration."""
 
     model_family: str
     model_type: str
@@ -70,7 +72,7 @@ class ExperimentIdentity:
 @dataclass
 class ModelParameterSummary:
 
-    """ Model Parameter Summary """
+    """Trainable, frozen, and total parameter counts for one backbone."""
 
     backbone_name: str
     trainable_parameter_count: int
@@ -80,7 +82,7 @@ class ModelParameterSummary:
 @dataclass
 class RunArtifactIdentity:
 
-    """ Run Artifact Identity """
+    """Physical artifact identity used for immutable output folders."""
 
     artifact_kind: str
     model_family: str
@@ -90,7 +92,14 @@ class RunArtifactIdentity:
 
 def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
 
-    """ Load Training Config """
+    """Load and validate a YAML training configuration.
+
+    Args:
+        config_path: Absolute or project-relative configuration path.
+
+    Returns:
+        dict[str, Any]: Parsed training configuration dictionary.
+    """
 
     # Resolve Config Path
     resolved_config_path = resolve_project_relative_path(config_path)
@@ -120,7 +129,14 @@ def sanitize_name(name: str) -> str:
 
 def resolve_experiment_identity(training_config: dict[str, Any]) -> ExperimentIdentity:
 
-    """ Resolve Experiment Identity """
+    """Resolve the logical experiment identity from the training config.
+
+    Args:
+        training_config: Parsed training configuration dictionary.
+
+    Returns:
+        ExperimentIdentity: Normalized model family, model type, and run name.
+    """
 
     experiment_config = training_config["experiment"]
 
@@ -144,7 +160,7 @@ def resolve_experiment_identity(training_config: dict[str, Any]) -> ExperimentId
 
 def resolve_runtime_config(training_config: dict[str, Any]) -> dict[str, object]:
 
-    """ Resolve Runtime Config """
+    """Resolve runtime overrides merged with repository defaults."""
 
     # Start with Default Runtime Config and Update with Training Config Overrides
     runtime_config = dict(DEFAULT_RUNTIME_CONFIG_DICTIONARY)
@@ -181,7 +197,18 @@ def prepare_output_artifact_training_config(
     run_instance_id: str | None = None,
 ) -> dict[str, Any]:
 
-    """ Prepare Output Artifact Training Config """
+    """Attach output-artifact metadata to a cloned training configuration.
+
+    Args:
+        training_config: Source training configuration.
+        artifact_kind: Artifact family such as training run or validation check.
+        run_name_suffix: Optional suffix appended to the logical run name.
+        run_instance_id: Optional explicit immutable run instance identifier.
+
+    Returns:
+        dict[str, Any]: Cloned training configuration enriched with artifact
+        metadata under the `metadata` section.
+    """
 
     # Clone the Training Config
     prepared_training_config = clone_training_config(training_config)
@@ -259,7 +286,7 @@ def resolve_output_root(training_config: dict[str, Any]) -> Path:
 
 def resolve_output_directory(training_config: dict[str, Any]) -> Path:
 
-    """ Resolve Output Directory """
+    """Resolve the immutable output directory for the prepared artifact."""
 
     # Construct Output Directory Path Based on Prepared Training Metadata
     output_root = resolve_output_root(training_config)
@@ -268,7 +295,7 @@ def resolve_output_directory(training_config: dict[str, Any]) -> Path:
 
 def resolve_run_artifact_identity(training_config: dict[str, Any]) -> RunArtifactIdentity:
 
-    """ Resolve Run Artifact Identity """
+    """Resolve the full physical artifact identity for one prepared config."""
 
     # Resolve Experiment Identity
     experiment_identity = resolve_experiment_identity(training_config)
@@ -283,7 +310,7 @@ def resolve_run_artifact_identity(training_config: dict[str, Any]) -> RunArtifac
 
 def summarize_model_parameters(regression_backbone: nn.Module) -> ModelParameterSummary:
 
-    """ Summarize Model Parameters """
+    """Count trainable, frozen, and total parameters for one backbone."""
 
     # Calculate Trainable, Frozen, and Total Parameter Counts
     trainable_parameter_count = sum(parameter.numel() for parameter in regression_backbone.parameters() if parameter.requires_grad)
@@ -300,7 +327,7 @@ def summarize_model_parameters(regression_backbone: nn.Module) -> ModelParameter
 
 def create_datamodule_from_training_config(training_config: dict[str, Any]) -> TransmissionErrorDataModule:
 
-    """ Create DataModule From Training Config """
+    """Instantiate the TE LightningDataModule from the training config."""
 
     # Resolve Runtime Config for DataModule Creation
     runtime_config = resolve_runtime_config(training_config)
@@ -318,7 +345,15 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
 
 def create_regression_backbone_from_training_config(training_config: dict[str, Any], input_feature_dim: int) -> nn.Module:
 
-    """ Create Regression Backbone From Training Config """
+    """Instantiate the regression backbone declared in the config.
+
+    Args:
+        training_config: Parsed training configuration dictionary.
+        input_feature_dim: Input dimension resolved from the prepared dataset.
+
+    Returns:
+        nn.Module: Configured regression backbone.
+    """
 
     # Validate Configured Input Size Matches Dataset Input Feature Dim
     configured_input_size = int(training_config["model"]["input_size"])
@@ -340,7 +375,7 @@ def create_regression_module_from_training_config(
     normalization_statistics: NormalizationStatistics,
 ) -> TransmissionErrorRegressionModule:
 
-    """ Create Regression Module From Training Config """
+    """Wrap a configured backbone in the shared Lightning regression module."""
 
     # Build Regression Module With Optimization Hyperparameters
     return TransmissionErrorRegressionModule(
@@ -356,7 +391,15 @@ def initialize_training_components(
     training_config: dict[str, Any],
 ) -> tuple[TransmissionErrorDataModule, nn.Module, TransmissionErrorRegressionModule, NormalizationStatistics]:
 
-    """ Initialize Training Components """
+    """Build the datamodule, backbone, module, and normalization bundle.
+
+    Args:
+        training_config: Parsed training configuration dictionary.
+
+    Returns:
+        tuple[TransmissionErrorDataModule, nn.Module, TransmissionErrorRegressionModule, NormalizationStatistics]:
+        Fully initialized training components ready for fit or validation work.
+    """
 
     # Create DataModule and Setup to Access Dataset Statistics
     datamodule = create_datamodule_from_training_config(training_config)
@@ -386,7 +429,7 @@ def initialize_training_components(
 
 def fetch_first_batch(datamodule: TransmissionErrorDataModule, split_name: str = "train") -> dict[str, Any]:
 
-    """ Fetch First Batch """
+    """Fetch the first batch from one requested dataloader split."""
 
     # Fetch First Batch from Specified Data Split and Return as Dictionary
     if split_name == "train":        dataloader = datamodule.train_dataloader()
@@ -398,7 +441,16 @@ def fetch_first_batch(datamodule: TransmissionErrorDataModule, split_name: str =
 
 def validate_batch_dictionary(batch_dictionary: dict[str, Any], input_feature_dim: int, target_feature_dim: int) -> dict[str, Any]:
 
-    """ Validate Batch Dictionary """
+    """Validate the structural contract of a collated point batch.
+
+    Args:
+        batch_dictionary: Batch emitted by the datamodule collate function.
+        input_feature_dim: Expected final input feature dimension.
+        target_feature_dim: Expected final target feature dimension.
+
+    Returns:
+        dict[str, Any]: Small structural summary of the validated batch.
+    """
 
     input_tensor = batch_dictionary["input_tensor"]
     target_tensor = batch_dictionary["target_tensor"]
@@ -482,7 +534,7 @@ def build_common_metrics_snapshot(
     test_metric_list: list[dict[str, object]],
 ) -> dict[str, object]:
 
-    """ Build Common Metrics Snapshot """
+    """Build the canonical metrics snapshot stored with a training artifact."""
 
     # Resolve Experiment Identity and Dataset Split Summary for Snapshot
     experiment_identity = resolve_experiment_identity(training_config)
@@ -545,7 +597,7 @@ def format_project_relative_path(path_value: str | Path | None) -> str:
 
 def load_yaml_snapshot(input_path: Path) -> dict[str, Any]:
 
-    """ Load YAML Snapshot """
+    """Load a YAML snapshot and validate that it is dictionary-shaped."""
 
     # Load the YAML Snapshot from the Specified Input Path
     with input_path.open("r", encoding="utf-8") as input_file:
@@ -557,7 +609,7 @@ def load_yaml_snapshot(input_path: Path) -> dict[str, Any]:
 
 def save_yaml_snapshot(snapshot_dictionary: dict[str, Any], output_path: Path) -> None:
 
-    """ Save YAML Snapshot """
+    """Persist one YAML snapshot to disk, creating parent folders as needed."""
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -567,7 +619,7 @@ def save_yaml_snapshot(snapshot_dictionary: dict[str, Any], output_path: Path) -
 
 def save_training_config_snapshot(training_config: dict[str, Any], output_directory: Path) -> None:
 
-    """ Save Training Config Snapshot """
+    """Persist the effective training configuration inside an artifact folder."""
 
     output_directory.mkdir(parents=True, exist_ok=True)
 
@@ -576,14 +628,14 @@ def save_training_config_snapshot(training_config: dict[str, Any], output_direct
 
 def save_common_metrics_snapshot(metrics_snapshot_dictionary: dict[str, Any], output_directory: Path) -> None:
 
-    """ Save Common Metrics Snapshot """
+    """Persist the common metrics snapshot inside an artifact folder."""
 
     # Save the Common Metrics Snapshot to the Output Directory
     save_yaml_snapshot(metrics_snapshot_dictionary, output_directory / COMMON_METRICS_FILENAME)
 
 def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[str, Any]:
 
-    """ Build Registry Entry """
+    """Convert a metrics snapshot into a comparable registry entry."""
 
     # Extract Relevant Information from the Common Metrics Snapshot to Build a Registry Entry
     experiment_dictionary = metrics_snapshot_dictionary["experiment"]
@@ -672,7 +724,15 @@ def build_family_registry_directory(model_family: str) -> Path:
 
 def update_family_registry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[str, Any]:
 
-    """ Update Family Registry """
+    """Update the family leaderboard and latest-family-best snapshots.
+
+    Args:
+        metrics_snapshot_dictionary: Common metrics snapshot for one completed
+            training artifact.
+
+    Returns:
+        dict[str, Any]: Selected best entry for the model family after update.
+    """
 
     # Build a Registry Entry from the Common Metrics Snapshot and Update the Family Registry Leaderboard
     registry_entry = build_registry_entry(metrics_snapshot_dictionary)
@@ -718,7 +778,7 @@ def update_family_registry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[
 
 def update_program_registry(best_registry_entry: dict[str, Any]) -> dict[str, Any]:
 
-    """ Update Program Registry """
+    """Update the program-wide best-solution registry entry."""
 
     program_best_path = PROGRAM_REGISTRY_OUTPUT_ROOT / PROGRAM_BEST_FILENAME
     current_best_entry = None
@@ -749,7 +809,7 @@ def update_program_registry(best_registry_entry: dict[str, Any]) -> dict[str, An
 
 def save_run_metadata_snapshot(training_config: dict[str, Any], output_directory: Path) -> None:
 
-    """ Save Run Metadata Snapshot """
+    """Persist the resolved artifact identity inside an output directory."""
 
     # Resolve Run Artifact Identity and Save it as a YAML Snapshot in the Output Directory for Reference and Traceability
     run_artifact_identity = resolve_run_artifact_identity(training_config)

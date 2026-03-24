@@ -1,3 +1,5 @@
+"""Factory helpers that map TE model-type strings to concrete modules."""
+
 from __future__ import annotations
 
 # Import Typing Utilities
@@ -14,7 +16,22 @@ from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
 
 def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Module:
 
-    """ Create Model """
+    """Instantiate one supported TE model from a configuration dictionary.
+
+    Args:
+        model_type: Canonical model-type string such as `feedforward`,
+            `harmonic_regression`, `periodic_mlp`, or
+            `residual_harmonic_mlp`.
+        model_configuration: Model-specific configuration dictionary.
+
+    Returns:
+        nn.Module: Instantiated PyTorch module matching the requested model
+        type.
+
+    Raises:
+        ValueError: If `model_type` does not match one of the supported model
+            families.
+    """
 
     # Validate Model Type
     normalized_model_type = model_type.lower()

@@ -1,0 +1,68 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-03-20-16-11-22_003_03_harmonic_order12_linear_conditioned_recovery.yaml
+experiment:
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  run_name: te_harmonic_order12_linear_conditioned_recovery
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery
+  run_instance_id: 2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\harmonic_regression\2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\harmonic_regression\2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery\checkpoints\harmonic_regression-epoch=026-val_mae=0.01700371.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 150
+  frozen_parameter_count: 0
+  total_parameter_count: 150
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.18733853101730347
+  val_mae: 0.01700371317565441
+  val_rmse: 0.01854725554585457
+test_metrics:
+  test_loss: 0.2532018721103668
+  test_mae: 0.02078191749751568
+  test_rmse: 0.02240518294274807
+comparison_payload:
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  run_name: te_harmonic_order12_linear_conditioned_recovery
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.01700371317565441
+  val_rmse: 0.01854725554585457
+  test_mae: 0.02078191749751568
+  test_rmse: 0.02240518294274807
+  deployment_notes: ''
+  interpretability_notes: ''

@@ -1,3 +1,5 @@
+"""Lightning data module and batch utilities for TE regression training."""
+
 from __future__ import annotations
 
 # Import Python Utilities
@@ -23,7 +25,7 @@ from scripts.datasets.transmission_error_dataset import split_directional_file_m
 @dataclass
 class NormalizationStatistics:
 
-    """ Normalization Statistics """
+    """Feature and target normalization tensors for TE regression."""
 
     input_feature_mean: torch.Tensor
     input_feature_std: torch.Tensor
@@ -33,7 +35,7 @@ class NormalizationStatistics:
 @dataclass
 class DatasetSplitSummary:
 
-    """ Dataset Split Summary """
+    """Curve counts for the train, validation, and test splits."""
 
     train_curve_count: int
     validation_curve_count: int
@@ -41,7 +43,17 @@ class DatasetSplitSummary:
 
 def move_batch_tensor_collection_to_device(batch_value: Any, device: torch.device, use_non_blocking_transfer: bool = False) -> Any:
 
-    """ Move Batch Tensor Collection To Device """
+    """Recursively move a nested batch structure to the requested device.
+
+    Args:
+        batch_value: Tensor, list, tuple, dictionary, or scalar batch value.
+        device: Target device for tensor transfer.
+        use_non_blocking_transfer: Whether CUDA transfers should request
+            non-blocking behavior when possible.
+
+    Returns:
+        Any: Batch structure mirrored on the target device.
+    """
 
     # Move Tensor To Requested Device
     if isinstance(batch_value, torch.Tensor):
@@ -65,7 +77,17 @@ def move_batch_tensor_collection_to_device(batch_value: Any, device: torch.devic
 
 def extract_point_tensor_from_curve_sample(curve_sample_dictionary: dict[str, Any], point_stride: int = 1, maximum_points_per_curve: int | None = None) -> dict[str, torch.Tensor]:
 
-    """ Extract Point Tensor From Curve Sample """
+    """Convert one curve sample into a point-sampled tensor dictionary.
+
+    Args:
+        curve_sample_dictionary: Dataset sample containing full-curve tensors.
+        point_stride: Step used to subsample curve points.
+        maximum_points_per_curve: Optional hard cap on sampled points per curve.
+
+    Returns:
+        dict[str, torch.Tensor]: Point-level tensors for model input, target,
+        and angular position.
+    """
 
     # Validate Sampling Parameters
     assert point_stride > 0, f"Point Stride must be positive | {point_stride}"
@@ -106,7 +128,18 @@ def extract_point_tensor_from_curve_sample(curve_sample_dictionary: dict[str, An
 
 def collate_transmission_error_points(batch_dictionary_list: list[dict[str, Any]], point_stride: int = 1, maximum_points_per_curve: int | None = None, shuffle_points: bool = True) -> dict[str, Any]:
 
-    """ Collate Transmission Error Points """
+    """Collate curve samples into one point-level training batch.
+
+    Args:
+        batch_dictionary_list: Curve-level samples produced by the dataset.
+        point_stride: Step used to subsample points from each curve.
+        maximum_points_per_curve: Optional cap on sampled points per curve.
+        shuffle_points: Whether to shuffle the concatenated point batch.
+
+    Returns:
+        dict[str, Any]: Batch dictionary containing concatenated tensors and
+        lightweight curve-level metadata.
+    """
 
     # Validate Batch Input
     assert len(batch_dictionary_list) > 0, "Batch Dictionary List is empty"
@@ -158,7 +191,7 @@ def collate_transmission_error_points(batch_dictionary_list: list[dict[str, Any]
 
 class TransmissionErrorDataModule(LightningDataModule):
 
-    """ Transmission Error DataModule """
+    """LightningDataModule for TE curve splits, sampling, and normalization."""
 
     def __init__(
         self,
@@ -170,6 +203,18 @@ class TransmissionErrorDataModule(LightningDataModule):
         pin_memory: bool = False,
         use_non_blocking_transfer: bool = False,
     ) -> None:
+        """Initialize the reusable TE training datamodule.
+
+        Args:
+            dataset_config_path: Dataset YAML configuration path.
+            curve_batch_size: Number of curves loaded per dataloader batch.
+            point_stride: Subsampling stride applied inside each curve.
+            maximum_points_per_curve: Optional cap on sampled points per curve.
+            num_workers: PyTorch dataloader worker count.
+            pin_memory: Whether dataloaders should pin host memory.
+            use_non_blocking_transfer: Whether device transfer should request
+                non-blocking CUDA copies when possible.
+        """
 
         super().__init__()
 
@@ -197,7 +242,12 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def setup(self, stage: str | None = None) -> None:
 
-        """ Setup DataModule """
+        """Create dataset splits and compute normalization statistics.
+
+        Args:
+            stage: Lightning stage hint. The current implementation uses the
+                same prepared splits for fit, validation, and test access.
+        """
 
         # Skip Repeated Setup If Datasets Are Already Available
         if self.train_dataset is not None and self.validation_dataset is not None and self.test_dataset is not None: return
@@ -251,7 +301,15 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def compute_normalization_statistics(self, curve_dataset: TransmissionErrorCurveDataset) -> NormalizationStatistics:
 
-        """ Compute Normalization Statistics """
+        """Compute point-level normalization statistics from the train split.
+
+        Args:
+            curve_dataset: Dataset used to accumulate sampled point statistics.
+
+        Returns:
+            NormalizationStatistics: Mean and standard deviation tensors for
+            model inputs and targets.
+        """
 
         # Initialize Accumulators
         input_feature_sum = torch.zeros(self.input_feature_dim, dtype=torch.float64)
@@ -307,28 +365,28 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def get_input_feature_dim(self) -> int:
 
-        """ Get Input Feature Dim """
+        """Return the resolved input feature dimension after setup."""
 
         assert self.input_feature_dim is not None, "Input Feature Dim is not available before setup"
         return self.input_feature_dim
 
     def get_target_feature_dim(self) -> int:
 
-        """ Get Target Feature Dim """
+        """Return the resolved target feature dimension after setup."""
 
         assert self.target_feature_dim is not None, "Target Feature Dim is not available before setup"
         return self.target_feature_dim
 
     def get_normalization_statistics(self) -> NormalizationStatistics:
 
-        """ Get Normalization Statistics """
+        """Return the cached normalization statistics after setup."""
 
         assert self.normalization_statistics is not None, "Normalization Statistics are not available before setup"
         return self.normalization_statistics
 
     def get_dataset_split_summary(self) -> DatasetSplitSummary:
 
-        """ Get Dataset Split Summary """
+        """Return the current split sizes in number of curves."""
 
         assert self.train_dataset is not None, "Train Dataset is not initialized"
         assert self.validation_dataset is not None, "Validation Dataset is not initialized"
@@ -342,7 +400,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def train_dataloader(self) -> DataLoader:
 
-        """ Train Dataloader """
+        """Build the training dataloader with point-level collation."""
 
         assert self.train_dataset is not None, "Train Dataset is not initialized"
 
@@ -363,7 +421,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def val_dataloader(self) -> DataLoader:
 
-        """ Validation Dataloader """
+        """Build the validation dataloader with deterministic point ordering."""
 
         assert self.validation_dataset is not None, "Validation Dataset is not initialized"
 
@@ -384,7 +442,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def test_dataloader(self) -> DataLoader:
 
-        """ Test Dataloader """
+        """Build the test dataloader with deterministic point ordering."""
 
         assert self.test_dataset is not None, "Test Dataset is not initialized"
 
@@ -405,7 +463,16 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def transfer_batch_to_device(self, batch: Any, device: torch.device, dataloader_idx: int) -> Any:
 
-        """ Transfer Batch To Device """
+        """Move a collated batch to the target accelerator device.
+
+        Args:
+            batch: Batch emitted by one of the TE dataloaders.
+            device: Target Lightning device.
+            dataloader_idx: Dataloader index supplied by Lightning.
+
+        Returns:
+            Any: Batch moved to the requested device.
+        """
 
         return move_batch_tensor_collection_to_device(
             batch,

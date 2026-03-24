@@ -213,6 +213,9 @@ __marimo__/
 # Report Export Temporary Files
 doc/reports/analysis/.tmp_chrome_profiles/
 
+# Exclude the oversized recovery artifact that blocks GitHub pushes.
+output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/tree_model.pkl
+
 # .temp and .tools Folders
 .temp/
 .tools/

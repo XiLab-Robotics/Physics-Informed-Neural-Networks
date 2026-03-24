@@ -35,6 +35,8 @@ SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {
 TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 SECTION_DIVIDER_WIDTH = 96
 CAMPAIGN_PROGRESS_BAR_WIDTH = 24
+MAX_CAMPAIGN_DIRECTORY_NAME_LENGTH = 72
+MAX_LOG_STEM_LENGTH = 48
 CAMPAIGN_LEADERBOARD_FILENAME = "campaign_leaderboard.yaml"
 CAMPAIGN_BEST_RUN_FILENAME = "campaign_best_run.yaml"
 CAMPAIGN_BEST_RUN_REPORT_FILENAME = "campaign_best_run.md"
@@ -278,6 +280,15 @@ def sanitize_name(name: str) -> str:
     sanitized_name = sanitized_name.strip("_")
     return sanitized_name or "campaign"
 
+def shorten_sanitized_name(name: str, maximum_length: int) -> str:
+
+    """ Shorten Sanitized Name """
+
+    sanitized_name = sanitize_name(name)
+    if len(sanitized_name) <= maximum_length:
+        return sanitized_name
+    return sanitized_name[:maximum_length].rstrip("_") or sanitized_name[:maximum_length]
+
 def ensure_queue_directories(queue_root: str | Path) -> QueueDirectories:
 
     """ Ensure Queue Directories """
@@ -357,6 +368,7 @@ def build_available_path(path_value: Path) -> Path:
 
     # If the Candidate Path Does Not Exist, Return It As Is
     candidate_path = path_value.resolve()
+    candidate_path.parent.mkdir(parents=True, exist_ok=True)
     if not candidate_path.exists():
         return candidate_path
 
@@ -369,6 +381,7 @@ def build_available_path(path_value: Path) -> Path:
 
         # Format: {stem}_{duplicate_index:03d}{suffix}
         indexed_candidate_path = (parent / f"{stem}_{duplicate_index:03d}{suffix}").resolve()
+        indexed_candidate_path.parent.mkdir(parents=True, exist_ok=True)
         if not indexed_candidate_path.exists(): return indexed_candidate_path
 
         duplicate_index += 1
@@ -638,7 +651,9 @@ def execute_queue_item(
     run_campaign_name = str(metadata_dictionary.get("campaign_name")) if metadata_dictionary.get("campaign_name") not in [None, ""] else campaign_name
     run_planning_report_path = (str(metadata_dictionary.get("planning_report_path")) if metadata_dictionary.get("planning_report_path") not in [None, ""] else planning_report_path)
 
-    log_path = build_available_path(log_directory / f"{running_queue_config_path.stem}.log")
+    short_log_stem = shorten_sanitized_name(run_name, MAX_LOG_STEM_LENGTH)
+    log_path = build_available_path(log_directory / f"{queue_index:03d}_{short_log_stem}.log")
+    log_path.parent.mkdir(parents=True, exist_ok=True)
     start_datetime = datetime.now()
 
     try:
@@ -675,6 +690,7 @@ def execute_queue_item(
         process_return_code = None
         queue_status = "failed"
         error_message = str(error)
+        log_path.parent.mkdir(parents=True, exist_ok=True)
         with log_path.open("a", encoding="utf-8") as log_file:
             log_file.write(f"\n[RUNNER ERROR] {error}\n")
             log_file.write(traceback.format_exc())
@@ -1011,7 +1027,8 @@ def main() -> None:
     campaign_name = resolve_campaign_name(queue_item_context_list, command_line_arguments.campaign_name)
     planning_report_path = resolve_campaign_planning_report_path(queue_item_context_list, command_line_arguments.planning_report_path)
     campaign_output_root = resolve_project_relative_path(command_line_arguments.campaign_output_root)
-    campaign_output_directory = (campaign_output_root / f"{datetime.now().strftime(TIMESTAMP_FORMAT)}_{sanitize_name(campaign_name)}").resolve()
+    shortened_campaign_name = shorten_sanitized_name(campaign_name, MAX_CAMPAIGN_DIRECTORY_NAME_LENGTH)
+    campaign_output_directory = (campaign_output_root / f"{datetime.now().strftime(TIMESTAMP_FORMAT)}_{shortened_campaign_name}").resolve()
     campaign_output_directory.mkdir(parents=True, exist_ok=True)
     log_directory = (campaign_output_directory / "logs").resolve()
     log_directory.mkdir(parents=True, exist_ok=True)

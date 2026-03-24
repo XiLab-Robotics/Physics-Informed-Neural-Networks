@@ -1,4 +1,4 @@
-# Project Documentation Index
+﻿# Project Documentation Index
 
 This folder contains the internal project documents derived from the reference PDFs and from the reference codebases used to define the coding style of this repository.
 
@@ -245,6 +245,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the tree-based structured-baseline training entry point.
 - [scripts/training/run_training_campaign.md](./scripts/training/run_training_campaign.md)
   Script-level documentation for the persistent queue-based batch training runner.
+- [scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md](./scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md)
+  Script-level documentation for the short Wave 1 recovery campaign launcher.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -262,47 +264,47 @@ This folder contains the internal project documents derived from the reference P
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 - [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
   Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
-- [reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
+- [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
   Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
-- [reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./reports/analysis/learning_guides/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
+- [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
   Styled PDF export of the neural-network foundations learning guide.
-- [reports/analysis/learning_guides/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md)
+- [guide/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md](./guide/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the neural-network foundations video guide package.
-- [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
+- [guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md](./guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
   Learning guide that explains dataset splits, optimizer-driven training, validation logic, test-set discipline, and TE-specific evaluation pitfalls.
-- [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf)
+- [guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf](./guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf)
   Styled PDF export of the training, validation, and testing learning guide.
-- [reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md)
+- [guide/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md](./guide/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the training, validation, and testing video guide package.
-- [reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md](./reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
+- [guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md](./guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
   Curriculum guide that introduces the TE model families from feedforward and harmonic baselines through the planned temporal, hybrid, and PINN directions.
-- [reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf](./reports/analysis/learning_guides/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf)
+- [guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf](./guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf)
   Styled PDF export of the TE model curriculum learning guide.
-- [reports/analysis/learning_guides/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md)
+- [guide/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md](./guide/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the TE model curriculum video guide package.
-- [reports/analysis/learning_guides/FeedForward%20Network/FeedForward%20Network.md](./reports/analysis/learning_guides/FeedForward%20Network/FeedForward%20Network.md)
+- [guide/FeedForward%20Network/FeedForward%20Network.md](./guide/FeedForward%20Network/FeedForward%20Network.md)
   Learning guide that explains the feedforward architecture as the baseline MLP for the TE curriculum, with implementation and training context.
-- [reports/analysis/learning_guides/FeedForward%20Network/FeedForward%20Network.pdf](./reports/analysis/learning_guides/FeedForward%20Network/FeedForward%20Network.pdf)
+- [guide/FeedForward%20Network/FeedForward%20Network.pdf](./guide/FeedForward%20Network/FeedForward%20Network.pdf)
   Styled PDF export of the feedforward network learning guide.
-- [reports/analysis/learning_guides/FeedForward%20Network/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/FeedForward%20Network/video_guide_package/video_guide_source_brief.md)
+- [guide/FeedForward%20Network/video_guide_package/video_guide_source_brief.md](./guide/FeedForward%20Network/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the feedforward network video guide package.
-- [reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.md](./reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.md)
+- [guide/Harmonic%20Regression/Harmonic%20Regression.md](./guide/Harmonic%20Regression/Harmonic%20Regression.md)
   Learning guide that explains harmonic regression as the periodic structured baseline and its repository integration.
-- [reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.pdf](./reports/analysis/learning_guides/Harmonic%20Regression/Harmonic%20Regression.pdf)
+- [guide/Harmonic%20Regression/Harmonic%20Regression.pdf](./guide/Harmonic%20Regression/Harmonic%20Regression.pdf)
   Styled PDF export of the harmonic regression learning guide.
-- [reports/analysis/learning_guides/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md)
+- [guide/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md](./guide/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the harmonic regression video guide package.
-- [reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
+- [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
   Learning guide that explains the periodic-feature hybrid architecture that combines explicit periodic encoding with an MLP backend.
-- [reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./reports/analysis/learning_guides/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
+- [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
   Styled PDF export of the periodic-feature network learning guide.
-- [reports/analysis/learning_guides/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md)
+- [guide/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md](./guide/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the periodic-feature network video guide package.
-- [reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+- [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
   Learning guide that explains the residual-harmonic hybrid architecture and its structured-plus-residual decomposition.
-- [reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./reports/analysis/learning_guides/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
+- [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
   Styled PDF export of the residual-harmonic network learning guide.
-- [reports/analysis/learning_guides/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md](./reports/analysis/learning_guides/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md)
+- [guide/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md](./guide/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the residual-harmonic network video guide package.
 - [reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md](./reports/analysis/2026-03-18-00-31-18_feedforward_model_explanatory_report.md)
   Explanatory report for the implemented feedforward TE baseline, including conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
@@ -327,6 +329,34 @@ This folder contains the internal project documents derived from the reference P
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
 - [reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md](./reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md)
   Planning report for the first Wave 1 structured-baseline exploratory campaign across harmonic, periodic-feature, residual, and tree-based model families.
+- [reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md](./reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md)
+  Planning report for the Wave 1 recovery campaign that reruns the failed harmonic, residual, and random forest branches after the model-aware summary fix.
+- [technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
+  Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
+- [technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
+  Technical document for the final reporting work of the completed Wave 1 structured baseline recovery campaign.
+- [technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_analysis.md](./technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_analysis.md)
+  Integration analysis for recovering the isolated documentation work onto the synchronized repository state.
+- [technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_checklist.md](./technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_checklist.md)
+  Explicit checklist for the isolated-work recovery and the first canonical Sphinx integration steps.
+- [technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md](./technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md)
+  Technical implementation note for the canonical Batch 0 Sphinx foundation.
+- [technical/2026-03-24/2026-03-24-19-59-54_sphinx_canonical_integration_phase1.md](./technical/2026-03-24/2026-03-24-19-59-54_sphinx_canonical_integration_phase1.md)
+  Technical implementation note for the first canonical integration phase after the Sphinx foundation batch.
+- [technical/2026-03-24/2026-03-24-20-05-31_sphinx_canonical_integration_phase2.md](./technical/2026-03-24/2026-03-24-20-05-31_sphinx_canonical_integration_phase2.md)
+  Technical implementation note for the second canonical integration phase that exposes recovered isolated documentation assets and the styled PDF exporter inside the Sphinx portal.
+- [technical/2026-03-24/2026-03-24-20-13-56_sphinx_canonical_integration_phase3_core_training_infrastructure.md](./technical/2026-03-24/2026-03-24-20-13-56_sphinx_canonical_integration_phase3_core_training_infrastructure.md)
+  Technical implementation note for the next canonical Sphinx integration batch focused on the shared training infrastructure API surface.
+- [technical/2026-03-24/2026-03-24-20-23-49_sphinx_canonical_integration_phase4_model_family_api_coverage.md](./technical/2026-03-24/2026-03-24-20-23-49_sphinx_canonical_integration_phase4_model_family_api_coverage.md)
+  Technical implementation note for the next canonical Sphinx integration batch focused on model-family API coverage and model-factory routing.
+- [technical/2026-03-24/2026-03-24-20-58-19_isolated_integration_reconciliation_and_learning_guide_migration.md](./technical/2026-03-24/2026-03-24-20-58-19_isolated_integration_reconciliation_and_learning_guide_migration.md)
+  Technical reconciliation note for completing the still-open isolated-branch integration work around learning-guide migration and NotebookLM media relocation.
+- [technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md](./technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md)
+  Technical verification note for checking whether any isolated-branch work still remains outside the canonical repository state after reconciliation.
+- [technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md](./technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md)
+  Technical cleanup note for relocating the remaining isolated documentation proof-of-concept artifacts out of the repository root and into an archival location.
+- [technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md](./technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md)
+  Technical cleanup note for retiring the now-empty isolated handoff roots and relocating their remaining provenance artifacts into a dedicated archive subtree.
 
 #### Campaign Results
 
@@ -334,6 +364,8 @@ This folder contains the internal project documents derived from the reference P
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
 - [reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md](./reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md)
   Final results report for the completed mixed feedforward campaign, including the recommended best-training preset selection.
+- [reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
+  Final results report for the completed Wave 1 recovery campaign, including campaign ranking, family-level outcomes, and program-level context.
 
 ### Running State
 
@@ -356,3 +388,4 @@ This folder contains the internal project documents derived from the reference P
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
+

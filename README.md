@@ -1,4 +1,4 @@
-# Physics-Informed Neural Networks for Rotational Transmission Error Compensation in RV Reducers
+﻿# Physics-Informed Neural Networks for Rotational Transmission Error Compensation in RV Reducers
 
 ## Overview
 
@@ -59,30 +59,30 @@ The conceptual architecture sketch below is legacy. For current repository navig
 
 ```graph
 .
-├── configs/                # YAML configuration files
-├── data/                   # Dataset loaders and preprocessing
-│   ├── datasets/
-│   ├── transforms/
-│   └── datamodules/
-├── models/                 # Neural network architectures
-│   ├── pinn_model.py
-│   ├── ml_baseline.py
-│   └── blocks/
-├── losses/                 # Physics-informed loss functions
-│   ├── data_loss.py
-│   ├── physics_loss.py
-│   └── composite_loss.py
-├── training/               # Lightning training scripts
-│   ├── train.py
-│   ├── evaluate.py
-│   └── callbacks/
-├── inference/              # Export and runtime inference utilities
-│   ├── export_onnx.py
-│   ├── export_st.py
-│   └── runtime_validation.py
-├── twincat/                # Structured Text implementation templates
-├── utils/                  # Logging, metrics, normalization
-└── README.md
+â”œâ”€â”€ configs/                # YAML configuration files
+â”œâ”€â”€ data/                   # Dataset loaders and preprocessing
+â”‚   â”œâ”€â”€ datasets/
+â”‚   â”œâ”€â”€ transforms/
+â”‚   â””â”€â”€ datamodules/
+â”œâ”€â”€ models/                 # Neural network architectures
+â”‚   â”œâ”€â”€ pinn_model.py
+â”‚   â”œâ”€â”€ ml_baseline.py
+â”‚   â””â”€â”€ blocks/
+â”œâ”€â”€ losses/                 # Physics-informed loss functions
+â”‚   â”œâ”€â”€ data_loss.py
+â”‚   â”œâ”€â”€ physics_loss.py
+â”‚   â””â”€â”€ composite_loss.py
+â”œâ”€â”€ training/               # Lightning training scripts
+â”‚   â”œâ”€â”€ train.py
+â”‚   â”œâ”€â”€ evaluate.py
+â”‚   â””â”€â”€ callbacks/
+â”œâ”€â”€ inference/              # Export and runtime inference utilities
+â”‚   â”œâ”€â”€ export_onnx.py
+â”‚   â”œâ”€â”€ export_st.py
+â”‚   â””â”€â”€ runtime_validation.py
+â”œâ”€â”€ twincat/                # Structured Text implementation templates
+â”œâ”€â”€ utils/                  # Logging, metrics, normalization
+â””â”€â”€ README.md
 ```
 
 Additional working folders already used in the project lifecycle:
@@ -292,6 +292,24 @@ Technical documents:
   * `doc/technical/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md`
   * `doc/technical/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md`
   * `doc/technical/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md`
+  * `doc/technical/2026-03-20/2026-03-20-15-21-50_wave1_campaign_failure_fix_and_dispatch.md`
+  * `doc/technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md`
+  * `doc/technical/2026-03-20/2026-03-20-16-07-39_windows_campaign_path_length_and_recovery_queue_cleanup.md`
+* `2026-03-24`
+  * `doc/technical/2026-03-24/2026-03-24-10-00-00_campaign_launcher_location_reorganization.md`
+  * `doc/technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
+  * `doc/technical/2026-03-24/2026-03-24-16-00-12_local_machine_timestamp_rule_for_technical_docs.md`
+  * `doc/technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_analysis.md`
+  * `doc/technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_checklist.md`
+  * `doc/technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md`
+  * `doc/technical/2026-03-24/2026-03-24-19-59-54_sphinx_canonical_integration_phase1.md`
+  * `doc/technical/2026-03-24/2026-03-24-20-05-31_sphinx_canonical_integration_phase2.md`
+  * `doc/technical/2026-03-24/2026-03-24-20-13-56_sphinx_canonical_integration_phase3_core_training_infrastructure.md`
+  * `doc/technical/2026-03-24/2026-03-24-20-23-49_sphinx_canonical_integration_phase4_model_family_api_coverage.md`
+  * `doc/technical/2026-03-24/2026-03-24-20-58-19_isolated_integration_reconciliation_and_learning_guide_migration.md`
+  * `doc/technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md`
+  * `doc/technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md`
+  * `doc/technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md`
 
 Script documentation:
 
@@ -300,6 +318,7 @@ Script documentation:
 * `doc/scripts/training/train_feedforward_network.md`
 * `doc/scripts/training/train_tree_regressor.md`
 * `doc/scripts/training/run_training_campaign.md`
+* `doc/scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md`
 * `doc/scripts/training/validate_training_setup.md`
 * `doc/scripts/training/run_training_smoke_test.md`
 * `doc/scripts/reports/generate_model_report_diagrams.md`
@@ -309,30 +328,30 @@ Reports:
 
 * `Analysis`
   * `doc/reports/analysis/analytical_studies/FeedForward Trial Analytical Report.md`
-  * `doc/reports/analysis/learning_guides/Neural Network Foundations/video_guide_package/video_guide_source_brief.md`
-  * `doc/reports/analysis/learning_guides/Training, Validation, And Testing/video_guide_package/video_guide_source_brief.md`
-  * `doc/reports/analysis/learning_guides/TE Model Curriculum/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/Neural Network Foundations/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/Training, Validation, And Testing/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/TE Model Curriculum/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/training_analysis/Training Configuration Analysis.md`
   * `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf` -> golden standard visual reference for future styled analytical PDFs
   * `doc/reports/analysis/family_studies/TE Model Family Analysis.md`
-  * `doc/reports/analysis/learning_guides/Neural Network Foundations/Neural Network Foundations.md`
-  * `doc/reports/analysis/learning_guides/Neural Network Foundations/Neural Network Foundations.pdf`
-  * `doc/reports/analysis/learning_guides/Training, Validation, And Testing/Training, Validation, And Testing.md`
-  * `doc/reports/analysis/learning_guides/Training, Validation, And Testing/Training, Validation, And Testing.pdf`
-  * `doc/reports/analysis/learning_guides/TE Model Curriculum/TE Model Curriculum.md`
-  * `doc/reports/analysis/learning_guides/TE Model Curriculum/TE Model Curriculum.pdf`
-  * `doc/reports/analysis/learning_guides/FeedForward Network/FeedForward Network.md`
-  * `doc/reports/analysis/learning_guides/FeedForward Network/FeedForward Network.pdf`
-  * `doc/reports/analysis/learning_guides/FeedForward Network/video_guide_package/video_guide_source_brief.md`
-  * `doc/reports/analysis/learning_guides/Harmonic Regression/Harmonic Regression.md`
-  * `doc/reports/analysis/learning_guides/Harmonic Regression/Harmonic Regression.pdf`
-  * `doc/reports/analysis/learning_guides/Harmonic Regression/video_guide_package/video_guide_source_brief.md`
-  * `doc/reports/analysis/learning_guides/Periodic Feature Network/Periodic Feature Network.md`
-  * `doc/reports/analysis/learning_guides/Periodic Feature Network/Periodic Feature Network.pdf`
-  * `doc/reports/analysis/learning_guides/Periodic Feature Network/video_guide_package/video_guide_source_brief.md`
-  * `doc/reports/analysis/learning_guides/Residual Harmonic Network/Residual Harmonic Network.md`
-  * `doc/reports/analysis/learning_guides/Residual Harmonic Network/Residual Harmonic Network.pdf`
-  * `doc/reports/analysis/learning_guides/Residual Harmonic Network/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/Neural Network Foundations/Neural Network Foundations.md`
+  * `doc/guide/Neural Network Foundations/Neural Network Foundations.pdf`
+  * `doc/guide/Training, Validation, And Testing/Training, Validation, And Testing.md`
+  * `doc/guide/Training, Validation, And Testing/Training, Validation, And Testing.pdf`
+  * `doc/guide/TE Model Curriculum/TE Model Curriculum.md`
+  * `doc/guide/TE Model Curriculum/TE Model Curriculum.pdf`
+  * `doc/guide/FeedForward Network/FeedForward Network.md`
+  * `doc/guide/FeedForward Network/FeedForward Network.pdf`
+  * `doc/guide/FeedForward Network/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/Harmonic Regression/Harmonic Regression.md`
+  * `doc/guide/Harmonic Regression/Harmonic Regression.pdf`
+  * `doc/guide/Harmonic Regression/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/Periodic Feature Network/Periodic Feature Network.md`
+  * `doc/guide/Periodic Feature Network/Periodic Feature Network.pdf`
+  * `doc/guide/Periodic Feature Network/video_guide_package/video_guide_source_brief.md`
+  * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.md`
+  * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.pdf`
+  * `doc/guide/Residual Harmonic Network/video_guide_package/video_guide_source_brief.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.md`
   * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.pdf`
   * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.md`
@@ -344,9 +363,11 @@ Reports:
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+  * `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 * `Campaign Results`
-  * `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
-  * `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
+* `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
+* `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
+* `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 
 Guides:
 
@@ -379,6 +400,7 @@ The following rules are mandatory for all future project work:
 * Keep section comments short and operational. Prefer compact labels over sentence-length explanations when the code is already explicit.
 * Always take into account the documents in `reference/` or their summaries in `doc/` before making design or implementation decisions.
 * Before implementing any feature, create a technical project document in `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+* Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 * Each technical project document must contain the sections:
   * `Overview`
   * `Technical Approach`
@@ -478,8 +500,8 @@ This ensures that the learned function respects the mechanical structure of the 
 Default architecture:
 
 * Fully Connected Network
-* 3–6 Hidden Layers
-* 64–256 Neurons per layer
+* 3â€“6 Hidden Layers
+* 64â€“256 Neurons per layer
 * Tanh or SiLU activation
 * Optional residual connections
 
@@ -564,7 +586,7 @@ TwinCAT integration features:
 
 ## Research Contribution
 
-* Hybrid analytical–data-driven modeling approach
+* Hybrid analyticalâ€“data-driven modeling approach
 * Industrial PLC deployment of PINNs
 * Comparative analysis with classical RTE models
 * Practical application in high-precision robotics
@@ -652,3 +674,4 @@ Davide Ferrari
 ## License
 
 Specify appropriate license (e.g., MIT, BSD-3, or proprietary industrial use).
+

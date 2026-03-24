@@ -1,0 +1,45 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/harmonic_regression
+experiment:
+  run_name: te_harmonic_order12_static_recovery
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+metadata:
+  campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
+  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  phase_name: harmonic_regression_recovery
+  campaign_config_id: harmonic_order12_static_recovery
+  notes: Recovery rerun for the higher-order static harmonic baseline after the schema-aware
+    training summary fix.
+  random_seed: 42
+  output_artifact_kind: training_run
+  output_run_name: te_harmonic_order12_static_recovery
+  run_instance_id: 2026-03-20-16-20-27__te_harmonic_order12_static_recovery
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 12
+  coefficient_mode: static
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
