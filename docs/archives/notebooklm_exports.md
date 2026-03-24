@@ -1,50 +1,44 @@
 # NotebookLM Export Archives
 
-The repository contains eight recovered `NotebookLM` export bundles under:
+The recovered `NotebookLM` assets are no longer stored as the primary canonical
+content under `doc/imports/notebooklm_exports/`.
+
+They have now been migrated into the corresponding guide folders under:
+
+- `doc/guide/`
+
+## Migrated Guide Targets
+
+- `doc/guide/Neural Network Foundations/`
+- `doc/guide/Training, Validation, And Testing/`
+- `doc/guide/TE Model Curriculum/`
+- `doc/guide/FeedForward Network/`
+- `doc/guide/Harmonic Regression/`
+- `doc/guide/Periodic Feature Network/`
+- `doc/guide/Residual Harmonic Network/`
+- `doc/guide/Multilayer Perceptrons/`
+
+Each migrated guide-local media set now uses readable collision-safe names:
+
+- `Mind Map.png`
+- `Infographic.png`
+- `Slides.pdf`
+- `Slides.pptx`
+- `Supporting Brief.pdf`
+- `Video Overview.mp4`
+
+## Residual Provenance Root
+
+The root:
 
 - `doc/imports/notebooklm_exports/`
 
-These bundles are preserved as provenance material from the isolated
-documentation workflow. They are not yet canonical guide pages and they should
-not be confused with repository-authored learning-guide sources.
+is now retained only as a lightweight provenance manifest location. It is no
+longer the canonical storage root for the imported media files themselves.
 
-## Current Archive Topics
+## Decision Trail
 
-- `neural_network_foundations`
-- `te_model_curriculum`
-- `multilayer_perceptrons`
-- `feedforward_network`
-- `harmonic_regression`
-- `training_validation_and_testing`
-- `periodic_feature_network`
-- `residual_harmonic_network`
-
-## Archive Layout
-
-Each topic folder follows the same structure:
-
-- `images/`
-- `pdf/`
-- `slides/`
-- `video/`
-
-This keeps imported visual material, slide decks, supporting PDFs, and video
-exports separated by artifact type while preserving their original topic
-grouping.
-
-## Canonical Integration Status
-
-The current canonical rule remains:
-
-- keep these bundles archived under `doc/imports/notebooklm_exports/` as
-  provenance-preserving imported material;
-- integrate them into the public documentation portal through summary and
-  reference pages first;
-- decide any later migration into canonical guide folders only after an
-  explicit repository-wide learning-guide restructuring step.
-
-The detailed archive-ingestion and extension decisions are documented in the
-technical notes below:
+The detailed archive-ingestion and reconciliation decisions are documented in:
 
 - [NotebookLM Export Ingestion And Archive](../technical/notebooklm_export_ingestion.md)
 - [Additional NotebookLM Guide Archives](../technical/additional_notebooklm_guide_archives.md)
@@ -57,5 +51,5 @@ The main isolated handoff remains:
 
 - `readme.temp.md`
 
-That file should still be treated as the most complete recovery log for the
-original archive moves, rename policies, and deferred migration decisions.
+That file is still the most complete recovery log for the original isolated
+archive moves, rename policies, and later synchronized migration obligations.

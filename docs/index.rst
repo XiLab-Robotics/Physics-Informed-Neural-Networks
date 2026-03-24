@@ -1,18 +1,18 @@
 Physics-Informed Neural Networks Documentation
 ==============================================
 
-This is the canonical Batch 0 foundation for the repository documentation portal.
+This is the canonical repository documentation portal built on `Sphinx + RTD`.
 
-The current scope is intentionally narrow:
+The current scope now includes:
 
-- establish the `Sphinx + RTD` portal root;
-- document local build instructions;
-- create stable section shells for later guide and API integration.
+- local build instructions and portal structure;
+- canonical operational guide content;
+- migrated learning-guide content under `doc/guide/`;
+- selected API reference slices for models, training, and report tooling;
+- recovered technical notes and provenance pages from the isolated branch.
 
 The following work is intentionally deferred:
 
-- learning-guide migration;
-- NotebookLM media migration;
 - GitHub Pages publication;
 - large-scale canonical docstring rewrites;
 - promotion of historical proof-of-concept trees as canonical roots.

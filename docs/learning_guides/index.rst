@@ -1,25 +1,27 @@
 Learning Guides
 ===============
 
-This section tracks the current learning-guide landscape and the recovered external media state.
+This section tracks the canonical learning-guide family now rooted under:
 
-Current canonical learning-guide folders still live under:
+- ``doc/guide/``
 
-- ``doc/reports/analysis/learning_guides/``
+The migrated guide family currently includes:
 
-Recovered `NotebookLM` external archives currently remain isolated under:
+- ``Neural Network Foundations``
+- ``Training, Validation, And Testing``
+- ``TE Model Curriculum``
+- ``FeedForward Network``
+- ``Harmonic Regression``
+- ``Periodic Feature Network``
+- ``Residual Harmonic Network``
 
-- ``doc/imports/notebooklm_exports/``
+Recovered imported `NotebookLM` media have now been moved into the corresponding
+guide folders as guide-local support material.
 
-Recovered archive bundle inventory:
+Additional imported-only topic currently present under the guide subtree:
 
-- ``neural_network_foundations``
-- ``te_model_curriculum``
-- ``multilayer_perceptrons``
-- ``feedforward_network``
-- ``harmonic_regression``
-- ``training_validation_and_testing``
-- ``periodic_feature_network``
-- ``residual_harmonic_network``
+- ``Multilayer Perceptrons``
 
-These archive bundles are now repository-tracked and available for future canonical migration, but they are not yet treated as guide-local canonical files.
+The old isolated archive root under ``doc/imports/notebooklm_exports/`` is now
+kept only as a lightweight provenance manifest rather than as the canonical
+storage location for the imported media files.

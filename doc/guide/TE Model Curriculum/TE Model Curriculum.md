@@ -1,4 +1,4 @@
-# TE Model Curriculum
+﻿# TE Model Curriculum
 
 ## Overview
 
@@ -68,7 +68,7 @@ Status:
 
 Related repository report:
 
-- [FeedForward Network](../../model_explanatory/FeedForward%20Network/FeedForward%20Network.md)
+- [FeedForward Network](../../reports/analysis/model_explanatory/FeedForward%20Network/FeedForward%20Network.md)
 
 ### Core Idea
 
@@ -155,7 +155,7 @@ Status:
 
 Related repository report:
 
-- [Harmonic Regression](../../model_explanatory/Harmonic%20Regression/Harmonic%20Regression.md)
+- [Harmonic Regression](../../reports/analysis/model_explanatory/Harmonic%20Regression/Harmonic%20Regression.md)
 
 ### Core Idea
 
@@ -230,7 +230,7 @@ Status:
 
 Related repository report:
 
-- [Periodic Feature Network](../../model_explanatory/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
+- [Periodic Feature Network](../../reports/analysis/model_explanatory/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
 
 ### Principle
 
@@ -261,7 +261,7 @@ Status:
 
 Related repository report:
 
-- [Residual Harmonic Network](../../model_explanatory/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+- [Residual Harmonic Network](../../reports/analysis/model_explanatory/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
 
 ### Principle
 
@@ -473,7 +473,8 @@ For this TE project, that progression is more meaningful than a naive "deeper is
 
 - [Neural Network Foundations](../Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
 - [Training, Validation, And Testing](../Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
-- [FeedForward Network](../../model_explanatory/FeedForward%20Network/FeedForward%20Network.md)
-- [Harmonic Regression](../../model_explanatory/Harmonic%20Regression/Harmonic%20Regression.md)
-- [Periodic Feature Network](../../model_explanatory/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
-- [Residual Harmonic Network](../../model_explanatory/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+- [FeedForward Network](../../reports/analysis/model_explanatory/FeedForward%20Network/FeedForward%20Network.md)
+- [Harmonic Regression](../../reports/analysis/model_explanatory/Harmonic%20Regression/Harmonic%20Regression.md)
+- [Periodic Feature Network](../../reports/analysis/model_explanatory/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
+- [Residual Harmonic Network](../../reports/analysis/model_explanatory/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+
