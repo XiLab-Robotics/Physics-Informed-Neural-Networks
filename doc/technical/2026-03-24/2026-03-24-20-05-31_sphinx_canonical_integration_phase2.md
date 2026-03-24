@@ -20,7 +20,7 @@ This phase specifically targets:
 
 The implementation should stay conservative:
 
-- keep `mkdocs.poc.yml`, `doc_site_poc/`, `poc_sources/`, and `sphinx_poc/` as
+- keep `reference/documentation_poc/mkdocs.poc.yml`, `reference/documentation_poc/doc_site_poc/`, `reference/documentation_poc/poc_sources/`, and `reference/documentation_poc/sphinx_poc/` as
   historical proof-of-concept artifacts rather than canonical source roots;
 - expose the underlying decisions and recovered materials through canonical
   wrapper pages under `docs/`;

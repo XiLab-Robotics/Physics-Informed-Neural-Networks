@@ -49,11 +49,11 @@ Recovered artifacts already present on `integration/sphinx-docs` include:
   - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
   - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.pdf`
 - MkDocs POC:
-  - `mkdocs.poc.yml`
-  - `doc_site_poc/`
-  - `poc_sources/`
+  - `reference/documentation_poc/mkdocs.poc.yml`
+  - `reference/documentation_poc/doc_site_poc/`
+  - `reference/documentation_poc/poc_sources/`
 - Sphinx POC:
-  - `sphinx_poc/`
+  - `reference/documentation_poc/sphinx_poc/`
 - external visual benchmark:
   - `reference/documentation_visual_references/ur_rtde_api_reference_example.pdf`
 
@@ -89,7 +89,7 @@ However, the synchronized repository state shows that several shared files chang
 - `doc/README.md`
   Changed on `standard-ml-codex` after divergence. The isolated handoff intentionally avoided touching it.
 - `doc/guide/project_usage_guide.md`
-  Changed on `standard-ml-codex` after divergence. The MkDocs POC contains only a mirrored snapshot under `doc_site_poc/guide/project_usage_guide.md`, not a canonical update.
+  Changed on `standard-ml-codex` after divergence. The MkDocs POC contains only a mirrored snapshot under `reference/documentation_poc/doc_site_poc/guide/project_usage_guide.md`, not a canonical update.
 - `scripts/training/train_feedforward_network.py`
   Changed on `standard-ml-codex` after divergence. The isolated documented mirror is therefore only a point-in-time reference and cannot be promoted blindly.
 - `scripts/reports/generate_styled_report_pdf.py`
@@ -138,10 +138,10 @@ These should remain archival or comparative until a later explicit canonical int
 
 - `readme.temp.md`
 - `doc/imports/notebooklm_exports/`
-- `mkdocs.poc.yml`
-- `doc_site_poc/`
-- `poc_sources/`
-- `sphinx_poc/`
+- `reference/documentation_poc/mkdocs.poc.yml`
+- `reference/documentation_poc/doc_site_poc/`
+- `reference/documentation_poc/poc_sources/`
+- `reference/documentation_poc/sphinx_poc/`
 - isolated documented mirror modules
 - imported NotebookLM slide decks, videos, mind maps, and supporting PDFs
 

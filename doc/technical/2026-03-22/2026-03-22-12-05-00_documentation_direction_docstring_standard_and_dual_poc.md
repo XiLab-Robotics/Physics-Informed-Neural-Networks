@@ -113,12 +113,12 @@ This approach demonstrates the real output quality without touching conflict-pro
 
 Recommended isolated source root:
 
-- `poc_sources/mirrored_repo/`
+- `reference/documentation_poc/poc_sources/mirrored_repo/`
 
 Recommended mirrored module names:
 
-- `poc_sources/mirrored_repo/feedforward_network_documented.py`
-- `poc_sources/mirrored_repo/train_feedforward_network_documented.py`
+- `reference/documentation_poc/poc_sources/mirrored_repo/feedforward_network_documented.py`
+- `reference/documentation_poc/poc_sources/mirrored_repo/train_feedforward_network_documented.py`
 
 ### MkDocs POC Extension
 
@@ -157,7 +157,7 @@ To keep the comparison fair, the `Sphinx` proof of concept should document the s
 
 Recommended isolated structure:
 
-- `sphinx_poc/`
+- `reference/documentation_poc/sphinx_poc/`
   - `conf.py`
   - `index.rst` or `index.md`
   - `api/`
@@ -193,15 +193,15 @@ Because the repository is still in isolated mode, the current phase should limit
 ## Involved Components
 
 - current isolated MkDocs POC:
-  - `mkdocs.poc.yml`
-  - `doc_site_poc/`
+  - `reference/documentation_poc/mkdocs.poc.yml`
+  - `reference/documentation_poc/doc_site_poc/`
 - new isolated mirrored source tree:
-  - `poc_sources/mirrored_repo/`
+  - `reference/documentation_poc/poc_sources/mirrored_repo/`
 - existing canonical source modules used as documentation reference:
   - `scripts/models/feedforward_network.py`
   - `scripts/training/train_feedforward_network.py`
 - new isolated `Sphinx` proof of concept tree:
-  - `sphinx_poc/`
+  - `reference/documentation_poc/sphinx_poc/`
 - isolated handoff log:
   - `readme.temp.md`
 - future synchronized integration targets:

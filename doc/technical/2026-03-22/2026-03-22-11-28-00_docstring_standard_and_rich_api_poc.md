@@ -107,7 +107,7 @@ This keeps the experiment conflict-safe while still demonstrating the intended f
 
 Create a standalone proof-of-concept Python module outside the canonical source tree, for example under:
 
-- `poc_sources/`
+- `reference/documentation_poc/poc_sources/`
 
 The module should mirror the style and topics of the current training scripts while using rich Google-style docstrings.
 
@@ -139,12 +139,12 @@ After implementation, the proof of concept should show:
 
 ## Involved Components
 
-- `mkdocs.poc.yml`
+- `reference/documentation_poc/mkdocs.poc.yml`
   Existing isolated MkDocs proof-of-concept configuration.
-- `doc_site_poc/`
+- `reference/documentation_poc/doc_site_poc/`
   Existing isolated docs source tree.
 - new isolated proof-of-concept source tree:
-  - `poc_sources/`
+  - `reference/documentation_poc/poc_sources/`
 - `readme.temp.md`
   Isolated handoff log.
 

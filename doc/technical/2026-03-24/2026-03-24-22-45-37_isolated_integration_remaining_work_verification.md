@@ -25,10 +25,10 @@ The verification focuses on structure, ownership, and promotion status rather th
 - `doc/guide/`
 - `doc/imports/notebooklm_exports/`
 - `docs/`
-- `mkdocs.poc.yml`
-- `doc_site_poc/`
-- `poc_sources/`
-- `sphinx_poc/`
+- `reference/documentation_poc/mkdocs.poc.yml`
+- `reference/documentation_poc/doc_site_poc/`
+- `reference/documentation_poc/poc_sources/`
+- `reference/documentation_poc/sphinx_poc/`
 
 # Implementation Steps
 
@@ -70,10 +70,10 @@ These files remain useful as provenance, design trail, or reference evidence. Th
 
 ## Proof-Of-Concept Material Not Promoted Canonically
 
-- `mkdocs.poc.yml`
-- `doc_site_poc/`
-- `poc_sources/`
-- `sphinx_poc/`
+- `reference/documentation_poc/mkdocs.poc.yml`
+- `reference/documentation_poc/doc_site_poc/`
+- `reference/documentation_poc/poc_sources/`
+- `reference/documentation_poc/sphinx_poc/`
 
 These artifacts represent the isolated documentation-platform experiments described in the handoff. They were intentionally not promoted as canonical runtime or documentation roots because the repository direction was later locked to the canonical `docs/` Sphinx portal.
 
@@ -87,7 +87,7 @@ Their current status is:
 
 There is one remaining cleanup-style question, but it is not a blocked isolated-integration migration:
 
-- whether the old documentation proof-of-concept artifacts (`mkdocs.poc.yml`, `doc_site_poc/`, `poc_sources/`, `sphinx_poc/`) should remain in the repository as historical artifacts, be moved under a clearer archive location, or be removed after a deliberate archival decision.
+- whether the archived documentation proof-of-concept artifacts under `reference/documentation_poc/` should remain in place as historical artifacts, be moved again under a different archive policy, or be removed after a deliberate archival decision.
 
 This is a repository hygiene choice, not a missing execution of the isolated handoff.
 

@@ -353,6 +353,8 @@ This folder contains the internal project documents derived from the reference P
   Technical reconciliation note for completing the still-open isolated-branch integration work around learning-guide migration and NotebookLM media relocation.
 - [technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md](./technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md)
   Technical verification note for checking whether any isolated-branch work still remains outside the canonical repository state after reconciliation.
+- [technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md](./technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md)
+  Technical cleanup note for relocating the remaining isolated documentation proof-of-concept artifacts out of the repository root and into an archival location.
 
 #### Campaign Results
 
