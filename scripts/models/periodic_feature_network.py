@@ -1,3 +1,5 @@
+"""Periodic-feature neural network for TE regression with angle expansion."""
+
 from __future__ import annotations
 
 # Import PyTorch Utilities
@@ -9,7 +11,7 @@ from scripts.models.feedforward_network import FeedForwardNetwork
 
 class PeriodicFeatureNetwork(nn.Module):
 
-    """ Periodic Feature Network """
+    """Feedforward TE model with explicit periodic angle features."""
 
     def __init__(
         self,
@@ -22,6 +24,21 @@ class PeriodicFeatureNetwork(nn.Module):
         harmonic_order: int = 8,
         include_raw_angle_feature: bool = True,
     ) -> None:
+        """Initialize the periodic-feature TE model.
+
+        Args:
+            input_size: Total input feature count including angular position and
+                operating-condition features.
+            hidden_size: Hidden-layer widths passed to the feedforward backbone.
+            output_size: Regression target count.
+            activation_name: Backbone activation function name.
+            dropout_probability: Backbone dropout probability.
+            use_layer_norm: Whether the backbone uses layer normalization.
+            harmonic_order: Highest harmonic order used in the periodic feature
+                expansion.
+            include_raw_angle_feature: Whether to preserve the normalized raw
+                angle alongside the sine/cosine expansion.
+        """
 
         super().__init__()
 
@@ -53,7 +70,16 @@ class PeriodicFeatureNetwork(nn.Module):
 
     def build_periodic_feature_tensor(self, angular_position_deg: torch.Tensor) -> torch.Tensor:
 
-        """ Build Periodic Feature Tensor """
+        """Build the sine/cosine periodic expansion of the angle feature.
+
+        Args:
+            angular_position_deg: Angular position tensor in degrees with shape
+                `(batch_size, 1)`.
+
+        Returns:
+            torch.Tensor: Concatenated sine and cosine feature tensor for all
+            configured harmonic orders.
+        """
 
         # Convert Angular Position To Radians
         angular_position_rad = torch.deg2rad(angular_position_deg)
@@ -69,7 +95,18 @@ class PeriodicFeatureNetwork(nn.Module):
 
     def forward_with_input_context(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Forward With Input Context """
+        """Predict TE from periodic angle features and normalized conditions.
+
+        Args:
+            input_tensor: Raw input tensor whose first column is the physical
+                angular position in degrees.
+            normalized_input_tensor: Normalized input tensor used by the
+                feedforward backbone.
+
+        Returns:
+            torch.Tensor: Scalar TE prediction tensor with shape
+            `(batch_size, output_size)`.
+        """
 
         # Extract Angular Position And Condition
         angular_position_deg = input_tensor[:, 0:1]

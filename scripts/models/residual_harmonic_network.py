@@ -1,3 +1,5 @@
+"""Residual harmonic TE model combining structured and neural branches."""
+
 from __future__ import annotations
 
 # Import PyTorch Utilities
@@ -10,7 +12,7 @@ from scripts.models.harmonic_regression import HarmonicRegression
 
 class ResidualHarmonicNetwork(nn.Module):
 
-    """ Residual Harmonic Network """
+    """Hybrid TE model with harmonic prior plus neural residual correction."""
 
     def __init__(
         self,
@@ -24,6 +26,27 @@ class ResidualHarmonicNetwork(nn.Module):
         residual_use_layer_norm: bool = True,
         freeze_structured_branch: bool = False,
     ) -> None:
+        """Initialize the residual harmonic TE model.
+
+        Args:
+            input_size: Total input feature count including angle and
+                operating-condition features.
+            output_size: Regression target count.
+            harmonic_order: Highest harmonic order used by the structured
+                branch.
+            coefficient_mode: Harmonic coefficient parameterization mode passed
+                to the structured branch.
+            residual_hidden_size: Hidden-layer widths for the residual neural
+                branch.
+            residual_activation_name: Activation function used by the residual
+                branch.
+            residual_dropout_probability: Dropout probability in the residual
+                branch.
+            residual_use_layer_norm: Whether the residual branch uses layer
+                normalization.
+            freeze_structured_branch: Whether to freeze the structured branch
+                parameters during optimization.
+        """
 
         super().__init__()
 
@@ -58,7 +81,17 @@ class ResidualHarmonicNetwork(nn.Module):
 
     def forward_with_input_context(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Forward With Input Context """
+        """Predict TE as structured harmonic output plus residual correction.
+
+        Args:
+            input_tensor: Raw input tensor whose first column is the physical
+                angular position in degrees.
+            normalized_input_tensor: Normalized input tensor used by the
+                residual branch and structured conditioning path.
+
+        Returns:
+            torch.Tensor: Final TE prediction tensor combining both branches.
+        """
 
         # Forward Pass Through Structured Harmonic Branch
         structured_prediction_tensor = self.structured_branch.forward_with_input_context(input_tensor, normalized_input_tensor)
@@ -71,7 +104,18 @@ class ResidualHarmonicNetwork(nn.Module):
 
     def compute_auxiliary_output_dictionary(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> dict[str, torch.Tensor]:
 
-        """ Compute Auxiliary Output Dictionary """
+        """Expose branch-level outputs for diagnostics and metric logging.
+
+        Args:
+            input_tensor: Raw input tensor whose first column is the physical
+                angular position in degrees.
+            normalized_input_tensor: Normalized input tensor used by both
+                branches.
+
+        Returns:
+            dict[str, torch.Tensor]: Structured branch output, residual branch
+            output, and final combined prediction tensor.
+        """
 
         # Forward Pass Through Structured Harmonic Branch
         structured_prediction_tensor = self.structured_branch.forward_with_input_context(input_tensor, normalized_input_tensor)

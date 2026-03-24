@@ -1,3 +1,5 @@
+"""Harmonic regression baseline for TE prediction over angular position."""
+
 from __future__ import annotations
 
 # Import PyTorch Utilities
@@ -6,7 +8,7 @@ import torch.nn as nn
 
 class HarmonicRegression(nn.Module):
 
-    """ Harmonic Regression """
+    """Structured harmonic regressor for periodic TE components."""
 
     def __init__(
         self,
@@ -15,6 +17,18 @@ class HarmonicRegression(nn.Module):
         harmonic_order: int = 12,
         coefficient_mode: str = "static",
     ) -> None:
+        """Initialize the harmonic regression baseline.
+
+        Args:
+            input_size: Total input feature count including angular position and
+                operating-condition features.
+            output_size: Regression target count. The current implementation
+                supports scalar TE output only.
+            harmonic_order: Highest harmonic order used in the Fourier-style
+                expansion of the angular position.
+            coefficient_mode: Coefficient parameterization mode. Supported
+                values are `static` and `linear_conditioned`.
+        """
 
         super().__init__()
 
@@ -46,7 +60,16 @@ class HarmonicRegression(nn.Module):
 
     def build_harmonic_feature_tensor(self, angular_position_deg: torch.Tensor) -> torch.Tensor:
 
-        """ Build Harmonic Feature Tensor """
+        """Build the harmonic basis evaluated at the given angular positions.
+
+        Args:
+            angular_position_deg: Angular position tensor in degrees with shape
+                `(batch_size, 1)`.
+
+        Returns:
+            torch.Tensor: Harmonic design matrix containing the bias term plus
+            sine and cosine features for each configured harmonic order.
+        """
 
         # Convert Angular Position To Radians
         angular_position_rad = torch.deg2rad(angular_position_deg)
@@ -63,7 +86,16 @@ class HarmonicRegression(nn.Module):
 
     def resolve_coefficient_tensor(self, normalized_condition_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Resolve Coefficient Tensor """
+        """Resolve the harmonic coefficient tensor for each batch item.
+
+        Args:
+            normalized_condition_tensor: Normalized operating-condition feature
+                tensor excluding the raw angle column.
+
+        Returns:
+            torch.Tensor: Batch-aligned coefficient tensor used to weight the
+            harmonic basis.
+        """
 
         # Use Shared Global Coefficients In Static Mode
         if self.conditioning_projection is None:
@@ -74,7 +106,18 @@ class HarmonicRegression(nn.Module):
 
     def forward_with_input_context(self, input_tensor: torch.Tensor, normalized_input_tensor: torch.Tensor) -> torch.Tensor:
 
-        """ Forward With Input Context """
+        """Predict TE using raw angle context plus normalized conditions.
+
+        Args:
+            input_tensor: Raw input tensor whose first column is the physical
+                angular position in degrees.
+            normalized_input_tensor: Normalized input tensor used for the
+                conditioning features.
+
+        Returns:
+            torch.Tensor: Scalar TE prediction tensor with shape
+            `(batch_size, 1)`.
+        """
 
         # Extract Angular Position And Condition
         angular_position_deg = input_tensor[:, 0:1]
