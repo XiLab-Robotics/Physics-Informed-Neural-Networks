@@ -1,12 +1,12 @@
 # Overview
 
-This document verifies whether the isolated-branch work described in `readme.temp.md` has now been fully integrated into the canonical repository state on `integration/sphinx-docs`, or whether additional isolated-origin work still remains unapplied.
+This document verifies whether the isolated-branch work described in the archived handoff log `reference/isolated_handoff/readme.temp.md` has now been fully integrated into the canonical repository state on `integration/sphinx-docs`, or whether additional isolated-origin work still remains unapplied.
 
 # Technical Approach
 
 The verification compares four sources of truth:
 
-1. The synchronized implementation plan and handoff notes in `readme.temp.md`.
+1. The synchronized implementation plan and handoff notes in `reference/isolated_handoff/readme.temp.md`.
 2. The isolated commit series already recovered on this branch.
 3. The current canonical repository structure after the recent Sphinx and learning-guide reconciliation batches.
 4. The remaining historical-only material that should stay archived rather than be promoted into canonical project structure.
@@ -19,11 +19,11 @@ The verification focuses on structure, ownership, and promotion status rather th
 
 # Involved Components
 
-- `readme.temp.md`
+- `reference/isolated_handoff/readme.temp.md`
 - `README.md`
 - `doc/README.md`
 - `doc/guide/`
-- `doc/imports/notebooklm_exports/`
+- `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
 - `docs/`
 - `reference/documentation_poc/mkdocs.poc.yml`
 - `reference/documentation_poc/doc_site_poc/`
@@ -32,14 +32,14 @@ The verification focuses on structure, ownership, and promotion status rather th
 
 # Implementation Steps
 
-1. Re-read the isolated handoff plan in `readme.temp.md`, including the synchronized implementation phases and the explicit "not yet done" notes.
+1. Re-read the archived isolated handoff plan in `reference/isolated_handoff/readme.temp.md`, including the synchronized implementation phases and the explicit "not yet done" notes.
 2. Compare the current repository state against the isolated-origin deliverables already promoted through the Sphinx integration and reconciliation commits.
 3. Classify every remaining isolated-origin artifact as canonical, archival, or still-unpromoted proof of concept.
 4. Record the verification result and the exact remaining integration gap, if any.
 
 # Verification Result
 
-The isolated-origin integration debt that was explicitly left open in `readme.temp.md` has now been closed.
+The isolated-origin integration debt that was explicitly left open in `reference/isolated_handoff/readme.temp.md` has now been closed.
 
 In particular, the still-pending synchronized phases from the handoff are now satisfied:
 
@@ -47,7 +47,7 @@ In particular, the still-pending synchronized phases from the handoff are now sa
 - imported `NotebookLM` media were moved into the corresponding guide folders;
 - readable guide-local filenames were applied;
 - `README.md` and `doc/README.md` were updated to the canonical guide root;
-- the old `doc/imports/notebooklm_exports/` root was reduced to provenance-only state;
+- the former `doc/imports/notebooklm_exports/` root was retired after its provenance manifest was archived under `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`;
 - no non-historical repository reference still points to `doc/reports/analysis/learning_guides/`.
 
 This means there is no remaining isolated-origin canonical migration batch equivalent to the earlier unresolved guide-move and media-relocation work.
@@ -58,7 +58,7 @@ The following isolated-origin material still exists in the repository, but it sh
 
 ## Historical / Archival Material
 
-- `readme.temp.md`
+- `reference/isolated_handoff/readme.temp.md`
 - `doc/technical/2026-03-20/2026-03-20-17-01-59_notebooklm_export_ingestion_and_archive.md`
 - `doc/technical/2026-03-22/2026-03-22-09-50-07_additional_notebooklm_guide_archives.md`
 - `doc/technical/2026-03-23/2026-03-23-11-02-32_periodic_and_residual_notebooklm_guide_archives.md`
@@ -97,7 +97,7 @@ Separately, `GitHub Pages` publication is still not implemented in the canonical
 
 The verification result is:
 
-- `readme.temp.md` synchronized migration debt: closed;
+- `reference/isolated_handoff/readme.temp.md` synchronized migration debt: closed;
 - canonical learning-guide and `NotebookLM` relocation work: closed;
 - isolated-origin historical documents and comparison assets: intentionally retained;
 - isolated-origin POC trees: still present, but not canonical and not currently blocking integration completeness.

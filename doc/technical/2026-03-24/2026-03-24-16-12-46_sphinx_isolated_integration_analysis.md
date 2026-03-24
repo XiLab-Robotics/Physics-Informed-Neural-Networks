@@ -10,7 +10,7 @@ The integration preparation was requested under these constraints:
 
 - preserve the current local work on `standard-ml-codex` without destructive actions;
 - recover the isolated branch work conservatively and in order;
-- rebuild the handoff context from `readme.temp.md` and the related technical documents;
+- rebuild the handoff context from the archived log `reference/isolated_handoff/readme.temp.md` and the related technical documents;
 - stop after producing an integration analysis document and an explicit checklist;
 - do not promote canonical repository changes yet.
 
@@ -42,9 +42,9 @@ The isolated branch does not contain one single feature. It contains four distin
 Recovered artifacts already present on `integration/sphinx-docs` include:
 
 - standalone handoff root:
-  - `readme.temp.md`
-- imported NotebookLM archive root:
-  - `doc/imports/notebooklm_exports/`
+  - `reference/isolated_handoff/readme.temp.md`
+- archived NotebookLM provenance manifest:
+  - `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
 - documentation comparison report:
   - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
   - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.pdf`
@@ -113,7 +113,7 @@ The following isolated assumptions are still valid in the synchronized state:
 - `Google-style docstrings` remain the selected documentation standard.
 - `GitHub Pages` remains the selected hosting target.
 - the archived `ur_rtde` PDF remains a valid visual benchmark for API density and structure.
-- `readme.temp.md` remains the authoritative handoff source for what was done in isolated mode.
+- `reference/isolated_handoff/readme.temp.md` remains the authoritative handoff source for what was done in isolated mode.
 
 ### Assumptions From Isolated Work That Need Revalidation
 
@@ -136,8 +136,8 @@ The recovered isolated work splits cleanly into two groups.
 
 These should remain archival or comparative until a later explicit canonical integration batch:
 
-- `readme.temp.md`
-- `doc/imports/notebooklm_exports/`
+- `reference/isolated_handoff/readme.temp.md`
+- `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
 - `reference/documentation_poc/mkdocs.poc.yml`
 - `reference/documentation_poc/doc_site_poc/`
 - `reference/documentation_poc/poc_sources/`
@@ -194,9 +194,9 @@ This keeps the first canonical step small, low-risk, and compatible with the cur
 
 ## Involved Components
 
-- `readme.temp.md`
+- `reference/isolated_handoff/readme.temp.md`
   Main authoritative handoff for isolated-mode work.
-- `doc/imports/notebooklm_exports/`
+- `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
   Recovered archive tree for imported NotebookLM guide materials.
 - `doc/technical/2026-03-20/2026-03-20-17-01-59_notebooklm_export_ingestion_and_archive.md`
 - `doc/technical/2026-03-22/2026-03-22-09-50-07_additional_notebooklm_guide_archives.md`
@@ -220,7 +220,7 @@ This keeps the first canonical step small, low-risk, and compatible with the cur
 
 1. Preserve the current local branch state non-destructively and verify whether a checkpoint commit is needed.
 2. Fetch `origin/isolated`, create `integration/sphinx-docs`, and cherry-pick the missing isolated commits in chronological order.
-3. Reconstruct the isolated-mode context by reading `readme.temp.md` and the related documentation-architecture technical notes.
+3. Reconstruct the isolated-mode context by reading `reference/isolated_handoff/readme.temp.md` and the related documentation-architecture technical notes.
 4. Compare the synchronized repository state against the isolated assumptions and identify shared files at conflict risk.
 5. Classify the recovered isolated files into:
    - archive / handoff / comparative material

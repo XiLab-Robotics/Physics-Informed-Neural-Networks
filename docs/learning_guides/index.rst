@@ -22,6 +22,7 @@ Additional imported-only topic currently present under the guide subtree:
 
 - ``Multilayer Perceptrons``
 
-The old isolated archive root under ``doc/imports/notebooklm_exports/`` is now
-kept only as a lightweight provenance manifest rather than as the canonical
-storage location for the imported media files.
+The former isolated archive root under ``doc/imports/notebooklm_exports/`` has
+been retired from the live tree. Its provenance summary now survives under
+``reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`` rather
+than as a standalone guide-media root.

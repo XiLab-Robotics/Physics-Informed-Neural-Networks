@@ -3,7 +3,7 @@
 ## Overview
 
 This document defines the reconciliation batch required to complete the
-integration work originally described in `readme.temp.md`.
+integration work originally described in the archived handoff log `reference/isolated_handoff/readme.temp.md`.
 
 The current `integration/sphinx-docs` branch already integrated the
 documentation-platform decision trail, the canonical Sphinx portal, and several
@@ -24,7 +24,7 @@ remaining handoff obligations.
 ## Technical Approach
 
 The reconciliation should follow the synchronized phases described in
-`readme.temp.md`, but with one explicit clarification:
+`reference/isolated_handoff/readme.temp.md`, but with one explicit clarification:
 
 - `doc/imports/notebooklm_exports/` was correct as the isolated archival state;
 - it is not the intended final canonical state if the synchronized migration is
@@ -57,7 +57,7 @@ changes.
 
 ## Involved Components
 
-- `readme.temp.md`
+- `reference/isolated_handoff/readme.temp.md`
 - `doc/reports/analysis/learning_guides/`
 - `doc/guide/`
 - `doc/imports/notebooklm_exports/`

@@ -23,3 +23,9 @@ platform evaluation to the canonical `Sphinx + RTD` portal.
    sphinx_batch0_canonical_foundation
    sphinx_canonical_integration_phase1
    sphinx_canonical_integration_phase2
+   sphinx_canonical_integration_phase3_core_training_infrastructure
+   sphinx_canonical_integration_phase4_model_family_api_coverage
+   isolated_integration_reconciliation_and_learning_guide_migration
+   isolated_integration_remaining_work_verification
+   documentation_poc_cleanup_and_archival
+   isolated_handoff_and_provenance_root_retirement

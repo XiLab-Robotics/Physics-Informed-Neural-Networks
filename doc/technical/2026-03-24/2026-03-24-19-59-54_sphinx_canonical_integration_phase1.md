@@ -80,7 +80,7 @@ Phase 1 still does not include:
   Canonical backlog master note to expose through the portal.
 - `doc/reports/analysis/2026-03-22-10-28-00_code_documentation_platform_comparison_report.md`
   Canonical analysis report to expose through the portal.
-- `doc/imports/notebooklm_exports/`
+- `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
   Recovered archive tree to document canonically without yet migrating files into guide folders.
 - `scripts/models/feedforward_network.py`
   First canonical model API module to document.

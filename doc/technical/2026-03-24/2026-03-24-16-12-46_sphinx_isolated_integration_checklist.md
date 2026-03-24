@@ -10,7 +10,7 @@
 - [x] Determined that the isolated commit series was missing from the base
 - [x] Cherry-picked the isolated commit series in chronological order
 - [x] Verified that cherry-picking completed without conflicts
-- [x] Rebuilt the isolated work context from `readme.temp.md`
+- [x] Rebuilt the isolated work context from the archived handoff log `reference/isolated_handoff/readme.temp.md`
 - [x] Read the requested NotebookLM, MkDocs, Sphinx, docstring, GitHub Pages, and backlog documents
 - [x] Produced the integration analysis document
 
@@ -25,7 +25,7 @@
 
 ## NotebookLM Archive Classification
 
-- [x] Confirmed `doc/imports/notebooklm_exports/` is recovered on the integration branch
+- [x] Confirmed the former `NotebookLM` archive root is preserved through the archived provenance manifest `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
 - [x] Confirmed the imported bundles remain archive material, not yet canonical guide content
 - [x] Confirmed the archive now covers:
   - [x] `neural_network_foundations`
@@ -43,7 +43,7 @@
 - [x] Confirmed final target platform remains `Sphinx + RTD`
 - [x] Confirmed official docstring standard remains `Google-style`
 - [x] Confirmed publication target remains `GitHub Pages`
-- [x] Confirmed `readme.temp.md` remains the main isolated-mode source of truth
+- [x] Confirmed `reference/isolated_handoff/readme.temp.md` remains the main isolated-mode source of truth
 
 ## Batch 0 Canonical Start
 

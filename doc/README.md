@@ -355,6 +355,8 @@ This folder contains the internal project documents derived from the reference P
   Technical verification note for checking whether any isolated-branch work still remains outside the canonical repository state after reconciliation.
 - [technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md](./technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md)
   Technical cleanup note for relocating the remaining isolated documentation proof-of-concept artifacts out of the repository root and into an archival location.
+- [technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md](./technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md)
+  Technical cleanup note for retiring the now-empty isolated handoff roots and relocating their remaining provenance artifacts into a dedicated archive subtree.
 
 #### Campaign Results
 

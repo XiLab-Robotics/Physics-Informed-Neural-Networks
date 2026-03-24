@@ -309,6 +309,7 @@ Technical documents:
   * `doc/technical/2026-03-24/2026-03-24-20-58-19_isolated_integration_reconciliation_and_learning_guide_migration.md`
   * `doc/technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md`
   * `doc/technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md`
+  * `doc/technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md`
 
 Script documentation:
 

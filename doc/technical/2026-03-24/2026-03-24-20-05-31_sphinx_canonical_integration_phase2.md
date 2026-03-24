@@ -44,7 +44,7 @@ structures.
 - `doc/technical/2026-03-20/`
 - `doc/technical/2026-03-22/`
 - `doc/technical/2026-03-23/`
-- `doc/imports/notebooklm_exports/`
+- `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
 - `reference/documentation_visual_references/ur_rtde_api_reference_example.pdf`
 
 ## Implementation Steps
