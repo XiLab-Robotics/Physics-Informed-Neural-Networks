@@ -335,6 +335,12 @@ This folder contains the internal project documents derived from the reference P
   Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
 - [technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
   Technical document for the final reporting work of the completed Wave 1 structured baseline recovery campaign.
+- [technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_analysis.md](./technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_analysis.md)
+  Integration analysis for recovering the isolated documentation work onto the synchronized repository state.
+- [technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_checklist.md](./technical/2026-03-24/2026-03-24-16-12-46_sphinx_isolated_integration_checklist.md)
+  Explicit checklist for the isolated-work recovery and the first canonical Sphinx integration steps.
+- [technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md](./technical/2026-03-24/2026-03-24-19-40-45_sphinx_batch0_canonical_foundation.md)
+  Technical implementation note for the canonical Batch 0 Sphinx foundation.
 
 #### Campaign Results
 

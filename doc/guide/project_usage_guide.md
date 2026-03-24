@@ -1197,6 +1197,39 @@ python -m scripts.datasets.visualize_transmission_error --file-index 0 --save-pa
 conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
 ```
 
+## Documentation Portal Build
+
+The repository now includes the canonical Batch 0 foundation for the future `Sphinx + RTD` documentation portal under:
+
+- `docs/`
+
+Current Batch 0 scope:
+
+- canonical `Sphinx` configuration;
+- local build instructions;
+- section shells for `Getting Started`, `Project Guide`, and `API Reference`.
+
+Deferred work:
+
+- guide migration;
+- NotebookLM media migration;
+- `GitHub Pages` publication;
+- large-scale canonical docstring rewrites.
+
+To build the local HTML portal:
+
+```powershell
+conda activate standard_ml_codex_env
+python -m pip install -r requirements.txt
+python -m sphinx -W -b html docs docs/_build/html
+```
+
+Successful output is written to:
+
+- `docs/_build/html`
+
+Batch 0 is intentionally minimal. If the build succeeds, the next step is to add the first real canonical API slice on top of this foundation rather than expanding the shell structure blindly.
+
 ## Inference Status
 
 Inference and export are not yet implemented as runnable project scripts.
