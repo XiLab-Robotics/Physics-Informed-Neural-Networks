@@ -1,0 +1,39 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/tree
+experiment:
+  run_name: te_random_forest_tabular_recovery
+  model_family: tree
+  model_type: random_forest
+metadata:
+  campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
+  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  phase_name: tree_benchmark_recovery
+  campaign_config_id: random_forest_tabular_conservative
+  notes: Conservative recovery rerun for the random forest benchmark after the memory
+    allocation failure.
+  random_seed: 42
+  output_artifact_kind: training_run
+  output_run_name: te_random_forest_tabular_recovery
+  run_instance_id: 2026-03-20-17-15-25__te_random_forest_tabular_recovery
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: false
+model:
+  input_size: 5
+  output_size: 1
+  n_estimators: 300
+  max_depth: 18
+  min_samples_leaf: 5
+  n_jobs: 1
+training:
+  deterministic: true
+runtime:
+  accelerator: cpu
+  devices: 1
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: false

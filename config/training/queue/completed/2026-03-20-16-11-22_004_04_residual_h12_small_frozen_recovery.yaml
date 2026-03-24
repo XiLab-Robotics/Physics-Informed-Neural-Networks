@@ -1,0 +1,52 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/residual_harmonic_mlp
+experiment:
+  run_name: te_residual_h12_small_frozen_recovery
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+metadata:
+  campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
+  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  phase_name: residual_harmonic_mlp_recovery
+  campaign_config_id: residual_h12_small_frozen_recovery
+  notes: Recovery rerun for the frozen-branch residual harmonic model after the schema-aware
+    training summary fix.
+  random_seed: 42
+  output_artifact_kind: training_run
+  output_run_name: te_residual_h12_small_frozen_recovery
+  run_instance_id: 2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 12
+  coefficient_mode: static
+  residual_hidden_size:
+  - 64
+  - 64
+  residual_activation_name: GELU
+  residual_dropout_probability: 0.1
+  residual_use_layer_norm: true
+  freeze_structured_branch: true
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

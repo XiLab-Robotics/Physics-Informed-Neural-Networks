@@ -216,11 +216,40 @@ def print_training_configuration_summary(training_config: dict) -> None:
     # Print Model Configuration
     print_subsection_header("Model")
     print_key_value("Input Size", model_config["input_size"], value_color=Fore.YELLOW)
-    print_key_value("Hidden Layers", model_config["hidden_size"], value_color=Fore.YELLOW)
-    print_key_value("Output Size", model_config["output_size"], value_color=Fore.YELLOW)
-    print_key_value("Activation", model_config["activation_name"], value_color=Fore.YELLOW)
-    print_key_value("Dropout Probability", model_config["dropout_probability"], value_color=Fore.YELLOW)
-    print_key_value("Use Layer Norm", model_config["use_layer_norm"], value_color=Fore.YELLOW)
+    print_key_value("Output Size", model_config.get("output_size", 1), value_color=Fore.YELLOW)
+
+    # Resolve Model-Specific Configuration Fields
+    normalized_model_type = str(experiment_config["model_type"]).strip().lower()
+
+    # Print Feedforward Network Configuration
+    if normalized_model_type in ["feedforward", "periodic_mlp"]:
+        print_key_value("Hidden Layers", model_config["hidden_size"], value_color=Fore.YELLOW)
+        print_key_value("Activation", model_config["activation_name"], value_color=Fore.YELLOW)
+        print_key_value("Dropout Probability", model_config["dropout_probability"], value_color=Fore.YELLOW)
+        print_key_value("Use Layer Norm", model_config["use_layer_norm"], value_color=Fore.YELLOW)
+
+        # Print Periodic MLP Configuration
+        if normalized_model_type == "periodic_mlp":
+            print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+            print_key_value("Include Raw Angle Feature", model_config.get("include_raw_angle_feature", True), value_color=Fore.YELLOW)
+
+    # Print Harmonic Regression Configuration
+    elif normalized_model_type == "harmonic_regression":
+        print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+        print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
+
+    # Print Residual Harmonic Regression Configuration
+    elif normalized_model_type == "residual_harmonic_mlp":
+        print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+        print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
+        print_key_value("Residual Hidden Layers", model_config["residual_hidden_size"], value_color=Fore.YELLOW)
+        print_key_value("Residual Activation", model_config.get("residual_activation_name", "GELU"), value_color=Fore.YELLOW)
+        print_key_value("Residual Dropout Probability", model_config.get("residual_dropout_probability", 0.10), value_color=Fore.YELLOW)
+        print_key_value("Residual Use Layer Norm", model_config.get("residual_use_layer_norm", True), value_color=Fore.YELLOW)
+        print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
+
+    # Print Model Config Keys
+    else: print_key_value("Model Config Keys", sorted(model_config.keys()), value_color=Fore.YELLOW)
 
     # Print Optimization Configuration
     print_subsection_header("Optimization")

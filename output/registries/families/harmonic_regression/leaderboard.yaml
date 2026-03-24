@@ -1,0 +1,80 @@
+schema_version: 1
+model_family: harmonic_regression
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-03-20T16:41:05'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
+  run_name: te_harmonic_order12_linear_conditioned_recovery
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery
+  output_artifact_kind: training_run
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.01700371317565441
+  val_rmse: 0.01854725554585457
+  test_mae: 0.02078191749751568
+  test_rmse: 0.02240518294274807
+  output_directory: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
+  best_checkpoint_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/checkpoints/harmonic_regression-epoch=026-val_mae=0.01700371.ckpt
+  metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/metrics_summary.yaml
+  report_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T16:41:05'
+- run_instance_id: 2026-03-20-16-20-27__te_harmonic_order12_static_recovery
+  run_name: te_harmonic_order12_static_recovery
+  output_run_name: te_harmonic_order12_static_recovery
+  output_artifact_kind: training_run
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  trainable_parameter_count: 25
+  total_parameter_count: 25
+  val_mae: 0.040524207055568695
+  val_rmse: 0.04258354380726814
+  test_mae: 0.039403777569532394
+  test_rmse: 0.04279709979891777
+  output_directory: output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery
+  best_checkpoint_path: output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/checkpoints/harmonic_regression-epoch=017-val_mae=0.04052421.ckpt
+  metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/metrics_summary.yaml
+  report_path: output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T16:31:19'
+- run_instance_id: 2026-03-20-16-11-22__te_harmonic_order06_static_recovery
+  run_name: te_harmonic_order06_static_recovery
+  output_run_name: te_harmonic_order06_static_recovery
+  output_artifact_kind: training_run
+  model_family: harmonic_regression
+  model_type: harmonic_regression
+  trainable_parameter_count: 13
+  total_parameter_count: 13
+  val_mae: 0.04052872955799103
+  val_rmse: 0.042572181671857834
+  test_mae: 0.03940555080771446
+  test_rmse: 0.042796406894922256
+  output_directory: output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery
+  best_checkpoint_path: output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/checkpoints/harmonic_regression-epoch=005-val_mae=0.04052873.ckpt
+  metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/metrics_summary.yaml
+  report_path: output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T16:20:27'

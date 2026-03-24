@@ -1,0 +1,80 @@
+schema_version: 1
+campaign_name: wave1_structured_baseline_campaign_2026_03_17_21_01_47
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-03-20T15:20:04'
+entry_count: 3
+entry_list:
+- run_instance_id: 2026-03-20-14-19-32__te_periodic_mlp_h04_standard
+  run_name: te_periodic_mlp_h04_standard
+  output_run_name: te_periodic_mlp_h04_standard
+  output_artifact_kind: training_run
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.0030973549000918865
+  val_rmse: 0.0036284190136939287
+  test_mae: 0.003317474853247404
+  test_rmse: 0.003792748088017106
+  output_directory: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard
+  best_checkpoint_path: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/checkpoints/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/metrics_summary.yaml
+  report_path: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T15:20:04'
+- run_instance_id: 2026-03-20-14-35-54__te_periodic_mlp_h08_standard
+  run_name: te_periodic_mlp_h08_standard
+  output_run_name: te_periodic_mlp_h08_standard
+  output_artifact_kind: training_run
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+  trainable_parameter_count: 28289
+  total_parameter_count: 28289
+  val_mae: 0.003085658885538578
+  val_rmse: 0.0036411213222891092
+  test_mae: 0.003395038191229105
+  test_rmse: 0.003950762562453747
+  output_directory: output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard
+  best_checkpoint_path: output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard/checkpoints/periodic_mlp-epoch=027-val_mae=0.00308566.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard/metrics_summary.yaml
+  report_path: output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T15:20:04'
+- run_instance_id: 2026-03-20-14-52-40__te_periodic_mlp_h08_wide
+  run_name: te_periodic_mlp_h08_wide
+  output_run_name: te_periodic_mlp_h08_wide
+  output_artifact_kind: training_run
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+  trainable_parameter_count: 47745
+  total_parameter_count: 47745
+  val_mae: 0.0030886391177773476
+  val_rmse: 0.003652627347037196
+  test_mae: 0.0035897025372833014
+  test_rmse: 0.004143117927014828
+  output_directory: output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide
+  best_checkpoint_path: output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide/checkpoints/periodic_mlp-epoch=046-val_mae=0.00308864.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide/metrics_summary.yaml
+  report_path: output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T15:20:04'

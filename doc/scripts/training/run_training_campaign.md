@@ -121,3 +121,13 @@ During execution, the campaign runner now keeps the direct single-run training o
 The underlying run artifacts are now expected under `output/training_runs/<model_family>/<run_instance_id>/`, while campaign summaries remain under `output/training_campaigns/<campaign_id>/`.
 
 The same runner can now dispatch both neural and tree-based structured baselines inside one campaign, provided each YAML exposes a supported `experiment.model_type`.
+
+## Short Launcher For The Wave 1 Recovery Campaign
+
+The repository also provides a short PowerShell launcher that expands to the approved Wave 1 recovery campaign and preserves the same terminal logging behavior:
+
+```powershell
+.\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
+```
+
+The launcher is a convenience wrapper only. It does not change queue handling, output paths, or per-run logging. For the recovery campaign, it also removes stale pending or running recovery YAML files left by previous failed launch attempts before re-enqueuing the approved config set.

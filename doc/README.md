@@ -245,6 +245,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the tree-based structured-baseline training entry point.
 - [scripts/training/run_training_campaign.md](./scripts/training/run_training_campaign.md)
   Script-level documentation for the persistent queue-based batch training runner.
+- [scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md](./scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md)
+  Script-level documentation for the short Wave 1 recovery campaign launcher.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -327,6 +329,12 @@ This folder contains the internal project documents derived from the reference P
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
 - [reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md](./reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md)
   Planning report for the first Wave 1 structured-baseline exploratory campaign across harmonic, periodic-feature, residual, and tree-based model families.
+- [reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md](./reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md)
+  Planning report for the Wave 1 recovery campaign that reruns the failed harmonic, residual, and random forest branches after the model-aware summary fix.
+- [technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
+  Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
+- [technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
+  Technical document for the final reporting work of the completed Wave 1 structured baseline recovery campaign.
 
 #### Campaign Results
 
@@ -334,6 +342,8 @@ This folder contains the internal project documents derived from the reference P
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
 - [reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md](./reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md)
   Final results report for the completed mixed feedforward campaign, including the recommended best-training preset selection.
+- [reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
+  Final results report for the completed Wave 1 recovery campaign, including campaign ranking, family-level outcomes, and program-level context.
 
 ### Running State
 

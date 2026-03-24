@@ -292,6 +292,12 @@ Technical documents:
   * `doc/technical/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md`
   * `doc/technical/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md`
   * `doc/technical/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md`
+  * `doc/technical/2026-03-20/2026-03-20-15-21-50_wave1_campaign_failure_fix_and_dispatch.md`
+  * `doc/technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md`
+  * `doc/technical/2026-03-20/2026-03-20-16-07-39_windows_campaign_path_length_and_recovery_queue_cleanup.md`
+* `2026-03-24`
+  * `doc/technical/2026-03-24/2026-03-24-10-00-00_campaign_launcher_location_reorganization.md`
+  * `doc/technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 
 Script documentation:
 
@@ -300,6 +306,7 @@ Script documentation:
 * `doc/scripts/training/train_feedforward_network.md`
 * `doc/scripts/training/train_tree_regressor.md`
 * `doc/scripts/training/run_training_campaign.md`
+* `doc/scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md`
 * `doc/scripts/training/validate_training_setup.md`
 * `doc/scripts/training/run_training_smoke_test.md`
 * `doc/scripts/reports/generate_model_report_diagrams.md`
@@ -344,9 +351,11 @@ Reports:
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+  * `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 * `Campaign Results`
-  * `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
-  * `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
+* `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
+* `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
+* `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 
 Guides:
 

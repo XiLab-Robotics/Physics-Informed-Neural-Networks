@@ -13,9 +13,14 @@ At the moment, the implemented workflows are:
 - tree-based structured baselines through `RandomForestRegressor` and `HistGradientBoostingRegressor`;
 - one-batch training-setup validation for the shared Wave 0 training infrastructure;
 - minimal neural or tree smoke-test execution for the shared training infrastructure;
-- persistent batch training campaigns through a queue-based runner.
+- persistent batch training campaigns through a queue-based runner;
+- a short PowerShell launcher for the Wave 1 recovery campaign that keeps the same live terminal logging and per-run artifact behavior;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility.
+
+The shared neural training entry point now prints model-specific configuration details for feedforward, harmonic regression, periodic-feature MLP, and residual-harmonic MLP runs instead of assuming every model uses the same dense-layer schema.
+
+For the tree benchmark, the current workstation should use conservative `RandomForestRegressor` settings. A follow-up validation on a higher-memory machine is still required to check whether the previously observed memory failure is hardware-specific and whether a larger RAM budget allows stronger tree configurations.
 
 Recurrent models, LSTM-based models, inference/export flows, and PINN-specific training are still planned future extensions. They are not yet exposed as runnable project workflows.
 
@@ -86,6 +91,9 @@ The current usage flow mainly relies on these folders:
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
+- `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
+  Short PowerShell launcher for the Wave 1 recovery campaign.
+
 - `scripts/models/`
   Neural-network backbones and the model factory.
 
@@ -133,6 +141,17 @@ The current usage flow mainly relies on these folders:
 
 - `doc/reports/analysis/`
   Analysis reports grouped by purpose (`model_explanatory/`, `training_analysis/`, `analytical_studies/`, `family_studies/`).
+
+## Short Launcher
+
+The Wave 1 recovery campaign can also be launched through the short wrapper:
+
+```powershell
+.\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
+```
+
+This wrapper only reduces typing. It preserves the same terminal output, logs, and campaign artifacts as the full runner command.
+It also clears stale pending or running recovery YAML files from earlier failed launcher attempts before re-enqueuing the approved recovery set.
 
 ## Styled Report PDF Export And Validation
 

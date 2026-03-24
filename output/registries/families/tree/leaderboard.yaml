@@ -1,0 +1,57 @@
+schema_version: 1
+model_family: tree
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-03-20T18:32:18'
+entry_count: 2
+entry_list:
+- run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
+  run_name: te_hist_gbr_tabular
+  output_run_name: te_hist_gbr_tabular
+  output_artifact_kind: training_run
+  model_family: tree
+  model_type: hist_gradient_boosting
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0027194633401988267
+  val_rmse: 0.003652226995708031
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.00360686466478114
+  output_directory: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular
+  best_checkpoint_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/tree_model.pkl
+  metrics_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/metrics_summary.yaml
+  report_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T15:20:03'
+- run_instance_id: 2026-03-20-17-15-25__te_random_forest_tabular_recovery
+  run_name: te_random_forest_tabular_recovery
+  output_run_name: te_random_forest_tabular_recovery
+  output_artifact_kind: training_run
+  model_family: tree
+  model_type: random_forest
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.003792020490298211
+  val_rmse: 0.004970735618242183
+  test_mae: 0.00383293685361862
+  test_rmse: 0.004808893636650297
+  output_directory: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery
+  best_checkpoint_path: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/tree_model.pkl
+  metrics_path: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/metrics_summary.yaml
+  report_path: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-20T18:32:18'

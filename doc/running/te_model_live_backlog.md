@@ -21,9 +21,9 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active
-- Current Completed Wave: `Wave 0`
-- Current Focus: `Wave 1` structured-baseline campaign prepared and ready for execution
-- Current Best Implemented Family: `feedforward`
+- Current Completed Wave: `Wave 1` structured-baseline campaign
+- Current Focus: `Wave 1` recovery campaign prepared and ready for execution
+- Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Current Reference Feedforward Baseline Run:
   - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/metrics_summary.yaml`
@@ -82,7 +82,8 @@ Verification:
 ## In Progress
 
 - `Wave 1` structured baseline implementation completed
-- `Wave 1` campaign package generated and registered as `prepared`
+- `Wave 1` campaign completed with a mixed outcome that exposed the schema-aware summary bug and the random forest memory issue
+- `Wave 1` recovery campaign package generated and registered as `prepared`
 - representative validation and smoke-test verification completed for all Wave 1 families
 
 ## Next Up
@@ -91,8 +92,9 @@ Verification:
 
 Current next step:
 
-- launch the approved structured-baseline campaign when the user decides to start it
-- write the structured-baseline results report with validated PDF export after campaign completion
+- launch the approved Wave 1 recovery campaign when the user decides to start it
+- write the recovery campaign results report with validated PDF export after campaign completion
+- schedule a follow-up random forest retry on a higher-memory machine to verify whether the observed `MemoryError` is workstation-specific and whether a larger RAM budget improves the benchmark outcome
 
 ## Deferred / Low Priority
 
