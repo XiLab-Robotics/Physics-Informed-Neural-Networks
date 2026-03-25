@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Periodic Feature Network TE Model Diagram</title>
+  <desc id="desc">Conceptual flow diagram of the periodic feature network transmission-error model.</desc>
+  <defs>
+    <linearGradient id="canvas_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35478C"/>
+      <stop offset="100%" stop-color="#16193B"/>
+    </linearGradient>
+    <linearGradient id="card_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <marker id="arrow_head" markerWidth="8" markerHeight="8" refX="6.8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4E7AC7"/>
+    </marker>
+    <style>
+      .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .canvas-subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #dfeaff; }
+      .card-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .card-text { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+      .card-note { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .tiny { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .node-label { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .node-small-label { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .flow-row-text { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1280" height="720" rx="28" fill="#FFFFFF"/>
+  <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
+  <text x="64" y="68" class="canvas-title">Periodic Feature Network</text>
+  <text x="64" y="98" class="canvas-subtitle">Handcrafted periodic encoding followed by nonlinear dense regression</text>
+  <g transform="translate(0,58.0)">
+  <rect x="58" y="187" width="204" height="190" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M76, 187 H244 Q262, 187 262, 205 V233 H58 V205 Q58, 187 76, 187 Z" fill="url(#card_header)"/>
+  <line x1="58" y1="233" x2="262" y2="233" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="160" y="218" text-anchor="middle" class="card-title">Raw Angle</text>
+  <text x="82.0" y="274.0" text-anchor="start" class="card-text">Angle sample</text>
+  <text x="82.0" y="294.0" text-anchor="start" class="card-text">Used to build</text>
+  <text x="82.0" y="314.0" text-anchor="start" class="card-text">periodic channels</text>
+  <text x="82.0" y="346.0" text-anchor="start" class="card-note">Angle drives expansion</text>
+  <rect x="316" y="146" width="292" height="272" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M334, 146 H590 Q608, 146 608, 164 V192 H316 V164 Q316, 146 334, 146 Z" fill="url(#card_header)"/>
+  <line x1="316" y1="192" x2="608" y2="192" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="462.0" y="177" text-anchor="middle" class="card-title">Periodic Feature Builder</text>
+  <rect x="340" y="231.0" width="244" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="462.0" y="245.0" text-anchor="middle" class="flow-row-text">sin(theta) and cos(theta)</text>
+  <line x1="462.0" y1="254.0" x2="462.0" y2="268.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="340" y="275.0" width="244" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="462.0" y="289.0" text-anchor="middle" class="flow-row-text">Higher-order channels</text>
+  <line x1="462.0" y1="298.0" x2="462.0" y2="312.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="340" y="319.0" width="244" height="18" rx="12" fill="#F7FBFF" stroke="#7FB2F0" stroke-width="1.2"/>
+  <text x="462.0" y="333.0" text-anchor="middle" class="flow-row-text">Optional raw normalized angle</text>
+  <text x="462.0" y="389.0" text-anchor="middle" class="card-note">Periodic prior enters as features</text>
+  <rect x="670" y="187" width="224" height="190" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M688, 187 H876 Q894, 187 894, 205 V233 H670 V205 Q670, 187 688, 187 Z" fill="url(#card_header)"/>
+  <line x1="670" y1="233" x2="894" y2="233" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="782" y="218" text-anchor="middle" class="card-title">Concatenation</text>
+  <text x="694.0" y="274.0" text-anchor="start" class="card-text">Periodic channels</text>
+  <text x="694.0" y="294.0" text-anchor="start" class="card-text">Operating-state features</text>
+  <text x="694.0" y="314.0" text-anchor="start" class="card-text">One expanded vector</text>
+  <text x="694.0" y="346.0" text-anchor="start" class="card-note">Structured plus generic inputs</text>
+  <rect x="952" y="146" width="264" height="272" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M970, 146 H1198 Q1216, 146 1216, 164 V192 H952 V164 Q952, 146 970, 146 Z" fill="url(#card_header)"/>
+  <line x1="952" y1="192" x2="1216" y2="192" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1084.0" y="177" text-anchor="middle" class="card-title">FeedForward Backbone</text>
+  <rect x="976" y="231.0" width="216" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="1084.0" y="245.0" text-anchor="middle" class="flow-row-text">Dense nonlinear mixing</text>
+  <line x1="1084.0" y1="254.0" x2="1084.0" y2="268.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="976" y="275.0" width="216" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="1084.0" y="289.0" text-anchor="middle" class="flow-row-text">Interaction learning</text>
+  <line x1="1084.0" y1="298.0" x2="1084.0" y2="312.0" stroke="#4E7AC7" stroke-width="1.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="976" y="319.0" width="216" height="18" rx="12" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="1.2"/>
+  <text x="1084.0" y="333.0" text-anchor="middle" class="flow-row-text">Scalar TE head</text>
+  <text x="1084.0" y="389.0" text-anchor="middle" class="card-note">Flexible regressor on structured inputs</text>
+  <line x1="270.0" y1="282.0" x2="304.0" y2="282.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="616.0" y1="282.0" x2="658.0" y2="282.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="902.0" y1="282.0" x2="940.0" y2="282.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <rect x="114" y="464" width="1048" height="106" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M132, 464 H1144 Q1162, 464 1162, 482 V510 H114 V482 Q114, 464 132, 464 Z" fill="url(#card_header)"/>
+  <line x1="114" y1="510" x2="1162" y2="510" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="638" y="495" text-anchor="middle" class="card-title">Interpretation</text>
+  <text x="638.0" y="544.0" text-anchor="middle" class="card-text">This model is the middle ground between pure harmonic structure and a completely generic feedforward MLP.</text>
+  </g>
+
+</svg>

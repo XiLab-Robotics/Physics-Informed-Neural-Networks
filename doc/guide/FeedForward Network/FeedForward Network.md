@@ -60,7 +60,7 @@ It can learn correlations from data, but it must discover periodicity and operat
 
 ## Conceptual Map
 
-![FeedForward Network conceptual diagram](../model_reference/FeedForward%20Network/assets/feedforward_model_diagram.svg)
+![FeedForward Network conceptual diagram](assets/feedforward_model_diagram.svg)
 
 The conceptual reading is:
 
@@ -74,7 +74,7 @@ Use this diagram to remember that the model is a generic nonlinear regressor, no
 
 ## Architecture Diagram
 
-![FeedForward Network architecture diagram](../model_reference/FeedForward%20Network/assets/feedforward_model_architecture_diagram.svg)
+![FeedForward Network architecture diagram](assets/feedforward_model_architecture_diagram.svg)
 
 This diagram is the computational view of the same model.
 

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Periodic Feature Network TE Architecture Diagram</title>
+  <desc id="desc">Architecture-style diagram of periodic feature expansion followed by a dense neural network.</desc>
+  <defs>
+    <linearGradient id="canvas_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#35478C"/>
+      <stop offset="100%" stop-color="#16193B"/>
+    </linearGradient>
+    <linearGradient id="card_header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6FAFF"/>
+      <stop offset="100%" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <marker id="arrow_head" markerWidth="8" markerHeight="8" refX="6.8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4E7AC7"/>
+    </marker>
+    <style>
+      .canvas-title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .canvas-subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #dfeaff; }
+      .card-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .card-text { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+      .card-note { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .tiny { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #4E7AC7; }
+      .node-label { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .node-small-label { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #16193B; }
+      .flow-row-text { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #31466E; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1280" height="720" rx="28" fill="#FFFFFF"/>
+  <rect x="30" y="26" width="1220" height="92" rx="20" fill="url(#canvas_header)"/>
+  <text x="64" y="68" class="canvas-title">Periodic Feature Network Structure</text>
+  <text x="64" y="98" class="canvas-subtitle">Feature-expansion front end plus dense neural backbone</text>
+  <g transform="translate(0,67.0)">
+  <rect x="52" y="274" width="150" height="116" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M70, 274 H184 Q202, 274 202, 292 V320 H52 V292 Q52, 274 70, 274 Z" fill="url(#card_header)"/>
+  <line x1="52" y1="320" x2="202" y2="320" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="127" y="305" text-anchor="middle" class="card-title">Angle</text>
+  <text x="127.0" y="359.0" text-anchor="middle" class="card-text">Theta</text>
+  <rect x="244" y="142" width="228" height="332" rx="18" fill="#FFFFFF" stroke="#7FB2F0" stroke-width="3"/>
+  <path d="M262, 142 H454 Q472, 142 472, 160 V188 H244 V160 Q244, 142 262, 142 Z" fill="url(#card_header)"/>
+  <line x1="244" y1="188" x2="472" y2="188" stroke="#7FB2F0" stroke-width="2"/>
+  <text x="358" y="173" text-anchor="middle" class="card-title">Feature Expansion</text>
+  <text x="358.0" y="261.0" text-anchor="middle" class="card-text">sin(theta)</text>
+  <text x="358.0" y="281.0" text-anchor="middle" class="card-text">cos(theta)</text>
+  <text x="358.0" y="301.0" text-anchor="middle" class="card-text">sin(2 theta)</text>
+  <text x="358.0" y="321.0" text-anchor="middle" class="card-text">cos(2 theta)</text>
+  <text x="358.0" y="341.0" text-anchor="middle" class="card-text">Higher-order channels</text>
+  <text x="358.0" y="361.0" text-anchor="middle" class="card-text">Optional raw angle</text>
+  <text x="358.0" y="393.0" text-anchor="middle" class="card-note">2K or 2K + 1 periodic</text>
+  <text x="358.0" y="411.0" text-anchor="middle" class="card-note">channels</text>
+  <rect x="500" y="215" width="170" height="198" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M518, 215 H652 Q670, 215 670, 233 V261 H500 V233 Q500, 215 518, 215 Z" fill="url(#card_header)"/>
+  <line x1="500" y1="261" x2="670" y2="261" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="585" y="246" text-anchor="middle" class="card-title">Conditions</text>
+  <text x="585.0" y="296.0" text-anchor="middle" class="card-text">Speed</text>
+  <text x="585.0" y="316.0" text-anchor="middle" class="card-text">Torque</text>
+  <text x="585.0" y="336.0" text-anchor="middle" class="card-text">Temperature</text>
+  <text x="585.0" y="356.0" text-anchor="middle" class="card-text">Direction</text>
+  <text x="585.0" y="388.0" text-anchor="middle" class="card-note">Normalized inputs</text>
+  <rect x="742" y="268" width="156" height="128" rx="18" fill="#FFFFFF" stroke="#ADD5F7" stroke-width="3"/>
+  <path d="M760, 268 H880 Q898, 268 898, 286 V314 H742 V286 Q742, 268 760, 268 Z" fill="url(#card_header)"/>
+  <line x1="742" y1="314" x2="898" y2="314" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="820" y="299" text-anchor="middle" class="card-title">Concat</text>
+  <text x="820.0" y="349.0" text-anchor="middle" class="card-text">Expanded feature</text>
+  <text x="820.0" y="369.0" text-anchor="middle" class="card-text">vector</text>
+  <circle cx="970" cy="233" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="237" text-anchor="middle" class="node-label">h1</text>
+  <circle cx="970" cy="299" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="303" text-anchor="middle" class="node-label">h2</text>
+  <circle cx="970" cy="365" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="369" text-anchor="middle" class="node-label">h3</text>
+  <circle cx="970" cy="431" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="970" y="435" text-anchor="middle" class="node-label">h4</text>
+  <circle cx="1066" cy="266" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1066" y="270" text-anchor="middle" class="node-label">h1</text>
+  <circle cx="1066" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1066" y="336" text-anchor="middle" class="node-label">h2</text>
+  <circle cx="1066" cy="398" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1066" y="402" text-anchor="middle" class="node-label">h3</text>
+  <circle cx="1146" cy="332" r="15" fill="#F7FBFF" stroke="#ADD5F7" stroke-width="2"/>
+  <text x="1146" y="336" text-anchor="middle" class="node-label">TE</text>
+  <line x1="983.4" y1="226.3" x2="1052.6" y2="272.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="233.0" x2="1052.6" y2="338.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="239.7" x2="1052.6" y2="404.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="292.3" x2="1051.2" y2="268.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="299.0" x2="1051.2" y2="334.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="305.7" x2="1051.2" y2="400.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="358.3" x2="1051.2" y2="263.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="365.0" x2="1051.2" y2="329.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="371.7" x2="1051.2" y2="395.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="424.3" x2="1052.6" y2="259.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="985.0" y1="431.0" x2="1052.6" y2="325.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="983.4" y1="437.7" x2="1052.6" y2="391.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="1081.0" y1="266.0" x2="1132.6" y2="338.7" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="1081.0" y1="332.0" x2="1131.0" y2="332.0" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="1081.0" y1="398.0" x2="1132.6" y2="325.3" stroke="#C8DCF8" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="210.0" y1="332.0" x2="232.0" y2="332.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <path d="M480.0,430.0 L700.0,430.0 L700.0,350.0 L716.0,350.0 L730.0,350.0" fill="none" stroke="#4E7AC7" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="678.0" y1="314.0" x2="730.0" y2="314.0" stroke="#4E7AC7" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <line x1="906.0" y1="332.0" x2="943.0" y2="332.0" stroke="#4E7AC7" stroke-width="2.0" stroke-linecap="round" marker-end="url(#arrow_head)"/>
+  <text x="286" y="556" class="tiny">Periodic structure is handcrafted in front. Nonlinear interaction learning happens in the MLP.</text>
+  </g>
+
+</svg>

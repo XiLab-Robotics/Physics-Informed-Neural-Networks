@@ -48,7 +48,7 @@ The model can therefore be read as:
 
 ## Conceptual Map
 
-![Periodic Feature Network conceptual diagram](../model_reference/Periodic%20Feature%20Network/assets/periodic_feature_network_model_diagram.svg)
+![Periodic Feature Network conceptual diagram](assets/periodic_feature_network_model_diagram.svg)
 
 The conceptual view is:
 
@@ -61,7 +61,7 @@ This is a helpful mental model because it shows why the architecture is a middle
 
 ## Architecture Diagram
 
-![Periodic Feature Network architecture diagram](../model_reference/Periodic%20Feature%20Network/assets/periodic_feature_network_model_architecture_diagram.svg)
+![Periodic Feature Network architecture diagram](assets/periodic_feature_network_model_architecture_diagram.svg)
 
 The architecture view emphasizes the actual computation:
 

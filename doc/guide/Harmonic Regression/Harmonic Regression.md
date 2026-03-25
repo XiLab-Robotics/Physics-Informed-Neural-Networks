@@ -53,7 +53,7 @@ This is a stronger inductive bias than the feedforward baseline because the mode
 
 ## Conceptual Map
 
-![Harmonic Regression conceptual diagram](../model_reference/Harmonic%20Regression/assets/harmonic_regression_model_diagram.svg)
+![Harmonic Regression conceptual diagram](assets/harmonic_regression_model_diagram.svg)
 
 The conceptual reading is:
 
@@ -66,7 +66,7 @@ This diagram is useful because it shows that the model is closer to analytical r
 
 ## Architecture Diagram
 
-![Harmonic Regression architecture diagram](../model_reference/Harmonic%20Regression/assets/harmonic_regression_model_architecture_diagram.svg)
+![Harmonic Regression architecture diagram](assets/harmonic_regression_model_architecture_diagram.svg)
 
 The architecture view emphasizes the computation graph:
 

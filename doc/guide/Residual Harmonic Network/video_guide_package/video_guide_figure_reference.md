@@ -2,6 +2,6 @@
 
 | Figure | Title | Purpose | Narration Focus |
 | --- | --- | --- | --- |
-| `../../model_reference/Residual Harmonic Network/assets/residual_harmonic_network_model_diagram.svg` | Residual Harmonic Network Conceptual Diagram | Show the structured branch, residual branch, and additive merge. | Stress the explicit decomposition. |
-| `../../model_reference/Residual Harmonic Network/assets/residual_harmonic_network_model_architecture_diagram.svg` | Residual Harmonic Network Architecture Diagram | Show the concrete two-branch computation graph. | Stress that the model is a hybrid, not a single backbone. |
+| `../assets/residual_harmonic_network_model_diagram.svg` | Residual Harmonic Network Conceptual Diagram | Show the structured branch, residual branch, and additive merge. | Stress the explicit decomposition. |
+| `../assets/residual_harmonic_network_model_architecture_diagram.svg` | Residual Harmonic Network Architecture Diagram | Show the concrete two-branch computation graph. | Stress that the model is a hybrid, not a single backbone. |
 
