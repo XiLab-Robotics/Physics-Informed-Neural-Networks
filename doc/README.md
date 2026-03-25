@@ -371,6 +371,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for cleaning up current Markdown warnings and adding a repository-owned terminal checker so future Markdown files can be validated directly from source.
 - [technical/2026-03-25/2026-03-25-14-05-16_extended_markdownlint_rule_baseline.md](./technical/2026-03-25/2026-03-25-14-05-16_extended_markdownlint_rule_baseline.md)
   Technical document for formalizing the broader Markdownlint baseline, tracked rule policy, and canonical non-`reference/` scope.
+- [technical/2026-03-25/2026-03-25-14-31-40_readme_github_landing_page_redesign.md](./technical/2026-03-25/2026-03-25-14-31-40_readme_github_landing_page_redesign.md)
+  Technical document for redesigning the repository README as a GitHub-facing landing page for a new human user.
 
 #### Campaign Results
 
