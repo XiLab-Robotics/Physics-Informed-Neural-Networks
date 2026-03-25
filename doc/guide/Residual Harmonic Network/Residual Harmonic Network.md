@@ -2,7 +2,7 @@
 
 ## Overview
 
-This learning guide explains the repository's `Residual Harmonic Network`.
+This unified guide explains the repository's `Residual Harmonic Network` from both a learning-oriented and technical perspective.
 
 It is the most explicitly hybrid structured-neural architecture currently implemented in the repository.
 
@@ -63,6 +63,33 @@ The conceptual reading is:
 - one path captures residual nonlinear behavior;
 - the outputs are added into the final TE estimate.
 
+The model can also be summarized as:
+
+```text
+Input Point
+  -> Structured Branch
+       -> harmonic basis
+       -> harmonic coefficients
+       -> structured TE
+  -> Residual Branch
+       -> normalized input features
+       -> MLP
+       -> residual TE
+  -> sum
+  -> final TE prediction
+```
+
+More compactly:
+
+```text
+TE(theta, c) = H(theta, c) + R(theta, c)
+```
+
+where:
+
+- `H` is the structured harmonic branch;
+- `R` is the learned residual neural branch.
+
 This is the clearest way to remember what makes the architecture hybrid.
 
 ## Architecture Diagram
@@ -108,6 +135,20 @@ The hybrid model tries to keep both:
 - Requires reasoning about two branches instead of one.
 - Branch overlap can occur if the residual path learns what the structured path should have represented.
 - Slightly harder to explain than a pure harmonic model because the final output is distributed across two components.
+
+## Expected Behavior In The TE Context
+
+This model is especially promising when:
+
+- periodic structure is real and important;
+- but it does not explain the full TE behavior;
+- nonlinear condition effects remain after the harmonic approximation.
+
+It is a strong bridge between:
+
+- purely structured models;
+- fully flexible neural models;
+- future physics-informed hybrids.
 
 ## Repository Implementation
 
@@ -174,6 +215,62 @@ The training workflow is:
 6. reload the best checkpoint;
 7. report validation and test metrics.
 
+## Training Logic In This Repository
+
+### `TransmissionErrorRegressionModule.forward_regression_model(...)`
+
+This is the main integration point.
+
+Because `ResidualHarmonicNetwork` exposes `compute_auxiliary_output_dictionary(...)`, the regression module:
+
+- receives the total prediction tensor;
+- keeps the auxiliary branch outputs;
+- returns them inside the batch-output dictionary.
+
+This is more advanced than the plain contextual forward used by `harmonic_regression` and `periodic_mlp`.
+
+### `TransmissionErrorRegressionModule.compute_batch_outputs(...)`
+
+This function merges the auxiliary outputs returned by the model into the common batch-output dictionary.
+
+That means the training loop has access not only to:
+
+- total prediction;
+
+but also to:
+
+- structured branch prediction;
+- residual branch prediction.
+
+### `TransmissionErrorRegressionModule.compute_loss(...)`
+
+This function adds structured diagnostics when `structured_prediction_tensor` is available.
+
+Specifically, it logs:
+
+- `structured_mae`
+- `structured_rmse`
+
+after denormalizing the structured branch output.
+
+This is important because it lets us inspect:
+
+- how good the harmonic branch is on its own;
+- how much the residual branch is contributing.
+
+### `train_feedforward_network(...)`
+
+The outer training flow remains shared, but this model benefits more than the others from the reusable training design because:
+
+- the hybrid branch logic lives inside the model;
+- the diagnostic logging lives inside the generic regression module;
+- the orchestration code does not need to become model-specific.
+
+This is a good example of clean separation between:
+
+- model-specific behavior;
+- training infrastructure.
+
 ## Practical Interpretation
 
 `Residual Harmonic Network` is the architecture to use when you believe the signal has a real periodic backbone but still needs a learned correction term.
@@ -184,4 +281,4 @@ It is the clearest transitional architecture between the structured baselines an
 
 The `Residual Harmonic Network` is the most explicit structured-neural hybrid in the repository.
 
-It keeps the interpretability of harmonic modeling while recovering flexibility through a residual MLP branch.
+It keeps the interpretability of harmonic modeling while recovering flexibility through a residual MLP branch, and it is currently the clearest stepping stone toward the later hybrid and PINN-oriented stages of the program.

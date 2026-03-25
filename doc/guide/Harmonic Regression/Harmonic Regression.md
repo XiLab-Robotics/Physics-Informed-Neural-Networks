@@ -2,7 +2,7 @@
 
 ## Overview
 
-This learning guide explains the repository's `Harmonic Regression` architecture.
+This unified guide explains the repository's `Harmonic Regression` architecture from both a learning-oriented and technical perspective.
 
 The purpose of the guide is to show how TE can be modeled with an explicit periodic basis instead of a generic dense neural network.
 
@@ -13,6 +13,8 @@ The reader should come away with an understanding of:
 - how the coefficients are learned or conditioned;
 - why the model is much more interpretable than a plain MLP;
 - how the implementation fits into the shared training pipeline.
+
+This is the first explicitly TE-structured model in the repository.
 
 ## Model Description
 
@@ -62,6 +64,28 @@ The conceptual reading is:
 - the final prediction is a weighted harmonic sum;
 - the conditioned variant allows operating variables to adjust the coefficients.
 
+The model can also be summarized as:
+
+```text
+Input Point
+  -> raw angle theta
+  -> [1, sin(theta), cos(theta), ..., sin(K theta), cos(K theta)]
+  -> harmonic coefficient vector
+  -> element-wise product
+  -> sum
+  -> scalar TE prediction
+```
+
+Conditioned variant:
+
+```text
+[speed, torque, temperature, direction]
+  -> linear projection
+  -> coefficient correction
+  -> base coefficients + correction
+  -> harmonic prediction
+```
+
 This diagram is useful because it shows that the model is closer to analytical regression than to a generic neural network.
 
 ## Architecture Diagram
@@ -106,6 +130,20 @@ The model therefore serves as:
 - Truncation order must be chosen carefully.
 - Less flexible than a neural network when the data has richer interactions.
 
+## Expected Behavior In The TE Context
+
+This model is expected to work well when:
+
+- TE is dominated by periodic components;
+- the harmonic order is sufficient;
+- operating-condition dependence is moderate or smoothly varying.
+
+It may struggle when:
+
+- residual nonlinear behavior is strong;
+- condition dependence is highly nonlinear;
+- the TE signal contains effects that are not well represented by the chosen harmonic truncation.
+
 ## Repository Implementation
 
 The implementation is centered on these files:
@@ -120,7 +158,9 @@ The implementation is centered on these files:
 Key elements:
 
 - `HarmonicRegression.__init__(...)`
-  Validates the architecture settings, stores the harmonic order, and initializes the coefficient tensors.
+  Validates the TE input layout, stores the harmonic order, computes the feature count, and initializes:
+  - `base_coefficient_tensor`
+  - optional `conditioning_projection`
 
 - `build_harmonic_feature_tensor(...)`
   Converts angle to radians and constructs the harmonic basis.
@@ -171,6 +211,38 @@ The workflow is the shared structured-neural pipeline:
 6. the best checkpoint is reloaded;
 7. validation and test results are reported.
 
+## Training Logic In This Repository
+
+### `TransmissionErrorRegressionModule.forward_regression_model(...)`
+
+This is the key adaptation point for `harmonic_regression`.
+
+The function checks whether the backbone implements:
+
+- `compute_auxiliary_output_dictionary(...)`, or
+- `forward_with_input_context(...)`
+
+Since `HarmonicRegression` provides `forward_with_input_context(...)`, the regression module passes both:
+
+- the raw input tensor;
+- the normalized input tensor.
+
+This is necessary because:
+
+- the angular harmonic basis must be generated from the raw angle in degrees;
+- the operating-condition channels are better handled in normalized form.
+
+### `train_feedforward_network(...)`
+
+This function is still the main trainer for this model family.
+
+Nothing in the outer training loop is harmonic-specific. The specialization happens inside the backbone and the regression module interface.
+
+This is a strong architectural choice in the repository:
+
+- specialized model behavior;
+- shared training infrastructure.
+
 ## Practical Interpretation
 
 This model should be read as the question:
@@ -185,4 +257,4 @@ If the answer is no, the residual or periodic-feature architectures become more 
 `Harmonic Regression` is the first explicitly structured TE architecture in the repository.
 
 It is not just a baseline.
-It is the clearest representation of the fact that TE is periodic in angular position.
+It is the clearest representation of the fact that TE is periodic in angular position, while still fitting cleanly inside the shared training infrastructure.

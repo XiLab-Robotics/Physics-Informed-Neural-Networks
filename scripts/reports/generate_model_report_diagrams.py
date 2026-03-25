@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[2]
-MODEL_EXPLANATORY_REPORT_ROOT = PROJECT_PATH / "doc" / "guide" / "model_reference"
+MODEL_EXPLANATORY_REPORT_ROOT = PROJECT_PATH / "doc" / "guide"
 FEEDFORWARD_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "FeedForward Network" / "assets"
 HARMONIC_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "Harmonic Regression" / "assets"
 PERIODIC_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "Periodic Feature Network" / "assets"

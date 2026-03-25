@@ -68,7 +68,7 @@ Status:
 
 Related repository report:
 
-- [FeedForward Network](../model_reference/FeedForward%20Network/FeedForward%20Network.md)
+- [FeedForward Network](../FeedForward%20Network/FeedForward%20Network.md)
 
 ### Core Idea
 
@@ -155,7 +155,7 @@ Status:
 
 Related repository report:
 
-- [Harmonic Regression](../model_reference/Harmonic%20Regression/Harmonic%20Regression.md)
+- [Harmonic Regression](../Harmonic%20Regression/Harmonic%20Regression.md)
 
 ### Core Idea
 
@@ -230,7 +230,7 @@ Status:
 
 Related repository report:
 
-- [Periodic Feature Network](../model_reference/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
+- [Periodic Feature Network](../Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
 
 ### Principle
 
@@ -261,7 +261,7 @@ Status:
 
 Related repository report:
 
-- [Residual Harmonic Network](../model_reference/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+- [Residual Harmonic Network](../Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
 
 ### Principle
 
@@ -473,8 +473,8 @@ For this TE project, that progression is more meaningful than a naive "deeper is
 
 - [Neural Network Foundations](../Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
 - [Training, Validation, And Testing](../Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
-- [FeedForward Network](../model_reference/FeedForward%20Network/FeedForward%20Network.md)
-- [Harmonic Regression](../model_reference/Harmonic%20Regression/Harmonic%20Regression.md)
-- [Periodic Feature Network](../model_reference/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
-- [Residual Harmonic Network](../model_reference/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+- [FeedForward Network](../FeedForward%20Network/FeedForward%20Network.md)
+- [Harmonic Regression](../Harmonic%20Regression/Harmonic%20Regression.md)
+- [Periodic Feature Network](../Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
+- [Residual Harmonic Network](../Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
 

@@ -306,22 +306,22 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the residual-harmonic network learning guide.
 - [guide/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md](./guide/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md)
   NotebookLM-oriented source brief for the residual-harmonic network video guide package.
-- [guide/model_reference/FeedForward%20Network/FeedForward%20Network.md](./guide/model_reference/FeedForward%20Network/FeedForward%20Network.md)
-  Explanatory report for the implemented feedforward TE baseline, including conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
-- [guide/model_reference/FeedForward%20Network/FeedForward%20Network.pdf](./guide/model_reference/FeedForward%20Network/FeedForward%20Network.pdf)
-  Styled PDF export of the feedforward model explanatory report with integrated conceptual diagram.
-- [guide/model_reference/Harmonic%20Regression/Harmonic%20Regression.md](./guide/model_reference/Harmonic%20Regression/Harmonic%20Regression.md)
-  Explanatory report for the implemented harmonic-regression TE baseline, including the harmonic principle, coefficient modes, and repository integration details.
-- [guide/model_reference/Harmonic%20Regression/Harmonic%20Regression.pdf](./guide/model_reference/Harmonic%20Regression/Harmonic%20Regression.pdf)
-  Styled PDF export of the harmonic-regression model explanatory report with integrated conceptual diagram.
-- [guide/model_reference/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./guide/model_reference/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
-  Explanatory report for the implemented periodic-feature TE network, including periodic feature expansion, conceptual structure, and training integration notes.
-- [guide/model_reference/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./guide/model_reference/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
-  Styled PDF export of the periodic-feature network explanatory report with integrated conceptual diagram.
-- [guide/model_reference/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./guide/model_reference/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
-  Explanatory report for the implemented residual-harmonic TE network, including branch decomposition, auxiliary outputs, and structured-vs-residual training diagnostics.
-- [guide/model_reference/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./guide/model_reference/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
-  Styled PDF export of the residual-harmonic network explanatory report with integrated conceptual diagram.
+- [guide/FeedForward%20Network/FeedForward%20Network.md](./guide/FeedForward%20Network/FeedForward%20Network.md)
+  Unified canonical guide for the implemented feedforward TE baseline, combining conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
+- [guide/FeedForward%20Network/FeedForward%20Network.pdf](./guide/FeedForward%20Network/FeedForward%20Network.pdf)
+  Styled PDF export of the unified feedforward model guide.
+- [guide/Harmonic%20Regression/Harmonic%20Regression.md](./guide/Harmonic%20Regression/Harmonic%20Regression.md)
+  Unified canonical guide for the implemented harmonic-regression TE baseline, combining the harmonic principle, coefficient modes, conceptual framing, and repository integration details.
+- [guide/Harmonic%20Regression/Harmonic%20Regression.pdf](./guide/Harmonic%20Regression/Harmonic%20Regression.pdf)
+  Styled PDF export of the unified harmonic-regression model guide.
+- [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
+  Unified canonical guide for the implemented periodic-feature TE network, combining periodic feature expansion, conceptual structure, and training integration notes.
+- [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
+  Styled PDF export of the unified periodic-feature network guide.
+- [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
+  Unified canonical guide for the implemented residual-harmonic TE network, combining branch decomposition, hybrid interpretation, auxiliary outputs, and structured-vs-residual training diagnostics.
+- [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
+  Styled PDF export of the unified residual-harmonic network guide.
 
 #### Campaign Plans
 

@@ -21,10 +21,10 @@ PDF_VALIDATOR_PATH = PROJECT_PATH / "scripts" / "reports" / "validate_report_pdf
 
 # Report Presets
 MODEL_EXPLANATORY_REPORT_PATHS = (
-    PROJECT_PATH / "doc" / "guide" / "model_reference" / "FeedForward Network" / "FeedForward Network.md",
-    PROJECT_PATH / "doc" / "guide" / "model_reference" / "Harmonic Regression" / "Harmonic Regression.md",
-    PROJECT_PATH / "doc" / "guide" / "model_reference" / "Periodic Feature Network" / "Periodic Feature Network.md",
-    PROJECT_PATH / "doc" / "guide" / "model_reference" / "Residual Harmonic Network" / "Residual Harmonic Network.md",
+    PROJECT_PATH / "doc" / "guide" / "FeedForward Network" / "FeedForward Network.md",
+    PROJECT_PATH / "doc" / "guide" / "Harmonic Regression" / "Harmonic Regression.md",
+    PROJECT_PATH / "doc" / "guide" / "Periodic Feature Network" / "Periodic Feature Network.md",
+    PROJECT_PATH / "doc" / "guide" / "Residual Harmonic Network" / "Residual Harmonic Network.md",
 )
 
 def build_argument_parser() -> argparse.ArgumentParser:

@@ -315,6 +315,9 @@ Technical documents:
   * `doc/technical/2026-03-25/2026-03-25-10-39-08_guide_and_model_reference_documentation_reorganization.md`
   * `doc/technical/2026-03-25/2026-03-25-10-55-13_learning_and_model_reference_asset_deduplication.md`
   * `doc/technical/2026-03-25/2026-03-25-11-43-56_reverse_asset_canonical_source_before_model_reference_removal.md`
+  * `doc/technical/2026-03-25/2026-03-25-11-51-15_unified_learning_and_technical_model_guides.md`
+  * `doc/technical/2026-03-25/2026-03-25-12-08-49_feedforward_pdf_section_page_breaks.md`
+  * `doc/technical/2026-03-25/2026-03-25-12-17-45_harmonic_regression_pdf_operating_principle_page_break.md`
 
 Script documentation:
 
@@ -357,14 +360,14 @@ Reports:
   * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.md`
   * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.pdf`
   * `doc/guide/Residual Harmonic Network/video_guide_package/video_guide_source_brief.md`
-  * `doc/guide/model_reference/FeedForward Network/FeedForward Network.md`
-  * `doc/guide/model_reference/FeedForward Network/FeedForward Network.pdf`
-  * `doc/guide/model_reference/Harmonic Regression/Harmonic Regression.md`
-  * `doc/guide/model_reference/Harmonic Regression/Harmonic Regression.pdf`
-  * `doc/guide/model_reference/Periodic Feature Network/Periodic Feature Network.md`
-  * `doc/guide/model_reference/Periodic Feature Network/Periodic Feature Network.pdf`
-  * `doc/guide/model_reference/Residual Harmonic Network/Residual Harmonic Network.md`
-  * `doc/guide/model_reference/Residual Harmonic Network/Residual Harmonic Network.pdf`
+  * `doc/guide/FeedForward Network/FeedForward Network.md`
+  * `doc/guide/FeedForward Network/FeedForward Network.pdf`
+  * `doc/guide/Harmonic Regression/Harmonic Regression.md`
+  * `doc/guide/Harmonic Regression/Harmonic Regression.pdf`
+  * `doc/guide/Periodic Feature Network/Periodic Feature Network.md`
+  * `doc/guide/Periodic Feature Network/Periodic Feature Network.pdf`
+  * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.md`
+  * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.pdf`
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`

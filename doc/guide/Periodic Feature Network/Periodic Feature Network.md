@@ -2,7 +2,7 @@
 
 ## Overview
 
-This learning guide explains the repository's `Periodic Feature Network`.
+This unified guide explains the repository's `Periodic Feature Network` from both a conceptual and technical perspective.
 
 The model sits between the plain feedforward baseline and the fully structured harmonic regressor:
 
@@ -57,6 +57,29 @@ The conceptual view is:
 - all features are concatenated;
 - the MLP performs the final regression.
 
+The model can also be summarized as:
+
+```text
+Input Point
+  -> raw angle theta
+  -> periodic expansion [sin(theta), cos(theta), ..., sin(K theta), cos(K theta)]
+  -> optional raw normalized angle
+  -> normalized condition features [speed, torque, temperature, direction]
+  -> concatenation
+  -> MLP
+  -> scalar TE prediction
+```
+
+In repository terms:
+
+```text
+Raw angle for periodic basis
+  + normalized condition channels
+  -> expanded feature tensor
+  -> FeedForwardNetwork
+  -> TE
+```
+
 This is a helpful mental model because it shows why the architecture is a middle ground.
 
 ## Architecture Diagram
@@ -99,6 +122,16 @@ That makes it useful when:
 - Still depends on MLP hyperparameters and training quality.
 - Periodicity is explicit in the input map, not in the output decomposition.
 
+## Expected Behavior In The TE Context
+
+This model is expected to be attractive when:
+
+- periodicity clearly matters;
+- but a purely harmonic model is too restrictive;
+- operating conditions modulate TE in nonlinear ways.
+
+It is a strong candidate when we want a structured prior without giving up neural flexibility.
+
 ## Repository Implementation
 
 The implementation is centered on these files:
@@ -114,7 +147,7 @@ The implementation is centered on these files:
 Key pieces:
 
 - `PeriodicFeatureNetwork.__init__(...)`
-  Validates the layout, computes the expanded input size, and creates the internal MLP.
+  Validates the TE input layout, computes the expanded input size, and creates the internal MLP.
 
 - `build_periodic_feature_tensor(...)`
   Builds the sine and cosine basis from the raw angle.
@@ -171,6 +204,32 @@ The workflow is:
 6. reload the best checkpoint;
 7. report validation and test metrics.
 
+## Training Logic In This Repository
+
+### `TransmissionErrorRegressionModule.forward_regression_model(...)`
+
+This is the critical function for `PeriodicFeatureNetwork`.
+
+The training module does not assume that every backbone only wants normalized inputs. Instead, it checks whether the model asks for contextual forwarding.
+
+For this model, that matters because:
+
+- periodic features must be built from the raw angle;
+- the remaining channels are naturally passed in normalized form.
+
+### `train_feedforward_network(...)`
+
+The outer training workflow is unchanged relative to the feedforward baseline.
+
+What changes is the backbone behavior:
+
+- same optimizer family;
+- same metrics;
+- same output artifacts;
+- different feature construction inside the model.
+
+This is useful because improvements can be attributed more clearly to the modeling bias rather than to a different training framework.
+
 ## Practical Interpretation
 
 `Periodic Feature Network` is the "structured input, flexible output" option.
@@ -181,4 +240,4 @@ Use it when you want to tell the model that angular periodicity matters, but you
 
 The `Periodic Feature Network` is a middle-ground architecture.
 
-It respects periodic structure more directly than a feedforward network, but it keeps the flexibility of a learned dense regressor.
+It respects periodic structure more directly than a feedforward network, but it keeps the flexibility of a learned dense regressor while remaining easy to compare inside the shared repository workflow.

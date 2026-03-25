@@ -24,9 +24,9 @@ The current implemented targets are:
 
 ## Main Output
 
-The script writes SVG assets into the model-reference folders under:
+The script writes SVG assets into the canonical guide folders under:
 
-- `doc/guide/model_reference/<Model Name>/assets/`
+- `doc/guide/<Model Name>/assets/`
 
 These assets are designed to be:
 

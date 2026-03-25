@@ -142,8 +142,8 @@ The current usage flow mainly relies on these folders:
 - `doc/reports/analysis/`
   Analysis reports grouped by purpose (`training_analysis/`, `analytical_studies/`, `family_studies/`).
 
-- `doc/guide/model_reference/`
-  Permanent model-reference documents with per-model diagrams, Markdown sources, and PDF companions.
+- `doc/guide/<Model Name>/`
+  Canonical model guides with integrated explanation, technical reference content, guide-local assets, and PDF companions.
 
 ## Short Launcher
 
@@ -325,7 +325,7 @@ conda run -n standard_ml_codex_env python scripts/reports/generate_model_report_
 
 This command regenerates the current SVG assets stored under:
 
-- `doc/guide/model_reference/<Model Name>/assets/`
+- `doc/guide/<Model Name>/assets/`
 
 Use it whenever:
 

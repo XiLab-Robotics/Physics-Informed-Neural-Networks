@@ -116,6 +116,8 @@ SEMANTIC_IDENTIFIER_TOKEN_PAIRS = {
 
 # Report Page Breaks
 FORCED_PAGE_BREAK_SECTION_SLUGS = {
+    "operating-principle",
+    "advantages",
     "phase-2-results",
     "comparative-example-summary",
     "cross-campaign-ranking",
