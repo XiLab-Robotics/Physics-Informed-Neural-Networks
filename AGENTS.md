@@ -85,12 +85,14 @@
   6. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, proposed future improvements, and a validated PDF export.
   7. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
   8. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
-  9. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
-  10. Create the Git commit only after the user explicitly approves it.
+  9. Before creating a GitHub-bound commit, check the files involved in the commit and stop immediately if any file exceeds `100 MB`, then explicitly warn the user because those files cannot be pushed to GitHub as regular repository objects.
+  10. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
+  11. Create the Git commit only after the user explicitly approves it.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
 - Do not execute any training campaign until both the technical document and the preliminary training-planning report in `doc/reports/campaign_plans/` have been created and explicitly approved by the user.
 - Do not treat a styled PDF export as complete until the exported PDF has been checked against the project golden standard for layout discipline and readability.
 - Do not create a Git commit immediately after finishing the work. Always stop, report completion, and wait for explicit user approval before committing.
+- Before creating a GitHub-bound commit, always check the commit's files for GitHub size-limit violations and stop with an explicit warning if any file exceeds `100 MB`.
 - Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 - Before the final commit, whenever the approved work introduces a new third-party dependency, update `requirements.txt` and any relevant installation or usage documentation so the environment remains reproducible.
 - Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.

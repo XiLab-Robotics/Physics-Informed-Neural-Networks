@@ -310,6 +310,8 @@ Technical documents:
   * `doc/technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md`
   * `doc/technical/2026-03-24/2026-03-24-22-51-28_documentation_poc_cleanup_and_archival.md`
   * `doc/technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md`
+* `2026-03-25`
+  * `doc/technical/2026-03-25/2026-03-25-10-28-57_github_commit_file_size_guard.md`
 
 Script documentation:
 
@@ -432,9 +434,11 @@ The following rules are mandatory for all future project work:
   * if the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` with metrics tables, interpretation, best-configuration summary, future improvement proposals, and a validated PDF export;
   * if the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit;
   * if the approved work introduces a new third-party library, update `requirements.txt` and every relevant setup or usage reference before the final commit;
+  * before creating a GitHub-bound commit, check the files involved in the commit and stop immediately if any file exceeds `100 MB`, then explicitly warn the user because those files cannot be pushed to GitHub as regular repository objects;
   * tell the user the work is complete and ask for explicit approval to commit;
   * create the Git commit only after the user explicitly approves it.
 * Do not create a Git commit immediately after finishing the work. Always stop and wait for explicit user approval before committing.
+* Before creating a GitHub-bound commit, always check the commit's files for GitHub size-limit violations and stop with an explicit warning if any file exceeds `100 MB`.
 * Before the final commit, `doc/guide/project_usage_guide.md` must be updated whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 * Before the final commit, every newly introduced third-party library must be added to `requirements.txt` and to any relevant installation or usage documentation so the project remains reproducible.
 * Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
