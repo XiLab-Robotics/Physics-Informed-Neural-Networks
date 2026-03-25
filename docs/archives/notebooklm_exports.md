@@ -27,16 +27,21 @@ Each migrated guide-local media set now uses readable collision-safe names:
 - `Supporting Brief.pdf`
 - `Video Overview.mp4`
 
-## Archived Provenance Record
+## Historical Provenance Note
 
 The former root:
 
 - `doc/imports/notebooklm_exports/`
 
-has now been retired from the live repository tree. Its remaining lightweight
-provenance manifest was relocated to:
+has now been retired from the live repository tree.
 
-- `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
+The old isolated-handoff archive that temporarily preserved a provenance
+manifest has also been removed from the repository. The retained historical
+decision trail now lives in the technical documents that described:
+
+- the original isolated archive-ingestion plan;
+- the later synchronized migration into `doc/guide/`;
+- the final retirement of the old isolated handoff model.
 
 ## Decision Trail
 
@@ -47,12 +52,8 @@ The detailed archive-ingestion and reconciliation decisions are documented in:
 - [Periodic And Residual NotebookLM Guide Archives](../technical/periodic_and_residual_notebooklm_guide_archives.md)
 - [Isolated Integration Analysis](../technical/isolated_integration_analysis.md)
 
-## Archived Handoff Log
+## Historical Cleanup Direction
 
-The detailed isolated handoff log now lives under:
-
-- `reference/isolated_handoff/readme.temp.md`
-
-That archived file remains the most complete recovery log for the original
-isolated archive moves, rename policies, and later synchronized migration
-obligations.
+The repository no longer keeps the old isolated handoff log as a physical
+archive artifact. Future isolated work is tracked through the explicit
+session-based workflow under `isolated/active/` and `isolated/completed/`.

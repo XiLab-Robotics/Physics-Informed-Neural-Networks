@@ -251,6 +251,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
   Script-level documentation for the minimal Lightning smoke-test entry point used by the shared Wave 0 training infrastructure.
+- [scripts/tooling/isolated_mode.md](./scripts/tooling/isolated_mode.md)
+  Script-level documentation for the isolated-session manager that creates locked snapshots, manifest/checklist files, lock-validation reports, and session close-out actions.
 
 ### Reports
 
@@ -357,6 +359,10 @@ This folder contains the internal project documents derived from the reference P
   Technical cleanup note for relocating the remaining isolated documentation proof-of-concept artifacts out of the repository root and into an archival location.
 - [technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md](./technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md)
   Technical cleanup note for retiring the now-empty isolated handoff roots and relocating their remaining provenance artifacts into a dedicated archive subtree.
+- [technical/2026-03-25/2026-03-25-12-39-38_isolated_mode_rework.md](./technical/2026-03-25/2026-03-25-12-39-38_isolated_mode_rework.md)
+  Technical design document for replacing the old isolated handoff pattern with explicit session roots, locked-file snapshots, structured manifests, and deterministic integration checklists.
+- [technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md](./technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md)
+  Technical cleanup document for preserving only the useful isolated-mode lessons in canonical documentation and removing the legacy `reference/isolated_handoff/` archive subtree.
 
 #### Campaign Results
 

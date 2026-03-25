@@ -23,6 +23,8 @@ Additional imported-only topic currently present under the guide subtree:
 - ``Multilayer Perceptrons``
 
 The former isolated archive root under ``doc/imports/notebooklm_exports/`` has
-been retired from the live tree. Its provenance summary now survives under
-``reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`` rather
-than as a standalone guide-media root.
+been retired from the live tree.
+
+The repository also no longer keeps the older ``reference/isolated_handoff/``
+archive subtree. The retained migration rationale now lives in the related
+technical documents rather than in a standalone handoff archive.

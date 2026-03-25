@@ -15,6 +15,7 @@ At the moment, the implemented workflows are:
 - minimal neural or tree smoke-test execution for the shared training infrastructure;
 - persistent batch training campaigns through a queue-based runner;
 - a short PowerShell launcher for the Wave 1 recovery campaign that keeps the same live terminal logging and per-run artifact behavior;
+- explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility.
 
@@ -97,6 +98,9 @@ The current usage flow mainly relies on these folders:
 - `scripts/models/`
   Neural-network backbones and the model factory.
 
+- `scripts/tooling/`
+  Repository-owned tooling utilities, including the isolated-mode session manager.
+
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
 
@@ -144,6 +148,12 @@ The current usage flow mainly relies on these folders:
 
 - `doc/guide/<Model Name>/`
   Canonical model guides with integrated explanation, technical reference content, guide-local assets, and PDF companions.
+
+- `isolated/active/`
+  Active isolated-mode sessions with locked-file snapshots, staging trees, manifests, and checklists.
+
+- `isolated/completed/`
+  Completed isolated-mode sessions retained temporarily after successful integration when deletion is not requested.
 
 ## Short Launcher
 
@@ -216,6 +226,130 @@ The current main target is:
 Treat that PDF as the project golden standard for future styled analytical reports.
 
 The same export direction now also applies to final campaign-results reports.
+
+## Isolated Mode Workflow
+
+The repository now exposes a dedicated isolated-mode manager:
+
+- `scripts/tooling/isolated_mode.py`
+
+Use this workflow when you want Codex to avoid touching every file that already
+exists in the repository and to work only on newly created files inside a
+session-local staging area.
+
+### Start An Isolated Session
+
+```powershell
+python -B scripts/tooling/isolated_mode.py start-session `
+  --session-label "feature_name" `
+  --purpose "Prepare standalone artifacts for later integration." `
+  --user-request "modalita isolata"
+```
+
+This creates a session under `isolated/active/<session_id>/` with:
+
+- `session_context.md`
+- `work_log.md`
+- `locked_repository_snapshot.txt`
+- `integration_manifest.yaml`
+- `integration_checklist.md`
+- `staging/`
+
+The locked snapshot defines every pre-existing repository file as read-only for
+the isolated session. That lock includes `README.md` and `AGENTS.md`.
+
+### Stage New Session Files
+
+Create new files only inside the current session root, preferably under:
+
+- `isolated/active/<session_id>/staging/`
+
+Mirror the future canonical structure inside `staging/` whenever possible. For
+example, if the eventual target should be:
+
+- `doc/guide/New Guide/New Guide.md`
+
+then the isolated staging path should be:
+
+- `isolated/active/<session_id>/staging/doc/guide/New Guide/New Guide.md`
+
+### Register Manifest Items
+
+After creating a staged artifact, register it in the session manifest:
+
+```powershell
+python -B scripts/tooling/isolated_mode.py add-manifest-item `
+  --session-path isolated/active/<session_id> `
+  --staging-path isolated/active/<session_id>/staging/doc/guide/New Guide/New Guide.md `
+  --target-path doc/guide/New Guide/New Guide.md `
+  --action create_new_file `
+  --source-reason "Guide drafted entirely in isolated mode."
+```
+
+Supported actions are:
+
+- `create_new_file`
+- `derive_and_merge`
+- `replace_generated_artifact`
+- `manual_review_required`
+
+### Validate The Isolation Lock
+
+```powershell
+python -B scripts/tooling/isolated_mode.py validate-session `
+  --session-path isolated/active/<session_id> `
+  --fail-on-violation
+```
+
+This validation detects:
+
+- modified locked files;
+- deleted locked files;
+- new files created outside the current isolated session root.
+
+### Prepare Integration
+
+When isolated work is ready and you want to integrate it later, regenerate the
+review artifacts:
+
+```powershell
+python -B scripts/tooling/isolated_mode.py prepare-integration `
+  --session-path isolated/active/<session_id> `
+  --fail-on-violation
+```
+
+This updates:
+
+- `latest_validation_report.yaml`
+- `latest_integration_review.yaml`
+- `integration_checklist.md`
+
+The checklist is designed for a double verification pass:
+
+- Pass A: revalidate the current canonical repository target state;
+- Pass B: confirm that the staged intent was actually absorbed after the
+  integration step.
+
+### Close The Session
+
+After successful integration, either move the session to `isolated/completed/`
+or remove it:
+
+```powershell
+python -B scripts/tooling/isolated_mode.py close-session `
+  --session-path isolated/active/<session_id> `
+  --destination completed `
+  --require-clean-validation
+```
+
+Or:
+
+```powershell
+python -B scripts/tooling/isolated_mode.py close-session `
+  --session-path isolated/active/<session_id> `
+  --destination delete `
+  --require-clean-validation
+```
 
 ## Regenerate The Styled Training-Configuration PDF
 

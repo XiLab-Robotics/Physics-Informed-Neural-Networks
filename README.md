@@ -319,6 +319,8 @@ Technical documents:
   * `doc/technical/2026-03-25/2026-03-25-12-08-49_feedforward_pdf_section_page_breaks.md`
   * `doc/technical/2026-03-25/2026-03-25-12-17-45_harmonic_regression_pdf_operating_principle_page_break.md`
   * `doc/technical/2026-03-25/2026-03-25-12-24-08_model_reference_retirement_after_guide_unification.md`
+  * `doc/technical/2026-03-25/2026-03-25-12-39-38_isolated_mode_rework.md`
+  * `doc/technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md`
 
 Script documentation:
 
@@ -330,6 +332,7 @@ Script documentation:
 * `doc/scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md`
 * `doc/scripts/training/validate_training_setup.md`
 * `doc/scripts/training/run_training_smoke_test.md`
+* `doc/scripts/tooling/isolated_mode.md`
 * `doc/scripts/reports/generate_model_report_diagrams.md`
 * `doc/scripts/reports/run_report_pipeline.md`
 

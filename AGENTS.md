@@ -96,6 +96,11 @@
 - Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 - Before the final commit, whenever the approved work introduces a new third-party dependency, update `requirements.txt` and any relevant installation or usage documentation so the environment remains reproducible.
 - Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
+- When the user explicitly activates isolated mode, treat every repository file that already exists at activation time as locked and read-only until the user explicitly exits isolated mode or explicitly requests integration.
+- During isolated mode, `README.md` and `AGENTS.md` are also locked and cannot be modified.
+- During isolated mode, create work only under a session root inside `isolated/active/<session_id>/`, and only modify files created inside that session root.
+- During isolated mode, maintain the session files `session_context.md`, `work_log.md`, `locked_repository_snapshot.txt`, `integration_manifest.yaml`, and `integration_checklist.md` instead of using a root-level temporary README handoff.
+- When the user later requests integration of isolated work, first revalidate the current repository state against the isolated session snapshot, then process each manifest item one by one with a double verification pass before cleaning up the isolated staging residue.
 
 ## Domain Notes
 
