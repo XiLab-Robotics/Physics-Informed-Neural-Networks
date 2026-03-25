@@ -312,6 +312,7 @@ Technical documents:
   * `doc/technical/2026-03-24/2026-03-24-23-25-32_isolated_handoff_and_provenance_root_retirement.md`
 * `2026-03-25`
   * `doc/technical/2026-03-25/2026-03-25-10-28-57_github_commit_file_size_guard.md`
+  * `doc/technical/2026-03-25/2026-03-25-10-39-08_guide_and_model_reference_documentation_reorganization.md`
 
 Script documentation:
 
@@ -354,14 +355,14 @@ Reports:
   * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.md`
   * `doc/guide/Residual Harmonic Network/Residual Harmonic Network.pdf`
   * `doc/guide/Residual Harmonic Network/video_guide_package/video_guide_source_brief.md`
-  * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.md`
-  * `doc/reports/analysis/model_explanatory/FeedForward Network/FeedForward Network.pdf`
-  * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.md`
-  * `doc/reports/analysis/model_explanatory/Harmonic Regression/Harmonic Regression.pdf`
-  * `doc/reports/analysis/model_explanatory/Periodic Feature Network/Periodic Feature Network.md`
-  * `doc/reports/analysis/model_explanatory/Periodic Feature Network/Periodic Feature Network.pdf`
-  * `doc/reports/analysis/model_explanatory/Residual Harmonic Network/Residual Harmonic Network.md`
-  * `doc/reports/analysis/model_explanatory/Residual Harmonic Network/Residual Harmonic Network.pdf`
+  * `doc/guide/model_reference/FeedForward Network/FeedForward Network.md`
+  * `doc/guide/model_reference/FeedForward Network/FeedForward Network.pdf`
+  * `doc/guide/model_reference/Harmonic Regression/Harmonic Regression.md`
+  * `doc/guide/model_reference/Harmonic Regression/Harmonic Regression.pdf`
+  * `doc/guide/model_reference/Periodic Feature Network/Periodic Feature Network.md`
+  * `doc/guide/model_reference/Periodic Feature Network/Periodic Feature Network.pdf`
+  * `doc/guide/model_reference/Residual Harmonic Network/Residual Harmonic Network.md`
+  * `doc/guide/model_reference/Residual Harmonic Network/Residual Harmonic Network.pdf`
 * `Campaign Plans`
   * `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   * `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`

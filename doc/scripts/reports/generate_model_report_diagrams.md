@@ -24,9 +24,9 @@ The current implemented targets are:
 
 ## Main Output
 
-The script writes SVG assets into the model-explanatory report folders under:
+The script writes SVG assets into the model-reference folders under:
 
-- `doc/reports/analysis/model_explanatory/<Model Name>/assets/`
+- `doc/guide/model_reference/<Model Name>/assets/`
 
 These assets are designed to be:
 
