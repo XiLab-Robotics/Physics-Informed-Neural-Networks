@@ -318,6 +318,7 @@ Technical documents:
   * `doc/technical/2026-03-25/2026-03-25-11-51-15_unified_learning_and_technical_model_guides.md`
   * `doc/technical/2026-03-25/2026-03-25-12-08-49_feedforward_pdf_section_page_breaks.md`
   * `doc/technical/2026-03-25/2026-03-25-12-17-45_harmonic_regression_pdf_operating_principle_page_break.md`
+  * `doc/technical/2026-03-25/2026-03-25-12-24-08_model_reference_retirement_after_guide_unification.md`
 
 Script documentation:
 
