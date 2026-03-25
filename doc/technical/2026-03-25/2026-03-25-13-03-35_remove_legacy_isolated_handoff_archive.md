@@ -23,7 +23,7 @@ The user explicitly requested:
   Conda environment `standard_ml_codex_env`, because it is already tracked in
   `requirements.txt`.
 
-# Technical Approach
+## Technical Approach
 
 ## 1. Treat `reference/isolated_handoff/` As Legacy Residue
 
@@ -112,7 +112,7 @@ After approval, the cleanup should:
   remains the expected runtime environment and the fallback is treated as
   secondary protection only.
 
-# Involved Components
+## Involved Components
 
 - `reference/isolated_handoff/readme.temp.md`
 - `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
@@ -125,7 +125,7 @@ After approval, the cleanup should:
 - any other current-state canonical documents that still present
   `reference/isolated_handoff/` as an active dependency
 
-# Implementation Steps
+## Implementation Steps
 
 1. Record this cleanup decision in a new technical document and register it in
    `README.md`.

@@ -26,7 +26,7 @@ The requested target behavior is stricter:
 This rework should replace the old root-level handoff pattern with a clearer,
 repository-owned session model.
 
-# Technical Approach
+## Technical Approach
 
 ## 1. Replace Ad-Hoc Handoff With Explicit Isolated Sessions
 
@@ -193,7 +193,7 @@ After approval, testing should cover at least these cases:
 5. confirm that cleanup removes obsolete session residue after successful
    integration.
 
-# Involved Components
+## Involved Components
 
 - `AGENTS.md`
 - `README.md`
@@ -209,7 +209,7 @@ After approval, testing should cover at least these cases:
 - future helper tooling:
   - `scripts/tooling/`
 
-# Implementation Steps
+## Implementation Steps
 
 1. Formalize the new isolated-mode behavior in a technical document and obtain
    explicit approval before code or instruction changes.

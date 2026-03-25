@@ -4,7 +4,7 @@ This document defines a cleanup batch for the remaining isolated documentation p
 
 The goal is to reduce root-level clutter without losing historical provenance or breaking the technical decision trail that still references the proof-of-concept material.
 
-# Technical Approach
+## Technical Approach
 
 The cleanup should be conservative.
 
@@ -33,7 +33,7 @@ Recommended relocation scope:
 
 After relocation, repository-authored references should be updated to the new archival location wherever those references are meant to remain operational rather than purely historical.
 
-# Involved Components
+## Involved Components
 
 - `mkdocs.poc.yml`
 - `doc_site_poc/`
@@ -47,7 +47,7 @@ After relocation, repository-authored references should be updated to the new ar
 - `doc/technical/2026-03-22/2026-03-22-12-05-00_documentation_direction_docstring_standard_and_dual_poc.md`
 - `doc/technical/2026-03-22/2026-03-22-12-40-00_sphinx_documentation_architecture_backlog_and_github_pages_plan.md`
 
-# Implementation Steps
+## Implementation Steps
 
 1. Create a dedicated archival root for historical documentation-platform proof-of-concept assets.
 2. Move the remaining root-level POC files and directories into that archival root without modifying their internal contents.
@@ -56,7 +56,7 @@ After relocation, repository-authored references should be updated to the new ar
 5. Re-run targeted searches to confirm that no active repository guidance still points to obsolete root-level POC paths unless intentionally historical.
 6. Report the exact archival destination and the updated reference set.
 
-# Implementation Result
+## Implementation Result
 
 The cleanup was executed conservatively.
 

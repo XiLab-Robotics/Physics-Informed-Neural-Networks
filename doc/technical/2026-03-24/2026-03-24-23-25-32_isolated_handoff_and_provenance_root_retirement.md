@@ -15,7 +15,7 @@ At this point:
 The goal of this batch is to remove those now-obsolete live locations without
 losing provenance.
 
-# Technical Approach
+## Technical Approach
 
 The cleanup should keep the actual historical material while retiring the
 obsolete locations that no longer serve as active repository roots.
@@ -41,7 +41,7 @@ Recommended archived contents:
 - `reference/isolated_handoff/readme.temp.md`
 - `reference/isolated_handoff/notebooklm_exports_provenance_manifest.md`
 
-# Involved Components
+## Involved Components
 
 - `readme.temp.md`
 - `doc/imports/notebooklm_exports/README.md`
@@ -55,7 +55,7 @@ Recommended archived contents:
 - `AGENTS.md`
 - `doc/technical/2026-03-24/2026-03-24-22-45-37_isolated_integration_remaining_work_verification.md`
 
-# Implementation Steps
+## Implementation Steps
 
 1. Create a dedicated archive subtree for retired isolated-mode handoff
    artifacts.
@@ -69,7 +69,7 @@ Recommended archived contents:
 6. Re-run targeted searches to confirm that no current-state documentation still
    presents the retired roots as active locations.
 
-# Implementation Result
+## Implementation Result
 
 The cleanup was completed conservatively.
 

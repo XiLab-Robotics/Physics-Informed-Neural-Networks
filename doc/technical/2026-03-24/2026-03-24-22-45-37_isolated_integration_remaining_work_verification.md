@@ -2,7 +2,7 @@
 
 This document verifies whether the isolated-branch work described in the archived handoff log `reference/isolated_handoff/readme.temp.md` has now been fully integrated into the canonical repository state on `integration/sphinx-docs`, or whether additional isolated-origin work still remains unapplied.
 
-# Technical Approach
+## Technical Approach
 
 The verification compares four sources of truth:
 
@@ -17,7 +17,7 @@ The verification focuses on structure, ownership, and promotion status rather th
 - work that intentionally remains historical or archival;
 - work that is still present only as a proof of concept and therefore not yet promoted.
 
-# Involved Components
+## Involved Components
 
 - `reference/isolated_handoff/readme.temp.md`
 - `README.md`
@@ -30,14 +30,14 @@ The verification focuses on structure, ownership, and promotion status rather th
 - `reference/documentation_poc/poc_sources/`
 - `reference/documentation_poc/sphinx_poc/`
 
-# Implementation Steps
+## Implementation Steps
 
 1. Re-read the archived isolated handoff plan in `reference/isolated_handoff/readme.temp.md`, including the synchronized implementation phases and the explicit "not yet done" notes.
 2. Compare the current repository state against the isolated-origin deliverables already promoted through the Sphinx integration and reconciliation commits.
 3. Classify every remaining isolated-origin artifact as canonical, archival, or still-unpromoted proof of concept.
 4. Record the verification result and the exact remaining integration gap, if any.
 
-# Verification Result
+## Verification Result
 
 The isolated-origin integration debt that was explicitly left open in `reference/isolated_handoff/readme.temp.md` has now been closed.
 
@@ -52,7 +52,7 @@ In particular, the still-pending synchronized phases from the handoff are now sa
 
 This means there is no remaining isolated-origin canonical migration batch equivalent to the earlier unresolved guide-move and media-relocation work.
 
-# Remaining Isolated-Origin Material
+## Remaining Isolated-Origin Material
 
 The following isolated-origin material still exists in the repository, but it should be treated as historical, comparative, or proof-of-concept material rather than missing canonical integration work:
 
@@ -83,7 +83,7 @@ Their current status is:
 - not part of the canonical user-facing documentation portal;
 - not evidence of an unfinished canonical integration batch by themselves.
 
-# Remaining Gap Assessment
+## Remaining Gap Assessment
 
 There is one remaining cleanup-style question, but it is not a blocked isolated-integration migration:
 
@@ -93,7 +93,7 @@ This is a repository hygiene choice, not a missing execution of the isolated han
 
 Separately, `GitHub Pages` publication is still not implemented in the canonical repository, but that is also not unfinished isolated work. It exists in the isolated material as a selected direction and backlog plan, not as a completed feature awaiting migration.
 
-# Conclusion
+## Conclusion
 
 The verification result is:
 

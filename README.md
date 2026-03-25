@@ -53,6 +53,7 @@ This ensures improved generalization, physical interpretability, and robustness 
 ---
 
 ## Repository Structure
+
 The repository currently keeps project-authored Python code under `scripts/`, external references under `reference/`, and reserves root `models/` for trained or exported model artifacts.
 
 The conceptual architecture sketch below is legacy. For current repository navigation, treat `scripts/`, `reference/agents/`, and root `models/` as the authoritative structure.
@@ -321,6 +322,7 @@ Technical documents:
   * `doc/technical/2026-03-25/2026-03-25-12-24-08_model_reference_retirement_after_guide_unification.md`
   * `doc/technical/2026-03-25/2026-03-25-12-39-38_isolated_mode_rework.md`
   * `doc/technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md`
+  * `doc/technical/2026-03-25/2026-03-25-13-10-20_markdown_warning_cleanup_and_lint_workflow.md`
 
 Script documentation:
 
@@ -333,6 +335,7 @@ Script documentation:
 * `doc/scripts/training/validate_training_setup.md`
 * `doc/scripts/training/run_training_smoke_test.md`
 * `doc/scripts/tooling/isolated_mode.md`
+* `doc/scripts/tooling/markdown_style_check.md`
 * `doc/scripts/reports/generate_model_report_diagrams.md`
 * `doc/scripts/reports/run_report_pipeline.md`
 
@@ -688,4 +691,3 @@ Davide Ferrari
 ## License
 
 Specify appropriate license (e.g., MIT, BSD-3, or proprietary industrial use).
-

@@ -16,6 +16,7 @@ At the moment, the implemented workflows are:
 - persistent batch training campaigns through a queue-based runner;
 - a short PowerShell launcher for the Wave 1 recovery campaign that keeps the same live terminal logging and per-run artifact behavior;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
+- repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility.
 
@@ -226,6 +227,51 @@ The current main target is:
 Treat that PDF as the project golden standard for future styled analytical reports.
 
 The same export direction now also applies to final campaign-results reports.
+
+## Markdown Warning Check
+
+The repository now exposes a dedicated Markdown warning checker:
+
+- `scripts/tooling/markdown_style_check.py`
+
+Use it to scan repository-authored Markdown sources for the warning classes that
+commonly appear in the editor:
+
+- `MD012/no-multiple-blanks`
+- `MD022/blanks-around-headings`
+- `MD025/single-title`
+
+### Run The Default Source Scan
+
+```powershell
+python -B scripts/tooling/markdown_style_check.py --fail-on-warning
+```
+
+This scans the maintained Markdown source roots:
+
+- `README.md`
+- `AGENTS.md`
+- `config/`
+- `models/`
+- `doc/`
+- `docs/`
+
+It intentionally excludes generated or non-canonical paths such as:
+
+- `docs/_build/`
+- `.temp/`
+- `.tools/`
+- `isolated/`
+- `output/`
+
+### Scan Specific Paths
+
+```powershell
+python -B scripts/tooling/markdown_style_check.py README.md doc docs
+```
+
+This is useful after a focused documentation task when you only want to re-check
+the affected files.
 
 ## Isolated Mode Workflow
 

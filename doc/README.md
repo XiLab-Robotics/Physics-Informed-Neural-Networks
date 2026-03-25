@@ -253,6 +253,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the minimal Lightning smoke-test entry point used by the shared Wave 0 training infrastructure.
 - [scripts/tooling/isolated_mode.md](./scripts/tooling/isolated_mode.md)
   Script-level documentation for the isolated-session manager that creates locked snapshots, manifest/checklist files, lock-validation reports, and session close-out actions.
+- [scripts/tooling/markdown_style_check.md](./scripts/tooling/markdown_style_check.md)
+  Script-level documentation for the repository-owned Markdown warning checker that scans source `.md` files for blank-line, heading, and single-title issues.
 
 ### Reports
 
@@ -363,6 +365,8 @@ This folder contains the internal project documents derived from the reference P
   Technical design document for replacing the old isolated handoff pattern with explicit session roots, locked-file snapshots, structured manifests, and deterministic integration checklists.
 - [technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md](./technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md)
   Technical cleanup document for preserving only the useful isolated-mode lessons in canonical documentation and removing the legacy `reference/isolated_handoff/` archive subtree.
+- [technical/2026-03-25/2026-03-25-13-10-20_markdown_warning_cleanup_and_lint_workflow.md](./technical/2026-03-25/2026-03-25-13-10-20_markdown_warning_cleanup_and_lint_workflow.md)
+  Technical document for cleaning up current Markdown warnings and adding a repository-owned terminal checker so future Markdown files can be validated directly from source.
 
 #### Campaign Results
 
