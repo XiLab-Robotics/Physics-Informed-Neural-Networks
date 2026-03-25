@@ -313,6 +313,7 @@ Technical documents:
 * `2026-03-25`
   * `doc/technical/2026-03-25/2026-03-25-10-28-57_github_commit_file_size_guard.md`
   * `doc/technical/2026-03-25/2026-03-25-10-39-08_guide_and_model_reference_documentation_reorganization.md`
+  * `doc/technical/2026-03-25/2026-03-25-10-55-13_learning_and_model_reference_asset_deduplication.md`
 
 Script documentation:
 

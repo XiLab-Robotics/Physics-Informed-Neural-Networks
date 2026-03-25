@@ -55,7 +55,7 @@ That gives the model two useful operating regimes.
 
 ## Conceptual Map
 
-![Residual Harmonic Network conceptual diagram](assets/residual_harmonic_network_model_diagram.svg)
+![Residual Harmonic Network conceptual diagram](../model_reference/Residual%20Harmonic%20Network/assets/residual_harmonic_network_model_diagram.svg)
 
 The conceptual reading is:
 
@@ -67,7 +67,7 @@ This is the clearest way to remember what makes the architecture hybrid.
 
 ## Architecture Diagram
 
-![Residual Harmonic Network architecture diagram](assets/residual_harmonic_network_model_architecture_diagram.svg)
+![Residual Harmonic Network architecture diagram](../model_reference/Residual%20Harmonic%20Network/assets/residual_harmonic_network_model_architecture_diagram.svg)
 
 The architecture view shows the actual two-branch structure:
 
