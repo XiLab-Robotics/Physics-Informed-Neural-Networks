@@ -46,6 +46,8 @@ Implemented today:
 - one-batch validation checks and smoke-test utilities;
 - batch campaign execution and artifact tracking;
 - styled report generation and PDF validation tooling;
+- dual `NotebookLM` source-package tracks for guide-local concept videos and
+  repository-specific project videos;
 - repository-owned isolated-mode and Markdown validation tooling.
 
 Planned or future work:
@@ -212,6 +214,8 @@ and inspectable.
   [2026-03-25-14-51-40_readme_maintenance_rule.md](./doc/technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md).
 - The Sphinx portal root rename rationale is documented in
   [2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./doc/technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md).
+- The dual `NotebookLM` video-package strategy rationale is documented in
+  [2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./doc/technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md).
 
 ## Next Steps
 

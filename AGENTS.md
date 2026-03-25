@@ -24,14 +24,22 @@
 - When a new learning guide is created under `doc/guide/`, create a PDF companion for that guide in the same guide-local folder.
 - For learning guides, do not generate or finalize the PDF companion until the user has explicitly approved the generated guide images or diagrams.
 - If the user identifies layout defects in learning-guide images, treat the learning-guide PDF task as still open, correct the figures first, obtain image approval, and only then export and validate the PDF.
-- After a learning-guide Markdown document and its approved PDF companion are complete, prepare a guide-local `video_guide_package/` for that guide when the user explicitly approves the video-guide preparation phase.
-- Each approved `video_guide_package/` for a learning guide must contain at least:
-  - `video_guide_source_brief.md`;
-  - `video_guide_terminology_sheet.md`;
-  - `video_guide_narration_outline.md`;
-  - `video_guide_figure_reference.md`;
-  - `video_guide_fact_boundary_notes.md` when the guide contains roadmap, implementation-status, or planned-model content.
-- Build `video_guide_package/` documents as repository-owned `NotebookLM` sources rather than generic prompts. They must preserve terminology, chapter order, scope boundaries, and the distinction between implemented versus planned repository capabilities.
+- After a learning-guide Markdown document and its approved PDF companion are complete, prepare two guide-local `NotebookLM` source-package tracks when the user explicitly approves the video-guide preparation phase:
+  - `concept_video_package/`
+  - `project_video_package/`
+- Each approved `concept_video_package/` or `project_video_package/` must contain at least:
+  - `video_source_brief.md`;
+  - `video_terminology_sheet.md`;
+  - `video_narration_outline.md`;
+  - `video_figure_reference.md`;
+  - `video_fact_boundary_notes.md` when the package contains roadmap, implementation-status, or planned-model boundaries that the narration must preserve.
+- Each approved `concept_video_package/` must also contain `concept_video_scope_notes.md`.
+- Each approved `project_video_package/` must also contain `project_video_scope_notes.md`.
+- Build `concept_video_package/` and `project_video_package/` documents as repository-owned `NotebookLM` sources rather than generic prompts. They must preserve terminology, chapter order, scope boundaries, and the distinction between neutral topic explanation versus repository-specific explanation.
+- The `concept_video_package/` track must stay neutral and explain what the model, method, or workflow is, how it works, how training and testing operate, and where it is used in general, without collapsing into repository-specific framing.
+- The `project_video_package/` track must explain why the topic exists in this repository, what role it plays in the TE workflow, how it is implemented or positioned here, and what its project-local advantages and disadvantages are.
+- Future imported `NotebookLM` exports must use filenames that explicitly declare guide name, track, and artifact type, for example `FeedForward Network - Concept Mind Map.png` or `FeedForward Network - Project Video Overview.mp4`, instead of generic names such as `Mind Map.png` or `Video Overview.mp4`.
+- If a topic root already exists under `doc/guide/` but does not yet have the full canonical guide Markdown/PDF pair, a `NotebookLM` source package may still be prepared only when the user explicitly approves that exception. In that case, the package scope notes must record the missing canonical-guide status explicitly rather than hiding it.
 - Do not generate or finalize a `NotebookLM` video guide immediately after the package is prepared. Stop after the source package is ready, report completion, and wait for the user's explicit approval before creating or finalizing the actual video-guide generation step.
 - For explanatory model reports, prefer providing both:
   - a conceptual diagram that explains the model logic;

@@ -151,6 +151,12 @@ The current usage flow mainly relies on these folders:
 - `doc/guide/<Model Name>/`
   Canonical model guides with integrated explanation, technical reference content, guide-local assets, and PDF companions.
 
+- `doc/guide/<Guide Name>/concept_video_package/`
+  Neutral `NotebookLM` source package for explaining what the topic is, how it works, and how it is used outside the repository context.
+
+- `doc/guide/<Guide Name>/project_video_package/`
+  Repository-specific `NotebookLM` source package for explaining why the topic exists in this TE project and what role it plays here.
+
 - `isolated/active/`
   Active isolated-mode sessions with locked-file snapshots, staging trees, manifests, and checklists.
 
@@ -167,6 +173,43 @@ The Wave 1 recovery campaign can also be launched through the short wrapper:
 
 This wrapper only reduces typing. It preserves the same terminal output, logs, and campaign artifacts as the full runner command.
 It also clears stale pending or running recovery YAML files from earlier failed launcher attempts before re-enqueuing the approved recovery set.
+
+## NotebookLM Video Packages
+
+The learning-guide tree now uses two distinct `NotebookLM` source-package
+tracks per guide topic:
+
+- `concept_video_package/`
+- `project_video_package/`
+
+Use the `concept` track when you want a neutral educational video about what the
+model, concept, or workflow is, how it works, how training and testing operate,
+and where it is used in general.
+
+Use the `project` track when you want the repository-specific explanation of why
+the topic exists in this TE project, what role it plays here, and what its
+project-local strengths and weaknesses are.
+
+Each package now contains:
+
+- `video_source_brief.md`
+- `video_terminology_sheet.md`
+- `video_narration_outline.md`
+- `video_figure_reference.md`
+- `video_fact_boundary_notes.md`
+
+And one track-specific scope file:
+
+- `concept_video_scope_notes.md`
+- `project_video_scope_notes.md`
+
+When imported `NotebookLM` exports are stored in the guide root, their filenames
+should declare the guide name, the track, and the artifact type, for example:
+
+- `FeedForward Network - Concept Mind Map.png`
+- `FeedForward Network - Project Video Overview.mp4`
+
+This avoids ambiguous filenames such as `Mind Map.png` or `Video Overview.mp4`.
 
 ## Styled Report PDF Export And Validation
 

@@ -274,44 +274,62 @@ This folder contains the internal project documents derived from the reference P
   Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
   Styled PDF export of the neural-network foundations learning guide.
-- [guide/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md](./guide/Neural%20Network%20Foundations/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the neural-network foundations video guide package.
+- [guide/Neural%20Network%20Foundations/concept_video_package/video_source_brief.md](./guide/Neural%20Network%20Foundations/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the neural-network foundations concept video package.
+- [guide/Neural%20Network%20Foundations/project_video_package/video_source_brief.md](./guide/Neural%20Network%20Foundations/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the neural-network foundations project video package.
 - [guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md](./guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
   Learning guide that explains dataset splits, optimizer-driven training, validation logic, test-set discipline, and TE-specific evaluation pitfalls.
 - [guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf](./guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.pdf)
   Styled PDF export of the training, validation, and testing learning guide.
-- [guide/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md](./guide/Training,%20Validation,%20And%20Testing/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the training, validation, and testing video guide package.
+- [guide/Training,%20Validation,%20And%20Testing/concept_video_package/video_source_brief.md](./guide/Training,%20Validation,%20And%20Testing/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the training, validation, and testing concept video package.
+- [guide/Training,%20Validation,%20And%20Testing/project_video_package/video_source_brief.md](./guide/Training,%20Validation,%20And%20Testing/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the training, validation, and testing project video package.
 - [guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md](./guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
   Curriculum guide that introduces the TE model families from feedforward and harmonic baselines through the planned temporal, hybrid, and PINN directions.
 - [guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf](./guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.pdf)
   Styled PDF export of the TE model curriculum learning guide.
-- [guide/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md](./guide/TE%20Model%20Curriculum/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the TE model curriculum video guide package.
+- [guide/TE%20Model%20Curriculum/concept_video_package/video_source_brief.md](./guide/TE%20Model%20Curriculum/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the TE model curriculum concept video package.
+- [guide/TE%20Model%20Curriculum/project_video_package/video_source_brief.md](./guide/TE%20Model%20Curriculum/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the TE model curriculum project video package.
 - [guide/FeedForward%20Network/FeedForward%20Network.md](./guide/FeedForward%20Network/FeedForward%20Network.md)
   Learning guide that explains the feedforward architecture as the baseline MLP for the TE curriculum, with implementation and training context.
 - [guide/FeedForward%20Network/FeedForward%20Network.pdf](./guide/FeedForward%20Network/FeedForward%20Network.pdf)
   Styled PDF export of the feedforward network learning guide.
-- [guide/FeedForward%20Network/video_guide_package/video_guide_source_brief.md](./guide/FeedForward%20Network/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the feedforward network video guide package.
+- [guide/FeedForward%20Network/concept_video_package/video_source_brief.md](./guide/FeedForward%20Network/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the feedforward-network concept video package.
+- [guide/FeedForward%20Network/project_video_package/video_source_brief.md](./guide/FeedForward%20Network/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the feedforward-network project video package.
 - [guide/Harmonic%20Regression/Harmonic%20Regression.md](./guide/Harmonic%20Regression/Harmonic%20Regression.md)
   Learning guide that explains harmonic regression as the periodic structured baseline and its repository integration.
 - [guide/Harmonic%20Regression/Harmonic%20Regression.pdf](./guide/Harmonic%20Regression/Harmonic%20Regression.pdf)
   Styled PDF export of the harmonic regression learning guide.
-- [guide/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md](./guide/Harmonic%20Regression/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the harmonic regression video guide package.
+- [guide/Harmonic%20Regression/concept_video_package/video_source_brief.md](./guide/Harmonic%20Regression/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the harmonic-regression concept video package.
+- [guide/Harmonic%20Regression/project_video_package/video_source_brief.md](./guide/Harmonic%20Regression/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the harmonic-regression project video package.
 - [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
   Learning guide that explains the periodic-feature hybrid architecture that combines explicit periodic encoding with an MLP backend.
 - [guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf](./guide/Periodic%20Feature%20Network/Periodic%20Feature%20Network.pdf)
   Styled PDF export of the periodic-feature network learning guide.
-- [guide/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md](./guide/Periodic%20Feature%20Network/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the periodic-feature network video guide package.
+- [guide/Periodic%20Feature%20Network/concept_video_package/video_source_brief.md](./guide/Periodic%20Feature%20Network/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the periodic-feature-network concept video package.
+- [guide/Periodic%20Feature%20Network/project_video_package/video_source_brief.md](./guide/Periodic%20Feature%20Network/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the periodic-feature-network project video package.
 - [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
   Learning guide that explains the residual-harmonic hybrid architecture and its structured-plus-residual decomposition.
 - [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
   Styled PDF export of the residual-harmonic network learning guide.
-- [guide/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md](./guide/Residual%20Harmonic%20Network/video_guide_package/video_guide_source_brief.md)
-  NotebookLM-oriented source brief for the residual-harmonic network video guide package.
+- [guide/Residual%20Harmonic%20Network/concept_video_package/video_source_brief.md](./guide/Residual%20Harmonic%20Network/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the residual-harmonic-network concept video package.
+- [guide/Residual%20Harmonic%20Network/project_video_package/video_source_brief.md](./guide/Residual%20Harmonic%20Network/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the residual-harmonic-network project video package.
+- [guide/Multilayer%20Perceptrons/concept_video_package/video_source_brief.md](./guide/Multilayer%20Perceptrons/concept_video_package/video_source_brief.md)
+  Neutral NotebookLM-oriented source brief for the Multilayer Perceptrons concept video package.
+- [guide/Multilayer%20Perceptrons/project_video_package/video_source_brief.md](./guide/Multilayer%20Perceptrons/project_video_package/video_source_brief.md)
+  Repository-specific NotebookLM-oriented source brief for the Multilayer Perceptrons bridge-topic project video package.
 - [guide/FeedForward%20Network/FeedForward%20Network.md](./guide/FeedForward%20Network/FeedForward%20Network.md)
   Unified canonical guide for the implemented feedforward TE baseline, combining conceptual framing, strengths and limits, Python model walkthrough, and training-path explanation.
 - [guide/FeedForward%20Network/FeedForward%20Network.pdf](./guide/FeedForward%20Network/FeedForward%20Network.pdf)
@@ -373,6 +391,12 @@ This folder contains the internal project documents derived from the reference P
   Technical document for formalizing the broader Markdownlint baseline, tracked rule policy, and canonical non-`reference/` scope.
 - [technical/2026-03-25/2026-03-25-14-31-40_readme_github_landing_page_redesign.md](./technical/2026-03-25/2026-03-25-14-31-40_readme_github_landing_page_redesign.md)
   Technical document for redesigning the repository README as a GitHub-facing landing page for a new human user.
+- [technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md](./technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md)
+  Technical document for keeping the GitHub-facing README aligned with public repository presentation changes.
+- [technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
+  Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
+- [technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)
+  Technical document for introducing dual `NotebookLM` concept/project video-package tracks and explicit export naming across the guide tree.
 
 #### Campaign Results
 
