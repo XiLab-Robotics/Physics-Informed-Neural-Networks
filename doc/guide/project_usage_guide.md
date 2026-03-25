@@ -255,11 +255,11 @@ This scans the maintained Markdown source roots:
 - `config/`
 - `models/`
 - `doc/`
-- `docs/`
+- `site/`
 
 It intentionally excludes generated or non-canonical paths such as:
 
-- `docs/_build/`
+- `site/_build/`
 - `.temp/`
 - `.tools/`
 - `isolated/`
@@ -268,7 +268,7 @@ It intentionally excludes generated or non-canonical paths such as:
 ### Scan Specific Paths
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py README.md doc docs
+python -B scripts/tooling/markdown_style_check.py README.md doc site
 ```
 
 This is useful after a focused documentation task when you only want to re-check
@@ -290,13 +290,13 @@ The tracked configuration file is:
 The current profile:
 
 - excludes `reference/`;
-- excludes generated or transient paths such as `docs/_build/`, `.temp/`,
+- excludes generated or transient paths such as `site/_build/`, `.temp/`,
   `.tools/`, `isolated/`, and `output/`;
 - disables `MD013/line-length` until the repository adopts an explicit
   wrapped-prose policy;
 - disables `MD029/ol-prefix` so meaningful ordered-list numbering in technical
   documents is not flattened automatically;
-- disables `MD041` inside `docs/` wrapper files that intentionally start with
+- disables `MD041` inside `site/` wrapper files that intentionally start with
   MyST include directives;
 - keeps duplicate-heading checks only for sibling headings.
 
@@ -315,7 +315,7 @@ python -B scripts/tooling/run_markdownlint.py --fix
 ### Lint Specific Paths
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py README.md doc docs
+python -B scripts/tooling/run_markdownlint.py README.md doc site
 ```
 
 The runner uses `npx.cmd` on Windows, so the machine must have `node`, `npm`,
@@ -1432,7 +1432,7 @@ conda run -n standard_ml_codex_env python scripts/training/train_feedforward_net
 
 The repository now includes the canonical Batch 0 foundation for the future `Sphinx + RTD` documentation portal under:
 
-- `docs/`
+- `site/`
 
 Current Batch 0 scope:
 
@@ -1452,12 +1452,12 @@ To build the local HTML portal:
 ```powershell
 conda activate standard_ml_codex_env
 python -m pip install -r requirements.txt
-python -m sphinx -W -b html docs docs/_build/html
+python -m sphinx -W -b html site site/_build/html
 ```
 
 Successful output is written to:
 
-- `docs/_build/html`
+- `site/_build/html`
 
 Batch 0 is intentionally minimal. If the build succeeds, the next step is to add the first real canonical API slice on top of this foundation rather than expanding the shell structure blindly.
 

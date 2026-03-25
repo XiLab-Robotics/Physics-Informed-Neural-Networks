@@ -19,7 +19,7 @@ DEFAULT_INCLUDED_PATHS = [
     "config",
     "models",
     "doc",
-    "docs",
+    "site",
 ]
 DEFAULT_EXCLUDED_ROOT_NAMES = {
     ".git",

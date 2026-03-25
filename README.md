@@ -210,6 +210,8 @@ and inspectable.
   [2026-03-25-14-31-40_readme_github_landing_page_redesign.md](./doc/technical/2026-03-25/2026-03-25-14-31-40_readme_github_landing_page_redesign.md).
 - The README maintenance rule rationale is documented in
   [2026-03-25-14-51-40_readme_maintenance_rule.md](./doc/technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md).
+- The Sphinx portal root rename rationale is documented in
+  [2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./doc/technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md).
 
 ## Next Steps
 

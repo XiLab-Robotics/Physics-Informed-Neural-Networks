@@ -7,11 +7,11 @@
     "config/**/*.md",
     "models/**/*.md",
     "doc/**/*.md",
-    "docs/**/*.md"
+    "site/**/*.md"
   ],
   "ignores": [
     "reference/**",
-    "docs/_build/**",
+    "site/_build/**",
     ".git/**",
     ".temp/**",
     ".tools/**",

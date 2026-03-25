@@ -24,12 +24,12 @@ surface outside `reference/`:
 - `config/**/*.md`
 - `models/**/*.md`
 - `doc/**/*.md`
-- `docs/**/*.md`
+- `site/**/*.md`
 
 The tracked configuration excludes non-canonical or generated locations such as:
 
 - `reference/**`
-- `docs/_build/**`
+- `site/_build/**`
 - `.temp/**`
 - `.tools/**`
 - `isolated/**`
@@ -45,8 +45,8 @@ The current tracked Markdownlint profile:
   ordered-list numbering that should not be forced to restart at `1`;
 - keeps `MD024/no-duplicate-heading` enabled, but only for sibling headings, so
   repeated labels in different nested sections do not create false positives;
-- disables `MD041/first-line-heading` inside `docs/` wrappers through
-  `docs/.markdownlint.jsonc`, because those files intentionally begin with MyST
+- disables `MD041/first-line-heading` inside `site/` wrappers through
+  `site/.markdownlint.jsonc`, because those files intentionally begin with MyST
   include directives
 
 ## Usage
@@ -70,7 +70,7 @@ This applies fixable Markdownlint changes in place.
 ### Lint Specific Files Or Folders
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py README.md doc docs
+python -B scripts/tooling/run_markdownlint.py README.md doc site
 ```
 
 When explicit paths are passed, the script disables the config-level default

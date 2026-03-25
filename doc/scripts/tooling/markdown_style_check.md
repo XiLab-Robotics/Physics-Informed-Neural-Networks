@@ -22,11 +22,11 @@ By default, it scans the canonical Markdown source roots:
 - `config/`
 - `models/`
 - `doc/`
-- `docs/`
+- `site/`
 
 It excludes generated or non-canonical paths such as:
 
-- `docs/_build/`
+- `site/_build/`
 - `.temp/`
 - `.tools/`
 - `isolated/`
@@ -52,7 +52,7 @@ warnings are found.
 ### Scan Specific Paths Only
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py README.md doc docs
+python -B scripts/tooling/markdown_style_check.py README.md doc site
 ```
 
 This is useful when you only want to re-check the files touched by the current

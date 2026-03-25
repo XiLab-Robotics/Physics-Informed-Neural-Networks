@@ -5,7 +5,7 @@ Batch 0 establishes the documentation portal foundation only.
 
 Included now:
 
-- canonical ``docs/`` tree;
+- canonical ``site/`` tree;
 - ``Sphinx`` configuration;
 - basic navigation shells;
 - local build instructions.
