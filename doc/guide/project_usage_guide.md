@@ -203,6 +203,31 @@ And one track-specific scope file:
 - `concept_video_scope_notes.md`
 - `project_video_scope_notes.md`
 
+For future approved guide-worthy topics, the default repository expectation is
+now a full guide bundle unless the user explicitly narrows the scope:
+
+- guide-local assets;
+- canonical guide Markdown;
+- guide-local PDF companion;
+- `concept_video_package/`;
+- `project_video_package/`;
+- `concept_video_package/notebooklm_concept_video_prompt.md`;
+- `project_video_package/notebooklm_project_video_prompt.md`.
+
+The two final prompt files are the ready-to-paste commands intended for two
+separate `NotebookLM` generation passes:
+
+- one pass for the neutral `concept` video;
+- one pass for the repository-specific `project` video.
+
+Those prompt files should keep the repository prompt style stable:
+
+- explicit goal;
+- explicit required chapter order;
+- explicit wording constraints;
+- explicit fact-boundary compliance;
+- explicit duration, tone, and visual-style targets.
+
 When imported `NotebookLM` exports are stored in the guide root, their filenames
 should declare the guide name, the track, and the artifact type, for example:
 

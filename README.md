@@ -216,6 +216,8 @@ and inspectable.
   [2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./doc/technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md).
 - The dual `NotebookLM` video-package strategy rationale is documented in
   [2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./doc/technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md).
+- The future guide-bundle and `NotebookLM` prompt rule rationale is documented in
+  [2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md](./doc/technical/2026-03-25/2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md).
 
 ## Next Steps
 

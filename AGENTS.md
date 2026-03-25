@@ -38,6 +38,17 @@
 - Build `concept_video_package/` and `project_video_package/` documents as repository-owned `NotebookLM` sources rather than generic prompts. They must preserve terminology, chapter order, scope boundaries, and the distinction between neutral topic explanation versus repository-specific explanation.
 - The `concept_video_package/` track must stay neutral and explain what the model, method, or workflow is, how it works, how training and testing operate, and where it is used in general, without collapsing into repository-specific framing.
 - The `project_video_package/` track must explain why the topic exists in this repository, what role it plays in the TE workflow, how it is implemented or positioned here, and what its project-local advantages and disadvantages are.
+- For future approved guide-worthy topics, treat the default deliverable as a full bundle rather than only one guide file. Unless the user explicitly narrows the scope, prepare:
+  - guide-local assets;
+  - canonical guide Markdown;
+  - guide-local PDF companion;
+  - `concept_video_package/`;
+  - `project_video_package/`;
+  - `concept_video_package/notebooklm_concept_video_prompt.md`;
+  - `project_video_package/notebooklm_project_video_prompt.md`.
+- The two final `NotebookLM` prompt files must be repository-owned, ready to paste, and written in the structured style already established in this repository: explicit goal, explicit requirements, explicit terminology/fact-boundary compliance, and explicit output style.
+- `notebooklm_concept_video_prompt.md` must request the neutral educational video for the topic.
+- `notebooklm_project_video_prompt.md` must request the repository-specific educational video for the topic.
 - Future imported `NotebookLM` exports must use filenames that explicitly declare guide name, track, and artifact type, for example `FeedForward Network - Concept Mind Map.png` or `FeedForward Network - Project Video Overview.mp4`, instead of generic names such as `Mind Map.png` or `Video Overview.mp4`.
 - If a topic root already exists under `doc/guide/` but does not yet have the full canonical guide Markdown/PDF pair, a `NotebookLM` source package may still be prepared only when the user explicitly approves that exception. In that case, the package scope notes must record the missing canonical-guide status explicitly rather than hiding it.
 - Do not generate or finalize a `NotebookLM` video guide immediately after the package is prepared. Stop after the source package is ready, report completion, and wait for the user's explicit approval before creating or finalizing the actual video-guide generation step.

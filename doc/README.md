@@ -397,6 +397,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)
   Technical document for introducing dual `NotebookLM` concept/project video-package tracks and explicit export naming across the guide tree.
+- [technical/2026-03-25/2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md](./technical/2026-03-25/2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md)
+  Technical document for making future guide-worthy topics produce the full guide bundle plus the two final ready-to-paste `NotebookLM` prompt files by default.
 
 #### Campaign Results
 
