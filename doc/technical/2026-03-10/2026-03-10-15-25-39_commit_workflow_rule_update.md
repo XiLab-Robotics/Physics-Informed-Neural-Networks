@@ -39,4 +39,3 @@ The change is procedural and documentation-focused. It does not alter runtime co
 4. After user approval, update `README.md` so the critical project rules reflect the same workflow.
 5. Verify that the new rule text is consistent across the repository documentation.
 6. Create a Git commit summarizing the approved rule changes.
-

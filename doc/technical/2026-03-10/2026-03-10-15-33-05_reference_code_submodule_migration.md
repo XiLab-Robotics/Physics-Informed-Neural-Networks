@@ -55,4 +55,3 @@ This keeps `reference/codes/` as the place for external code references while re
 4. Update `.gitmodules` and any relevant repository documentation to reflect the new reference-code layout.
 5. Verify the final repository state with `git status` and submodule path checks.
 6. Create a Git commit with a repository-aligned title and an accurate description of the migration.
-

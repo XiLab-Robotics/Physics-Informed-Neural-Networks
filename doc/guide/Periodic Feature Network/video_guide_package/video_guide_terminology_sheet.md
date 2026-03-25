@@ -7,4 +7,3 @@
 | Concatenation | Joining feature channels into one input vector. | Merge | Summation |
 | Feedforward backbone | Dense network used after the periodic expansion. | MLP backend | Recurrent module |
 | Middle-ground architecture | Model that combines explicit structure with neural flexibility. | Hybrid compromise | Weak model |
-

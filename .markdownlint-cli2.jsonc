@@ -1,0 +1,31 @@
+{
+  "noBanner": true,
+  "noProgress": true,
+  "globs": [
+    "README.md",
+    "AGENTS.md",
+    "config/**/*.md",
+    "models/**/*.md",
+    "doc/**/*.md",
+    "docs/**/*.md"
+  ],
+  "ignores": [
+    "reference/**",
+    "docs/_build/**",
+    ".git/**",
+    ".temp/**",
+    ".tools/**",
+    ".vs/**",
+    "isolated/**",
+    "output/**",
+    "**/__pycache__/**"
+  ],
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD029": false,
+    "MD024": {
+      "siblings_only": true
+    }
+  }
+}

@@ -8,4 +8,3 @@
 | Additive merge | Final sum of structured and residual outputs. | Residual addition | Concatenation |
 | Frozen branch | Branch kept fixed during training. | Fixed component | Dead branch |
 | Auxiliary outputs | Extra branch-level outputs returned for inspection. | Diagnostics | Hidden logits |
-

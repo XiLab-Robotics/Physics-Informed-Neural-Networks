@@ -126,4 +126,3 @@ The exact parameter values should be chosen after reviewing the current datamodu
 7. Export the final report to PDF using a viable local conversion path if available, otherwise document the exact export limitation and the fallback artifact produced.
 8. Update the documentation indexes so the new report and PDF artifact are discoverable.
 9. Create the required Git commit immediately after the approved documentation update is completed.
-

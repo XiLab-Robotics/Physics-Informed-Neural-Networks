@@ -323,6 +323,7 @@ Technical documents:
   * `doc/technical/2026-03-25/2026-03-25-12-39-38_isolated_mode_rework.md`
   * `doc/technical/2026-03-25/2026-03-25-13-03-35_remove_legacy_isolated_handoff_archive.md`
   * `doc/technical/2026-03-25/2026-03-25-13-10-20_markdown_warning_cleanup_and_lint_workflow.md`
+  * `doc/technical/2026-03-25/2026-03-25-14-05-16_extended_markdownlint_rule_baseline.md`
 
 Script documentation:
 
@@ -336,6 +337,7 @@ Script documentation:
 * `doc/scripts/training/run_training_smoke_test.md`
 * `doc/scripts/tooling/isolated_mode.md`
 * `doc/scripts/tooling/markdown_style_check.md`
+* `doc/scripts/tooling/run_markdownlint.md`
 * `doc/scripts/reports/generate_model_report_diagrams.md`
 * `doc/scripts/reports/run_report_pipeline.md`
 

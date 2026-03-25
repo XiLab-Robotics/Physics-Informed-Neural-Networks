@@ -11,4 +11,3 @@
 - Avoid saying the residual branch replaces the harmonic branch.
 - Avoid saying the model is the same as periodic feature engineering.
 - Avoid implying that the hybrid structure is identical to physics-informed modeling.
-

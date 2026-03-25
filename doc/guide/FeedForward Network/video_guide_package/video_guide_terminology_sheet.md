@@ -10,4 +10,3 @@
 | Baseline | Reference model used for comparison with later architectures. | Reference model | Weak model |
 | Scalar regression output | Single numeric prediction returned by the model. | Single output | Classification label |
 | Inductive bias | The structural preference built into the model design. | Structural prior | Shortcut |
-

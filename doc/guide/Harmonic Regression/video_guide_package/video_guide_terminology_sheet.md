@@ -9,4 +9,3 @@
 | Linear-conditioned mode | Coefficients adjusted by a linear projection of operating features. | Conditioned mode | Temporal mode |
 | Truncated series | Finite harmonic expansion with a chosen order. | Finite basis | Infinite model |
 | Interpretability | Ability to inspect the model in terms of human-readable coefficients. | Readability | Simplicity only |
-

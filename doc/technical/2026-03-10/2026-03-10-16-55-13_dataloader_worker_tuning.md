@@ -78,4 +78,3 @@ The tuning should not:
 3. Verify that the current datamodule and training workflow still run correctly in `standard_ml_codex_env`.
 4. Update `doc/guide/project_usage_guide.md` so the training section documents the new default dataloader settings and their meaning.
 5. Verify repository status and create a Git commit summarizing the tuning change.
-

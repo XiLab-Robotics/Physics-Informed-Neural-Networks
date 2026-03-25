@@ -61,4 +61,3 @@ The refreshed guide should remain procedural and explicit, with concrete command
 4. Align the guide wording with the current dataset-header clarification and current repository folder structure.
 5. Verify that the guide no longer claims training is unavailable.
 6. Create a Git commit summarizing the usage-guide refresh.
-

@@ -56,4 +56,3 @@ Because PyTorch on this project is CUDA-sensitive, the documentation should stil
 5. Remove or clarify the current `torchvision` setup reference if it is not part of the actual codebase requirements.
 6. Verify the resulting dependency list against the repository imports once more.
 7. Commit the rule update and dependency audit changes immediately after implementation.
-

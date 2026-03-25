@@ -191,4 +191,3 @@ This is the main compatibility point that avoids rewriting the data layer later.
    - validation metric logging;
    - checkpoint generation.
 8. Create a Git commit with a repository-aligned title and body summarizing the full baseline implementation.
-

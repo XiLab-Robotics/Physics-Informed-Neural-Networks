@@ -67,4 +67,3 @@ The documentation will remain in English and will avoid repository-internal nois
 5. Update `README.md` and `doc/README.md` so the new technical document and the new `doc/reference_codes/` section are discoverable from the project documentation indexes.
 6. Verify the created documentation files and repository status.
 7. Create a Git commit with a repository-aligned title and body summarizing the new reference-code documentation.
-

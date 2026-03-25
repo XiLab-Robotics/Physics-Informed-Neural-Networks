@@ -102,4 +102,3 @@ Because these runs can be long, the implementation should avoid changing the tra
 5. Write a comparison report that includes the already executed `trial` run as historical reference and the four newly executed runs as the main comparison set.
 6. Update `doc/guide/project_usage_guide.md` only if the approved work changes the documented runnable workflow beyond adding executed results.
 7. Create the required Git commit immediately after the approved run summary documentation is completed.
-

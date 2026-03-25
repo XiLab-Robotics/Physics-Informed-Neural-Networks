@@ -101,4 +101,3 @@ If a new `doc/reports/` section is introduced, the internal documentation index 
    - proof-run configuration lighter than the default baseline.
 7. Conclude the report with concrete next steps for stronger validation.
 8. Create the required Git commit immediately after the approved documentation update is completed.
-

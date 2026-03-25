@@ -477,4 +477,3 @@ For this TE project, that progression is more meaningful than a naive "deeper is
 - [Harmonic Regression](../Harmonic%20Regression/Harmonic%20Regression.md)
 - [Periodic Feature Network](../Periodic%20Feature%20Network/Periodic%20Feature%20Network.md)
 - [Residual Harmonic Network](../Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.md)
-

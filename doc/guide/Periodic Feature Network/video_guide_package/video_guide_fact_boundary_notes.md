@@ -11,4 +11,3 @@
 - Avoid saying the model is a pure harmonic regressor.
 - Avoid saying the periodic expansion is the same as output decomposition.
 - Avoid implying that the architecture is fully physics-informed.
-

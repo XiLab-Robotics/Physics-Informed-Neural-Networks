@@ -47,4 +47,3 @@ The planned cleanup is:
 4. Keep the loader compatible with the real dataset header and review code comments/docstrings for ambiguity.
 5. Verify the final wording with a repository-wide search.
 6. Create a Git commit with a repository-aligned title and body summarizing the clarification.
-

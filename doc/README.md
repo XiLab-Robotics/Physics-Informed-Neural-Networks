@@ -255,6 +255,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the isolated-session manager that creates locked snapshots, manifest/checklist files, lock-validation reports, and session close-out actions.
 - [scripts/tooling/markdown_style_check.md](./scripts/tooling/markdown_style_check.md)
   Script-level documentation for the repository-owned Markdown warning checker that scans source `.md` files for blank-line, heading, and single-title issues.
+- [scripts/tooling/run_markdownlint.md](./scripts/tooling/run_markdownlint.md)
+  Script-level documentation for the broader Markdownlint runner that applies the tracked canonical-scope rule profile outside `reference/`.
 
 ### Reports
 
@@ -367,6 +369,8 @@ This folder contains the internal project documents derived from the reference P
   Technical cleanup document for preserving only the useful isolated-mode lessons in canonical documentation and removing the legacy `reference/isolated_handoff/` archive subtree.
 - [technical/2026-03-25/2026-03-25-13-10-20_markdown_warning_cleanup_and_lint_workflow.md](./technical/2026-03-25/2026-03-25-13-10-20_markdown_warning_cleanup_and_lint_workflow.md)
   Technical document for cleaning up current Markdown warnings and adding a repository-owned terminal checker so future Markdown files can be validated directly from source.
+- [technical/2026-03-25/2026-03-25-14-05-16_extended_markdownlint_rule_baseline.md](./technical/2026-03-25/2026-03-25-14-05-16_extended_markdownlint_rule_baseline.md)
+  Technical document for formalizing the broader Markdownlint baseline, tracked rule policy, and canonical non-`reference/` scope.
 
 #### Campaign Results
 
@@ -398,4 +402,3 @@ This folder contains the internal project documents derived from the reference P
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
-

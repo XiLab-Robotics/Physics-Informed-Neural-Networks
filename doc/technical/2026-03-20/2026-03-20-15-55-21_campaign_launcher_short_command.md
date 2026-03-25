@@ -41,4 +41,3 @@ The wrapper should not suppress stdout, stderr, or Lightning progress bars. It s
 3. Preserve all terminal logging, progress output, and per-run file logging.
 4. Document the new short command in the usage guide and in the campaign runner documentation.
 5. Validate the launcher by running it once and confirming that the resulting campaign output matches the direct runner behavior.
-

@@ -11,4 +11,3 @@
 - Avoid implying that the feedforward network encodes periodic structure explicitly.
 - Avoid implying that it is the most interpretable TE model.
 - Avoid saying that it is the final architecture choice for the project.
-

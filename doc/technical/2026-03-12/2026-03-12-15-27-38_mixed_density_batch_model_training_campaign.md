@@ -31,6 +31,7 @@ The campaign should be organized in three phases over the same three density lev
 ### Phase 1 - Density Plus Long Schedule
 
 Purpose:
+
 - isolate the interaction between denser point sampling and the strongest optimization schedule found so far.
 
 Planned variants:
@@ -54,6 +55,7 @@ Planned variants:
 ### Phase 2 - Density Plus Long Schedule Plus Larger Batch
 
 Purpose:
+
 - test whether the denser variants benefit from smoother gradients and better GPU utilization.
 
 Planned variants:
@@ -63,12 +65,14 @@ Planned variants:
 6. `stride1_long_large_batch`
 
 Important note:
+
 - "larger batch" should mean larger than the conservative phase-1 version for the same density;
 - it should not force the exact same batch size for all three densities if that would be unrealistic for memory.
 
 ### Phase 3 - Density Plus Long Schedule Plus Larger Batch Plus Larger Model
 
 Purpose:
+
 - test whether extra model capacity becomes useful only after the data density and batch regime have already been strengthened.
 
 Planned variants:
@@ -149,4 +153,3 @@ This means the campaign should not force one identical `curve_batch_size` across
    - the `9` new mixed configurations as the main result set.
 7. Identify which combination is the best current workstation-scale feedforward configuration.
 8. Create the required Git commit immediately after the approved campaign summary documentation is completed.
-

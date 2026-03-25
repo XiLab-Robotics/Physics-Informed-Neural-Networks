@@ -71,4 +71,3 @@ These timestamps are chosen to keep the report filenames chronologically informa
 4. Update `doc/README.md` so the internal documentation index points to the renamed files.
 5. Verify that no stale references to the old report filenames remain.
 6. Create the required Git commit immediately after the approved rename update is completed.
-

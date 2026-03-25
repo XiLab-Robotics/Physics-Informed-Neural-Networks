@@ -11,4 +11,3 @@
 - Avoid saying the model is a generic neural network.
 - Avoid implying that conditioning is nonlinear in the current implementation.
 - Avoid presenting the model as the final answer for all TE regimes.
-

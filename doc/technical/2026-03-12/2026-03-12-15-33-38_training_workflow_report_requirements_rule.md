@@ -77,4 +77,3 @@ The rule should be written clearly enough that future training work cannot skip 
 3. Keep the wording specific to training work so general non-training repository changes do not inherit unnecessary extra steps.
 4. Update any additional documentation indexes or workflow guides that should reflect the new rule.
 5. Create the required Git commit immediately after the approved documentation update is completed.
-

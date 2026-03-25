@@ -544,4 +544,3 @@ but do so knowing it is not the most repository-aligned path.
   <https://pydoctor.readthedocs.io/>
 - `pydoctor quick start`
   <https://pydoctor.readthedocs.io/en/latest/quickstart.html>
-

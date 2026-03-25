@@ -17,6 +17,7 @@ At the moment, the implemented workflows are:
 - a short PowerShell launcher for the Wave 1 recovery campaign that keeps the same live terminal logging and per-run artifact behavior;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
+- broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
 - real exported PDF validation through a dedicated page-rasterization utility.
 
@@ -272,6 +273,53 @@ python -B scripts/tooling/markdown_style_check.py README.md doc docs
 
 This is useful after a focused documentation task when you only want to re-check
 the affected files.
+
+## Broader Markdownlint Check
+
+The repository also exposes a broader Markdownlint runner:
+
+- `scripts/tooling/run_markdownlint.py`
+
+Use it when you want a wider Markdownlint pass across canonical repository
+Markdown outside `reference/`.
+
+The tracked configuration file is:
+
+- `.markdownlint-cli2.jsonc`
+
+The current profile:
+
+- excludes `reference/`;
+- excludes generated or transient paths such as `docs/_build/`, `.temp/`,
+  `.tools/`, `isolated/`, and `output/`;
+- disables `MD013/line-length` until the repository adopts an explicit
+  wrapped-prose policy;
+- disables `MD029/ol-prefix` so meaningful ordered-list numbering in technical
+  documents is not flattened automatically;
+- disables `MD041` inside `docs/` wrapper files that intentionally start with
+  MyST include directives;
+- keeps duplicate-heading checks only for sibling headings.
+
+### Run The Default Canonical Markdownlint Scan
+
+```powershell
+python -B scripts/tooling/run_markdownlint.py
+```
+
+### Apply Fixable Markdownlint Changes
+
+```powershell
+python -B scripts/tooling/run_markdownlint.py --fix
+```
+
+### Lint Specific Paths
+
+```powershell
+python -B scripts/tooling/run_markdownlint.py README.md doc docs
+```
+
+The runner uses `npx.cmd` on Windows, so the machine must have `node`, `npm`,
+and `npx` available.
 
 ## Isolated Mode Workflow
 
@@ -1456,4 +1504,3 @@ To extend the repository cleanly, the recommended order is:
 4. add inference and export utilities
 5. extend the regression module toward physics-informed loss composition
 6. add PINN-specific training and validation workflows
-
