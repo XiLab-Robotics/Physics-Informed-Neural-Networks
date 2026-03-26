@@ -143,6 +143,12 @@ python scripts/training/run_training_campaign.py
 .\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
 ```
 
+### Use The Wave 2 Residual Launcher
+
+```powershell
+.\scripts\campaigns\run_wave2_residual_harmonic_family_campaign.ps1
+```
+
 ### Check Markdown Quality For Repository Docs
 
 ```powershell
@@ -222,6 +228,10 @@ and inspectable.
   [2026-03-25-17-30-31_integrate_concept_notebooklm_exports_for_three_guides.md](./doc/technical/2026-03-25/2026-03-25-17-30-31_integrate_concept_notebooklm_exports_for_three_guides.md).
 - The Wave 1 recovery campaign PDF layout refinement rationale is documented in
   [2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md](./doc/technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md).
+- The Wave 2 familywise hyperparameter-optimization campaign rationale is documented in
+  [2026-03-26-13-44-27_wave2_familywise_hyperparameter_optimization_campaign.md](./doc/technical/2026-03-26/2026-03-26-13-44-27_wave2_familywise_hyperparameter_optimization_campaign.md).
+- The mandatory campaign-launcher script rationale is documented in
+  [2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md](./doc/technical/2026-03-26/2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md).
 
 ## Next Steps
 

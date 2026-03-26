@@ -97,6 +97,9 @@ The current usage flow mainly relies on these folders:
 - `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
   Short PowerShell launcher for the Wave 1 recovery campaign.
 
+- `scripts/campaigns/run_wave2_residual_harmonic_family_campaign.ps1`
+  Short PowerShell launcher for the Wave 2 residual-harmonic family campaign.
+
 - `scripts/models/`
   Neural-network backbones and the model factory.
 
@@ -173,6 +176,24 @@ The Wave 1 recovery campaign can also be launched through the short wrapper:
 
 This wrapper only reduces typing. It preserves the same terminal output, logs, and campaign artifacts as the full runner command.
 It also clears stale pending or running recovery YAML files from earlier failed launcher attempts before re-enqueuing the approved recovery set.
+
+The Wave 2 residual-family campaign also has a dedicated launcher:
+
+```powershell
+.\scripts\campaigns\run_wave2_residual_harmonic_family_campaign.ps1
+```
+
+For approved campaigns, the repository workflow should now treat the launcher as
+part of the mandatory preparation bundle, not as an optional convenience.
+Campaign preparation is considered complete only when all of the following
+exist:
+
+- approved planning report;
+- generated campaign YAML files;
+- persistent state in `doc/running/active_training_campaign.yaml`;
+- exact raw launch command;
+- dedicated PowerShell launcher under `scripts/campaigns/`;
+- launcher usage note under `doc/scripts/campaigns/`.
 
 ## NotebookLM Video Packages
 
@@ -1463,17 +1484,18 @@ This state file stores:
 
 Operational rule:
 
-- approved campaign preparation must now include generated YAML files and the exact launch command;
+- approved campaign preparation must now include generated YAML files, the exact launch command, the dedicated PowerShell launcher, and the matching launcher usage note;
 - when the user confirms that the campaign has started, the campaign state should be updated to `running`;
 - while the campaign is prepared or running, any edit to a protected campaign file requires a `CRITICAL WARNING` and explicit user approval first;
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
 - when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
-Current prepared Wave 1 campaign:
+Current prepared Wave 2 campaign:
 
-- campaign name: `wave1_structured_baseline_campaign_2026_03_17_21_01_47`
-- planning report: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
-- config package: `config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/`
+- campaign name: `wave2_residual_harmonic_family_campaign_2026_03_26_13_52_00`
+- planning report: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave2_residual_harmonic_family_campaign_plan_report.md`
+- config package: `config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave2_residual_harmonic_family_campaign/`
+- launcher: `scripts/campaigns/run_wave2_residual_harmonic_family_campaign.ps1`
 
 ## Typical Workflow For The Current Project
 

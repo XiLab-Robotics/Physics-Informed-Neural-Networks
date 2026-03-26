@@ -59,7 +59,7 @@
   - a high-level explanation of how the training workflow operates;
   - a detailed explanation of the implemented Python training functions and code structure.
 - Before executing any training campaign or training-related experiment, create a preliminary planning report in `doc/reports/campaign_plans/` that explains the relevant parameters, their meanings and effects, and the candidate configuration table to be tested. Use `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.md` as the reference style and depth.
-- For every approved training campaign preparation, automatically generate the campaign YAML files and provide the exact terminal command needed to launch the campaign. Do not treat campaign preparation as complete if only the planning report exists.
+- For every approved training campaign preparation, automatically generate the campaign YAML files, create a dedicated PowerShell launcher under `scripts/campaigns/`, create the matching launcher note under `doc/scripts/campaigns/`, and provide the exact terminal command needed to launch the campaign. Do not treat campaign preparation as complete if only the planning report exists.
 - Store future training artifacts by artifact type instead of mixing them in one family-flat root:
   - `output/training_runs/<model_family>/<run_instance_id>/`
   - `output/validation_checks/<model_family>/<run_instance_id>/`
@@ -99,7 +99,7 @@
   1. Create the technical project document first.
   2. If the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before asking for approval.
   3. Wait for the user's explicit approval.
-  4. If the approved work is a training campaign, generate the campaign YAML files, store the campaign state, and provide the exact launch command.
+  4. If the approved work is a training campaign, generate the campaign YAML files, create the dedicated campaign launcher plus its documentation note, store the campaign state, and provide the exact launch command.
   5. Execute the approved modifications.
   6. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, proposed future improvements, and a validated PDF export.
   7. If the approved work changes the public-facing repository presentation, implemented-capability summary, quick-start flow, primary example commands, or main documentation entry points, update `README.md` before the final commit while keeping it concise and GitHub-facing.
