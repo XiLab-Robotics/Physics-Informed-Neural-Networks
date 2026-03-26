@@ -19,3 +19,6 @@
 [submodule "reference/codes/mediapipe_gesture_recognition"]
 	path = reference/codes/mediapipe_gesture_recognition
 	url = https://github.com/davideferrari95/mediapipe_gesture_recognition.git
+[submodule "reference/codes/TestRig"]
+	path = reference/codes/TestRig
+	url = git@github.com:XiLab-Robotics/TestRig.git
