@@ -399,6 +399,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for introducing dual `NotebookLM` concept/project video-package tracks and explicit export naming across the guide tree.
 - [technical/2026-03-25/2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md](./technical/2026-03-25/2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md)
   Technical document for making future guide-worthy topics produce the full guide bundle plus the two final ready-to-paste `NotebookLM` prompt files by default.
+- [technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md](./technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md)
+  Technical document for refining the Wave 1 recovery campaign results PDF page breaks and table column balance.
 
 #### Campaign Results
 

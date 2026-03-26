@@ -41,6 +41,10 @@ PHASE_RESULTS_TABLE_CLASS_NAME = "report-table report-table-phase-results"
 RANKING_RESULTS_TABLE_CLASS_NAME = "report-table report-table-ranking-results"
 DECISION_MATRIX_TABLE_CLASS_NAME = "report-table report-table-decision-matrix"
 COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME = "report-table report-table-comparative-example"
+WAVE1_RECOVERY_TEST_RANKING_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-test-ranking"
+WAVE1_RECOVERY_VALIDATION_SNAPSHOT_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-validation-snapshot"
+WAVE1_RECOVERY_RESIDUAL_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-residual-family"
+WAVE1_RECOVERY_HARMONIC_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-harmonic-family"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -121,6 +125,14 @@ FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "phase-2-results",
     "comparative-example-summary",
     "cross-campaign-ranking",
+}
+
+REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
+    "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report": {
+        "recovery-campaign-ranking",
+        "campaign-winner",
+        "main-conclusions",
+    },
 }
 
 # Browser And Report Constants
@@ -508,6 +520,57 @@ REPORT_STYLESHEET = """
     .report-table-comparative-example th:nth-child(2), .report-table-comparative-example td:nth-child(2) { width: 25%; }
     .report-table-comparative-example th:nth-child(3), .report-table-comparative-example td:nth-child(3) { width: 19%; }
     .report-table-comparative-example th:nth-child(4), .report-table-comparative-example td:nth-child(4) { width: 39%; }
+
+    .report-table-wave1-recovery-test-ranking {
+      font-size: 6.95pt;
+      line-height: 1.2;
+    }
+
+    .report-table-wave1-recovery-test-ranking th,
+    .report-table-wave1-recovery-test-ranking td,
+    .report-table-wave1-recovery-validation-snapshot th,
+    .report-table-wave1-recovery-validation-snapshot td,
+    .report-table-wave1-recovery-residual-family th,
+    .report-table-wave1-recovery-residual-family td,
+    .report-table-wave1-recovery-harmonic-family th,
+    .report-table-wave1-recovery-harmonic-family td {
+      padding: 4px 4px;
+    }
+
+    .report-table-wave1-recovery-test-ranking th,
+    .report-table-wave1-recovery-validation-snapshot th,
+    .report-table-wave1-recovery-residual-family th,
+    .report-table-wave1-recovery-harmonic-family th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-wave1-recovery-test-ranking th:nth-child(1), .report-table-wave1-recovery-test-ranking td:nth-child(1) { width: 7%; }
+    .report-table-wave1-recovery-test-ranking th:nth-child(2), .report-table-wave1-recovery-test-ranking td:nth-child(2) { width: 34%; }
+    .report-table-wave1-recovery-test-ranking th:nth-child(3), .report-table-wave1-recovery-test-ranking td:nth-child(3) { width: 16%; }
+    .report-table-wave1-recovery-test-ranking th:nth-child(4), .report-table-wave1-recovery-test-ranking td:nth-child(4) { width: 10%; }
+    .report-table-wave1-recovery-test-ranking th:nth-child(5), .report-table-wave1-recovery-test-ranking td:nth-child(5) { width: 17%; }
+    .report-table-wave1-recovery-test-ranking th:nth-child(6), .report-table-wave1-recovery-test-ranking td:nth-child(6) { width: 16%; }
+
+    .report-table-wave1-recovery-validation-snapshot th:nth-child(1), .report-table-wave1-recovery-validation-snapshot td:nth-child(1) { width: 44%; }
+    .report-table-wave1-recovery-validation-snapshot th:nth-child(2), .report-table-wave1-recovery-validation-snapshot td:nth-child(2) { width: 26%; }
+    .report-table-wave1-recovery-validation-snapshot th:nth-child(3), .report-table-wave1-recovery-validation-snapshot td:nth-child(3) { width: 13%; }
+    .report-table-wave1-recovery-validation-snapshot th:nth-child(4), .report-table-wave1-recovery-validation-snapshot td:nth-child(4) { width: 17%; }
+
+    .report-table-wave1-recovery-residual-family th:nth-child(1), .report-table-wave1-recovery-residual-family td:nth-child(1) { width: 32%; }
+    .report-table-wave1-recovery-residual-family th:nth-child(2), .report-table-wave1-recovery-residual-family td:nth-child(2) { width: 28%; }
+    .report-table-wave1-recovery-residual-family th:nth-child(3), .report-table-wave1-recovery-residual-family td:nth-child(3) { width: 12%; }
+    .report-table-wave1-recovery-residual-family th:nth-child(4), .report-table-wave1-recovery-residual-family td:nth-child(4) { width: 14%; }
+    .report-table-wave1-recovery-residual-family th:nth-child(5), .report-table-wave1-recovery-residual-family td:nth-child(5) { width: 14%; }
+
+    .report-table-wave1-recovery-harmonic-family th:nth-child(1), .report-table-wave1-recovery-harmonic-family td:nth-child(1) { width: 33%; }
+    .report-table-wave1-recovery-harmonic-family th:nth-child(2), .report-table-wave1-recovery-harmonic-family td:nth-child(2) { width: 25%; }
+    .report-table-wave1-recovery-harmonic-family th:nth-child(3), .report-table-wave1-recovery-harmonic-family td:nth-child(3) { width: 12%; }
+    .report-table-wave1-recovery-harmonic-family th:nth-child(4), .report-table-wave1-recovery-harmonic-family td:nth-child(4) { width: 15%; }
+    .report-table-wave1-recovery-harmonic-family th:nth-child(5), .report-table-wave1-recovery-harmonic-family td:nth-child(5) { width: 15%; }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
@@ -1119,7 +1182,12 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
         "</div>"
     )
 
-def resolve_standard_table_class_name(header_cells: Sequence[str]) -> str:
+def resolve_standard_table_class_name(
+    header_cells: Sequence[str],
+    report_stem: str,
+    current_section_slug: str,
+    current_subsection_slug: str,
+) -> str:
 
     """ Resolve Standard Table Class Name """
 
@@ -1145,9 +1213,46 @@ def resolve_standard_table_class_name(header_cells: Sequence[str]) -> str:
     if normalized_header_cells == COMPARATIVE_EXAMPLE_TABLE_HEADER_CELLS:
         return COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME
 
+    # Resolve Wave 1 Recovery Table Profiles
+    if report_stem == "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report":
+
+        if (
+            current_section_slug == "recovery-campaign-ranking"
+            and current_subsection_slug == "test-side-ranking"
+            and normalized_header_cells == ("Rank", "Config", "Family", "Runtime", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return WAVE1_RECOVERY_TEST_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "recovery-campaign-ranking"
+            and current_subsection_slug == "validation-side-snapshot"
+            and normalized_header_cells == ("Config", "Parameters", "Val MAE [deg]", "Val RMSE [deg]")
+        ):
+            return WAVE1_RECOVERY_VALIDATION_SNAPSHOT_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "family-level-interpretation"
+            and current_subsection_slug == "residual-harmonic-mlp"
+            and normalized_header_cells == ("Config", "Training Mode", "Val MAE [deg]", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return WAVE1_RECOVERY_RESIDUAL_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "family-level-interpretation"
+            and current_subsection_slug == "harmonic-regression"
+            and normalized_header_cells == ("Config", "Harmonic Setup", "Val MAE [deg]", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return WAVE1_RECOVERY_HARMONIC_TABLE_CLASS_NAME
+
     return GENERIC_TABLE_CLASS_NAME
 
-def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, int]:
+def render_table(
+    markdown_lines: Sequence[str],
+    start_index: int,
+    report_stem: str,
+    current_section_slug: str,
+    current_subsection_slug: str,
+) -> tuple[str, int]:
 
     """ Render Table """
 
@@ -1167,7 +1272,12 @@ def render_table(markdown_lines: Sequence[str], start_index: int) -> tuple[str, 
         return render_configuration_split_tables(body_rows), current_index
 
     # Resolve Table Class
-    table_class_name = resolve_standard_table_class_name(header_cells)
+    table_class_name = resolve_standard_table_class_name(
+        header_cells,
+        report_stem,
+        current_section_slug,
+        current_subsection_slug,
+    )
 
     # Render Generic Markdown Table
     return render_standard_table(header_cells, alignments, body_rows, table_class_name), current_index
@@ -1295,6 +1405,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
     markdown_lines = markdown_text.splitlines()
     markdown_directory = markdown_path.parent.resolve()
+    report_stem = markdown_path.stem
 
     # Validate Report Heading
     if not markdown_lines or not markdown_lines[0].startswith("# "):
@@ -1361,8 +1472,12 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             # Append Section Block
             section_title_html = convert_inline_markup(current_section_title)
             section_class_names = ["section-card", f"section-{current_section_slug}"]
+            report_specific_forced_page_break_section_slugs = REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS.get(report_stem, set())
 
-            if current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS:
+            if (
+                current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS
+                or current_section_slug in report_specific_forced_page_break_section_slugs
+            ):
                 section_class_names.append("section-keep-together")
                 section_class_names.append("section-force-page-break")
 
@@ -1406,7 +1521,13 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
             # Flush Pending Paragraph
             flush_paragraph()
-            table_html, current_index = render_table(body_lines, current_index)
+            table_html, current_index = render_table(
+                body_lines,
+                current_index,
+                report_stem,
+                current_section_slug,
+                slugify(current_subsection_title) if current_subsection_title else "",
+            )
 
             # Append Table HTML
             if current_subsection_title: current_subsection_body_tokens.append(table_html)

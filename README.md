@@ -220,6 +220,8 @@ and inspectable.
   [2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md](./doc/technical/2026-03-25/2026-03-25-16-57-23_future_guide_generation_and_notebooklm_prompt_rule.md).
 - The concept-export integration rationale for the three new `NotebookLM` bundles is documented in
   [2026-03-25-17-30-31_integrate_concept_notebooklm_exports_for_three_guides.md](./doc/technical/2026-03-25/2026-03-25-17-30-31_integrate_concept_notebooklm_exports_for_three_guides.md).
+- The Wave 1 recovery campaign PDF layout refinement rationale is documented in
+  [2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md](./doc/technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md).
 
 ## Next Steps
 
