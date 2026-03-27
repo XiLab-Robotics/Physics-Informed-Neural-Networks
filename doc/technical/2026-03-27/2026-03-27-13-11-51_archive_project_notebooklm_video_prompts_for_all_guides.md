@@ -2,8 +2,8 @@
 
 ## Overview
 
-The repository already stores guide-local `concept_video_package/` and
-`project_video_package/` folders for the current `doc/guide/` topic roots.
+The repository already stores guide-local `assets/concept_video_package/` and
+`assets/project_video_package/` folders for the current `doc/guide/` topic roots.
 
 The user requested that the repository also archive the final ready-to-paste
 `NotebookLM` command text for the repository-specific video track in the same
@@ -25,8 +25,8 @@ The intended scope of this task is the current guide tree under `doc/guide/`:
 
 The project already distinguishes between:
 
-- neutral concept-video prompts for `concept_video_package/`;
-- repository-centered prompts for `project_video_package/`.
+- neutral concept-video prompts for `assets/concept_video_package/`;
+- repository-centered prompts for `assets/project_video_package/`.
 
 This request concerns the repository-centered project-video track. The prompt
 text should therefore remain aligned with the existing package documents,
@@ -40,10 +40,10 @@ especially:
 - `project_video_scope_notes.md`
 
 The archived prompt files should be written directly under each
-`project_video_package/` as a stable repository-owned Markdown artifact using
+`assets/project_video_package/` as a stable repository-owned Markdown artifact using
 the established filename:
 
-- `project_video_package/notebooklm_project_video_prompt.md`
+- `assets/project_video_package/notebooklm_project_video_prompt.md`
 
 The content should remain ready to paste into `NotebookLM`, should preserve the
 user's preferred structure (`Goal`, `Requirements`, and `Desired output
@@ -76,7 +76,7 @@ back into a neutral concept-style explanation.
 1. Create this technical planning document and register it in `README.md`.
 2. Wait for explicit user approval before writing any guide-local prompt files.
 3. Add one repository-owned `notebooklm_project_video_prompt.md` file under the
-   `project_video_package/` folder of each current guide root.
+   `assets/project_video_package/` folder of each current guide root.
 4. Keep each prompt aligned with the corresponding project-package source
    documents and project-local scope boundaries.
 5. Run Markdown checks on the touched Markdown files and fix straightforward

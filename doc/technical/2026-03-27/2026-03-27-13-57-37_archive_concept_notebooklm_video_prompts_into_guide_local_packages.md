@@ -5,7 +5,7 @@
 The repository already contains:
 
 - technical notes about the concept-video command archive;
-- newly created guide-local `project_video_package/notebooklm_project_video_prompt.md`
+- newly created guide-local `assets/project_video_package/notebooklm_project_video_prompt.md`
   files across the current guide tree.
 
 What is still missing is the guide-local counterpart for the neutral concept
@@ -32,15 +32,15 @@ project-video track.
 
 The new prompt files should therefore:
 
-- stay aligned with the existing `concept_video_package/` materials;
+- stay aligned with the existing `assets/concept_video_package/` materials;
 - preserve the ready-to-paste NotebookLM command style already documented in
   the repository;
 - remain neutral and educational rather than repository-centered;
-- be stored directly inside each guide-local `concept_video_package/`.
+- be stored directly inside each guide-local `assets/concept_video_package/`.
 
 The archived prompt files should use the established filename:
 
-- `concept_video_package/notebooklm_concept_video_prompt.md`
+- `assets/concept_video_package/notebooklm_concept_video_prompt.md`
 
 Where existing repository documentation already records canonical concept-video
 command wording, that prior archive should be treated as the wording reference.
@@ -75,7 +75,7 @@ track's neutral instructional intent.
 2. Wait for explicit user approval before writing any guide-local concept
    prompt files.
 3. Add one repository-owned `notebooklm_concept_video_prompt.md` file under the
-   `concept_video_package/` folder of each current guide root.
+   `assets/concept_video_package/` folder of each current guide root.
 4. Keep each prompt aligned with the corresponding concept-package source
    documents and with the previously archived concept-command wording.
 5. Run Markdown checks on the touched Markdown files and fix straightforward

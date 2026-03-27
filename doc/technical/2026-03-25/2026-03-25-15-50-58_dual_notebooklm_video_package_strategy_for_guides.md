@@ -38,9 +38,9 @@ not yet contain the canonical guide Markdown/PDF pair or a guide-local
 Each guide should expose two clearly separated `NotebookLM` source-package
 tracks:
 
-- `concept_video_package/`
+- `assets/concept_video_package/`
   neutral educational package focused on the general topic itself;
-- `project_video_package/`
+- `assets/project_video_package/`
   repository-specific package focused on the role of that topic inside this TE
   project.
 
@@ -60,14 +60,14 @@ two distinct video families are required.
 
 The better long-term structure is:
 
-- `doc/guide/<Guide Name>/concept_video_package/`
-- `doc/guide/<Guide Name>/project_video_package/`
+- `doc/guide/<Guide Name>/assets/concept_video_package/`
+- `doc/guide/<Guide Name>/assets/project_video_package/`
 
 During the migration, existing package files should be reviewed and redistributed
 into the correct new root rather than copied blindly.
 
 For the guides that already have one package, the current package should be
-treated as the starting point for the future `project_video_package/`, because
+treated as the starting point for the future `assets/project_video_package/`, because
 its content is already repository-centered.
 
 ### 3. Standardize The Package File Set
@@ -235,13 +235,13 @@ This preserves:
 2. Wait for explicit user approval before changing repository rules or creating
    any new package files.
 3. Update the permanent workflow rules from one generic
-   `video_guide_package/` model to the two-track `concept_video_package/` and
-   `project_video_package/` model.
+   `video_guide_package/` model to the two-track `assets/concept_video_package/` and
+   `assets/project_video_package/` model.
 4. Define and document the standard file template for both package types.
 5. Migrate the existing repository-specific package content from
-   `video_guide_package/` into `project_video_package/` for the already
+   `video_guide_package/` into `assets/project_video_package/` for the already
    canonical guides.
-6. Generate the new neutral `concept_video_package/` source files for the same
+6. Generate the new neutral `assets/concept_video_package/` source files for the same
    guides.
 7. Normalize the asset and export naming convention for downloaded `NotebookLM`
    outputs so filenames explicitly declare guide name, track, and artifact type.

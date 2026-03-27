@@ -7,12 +7,12 @@ as the canonical home of:
 
 - the authored guide Markdown and PDF;
 - guide-local assets;
-- `concept_video_package/`;
-- `project_video_package/`;
+- `assets/concept_video_package/`;
+- `assets/project_video_package/`;
 - already integrated Italian `NotebookLM` exports.
 
 The user added new `.temp/<Guide Name>/` folders containing English equivalents
-of the concept-video exports generated from `concept_video_package/`, excluding
+of the concept-video exports generated from `assets/concept_video_package/`, excluding
 the mind map.
 
 The user explicitly rejected:

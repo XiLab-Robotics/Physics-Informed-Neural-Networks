@@ -13,8 +13,8 @@ surface already established for the current guide tree, including:
 - guide-local assets;
 - canonical guide Markdown;
 - guide-local PDF companion;
-- `concept_video_package/`;
-- `project_video_package/`;
+- `assets/concept_video_package/`;
+- `assets/project_video_package/`;
 - one ready-to-paste `NotebookLM` command for the neutral concept video;
 - one ready-to-paste `NotebookLM` command for the repository-specific project
   video.
@@ -37,8 +37,8 @@ The expected default bundle should include:
 - guide-local assets or diagrams;
 - canonical guide Markdown;
 - guide-local PDF;
-- `concept_video_package/`;
-- `project_video_package/`;
+- `assets/concept_video_package/`;
+- `assets/project_video_package/`;
 - `notebooklm_concept_video_prompt.md`;
 - `notebooklm_project_video_prompt.md`.
 
@@ -66,8 +66,8 @@ remove any existing approval gate.
 To make the workflow deterministic and discoverable, each guide should store two
 final prompt files next to the package content:
 
-- `concept_video_package/notebooklm_concept_video_prompt.md`
-- `project_video_package/notebooklm_project_video_prompt.md`
+- `assets/concept_video_package/notebooklm_concept_video_prompt.md`
+- `assets/project_video_package/notebooklm_project_video_prompt.md`
 
 These files should:
 
@@ -157,8 +157,8 @@ approved guide-worthy topics.
 - Existing guide roots under `doc/guide/`
   Current examples that establish the target structure for future guide bundles.
 - Future guide-local targets after approval:
-  - `doc/guide/<Guide Name>/concept_video_package/notebooklm_concept_video_prompt.md`
-  - `doc/guide/<Guide Name>/project_video_package/notebooklm_project_video_prompt.md`
+  - `doc/guide/<Guide Name>/assets/concept_video_package/notebooklm_concept_video_prompt.md`
+  - `doc/guide/<Guide Name>/assets/project_video_package/notebooklm_project_video_prompt.md`
 
 ## Implementation Steps
 

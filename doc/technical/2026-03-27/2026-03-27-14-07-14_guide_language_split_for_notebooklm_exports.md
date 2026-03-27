@@ -10,7 +10,7 @@ each topic root in `doc/guide/<Guide Name>/`, for example:
 - `FeedForward Network - Project Slides.pdf`
 
 The user added new `.temp/<Guide Name>/` folders containing English equivalents
-of the concept-video deliverables generated from `concept_video_package/`,
+of the concept-video deliverables generated from `assets/concept_video_package/`,
 excluding the mind map.
 
 This creates a structural problem in the current guide layout:
@@ -30,8 +30,8 @@ English exports are integrated.
 - The current guide roots already contain canonical authored documents such as
   `<Guide Name>.md` and `<Guide Name>.pdf`.
 - The current guide roots also already contain established `concept` and
-  `project` export artifacts, plus guide-local `concept_video_package/` and
-  `project_video_package/`.
+  `project` export artifacts, plus guide-local `assets/concept_video_package/` and
+  `assets/project_video_package/`.
 - Existing links and human expectations likely already depend on the current
   guide-root structure.
 - The newly added English exports currently exist only in `.temp/`, with
@@ -117,8 +117,8 @@ themselves. The guide root remains the canonical home of:
 
 - authored guide Markdown/PDF;
 - assets;
-- `concept_video_package/`;
-- `project_video_package/`.
+- `assets/concept_video_package/`;
+- `assets/project_video_package/`.
 
 Generated `NotebookLM` media exports then move into a dedicated language-aware
 area under each guide root.
@@ -128,8 +128,8 @@ Recommended target structure per guide:
 - `doc/guide/<Guide Name>/<Guide Name>.md`
 - `doc/guide/<Guide Name>/<Guide Name>.pdf`
 - `doc/guide/<Guide Name>/assets/`
-- `doc/guide/<Guide Name>/concept_video_package/`
-- `doc/guide/<Guide Name>/project_video_package/`
+- `doc/guide/<Guide Name>/assets/concept_video_package/`
+- `doc/guide/<Guide Name>/assets/project_video_package/`
 - `doc/guide/<Guide Name>/localized/italian/concept/`
 - `doc/guide/<Guide Name>/localized/italian/project/`
 - `doc/guide/<Guide Name>/localized/english/concept/`

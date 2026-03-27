@@ -51,7 +51,7 @@ new NotebookLM commands for future models automatically.
 - future repository-owned command archive document
   The canonical location that will preserve the commands and their reusable
   pattern after approval.
-- guide-local `concept_video_package/` folders under `doc/guide/`
+- guide-local `assets/concept_video_package/` folders under `doc/guide/`
   The source-package roots from which these NotebookLM commands are derived.
 
 ## Implementation Steps

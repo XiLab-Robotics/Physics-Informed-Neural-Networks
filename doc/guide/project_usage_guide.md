@@ -1,4 +1,4 @@
-﻿# Project Usage Guide
+# Project Usage Guide
 
 ## Overview
 
@@ -154,10 +154,10 @@ The current usage flow mainly relies on these folders:
 - `doc/guide/<Model Name>/`
   Canonical model guides with integrated explanation, technical reference content, guide-local assets, and PDF companions.
 
-- `doc/guide/<Guide Name>/concept_video_package/`
+- `doc/guide/<Guide Name>/assets/concept_video_package/`
   Neutral `NotebookLM` source package for explaining what the topic is, how it works, and how it is used outside the repository context.
 
-- `doc/guide/<Guide Name>/project_video_package/`
+- `doc/guide/<Guide Name>/assets/project_video_package/`
   Repository-specific `NotebookLM` source package for explaining why the topic exists in this TE project and what role it plays here.
 
 - `isolated/active/`
@@ -200,8 +200,8 @@ exist:
 The learning-guide tree now uses two distinct `NotebookLM` source-package
 tracks per guide topic:
 
-- `concept_video_package/`
-- `project_video_package/`
+- `assets/concept_video_package/`
+- `assets/project_video_package/`
 
 Use the `concept` track when you want a neutral educational video about what the
 model, concept, or workflow is, how it works, how training and testing operate,
@@ -230,10 +230,10 @@ now a full guide bundle unless the user explicitly narrows the scope:
 - guide-local assets;
 - canonical guide Markdown;
 - guide-local PDF companion;
-- `concept_video_package/`;
-- `project_video_package/`;
-- `concept_video_package/notebooklm_concept_video_prompt.md`;
-- `project_video_package/notebooklm_project_video_prompt.md`.
+- `assets/concept_video_package/`;
+- `assets/project_video_package/`;
+- `assets/concept_video_package/notebooklm_concept_video_prompt.md`;
+- `assets/project_video_package/notebooklm_project_video_prompt.md`.
 
 The two final prompt files are the ready-to-paste commands intended for two
 separate `NotebookLM` generation passes:
@@ -1614,4 +1614,3 @@ To extend the repository cleanly, the recommended order is:
 4. add inference and export utilities
 5. extend the regression module toward physics-informed loss composition
 6. add PINN-specific training and validation workflows
-

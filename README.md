@@ -260,6 +260,8 @@ and inspectable.
   [2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md](./doc/technical/2026-03-27/2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md).
 - The approved `English/` subfolder layout for guide-local English exports is documented in
   [2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md](./doc/technical/2026-03-27/2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md).
+- The guide-package relocation plan for moving `concept_video_package` and `project_video_package` under `assets/` is documented in
+  [2026-03-27-14-35-13_move_guide_video_packages_under_assets.md](./doc/technical/2026-03-27/2026-03-27-14-35-13_move_guide_video_packages_under_assets.md).
 - The Codex-native skills and subagents customization scope is documented in
   [2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md](./doc/technical/2026-03-26/2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md).
 - The concept NotebookLM export integration scope for FeedForward, Harmonic, and Periodic guides is documented in
