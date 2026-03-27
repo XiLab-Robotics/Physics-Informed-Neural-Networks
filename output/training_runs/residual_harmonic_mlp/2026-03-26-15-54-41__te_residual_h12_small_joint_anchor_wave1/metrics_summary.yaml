@@ -1,0 +1,73 @@
+﻿schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-03-26-15-01-20_004_04_residual_h12_small_joint_anchor.yaml
+experiment:
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_h12_small_joint_anchor_wave1
+  output_run_name: te_residual_h12_small_joint_anchor_wave1
+  run_instance_id: 2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\residual_harmonic_mlp\2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\residual_harmonic_mlp\2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1\checkpoints\residual_harmonic_mlp-epoch=017-val_mae=0.00308991.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 4890
+  frozen_parameter_count: 0
+  total_parameter_count: 4890
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.007708142977207899
+  val_mae: 0.0030899113044142723
+  val_rmse: 0.003650592640042305
+  val_structured_mae: 0.040603406727313995
+  val_structured_rmse: 0.042555682361125946
+test_metrics:
+  test_loss: 0.008477474562823772
+  test_mae: 0.00355735351331532
+  test_rmse: 0.004064420238137245
+  test_structured_mae: 0.03943992033600807
+  test_structured_rmse: 0.04286428168416023
+comparison_payload:
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_h12_small_joint_anchor_wave1
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.0030899113044142723
+  val_rmse: 0.003650592640042305
+  test_mae: 0.00355735351331532
+  test_rmse: 0.004064420238137245
+  deployment_notes: ''
+  interpretability_notes: ''
+

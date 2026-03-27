@@ -1,4 +1,4 @@
-# StandardML - Codex
+﻿# StandardML - Codex
 
 Machine-learning workflows for rotational transmission error modeling in RV
 reducers, with a repository structure aimed at reproducible experiments,
@@ -143,10 +143,10 @@ python scripts/training/run_training_campaign.py
 .\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
 ```
 
-### Use The Wave 2 Residual Launcher
+### Use The Wave 1 Residual Launcher
 
 ```powershell
-.\scripts\campaigns\run_wave2_residual_harmonic_family_campaign.ps1
+.\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1
 ```
 
 ### Check Markdown Quality For Repository Docs
@@ -218,6 +218,8 @@ and inspectable.
   [2026-03-25-14-31-40_readme_github_landing_page_redesign.md](./doc/technical/2026-03-25/2026-03-25-14-31-40_readme_github_landing_page_redesign.md).
 - The README maintenance rule rationale is documented in
   [2026-03-25-14-51-40_readme_maintenance_rule.md](./doc/technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md).
+- The MD034 bare-URL cleanup scope is documented in
+  [2026-03-26-16-23-32_markdown_md034_no_bare_urls_cleanup.md](./doc/technical/2026-03-26/2026-03-26-16-23-32_markdown_md034_no_bare_urls_cleanup.md).
 - The Sphinx portal root rename rationale is documented in
   [2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./doc/technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md).
 - The dual `NotebookLM` video-package strategy rationale is documented in
@@ -228,10 +230,28 @@ and inspectable.
   [2026-03-25-17-30-31_integrate_concept_notebooklm_exports_for_three_guides.md](./doc/technical/2026-03-25/2026-03-25-17-30-31_integrate_concept_notebooklm_exports_for_three_guides.md).
 - The Wave 1 recovery campaign PDF layout refinement rationale is documented in
   [2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md](./doc/technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md).
-- The Wave 2 familywise hyperparameter-optimization campaign rationale is documented in
-  [2026-03-26-13-44-27_wave2_familywise_hyperparameter_optimization_campaign.md](./doc/technical/2026-03-26/2026-03-26-13-44-27_wave2_familywise_hyperparameter_optimization_campaign.md).
+- The Wave 1 familywise hyperparameter-optimization campaign rationale is documented in
+  [2026-03-26-13-44-27_wave1_familywise_hyperparameter_optimization_campaign.md](./doc/technical/2026-03-26/2026-03-26-13-44-27_wave1_familywise_hyperparameter_optimization_campaign.md).
 - The mandatory campaign-launcher script rationale is documented in
   [2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md](./doc/technical/2026-03-26/2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md).
+- The post-campaign wave-naming alignment reminder is documented in
+  [2026-03-26-15-18-40_post_campaign_wave_naming_and_backlog_alignment_reminder.md](./doc/technical/2026-03-26/2026-03-26-15-18-40_post_campaign_wave_naming_and_backlog_alignment_reminder.md).
+- The Wave 1 wave-naming and backlog-alignment cleanup plan is documented in
+  [2026-03-27-10-49-23_wave1_wave_naming_and_backlog_alignment_cleanup.md](./doc/technical/2026-03-27/2026-03-27-10-49-23_wave1_wave_naming_and_backlog_alignment_cleanup.md).
+- The Wave 1 residual-harmonic family campaign results-report plan is documented in
+  [2026-03-27-11-49-15_wave1_residual_harmonic_family_campaign_results_report.md](./doc/technical/2026-03-27/2026-03-27-11-49-15_wave1_residual_harmonic_family_campaign_results_report.md).
+- The Wave 1 residual campaign results PDF layout refinement is documented in
+  [2026-03-27-12-03-20_wave1_residual_campaign_results_pdf_table_rebalance_and_page_breaks.md](./doc/technical/2026-03-27/2026-03-27-12-03-20_wave1_residual_campaign_results_pdf_table_rebalance_and_page_breaks.md).
+- The TwinCAT ML export and TestRig reference-analysis rationale is documented in
+  [2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md](./doc/technical/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md).
+- The post-campaign TwinCAT deployment-evaluation and isolated parallel-track rationale is documented in
+  [2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md](./doc/technical/2026-03-26/2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md).
+- The Codex-native skills and subagents customization scope is documented in
+  [2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md](./doc/technical/2026-03-26/2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md).
+- The concept NotebookLM export integration scope for FeedForward, Harmonic, and Periodic guides is documented in
+  [2026-03-26-17-22-54_integrate_concept_notebooklm_exports_for_feedforward_harmonic_and_periodic_guides.md](./doc/technical/2026-03-26/2026-03-26-17-22-54_integrate_concept_notebooklm_exports_for_feedforward_harmonic_and_periodic_guides.md).
+- The concept NotebookLM export integration scope for Multilayer and Residual guides is documented in
+  [2026-03-26-18-14-50_integrate_concept_notebooklm_exports_for_multilayer_and_residual_guides.md](./doc/technical/2026-03-26/2026-03-26-18-14-50_integrate_concept_notebooklm_exports_for_multilayer_and_residual_guides.md).
 
 ## Next Steps
 
@@ -239,3 +259,4 @@ The near-term direction of the repository is to strengthen structured TE
 baselines, keep the training/reporting workflow reliable, and progressively move
 toward richer hybrid and eventually physics-informed models once the formulation
 is technically justified.
+

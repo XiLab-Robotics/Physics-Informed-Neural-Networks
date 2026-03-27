@@ -247,8 +247,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the persistent queue-based batch training runner.
 - [scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md](./scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md)
   Script-level documentation for the short Wave 1 recovery campaign launcher.
-- [scripts/campaigns/run_wave2_residual_harmonic_family_campaign.md](./scripts/campaigns/run_wave2_residual_harmonic_family_campaign.md)
-  Script-level documentation for the short Wave 2 residual-family campaign launcher.
+- [scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md](./scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md)
+  Script-level documentation for the canonical Wave 1 residual-harmonic family launcher.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -357,8 +357,8 @@ This folder contains the internal project documents derived from the reference P
   Planning report for the first Wave 1 structured-baseline exploratory campaign across harmonic, periodic-feature, residual, and tree-based model families.
 - [reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md](./reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md)
   Planning report for the Wave 1 recovery campaign that reruns the failed harmonic, residual, and random forest branches after the model-aware summary fix.
-- [reports/campaign_plans/2026-03-26-13-52-00_wave2_residual_harmonic_family_campaign_plan_report.md](./reports/campaign_plans/2026-03-26-13-52-00_wave2_residual_harmonic_family_campaign_plan_report.md)
-  Planning report for the first Wave 2 familywise campaign, focused on a broad hyperparameter search inside the residual harmonic MLP family.
+- [reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md](./reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md)
+  Historical-filename planning report for the Wave 1 residual-harmonic familywise follow-up campaign, focused on a broad hyperparameter search inside the residual harmonic MLP family.
 - [technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
   Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
 - [technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
@@ -405,8 +405,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for making future guide-worthy topics produce the full guide bundle plus the two final ready-to-paste `NotebookLM` prompt files by default.
 - [technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md](./technical/2026-03-26/2026-03-26-12-55-57_wave1_recovery_campaign_pdf_layout_refinement.md)
   Technical document for refining the Wave 1 recovery campaign results PDF page breaks and table column balance.
-- [technical/2026-03-26/2026-03-26-13-44-27_wave2_familywise_hyperparameter_optimization_campaign.md](./technical/2026-03-26/2026-03-26-13-44-27_wave2_familywise_hyperparameter_optimization_campaign.md)
-  Technical document for organizing Wave 2 as a broad familywise hyperparameter-optimization program before any tuned cross-family comparison.
+- [technical/2026-03-26/2026-03-26-13-44-27_wave1_familywise_hyperparameter_optimization_campaign.md](./technical/2026-03-26/2026-03-26-13-44-27_wave1_familywise_hyperparameter_optimization_campaign.md)
+  Historical-filename technical document for organizing the Wave 1 familywise follow-up optimization program before any tuned cross-family comparison.
 - [technical/2026-03-26/2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md](./technical/2026-03-26/2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md)
   Technical document for making a dedicated PowerShell launcher and launcher usage note mandatory parts of every prepared training campaign.
 
@@ -440,3 +440,4 @@ This folder contains the internal project documents derived from the reference P
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
+

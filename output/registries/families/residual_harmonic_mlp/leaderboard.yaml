@@ -1,4 +1,4 @@
-schema_version: 1
+﻿schema_version: 1
 model_family: residual_harmonic_mlp
 selection_policy:
   primary_metric: test_mae
@@ -6,9 +6,331 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-03-20T17:15:25'
-entry_count: 2
+updated_at: '2026-03-26T20:19:32'
+entry_count: 17
 entry_list:
+- run_instance_id: 2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1
+  run_name: te_residual_h12_deep_joint_wave1
+  output_run_name: te_residual_h12_deep_joint_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0030238379258662462
+  val_rmse: 0.003579729003831744
+  test_mae: 0.0031523776706308126
+  test_rmse: 0.0036404686979949474
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/checkpoints/residual_harmonic_mlp-epoch=077-val_mae=0.00302384.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T17:48:36'
+- run_instance_id: 2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1
+  run_name: te_residual_h12_small_joint_high_dropout_wave1
+  output_run_name: te_residual_h12_small_joint_high_dropout_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.0030010973569005728
+  val_rmse: 0.0035188542678952217
+  test_mae: 0.0032303850166499615
+  test_rmse: 0.003703901544213295
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/checkpoints/residual_harmonic_mlp-epoch=094-val_mae=0.00300110.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T18:31:09'
+- run_instance_id: 2026-03-26-16-06-02__te_residual_h16_small_joint_wave1
+  run_name: te_residual_h16_small_joint_wave1
+  output_run_name: te_residual_h16_small_joint_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4898
+  total_parameter_count: 4898
+  val_mae: 0.0030204891227185726
+  val_rmse: 0.0035268159117549658
+  test_mae: 0.0032737175934016705
+  test_rmse: 0.003747148672118783
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/checkpoints/residual_harmonic_mlp-epoch=074-val_mae=0.00302049.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T16:26:10'
+- run_instance_id: 2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1
+  run_name: te_residual_h12_wide_joint_low_lr_long_wave1
+  output_run_name: te_residual_h12_wide_joint_low_lr_long_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 17946
+  total_parameter_count: 17946
+  val_mae: 0.0029244916513562202
+  val_rmse: 0.0034490851685404778
+  test_mae: 0.0032781625632196665
+  test_rmse: 0.003813844406977296
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/checkpoints/residual_harmonic_mlp-epoch=124-val_mae=0.00292449.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T19:34:27'
+- run_instance_id: 2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1
+  run_name: te_residual_h12_small_joint_medium_dense_large_batch_wave1
+  output_run_name: te_residual_h12_small_joint_medium_dense_large_batch_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.0029348747339099646
+  val_rmse: 0.0035702416207641363
+  test_mae: 0.0033018426038324833
+  test_rmse: 0.00390898110345006
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/checkpoints/residual_harmonic_mlp-epoch=087-val_mae=0.00293487.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T20:19:32'
+- run_instance_id: 2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1
+  run_name: te_residual_h12_small_joint_low_dropout_wave1
+  output_run_name: te_residual_h12_small_joint_low_dropout_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.003026732010766864
+  val_rmse: 0.0035391978453844786
+  test_mae: 0.003359012771397829
+  test_rmse: 0.0038522484246641397
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/checkpoints/residual_harmonic_mlp-epoch=076-val_mae=0.00302673.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T18:09:40'
+- run_instance_id: 2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1
+  run_name: te_residual_h12_small_joint_no_layer_norm_wave1
+  output_run_name: te_residual_h12_small_joint_no_layer_norm_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4634
+  total_parameter_count: 4634
+  val_mae: 0.003089300123974681
+  val_rmse: 0.003639611415565014
+  test_mae: 0.003359732683748007
+  test_rmse: 0.0038354292046278715
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/checkpoints/residual_harmonic_mlp-epoch=044-val_mae=0.00308930.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T18:43:58'
+- run_instance_id: 2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1
+  run_name: te_residual_h12_small_frozen_wave1
+  output_run_name: te_residual_h12_small_frozen_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4865
+  total_parameter_count: 4890
+  val_mae: 0.003036094130948186
+  val_rmse: 0.003572652814909816
+  test_mae: 0.0033682361245155334
+  test_rmse: 0.0038982375990599394
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/checkpoints/residual_harmonic_mlp-epoch=091-val_mae=0.00303609.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T15:54:41'
+- run_instance_id: 2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1
+  run_name: te_residual_h12_wide_joint_wave1
+  output_run_name: te_residual_h12_wide_joint_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 17946
+  total_parameter_count: 17946
+  val_mae: 0.0028837979771196842
+  val_rmse: 0.0034101661294698715
+  test_mae: 0.0033760596998035908
+  test_rmse: 0.0039058723486959934
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/checkpoints/residual_harmonic_mlp-epoch=097-val_mae=0.00288380.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T17:19:47'
+- run_instance_id: 2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1
+  run_name: te_residual_h08_small_frozen_wave1
+  output_run_name: te_residual_h08_small_frozen_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4865
+  total_parameter_count: 4882
+  val_mae: 0.003006551181897521
+  val_rmse: 0.003548603504896164
+  test_mae: 0.0033837128430604935
+  test_rmse: 0.003911837004125118
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/checkpoints/residual_harmonic_mlp-epoch=063-val_mae=0.00300655.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T15:19:58'
+- run_instance_id: 2026-03-26-15-19-58__te_residual_h08_small_joint_wave1
+  run_name: te_residual_h08_small_joint_wave1
+  output_run_name: te_residual_h08_small_joint_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4882
+  total_parameter_count: 4882
+  val_mae: 0.0030303976964205503
+  val_rmse: 0.0035660630092024803
+  test_mae: 0.003384726122021675
+  test_rmse: 0.0038620021659880877
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/checkpoints/residual_harmonic_mlp-epoch=020-val_mae=0.00303040.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T15:31:20'
+- run_instance_id: 2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1
+  run_name: te_residual_h12_medium_joint_wave1
+  output_run_name: te_residual_h12_medium_joint_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 9498
+  total_parameter_count: 9498
+  val_mae: 0.0029684673063457012
+  val_rmse: 0.003468162380158901
+  test_mae: 0.0034056068398058414
+  test_rmse: 0.003863238962367177
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/checkpoints/residual_harmonic_mlp-epoch=082-val_mae=0.00296847.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T16:48:24'
+- run_instance_id: 2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1
+  run_name: te_residual_h12_small_joint_dense_wave1
+  output_run_name: te_residual_h12_small_joint_dense_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.002961845835670829
+  val_rmse: 0.0033896011300385
+  test_mae: 0.0034097637981176376
+  test_rmse: 0.0037897229194641113
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/checkpoints/residual_harmonic_mlp-epoch=038-val_mae=0.00296185.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T20:01:25'
+- run_instance_id: 2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1
+  run_name: te_residual_h12_small_joint_low_lr_long_wave1
+  output_run_name: te_residual_h12_small_joint_low_lr_long_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.0029874152969568968
+  val_rmse: 0.003499130718410015
+  test_mae: 0.0034650499001145363
+  test_rmse: 0.00394443329423666
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/checkpoints/residual_harmonic_mlp-epoch=134-val_mae=0.00298742.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T19:11:42'
 - run_instance_id: 2026-03-20-16-58-34__te_residual_h12_small_joint_recovery
   run_name: te_residual_h12_small_joint_recovery
   output_run_name: te_residual_h12_small_joint_recovery
@@ -55,3 +377,27 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-20T16:58:33'
+- run_instance_id: 2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1
+  run_name: te_residual_h12_small_joint_anchor_wave1
+  output_run_name: te_residual_h12_small_joint_anchor_wave1
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 4890
+  total_parameter_count: 4890
+  val_mae: 0.0030899113044142723
+  val_rmse: 0.003650592640042305
+  test_mae: 0.00355735351331532
+  test_rmse: 0.004064420238137245
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/checkpoints/residual_harmonic_mlp-epoch=017-val_mae=0.00308991.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-03-26T16:06:01'
+

@@ -1,0 +1,1 @@
+﻿C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\residual_harmonic_mlp\2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1\checkpoints\residual_harmonic_mlp-epoch=044-val_mae=0.00308930.ckpt

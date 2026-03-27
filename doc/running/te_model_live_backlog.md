@@ -21,8 +21,8 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active
-- Current Completed Wave: `Wave 1` structured-baseline campaign
-- Current Focus: `Wave 1` recovery campaign prepared and ready for execution
+- Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
+- Current Focus: post-campaign cleanup for the completed residual-harmonic Wave 1 follow-up, then final reporting
 - Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Current Reference Feedforward Baseline Run:
@@ -85,6 +85,7 @@ Verification:
 - `Wave 1` campaign completed with a mixed outcome that exposed the schema-aware summary bug and the random forest memory issue
 - `Wave 1` recovery campaign package generated and registered as `prepared`
 - representative validation and smoke-test verification completed for all Wave 1 families
+- residual-harmonic familywise optimization campaign completed as a `Wave 1` follow-up, with campaign assets now fully aligned to the `Wave 1` naming
 
 ## Next Up
 
@@ -92,6 +93,8 @@ Verification:
 
 Current next step:
 
+- finish the approved post-campaign `Wave 1` naming and backlog alignment cleanup
+- write the residual-harmonic family campaign results report with validated PDF export
 - launch the approved Wave 1 recovery campaign when the user decides to start it
 - write the recovery campaign results report with validated PDF export after campaign completion
 - schedule a follow-up random forest retry on a higher-memory machine to verify whether the observed `MemoryError` is workstation-specific and whether a larger RAM budget improves the benchmark outcome
@@ -122,7 +125,7 @@ Entry rule:
 - implementation: completed
 - smoke-tests: completed
 - validation checks: completed
-- campaign execution: pending
+- campaign execution: completed
 - results report: pending
 
 ### Wave 2. Temporal Models
@@ -147,7 +150,7 @@ Entry rule:
 - technical documents remain the historical planning baseline and design rationale
 - output artifacts now follow the privileged category-specific structure rather than the old flat family-root convention
 - the canonical feedforward reference baseline is the registry-selected best historical run, not the Wave 0 `trial` verification run
-- the Wave 1 structured-baseline campaign is now prepared and tracked in `doc/running/active_training_campaign.yaml`
+- the currently tracked residual-harmonic family optimization belongs to `Wave 1` and its campaign assets have been realigned to the same naming
 - best-result visibility should be read from:
   - campaign-level `campaign_best_run.yaml`
   - family-level `latest_family_best.yaml`

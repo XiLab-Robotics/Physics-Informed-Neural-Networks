@@ -12,6 +12,10 @@ The purpose of these documents is to preserve the most useful implementation pat
   Supporting reference for Hydra-based configuration, Lightning training structure, and reusable utility patterns.
 - [multimodal_fusion_reference.md](./multimodal_fusion_reference.md)
   Supporting reference for compact multimodal ROS pipelines, explicit command mapping, and straightforward Lightning baselines.
+- [testrig_twincat_ml_reference.md](./testrig_twincat_ml_reference.md)
+  Reference note for the imported TestRig TwinCAT machine-learning pipeline,
+  including the current `FB_MllPrediction` XML/BML workflow and the newer
+  Beckhoff Machine Learning Server alternative.
 
 ## Usage
 

@@ -45,6 +45,11 @@ WAVE1_RECOVERY_TEST_RANKING_TABLE_CLASS_NAME = "report-table report-table-wave1-
 WAVE1_RECOVERY_VALIDATION_SNAPSHOT_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-validation-snapshot"
 WAVE1_RECOVERY_RESIDUAL_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-residual-family"
 WAVE1_RECOVERY_HARMONIC_TABLE_CLASS_NAME = "report-table report-table-wave1-recovery-harmonic-family"
+WAVE1_RESIDUAL_FAMILY_TEST_RANKING_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-test-ranking"
+WAVE1_RESIDUAL_FAMILY_VALIDATION_SNAPSHOT_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-validation-snapshot"
+WAVE1_RESIDUAL_FAMILY_CAPACITY_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-capacity"
+WAVE1_RESIDUAL_FAMILY_DENSE_REGIME_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-dense-regime"
+WAVE1_RESIDUAL_FAMILY_TRAINING_MODE_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-training-mode"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -132,6 +137,10 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "recovery-campaign-ranking",
         "campaign-winner",
         "main-conclusions",
+    },
+    "2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report": {
+        "program-level-context",
+        "recommended-next-actions",
     },
 }
 
@@ -571,6 +580,68 @@ REPORT_STYLESHEET = """
     .report-table-wave1-recovery-harmonic-family th:nth-child(3), .report-table-wave1-recovery-harmonic-family td:nth-child(3) { width: 12%; }
     .report-table-wave1-recovery-harmonic-family th:nth-child(4), .report-table-wave1-recovery-harmonic-family td:nth-child(4) { width: 15%; }
     .report-table-wave1-recovery-harmonic-family th:nth-child(5), .report-table-wave1-recovery-harmonic-family td:nth-child(5) { width: 15%; }
+
+    .report-table-wave1-residual-family-test-ranking,
+    .report-table-wave1-residual-family-validation-snapshot,
+    .report-table-wave1-residual-family-capacity,
+    .report-table-wave1-residual-family-dense-regime,
+    .report-table-wave1-residual-family-training-mode {
+      font-size: 6.9pt;
+      line-height: 1.18;
+    }
+
+    .report-table-wave1-residual-family-test-ranking th,
+    .report-table-wave1-residual-family-test-ranking td,
+    .report-table-wave1-residual-family-validation-snapshot th,
+    .report-table-wave1-residual-family-validation-snapshot td,
+    .report-table-wave1-residual-family-capacity th,
+    .report-table-wave1-residual-family-capacity td,
+    .report-table-wave1-residual-family-dense-regime th,
+    .report-table-wave1-residual-family-dense-regime td,
+    .report-table-wave1-residual-family-training-mode th,
+    .report-table-wave1-residual-family-training-mode td {
+      padding: 4px 4px;
+    }
+
+    .report-table-wave1-residual-family-test-ranking th,
+    .report-table-wave1-residual-family-validation-snapshot th,
+    .report-table-wave1-residual-family-capacity th,
+    .report-table-wave1-residual-family-dense-regime th,
+    .report-table-wave1-residual-family-training-mode th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-wave1-residual-family-test-ranking th:nth-child(1), .report-table-wave1-residual-family-test-ranking td:nth-child(1) { width: 5%; }
+    .report-table-wave1-residual-family-test-ranking th:nth-child(2), .report-table-wave1-residual-family-test-ranking td:nth-child(2) { width: 34%; }
+    .report-table-wave1-residual-family-test-ranking th:nth-child(3), .report-table-wave1-residual-family-test-ranking td:nth-child(3) { width: 11%; }
+    .report-table-wave1-residual-family-test-ranking th:nth-child(4), .report-table-wave1-residual-family-test-ranking td:nth-child(4) { width: 9%; }
+    .report-table-wave1-residual-family-test-ranking th:nth-child(5), .report-table-wave1-residual-family-test-ranking td:nth-child(5) { width: 14%; }
+    .report-table-wave1-residual-family-test-ranking th:nth-child(6), .report-table-wave1-residual-family-test-ranking td:nth-child(6) { width: 14%; }
+    .report-table-wave1-residual-family-test-ranking th:nth-child(7), .report-table-wave1-residual-family-test-ranking td:nth-child(7) { width: 13%; }
+
+    .report-table-wave1-residual-family-validation-snapshot th:nth-child(1), .report-table-wave1-residual-family-validation-snapshot td:nth-child(1) { width: 46%; }
+    .report-table-wave1-residual-family-validation-snapshot th:nth-child(2), .report-table-wave1-residual-family-validation-snapshot td:nth-child(2) { width: 13%; }
+    .report-table-wave1-residual-family-validation-snapshot th:nth-child(3), .report-table-wave1-residual-family-validation-snapshot td:nth-child(3) { width: 13%; }
+    .report-table-wave1-residual-family-validation-snapshot th:nth-child(4), .report-table-wave1-residual-family-validation-snapshot td:nth-child(4) { width: 28%; }
+
+    .report-table-wave1-residual-family-capacity th:nth-child(1), .report-table-wave1-residual-family-capacity td:nth-child(1) { width: 36%; }
+    .report-table-wave1-residual-family-capacity th:nth-child(2), .report-table-wave1-residual-family-capacity td:nth-child(2) { width: 36%; }
+    .report-table-wave1-residual-family-capacity th:nth-child(3), .report-table-wave1-residual-family-capacity td:nth-child(3) { width: 11%; }
+    .report-table-wave1-residual-family-capacity th:nth-child(4), .report-table-wave1-residual-family-capacity td:nth-child(4) { width: 17%; }
+
+    .report-table-wave1-residual-family-dense-regime th:nth-child(1), .report-table-wave1-residual-family-dense-regime td:nth-child(1) { width: 36%; }
+    .report-table-wave1-residual-family-dense-regime th:nth-child(2), .report-table-wave1-residual-family-dense-regime td:nth-child(2) { width: 36%; }
+    .report-table-wave1-residual-family-dense-regime th:nth-child(3), .report-table-wave1-residual-family-dense-regime td:nth-child(3) { width: 11%; }
+    .report-table-wave1-residual-family-dense-regime th:nth-child(4), .report-table-wave1-residual-family-dense-regime td:nth-child(4) { width: 17%; }
+
+    .report-table-wave1-residual-family-training-mode th:nth-child(1), .report-table-wave1-residual-family-training-mode td:nth-child(1) { width: 36%; }
+    .report-table-wave1-residual-family-training-mode th:nth-child(2), .report-table-wave1-residual-family-training-mode td:nth-child(2) { width: 36%; }
+    .report-table-wave1-residual-family-training-mode th:nth-child(3), .report-table-wave1-residual-family-training-mode td:nth-child(3) { width: 11%; }
+    .report-table-wave1-residual-family-training-mode th:nth-child(4), .report-table-wave1-residual-family-training-mode td:nth-child(4) { width: 17%; }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
@@ -1243,6 +1314,44 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Config", "Harmonic Setup", "Val MAE [deg]", "Test MAE [deg]", "Test RMSE [deg]")
         ):
             return WAVE1_RECOVERY_HARMONIC_TABLE_CLASS_NAME
+
+    # Resolve Wave 1 Residual Family Table Profiles
+    if report_stem == "2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "test-side-ranking"
+            and normalized_header_cells == ("Rank", "Config", "Parameters", "Runtime", "Test MAE [deg]", "Test RMSE [deg]", "Val MAE [deg]")
+        ):
+            return WAVE1_RESIDUAL_FAMILY_TEST_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "validation-side-snapshot"
+            and normalized_header_cells == ("Config", "Val MAE [deg]", "Test MAE [deg]", "Generalization Gap [deg]")
+        ):
+            return WAVE1_RESIDUAL_FAMILY_VALIDATION_SNAPSHOT_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "interpretation-by-search-axis"
+            and current_subsection_slug == "1-deeper-residual-capacity-was-the-highest-value-change"
+            and normalized_header_cells == ("Config", "Capacity Pattern", "Val MAE [deg]", "Test MAE [deg]")
+        ):
+            return WAVE1_RESIDUAL_FAMILY_CAPACITY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "interpretation-by-search-axis"
+            and current_subsection_slug == "4-dense-training-regimes-did-not-produce-the-best-generalization"
+            and normalized_header_cells == ("Config", "Data Regime", "Val MAE [deg]", "Test MAE [deg]")
+        ):
+            return WAVE1_RESIDUAL_FAMILY_DENSE_REGIME_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "interpretation-by-search-axis"
+            and current_subsection_slug == "5-joint-optimization-still-beats-the-frozen-structured-base"
+            and normalized_header_cells == ("Config", "Training Mode", "Val MAE [deg]", "Test MAE [deg]")
+        ):
+            return WAVE1_RESIDUAL_FAMILY_TRAINING_MODE_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

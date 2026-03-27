@@ -1,0 +1,53 @@
+﻿paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/residual_harmonic_mlp
+experiment:
+  run_name: te_residual_h12_medium_joint_wave1
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+metadata:
+  campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
+  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  phase_name: wave1_residual_phase2_capacity_regularization
+  campaign_config_id: residual_h12_medium_joint
+  notes: Wave 1 residual family search | joint mode | harmonic order 12 | moderate
+    residual capacity 128-64.
+  random_seed: 42
+  output_artifact_kind: training_run
+  output_run_name: te_residual_h12_medium_joint_wave1
+  run_instance_id: 2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 12
+  coefficient_mode: static
+  residual_hidden_size:
+  - 128
+  - 64
+  residual_activation_name: GELU
+  residual_dropout_probability: 0.1
+  residual_use_layer_norm: true
+  freeze_structured_branch: false
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+

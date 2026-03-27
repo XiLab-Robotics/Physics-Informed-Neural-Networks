@@ -1,0 +1,7 @@
+﻿schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_mlp
+run_name: te_residual_h12_wide_joint_low_lr_long_wave1
+run_instance_id: 2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1
+output_directory: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1
+

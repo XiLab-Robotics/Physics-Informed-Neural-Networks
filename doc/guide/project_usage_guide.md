@@ -1,4 +1,4 @@
-# Project Usage Guide
+﻿# Project Usage Guide
 
 ## Overview
 
@@ -97,8 +97,8 @@ The current usage flow mainly relies on these folders:
 - `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
   Short PowerShell launcher for the Wave 1 recovery campaign.
 
-- `scripts/campaigns/run_wave2_residual_harmonic_family_campaign.ps1`
-  Short PowerShell launcher for the Wave 2 residual-harmonic family campaign.
+- `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
+  Canonical short PowerShell launcher for the Wave 1 residual-harmonic family campaign.
 
 - `scripts/models/`
   Neural-network backbones and the model factory.
@@ -177,10 +177,10 @@ The Wave 1 recovery campaign can also be launched through the short wrapper:
 This wrapper only reduces typing. It preserves the same terminal output, logs, and campaign artifacts as the full runner command.
 It also clears stale pending or running recovery YAML files from earlier failed launcher attempts before re-enqueuing the approved recovery set.
 
-The Wave 2 residual-family campaign also has a dedicated launcher:
+The Wave 1 residual-family follow-up also has a dedicated launcher:
 
 ```powershell
-.\scripts\campaigns\run_wave2_residual_harmonic_family_campaign.ps1
+.\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1
 ```
 
 For approved campaigns, the repository workflow should now treat the launcher as
@@ -1490,12 +1490,12 @@ Operational rule:
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
 - when the user cancels the campaign, inspect completed, failed, running, and pending items before deciding what to keep or stop.
 
-Current prepared Wave 2 campaign:
+Current finished Wave 1 residual-family follow-up campaign:
 
-- campaign name: `wave2_residual_harmonic_family_campaign_2026_03_26_13_52_00`
-- planning report: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave2_residual_harmonic_family_campaign_plan_report.md`
-- config package: `config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave2_residual_harmonic_family_campaign/`
-- launcher: `scripts/campaigns/run_wave2_residual_harmonic_family_campaign.ps1`
+- campaign name: `wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00`
+- planning report: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- config package: `config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/`
+- canonical launcher: `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
 
 ## Typical Workflow For The Current Project
 
@@ -1594,3 +1594,4 @@ To extend the repository cleanly, the recommended order is:
 4. add inference and export utilities
 5. extend the regression module toward physics-informed loss composition
 6. add PINN-specific training and validation workflows
+
