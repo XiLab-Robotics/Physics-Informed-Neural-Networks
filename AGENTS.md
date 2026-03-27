@@ -10,6 +10,9 @@
 - Before implementing any feature, create a technical project document inside the day-based folder `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 - Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
+- Repository-relevant Codex skills may be used automatically whenever the request clearly matches their documented purpose. Do not wait for a separate user instruction when the skill is the correct workflow tool for the task.
+- Codex subagents must not be launched silently. When a subagent would be useful, declare the proposed subagent, the reason for using it, and the concrete delegated scope, then wait for explicit user approval before launching it.
+- When a technical project document is expected to involve a subagent during implementation, state that explicitly in the technical document, including the planned subagent name, intended task boundary, and the fact that runtime launch still requires explicit user approval.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
 - Whenever a repository-owned Markdown document is created or modified, check the touched Markdown files for warnings before closing the task.
 - Scope this Markdown warning check to the Markdown files created or modified by the task rather than forcing a full repository-wide cleanup every time.
@@ -101,17 +104,19 @@
 - During styled PDF validation, explicitly check that no major section starts at the bottom of a page only to continue immediately on the next page. If that happens and the section can reasonably fit on the next page, move the section start to the next page instead.
 - Follow this mandatory execution sequence for every user-requested repository change:
   1. Create the technical project document first.
-  2. If the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before asking for approval.
-  3. Wait for the user's explicit approval.
-  4. If the approved work is a training campaign, generate the campaign YAML files, create the dedicated campaign launcher plus its documentation note, store the campaign state, and provide the exact launch command.
-  5. Execute the approved modifications.
-  6. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, proposed future improvements, and a validated PDF export.
-  7. If the approved work changes the public-facing repository presentation, implemented-capability summary, quick-start flow, primary example commands, or main documentation entry points, update `README.md` before the final commit while keeping it concise and GitHub-facing.
-  7. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
-  8. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
-  9. Before creating a GitHub-bound commit, check the files involved in the commit and stop immediately if any file exceeds `100 MB`, then explicitly warn the user because those files cannot be pushed to GitHub as regular repository objects.
-  10. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
-  11. Create the Git commit only after the user explicitly approves it.
+  2. If subagent use is expected for the approved implementation, record that planned subagent usage explicitly in the technical project document before asking for approval.
+  3. If the request includes training execution, create the preliminary planning report in `doc/reports/campaign_plans/` before asking for approval.
+  4. Ask for explicit user approval of the technical document and, when applicable, explicit user approval of the proposed subagent usage before continuing.
+  5. Wait for the user's explicit approval.
+  6. If the approved work is a training campaign, generate the campaign YAML files, create the dedicated campaign launcher plus its documentation note, store the campaign state, and provide the exact launch command.
+  7. Execute the approved modifications.
+  8. If the approved work includes training execution, create a detailed post-training results report in `doc/reports/campaign_results/` that includes metrics tables, written interpretation, the best-performing configuration, proposed future improvements, and a validated PDF export.
+  9. If the approved work changes the public-facing repository presentation, implemented-capability summary, quick-start flow, primary example commands, or main documentation entry points, update `README.md` before the final commit while keeping it concise and GitHub-facing.
+  10. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
+  11. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
+  12. Before creating a GitHub-bound commit, check the files involved in the commit and stop immediately if any file exceeds `100 MB`, then explicitly warn the user because those files cannot be pushed to GitHub as regular repository objects.
+  13. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
+  14. Create the Git commit only after the user explicitly approves it.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
 - Do not execute any training campaign until both the technical document and the preliminary training-planning report in `doc/reports/campaign_plans/` have been created and explicitly approved by the user.
 - Do not treat a styled PDF export as complete until the exported PDF has been checked against the project golden standard for layout discipline and readability.
