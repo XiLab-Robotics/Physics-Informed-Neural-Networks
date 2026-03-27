@@ -142,6 +142,10 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "program-level-context",
         "recommended-next-actions",
     },
+    "2026-03-27-18-13-19_project_status_report": {
+        "why-the-work-was-done-in-this-order",
+        "high-level-future-roadmap",
+    },
 }
 
 # Browser And Report Constants

@@ -262,6 +262,14 @@ and inspectable.
   [2026-03-27-17-44-33_codex_skill_autonomy_and_subagent_approval_rule.md](./doc/technical/2026-03-27/2026-03-27-17-44-33_codex_skill_autonomy_and_subagent_approval_rule.md).
 - The additional Codex skills and subagents plan for ML, testing, reports, and commit workflows is documented in
   [2026-03-27-17-48-41_additional_codex_skills_and_subagents_for_ml_testing_reports_and_commit_workflows.md](./doc/technical/2026-03-27/2026-03-27-17-48-41_additional_codex_skills_and_subagents_for_ml_testing_reports_and_commit_workflows.md).
+- The project-status report, presentation, and NotebookLM source-bundle plan is documented in
+  [2026-03-27-18-09-50_project_status_report_presentation_and_notebooklm_source_bundle.md](./doc/technical/2026-03-27/2026-03-27-18-09-50_project_status_report_presentation_and_notebooklm_source_bundle.md).
+- The project-status report PDF section page-break adjustment plan is documented in
+  [2026-03-27-19-05-09_project_status_report_pdf_section_page_break_adjustment.md](./doc/technical/2026-03-27/2026-03-27-19-05-09_project_status_report_pdf_section_page_break_adjustment.md).
+- The project-status report plan for removing the forced new page before the gaps section is documented in
+  [2026-03-27-19-13-28_project_status_report_remove_gap_section_forced_page_break.md](./doc/technical/2026-03-27/2026-03-27-19-13-28_project_status_report_remove_gap_section_forced_page_break.md).
+- The project-status report plan for moving the forced new page from the conclusion to the roadmap section is documented in
+  [2026-03-27-19-20-37_project_status_report_move_forced_page_break_from_conclusion_to_roadmap.md](./doc/technical/2026-03-27/2026-03-27-19-20-37_project_status_report_move_forced_page_break_from_conclusion_to_roadmap.md).
 - The approved `English/` subfolder layout for guide-local English exports is documented in
   [2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md](./doc/technical/2026-03-27/2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md).
 - The guide-package relocation plan for moving `concept_video_package` and `project_video_package` under `assets/` is documented in

@@ -272,6 +272,16 @@ This folder contains the internal project documents derived from the reference P
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 - [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
   Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
+- [reports/analysis/2026-03-27-18-13-19_project_status_report.md](./reports/analysis/2026-03-27-18-13-19_project_status_report.md)
+  Repository-owned project-status report summarizing completed work, current best results, current objectives, and recommended next steps.
+- [reports/analysis/2026-03-27-18-13-19_project_status_report.pdf](./reports/analysis/2026-03-27-18-13-19_project_status_report.pdf)
+  Styled PDF export of the project-status report for stakeholder-friendly review and sharing.
+- [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md)
+  English slide-deck source that summarizes the current repository state and the next execution steps.
+- [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_video_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_video_prompt.md)
+  Ready-to-paste NotebookLM prompt for generating an English project-status video from the grounded repository source package.
+- [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_presentation_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_presentation_prompt.md)
+  Ready-to-paste NotebookLM prompt for generating an English project-status presentation from the grounded repository source package.
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
   Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
