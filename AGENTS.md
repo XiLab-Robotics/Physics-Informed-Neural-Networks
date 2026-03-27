@@ -11,6 +11,9 @@
 - Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
+- Whenever a repository-owned Markdown document is created or modified, check the touched Markdown files for warnings before closing the task.
+- Scope this Markdown warning check to the Markdown files created or modified by the task rather than forcing a full repository-wide cleanup every time.
+- Fix warning regressions introduced or preserved in the touched Markdown files before closing the task when the fix is local and straightforward.
 - Whenever a new model family, model variant, or materially new model-specific training workflow is introduced, create a dedicated explanatory report that helps the reader understand the model before reading the code.
 - The explanatory report for a new model must include:
   - an accurate model description;
@@ -116,6 +119,7 @@
 - Before the final commit, update `README.md` whenever the approved work changes the public-facing repository description, implemented-capability summary, quick start, primary examples, or main documentation entry points. Keep `README.md` as a concise GitHub-facing landing page for a new human user rather than turning it into an internal technical registry.
 - Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 - Before the final commit, whenever the approved work introduces a new third-party dependency, update `requirements.txt` and any relevant installation or usage documentation so the environment remains reproducible.
+- Before the final commit, if the task created or modified repository-owned Markdown files, run the Markdown warning checks on the touched Markdown scope and resolve warning regressions in those files.
 - Every required Git commit must use a title aligned with the repository's existing commit style and a body that accurately summarizes all relevant modifications.
 - When the user explicitly activates isolated mode, treat every repository file that already exists at activation time as locked and read-only until the user explicitly exits isolated mode or explicitly requests integration.
 - During isolated mode, `README.md` and `AGENTS.md` are also locked and cannot be modified.

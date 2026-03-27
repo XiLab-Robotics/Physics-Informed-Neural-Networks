@@ -331,6 +331,15 @@ commonly appear in the editor:
 - `MD022/blanks-around-headings`
 - `MD025/single-title`
 
+Operational rule for documentation work:
+
+- when a task creates or modifies repository-owned Markdown files, re-run the
+  warning checks on the touched Markdown scope before closing the task;
+- fix warning regressions in those touched files when the fix is local and
+  straightforward;
+- do not treat this as a requirement to clean the entire repository every time
+  a small Markdown edit is made.
+
 ### Run The Default Source Scan
 
 ```powershell
@@ -362,6 +371,15 @@ python -B scripts/tooling/markdown_style_check.py README.md doc site
 
 This is useful after a focused documentation task when you only want to re-check
 the affected files.
+
+Recommended focused workflow after editing Markdown:
+
+```powershell
+python -B scripts/tooling/markdown_style_check.py README.md doc site
+```
+
+Or, for an even narrower task-specific scope, pass only the specific Markdown
+paths that were touched.
 
 ## Broader Markdownlint Check
 

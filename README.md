@@ -248,6 +248,10 @@ and inspectable.
   [2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md](./doc/technical/2026-03-26/2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md).
 - The backlog and documentation integration rationale for the approved TwinCAT deployment tracks is documented in
   [2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md](./doc/technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md).
+- The README `MD012` final-check rule is documented in
+  [2026-03-27-12-44-18_readme_md012_final_check_rule.md](./doc/technical/2026-03-27/2026-03-27-12-44-18_readme_md012_final_check_rule.md).
+- The Markdown warning final-check rule for created and modified documents is documented in
+  [2026-03-27-12-45-14_markdown_warning_final_check_rule_for_created_and_modified_docs.md](./doc/technical/2026-03-27/2026-03-27-12-45-14_markdown_warning_final_check_rule_for_created_and_modified_docs.md).
 - The Codex-native skills and subagents customization scope is documented in
   [2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md](./doc/technical/2026-03-26/2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md).
 - The concept NotebookLM export integration scope for FeedForward, Harmonic, and Periodic guides is documented in
