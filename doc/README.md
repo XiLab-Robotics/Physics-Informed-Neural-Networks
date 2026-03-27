@@ -411,6 +411,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for making a dedicated PowerShell launcher and launcher usage note mandatory parts of every prepared training campaign.
 - [technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md](./technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md)
   Technical note for integrating the approved TwinCAT deployment-evaluation plan into the operational backlog and documentation indexes.
+- [technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive.md](./technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive.md)
+  Canonical archive of the existing `concept_video_package` NotebookLM commands, plus the reusable bilingual template for future topics.
 
 #### Campaign Results
 

@@ -258,6 +258,10 @@ and inspectable.
   [2026-03-26-17-22-54_integrate_concept_notebooklm_exports_for_feedforward_harmonic_and_periodic_guides.md](./doc/technical/2026-03-26/2026-03-26-17-22-54_integrate_concept_notebooklm_exports_for_feedforward_harmonic_and_periodic_guides.md).
 - The concept NotebookLM export integration scope for Multilayer and Residual guides is documented in
   [2026-03-26-18-14-50_integrate_concept_notebooklm_exports_for_multilayer_and_residual_guides.md](./doc/technical/2026-03-26/2026-03-26-18-14-50_integrate_concept_notebooklm_exports_for_multilayer_and_residual_guides.md).
+- The concept-video command archive and reuse-template rationale is documented in
+  [2026-03-27-12-50-37_concept_video_package_command_archive_and_reuse_template.md](./doc/technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive_and_reuse_template.md).
+- The canonical concept-video command archive is documented in
+  [2026-03-27-12-50-37_concept_video_package_command_archive.md](./doc/technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive.md).
 
 ## Next Steps
 
