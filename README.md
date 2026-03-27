@@ -262,6 +262,10 @@ and inspectable.
   [2026-03-27-12-50-37_concept_video_package_command_archive_and_reuse_template.md](./doc/technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive_and_reuse_template.md).
 - The canonical concept-video command archive is documented in
   [2026-03-27-12-50-37_concept_video_package_command_archive.md](./doc/technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive.md).
+- The editor-side Markdown ignore plan for the `.tools/` directory is documented in
+  [2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md](./doc/technical/2026-03-27/2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md).
+- The Markdown final blank-line check rule is documented in
+  [2026-03-27-13-03-50_markdown_final_blank_line_check_rule.md](./doc/technical/2026-03-27/2026-03-27-13-03-50_markdown_final_blank_line_check_rule.md).
 
 ## Next Steps
 
@@ -269,4 +273,3 @@ The near-term direction of the repository is to strengthen structured TE
 baselines, keep the training/reporting workflow reliable, and progressively move
 toward richer hybrid and eventually physics-informed models once the formulation
 is technically justified.
-

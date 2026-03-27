@@ -337,6 +337,8 @@ Operational rule for documentation work:
   warning checks on the touched Markdown scope before closing the task;
 - fix warning regressions in those touched files when the fix is local and
   straightforward;
+- confirm that the touched Markdown files do not end with an accidental doubled
+  trailing blank line and keep only a normal single final newline;
 - do not treat this as a requirement to clean the entire repository every time
   a small Markdown edit is made.
 

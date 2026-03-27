@@ -411,8 +411,16 @@ This folder contains the internal project documents derived from the reference P
   Technical document for making a dedicated PowerShell launcher and launcher usage note mandatory parts of every prepared training campaign.
 - [technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md](./technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md)
   Technical note for integrating the approved TwinCAT deployment-evaluation plan into the operational backlog and documentation indexes.
+- [technical/2026-03-27/2026-03-27-12-44-18_readme_md012_final_check_rule.md](./technical/2026-03-27/2026-03-27-12-44-18_readme_md012_final_check_rule.md)
+  Technical note for making the README `MD012` repeated-blank-line check an explicit final-pass documentation rule.
+- [technical/2026-03-27/2026-03-27-12-45-14_markdown_warning_final_check_rule_for_created_and_modified_docs.md](./technical/2026-03-27/2026-03-27-12-45-14_markdown_warning_final_check_rule_for_created_and_modified_docs.md)
+  Technical note for requiring Markdown warning checks on repository-owned Markdown files created or modified by a task.
 - [technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive.md](./technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive.md)
   Canonical archive of the existing `concept_video_package` NotebookLM commands, plus the reusable bilingual template for future topics.
+- [technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive_and_reuse_template.md](./technical/2026-03-27/2026-03-27-12-50-37_concept_video_package_command_archive_and_reuse_template.md)
+  Technical rationale for converting the temporary concept-video command list into a canonical archive and reusable future-topic template.
+- [technical/2026-03-27/2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md](./technical/2026-03-27/2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md)
+  Technical note for reducing editor-side Markdown warning noise from the local `.tools/` helper directory while keeping canonical repository lint behavior unchanged.
 
 #### Campaign Results
 
@@ -444,4 +452,3 @@ This folder contains the internal project documents derived from the reference P
 - Treat `reference_summaries/06_Programming_Style_Guide.md` as the style reference for new code written in this repository.
 - Use `reference_codes/` when a future implementation task needs repository-specific examples instead of only high-level style rules.
 - Keep this index updated whenever new project documents are added.
-
