@@ -256,6 +256,10 @@ and inspectable.
   [2026-03-27-13-11-51_archive_project_notebooklm_video_prompts_for_all_guides.md](./doc/technical/2026-03-27/2026-03-27-13-11-51_archive_project_notebooklm_video_prompts_for_all_guides.md).
 - The guide-local archive plan for concept-video `NotebookLM` prompts across the current guide tree is documented in
   [2026-03-27-13-57-37_archive_concept_notebooklm_video_prompts_into_guide_local_packages.md](./doc/technical/2026-03-27/2026-03-27-13-57-37_archive_concept_notebooklm_video_prompts_into_guide_local_packages.md).
+- The language-aware guide-export reorganization plan for Italian and English `NotebookLM` media is documented in
+  [2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md](./doc/technical/2026-03-27/2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md).
+- The approved `English/` subfolder layout for guide-local English exports is documented in
+  [2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md](./doc/technical/2026-03-27/2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md).
 - The Codex-native skills and subagents customization scope is documented in
   [2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md](./doc/technical/2026-03-26/2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md).
 - The concept NotebookLM export integration scope for FeedForward, Harmonic, and Periodic guides is documented in

@@ -23,6 +23,11 @@ The target has:
 - deployment constraints related to TwinCAT and PLC-side execution;
 - a scientific need for interpretability beyond raw predictive accuracy.
 
+## English Companion Exports
+
+English `NotebookLM` concept exports for this topic are archived in
+[`English/README.md`](English/README.md).
+
 ## Status Legend
 
 This curriculum distinguishes three statuses:

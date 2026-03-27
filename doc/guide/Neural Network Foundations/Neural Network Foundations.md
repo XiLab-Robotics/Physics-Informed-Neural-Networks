@@ -15,6 +15,11 @@ By the end of this guide, the reader should understand:
 - why training can succeed, fail, overfit, or underfit;
 - how these concepts map to the TE compensation problem in this repository.
 
+## English Companion Exports
+
+English `NotebookLM` concept exports for this topic are archived in
+[`English/README.md`](English/README.md).
+
 ## Why Start Here
 
 Many explanations of neural networks jump too quickly into code or formulas.

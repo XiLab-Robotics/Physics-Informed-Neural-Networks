@@ -13,6 +13,11 @@ The core idea is to split the TE prediction into:
 
 This makes the model a bridge between analytical structure and flexible neural approximation.
 
+## English Companion Exports
+
+English `NotebookLM` concept exports for this topic are archived in
+[`English/README.md`](English/README.md).
+
 ## Model Description
 
 `Residual Harmonic Network` combines:

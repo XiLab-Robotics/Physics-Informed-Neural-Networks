@@ -11,6 +11,11 @@ The model sits between the plain feedforward baseline and the fully structured h
 
 The result is a flexible architecture that keeps periodic bias without becoming analytically rigid.
 
+## English Companion Exports
+
+English `NotebookLM` concept exports for this topic are archived in
+[`English/README.md`](English/README.md).
+
 ## Model Description
 
 `Periodic Feature Network` is a feature-engineered neural network.

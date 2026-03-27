@@ -18,6 +18,11 @@ The goal is to show:
 
 This model should be read as the neutral nonlinear benchmark of the current TE program.
 
+## English Companion Exports
+
+English `NotebookLM` concept exports for this topic are archived in
+[`English/README.md`](English/README.md).
+
 ## Model Description
 
 The `FeedForward Network` is the simplest neural baseline currently implemented for TE regression.
