@@ -14,7 +14,7 @@ The result is a flexible architecture that keeps periodic bias without becoming 
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## Model Description
 

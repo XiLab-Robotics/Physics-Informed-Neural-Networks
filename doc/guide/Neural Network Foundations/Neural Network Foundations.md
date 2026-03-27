@@ -18,7 +18,7 @@ By the end of this guide, the reader should understand:
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## Why Start Here
 

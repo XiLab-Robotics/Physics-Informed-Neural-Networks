@@ -19,7 +19,7 @@ This is the first explicitly TE-structured model in the repository.
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## Model Description
 

@@ -16,7 +16,7 @@ This makes the model a bridge between analytical structure and flexible neural a
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## Model Description
 

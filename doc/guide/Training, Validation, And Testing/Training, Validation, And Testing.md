@@ -21,7 +21,7 @@ It is trying to compare model families fairly.
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## The Three Main Dataset Roles
 

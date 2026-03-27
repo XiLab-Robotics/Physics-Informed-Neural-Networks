@@ -1,4 +1,4 @@
-﻿# TE Model Curriculum
+# TE Model Curriculum
 
 ## Overview
 
@@ -26,7 +26,7 @@ The target has:
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## Status Legend
 

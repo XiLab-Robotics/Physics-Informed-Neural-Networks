@@ -21,7 +21,7 @@ This model should be read as the neutral nonlinear benchmark of the current TE p
 ## English Companion Exports
 
 English `NotebookLM` concept exports for this topic are archived in
-[`English/README.md`](English/README.md).
+`English/`.
 
 ## Model Description
 
