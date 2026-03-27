@@ -1,9 +1,11 @@
 # English Subfolder Layout For Guide Exports
 
+Superseded in practice by the later `Italiano/` plus `English/` guide layout.
+
 ## Overview
 
-The repository currently treats each topic root under `doc/guide/<Guide Name>/`
-as the canonical home of:
+At the time of this note, the repository treated each topic root under
+`doc/guide/<Guide Name>/` as the canonical home of:
 
 - the authored guide Markdown and PDF;
 - guide-local assets;
@@ -27,9 +29,10 @@ further `concept/` or `project/` subdivision.
 
 ## Technical Approach
 
-The guide root should remain the Italian/default topic root.
+This note recorded the intermediate step where the guide root remained the
+Italian/default topic root.
 
-The approved target pattern is:
+The then-approved target pattern was:
 
 - `doc/guide/<Guide Name>/`
   canonical Italian guide root
@@ -46,16 +49,16 @@ Under this approach:
 - no extra `concept/` or `project/` subfolders are introduced inside
   `English/`.
 
-This matches the user preference that:
+This matched the user preference at that step that:
 
 - Italian is the default repository language for the guide roots;
 - English is an explicit secondary export surface;
 - filenames already carry enough topic-specific meaning that extra track
   subfolders are not required for this integration pass.
 
-For the current scope, the imported English files should be renamed into stable
-repository-owned names that fit the existing guide style and avoid temporary
-NotebookLM names such as:
+For that intermediate scope, the imported English files were to be renamed into
+stable repository-owned names that fit the existing guide style and avoid
+temporary NotebookLM names such as:
 
 - `unnamed.png`
 - `FeedForward_Baseline.pdf`
@@ -92,3 +95,14 @@ with explicit filenames that declare at least:
 6. Update the relevant guide documentation references so the English companion
    exports are discoverable.
 7. Run Markdown checks on the touched Markdown files before closing the task.
+
+## Later Status
+
+The repository was later refactored again so that guide exports now live under:
+
+- `Italiano/`
+- `English/`
+- `assets/`
+
+This note should therefore be read as a historical intermediate planning step,
+not as the final canonical guide layout.

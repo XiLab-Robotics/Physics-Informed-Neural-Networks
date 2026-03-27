@@ -154,6 +154,12 @@ The current usage flow mainly relies on these folders:
 - `doc/guide/<Model Name>/`
   Canonical model guides with integrated explanation, technical reference content, guide-local assets, and PDF companions.
 
+- `doc/guide/<Guide Name>/Italiano/`
+  Italian `NotebookLM` guide exports for the topic, including concept and project outputs.
+
+- `doc/guide/<Guide Name>/English/`
+  English `NotebookLM` guide exports for the topic, currently used for the concept-track companion outputs.
+
 - `doc/guide/<Guide Name>/assets/concept_video_package/`
   Neutral `NotebookLM` source package for explaining what the topic is, how it works, and how it is used outside the repository context.
 
@@ -249,8 +255,9 @@ Those prompt files should keep the repository prompt style stable:
 - explicit fact-boundary compliance;
 - explicit duration, tone, and visual-style targets.
 
-When imported `NotebookLM` exports are stored in the guide root, their filenames
-should declare the guide name, the track, and the artifact type, for example:
+When imported `NotebookLM` exports are stored under `Italiano/` or `English/`,
+their filenames should declare the guide name, the track, and the artifact
+type, for example:
 
 - `FeedForward Network - Concept Mind Map.png`
 - `FeedForward Network - Project Video Overview.mp4`

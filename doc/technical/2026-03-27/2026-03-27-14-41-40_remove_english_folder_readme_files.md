@@ -4,7 +4,7 @@
 
 The recent English-export integration introduced one `README.md` file inside
 each guide-local `English/` folder to make the imported English assets
-discoverable.
+discoverable during the intermediate pre-`Italiano/` layout stage.
 
 The user explicitly rejected those files and requested that they be removed.
 
@@ -21,14 +21,16 @@ This affects the following locations:
 
 ## Technical Approach
 
-The `English/` folders should remain as asset containers only.
+The `English/` folders should remain as export containers only inside the later
+`Italiano/` plus `English/` guide layout.
 
 The `README.md` files are not required for the repository structure to remain
 valid because:
 
 - the imported English files already use explicit repository-owned filenames;
 - the topic-level guides already contain the minimal English companion note;
-- the folder name `English/` is self-descriptive enough for navigation.
+- the folder name `English/` is self-descriptive enough for navigation within
+  the bilingual guide layout.
 
 The cleanup should therefore:
 

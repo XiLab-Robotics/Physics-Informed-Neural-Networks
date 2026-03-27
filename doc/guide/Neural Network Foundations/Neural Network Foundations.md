@@ -15,10 +15,16 @@ By the end of this guide, the reader should understand:
 - why training can succeed, fail, overfit, or underfit;
 - how these concepts map to the TE compensation problem in this repository.
 
-## English Companion Exports
+## Guide Export Folders
 
-English `NotebookLM` concept exports for this topic are archived in
-`English/`.
+This topic now separates its generated guide exports by language:
+
+- `Italiano/`
+  Italian concept and project exports for the topic.
+- `English/`
+  English concept exports for the topic.
+- `assets/`
+  guide-local source packages, prompts, and static diagram assets.
 
 ## Why Start Here
 

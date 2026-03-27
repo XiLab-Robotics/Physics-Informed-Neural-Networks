@@ -264,6 +264,8 @@ and inspectable.
   [2026-03-27-14-35-13_move_guide_video_packages_under_assets.md](./doc/technical/2026-03-27/2026-03-27-14-35-13_move_guide_video_packages_under_assets.md).
 - The cleanup plan for removing guide-local `English/README.md` files is documented in
   [2026-03-27-14-41-40_remove_english_folder_readme_files.md](./doc/technical/2026-03-27/2026-03-27-14-41-40_remove_english_folder_readme_files.md).
+- The documentation realignment plan for the current `Italiano/` plus `English/` guide layout is documented in
+  [2026-03-27-16-40-02_realign_guide_documentation_to_italiano_and_english_layout.md](./doc/technical/2026-03-27/2026-03-27-16-40-02_realign_guide_documentation_to_italiano_and_english_layout.md).
 - The Codex-native skills and subagents customization scope is documented in
   [2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md](./doc/technical/2026-03-26/2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md).
 - The concept NotebookLM export integration scope for FeedForward, Harmonic, and Periodic guides is documented in

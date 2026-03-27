@@ -23,10 +23,16 @@ The target has:
 - deployment constraints related to TwinCAT and PLC-side execution;
 - a scientific need for interpretability beyond raw predictive accuracy.
 
-## English Companion Exports
+## Guide Export Folders
 
-English `NotebookLM` concept exports for this topic are archived in
-`English/`.
+This topic now separates its generated guide exports by language:
+
+- `Italiano/`
+  Italian concept and project exports for the topic.
+- `English/`
+  English concept exports for the topic.
+- `assets/`
+  guide-local source packages, prompts, and static diagram assets.
 
 ## Status Legend
 

@@ -16,10 +16,16 @@ The reader should come away with an understanding of:
 
 This is the first explicitly TE-structured model in the repository.
 
-## English Companion Exports
+## Guide Export Folders
 
-English `NotebookLM` concept exports for this topic are archived in
-`English/`.
+This topic now separates its generated guide exports by language:
+
+- `Italiano/`
+  Italian concept and project exports for the topic.
+- `English/`
+  English concept exports for the topic.
+- `assets/`
+  guide-local source packages, prompts, and static diagram assets.
 
 ## Model Description
 

@@ -13,10 +13,16 @@ The core idea is to split the TE prediction into:
 
 This makes the model a bridge between analytical structure and flexible neural approximation.
 
-## English Companion Exports
+## Guide Export Folders
 
-English `NotebookLM` concept exports for this topic are archived in
-`English/`.
+This topic now separates its generated guide exports by language:
+
+- `Italiano/`
+  Italian concept and project exports for the topic.
+- `English/`
+  English concept exports for the topic.
+- `assets/`
+  guide-local source packages, prompts, and static diagram assets.
 
 ## Model Description
 
