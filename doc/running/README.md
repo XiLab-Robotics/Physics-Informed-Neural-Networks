@@ -27,4 +27,5 @@ Protected files listed in the state file must not be modified silently while the
 Operational guidance:
 
 - treat `running/te_model_live_backlog.md` as the day-to-day source of truth for the TE program execution order;
+- keep future TwinCAT deployment-track decisions in that live backlog rather than only in historical technical notes;
 - treat the related `doc/technical/` backlog documents as historical planning references rather than as the main operational checklist.

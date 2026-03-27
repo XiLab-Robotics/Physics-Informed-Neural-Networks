@@ -409,6 +409,8 @@ This folder contains the internal project documents derived from the reference P
   Historical-filename technical document for organizing the Wave 1 familywise follow-up optimization program before any tuned cross-family comparison.
 - [technical/2026-03-26/2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md](./technical/2026-03-26/2026-03-26-14-19-56_campaign_launcher_script_mandatory_rule.md)
   Technical document for making a dedicated PowerShell launcher and launcher usage note mandatory parts of every prepared training campaign.
+- [technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md](./technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md)
+  Technical note for integrating the approved TwinCAT deployment-evaluation plan into the operational backlog and documentation indexes.
 
 #### Campaign Results
 
@@ -422,7 +424,7 @@ This folder contains the internal project documents derived from the reference P
 ### Running State
 
 - [running/te_model_live_backlog.md](./running/te_model_live_backlog.md)
-  Privileged live backlog for the TE model implementation program, including current wave status, next steps, and deferred branches.
+  Privileged live backlog for the TE model implementation program, including current wave status, next steps, deferred branches, and future TwinCAT deployment-track decisions.
 - [running/README.md](./running/README.md)
   Explanation of the persistent running-state workflow, including the live backlog and active campaign tracking.
 - [running/active_training_campaign.yaml](./running/active_training_campaign.yaml)

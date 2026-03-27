@@ -246,6 +246,8 @@ and inspectable.
   [2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md](./doc/technical/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md).
 - The post-campaign TwinCAT deployment-evaluation and isolated parallel-track rationale is documented in
   [2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md](./doc/technical/2026-03-26/2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md).
+- The backlog and documentation integration rationale for the approved TwinCAT deployment tracks is documented in
+  [2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md](./doc/technical/2026-03-27/2026-03-27-12-24-15_backlog_and_documentation_integration_for_twincat_deployment_tracks.md).
 - The Codex-native skills and subagents customization scope is documented in
   [2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md](./doc/technical/2026-03-26/2026-03-26-16-38-28_codex_native_skills_and_subagents_for_ml_documentation_and_campaign_workflows.md).
 - The concept NotebookLM export integration scope for FeedForward, Harmonic, and Periodic guides is documented in

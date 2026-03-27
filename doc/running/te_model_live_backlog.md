@@ -99,6 +99,38 @@ Current next step:
 - write the recovery campaign results report with validated PDF export after campaign completion
 - schedule a follow-up random forest retry on a higher-memory machine to verify whether the observed `MemoryError` is workstation-specific and whether a larger RAM budget improves the benchmark outcome
 
+### Post-Campaign TwinCAT Deployment Evaluation
+
+Planned execution order after the open Wave 1 reporting work:
+
+- formalize a dedicated `TwinCAT deployment evaluation` execution branch in the
+  operational workstream
+- use [testrig_twincat_ml_reference.md](../reference_codes/testrig_twincat_ml_reference.md)
+  as the canonical technical baseline for the imported TestRig PLC path
+- keep the legacy Beckhoff path as the main deployment target:
+  - `TF38x0`
+  - `FB_MllPrediction`
+  - `XML/BML`
+- open a separate comparison track for the newer Beckhoff server path:
+  - `TF3820/TF3830`
+  - `FB_MlSvrPrediction`
+  - `ONNX + JSON + PlcOpenXml`
+- evaluate both branches against repository-authored models instead of relying
+  only on historical paper coverage
+- compare at least:
+  - model acceptance and conversion success
+  - artifact workflow complexity
+  - runtime behavior and timing suitability
+  - maintainability and engineering cost
+- use isolated mode for preparatory or parallel experiments whenever campaign-
+  sensitive repository areas should remain untouched
+
+Entry conditions:
+
+- the open Wave 1 final reporting work is closed, or
+- the user explicitly approves isolated parallel preparation before full
+  integration.
+
 ## Deferred / Low Priority
 
 ### Explicit Low-Priority Exploratory Families
@@ -160,3 +192,5 @@ Entry rule:
   - a model family is promoted or deferred
   - a campaign is approved, started, completed, or cancelled
   - the current best candidate changes
+  - a TwinCAT deployment branch is promoted, deferred, or selected as the
+    preferred deployment path
