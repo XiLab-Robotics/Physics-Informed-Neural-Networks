@@ -278,6 +278,10 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the project-status report for stakeholder-friendly review and sharing.
 - [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md)
   English slide-deck source that summarizes the current repository state and the next execution steps.
+- [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pptx](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pptx)
+  Repository-owned PowerPoint presentation exported from the English Markdown slide deck.
+- [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pdf](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pdf)
+  Slide PDF export of the English project-status presentation for direct sharing and review.
 - [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_video_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_video_prompt.md)
   Ready-to-paste NotebookLM prompt for generating an English project-status video from the grounded repository source package.
 - [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_presentation_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebooklm/notebooklm_presentation_prompt.md)
