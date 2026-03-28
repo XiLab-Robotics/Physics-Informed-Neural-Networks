@@ -302,6 +302,10 @@ and inspectable.
   [2026-03-28-11-31-25_xilab_research_template_integration_for_presentation_pipeline_and_skill.md](./doc/technical/2026-03-28/2026-03-28-11-31-25_xilab_research_template_integration_for_presentation_pipeline_and_skill.md).
 - The Italian project-export integration plan for the `Multilayer Perceptrons` guide is documented in
   [2026-03-28-12-03-04_integrate_italian_project_notebooklm_exports_for_multilayer_perceptrons.md](./doc/technical/2026-03-28/2026-03-28-12-03-04_integrate_italian_project_notebooklm_exports_for_multilayer_perceptrons.md).
+- The NotebookLM project-status presentation and video export integration plan is documented in
+  [2026-03-28-12-06-26_integrate_notebooklm_project_status_presentation_and_video_exports.md](./doc/technical/2026-03-28/2026-03-28-12-06-26_integrate_notebooklm_project_status_presentation_and_video_exports.md).
+- The documentation realignment plan for the project-status `notebook_lm_assets` layout is documented in
+  [2026-03-28-12-11-07_realign_project_status_notebooklm_documentation_to_notebook_lm_assets_layout.md](./doc/technical/2026-03-28/2026-03-28-12-11-07_realign_project_status_notebooklm_documentation_to_notebook_lm_assets_layout.md).
 
 ## Next Steps
 
