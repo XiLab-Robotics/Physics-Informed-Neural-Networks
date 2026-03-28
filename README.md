@@ -300,6 +300,8 @@ and inspectable.
   [2026-03-28-11-26-06_presentation_export_workflows_skill.md](./doc/technical/2026-03-28/2026-03-28-11-26-06_presentation_export_workflows_skill.md).
 - The XiLab Research template integration plan for the presentation pipeline and skill is documented in
   [2026-03-28-11-31-25_xilab_research_template_integration_for_presentation_pipeline_and_skill.md](./doc/technical/2026-03-28/2026-03-28-11-31-25_xilab_research_template_integration_for_presentation_pipeline_and_skill.md).
+- The Italian project-export integration plan for the `Multilayer Perceptrons` guide is documented in
+  [2026-03-28-12-03-04_integrate_italian_project_notebooklm_exports_for_multilayer_perceptrons.md](./doc/technical/2026-03-28/2026-03-28-12-03-04_integrate_italian_project_notebooklm_exports_for_multilayer_perceptrons.md).
 
 ## Next Steps
 
