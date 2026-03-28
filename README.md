@@ -258,6 +258,8 @@ and inspectable.
   [2026-03-27-13-57-37_archive_concept_notebooklm_video_prompts_into_guide_local_packages.md](./doc/technical/2026-03-27/2026-03-27-13-57-37_archive_concept_notebooklm_video_prompts_into_guide_local_packages.md).
 - The language-aware guide-export reorganization plan for Italian and English `NotebookLM` media is documented in
   [2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md](./doc/technical/2026-03-27/2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md).
+- The English project-export integration plan for the existing guide tree is documented in
+  [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in
   [2026-03-27-17-44-33_codex_skill_autonomy_and_subagent_approval_rule.md](./doc/technical/2026-03-27/2026-03-27-17-44-33_codex_skill_autonomy_and_subagent_approval_rule.md).
 - The additional Codex skills and subagents plan for ML, testing, reports, and commit workflows is documented in
