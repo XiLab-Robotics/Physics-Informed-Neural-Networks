@@ -661,6 +661,51 @@ Useful options:
 - `--skip-pdf-validation`
   Export PDFs without the validation step.
 
+## Run The Presentation Export Pipeline
+
+Use the presentation-pipeline runner when you want one repository-owned command
+for:
+
+- `.pptx` generation from a Markdown slide deck;
+- PowerPoint-based slide PDF export on Windows;
+- raster validation of the real exported slide PDF.
+
+For the current project-status deck:
+
+```powershell
+python scripts/reports/run_presentation_pipeline.py `
+  --input-markdown-path "doc/reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md" `
+  --clean-temp `
+  --cleanup-validation-images
+```
+
+What this does:
+
+- generates the `.pptx` presentation from the repository-owned Markdown deck;
+- uses `reference/templates/Template_XiLab_Research.pptx` as the default base
+  PowerPoint template for repository presentations;
+- exports the `.pptx` to a slide PDF through Microsoft PowerPoint COM;
+- checks that the exported PDF page count matches the Markdown slide count;
+- writes validation images under `.temp/presentation_pipeline/pdf_validation/`.
+
+Useful options:
+
+- `--output-pptx-path`
+  Override the default `.pptx` destination next to the Markdown deck.
+- `--output-pdf-path`
+  Override the default PDF destination next to the Markdown deck.
+- `--skip-pptx-generation`
+  Reuse an existing `.pptx` and only run later stages.
+- `--skip-pdf-export`
+  Reuse an existing PDF and only run the count check plus validation.
+- `--skip-pdf-validation`
+  Generate the `.pptx` and PDF without the raster-validation pass.
+
+Current environment assumption:
+
+- this workflow currently assumes Windows with Microsoft PowerPoint available
+  through COM automation.
+
 ## Regenerate The Model Report Diagrams
 
 ```powershell

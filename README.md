@@ -270,6 +270,8 @@ and inspectable.
   [2026-03-27-19-13-28_project_status_report_remove_gap_section_forced_page_break.md](./doc/technical/2026-03-27/2026-03-27-19-13-28_project_status_report_remove_gap_section_forced_page_break.md).
 - The project-status report plan for moving the forced new page from the conclusion to the roadmap section is documented in
   [2026-03-27-19-20-37_project_status_report_move_forced_page_break_from_conclusion_to_roadmap.md](./doc/technical/2026-03-27/2026-03-27-19-20-37_project_status_report_move_forced_page_break_from_conclusion_to_roadmap.md).
+- The project-status presentation `.pptx` and slide-PDF pipeline rationale is documented in
+  [2026-03-27-19-38-55_project_status_presentation_pptx_and_slide_pdf_pipeline.md](./doc/technical/2026-03-27/2026-03-27-19-38-55_project_status_presentation_pptx_and_slide_pdf_pipeline.md).
 - The approved `English/` subfolder layout for guide-local English exports is documented in
   [2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md](./doc/technical/2026-03-27/2026-03-27-14-16-10_english_subfolder_layout_for_guide_exports.md).
 - The guide-package relocation plan for moving `concept_video_package` and `project_video_package` under `assets/` is documented in
@@ -292,6 +294,10 @@ and inspectable.
   [2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md](./doc/technical/2026-03-27/2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md).
 - The Markdown final blank-line check rule is documented in
   [2026-03-27-13-03-50_markdown_final_blank_line_check_rule.md](./doc/technical/2026-03-27/2026-03-27-13-03-50_markdown_final_blank_line_check_rule.md).
+- The presentation-export workflow skill plan is documented in
+  [2026-03-28-11-26-06_presentation_export_workflows_skill.md](./doc/technical/2026-03-28/2026-03-28-11-26-06_presentation_export_workflows_skill.md).
+- The XiLab Research template integration plan for the presentation pipeline and skill is documented in
+  [2026-03-28-11-31-25_xilab_research_template_integration_for_presentation_pipeline_and_skill.md](./doc/technical/2026-03-28/2026-03-28-11-31-25_xilab_research_template_integration_for_presentation_pipeline_and_skill.md).
 
 ## Next Steps
 
