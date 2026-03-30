@@ -1,5 +1,5 @@
 ﻿campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
-status: finished
+status: completed
 planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
 campaign_config_directory: config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign
 queue_root: config/training/queue

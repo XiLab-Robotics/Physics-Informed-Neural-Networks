@@ -22,7 +22,7 @@ Historical rationale and approval history remain in:
 
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: post-campaign cleanup for the completed residual-harmonic Wave 1 follow-up, then final reporting
+- Current Focus: `Wave 1` is now fully closed in campaign execution, reporting, and ranking; the next main focus is TwinCAT deployment evaluation preparation plus `Wave 2` planning
 - Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Current Reference Feedforward Baseline Run:
@@ -81,27 +81,21 @@ Verification:
 
 ## In Progress
 
-- `Wave 1` structured baseline implementation completed
-- `Wave 1` campaign completed with a mixed outcome that exposed the schema-aware summary bug and the random forest memory issue
-- `Wave 1` recovery campaign package generated and registered as `prepared`
-- representative validation and smoke-test verification completed for all Wave 1 families
-- residual-harmonic familywise optimization campaign completed as a `Wave 1` follow-up, with campaign assets now fully aligned to the `Wave 1` naming
+- post-`Wave 1` transition toward the TwinCAT deployment-evaluation branch
+- planning handoff from completed static structured baselines toward `Wave 2` temporal-model work
 
 ## Next Up
 
-### Wave 1. Structured Baseline Implementation
+### Post-Wave 1 Follow-Up
 
 Current next step:
 
-- finish the approved post-campaign `Wave 1` naming and backlog alignment cleanup
-- write the residual-harmonic family campaign results report with validated PDF export
-- launch the approved Wave 1 recovery campaign when the user decides to start it
-- write the recovery campaign results report with validated PDF export after campaign completion
 - schedule a follow-up random forest retry on a higher-memory machine to verify whether the observed `MemoryError` is workstation-specific and whether a larger RAM budget improves the benchmark outcome
+- use the consolidated `Wave 1` closeout report as the canonical summary when comparing future families against the current structured-baseline stage
 
 ### Post-Campaign TwinCAT Deployment Evaluation
 
-Planned execution order after the open Wave 1 reporting work:
+Planned execution order after the now-closed `Wave 1` reporting work:
 
 - formalize a dedicated `TwinCAT deployment evaluation` execution branch in the
   operational workstream
@@ -127,8 +121,8 @@ Planned execution order after the open Wave 1 reporting work:
 
 Entry conditions:
 
-- the open Wave 1 final reporting work is closed, or
-- the user explicitly approves isolated parallel preparation before full
+- `Wave 1` closeout remains synchronized in the running-state documents and registries;
+- or the user explicitly approves isolated parallel preparation before full
   integration.
 
 ## Deferred / Low Priority
@@ -158,7 +152,7 @@ Entry rule:
 - smoke-tests: completed
 - validation checks: completed
 - campaign execution: completed
-- results report: pending
+- results report: completed
 
 ### Wave 2. Temporal Models
 
@@ -183,6 +177,7 @@ Entry rule:
 - output artifacts now follow the privileged category-specific structure rather than the old flat family-root convention
 - the canonical feedforward reference baseline is the registry-selected best historical run, not the Wave 0 `trial` verification run
 - the currently tracked residual-harmonic family optimization belongs to `Wave 1` and its campaign assets have been realigned to the same naming
+- the first cross-family `Wave 1` execution had a mixed operational outcome, but the missing branches were recovered and the wave now has campaign-specific reporting plus a consolidated closeout summary
 - best-result visibility should be read from:
   - campaign-level `campaign_best_run.yaml`
   - family-level `latest_family_best.yaml`

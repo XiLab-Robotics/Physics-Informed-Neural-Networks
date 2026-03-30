@@ -318,6 +318,8 @@ and inspectable.
   [2026-03-30-11-17-58_twincat_export_preparation_skill_and_campaign_package_reviewer_subagent.md](./doc/technical/2026-03-30/2026-03-30-11-17-58_twincat_export_preparation_skill_and_campaign_package_reviewer_subagent.md).
 - The Codex repo-local user-guide plan is documented in
   [2026-03-30-11-23-21_codex_repo_local_user_guide.md](./doc/technical/2026-03-30/2026-03-30-11-23-21_codex_repo_local_user_guide.md).
+- The Wave 1 closeout audit and consolidated summary-report plan is documented in
+  [2026-03-30-11-41-57_wave1_closeout_audit_and_summary_report.md](./doc/technical/2026-03-30/2026-03-30-11-41-57_wave1_closeout_audit_and_summary_report.md).
 
 ## Next Steps
 
