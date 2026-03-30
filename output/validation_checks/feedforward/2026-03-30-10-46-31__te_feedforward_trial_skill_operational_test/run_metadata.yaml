@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: feedforward
+run_name: te_feedforward_trial_skill_operational_test
+run_instance_id: 2026-03-30-10-46-31__te_feedforward_trial_skill_operational_test
+output_directory: output/validation_checks/feedforward/2026-03-30-10-46-31__te_feedforward_trial_skill_operational_test

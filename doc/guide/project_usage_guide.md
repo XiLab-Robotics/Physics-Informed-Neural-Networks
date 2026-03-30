@@ -811,7 +811,10 @@ This command verifies:
 
 For tree models, the check uses a reduced train/validation sample subset instead of the neural batch path.
 
-It writes a `validation_summary.yaml` file under `output/validation_checks/<model_family>/<run_instance_id>/`.
+It writes:
+
+- `validation_summary.yaml` under `output/validation_checks/<model_family>/<run_instance_id>/`;
+- one repository-owned Markdown validation report under `doc/reports/analysis/validation_checks/`.
 
 ## Run The Minimal Lightning Smoke Test
 

@@ -19,7 +19,8 @@ It checks:
 3. model instantiation through the shared training infrastructure;
 4. batch retrieval from the training split;
 5. tensor-shape consistency;
-6. finite loss and metric computation on one batch.
+6. finite loss and metric computation on one batch;
+7. repository-owned Markdown reporting for the executed lightweight validation pass.
 
 For tree baselines, the same entry point switches to a small tabular fit-and-predict check instead of the neural batch path.
 
@@ -28,10 +29,15 @@ For tree baselines, the same entry point switches to a small tabular fit-and-pre
 The script writes:
 
 - `validation_summary.yaml`
+- one repository-owned Markdown validation report
 
 under a dedicated validation-artifact directory such as:
 
 - `output/validation_checks/feedforward/2026-03-17-20-05-11__te_feedforward_trial_wave0_validation/`
+
+and under a repository-owned report directory such as:
+
+- `doc/reports/analysis/validation_checks/2026-03-30-10-30-15_feedforward_te_feedforward_trial_validation_check_validation_setup_report.md`
 
 The validation output folder is now separated from normal training runs so sanity-check artifacts do not pollute the training-run tree.
 
@@ -55,3 +61,4 @@ Use this script when:
 Operational note:
 
 - the validation check now forces single-process execution (`num_workers = 0`, no pinned-memory transfer for the check, and `n_jobs = 1` when relevant) so the artifact remains robust in restricted Windows environments.
+- the Markdown validation report is a lightweight setup-check artifact and should not be confused with a full campaign-results report.

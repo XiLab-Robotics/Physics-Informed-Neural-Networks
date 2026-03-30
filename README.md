@@ -306,6 +306,10 @@ and inspectable.
   [2026-03-28-12-06-26_integrate_notebooklm_project_status_presentation_and_video_exports.md](./doc/technical/2026-03-28/2026-03-28-12-06-26_integrate_notebooklm_project_status_presentation_and_video_exports.md).
 - The documentation realignment plan for the project-status `notebook_lm_assets` layout is documented in
   [2026-03-28-12-11-07_realign_project_status_notebooklm_documentation_to_notebook_lm_assets_layout.md](./doc/technical/2026-03-28/2026-03-28-12-11-07_realign_project_status_notebooklm_documentation_to_notebook_lm_assets_layout.md).
+- The validation-setup report export plan for the skill operational test is documented in
+  [2026-03-30-10-30-15_validation_setup_report_export_for_skill_operational_test.md](./doc/technical/2026-03-30/2026-03-30-10-30-15_validation_setup_report_export_for_skill_operational_test.md).
+- The validation-setup report PDF export regression plan is documented in
+  [2026-03-30-10-57-14_validation_setup_report_pdf_export_regression_in_report_pipeline.md](./doc/technical/2026-03-30/2026-03-30-10-57-14_validation_setup_report_pdf_export_regression_in_report_pipeline.md).
 
 ## Next Steps
 

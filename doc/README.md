@@ -286,6 +286,10 @@ This folder contains the internal project documents derived from the reference P
   Ready-to-paste NotebookLM prompt for generating an English project-status video from the grounded repository source package stored under `notebook_lm_assets/`.
 - [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebook_lm_assets/notebooklm_presentation_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebook_lm_assets/notebooklm_presentation_prompt.md)
   Ready-to-paste NotebookLM prompt for generating an English project-status presentation from the grounded repository source package stored under `notebook_lm_assets/`.
+- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md)
+  Lightweight repository-owned validation-check report generated from the one-batch feedforward trial setup validation pass.
+- [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf)
+  Styled PDF export of the feedforward trial validation-check report.
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
   Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.pdf)
