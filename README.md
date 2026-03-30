@@ -293,6 +293,8 @@ and inspectable.
   [2026-03-30-21-48-58_local_lan_ai_inference_and_transcription_architecture_report.md](./doc/technical/2026-03-30/2026-03-30-21-48-58_local_lan_ai_inference_and_transcription_architecture_report.md).
 - The LM Studio-based LAN AI node plan for video knowledge extraction is documented in
   [2026-03-30-22-01-25_lm_studio_lan_ai_node_for_video_knowledge_extraction.md](./doc/technical/2026-03-30/2026-03-30-22-01-25_lm_studio_lan_ai_node_for_video_knowledge_extraction.md).
+- The Windows Sphinx compatibility fix for the `colorama` lower bound is documented in
+  [2026-03-30-23-33-16_colorama_lower_bound_fix_for_windows_sphinx_compatibility.md](./doc/technical/2026-03-30/2026-03-30-23-33-16_colorama_lower_bound_fix_for_windows_sphinx_compatibility.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in
