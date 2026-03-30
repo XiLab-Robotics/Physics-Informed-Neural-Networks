@@ -32,12 +32,14 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
-- [reports/analysis/2026-03-30-11-46-31_wave1_closeout_status_and_consolidated_summary_report.md](./reports/analysis/2026-03-30-11-46-31_wave1_closeout_status_and_consolidated_summary_report.md)
+- [reports/analysis/Wave 1 - Closeout Status.md](./reports/analysis/Wave%201%20-%20Closeout%20Status.md)
   Consolidated closeout report for `Wave 1`, covering campaign completion status, compared families, family winners, and final ranking.
-- [reports/analysis/2026-03-30-11-08-45_skill_and_subagent_operational_test_wave_two_report.md](./reports/analysis/2026-03-30-11-08-45_skill_and_subagent_operational_test_wave_two_report.md)
+- [reports/analysis/Skill and Subagent Operational Test.md](./reports/analysis/Skill%20and%20Subagent%20Operational%20Test.md)
   Operational test report for the second wave of repository-owned Codex skills and subagents.
-- [reports/analysis/2026-03-30-11-08-45_twincat_friendly_structured_te_modeling_reference_synthesis.md](./reports/analysis/2026-03-30-11-08-45_twincat_friendly_structured_te_modeling_reference_synthesis.md)
+- [reports/analysis/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/Twincat-Friendly%20Structured%20TE%20Modeling.md)
   Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
+- [reports/analysis/Code Documentation Platform Comparison.md](./reports/analysis/Code%20Documentation%20Platform%20Comparison.md)
+  Comparative analysis of repository documentation-platform options in the readable-filename analysis-report layout.
 
 ### Technical Documents
 
@@ -281,19 +283,19 @@ This folder contains the internal project documents derived from the reference P
   PDF export of the detailed training-configuration analysis report and the project golden standard for future styled analytical PDFs.
 - [reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md](./reports/analysis/2026-03-17-15-46-01_te_model_family_analysis_report.md)
   Detailed analytical report comparing standard, temporal, hybrid, and PINN model families for the TE case study, including priority and tradeoff analysis.
-- [reports/analysis/2026-03-27-18-13-19_project_status_report.md](./reports/analysis/2026-03-27-18-13-19_project_status_report.md)
+- [reports/analysis/project_status/[2026-03-27]/Project Status Report.md](./reports/analysis/project_status/%5B2026-03-27%5D/Project%20Status%20Report.md)
   Repository-owned project-status report summarizing completed work, current best results, current objectives, and recommended next steps.
-- [reports/analysis/2026-03-27-18-13-19_project_status_report.pdf](./reports/analysis/2026-03-27-18-13-19_project_status_report.pdf)
+- [reports/analysis/project_status/[2026-03-27]/Project Status Report.pdf](./reports/analysis/project_status/%5B2026-03-27%5D/Project%20Status%20Report.pdf)
   Styled PDF export of the project-status report for stakeholder-friendly review and sharing.
-- [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md)
+- [reports/analysis/project_status/[2026-03-27]/Project Status Presentation.md](./reports/analysis/project_status/%5B2026-03-27%5D/Project%20Status%20Presentation.md)
   English slide-deck source that summarizes the current repository state and the next execution steps.
-- [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pptx](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pptx)
+- [reports/analysis/project_status/[2026-03-27]/Project Status Presentation.pptx](./reports/analysis/project_status/%5B2026-03-27%5D/Project%20Status%20Presentation.pptx)
   Repository-owned PowerPoint presentation exported from the English Markdown slide deck.
-- [reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pdf](./reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.pdf)
+- [reports/analysis/project_status/[2026-03-27]/Project Status Presentation.pdf](./reports/analysis/project_status/%5B2026-03-27%5D/Project%20Status%20Presentation.pdf)
   Slide PDF export of the English project-status presentation for direct sharing and review.
-- [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebook_lm_assets/notebooklm_video_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebook_lm_assets/notebooklm_video_prompt.md)
+- [reports/analysis/project_status/[2026-03-27]/notebook_lm_assets/notebooklm_video_prompt.md](./reports/analysis/project_status/%5B2026-03-27%5D/notebook_lm_assets/notebooklm_video_prompt.md)
   Ready-to-paste NotebookLM prompt for generating an English project-status video from the grounded repository source package stored under `notebook_lm_assets/`.
-- [reports/analysis/2026-03-27-18-13-19_project_status_assets/notebook_lm_assets/notebooklm_presentation_prompt.md](./reports/analysis/2026-03-27-18-13-19_project_status_assets/notebook_lm_assets/notebooklm_presentation_prompt.md)
+- [reports/analysis/project_status/[2026-03-27]/notebook_lm_assets/notebooklm_presentation_prompt.md](./reports/analysis/project_status/%5B2026-03-27%5D/notebook_lm_assets/notebooklm_presentation_prompt.md)
   Ready-to-paste NotebookLM prompt for generating an English project-status presentation from the grounded repository source package stored under `notebook_lm_assets/`.
 - [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md)
   Lightweight repository-owned validation-check report generated from the one-batch feedforward trial setup validation pass.
@@ -448,6 +450,15 @@ This folder contains the internal project documents derived from the reference P
   Technical rationale for converting the temporary concept-video command list into a canonical archive and reusable future-topic template.
 - [technical/2026-03-27/2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md](./technical/2026-03-27/2026-03-27-12-58-39_editor_markdown_ignore_for_tools_directory.md)
   Technical note for reducing editor-side Markdown warning noise from the local `.tools/` helper directory while keeping canonical repository lint behavior unchanged.
+
+#### 2026-03-30
+
+- [technical/2026-03-30/2026-03-30-11-41-57_wave1_closeout_audit_and_summary_report.md](./technical/2026-03-30/2026-03-30-11-41-57_wave1_closeout_audit_and_summary_report.md)
+  Technical document for auditing the remaining `Wave 1` closeout work and preparing the consolidated final summary report.
+- [technical/2026-03-30/2026-03-30-12-03-06_doc_reports_reorganization_alignment_and_naming_rule.md](./technical/2026-03-30/2026-03-30-12-03-06_doc_reports_reorganization_alignment_and_naming_rule.md)
+  Technical document for analyzing the manual `doc/reports/` reorganization and planning the documentation realignment around the new structure.
+- [technical/2026-03-30/2026-03-30-12-04-47_doc_reports_topic_root_and_readable_filename_rule.md](./technical/2026-03-30/2026-03-30-12-04-47_doc_reports_topic_root_and_readable_filename_rule.md)
+  Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
 

@@ -14,6 +14,15 @@
 - Codex subagents must not be launched silently. When a subagent would be useful, declare the proposed subagent, the reason for using it, and the concrete delegated scope, then wait for explicit user approval before launching it.
 - When a technical project document is expected to involve a subagent during implementation, state that explicitly in the technical document, including the planned subagent name, intended task boundary, and the fact that runtime launch still requires explicit user approval.
 - Every new technical project document must also be referenced from the main project document in `README.md`.
+- Keep `doc/reports/` grouped first by report domain:
+  - `analysis/`
+  - `campaign_plans/`
+  - `campaign_results/`
+- Under `doc/reports/analysis/`, prefer readable title-based filenames for standalone canonical reports instead of timestamp-prefixed filenames when the topic is clearer than the creation timestamp and no larger package is needed.
+- When one analysis topic has multiple companion artifacts or repeated releases, create a topic-root folder under `doc/reports/analysis/` and place each concrete bundle inside a dated subfolder such as `[2026-03-27]/`.
+- Keep companion assets for a topic-local report bundle inside the same dated topic folder instead of creating a separate parallel `*_assets/` root.
+- Keep `doc/reports/campaign_plans/` and `doc/reports/campaign_results/` on the existing timestamp-based filename convention because they represent distinct campaign execution instances.
+- Treat bracketed date folders under `doc/reports/` such as `[2026-03-27]` as literal paths in tooling-sensitive contexts; for example, use `-LiteralPath` in PowerShell when needed.
 - Whenever a repository-owned Markdown document is created or modified, check the touched Markdown files for warnings before closing the task.
 - Scope this Markdown warning check to the Markdown files created or modified by the task rather than forcing a full repository-wide cleanup every time.
 - Fix warning regressions introduced or preserved in the touched Markdown files before closing the task when the fix is local and straightforward.

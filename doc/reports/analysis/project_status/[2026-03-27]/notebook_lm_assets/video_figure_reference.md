@@ -3,9 +3,9 @@
 Use visual material from the following repository-owned sources when available:
 
 - the canonical project-status report PDF:
-  `doc/reports/analysis/2026-03-27-18-13-19_project_status_report.pdf`
+  `doc/reports/analysis/project_status/[2026-03-27]/Project Status Report.pdf`
 - the English presentation deck source:
-  `doc/reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md`
+  `doc/reports/analysis/project_status/[2026-03-27]/Project Status Presentation.md`
 - the TE curriculum guide PDF:
   `doc/guide/TE Model Curriculum/TE Model Curriculum.pdf`
 - the residual harmonic guide PDF:

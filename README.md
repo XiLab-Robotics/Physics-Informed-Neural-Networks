@@ -320,6 +320,12 @@ and inspectable.
   [2026-03-30-11-23-21_codex_repo_local_user_guide.md](./doc/technical/2026-03-30/2026-03-30-11-23-21_codex_repo_local_user_guide.md).
 - The Wave 1 closeout audit and consolidated summary-report plan is documented in
   [2026-03-30-11-41-57_wave1_closeout_audit_and_summary_report.md](./doc/technical/2026-03-30/2026-03-30-11-41-57_wave1_closeout_audit_and_summary_report.md).
+- The `doc/reports/` reorganization alignment and naming-rule plan is documented in
+  [2026-03-30-12-03-06_doc_reports_reorganization_alignment_and_naming_rule.md](./doc/technical/2026-03-30/2026-03-30-12-03-06_doc_reports_reorganization_alignment_and_naming_rule.md).
+- The `doc/reports/` topic-root and readable-filename rule is documented in
+  [2026-03-30-12-04-47_doc_reports_topic_root_and_readable_filename_rule.md](./doc/technical/2026-03-30/2026-03-30-12-04-47_doc_reports_topic_root_and_readable_filename_rule.md).
+- The `AGENTS.md` rule integration plan for the new `doc/reports/` structure is documented in
+  [2026-03-30-12-14-42_agentes_rule_for_doc_reports_topic_root_and_readable_filenames.md](./doc/technical/2026-03-30/2026-03-30-12-14-42_agentes_rule_for_doc_reports_topic_root_and_readable_filenames.md).
 
 ## Next Steps
 

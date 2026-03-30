@@ -688,7 +688,7 @@ For the current project-status deck:
 
 ```powershell
 python scripts/reports/run_presentation_pipeline.py `
-  --input-markdown-path "doc/reports/analysis/2026-03-27-18-13-19_project_status_assets/2026-03-27-18-13-19_project_status_presentation_english.md" `
+  --input-markdown-path "doc/reports/analysis/project_status/[2026-03-27]/Project Status Presentation.md" `
   --clean-temp `
   --cleanup-validation-images
 ```

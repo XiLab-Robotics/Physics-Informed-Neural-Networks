@@ -126,7 +126,7 @@ Current judgment:
 | --- | --- | --- | --- | --- |
 | `campaign-architect` | Review one finished campaign package | planning report, finished campaign state, campaign outputs, registries | this operational-test report | kept campaign-safe scope and naming/bookkeeping review explicit |
 | `powershell-campaign-tooling` | Review the campaign launcher wrapper | launcher script, launcher note, active campaign state | this operational-test report | exposed launcher behavior as a distinct workflow surface |
-| `scientific-reference-synthesizer` | Produce deployment-facing TE note | `reference/` PDFs, reference summaries, residual-harmonic guide | `2026-03-30-11-08-45_twincat_friendly_structured_te_modeling_reference_synthesis.md` | separated facts, repository consequences, and open deployment gaps |
+| `scientific-reference-synthesizer` | Produce deployment-facing TE note | `reference/` PDFs, reference summaries, residual-harmonic guide | `Twincat-Friendly Structured TE Modeling.md` | separated facts, repository consequences, and open deployment gaps |
 | `repo-ml-reviewer` | Secondary campaign package review | campaign package, launcher, active state | this operational-test report | found concrete workflow/bookkeeping issues missed by the first local pass |
 | `repo-test-strategist` | Define minimum evidence set | approved technical document and reviewed artifact set | this operational-test report | prevented unnecessary reruns and sharpened closure criteria |
 | `twincat-deployment-analyst` | TwinCAT/PLC feasibility check | reference summaries, residual-harmonic direction, registries | synthesis note plus this report | clarified what is plausible versus still speculative |
