@@ -16,6 +16,9 @@ The purpose of these documents is to preserve the most useful implementation pat
   Reference note for the imported TestRig TwinCAT machine-learning pipeline,
   including the current `FB_MllPrediction` XML/BML workflow and the newer
   Beckhoff Machine Learning Server alternative.
+- [testrig_twincat_video_guides_reference.md](./testrig_twincat_video_guides_reference.md)
+  Reference note for the repository-local video-guide extraction workflow,
+  companion-note errata, and reusable analysis path for TwinCAT/TestRig media.
 
 ## Usage
 

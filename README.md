@@ -46,6 +46,7 @@ Implemented today:
 - one-batch validation checks and smoke-test utilities;
 - batch campaign execution and artifact tracking;
 - styled report generation and PDF validation tooling;
+- repository-owned TwinCAT/TestRig video-guide analysis tooling for transcript, frame, and OCR extraction;
 - dual `NotebookLM` source-package tracks for guide-local concept videos and
   repository-specific project videos;
 - repository-owned isolated-mode and Markdown validation tooling.
@@ -156,6 +157,12 @@ python -B scripts/tooling/run_markdownlint.py
 python -B scripts/tooling/markdown_style_check.py --fail-on-warning
 ```
 
+### Analyze TwinCAT Video Guides
+
+```powershell
+python -B scripts/tooling/analyze_video_guides.py
+```
+
 ## Documentation For New Users
 
 If you are opening the repository for the first time, use this reading order:
@@ -258,6 +265,8 @@ and inspectable.
   [2026-03-27-13-57-37_archive_concept_notebooklm_video_prompts_into_guide_local_packages.md](./doc/technical/2026-03-27/2026-03-27-13-57-37_archive_concept_notebooklm_video_prompts_into_guide_local_packages.md).
 - The language-aware guide-export reorganization plan for Italian and English `NotebookLM` media is documented in
   [2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md](./doc/technical/2026-03-27/2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md).
+- The TwinCAT video-guides knowledge-extraction pipeline rationale is documented in
+  [2026-03-30-12-30-07_twincat_video_guides_knowledge_extraction_pipeline.md](./doc/technical/2026-03-30/2026-03-30-12-30-07_twincat_video_guides_knowledge_extraction_pipeline.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

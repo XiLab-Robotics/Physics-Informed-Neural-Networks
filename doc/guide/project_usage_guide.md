@@ -19,7 +19,8 @@ At the moment, the implemented workflows are:
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
-- real exported PDF validation through a dedicated page-rasterization utility.
+- real exported PDF validation through a dedicated page-rasterization utility;
+- repository-owned TwinCAT/TestRig video-guide analysis through a local media inventory, transcription, frame extraction, and OCR pipeline.
 
 The shared neural training entry point now prints model-specific configuration details for feedforward, harmonic regression, periodic-feature MLP, and residual-harmonic MLP runs instead of assuming every model uses the same dense-layer schema.
 
@@ -105,6 +106,9 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/tooling/`
   Repository-owned tooling utilities, including the isolated-mode session manager.
+
+- `scripts/tooling/analyze_video_guides.py`
+  Video-guide analysis utility for `.temp/video_guides/`, with inventory, transcript, frame-sampling, and OCR support.
 
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
@@ -200,6 +204,36 @@ exist:
 - exact raw launch command;
 - dedicated PowerShell launcher under `scripts/campaigns/`;
 - launcher usage note under `doc/scripts/campaigns/`.
+
+## TwinCAT Video-Guide Analysis
+
+Use the repository-owned video-analysis utility when you want to extract
+technical evidence from `.temp/video_guides/` for TwinCAT/TestRig integration
+work:
+
+```powershell
+python -B scripts/tooling/analyze_video_guides.py
+```
+
+The generated raw artifacts are stored under:
+
+- `.temp/video_guides/_analysis/`
+
+Useful scoped runs:
+
+```powershell
+python -B scripts/tooling/analyze_video_guides.py --video-filter "Machine" --limit-videos 2
+python -B scripts/tooling/analyze_video_guides.py --disable-transcription
+```
+
+Important environment notes:
+
+- local transcription uses `faster-whisper`;
+- frame sampling uses `opencv-python-headless`;
+- OCR requires both `pytesseract` and a local Tesseract executable installed on
+  the machine;
+- if one optional backend is missing, the script records the skipped phase in
+  the generated inventory instead of failing silently.
 
 ## NotebookLM Video Packages
 

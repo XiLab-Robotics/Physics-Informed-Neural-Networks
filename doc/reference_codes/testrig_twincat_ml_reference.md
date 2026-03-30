@@ -259,6 +259,50 @@ The official Beckhoff documentation now shows two distinct deployment paths.
 
 Product family:
 
+## Video-Guide Companion Evidence
+
+The repository-local video-guide bundle under `.temp/video_guides/` adds
+practical evidence that complements the PLC code reading.
+
+The companion text files already confirm:
+
+- the simulation-oriented column schema includes speed, torque, temperature,
+  TE, absolute slow-shaft position, cumulative slow-shaft position, and
+  cumulative fast-shaft position;
+- `TE_Calc` in TwinCAT is computed directly from recorded position signals in
+  TwinCAT rather than being used exactly as the original video narration may
+  suggest;
+- the Matlab helper `Extra_Data_For_Simul_TC_Cam` is used to combine ideal cam
+  values with real TwinCAT-recorded values for the simulation path.
+
+These details matter because they further support the interpretation that the
+TwinCAT side contains meaningful TE-domain reconstruction logic and simulation
+preparation logic, not only opaque model invocation.
+
+The repository-owned extraction workflow for the video bundle is documented in:
+
+- `doc/reference_codes/testrig_twincat_video_guides_reference.md`
+
+Future video-derived findings should be integrated into this note with the
+source boundary kept explicit:
+
+- imported code evidence;
+- video-guide evidence;
+- engineering inference.
+
+The first extraction pass already reinforces several practical runtime points:
+
+- the machine-learning path is discussed in the videos as a split between a
+  faster task around `150 us` and a dedicated ML-related task around `500 us`;
+- inter-task value exchange introduces a real delay budget that must be
+  considered when timing compensation;
+- the current task split was motivated in part by saturation concerns when too
+  many components were pushed into the faster task;
+- the simulation-side feature ordering again aligns with the deployed
+  speed-torque-temperature convention already reconstructed from code;
+- the Beckhoff package and license setup on PC and PLC are practical
+  deployment prerequisites independent of model correctness.
+
 - `TF38x0 | TwinCAT 3 ML/NN Inference Engine`
 
 Confirmed current behavior from Beckhoff docs:

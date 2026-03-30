@@ -1,0 +1,790 @@
+""" Analyze TwinCAT Video Guides """
+
+from __future__ import annotations
+
+# Disable Bytecode Cache Writes
+import sys
+sys.dont_write_bytecode = True
+
+# Import Python Utilities
+import argparse
+import json
+import re
+import shutil
+from dataclasses import asdict
+from dataclasses import dataclass
+from dataclasses import field
+from pathlib import Path
+from typing import Any
+
+# Optional Imports
+try:
+    import cv2
+except ImportError:
+    cv2 = None
+
+try:
+    from faster_whisper import WhisperModel
+except ImportError:
+    WhisperModel = None
+
+try:
+    import pytesseract
+except ImportError:
+    pytesseract = None
+
+PROJECT_PATH = Path(__file__).resolve().parents[2]
+DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / ".temp" / "video_guides"
+DEFAULT_ANALYSIS_ROOT = DEFAULT_VIDEO_GUIDE_ROOT / "_analysis"
+DEFAULT_TRANSCRIPTION_MODEL = "tiny"
+DEFAULT_FRAME_INTERVAL_SECONDS = 30.0
+DEFAULT_MAX_FRAMES_PER_VIDEO = 40
+DEFAULT_TRANSCRIPT_LANGUAGE = "it"
+VIDEO_SUFFIXES = {".mp4", ".mkv", ".mov", ".avi", ".m4v"}
+TEXT_SUFFIXES = {".txt", ".md"}
+PREFERRED_TESSERACT_PATH_LIST = [
+    r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+    r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+]
+TERM_PATTERN_MAP = {
+    "TwinCAT": re.compile(r"\bTwinCAT\b", flags=re.IGNORECASE),
+    "Beckhoff": re.compile(r"\bBeckhoff\b", flags=re.IGNORECASE),
+    "TestRig": re.compile(r"\bTest\s*Rig\b", flags=re.IGNORECASE),
+    "FB_Predict": re.compile(r"\bFB[_\s-]*Predict\b", flags=re.IGNORECASE),
+    "ML_Transmission_Error": re.compile(r"\bML[_\s-]*Transmission[_\s-]*Error\b", flags=re.IGNORECASE),
+    "Predict_ML": re.compile(r"\bPredict[_\s-]*ML\b", flags=re.IGNORECASE),
+    "TE_Calc": re.compile(r"\bTE[_\s-]*Calc\b", flags=re.IGNORECASE),
+    "DataValid": re.compile(r"\bDataValid\b", flags=re.IGNORECASE),
+    "engine_<n>": re.compile(r"\bengine[_\s-]*\d+\b", flags=re.IGNORECASE),
+    "speed": re.compile(r"\b(speed|velocit[aà])\b", flags=re.IGNORECASE),
+    "torque": re.compile(r"\b(torque|coppia)\b", flags=re.IGNORECASE),
+    "temperature": re.compile(r"\b(temperature|temperatura)\b", flags=re.IGNORECASE),
+    "angle": re.compile(r"\b(angle|angolo|posizione)\b", flags=re.IGNORECASE),
+    "harmonic": re.compile(r"\b(harmonic|armonic|frequenz|component)\b", flags=re.IGNORECASE),
+    "simulation": re.compile(r"\b(simulation|simulazione|generator|cam)\b", flags=re.IGNORECASE),
+    "Matlab": re.compile(r"\bMatlab\b", flags=re.IGNORECASE),
+}
+
+
+@dataclass
+class CompanionNote:
+
+    """ Store Companion Note """
+
+    file_name: str
+    relative_path: str
+    text: str
+    normalized_stem: str
+
+
+@dataclass
+class TranscriptSegment:
+
+    """ Store Transcript Segment """
+
+    start_seconds: float
+    end_seconds: float
+    text: str
+
+
+@dataclass
+class OCRFrameRecord:
+
+    """ Store OCR Frame Record """
+
+    timestamp_seconds: float
+    frame_path: str
+    ocr_text: str
+
+
+@dataclass
+class VideoAnalysisRecord:
+
+    """ Store Video Analysis Record """
+
+    file_name: str
+    relative_path: str
+    size_bytes: int
+    duration_seconds: float | None = None
+    fps: float | None = None
+    frame_count: int | None = None
+    width: int | None = None
+    height: int | None = None
+    associated_companion_file_list: list[str] = field(default_factory=list)
+    associated_companion_note_list: list[str] = field(default_factory=list)
+    transcript_generated: bool = False
+    transcript_language: str | None = None
+    transcript_language_probability: float | None = None
+    transcript_segment_count: int = 0
+    transcript_excerpt_list: list[str] = field(default_factory=list)
+    frame_extraction_generated: bool = False
+    frame_record_count: int = 0
+    ocr_generated: bool = False
+    ocr_excerpt_list: list[str] = field(default_factory=list)
+    matched_term_list: list[str] = field(default_factory=list)
+    issue_list: list[str] = field(default_factory=list)
+
+
+def build_argument_parser() -> argparse.ArgumentParser:
+
+    """ Build Argument Parser """
+
+    argument_parser = argparse.ArgumentParser(
+        description="Analyze repository-local TwinCAT/TestRig video guides into reusable inventory, transcript, frame, and note artifacts.",
+    )
+    argument_parser.add_argument("--input-root", default=str(DEFAULT_VIDEO_GUIDE_ROOT), help="Video-guide source root.")
+    argument_parser.add_argument("--output-root", default=str(DEFAULT_ANALYSIS_ROOT), help="Analysis artifact root.")
+    argument_parser.add_argument("--video-filter", default="", help="Optional case-insensitive file-name filter.")
+    argument_parser.add_argument("--limit-videos", type=int, default=0, help="Optional maximum number of videos.")
+    argument_parser.add_argument("--frame-interval-seconds", type=float, default=DEFAULT_FRAME_INTERVAL_SECONDS, help="Seconds between sampled frames.")
+    argument_parser.add_argument("--max-frames-per-video", type=int, default=DEFAULT_MAX_FRAMES_PER_VIDEO, help="Maximum sampled frames per video.")
+    argument_parser.add_argument("--transcription-model", default=DEFAULT_TRANSCRIPTION_MODEL, help="Faster-Whisper model size.")
+    argument_parser.add_argument("--transcription-language", default=DEFAULT_TRANSCRIPT_LANGUAGE, help="Expected transcript language or 'auto'.")
+    argument_parser.add_argument("--disable-transcription", action="store_true", help="Skip transcription.")
+    argument_parser.add_argument("--disable-frames", action="store_true", help="Skip frame extraction.")
+    argument_parser.add_argument("--disable-ocr", action="store_true", help="Skip OCR.")
+    argument_parser.add_argument("--force", action="store_true", help="Recompute artifacts.")
+
+    return argument_parser
+
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """ Parse Command-Line Arguments """
+
+    return build_argument_parser().parse_args()
+
+
+def ensure_directory(directory_path: Path) -> None:
+
+    """ Ensure Directory """
+
+    directory_path.mkdir(parents=True, exist_ok=True)
+
+
+def normalize_file_stem(file_name: str) -> str:
+
+    """ Normalize File Stem """
+
+    return re.sub(r"[^a-z0-9]+", "", Path(file_name).stem.lower())
+
+
+def tokenize_file_stem(file_name: str) -> set[str]:
+
+    """ Tokenize File Stem """
+
+    normalized_source_text = Path(file_name).stem.lower().replace("_", " ").replace("-", " ")
+    token_set = {token for token in re.split(r"[^a-z0-9]+", normalized_source_text) if len(token) >= 2}
+
+    return token_set
+
+
+def collapse_whitespace(raw_text: str) -> str:
+
+    """ Collapse Whitespace """
+
+    return re.sub(r"\s+", " ", raw_text).strip()
+
+
+def collect_companion_note_list(input_root: Path) -> list[CompanionNote]:
+
+    """ Collect Companion Notes """
+
+    companion_note_list: list[CompanionNote] = []
+
+    for file_path in sorted(input_root.iterdir()):
+        if not file_path.is_file() or file_path.suffix.lower() not in TEXT_SUFFIXES:
+            continue
+
+        companion_note_list.append(
+            CompanionNote(
+                file_name=file_path.name,
+                relative_path=file_path.relative_to(PROJECT_PATH).as_posix(),
+                text=file_path.read_text(encoding="utf-8", errors="replace").strip(),
+                normalized_stem=normalize_file_stem(file_path.name),
+            )
+        )
+
+    return companion_note_list
+
+
+def collect_video_file_path_list(input_root: Path, video_filter: str, limit_videos: int) -> list[Path]:
+
+    """ Collect Video File Paths """
+
+    video_file_path_list: list[Path] = []
+    normalized_filter = video_filter.lower().strip()
+
+    for file_path in sorted(input_root.iterdir()):
+        if not file_path.is_file() or file_path.suffix.lower() not in VIDEO_SUFFIXES:
+            continue
+        if normalized_filter and normalized_filter not in file_path.name.lower():
+            continue
+        video_file_path_list.append(file_path)
+
+    return video_file_path_list[:limit_videos] if limit_videos > 0 else video_file_path_list
+
+
+def resolve_tesseract_executable_path() -> Path | None:
+
+    """ Resolve Tesseract Executable Path """
+
+    if pytesseract is None:
+        return None
+
+    tesseract_from_path = shutil.which("tesseract")
+    if tesseract_from_path:
+        return Path(tesseract_from_path)
+
+    for candidate_path in PREFERRED_TESSERACT_PATH_LIST:
+        if Path(candidate_path).exists():
+            return Path(candidate_path)
+
+    return None
+
+
+def collect_runtime_capability_map(disable_transcription: bool, disable_frames: bool, disable_ocr: bool) -> dict[str, Any]:
+
+    """ Collect Runtime Capability Map """
+
+    tesseract_executable_path = None if disable_ocr else resolve_tesseract_executable_path()
+
+    capability_map = {
+        "opencv_available": cv2 is not None and not disable_frames,
+        "faster_whisper_available": WhisperModel is not None and not disable_transcription,
+        "pytesseract_available": pytesseract is not None and not disable_ocr,
+        "tesseract_executable": str(tesseract_executable_path) if tesseract_executable_path else None,
+    }
+
+    if capability_map["pytesseract_available"] and tesseract_executable_path is not None:
+        pytesseract.pytesseract.tesseract_cmd = str(tesseract_executable_path)
+
+    capability_map["ocr_available"] = capability_map["pytesseract_available"] and tesseract_executable_path is not None
+
+    return capability_map
+
+
+def safely_cast_float(raw_value: float | int) -> float | None:
+
+    """ Safely Cast Float """
+
+    numeric_value = float(raw_value)
+    return numeric_value if numeric_value > 0 else None
+
+
+def safely_cast_int(raw_value: float | int) -> int | None:
+
+    """ Safely Cast Int """
+
+    numeric_value = int(raw_value)
+    return numeric_value if numeric_value > 0 else None
+
+
+def extract_video_metadata(video_file_path: Path) -> dict[str, Any]:
+
+    """ Extract Video Metadata """
+
+    metadata_map = {
+        "duration_seconds": None,
+        "fps": None,
+        "frame_count": None,
+        "width": None,
+        "height": None,
+    }
+
+    if cv2 is None:
+        return metadata_map
+
+    capture = cv2.VideoCapture(str(video_file_path))
+    if not capture.isOpened():
+        return metadata_map
+
+    fps = safely_cast_float(capture.get(cv2.CAP_PROP_FPS))
+    frame_count = safely_cast_int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
+    duration_seconds = frame_count / fps if fps and frame_count else None
+    metadata_map.update(
+        {
+            "duration_seconds": duration_seconds,
+            "fps": fps,
+            "frame_count": frame_count,
+            "width": safely_cast_int(capture.get(cv2.CAP_PROP_FRAME_WIDTH)),
+            "height": safely_cast_int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT)),
+        }
+    )
+    capture.release()
+
+    return metadata_map
+
+
+def build_frame_timestamp_list(duration_seconds: float | None, interval_seconds: float, max_frames_per_video: int) -> list[float]:
+
+    """ Build Frame Timestamp List """
+
+    if duration_seconds is None or duration_seconds <= 0:
+        return []
+
+    timestamp_seconds_list: list[float] = []
+    current_timestamp_seconds = 0.0
+
+    while current_timestamp_seconds < duration_seconds and len(timestamp_seconds_list) < max_frames_per_video:
+        timestamp_seconds_list.append(round(current_timestamp_seconds, 3))
+        current_timestamp_seconds += interval_seconds
+
+    final_timestamp_seconds = round(max(duration_seconds - 0.5, 0.0), 3)
+    if final_timestamp_seconds not in timestamp_seconds_list and len(timestamp_seconds_list) < max_frames_per_video:
+        timestamp_seconds_list.append(final_timestamp_seconds)
+
+    return timestamp_seconds_list
+
+
+def preprocess_frame_for_ocr(frame_image: Any) -> Any:
+
+    """ Preprocess Frame For OCR """
+
+    if cv2 is None:
+        return frame_image
+
+    grayscale_image = cv2.cvtColor(frame_image, cv2.COLOR_BGR2GRAY)
+    upscaled_image = cv2.resize(grayscale_image, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
+    _, thresholded_image = cv2.threshold(upscaled_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    return thresholded_image
+
+
+def build_whisper_initial_prompt() -> str:
+
+    """ Build Whisper Initial Prompt """
+
+    return (
+        "Contesto tecnico TwinCAT Beckhoff PLC TestRig machine learning. "
+        "Possibili termini: FB_Predict, ML_Transmission_Error, Predict_ML, "
+        "Transmission Error, TE_Calc, DataValid, temperatura, coppia, velocita, "
+        "encoder, armoniche, simulation, generator cam, Matlab."
+    )
+
+
+def transcribe_video_file(video_file_path: Path, model_name: str, language_code: str, capability_map: dict[str, Any]) -> tuple[list[TranscriptSegment], dict[str, Any], list[str]]:
+
+    """ Transcribe Video File """
+
+    if not capability_map["faster_whisper_available"]:
+        return [], {"language": None, "language_probability": None}, ["Faster-Whisper not available -> transcription skipped."]
+
+    try:
+        whisper_model = WhisperModel(model_name, device="cpu", compute_type="int8")
+        requested_language = None if language_code.lower() == "auto" else language_code
+        transcript_segments, transcript_info = whisper_model.transcribe(
+            str(video_file_path),
+            beam_size=5,
+            language=requested_language,
+            vad_filter=True,
+            word_timestamps=False,
+            initial_prompt=build_whisper_initial_prompt(),
+        )
+
+        transcript_segment_list = [
+            TranscriptSegment(start_seconds=segment.start, end_seconds=segment.end, text=collapse_whitespace(segment.text))
+            for segment in transcript_segments
+            if collapse_whitespace(segment.text)
+        ]
+        return (
+            transcript_segment_list,
+            {
+                "language": getattr(transcript_info, "language", None),
+                "language_probability": getattr(transcript_info, "language_probability", None),
+            },
+            [],
+        )
+    except Exception as exception:
+        return [], {"language": None, "language_probability": None}, [f"Transcription failed | {exception}"]
+
+
+def extract_frame_and_ocr_records(
+    video_file_path: Path,
+    output_root: Path,
+    duration_seconds: float | None,
+    interval_seconds: float,
+    max_frames_per_video: int,
+    capability_map: dict[str, Any],
+    force_recompute: bool,
+) -> tuple[list[OCRFrameRecord], list[str]]:
+
+    """ Extract Frame And OCR Records """
+
+    if not capability_map["opencv_available"]:
+        return [], ["OpenCV not available -> frame extraction skipped."]
+
+    timestamp_seconds_list = build_frame_timestamp_list(duration_seconds, interval_seconds, max_frames_per_video)
+    if not timestamp_seconds_list:
+        return [], ["Video duration unavailable -> frame extraction skipped."]
+
+    frame_output_directory = output_root / "frames"
+    ensure_directory(frame_output_directory)
+
+    capture = cv2.VideoCapture(str(video_file_path))
+    if not capture.isOpened():
+        return [], ["OpenCV could not open video for frame extraction."]
+
+    issue_list: list[str] = []
+    frame_record_list: list[OCRFrameRecord] = []
+    missing_tesseract_notice_emitted = False
+
+    for frame_index, timestamp_seconds in enumerate(timestamp_seconds_list):
+        frame_file_name = f"frame_{frame_index:03d}_{timestamp_seconds:010.3f}s.png".replace(".", "_", 1)
+        frame_file_path = frame_output_directory / frame_file_name
+        capture.set(cv2.CAP_PROP_POS_MSEC, timestamp_seconds * 1000.0)
+        read_success, frame_image = capture.read()
+        if not read_success:
+            issue_list.append(f"Frame read failed at {timestamp_seconds:.3f}s.")
+            continue
+
+        if force_recompute or not frame_file_path.exists():
+            cv2.imwrite(str(frame_file_path), frame_image)
+
+        extracted_ocr_text = ""
+        if capability_map["ocr_available"]:
+            try:
+                preprocessed_image = preprocess_frame_for_ocr(frame_image)
+                extracted_ocr_text = collapse_whitespace(
+                    pytesseract.image_to_string(preprocessed_image, lang="eng", config="--oem 3 --psm 6", timeout=15)
+                )
+            except Exception as exception:
+                issue_list.append(f"OCR failed at {timestamp_seconds:.3f}s | {exception}")
+        elif capability_map["pytesseract_available"] and not missing_tesseract_notice_emitted:
+            issue_list.append("pytesseract installed but Tesseract executable missing -> OCR skipped.")
+            missing_tesseract_notice_emitted = True
+
+        frame_record_list.append(
+            OCRFrameRecord(
+                timestamp_seconds=timestamp_seconds,
+                frame_path=frame_file_path.relative_to(PROJECT_PATH).as_posix(),
+                ocr_text=extracted_ocr_text,
+            )
+        )
+
+    capture.release()
+
+    return frame_record_list, issue_list
+
+
+def write_json_file(output_file_path: Path, payload: Any) -> None:
+
+    """ Write JSON File """
+
+    ensure_directory(output_file_path.parent)
+    output_file_path.write_text(json.dumps(payload, indent=2, ensure_ascii=True), encoding="utf-8")
+
+
+def format_seconds(timestamp_seconds: float) -> str:
+
+    """ Format Seconds """
+
+    total_seconds = int(timestamp_seconds)
+    hours = total_seconds // 3600
+    minutes = (total_seconds % 3600) // 60
+    seconds = total_seconds % 60
+
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+
+def write_transcript_markdown(output_file_path: Path, transcript_segment_list: list[TranscriptSegment]) -> None:
+
+    """ Write Transcript Markdown """
+
+    markdown_line_list = ["# Transcript", ""]
+    if not transcript_segment_list:
+        markdown_line_list.append("No transcript segments were generated.")
+    else:
+        for transcript_segment in transcript_segment_list:
+            markdown_line_list.append(
+                f"- `{format_seconds(transcript_segment.start_seconds)}` -> `{format_seconds(transcript_segment.end_seconds)}` | {transcript_segment.text}"
+            )
+
+    ensure_directory(output_file_path.parent)
+    output_file_path.write_text("\n".join(markdown_line_list) + "\n", encoding="utf-8")
+
+
+def extract_excerpt_list(raw_text_block_list: list[str], max_excerpt_count: int = 8, excerpt_length: int = 220) -> list[str]:
+
+    """ Extract Excerpt List """
+
+    excerpt_list: list[str] = []
+
+    for raw_text_block in raw_text_block_list:
+        collapsed_text = collapse_whitespace(raw_text_block)
+        if not collapsed_text:
+            continue
+        excerpt_text = collapsed_text[:excerpt_length]
+        if excerpt_text not in excerpt_list:
+            excerpt_list.append(excerpt_text)
+        if len(excerpt_list) >= max_excerpt_count:
+            break
+
+    return excerpt_list
+
+
+def extract_matched_term_list(*text_block_lists: list[str]) -> list[str]:
+
+    """ Extract Matched Term List """
+
+    matched_term_list: list[str] = []
+    for term_name, term_pattern in TERM_PATTERN_MAP.items():
+        if any(term_pattern.search(text_block) for text_block_list in text_block_lists for text_block in text_block_list):
+            matched_term_list.append(term_name)
+
+    return matched_term_list
+
+
+def write_video_note_markdown(output_file_path: Path, video_analysis_record: VideoAnalysisRecord) -> None:
+
+    """ Write Video Note Markdown """
+
+    markdown_line_list = [
+        f"# {video_analysis_record.file_name}",
+        "",
+        "## Overview",
+        "",
+        f"- Source video: `{video_analysis_record.relative_path}`",
+        f"- File size bytes: `{video_analysis_record.size_bytes}`",
+        f"- Duration seconds: `{video_analysis_record.duration_seconds}`",
+        f"- Resolution: `{video_analysis_record.width}x{video_analysis_record.height}`",
+        f"- FPS: `{video_analysis_record.fps}`",
+        "",
+        "## Companion Evidence",
+        "",
+    ]
+
+    if video_analysis_record.associated_companion_file_list:
+        for companion_file_name in video_analysis_record.associated_companion_file_list:
+            markdown_line_list.append(f"- `{companion_file_name}`")
+    else:
+        markdown_line_list.append("- No directly matched companion note.")
+
+    if video_analysis_record.associated_companion_note_list:
+        markdown_line_list.extend(["", "## Companion Notes", ""])
+        for companion_note in video_analysis_record.associated_companion_note_list:
+            markdown_line_list.append(f"- {companion_note}")
+
+    markdown_line_list.extend(["", "## Transcript Excerpts", ""])
+    markdown_line_list.extend([f"- {excerpt}" for excerpt in video_analysis_record.transcript_excerpt_list] or ["- No transcript excerpts available."])
+
+    markdown_line_list.extend(["", "## OCR Excerpts", ""])
+    markdown_line_list.extend([f"- {excerpt}" for excerpt in video_analysis_record.ocr_excerpt_list] or ["- No OCR excerpts available."])
+
+    markdown_line_list.extend(["", "## Matched Terms", ""])
+    markdown_line_list.extend([f"- `{matched_term}`" for matched_term in video_analysis_record.matched_term_list] or ["- No tracked terms matched."])
+
+    markdown_line_list.extend(["", "## Issues", ""])
+    markdown_line_list.extend([f"- {issue}" for issue in video_analysis_record.issue_list] or ["- No issues recorded."])
+
+    ensure_directory(output_file_path.parent)
+    output_file_path.write_text("\n".join(markdown_line_list) + "\n", encoding="utf-8")
+
+
+def build_inventory_markdown(
+    input_root: Path,
+    output_root: Path,
+    capability_map: dict[str, Any],
+    video_analysis_record_list: list[VideoAnalysisRecord],
+    companion_note_list: list[CompanionNote],
+) -> str:
+
+    """ Build Inventory Markdown """
+
+    markdown_line_list = [
+        "# TwinCAT Video Guides Inventory",
+        "",
+        "## Source Root",
+        "",
+        f"- `{input_root.relative_to(PROJECT_PATH).as_posix()}`",
+        "",
+        "## Output Root",
+        "",
+        f"- `{output_root.relative_to(PROJECT_PATH).as_posix()}`",
+        "",
+        "## Runtime Capabilities",
+        "",
+        f"- `opencv_available`: `{capability_map['opencv_available']}`",
+        f"- `faster_whisper_available`: `{capability_map['faster_whisper_available']}`",
+        f"- `ocr_available`: `{capability_map['ocr_available']}`",
+        f"- `tesseract_executable`: `{capability_map['tesseract_executable']}`",
+        "",
+        "## Companion Notes",
+        "",
+    ]
+
+    markdown_line_list.extend(
+        [f"- `{companion_note.file_name}` | {collapse_whitespace(companion_note.text)[:180]}" for companion_note in companion_note_list]
+        or ["- No companion notes found."]
+    )
+
+    markdown_line_list.extend(["", "## Video Files", ""])
+    for video_analysis_record in video_analysis_record_list:
+        markdown_line_list.append(
+            f"- `{video_analysis_record.file_name}` | duration={video_analysis_record.duration_seconds} | transcript={video_analysis_record.transcript_generated} | frames={video_analysis_record.frame_extraction_generated} | ocr={video_analysis_record.ocr_generated} | matched_terms={', '.join(video_analysis_record.matched_term_list) if video_analysis_record.matched_term_list else 'none'}"
+        )
+
+    return "\n".join(markdown_line_list) + "\n"
+
+
+def match_companion_notes(video_file_path: Path, companion_note_list: list[CompanionNote]) -> list[CompanionNote]:
+
+    """ Match Companion Notes """
+
+    video_stem = normalize_file_stem(video_file_path.name)
+    video_token_set = tokenize_file_stem(video_file_path.name)
+    matched_companion_note_list: list[CompanionNote] = []
+
+    for companion_note in companion_note_list:
+        companion_token_set = tokenize_file_stem(companion_note.file_name)
+        direct_match = companion_note.normalized_stem and (
+            companion_note.normalized_stem in video_stem or video_stem in companion_note.normalized_stem
+        )
+        token_overlap_count = len(video_token_set.intersection(companion_token_set))
+
+        if direct_match or token_overlap_count >= 2:
+            matched_companion_note_list.append(companion_note)
+
+    return matched_companion_note_list
+
+
+def analyze_single_video(
+    video_file_path: Path,
+    output_root: Path,
+    companion_note_list: list[CompanionNote],
+    capability_map: dict[str, Any],
+    parsed_arguments: argparse.Namespace,
+) -> VideoAnalysisRecord:
+
+    """ Analyze Single Video """
+
+    video_output_directory = output_root / normalize_file_stem(video_file_path.name)
+    ensure_directory(video_output_directory)
+
+    video_analysis_record = VideoAnalysisRecord(
+        file_name=video_file_path.name,
+        relative_path=video_file_path.relative_to(PROJECT_PATH).as_posix(),
+        size_bytes=video_file_path.stat().st_size,
+    )
+
+    matched_companion_note_list = match_companion_notes(video_file_path, companion_note_list)
+    video_analysis_record.associated_companion_file_list = [companion_note.file_name for companion_note in matched_companion_note_list]
+    video_analysis_record.associated_companion_note_list = extract_excerpt_list([companion_note.text for companion_note in matched_companion_note_list], max_excerpt_count=6)
+
+    metadata_map = extract_video_metadata(video_file_path)
+    video_analysis_record.duration_seconds = metadata_map["duration_seconds"]
+    video_analysis_record.fps = metadata_map["fps"]
+    video_analysis_record.frame_count = metadata_map["frame_count"]
+    video_analysis_record.width = metadata_map["width"]
+    video_analysis_record.height = metadata_map["height"]
+
+    transcript_segment_list, transcript_metadata_map, transcript_issue_list = transcribe_video_file(
+        video_file_path=video_file_path,
+        model_name=parsed_arguments.transcription_model,
+        language_code=parsed_arguments.transcription_language,
+        capability_map=capability_map,
+    ) if not parsed_arguments.disable_transcription else ([], {"language": None, "language_probability": None}, ["Transcription disabled by command-line flag."])
+    video_analysis_record.issue_list.extend(transcript_issue_list)
+    video_analysis_record.transcript_generated = len(transcript_segment_list) > 0
+    video_analysis_record.transcript_language = transcript_metadata_map["language"]
+    video_analysis_record.transcript_language_probability = transcript_metadata_map["language_probability"]
+    video_analysis_record.transcript_segment_count = len(transcript_segment_list)
+    transcript_text_block_list = [segment.text for segment in transcript_segment_list]
+    video_analysis_record.transcript_excerpt_list = extract_excerpt_list(transcript_text_block_list)
+    write_json_file(video_output_directory / "transcript_segments.json", [asdict(segment) for segment in transcript_segment_list])
+    write_transcript_markdown(video_output_directory / "transcript.md", transcript_segment_list)
+
+    frame_record_list, frame_issue_list = extract_frame_and_ocr_records(
+        video_file_path=video_file_path,
+        output_root=video_output_directory,
+        duration_seconds=video_analysis_record.duration_seconds,
+        interval_seconds=parsed_arguments.frame_interval_seconds,
+        max_frames_per_video=parsed_arguments.max_frames_per_video,
+        capability_map=capability_map,
+        force_recompute=parsed_arguments.force,
+    ) if not parsed_arguments.disable_frames else ([], ["Frame extraction disabled by command-line flag."])
+    video_analysis_record.issue_list.extend(frame_issue_list)
+    video_analysis_record.frame_extraction_generated = len(frame_record_list) > 0
+    video_analysis_record.frame_record_count = len(frame_record_list)
+    frame_text_block_list = [frame_record.ocr_text for frame_record in frame_record_list if frame_record.ocr_text]
+    video_analysis_record.ocr_generated = len(frame_text_block_list) > 0
+    video_analysis_record.ocr_excerpt_list = extract_excerpt_list(frame_text_block_list)
+    write_json_file(video_output_directory / "frame_ocr_records.json", [asdict(frame_record) for frame_record in frame_record_list])
+
+    companion_text_block_list = [companion_note.text for companion_note in matched_companion_note_list]
+    video_analysis_record.matched_term_list = extract_matched_term_list(
+        transcript_text_block_list,
+        frame_text_block_list,
+        companion_text_block_list,
+    )
+
+    write_json_file(video_output_directory / "video_analysis_summary.json", asdict(video_analysis_record))
+    write_video_note_markdown(video_output_directory / "video_analysis_summary.md", video_analysis_record)
+
+    return video_analysis_record
+
+
+def print_terminal_summary(video_analysis_record_list: list[VideoAnalysisRecord]) -> None:
+
+    """ Print Terminal Summary """
+
+    print("")
+    print("=" * 96)
+    print("TwinCAT Video Guide Analysis")
+    print("=" * 96)
+    for video_analysis_record in video_analysis_record_list:
+        print(
+            f"{video_analysis_record.file_name} | duration={video_analysis_record.duration_seconds} | transcript={video_analysis_record.transcript_generated} ({video_analysis_record.transcript_segment_count}) | frames={video_analysis_record.frame_extraction_generated} ({video_analysis_record.frame_record_count}) | ocr={video_analysis_record.ocr_generated} | terms={', '.join(video_analysis_record.matched_term_list) if video_analysis_record.matched_term_list else 'none'}"
+        )
+
+
+def main() -> int:
+
+    """ Run Video-Guide Analysis """
+
+    parsed_arguments = parse_command_line_arguments()
+    input_root = Path(parsed_arguments.input_root).resolve()
+    output_root = Path(parsed_arguments.output_root).resolve()
+    assert input_root.exists(), f"Input root does not exist | {input_root}"
+    ensure_directory(output_root)
+
+    companion_note_list = collect_companion_note_list(input_root)
+    video_file_path_list = collect_video_file_path_list(input_root, parsed_arguments.video_filter, parsed_arguments.limit_videos)
+    assert video_file_path_list, "No video files matched the requested scope."
+
+    capability_map = collect_runtime_capability_map(
+        disable_transcription=parsed_arguments.disable_transcription,
+        disable_frames=parsed_arguments.disable_frames,
+        disable_ocr=parsed_arguments.disable_ocr,
+    )
+
+    video_analysis_record_list = [
+        analyze_single_video(
+            video_file_path=video_file_path,
+            output_root=output_root,
+            companion_note_list=companion_note_list,
+            capability_map=capability_map,
+            parsed_arguments=parsed_arguments,
+        )
+        for video_file_path in video_file_path_list
+    ]
+
+    write_json_file(output_root / "video_inventory.json", [asdict(video_record) for video_record in video_analysis_record_list])
+    write_json_file(output_root / "runtime_capabilities.json", capability_map)
+    (output_root / "video_inventory.md").write_text(
+        build_inventory_markdown(
+            input_root=input_root,
+            output_root=output_root,
+            capability_map=capability_map,
+            video_analysis_record_list=video_analysis_record_list,
+            companion_note_list=companion_note_list,
+        ),
+        encoding="utf-8",
+    )
+    print_terminal_summary(video_analysis_record_list)
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
