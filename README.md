@@ -310,6 +310,9 @@ and inspectable.
   [2026-03-30-10-30-15_validation_setup_report_export_for_skill_operational_test.md](./doc/technical/2026-03-30/2026-03-30-10-30-15_validation_setup_report_export_for_skill_operational_test.md).
 - The validation-setup report PDF export regression plan is documented in
   [2026-03-30-10-57-14_validation_setup_report_pdf_export_regression_in_report_pipeline.md](./doc/technical/2026-03-30/2026-03-30-10-57-14_validation_setup_report_pdf_export_regression_in_report_pipeline.md).
+- The second operational-test wave for the remaining Codex skills and
+  subagents is documented in
+  [2026-03-30-11-04-41_skill_and_subagent_operational_test_wave_two.md](./doc/technical/2026-03-30/2026-03-30-11-04-41_skill_and_subagent_operational_test_wave_two.md).
 
 ## Next Steps
 

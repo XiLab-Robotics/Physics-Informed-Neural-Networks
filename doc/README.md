@@ -30,6 +30,13 @@ This folder contains the internal project documents derived from the reference P
 - [reference_codes/multimodal_fusion_reference.md](./reference_codes/multimodal_fusion_reference.md)
   Supporting reference for compact ROS pipelines, explicit label mapping, and simple Lightning baselines.
 
+### Analysis Reports
+
+- [reports/analysis/2026-03-30-11-08-45_skill_and_subagent_operational_test_wave_two_report.md](./reports/analysis/2026-03-30-11-08-45_skill_and_subagent_operational_test_wave_two_report.md)
+  Operational test report for the second wave of repository-owned Codex skills and subagents.
+- [reports/analysis/2026-03-30-11-08-45_twincat_friendly_structured_te_modeling_reference_synthesis.md](./reports/analysis/2026-03-30-11-08-45_twincat_friendly_structured_te_modeling_reference_synthesis.md)
+  Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
+
 ### Technical Documents
 
 #### 2026-03-10
