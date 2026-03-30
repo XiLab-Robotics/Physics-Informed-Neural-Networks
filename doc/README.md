@@ -469,6 +469,8 @@ This folder contains the internal project documents derived from the reference P
 
 - [guide/project_usage_guide.md](./guide/project_usage_guide.md)
   Practical user guide for environment activation, dataset processing, and TE visualization.
+- [guide/Codex Repo-Local Workflow/Codex Repo-Local Workflow.md](./guide/Codex%20Repo-Local%20Workflow/Codex%20Repo-Local%20Workflow.md)
+  Practical user guide for the repository-local Codex skill and subagent system.
 
 ## Usage
 

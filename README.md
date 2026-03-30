@@ -316,6 +316,8 @@ and inspectable.
 - The TwinCAT export-preparation skill and campaign-package reviewer subagent
   plan is documented in
   [2026-03-30-11-17-58_twincat_export_preparation_skill_and_campaign_package_reviewer_subagent.md](./doc/technical/2026-03-30/2026-03-30-11-17-58_twincat_export_preparation_skill_and_campaign_package_reviewer_subagent.md).
+- The Codex repo-local user-guide plan is documented in
+  [2026-03-30-11-23-21_codex_repo_local_user_guide.md](./doc/technical/2026-03-30/2026-03-30-11-23-21_codex_repo_local_user_guide.md).
 
 ## Next Steps
 

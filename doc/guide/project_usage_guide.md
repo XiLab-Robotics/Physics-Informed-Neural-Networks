@@ -503,6 +503,20 @@ Supported actions are:
 - `replace_generated_artifact`
 - `manual_review_required`
 
+## Codex Repo-Local Workflow Guide
+
+The repository now also exposes a dedicated guide for the local Codex workflow:
+
+- `doc/guide/Codex Repo-Local Workflow/Codex Repo-Local Workflow.md`
+
+Use that guide when you want the repository-specific explanation of:
+
+- which skills exist;
+- which subagents exist;
+- when skills are used automatically;
+- when subagents may be proposed for approval;
+- how the repo-local Codex workflow behaves in practice.
+
 ### Validate The Isolation Lock
 
 ```powershell
