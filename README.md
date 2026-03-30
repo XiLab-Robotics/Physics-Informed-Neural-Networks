@@ -313,6 +313,9 @@ and inspectable.
 - The second operational-test wave for the remaining Codex skills and
   subagents is documented in
   [2026-03-30-11-04-41_skill_and_subagent_operational_test_wave_two.md](./doc/technical/2026-03-30/2026-03-30-11-04-41_skill_and_subagent_operational_test_wave_two.md).
+- The TwinCAT export-preparation skill and campaign-package reviewer subagent
+  plan is documented in
+  [2026-03-30-11-17-58_twincat_export_preparation_skill_and_campaign_package_reviewer_subagent.md](./doc/technical/2026-03-30/2026-03-30-11-17-58_twincat_export_preparation_skill_and_campaign_package_reviewer_subagent.md).
 
 ## Next Steps
 
