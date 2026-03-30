@@ -108,7 +108,16 @@ The current usage flow mainly relies on these folders:
   Repository-owned tooling utilities, including the isolated-mode session manager.
 
 - `scripts/tooling/analyze_video_guides.py`
-  Video-guide analysis utility for `.temp/video_guides/`, with inventory, transcript, frame-sampling, and OCR support.
+  Video-guide analysis utility for `.temp/video_guides/`, with inventory, quality-scored transcript extraction, frame sampling, and quality-gated OCR support.
+
+- `scripts/tooling/generate_video_guide_reports.py`
+  Report-generation utility that turns analyzed TwinCAT/TestRig video artifacts into repository-owned Markdown reports with copied reference images.
+
+- `scripts/tooling/extract_video_guide_knowledge.py`
+  High-quality three-stage workflow that can now use either cloud backends or a LAN AI node for transcript extraction, OCR, transcript cleanup, and final report synthesis.
+
+- `scripts/tooling/lan_ai_node_server.py`
+  Repository-owned FastAPI service intended for the second workstation, exposing `faster-whisper` transcription, `PaddleOCR`, and health endpoints over LAN.
 
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
@@ -228,12 +237,107 @@ python -B scripts/tooling/analyze_video_guides.py --disable-transcription
 
 Important environment notes:
 
-- local transcription uses `faster-whisper`;
+- local transcription uses `faster-whisper`, now with a stronger default model and persisted transcript quality scores;
 - frame sampling uses `opencv-python-headless`;
 - OCR requires both `pytesseract` and a local Tesseract executable installed on
   the machine;
+- OCR is no longer copied naively from full frames; the script now evaluates
+  multiple TwinCAT-oriented screen regions and keeps only the best candidate
+  text per sampled frame;
 - if one optional backend is missing, the script records the skipped phase in
   the generated inventory instead of failing silently.
+
+Useful quality-oriented runs:
+
+```powershell
+python -B scripts/tooling/analyze_video_guides.py --transcription-model medium --ocr-min-quality-score 42
+python -B scripts/tooling/analyze_video_guides.py --video-filter "Machine_Learning_2" --frame-interval-seconds 180 --max-frames-per-video 8 --force
+```
+
+To generate repository-owned reports from the analyzed artifacts:
+
+```powershell
+python -B scripts/tooling/generate_video_guide_reports.py
+```
+
+The generated report tree is stored under:
+
+- `doc/reference_codes/video_guides/`
+
+The report generator now surfaces only quality-gated transcript and OCR
+highlights. Low-value OCR noise is kept out of the reports even when the
+reference image itself is still useful.
+
+## High-Quality Three-Stage Video Workflow
+
+Use the new high-quality workflow when the goal is not coarse indexing but
+canonical knowledge extraction from the TwinCAT/TestRig video guides.
+
+Main entry point:
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1
+```
+
+This workflow is organized around three explicit stages:
+
+1. canonical transcript extraction through an external API speech-to-text path
+   or through the LAN AI node;
+2. evidence-driven snapshot selection for the report-local `assets/` folder;
+3. OCR-assisted analysis used internally to support the final report rather
+   than being dumped verbatim into it.
+
+Prerequisites:
+
+- `imageio-ffmpeg` is used to provide the local FFmpeg executable required for
+  audio extraction;
+- `opencv-python-headless` is still required for frame extraction;
+- for the original cloud-backed route:
+  - `GOOGLE_API_KEY` must be set in the environment;
+  - `google-genai` must be installed;
+- for the LAN route:
+  - `LM_STUDIO_BASE_URL` must point to the remote `LM Studio` server;
+  - `LM_STUDIO_API_KEY` must contain the configured `LM Studio` token;
+  - `STANDARDML_LAN_AI_BASE_URL` must point to the remote
+    `lan_ai_node_server.py` instance;
+  - `STANDARDML_LAN_AI_TOKEN` must contain the bearer token used by that node;
+- for local OCR fallback:
+  - `pytesseract` plus a local Tesseract executable are still required.
+
+Typical outputs:
+
+- intermediate artifacts under `.temp/video_guides/_analysis_hq/`
+- corrected transcript Markdown files under `doc/reference_codes/video_guides/<video_slug>/`
+- report-local snapshot assets under `doc/reference_codes/video_guides/<video_slug>/assets/`
+- final per-video reports under `doc/reference_codes/video_guides/<video_slug>/`
+
+### Run Through The LAN AI Node
+
+Use this mode when the second workstation is serving `LM Studio` plus the
+repository-owned LAN AI node:
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model qwen3:14b --report-model qwen3:14b
+```
+
+This keeps the repository and final artifacts on the current workstation while
+delegating transcript extraction, OCR, and LLM synthesis to the remote node.
+
+### Run Through The Original Google Route
+
+If the remote node is unavailable and quota allows it, the older cloud route is
+still available:
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider google --cleanup-provider google --report-provider google --ocr-provider local
+```
+
+### LAN AI Node Setup Reference
+
+For the remote-node bootstrap procedure, service startup, and `ssh`-based
+operation from the current workstation, use:
+
+- `doc/scripts/tooling/lan_ai_node_server.md`
 
 ## NotebookLM Video Packages
 

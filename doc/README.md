@@ -40,6 +40,8 @@ This folder contains the internal project documents derived from the reference P
   Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
 - [reports/analysis/Code Documentation Platform Comparison.md](./reports/analysis/Code%20Documentation%20Platform%20Comparison.md)
   Comparative analysis of repository documentation-platform options in the readable-filename analysis-report layout.
+- [reports/analysis/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md](./reports/analysis/Local%20LAN%20AI%20Infrastructure%20Options%20for%20Video%20Knowledge%20Extraction.md)
+  Comparative architecture report for local and LAN-accessible transcript, OCR, and LLM infrastructure for the TwinCAT/TestRig video workflow.
 
 ### Technical Documents
 

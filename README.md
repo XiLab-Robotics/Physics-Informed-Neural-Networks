@@ -46,7 +46,9 @@ Implemented today:
 - one-batch validation checks and smoke-test utilities;
 - batch campaign execution and artifact tracking;
 - styled report generation and PDF validation tooling;
-- repository-owned TwinCAT/TestRig video-guide analysis tooling for transcript, frame, and OCR extraction;
+- repository-owned TwinCAT/TestRig video-guide tooling for high-quality transcript extraction, evidence-driven snapshots, and OCR-assisted report synthesis through Google GenAI;
+- a repository-owned LAN AI node path for remote `LM Studio`, `faster-whisper`, and `PaddleOCR` integration while keeping repository orchestration on the current workstation;
+- repository-owned per-video report generation for analyzed TwinCAT/TestRig video guides;
 - dual `NotebookLM` source-package tracks for guide-local concept videos and
   repository-specific project videos;
 - repository-owned isolated-mode and Markdown validation tooling.
@@ -163,6 +165,18 @@ python -B scripts/tooling/markdown_style_check.py --fail-on-warning
 python -B scripts/tooling/analyze_video_guides.py
 ```
 
+### Extract High-Quality TwinCAT Video Knowledge
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1
+```
+
+### Use The LAN AI Node For Video Knowledge Extraction
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan
+```
+
 ## Documentation For New Users
 
 If you are opening the repository for the first time, use this reading order:
@@ -267,6 +281,18 @@ and inspectable.
   [2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md](./doc/technical/2026-03-27/2026-03-27-14-07-14_guide_language_split_for_notebooklm_exports.md).
 - The TwinCAT video-guides knowledge-extraction pipeline rationale is documented in
   [2026-03-30-12-30-07_twincat_video_guides_knowledge_extraction_pipeline.md](./doc/technical/2026-03-30/2026-03-30-12-30-07_twincat_video_guides_knowledge_extraction_pipeline.md).
+- The Tesseract OCR and full per-video report extension for TwinCAT guides is documented in
+  [2026-03-30-13-05-35_tesseract_ocr_and_full_video_reports_for_twincat_guides.md](./doc/technical/2026-03-30/2026-03-30-13-05-35_tesseract_ocr_and_full_video_reports_for_twincat_guides.md).
+- The transcript and OCR quality rework plan for TwinCAT video guides is documented in
+  [2026-03-30-14-46-25_twincat_video_guides_transcript_and_ocr_quality_rework.md](./doc/technical/2026-03-30/2026-03-30-14-46-25_twincat_video_guides_transcript_and_ocr_quality_rework.md).
+- The three-stage high-quality video knowledge-extraction workflow plan is documented in
+  [2026-03-30-18-02-12_three_stage_high_quality_video_knowledge_extraction_workflow.md](./doc/technical/2026-03-30/2026-03-30-18-02-12_three_stage_high_quality_video_knowledge_extraction_workflow.md).
+- The Google GenAI adaptation plan for the three-stage video knowledge-extraction workflow is documented in
+  [2026-03-30-19-49-34_google_genai_adaptation_for_three_stage_video_knowledge_extraction.md](./doc/technical/2026-03-30/2026-03-30-19-49-34_google_genai_adaptation_for_three_stage_video_knowledge_extraction.md).
+- The local/LAN AI inference and transcription architecture-report plan is documented in
+  [2026-03-30-21-48-58_local_lan_ai_inference_and_transcription_architecture_report.md](./doc/technical/2026-03-30/2026-03-30-21-48-58_local_lan_ai_inference_and_transcription_architecture_report.md).
+- The LM Studio-based LAN AI node plan for video knowledge extraction is documented in
+  [2026-03-30-22-01-25_lm_studio_lan_ai_node_for_video_knowledge_extraction.md](./doc/technical/2026-03-30/2026-03-30-22-01-25_lm_studio_lan_ai_node_for_video_knowledge_extraction.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in
