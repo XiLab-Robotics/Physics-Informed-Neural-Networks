@@ -376,6 +376,12 @@ From the current workstation:
 ssh REMOTE_USER@REMOTE_HOST
 ```
 
+alternatives:
+
+```powershell
+ssh -l "REMOTE_USER" REMOTE_HOST
+```
+
 ### Optional Key-Based Login
 
 On the current workstation:
