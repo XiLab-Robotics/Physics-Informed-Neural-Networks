@@ -382,20 +382,139 @@ alternatives:
 ssh -l "REMOTE_USER" REMOTE_HOST
 ```
 
-### Optional Key-Based Login
+### Recommended Key-Based Login
 
-On the current workstation:
+Password login is useful for the first network validation, but the normal
+workflow should switch to SSH keys before daily remote use from the current
+workstation terminal.
+
+### Generate Or Select The SSH Key On The Current Workstation
+
+If you do not already have a dedicated key, generate one on the current
+workstation:
 
 ```powershell
 ssh-keygen -t ed25519
-type $env:USERPROFILE\.ssh\id_ed25519.pub
 ```
 
-Copy the public key into the remote user's:
+If you want a remote-node-specific key, use an explicit file name:
+
+```powershell
+ssh-keygen -t ed25519 -f "$env:USERPROFILE\.ssh\id_ed25519_fisso_martina"
+```
+
+Print the public key:
+
+```powershell
+Get-Content "$env:USERPROFILE\.ssh\id_ed25519_fisso_martina.pub"
+```
+
+Copy the full public-key line.
+
+### Install The Public Key On The Remote Workstation
+
+For a standard non-administrator Windows account, the expected target is:
 
 - `%USERPROFILE%\.ssh\authorized_keys`
 
-Then connect again with:
+Create the folder and file if needed:
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.ssh" | Out-Null
+notepad "$env:USERPROFILE\.ssh\authorized_keys"
+```
+
+Paste the public key into that file and save it.
+
+### Important Windows Administrator Caveat
+
+When the remote login account is a local administrator, Windows OpenSSH may use
+this shared file instead of the profile-local `authorized_keys` file:
+
+- `C:\ProgramData\ssh\administrators_authorized_keys`
+
+This was the validated working path for the current remote workstation setup.
+
+Create or update that file from an elevated PowerShell prompt on the remote
+workstation:
+
+```powershell
+New-Item -ItemType File -Force -Path "C:\ProgramData\ssh\administrators_authorized_keys"
+notepad "C:\ProgramData\ssh\administrators_authorized_keys"
+```
+
+Paste the same public key into that file and save it.
+
+### Apply The Required ACLs
+
+For a standard user-owned `authorized_keys` file:
+
+```powershell
+$account = "$env:COMPUTERNAME\$env:USERNAME"
+icacls "$env:USERPROFILE\.ssh" /inheritance:r
+icacls "$env:USERPROFILE\.ssh" /grant:r "${account}:(OI)(CI)F"
+icacls "$env:USERPROFILE\.ssh\authorized_keys" /inheritance:r
+icacls "$env:USERPROFILE\.ssh\authorized_keys" /grant:r "${account}:F"
+```
+
+For the administrator shared file, use an elevated PowerShell prompt:
+
+```powershell
+icacls "C:\ProgramData\ssh\administrators_authorized_keys" /inheritance:r
+icacls "C:\ProgramData\ssh\administrators_authorized_keys" /grant:r "Administrators:F"
+icacls "C:\ProgramData\ssh\administrators_authorized_keys" /grant:r "SYSTEM:F"
+```
+
+### Restart `sshd` After Updating The Key Files
+
+Restart the SSH service from an elevated PowerShell prompt on the remote
+workstation:
+
+```powershell
+Restart-Service sshd
+```
+
+### Validate Key-Based Login
+
+Use the dedicated key explicitly during the first test:
+
+```powershell
+ssh -i "$env:USERPROFILE\.ssh\id_ed25519_fisso_martina" -l "Martina Salami" 155.185.226.100
+```
+
+For verbose troubleshooting:
+
+```powershell
+ssh -vvv -i "$env:USERPROFILE\.ssh\id_ed25519_fisso_martina" -l "Martina Salami" 155.185.226.100
+```
+
+### Create A Local SSH Alias
+
+Once the key-based login works, create a local SSH alias on the current
+workstation in:
+
+- `C:\Users\<current-user>\.ssh\config`
+
+Example:
+
+```sshconfig
+Host xilab-remote
+    HostName 155.185.226.100
+    User Martina Salami
+    IdentityFile C:\Users\XiLabTRig\.ssh\id_ed25519_fisso_martina
+    IdentitiesOnly yes
+```
+
+Validate both interactive and command-based access:
+
+```powershell
+ssh xilab-remote
+ssh xilab-remote "hostname"
+```
+
+### Password-Based Fallback
+
+On the current workstation:
 
 ```powershell
 ssh REMOTE_USER@REMOTE_HOST
@@ -438,10 +557,11 @@ python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whi
 
 ### Start Through SSH From The Current Workstation
 
-Keep this as the first terminal-centric remote-control method:
+After the SSH alias is configured, keep this as the standard terminal-centric
+remote-control method:
 
 ```powershell
-ssh REMOTE_USER@REMOTE_HOST
+ssh xilab-remote
 ```
 
 Then run on the remote shell:
@@ -450,6 +570,12 @@ Then run on the remote shell:
 cd "C:\Work\StandardML - Codex"
 conda activate standard_ml_codex_env
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
+```
+
+For one-shot command execution, the validated pattern is:
+
+```powershell
+ssh xilab-remote "hostname"
 ```
 
 This is the simplest reliable way to keep everything driven from the current

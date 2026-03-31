@@ -282,6 +282,14 @@ Full setup guide:
 
 - [LAN AI Node Server Setup Guide](../scripts/tooling/lan_ai_node_server.md)
 
+The validated remote-access path now uses an SSH alias on the current
+workstation, for example:
+
+```powershell
+ssh xilab-remote
+ssh xilab-remote "hostname"
+```
+
 At minimum, the current workstation needs these environment variables:
 
 - `STANDARDML_LAN_AI_TOKEN`
