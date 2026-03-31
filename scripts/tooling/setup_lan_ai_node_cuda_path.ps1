@@ -20,7 +20,7 @@ $cudaBinPathList = @(
 
 $missingCudaBinPathList = $cudaBinPathList | Where-Object { -not (Test-Path $_) }
 if ($missingCudaBinPathList.Count -gt 0) {
-    throw "Missing expected NVIDIA runtime directories:`n$($missingCudaBinPathList -join \"`n\")"
+    throw "Missing expected NVIDIA runtime directories:`n$($missingCudaBinPathList -join '`n')"
 }
 
 $activateScriptPath = Join-Path $activateDirectory "standardml_lan_ai_node_cuda_path.ps1"
