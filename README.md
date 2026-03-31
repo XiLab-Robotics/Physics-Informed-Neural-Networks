@@ -320,6 +320,8 @@ and inspectable.
   [2026-03-31-09-54-32_lan_ai_server_setup_guide_expansion.md](./doc/technical/2026-03-31/2026-03-31-09-54-32_lan_ai_server_setup_guide_expansion.md).
 - The `Machine_Learning_1` TwinCAT video filename-correction plan is documented in
   [2026-03-31-10-16-16_machine_learning_1_video_filename_correction.md](./doc/technical/2026-03-31/2026-03-31-10-16-16_machine_learning_1_video_filename_correction.md).
+- The requirements-cleanup plan for unused repository dependencies is documented in
+  [2026-03-31-10-36-56_requirements_cleanup_for_unused_repository_dependencies.md](./doc/technical/2026-03-31/2026-03-31-10-36-56_requirements_cleanup_for_unused_repository_dependencies.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in
