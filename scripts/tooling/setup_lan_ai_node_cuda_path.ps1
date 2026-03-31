@@ -3,7 +3,14 @@ param(
 )
 
 if ([string]::IsNullOrWhiteSpace($CondaPrefix)) {
-    throw "CONDA_PREFIX is not set. Activate the target Conda environment first."
+    $pythonPrefix = (& python -c "import sys; print(sys.prefix)" 2>$null)
+    if ($LASTEXITCODE -eq 0) {
+        $CondaPrefix = $pythonPrefix.Trim()
+    }
+}
+
+if ([string]::IsNullOrWhiteSpace($CondaPrefix)) {
+    throw "Could not resolve the target Conda environment prefix. Pass -CondaPrefix explicitly or activate the target environment first."
 }
 
 $activateDirectory = Join-Path $CondaPrefix "etc\\conda\\activate.d"
@@ -26,23 +33,24 @@ if ($missingCudaBinPathList.Count -gt 0) {
 $activateScriptPath = Join-Path $activateDirectory "standardml_lan_ai_node_cuda_path.ps1"
 $deactivateScriptPath = Join-Path $deactivateDirectory "standardml_lan_ai_node_cuda_path.ps1"
 
-$activateScriptText = @"
-\$env:STANDARDML_PREPEND_NVIDIA_PATH = "$($cudaBinPathList -join ';')"
-\$env:STANDARDML_PREVIOUS_PATH = \$env:PATH
-\$env:PATH = "\$env:STANDARDML_PREPEND_NVIDIA_PATH;\$env:PATH"
-"@
+$activateScriptText = @'
+$env:STANDARDML_PREPEND_NVIDIA_PATH = "__STANDARDML_NVIDIA_PATHS__"
+$env:STANDARDML_PREVIOUS_PATH = $env:PATH
+$env:PATH = "$env:STANDARDML_PREPEND_NVIDIA_PATH;$env:PATH"
+'@ -replace "__STANDARDML_NVIDIA_PATHS__", ($cudaBinPathList -join ';')
 
-$deactivateScriptText = @"
-if (\$env:STANDARDML_PREVIOUS_PATH) {
-    \$env:PATH = \$env:STANDARDML_PREVIOUS_PATH
+$deactivateScriptText = @'
+if ($env:STANDARDML_PREVIOUS_PATH) {
+    $env:PATH = $env:STANDARDML_PREVIOUS_PATH
 }
 Remove-Item Env:STANDARDML_PREVIOUS_PATH -ErrorAction SilentlyContinue
 Remove-Item Env:STANDARDML_PREPEND_NVIDIA_PATH -ErrorAction SilentlyContinue
-"@
+'@
 
 Set-Content -Path $activateScriptPath -Value $activateScriptText -NoNewline
 Set-Content -Path $deactivateScriptPath -Value $deactivateScriptText -NoNewline
 
+Write-Host "Resolved Conda prefix:" $CondaPrefix -ForegroundColor Cyan
 Write-Host "Configured activate hook:" $activateScriptPath
 Write-Host "Configured deactivate hook:" $deactivateScriptPath
 Write-Host "CUDA runtime PATH entries:" -ForegroundColor Cyan

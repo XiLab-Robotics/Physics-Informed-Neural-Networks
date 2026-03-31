@@ -259,7 +259,7 @@ Run the repository-owned helper once after the packages are installed:
 
 ```powershell
 conda activate standard_ml_lan_node
-powershell -ExecutionPolicy Bypass -File .\scripts\tooling\setup_lan_ai_node_cuda_path.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\tooling\setup_lan_ai_node_cuda_path.ps1 -CondaPrefix $env:CONDA_PREFIX
 ```
 
 This writes Conda activation hooks under:

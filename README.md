@@ -336,6 +336,10 @@ and inspectable.
   [2026-03-31-16-10-28_remote_lan_node_cuda_runtime_dependency_and_path_management.md](./doc/technical/2026-03-31/2026-03-31-16-10-28_remote_lan_node_cuda_runtime_dependency_and_path_management.md).
 - The LAN AI CUDA-path setup-script parser-error fix is documented in
   [2026-03-31-17-06-11_fix_lan_ai_cuda_path_setup_script_parser_error.md](./doc/technical/2026-03-31/2026-03-31-17-06-11_fix_lan_ai_cuda_path_setup_script_parser_error.md).
+- The LAN AI CUDA-path setup Conda-prefix resolution fix is documented in
+  [2026-03-31-17-11-55_fix_lan_ai_cuda_path_setup_conda_prefix_resolution.md](./doc/technical/2026-03-31/2026-03-31-17-11-55_fix_lan_ai_cuda_path_setup_conda_prefix_resolution.md).
+- The LAN AI CUDA-hook generation interpolation fix is documented in
+  [2026-03-31-17-25-30_fix_lan_ai_cuda_hook_generation_interpolation.md](./doc/technical/2026-03-31/2026-03-31-17-25-30_fix_lan_ai_cuda_hook_generation_interpolation.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in
