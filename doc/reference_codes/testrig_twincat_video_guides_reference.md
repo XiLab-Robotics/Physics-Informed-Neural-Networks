@@ -83,13 +83,14 @@ the simulation path shown in the videos.
 The repository now includes:
 
 - `scripts/tooling/analyze_video_guides.py`
+- `scripts/tooling/extract_video_guide_knowledge.py`
 
 This script is designed to process `.temp/video_guides/` through four layers:
 
 1. media inventory and metadata collection;
 2. timestamped transcription with local Faster-Whisper models;
 3. keyframe extraction through OpenCV;
-4. OCR on sampled frames when Tesseract is available locally.
+4. quality-gated OCR on sampled TwinCAT-oriented screen regions when Tesseract is available locally.
 
 The generated artifacts are written under:
 
@@ -98,6 +99,11 @@ The generated artifacts are written under:
 This location intentionally keeps raw analysis outputs outside the canonical
 documentation tree while preserving them in a reproducible repository-local
 path.
+
+The repository-owned per-video reports generated from those artifacts are now
+stored under:
+
+- `doc/reference_codes/video_guides/`
 
 ## Tooling Behavior
 
@@ -159,17 +165,49 @@ distinction between:
 - video-confirmed facts;
 - inferred engineering conclusions.
 
+The current repository workflow also supports a second reporting stage through:
+
+- `scripts/tooling/generate_video_guide_reports.py`
+
+That script converts analyzed-video artifacts into stable repository-owned
+reports with:
+
+- executive summary bullets;
+- quality-gated transcript and OCR highlights;
+- copied reference images;
+- TwinCAT deployment-impact notes.
+
+After the transcript-and-OCR quality rework, the reports now prefer readable
+evidence over exhaustive dumps. If OCR remains too noisy for a sampled frame,
+the frame image can still be preserved as a visual reference while the unreadable
+OCR text is omitted from the report.
+
+For the canonical workflow, the repository now also exposes a higher-quality
+three-stage path through:
+
+- `scripts/tooling/extract_video_guide_knowledge.py`
+
+That newer workflow is intended for serious knowledge extraction rather than
+rough indexing. It explicitly separates:
+
+1. high-quality transcript generation through a Google GenAI-based pipeline and
+   AI cleanup in Italian;
+2. meaningful snapshot selection for report-local `assets/`;
+3. OCR-assisted evidence extraction used internally for analysis and report
+   synthesis.
+
 ## Initial Video-Derived Findings
 
 The first repository-owned extraction pass was run on:
 
-- `Machine_Lreaning_1.mp4`
+- `Machine_Learning_1.mp4`
 - `Machine_Learning_2.mp4`
 - `ML_Simulation_and_Generator_Cam.mkv`
 
-The resulting transcripts are imperfect because the source language is spoken
-Italian with technical TwinCAT terminology, but the extracted evidence is still
-useful enough to reinforce several engineering conclusions.
+The resulting transcripts remain an approximation because the source language is
+spoken Italian with technical TwinCAT terminology, but the stronger ASR and the
+quality-gated report layer are now materially better than the earlier raw
+extraction pass and are usable as supporting engineering evidence.
 
 ### Runtime And Task Structure
 
