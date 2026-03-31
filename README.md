@@ -83,8 +83,20 @@ If you only want to get started, begin with:
 
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
 - [Documentation Index](./doc/README.md)
+- [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai_node_server.md)
 
 ## Quick Start
+
+### 0. Clone Safely On Windows
+
+Before cloning on Windows, enable Git long-path support from an elevated
+PowerShell prompt:
+
+```powershell
+git config --system core.longpaths true
+```
+
+Then clone the repository into a reasonably short path such as `C:\Work`.
 
 ### 1. Create The Environment
 
@@ -177,6 +189,10 @@ python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machi
 python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan
 ```
 
+Before using the LAN path, complete:
+
+- [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai_node_server.md)
+
 ## Documentation For New Users
 
 If you are opening the repository for the first time, use this reading order:
@@ -185,10 +201,13 @@ If you are opening the repository for the first time, use this reading order:
    Main runnable-workflow reference.
 2. [Documentation Index](./doc/README.md)
    Entry point for guides, reports, and technical notes.
-3. Model guides under `doc/guide/`
+3. [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai_node_server.md)
+   Full Windows-first setup for the remote `LM Studio` and LAN AI node
+   workstation.
+4. Model guides under `doc/guide/`
    Best place to understand the implemented model families at a conceptual
    level.
-4. Analysis reports under `doc/reports/analysis/`
+5. Analysis reports under `doc/reports/analysis/`
    Useful when you want deeper training or model-family interpretation.
 
 Recommended guide entry points:
@@ -297,6 +316,8 @@ and inspectable.
   [2026-03-30-23-33-16_colorama_lower_bound_fix_for_windows_sphinx_compatibility.md](./doc/technical/2026-03-30/2026-03-30-23-33-16_colorama_lower_bound_fix_for_windows_sphinx_compatibility.md).
 - The clean-install dependency-resolution fix for the Windows documentation stack is documented in
   [2026-03-30-23-39-04_requirements_resolution_fix_for_windows_clean_installs.md](./doc/technical/2026-03-30/2026-03-30-23-39-04_requirements_resolution_fix_for_windows_clean_installs.md).
+- The LAN AI server setup-guide expansion plan is documented in
+  [2026-03-31-09-54-32_lan_ai_server_setup_guide_expansion.md](./doc/technical/2026-03-31/2026-03-31-09-54-32_lan_ai_server_setup_guide_expansion.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

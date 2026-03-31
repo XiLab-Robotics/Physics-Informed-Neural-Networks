@@ -32,6 +32,13 @@ Recurrent models, LSTM-based models, inference/export flows, and PINN-specific t
 
 Before using the scripts, make sure the project environment is installed and activated.
 
+If you are cloning on Windows, enable Git long-path support first from an
+elevated PowerShell prompt:
+
+```powershell
+git config --system core.longpaths true
+```
+
 If the environment is not ready yet, install the tracked project dependencies first:
 
 ```powershell
@@ -118,6 +125,11 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/tooling/lan_ai_node_server.py`
   Repository-owned FastAPI service intended for the second workstation, exposing `faster-whisper` transcription, `PaddleOCR`, and health endpoints over LAN.
+
+- `doc/scripts/tooling/lan_ai_node_server.md`
+  Canonical Windows-first setup guide for the remote workstation, including
+  tokens, Git clone, CUDA, Miniconda, `LM Studio`, `OpenSSH Server`, and first
+  health checks.
 
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
@@ -258,6 +270,48 @@ To generate repository-owned reports from the analyzed artifacts:
 
 ```powershell
 python -B scripts/tooling/generate_video_guide_reports.py
+```
+
+## LAN AI Node Workflow
+
+Use the LAN path when you want the current workstation to keep the repository
+and reports while the stronger second workstation handles transcription, OCR,
+and local LLM cleanup/report generation.
+
+Full setup guide:
+
+- [LAN AI Node Server Setup Guide](../scripts/tooling/lan_ai_node_server.md)
+
+At minimum, the current workstation needs these environment variables:
+
+- `STANDARDML_LAN_AI_TOKEN`
+- `LM_STUDIO_API_KEY`
+- `STANDARDML_LAN_AI_BASE_URL`
+- `LM_STUDIO_BASE_URL`
+
+Example persistent setup on the current workstation:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_BASE_URL", "http://REMOTE_HOST:1234", "User")
+```
+
+Quick reachability checks from the current workstation:
+
+```powershell
+Test-NetConnection REMOTE_HOST -Port 22
+Test-NetConnection REMOTE_HOST -Port 8765
+Test-NetConnection REMOTE_HOST -Port 1234
+curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
+curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_URL/v1/models"
+```
+
+Canonical LAN-backed workflow command:
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
 ```
 
 The generated report tree is stored under:

@@ -1,19 +1,24 @@
-# `lan_ai_node_server.py`
+# LAN AI Node Server Setup Guide
 
 ## Purpose
 
-`scripts/tooling/lan_ai_node_server.py` exposes a repository-owned LAN service
-for:
+This guide explains how to prepare a second Windows 11 workstation as a LAN AI
+server for this repository.
 
-- audio transcription through `faster-whisper`;
-- OCR through `PaddleOCR`;
-- health checks used by the current workstation before running the video
-  workflow.
+The target setup is:
 
-This server is intended to run on the stronger second workstation, while the
-repository and the main terminal remain on the current workstation.
+- the current workstation keeps the repository, orchestration, reports, and
+  final artifacts;
+- the second workstation exposes:
+  - `LM Studio` for transcript cleanup and report synthesis;
+  - `lan_ai_node_server.py` for `faster-whisper` transcription and
+    `PaddleOCR`;
+  - optional future remote training or heavier inference workloads.
 
-## Recommended Deployment Shape
+This guide starts from a clean remote machine and ends with health checks and
+first workflow execution from the current workstation terminal.
+
+## Target Topology
 
 ### Current Workstation
 
@@ -21,115 +26,468 @@ Use the current workstation for:
 
 - repository editing;
 - workflow execution;
-- report generation;
-- final artifact review.
+- report review;
+- final documentation updates.
 
-### Second Workstation
+### Remote Workstation
 
-Use the second workstation for:
+Use the remote workstation for:
 
 - `LM Studio`;
 - `lan_ai_node_server.py`;
-- Whisper model downloads;
-- OCR runtime installation;
-- heavy inference.
+- `faster-whisper` model execution;
+- `PaddleOCR`;
+- optional later remote training workloads.
 
-## First-Time Setup On The Second Workstation
+## Recommended Preparation Order
 
-### 1. Install The Repository Runtime
+1. Generate the shared LAN tokens.
+2. Enable Windows long paths and Git long paths.
+3. Install Git if needed, then clone the repository.
+4. Install NVIDIA CUDA if the remote workstation has a supported NVIDIA GPU.
+5. Install Miniconda and initialize PowerShell.
+6. Create the Conda environment and install `requirements.txt`.
+7. Install and configure `LM Studio`.
+8. Install and configure Windows `OpenSSH Server`.
+9. Start `LM Studio` and `lan_ai_node_server.py`.
+10. Run health checks from the current workstation.
 
-Create and activate a Python environment:
+## 1. Generate Shared Tokens In PowerShell
+
+The repository uses two shared secrets:
+
+- `STANDARDML_LAN_AI_TOKEN`
+  protects `lan_ai_node_server.py`
+- `LM_STUDIO_API_KEY`
+  protects the `LM Studio` OpenAI-compatible API
+
+Generate a strong random token in PowerShell:
 
 ```powershell
-conda create -y -n standard_ml_lan_node python=3.12
-conda activate standard_ml_lan_node
+[Convert]::ToBase64String((1..48 | ForEach-Object { Get-Random -Maximum 256 } | ForEach-Object { [byte]$_ }))
+```
+
+Generate one token for each variable and store the values somewhere secure.
+
+## 2. Persist Tokens As Windows Environment Variables
+
+### Recommended: Per-User Persistent Variables
+
+Run these commands on the remote workstation:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
+```
+
+Run the same two variables on the current workstation with the same values:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
+```
+
+Close and reopen PowerShell after setting them.
+
+### Optional: Machine-Level Variables
+
+If you want the variables available to all users on the remote workstation, run
+an elevated PowerShell prompt:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "Machine")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "Machine")
+```
+
+### Verify The Variables
+
+```powershell
+echo $env:STANDARDML_LAN_AI_TOKEN
+echo $env:LM_STUDIO_API_KEY
+```
+
+Safer verification without printing the full values:
+
+```powershell
+python -c "import os; print(bool(os.environ.get('STANDARDML_LAN_AI_TOKEN'))); print(bool(os.environ.get('LM_STUDIO_API_KEY')))"
+```
+
+## 3. Enable Long Paths Before Cloning
+
+Windows still has path-length edge cases, and this repository can hit them when
+cloned deep under user folders.
+
+First, open an elevated PowerShell window and enable Git long paths:
+
+```powershell
+git config --system core.longpaths true
+git config --system --get core.longpaths
+```
+
+For extra Windows-side robustness, also enable Win32 long paths:
+
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+```
+
+If you change `LongPathsEnabled`, reboot the remote workstation before cloning.
+
+## 4. Clone The Repository On The Remote Workstation
+
+Choose a reasonably short path. Avoid deeply nested clone locations.
+
+Example:
+
+```powershell
+New-Item -ItemType Directory -Force -Path "C:\Work" | Out-Null
+Set-Location "C:\Work"
+git clone https://github.com/<your-org>/<your-repo>.git
+Set-Location ".\StandardML - Codex"
+```
+
+If you use SSH-based Git access:
+
+```powershell
+git clone git@github.com:<your-org>/<your-repo>.git
+```
+
+## 5. Install CUDA On NVIDIA Remote Nodes
+
+If the remote workstation has an NVIDIA GPU and you want GPU-backed
+transcription, CUDA is strongly recommended.
+
+### Check The GPU First
+
+```powershell
+nvidia-smi
+```
+
+If `nvidia-smi` is missing, install or update the NVIDIA driver first.
+
+### Install CUDA
+
+Follow the official CUDA installer for Windows:
+
+- [CUDA Installation Guide for Microsoft Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/)
+
+The official CUDA flow is:
+
+1. verify the system has a CUDA-capable GPU;
+2. download the NVIDIA CUDA Toolkit;
+3. install the CUDA Toolkit;
+4. test that the installed software runs correctly.
+
+After installation, reopen PowerShell and re-run:
+
+```powershell
+nvidia-smi
+nvcc --version
+```
+
+### Notes For This Repository
+
+- `faster-whisper` benefits from CUDA on the remote node;
+- future PyTorch training or validation on the remote node also benefits from a
+  proper CUDA install;
+- if CUDA is not ready yet, the LAN AI node can still start in CPU mode for the
+  first validation pass.
+
+## 6. Install Miniconda From PowerShell
+
+The official Conda documentation supports standard installer usage and silent
+Windows installation for Miniconda.
+
+Official reference:
+
+- [Installing on Windows](https://docs.conda.io/projects/conda/en/stable/user-guide/install/windows.html)
+
+### Download The Installer
+
+```powershell
+Set-Location $env:TEMP
+Invoke-WebRequest -Uri "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" -OutFile ".\Miniconda3-latest-Windows-x86_64.exe"
+```
+
+### Silent Install For The Current User
+
+```powershell
+Start-Process -FilePath ".\Miniconda3-latest-Windows-x86_64.exe" -ArgumentList "/InstallationType=JustMe","/RegisterPython=0","/S","/D=$env:USERPROFILE\\Miniconda3" -Wait
+```
+
+### Initialize PowerShell
+
+```powershell
+& "$env:USERPROFILE\Miniconda3\Scripts\conda.exe" init powershell
+```
+
+Close and reopen PowerShell. Then verify:
+
+```powershell
+conda --version
+conda info
+```
+
+Official shell-init reference:
+
+- [`conda init`](https://docs.conda.io/projects/conda/en/latest/commands/init.html?highlight=powershell)
+
+## 7. Create The Conda Environment
+
+For the simplest remote setup, use the full repository environment. This keeps
+the remote machine ready for both the LAN AI node and future repository
+workflows.
+
+From the repository root on the remote workstation:
+
+```powershell
+conda create -y -n standard_ml_codex_env python=3.12
+conda activate standard_ml_codex_env
 python -m pip install --upgrade pip
+python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
 ```
 
-If GPU-backed Paddle is desired, install the appropriate Paddle runtime for that
-machine after the base requirements are installed. The exact package depends on
-the supported CUDA build for the remote node.
-
-### 2. Install And Prepare LM Studio
-
-On the second workstation:
-
-1. install `LM Studio`;
-2. enable the local server;
-3. enable LAN exposure only on the trusted local network;
-4. configure an API token;
-5. download the chosen cleanup/report model.
-
-Recommended starting point:
-
-- one general text model for cleanup and report synthesis;
-- optional later addition of a vision-capable model if snapshot analysis is
-  extended beyond OCR.
-
-### 3. Choose Network Ports
-
-Recommended default ports:
-
-- `1234` for `LM Studio`
-- `8765` for `lan_ai_node_server.py`
-
-### 4. Set The Shared Bearer Token
-
-Set a shared bearer token on the second workstation before starting the server:
+### Verify The Environment
 
 ```powershell
-$env:STANDARDML_LAN_AI_TOKEN="choose_a_strong_token_here"
+python -c "import torch, requests, fastapi, uvicorn, fitz; print(torch.__version__); print('ok')"
 ```
 
-For persistent setup, store the same value as a user environment variable.
+### Optional Lightweight Alternative
 
-## Starting The LAN AI Node Server
+If you want a smaller inference-only environment later, you can keep a separate
+`standard_ml_lan_node` environment. For the first deployment, the full
+repository environment is simpler and aligns better with future remote work.
 
-Run this on the second workstation:
+## 8. Install And Configure LM Studio
+
+Official references:
+
+- [LM Studio Home / Download](https://model.lmstudio.ai/docs/system-requirements)
+- [LM Studio Local Server](https://lmstudio.ai/docs/developer/core/server)
+- [Serve on Local Network](https://lmstudio.ai/docs/developer/core/server/serve-on-network)
+- [OpenAI Compatibility](https://lmstudio.ai/docs/developer/openai-compat)
+- [REST Quickstart](https://lmstudio.ai/docs/developer/rest/quickstart)
+
+### Install LM Studio
+
+Download and install the Windows build from the official LM Studio site.
+
+Current official download page:
+
+- [LM Studio Download](https://model.lmstudio.ai/docs/system-requirements)
+
+### Open The Developer Server
+
+Start LM Studio, then open the Developer / Local Server page.
+
+Official screenshot from the LM Studio documentation:
+
+![LM Studio local server start screen](./assets/lan_ai_node_server/lm_studio_server_start.png)
+
+Image source: LM Studio official documentation.
+
+### Configure The Server
+
+Set the following:
+
+- local server enabled;
+- port `1234`;
+- API authentication enabled, with the same token used for
+  `LM_STUDIO_API_KEY`;
+- `Serve on Local Network` enabled;
+- keep the server bound only to the trusted local network.
+
+The LM Studio docs note that enabling `Serve on Local Network` makes the server
+bind to the machine's local network IP address instead of `localhost`.
+
+Official screenshot from the LM Studio documentation:
+
+![LM Studio server configuration panel](./assets/lan_ai_node_server/lm_studio_server_panel.png)
+
+Image source: LM Studio official documentation.
+
+### Recommended Models To Download
+
+For the current repository workflow, LM Studio is used for:
+
+- transcript cleanup;
+- semantic correction of noisy STT output;
+- final report synthesis.
+
+This means you want a good text-instruction model first, not a vision model.
+
+Recommended starting set for an RTX A4000 16 GB machine:
+
+- primary: `Qwen3 14B Instruct GGUF`
+  prefer a `Q4_K_M` or similar 4-bit quantized variant
+- fallback: `Qwen3 8B Instruct GGUF`
+- alternative: `Gemma 3 12B Instruct`
+
+Recommended order:
+
+1. install one `Qwen3 14B Instruct` quantized model;
+2. keep one smaller fallback such as `Qwen3 8B Instruct`;
+3. add other models only after the baseline flow is stable.
+
+### Why These Models
+
+- the current workflow is cleanup/report heavy rather than code generation
+  heavy;
+- `Qwen` models are usually strong enough for Italian technical cleanup and
+  structured report generation;
+- a `14B` quantized model is realistic on a 16 GB GPU;
+- an `8B` fallback is useful when memory pressure or concurrency increases.
+
+## 9. Install And Configure OpenSSH Server On Windows 11
+
+Official reference:
+
+- [OpenSSH for Windows overview](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh-overview)
+- [OpenSSH install and first use](https://learn.microsoft.com/zh-tw/windows-server/administration/openssh/openssh_install_firstuse)
+
+Open an elevated PowerShell prompt on the remote workstation:
 
 ```powershell
-conda activate standard_ml_lan_node
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+Start-Service sshd
+Set-Service -Name sshd -StartupType Automatic
+```
+
+Verify or create the firewall rule:
+
+```powershell
+if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue)) {
+    New-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+}
+```
+
+Check status:
+
+```powershell
+Get-Service sshd
+```
+
+### First SSH Login From The Current Workstation
+
+From the current workstation:
+
+```powershell
+ssh REMOTE_USER@REMOTE_HOST
+```
+
+### Optional Key-Based Login
+
+On the current workstation:
+
+```powershell
+ssh-keygen -t ed25519
+type $env:USERPROFILE\.ssh\id_ed25519.pub
+```
+
+Copy the public key into the remote user's:
+
+- `%USERPROFILE%\.ssh\authorized_keys`
+
+Then connect again with:
+
+```powershell
+ssh REMOTE_USER@REMOTE_HOST
+```
+
+## 10. Start LM Studio On The Remote Workstation
+
+Before launching the repository server, make sure LM Studio is already running
+and that:
+
+- the selected model is loaded;
+- the local server is running;
+- the server is reachable on the remote host IP and port `1234`.
+
+Quick network check from the current workstation:
+
+```powershell
+Test-NetConnection REMOTE_HOST -Port 1234
+```
+
+## 11. Start `lan_ai_node_server.py` On The Remote Workstation
+
+### Interactive Start On The Remote Machine
+
+From a PowerShell window or an SSH session on the remote workstation:
+
+```powershell
+conda activate standard_ml_codex_env
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
-If CUDA is not ready yet, use:
+### CPU Fallback Start
+
+If CUDA is not ready yet:
 
 ```powershell
+conda activate standard_ml_codex_env
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cpu --whisper-compute-type int8
 ```
 
-## Recommended Remote Access From The Current Workstation
+### Start Through SSH From The Current Workstation
 
-### Preferred Method: OpenSSH Server On Windows
-
-Enable `OpenSSH Server` on the second workstation and allow inbound port `22`
-on the local network.
-
-Then, from the current workstation:
+Keep this as the first terminal-centric remote-control method:
 
 ```powershell
-ssh remote_user@remote_host
+ssh REMOTE_USER@REMOTE_HOST
 ```
 
-This gives one consistent terminal-centric operating model and avoids requiring
-PowerShell remoting configuration up front.
-
-### Start The Server Remotely
-
-Once `ssh` works, launch the server from the current workstation:
+Then run on the remote shell:
 
 ```powershell
-ssh remote_user@remote_host "cd 'C:\path\to\StandardML - Codex'; conda activate standard_ml_lan_node; python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16"
+cd "C:\Work\StandardML - Codex"
+conda activate standard_ml_codex_env
+python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
-If the shell on the remote host does not inherit `conda activate` correctly,
-use the explicit interpreter path from the environment instead.
+This is the simplest reliable way to keep everything driven from the current
+workstation terminal.
 
-### Check Health From The Current Workstation
+## 12. Set The Remaining Environment Variables On The Current Workstation
+
+On the current workstation, configure the LAN endpoints:
 
 ```powershell
-curl.exe -H "Authorization: Bearer YOUR_TOKEN" http://REMOTE_HOST:8765/health
+[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_BASE_URL", "http://REMOTE_HOST:1234", "User")
+```
+
+Open a new PowerShell window and verify:
+
+```powershell
+echo $env:STANDARDML_LAN_AI_BASE_URL
+echo $env:LM_STUDIO_BASE_URL
+```
+
+The current workstation should now have these four variables available:
+
+- `STANDARDML_LAN_AI_TOKEN`
+- `LM_STUDIO_API_KEY`
+- `STANDARDML_LAN_AI_BASE_URL`
+- `LM_STUDIO_BASE_URL`
+
+## 13. Run The First Health Checks
+
+### Network Reachability
+
+From the current workstation:
+
+```powershell
+Test-NetConnection REMOTE_HOST -Port 22
+Test-NetConnection REMOTE_HOST -Port 8765
+Test-NetConnection REMOTE_HOST -Port 1234
+```
+
+### LAN AI Node Health
+
+```powershell
+curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
 ```
 
 Expected response shape:
@@ -142,46 +500,87 @@ Expected response shape:
 }
 ```
 
-## Environment Variables On The Current Workstation
-
-The repository workflow can use these variables:
+### LM Studio Model Listing
 
 ```powershell
-$env:STANDARDML_LAN_AI_BASE_URL="http://REMOTE_HOST:8765"
-$env:STANDARDML_LAN_AI_TOKEN="YOUR_TOKEN"
-$env:LM_STUDIO_BASE_URL="http://REMOTE_HOST:1234"
-$env:LM_STUDIO_API_KEY="YOUR_LM_STUDIO_TOKEN"
+curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_URL/v1/models"
 ```
 
-These can also be stored as persistent user environment variables.
+If the result is empty, make sure a model is loaded or available in LM Studio.
 
-## Running The Video Workflow From The Current Workstation
-
-Once the remote services are available, the current workstation can run the
-high-quality workflow directly:
+### Optional LM Studio Chat Check
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model qwen3:14b --report-model qwen3:14b
+curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" -H "Content-Type: application/json" -d "{\"model\":\"YOUR_MODEL_ID\",\"messages\":[{\"role\":\"user\",\"content\":\"Reply with OK\"}]}" "$env:LM_STUDIO_BASE_URL/v1/chat/completions"
 ```
 
-This keeps all orchestration, files, and final reports on the current
-workstation while using the second workstation only as the inference backend.
+## 14. Run The First Repository Workflow From The Current Workstation
 
-## Suggested Operational Routine
+Once both health checks pass, run the workflow from the current workstation:
 
-1. Start `LM Studio` on the second workstation.
-2. Start `lan_ai_node_server.py` on the second workstation.
-3. Verify `/health` and the `LM Studio` endpoint from the current workstation.
-4. Run the repository workflow from the current workstation.
-5. Stop or leave the remote services running depending on your normal usage.
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
+```
 
-## Fallback Behavior
+Example model values:
 
-If the remote node is not available:
+- `--cleanup-model qwen3:14b`
+- `--report-model qwen3:14b`
 
-- switch transcript provider back to `google` or a future local-only mode;
-- switch OCR provider back to `local`;
-- keep the generated analysis and reports on the current workstation.
+Use the real LM Studio model identifier shown by `/v1/models`.
 
-The repository workflow should treat the LAN node as the preferred production
-path, not as the only possible path.
+## 15. Normal Daily Routine
+
+1. Start or verify `LM Studio` on the remote workstation.
+2. Open an SSH session from the current workstation to the remote workstation.
+3. Start `lan_ai_node_server.py` on the remote workstation.
+4. Run `/health` and `/v1/models` checks from the current workstation.
+5. Launch the repository workflow from the current workstation.
+
+## Troubleshooting
+
+### `ssh` Cannot Connect
+
+- verify `sshd` is running on the remote workstation;
+- verify the firewall rule exists;
+- verify the remote IP address did not change;
+- run `Test-NetConnection REMOTE_HOST -Port 22`.
+
+### `LM Studio` Is Not Reachable From LAN
+
+- verify `Serve on Local Network` is enabled;
+- verify the server is running;
+- verify Windows Firewall allows the chosen port;
+- verify the base URL uses the remote host IP, not `localhost`.
+
+### `/health` Returns `401 Unauthorized`
+
+- verify `STANDARDML_LAN_AI_TOKEN` is identical on both machines;
+- verify the request is sending `Authorization: Bearer ...`.
+
+### `LM Studio` Returns Unauthorized Or Empty Results
+
+- verify the API token in LM Studio matches `LM_STUDIO_API_KEY`;
+- verify the request uses `Authorization: Bearer ...`;
+- verify the target model is loaded or available.
+
+### `faster-whisper` Fails On CUDA
+
+- start once in CPU mode to validate the whole flow;
+- verify `nvidia-smi`;
+- verify CUDA installation;
+- then retry with `--whisper-device cuda`.
+
+## Official References
+
+- [LM Studio Home / Download](https://model.lmstudio.ai/docs/system-requirements)
+- [LM Studio Local Server](https://lmstudio.ai/docs/developer/core/server)
+- [Serve on Local Network](https://lmstudio.ai/docs/developer/core/server/serve-on-network)
+- [LM Studio OpenAI Compatibility](https://lmstudio.ai/docs/developer/openai-compat)
+- [LM Studio REST Quickstart](https://lmstudio.ai/docs/developer/rest/quickstart)
+- [Conda Installing on Windows](https://docs.conda.io/projects/conda/en/stable/user-guide/install/windows.html)
+- [`conda init`](https://docs.conda.io/projects/conda/en/latest/commands/init.html?highlight=powershell)
+- [OpenSSH for Windows Overview](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh-overview)
+- [OpenSSH Install And First Use](https://learn.microsoft.com/zh-tw/windows-server/administration/openssh/openssh_install_firstuse)
+- [Maximum Path Length Limitation](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation)
+- [CUDA Installation Guide for Microsoft Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/)
