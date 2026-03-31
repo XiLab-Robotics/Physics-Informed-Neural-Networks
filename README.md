@@ -1,4 +1,4 @@
-﻿# StandardML - Codex
+# StandardML - Codex
 
 Machine-learning workflows for rotational transmission error modeling in RV
 reducers, with a repository structure aimed at reproducible experiments,
@@ -193,6 +193,12 @@ Before using the LAN path, complete:
 
 - [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai_node_server.md)
 
+The remote node now uses its own dependency file:
+
+```powershell
+python -m pip install -r requirements-lan-ai-node.txt
+```
+
 ## Documentation For New Users
 
 If you are opening the repository for the first time, use this reading order:
@@ -326,6 +332,8 @@ and inspectable.
   [2026-03-31-12-30-02_ssh_key_based_access_extension_for_lan_ai_node_guide.md](./doc/technical/2026-03-31/2026-03-31-12-30-02_ssh_key_based_access_extension_for_lan_ai_node_guide.md).
 - The LAN AI network-troubleshooting extension for the setup guide is documented in
   [2026-03-31-14-40-36_lan_ai_network_troubleshooting_extension_for_setup_guide.md](./doc/technical/2026-03-31/2026-03-31-14-40-36_lan_ai_network_troubleshooting_extension_for_setup_guide.md).
+- The remote LAN-node CUDA runtime dependency and `PATH` management plan is documented in
+  [2026-03-31-16-10-28_remote_lan_node_cuda_runtime_dependency_and_path_management.md](./doc/technical/2026-03-31/2026-03-31-16-10-28_remote_lan_node_cuda_runtime_dependency_and_path_management.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

@@ -290,6 +290,15 @@ ssh xilab-remote
 ssh xilab-remote "hostname"
 ```
 
+The remote workstation now has its own dependency file:
+
+- `requirements-lan-ai-node.txt`
+
+Use that file for the `standard_ml_lan_node` environment instead of the main
+`requirements.txt`. The remote guide also documents the persistent Conda
+`activate.d` / `deactivate.d` setup used to prepend the NVIDIA CUDA 12 runtime
+DLL directories to `PATH` automatically.
+
 At minimum, the current workstation needs these environment variables:
 
 - `STANDARDML_LAN_AI_TOKEN`

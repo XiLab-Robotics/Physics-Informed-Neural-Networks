@@ -233,31 +233,68 @@ Official shell-init reference:
 
 ## 7. Create The Conda Environment
 
-For the simplest remote setup, use the full repository environment. This keeps
-the remote machine ready for both the LAN AI node and future repository
-workflows.
+Use a dedicated remote environment for the LAN AI node instead of reusing the
+full repository environment. This keeps the remote node reproducible without
+pulling the entire local workstation dependency surface.
 
 From the repository root on the remote workstation:
 
 ```powershell
-conda create -y -n standard_ml_codex_env python=3.12
-conda activate standard_ml_codex_env
-python -m pip install --upgrade pip
-python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
-python -m pip install -r requirements.txt
+conda create -y -n standard_ml_lan_node python=3.12
+conda activate standard_ml_lan_node
+python -m pip install --upgrade pip wheel
+python -m pip install -r requirements-lan-ai-node.txt
 ```
 
-### Verify The Environment
+### Configure Persistent CUDA Runtime `PATH`
+
+The NVIDIA CUDA 12 runtime DLLs installed through
+`requirements-lan-ai-node.txt` live under `site-packages\nvidia\...\bin`.
+Those directories must be added to `PATH` whenever the remote environment is
+active, otherwise `faster-whisper` GPU execution fails with errors such as:
+
+- `Library cublas64_12.dll is not found or cannot be loaded`
+
+Run the repository-owned helper once after the packages are installed:
 
 ```powershell
-python -c "import torch, requests, fastapi, uvicorn, fitz; print(torch.__version__); print('ok')"
+conda activate standard_ml_lan_node
+powershell -ExecutionPolicy Bypass -File .\scripts\tooling\setup_lan_ai_node_cuda_path.ps1
 ```
 
-### Optional Lightweight Alternative
+This writes Conda activation hooks under:
 
-If you want a smaller inference-only environment later, you can keep a separate
-`standard_ml_lan_node` environment. For the first deployment, the full
-repository environment is simpler and aligns better with future remote work.
+- `%CONDA_PREFIX%\etc\conda\activate.d\`
+- `%CONDA_PREFIX%\etc\conda\deactivate.d\`
+
+After that, reactivate the environment:
+
+```powershell
+conda deactivate
+conda activate standard_ml_lan_node
+```
+
+Validate that the DLLs are now visible from `PATH`:
+
+```powershell
+where.exe cublas64_12.dll
+where.exe cudnn64_9.dll
+```
+
+### Verify The Remote Environment
+
+```powershell
+python -c "import requests, fastapi, uvicorn, imageio_ffmpeg; print('ok')"
+```
+
+### Why This Uses A Dedicated Requirements File
+
+The main repository `requirements.txt` is intentionally kept focused on the
+canonical local workstation environment. The remote LAN node additionally needs
+Windows-specific CUDA 12 runtime packages for `ctranslate2` /
+`faster-whisper`, so those dependencies are tracked separately in:
+
+- `requirements-lan-ai-node.txt`
 
 ## 8. Install And Configure LM Studio
 
@@ -542,7 +579,7 @@ Test-NetConnection REMOTE_HOST -Port 1234
 From a PowerShell window or an SSH session on the remote workstation:
 
 ```powershell
-conda activate standard_ml_codex_env
+conda activate standard_ml_lan_node
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
@@ -551,7 +588,7 @@ python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whi
 If CUDA is not ready yet:
 
 ```powershell
-conda activate standard_ml_codex_env
+conda activate standard_ml_lan_node
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cpu --whisper-compute-type int8
 ```
 
@@ -567,8 +604,8 @@ ssh xilab-remote
 Then run on the remote shell:
 
 ```powershell
-cd "C:\Work\StandardML - Codex"
-conda activate standard_ml_codex_env
+cd "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
+conda activate standard_ml_lan_node
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
@@ -576,6 +613,13 @@ For one-shot command execution, the validated pattern is:
 
 ```powershell
 ssh xilab-remote "hostname"
+```
+
+When the SSH shell lands in `cmd.exe` and `conda activate` is unavailable, use
+the non-interactive `conda run` form instead:
+
+```powershell
+ssh xilab-remote "cd /d C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks && conda run -n standard_ml_lan_node python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16"
 ```
 
 This is the simplest reliable way to keep everything driven from the current
