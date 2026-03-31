@@ -572,6 +572,13 @@ Quick network check from the current workstation:
 Test-NetConnection REMOTE_HOST -Port 1234
 ```
 
+If a later chat-generation request fails with HTTP `400`, inspect the currently
+available LM Studio model ids:
+
+```powershell
+curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_URL/v1/models"
+```
+
 ## 11. Start `lan_ai_node_server.py` On The Remote Workstation
 
 ### Interactive Start On The Remote Machine
@@ -582,6 +589,11 @@ From a PowerShell window or an SSH session on the remote workstation:
 conda activate standard_ml_lan_node
 python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
+
+On Windows, if port `8765` is still owned by a stale previous
+`lan_ai_node_server.py` process, the script now attempts to reclaim that port
+automatically. Startup still fails explicitly if some unrelated program owns the
+port.
 
 ### CPU Fallback Start
 

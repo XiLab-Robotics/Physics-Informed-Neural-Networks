@@ -299,6 +299,14 @@ Use that file for the `standard_ml_lan_node` environment instead of the main
 `activate.d` / `deactivate.d` setup used to prepend the NVIDIA CUDA 12 runtime
 DLL directories to `PATH` automatically.
 
+The validated LAN workflow also includes:
+
+- automatic reclamation of port `8765` when a stale previous
+  `lan_ai_node_server.py` process is still bound on the remote workstation;
+- richer LM Studio failure diagnostics, including the requested model id, the
+  available model ids from `/v1/models`, and the response body on chat
+  completion failures.
+
 At minimum, the current workstation needs these environment variables:
 
 - `STANDARDML_LAN_AI_TOKEN`

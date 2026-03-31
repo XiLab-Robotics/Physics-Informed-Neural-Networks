@@ -340,6 +340,8 @@ and inspectable.
   [2026-03-31-17-11-55_fix_lan_ai_cuda_path_setup_conda_prefix_resolution.md](./doc/technical/2026-03-31/2026-03-31-17-11-55_fix_lan_ai_cuda_path_setup_conda_prefix_resolution.md).
 - The LAN AI CUDA-hook generation interpolation fix is documented in
   [2026-03-31-17-25-30_fix_lan_ai_cuda_hook_generation_interpolation.md](./doc/technical/2026-03-31/2026-03-31-17-25-30_fix_lan_ai_cuda_hook_generation_interpolation.md).
+- The LAN-node restart automation and LM Studio 400-diagnostics plan is documented in
+  [2026-03-31-18-31-00_lan_node_restart_automation_and_lm_studio_400_diagnostics.md](./doc/technical/2026-03-31/2026-03-31-18-31-00_lan_node_restart_automation_and_lm_studio_400_diagnostics.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

@@ -46,6 +46,30 @@ def build_bearer_header_map(bearer_token: str) -> dict[str, str]:
     return {"Authorization": f"Bearer {bearer_token.strip()}"}
 
 
+def fetch_lm_studio_model_name_list(
+    lm_studio_base_url: str,
+    api_key: str,
+    timeout_seconds: int = DEFAULT_REQUEST_TIMEOUT_SECONDS,
+) -> list[str]:
+
+    """ Fetch LM Studio Model Name List """
+
+    response = requests.get(
+        f"{normalize_base_url(lm_studio_base_url)}/v1/models",
+        headers=build_bearer_header_map(api_key.strip() or "lm-studio"),
+        timeout=timeout_seconds,
+    )
+    if not response.ok:
+        return []
+
+    payload = response.json()
+    return [
+        str(model_item.get("id", "")).strip()
+        for model_item in payload.get("data", [])
+        if isinstance(model_item, dict) and str(model_item.get("id", "")).strip()
+    ]
+
+
 def post_file_to_lan_ai_node(
     endpoint_url: str,
     file_field_name: str,
@@ -113,6 +137,11 @@ def run_lm_studio_chat_completion(
     """ Run LM Studio Chat Completion """
 
     normalized_base_url = normalize_base_url(lm_studio_base_url)
+    available_model_name_list = fetch_lm_studio_model_name_list(
+        lm_studio_base_url=normalized_base_url,
+        api_key=api_key,
+        timeout_seconds=timeout_seconds,
+    )
     response = requests.post(
         f"{normalized_base_url}/v1/chat/completions",
         headers={
@@ -131,7 +160,15 @@ def run_lm_studio_chat_completion(
         },
         timeout=timeout_seconds,
     )
-    response.raise_for_status()
+    if not response.ok:
+        available_model_text = ", ".join(available_model_name_list) if available_model_name_list else "<unavailable>"
+        raise AssertionError(
+            "LM Studio chat completion request failed. "
+            f"status_code={response.status_code}; "
+            f"requested_model={model_name!r}; "
+            f"available_models={available_model_text}; "
+            f"response_body={response.text.strip()!r}"
+        )
 
     payload = response.json()
     choice_list = payload.get("choices", [])

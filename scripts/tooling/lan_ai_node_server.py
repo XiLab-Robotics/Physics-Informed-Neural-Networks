@@ -8,7 +8,9 @@ sys.dont_write_bytecode = True
 
 # Import Python Utilities
 import argparse
+import errno
 import os
+import subprocess
 import tempfile
 import time
 from pathlib import Path
@@ -142,6 +144,102 @@ def collect_paddle_ocr_text_and_confidence(ocr_result: Any) -> tuple[str, float]
     return collapse_whitespace(" ".join(accepted_text_list)), round(average_confidence, 3)
 
 
+def find_windows_pid_listening_on_port(port: int) -> list[int]:
+
+    """ Find Windows PID Listening On Port """
+
+    netstat_result = subprocess.run(
+        ["netstat", "-ano", "-p", "tcp"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert netstat_result.returncode == 0, "Failed to inspect TCP listeners with netstat."
+
+    listening_pid_list: list[int] = []
+    target_suffix = f":{port}"
+
+    for output_line in netstat_result.stdout.splitlines():
+        normalized_line = " ".join(output_line.split())
+        if "LISTENING" not in normalized_line:
+            continue
+
+        line_token_list = normalized_line.split(" ")
+        if len(line_token_list) < 5:
+            continue
+
+        local_address = line_token_list[1]
+        process_id_text = line_token_list[-1]
+        if not local_address.endswith(target_suffix):
+            continue
+
+        if not process_id_text.isdigit():
+            continue
+
+        listening_pid_list.append(int(process_id_text))
+
+    return listening_pid_list
+
+
+def read_windows_process_command_line(process_id: int) -> str:
+
+    """ Read Windows Process Command Line """
+
+    powershell_command = (
+        f"$process = Get-CimInstance Win32_Process -Filter \"ProcessId = {process_id}\"; "
+        "if ($process) { $process.CommandLine }"
+    )
+    process_result = subprocess.run(
+        ["powershell", "-NoProfile", "-Command", powershell_command],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if process_result.returncode != 0:
+        return ""
+
+    return process_result.stdout.strip()
+
+
+def terminate_windows_process(process_id: int) -> None:
+
+    """ Terminate Windows Process """
+
+    termination_result = subprocess.run(
+        ["taskkill", "/PID", str(process_id), "/F"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert termination_result.returncode == 0, (
+        f"Failed to terminate stale process {process_id}: "
+        f"{termination_result.stdout.strip()} {termination_result.stderr.strip()}"
+    )
+
+
+def release_stale_lan_ai_node_process_on_port(port: int) -> bool:
+
+    """ Release Stale LAN AI Node Process On Port """
+
+    if os.name != "nt":
+        return False
+
+    released_process = False
+    for process_id in find_windows_pid_listening_on_port(port):
+        command_line_text = read_windows_process_command_line(process_id)
+        lowered_command_line_text = command_line_text.lower()
+        if "lan_ai_node_server.py" not in lowered_command_line_text:
+            raise RuntimeError(
+                f"Port {port} is already in use by PID {process_id}, and it does not look like a stale LAN AI node process."
+            )
+
+        print(f"Reclaiming port {port} from stale LAN AI node process PID {process_id}.")
+        terminate_windows_process(process_id)
+        released_process = True
+
+    return released_process
+
+
 def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
 
     """ Build Application """
@@ -251,11 +349,26 @@ def main() -> int:
     parsed_arguments = parse_command_line_arguments()
     application = build_application(parsed_arguments)
 
-    uvicorn.run(
-        application,
-        host=parsed_arguments.host,
-        port=parsed_arguments.port,
-    )
+    try:
+        uvicorn.run(
+            application,
+            host=parsed_arguments.host,
+            port=parsed_arguments.port,
+        )
+    except OSError as error:
+        port_already_in_use = error.errno in {errno.EADDRINUSE, 10048}
+        if not port_already_in_use:
+            raise
+
+        released_process = release_stale_lan_ai_node_process_on_port(parsed_arguments.port)
+        if not released_process:
+            raise
+
+        uvicorn.run(
+            application,
+            host=parsed_arguments.host,
+            port=parsed_arguments.port,
+        )
 
     return 0
 
