@@ -324,6 +324,8 @@ and inspectable.
   [2026-03-31-10-36-56_requirements_cleanup_for_unused_repository_dependencies.md](./doc/technical/2026-03-31/2026-03-31-10-36-56_requirements_cleanup_for_unused_repository_dependencies.md).
 - The SSH key-based access extension for the LAN AI node guide is documented in
   [2026-03-31-12-30-02_ssh_key_based_access_extension_for_lan_ai_node_guide.md](./doc/technical/2026-03-31/2026-03-31-12-30-02_ssh_key_based_access_extension_for_lan_ai_node_guide.md).
+- The LAN AI network-troubleshooting extension for the setup guide is documented in
+  [2026-03-31-14-40-36_lan_ai_network_troubleshooting_extension_for_setup_guide.md](./doc/technical/2026-03-31/2026-03-31-14-40-36_lan_ai_network_troubleshooting_extension_for_setup_guide.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

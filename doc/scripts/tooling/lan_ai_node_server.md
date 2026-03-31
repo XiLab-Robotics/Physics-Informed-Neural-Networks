@@ -678,12 +678,57 @@ Use the real LM Studio model identifier shown by `/v1/models`.
 - verify the remote IP address did not change;
 - run `Test-NetConnection REMOTE_HOST -Port 22`.
 
+Validated remote-side checks:
+
+```powershell
+ipconfig
+Get-Service sshd
+netstat -ano | findstr :22
+Test-NetConnection 127.0.0.1 -Port 22
+Test-NetConnection REMOTE_HOST -Port 22
+```
+
+Validated current-workstation checks:
+
+```powershell
+Test-NetConnection REMOTE_HOST -Port 22
+ssh xilab-remote "hostname"
+```
+
+If `sshd` is running and listening on `0.0.0.0:22` but the current
+workstation still cannot connect, inspect the Windows network profile and the
+OpenSSH firewall-rule scope on the remote workstation. In the validated setup,
+SSH became reachable only after the remote workstation network profile was
+aligned and the firewall allowed the port on the active profile.
+
 ### `LM Studio` Is Not Reachable From LAN
 
 - verify `Serve on Local Network` is enabled;
 - verify the server is running;
 - verify Windows Firewall allows the chosen port;
 - verify the base URL uses the remote host IP, not `localhost`.
+
+Validated remote-side checks:
+
+```powershell
+netstat -ano | findstr :1234
+Test-NetConnection 127.0.0.1 -Port 1234
+Test-NetConnection REMOTE_HOST -Port 1234
+```
+
+Validated current-workstation checks:
+
+```powershell
+Test-NetConnection REMOTE_HOST -Port 1234
+curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_URL/v1/models"
+```
+
+Validated firewall rule if the service listens locally but remains unreachable
+from the current workstation:
+
+```powershell
+New-NetFirewallRule -Name "LM-Studio-1234" -DisplayName "LM Studio 1234" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 1234 -Profile Domain,Private,Public
+```
 
 ### `/health` Returns `401 Unauthorized`
 
@@ -702,6 +747,39 @@ Use the real LM Studio model identifier shown by `/v1/models`.
 - verify `nvidia-smi`;
 - verify CUDA installation;
 - then retry with `--whisper-device cuda`.
+
+### LAN AI Node Port `8765` Is Not Reachable
+
+- verify `lan_ai_node_server.py` is still running;
+- verify it is listening on `0.0.0.0:8765`;
+- verify Windows Firewall allows port `8765`.
+
+Validated remote-side checks:
+
+```powershell
+netstat -ano | findstr :8765
+Test-NetConnection 127.0.0.1 -Port 8765
+Test-NetConnection REMOTE_HOST -Port 8765
+```
+
+Validated current-workstation checks:
+
+```powershell
+Test-NetConnection REMOTE_HOST -Port 8765
+curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
+```
+
+Validated firewall rule:
+
+```powershell
+New-NetFirewallRule -Name "StandardML-LAN-AI-8765" -DisplayName "StandardML LAN AI Node 8765" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8765 -Profile Domain,Private,Public
+```
+
+If `Test-NetConnection REMOTE_HOST -Port 1234` and
+`Test-NetConnection REMOTE_HOST -Port 8765` both fail from the current
+workstation, but both succeed on the remote workstation itself, the most likely
+cause is missing inbound firewall rules rather than a bind-address issue. This
+exact pattern was validated during the first real LAN-node connection test.
 
 ## Official References
 
