@@ -317,6 +317,11 @@ At minimum, the current workstation needs these environment variables:
 - `STANDARDML_LAN_AI_BASE_URL`
 - `LM_STUDIO_BASE_URL`
 
+For local-only validation on the current workstation, you can keep the remote
+variables unchanged and add:
+
+- `LM_STUDIO_LOCAL_URL`
+
 Example persistent setup on the current workstation:
 
 ```powershell
@@ -324,6 +329,7 @@ Example persistent setup on the current workstation:
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
 [System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_BASE_URL", "http://REMOTE_HOST:1234", "User")
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_LOCAL_URL", "http://127.0.0.1:1234", "User")
 ```
 
 Quick reachability checks from the current workstation:
@@ -341,6 +347,32 @@ Canonical LAN-backed workflow command:
 ```powershell
 python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
 ```
+
+Canonical local-validation command on the current workstation:
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider local --transcript-model tiny --cleanup-model YOUR_LOCAL_MODEL_ID --report-model YOUR_LOCAL_MODEL_ID --lan-ai-base-url "http://127.0.0.1:8765" --lm-studio-base-url "$env:LM_STUDIO_LOCAL_URL" --force
+```
+
+The high-quality extraction script now also adds explicit terminal logging for:
+
+- provider and model selection;
+- selected LAN and LM Studio base URLs;
+- transcript extraction progress;
+- per-batch LM Studio cleanup requests;
+- snapshot-selection progress;
+- final transcript and report output paths.
+
+When the requested LM Studio model is not loaded, the script now resolves a
+compatible loaded generative model from `/v1/models` instead of failing
+immediately on the first request.
+
+For small local LM Studio models, the workflow now also applies a stricter
+prompt budget during transcript cleanup through:
+
+- `--lmstudio-max-cleanup-chunks-per-request`
+- `--lmstudio-max-cleanup-chunk-characters`
+- `--lmstudio-max-report-chunk-characters`
 
 The generated report tree is stored under:
 

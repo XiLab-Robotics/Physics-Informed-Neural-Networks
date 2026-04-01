@@ -296,6 +296,26 @@ Windows-specific CUDA 12 runtime packages for `ctranslate2` /
 
 - `requirements-lan-ai-node.txt`
 
+### Optional Current-Workstation Reproduction
+
+For local-only debugging on the current workstation, you can also create a
+lightweight validation environment without changing the remote setup:
+
+```powershell
+$env:CONDA_NO_PLUGINS = "true"
+conda create -y -n lan-ai-node python=3.12 --solver=classic
+conda run -n lan-ai-node python -m pip install --upgrade pip wheel
+conda run -n lan-ai-node python -m pip install -r requirements-lan-ai-node.txt
+```
+
+This local environment is useful when you want to validate:
+
+- `lan_ai_node_server.py` on `127.0.0.1:8765`;
+- local `LM Studio` on `127.0.0.1:1234`;
+- workflow logging and prompt-budget behavior;
+- LM Studio model resolution against the models currently loaded on the local
+  workstation.
+
 ## 8. Install And Configure LM Studio
 
 Official references:
@@ -337,6 +357,17 @@ Set the following:
 
 The LM Studio docs note that enabling `Serve on Local Network` makes the server
 bind to the machine's local network IP address instead of `localhost`.
+
+For current-workstation local validation, keep the remote variables unchanged
+and add:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_LOCAL_URL", "http://127.0.0.1:1234", "User")
+```
+
+The repository extraction workflow now prefers `LM_STUDIO_LOCAL_URL` over
+`LM_STUDIO_BASE_URL` when both are present on the current workstation, so local
+LM Studio testing does not require overwriting the remote base URL.
 
 Official screenshot from the LM Studio documentation:
 

@@ -199,6 +199,19 @@ The remote node now uses its own dependency file:
 python -m pip install -r requirements-lan-ai-node.txt
 ```
 
+For local-only validation on the current workstation, keep the remote
+environment variables untouched and add:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("LM_STUDIO_LOCAL_URL", "http://127.0.0.1:1234", "User")
+```
+
+Then run the workflow with explicit local overrides, for example:
+
+```powershell
+python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider local --transcript-model tiny --cleanup-model "nvidia/nemotron-3-nano-4b" --report-model "nvidia/nemotron-3-nano-4b" --lan-ai-base-url "http://127.0.0.1:8765" --lm-studio-base-url "$env:LM_STUDIO_LOCAL_URL" --force
+```
+
 ## Documentation For New Users
 
 If you are opening the repository for the first time, use this reading order:
@@ -346,6 +359,10 @@ and inspectable.
   [2026-03-31-18-57-56_lm_studio_reasoning_content_and_context_truncation_fix.md](./doc/technical/2026-03-31/2026-03-31-18-57-56_lm_studio_reasoning_content_and_context_truncation_fix.md).
 - The resilient chunked LM Studio cleanup plan for the LAN workflow is documented in
   [2026-03-31-19-10-05_lm_studio_resilient_chunked_cleanup_for_lan_workflow.md](./doc/technical/2026-03-31/2026-03-31-19-10-05_lm_studio_resilient_chunked_cleanup_for_lan_workflow.md).
+- The local LM Studio reproduction and prompt-budget fix plan is documented in
+  [2026-04-01-11-14-39_local_lm_studio_reproduction_and_prompt_budget_fix_plan.md](./doc/technical/2026-04-01/2026-04-01-11-14-39_local_lm_studio_reproduction_and_prompt_budget_fix_plan.md).
+- The local LM Studio validation and LAN workflow logging plan is documented in
+  [2026-04-01-11-47-12_local_lm_studio_validation_and_lan_workflow_logging.md](./doc/technical/2026-04-01/2026-04-01-11-47-12_local_lm_studio_validation_and_lan_workflow_logging.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in
