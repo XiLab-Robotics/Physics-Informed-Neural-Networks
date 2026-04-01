@@ -306,6 +306,9 @@ The validated LAN workflow also includes:
 - richer LM Studio failure diagnostics, including the requested model id, the
   available model ids from `/v1/models`, and the response body on chat
   completion failures.
+- chunked LM Studio cleanup for LAN transcripts, built from timestamped
+  `faster-whisper` segments returned by the remote node instead of a single
+  full-transcript cleanup prompt.
 
 At minimum, the current workstation needs these environment variables:
 

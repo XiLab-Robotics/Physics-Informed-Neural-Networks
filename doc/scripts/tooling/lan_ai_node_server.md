@@ -595,6 +595,11 @@ On Windows, if port `8765` is still owned by a stale previous
 automatically. Startup still fails explicitly if some unrelated program owns the
 port.
 
+The transcription endpoint also returns timestamped segment data to the local
+workflow. The repository now uses those real segment boundaries to build smaller
+cleanup chunks locally instead of asking `LM Studio` to segment an entire raw
+transcript in one giant prompt.
+
 ### CPU Fallback Start
 
 If CUDA is not ready yet:

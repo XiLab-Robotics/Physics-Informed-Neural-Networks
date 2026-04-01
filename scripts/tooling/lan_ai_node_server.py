@@ -297,10 +297,27 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
                 beam_size=beam_size,
                 vad_filter=vad_filter,
             )
-            transcript_text = collapse_whitespace(" ".join(segment.text.strip() for segment in segment_iterator))
+            segment_payload_list: list[dict[str, Any]] = []
+            transcript_segment_text_list: list[str] = []
+            for segment in segment_iterator:
+                segment_text = collapse_whitespace(segment.text)
+                if not segment_text:
+                    continue
+
+                transcript_segment_text_list.append(segment_text)
+                segment_payload_list.append(
+                    {
+                        "start_seconds": round(float(getattr(segment, "start", 0.0) or 0.0), 3),
+                        "end_seconds": round(float(getattr(segment, "end", 0.0) or 0.0), 3),
+                        "text": segment_text,
+                    }
+                )
+
+            transcript_text = collapse_whitespace(" ".join(transcript_segment_text_list))
 
             return {
                 "transcript_text": transcript_text,
+                "segments": segment_payload_list,
                 "language": getattr(transcript_info, "language", ""),
                 "language_probability": float(getattr(transcript_info, "language_probability", 0.0) or 0.0),
                 "elapsed_seconds": round(time.time() - start_time, 3),

@@ -33,8 +33,10 @@ from scripts.tooling.analyze_video_guides import collect_companion_note_list
 from scripts.tooling.analyze_video_guides import collect_runtime_capability_map
 from scripts.tooling.analyze_video_guides import collect_video_file_path_list
 from scripts.tooling.lan_ai_node_client import run_lm_studio_chat_completion
+from scripts.tooling.lan_ai_node_client import LanTranscriptSegment
 from scripts.tooling.lan_ai_node_client import run_region_ocr_via_lan_ai_node
 from scripts.tooling.lan_ai_node_client import transcribe_audio_via_lan_ai_node
+from scripts.tooling.lan_ai_node_client import transcribe_audio_via_lan_ai_node_with_segments
 
 try:
     import cv2
@@ -90,6 +92,15 @@ class SnapshotRecord:
     transcript_excerpt: str
     selection_reason: str
     combined_score: float
+
+
+@dataclass
+class TranscriptExtractionResult:
+
+    """ Store Transcript Extraction Result """
+
+    raw_transcript_text: str
+    transcript_segment_list: list[LanTranscriptSegment]
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -270,17 +281,21 @@ def transcribe_full_audio(
     google_client: genai.Client | None,
     audio_file_path: Path,
     parsed_arguments: argparse.Namespace,
-) -> str:
+) -> TranscriptExtractionResult:
 
     """ Transcribe Full Audio """
 
     if parsed_arguments.transcript_provider == "lan":
-        return transcribe_audio_via_lan_ai_node(
+        raw_transcript_text, transcript_segment_list = transcribe_audio_via_lan_ai_node_with_segments(
             audio_file_path=audio_file_path,
             lan_ai_base_url=require_lan_ai_base_url(parsed_arguments),
             bearer_token=parsed_arguments.lan_ai_token,
             transcript_model=parsed_arguments.transcript_model,
             transcript_language=parsed_arguments.transcript_language,
+        )
+        return TranscriptExtractionResult(
+            raw_transcript_text=raw_transcript_text,
+            transcript_segment_list=transcript_segment_list,
         )
 
     assert google_client is not None, "Google client is required for Google transcript provider."
@@ -297,7 +312,10 @@ def transcribe_full_audio(
             model=parsed_arguments.transcript_model,
             contents=[prompt_text, uploaded_file],
         )
-        return collapse_whitespace(response.text)
+        return TranscriptExtractionResult(
+            raw_transcript_text=collapse_whitespace(response.text),
+            transcript_segment_list=[],
+        )
     finally:
         try:
             google_client.files.delete(name=uploaded_file.name)
@@ -360,7 +378,8 @@ def transcribe_audio_chunk(google_client: genai.Client, chunk_file_path: Path, t
 
 
 def correct_transcript_chunk_list(
-    google_client: genai.Client,
+    google_client: genai.Client | None,
+    parsed_arguments: argparse.Namespace,
     cleanup_model: str,
     transcript_chunk_list: list[TranscriptChunk],
 ) -> list[str]:
@@ -405,12 +424,14 @@ Trascrizione grezza per blocchi:
 {json.dumps(raw_chunk_payload, ensure_ascii=True, indent=2)}
 """.strip()
 
-    response = google_client.models.generate_content(
-        model=cleanup_model,
-        contents=cleanup_prompt,
+    response_text = generate_text_response(
+        google_client=google_client,
+        parsed_arguments=parsed_arguments,
+        provider_name=parsed_arguments.cleanup_provider,
+        model_name=cleanup_model,
+        prompt_text=cleanup_prompt,
     )
-
-    response_text = response.text.strip()
+    response_text = response_text.strip()
     json_start_index = response_text.find("{")
     json_end_index = response_text.rfind("}")
     assert json_start_index >= 0 and json_end_index >= 0, "Cleanup model did not return JSON."
@@ -432,6 +453,80 @@ Trascrizione grezza per blocchi:
         )
 
     return corrected_text_list
+
+
+def build_transcript_chunk_list_from_lan_segments(
+    transcript_segment_list: list[LanTranscriptSegment],
+    audio_file_path: Path,
+    duration_seconds: float,
+    target_chunk_seconds: int,
+) -> list[TranscriptChunk]:
+
+    """ Build Transcript Chunk List From LAN Segments """
+
+    if not transcript_segment_list:
+        return []
+
+    transcript_chunk_list: list[TranscriptChunk] = []
+    current_chunk_segment_text_list: list[str] = []
+    current_chunk_start_seconds = transcript_segment_list[0].start_seconds
+    current_chunk_end_seconds = transcript_segment_list[0].end_seconds
+    current_chunk_index = 0
+
+    for transcript_segment in transcript_segment_list:
+        current_chunk_duration = transcript_segment.end_seconds - current_chunk_start_seconds
+        should_flush_chunk = (
+            current_chunk_segment_text_list
+            and current_chunk_duration >= float(target_chunk_seconds)
+        )
+        if should_flush_chunk:
+            raw_chunk_text = collapse_whitespace(" ".join(current_chunk_segment_text_list))
+            transcript_chunk_list.append(
+                TranscriptChunk(
+                    chunk_index=current_chunk_index,
+                    start_seconds=current_chunk_start_seconds,
+                    end_seconds=current_chunk_end_seconds,
+                    audio_chunk_path=audio_file_path.relative_to(PROJECT_PATH).as_posix(),
+                    raw_transcript_text=raw_chunk_text,
+                    corrected_transcript_text="",
+                    relevance_score=0.0,
+                )
+            )
+            current_chunk_index += 1
+            current_chunk_segment_text_list = []
+            current_chunk_start_seconds = transcript_segment.start_seconds
+
+        current_chunk_segment_text_list.append(transcript_segment.text)
+        current_chunk_end_seconds = max(current_chunk_end_seconds, transcript_segment.end_seconds)
+
+    if current_chunk_segment_text_list:
+        raw_chunk_text = collapse_whitespace(" ".join(current_chunk_segment_text_list))
+        transcript_chunk_list.append(
+            TranscriptChunk(
+                chunk_index=current_chunk_index,
+                start_seconds=current_chunk_start_seconds,
+                end_seconds=min(duration_seconds or current_chunk_end_seconds, current_chunk_end_seconds),
+                audio_chunk_path=audio_file_path.relative_to(PROJECT_PATH).as_posix(),
+                raw_transcript_text=raw_chunk_text,
+                corrected_transcript_text="",
+                relevance_score=0.0,
+            )
+        )
+
+    for transcript_chunk_index, transcript_chunk in enumerate(transcript_chunk_list):
+        transcript_chunk.chunk_index = transcript_chunk_index
+        if transcript_chunk_index < len(transcript_chunk_list) - 1:
+            transcript_chunk.end_seconds = max(
+                transcript_chunk.start_seconds,
+                min(transcript_chunk.end_seconds, transcript_chunk_list[transcript_chunk_index + 1].start_seconds),
+            )
+        else:
+            transcript_chunk.end_seconds = max(
+                transcript_chunk.start_seconds,
+                min(float(duration_seconds or transcript_chunk.end_seconds), transcript_chunk.end_seconds),
+            )
+
+    return transcript_chunk_list
 
 
 def correct_and_segment_full_transcript(
@@ -798,8 +893,14 @@ def process_single_video(
     if raw_transcript_file_path.exists() and not parsed_arguments.force:
         raw_full_transcript_text = collapse_whitespace(raw_transcript_file_path.read_text(encoding="utf-8"))
     if not raw_full_transcript_text:
-        raw_full_transcript_text = transcribe_full_audio(google_client, audio_file_path, parsed_arguments)
+        transcript_extraction_result = transcribe_full_audio(google_client, audio_file_path, parsed_arguments)
+        raw_full_transcript_text = transcript_extraction_result.raw_transcript_text
         raw_transcript_file_path.write_text(raw_full_transcript_text + "\n", encoding="utf-8")
+    else:
+        transcript_extraction_result = TranscriptExtractionResult(
+            raw_transcript_text=raw_full_transcript_text,
+            transcript_segment_list=[],
+        )
 
     transcript_chunk_list: list[TranscriptChunk] = []
     if corrected_transcript_cache_map:
@@ -822,17 +923,34 @@ def process_single_video(
                 )
             )
     else:
-        transcript_chunk_list = correct_and_segment_full_transcript(
-            google_client=google_client,
-            parsed_arguments=parsed_arguments,
-            cleanup_model=parsed_arguments.cleanup_model,
-            raw_transcript_text=raw_full_transcript_text,
-            duration_seconds=float(metadata_map["duration_seconds"] or 0.0),
-            target_chunk_seconds=parsed_arguments.audio_chunk_seconds,
-        )
-        for transcript_chunk in transcript_chunk_list:
-            transcript_chunk.audio_chunk_path = audio_file_path.relative_to(PROJECT_PATH).as_posix()
-            transcript_chunk.raw_transcript_text = raw_full_transcript_text
+        if parsed_arguments.transcript_provider == "lan" and transcript_extraction_result.transcript_segment_list:
+            transcript_chunk_list = build_transcript_chunk_list_from_lan_segments(
+                transcript_segment_list=transcript_extraction_result.transcript_segment_list,
+                audio_file_path=audio_file_path,
+                duration_seconds=float(metadata_map["duration_seconds"] or 0.0),
+                target_chunk_seconds=parsed_arguments.audio_chunk_seconds,
+            )
+            corrected_text_list = correct_transcript_chunk_list(
+                google_client=google_client,
+                parsed_arguments=parsed_arguments,
+                cleanup_model=parsed_arguments.cleanup_model,
+                transcript_chunk_list=transcript_chunk_list,
+            )
+            for transcript_chunk, corrected_text in zip(transcript_chunk_list, corrected_text_list):
+                transcript_chunk.corrected_transcript_text = corrected_text
+                transcript_chunk.relevance_score = compute_text_relevance_score(corrected_text)
+        else:
+            transcript_chunk_list = correct_and_segment_full_transcript(
+                google_client=google_client,
+                parsed_arguments=parsed_arguments,
+                cleanup_model=parsed_arguments.cleanup_model,
+                raw_transcript_text=raw_full_transcript_text,
+                duration_seconds=float(metadata_map["duration_seconds"] or 0.0),
+                target_chunk_seconds=parsed_arguments.audio_chunk_seconds,
+            )
+            for transcript_chunk in transcript_chunk_list:
+                transcript_chunk.audio_chunk_path = audio_file_path.relative_to(PROJECT_PATH).as_posix()
+                transcript_chunk.raw_transcript_text = raw_full_transcript_text
         corrected_transcript_cache_map = {
             f"{transcript_chunk.chunk_index:03d}": transcript_chunk.corrected_transcript_text
             for transcript_chunk in transcript_chunk_list
