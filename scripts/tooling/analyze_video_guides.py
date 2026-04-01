@@ -36,10 +36,16 @@ except ImportError:
 PROJECT_PATH = Path(__file__).resolve().parents[2]
 DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / ".temp" / "video_guides"
 DEFAULT_ANALYSIS_ROOT = DEFAULT_VIDEO_GUIDE_ROOT / "_analysis"
-DEFAULT_TRANSCRIPTION_MODEL = "tiny"
+DEFAULT_TRANSCRIPTION_MODEL = "medium"
+DEFAULT_TRANSCRIPTION_BEAM_SIZE = 8
+DEFAULT_TRANSCRIPTION_BEST_OF = 5
+DEFAULT_TRANSCRIPTION_TEMPERATURE = 0.0
+DEFAULT_TRANSCRIPTION_COMPUTE_TYPE = "int8"
 DEFAULT_FRAME_INTERVAL_SECONDS = 30.0
 DEFAULT_MAX_FRAMES_PER_VIDEO = 40
 DEFAULT_TRANSCRIPT_LANGUAGE = "it"
+DEFAULT_TRANSCRIPT_MIN_QUALITY_SCORE = 0.35
+DEFAULT_OCR_MIN_QUALITY_SCORE = 42.0
 VIDEO_SUFFIXES = {".mp4", ".mkv", ".mov", ".avi", ".m4v"}
 TEXT_SUFFIXES = {".txt", ".md"}
 PREFERRED_TESSERACT_PATH_LIST = [
@@ -85,6 +91,7 @@ class TranscriptSegment:
     start_seconds: float
     end_seconds: float
     text: str
+    quality_score: float = 0.0
 
 
 @dataclass
@@ -95,6 +102,9 @@ class OCRFrameRecord:
     timestamp_seconds: float
     frame_path: str
     ocr_text: str
+    quality_score: float = 0.0
+    selected_region_name: str = ""
+    matched_term_list: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -117,10 +127,12 @@ class VideoAnalysisRecord:
     transcript_language_probability: float | None = None
     transcript_segment_count: int = 0
     transcript_excerpt_list: list[str] = field(default_factory=list)
+    transcript_quality_summary: dict[str, float] = field(default_factory=dict)
     frame_extraction_generated: bool = False
     frame_record_count: int = 0
     ocr_generated: bool = False
     ocr_excerpt_list: list[str] = field(default_factory=list)
+    ocr_quality_summary: dict[str, float] = field(default_factory=dict)
     matched_term_list: list[str] = field(default_factory=list)
     issue_list: list[str] = field(default_factory=list)
 
@@ -140,6 +152,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--max-frames-per-video", type=int, default=DEFAULT_MAX_FRAMES_PER_VIDEO, help="Maximum sampled frames per video.")
     argument_parser.add_argument("--transcription-model", default=DEFAULT_TRANSCRIPTION_MODEL, help="Faster-Whisper model size.")
     argument_parser.add_argument("--transcription-language", default=DEFAULT_TRANSCRIPT_LANGUAGE, help="Expected transcript language or 'auto'.")
+    argument_parser.add_argument("--transcription-beam-size", type=int, default=DEFAULT_TRANSCRIPTION_BEAM_SIZE, help="Beam size for Faster-Whisper decoding.")
+    argument_parser.add_argument("--transcription-best-of", type=int, default=DEFAULT_TRANSCRIPTION_BEST_OF, help="Best-of count for Faster-Whisper decoding.")
+    argument_parser.add_argument("--transcription-temperature", type=float, default=DEFAULT_TRANSCRIPTION_TEMPERATURE, help="Decoding temperature for Faster-Whisper.")
+    argument_parser.add_argument("--transcription-compute-type", default=DEFAULT_TRANSCRIPTION_COMPUTE_TYPE, help="Compute type for Faster-Whisper.")
+    argument_parser.add_argument("--transcript-min-quality-score", type=float, default=DEFAULT_TRANSCRIPT_MIN_QUALITY_SCORE, help="Minimum transcript quality score kept for report excerpts.")
+    argument_parser.add_argument("--ocr-min-quality-score", type=float, default=DEFAULT_OCR_MIN_QUALITY_SCORE, help="Minimum OCR quality score kept for report excerpts.")
     argument_parser.add_argument("--disable-transcription", action="store_true", help="Skip transcription.")
     argument_parser.add_argument("--disable-frames", action="store_true", help="Skip frame extraction.")
     argument_parser.add_argument("--disable-ocr", action="store_true", help="Skip OCR.")
@@ -184,6 +202,83 @@ def collapse_whitespace(raw_text: str) -> str:
     """ Collapse Whitespace """
 
     return re.sub(r"\s+", " ", raw_text).strip()
+
+
+def clamp_score(raw_score: float, minimum_value: float = 0.0, maximum_value: float = 1.0) -> float:
+
+    """ Clamp Score """
+
+    return max(minimum_value, min(maximum_value, raw_score))
+
+
+def compute_text_alpha_ratio(raw_text: str) -> float:
+
+    """ Compute Text Alpha Ratio """
+
+    if not raw_text:
+        return 0.0
+
+    alpha_character_count = sum(1 for character in raw_text if character.isalpha())
+    return alpha_character_count / max(len(raw_text), 1)
+
+
+def compute_text_digit_ratio(raw_text: str) -> float:
+
+    """ Compute Text Digit Ratio """
+
+    if not raw_text:
+        return 0.0
+
+    digit_character_count = sum(1 for character in raw_text if character.isdigit())
+    return digit_character_count / max(len(raw_text), 1)
+
+
+def count_matched_terms_in_text(raw_text: str) -> int:
+
+    """ Count Matched Terms In Text """
+
+    return sum(1 for term_pattern in TERM_PATTERN_MAP.values() if term_pattern.search(raw_text))
+
+
+def compute_transcript_quality_score(raw_text: str, average_log_probability: float | None) -> float:
+
+    """ Compute Transcript Quality Score """
+
+    collapsed_text = collapse_whitespace(raw_text)
+    if not collapsed_text:
+        return 0.0
+
+    alpha_ratio = compute_text_alpha_ratio(collapsed_text)
+    digit_ratio = compute_text_digit_ratio(collapsed_text)
+    matched_term_bonus = min(count_matched_terms_in_text(collapsed_text) * 0.08, 0.24)
+    length_bonus = 0.08 if 20 <= len(collapsed_text) <= 220 else 0.0
+    log_probability_bonus = 0.0 if average_log_probability is None else clamp_score((average_log_probability + 1.5) / 1.5) * 0.35
+    ratio_score = clamp_score(alpha_ratio * 0.7 + (1.0 - min(digit_ratio, 0.4)) * 0.3)
+    noise_penalty = 0.18 if "Ã" in collapsed_text or "�" in collapsed_text else 0.0
+
+    return round(clamp_score(log_probability_bonus + matched_term_bonus + length_bonus + ratio_score * 0.33 - noise_penalty), 4)
+
+
+def summarize_quality_score_list(score_list: list[float]) -> dict[str, float]:
+
+    """ Summarize Quality Score List """
+
+    if not score_list:
+        return {}
+
+    sorted_score_list = sorted(score_list)
+    midpoint_index = len(sorted_score_list) // 2
+    median_score = (
+        sorted_score_list[midpoint_index]
+        if len(sorted_score_list) % 2 == 1
+        else (sorted_score_list[midpoint_index - 1] + sorted_score_list[midpoint_index]) / 2.0
+    )
+
+    return {
+        "min": round(sorted_score_list[0], 4),
+        "median": round(median_score, 4),
+        "max": round(sorted_score_list[-1], 4),
+    }
 
 
 def collect_companion_note_list(input_root: Path) -> list[CompanionNote]:
@@ -337,7 +432,7 @@ def build_frame_timestamp_list(duration_seconds: float | None, interval_seconds:
     return timestamp_seconds_list
 
 
-def preprocess_frame_for_ocr(frame_image: Any) -> Any:
+def preprocess_frame_for_ocr(frame_image: Any, variant_name: str) -> Any:
 
     """ Preprocess Frame For OCR """
 
@@ -345,10 +440,162 @@ def preprocess_frame_for_ocr(frame_image: Any) -> Any:
         return frame_image
 
     grayscale_image = cv2.cvtColor(frame_image, cv2.COLOR_BGR2GRAY)
-    upscaled_image = cv2.resize(grayscale_image, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
-    _, thresholded_image = cv2.threshold(upscaled_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    upscaled_image = cv2.resize(grayscale_image, None, fx=2.0, fy=2.0, interpolation=cv2.INTER_CUBIC)
 
+    if variant_name == "adaptive":
+        return cv2.adaptiveThreshold(
+            upscaled_image,
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            31,
+            11,
+        )
+
+    if variant_name == "inverted":
+        _, thresholded_image = cv2.threshold(upscaled_image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+        return thresholded_image
+
+    _, thresholded_image = cv2.threshold(upscaled_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     return thresholded_image
+
+
+def build_ocr_region_map(frame_width: int, frame_height: int) -> dict[str, tuple[int, int, int, int]]:
+
+    """ Build OCR Region Map """
+
+    return {
+        "title_bar": (0, 0, frame_width, int(frame_height * 0.13)),
+        "left_navigation": (0, int(frame_height * 0.12), int(frame_width * 0.34), int(frame_height * 0.88)),
+        "center_workspace": (int(frame_width * 0.24), int(frame_height * 0.10), int(frame_width * 0.82), int(frame_height * 0.84)),
+        "right_properties": (int(frame_width * 0.67), int(frame_height * 0.10), frame_width, int(frame_height * 0.84)),
+        "lower_panel": (0, int(frame_height * 0.78), frame_width, frame_height),
+    }
+
+
+def crop_frame_region(frame_image: Any, region_bounds: tuple[int, int, int, int]) -> Any:
+
+    """ Crop Frame Region """
+
+    start_x, start_y, end_x, end_y = region_bounds
+    return frame_image[start_y:end_y, start_x:end_x]
+
+
+def build_ocr_text_from_data(ocr_data: dict[str, list[Any]], min_confidence: float = 38.0) -> tuple[str, float]:
+
+    """ Build OCR Text From Data """
+
+    accepted_word_list: list[str] = []
+    accepted_confidence_list: list[float] = []
+
+    for raw_text, raw_confidence in zip(ocr_data.get("text", []), ocr_data.get("conf", [])):
+        cleaned_text = collapse_whitespace(raw_text)
+        if not cleaned_text:
+            continue
+
+        try:
+            confidence_value = float(raw_confidence)
+        except (TypeError, ValueError):
+            continue
+
+        if confidence_value < min_confidence:
+            continue
+
+        accepted_word_list.append(cleaned_text)
+        accepted_confidence_list.append(confidence_value)
+
+    average_confidence = sum(accepted_confidence_list) / len(accepted_confidence_list) if accepted_confidence_list else 0.0
+    return collapse_whitespace(" ".join(accepted_word_list)), average_confidence
+
+
+def compute_ocr_quality_score(ocr_text: str, average_confidence: float, region_name: str) -> float:
+
+    """ Compute OCR Quality Score """
+
+    collapsed_text = collapse_whitespace(ocr_text)
+    if not collapsed_text:
+        return 0.0
+
+    alpha_ratio = compute_text_alpha_ratio(collapsed_text)
+    digit_ratio = compute_text_digit_ratio(collapsed_text)
+    matched_term_bonus = min(count_matched_terms_in_text(collapsed_text) * 8.0, 24.0)
+    length_bonus = 6.0 if 12 <= len(collapsed_text) <= 260 else 0.0
+    region_bonus = 5.0 if region_name in {"center_workspace", "right_properties", "title_bar"} else 0.0
+    noise_penalty = 14.0 if "Ã" in collapsed_text or "�" in collapsed_text else 0.0
+    symbol_penalty = 12.0 if alpha_ratio < 0.45 else 0.0
+    browser_penalty = 0.0
+    if re.search(r"\b(google|scholar|deepl|translate|scopus|download)\b", collapsed_text, flags=re.IGNORECASE):
+        browser_penalty += 35.0
+    if region_name == "title_bar" and len(collapsed_text) > 120:
+        browser_penalty += 18.0
+    if region_name == "title_bar" and count_matched_terms_in_text(collapsed_text) < 2:
+        browser_penalty += 12.0
+    density_penalty = 8.0 if digit_ratio > 0.18 else 0.0
+
+    return round(
+        max(
+            0.0,
+            min(
+                100.0,
+                average_confidence + matched_term_bonus + length_bonus + region_bonus - noise_penalty - symbol_penalty - browser_penalty - density_penalty,
+            ),
+        ),
+        3,
+    )
+
+
+def extract_best_ocr_text(frame_image: Any, capability_map: dict[str, Any]) -> tuple[str, float, str, list[str]]:
+
+    """ Extract Best OCR Text """
+
+    if not capability_map["ocr_available"] or cv2 is None:
+        return "", 0.0, "", []
+
+    frame_height, frame_width = frame_image.shape[:2]
+    region_map = build_ocr_region_map(frame_width, frame_height)
+    best_candidate_text = ""
+    best_candidate_score = 0.0
+    best_region_name = ""
+    best_matched_term_list: list[str] = []
+
+    for region_name, region_bounds in region_map.items():
+        cropped_image = crop_frame_region(frame_image, region_bounds)
+        if cropped_image.size == 0:
+            continue
+
+        for preprocess_variant_name in ["binary", "adaptive", "inverted"]:
+            preprocessed_image = preprocess_frame_for_ocr(cropped_image, preprocess_variant_name)
+
+            for page_segmentation_mode in [6, 11]:
+                try:
+                    ocr_data = pytesseract.image_to_data(
+                        preprocessed_image,
+                        lang="eng",
+                        config=f"--oem 3 --psm {page_segmentation_mode}",
+                        timeout=20,
+                        output_type=pytesseract.Output.DICT,
+                    )
+                except Exception:
+                    continue
+
+                candidate_text, average_confidence = build_ocr_text_from_data(ocr_data)
+                if not candidate_text:
+                    continue
+
+                candidate_score = compute_ocr_quality_score(candidate_text, average_confidence, region_name)
+                if candidate_score <= best_candidate_score:
+                    continue
+
+                best_candidate_text = candidate_text
+                best_candidate_score = candidate_score
+                best_region_name = region_name
+                best_matched_term_list = [
+                    term_name
+                    for term_name, term_pattern in TERM_PATTERN_MAP.items()
+                    if term_pattern.search(candidate_text)
+                ]
+
+    return best_candidate_text, best_candidate_score, best_region_name, best_matched_term_list
 
 
 def build_whisper_initial_prompt() -> str:
@@ -358,12 +605,22 @@ def build_whisper_initial_prompt() -> str:
     return (
         "Contesto tecnico TwinCAT Beckhoff PLC TestRig machine learning. "
         "Possibili termini: FB_Predict, ML_Transmission_Error, Predict_ML, "
-        "Transmission Error, TE_Calc, DataValid, temperatura, coppia, velocita, "
-        "encoder, armoniche, simulation, generator cam, Matlab."
+        "Transmission Error, TE_Calc, DataValid, TwinCAT 3 Machine Learning, "
+        "temperatura, coppia, velocita, encoder, armoniche, simulation, "
+        "generator cam, Matlab, Beckhoff, model manager, engine_40, engine_78."
     )
 
 
-def transcribe_video_file(video_file_path: Path, model_name: str, language_code: str, capability_map: dict[str, Any]) -> tuple[list[TranscriptSegment], dict[str, Any], list[str]]:
+def transcribe_video_file(
+    video_file_path: Path,
+    model_name: str,
+    language_code: str,
+    beam_size: int,
+    best_of: int,
+    temperature: float,
+    compute_type: str,
+    capability_map: dict[str, Any],
+) -> tuple[list[TranscriptSegment], dict[str, Any], list[str]]:
 
     """ Transcribe Video File """
 
@@ -371,19 +628,30 @@ def transcribe_video_file(video_file_path: Path, model_name: str, language_code:
         return [], {"language": None, "language_probability": None}, ["Faster-Whisper not available -> transcription skipped."]
 
     try:
-        whisper_model = WhisperModel(model_name, device="cpu", compute_type="int8")
+        whisper_model = WhisperModel(model_name, device="cpu", compute_type=compute_type)
         requested_language = None if language_code.lower() == "auto" else language_code
         transcript_segments, transcript_info = whisper_model.transcribe(
             str(video_file_path),
-            beam_size=5,
+            beam_size=beam_size,
+            best_of=best_of,
+            temperature=temperature,
             language=requested_language,
             vad_filter=True,
-            word_timestamps=False,
+            word_timestamps=True,
+            condition_on_previous_text=True,
             initial_prompt=build_whisper_initial_prompt(),
         )
 
         transcript_segment_list = [
-            TranscriptSegment(start_seconds=segment.start, end_seconds=segment.end, text=collapse_whitespace(segment.text))
+            TranscriptSegment(
+                start_seconds=segment.start,
+                end_seconds=segment.end,
+                text=collapse_whitespace(segment.text),
+                quality_score=compute_transcript_quality_score(
+                    raw_text=segment.text,
+                    average_log_probability=getattr(segment, "avg_logprob", None),
+                ),
+            )
             for segment in transcript_segments
             if collapse_whitespace(segment.text)
         ]
@@ -442,11 +710,14 @@ def extract_frame_and_ocr_records(
             cv2.imwrite(str(frame_file_path), frame_image)
 
         extracted_ocr_text = ""
+        extracted_quality_score = 0.0
+        selected_region_name = ""
+        matched_term_list: list[str] = []
         if capability_map["ocr_available"]:
             try:
-                preprocessed_image = preprocess_frame_for_ocr(frame_image)
-                extracted_ocr_text = collapse_whitespace(
-                    pytesseract.image_to_string(preprocessed_image, lang="eng", config="--oem 3 --psm 6", timeout=15)
+                extracted_ocr_text, extracted_quality_score, selected_region_name, matched_term_list = extract_best_ocr_text(
+                    frame_image=frame_image,
+                    capability_map=capability_map,
                 )
             except Exception as exception:
                 issue_list.append(f"OCR failed at {timestamp_seconds:.3f}s | {exception}")
@@ -459,6 +730,9 @@ def extract_frame_and_ocr_records(
                 timestamp_seconds=timestamp_seconds,
                 frame_path=frame_file_path.relative_to(PROJECT_PATH).as_posix(),
                 ocr_text=extracted_ocr_text,
+                quality_score=extracted_quality_score,
+                selected_region_name=selected_region_name,
+                matched_term_list=matched_term_list,
             )
         )
 
@@ -497,7 +771,7 @@ def write_transcript_markdown(output_file_path: Path, transcript_segment_list: l
     else:
         for transcript_segment in transcript_segment_list:
             markdown_line_list.append(
-                f"- `{format_seconds(transcript_segment.start_seconds)}` -> `{format_seconds(transcript_segment.end_seconds)}` | {transcript_segment.text}"
+                f"- `{format_seconds(transcript_segment.start_seconds)}` -> `{format_seconds(transcript_segment.end_seconds)}` | q={transcript_segment.quality_score:.2f} | {transcript_segment.text}"
             )
 
     ensure_directory(output_file_path.parent)
@@ -516,6 +790,60 @@ def extract_excerpt_list(raw_text_block_list: list[str], max_excerpt_count: int 
             continue
         excerpt_text = collapsed_text[:excerpt_length]
         if excerpt_text not in excerpt_list:
+            excerpt_list.append(excerpt_text)
+        if len(excerpt_list) >= max_excerpt_count:
+            break
+
+    return excerpt_list
+
+
+def extract_transcript_excerpt_list(
+    transcript_segment_list: list[TranscriptSegment],
+    min_quality_score: float,
+    max_excerpt_count: int = 8,
+    excerpt_length: int = 220,
+) -> list[str]:
+
+    """ Extract Transcript Excerpt List """
+
+    excerpt_list: list[str] = []
+    sorted_segment_list = sorted(
+        transcript_segment_list,
+        key=lambda transcript_segment: (transcript_segment.quality_score, len(transcript_segment.text)),
+        reverse=True,
+    )
+
+    for transcript_segment in sorted_segment_list:
+        if transcript_segment.quality_score < min_quality_score:
+            continue
+
+        excerpt_text = collapse_whitespace(transcript_segment.text)[:excerpt_length]
+        if excerpt_text and excerpt_text not in excerpt_list:
+            excerpt_list.append(excerpt_text)
+        if len(excerpt_list) >= max_excerpt_count:
+            break
+
+    return excerpt_list
+
+
+def extract_ocr_excerpt_list(
+    frame_record_list: list[OCRFrameRecord],
+    min_quality_score: float,
+    max_excerpt_count: int = 8,
+    excerpt_length: int = 220,
+) -> list[str]:
+
+    """ Extract OCR Excerpt List """
+
+    excerpt_list: list[str] = []
+    sorted_frame_record_list = sorted(frame_record_list, key=lambda frame_record: frame_record.quality_score, reverse=True)
+
+    for frame_record in sorted_frame_record_list:
+        if frame_record.quality_score < min_quality_score:
+            continue
+
+        excerpt_text = collapse_whitespace(frame_record.ocr_text)[:excerpt_length]
+        if excerpt_text and excerpt_text not in excerpt_list:
             excerpt_list.append(excerpt_text)
         if len(excerpt_list) >= max_excerpt_count:
             break
@@ -565,11 +893,15 @@ def write_video_note_markdown(output_file_path: Path, video_analysis_record: Vid
         for companion_note in video_analysis_record.associated_companion_note_list:
             markdown_line_list.append(f"- {companion_note}")
 
+    markdown_line_list.extend(["", "## Transcript Quality", ""])
+    markdown_line_list.append(f"- `{video_analysis_record.transcript_quality_summary}`")
     markdown_line_list.extend(["", "## Transcript Excerpts", ""])
-    markdown_line_list.extend([f"- {excerpt}" for excerpt in video_analysis_record.transcript_excerpt_list] or ["- No transcript excerpts available."])
+    markdown_line_list.extend([f"- {excerpt}" for excerpt in video_analysis_record.transcript_excerpt_list] or ["- No transcript excerpts passed the quality threshold."])
 
+    markdown_line_list.extend(["", "## OCR Quality", ""])
+    markdown_line_list.append(f"- `{video_analysis_record.ocr_quality_summary}`")
     markdown_line_list.extend(["", "## OCR Excerpts", ""])
-    markdown_line_list.extend([f"- {excerpt}" for excerpt in video_analysis_record.ocr_excerpt_list] or ["- No OCR excerpts available."])
+    markdown_line_list.extend([f"- {excerpt}" for excerpt in video_analysis_record.ocr_excerpt_list] or ["- No OCR excerpts passed the quality threshold."])
 
     markdown_line_list.extend(["", "## Matched Terms", ""])
     markdown_line_list.extend([f"- `{matched_term}`" for matched_term in video_analysis_record.matched_term_list] or ["- No tracked terms matched."])
@@ -621,7 +953,7 @@ def build_inventory_markdown(
     markdown_line_list.extend(["", "## Video Files", ""])
     for video_analysis_record in video_analysis_record_list:
         markdown_line_list.append(
-            f"- `{video_analysis_record.file_name}` | duration={video_analysis_record.duration_seconds} | transcript={video_analysis_record.transcript_generated} | frames={video_analysis_record.frame_extraction_generated} | ocr={video_analysis_record.ocr_generated} | matched_terms={', '.join(video_analysis_record.matched_term_list) if video_analysis_record.matched_term_list else 'none'}"
+            f"- `{video_analysis_record.file_name}` | duration={video_analysis_record.duration_seconds} | transcript={video_analysis_record.transcript_generated} ({video_analysis_record.transcript_segment_count}) | transcript_quality={video_analysis_record.transcript_quality_summary} | frames={video_analysis_record.frame_extraction_generated} ({video_analysis_record.frame_record_count}) | ocr={video_analysis_record.ocr_generated} | ocr_quality={video_analysis_record.ocr_quality_summary} | matched_terms={', '.join(video_analysis_record.matched_term_list) if video_analysis_record.matched_term_list else 'none'}"
         )
 
     return "\n".join(markdown_line_list) + "\n"
@@ -682,6 +1014,10 @@ def analyze_single_video(
         video_file_path=video_file_path,
         model_name=parsed_arguments.transcription_model,
         language_code=parsed_arguments.transcription_language,
+        beam_size=parsed_arguments.transcription_beam_size,
+        best_of=parsed_arguments.transcription_best_of,
+        temperature=parsed_arguments.transcription_temperature,
+        compute_type=parsed_arguments.transcription_compute_type,
         capability_map=capability_map,
     ) if not parsed_arguments.disable_transcription else ([], {"language": None, "language_probability": None}, ["Transcription disabled by command-line flag."])
     video_analysis_record.issue_list.extend(transcript_issue_list)
@@ -690,7 +1026,13 @@ def analyze_single_video(
     video_analysis_record.transcript_language_probability = transcript_metadata_map["language_probability"]
     video_analysis_record.transcript_segment_count = len(transcript_segment_list)
     transcript_text_block_list = [segment.text for segment in transcript_segment_list]
-    video_analysis_record.transcript_excerpt_list = extract_excerpt_list(transcript_text_block_list)
+    video_analysis_record.transcript_excerpt_list = extract_transcript_excerpt_list(
+        transcript_segment_list=transcript_segment_list,
+        min_quality_score=parsed_arguments.transcript_min_quality_score,
+    )
+    video_analysis_record.transcript_quality_summary = summarize_quality_score_list(
+        [segment.quality_score for segment in transcript_segment_list]
+    )
     write_json_file(video_output_directory / "transcript_segments.json", [asdict(segment) for segment in transcript_segment_list])
     write_transcript_markdown(video_output_directory / "transcript.md", transcript_segment_list)
 
@@ -707,8 +1049,17 @@ def analyze_single_video(
     video_analysis_record.frame_extraction_generated = len(frame_record_list) > 0
     video_analysis_record.frame_record_count = len(frame_record_list)
     frame_text_block_list = [frame_record.ocr_text for frame_record in frame_record_list if frame_record.ocr_text]
-    video_analysis_record.ocr_generated = len(frame_text_block_list) > 0
-    video_analysis_record.ocr_excerpt_list = extract_excerpt_list(frame_text_block_list)
+    video_analysis_record.ocr_generated = any(
+        frame_record.ocr_text and frame_record.quality_score >= parsed_arguments.ocr_min_quality_score
+        for frame_record in frame_record_list
+    )
+    video_analysis_record.ocr_excerpt_list = extract_ocr_excerpt_list(
+        frame_record_list=frame_record_list,
+        min_quality_score=parsed_arguments.ocr_min_quality_score,
+    )
+    video_analysis_record.ocr_quality_summary = summarize_quality_score_list(
+        [frame_record.quality_score for frame_record in frame_record_list if frame_record.ocr_text]
+    )
     write_json_file(video_output_directory / "frame_ocr_records.json", [asdict(frame_record) for frame_record in frame_record_list])
 
     companion_text_block_list = [companion_note.text for companion_note in matched_companion_note_list]
@@ -734,7 +1085,7 @@ def print_terminal_summary(video_analysis_record_list: list[VideoAnalysisRecord]
     print("=" * 96)
     for video_analysis_record in video_analysis_record_list:
         print(
-            f"{video_analysis_record.file_name} | duration={video_analysis_record.duration_seconds} | transcript={video_analysis_record.transcript_generated} ({video_analysis_record.transcript_segment_count}) | frames={video_analysis_record.frame_extraction_generated} ({video_analysis_record.frame_record_count}) | ocr={video_analysis_record.ocr_generated} | terms={', '.join(video_analysis_record.matched_term_list) if video_analysis_record.matched_term_list else 'none'}"
+            f"{video_analysis_record.file_name} | duration={video_analysis_record.duration_seconds} | transcript={video_analysis_record.transcript_generated} ({video_analysis_record.transcript_segment_count}) | transcript_quality={video_analysis_record.transcript_quality_summary} | frames={video_analysis_record.frame_extraction_generated} ({video_analysis_record.frame_record_count}) | ocr={video_analysis_record.ocr_generated} | ocr_quality={video_analysis_record.ocr_quality_summary} | terms={', '.join(video_analysis_record.matched_term_list) if video_analysis_record.matched_term_list else 'none'}"
         )
 
 
