@@ -1,219 +1,65 @@
-# Machine_Learning_1.mp4
+# Overview  
 
-## Overview
+The video **Machine_Learning_1.mp4** demonstrates a workflow for exporting a TwinCAT‑based machine‑learning model to a Beckhoff PLC via the TestRig. The transcript indicates that the resulting XML files are stored in  
 
-- Source video: `.temp/video_guides/Machine_Learning_1.mp4`
-- Source analysis directory: `machine_learning_1` under `.temp/video_guides/_analysis_hq/`
-- Duration seconds: `1920.2666666666667`
-- Resolution: `2560x1440`
-- Transcript segments: `279`
-- Transcript quality summary: `{'min': 0.6349, 'median': 0.6687, 'max': 0.9237}`
-- OCR extracted: `True`
-- OCR quality summary: `{'min': 94.184, 'median': 100.0, 'max': 100.0}`
-
-## Video Scope
-
-- Matched term set: `TwinCAT, Beckhoff, TestRig, FB_Predict, ML_Transmission_Error, Predict_ML, speed, torque, temperature`
-- Companion-note matches: `none`
-
-## Executive Summary
-
-- The video contains direct evidence about the PLC-side prediction blocks and how the machine-learning path is orchestrated inside TwinCAT.
-- The transcript discusses multi-task execution timing and value exchange delays between the fast path and the machine-learning path.
-- The video is useful for understanding the practical simulation and data-interface contract used around the TwinCAT workflow.
-- Quality-gated OCR recovered readable UI text from selected TwinCAT screen regions instead of dumping unreadable full-frame text.
-
-## Key Technical Findings
-
-- `runtime` terms observed: `TwinCAT, Beckhoff, TestRig, speed, torque, temperature`
-- `prediction` terms observed: `FB_Predict, ML_Transmission_Error, Predict_ML`
-
-## Important Notes And Caveats
-
-- No companion-note caveats were attached to this report.
-- No pipeline issues were recorded for this video.
-
-## Reference Images
-
-### Reference Image 1
-
-Timestamp: `00:15:00`
-
-![Reference image at 00:15:00](assets/reference_01_00-15-00.png)
-
-### Reference Image 2
-
-Timestamp: `00:00:00`
-
-![Reference image at 00:00:00](assets/reference_02_00-00-00.png)
-
-### Reference Image 3
-
-Timestamp: `00:12:00`
-
-![Reference image at 00:12:00](assets/reference_03_00-12-00.png)
-
-### Reference Image 4
-
-Timestamp: `00:09:00`
-
-![Reference image at 00:09:00](assets/reference_04_00-09-00.png)
-
-## Transcript Highlights
-
-### Transcript Highlight 1
-
-Timestamp: `00:00:48`
-
-Quality score: `0.66`
-
-```text
-block che si chiama FBMLLPrediction o MEPrediction. Questa function block ha pochi input e pochi
 ```
+C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning
+```  
 
-### Transcript Highlight 2
+and are processed by the **Beckhoff Model‑Manager** (BECKHOFF) workflow. The selected reference snapshots (OCR‑assisted evidence) highlight key elements such as *“Open target folder”* and *“BECKHOFF”*, confirming that the export operation is initiated from the Beckhoff UI.
 
-Timestamp: `00:01:16`
+---
 
-Quality score: `0.67`
+## Why This Video Matters  
 
-```text
-Configure, GetInputDim, GetMaxConcurrency, GetModelName, PredictRef e Reset. Gli altri non ho
-```
+Understanding this video is essential for anyone integrating TwinCAT ML blocks into a Beckhoff PLC environment. It clarifies:
 
-### Transcript Highlight 3
+* **Model export** – how to generate an XML model file and place it in the designated folder.  
+* **PLC‑side orchestration** – use of `FB_Predict` function block, its inputs (`P_Experiment_Cam`, `P_Experiment_Filter`), and outputs (prediction results).  
+* **TwinCAT ↔ Beckhoff tooling** – the role of the Model‑Manager workflow in linking the ML model to TwinCAT’s prediction blocks.  
 
-Timestamp: `00:01:32`
+These points directly affect code adaptation, timing assumptions, and deployment reliability.
 
-Quality score: `0.67`
+---
 
-```text
-molto la distinzione tra Predict e PredictRef, perché dopo mi servirà per quando parlerò
-```
+## Main Technical Findings  
 
-### Transcript Highlight 4
+| Finding | Evidence (Transcript / Snapshot) |
+|---------|-----------------------------------|
+| **XML model files are generated** | “…sezionati vengono visti qui e si piace i file … il file lo converterà, va salvato direttamente su questa cartella secondo l’arturfance” – transcript 00:04:59‑00:09:57. |
+| **Beckhoff Model‑Manager is the export engine** | Snapshot 00:11:11 – reason *“Model export or Beckhoff model-manager workflow evidence”* → OCR text *“Open target folder”*. |
+| **FB_Predict block orchestrates prediction** | Transcript 00:19:52‑00:24:49 mentions `FB_Predict` and its failure to import a model without the correct reference. Snapshot 00:16:07 & 00:21:06 cite the block’s parameters (`P_Experiment_Cam`, `P_Experiment_Filter`). |
+| **Model input‑output assumptions** | Transcript 00:29:47‑00:31:59 notes that a task (e.g., “520 microseconds”) is slower than the drive’s native speed, implying higher latency in the ML path. Snapshot 00:30:20 references timing (`dae Expression Type Value …`). |
+| **Code‑adaptation implications** | The model must be referenced by a name (e.g., `T_MaxString`) and loaded via `bLoadModd BOOL`. Failure to load triggers an error, as shown in the transcript. |
 
-Timestamp: `00:01:37`
+---
 
-Quality score: `0.67`
+## TwinCAT And Deployment Implications  
 
-```text
-di come gestire i file. Infatti andiamo a vedere specialmente queste due. Predict ha diversi input
-```
+1. **Export Path & Naming** – All XML files are saved with the same base name as the original model; this must match the reference used in the PLC code (`T_MaxString`).  
+2. **Beckhoff Model‑Manager Workflow** – The workflow (evidence: “Open target path”) is invoked from TwinCAT’s ML export tool, producing a ready‑to‑import XML file.  
+3. **PLC Integration** – `FB_Predict` expects the model to be loaded (`bLoadModd BOOL`) and provides outputs such as `FB_MilPredic`. The block’s inputs are defined in the transcript (`P_Experiment_Cam`, `P_Experiment_Filter`).  
+4. **Timing Constraints** – The ML task runs at 520 µs, which is slower than the native drive speed; this latency must be accounted for when synchronizing motor commands.  
+5. **Error Handling** – If a model cannot be imported (missing reference), TwinCAT reports an error before any prediction can occur.
 
-### Transcript Highlight 5
+---
 
-Timestamp: `00:01:44`
+## Reference Snapshots  
 
-Quality score: `0.67`
+The video’s selected OCR‑assisted snapshots provide conceptual evidence of the workflow:
 
-```text
-e un output. Un output vedete che è un booleano. Questo come PredictRef, che vedremo in seguito,
-```
+* **00:11:11** – “Open target folder” → confirms the export destination.  
+* **00:16:07 / 00:21:06** – Display of `FB_Predict` block parameters, linking model name (`T_MaxString`) to input arrays and outputs.  
+* **00:30:20** – Timing expression (`dae Expression Type Value …`) indicating the 520 µs task duration.
 
-### Transcript Highlight 6
+These snapshots are not raw OCR dumps; they illustrate key configuration points that guide TwinCAT‑Beckhoff integration.
 
-Timestamp: `00:02:04`
+---
 
-Quality score: `0.67`
+## Open Questions Or Uncertain Points  
 
-```text
-ma in realtà realizzano la predizione tramite gli input che tu gli vai a inserire. I due Predict e
-```
+* **Exact model reference naming** – The transcript mentions “T_MaxString” but does not specify how the name is derived from the XML file.  
+* **Error propagation** – When `bLoadModd` fails, what downstream effect occurs on `FB_Predict_Amp`?  
+* **Scalability of 520 µs task** – Is this latency acceptable for real‑time motor control, or does it require additional buffering?  
 
-### Transcript Highlight 7
-
-Timestamp: `00:02:12`
-
-Quality score: `0.67`
-
-```text
-PredictRef, che possiamo vedere in seguito, hanno più o meno gli stessi input. Infatti hanno
-```
-
-### Transcript Highlight 8
-
-Timestamp: `00:03:23`
-
-Quality score: `0.66`
-
-```text
-soltanto che è l'out, l'output del predict, quindi la predizione. Anche questo può essere
-```
-
-### Transcript Highlight 9
-
-Timestamp: `00:03:52`
-
-Quality score: `0.65`
-
-```text
-che è anche un ID, che è in comune sempre con predict ref, e in questo caso ti permetti
-```
-
-### Transcript Highlight 10
-
-Timestamp: `00:04:21`
-
-Quality score: `0.65`
-
-```text
-questo elemento. La differenza tra predict ref e predict è questa variabile qua, dove
-```
-
-## OCR Highlights
-
-### OCR Highlight 1
-
-Timestamp: `00:00:00`
-
-Quality score: `100.00`
-
-Selected region: `left_navigation`
-
-```text
-- Come convertire i file - Come unire i file - Funzionamento dei Func’ - FB Predict - ML_Transmissiol - Funzionamento Esperime
-```
-
-### OCR Highlight 2
-
-Timestamp: `00:15:00`
-
-Quality score: `100.00`
-
-Selected region: `left_navigation`
-
-```text
-ae nInputDin TEST_RIG_MOTORS (ENUM) TEST_RIG_TORQUE_SENSORS (ENUM) bEnable req_reset 4 (2 GVLs bLoadModel tb Global_Variables Model_input 4 (2 POUs END_VAR 4 Experiments VAR Fl P_Experiment_Cam_Correction_TE_ML (PRG} a P_Experiment_Cam_lterativeLearning (PRG) nState Hie ai] P_Experiment_Cam_with_TECompens (PRG) Pa nOutputDin a) P_Experiment_Cam_with_TorqueFFw (PRG) Pa Prova Pa Preferred ai] P_Experiment_CommunicationCycles (PRG) P_Experiment_FilteredTorquePID (PRG) ce the mo adel i] P_Experiment_FilteredTorqueSweep (PRG) ai] P_Experiment_MotorDisturb (PRG) rtrig_model (CLK:= bLoaq P_Experiment_MotorDisturb_Disengaged (PRG) IF rtrig_model.Q THEN a P_Experiment_Moving lorqueSweep (PRG) bConfigure P_Experiment_PIDResonance (PRG) end_IF Fl P_Experiment_TE_Vel_Torque_Temp (PRG) IP bLoadModel AND NOT ({] a fbPredict.stPredic P_Experiment_TE_velCtrl_Fw (PRG) : IF fbPredict.Confi P_Experiment_Torque_ADRC (PRG) ABORT P_Experiment_Torque_SineSweep (PRG) ai] (PRG) Pa foPredict.GetL a P_Experiment_TorquePID (PRG) Pa a P_Experiment_TorqueRamp (PRG) fbPredict.GetM a] P_Experiment_TrialStage (PRG) Pa bConfigure = = Pa ai] P_Experiment_VelCost_At_Temp (PRG) END_IF wi] P_Experiment_VelCost_At_Temp_Load (PRG) END_IP a] P_Experiment_VelocityRamp (PRG) 4 Library 4 (3 Function Blocks IP bEnable AND 4 (3 ADRC_controller Predict ot i] ADRC_Grade_3 (FB) ESO pDataInp = AD] Em IPG = nDataInpDin = 4.9 MachineLeraning fmtDataInpType <@- F8_Predict (F8) pDataOut = AD Gl ML_Transmission_Error (FB) nDataOutDim ae m fmtDataOutType = tl Predict_ML (PRG) sEngineRef = = 4 (3 xBoschMotor 31 d Fl FB_BoschMotorEncoder (FB) Me d FB_Coupling (FB} BS d a FB_DoubleSGenerator 34 Fl FB_IncrementalToModuloPosition (FB) END_IP Gi] FB_PTPTrajectory (FB) + Fl FB_RampGenerator (FB) re zr a FB_SignalVariationDelaylnCycles (FB) heErrorcede = = error = = Gi] FB_SineSweep (FB) FB_SineWaveGenerator (FB) a FB_SyncMotor (FB) Error List FB_TorquePID_Filter_SS (FB) Db xCSV_and_Vectors Entire Solution d i] xFiltering = Description v D xSensors D Functions 4 TestRig d Gi] FB_BoschMotor (FB) d (FB) d Gl FB_LightDevice (FB)
-```
-
-### OCR Highlight 3
-
-Timestamp: `00:03:00`
-
-Quality score: `94.30`
-
-Selected region: `left_navigation`
-
-```text
-Ret BOOL 6.2.2.1 85 86 87 Syntax Definitio METHOD INPI pDa nDa fmt! 88 pDa nDa fmt! nEn¢ nCo! 89
-```
-
-### OCR Highlight 4
-
-Timestamp: `00:06:00`
-
-Quality score: `94.18`
-
-Selected region: `center_workspace`
-
-```text
-89 / 101 — 201% Lx] & VAR_INPUT nOutputDim : Reference To UDINT; END VAR 7 Inputs Name nOutputDim Reference To UDINT Size of the output data array Return value BOOL 6.2.2.1.13 Predict Predict pDataInp Predict nDataInpDim fmtDataInpType pDataOut nDataOutDim fmtDataOutType nConcurrencyld Syntax Definition: METHOD Predict : BOOL VAR_INPUT
-```
-
-## Potential Impact On TwinCAT Model Deployment
-
-- The report reinforces that future exported models must fit the Beckhoff prediction-wrapper contract already used in the TestRig PLC code.
-- The video remains relevant for deciding whether a new model can stay inside the current harmonic reconstruction structure or whether TwinCAT logic must change.
-- Any future deployment path must be evaluated together with the task-cycle and inter-task delay budget, not only with raw inference speed.
-- The video helps preserve the practical input, sign, and reconstruction assumptions that a TwinCAT-ready model export must respect.
+These questions remain open and may need further testing with the actual model files.

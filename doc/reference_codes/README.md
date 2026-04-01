@@ -19,6 +19,9 @@ The purpose of these documents is to preserve the most useful implementation pat
 - [testrig_twincat_video_guides_reference.md](./testrig_twincat_video_guides_reference.md)
   Reference note for the repository-local video-guide extraction workflow,
   companion-note errata, and reusable analysis path for TwinCAT/TestRig media.
+- [video_guides/README.md](./video_guides/README.md)
+  Repository-owned per-video report tree for the analyzed TwinCAT/TestRig
+  video guides, including copied reference images.
 
 ## Usage
 
