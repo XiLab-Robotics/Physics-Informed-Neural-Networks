@@ -470,6 +470,11 @@ python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machi
 This keeps the repository and final artifacts on the current workstation while
 delegating transcript extraction, OCR, and LLM synthesis to the remote node.
 
+The LAN node OCR path now reports initialization and execution failures
+explicitly. In particular, the previously observed PaddleOCR constructor crash
+on `show_log` is handled by a compatibility probe in the node server instead of
+surfacing as an opaque `500`.
+
 For the full remote high-quality rerun, prefer the tracked launcher instead of a
 manual loop:
 

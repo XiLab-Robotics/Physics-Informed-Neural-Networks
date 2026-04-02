@@ -833,6 +833,34 @@ New-NetFirewallRule -Name "LM-Studio-1234" -DisplayName "LM Studio 1234" -Enable
 - verify the request uses `Authorization: Bearer ...`;
 - verify the target model is loaded or available.
 
+### `/ocr` Returns `500` Or Fails During PaddleOCR Initialization
+
+- if an older remote node revision still passes `show_log=False` into
+  `PaddleOCR(...)`, upgrade to the current repository version;
+- the validated compatibility fix now probes newer and older constructor
+  surfaces in this order:
+  - `use_textline_orientation=True`
+  - `use_angle_cls=True`
+  - no orientation-specific argument
+- the node now returns explicit `503` OCR details instead of an opaque FastAPI
+  crash when PaddleOCR initialization or execution fails;
+- the earlier client-visible text `Selected model is at capacity. Please try a
+  different model.` is not the same root cause as the confirmed PaddleOCR
+  `show_log` incompatibility.
+
+Validated symptom from the old failing runtime:
+
+```text
+ValueError: Unknown argument: show_log
+```
+
+With the current repository version, the client-side workflow should now
+surface LAN OCR failures in a diagnostic form that includes:
+
+- the failing endpoint;
+- the HTTP status code;
+- the OCR error body returned by the remote node.
+
 ### `faster-whisper` Fails On CUDA
 
 - start once in CPU mode to validate the whole flow;

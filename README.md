@@ -48,6 +48,7 @@ Implemented today:
 - styled report generation and PDF validation tooling;
 - repository-owned TwinCAT/TestRig video-guide tooling for high-quality transcript extraction, evidence-driven snapshots, and OCR-assisted report synthesis through Google GenAI;
 - a repository-owned LAN AI node path for remote `LM Studio`, `faster-whisper`, and `PaddleOCR` integration while keeping repository orchestration on the current workstation;
+- explicit LAN OCR compatibility handling for current `PaddleOCR` versions, with clearer remote-node diagnostics instead of opaque OCR-side `500` crashes;
 - repository-owned per-video report generation for analyzed TwinCAT/TestRig video guides;
 - a formalized remote-strong TwinCAT/TestRig video-analysis pipeline with tracked reruns, promoted canonical artifacts, and cross-video knowledge synthesis;
 - dual `NotebookLM` source-package tracks for guide-local concept videos and
@@ -389,6 +390,8 @@ and inspectable.
   [2026-04-02-12-04-06_remote_video_artifact_promotion_and_tracking_readme.md](./doc/technical/2026-04-02/2026-04-02-12-04-06_remote_video_artifact_promotion_and_tracking_readme.md).
 - The remote video-pipeline formalization and TwinCAT knowledge-synthesis plan is documented in
   [2026-04-02-12-27-44_remote_video_pipeline_formalization_and_twincat_knowledge_synthesis.md](./doc/technical/2026-04-02/2026-04-02-12-27-44_remote_video_pipeline_formalization_and_twincat_knowledge_synthesis.md).
+- The LAN AI node OCR 500 regression check and PaddleOCR compatibility fix plan is documented in
+  [2026-04-02-12-42-24_lan_ai_node_ocr_500_regression_check_and_paddleocr_compatibility_fix.md](./doc/technical/2026-04-02/2026-04-02-12-42-24_lan_ai_node_ocr_500_regression_check_and_paddleocr_compatibility_fix.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

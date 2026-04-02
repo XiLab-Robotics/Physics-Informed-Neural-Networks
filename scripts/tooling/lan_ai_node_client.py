@@ -101,7 +101,16 @@ def post_file_to_lan_ai_node(
         files={file_field_name: (upload_name, upload_bytes)},
         timeout=timeout_seconds,
     )
-    response.raise_for_status()
+    try:
+        response.raise_for_status()
+    except requests.HTTPError as error:
+        response_body_text = collapse_whitespace(response.text)
+        raise AssertionError(
+            "LAN AI node request failed. "
+            f"endpoint={endpoint_url!r}; "
+            f"status_code={response.status_code}; "
+            f"response_body={response_body_text!r}"
+        ) from error
 
     payload = response.json()
     assert isinstance(payload, dict), "LAN AI node returned a non-dict JSON payload."

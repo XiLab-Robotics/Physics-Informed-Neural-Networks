@@ -33,6 +33,16 @@ Run the heavier inference services on the second workstation:
 Use local OCR fallback on the current workstation when the remote OCR path is
 less stable than transcription and LLM inference.
 
+This is still the preferred canonical runtime even after the LAN node OCR
+compatibility fix, because the validated strongest batch used:
+
+- remote `large-v3` transcription;
+- remote `openai/gpt-oss-20b` cleanup and report generation;
+- local OCR for snapshot evidence.
+
+The remote OCR endpoint is still useful for spot checks and future recovery
+work, but it is no longer required for the canonical strong rerun.
+
 ## Canonical Runtime Configuration
 
 The preferred tracked path is:
@@ -165,7 +175,14 @@ Typical failure classes:
 - remote LAN node timeout;
 - remote `LM Studio` model crash or reload;
 - malformed cleanup JSON;
+- remote OCR initialization failure from PaddleOCR version drift;
 - transcript/report Markdown not saved or not validated.
+
+For the OCR-specific regression that was observed in an earlier runtime, the
+confirmed root cause was a `PaddleOCR(...)` constructor mismatch on
+`show_log=False`. The repository LAN node now probes PaddleOCR constructor
+compatibility explicitly and returns a diagnostic `503` instead of an opaque
+`500` crash.
 
 Recovery policy:
 

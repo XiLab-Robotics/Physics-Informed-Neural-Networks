@@ -103,11 +103,36 @@ def get_paddle_ocr(language: str) -> Any:
     assert PaddleOCR is not None, "PaddleOCR is not installed on this node."
     normalized_language = language.strip() or "en"
     if normalized_language not in PADDLE_OCR_CACHE:
-        PADDLE_OCR_CACHE[normalized_language] = PaddleOCR(
-            use_angle_cls=True,
-            lang=normalized_language,
-            show_log=False,
-        )
+        initialization_error_message_list: list[str] = []
+        constructor_argument_map_list = [
+            {
+                "lang": normalized_language,
+                "use_textline_orientation": True,
+            },
+            {
+                "lang": normalized_language,
+                "use_angle_cls": True,
+            },
+            {
+                "lang": normalized_language,
+            },
+        ]
+
+        for constructor_argument_map in constructor_argument_map_list:
+            try:
+                PADDLE_OCR_CACHE[normalized_language] = PaddleOCR(**constructor_argument_map)
+                break
+            except (TypeError, ValueError) as error:
+                initialization_error_message_list.append(
+                    f"{constructor_argument_map!r} -> {error}"
+                )
+
+        if normalized_language not in PADDLE_OCR_CACHE:
+            error_summary_text = " | ".join(initialization_error_message_list)
+            raise RuntimeError(
+                "Failed to initialize PaddleOCR for "
+                f"language={normalized_language!r}. Attempts: {error_summary_text}"
+            )
 
     return PADDLE_OCR_CACHE[normalized_language]
 
@@ -345,8 +370,22 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
             temporary_file.write(await image_file.read())
 
         try:
-            paddle_ocr = get_paddle_ocr(language)
-            ocr_result = paddle_ocr.ocr(str(temporary_file_path), cls=True)
+            try:
+                paddle_ocr = get_paddle_ocr(language)
+            except Exception as error:
+                raise HTTPException(
+                    status_code=503,
+                    detail=f"PaddleOCR initialization failed: {error}",
+                ) from error
+
+            try:
+                ocr_result = paddle_ocr.ocr(str(temporary_file_path), cls=True)
+            except Exception as error:
+                raise HTTPException(
+                    status_code=503,
+                    detail=f"PaddleOCR execution failed: {error}",
+                ) from error
+
             ocr_text, average_confidence = collect_paddle_ocr_text_and_confidence(ocr_result)
 
             return {
