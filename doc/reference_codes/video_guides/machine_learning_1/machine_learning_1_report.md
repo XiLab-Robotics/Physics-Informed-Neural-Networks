@@ -1,65 +1,88 @@
-# Overview  
+# TwinCAT/TestRig Video Guide – Machine_Learning_1.mp4  
 
-The video **Machine_Learning_1.mp4** demonstrates a workflow for exporting a TwinCAT‑based machine‑learning model to a Beckhoff PLC via the TestRig. The transcript indicates that the resulting XML files are stored in  
+*Technical Report (Markdown)*  
 
-```
-C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning
-```  
+---
 
-and are processed by the **Beckhoff Model‑Manager** (BECKHOFF) workflow. The selected reference snapshots (OCR‑assisted evidence) highlight key elements such as *“Open target folder”* and *“BECKHOFF”*, confirming that the export operation is initiated from the Beckhoff UI.
+## Overview  
+
+The video **Machine_Learning_1.mp4** demonstrates the end‑to‑end workflow for integrating a machine‑learning (ML) model into a Beckhoff TwinCAT PLC environment using the TestRig framework. The key steps covered are:  
+
+1. **Exporting an ML model** from the laboratory’s Python/Matlab pipeline to an XML file that can be consumed by the Beckhoff Model Manager.  
+2. **Importing the XML** into TwinCAT via the *Model Manager* UI and converting it into a PLC‑ready format.  
+3. **Instantiating the generated function blocks (FBs)** in the TestRig project, wiring them to the motor/torque sensors, and configuring input/output parameters.  
+4. **Running the prediction loop** with a 500 µs task period and observing the real‑time output on the PLC side.  
+
+The companion notes point to the folder where all simulation files are stored:  
+`C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning`.  
+All XML model files referenced in the video reside here.
 
 ---
 
 ## Why This Video Matters  
 
-Understanding this video is essential for anyone integrating TwinCAT ML blocks into a Beckhoff PLC environment. It clarifies:
-
-* **Model export** – how to generate an XML model file and place it in the designated folder.  
-* **PLC‑side orchestration** – use of `FB_Predict` function block, its inputs (`P_Experiment_Cam`, `P_Experiment_Filter`), and outputs (prediction results).  
-* **TwinCAT ↔ Beckhoff tooling** – the role of the Model‑Manager workflow in linking the ML model to TwinCAT’s prediction blocks.  
-
-These points directly affect code adaptation, timing assumptions, and deployment reliability.
+- **Bridging ML and PLC** – It shows a practical, reproducible method for moving a trained neural network from a research environment into an industrial controller.  
+- **Real‑time constraints** – The 500 µs task period illustrates how to meet tight timing requirements while still executing complex inference logic.  
+- **Modular design** – By using the TestRig’s function blocks, developers can swap models or update parameters without rewriting PLC code.  
 
 ---
 
 ## Main Technical Findings  
 
-| Finding | Evidence (Transcript / Snapshot) |
-|---------|-----------------------------------|
-| **XML model files are generated** | “…sezionati vengono visti qui e si piace i file … il file lo converterà, va salvato direttamente su questa cartella secondo l’arturfance” – transcript 00:04:59‑00:09:57. |
-| **Beckhoff Model‑Manager is the export engine** | Snapshot 00:11:11 – reason *“Model export or Beckhoff model-manager workflow evidence”* → OCR text *“Open target folder”*. |
-| **FB_Predict block orchestrates prediction** | Transcript 00:19:52‑00:24:49 mentions `FB_Predict` and its failure to import a model without the correct reference. Snapshot 00:16:07 & 00:21:06 cite the block’s parameters (`P_Experiment_Cam`, `P_Experiment_Filter`). |
-| **Model input‑output assumptions** | Transcript 00:29:47‑00:31:59 notes that a task (e.g., “520 microseconds”) is slower than the drive’s native speed, implying higher latency in the ML path. Snapshot 00:30:20 references timing (`dae Expression Type Value …`). |
-| **Code‑adaptation implications** | The model must be referenced by a name (e.g., `T_MaxString`) and loaded via `bLoadModd BOOL`. Failure to load triggers an error, as shown in the transcript. |
+| Topic | Observation | Evidence |
+|-------|-------------|----------|
+| **Model Export Path** | Models are exported as XML files that include multiple references (`reference="ingen40"` etc.). | Transcript: “All’interno di un file XML è possibile inserire più modelli e riferirsi a ciascuno tramite il nome di reference assegnato.” |
+| **Import UI Flow** | The user selects XML files, the Model Manager lists them, and the *Convert* button generates PLC‑compatible FBs. | Transcript: “Perciò si vanno a selezionare i file, ovviamente XML; una volta selezionati vengono visualizzati qui e si preme 'Conve'.” |
+| **Function Block Structure** | Each model yields an FB with parameters such as `ModelName`, `ninputDim`, `bEnable`, and I/O arrays (`Vector_Input`). | OCR 00:21:06 – shows `49 sModelName T_MaxString P_Experiment_Cam ninputDim UDINT … Vector_Input ARRAY [0..2] OF REAL`. |
+| **Task Timing** | The prediction task runs every 500 µs, slower than drive tasks but sufficient for the number of components. | OCR 00:29:49 – “Il task ha una durata di 500 µs; è più lento rispetto a quello realizzato per i drive perché…” |
+| **Data Flow** | Inputs come from sensor FBs (`TEST_RIG_TORQUE_SEN`) and outputs are written to motor command variables. | OCR 00:16:07 – lists `TEST_RIG_MOTORS`, `FB_Predict_Amp`, etc. |
+| **Error Handling** | A dedicated FB (`FB_ML_TE`) monitors transmission errors, exposing flags like `Busy` and `Enable_TE`. | OCR 00:30:21 – shows `FB_ML_TE ML_Transmission_Error 9 Busy BOOL FALSE Enable_TE BOOL FALS`. |
 
 ---
 
 ## TwinCAT And Deployment Implications  
 
-1. **Export Path & Naming** – All XML files are saved with the same base name as the original model; this must match the reference used in the PLC code (`T_MaxString`).  
-2. **Beckhoff Model‑Manager Workflow** – The workflow (evidence: “Open target path”) is invoked from TwinCAT’s ML export tool, producing a ready‑to‑import XML file.  
-3. **PLC Integration** – `FB_Predict` expects the model to be loaded (`bLoadModd BOOL`) and provides outputs such as `FB_MilPredic`. The block’s inputs are defined in the transcript (`P_Experiment_Cam`, `P_Experiment_Filter`).  
-4. **Timing Constraints** – The ML task runs at 520 µs, which is slower than the native drive speed; this latency must be accounted for when synchronizing motor commands.  
-5. **Error Handling** – If a model cannot be imported (missing reference), TwinCAT reports an error before any prediction can occur.
+1. **Model Manager Integration**  
+   - The XML must follow the Beckhoff schema; otherwise the *Convert* step fails.  
+   - Multiple models can coexist in one file, but each requires a unique `reference` name to be instantiated separately.
+
+2. **Function Block Instantiation**  
+   - Generated FBs are placed under `POUs`.  
+   - Developers must manually wire input arrays (`Vector_Input`) and output variables (e.g., `Model_Ampl`, `Model_phase`).  
+
+3. **Timing Constraints**  
+   - A 500 µs task period is chosen to balance inference complexity with real‑time requirements.  
+   - If the model size grows, consider increasing the task period or optimizing the FB code.
+
+4. **Error Monitoring**  
+   - The `FB_ML_TE` block should be connected to a watchdog or safety system; its `Busy` flag can trigger fallback logic if inference stalls.
+
+5. **Deployment Packaging**  
+   - After configuring the FBs, compile the project and download it to the target PLC.  
+   - Verify that the XML path (`C:\Users\Admini...`) is accessible on the PLC host or adjust the path in the FB parameters.
 
 ---
 
 ## Reference Snapshots  
 
-The video’s selected OCR‑assisted snapshots provide conceptual evidence of the workflow:
+| Timestamp | Concept | Snapshot Description |
+|-----------|---------|----------------------|
+| 00:08:41 | Model Manager UI – *Open target folder* button | Shows the file explorer dialog where XML files are selected. |
+| 00:16:07 | Function Block navigation – `TEST_RIG_MOTORS` and `FB_Predict_*` | Highlights the FBs that handle motor commands and predictions. |
+| 00:21:06 | Parameter panel of a generated FB (`P_Experiment_Cam`) | Displays input dimension, enable flag, and reset request. |
+| 00:30:21 | Task configuration – *ML Transmission Error* block | Illustrates the error monitoring logic tied to the prediction task. |
 
-* **00:11:11** – “Open target folder” → confirms the export destination.  
-* **00:16:07 / 00:21:06** – Display of `FB_Predict` block parameters, linking model name (`T_MaxString`) to input arrays and outputs.  
-* **00:30:20** – Timing expression (`dae Expression Type Value …`) indicating the 520 µs task duration.
-
-These snapshots are not raw OCR dumps; they illustrate key configuration points that guide TwinCAT‑Beckhoff integration.
+These snapshots conceptually represent the UI elements and code structures discussed in the video; they are not raw OCR dumps but rather summarized views of the relevant sections.
 
 ---
 
 ## Open Questions Or Uncertain Points  
 
-* **Exact model reference naming** – The transcript mentions “T_MaxString” but does not specify how the name is derived from the XML file.  
-* **Error propagation** – When `bLoadModd` fails, what downstream effect occurs on `FB_Predict_Amp`?  
-* **Scalability of 520 µs task** – Is this latency acceptable for real‑time motor control, or does it require additional buffering?  
+1. **Model Size Limits** – The video does not specify how many layers or neurons can be accommodated before the 500 µs period becomes insufficient.  
+2. **Memory Footprint** – No explicit data on RAM usage for the generated FBs; this could impact deployment on smaller PLCs.  
+3. **Dynamic Model Reloading** – It is unclear whether the system supports hot‑reloading of a new XML without recompiling the entire project.  
+4. **Safety Integration** – While `FB_ML_TE` monitors errors, the video does not show how these flags are integrated into a safety PLC or HMI.  
 
-These questions remain open and may need further testing with the actual model files.
+Addressing these points would strengthen confidence in deploying ML models at scale within TwinCAT TestRig environments.
+
+---

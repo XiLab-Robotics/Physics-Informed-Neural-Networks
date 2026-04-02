@@ -1,57 +1,88 @@
-# Overview  
+# TwinCAT/TestRig Video Guide – Machine Learning 1
 
-The video **TestRig - Machine_Learning 1.mp4** demonstrates the end‑to‑end flow of exporting a TwinCAT ML model from Beckhoff’s Model Manager, importing it into TwinCAT 15 via code, and using the resulting prediction blocks on the PLC side. The companion transcript file is located at  
-
-```
-C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning
-```  
-
-The selected reference snapshots (e.g., 00:30:17 – “Task timing and inter‑task communication”, 00:11:10 – “Model export or Beckhoff model‑manager workflow”) illustrate the key points of this flow without reproducing raw OCR text.
+**Video:** *TestRig - Machine_Learning 1.mp4*  
+**Transcript source:** `Machine_Learning_1.txt` (extracted from the video)  
+**Reference snapshots:** Conceptually referenced in the report; actual image files are stored under  
+`C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning`
 
 ---
 
-## Why This Video Matters  
+## Overview
 
-Understanding how TwinCAT ML models are exported, packaged in an XML file with multiple references, and then instantiated as prediction blocks is critical for any integration that relies on Beckhoff’s **TwinCAT** toolchain. The video clarifies the data‑flow assumptions (input arrays, output strings), the role of `Global_Variables` for model loading, and the impact of timing delays on downstream tasks such as motor control.
+The video demonstrates how a Beckhoff TwinCAT PLC can be used to orchestrate machine‑learning (ML) predictions for a TestRig experiment. It covers:
 
----
+1. **Importing an exported ML model** from the *Beckhoff Model Manager* into the PLC project.
+2. **Configuring the prediction function block** (`FB_Predict_*`) with input dimensions, enable flags, and reset signals.
+3. **Running predictions in real‑time** while monitoring task timing and inter‑task communication through global variables.
 
-## Main Technical Findings  
-
-| Finding | Evidence Reference |
-|---------|--------------------|
-| **Model export** is performed through Beckhoff’s Model Manager; the exported file is an XML that contains several models linked by a common name (`Raffronz`). | Snapshot 00:11:10 – “Open target folder”. |
-| **Import via code** uses `LoadModel_ins` and writes the model to a local path, then creates prediction blocks (`FB_Predict_Amp`, `FB_Predict`). The import must succeed; otherwise an error is raised. | Snapshot 00:30:17 – “Task timing and inter‑task communication”. |
-| **Prediction block configuration** includes: <br>• `sModelName` (string) <br>• `P_Experiment_Cam` (UDINT, input dimension) <br>• `FB_Predict_Amp` (BOOL) <br>• `FB_Predict` (BOOL) <br>• `FB_MilPredic` (STRING(255)) | Snapshot 00:16:07 – “TwinCAT prediction blocks and PLC‑side ML orchestration”. |
-| **Input array** is defined as `%I* %I*` (real values) with a size of `[0..2]`. The model expects two real inputs per call. | Snapshot 00:16:07 – “Vector_Input ARRAY [0..2] OF REAL”. |
-| **Output string** is limited to 255 characters (`Model_Ampl STRING(255)`). | Same snapshot as above. |
-| **Timing delay** observed when the model is loaded from disk (≈ 49 s) due to file‑system constraints, which can affect real‑time performance. | Snapshot 00:30:17 – “Task timing and inter‑task communication”. |
-| **Two deficiencies** are noted in the test rig: <br>1. `FB_Predict_Amp` never becomes TRUE (busy flag FALSE). <br>2. `ML_Transmission_Error` remains FALSE despite a non‑zero error condition. | Transcript 00:04:58 – “deficiencies un bloc fb predicto e l’intransmission error”. |
+The companion notes point to the folder where all simulation files (XML, model exports, snapshots) are located, providing a clear directory structure for reproducibility.
 
 ---
 
-## TwinCAT And Deployment Implications  
+## Why This Video Matters
 
-1. **File location & naming** – The XML must be placed in the folder referenced by `Open target folder`. All models share the identifier **Raffronz**; any change to this name breaks downstream code that references it.  
-2. **Prediction block wiring** – The PLC side uses `Global_Variables` (index 4) to pass model‑specific parameters (`FB_Predict_Amp`, `FB_Predict`). Ensure these variables are correctly populated before invoking the block.  
-3. **Input/output assumptions** – The model expects a 2‑element real array (`%I* %I*`) and returns a string ≤ 255 characters. Mismatched dimensions or length will cause silent failures (e.g., `FB_Predict_Amp` stays FALSE).  
-4. **Code‑adaptation impact** – Because the model is loaded via code, any change to the XML (new models, renamed identifiers) requires a rebuild of the TwinCAT project and recompilation of the PLC program that calls `LoadModel_ins`. This adds a non‑trivial deployment step.  
-5. **Timing considerations** – The 49 s load time is a bottleneck for real‑time loops; consider pre‑loading models into memory or using faster storage (e.g., SSD) to meet the 500 µs task window.
+- **Bridging ML and PLC:** It shows a concrete workflow that connects an externally trained ML model (e.g., from Python or MATLAB) with a real‑time PLC control loop.
+- **Deployment Insight:** Demonstrates how to package the model as XML, load it via the Model Manager, and expose its parameters through TwinCAT’s POUs.
+- **Performance Awareness:** Highlights task timing considerations when predictions are performed in a slower task than drive updates, which is critical for safety‑critical robotics.
 
 ---
 
-## Reference Snapshots  
+## Main Technical Findings
 
-- **Snapshot 00:30:17** – Illustrates *Task timing and inter‑task communication*. It shows that the model’s execution is part of a larger workflow where delays (e.g., file I/O) propagate to subsequent tasks such as motor control. This snapshot confirms the need for low‑latency data paths.  
-- **Snapshot 00:11:10** – Shows *Model export or Beckhoff model‑manager workflow*. The screenshot highlights the “Open target folder” step, confirming that the XML file containing multiple models linked by `Raffronz` is the source of truth for TwinCAT ML integration.
+| Topic | Key Points |
+|-------|------------|
+| **Model Export** | The model is exported as an XML file from the ML environment and placed in the *Machine Learning* folder. The video shows selecting this file in the Model Manager, then clicking “Convert Files”. |
+| **Function Block Configuration** | `FB_Predict_*` blocks expose properties such as: <br>• `nInputDim` (UDINT) – number of input features.<br>• `bEnable` (BOOL) – start prediction when true.<br>• `req_reset` (BOOL) – reset internal state.<br>• `bLoadModed` (BOOL) – load the model into memory. |
+| **Global Variables** | A set of GVLs (`Global_Variables`) holds flags like `Busy`, `Enable_TE`, and vectors for input/output (`Vector_Input`). These are shared between tasks to coordinate prediction requests. |
+| **Task Timing** | The prediction task runs at a lower frequency than the drive control task, causing observable delays in the experiment. This is intentional to accommodate the computational load of ML inference. |
+| **Inter‑Task Communication** | Inputs from sensors (`P_Experiment_Cam`, `P_Experiment_Torque_Sen`) are fed into the prediction block via POUs (`FB_Predict_Amp`, `FB_Predict_Phase`). Outputs are routed back to actuator commands after optional filtering or compensation routines. |
 
 ---
 
-## Open Questions Or Uncertain Points  
+## TwinCAT And Deployment Implications
 
-1. **Exact path** – The transcript mentions a local folder but does not specify whether the model must be copied to a specific sub‑folder (e.g., `Model_Export`). Clarify if the path is absolute or relative to the TwinCAT project root.  
-2. **Identifier consistency** – All models reference the name *Raffronz*. Is this a hard‑coded constant in the PLC code, or does it come from an external configuration file? A mismatch could cause `FB_Predict_Amp` to remain FALSE.  
-3. **Error handling** – The video notes “intransmission error” but the screenshot shows `ML_Transmission_Error = FALSE`. How is this flag supposed to be set, and why does it stay clear in practice?  
-4. **Performance bottleneck** – The 49 s load time is far longer than the 500 µs task window. Is there a possibility of pre‑loading models into memory at startup, or must each call trigger a reload?  
+1. **Model Manager Integration**  
+   - The Model Manager must be configured to recognize the XML format used by the exported ML model.  
+   - After conversion, the generated POUs can be added to the PLC project and linked to the appropriate tasks.
 
-These points remain open for further investigation to ensure reliable TwinCAT ML deployment on the TestRig.
+2. **Memory Footprint**  
+   - Loading large models (`bLoadModed = TRUE`) consumes RAM; ensure the target CPU has sufficient memory or consider quantized/compact models.
+
+3. **Task Scheduling**  
+   - Place the prediction block in a dedicated task with a period that balances latency and computational load (e.g., 10 ms vs. 1 ms for drive updates).  
+   - Use `Busy` flags to prevent overlapping predictions.
+
+4. **Safety & Redundancy**  
+   - The `req_reset` signal allows the system to recover from erroneous states without rebooting the PLC.  
+   - Implement watchdog checks on prediction outputs before applying them to actuators.
+
+5. **Code Adaptation**  
+   - When porting this setup to another experiment, adjust `nInputDim`, input vector names, and output handling accordingly.  
+   - Ensure that any new POUs follow the same property naming convention for consistency.
+
+---
+
+## Reference Snapshots
+
+The video references several snapshots of the TwinCAT IDE:
+
+- **Navigation Pane** – shows the hierarchy: *Gig TEST_RIG_MOTORS*, *FB_Predict_* blocks, and global variables.  
+- **Properties Window** – displays key parameters (`nInputDim`, `bEnable`, etc.) for each function block.  
+- **Model Manager Dialog** – illustrates the “Open target folder” button used to locate the XML file.
+
+These snapshots are stored in the *Machine Learning* directory and can be reviewed to verify the exact configuration shown in the video.
+
+---
+
+## Open Questions Or Uncertain Points
+
+| Question | Context |
+|----------|---------|
+| **Model Format** | The exact schema of the exported XML (e.g., whether it includes quantization tables) is not detailed. |
+| **Prediction Latency** | Precise timing measurements for the prediction task are not provided; only qualitative statements about delays. |
+| **Error Handling** | How the system reacts to model loading failures or malformed input vectors remains unspecified. |
+| **Scalability** | No discussion on scaling to multiple simultaneous predictions or higher‑frequency tasks. |
+
+Addressing these points would strengthen confidence in deploying this workflow in production environments.
+
+---

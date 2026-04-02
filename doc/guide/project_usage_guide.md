@@ -309,6 +309,8 @@ The validated LAN workflow also includes:
 - chunked LM Studio cleanup for LAN transcripts, built from timestamped
   `faster-whisper` segments returned by the remote node instead of a single
   full-transcript cleanup prompt.
+- a tracked remote rerun launcher that processes one video at a time, writes a
+  persistent per-video checklist, and stops on the first failing video.
 
 At minimum, the current workstation needs these environment variables:
 
@@ -347,6 +349,24 @@ Canonical LAN-backed workflow command:
 ```powershell
 python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
 ```
+
+Tracked remote batch launcher:
+
+```powershell
+.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+```
+
+The launcher uses the strongest currently validated practical path:
+
+- remote `large-v3` transcription through the LAN AI node;
+- remote `openai/gpt-oss-20b` cleanup and report generation through `LM Studio`;
+- local OCR fallback for snapshot evidence;
+- one video at a time with stop-on-failure behavior.
+
+It writes persistent runtime tracking into:
+
+- `doc/running/remote_high_quality_video_rerun_status.json`
+- `doc/running/remote_high_quality_video_rerun_checklist.md`
 
 Canonical local-validation command on the current workstation:
 
@@ -436,6 +456,13 @@ python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machi
 
 This keeps the repository and final artifacts on the current workstation while
 delegating transcript extraction, OCR, and LLM synthesis to the remote node.
+
+For the full remote high-quality rerun, prefer the tracked launcher instead of a
+manual loop:
+
+```powershell
+.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+```
 
 ### Run Through The Original Google Route
 

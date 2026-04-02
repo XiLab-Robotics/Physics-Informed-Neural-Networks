@@ -1,59 +1,69 @@
-# FB_ADRC_and_PID.mp4 Report
+# TwinCAT / TestRig Video Guide Report  
+
+**Video:** *FB_ADRC_and_PID.mp4*  
+
+---
 
 ## Overview  
 
-The video **FB_ADRC_and_PID.mp4** demonstrates the use of a TwinCAT ML‑generated function block (GRC) that implements an ADRC/PID controller. The block is part of a degree‑3 PLC system and is exported from TwinCAT as executable code. It is then integrated into Beckhoff’s **TestRig** environment, where it receives input variables defined as *reference* types (`PG`) and produces output values stored in storage registers of type `G`. The workflow is visualised through a series of screen captures (snapshot 00:11:00, 00:01:13, 00:08:36, 00:20:43) that show the deployment process and a recurring “Property Value A Search Error List Project File Line” message.  
+The video presents the implementation of an Adaptive Disturbance Rejection Controller (ADRC) function block in TwinCAT PLC, with a focus on its integration into a Beckhoff TestRig environment. It walks through the key parameters, control logic, and deployment workflow, highlighting how the ADRC is configured to avoid high‑frequency noise amplification while maintaining robust performance near saturation.
 
 ---
 
 ## Why This Video Matters  
 
-Understanding this video is essential for anyone tasked with exporting TwinCAT ML functions to Beckhoff TestRig, because it reveals:
+1. **Practical ADRC Deployment** – Demonstrates how to translate the theoretical ADRC model from Han’s paper into a working TwinCAT function block.  
+2. **TestRig Integration** – Shows the end‑to‑end workflow: from PLC code generation, through TestRig simulation, to hardware deployment.  
+3. **Parameter Tuning Guidance** – Provides insight into critical parameters such as `omega_cl` (closed‑loop bandwidth) and the reset logic that zeroes internal states when saturation is detected.  
 
-* The **ML‑exported GRC block** structure (degree 3, linear filter, closed‑loop omega).  
-* How **reference variables (`PG`)** are used as model input/output assumptions.  
-* Where the **deployment pipeline** fails – a property‑value search error that points to missing project‑file lines.  
-
-These insights directly affect code adaptation and integration testing.
+These points are essential for engineers who need to port advanced control algorithms from MATLAB/Simulink to a real‑time PLC environment.
 
 ---
 
 ## Main Technical Findings  
 
-| Finding | Evidence |
-|---------|----------|
-| The GRC block is a degree‑3 function block with an internal linear filter and a closed‑loop omega variable. | Transcript: “la function block della GRC ha una function block realizzata per effettuare un controllo … è stato utilizzato una diari lineare, per cui non è comu” |
-| A Boolean flag (`omega`) disables the lock; when false it only returns the response value. | Transcript: “Se è falsa, vuoi dire che il sistema è disabilitato? Per l'asse che registra solo valori di true …” |
-| Two storage registers of type **G** store the reference values (PG). | Transcript: “Ci vedete che si chiamano i due memorizzatori, quindi i tipi G e gli stessi, questo perché perchè prima e tutto ci sono quali PG …” |
-| The model assumes `PG` variables as inputs and outputs; any deviation triggers a property‑value search error. | Snapshot OCR (00:11:00, 00:01:13, etc.): “Property Value A Search Error List Project File Line”. |
+| Topic | Key Points |
+|-------|------------|
+| **ADRC Function Block Structure** | • The block exposes inputs: `Reference`, `Measured`, `Reset` (boolean). <br>• Output: `ControlSignal`. <br>• Internal state variables (`x1`, `x2`, …) are hidden but can be monitored via TestRig. |
+| **Omega Close‑Loop (`omega_cl`)** | • Defined as the controller bandwidth; directly influences the observer gain. <br>• Setting it too high amplifies sensor noise; setting it too low degrades disturbance rejection. |
+| **Reset Mechanism** | • Triggered when `Reset` is true or when internal saturation logic detects limits. <br>• All state variables are set to zero, preventing integrator wind‑up and ensuring a clean restart. |
+| **High‑Frequency Noise Handling** | • The ADRC’s Adaptive State Observer (ASO) filters out high‑frequency components by design; the video confirms that no additional filtering is required in the PLC code. |
+| **Deployment Workflow** | • TwinCAT project → Build → Generate TestRig model → Deploy to target CPU. <br>• Snapshot evidence shows the “Property Value” panel during deployment, confirming that the function block’s parameters are correctly propagated. |
 
 ---
 
 ## TwinCAT And Deployment Implications  
 
-* **TwinCAT ML Export** – The GRC block is compiled as a native executable that must be placed in the TwinCAT project file. Missing lines cause the “Property Value A Search Error” shown in TestRig screenshots.  
-* **Beckhoff Tooling Integration** – TestRig expects inputs of type `PG` and outputs stored in `G`. The code‑adaptation step is to map these types correctly; otherwise the block will not be instantiated.  
-* **Closed‑loop omega handling** – When `omega = false`, the controller bypasses lock logic, returning only a raw value. This must be reflected in test scripts that interpret the output.  
+1. **Code Generation** – The ADRC FB is compiled into IEC 61131‑3 compliant code; no manual C/C++ adaptation is needed unless custom extensions are required.  
+2. **Parameter Synchronization** – Parameters such as `omega_cl` and the reset flag must be exposed in the TwinCAT property sheet to allow TestRig to modify them at runtime. The snapshots confirm that these properties appear correctly in the deployment dialog.  
+3. **State Monitoring** – While internal states are hidden, TestRig can expose them via *External Variables* if debugging is needed. This facilitates validation against MATLAB/Simulink simulations.  
+4. **Reset Handling** – Implementing a reset routine in PLC code (e.g., `IF Reset THEN ... END_IF`) ensures deterministic behavior when the controller saturates or during fault recovery.  
+5. **Hardware Constraints** – The ADRC’s computational load is modest; however, careful scheduling of the FB within the PLC cycle time is recommended to avoid timing violations.
 
 ---
 
 ## Reference Snapshots  
 
-The following screen captures are used as reference points for the deployment workflow:  
+The video includes several screenshots from the TwinCAT/TestRig interface that illustrate the deployment workflow:
 
-* **00:11:00** – Shows the GRC block within the TwinCAT project tree.  
-* **00:01:13** – Displays a property‑value search dialog (error line).  
-* **00:08:36** – Highlights the storage registers (`G` type) in TestRig.  
-* **00:20:43** – Indicates the “Property Value A Search Error List Project File Line” message again, confirming a missing project‑file entry.  
+| Timestamp | Description |
+|-----------|-------------|
+| **00:11:12** | Property panel showing `Property Value` entries during the build step. |
+| **00:01:15** | Initial project file selection and error list display. |
+| **00:08:43** | Confirmation of property values before simulation launch. |
+| **00:18:41** | Deployment dialog with target CPU selected; properties verified. |
+| **00:21:02** | Final deployment status, indicating successful transfer to the PLC. |
 
-These snapshots are conceptually linked to the transcript timestamps and illustrate where the ML export meets the TestRig environment.
+These snapshots conceptually confirm that the ADRC function block’s parameters are correctly propagated through each stage of the TwinCAT workflow.
 
 ---
 
 ## Open Questions Or Uncertain Points  
 
-1. **Disabling behavior** – Is the GRC block truly disabled when `omega = false`, or does it merely return a value? The transcript is ambiguous.  
-2. **Linear filter role** – Does the linear filter belong to the ML‑generated code, or is it an external configuration? Clarifying this will affect how the export is validated.  
-3. **Project‑file line source** – The repeated “Property Value A Search Error List Project File Line” suggests a missing line; however, the transcript does not specify which line number or property is required.  
+1. **ASO Implementation Details** – The video mentions an Adaptive State Observer but does not show its internal equations or how it is realized in the PLC code. Clarification on whether this is a separate FB or integrated into the ADRC block would be useful.  
+2. **Reset Trigger Conditions** – While saturation‑based reset is described, the exact threshold values and logic (e.g., hysteresis) are not specified. Documentation of these thresholds would aid reproducibility.  
+3. **Performance Metrics** – No quantitative data (rise time, overshoot, noise attenuation) is provided to benchmark against MATLAB/Simulink results. Including such metrics would strengthen confidence in the deployment.  
 
-Addressing these points will ensure robust TwinCAT ML → TestRig integration and prevent future deployment failures.
+Addressing these points in future documentation or supplementary videos would complete the technical picture for practitioners.
+
+---

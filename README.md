@@ -193,6 +193,16 @@ Before using the LAN path, complete:
 
 - [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai_node_server.md)
 
+For the tracked remote high-quality rerun, use the repository-owned launcher:
+
+```powershell
+.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+```
+
+This launcher processes one video at a time, writes a persistent checklist
+under `doc/running/`, and stops on the first failing video instead of silently
+skipping ahead.
+
 The remote node now uses its own dependency file:
 
 ```powershell
@@ -365,6 +375,12 @@ and inspectable.
   [2026-04-01-11-47-12_local_lm_studio_validation_and_lan_workflow_logging.md](./doc/technical/2026-04-01/2026-04-01-11-47-12_local_lm_studio_validation_and_lan_workflow_logging.md).
 - The full video-guide refresh and regeneration plan is documented in
   [2026-04-01-12-38-36_full_video_guide_refresh_and_regeneration.md](./doc/technical/2026-04-01/2026-04-01-12-38-36_full_video_guide_refresh_and_regeneration.md).
+- The remote high-quality video-guide rerun and comparison plan is documented in
+  [2026-04-01-15-23-04_remote_high_quality_video_guide_rerun_and_comparison.md](./doc/technical/2026-04-01/2026-04-01-15-23-04_remote_high_quality_video_guide_rerun_and_comparison.md).
+- The tracked remote high-quality video rerun and launcher plan is documented in
+  [2026-04-01-20-11-17_remote_high_quality_video_rerun_tracking_and_launcher.md](./doc/technical/2026-04-01/2026-04-01-20-11-17_remote_high_quality_video_rerun_tracking_and_launcher.md).
+- The remote video-artifact promotion and tracking-README plan is documented in
+  [2026-04-02-12-04-06_remote_video_artifact_promotion_and_tracking_readme.md](./doc/technical/2026-04-02/2026-04-02-12-04-06_remote_video_artifact_promotion_and_tracking_readme.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

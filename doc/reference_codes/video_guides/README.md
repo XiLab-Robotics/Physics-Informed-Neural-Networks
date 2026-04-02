@@ -3,6 +3,10 @@
 This folder contains the canonical high-quality outputs generated from the
 TwinCAT/TestRig video-guide workflow.
 
+Provenance and rerun tracking for the current promoted remote-strong artifact
+set are documented in
+[REMOTE_HIGH_QUALITY_RERUN_README.md](./REMOTE_HIGH_QUALITY_RERUN_README.md).
+
 ## Reports
 
 - [automatic_exp_te_report](automatic_exp_te/automatic_exp_te_report.md)
