@@ -58,6 +58,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-02
 
+- [technical/2026-04-02/2026-04-02-19-08-25_transmission_error_foundations_bundle_reference_realignment.md](./technical/2026-04-02/2026-04-02-19-08-25_transmission_error_foundations_bundle_reference_realignment.md)
+  Technical document for realigning the repository-authored references after manual renaming and cleanup of the promoted Transmission Error Foundations presentation/video bundle.
+- [technical/2026-04-02/2026-04-02-18-57-43_project_status_presentation_and_video_bundle_integration.md](./technical/2026-04-02/2026-04-02-18-57-43_project_status_presentation_and_video_bundle_integration.md)
+  Technical document for promoting the imported project-status presentation and video bundle from `.temp/Project_Status/` into the canonical repository guide surface.
 - [technical/2026-04-02/2026-04-02-18-52-33_repository_wide_markdown_residual_cleanup.md](./technical/2026-04-02/2026-04-02-18-52-33_repository_wide_markdown_residual_cleanup.md)
   Technical document for clearing the remaining repository-wide Markdownlint residues in the current Git-tracked Markdown set.
 - [technical/2026-04-02/2026-04-02-18-46-22_markdown_zero_warning_rule_tightening.md](./technical/2026-04-02/2026-04-02-18-46-22_markdown_zero_warning_rule_tightening.md)
@@ -518,6 +522,8 @@ This folder contains the internal project documents derived from the reference P
   Practical user guide for environment activation, dataset processing, and TE visualization.
 - [guide/Codex Repo-Local Workflow/Codex Repo-Local Workflow.md](./guide/Codex%20Repo-Local%20Workflow/Codex%20Repo-Local%20Workflow.md)
   Practical user guide for the repository-local Codex skill and subagent system.
+- [guide/Transmission Error Foundations/README.md](./guide/Transmission%20Error%20Foundations/README.md)
+  Onboarding-oriented bilingual presentation and video bundle that explains transmission error foundations, measurement motivation, and the TE modeling roadmap for new students.
 
 ## Usage
 

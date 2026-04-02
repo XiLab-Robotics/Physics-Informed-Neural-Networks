@@ -255,6 +255,7 @@ If you are opening the repository for the first time, use this reading order:
 
 Recommended guide entry points:
 
+- [Transmission Error Foundations Bundle](./doc/guide/Transmission%20Error%20Foundations/README.md)
 - [Neural Network Foundations](./doc/guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
 - [Training, Validation, And Testing](./doc/guide/Training,%20Validation,%20And%20Testing/Training,%20Validation,%20And%20Testing.md)
 - [TE Model Curriculum](./doc/guide/TE%20Model%20Curriculum/TE%20Model%20Curriculum.md)
