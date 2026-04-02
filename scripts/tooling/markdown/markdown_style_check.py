@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 # Markdown Check Constants
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_INCLUDED_PATHS = [
     "README.md",
     "AGENTS.md",

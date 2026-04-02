@@ -14,14 +14,14 @@ from typing import Any
 
 import requests
 
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
-from scripts.tooling.analyze_video_guides import build_ocr_region_map
-from scripts.tooling.analyze_video_guides import collapse_whitespace
-from scripts.tooling.analyze_video_guides import compute_ocr_quality_score
-from scripts.tooling.analyze_video_guides import crop_frame_region
+from scripts.tooling.video_guides.analyze_video_guides import build_ocr_region_map
+from scripts.tooling.video_guides.analyze_video_guides import collapse_whitespace
+from scripts.tooling.video_guides.analyze_video_guides import compute_ocr_quality_score
+from scripts.tooling.video_guides.analyze_video_guides import crop_frame_region
 
 try:
     import cv2

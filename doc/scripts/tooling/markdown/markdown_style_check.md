@@ -1,8 +1,8 @@
-# `markdown_style_check.py`
+﻿# `markdown_style_check.py`
 
 ## Overview
 
-`scripts/tooling/markdown_style_check.py` checks repository-authored Markdown
+`scripts/tooling/markdown/markdown_style_check.py` checks repository-authored Markdown
 files for the warning classes that currently create the most editor noise in
 this repository.
 
@@ -37,7 +37,7 @@ It excludes generated or non-canonical paths such as:
 ### Run The Default Repository Scan
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py --fail-on-warning
+python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning
 ```
 
 This prints warnings in a terminal-friendly format:
@@ -52,7 +52,7 @@ warnings are found.
 ### Scan Specific Paths Only
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py README.md doc site
+python -B scripts/tooling/markdown/markdown_style_check.py README.md doc site
 ```
 
 This is useful when you only want to re-check the files touched by the current
@@ -65,3 +65,4 @@ task.
 - `MD025` reports each extra H1 after the first one in the same document;
 - the checker is intended for repository-authored Markdown sources, not for
   generated HTML outputs.
+

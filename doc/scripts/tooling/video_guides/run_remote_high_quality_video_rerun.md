@@ -51,19 +51,19 @@ The first archived closed-out bundle is:
 Start the tracked remote rerun from the repository root:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1 -PythonExecutable python
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1 -PythonExecutable python
 ```
 
 Override the discovered set explicitly when needed:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1 -VideoNameList "Machine_Learning_2","Controller_ADRC"
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1 -VideoNameList "Machine_Learning_2","Controller_ADRC"
 ```
 
 The launcher expects the current workstation to already expose:

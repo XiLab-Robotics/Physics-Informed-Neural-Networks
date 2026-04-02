@@ -33,7 +33,7 @@ try:
 except ImportError:
     pytesseract = None
 
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(__file__).resolve().parents[3]
 DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / ".temp" / "video_guides"
 DEFAULT_ANALYSIS_ROOT = DEFAULT_VIDEO_GUIDE_ROOT / "_analysis"
 DEFAULT_TRANSCRIPTION_MODEL = "medium"

@@ -1,8 +1,8 @@
-# `isolated_mode.py`
+﻿# `isolated_mode.py`
 
 ## Overview
 
-`scripts/tooling/isolated_mode.py` formalizes the repository isolated-mode
+`scripts/tooling/session/isolated_mode.py` formalizes the repository isolated-mode
 workflow.
 
 It creates explicit isolated sessions under:
@@ -31,7 +31,7 @@ The script replaces the older ad-hoc `readme.temp.md` handoff pattern with:
 ### Start A Session
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py start-session `
+python -B scripts/tooling/session/isolated_mode.py start-session `
   --session-label "sphinx_followup" `
   --purpose "Prepare Sphinx changes without touching canonical repository files." `
   --user-request "enter isolated mode"
@@ -47,7 +47,7 @@ This command:
 ### Register A Staged Artifact
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py add-manifest-item `
+python -B scripts/tooling/session/isolated_mode.py add-manifest-item `
   --session-path isolated/active/2026-03-25-12-39-38_sphinx_followup `
   --staging-path isolated/active/2026-03-25-12-39-38_sphinx_followup/staging/doc/guide/New Guide/New Guide.md `
   --target-path doc/guide/New Guide/New Guide.md `
@@ -61,7 +61,7 @@ regenerates the checklist skeleton for later integration.
 ### Validate The Repository Lock
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py validate-session `
+python -B scripts/tooling/session/isolated_mode.py validate-session `
   --session-path isolated/active/2026-03-25-12-39-38_sphinx_followup `
   --fail-on-violation
 ```
@@ -78,7 +78,7 @@ of implicit.
 ### Prepare The Integration Checklist
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py prepare-integration `
+python -B scripts/tooling/session/isolated_mode.py prepare-integration `
   --session-path isolated/active/2026-03-25-12-39-38_sphinx_followup `
   --fail-on-violation
 ```
@@ -99,7 +99,7 @@ The intended interpretation is:
 ### Close A Session
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py close-session `
+python -B scripts/tooling/session/isolated_mode.py close-session `
   --session-path isolated/active/2026-03-25-12-39-38_sphinx_followup `
   --destination completed `
   --require-clean-validation
@@ -108,7 +108,7 @@ python -B scripts/tooling/isolated_mode.py close-session `
 Or, if the session should be removed after successful integration:
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py close-session `
+python -B scripts/tooling/session/isolated_mode.py close-session `
   --session-path isolated/active/2026-03-25-12-39-38_sphinx_followup `
   --destination delete `
   --require-clean-validation
@@ -130,3 +130,4 @@ python -B scripts/tooling/isolated_mode.py close-session `
   session start, which they do in this repository.
 - The script does not integrate staged files automatically. It prepares the
   manifest and the review surface so the later integration pass stays explicit.
+

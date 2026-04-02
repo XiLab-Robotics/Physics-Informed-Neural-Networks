@@ -24,11 +24,11 @@ from fastapi import Header
 from fastapi import HTTPException
 from fastapi import UploadFile
 
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
-from scripts.tooling.analyze_video_guides import collapse_whitespace
+from scripts.tooling.video_guides.analyze_video_guides import collapse_whitespace
 
 try:
     from faster_whisper import WhisperModel

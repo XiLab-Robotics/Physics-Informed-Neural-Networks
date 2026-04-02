@@ -1,4 +1,4 @@
-﻿# Project Documentation Index
+# Project Documentation Index
 
 This folder contains the internal project documents derived from the reference PDFs and from the reference codebases used to define the coding style of this repository.
 
@@ -29,6 +29,15 @@ This folder contains the internal project documents derived from the reference P
   Supporting reference for Hydra-based configuration and ML training utilities.
 - [reference_codes/multimodal_fusion_reference.md](./reference_codes/multimodal_fusion_reference.md)
   Supporting reference for compact ROS pipelines, explicit label mapping, and simple Lightning baselines.
+
+### Tooling Notes
+
+- [scripts/tooling/README.md](./scripts/tooling/README.md)
+  Index of repository-owned tooling notes grouped by domain.
+- [scripts/tooling/lan_ai/lan_ai_node_server.md](./scripts/tooling/lan_ai/lan_ai_node_server.md)
+  Setup and runtime guide for the remote LAN AI workstation.
+- [scripts/tooling/video_guides/remote_high_quality_video_pipeline.md](./scripts/tooling/video_guides/remote_high_quality_video_pipeline.md)
+  Canonical process note for the validated high-quality TwinCAT/TestRig video pipeline.
 
 ### Analysis Reports
 
@@ -268,11 +277,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
   Script-level documentation for the minimal Lightning smoke-test entry point used by the shared Wave 0 training infrastructure.
-- [scripts/tooling/isolated_mode.md](./scripts/tooling/isolated_mode.md)
+- [scripts/tooling/session/isolated_mode.md](./scripts/tooling/session/isolated_mode.md)
   Script-level documentation for the isolated-session manager that creates locked snapshots, manifest/checklist files, lock-validation reports, and session close-out actions.
-- [scripts/tooling/markdown_style_check.md](./scripts/tooling/markdown_style_check.md)
+- [scripts/tooling/markdown/markdown_style_check.md](./scripts/tooling/markdown/markdown_style_check.md)
   Script-level documentation for the repository-owned Markdown warning checker that scans source `.md` files for blank-line, heading, and single-title issues.
-- [scripts/tooling/run_markdownlint.md](./scripts/tooling/run_markdownlint.md)
+- [scripts/tooling/markdown/run_markdownlint.md](./scripts/tooling/markdown/run_markdownlint.md)
   Script-level documentation for the broader Markdownlint runner that applies the tracked canonical-scope rule profile outside `reference/`.
 
 ### Reports
@@ -430,6 +439,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for redesigning the repository README as a GitHub-facing landing page for a new human user.
 - [technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md](./technical/2026-03-25/2026-03-25-14-51-40_readme_maintenance_rule.md)
   Technical document for keeping the GitHub-facing README aligned with public repository presentation changes.
+- [technical/2026-04-02/2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md](./technical/2026-04-02/2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md)
+  Technical document for keeping `README.md` GitHub-facing while moving detailed technical registries and operational indexes into `doc/`.
 - [technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)

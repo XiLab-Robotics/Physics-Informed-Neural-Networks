@@ -13,7 +13,8 @@
 - Repository-relevant Codex skills may be used automatically whenever the request clearly matches their documented purpose. Do not wait for a separate user instruction when the skill is the correct workflow tool for the task.
 - Codex subagents must not be launched silently. When a subagent would be useful, declare the proposed subagent, the reason for using it, and the concrete delegated scope, then wait for explicit user approval before launching it.
 - When a technical project document is expected to involve a subagent during implementation, state that explicitly in the technical document, including the planned subagent name, intended task boundary, and the fact that runtime launch still requires explicit user approval.
-- Every new technical project document must also be referenced from the main project document in `README.md`.
+- Every new technical project document must also be referenced from a canonical documentation entry point under `doc/`, typically `doc/README.md` or a topic-local index inside `doc/`.
+- Update `README.md` for a new technical project document only when that document changes the public-facing repository presentation, the main documentation entry points, or another README-level summary that belongs on the GitHub-facing landing page.
 - Keep `doc/reports/` grouped first by report domain:
   - `analysis/`
   - `campaign_plans/`
@@ -131,7 +132,8 @@
 - Do not treat a styled PDF export as complete until the exported PDF has been checked against the project golden standard for layout discipline and readability.
 - Do not create a Git commit immediately after finishing the work. Always stop, report completion, and wait for explicit user approval before committing.
 - Before creating a GitHub-bound commit, always check the commit's files for GitHub size-limit violations and stop with an explicit warning if any file exceeds `100 MB`.
-- Before the final commit, update `README.md` whenever the approved work changes the public-facing repository description, implemented-capability summary, quick start, primary examples, or main documentation entry points. Keep `README.md` as a concise GitHub-facing landing page for a new human user rather than turning it into an internal technical registry.
+- Before the final commit, update `README.md` whenever the approved work changes the public-facing repository description, implemented-capability summary, quick start, primary examples, or main documentation entry points. Keep `README.md` as a concise GitHub-facing landing page for a new human user rather than turning it into an internal technical registry or a chronological log of technical documents.
+- Keep detailed technical-document registries, topic-local provenance notes, and operational indexes in `doc/` rather than re-growing `README.md`. Use `doc/README.md` and narrower domain indexes such as `doc/scripts/tooling/README.md` for that purpose.
 - Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.
 - Before the final commit, whenever the approved work introduces a new third-party dependency, update `requirements.txt` and any relevant installation or usage documentation so the environment remains reproducible.
 - Before the final commit, if the task created or modified repository-owned Markdown files, run the Markdown warning checks on the touched Markdown scope and resolve warning regressions in those files.

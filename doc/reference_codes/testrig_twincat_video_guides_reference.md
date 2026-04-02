@@ -82,8 +82,8 @@ the simulation path shown in the videos.
 
 The repository now includes:
 
-- `scripts/tooling/analyze_video_guides.py`
-- `scripts/tooling/extract_video_guide_knowledge.py`
+- `scripts/tooling/video_guides/analyze_video_guides.py`
+- `scripts/tooling/video_guides/extract_video_guide_knowledge.py`
 
 This script is designed to process `.temp/video_guides/` through four layers:
 
@@ -132,19 +132,19 @@ Install the optional video-analysis dependencies tracked in `requirements.txt`,
 then run:
 
 ```powershell
-python -B scripts/tooling/analyze_video_guides.py
+python -B scripts/tooling/video_guides/analyze_video_guides.py
 ```
 
 For a smaller first pass on only the machine-learning videos:
 
 ```powershell
-python -B scripts/tooling/analyze_video_guides.py --video-filter "Machine" --limit-videos 2
+python -B scripts/tooling/video_guides/analyze_video_guides.py --video-filter "Machine" --limit-videos 2
 ```
 
 For a fast inventory-only pass without transcription:
 
 ```powershell
-python -B scripts/tooling/analyze_video_guides.py --disable-transcription
+python -B scripts/tooling/video_guides/analyze_video_guides.py --disable-transcription
 ```
 
 ## How To Use The Outputs
@@ -174,7 +174,7 @@ distinction between:
 
 The current repository workflow also supports a second reporting stage through:
 
-- `scripts/tooling/generate_video_guide_reports.py`
+- `scripts/tooling/video_guides/generate_video_guide_reports.py`
 
 That script converts analyzed-video artifacts into stable repository-owned
 reports with:
@@ -192,13 +192,13 @@ OCR text is omitted from the report.
 For the canonical workflow, the repository now also exposes a higher-quality
 three-stage path through:
 
-- `scripts/tooling/extract_video_guide_knowledge.py`
+- `scripts/tooling/video_guides/extract_video_guide_knowledge.py`
 
 That newer workflow is intended for serious knowledge extraction rather than
 rough indexing. It explicitly separates:
 
-1. high-quality transcript generation through a Google GenAI-based pipeline and
-   AI cleanup in Italian;
+1. high-quality transcript generation through either the local/cloud path or
+   the validated remote-strong LAN path;
 2. meaningful snapshot selection for report-local `assets/`;
 3. OCR-assisted evidence extraction used internally for analysis and report
    synthesis.
@@ -212,12 +212,12 @@ remote-strong pipeline:
 - remote `openai/gpt-oss-20b` for cleanup and report synthesis;
 - local OCR fallback;
 - tracked execution through
-  `scripts/tooling/run_remote_high_quality_video_rerun.ps1`.
+  `scripts/tooling/video_guides/run_remote_high_quality_video_rerun.ps1`.
 
 That launcher and runtime are formalized in:
 
-- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
-- `doc/scripts/tooling/run_remote_high_quality_video_rerun.md`
+- `doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md`
+- `doc/scripts/tooling/video_guides/run_remote_high_quality_video_rerun.md`
 
 ## Initial Video-Derived Findings
 
@@ -361,7 +361,7 @@ also for:
 ### 4. `TE_Calc` Must Not Be Oversimplified
 
 The errata and simulation videos materially strengthen the warning that
-`TE_Calc` is not a trivial “Matlab output pasted into TwinCAT”.
+`TE_Calc` is not a trivial "Matlab output pasted into TwinCAT".
 
 The video evidence supports a more careful interpretation:
 

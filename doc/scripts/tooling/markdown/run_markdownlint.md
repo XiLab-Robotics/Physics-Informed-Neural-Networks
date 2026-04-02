@@ -1,12 +1,12 @@
-# `run_markdownlint.py`
+﻿# `run_markdownlint.py`
 
 ## Overview
 
-`scripts/tooling/run_markdownlint.py` runs the repository Markdownlint profile
+`scripts/tooling/markdown/run_markdownlint.py` runs the repository Markdownlint profile
 defined in `.markdownlint-cli2.jsonc`.
 
 This complements the lightweight structural checker
-`scripts/tooling/markdown_style_check.py`.
+`scripts/tooling/markdown/markdown_style_check.py`.
 
 The intended split is:
 
@@ -54,7 +54,7 @@ The current tracked Markdownlint profile:
 ### Run The Default Canonical Scan
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py
+python -B scripts/tooling/markdown/run_markdownlint.py
 ```
 
 This uses the tracked root configuration and scans the default canonical scope.
@@ -62,7 +62,7 @@ This uses the tracked root configuration and scans the default canonical scope.
 ### Apply Fixable Corrections
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py --fix
+python -B scripts/tooling/markdown/run_markdownlint.py --fix
 ```
 
 This applies fixable Markdownlint changes in place.
@@ -70,7 +70,7 @@ This applies fixable Markdownlint changes in place.
 ### Lint Specific Files Or Folders
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py README.md doc site
+python -B scripts/tooling/markdown/run_markdownlint.py README.md doc site
 ```
 
 When explicit paths are passed, the script disables the config-level default
@@ -92,3 +92,4 @@ The repository does not currently pin `markdownlint-cli2` as a tracked project
 dependency. Instead, the runner uses the current `npx`-resolved tool version at
 execution time, while keeping the repository rule profile and scope definition
 tracked locally.
+

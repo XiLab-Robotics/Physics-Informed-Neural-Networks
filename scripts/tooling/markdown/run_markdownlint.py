@@ -12,7 +12,7 @@ import subprocess
 from pathlib import Path
 
 # Markdownlint Runner Constants
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 MARKDOWNLINT_CONFIG_PATH = REPOSITORY_ROOT / ".markdownlint-cli2.jsonc"
 MARKDOWNLINT_COMMAND = [
     "npx.cmd",

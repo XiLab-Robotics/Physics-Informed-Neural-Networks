@@ -25,26 +25,26 @@ try:
 except ImportError:
     RequestsDependencyWarning = Warning
 
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
-from scripts.tooling.analyze_video_guides import TERM_PATTERN_MAP
-from scripts.tooling.analyze_video_guides import collapse_whitespace
-from scripts.tooling.analyze_video_guides import ensure_directory
-from scripts.tooling.analyze_video_guides import extract_best_ocr_text
-from scripts.tooling.analyze_video_guides import extract_video_metadata
-from scripts.tooling.analyze_video_guides import format_seconds
-from scripts.tooling.analyze_video_guides import match_companion_notes
-from scripts.tooling.analyze_video_guides import collect_companion_note_list
-from scripts.tooling.analyze_video_guides import collect_runtime_capability_map
-from scripts.tooling.analyze_video_guides import collect_video_file_path_list
-from scripts.tooling.lan_ai_node_client import fetch_lm_studio_model_name_list
-from scripts.tooling.lan_ai_node_client import run_lm_studio_chat_completion
-from scripts.tooling.lan_ai_node_client import LanTranscriptSegment
-from scripts.tooling.lan_ai_node_client import run_region_ocr_via_lan_ai_node
-from scripts.tooling.lan_ai_node_client import transcribe_audio_via_lan_ai_node
-from scripts.tooling.lan_ai_node_client import transcribe_audio_via_lan_ai_node_with_segments
+from scripts.tooling.video_guides.analyze_video_guides import TERM_PATTERN_MAP
+from scripts.tooling.video_guides.analyze_video_guides import collapse_whitespace
+from scripts.tooling.video_guides.analyze_video_guides import ensure_directory
+from scripts.tooling.video_guides.analyze_video_guides import extract_best_ocr_text
+from scripts.tooling.video_guides.analyze_video_guides import extract_video_metadata
+from scripts.tooling.video_guides.analyze_video_guides import format_seconds
+from scripts.tooling.video_guides.analyze_video_guides import match_companion_notes
+from scripts.tooling.video_guides.analyze_video_guides import collect_companion_note_list
+from scripts.tooling.video_guides.analyze_video_guides import collect_runtime_capability_map
+from scripts.tooling.video_guides.analyze_video_guides import collect_video_file_path_list
+from scripts.tooling.lan_ai.lan_ai_node_client import fetch_lm_studio_model_name_list
+from scripts.tooling.lan_ai.lan_ai_node_client import run_lm_studio_chat_completion
+from scripts.tooling.lan_ai.lan_ai_node_client import LanTranscriptSegment
+from scripts.tooling.lan_ai.lan_ai_node_client import run_region_ocr_via_lan_ai_node
+from scripts.tooling.lan_ai.lan_ai_node_client import transcribe_audio_via_lan_ai_node
+from scripts.tooling.lan_ai.lan_ai_node_client import transcribe_audio_via_lan_ai_node_with_segments
 
 try:
     import cv2

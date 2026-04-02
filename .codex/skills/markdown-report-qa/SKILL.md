@@ -32,8 +32,8 @@ cleanup.
 ## Commands To Prefer
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py
-python -B scripts/tooling/markdown_style_check.py --fail-on-warning
+python -B scripts/tooling/markdown/run_markdownlint.py
+python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning
 ```
 
 ## Repository QA Priorities
@@ -47,7 +47,7 @@ python -B scripts/tooling/markdown_style_check.py --fail-on-warning
 ## File Targets To Read First
 
 - `.markdownlint-cli2.jsonc`
-- `scripts/tooling/run_markdownlint.py`
-- `scripts/tooling/markdown_style_check.py`
+- `scripts/tooling/markdown/run_markdownlint.py`
+- `scripts/tooling/markdown/markdown_style_check.py`
 - `doc/scripts/tooling/`
 - relevant source Markdown files in `doc/`, `README.md`, and `AGENTS.md`

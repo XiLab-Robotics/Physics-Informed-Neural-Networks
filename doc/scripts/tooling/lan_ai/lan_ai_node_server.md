@@ -243,13 +243,13 @@ From the repository root on the remote workstation:
 conda create -y -n standard_ml_lan_node python=3.12
 conda activate standard_ml_lan_node
 python -m pip install --upgrade pip wheel
-python -m pip install -r requirements-lan-ai-node.txt
+python -m pip install -r scripts/tooling/lan_ai/requirements-lan-ai-node.txt
 ```
 
 ### Configure Persistent CUDA Runtime `PATH`
 
 The NVIDIA CUDA 12 runtime DLLs installed through
-`requirements-lan-ai-node.txt` live under `site-packages\nvidia\...\bin`.
+`scripts/tooling/lan_ai/requirements-lan-ai-node.txt` live under `site-packages\nvidia\...\bin`.
 Those directories must be added to `PATH` whenever the remote environment is
 active, otherwise `faster-whisper` GPU execution fails with errors such as:
 
@@ -294,7 +294,7 @@ canonical local workstation environment. The remote LAN node additionally needs
 Windows-specific CUDA 12 runtime packages for `ctranslate2` /
 `faster-whisper`, so those dependencies are tracked separately in:
 
-- `requirements-lan-ai-node.txt`
+- `scripts/tooling/lan_ai/requirements-lan-ai-node.txt`
 
 ### Optional Current-Workstation Reproduction
 
@@ -305,7 +305,7 @@ lightweight validation environment without changing the remote setup:
 $env:CONDA_NO_PLUGINS = "true"
 conda create -y -n lan-ai-node python=3.12 --solver=classic
 conda run -n lan-ai-node python -m pip install --upgrade pip wheel
-conda run -n lan-ai-node python -m pip install -r requirements-lan-ai-node.txt
+conda run -n lan-ai-node python -m pip install -r scripts/tooling/lan_ai/requirements-lan-ai-node.txt
 ```
 
 This local environment is useful when you want to validate:
@@ -340,7 +340,7 @@ Start LM Studio, then open the Developer / Local Server page.
 
 Official screenshot from the LM Studio documentation:
 
-![LM Studio local server start screen](./assets/lan_ai_node_server/lm_studio_server_start.png)
+![LM Studio local server start screen](../assets/lan_ai_node_server/lm_studio_server_start.png)
 
 Image source: LM Studio official documentation.
 
@@ -371,7 +371,7 @@ LM Studio testing does not require overwriting the remote base URL.
 
 Official screenshot from the LM Studio documentation:
 
-![LM Studio server configuration panel](./assets/lan_ai_node_server/lm_studio_server_panel.png)
+![LM Studio server configuration panel](../assets/lan_ai_node_server/lm_studio_server_panel.png)
 
 Image source: LM Studio official documentation.
 
@@ -618,7 +618,7 @@ From a PowerShell window or an SSH session on the remote workstation:
 
 ```powershell
 conda activate standard_ml_lan_node
-python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
+python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
 On Windows, if port `8765` is still owned by a stale previous
@@ -637,7 +637,7 @@ If CUDA is not ready yet:
 
 ```powershell
 conda activate standard_ml_lan_node
-python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cpu --whisper-compute-type int8
+python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cpu --whisper-compute-type int8
 ```
 
 ### Start Through SSH From The Current Workstation
@@ -654,7 +654,7 @@ Then run on the remote shell:
 ```powershell
 cd "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
 conda activate standard_ml_lan_node
-python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
+python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
 For one-shot command execution, the validated pattern is:
@@ -667,7 +667,7 @@ When the SSH shell lands in `cmd.exe` and `conda activate` is unavailable, use
 the non-interactive `conda run` form instead:
 
 ```powershell
-ssh xilab-remote "cd /d C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks && conda run -n standard_ml_lan_node python -B scripts/tooling/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16"
+ssh xilab-remote "cd /d C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks && conda run -n standard_ml_lan_node python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16"
 ```
 
 This is the simplest reliable way to keep everything driven from the current
@@ -743,7 +743,7 @@ curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" -H "Content-Type: app
 Once both health checks pass, run the workflow from the current workstation:
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
+python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
 ```
 
 Example model values:

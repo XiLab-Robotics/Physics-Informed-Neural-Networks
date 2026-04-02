@@ -112,26 +112,40 @@ The current usage flow mainly relies on these folders:
   Neural-network backbones and the model factory.
 
 - `scripts/tooling/`
-  Repository-owned tooling utilities, including the isolated-mode session manager.
+  Repository-owned tooling utilities, now grouped by domain.
 
-- `scripts/tooling/analyze_video_guides.py`
+- `scripts/tooling/lan_ai/`
+  Remote-node service, client helpers, CUDA-path setup, and the LAN-only
+  dependency file.
+
+- `scripts/tooling/video_guides/`
+  TwinCAT/TestRig video-analysis, extraction, reporting, and tracked rerun
+  tooling.
+
+- `scripts/tooling/markdown/`
+  Repository-owned Markdown validation helpers.
+
+- `scripts/tooling/session/`
+  Isolated-mode session tooling.
+
+- `scripts/tooling/video_guides/analyze_video_guides.py`
   Video-guide analysis utility for `.temp/video_guides/`, with inventory, quality-scored transcript extraction, frame sampling, and quality-gated OCR support.
 
-- `scripts/tooling/generate_video_guide_reports.py`
+- `scripts/tooling/video_guides/generate_video_guide_reports.py`
   Report-generation utility that turns analyzed TwinCAT/TestRig video artifacts into repository-owned Markdown reports with copied reference images.
 
-- `scripts/tooling/extract_video_guide_knowledge.py`
+- `scripts/tooling/video_guides/extract_video_guide_knowledge.py`
   High-quality three-stage workflow that can now use either cloud backends or a LAN AI node for transcript extraction, OCR, transcript cleanup, and final report synthesis.
 
-- `scripts/tooling/lan_ai_node_server.py`
+- `scripts/tooling/lan_ai/lan_ai_node_server.py`
   Repository-owned FastAPI service intended for the second workstation, exposing `faster-whisper` transcription, `PaddleOCR`, and health endpoints over LAN.
 
-- `doc/scripts/tooling/lan_ai_node_server.md`
+- `doc/scripts/tooling/lan_ai/lan_ai_node_server.md`
   Canonical Windows-first setup guide for the remote workstation, including
   tokens, Git clone, CUDA, Miniconda, `LM Studio`, `OpenSSH Server`, and first
   health checks.
 
-- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
+- `doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md`
   Formal process note for the strongest currently validated TwinCAT/TestRig
   video-analysis workflow, including topology, launcher behavior, outputs,
   quality gates, and recovery policy.
@@ -238,7 +252,7 @@ technical evidence from `.temp/video_guides/` for TwinCAT/TestRig integration
 work:
 
 ```powershell
-python -B scripts/tooling/analyze_video_guides.py
+python -B scripts/tooling/video_guides/analyze_video_guides.py
 ```
 
 The generated raw artifacts are stored under:
@@ -248,8 +262,8 @@ The generated raw artifacts are stored under:
 Useful scoped runs:
 
 ```powershell
-python -B scripts/tooling/analyze_video_guides.py --video-filter "Machine" --limit-videos 2
-python -B scripts/tooling/analyze_video_guides.py --disable-transcription
+python -B scripts/tooling/video_guides/analyze_video_guides.py --video-filter "Machine" --limit-videos 2
+python -B scripts/tooling/video_guides/analyze_video_guides.py --disable-transcription
 ```
 
 Important environment notes:
@@ -267,14 +281,14 @@ Important environment notes:
 Useful quality-oriented runs:
 
 ```powershell
-python -B scripts/tooling/analyze_video_guides.py --transcription-model medium --ocr-min-quality-score 42
-python -B scripts/tooling/analyze_video_guides.py --video-filter "Machine_Learning_2" --frame-interval-seconds 180 --max-frames-per-video 8 --force
+python -B scripts/tooling/video_guides/analyze_video_guides.py --transcription-model medium --ocr-min-quality-score 42
+python -B scripts/tooling/video_guides/analyze_video_guides.py --video-filter "Machine_Learning_2" --frame-interval-seconds 180 --max-frames-per-video 8 --force
 ```
 
 To generate repository-owned reports from the analyzed artifacts:
 
 ```powershell
-python -B scripts/tooling/generate_video_guide_reports.py
+python -B scripts/tooling/video_guides/generate_video_guide_reports.py
 ```
 
 ## LAN AI Node Workflow
@@ -285,7 +299,7 @@ and local LLM cleanup/report generation.
 
 Full setup guide:
 
-- [LAN AI Node Server Setup Guide](../scripts/tooling/lan_ai_node_server.md)
+- [LAN AI Node Server Setup Guide](../scripts/tooling/lan_ai/lan_ai_node_server.md)
 
 The validated remote-access path now uses an SSH alias on the current
 workstation, for example:
@@ -297,7 +311,7 @@ ssh xilab-remote "hostname"
 
 The remote workstation now has its own dependency file:
 
-- `requirements-lan-ai-node.txt`
+- `scripts/tooling/lan_ai/requirements-lan-ai-node.txt`
 
 Use that file for the `standard_ml_lan_node` environment instead of the main
 `requirements.txt`. The remote guide also documents the persistent Conda
@@ -352,13 +366,13 @@ curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_
 Canonical LAN-backed workflow command:
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
+python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model YOUR_MODEL_ID --report-model YOUR_MODEL_ID --force
 ```
 
 Tracked remote batch launcher:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1
 ```
 
 The launcher uses the strongest currently validated practical path:
@@ -372,24 +386,24 @@ By default the launcher now auto-discovers all supported source videos under
 `.temp/video_guides/`, including `.mkv`, `.mov`, `.avi`, and `.m4v`, instead of
 assuming only the original `.mp4` subset.
 
-It writes persistent runtime tracking into:
+While active, it writes persistent runtime tracking into:
 
 - `doc/running/remote_high_quality_video_rerun_status.json`
 - `doc/running/remote_high_quality_video_rerun_checklist.md`
 
-Once a rerun is closed and its artifacts are promoted, archive that bookkeeping
-under:
+Once a rerun is closed and its artifacts are promoted, move that bookkeeping
+into:
 
 - `doc/reports/analysis/twincat_video_guides/[YYYY-MM-DD]/runtime_tracking/`
 
 Formal runtime/process note:
 
-- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
+- `doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md`
 
 Canonical local-validation command on the current workstation:
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider local --transcript-model tiny --cleanup-model YOUR_LOCAL_MODEL_ID --report-model YOUR_LOCAL_MODEL_ID --lan-ai-base-url "http://127.0.0.1:8765" --lm-studio-base-url "$env:LM_STUDIO_LOCAL_URL" --force
+python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider local --transcript-model tiny --cleanup-model YOUR_LOCAL_MODEL_ID --report-model YOUR_LOCAL_MODEL_ID --lan-ai-base-url "http://127.0.0.1:8765" --lm-studio-base-url "$env:LM_STUDIO_LOCAL_URL" --force
 ```
 
 The high-quality extraction script now also adds explicit terminal logging for:
@@ -428,7 +442,7 @@ canonical knowledge extraction from the TwinCAT/TestRig video guides.
 Main entry point:
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1
+python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1
 ```
 
 This workflow is organized around three explicit stages:
@@ -469,7 +483,7 @@ Use this mode when the second workstation is serving `LM Studio` plus the
 repository-owned LAN AI node:
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model qwen3:14b --report-model qwen3:14b
+python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider lan --cleanup-provider lmstudio --report-provider lmstudio --ocr-provider lan --transcript-model large-v3 --cleanup-model qwen3:14b --report-model qwen3:14b
 ```
 
 This keeps the repository and final artifacts on the current workstation while
@@ -484,7 +498,7 @@ For the full remote high-quality rerun, prefer the tracked launcher instead of a
 manual loop:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1
 ```
 
 ### Run Through The Original Google Route
@@ -493,7 +507,7 @@ If the remote node is unavailable and quota allows it, the older cloud route is
 still available:
 
 ```powershell
-python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider google --cleanup-provider google --report-provider google --ocr-provider local
+python -B scripts/tooling/video_guides/extract_video_guide_knowledge.py --video-filter "Machine_Learning_2" --limit-videos 1 --transcript-provider google --cleanup-provider google --report-provider google --ocr-provider local
 ```
 
 ### LAN AI Node Setup Reference
@@ -501,8 +515,8 @@ python -B scripts/tooling/extract_video_guide_knowledge.py --video-filter "Machi
 For the remote-node bootstrap procedure, service startup, and `ssh`-based
 operation from the current workstation, use:
 
-- `doc/scripts/tooling/lan_ai_node_server.md`
-- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
+- `doc/scripts/tooling/lan_ai/lan_ai_node_server.md`
+- `doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md`
 
 ## NotebookLM Video Packages
 
@@ -632,7 +646,7 @@ The same export direction now also applies to final campaign-results reports.
 
 The repository now exposes a dedicated Markdown warning checker:
 
-- `scripts/tooling/markdown_style_check.py`
+- `scripts/tooling/markdown/markdown_style_check.py`
 
 Use it to scan repository-authored Markdown sources for the warning classes that
 commonly appear in the editor:
@@ -655,7 +669,7 @@ Operational rule for documentation work:
 ### Run The Default Source Scan
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py --fail-on-warning
+python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning
 ```
 
 This scans the maintained Markdown source roots:
@@ -678,7 +692,7 @@ It intentionally excludes generated or non-canonical paths such as:
 ### Scan Specific Paths
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py README.md doc site
+python -B scripts/tooling/markdown/markdown_style_check.py README.md doc site
 ```
 
 This is useful after a focused documentation task when you only want to re-check
@@ -687,7 +701,7 @@ the affected files.
 Recommended focused workflow after editing Markdown:
 
 ```powershell
-python -B scripts/tooling/markdown_style_check.py README.md doc site
+python -B scripts/tooling/markdown/markdown_style_check.py README.md doc site
 ```
 
 Or, for an even narrower task-specific scope, pass only the specific Markdown
@@ -697,7 +711,7 @@ paths that were touched.
 
 The repository also exposes a broader Markdownlint runner:
 
-- `scripts/tooling/run_markdownlint.py`
+- `scripts/tooling/markdown/run_markdownlint.py`
 
 Use it when you want a wider Markdownlint pass across canonical repository
 Markdown outside `reference/`.
@@ -722,19 +736,19 @@ The current profile:
 ### Run The Default Canonical Markdownlint Scan
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py
+python -B scripts/tooling/markdown/run_markdownlint.py
 ```
 
 ### Apply Fixable Markdownlint Changes
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py --fix
+python -B scripts/tooling/markdown/run_markdownlint.py --fix
 ```
 
 ### Lint Specific Paths
 
 ```powershell
-python -B scripts/tooling/run_markdownlint.py README.md doc site
+python -B scripts/tooling/markdown/run_markdownlint.py README.md doc site
 ```
 
 The runner uses `npx.cmd` on Windows, so the machine must have `node`, `npm`,
@@ -744,7 +758,7 @@ and `npx` available.
 
 The repository now exposes a dedicated isolated-mode manager:
 
-- `scripts/tooling/isolated_mode.py`
+- `scripts/tooling/session/isolated_mode.py`
 
 Use this workflow when you want Codex to avoid touching every file that already
 exists in the repository and to work only on newly created files inside a
@@ -753,7 +767,7 @@ session-local staging area.
 ### Start An Isolated Session
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py start-session `
+python -B scripts/tooling/session/isolated_mode.py start-session `
   --session-label "feature_name" `
   --purpose "Prepare standalone artifacts for later integration." `
   --user-request "modalita isolata"
@@ -791,7 +805,7 @@ then the isolated staging path should be:
 After creating a staged artifact, register it in the session manifest:
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py add-manifest-item `
+python -B scripts/tooling/session/isolated_mode.py add-manifest-item `
   --session-path isolated/active/<session_id> `
   --staging-path isolated/active/<session_id>/staging/doc/guide/New Guide/New Guide.md `
   --target-path doc/guide/New Guide/New Guide.md `
@@ -823,7 +837,7 @@ Use that guide when you want the repository-specific explanation of:
 ### Validate The Isolation Lock
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py validate-session `
+python -B scripts/tooling/session/isolated_mode.py validate-session `
   --session-path isolated/active/<session_id> `
   --fail-on-violation
 ```
@@ -840,7 +854,7 @@ When isolated work is ready and you want to integrate it later, regenerate the
 review artifacts:
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py prepare-integration `
+python -B scripts/tooling/session/isolated_mode.py prepare-integration `
   --session-path isolated/active/<session_id> `
   --fail-on-violation
 ```
@@ -863,7 +877,7 @@ After successful integration, either move the session to `isolated/completed/`
 or remove it:
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py close-session `
+python -B scripts/tooling/session/isolated_mode.py close-session `
   --session-path isolated/active/<session_id> `
   --destination completed `
   --require-clean-validation
@@ -872,7 +886,7 @@ python -B scripts/tooling/isolated_mode.py close-session `
 Or:
 
 ```powershell
-python -B scripts/tooling/isolated_mode.py close-session `
+python -B scripts/tooling/session/isolated_mode.py close-session `
   --session-path isolated/active/<session_id> `
   --destination delete `
   --require-clean-validation

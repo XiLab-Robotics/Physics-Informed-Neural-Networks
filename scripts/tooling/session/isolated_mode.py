@@ -18,7 +18,7 @@ try: import yaml
 except ImportError: yaml = None
 
 # Isolated Mode Constants
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 ISOLATED_ROOT = REPOSITORY_ROOT / "isolated"
 ACTIVE_SESSIONS_ROOT = ISOLATED_ROOT / "active"
 COMPLETED_SESSIONS_ROOT = ISOLATED_ROOT / "completed"

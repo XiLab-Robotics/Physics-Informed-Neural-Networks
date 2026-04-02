@@ -92,7 +92,7 @@ curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_
 Use the tracked launcher instead of a blind loop:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1
 ```
 
 The launcher now auto-discovers supported video files under
@@ -107,7 +107,7 @@ The launcher now auto-discovers supported video files under
 You can still override the target set explicitly:
 
 ```powershell
-.\scripts\tooling\run_remote_high_quality_video_rerun.ps1 -VideoNameList "Machine_Learning_2","Controller_ADRC"
+.\scripts\tooling\video_guides\run_remote_high_quality_video_rerun.ps1 -VideoNameList "Machine_Learning_2","Controller_ADRC"
 ```
 
 ## What The Launcher Guarantees
@@ -164,7 +164,7 @@ Treat a rerun as canonical only when:
 1. all tracked videos complete the full stage set;
 2. transcript Markdown exists and passes repository checks;
 3. report Markdown exists and passes repository checks;
-4. the promoted reports are reviewed against the repository’s TwinCAT/TestRig
+4. the promoted reports are reviewed against the repository's TwinCAT/TestRig
    reference notes;
 5. the final promoted tree is mirrored into `doc/reference_codes/video_guides/`
    with provenance preserved.

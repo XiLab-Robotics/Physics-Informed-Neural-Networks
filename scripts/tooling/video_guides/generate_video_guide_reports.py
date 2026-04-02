@@ -13,7 +13,7 @@ import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(__file__).resolve().parents[3]
 DEFAULT_ANALYSIS_ROOT = PROJECT_PATH / ".temp" / "video_guides" / "_analysis"
 DEFAULT_REPORT_ROOT = PROJECT_PATH / "doc" / "reference_codes" / "video_guides"
 DEFAULT_MAX_IMAGES = 4

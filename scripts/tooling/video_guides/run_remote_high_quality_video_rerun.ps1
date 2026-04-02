@@ -11,7 +11,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
-$projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..")).Path
+$projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..")).Path
 
 Set-Location $projectRoot
 
@@ -21,8 +21,8 @@ $logRootRelativePath = ".temp\video_guides\_remote_gptoss_tracked_logs"
 $videoSourceRootRelativePath = ".temp\video_guides"
 $statusFileRelativePath = "doc\running\remote_high_quality_video_rerun_status.json"
 $checklistFileRelativePath = "doc\running\remote_high_quality_video_rerun_checklist.md"
-$validationScriptRelativePath = "scripts\tooling\markdown_style_check.py"
-$workflowScriptRelativePath = "scripts\tooling\extract_video_guide_knowledge.py"
+$validationScriptRelativePath = "scripts\tooling\markdown\markdown_style_check.py"
+$workflowScriptRelativePath = "scripts\tooling\video_guides\extract_video_guide_knowledge.py"
 
 $analysisRootPath = Join-Path $projectRoot $analysisRootRelativePath
 $reportRootPath = Join-Path $projectRoot $reportRootRelativePath
