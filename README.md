@@ -304,6 +304,7 @@ For the current TwinCAT/TestRig video-analysis stack, the key references are:
 
 Recent repository-structure decisions are tracked in:
 
+- [2026-04-02-14-40-15_skill_frontmatter_bom_compatibility_fix.md](./doc/technical/2026-04-02/2026-04-02-14-40-15_skill_frontmatter_bom_compatibility_fix.md)
 - [2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md](./doc/technical/2026-04-02/2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md)
 - [2026-04-02-13-15-32_readme_tooling_lan_ai_documentation_reorganization.md](./doc/technical/2026-04-02/2026-04-02-13-15-32_readme_tooling_lan_ai_documentation_reorganization.md)
 - [2026-04-02-13-04-40_move_closed_video_rerun_tracking_into_analysis_bundle.md](./doc/technical/2026-04-02/2026-04-02-13-04-40_move_closed_video_rerun_tracking_into_analysis_bundle.md)

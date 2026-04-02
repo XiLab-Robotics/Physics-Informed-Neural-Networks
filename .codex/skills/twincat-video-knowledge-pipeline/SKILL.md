@@ -1,4 +1,4 @@
-﻿---
+---
 name: twincat-video-knowledge-pipeline
 description: Use when re-running, reviewing, or formalizing the repository-owned TwinCAT/TestRig video-analysis workflow in StandardML - Codex. This skill is for the remote high-quality video pipeline, per-video artifact review, cross-video TwinCAT/TestRig knowledge synthesis, and promotion of video-derived findings into canonical reference notes.
 ---
@@ -75,4 +75,3 @@ Prefer this sequence:
 3. pipeline formalization/update;
 4. reference-note integration;
 5. only then any new deployment or modeling conclusion.
-

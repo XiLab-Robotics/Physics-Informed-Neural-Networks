@@ -441,6 +441,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for keeping the GitHub-facing README aligned with public repository presentation changes.
 - [technical/2026-04-02/2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md](./technical/2026-04-02/2026-04-02-14-24-24_readme_landing_page_and_registry_separation_rule.md)
   Technical document for keeping `README.md` GitHub-facing while moving detailed technical registries and operational indexes into `doc/`.
+- [technical/2026-04-02/2026-04-02-14-40-15_skill_frontmatter_bom_compatibility_fix.md](./technical/2026-04-02/2026-04-02-14-40-15_skill_frontmatter_bom_compatibility_fix.md)
+  Technical document for fixing a UTF-8 BOM regression that broke YAML frontmatter detection in a repository-local Codex skill.
 - [technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)
