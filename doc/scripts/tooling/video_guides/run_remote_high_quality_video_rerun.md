@@ -15,7 +15,8 @@ Unlike a blind batch run, the launcher processes one video at a time, writes a
 persistent status file, and stops immediately on the first failing video.
 
 By default it now auto-discovers all supported source videos under
-`.temp/video_guides/` instead of assuming only the original `.mp4` subset.
+`reference/video_guides/source_bundle/` instead of assuming only the original
+`.mp4` subset.
 
 ## Main Role
 

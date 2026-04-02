@@ -129,7 +129,9 @@ The current usage flow mainly relies on these folders:
   Isolated-mode session tooling.
 
 - `scripts/tooling/video_guides/analyze_video_guides.py`
-  Video-guide analysis utility for `.temp/video_guides/`, with inventory, quality-scored transcript extraction, frame sampling, and quality-gated OCR support.
+  Video-guide analysis utility for `reference/video_guides/source_bundle/`,
+  with inventory, quality-scored transcript extraction, frame sampling, and
+  quality-gated OCR support.
 
 - `scripts/tooling/video_guides/generate_video_guide_reports.py`
   Report-generation utility that turns analyzed TwinCAT/TestRig video artifacts into repository-owned Markdown reports with copied reference images.
@@ -248,8 +250,8 @@ exist:
 ## TwinCAT Video-Guide Analysis
 
 Use the repository-owned video-analysis utility when you want to extract
-technical evidence from `.temp/video_guides/` for TwinCAT/TestRig integration
-work:
+technical evidence from `reference/video_guides/source_bundle/` for
+TwinCAT/TestRig integration work:
 
 ```powershell
 python -B scripts/tooling/video_guides/analyze_video_guides.py
@@ -258,6 +260,11 @@ python -B scripts/tooling/video_guides/analyze_video_guides.py
 The generated raw artifacts are stored under:
 
 - `.temp/video_guides/_analysis/`
+
+The canonical tracked source media bundle for this workflow lives under:
+
+- `reference/video_guides/source_bundle/`
+- `reference/video_guides/source_bundle/README.md`
 
 Useful scoped runs:
 
@@ -383,8 +390,8 @@ The launcher uses the strongest currently validated practical path:
 - one video at a time with stop-on-failure behavior.
 
 By default the launcher now auto-discovers all supported source videos under
-`.temp/video_guides/`, including `.mkv`, `.mov`, `.avi`, and `.m4v`, instead of
-assuming only the original `.mp4` subset.
+`reference/video_guides/source_bundle/`, including `.mkv`, `.mov`, `.avi`, and
+`.m4v`, instead of assuming only the original `.mp4` subset.
 
 While active, it writes persistent runtime tracking into:
 

@@ -51,8 +51,8 @@ try:
 except ImportError:
     cv2 = None
 
-DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / ".temp" / "video_guides"
-DEFAULT_ANALYSIS_ROOT = DEFAULT_VIDEO_GUIDE_ROOT / "_analysis_hq"
+DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / "reference" / "video_guides" / "source_bundle"
+DEFAULT_ANALYSIS_ROOT = PROJECT_PATH / ".temp" / "video_guides" / "_analysis_hq"
 DEFAULT_REPORT_ROOT = PROJECT_PATH / "doc" / "reference_codes" / "video_guides"
 DEFAULT_TRANSCRIPT_MODEL = "gemini-2.5-flash"
 DEFAULT_TRANSCRIPT_CLEANUP_MODEL = "gemini-2.5-flash"

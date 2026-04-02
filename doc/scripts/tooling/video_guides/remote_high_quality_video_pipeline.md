@@ -96,7 +96,7 @@ Use the tracked launcher instead of a blind loop:
 ```
 
 The launcher now auto-discovers supported video files under
-`.temp/video_guides/` with these extensions:
+`reference/video_guides/source_bundle/` with these extensions:
 
 - `.mp4`
 - `.mkv`
@@ -128,6 +128,12 @@ The tracked launcher:
 - `.temp/video_guides/_analysis_hq_remote_gptoss_tracked/`
 - `.temp/video_guides/_remote_gptoss_tracked_reports/`
 - `.temp/video_guides/_remote_gptoss_tracked_logs/`
+
+### Canonical Source Root
+
+- `reference/video_guides/source_bundle/`
+- `reference/video_guides/source_bundle/README.md`
+- `reference/video_guides/source_bundle/source_manifest.json`
 
 ### Persistent Tracking Files
 

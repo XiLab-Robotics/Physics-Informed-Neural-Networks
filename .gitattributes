@@ -1,0 +1,5 @@
+reference/video_guides/source_bundle/*.mp4 filter=lfs diff=lfs merge=lfs -text
+reference/video_guides/source_bundle/*.mkv filter=lfs diff=lfs merge=lfs -text
+reference/video_guides/source_bundle/*.mov filter=lfs diff=lfs merge=lfs -text
+reference/video_guides/source_bundle/*.avi filter=lfs diff=lfs merge=lfs -text
+reference/video_guides/source_bundle/*.m4v filter=lfs diff=lfs merge=lfs -text

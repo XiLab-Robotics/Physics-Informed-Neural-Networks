@@ -261,7 +261,8 @@ Product family:
 
 ## Video-Guide Companion Evidence
 
-The repository-local video-guide bundle under `.temp/video_guides/` adds
+The repository-local video-guide bundle under
+`reference/video_guides/source_bundle/` adds
 practical evidence that complements the PLC code reading.
 
 The companion text files already confirm:

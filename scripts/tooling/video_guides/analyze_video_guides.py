@@ -34,8 +34,8 @@ except ImportError:
     pytesseract = None
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
-DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / ".temp" / "video_guides"
-DEFAULT_ANALYSIS_ROOT = DEFAULT_VIDEO_GUIDE_ROOT / "_analysis"
+DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / "reference" / "video_guides" / "source_bundle"
+DEFAULT_ANALYSIS_ROOT = PROJECT_PATH / ".temp" / "video_guides" / "_analysis"
 DEFAULT_TRANSCRIPTION_MODEL = "medium"
 DEFAULT_TRANSCRIPTION_BEAM_SIZE = 8
 DEFAULT_TRANSCRIPTION_BEST_OF = 5

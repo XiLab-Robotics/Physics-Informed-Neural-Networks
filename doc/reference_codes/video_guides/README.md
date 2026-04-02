@@ -12,6 +12,12 @@ that used:
 - remote `openai/gpt-oss-20b` for transcript cleanup and report generation;
 - local OCR fallback for snapshot evidence.
 
+The canonical tracked source media bundle for this workflow now lives under:
+
+- `reference/video_guides/source_bundle/`
+- `reference/video_guides/source_bundle/README.md`
+- `reference/video_guides/source_bundle/source_manifest.json`
+
 The promoted artifacts in this folder were copied from:
 
 - `.temp/video_guides/_remote_gptoss_tracked_reports/`
@@ -40,6 +46,15 @@ These are the Git-tracked deliverables of the promoted remote-strong rerun.
 The raw intermediate caches in
 `.temp/video_guides/_analysis_hq_remote_gptoss_tracked/` remain useful for
 audit and rerun support, but they are not treated as canonical deliverables.
+
+The historical alias-derived slug folders still present in this tree:
+
+- `testrig___machine_learning_1`
+- `testrig___machine_learning_2`
+- `testrig___overview`
+
+come from the pre-dedup tracked rerun and should be treated as legacy promoted
+outputs rather than canonical source filenames.
 
 ## Reports
 

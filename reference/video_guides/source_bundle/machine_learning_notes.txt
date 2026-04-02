@@ -1,0 +1,7 @@
+I file mostrati nel video di simulazione del comportamento del Test Rig riguardo il ML si trovano nel seguente percorso:
+
+"C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning"
+
+Per quanto riguarda le colonne da inserire all'interno dell'esperimento di simulazione sono:
+
+Velocità | Coppia | Temperatura | TE | Posizione assoluta SS [0 .. 360] | Pos Totale SS [-inf .. +inf] | Pos Totale FS [-inf..+inf] | 

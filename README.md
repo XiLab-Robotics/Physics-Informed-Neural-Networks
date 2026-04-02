@@ -80,6 +80,9 @@ The most important folders for a new user are:
 - `reference/`
   External reference material and imported codebases kept outside the main
   canonical workflow.
+- `reference/video_guides/source_bundle/`
+  Canonical Git-tracked TwinCAT/TestRig video source bundle, with large media
+  files stored through Git LFS.
 
 If you only want to get started, begin with:
 
@@ -178,6 +181,10 @@ python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning
 ```powershell
 python -B scripts/tooling/video_guides/analyze_video_guides.py
 ```
+
+The canonical source media for this workflow now lives under:
+
+- `reference/video_guides/source_bundle/`
 
 ### Extract High-Quality TwinCAT Video Knowledge
 

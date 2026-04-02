@@ -1,0 +1,5 @@
+All'interno del video è presente un errore riguardo la variabile utilizzata sul programma per effettuare la simulazione.
+
+TE_Calc in TwinCAT non è la variabile calcolata tramite Matlab, ma effettuo il calcolo direttamente in TwinCAT utilizzando la posizione totale del SS e la posizione Totale del FS MS registrate durante un esperimento.
+
+Per l'estrapolazione di tali vettori è possibile utilizzare il file di Matlab "Extra_Data_For_Simul_TC_Cam". In questo si uniscono i valori ideali realizzata tramite Camma e i valori invece reali registrati tramite TwinCAT.

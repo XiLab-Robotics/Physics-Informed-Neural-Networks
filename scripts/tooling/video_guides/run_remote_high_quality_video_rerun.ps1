@@ -18,7 +18,7 @@ Set-Location $projectRoot
 $analysisRootRelativePath = ".temp\video_guides\_analysis_hq_remote_gptoss_tracked"
 $reportRootRelativePath = ".temp\video_guides\_remote_gptoss_tracked_reports"
 $logRootRelativePath = ".temp\video_guides\_remote_gptoss_tracked_logs"
-$videoSourceRootRelativePath = ".temp\video_guides"
+$videoSourceRootRelativePath = "reference\video_guides\source_bundle"
 $statusFileRelativePath = "doc\running\remote_high_quality_video_rerun_status.json"
 $checklistFileRelativePath = "doc\running\remote_high_quality_video_rerun_checklist.md"
 $validationScriptRelativePath = "scripts\tooling\markdown\markdown_style_check.py"

@@ -3,7 +3,7 @@
 ## Role In This Project
 
 This note captures the repository-owned workflow used to analyze the local
-video-guide bundle stored under `.temp/video_guides/`.
+video-guide bundle stored under `reference/video_guides/source_bundle/`.
 
 The goal is to convert that media bundle into reusable technical knowledge that
 supports future TwinCAT deployment work for the TE models trained in this
@@ -85,7 +85,8 @@ The repository now includes:
 - `scripts/tooling/video_guides/analyze_video_guides.py`
 - `scripts/tooling/video_guides/extract_video_guide_knowledge.py`
 
-This script is designed to process `.temp/video_guides/` through four layers:
+This script is designed to process `reference/video_guides/source_bundle/`
+through four layers:
 
 1. media inventory and metadata collection;
 2. timestamped transcription with local Faster-Whisper models;
@@ -99,6 +100,12 @@ The generated artifacts are written under:
 This location intentionally keeps raw analysis outputs outside the canonical
 documentation tree while preserving them in a reproducible repository-local
 path.
+
+The canonical tracked source bundle itself is now stored under:
+
+- `reference/video_guides/source_bundle/`
+- `reference/video_guides/source_bundle/README.md`
+- `reference/video_guides/source_bundle/source_manifest.json`
 
 The repository-owned per-video reports generated from those artifacts are now
 stored under:
