@@ -1,3 +1,5 @@
+"""Run repository-owned training smoke tests."""
+
 from __future__ import annotations
 
 # Import Python Utilities

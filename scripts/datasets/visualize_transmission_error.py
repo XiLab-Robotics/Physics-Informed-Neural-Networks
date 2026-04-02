@@ -1,3 +1,5 @@
+"""Visualize repository-owned transmission-error curve data."""
+
 from __future__ import annotations
 
 # Import Python Utilities

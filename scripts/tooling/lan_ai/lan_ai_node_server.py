@@ -82,9 +82,19 @@ def ensure_authorized(authorization_header: str | None, expected_bearer_token: s
 
 def get_whisper_model(model_name: str, whisper_device: str, whisper_compute_type: str) -> Any:
 
-    """ Get Whisper Model """
+    """Resolve or create one cached Faster-Whisper model instance.
+
+    Args:
+        model_name: Faster-Whisper model name.
+        whisper_device: Execution device such as `cpu` or `cuda`.
+        whisper_compute_type: Faster-Whisper compute type.
+
+    Returns:
+        Cached Faster-Whisper model instance.
+    """
 
     assert WhisperModel is not None, "faster-whisper is not installed on this node."
+    # Resolve Cache Entry
     cache_key = (model_name, whisper_device, whisper_compute_type)
     if cache_key not in WHISPER_MODEL_CACHE:
         WHISPER_MODEL_CACHE[cache_key] = WhisperModel(
@@ -98,9 +108,17 @@ def get_whisper_model(model_name: str, whisper_device: str, whisper_compute_type
 
 def get_paddle_ocr(language: str) -> Any:
 
-    """ Get Paddle OCR """
+    """Resolve or create one cached PaddleOCR instance.
+
+    Args:
+        language: Requested OCR language.
+
+    Returns:
+        Cached PaddleOCR instance.
+    """
 
     assert PaddleOCR is not None, "PaddleOCR is not installed on this node."
+    # Resolve Cache Entry
     normalized_language = language.strip() or "en"
     if normalized_language not in PADDLE_OCR_CACHE:
         initialization_error_message_list: list[str] = []
@@ -118,6 +136,7 @@ def get_paddle_ocr(language: str) -> Any:
             },
         ]
 
+        # Probe Compatible Constructor Signatures
         for constructor_argument_map in constructor_argument_map_list:
             try:
                 PADDLE_OCR_CACHE[normalized_language] = PaddleOCR(**constructor_argument_map)
@@ -139,8 +158,16 @@ def get_paddle_ocr(language: str) -> Any:
 
 def collect_paddle_ocr_text_and_confidence(ocr_result: Any) -> tuple[str, float]:
 
-    """ Collect Paddle OCR Text And Confidence """
+    """Collect normalized OCR text and mean confidence from PaddleOCR output.
 
+    Args:
+        ocr_result: Raw PaddleOCR output structure.
+
+    Returns:
+        Tuple containing collapsed OCR text and average confidence.
+    """
+
+    # Collect Accepted OCR Lines
     accepted_text_list: list[str] = []
     confidence_value_list: list[float] = []
 
@@ -244,11 +271,19 @@ def terminate_windows_process(process_id: int) -> None:
 
 def release_stale_lan_ai_node_process_on_port(port: int) -> bool:
 
-    """ Release Stale LAN AI Node Process On Port """
+    """Release a stale Windows LAN AI node process when it owns the target port.
+
+    Args:
+        port: TCP port that should be free before server startup.
+
+    Returns:
+        Whether a stale process was terminated.
+    """
 
     if os.name != "nt":
         return False
 
+    # Inspect Listening Processes
     released_process = False
     for process_id in find_windows_pid_listening_on_port(port):
         command_line_text = read_windows_process_command_line(process_id)
@@ -259,6 +294,7 @@ def release_stale_lan_ai_node_process_on_port(port: int) -> bool:
             )
 
         print(f"Reclaiming port {port} from stale LAN AI node process PID {process_id}.")
+        # Terminate Matching Stale Server
         terminate_windows_process(process_id)
         released_process = True
 
@@ -267,14 +303,21 @@ def release_stale_lan_ai_node_process_on_port(port: int) -> bool:
 
 def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
 
-    """ Build Application """
+    """Build the FastAPI application for the LAN AI node.
+
+    Args:
+        parsed_arguments: Parsed server command-line arguments.
+
+    Returns:
+        Configured FastAPI application.
+    """
 
     application = FastAPI(title="StandardML LAN AI Node", version="1.0.0")
 
     @application.get("/health")
     def read_health(authorization: str | None = Header(default=None)) -> dict[str, Any]:
 
-        """ Read Health """
+        """Serve the LAN node healthcheck response."""
 
         ensure_authorized(authorization, parsed_arguments.bearer_token)
 
@@ -297,13 +340,15 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
 
-        """ Transcribe Audio """
+        """Transcribe uploaded audio through Faster-Whisper."""
 
+        # Authorize Request
         ensure_authorized(authorization, parsed_arguments.bearer_token)
 
         if WhisperModel is None:
             raise HTTPException(status_code=503, detail="faster-whisper is not installed on this node.")
 
+        # Persist Uploaded Audio
         start_time = time.time()
         suffix = Path(audio_file.filename or "upload.bin").suffix or ".bin"
         with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temporary_file:
@@ -311,6 +356,7 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
             temporary_file.write(await audio_file.read())
 
         try:
+            # Run Transcript Model
             whisper_model = get_whisper_model(
                 model_name=model.strip() or parsed_arguments.whisper_model,
                 whisper_device=parsed_arguments.whisper_device,
@@ -322,6 +368,7 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
                 beam_size=beam_size,
                 vad_filter=vad_filter,
             )
+            # Collect Transcript Segments
             segment_payload_list: list[dict[str, Any]] = []
             transcript_segment_text_list: list[str] = []
             for segment in segment_iterator:
@@ -338,6 +385,7 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
                     }
                 )
 
+            # Build Transcript Payload
             transcript_text = collapse_whitespace(" ".join(transcript_segment_text_list))
 
             return {
@@ -357,13 +405,15 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
 
-        """ Run OCR """
+        """Run OCR on one uploaded image through PaddleOCR."""
 
+        # Authorize Request
         ensure_authorized(authorization, parsed_arguments.bearer_token)
 
         if PaddleOCR is None:
             raise HTTPException(status_code=503, detail="PaddleOCR is not installed on this node.")
 
+        # Persist Uploaded Image
         suffix = Path(image_file.filename or "upload.png").suffix or ".png"
         with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temporary_file:
             temporary_file_path = Path(temporary_file.name)
@@ -371,6 +421,7 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
 
         try:
             try:
+                # Resolve OCR Model
                 paddle_ocr = get_paddle_ocr(language)
             except Exception as error:
                 raise HTTPException(
@@ -379,6 +430,7 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
                 ) from error
 
             try:
+                # Execute OCR
                 ocr_result = paddle_ocr.ocr(str(temporary_file_path), cls=True)
             except Exception as error:
                 raise HTTPException(
@@ -386,6 +438,7 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
                     detail=f"PaddleOCR execution failed: {error}",
                 ) from error
 
+            # Build OCR Payload
             ocr_text, average_confidence = collect_paddle_ocr_text_and_confidence(ocr_result)
 
             return {
@@ -400,9 +453,15 @@ def build_application(parsed_arguments: argparse.Namespace) -> FastAPI:
 
 def main() -> int:
 
-    """ Run LAN AI Node Server """
+    """Run the LAN AI node server entry point.
 
+    Returns:
+        Process exit code.
+    """
+
+    # Parse CLI Arguments
     parsed_arguments = parse_command_line_arguments()
+    # Build Application
     application = build_application(parsed_arguments)
 
     try:
@@ -416,6 +475,7 @@ def main() -> int:
         if not port_already_in_use:
             raise
 
+        # Retry After Releasing Stale Listener
         released_process = release_stale_lan_ai_node_process_on_port(parsed_arguments.port)
         if not released_process:
             raise

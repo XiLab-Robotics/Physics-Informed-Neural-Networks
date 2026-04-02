@@ -80,17 +80,48 @@ The main style baseline is `blind_handover_controller`, while the other two repo
 
 ## Docstrings
 
-- Keep them short, one line, in title case.
-- They usually describe the class or function directly, without extra prose.
+- Use Google-style docstrings as the canonical default for new or materially refactored repository-owned Python scripts.
+- This repository uses Sphinx `napoleon`, so public API-facing docstrings should render cleanly through that path without a later retrofit pass.
+- Keep trivial helpers concise, but do not fall back to placeholder one-line docstrings for non-trivial workflow functions, public utilities, dataclasses, classes, or module entry points.
+- Prefer a short summary line first. Then add `Args`, `Returns`, `Raises`, `Attributes`, or `Notes` sections only when they materially improve API clarity.
+- Legacy one-line title-case docstrings may remain in untouched older files, but they are no longer the default target format for new script work.
 - For top-level definitions, leave one blank line between the `def` or `class` line and the docstring.
 - Apply the same blank-line rule to methods when they use a docstring.
 - Apply the same blank-line rule to `@dataclass(...)` declarations followed by `class`.
 
-Correct examples:
+Representative examples:
 
 - `""" Handover Controller Class """`
 - `""" Compute Loss """`
 - `""" Cartesian Goal Callback """`
+
+Google-style examples:
+
+```python
+def resolve_validation_output_directory(pdf_output_path: Path) -> Path:
+
+    """Resolve the output directory used for PDF validation images.
+
+    Args:
+        pdf_output_path: Exported PDF path for the current report.
+
+    Returns:
+        Validation-image directory for the current PDF.
+    """
+```
+
+```python
+@dataclass(frozen=True)
+class SnapshotRecord:
+
+    """Store one selected report-worthy snapshot candidate.
+
+    Attributes:
+        timestamp_seconds: Snapshot timestamp in seconds.
+        frame_path: Project-relative path to the frame image.
+        selection_reason: Human-readable reason for keeping the snapshot.
+    """
+```
 
 Spacing examples:
 
@@ -238,11 +269,13 @@ assert len(joint_positions) == 6, f"Joint Positions Length must be 6 | {len(join
 ## Rules To Apply In This Repository
 
 - Every new file should use explicit and readable naming.
+- Every new or materially refactored repository-owned Python script should use Google-style docstrings for public modules, classes, dataclasses, and non-trivial public functions.
 - Every non-trivial function should be split into blocks with title-case comments.
 - Keep those block comments compact unless extra detail is genuinely needed for domain logic or safety.
 - Configurations and constants should remain semantically transparent.
 - ML code should remain understandable from an engineering perspective and compatible with future export or deployment.
 - Apply the approved blank-line spacing rules to top-level functions, classes, dataclasses, and documented methods.
+- Treat Sphinx plus `napoleon` compatibility as part of the default definition of a complete script implementation, not as a later documentation-only cleanup step.
 - Use the latest relevant manually refactored Python-script style as the repository reference when choosing between equally valid compact layouts.
 - For compact utility and exporter scripts, treat commit `0c8b5003ddcce34d672b2822c2afe8e357a1fb26` as the sharper reference for comment length, grouped imports, and concise helper layout.
 - For very small validation and reporting utilities, also treat the manual `scripts/reports/validate_report_pdf.py` refactor as a reference for compact import guards, one-line parser declarations, and tighter helper spacing when readability remains high.

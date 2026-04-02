@@ -1,3 +1,5 @@
+"""Run queued repository-owned training campaigns."""
+
 from __future__ import annotations
 
 # Import Python Utilities

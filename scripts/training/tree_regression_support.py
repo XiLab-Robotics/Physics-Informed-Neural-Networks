@@ -1,3 +1,5 @@
+"""Provide shared support utilities for tree-regression training."""
+
 from __future__ import annotations
 
 # Import Python Utilities

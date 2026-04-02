@@ -34,7 +34,13 @@ DEFAULT_REQUEST_TIMEOUT_SECONDS = 300
 @dataclass
 class LanTranscriptSegment:
 
-    """ Store LAN Transcript Segment """
+    """Store one transcript segment returned by the LAN AI node.
+
+    Attributes:
+        start_seconds: Segment start timestamp in seconds.
+        end_seconds: Segment end timestamp in seconds.
+        text: Collapsed transcript text for the segment.
+    """
 
     start_seconds: float
     end_seconds: float
@@ -64,8 +70,19 @@ def fetch_lm_studio_model_name_list(
     timeout_seconds: int = DEFAULT_REQUEST_TIMEOUT_SECONDS,
 ) -> list[str]:
 
-    """ Fetch LM Studio Model Name List """
+    """Fetch the visible LM Studio model identifiers.
 
+    Args:
+        lm_studio_base_url: Base URL of the LM Studio server.
+        api_key: API key or token accepted by LM Studio.
+        timeout_seconds: Request timeout in seconds.
+
+    Returns:
+        Visible LM Studio model identifiers. Returns an empty list when the
+        server does not answer successfully.
+    """
+
+    # Request Model List
     response = requests.get(
         f"{normalize_base_url(lm_studio_base_url)}/v1/models",
         headers=build_bearer_header_map(api_key.strip() or "lm-studio"),
@@ -74,6 +91,7 @@ def fetch_lm_studio_model_name_list(
     if not response.ok:
         return []
 
+    # Parse Visible Model IDs
     payload = response.json()
     return [
         str(model_item.get("id", "")).strip()
@@ -92,8 +110,26 @@ def post_file_to_lan_ai_node(
     timeout_seconds: int = DEFAULT_REQUEST_TIMEOUT_SECONDS,
 ) -> dict[str, Any]:
 
-    """ Post File To LAN AI Node """
+    """Post one uploaded file to a LAN AI node endpoint.
 
+    Args:
+        endpoint_url: Full endpoint URL.
+        file_field_name: Multipart field name used for the file.
+        upload_name: File name exposed to the endpoint.
+        upload_bytes: Raw uploaded file bytes.
+        bearer_token: Optional bearer token used for authorization.
+        data_map: Optional form fields sent beside the file.
+        timeout_seconds: Request timeout in seconds.
+
+    Returns:
+        Parsed JSON response payload.
+
+    Raises:
+        AssertionError: If the endpoint fails or returns a non-dictionary JSON
+            payload.
+    """
+
+    # Submit Multipart Request
     response = requests.post(
         endpoint_url,
         headers=build_bearer_header_map(bearer_token),
@@ -112,6 +148,7 @@ def post_file_to_lan_ai_node(
             f"response_body={response_body_text!r}"
         ) from error
 
+    # Parse JSON Payload
     payload = response.json()
     assert isinstance(payload, dict), "LAN AI node returned a non-dict JSON payload."
     return payload
@@ -126,8 +163,21 @@ def transcribe_audio_via_lan_ai_node(
     timeout_seconds: int = DEFAULT_REQUEST_TIMEOUT_SECONDS,
 ) -> str:
 
-    """ Transcribe Audio Via LAN AI Node """
+    """Transcribe one audio file through the LAN AI node.
 
+    Args:
+        audio_file_path: Audio file uploaded to the node.
+        lan_ai_base_url: Base URL of the LAN AI node.
+        bearer_token: Optional bearer token used for authorization.
+        transcript_model: Transcript model requested from the node.
+        transcript_language: Requested transcript language.
+        timeout_seconds: Request timeout in seconds.
+
+    Returns:
+        Collapsed transcript text returned by the node.
+    """
+
+    # Request Transcript
     payload = post_file_to_lan_ai_node(
         endpoint_url=f"{normalize_base_url(lan_ai_base_url)}/transcribe",
         file_field_name="audio_file",
@@ -141,6 +191,7 @@ def transcribe_audio_via_lan_ai_node(
         timeout_seconds=timeout_seconds,
     )
 
+    # Validate Transcript Text
     transcript_text = collapse_whitespace(str(payload.get("transcript_text", "")))
     assert transcript_text, "LAN AI node returned an empty transcript."
     return transcript_text
@@ -155,8 +206,22 @@ def transcribe_audio_via_lan_ai_node_with_segments(
     timeout_seconds: int = DEFAULT_REQUEST_TIMEOUT_SECONDS,
 ) -> tuple[str, list[LanTranscriptSegment]]:
 
-    """ Transcribe Audio Via LAN AI Node With Segments """
+    """Transcribe one audio file and retain segment boundaries.
 
+    Args:
+        audio_file_path: Audio file uploaded to the node.
+        lan_ai_base_url: Base URL of the LAN AI node.
+        bearer_token: Optional bearer token used for authorization.
+        transcript_model: Transcript model requested from the node.
+        transcript_language: Requested transcript language.
+        timeout_seconds: Request timeout in seconds.
+
+    Returns:
+        Tuple containing the full transcript text and the normalized transcript
+        segment list.
+    """
+
+    # Request Transcript Payload
     payload = post_file_to_lan_ai_node(
         endpoint_url=f"{normalize_base_url(lan_ai_base_url)}/transcribe",
         file_field_name="audio_file",
@@ -170,9 +235,11 @@ def transcribe_audio_via_lan_ai_node_with_segments(
         timeout_seconds=timeout_seconds,
     )
 
+    # Validate Transcript Text
     transcript_text = collapse_whitespace(str(payload.get("transcript_text", "")))
     assert transcript_text, "LAN AI node returned an empty transcript."
 
+    # Materialize Transcript Segments
     transcript_segment_list: list[LanTranscriptSegment] = []
     for segment_map in payload.get("segments", []):
         if not isinstance(segment_map, dict):
@@ -202,14 +269,28 @@ def run_lm_studio_chat_completion(
     timeout_seconds: int = DEFAULT_REQUEST_TIMEOUT_SECONDS,
 ) -> str:
 
-    """ Run LM Studio Chat Completion """
+    """Run one chat-completion request against LM Studio.
 
+    Args:
+        lm_studio_base_url: Base URL of the LM Studio server.
+        api_key: API key or token accepted by LM Studio.
+        model_name: Model requested for the chat completion.
+        prompt_text: Prompt sent to the model.
+        preserve_formatting: Whether response formatting should be preserved.
+        timeout_seconds: Request timeout in seconds.
+
+    Returns:
+        Response text extracted from the first returned choice.
+    """
+
+    # Resolve Available Models
     normalized_base_url = normalize_base_url(lm_studio_base_url)
     available_model_name_list = fetch_lm_studio_model_name_list(
         lm_studio_base_url=normalized_base_url,
         api_key=api_key,
         timeout_seconds=timeout_seconds,
     )
+    # Execute Completion Request
     response = None
     for attempt_index in range(2):
         response = requests.post(
@@ -249,6 +330,7 @@ def run_lm_studio_chat_completion(
 
     assert response is not None and response.ok, "LM Studio request retry loop completed without a valid response."
 
+    # Parse Completion Payload
     payload = response.json()
     choice_list = payload.get("choices", [])
     assert choice_list, "LM Studio returned no choices."
@@ -284,10 +366,23 @@ def run_region_ocr_via_lan_ai_node(
     timeout_seconds: int = 90,
 ) -> tuple[str, float, str, list[str]]:
 
-    """ Run Region OCR Via LAN AI Node """
+    """Run OCR on TwinCAT-oriented frame regions through the LAN AI node.
+
+    Args:
+        frame_image: OpenCV frame image already loaded in memory.
+        lan_ai_base_url: Base URL of the LAN AI node.
+        bearer_token: Optional bearer token used for authorization.
+        ocr_language: Requested OCR language.
+        timeout_seconds: Request timeout in seconds.
+
+    Returns:
+        Tuple containing the best OCR text, OCR quality score, selected region
+        name, and an empty matched-term list placeholder.
+    """
 
     assert cv2 is not None, "opencv-python-headless is required for LAN OCR crop encoding."
 
+    # Probe Candidate Regions
     frame_height, frame_width = frame_image.shape[:2]
     region_map = build_ocr_region_map(frame_width, frame_height)
     best_candidate_text = ""
@@ -299,10 +394,12 @@ def run_region_ocr_via_lan_ai_node(
         if region_image.size == 0:
             continue
 
+        # Encode Region Image
         encode_success, encoded_region_image = cv2.imencode(".png", region_image)
         if not encode_success:
             continue
 
+        # Request OCR Payload
         payload = post_file_to_lan_ai_node(
             endpoint_url=f"{normalize_base_url(lan_ai_base_url)}/ocr",
             file_field_name="image_file",
@@ -313,6 +410,7 @@ def run_region_ocr_via_lan_ai_node(
             timeout_seconds=timeout_seconds,
         )
 
+        # Score OCR Candidate
         ocr_text = collapse_whitespace(str(payload.get("ocr_text", "")))
         average_confidence = float(payload.get("average_confidence", 0.0))
         quality_score = compute_ocr_quality_score(ocr_text, average_confidence, region_name)

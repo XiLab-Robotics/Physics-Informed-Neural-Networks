@@ -1,3 +1,5 @@
+"""Train repository-owned tree regressors for transmission error data."""
+
 from __future__ import annotations
 
 # Import Python Utilities

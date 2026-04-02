@@ -165,7 +165,9 @@
 - Use `PascalCase` for most classes, but preserve the existing mixed robotics naming when it improves domain clarity, such as `Handover_Controller`, `UR_RTDE_Move`, `UR_Toolbox`, and callback suffixes like `jointStatesCallback`.
 - Prefer `snake_case` for utility functions and general methods, and keep ROS-style callback names in the existing mixed form when they match the surrounding code.
 - Group imports in blocks with sparse spacing and short heading comments such as `# Import ROS Messages` or `# Import PyTorch Lightning Utilities`.
-- Use short docstrings in title case, usually one line, for classes and methods.
+- Use Google-style docstrings as the default for new or materially refactored repository-owned Python scripts, especially for public modules, classes, dataclasses, and non-trivial public functions.
+- Keep the summary line concise, then add `Args`, `Returns`, `Raises`, `Attributes`, or `Notes` sections only when they materially improve API clarity.
+- Short one-line title-case docstrings may remain in untouched legacy code, but they are not the default target format for new script work.
 - Add frequent section comments before logical blocks. The preferred pattern is imperative or descriptive title case, for example `# Initialize Admittance Controller`, `# Compute Cartesian Velocity`, `# Save Model`.
 - Do not rely on docstrings alone inside non-trivial functions. Use section comments frequently enough that the control flow stays visually scannable while reading the function body.
 - Keep comments capitalized and high-signal. It is acceptable to use arrows or quick clarifiers like `->`, parentheses, or acronym-heavy labels when that improves readability.
@@ -178,3 +180,4 @@
 - Use type hints where they are already natural in the surrounding file, especially for tensors, arrays, ROS messages, loaders, and return values.
 - Favor aligned or visually structured assignments when several related values are initialized together.
 - Preserve the existing print/debug style when needed: explicit status messages, sometimes colorized, with direct wording rather than generic logging prose.
+- Treat Sphinx plus `napoleon` compatibility as part of the normal completion bar for repository-owned Python scripts. New script work should not leave placeholder docstrings that require a later documentation retrofit.

@@ -1,3 +1,5 @@
+"""Build validated transmission-error datasets from repository CSV sources."""
+
 from __future__ import annotations
 
 # Import Python Utilities
