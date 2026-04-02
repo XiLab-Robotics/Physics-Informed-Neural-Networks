@@ -1,4 +1,4 @@
-﻿# Campaign Launcher Script Mandatory Rule
+# Campaign Launcher Script Mandatory Rule
 
 ## Overview
 
@@ -121,4 +121,3 @@ so future sessions follow the same workflow without relying on memory.
    of the documented training-campaign workflow.
 7. Report completion and wait for explicit user approval before creating any
    Git commit.
-

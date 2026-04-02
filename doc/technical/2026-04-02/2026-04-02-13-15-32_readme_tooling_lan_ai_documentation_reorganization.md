@@ -1,3 +1,5 @@
+# README Tooling LAN AI Documentation Reorganization
+
 ## Overview
 
 This scope addresses four related repository-organization concerns that have

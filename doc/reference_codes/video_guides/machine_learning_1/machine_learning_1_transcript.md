@@ -4,8 +4,8 @@ This transcript is the canonical cleaned Italian transcript for the video.
 
 ## Source Reference
 
-- Canonical source video: [machine_learning_1.mp4](../../../../reference/video_guides/source_bundle/machine_learning_1.mp4)
-- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+* Canonical source video: [machine_learning_1.mp4](../../../../reference/video_guides/source_bundle/machine_learning_1.mp4)
+* Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
 
 ## 00:00:00 - 00:04:59
 

@@ -1,4 +1,4 @@
-﻿# Post-Campaign Wave Naming And Backlog Alignment Reminder
+# Post-Campaign Wave Naming And Backlog Alignment Reminder
 
 ## Overview
 
@@ -57,4 +57,3 @@ The post-campaign alignment pass should review and correct, where appropriate:
    paths.
 4. Perform the wave-naming and backlog-alignment cleanup as a dedicated
    post-campaign task.
-

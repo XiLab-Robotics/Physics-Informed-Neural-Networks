@@ -1,4 +1,4 @@
-﻿# `run_markdownlint.py`
+# `run_markdownlint.py`
 
 ## Overview
 
@@ -34,6 +34,10 @@ The tracked configuration excludes non-canonical or generated locations such as:
 - `.tools/**`
 - `isolated/**`
 - `output/**`
+
+When a task needs a repository-wide audit of Git-tracked Markdown rather than
+only the default canonical authored globs, run Markdownlint against the tracked
+file list explicitly instead of relying only on the config globs.
 
 ## Current Rule Policy
 
@@ -76,6 +80,24 @@ python -B scripts/tooling/markdown/run_markdownlint.py README.md doc site
 When explicit paths are passed, the script disables the config-level default
 globs and lints only the provided repository-relative targets.
 
+### Audit The Full Git-Tracked Markdown Set
+
+For a true repository-wide tracked audit on Windows, enumerate the tracked
+Markdown files from Git and lint them in chunks:
+
+```powershell
+$trackedMarkdownPathList = git ls-files '*.md'
+$chunkSize = 80
+for ($index = 0; $index -lt $trackedMarkdownPathList.Count; $index += $chunkSize) {
+    $chunk = $trackedMarkdownPathList[$index..([Math]::Min($index + $chunkSize - 1, $trackedMarkdownPathList.Count - 1))]
+    python -B scripts/tooling/markdown/run_markdownlint.py @chunk
+}
+```
+
+Use this mode when the goal is to prove that the Git-tracked Markdown surface
+is warning-free, including tracked report bundles and other tracked Markdown
+outside the default canonical globs.
+
 ## Environment Notes
 
 The script invokes `markdownlint-cli2` through `npx.cmd` on Windows.
@@ -92,4 +114,3 @@ The repository does not currently pin `markdownlint-cli2` as a tracked project
 dependency. Instead, the runner uses the current `npx`-resolved tool version at
 execution time, while keeping the repository rule profile and scope definition
 tracked locally.
-

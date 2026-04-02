@@ -1,13 +1,13 @@
-# TwinCAT/TestRig Video Guide Report  
+# TwinCAT/TestRig Video Guide Report
 
-**Video:** *ML_Simulation_and_Generator_Cam.mkv*  
+**Video:** *ML_Simulation_and_Generator_Cam.mkv*
 
 ---
 
 ## Source Reference
 
-- Canonical source video: [ml_simulation_and_generator_cam.mkv](../../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv)
-- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+* Canonical source video: [ml_simulation_and_generator_cam.mkv](../../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv)
+* Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
 
 ## Overview
 
@@ -26,7 +26,7 @@ The video demonstrates how a machine‑learning (ML) model, trained in MATLAB an
 ## Main Technical Findings
 
 | Item | Detail |
-|------|--------|
+| ------ | -------- |
 | **Data Columns** | 1) Speed (RPM), 2) Slow‑shaft torque, 3) Temperature, 4) Transmission error. The transcript confirms the first three columns are speed, torque, temperature; the fourth is TE. |
 | **Model Import** | GBR models were imported for phase and amplitude at non‑zero frequencies; a separate model handles zero‑frequency amplitude. These are loaded into `Machine_Learning.Untitied1.Cam` (OCR evidence 00:11:12). |
 | **PLC Prediction Block** | The PLC contains a `Cam_Corection_ML_1_Vel_Cost_250_500` block that receives speed, torque, and temperature as inputs and outputs a predicted TE. OCR at 00:01:15 shows the block’s variable list (`Enab`, `Mis delay`, etc.). |
@@ -50,7 +50,7 @@ The video demonstrates how a machine‑learning (ML) model, trained in MATLAB an
 ## Reference Snapshots
 
 | Time | Concept | Snapshot Description |
-|------|---------|-----------------------|
+| ------ | --------- | ----------------------- |
 | 00:07:29 | Task Timing & CRCs | Screenshot of the TwinCAT IDE showing task timing and safety CRC display. |
 | 00:11:12 | ML Prediction Block | Center workspace view with `Cam_Corection_ML_1_Vel_Cost_250_500` block highlighted, including input/output ports. |
 | 00:16:09 | TestRig Execution | Breakpoints window showing the `ForSim_And_Exp.m` script running within the `Experiment_ML` folder. |

@@ -673,6 +673,15 @@ Operational rule for documentation work:
 - do not treat this as a requirement to clean the entire repository every time
   a small Markdown edit is made.
 
+Repository quality target:
+
+- Git-tracked authored Markdown should remain warning-free.
+- For normal feature work, the mandatory gate is still the touched Markdown
+  scope.
+- When you need to prove repository-wide warning-free status, run both the
+  structural checker and a Markdownlint pass over the full Git-tracked Markdown
+  set.
+
 ### Run The Default Source Scan
 
 ```powershell
@@ -757,6 +766,26 @@ python -B scripts/tooling/markdown/run_markdownlint.py --fix
 ```powershell
 python -B scripts/tooling/markdown/run_markdownlint.py README.md doc site
 ```
+
+### Audit The Full Git-Tracked Markdown Set
+
+```powershell
+$trackedMarkdownPathList = git ls-files '*.md'
+$chunkSize = 80
+for ($index = 0; $index -lt $trackedMarkdownPathList.Count; $index += $chunkSize) {
+    $chunk = $trackedMarkdownPathList[$index..([Math]::Min($index + $chunkSize - 1, $trackedMarkdownPathList.Count - 1))]
+    python -B scripts/tooling/markdown/run_markdownlint.py @chunk
+}
+```
+
+Pair that with:
+
+```powershell
+python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning
+```
+
+This is the recommended proof step when you want to assert that all tracked
+Markdown in the repository is currently warning-free.
 
 The runner uses `npx.cmd` on Windows, so the machine must have `node`, `npm`,
 and `npx` available.

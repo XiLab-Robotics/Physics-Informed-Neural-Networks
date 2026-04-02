@@ -1,4 +1,4 @@
-﻿# `isolated_mode.py`
+# `isolated_mode.py`
 
 ## Overview
 
@@ -130,4 +130,3 @@ python -B scripts/tooling/session/isolated_mode.py close-session `
   session start, which they do in this repository.
 - The script does not integrate staged files automatically. It prepares the
   manifest and the review surface so the later integration pass stays explicit.
-

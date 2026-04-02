@@ -93,7 +93,7 @@ in the imported TwinCAT code.
 ## Per-Video Engineering Value
 
 | Video Slug | Main Value For Implementation | Quality Judgment |
-|---|---|---|
+| --- | --- | --- |
 | `machine_learning_1` | Beckhoff Model Manager import, XML multi-model concept, generated function-block shape, task timing | High |
 | `machine_learning_2` | state-100 orchestration, CSV-fed inference flow, fast-task vs ML-task split, prediction-block runtime use | High |
 | `testrig___machine_learning_1` | GVL/task coupling, `FB_Predict_*` structure, enable/reset/runtime flags | High |

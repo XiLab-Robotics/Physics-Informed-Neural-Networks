@@ -4,8 +4,8 @@ This transcript is the canonical cleaned Italian transcript for the video.
 
 ## Source Reference
 
-- Canonical source video: [overview_test_rig.mp4](../../../../reference/video_guides/source_bundle/overview_test_rig.mp4)
-- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+* Canonical source video: [overview_test_rig.mp4](../../../../reference/video_guides/source_bundle/overview_test_rig.mp4)
+* Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
 
 ## 00:00:01 - 00:05:00
 

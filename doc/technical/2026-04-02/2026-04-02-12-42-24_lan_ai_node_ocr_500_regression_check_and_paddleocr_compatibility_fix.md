@@ -1,3 +1,5 @@
+# LAN AI Node OCR 500 Regression Check And PaddleOCR Compatibility Fix
+
 ## Overview
 
 This scope verifies a previously observed `500 Internal Server Error` on the

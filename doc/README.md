@@ -56,6 +56,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-02
+
+- [technical/2026-04-02/2026-04-02-18-52-33_repository_wide_markdown_residual_cleanup.md](./technical/2026-04-02/2026-04-02-18-52-33_repository_wide_markdown_residual_cleanup.md)
+  Technical document for clearing the remaining repository-wide Markdownlint residues in the current Git-tracked Markdown set.
+- [technical/2026-04-02/2026-04-02-18-46-22_markdown_zero_warning_rule_tightening.md](./technical/2026-04-02/2026-04-02-18-46-22_markdown_zero_warning_rule_tightening.md)
+  Technical document for tightening the repository Markdown rule so newly created or modified Git-tracked Markdown files must reach zero warnings before task closure.
+
 #### 2026-03-10
 
 - [technical/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md](./technical/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md)
@@ -447,6 +454,10 @@ This folder contains the internal project documents derived from the reference P
   Technical document for moving the TwinCAT/TestRig source video bundle into a canonical reference-owned location with Git LFS, deduplication, and clearer naming.
 - [technical/2026-04-02/2026-04-02-18-16-07_video_guide_canonical_cleanup_and_source_reference_alignment.md](./technical/2026-04-02/2026-04-02-18-16-07_video_guide_canonical_cleanup_and_source_reference_alignment.md)
   Technical document for removing legacy duplicate promoted video-guide aliases and aligning the canonical guide tree to the tracked source bundle with explicit source-video provenance.
+- [technical/2026-04-02/2026-04-02-18-34-16_repository_wide_markdown_warning_elimination_and_policy_alignment.md](./technical/2026-04-02/2026-04-02-18-34-16_repository_wide_markdown_warning_elimination_and_policy_alignment.md)
+  Technical document for eliminating repository-wide Markdown warnings across Git-tracked authored Markdown files and aligning the documentation surface with a zero-warning policy.
+- [technical/2026-04-02/2026-04-02-18-40-31_video_guides_markdown_strict_cleanup_and_lint_alignment.md](./technical/2026-04-02/2026-04-02-18-40-31_video_guides_markdown_strict_cleanup_and_lint_alignment.md)
+  Technical document for hardening the canonical TwinCAT/TestRig video-guide Markdown files against stricter editor linting and aligning them with the repository zero-warning policy.
 - [technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)

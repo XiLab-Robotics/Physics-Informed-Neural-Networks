@@ -4,8 +4,8 @@ This transcript is the canonical cleaned Italian transcript for the video.
 
 ## Source Reference
 
-- Canonical source video: [ml_simulation_and_generator_cam.mkv](../../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv)
-- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+* Canonical source video: [ml_simulation_and_generator_cam.mkv](../../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv)
+* Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
 
 ## 00:00:01 - 00:04:59
 

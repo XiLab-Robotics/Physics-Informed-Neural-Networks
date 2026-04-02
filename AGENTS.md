@@ -24,10 +24,14 @@
 - Keep companion assets for a topic-local report bundle inside the same dated topic folder instead of creating a separate parallel `*_assets/` root.
 - Keep `doc/reports/campaign_plans/` and `doc/reports/campaign_results/` on the existing timestamp-based filename convention because they represent distinct campaign execution instances.
 - Treat bracketed date folders under `doc/reports/` such as `[2026-03-27]` as literal paths in tooling-sensitive contexts; for example, use `-LiteralPath` in PowerShell when needed.
-- Whenever a repository-owned Markdown document is created or modified, check the touched Markdown files for warnings before closing the task.
-- Scope this Markdown warning check to the Markdown files created or modified by the task rather than forcing a full repository-wide cleanup every time.
-- Fix warning regressions introduced or preserved in the touched Markdown files before closing the task when the fix is local and straightforward.
+- The repository standard for Git-tracked authored Markdown is zero warnings.
+- Whenever a repository-owned Git-tracked Markdown document is created or modified, run Markdown warning checks on the touched Markdown scope before closing the task.
+- Scope the mandatory per-task Markdown warning pass to the Markdown files created or modified by the task rather than forcing a full repository-wide cleanup every time.
+- Treat the Markdown warning pass as incomplete until every warning in the touched Markdown scope has been analyzed and resolved.
+- Do not close a task while a newly created or modified Git-tracked Markdown file still emits Markdown warnings.
 - As part of that Markdown final pass, also check the file-ending blank-line state of the touched Markdown files so they do not end with an accidental doubled empty line.
+- When the user asks for a repository-wide Markdown audit or asks whether the repository is warning-free, run the checks against the full Git-tracked Markdown set, not only the default documentation globs.
+- Treat warning-free status claims as valid only after both the repository-owned structural checker and the broader Markdownlint pass succeed on the intended Git-tracked scope.
 - Whenever a new model family, model variant, or materially new model-specific training workflow is introduced, create a dedicated explanatory report that helps the reader understand the model before reading the code.
 - The explanatory report for a new model must include:
   - an accurate model description;

@@ -1,4 +1,4 @@
-﻿# `markdown_style_check.py`
+# `markdown_style_check.py`
 
 ## Overview
 
@@ -65,4 +65,3 @@ task.
 - `MD025` reports each extra H1 after the first one in the same document;
 - the checker is intended for repository-authored Markdown sources, not for
   generated HTML outputs.
-

@@ -4,8 +4,8 @@ This transcript is the canonical cleaned Italian transcript for the video.
 
 ## Source Reference
 
-- Canonical source video: [video_errata_corrige_adrc.mkv](../../../../reference/video_guides/source_bundle/video_errata_corrige_adrc.mkv)
-- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+* Canonical source video: [video_errata_corrige_adrc.mkv](../../../../reference/video_guides/source_bundle/video_errata_corrige_adrc.mkv)
+* Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
 
 ## 00:00:00 - 00:04:20
 

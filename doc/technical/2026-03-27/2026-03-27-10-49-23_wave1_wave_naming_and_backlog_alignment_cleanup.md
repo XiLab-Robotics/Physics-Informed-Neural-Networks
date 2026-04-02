@@ -1,4 +1,4 @@
-﻿# Wave1 Wave Naming And Backlog Alignment Cleanup
+# Wave1 Wave Naming And Backlog Alignment Cleanup
 
 ## Overview
 
@@ -78,4 +78,3 @@ the repository guidance that future users will read and follow.
    corrected wave taxonomy.
 6. Only after this alignment pass, proceed with the final post-training results
    report for the completed residual-harmonic family campaign.
-

@@ -1,10 +1,10 @@
-﻿# Remote High-Quality Video Rerun Checklist
+# Remote High-Quality Video Rerun Checklist
 
 - Run status: completed
-- Current video: 
+- Current video:
 - Current index: 11
-- LAN AI base URL: http://155.185.226.100:8765
-- LM Studio base URL: http://155.185.226.100:1234
+- LAN AI base URL: [http://155.185.226.100:8765](http://155.185.226.100:8765)
+- LM Studio base URL: [http://155.185.226.100:1234](http://155.185.226.100:1234)
 - Transcript model: large-v3
 - Cleanup model: openai/gpt-oss-20b
 - Report model: openai/gpt-oss-20b
@@ -146,4 +146,3 @@
 - [x] Report markdown saved
 - [x] Markdown validation completed
 - Log: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\video_guides\_remote_gptoss_tracked_logs\video_errata_corrige_adrc.log
-

@@ -1,4 +1,4 @@
-﻿# Wave 1 Residual Harmonic Family Campaign Launcher
+# Wave 1 Residual Harmonic Family Campaign Launcher
 
 ## Overview
 
@@ -32,4 +32,3 @@ Optional PowerShell usage:
 ```powershell
 .\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1 -PythonExecutable python
 ```
-
