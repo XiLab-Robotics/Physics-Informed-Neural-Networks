@@ -1,4 +1,4 @@
-# TwinCAT / TestRig Video Guide – Machine_Learning_2.mp4
+# TwinCAT/TestRig Video Guide - Machine_Learning_2.mp4
 
 Report type: `Technical Report (Engineering-Focused)`
 
@@ -11,69 +11,83 @@ Report type: `Technical Report (Engineering-Focused)`
 
 ## Overview
 
-The second video in the “Machine Learning” series demonstrates how a pre‑trained ML model is exported from Python, imported into TwinCAT, and orchestrated by a PLC‑side TestRig. The workflow covers:
+The second machine-learning video is mainly about PLC-side orchestration rather
+than offline model training. It explains how the TestRig experiment uses a
+dedicated ML-related task, how the experiment reads CSV-driven trajectories,
+and how state `100` preloads the slow shaft before the real experiment starts.
 
-1. **Export of the trained model** (ONNX/ML.NET format) from the Python environment.
-2. **Import into TwinCAT’s Machine Learning framework** via the *Predict_ML.req_re* block.
-3. **Integration with existing FBs** (`FB_BoschMotor`, `P_Experiment_CanGi`, `FB_LightDevice`) and the TestRig’s state machine (state 100).
-4. **Real‑time communication** between the Fast Task (250 µs) and the ML task (500 µs).
+The strongest engineering value of this video is therefore:
 
-The video also explains how to configure input vectors from CSV files located in
-`C:\Users\Alessio Tutarini\Unimore\XiLAB Robotics - DATA\02-Test Rig\Machine Learning`.
-
----
+1. the split between a fast task and a `500 us` ML-related task;
+2. the practical delay budget introduced by task-begin I/O exchange;
+3. the CSV contract used by the experiment path;
+4. the preload logic used to start an already-loaded experiment condition.
 
 ## Why This Video Matters
 
-* **Bridging the gap** between data‑science and real‑time control: shows a concrete pipeline for deploying ML models on Beckhoff hardware.
-* **Timing insights**: highlights the 1.325 µs communication latency between tasks, which is critical when tuning closed‑loop compensation.
-* **State‑machine integration**: demonstrates how to trigger model inference only in specific states (e.g., state 100) and how to handle first‑row CSV values for torque initialization.
-
----
+* **Task-level realism**: shows that ML inference is not free-standing, but
+  inserted into a multi-task PLC workflow with real communication delay.
+* **Experiment contract clarity**: makes the CSV-fed experiment path more
+  concrete than the imported code alone.
+* **Deployment relevance**: reinforces that future TE models must be judged
+  against TwinCAT task timing and experiment-state behavior, not only offline
+  accuracy.
 
 ## Main Technical Findings
 
 | Item | Detail |
-| ------ | -------- |
-| **Model Export Format** | The video references a *Predict_ML.req_re* block that expects an ONNX file (`*.onnx`). The block is configured with `Db xCSV_and_Vectors` and `Filtering Type BOOL`. |
-| **Input Vector Construction** | Three input vectors are assembled from the CSV: torque, velocity, and position. These are fed into the ML block via the *Task_500us_ML* group. |
-| **Timing Architecture** | - Fast Task (250 µs) handles low‑level motor commands. - ML Task (500 µs) performs inference and updates feed‑forward terms (`bEnableFF_TE`). - Communication latency measured at ~1.325 µs, suggesting negligible overhead for the chosen sampling rates. |
-| **State Machine Logic** | In state 100, the system reads the first torque value from the CSV. If this value differs from a threshold, it toggles forward/backward motor flags for three cycles to stabilize the initial condition. |
-| **PLC‑Side Orchestration** | The `P_Experiment_Cam_Correction_TE_ML` program (`PRG`) controls when the ML block is activated (`startEx_TE`). It also sets `needToReadCSV_` to ensure fresh data each cycle. |
-| **Error Handling** | No explicit error handling shown, but the video implies that if CSV reading fails, the system falls back to a default torque value. |
-
----
+| --- | --- |
+| **Task structure** | The walkthrough repeatedly distinguishes a fast task from a dedicated ML-related task around `500 us`. The point is not just scheduling; it is that prediction and compensation live inside a controlled inter-task exchange. |
+| **Communication delay budget** | The narration explicitly treats task-begin I/O exchange as a real delay source that must be considered when applying correction. The important takeaway is qualitative: correction timing must include handoff latency between tasks. |
+| **Experiment CSV contract** | The video states that the experiment-side CSV uses four key columns: time, position, torque, and velocity. It also states the sign convention used for torque in the shown experiment path. |
+| **State-100 preload logic** | State `100` reads the first torque value from the CSV. If that first target is nonzero, the slow shaft is preloaded to that target before the experiment continues. The narration also describes a stability window around the reached value before the next phase starts. |
+| **Machine-learning orchestration** | The video is consistent with the imported code in showing that the ML path is embedded in `P_Experiment_Cam_Correction_TE_ML`-style logic rather than being a detached predictor service. |
+| **Beckhoff runtime boundary** | This video is useful for tasking and orchestration, but it is not the right source to claim a raw ONNX-to-PLC runtime path. The imported TwinCAT code still confirms the Beckhoff XML/BML plus `FB_MllPrediction` path as the current deployed runtime. |
 
 ## TwinCAT And Deployment Implications
 
-1. **Model Compatibility** – Ensure the ONNX model uses only operators supported by TwinCAT’s ML runtime (e.g., `MatMul`, `Add`, `Relu`).
-2. **Memory Footprint** – The 500 µs task must fit within the PLC’s RAM budget; monitor the size of the *Predict_ML.req_re* block and associated DBs (`xCSV_and_Vectors`).
-3. **Task Prioritization** – Keep the ML task at a lower priority than the Fast Task to avoid starving motor control loops.
-4. **File System Access** – The CSV file path must be accessible from the PLC’s file system (e.g., via `C:\Users\...`). Consider using a network share or local flash for production deployments.
-5. **Code Adaptation** – When porting to other machines, adjust the state machine logic: replace hard‑coded state 100 with a configurable parameter (`stateTrigger`).
+1. **Keep the task budget explicit**
+   Future TE models must fit the practical ML-task budget and the associated
+   handoff timing. The video makes it clear that communication delay is part of
+   the runtime contract.
 
----
+2. **Treat state logic as part of the deployment**
+   A future exported model cannot assume a stateless "predict one row" runtime.
+   The preload sequence in state `100` is part of the real experiment behavior.
+
+3. **Preserve the CSV-side contract**
+   Any future automation around replay or compensation should keep the
+   experiment-side CSV schema and sign conventions explicit, not implicit.
+
+4. **Do not collapse packaging layers**
+   The imported code still points to Beckhoff-specific model artifacts and
+   `FB_MllPrediction`. This video does not overturn that reading; it complements
+   it by clarifying orchestration.
 
 ## Reference Snapshots
 
 | Timestamp | Concept | Snapshot Description |
-| ----------- | --------- | ---------------------- |
-| 00:01:15 | Task timing & inter‑task communication | Left navigation shows `Predict_ML.req_re` block linked to `Task_500us_ML`. |
-| 00:06:11 | Fast Task configuration | Right properties panel displays “Fast Task (250 µs)” and low‑correction position application. |
-| 00:11:10 | ML orchestration in PLC | Left navigation lists POUs (`P_Experiment_Cam_Correction_TE_ML`, `startEx_TE`) and flags (`bEnableFF_TE`). |
-| 00:15:36 | CSV read trigger | Same block list, highlighting `needToReadCSV_` flag. |
-
-These snapshots illustrate the key configuration points that must be replicated when setting up a new TestRig.
-
----
+| --- | --- | --- |
+| 00:01:15 | Task timing and inter-task communication | Project-tree view that anchors the discussion around task exchange and ML-related execution. |
+| 00:06:11 | Fast task versus ML task | TwinCAT task view showing the fast task and the `500 us` ML-related task in the same runtime context. |
+| 00:11:10 | Experiment orchestration | PLC-side experiment logic surrounding the ML path and correction flow. |
+| 00:15:36 | CSV-fed experiment setup | View associated with the CSV-driven experiment path and its runtime triggers. |
 
 ## Open Questions Or Uncertain Points
 
-1. **Model Precision** – The video does not specify whether the ONNX model uses FP32 or INT8 quantization; this affects inference speed and memory usage.
-2. **Error Recovery** – How does the system behave if the CSV file is missing or corrupted? Is there a watchdog mechanism?
-3. **Scalability** – Can multiple ML models run concurrently on the same PLC, or must each be isolated in its own task group?
-4. **Security** – The path to the CSV file uses a user directory; for production environments, should we use a dedicated data folder with restricted access?
+1. **Exact delay value**
+   The narration gives a timing figure, but the transcript quality is not strong
+   enough to treat the exact numeric value as canonical. The important fact is
+   the presence of a nonzero delay budget.
 
-Addressing these points will ensure robust deployment of TwinCAT‑based ML solutions in industrial settings.
+2. **Exact CSV-to-feature mapping inside the predictor**
+   The video makes the experiment CSV contract clearer, but the final predictor
+   feature vector should still be grounded primarily in the imported PLC code.
 
----
+3. **Error handling on missing CSV data**
+   The walkthrough focuses on the happy path and does not show explicit runtime
+   recovery for missing or malformed experiment files.
+
+4. **Scaling and normalization**
+   The video does not clearly establish whether additional scaling occurs before
+   the deployed predictor receives its final inputs.

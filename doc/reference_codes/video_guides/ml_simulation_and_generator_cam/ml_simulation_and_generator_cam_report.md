@@ -11,60 +11,83 @@
 
 ## Overview
 
-The video demonstrates how a machine‑learning (ML) model, trained in MATLAB and exported as an ONNX file, is integrated into a Beckhoff TwinCAT PLC using the TestRig framework. It covers data preparation, model import, PLC‑side inference, and post‑processing of the transmission error (`TE`) signal. The companion notes point out a critical variable naming issue: `TE_Calc` in the PLC is **not** the MATLAB‑derived variable but rather a value computed directly inside TwinCAT from the total position.
+This video is one of the most useful companions to the imported TwinCAT code
+because it focuses on simulation and replay semantics around the TE predictor.
+It explains how experiment data is written into CSV form, how the simulation
+reads that data back, and how the TE-related variables around the predictor are
+interpreted in the TestRig workflow.
 
----
+It also reinforces an important boundary condition already recorded in the
+companion notes: `TE_Calc` is not just the Matlab variable copied forward
+unchanged, but a TwinCAT/TestRig-side quantity that must be interpreted in the
+context of the replay workflow.
 
 ## Why This Video Matters
 
-1. **Bridging MATLAB and TwinCAT:** It shows a concrete workflow for moving an ML model from MATLAB to a real‑time PLC environment, which is essential for practitioners looking to deploy predictive maintenance or fault detection algorithms on industrial hardware.
-2. **TestRig Utilization:** The video highlights how TestRig can be used to validate the model’s behavior before flashing it onto the target controller, reducing deployment risk.
-3. **Variable Management Insight:** The error noted in the notes underscores the importance of consistent variable naming across MATLAB, ONNX export, and PLC code—an often overlooked but critical detail.
+1. **Replay semantics**
+   It clarifies what the simulation is actually streaming row by row into the
+   TwinCAT/TestRig environment.
 
----
+2. **Model-family structure**
+   It provides useful narration around the split between the zero-order model
+   and the nonzero harmonic models.
+
+3. **Signal-boundary discipline**
+   It reinforces why `TE_Calc`, recorded TE, and post-corrected position should
+   not be collapsed into one vague ML-output story.
 
 ## Main Technical Findings
 
 | Item | Detail |
-| ------ | -------- |
-| **Data Columns** | 1) Speed (RPM), 2) Slow‑shaft torque, 3) Temperature, 4) Transmission error. The transcript confirms the first three columns are speed, torque, temperature; the fourth is TE. |
-| **Model Import** | GBR models were imported for phase and amplitude at non‑zero frequencies; a separate model handles zero‑frequency amplitude. These are loaded into `Machine_Learning.Untitied1.Cam` (OCR evidence 00:11:12). |
-| **PLC Prediction Block** | The PLC contains a `Cam_Corection_ML_1_Vel_Cost_250_500` block that receives speed, torque, and temperature as inputs and outputs a predicted TE. OCR at 00:01:15 shows the block’s variable list (`Enab`, `Mis delay`, etc.). |
-| **TE Calculation** | The PLC calculates an intermediate `TE_Calc` from the total position (not from MATLAB). This is highlighted in the notes; it implies that the ML output may be post‑processed or combined with a deterministic model. |
-| **TestRig Structure** | TestRig projects are organized under `Experiments > TrasmissioneAllacciata > Experiment_ML`. The script `ForSim_And_Exp.m` (OCR 00:16:09) drives the simulation, feeding recorded data into the PLC and capturing outputs for analysis. |
-| **Timing & Communication** | OCR evidence at 00:07:29 and 00:16:09 shows task timing windows and inter‑task communication via `Machine_Learning.Untitied1.Cam`. The PLC uses cyclic tasks to fetch inputs, run inference, and write outputs within the same cycle. |
-| **Post‑Processing** | After inference, the TE signal is likely filtered or scaled before being used in higher‑level control logic (implied by the mention of “acceleration” and “velocity” calculations in the transcript). |
-
----
+| --- | --- |
+| **Harmonic model split** | The narration states that nonzero harmonic amplitude and phase components use GBR models, while the zero-order amplitude path uses a separate SVR model. |
+| **CSV-read contract** | `FB_CSV_Read` is described as the CSV-loading helper. The narration explicitly says the expected separator is a comma, with semicolon support only if the reader configuration is changed. |
+| **Simulation-side columns** | The walkthrough reinforces a replay structure centered on speed, slow-shaft torque, temperature, TE, and position-related quantities. The canonical companion notes remain the best place to keep the final column interpretation, but the video materially strengthens that story. |
+| **Cycle time assumption** | The Matlab-to-CSV preparation path is described around a `0.25 ms` / `250 us` step so that the generated vectors match the TestRig-side cycle assumptions. |
+| **`TE_Calc` boundary** | The video and errata together support the same conclusion: `TE_Calc` belongs to the TwinCAT/TestRig reconstruction path and must not be treated as a raw Matlab placeholder. |
+| **Post-processing and comparison** | The narration explicitly discusses comparing recorded TE against ML-generated or simulated TE and using post-processing scripts for simulation analysis. |
 
 ## TwinCAT And Deployment Implications
 
-1. **Variable Consistency:** The discrepancy between `TE_Calc` and the MATLAB variable means that any deployment must explicitly map PLC variables to the ONNX inputs/outputs; otherwise, the model will receive wrong data.
-2. **Real‑Time Constraints:** The inference block must fit within the PLC cycle time (typically 1 ms or less). TestRig allows profiling of execution time before flashing to hardware.
-3. **Memory Footprint:** GBR models are relatively lightweight, but the ONNX runtime in TwinCAT consumes RAM; ensure sufficient memory on the target CPU.
-4. **Safety Considerations:** The video references “Safety Project CRCs Display” (OCR 00:07:29). Any ML‑based TE prediction that influences safety‑critical actuators must be validated against safety standards (e.g., IEC 61508).
-5. **Code Adaptation:** When porting the PLC code to a different controller, rename `TE_Calc` to match the MATLAB variable name or adjust the inference block’s input mapping accordingly.
+1. **Preserve replay semantics**
+   Future TE model integration must respect the row-by-row replay contract and
+   the cycle-time assumptions used by the TestRig simulation path.
 
----
+2. **Keep the Beckhoff packaging story explicit**
+   This video is about simulation and model-role semantics. It should not be
+   overread as proof that TwinCAT directly runs raw ONNX models unchanged. The
+   imported PLC code still confirms Beckhoff-specific artifacts plus
+   `FB_MllPrediction` for the deployed path.
+
+3. **Treat `TE_Calc` as a boundary variable**
+   Variable naming mistakes here can invalidate the simulation chain even if the
+   predictor artifact itself is correct.
+
+4. **Expect multiple intermediate quantities**
+   The simulation path uses more than one TE-related or position-related signal.
+   Future exports should preserve inspectable intermediate quantities rather
+   than collapsing everything into a single opaque output.
 
 ## Reference Snapshots
 
 | Time | Concept | Snapshot Description |
-| ------ | --------- | ----------------------- |
-| 00:07:29 | Task Timing & CRCs | Screenshot of the TwinCAT IDE showing task timing and safety CRC display. |
-| 00:11:12 | ML Prediction Block | Center workspace view with `Cam_Corection_ML_1_Vel_Cost_250_500` block highlighted, including input/output ports. |
-| 00:16:09 | TestRig Execution | Breakpoints window showing the `ForSim_And_Exp.m` script running within the `Experiment_ML` folder. |
-| 00:25:20 | Data Pre‑Processing | File explorer view of the `Test_30deg_Torque_PreProcessing` folder, indicating raw data files used for simulation. |
-
-These snapshots illustrate key stages: setting up tasks, configuring ML blocks, executing simulations, and preparing input data.
-
----
+| --- | --- | --- |
+| 00:07:29 | Runtime and timing context | TwinCAT/TestRig view used to anchor the discussion of cycle assumptions and replay behavior. |
+| 00:11:12 | ML prediction block context | View of the ML-related block and surrounding project tree used in the simulation path. |
+| 00:16:09 | Matlab/script-driven replay setup | Script and project context used to prepare the simulation experiment flow. |
+| 00:25:20 | Data preparation workspace | Folder and preprocessing context used to support simulation and later comparison. |
 
 ## Open Questions Or Uncertain Points
 
-1. **Exact Mapping of Variables:** The notes mention an error with `TE_Calc`. It is unclear whether the PLC code was later corrected or if the model still uses the wrong variable during deployment.
-2. **Post‑Processing Steps:** The transcript hints at acceleration and velocity calculations but does not detail how TE predictions are combined with deterministic models.
-3. **Safety Validation Procedure:** While CRCs are displayed, the specific safety validation steps (e.g., SIL level, fault tolerance) are not shown in the video.
-4. **ONNX Runtime Version:** The exact version of the ONNX runtime used inside TwinCAT is not specified; this could affect compatibility with newer MATLAB export formats.
+1. **Final column interpretation**
+   The video materially improves the replay story, but some later-column details
+   are still better captured in the companion text notes than in the transcript
+   alone.
 
-Addressing these points would provide a more complete understanding of the deployment pipeline and its robustness for industrial use.
+2. **Exact post-processing formulas**
+   The walkthrough explains what is being compared, but not every exact formula
+   used in the post-processing scripts.
+
+3. **Runtime filtering or scaling**
+   The transcript suggests additional downstream calculations, but it does not
+   fully specify every filtering or scaling step applied after prediction.

@@ -226,6 +226,14 @@ That launcher and runtime are formalized in:
 - `doc/scripts/tooling/video_guides/remote_high_quality_video_pipeline.md`
 - `doc/scripts/tooling/video_guides/run_remote_high_quality_video_rerun.md`
 
+The later final reconciliation pass is recorded in:
+
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/final_video_guide_reconciliation.md`
+
+That pass confirmed that the canonical reports under
+`doc/reference_codes/video_guides/` should remain the baseline, but with
+selective factual tightening rather than blind replacement by the newer rerun.
+
 ## Initial Video-Derived Findings
 
 The first repository-owned extraction pass was run on:
@@ -238,6 +246,52 @@ The resulting transcripts remain an approximation because the source language is
 spoken Italian with technical TwinCAT terminology, but the stronger ASR and the
 quality-gated report layer are now materially better than the earlier raw
 extraction pass and are usable as supporting engineering evidence.
+
+## Final Recheck Conclusions
+
+The final repository-owned recheck of the canonical source bundle reinforced
+three practical conclusions.
+
+### Keep The Promoted Guide Tree
+
+The recheck outputs were not promoted wholesale.
+
+The promoted canonical guide tree remains preferable because it is more
+curated, more readable, and more explicit about engineering boundaries than the
+rawer recheck outputs.
+
+### Merge Facts, Not Noise
+
+The recheck was still useful because it strengthened several implementation
+facts that should influence future TwinCAT/TestRig work:
+
+- the automatic experiment uses a fixed-width matrix with an executed/not
+  executed flag;
+- the `Machine_Learning_2` flow preloads the slow shaft in state `100` to the
+  first CSV torque target before the real experiment starts;
+- the CSV contract shown in that video uses time, position, torque, and
+  velocity columns, with the torque sign convention made explicit in the
+  narration;
+- inter-task communication delay is treated as a real correction budget rather
+  than an ignorable implementation detail;
+- the ADRC workflow depends on the exposed parameters `omega close loop`, `b0`,
+  and `keso`;
+- the ADRC simulation walkthrough is tied to a local Simulink-to-`TC-COM`
+  integration route;
+- `TE_Calc` remains a TwinCAT/TestRig-side boundary variable.
+
+### Canonical Reports Need Periodic De-Speculation
+
+The recheck also showed that the most likely degradation mode is not missing
+transcript detail, but report overreach.
+
+In practice this means future maintenance should prefer:
+
+- preserving the current guide structure;
+- removing unsupported runtime claims when they drift too far beyond the
+  transcript or imported code;
+- merging newly confirmed details into the reference notes instead of rewriting
+  every per-video report from scratch.
 
 ### Runtime And Task Structure
 

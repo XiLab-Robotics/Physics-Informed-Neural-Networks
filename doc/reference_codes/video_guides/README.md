@@ -47,6 +47,16 @@ The raw intermediate caches in
 `.temp/video_guides/_analysis_hq_remote_gptoss_tracked/` remain useful for
 audit and rerun support, but they are not treated as canonical deliverables.
 
+A later repository-owned recheck reran the canonical source bundle through the
+same strong runtime and compared the results against this promoted guide tree.
+That reconciliation is recorded in:
+
+* `doc/reports/analysis/twincat_video_guides/[2026-04-02]/final_video_guide_reconciliation.md`
+
+The final decision was to keep this canonical guide tree as the baseline,
+while selectively merging newly confirmed factual corrections into the reports
+and TwinCAT/TestRig reference notes.
+
 After source-bundle deduplication, the canonical promoted tree now covers `8`
 unique source videos. The original tracked rerun processed `11` source files,
 but three of those were byte-identical filename aliases and are no longer kept

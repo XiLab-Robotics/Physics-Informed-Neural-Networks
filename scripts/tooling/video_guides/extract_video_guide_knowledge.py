@@ -13,6 +13,7 @@ import os
 import subprocess
 import time
 import warnings
+from json import JSONDecodeError
 from dataclasses import asdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -506,6 +507,71 @@ def generate_text_response(
     return response_text
 
 
+def extract_json_candidate_text(response_text: str) -> str:
+
+    """ Extract JSON Candidate Text """
+
+    normalized_response_text = response_text.strip()
+    json_start_index = normalized_response_text.find("{")
+    json_end_index = normalized_response_text.rfind("}")
+    assert json_start_index >= 0 and json_end_index >= 0, "Cleanup model did not return JSON."
+    return normalized_response_text[json_start_index:json_end_index + 1]
+
+
+def load_json_response_with_repair(
+    google_client: genai.Client | None,
+    parsed_arguments: argparse.Namespace,
+    provider_name: str,
+    model_name: str,
+    response_text: str,
+    repair_context_label: str,
+    debug_file_path: Path | None = None,
+) -> dict:
+
+    """ Load JSON Response With Repair """
+
+    json_candidate_text = extract_json_candidate_text(response_text)
+    if debug_file_path is not None:
+        debug_file_path.write_text(json_candidate_text + "\n", encoding="utf-8")
+
+    try:
+        return json.loads(json_candidate_text)
+    except JSONDecodeError as json_error:
+        repair_prompt = f"""
+Ripara il seguente JSON malformato.
+
+Regole:
+- Mantieni il contenuto originale il piu possibile.
+- Non aggiungere spiegazioni.
+- Restituisci solo JSON valido.
+
+JSON da riparare:
+{json_candidate_text}
+""".strip()
+
+        repaired_response_text = generate_text_response(
+            google_client=google_client,
+            parsed_arguments=parsed_arguments,
+            provider_name=provider_name,
+            model_name=model_name,
+            prompt_text=repair_prompt,
+            preserve_formatting=True,
+        ).strip()
+        repaired_json_candidate_text = extract_json_candidate_text(repaired_response_text)
+
+        if debug_file_path is not None:
+            repaired_debug_file_path = debug_file_path.with_suffix(debug_file_path.suffix + ".repaired")
+            repaired_debug_file_path.write_text(repaired_json_candidate_text + "\n", encoding="utf-8")
+
+        try:
+            return json.loads(repaired_json_candidate_text)
+        except JSONDecodeError as repaired_error:
+            raise AssertionError(
+                f"{repair_context_label} returned malformed JSON and the repair pass also failed. "
+                f"original_error={json_error}; repaired_error={repaired_error}; debug_file={debug_file_path}"
+            ) from repaired_error
+
+
 def transcribe_audio_chunk(google_client: genai.Client, chunk_file_path: Path, transcript_model: str) -> str:
 
     """ Transcribe Audio Chunk """
@@ -536,6 +602,7 @@ def correct_transcript_chunk_list(
     parsed_arguments: argparse.Namespace,
     cleanup_model: str,
     transcript_chunk_list: list[TranscriptChunk],
+    analysis_directory: Path | None = None,
 ) -> list[str]:
 
     """ Correct Transcript Chunk List """
@@ -621,11 +688,18 @@ Trascrizione grezza per blocchi:
             model_name=cleanup_model,
             prompt_text=cleanup_prompt,
         )
-        response_text = response_text.strip()
-        json_start_index = response_text.find("{")
-        json_end_index = response_text.rfind("}")
-        assert json_start_index >= 0 and json_end_index >= 0, "Cleanup model did not return JSON."
-        cleaned_payload = json.loads(response_text[json_start_index:json_end_index + 1])
+        debug_file_path = None
+        if analysis_directory is not None:
+            debug_file_path = analysis_directory / f"cleanup_batch_{batch_start_index:03d}_{batch_end_index:03d}.json"
+        cleaned_payload = load_json_response_with_repair(
+            google_client=google_client,
+            parsed_arguments=parsed_arguments,
+            provider_name=parsed_arguments.cleanup_provider,
+            model_name=cleanup_model,
+            response_text=response_text,
+            repair_context_label="Cleanup Transcript Chunks",
+            debug_file_path=debug_file_path,
+        )
 
         corrected_text_by_index.update(
             {
@@ -728,6 +802,7 @@ def correct_and_segment_full_transcript(
     raw_transcript_text: str,
     duration_seconds: float,
     target_chunk_seconds: int,
+    analysis_directory: Path | None = None,
 ) -> list[TranscriptChunk]:
 
     """ Correct And Segment Full Transcript """
@@ -775,11 +850,18 @@ Trascrizione grezza completa:
         model_name=cleanup_model,
         prompt_text=cleanup_prompt,
     )
-    response_text = response_text.strip()
-    json_start_index = response_text.find("{")
-    json_end_index = response_text.rfind("}")
-    assert json_start_index >= 0 and json_end_index >= 0, "Cleanup model did not return JSON."
-    cleaned_payload = json.loads(response_text[json_start_index:json_end_index + 1])
+    debug_file_path = None
+    if analysis_directory is not None:
+        debug_file_path = analysis_directory / "full_transcript_chunk_segmentation.json"
+    cleaned_payload = load_json_response_with_repair(
+        google_client=google_client,
+        parsed_arguments=parsed_arguments,
+        provider_name=parsed_arguments.cleanup_provider,
+        model_name=cleanup_model,
+        response_text=response_text,
+        repair_context_label="Correct And Segment Full Transcript",
+        debug_file_path=debug_file_path,
+    )
 
     transcript_chunk_list: list[TranscriptChunk] = []
     cleaned_chunk_list = cleaned_payload.get("chunks", [])
@@ -1158,6 +1240,7 @@ def process_single_video(
                 parsed_arguments=parsed_arguments,
                 cleanup_model=parsed_arguments.cleanup_model,
                 transcript_chunk_list=transcript_chunk_list,
+                analysis_directory=analysis_directory,
             )
             for transcript_chunk, corrected_text in zip(transcript_chunk_list, corrected_text_list):
                 transcript_chunk.corrected_transcript_text = corrected_text
@@ -1171,6 +1254,7 @@ def process_single_video(
                 raw_transcript_text=raw_full_transcript_text,
                 duration_seconds=float(metadata_map["duration_seconds"] or 0.0),
                 target_chunk_seconds=parsed_arguments.audio_chunk_seconds,
+                analysis_directory=analysis_directory,
             )
             for transcript_chunk in transcript_chunk_list:
                 transcript_chunk.audio_chunk_path = audio_file_path.relative_to(PROJECT_PATH).as_posix()

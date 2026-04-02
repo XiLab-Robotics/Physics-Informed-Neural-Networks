@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-02
 
+- [technical/2026-04-02/2026-04-02-19-14-38_temp_tools_cleanup_and_final_video_guide_reconciliation.md](./technical/2026-04-02/2026-04-02-19-14-38_temp_tools_cleanup_and_final_video_guide_reconciliation.md)
+  Technical document for auditing `.temp/` and `.tools/`, cleaning stale runtime residue, and performing a final reconciliation pass between the canonical video source bundle and the promoted TwinCAT/TestRig video guides.
 - [technical/2026-04-02/2026-04-02-19-08-25_transmission_error_foundations_bundle_reference_realignment.md](./technical/2026-04-02/2026-04-02-19-08-25_transmission_error_foundations_bundle_reference_realignment.md)
   Technical document for realigning the repository-authored references after manual renaming and cleanup of the promoted Transmission Error Foundations presentation/video bundle.
 - [technical/2026-04-02/2026-04-02-18-57-43_project_status_presentation_and_video_bundle_integration.md](./technical/2026-04-02/2026-04-02-18-57-43_project_status_presentation_and_video_bundle_integration.md)

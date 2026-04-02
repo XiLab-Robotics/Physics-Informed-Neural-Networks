@@ -353,6 +353,22 @@ That is consistent with the imported `FB_MllPrediction` path and argues against
 oversimplified assumptions such as “export ONNX and the PLC directly runs it
 unchanged”.
 
+### State-100 Preload Behavior Is Operationally Important
+
+The stronger video pass makes the state-100 logic more concrete than the code
+reading alone.
+
+The practical behavior described in the videos is:
+
+- read the first torque value from the CSV file;
+- if that first torque target is nonzero, preload the slow shaft to that value
+  before starting the main experiment;
+- wait for a stable window around that torque target before continuing.
+
+This matters because it shows that the experiment contract is not purely
+stateless file replay. The machine-learning path inherits a preload convention
+that is relevant when simulating already-loaded robot-joint conditions.
+
 ### The Fast Task Versus ML Task Split Matters
 
 The machine-learning videos and reports repeatedly point to:
@@ -364,6 +380,38 @@ The machine-learning videos and reports repeatedly point to:
 This clarifies why the imported PLC code stays structured and why a future
 export path should remain conservative about model size, complexity, and update
 frequency.
+
+### CSV Contract Details Matter
+
+The `Machine_Learning_2` and simulation videos together make the CSV-side
+contract more explicit:
+
+- the experiment-side CSV path shown in `Machine_Learning_2` uses time,
+  position, torque, and velocity columns;
+- the narration explicitly states the torque-sign convention used in that
+  experiment path;
+- the simulation-side workflow shown in
+  `ML_Simulation_and_Generator_Cam` continues to reinforce speed, torque,
+  temperature, and TE-centered replay semantics around the predictor.
+
+This does not replace the code-confirmed predictor feature vector
+`speed/temperature/torque`; rather, it clarifies the broader replay contract
+that feeds and surrounds the deployed predictor.
+
+### Automatic Experiment Matrix Semantics Are Now Stronger
+
+The automatic-experiment video and recheck confirm additional orchestration
+details that are relevant for implementation work:
+
+- the experiment matrix is treated as a fixed-width structure even when only a
+  subset of operating variables is varied;
+- a dedicated executed/not-executed flag is used to distinguish completed runs;
+- the 1200 rpm case was intentionally excluded in at least one automated setup
+  because resonance had already been observed.
+
+These are not just reporting curiosities. They affect how future TE models
+should be evaluated against the surrounding automation and how experiment
+coverage should be interpreted.
 
 ### `TE_Calc` Must Be Treated As A Boundary Variable
 

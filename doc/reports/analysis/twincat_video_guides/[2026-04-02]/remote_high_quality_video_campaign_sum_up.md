@@ -14,6 +14,11 @@ the full current TwinCAT/TestRig media bundle with:
 The rerun is the current strongest validated campaign for turning the TestRig
 video bundle into canonical repository knowledge.
 
+A later repository-owned comparison pass against the canonical source bundle is
+recorded in:
+
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/final_video_guide_reconciliation.md`
+
 ## Campaign Outcome
 
 The tracked campaign completed successfully for all `11` source videos listed in
