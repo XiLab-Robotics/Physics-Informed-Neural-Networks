@@ -75,7 +75,14 @@ TERM_PATTERN_MAP = {
 @dataclass
 class CompanionNote:
 
-    """ Store Companion Note """
+    """Store a repository-local companion note matched to one video.
+
+    Attributes:
+        file_name: Original companion-note file name.
+        relative_path: Project-relative path used in generated artifacts.
+        text: Full normalized companion-note content.
+        normalized_stem: Stem used for fuzzy matching against video names.
+    """
 
     file_name: str
     relative_path: str
@@ -86,7 +93,14 @@ class CompanionNote:
 @dataclass
 class TranscriptSegment:
 
-    """ Store Transcript Segment """
+    """Store one transcript segment produced by the rough analysis workflow.
+
+    Attributes:
+        start_seconds: Segment start timestamp in seconds.
+        end_seconds: Segment end timestamp in seconds.
+        text: Collapsed transcript text for the segment.
+        quality_score: Repository-defined transcript quality heuristic.
+    """
 
     start_seconds: float
     end_seconds: float
@@ -97,7 +111,16 @@ class TranscriptSegment:
 @dataclass
 class OCRFrameRecord:
 
-    """ Store OCR Frame Record """
+    """Store OCR evidence extracted from one sampled video frame.
+
+    Attributes:
+        timestamp_seconds: Frame timestamp in seconds.
+        frame_path: Project-relative path of the saved frame image.
+        ocr_text: Highest-quality OCR text recovered from the sampled regions.
+        quality_score: OCR quality heuristic used for later filtering.
+        selected_region_name: Region that produced the retained OCR result.
+        matched_term_list: Tracked TwinCAT/TestRig terms detected in the OCR text.
+    """
 
     timestamp_seconds: float
     frame_path: str
@@ -110,7 +133,33 @@ class OCRFrameRecord:
 @dataclass
 class VideoAnalysisRecord:
 
-    """ Store Video Analysis Record """
+    """Store the summarized outputs for one analyzed video.
+
+    Attributes:
+        file_name: Source video file name.
+        relative_path: Project-relative source path.
+        size_bytes: Source file size in bytes.
+        duration_seconds: Video duration when it can be resolved.
+        fps: Source frame rate when available.
+        frame_count: Source frame count when available.
+        width: Source video width when available.
+        height: Source video height when available.
+        associated_companion_file_list: Matched companion-note file names.
+        associated_companion_note_list: Short excerpts from matched companion notes.
+        transcript_generated: Whether transcript segments were produced.
+        transcript_language: Detected transcript language.
+        transcript_language_probability: Confidence for detected language.
+        transcript_segment_count: Number of generated transcript segments.
+        transcript_excerpt_list: Quality-gated transcript excerpts.
+        transcript_quality_summary: Min, median, and max transcript scores.
+        frame_extraction_generated: Whether frames were sampled successfully.
+        frame_record_count: Number of saved frame records.
+        ocr_generated: Whether report-worthy OCR text was recovered.
+        ocr_excerpt_list: Quality-gated OCR excerpts.
+        ocr_quality_summary: Min, median, and max OCR scores.
+        matched_term_list: Tracked terms found across transcript, OCR, and notes.
+        issue_list: Non-fatal issues recorded during analysis.
+    """
 
     file_name: str
     relative_path: str
@@ -139,7 +188,11 @@ class VideoAnalysisRecord:
 
 def build_argument_parser() -> argparse.ArgumentParser:
 
-    """ Build Argument Parser """
+    """Build the command-line parser for rough video-guide analysis.
+
+    Returns:
+        Configured parser exposing inventory, transcript, frame, and OCR options.
+    """
 
     argument_parser = argparse.ArgumentParser(
         description="Analyze repository-local TwinCAT/TestRig video guides into reusable inventory, transcript, frame, and note artifacts.",
@@ -340,7 +393,16 @@ def resolve_tesseract_executable_path() -> Path | None:
 
 def collect_runtime_capability_map(disable_transcription: bool, disable_frames: bool, disable_ocr: bool) -> dict[str, Any]:
 
-    """ Collect Runtime Capability Map """
+    """Resolve which optional backends are available for this run.
+
+    Args:
+        disable_transcription: Whether transcript extraction was disabled explicitly.
+        disable_frames: Whether frame extraction was disabled explicitly.
+        disable_ocr: Whether OCR was disabled explicitly.
+
+    Returns:
+        Capability flags and resolved executable paths used by the pipeline.
+    """
 
     tesseract_executable_path = None if disable_ocr else resolve_tesseract_executable_path()
 
@@ -377,7 +439,16 @@ def safely_cast_int(raw_value: float | int) -> int | None:
 
 def extract_video_metadata(video_file_path: Path) -> dict[str, Any]:
 
-    """ Extract Video Metadata """
+    """Read lightweight video metadata through OpenCV.
+
+    Args:
+        video_file_path: Source video file to inspect.
+
+    Returns:
+        Metadata dictionary with duration, FPS, frame count, and resolution.
+        Missing values remain `None` when OpenCV is unavailable or the file
+        cannot be opened.
+    """
 
     metadata_map = {
         "duration_seconds": None,
@@ -546,7 +617,16 @@ def compute_ocr_quality_score(ocr_text: str, average_confidence: float, region_n
 
 def extract_best_ocr_text(frame_image: Any, capability_map: dict[str, Any]) -> tuple[str, float, str, list[str]]:
 
-    """ Extract Best OCR Text """
+    """Recover the strongest OCR candidate from a sampled TwinCAT frame.
+
+    Args:
+        frame_image: OpenCV frame image already loaded in memory.
+        capability_map: Runtime capability flags built for the current run.
+
+    Returns:
+        Tuple containing the best OCR text, its quality score, the selected
+        region name, and the matched tracked-term list.
+    """
 
     if not capability_map["ocr_available"] or cv2 is None:
         return "", 0.0, "", []
@@ -622,7 +702,22 @@ def transcribe_video_file(
     capability_map: dict[str, Any],
 ) -> tuple[list[TranscriptSegment], dict[str, Any], list[str]]:
 
-    """ Transcribe Video File """
+    """Transcribe a source video through Faster-Whisper when available.
+
+    Args:
+        video_file_path: Source video file to transcribe.
+        model_name: Faster-Whisper model name.
+        language_code: Requested transcript language or `auto`.
+        beam_size: Beam-search width for decoding.
+        best_of: Best-of count for decoding.
+        temperature: Decoding temperature.
+        compute_type: Faster-Whisper compute type.
+        capability_map: Runtime capability flags for optional backends.
+
+    Returns:
+        Tuple containing the transcript segments, detected-language metadata,
+        and a non-fatal issue list.
+    """
 
     if not capability_map["faster_whisper_available"]:
         return [], {"language": None, "language_probability": None}, ["Faster-Whisper not available -> transcription skipped."]
@@ -677,11 +772,25 @@ def extract_frame_and_ocr_records(
     force_recompute: bool,
 ) -> tuple[list[OCRFrameRecord], list[str]]:
 
-    """ Extract Frame And OCR Records """
+    """Sample frames and attach OCR evidence for one video.
+
+    Args:
+        video_file_path: Source video file being analyzed.
+        output_root: Analysis directory for the current video.
+        duration_seconds: Video duration used to place frame probes.
+        interval_seconds: Seconds between sampled frames.
+        max_frames_per_video: Maximum number of sampled frames.
+        capability_map: Runtime capability flags for OpenCV and OCR.
+        force_recompute: Whether cached frame images should be regenerated.
+
+    Returns:
+        Tuple containing the collected frame records and a non-fatal issue list.
+    """
 
     if not capability_map["opencv_available"]:
         return [], ["OpenCV not available -> frame extraction skipped."]
 
+    # Resolve Sampling Timeline
     timestamp_seconds_list = build_frame_timestamp_list(duration_seconds, interval_seconds, max_frames_per_video)
     if not timestamp_seconds_list:
         return [], ["Video duration unavailable -> frame extraction skipped."]
@@ -693,6 +802,7 @@ def extract_frame_and_ocr_records(
     if not capture.isOpened():
         return [], ["OpenCV could not open video for frame extraction."]
 
+    # Iterate Sampled Frames
     issue_list: list[str] = []
     frame_record_list: list[OCRFrameRecord] = []
     missing_tesseract_notice_emitted = False
@@ -706,9 +816,11 @@ def extract_frame_and_ocr_records(
             issue_list.append(f"Frame read failed at {timestamp_seconds:.3f}s.")
             continue
 
+        # Persist Frame Evidence
         if force_recompute or not frame_file_path.exists():
             cv2.imwrite(str(frame_file_path), frame_image)
 
+        # Extract OCR Evidence
         extracted_ocr_text = ""
         extracted_quality_score = 0.0
         selected_region_name = ""
@@ -725,6 +837,7 @@ def extract_frame_and_ocr_records(
             issue_list.append("pytesseract installed but Tesseract executable missing -> OCR skipped.")
             missing_tesseract_notice_emitted = True
 
+        # Record Frame Outcome
         frame_record_list.append(
             OCRFrameRecord(
                 timestamp_seconds=timestamp_seconds,
@@ -921,7 +1034,19 @@ def build_inventory_markdown(
     companion_note_list: list[CompanionNote],
 ) -> str:
 
-    """ Build Inventory Markdown """
+    """Build the inventory note for one rough-analysis run.
+
+    Args:
+        input_root: Video-source root used for the run.
+        output_root: Analysis-artifact root used for the run.
+        capability_map: Runtime capability flags recorded for the run.
+        video_analysis_record_list: Per-video summary records.
+        companion_note_list: Repository-local companion notes discovered beside
+            the source videos.
+
+    Returns:
+        Markdown text describing the analyzed scope and runtime environment.
+    """
 
     markdown_line_list = [
         "# TwinCAT Video Guides Inventory",
@@ -988,7 +1113,18 @@ def analyze_single_video(
     parsed_arguments: argparse.Namespace,
 ) -> VideoAnalysisRecord:
 
-    """ Analyze Single Video """
+    """Analyze one source video into reusable rough artifacts.
+
+    Args:
+        video_file_path: Source video file to analyze.
+        output_root: Root analysis directory for this run.
+        companion_note_list: Candidate notes used for fuzzy matching.
+        capability_map: Runtime capability flags for optional backends.
+        parsed_arguments: Parsed command-line arguments for the run.
+
+    Returns:
+        Completed per-video summary record.
+    """
 
     video_output_directory = output_root / normalize_file_stem(video_file_path.name)
     ensure_directory(video_output_directory)
@@ -999,10 +1135,12 @@ def analyze_single_video(
         size_bytes=video_file_path.stat().st_size,
     )
 
+    # Match Companion Notes
     matched_companion_note_list = match_companion_notes(video_file_path, companion_note_list)
     video_analysis_record.associated_companion_file_list = [companion_note.file_name for companion_note in matched_companion_note_list]
     video_analysis_record.associated_companion_note_list = extract_excerpt_list([companion_note.text for companion_note in matched_companion_note_list], max_excerpt_count=6)
 
+    # Resolve Video Metadata
     metadata_map = extract_video_metadata(video_file_path)
     video_analysis_record.duration_seconds = metadata_map["duration_seconds"]
     video_analysis_record.fps = metadata_map["fps"]
@@ -1010,6 +1148,7 @@ def analyze_single_video(
     video_analysis_record.width = metadata_map["width"]
     video_analysis_record.height = metadata_map["height"]
 
+    # Extract Rough Transcript
     transcript_segment_list, transcript_metadata_map, transcript_issue_list = transcribe_video_file(
         video_file_path=video_file_path,
         model_name=parsed_arguments.transcription_model,
@@ -1036,6 +1175,7 @@ def analyze_single_video(
     write_json_file(video_output_directory / "transcript_segments.json", [asdict(segment) for segment in transcript_segment_list])
     write_transcript_markdown(video_output_directory / "transcript.md", transcript_segment_list)
 
+    # Sample Frames And OCR
     frame_record_list, frame_issue_list = extract_frame_and_ocr_records(
         video_file_path=video_file_path,
         output_root=video_output_directory,
@@ -1062,6 +1202,7 @@ def analyze_single_video(
     )
     write_json_file(video_output_directory / "frame_ocr_records.json", [asdict(frame_record) for frame_record in frame_record_list])
 
+    # Merge Cross-Artifact Term Signals
     companion_text_block_list = [companion_note.text for companion_note in matched_companion_note_list]
     video_analysis_record.matched_term_list = extract_matched_term_list(
         transcript_text_block_list,
@@ -1069,6 +1210,7 @@ def analyze_single_video(
         companion_text_block_list,
     )
 
+    # Persist Per-Video Artifacts
     write_json_file(video_output_directory / "video_analysis_summary.json", asdict(video_analysis_record))
     write_video_note_markdown(video_output_directory / "video_analysis_summary.md", video_analysis_record)
 
@@ -1091,7 +1233,11 @@ def print_terminal_summary(video_analysis_record_list: list[VideoAnalysisRecord]
 
 def main() -> int:
 
-    """ Run Video-Guide Analysis """
+    """Run the rough TwinCAT/TestRig video-guide analysis workflow.
+
+    Returns:
+        Process exit code.
+    """
 
     parsed_arguments = parse_command_line_arguments()
     input_root = Path(parsed_arguments.input_root).resolve()
@@ -1099,16 +1245,19 @@ def main() -> int:
     assert input_root.exists(), f"Input root does not exist | {input_root}"
     ensure_directory(output_root)
 
+    # Resolve Input Scope
     companion_note_list = collect_companion_note_list(input_root)
     video_file_path_list = collect_video_file_path_list(input_root, parsed_arguments.video_filter, parsed_arguments.limit_videos)
     assert video_file_path_list, "No video files matched the requested scope."
 
+    # Resolve Runtime Capabilities
     capability_map = collect_runtime_capability_map(
         disable_transcription=parsed_arguments.disable_transcription,
         disable_frames=parsed_arguments.disable_frames,
         disable_ocr=parsed_arguments.disable_ocr,
     )
 
+    # Process Videos
     video_analysis_record_list = [
         analyze_single_video(
             video_file_path=video_file_path,
@@ -1120,6 +1269,7 @@ def main() -> int:
         for video_file_path in video_file_path_list
     ]
 
+    # Persist Run-Level Outputs
     write_json_file(output_root / "video_inventory.json", [asdict(video_record) for video_record in video_analysis_record_list])
     write_json_file(output_root / "runtime_capabilities.json", capability_map)
     (output_root / "video_inventory.md").write_text(

@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-03
 
+- [technical/2026-04/2026-04-03/2026-04-03-00-34-49_video_guide_script_docstring_and_comment_retrofit.md](./technical/2026-04/2026-04-03/2026-04-03-00-34-49_video_guide_script_docstring_and_comment_retrofit.md)
+  Technical document for retrofitting the recent TwinCAT/TestRig video-guide tooling scripts with Google-style docstrings and stronger internal comment coverage aligned with the Sphinx `napoleon` portal.
 - [technical/2026-04/2026-04-03/2026-04-03-00-24-45_technical_document_monthly_grouping.md](./technical/2026-04/2026-04-03/2026-04-03-00-24-45_technical_document_monthly_grouping.md)
   Technical document for adding a month-level grouping layer above the existing day-based `doc/technical/` history.
 

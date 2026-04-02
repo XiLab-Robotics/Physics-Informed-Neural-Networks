@@ -29,7 +29,14 @@ TERM_GROUP_MAP = {
 @dataclass
 class TranscriptSegment:
 
-    """ Store Transcript Segment """
+    """Store one rough transcript segment used to build report highlights.
+
+    Attributes:
+        start_seconds: Segment start timestamp in seconds.
+        end_seconds: Segment end timestamp in seconds.
+        text: Collapsed transcript text for the segment.
+        quality_score: Rough-analysis quality score used for filtering.
+    """
 
     start_seconds: float
     end_seconds: float
@@ -40,7 +47,16 @@ class TranscriptSegment:
 @dataclass
 class OCRFrameRecord:
 
-    """ Store OCR Frame Record """
+    """Store one OCR frame candidate loaded from rough-analysis artifacts.
+
+    Attributes:
+        timestamp_seconds: Frame timestamp in seconds.
+        frame_path: Project-relative path to the saved frame image.
+        ocr_text: OCR text retained for the frame.
+        quality_score: OCR quality score used for sorting and filtering.
+        selected_region_name: OCR region that produced the retained text.
+        matched_term_list: Tracked terms detected in the OCR text.
+    """
 
     timestamp_seconds: float
     frame_path: str
@@ -52,7 +68,11 @@ class OCRFrameRecord:
 
 def build_argument_parser() -> argparse.ArgumentParser:
 
-    """ Build Argument Parser """
+    """Build the command-line parser for report generation.
+
+    Returns:
+        Configured parser exposing analysis-root and report-root options.
+    """
 
     argument_parser = argparse.ArgumentParser(
         description="Generate repository-owned Markdown reports from TwinCAT/TestRig video-analysis artifacts.",
@@ -131,7 +151,16 @@ def normalize_markdown_spacing(markdown_line_list: list[str]) -> str:
 
 def collect_analysis_directory_list(analysis_root: Path, video_filter: str, limit_videos: int) -> list[Path]:
 
-    """ Collect Analysis Directories """
+    """Collect analyzed-video directories that contain useful evidence.
+
+    Args:
+        analysis_root: Root directory produced by the rough-analysis workflow.
+        video_filter: Optional case-insensitive directory-name filter.
+        limit_videos: Optional maximum number of directories to keep.
+
+    Returns:
+        Filtered analysis-directory list in stable sorted order.
+    """
 
     analysis_directory_list: list[Path] = []
     normalized_filter = video_filter.lower().strip()
@@ -219,7 +248,16 @@ def extract_keyword_line_list(transcript_segment_list: list[TranscriptSegment], 
 
 def build_summary_bullet_list(video_summary: dict, transcript_segment_list: list[TranscriptSegment], ocr_frame_record_list: list[OCRFrameRecord]) -> list[str]:
 
-    """ Build Summary Bullet List """
+    """Build short executive-summary bullets for one report.
+
+    Args:
+        video_summary: Per-video summary JSON loaded from rough analysis.
+        transcript_segment_list: Transcript segments loaded for the report.
+        ocr_frame_record_list: OCR frame records loaded for the report.
+
+    Returns:
+        Short bullet list focused on why the video matters technically.
+    """
 
     summary_bullet_list: list[str] = []
     matched_term_list = video_summary.get("matched_term_list", [])
@@ -344,8 +382,21 @@ def build_report_markdown(
     report_directory: Path,
 ) -> str:
 
-    """ Build Report Markdown """
+    """Build the repository-owned Markdown report for one analyzed video.
 
+    Args:
+        video_summary: Per-video summary JSON loaded from rough analysis.
+        transcript_segment_list: Transcript segments used for evidence selection.
+        ocr_frame_record_list: OCR frame records used for image and OCR highlights.
+        companion_note_list: Companion-note excerpts attached to the report.
+        copied_image_tuple_list: Copied report-local reference images.
+        report_directory: Output directory used to resolve relative asset links.
+
+    Returns:
+        Normalized Markdown text for the final report.
+    """
+
+    # Select Transcript Highlights
     transcript_highlight_list = extract_keyword_line_list(
         transcript_segment_list,
         ["TwinCAT", "task", "microsecond", "FB", "Predict", "torque", "temperature", "velocity", "veloc", "Matlab", "TE_Calc"],
@@ -362,6 +413,7 @@ def build_report_markdown(
             if transcript_segment.quality_score >= 0.42 and transcript_segment.text
         ][:DEFAULT_MAX_TRANSCRIPT_HIGHLIGHTS]
 
+    # Select OCR Highlights
     ocr_highlight_list = [
         (
             format_seconds(frame_record.timestamp_seconds),
@@ -373,9 +425,11 @@ def build_report_markdown(
         if is_report_worthy_ocr_frame(frame_record)
     ][:DEFAULT_MAX_OCR_HIGHLIGHTS]
 
+    # Build Narrative Sections
     summary_bullet_list = build_summary_bullet_list(video_summary, transcript_segment_list, ocr_frame_record_list)
     deployment_impact_bullet_list = build_deployment_impact_bullet_list(video_summary, transcript_segment_list)
 
+    # Compose Markdown
     markdown_line_list = [
         f"# {video_summary['file_name']}",
         "",
@@ -496,8 +550,18 @@ def write_report_index(report_root: Path, generated_report_path_list: list[Path]
 
 def generate_single_report(analysis_directory: Path, report_root: Path, max_images: int) -> Path:
 
-    """ Generate Single Report """
+    """Generate one repository-owned report from one analysis directory.
 
+    Args:
+        analysis_directory: Rough-analysis directory for one source video.
+        report_root: Root directory that stores generated reports.
+        max_images: Maximum number of copied reference images per report.
+
+    Returns:
+        Path to the generated Markdown report.
+    """
+
+    # Load Source Artifacts
     video_summary = read_json_file(analysis_directory / "video_analysis_summary.json")
     transcript_segment_list = load_transcript_segment_list(analysis_directory)
     ocr_frame_record_list = load_ocr_frame_record_list(analysis_directory)
@@ -506,8 +570,11 @@ def generate_single_report(analysis_directory: Path, report_root: Path, max_imag
     report_asset_directory = report_directory / "assets"
     ensure_directory(report_directory)
 
+    # Select And Copy Reference Images
     selected_frame_record_list = select_reference_frame_record_list(ocr_frame_record_list, max_images=max_images)
     copied_image_tuple_list = copy_reference_image_list(selected_frame_record_list, report_asset_directory)
+
+    # Synthesize Final Markdown
     report_markdown = build_report_markdown(
         video_summary=video_summary,
         transcript_segment_list=transcript_segment_list,
@@ -525,7 +592,11 @@ def generate_single_report(analysis_directory: Path, report_root: Path, max_imag
 
 def main() -> int:
 
-    """ Generate Video Guide Reports """
+    """Run the rough-analysis report-generation workflow.
+
+    Returns:
+        Process exit code.
+    """
 
     parsed_arguments = parse_command_line_arguments()
     analysis_root = Path(parsed_arguments.analysis_root).resolve()
@@ -533,6 +604,7 @@ def main() -> int:
     assert analysis_root.exists(), f"Analysis root does not exist | {analysis_root}"
     ensure_directory(report_root)
 
+    # Resolve Input Scope
     analysis_directory_list = collect_analysis_directory_list(
         analysis_root=analysis_root,
         video_filter=parsed_arguments.video_filter,
@@ -540,6 +612,7 @@ def main() -> int:
     )
     assert analysis_directory_list, "No analyzed-video directories matched the requested scope."
 
+    # Generate Reports
     generated_report_path_list = [
         generate_single_report(
             analysis_directory=analysis_directory,
@@ -548,6 +621,7 @@ def main() -> int:
         )
         for analysis_directory in analysis_directory_list
     ]
+    # Persist Report Index
     write_report_index(report_root, generated_report_path_list)
 
     print("")

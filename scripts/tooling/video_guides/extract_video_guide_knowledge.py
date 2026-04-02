@@ -85,7 +85,17 @@ warnings.filterwarnings("ignore", category=RequestsDependencyWarning)
 @dataclass
 class TranscriptChunk:
 
-    """ Store Transcript Chunk """
+    """Store one cleaned transcript chunk for the high-quality workflow.
+
+    Attributes:
+        chunk_index: Stable chunk index inside the current video.
+        start_seconds: Chunk start timestamp in seconds.
+        end_seconds: Chunk end timestamp in seconds.
+        audio_chunk_path: Project-relative path to the source audio chunk.
+        raw_transcript_text: Raw transcript text before cleanup.
+        corrected_transcript_text: Cleaned transcript text used in outputs.
+        relevance_score: Heuristic score used for snapshot selection.
+    """
 
     chunk_index: int
     start_seconds: float
@@ -99,7 +109,18 @@ class TranscriptChunk:
 @dataclass
 class SnapshotRecord:
 
-    """ Store Snapshot Record """
+    """Store one selected report-worthy snapshot candidate.
+
+    Attributes:
+        timestamp_seconds: Snapshot timestamp in seconds.
+        frame_path: Project-relative path to the frame image.
+        ocr_text: OCR text retained for the snapshot.
+        ocr_quality_score: OCR quality score for the retained text.
+        ocr_region_name: Region that produced the retained OCR result.
+        transcript_excerpt: Short transcript excerpt attached to the snapshot.
+        selection_reason: Human-readable reason for keeping the snapshot.
+        combined_score: Combined transcript and OCR score used for ranking.
+    """
 
     timestamp_seconds: float
     frame_path: str
@@ -114,7 +135,13 @@ class SnapshotRecord:
 @dataclass
 class TranscriptExtractionResult:
 
-    """ Store Transcript Extraction Result """
+    """Store the raw transcript result returned by one provider.
+
+    Attributes:
+        raw_transcript_text: Full raw transcript text.
+        transcript_segment_list: Optional LAN transcript segments used for
+            chunk-aware cleanup.
+    """
 
     raw_transcript_text: str
     transcript_segment_list: list[LanTranscriptSegment]
@@ -123,7 +150,15 @@ class TranscriptExtractionResult:
 @dataclass
 class WorkflowRuntimeState:
 
-    """ Store Workflow Runtime State """
+    """Store mutable workflow state shared across processed videos.
+
+    Attributes:
+        video_count: Total number of videos in the current run.
+        current_video_index: One-based progress counter updated per video.
+        lm_studio_model_name_list: Model list discovered from LM Studio.
+        cleanup_model_name: Effective cleanup model after resolution.
+        report_model_name: Effective report model after resolution.
+    """
 
     video_count: int
     current_video_index: int = 0
@@ -134,7 +169,12 @@ class WorkflowRuntimeState:
 
 def build_argument_parser() -> argparse.ArgumentParser:
 
-    """ Build Argument Parser """
+    """Build the command-line parser for the high-quality workflow.
+
+    Returns:
+        Configured parser exposing transcript, cleanup, OCR, and reporting
+        options for the canonical video pipeline.
+    """
 
     argument_parser = argparse.ArgumentParser(
         description="Run the high-quality three-stage TwinCAT/TestRig video knowledge-extraction workflow.",
@@ -177,7 +217,14 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
 def require_google_client() -> genai.Client:
 
-    """ Require Google Client """
+    """Create the Google GenAI client required by Google-backed stages.
+
+    Returns:
+        Initialized Google client.
+
+    Raises:
+        AssertionError: If `GOOGLE_API_KEY` is missing.
+    """
 
     api_key = os.environ.get("GOOGLE_API_KEY", "").strip()
     assert api_key, "GOOGLE_API_KEY is required for the high-quality transcript workflow."
@@ -186,7 +233,14 @@ def require_google_client() -> genai.Client:
 
 def maybe_create_google_client(parsed_arguments: argparse.Namespace) -> genai.Client | None:
 
-    """ Maybe Create Google Client """
+    """Create the Google client only when the selected providers need it.
+
+    Args:
+        parsed_arguments: Parsed workflow arguments.
+
+    Returns:
+        Google client when any selected provider uses Google, otherwise `None`.
+    """
 
     if any(
         provider_name == "google"
@@ -267,7 +321,15 @@ def choose_best_lm_studio_model(
     available_model_name_list: list[str],
 ) -> tuple[str, str]:
 
-    """ Choose Best LM Studio Model """
+    """Resolve the best available LM Studio model for one requested name.
+
+    Args:
+        requested_model_name: Model requested by the caller.
+        available_model_name_list: Model names returned by the LM Studio server.
+
+    Returns:
+        Tuple containing the resolved model name and the resolution reason.
+    """
 
     normalized_requested_model_name = requested_model_name.strip()
     if not available_model_name_list:
@@ -299,7 +361,12 @@ def choose_best_lm_studio_model(
 
 def resolve_lm_studio_model_arguments(parsed_arguments: argparse.Namespace, runtime_state: WorkflowRuntimeState) -> None:
 
-    """ Resolve LM Studio Model Arguments """
+    """Resolve effective LM Studio cleanup and report models for the run.
+
+    Args:
+        parsed_arguments: Parsed workflow arguments updated in place.
+        runtime_state: Mutable runtime state used for reporting.
+    """
 
     lm_studio_needed = any(
         provider_name == "lmstudio"
@@ -436,7 +503,16 @@ def transcribe_full_audio(
     parsed_arguments: argparse.Namespace,
 ) -> TranscriptExtractionResult:
 
-    """ Transcribe Full Audio """
+    """Run the raw full-audio transcript stage through the selected provider.
+
+    Args:
+        google_client: Google client when Google is used as transcript provider.
+        audio_file_path: Extracted mono audio file for the current video.
+        parsed_arguments: Parsed workflow arguments.
+
+    Returns:
+        Raw transcript text plus optional LAN transcript segments.
+    """
 
     if parsed_arguments.transcript_provider == "lan":
         raw_transcript_text, transcript_segment_list = transcribe_audio_via_lan_ai_node_with_segments(
@@ -485,7 +561,19 @@ def generate_text_response(
     preserve_formatting: bool = False,
 ) -> str:
 
-    """ Generate Text Response """
+    """Run one cleanup or reporting text-generation request.
+
+    Args:
+        google_client: Google client when a Google provider is selected.
+        parsed_arguments: Parsed workflow arguments.
+        provider_name: Active provider name for the request.
+        model_name: Model used for the request.
+        prompt_text: Prompt sent to the provider.
+        preserve_formatting: Whether response formatting should be preserved.
+
+    Returns:
+        Provider response text normalized according to the requested mode.
+    """
 
     if provider_name == "lmstudio":
         prompt_character_count = len(prompt_text)
@@ -528,7 +616,24 @@ def load_json_response_with_repair(
     debug_file_path: Path | None = None,
 ) -> dict:
 
-    """ Load JSON Response With Repair """
+    """Parse a model JSON response and repair it once if needed.
+
+    Args:
+        google_client: Google client when a Google provider is selected.
+        parsed_arguments: Parsed workflow arguments.
+        provider_name: Active provider used for repair when needed.
+        model_name: Model name used for repair when needed.
+        response_text: Original model response text.
+        repair_context_label: Human-readable label used in assertions.
+        debug_file_path: Optional path used to save raw JSON candidates.
+
+    Returns:
+        Parsed JSON payload.
+
+    Raises:
+        AssertionError: If the response does not contain valid JSON even after
+            the repair pass.
+    """
 
     json_candidate_text = extract_json_candidate_text(response_text)
     if debug_file_path is not None:
@@ -605,13 +710,26 @@ def correct_transcript_chunk_list(
     analysis_directory: Path | None = None,
 ) -> list[str]:
 
-    """ Correct Transcript Chunk List """
+    """Clean transcript chunks while preserving chunk boundaries.
 
+    Args:
+        google_client: Google client when a Google provider is selected.
+        parsed_arguments: Parsed workflow arguments.
+        cleanup_model: Model used for transcript cleanup.
+        transcript_chunk_list: Raw transcript chunks to clean.
+        analysis_directory: Optional directory used for debug payload dumps.
+
+    Returns:
+        Corrected transcript text list aligned to the original chunk order.
+    """
+
+    # Resolve Cleanup Batch Strategy
     corrected_text_by_index: dict[int, str] = {}
     max_chunks_per_request = max(1, int(parsed_arguments.lmstudio_max_cleanup_chunks_per_request))
     chunk_batch_size = max_chunks_per_request if parsed_arguments.cleanup_provider == "lmstudio" else len(transcript_chunk_list)
     max_cleanup_chunk_characters = max(240, int(parsed_arguments.lmstudio_max_cleanup_chunk_characters))
 
+    # Cleanup Transcript Batches
     for batch_start_index in range(0, len(transcript_chunk_list), chunk_batch_size):
         transcript_chunk_batch = transcript_chunk_list[batch_start_index:batch_start_index + chunk_batch_size]
         raw_chunk_payload = [
@@ -681,6 +799,7 @@ Trascrizione grezza per blocchi:
             f"| model={cleanup_model}"
         )
 
+        # Request Cleanup JSON
         response_text = generate_text_response(
             google_client=google_client,
             parsed_arguments=parsed_arguments,
@@ -691,6 +810,7 @@ Trascrizione grezza per blocchi:
         debug_file_path = None
         if analysis_directory is not None:
             debug_file_path = analysis_directory / f"cleanup_batch_{batch_start_index:03d}_{batch_end_index:03d}.json"
+        # Parse And Repair Cleanup JSON
         cleaned_payload = load_json_response_with_repair(
             google_client=google_client,
             parsed_arguments=parsed_arguments,
@@ -709,6 +829,7 @@ Trascrizione grezza per blocchi:
             }
         )
 
+    # Restore Original Chunk Order
     corrected_text_list: list[str] = []
     for transcript_chunk in transcript_chunk_list:
         corrected_text_list.append(
@@ -805,7 +926,20 @@ def correct_and_segment_full_transcript(
     analysis_directory: Path | None = None,
 ) -> list[TranscriptChunk]:
 
-    """ Correct And Segment Full Transcript """
+    """Correct and segment a full transcript when chunk-aware ASR is absent.
+
+    Args:
+        google_client: Google client when a Google provider is selected.
+        parsed_arguments: Parsed workflow arguments.
+        cleanup_model: Model used for transcript cleanup and segmentation.
+        raw_transcript_text: Full raw transcript text for the video.
+        duration_seconds: Total source-video duration.
+        target_chunk_seconds: Desired approximate chunk duration.
+        analysis_directory: Optional directory used for debug payload dumps.
+
+    Returns:
+        Cleaned transcript chunks with approximate temporal boundaries.
+    """
 
     approximate_chunk_count = max(1, int(round(duration_seconds / max(float(target_chunk_seconds), 1.0))))
     cleanup_prompt = f"""
@@ -843,6 +977,7 @@ Trascrizione grezza completa:
 {raw_transcript_text}
 """.strip()
 
+    # Request Chunk Segmentation JSON
     response_text = generate_text_response(
         google_client=google_client,
         parsed_arguments=parsed_arguments,
@@ -853,6 +988,7 @@ Trascrizione grezza completa:
     debug_file_path = None
     if analysis_directory is not None:
         debug_file_path = analysis_directory / "full_transcript_chunk_segmentation.json"
+    # Parse And Repair Segmentation JSON
     cleaned_payload = load_json_response_with_repair(
         google_client=google_client,
         parsed_arguments=parsed_arguments,
@@ -863,6 +999,7 @@ Trascrizione grezza completa:
         debug_file_path=debug_file_path,
     )
 
+    # Materialize Transcript Chunks
     transcript_chunk_list: list[TranscriptChunk] = []
     cleaned_chunk_list = cleaned_payload.get("chunks", [])
     assert cleaned_chunk_list, "Cleanup model returned no transcript chunks."
@@ -889,6 +1026,7 @@ Trascrizione grezza completa:
             )
         )
 
+    # Clamp Final Chunk Boundaries
     transcript_chunk_list = sorted(transcript_chunk_list, key=lambda item: item.start_seconds)
     for transcript_chunk_index, transcript_chunk in enumerate(transcript_chunk_list):
         transcript_chunk.chunk_index = transcript_chunk_index
@@ -1005,8 +1143,22 @@ def select_snapshot_record_list(
     max_snapshots: int,
 ) -> list[SnapshotRecord]:
 
-    """ Select Snapshot Record List """
+    """Select report-worthy snapshots from cleaned transcript chunks.
 
+    Args:
+        video_file_path: Source video file being processed.
+        analysis_directory: Analysis directory for the current video.
+        transcript_chunk_list: Cleaned transcript chunks for the video.
+        capability_map: Runtime capability flags for OCR helpers.
+        parsed_arguments: Parsed workflow arguments.
+        frame_probes_per_chunk: Number of probes evaluated per transcript chunk.
+        max_snapshots: Maximum number of retained snapshots.
+
+    Returns:
+        Ranked snapshot list after bucket-based de-duplication.
+    """
+
+    # Probe Candidate Frames
     snapshot_candidate_list: list[SnapshotRecord] = []
     frames_directory = analysis_directory / "selected_frames"
     ensure_directory(frames_directory)
@@ -1018,8 +1170,10 @@ def select_snapshot_record_list(
         for probe_index, probe_ratio in enumerate(probe_ratio_list):
             timestamp_seconds = transcript_chunk.start_seconds + chunk_duration_seconds * probe_ratio
             frame_file_path = frames_directory / f"chunk_{transcript_chunk.chunk_index:03d}_probe_{probe_index:02d}_{int(timestamp_seconds):05d}.png"
+            # Capture Snapshot Frame
             capture_frame(video_file_path, timestamp_seconds, frame_file_path)
 
+            # Extract OCR Evidence
             frame_image = cv2.imread(str(frame_file_path))
             if parsed_arguments.ocr_provider == "lan":
                 ocr_text, ocr_quality_score, ocr_region_name, _ = run_region_ocr_via_lan_ai_node(
@@ -1033,6 +1187,7 @@ def select_snapshot_record_list(
             combined_score = transcript_chunk.relevance_score + ocr_quality_score / 30.0
             selection_reason = infer_snapshot_reason(transcript_chunk.corrected_transcript_text, ocr_text)
 
+            # Record Snapshot Candidate
             snapshot_candidate_list.append(
                 SnapshotRecord(
                     timestamp_seconds=timestamp_seconds,
@@ -1046,6 +1201,7 @@ def select_snapshot_record_list(
                 )
             )
 
+    # Keep Best Time-Distributed Snapshots
     sorted_snapshot_candidate_list = sorted(snapshot_candidate_list, key=lambda item: item.combined_score, reverse=True)
     selected_snapshot_record_list: list[SnapshotRecord] = []
     selected_bucket_set: set[int] = set()
@@ -1072,8 +1228,22 @@ def synthesize_report_markdown(
     companion_note_excerpt_list: list[str],
 ) -> str:
 
-    """ Synthesize Report Markdown """
+    """Synthesize the final per-video technical report.
 
+    Args:
+        google_client: Google client when a Google provider is selected.
+        parsed_arguments: Parsed workflow arguments.
+        report_model: Model used for report synthesis.
+        video_file_path: Source video file being summarized.
+        transcript_chunk_list: Cleaned transcript chunks used as evidence.
+        snapshot_record_list: Selected snapshots used as visual evidence.
+        companion_note_excerpt_list: Companion-note excerpts attached to the report.
+
+    Returns:
+        Markdown report text ready to be saved under the canonical report tree.
+    """
+
+    # Build Prompt Context
     max_report_chunk_characters = max(80, int(parsed_arguments.lmstudio_max_report_chunk_characters))
     transcript_context = "\n".join(
         [
@@ -1092,6 +1262,7 @@ def synthesize_report_markdown(
     )
     companion_context = "\n".join([f"- {excerpt}" for excerpt in companion_note_excerpt_list]) or "- none"
 
+    # Compose Report Prompt
     report_prompt = f"""
 Write an English technical Markdown report for one TwinCAT/TestRig video guide.
 
@@ -1127,6 +1298,7 @@ Snapshot and OCR-assisted evidence:
         f"| provider={parsed_arguments.report_provider} "
         f"| model={report_model}"
     )
+    # Generate Report Body
     report_body_text = generate_text_response(
         google_client=google_client,
         parsed_arguments=parsed_arguments,
@@ -1151,13 +1323,25 @@ def process_single_video(
     runtime_state: WorkflowRuntimeState,
 ) -> None:
 
-    """ Process Single Video """
+    """Run the full high-quality workflow for one source video.
+
+    Args:
+        google_client: Google client when a Google provider is selected.
+        video_file_path: Source video file being processed.
+        analysis_root: Root directory for intermediate high-quality artifacts.
+        report_root: Root directory for canonical promoted outputs.
+        capability_map: Runtime capability flags for OCR helpers.
+        companion_note_list: Candidate notes used for fuzzy matching.
+        parsed_arguments: Parsed workflow arguments.
+        runtime_state: Mutable workflow progress state.
+    """
 
     runtime_state.current_video_index += 1
     print_banner(
         f"Video {runtime_state.current_video_index}/{runtime_state.video_count} | {video_file_path.name}"
     )
 
+    # Resolve Per-Video Paths
     video_slug = slugify_text(video_file_path.stem)
     analysis_directory = analysis_root / video_slug
     report_directory = report_root / video_slug
@@ -1166,6 +1350,7 @@ def process_single_video(
     ensure_directory(report_directory)
     ensure_directory(asset_directory)
 
+    # Extract Audio And Raw Transcript
     metadata_map = extract_video_metadata(video_file_path)
     audio_file_path = analysis_directory / f"{video_slug}.mp3"
     raw_transcript_file_path = analysis_directory / "raw_full_transcript.txt"
@@ -1199,6 +1384,7 @@ def process_single_video(
         )
         print_done(f"Loaded Cached Transcript | chars={len(raw_full_transcript_text)}")
 
+    # Build Cleaned Transcript Chunks
     transcript_chunk_list: list[TranscriptChunk] = []
     if corrected_transcript_cache_map:
         print_step("Load Corrected Transcript Cache")
@@ -1266,6 +1452,7 @@ def process_single_video(
         }
         write_json_file(corrected_transcript_cache_path, corrected_transcript_cache_map)
 
+    # Persist Transcript Outputs
     write_json_file(analysis_directory / "transcript_chunks.json", [asdict(chunk) for chunk in transcript_chunk_list])
     transcript_markdown = build_transcript_markdown(video_file_path.name, transcript_chunk_list)
     transcript_file_path = report_directory / f"{video_slug}_transcript.md"
@@ -1276,6 +1463,7 @@ def process_single_video(
         f"| provider={parsed_arguments.ocr_provider} "
         f"| max_snapshots={parsed_arguments.max_snapshots}"
     )
+    # Select Canonical Snapshot Evidence
     snapshot_record_list = select_snapshot_record_list(
         video_file_path=video_file_path,
         analysis_directory=analysis_directory,
@@ -1287,6 +1475,7 @@ def process_single_video(
     )
     print_done(f"Selected Reference Snapshots | count={len(snapshot_record_list)}")
 
+    # Promote Snapshot Assets Into The Canonical Report Tree
     canonical_snapshot_record_list: list[SnapshotRecord] = []
     for snapshot_index, snapshot_record in enumerate(snapshot_record_list, start=1):
         source_frame_path = PROJECT_PATH / snapshot_record.frame_path
@@ -1307,6 +1496,7 @@ def process_single_video(
 
     write_json_file(analysis_directory / "snapshot_records.json", [asdict(snapshot) for snapshot in canonical_snapshot_record_list])
 
+    # Synthesize Final Report
     matched_companion_note_list = match_companion_notes(video_file_path, companion_note_list)
     companion_note_excerpt_list = [collapse_whitespace(companion_note.text)[:260] for companion_note in matched_companion_note_list]
     report_markdown = synthesize_report_markdown(
@@ -1354,7 +1544,11 @@ def write_report_index(report_root: Path) -> None:
 
 def main() -> int:
 
-    """ Run High-Quality Video Workflow """
+    """Run the canonical high-quality TwinCAT/TestRig video workflow.
+
+    Returns:
+        Process exit code.
+    """
 
     parsed_arguments = parse_command_line_arguments()
     workflow_start_time = time.time()
@@ -1365,6 +1559,7 @@ def main() -> int:
     ensure_directory(analysis_root)
     ensure_directory(report_root)
 
+    # Resolve Run Scope
     google_client = maybe_create_google_client(parsed_arguments)
     companion_note_list = collect_companion_note_list(input_root)
     capability_map = collect_runtime_capability_map(
@@ -1376,8 +1571,10 @@ def main() -> int:
     video_file_path_list = [video_file_path for video_file_path in video_file_path_list if video_file_path.suffix.lower() in VIDEO_SUFFIXES]
     assert video_file_path_list, "No video files matched the requested scope."
 
+    # Resolve Runtime State
     runtime_state = WorkflowRuntimeState(video_count=len(video_file_path_list))
 
+    # Print Runtime Configuration
     print_banner("High-Quality TwinCAT Video Knowledge Extraction")
     print_status("Input Root", input_root)
     print_status("Analysis Root", analysis_root)
@@ -1397,6 +1594,7 @@ def main() -> int:
         resolve_lm_studio_model_arguments(parsed_arguments, runtime_state)
     print_status("Matched Videos", len(video_file_path_list))
 
+    # Process Videos
     for video_file_path in video_file_path_list:
         process_single_video(
             google_client=google_client,
@@ -1409,6 +1607,7 @@ def main() -> int:
             runtime_state=runtime_state,
         )
 
+    # Finalize Run Index
     write_report_index(report_root)
 
     elapsed_seconds = time.time() - workflow_start_time
