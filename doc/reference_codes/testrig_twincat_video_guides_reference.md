@@ -12,8 +12,8 @@ repository.
 The note complements, rather than replaces:
 
 - `doc/reference_codes/testrig_twincat_ml_reference.md`
-- `doc/technical/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md`
-- `doc/technical/2026-03-26/2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md`
+- `doc/technical/2026-03/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md`
+- `doc/technical/2026-03/2026-03-26/2026-03-26-15-59-15_post_campaign_twincat_deployment_evaluation_and_isolated_parallel_track.md`
 
 ## Why The Video Bundle Matters
 

@@ -15,7 +15,7 @@ The goal is to identify which algorithm families are worth implementing, why the
 
 This report should be read together with:
 
-- `doc/technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
+- `doc/technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
 - `doc/reference_summaries/02_MMT_TEModeling_Project_Summary.md`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/04_Machine_Learning_Report_Project_Summary.md`

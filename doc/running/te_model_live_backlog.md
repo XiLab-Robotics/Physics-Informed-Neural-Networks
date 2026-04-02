@@ -14,9 +14,9 @@ Use this document as the day-to-day source of truth for:
 
 Historical rationale and approval history remain in:
 
-- `doc/technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
-- `doc/technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
-- later TE-related technical notes under `doc/technical/2026-03-17/`
+- `doc/technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
+- `doc/technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
+- later TE-related technical notes under `doc/technical/2026-03/2026-03-17/`
 
 ## Current Status
 

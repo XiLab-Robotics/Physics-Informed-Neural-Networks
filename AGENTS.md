@@ -7,7 +7,7 @@
 - Prefer Context7 documentation over memory when API details, configuration keys, or version-specific behavior may have changed.
 - If Context7 is unavailable, state that explicitly and fall back to local code inspection plus primary official documentation.
 - Always keep the documents in `reference/` or their summaries in `doc/` in scope before making design or implementation choices.
-- Before implementing any feature, create a technical project document inside the day-based folder `doc/technical/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
+- Before implementing any feature, create a technical project document inside the month/day folder `doc/technical/YYYY-MM/YYYY-MM-DD/` using the filename format `YYYY-MM-DD-HH-mm-SS-feature_name.md`.
 - Before creating a new technical project document, read the real current system date and time from the local machine and use that exact timestamp in the filename. Do not infer or estimate the timestamp from conversation context.
 - Each new technical project document must contain the sections `Overview`, `Technical Approach`, `Involved Components`, and `Implementation Steps`.
 - Repository-relevant Codex skills may be used automatically whenever the request clearly matches their documented purpose. Do not wait for a separate user instruction when the skill is the correct workflow tool for the task.

@@ -28,7 +28,7 @@ Before making TwinCAT/export claims:
 
 1. Read `doc/reference_codes/testrig_twincat_ml_reference.md`.
 2. Read
-   `doc/technical/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md`.
+   `doc/technical/2026-03/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md`.
 3. Read the relevant `doc/reference_summaries/` notes for:
    speed, torque, oil temperature, encoder zeroing, and `DataValid`.
 4. Read the current repository model/report note most relevant to the export
@@ -72,7 +72,7 @@ Prefer this structure:
 
 - `doc/reference_codes/testrig_twincat_ml_reference.md`
 - `doc/reference_summaries/`
-- `doc/technical/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md`
+- `doc/technical/2026-03/2026-03-26/2026-03-26-15-43-43_twincat_ml_export_and_testrig_reference_analysis.md`
 - relevant `doc/guide/`
 - relevant `scripts/models/`
 - relevant `scripts/training/`

@@ -382,6 +382,6 @@ The main strategic conclusion is straightforward:
 - Wave 1 residual family report:
   `doc/reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
 - TE roadmap:
-  `doc/technical/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
+  `doc/technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
 - TE implementation backlog:
-  `doc/technical/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
+  `doc/technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`

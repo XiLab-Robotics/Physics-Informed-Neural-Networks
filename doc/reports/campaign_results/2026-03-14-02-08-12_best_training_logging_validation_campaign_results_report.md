@@ -152,7 +152,7 @@ The next useful follow-up tasks are:
 
 After the original report was completed, the same one-item campaign was rerun after applying the shutdown fix documented in:
 
-- `doc/technical/2026-03-14/2026-03-14-02-19-57_campaign_runner_colorama_shutdown_fix.md`
+- `doc/technical/2026-03/2026-03-14/2026-03-14-02-19-57_campaign_runner_colorama_shutdown_fix.md`
 
 The rerun completed successfully under:
 
