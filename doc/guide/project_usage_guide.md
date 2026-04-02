@@ -306,7 +306,7 @@ and local LLM cleanup/report generation.
 
 Full setup guide:
 
-- [LAN AI Node Server Setup Guide](../scripts/tooling/lan_ai/lan_ai_node_server.md)
+- `doc/scripts/tooling/lan_ai/lan_ai_node_server.md`
 
 The validated remote-access path now uses an SSH alias on the current
 workstation, for example:

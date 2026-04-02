@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-03
 
+- [technical/2026-04/2026-04-03/2026-04-03-00-54-03_sphinx_documentation_regeneration.md](./technical/2026-04/2026-04-03/2026-04-03-00-54-03_sphinx_documentation_regeneration.md)
+  Technical document for regenerating the canonical repository Sphinx portal through the tracked `site/` build pipeline and resolving any warning-as-error build blockers that appear.
 - [technical/2026-04/2026-04-03/2026-04-03-00-44-44_repository_wide_script_documentation_audit_and_rule_formalization.md](./technical/2026-04/2026-04-03/2026-04-03-00-44-44_repository_wide_script_documentation_audit_and_rule_formalization.md)
   Technical document for auditing the full `scripts/` Python tree against the approved comment and docstring format, and for formalizing a single repository-wide rule so every future script must follow the same documentation style by default.
 - [technical/2026-04/2026-04-03/2026-04-03-00-34-49_video_guide_script_docstring_and_comment_retrofit.md](./technical/2026-04/2026-04-03/2026-04-03-00-34-49_video_guide_script_docstring_and_comment_retrofit.md)
