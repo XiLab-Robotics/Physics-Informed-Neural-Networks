@@ -38,6 +38,14 @@ During execution the launcher writes:
 These files expose the current video, current stage coverage, and the last
 failure location if the batch stops.
 
+After a rerun is reviewed, promoted, and closed out, move those files into:
+
+- `doc/reports/analysis/twincat_video_guides/[YYYY-MM-DD]/runtime_tracking/`
+
+The first archived closed-out bundle is:
+
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/`
+
 ## Practical Use
 
 Start the tracked remote rerun from the repository root:

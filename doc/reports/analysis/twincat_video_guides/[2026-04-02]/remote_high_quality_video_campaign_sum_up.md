@@ -17,7 +17,7 @@ video bundle into canonical repository knowledge.
 ## Campaign Outcome
 
 The tracked campaign completed successfully for all `11` source videos listed in
-`doc/running/remote_high_quality_video_rerun_status.json`.
+`doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/remote_high_quality_video_rerun_status.json`.
 
 Validated per-video stages completed for every video:
 

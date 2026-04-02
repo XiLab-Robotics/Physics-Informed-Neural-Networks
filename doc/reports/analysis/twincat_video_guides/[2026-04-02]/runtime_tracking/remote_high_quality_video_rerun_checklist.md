@@ -9,6 +9,9 @@
 - Cleanup model: openai/gpt-oss-20b
 - Report model: openai/gpt-oss-20b
 - Updated at: 2026-04-02 11:54:03
+- Archived at: 2026-04-02
+- Archive role: closed-out rerun bookkeeping after artifact promotion
+- Canonical promoted artifacts: doc/reference_codes/video_guides/
 
 ## Per-Video Status
 
@@ -118,7 +121,7 @@
 - [x] Transcript markdown saved
 - [x] Report markdown saved
 - [x] Markdown validation completed
-- Log: 
+- Log: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\video_guides\_remote_gptoss_tracked_logs\controller_adrc.log
 
 ### ML_Simulation_and_Generator_Cam
 
@@ -130,7 +133,7 @@
 - [x] Transcript markdown saved
 - [x] Report markdown saved
 - [x] Markdown validation completed
-- Log: 
+- Log: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\video_guides\_remote_gptoss_tracked_logs\ml_simulation_and_generator_cam.log
 
 ### Video_Errata_Corrige_ADRC
 
@@ -142,5 +145,5 @@
 - [x] Transcript markdown saved
 - [x] Report markdown saved
 - [x] Markdown validation completed
-- Log:
+- Log: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\video_guides\_remote_gptoss_tracked_logs\video_errata_corrige_adrc.log
 

@@ -131,8 +131,11 @@ The tracked launcher:
 
 ### Persistent Tracking Files
 
-- `doc/running/remote_high_quality_video_rerun_status.json`
-- `doc/running/remote_high_quality_video_rerun_checklist.md`
+- active or resumable reruns write live state to:
+  - `doc/running/remote_high_quality_video_rerun_status.json`
+  - `doc/running/remote_high_quality_video_rerun_checklist.md`
+- closed-out promoted reruns should be archived under:
+  - `doc/reports/analysis/twincat_video_guides/[YYYY-MM-DD]/runtime_tracking/`
 
 ### Canonical Promoted Outputs
 

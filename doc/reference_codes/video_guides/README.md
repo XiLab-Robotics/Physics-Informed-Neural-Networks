@@ -3,9 +3,43 @@
 This folder contains the canonical high-quality outputs generated from the
 TwinCAT/TestRig video-guide workflow.
 
-Provenance and rerun tracking for the current promoted remote-strong artifact
-set are documented in
-[REMOTE_HIGH_QUALITY_RERUN_README.md](./REMOTE_HIGH_QUALITY_RERUN_README.md).
+The current canonical artifact set comes from the completed remote strong rerun
+that used:
+
+- remote `lan_ai_node_server.py`;
+- remote `faster-whisper` with `large-v3`;
+- remote `LM Studio`;
+- remote `openai/gpt-oss-20b` for transcript cleanup and report generation;
+- local OCR fallback for snapshot evidence.
+
+The promoted artifacts in this folder were copied from:
+
+- `.temp/video_guides/_remote_gptoss_tracked_reports/`
+
+The corresponding temporary analysis root used for raw transcript caches,
+selected-frame provenance, and rerun support was:
+
+- `.temp/video_guides/_analysis_hq_remote_gptoss_tracked/`
+
+The closed-out rerun bookkeeping is archived in:
+
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/remote_high_quality_video_rerun_status.json`
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/remote_high_quality_video_rerun_checklist.md`
+
+For each slug folder:
+
+- `*_transcript.md`
+  Canonical cleaned transcript in Italian.
+- `*_report.md`
+  Canonical English technical report synthesized from transcript evidence,
+  selected snapshots, and OCR-assisted context.
+- `assets/reference_*.png`
+  Selected repository-owned reference snapshots copied from the rerun.
+
+These are the Git-tracked deliverables of the promoted remote-strong rerun.
+The raw intermediate caches in
+`.temp/video_guides/_analysis_hq_remote_gptoss_tracked/` remain useful for
+audit and rerun support, but they are not treated as canonical deliverables.
 
 ## Reports
 

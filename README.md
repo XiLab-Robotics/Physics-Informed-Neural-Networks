@@ -392,6 +392,10 @@ and inspectable.
   [2026-04-02-12-27-44_remote_video_pipeline_formalization_and_twincat_knowledge_synthesis.md](./doc/technical/2026-04-02/2026-04-02-12-27-44_remote_video_pipeline_formalization_and_twincat_knowledge_synthesis.md).
 - The LAN AI node OCR 500 regression check and PaddleOCR compatibility fix plan is documented in
   [2026-04-02-12-42-24_lan_ai_node_ocr_500_regression_check_and_paddleocr_compatibility_fix.md](./doc/technical/2026-04-02/2026-04-02-12-42-24_lan_ai_node_ocr_500_regression_check_and_paddleocr_compatibility_fix.md).
+- The remote video rerun tracking archive and README consolidation plan is documented in
+  [2026-04-02-12-49-56_remote_video_rerun_tracking_archive_and_readme_consolidation.md](./doc/technical/2026-04-02/2026-04-02-12-49-56_remote_video_rerun_tracking_archive_and_readme_consolidation.md).
+- The closed video-rerun tracking relocation into the dated analysis bundle is documented in
+  [2026-04-02-13-04-40_move_closed_video_rerun_tracking_into_analysis_bundle.md](./doc/technical/2026-04-02/2026-04-02-13-04-40_move_closed_video_rerun_tracking_into_analysis_bundle.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

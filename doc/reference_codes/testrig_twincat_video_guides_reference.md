@@ -108,9 +108,9 @@ stored under:
 The current canonical promoted artifact set comes from the tracked remote-strong
 rerun documented in:
 
-- `doc/reference_codes/video_guides/REMOTE_HIGH_QUALITY_RERUN_README.md`
-- `doc/running/remote_high_quality_video_rerun_status.json`
-- `doc/running/remote_high_quality_video_rerun_checklist.md`
+- `doc/reference_codes/video_guides/README.md`
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/remote_high_quality_video_rerun_status.json`
+- `doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/remote_high_quality_video_rerun_checklist.md`
 
 ## Tooling Behavior
 

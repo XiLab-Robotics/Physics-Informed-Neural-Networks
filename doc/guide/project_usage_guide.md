@@ -377,6 +377,11 @@ It writes persistent runtime tracking into:
 - `doc/running/remote_high_quality_video_rerun_status.json`
 - `doc/running/remote_high_quality_video_rerun_checklist.md`
 
+Once a rerun is closed and its artifacts are promoted, archive that bookkeeping
+under:
+
+- `doc/reports/analysis/twincat_video_guides/[YYYY-MM-DD]/runtime_tracking/`
+
 Formal runtime/process note:
 
 - `doc/scripts/tooling/remote_high_quality_video_pipeline.md`

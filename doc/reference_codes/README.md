@@ -22,9 +22,6 @@ The purpose of these documents is to preserve the most useful implementation pat
 - [video_guides/README.md](./video_guides/README.md)
   Repository-owned per-video report tree for the analyzed TwinCAT/TestRig
   video guides, including copied reference images.
-- [video_guides/REMOTE_HIGH_QUALITY_RERUN_README.md](./video_guides/REMOTE_HIGH_QUALITY_RERUN_README.md)
-  Provenance note for the promoted remote `large-v3` plus `openai/gpt-oss-20b`
-  video-guide artifact set and its temporary tracked rerun roots.
 - [../reports/analysis/twincat_video_guides/[2026-04-02]/remote_high_quality_video_campaign_sum_up.md](../reports/analysis/twincat_video_guides/%5B2026-04-02%5D/remote_high_quality_video_campaign_sum_up.md)
   Cross-video campaign sum-up for the current canonical remote-strong TwinCAT/TestRig video rerun.
 

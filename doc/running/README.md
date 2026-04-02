@@ -6,6 +6,7 @@ It now has two distinct roles:
 
 - persistent prepared or active training-campaign state;
 - the privileged live backlog for the TE model implementation program.
+- temporary live state for active or resumable TwinCAT/TestRig video reruns.
 
 Primary operational entry points:
 
@@ -29,3 +30,4 @@ Operational guidance:
 - treat `running/te_model_live_backlog.md` as the day-to-day source of truth for the TE program execution order;
 - keep future TwinCAT deployment-track decisions in that live backlog rather than only in historical technical notes;
 - treat the related `doc/technical/` backlog documents as historical planning references rather than as the main operational checklist.
+- keep completed video-pipeline tracking files out of the `doc/running/` tree once the rerun is closed; archive them inside the corresponding dated `doc/reports/analysis/` bundle instead.

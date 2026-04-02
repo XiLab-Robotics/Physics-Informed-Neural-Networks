@@ -15,7 +15,7 @@ Use this skill when a task is about:
 
 ## Read First
 
-1. `doc/reference_codes/video_guides/REMOTE_HIGH_QUALITY_RERUN_README.md`
+1. `doc/reference_codes/video_guides/README.md`
 2. `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
 3. `doc/reference_codes/testrig_twincat_video_guides_reference.md`
 4. `doc/reference_codes/testrig_twincat_ml_reference.md`
@@ -39,8 +39,8 @@ over ad-hoc manual loops.
 
 ## Workflow
 
-1. Check `doc/running/remote_high_quality_video_rerun_status.json`.
-2. Check `doc/running/remote_high_quality_video_rerun_checklist.md`.
+1. Check the active live tracking files in `doc/running/` if a rerun is still in progress.
+2. For the completed canonical rerun, check `doc/reports/analysis/twincat_video_guides/[2026-04-02]/runtime_tracking/`.
 3. If the runtime must be rerun, use the tracked launcher or a narrowly scoped
    per-video rerun with explicit URLs and models.
 4. Review the canonical promoted outputs in
