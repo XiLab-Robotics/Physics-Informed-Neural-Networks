@@ -4,6 +4,11 @@
 
 ---
 
+## Source Reference
+
+- Canonical source video: [controller_adrc.mkv](../../../../reference/video_guides/source_bundle/controller_adrc.mkv)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview  
 
 The video “Controller_ADRC.mkv” demonstrates how a MATLAB‑derived ADRC (Active Disturbance Rejection Control) model is exported, integrated into a TwinCAT PLC project, and validated using the Beckhoff TestRig environment. The workflow covers:  

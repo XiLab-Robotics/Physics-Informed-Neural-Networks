@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [controller_adrc.mkv](../../../../reference/video_guides/source_bundle/controller_adrc.mkv)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:00 - 00:04:59
 
 In questo caso si può vedere che vengono forniti tre input: l'omega close loop, ovvero la banda passante del controllore (b0), e keso, un moltiplicatore dell'omega close loop che determina effettivamente la banda passante dell'osservatore. Questi tre parametri consentono di impostare il tuning della DRC tramite il sistema. Ho inserito questi valori perché dovrebbero evitare la risonanza nel test rig. Ora mostrerò le funzioni così come sono state configurate.

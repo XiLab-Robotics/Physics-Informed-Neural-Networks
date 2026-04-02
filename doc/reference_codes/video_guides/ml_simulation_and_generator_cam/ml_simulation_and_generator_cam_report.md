@@ -4,6 +4,11 @@
 
 ---
 
+## Source Reference
+
+- Canonical source video: [ml_simulation_and_generator_cam.mkv](../../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview
 
 The video demonstrates how a machine‑learning (ML) model, trained in MATLAB and exported as an ONNX file, is integrated into a Beckhoff TwinCAT PLC using the TestRig framework. It covers data preparation, model import, PLC‑side inference, and post‑processing of the transmission error (`TE`) signal. The companion notes point out a critical variable naming issue: `TE_Calc` in the PLC is **not** the MATLAB‑derived variable but rather a value computed directly inside TwinCAT from the total position.

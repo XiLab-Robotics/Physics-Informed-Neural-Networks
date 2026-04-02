@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [fb_adrc_and_pid.mp4](../../../../reference/video_guides/source_bundle/fb_adrc_and_pid.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:00 - 00:04:59
 
 Buongiorno a tutti, in questo video vi parlerò della function block della DRC. La function block è realizzata per effettuare un controllo. Come si può vedere, questa è la function block dell'albero, proprio ADRC di grado 3; infatti la DRC è di grado 3. Ovviamente presumo che sia già stato visto l'altro video riguardo la DRC o che si abbia familiarità con essa. Questo video implica quindi una conoscenza della DRC: spiegherò come è strutturato il function block, senza addentrarmi nella composizione interna della DRC stessa. Il function block è di grado 3. In realtà, la DRC propriamente sarebbe di grado 2, il controllore di grado 2 e l'ESO di grado 3. Inoltre è stata inserita anche la TPG, che è stata implementata tramite le variabili...

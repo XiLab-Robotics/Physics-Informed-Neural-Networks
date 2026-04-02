@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [automatic_exp_te.mp4](../../../../reference/video_guides/source_bundle/automatic_exp_te.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:00 - 00:04:59
 
 Buongiorno a tutti, oggi vi parlerò dell’esperimento automatizzato per testare il transmission error a diverse velocità, temperature e coppie. Questo esperimento è stato automatizzato perché si era consapevoli che il test rig in quel caso era stabile; tuttavia è importante che l’utente rimanga in attesa poiché non c’è un monitoring della sicurezza, quindi deve osservare gli esperimenti. Non è necessario che l’utente rimanga a guardare gli scope ma deve rimanere in ascolto del test rig, potendo fare altro, così da essere pronto all’intervento nel caso percepisca rumori o altre anomalie. In questo caso è stato realizzato appunto un sistema di avvio automatico dell’esperimento attraverso le sezioni: la prima sezione crea la matrice che poi verrà assegnata volta per volta all’esperimento. L’assegnazione del valore…

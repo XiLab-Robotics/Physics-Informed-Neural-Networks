@@ -1,6 +1,11 @@
 # TwinCAT/TestRig Video Guide – Machine_Learning_1.mp4  
 
-*Technical Report (Markdown)*  
+*Technical Report (Markdown)*
+
+## Source Reference
+
+- Canonical source video: [machine_learning_1.mp4](../../../../reference/video_guides/source_bundle/machine_learning_1.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
 
 ---
 

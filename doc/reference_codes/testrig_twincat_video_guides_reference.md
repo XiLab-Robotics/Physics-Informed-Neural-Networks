@@ -311,10 +311,13 @@ This is an operational setup detail rather than a model-design rule, but it is
 important for future export validation because a failed deployment attempt can
 otherwise be mistaken for a model-format issue.
 
-## Cross-Video Findings After The Remote-Strong 11-Video Rerun
+## Cross-Video Findings After The Remote-Strong Canonical Video Set
 
-The full promoted artifact tree now covers `11` source videos and provides a
-meaningfully stronger evidence base than the initial partial extraction pass.
+The historical tracked rerun processed `11` input files, but the canonical
+promoted artifact tree now covers `8` unique source videos after deduplicating
+three byte-identical filename aliases in the tracked source bundle. That
+canonical set still provides a meaningfully stronger evidence base than the
+initial partial extraction pass.
 
 ### 1. The Existing Runtime Is Structured, Not Monolithic
 

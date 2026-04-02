@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [ml_simulation_and_generator_cam.mkv](../../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:01 - 00:04:59
 
 La prima colonna corrisponde alla velocità, la seconda alla coppia dell'albero lento e la terza alla temperatura. La quarta colonna dovrebbe essere la colonna 3, che indica il transmission error registrato durante l’esperimento di machine learning; in pratica si tratta del transmission error ottenuto nel test rig, cioè nell’esperimento reale. Successivamente c’è la quinta colonna, che rappresenta l’angolo di output del riduttore. Infine, l’ultima colonna è il transmission error calcolato: questa può essere omessa se non serve per il confronto con il transmission error diretto preso durante l’esperimento.

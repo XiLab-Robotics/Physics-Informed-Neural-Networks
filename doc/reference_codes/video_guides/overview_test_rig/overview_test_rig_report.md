@@ -1,5 +1,10 @@
 # TwinCAT/TestRig Video Guide – “Overview Test Rig.mp4”
 
+## Source Reference
+
+- Canonical source video: [overview_test_rig.mp4](../../../../reference/video_guides/source_bundle/overview_test_rig.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview  
 
 The video provides a concise walkthrough of the **TestRig** environment used for validating Beckhoff PLC‑based motor control solutions. It covers the physical layout (motor side vs. load side), key configuration screens, and typical error states that can arise during commissioning. The accompanying transcript is in Italian; however, the technical content—especially the screen captions and code snippets—is universally applicable to any TwinCAT deployment.

@@ -4,6 +4,11 @@
 
 ---
 
+## Source Reference
+
+- Canonical source video: [video_errata_corrige_adrc.mkv](../../../../reference/video_guides/source_bundle/video_errata_corrige_adrc.mkv)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview
 
 The video demonstrates the correction of a simulation error in a TwinCAT TestRig environment that was originally caused by an incorrect variable reference (`TE_Calc`). The presenter shows how to properly link the MATLAB‑generated model with the TwinCAT PLC, ensuring that the calculated control signal is correctly passed into the simulation. Key elements covered include:

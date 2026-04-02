@@ -4,6 +4,11 @@
 
 ---
 
+## Source Reference
+
+- Canonical source video: [fb_adrc_and_pid.mp4](../../../../reference/video_guides/source_bundle/fb_adrc_and_pid.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview  
 
 The video presents the implementation of an Adaptive Disturbance Rejection Controller (ADRC) function block in TwinCAT PLC, with a focus on its integration into a Beckhoff TestRig environment. It walks through the key parameters, control logic, and deployment workflow, highlighting how the ADRC is configured to avoid high‑frequency noise amplification while maintaining robust performance near saturation.

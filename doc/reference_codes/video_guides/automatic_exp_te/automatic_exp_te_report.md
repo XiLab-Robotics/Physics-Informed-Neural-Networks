@@ -1,5 +1,10 @@
 # TwinCAT/TestRig Video Guide – *Automatic_Exp_TE.mp4*
 
+## Source Reference
+
+- Canonical source video: [automatic_exp_te.mp4](../../../../reference/video_guides/source_bundle/automatic_exp_te.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview  
 
 The video demonstrates an automated experiment designed to evaluate transmission error (TE) across a range of operating conditions: speed, torque, and temperature. The workflow is fully integrated into the Beckhoff TwinCAT ecosystem, leveraging TestRig for data acquisition, a custom ADRC controller, and a machine‑learning module that predicts TE from sensor inputs.

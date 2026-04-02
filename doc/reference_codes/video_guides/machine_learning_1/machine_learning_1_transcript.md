@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [machine_learning_1.mp4](../../../../reference/video_guides/source_bundle/machine_learning_1.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:00 - 00:04:59
 
 Durante l'importazione penso che quando si va a interrogare il file il tempo di attesa sia lo stesso. Perciò si vanno a selezionare i file, ovviamente XML; una volta selezionati vengono visualizzati qui e si preme "Convert files" e lui in automatico converte il file. Il file viene convertito, salvato ovviamente su questo cartello "Convert to files" con lo stesso nome con cui è stato salvato in precedenza. Cambia solo il formato, quindi .xml o in funzione di quello che si converte .bml; se vuoi cambiare la member, il patteri e il mantra. NersTool è molto importante nel nostro caso, infatti va utilizzato per… oppure per invece molti casi nella nostra CuzRacist, perché could not not, produttivamente costa la karopi... Un mio irmato non avrei chiesto di sapere di faccio questo protag. Would you recommend that I to try your Assessment by a toolkit test of LEDs? Si possono andare a unire più file…

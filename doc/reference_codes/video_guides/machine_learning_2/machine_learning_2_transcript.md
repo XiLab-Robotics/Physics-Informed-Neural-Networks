@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [machine_learning_2.mp4](../../../../reference/video_guides/source_bundle/machine_learning_2.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:01 - 00:04:56
 
 Buongiorno a tutti, questo è il secondo video di Machine Learning. Prima di iniziare vi suggerisco di guardare il primo video, perché in questo episodio verranno scontate alcune cose già spiegate precedentemente e mi concentrerò direttamente sull’esperimento e sui dettagli che ho tralasciato nel primo. Qui trovi il report realizzato: se volete approfondire la correzione del transmission error con Machine Learning, potete consultarlo. Come detto nel video precedente, sono state create due task per comunicare tra loro; ciò è stato necessario a causa dei limiti di TwinCAT, che consentono solo una comunicazione molto veloce e quindi a basso tempo ciclo.

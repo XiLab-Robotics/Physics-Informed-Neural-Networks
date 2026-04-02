@@ -4,6 +4,11 @@
 
 ---
 
+## Source Reference
+
+- Canonical source video: [machine_learning_2.mp4](../../../../reference/video_guides/source_bundle/machine_learning_2.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## Overview
 
 The second video in the “Machine Learning” series demonstrates how a pre‑trained ML model is exported from Python, imported into TwinCAT, and orchestrated by a PLC‑side TestRig. The workflow covers:

@@ -2,6 +2,11 @@
 
 This transcript is the canonical cleaned Italian transcript for the video.
 
+## Source Reference
+
+- Canonical source video: [overview_test_rig.mp4](../../../../reference/video_guides/source_bundle/overview_test_rig.mp4)
+- Source bundle manifest: [source_manifest.json](../../../../reference/video_guides/source_bundle/source_manifest.json)
+
 ## 00:00:01 - 00:05:00
 
 Buongiorno, questo è un video che fornisce una panoramica del test rig e vi parlerò delle informazioni generali sullo stesso. Vi illustrerò i suoi limiti e il file dove poterlo trovare. Successivamente daremo uno sguardo in TwinCAT per capire perché sono stati cambiati alcuni elementi dopo che il test rig è stato studiato solo con il lato carico. Infine, parleremo dei metodi implementati per il test rig completo. Prima di guardare questo video vi consiglio di vedere i video di Monari se non li avete ancora visti; parlano in generale di come è stato realizzato il programma in TwinCAT, quindi alcune cose le prenderò per scontate. Il test rig attualmente è composto da un motor side, un zero shaft e un load side, come si può vedere dalla figura. Per questo motivo vengono cambiati diversi limiti: a sinistra si vede il limite entro cui il servomotore potrebbe…

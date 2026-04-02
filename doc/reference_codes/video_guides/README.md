@@ -47,14 +47,23 @@ The raw intermediate caches in
 `.temp/video_guides/_analysis_hq_remote_gptoss_tracked/` remain useful for
 audit and rerun support, but they are not treated as canonical deliverables.
 
-The historical alias-derived slug folders still present in this tree:
+After source-bundle deduplication, the canonical promoted tree now covers `8`
+unique source videos. The original tracked rerun processed `11` source files,
+but three of those were byte-identical filename aliases and are no longer kept
+as separate canonical guide folders.
 
-- `testrig___machine_learning_1`
-- `testrig___machine_learning_2`
-- `testrig___overview`
+## Canonical Source Map
 
-come from the pre-dedup tracked rerun and should be treated as legacy promoted
-outputs rather than canonical source filenames.
+| Slug | Canonical source video |
+| --- | --- |
+| `automatic_exp_te` | [`automatic_exp_te.mp4`](../../../reference/video_guides/source_bundle/automatic_exp_te.mp4) |
+| `controller_adrc` | [`controller_adrc.mkv`](../../../reference/video_guides/source_bundle/controller_adrc.mkv) |
+| `fb_adrc_and_pid` | [`fb_adrc_and_pid.mp4`](../../../reference/video_guides/source_bundle/fb_adrc_and_pid.mp4) |
+| `machine_learning_1` | [`machine_learning_1.mp4`](../../../reference/video_guides/source_bundle/machine_learning_1.mp4) |
+| `machine_learning_2` | [`machine_learning_2.mp4`](../../../reference/video_guides/source_bundle/machine_learning_2.mp4) |
+| `ml_simulation_and_generator_cam` | [`ml_simulation_and_generator_cam.mkv`](../../../reference/video_guides/source_bundle/ml_simulation_and_generator_cam.mkv) |
+| `overview_test_rig` | [`overview_test_rig.mp4`](../../../reference/video_guides/source_bundle/overview_test_rig.mp4) |
+| `video_errata_corrige_adrc` | [`video_errata_corrige_adrc.mkv`](../../../reference/video_guides/source_bundle/video_errata_corrige_adrc.mkv) |
 
 ## Reports
 
@@ -65,9 +74,6 @@ outputs rather than canonical source filenames.
 - [machine_learning_2_report](machine_learning_2/machine_learning_2_report.md)
 - [ml_simulation_and_generator_cam_report](ml_simulation_and_generator_cam/ml_simulation_and_generator_cam_report.md)
 - [overview_test_rig_report](overview_test_rig/overview_test_rig_report.md)
-- [testrig___machine_learning_1_report](testrig___machine_learning_1/testrig___machine_learning_1_report.md)
-- [testrig___machine_learning_2_report](testrig___machine_learning_2/testrig___machine_learning_2_report.md)
-- [testrig___overview_report](testrig___overview/testrig___overview_report.md)
 - [video_errata_corrige_adrc_report](video_errata_corrige_adrc/video_errata_corrige_adrc_report.md)
 
 ## Corrected Transcripts
@@ -79,7 +85,4 @@ outputs rather than canonical source filenames.
 - [machine_learning_2_transcript](machine_learning_2/machine_learning_2_transcript.md)
 - [ml_simulation_and_generator_cam_transcript](ml_simulation_and_generator_cam/ml_simulation_and_generator_cam_transcript.md)
 - [overview_test_rig_transcript](overview_test_rig/overview_test_rig_transcript.md)
-- [testrig___machine_learning_1_transcript](testrig___machine_learning_1/testrig___machine_learning_1_transcript.md)
-- [testrig___machine_learning_2_transcript](testrig___machine_learning_2/testrig___machine_learning_2_transcript.md)
-- [testrig___overview_transcript](testrig___overview/testrig___overview_transcript.md)
 - [video_errata_corrige_adrc_transcript](video_errata_corrige_adrc/video_errata_corrige_adrc_transcript.md)

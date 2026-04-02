@@ -445,6 +445,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for fixing a UTF-8 BOM regression that broke YAML frontmatter detection in a repository-local Codex skill.
 - [technical/2026-04-02/2026-04-02-14-49-10_video_source_bundle_git_lfs_dedup_and_renaming.md](./technical/2026-04-02/2026-04-02-14-49-10_video_source_bundle_git_lfs_dedup_and_renaming.md)
   Technical document for moving the TwinCAT/TestRig source video bundle into a canonical reference-owned location with Git LFS, deduplication, and clearer naming.
+- [technical/2026-04-02/2026-04-02-18-16-07_video_guide_canonical_cleanup_and_source_reference_alignment.md](./technical/2026-04-02/2026-04-02-18-16-07_video_guide_canonical_cleanup_and_source_reference_alignment.md)
+  Technical document for removing legacy duplicate promoted video-guide aliases and aligning the canonical guide tree to the tracked source bundle with explicit source-video provenance.
 - [technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)
