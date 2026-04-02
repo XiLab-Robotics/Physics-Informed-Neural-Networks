@@ -14,6 +14,9 @@ validated TwinCAT/TestRig video-guide path:
 Unlike a blind batch run, the launcher processes one video at a time, writes a
 persistent status file, and stops immediately on the first failing video.
 
+By default it now auto-discovers all supported source videos under
+`.temp/video_guides/` instead of assuming only the original `.mp4` subset.
+
 ## Main Role
 
 The launcher:
@@ -49,6 +52,12 @@ Optional PowerShell usage:
 .\scripts\tooling\run_remote_high_quality_video_rerun.ps1 -PythonExecutable python
 ```
 
+Override the discovered set explicitly when needed:
+
+```powershell
+.\scripts\tooling\run_remote_high_quality_video_rerun.ps1 -VideoNameList "Machine_Learning_2","Controller_ADRC"
+```
+
 The launcher expects the current workstation to already expose:
 
 - `STANDARDML_LAN_AI_TOKEN`
@@ -58,3 +67,11 @@ The launcher expects the current workstation to already expose:
 
 The remote `LM Studio` server and the remote LAN AI node must already be
 running before the launcher starts.
+
+Supported source extensions for auto-discovery:
+
+- `.mp4`
+- `.mkv`
+- `.mov`
+- `.avi`
+- `.m4v`

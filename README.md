@@ -49,6 +49,7 @@ Implemented today:
 - repository-owned TwinCAT/TestRig video-guide tooling for high-quality transcript extraction, evidence-driven snapshots, and OCR-assisted report synthesis through Google GenAI;
 - a repository-owned LAN AI node path for remote `LM Studio`, `faster-whisper`, and `PaddleOCR` integration while keeping repository orchestration on the current workstation;
 - repository-owned per-video report generation for analyzed TwinCAT/TestRig video guides;
+- a formalized remote-strong TwinCAT/TestRig video-analysis pipeline with tracked reruns, promoted canonical artifacts, and cross-video knowledge synthesis;
 - dual `NotebookLM` source-package tracks for guide-local concept videos and
   repository-specific project videos;
 - repository-owned isolated-mode and Markdown validation tooling.
@@ -202,6 +203,11 @@ For the tracked remote high-quality rerun, use the repository-owned launcher:
 This launcher processes one video at a time, writes a persistent checklist
 under `doc/running/`, and stops on the first failing video instead of silently
 skipping ahead.
+
+The remote-strong process and current campaign sum-up are documented in:
+
+- [Remote High-Quality TwinCAT Video Pipeline](./doc/scripts/tooling/remote_high_quality_video_pipeline.md)
+- [Remote High-Quality TwinCAT Video Campaign Sum-Up](./doc/reports/analysis/twincat_video_guides/%5B2026-04-02%5D/remote_high_quality_video_campaign_sum_up.md)
 
 The remote node now uses its own dependency file:
 
@@ -381,6 +387,8 @@ and inspectable.
   [2026-04-01-20-11-17_remote_high_quality_video_rerun_tracking_and_launcher.md](./doc/technical/2026-04-01/2026-04-01-20-11-17_remote_high_quality_video_rerun_tracking_and_launcher.md).
 - The remote video-artifact promotion and tracking-README plan is documented in
   [2026-04-02-12-04-06_remote_video_artifact_promotion_and_tracking_readme.md](./doc/technical/2026-04-02/2026-04-02-12-04-06_remote_video_artifact_promotion_and_tracking_readme.md).
+- The remote video-pipeline formalization and TwinCAT knowledge-synthesis plan is documented in
+  [2026-04-02-12-27-44_remote_video_pipeline_formalization_and_twincat_knowledge_synthesis.md](./doc/technical/2026-04-02/2026-04-02-12-27-44_remote_video_pipeline_formalization_and_twincat_knowledge_synthesis.md).
 - The English project-export integration plan for the existing guide tree is documented in
   [2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md](./doc/technical/2026-03-28/2026-03-28-11-53-52_integrate_english_project_notebooklm_exports_for_existing_guides.md).
 - The Codex skill-autonomy and subagent-approval rule is documented in

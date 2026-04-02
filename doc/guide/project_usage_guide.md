@@ -131,6 +131,11 @@ The current usage flow mainly relies on these folders:
   tokens, Git clone, CUDA, Miniconda, `LM Studio`, `OpenSSH Server`, and first
   health checks.
 
+- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
+  Formal process note for the strongest currently validated TwinCAT/TestRig
+  video-analysis workflow, including topology, launcher behavior, outputs,
+  quality gates, and recovery policy.
+
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
 
@@ -363,10 +368,18 @@ The launcher uses the strongest currently validated practical path:
 - local OCR fallback for snapshot evidence;
 - one video at a time with stop-on-failure behavior.
 
+By default the launcher now auto-discovers all supported source videos under
+`.temp/video_guides/`, including `.mkv`, `.mov`, `.avi`, and `.m4v`, instead of
+assuming only the original `.mp4` subset.
+
 It writes persistent runtime tracking into:
 
 - `doc/running/remote_high_quality_video_rerun_status.json`
 - `doc/running/remote_high_quality_video_rerun_checklist.md`
+
+Formal runtime/process note:
+
+- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
 
 Canonical local-validation command on the current workstation:
 
@@ -479,6 +492,7 @@ For the remote-node bootstrap procedure, service startup, and `ssh`-based
 operation from the current workstation, use:
 
 - `doc/scripts/tooling/lan_ai_node_server.md`
+- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
 
 ## NotebookLM Video Packages
 

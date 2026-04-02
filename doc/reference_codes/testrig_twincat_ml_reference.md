@@ -303,6 +303,81 @@ The first extraction pass already reinforces several practical runtime points:
 - the Beckhoff package and license setup on PC and PLC are practical
   deployment prerequisites independent of model correctness.
 
+The later remote-strong rerun promoted under
+`doc/reference_codes/video_guides/` materially strengthens that companion
+evidence, especially for:
+
+- Beckhoff Model Manager import and generated function-block shape;
+- CSV-fed simulation and experiment replay semantics;
+- state-machine integration around ML execution;
+- TestRig startup, reset, homing, and zeroing context;
+- `TE_Calc` errata and variable-mapping discipline.
+
+Taken together with the imported PLC code, the current repository understanding
+is now strong enough to guide future model-export preparation with a much
+smaller blind spot than before the video campaign.
+
+## Video-Backed Clarifications For The Imported PLC Reading
+
+The video campaign does not replace the code reading, but it clarifies several
+details that matter for implementation planning.
+
+### ML Execution Is Embedded In Experiment Logic
+
+The videos support the code-level reading that the TestRig predictor is not
+used as a standalone generic service.
+
+It is embedded in a larger experiment path that includes:
+
+- CSV or table-fed operating conditions;
+- startup-state logic;
+- homing and zeroing;
+- reset/error handling;
+- selective compensation application.
+
+This supports the repository rule that future exports must be judged against the
+real experiment orchestration contract.
+
+### Multi-Artifact Beckhoff Packaging Is Operationally Real
+
+The videos reinforce that Beckhoff-facing deployment involves more than one
+abstract model file:
+
+- Model Manager or conversion steps;
+- XML/BML-oriented artifacts or generated FBs;
+- prediction-block parameters and GVL wiring;
+- task assignment and runtime enable/reset behavior.
+
+That is consistent with the imported `FB_MllPrediction` path and argues against
+oversimplified assumptions such as “export ONNX and the PLC directly runs it
+unchanged”.
+
+### The Fast Task Versus ML Task Split Matters
+
+The machine-learning videos and reports repeatedly point to:
+
+- a faster drive-facing task;
+- a dedicated ML-related task around `500 us`;
+- communication delay between tasks.
+
+This clarifies why the imported PLC code stays structured and why a future
+export path should remain conservative about model size, complexity, and update
+frequency.
+
+### `TE_Calc` Must Be Treated As A Boundary Variable
+
+The errata and simulation videos materially reinforce that `TE_Calc` belongs to
+the TwinCAT/TestRig-side semantics and can be misused if interpreted as a
+direct Matlab-export placeholder.
+
+This matters for future implementation because:
+
+- variable-mapping errors can invalidate the whole replay chain;
+- simulation-side correctness can fail even when the model artifact itself is
+  valid;
+- TwinCAT-side reconstruction logic must remain explicit when adapting the code
+  for other model families.
+
 - `TF38x0 | TwinCAT 3 ML/NN Inference Engine`
 
 Confirmed current behavior from Beckhoff docs:

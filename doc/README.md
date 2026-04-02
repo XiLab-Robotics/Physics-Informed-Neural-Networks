@@ -42,6 +42,8 @@ This folder contains the internal project documents derived from the reference P
   Comparative analysis of repository documentation-platform options in the readable-filename analysis-report layout.
 - [reports/analysis/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md](./reports/analysis/Local%20LAN%20AI%20Infrastructure%20Options%20for%20Video%20Knowledge%20Extraction.md)
   Comparative architecture report for local and LAN-accessible transcript, OCR, and LLM infrastructure for the TwinCAT/TestRig video workflow.
+- [reports/analysis/twincat_video_guides/[2026-04-02]/remote_high_quality_video_campaign_sum_up.md](./reports/analysis/twincat_video_guides/%5B2026-04-02%5D/remote_high_quality_video_campaign_sum_up.md)
+  Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
 

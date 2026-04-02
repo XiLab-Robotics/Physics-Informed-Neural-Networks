@@ -105,6 +105,13 @@ stored under:
 
 - `doc/reference_codes/video_guides/`
 
+The current canonical promoted artifact set comes from the tracked remote-strong
+rerun documented in:
+
+- `doc/reference_codes/video_guides/REMOTE_HIGH_QUALITY_RERUN_README.md`
+- `doc/running/remote_high_quality_video_rerun_status.json`
+- `doc/running/remote_high_quality_video_rerun_checklist.md`
+
 ## Tooling Behavior
 
 The analysis script is intentionally tolerant of partial environments.
@@ -196,6 +203,22 @@ rough indexing. It explicitly separates:
 3. OCR-assisted evidence extraction used internally for analysis and report
    synthesis.
 
+The strongest currently validated production path for this workflow is now the
+remote-strong pipeline:
+
+- remote `lan_ai_node_server.py`;
+- remote `faster-whisper` with `large-v3`;
+- remote `LM Studio`;
+- remote `openai/gpt-oss-20b` for cleanup and report synthesis;
+- local OCR fallback;
+- tracked execution through
+  `scripts/tooling/run_remote_high_quality_video_rerun.ps1`.
+
+That launcher and runtime are formalized in:
+
+- `doc/scripts/tooling/remote_high_quality_video_pipeline.md`
+- `doc/scripts/tooling/run_remote_high_quality_video_rerun.md`
+
 ## Initial Video-Derived Findings
 
 The first repository-owned extraction pass was run on:
@@ -280,3 +303,105 @@ The simulation video also indicates a practical TwinCAT deployment precondition:
 This is an operational setup detail rather than a model-design rule, but it is
 important for future export validation because a failed deployment attempt can
 otherwise be mistaken for a model-format issue.
+
+## Cross-Video Findings After The Remote-Strong 11-Video Rerun
+
+The full promoted artifact tree now covers `11` source videos and provides a
+meaningfully stronger evidence base than the initial partial extraction pass.
+
+### 1. The Existing Runtime Is Structured, Not Monolithic
+
+Across the machine-learning, simulation, and TestRig overview videos, the
+deployment story is consistently structured around:
+
+- generated prediction function blocks;
+- explicit task assignment;
+- CSV or table-fed operating variables;
+- experiment-state orchestration;
+- PLC-side post-processing or reconstruction logic.
+
+This strengthens the repository conclusion that future TwinCAT-facing model work
+should prefer structured or hybrid exports over opaque end-to-end black-box
+stories.
+
+### 2. Feature Semantics Stay Operationally Grounded
+
+The video bundle repeatedly reinforces the operational importance of:
+
+- speed;
+- torque;
+- temperature.
+
+The simulation-focused videos further add practical surrounding columns for:
+
+- TE;
+- absolute slow-shaft position;
+- cumulative slow-shaft position;
+- cumulative fast-shaft position.
+
+Future export planning should therefore keep the model-facing feature vector
+explicitly distinct from the broader simulation or replay table.
+
+### 3. Task Timing Is A Real Design Constraint
+
+The machine-learning videos repeatedly support the same scheduling pattern:
+
+- a dedicated ML-related task around `500 us`;
+- a faster companion task for lower-level behavior;
+- measurable inter-task communication delay;
+- motivation to keep heavy work out of the faster path.
+
+This means future TE models should be evaluated not only for fit quality, but
+also for:
+
+- schedulability;
+- communication overhead;
+- stability under task-to-task transfer delay.
+
+### 4. `TE_Calc` Must Not Be Oversimplified
+
+The errata and simulation videos materially strengthen the warning that
+`TE_Calc` is not a trivial “Matlab output pasted into TwinCAT”.
+
+The video evidence supports a more careful interpretation:
+
+- TwinCAT/TestRig already owns meaningful TE-domain calculation,
+  reconstruction, or mapping logic;
+- variable mapping mistakes can invalidate the simulation or replay workflow
+  even when the exported model itself is correct.
+
+### 5. Experiment Logic Surrounds Inference
+
+The video reports repeatedly show that the TestRig experiment path includes more
+than inference:
+
+- homing and zeroing;
+- reset/error clearing;
+- CSV read triggers;
+- first-row initialization;
+- mode-dependent or state-dependent activation;
+- compensation application only in selected runtime conditions.
+
+This means exported models must be designed against the real experiment contract
+rather than against an abstract predictor interface.
+
+## How To Use The Current Canonical Artifacts
+
+Use the promoted per-video tree under `doc/reference_codes/video_guides/` for:
+
+- per-video transcript review;
+- screen-level evidence lookup;
+- first-pass clarification of TwinCAT/TestRig concepts not obvious from code.
+
+Use `doc/reference_codes/testrig_twincat_ml_reference.md` for:
+
+- code-confirmed PLC behavior;
+- Beckhoff runtime and artifact constraints;
+- final integration decisions that affect future model export.
+
+When a future task needs a deployment-facing conclusion, combine both notes and
+keep the boundary explicit:
+
+- code-confirmed fact;
+- video-confirmed fact;
+- engineering inference.

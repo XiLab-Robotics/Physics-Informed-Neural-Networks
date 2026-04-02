@@ -5,16 +5,7 @@ param(
     [string]$TranscriptModel = "large-v3",
     [string]$CleanupModel = "openai/gpt-oss-20b",
     [string]$ReportModel = "openai/gpt-oss-20b",
-    [string[]]$VideoNameList = @(
-        "Automatic_Exp_TE",
-        "FB_ADRC_and_PID",
-        "Machine_Learning_1",
-        "Machine_Learning_2",
-        "Overview Test Rig",
-        "TestRig - Machine_Learning 1",
-        "TestRig - Machine_Learning 2",
-        "TestRig - Overview"
-    )
+    [string[]]$VideoNameList = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -27,6 +18,7 @@ Set-Location $projectRoot
 $analysisRootRelativePath = ".temp\video_guides\_analysis_hq_remote_gptoss_tracked"
 $reportRootRelativePath = ".temp\video_guides\_remote_gptoss_tracked_reports"
 $logRootRelativePath = ".temp\video_guides\_remote_gptoss_tracked_logs"
+$videoSourceRootRelativePath = ".temp\video_guides"
 $statusFileRelativePath = "doc\running\remote_high_quality_video_rerun_status.json"
 $checklistFileRelativePath = "doc\running\remote_high_quality_video_rerun_checklist.md"
 $validationScriptRelativePath = "scripts\tooling\markdown_style_check.py"
@@ -35,6 +27,7 @@ $workflowScriptRelativePath = "scripts\tooling\extract_video_guide_knowledge.py"
 $analysisRootPath = Join-Path $projectRoot $analysisRootRelativePath
 $reportRootPath = Join-Path $projectRoot $reportRootRelativePath
 $logRootPath = Join-Path $projectRoot $logRootRelativePath
+$videoSourceRootPath = Join-Path $projectRoot $videoSourceRootRelativePath
 $statusFilePath = Join-Path $projectRoot $statusFileRelativePath
 $checklistFilePath = Join-Path $projectRoot $checklistFileRelativePath
 
@@ -72,6 +65,17 @@ function Convert-ToVideoSlug {
     }
 
     return $characterBuilder.ToString().Trim("_")
+}
+
+function Get-DefaultVideoNameList {
+
+    $supportedExtensionList = @(".mp4", ".mkv", ".mov", ".avi", ".m4v")
+
+    $videoFileList = Get-ChildItem -LiteralPath $videoSourceRootPath -File |
+        Where-Object { $supportedExtensionList -contains $_.Extension.ToLowerInvariant() } |
+        Sort-Object Name
+
+    return @($videoFileList | ForEach-Object { $_.BaseName })
 }
 
 function Get-VideoStageState {
@@ -235,6 +239,16 @@ function Assert-RemoteRuntime {
 }
 
 Assert-RemoteRuntime
+
+if ($VideoNameList.Count -eq 0) {
+    $VideoNameList = Get-DefaultVideoNameList
+}
+
+if ($VideoNameList.Count -eq 0) {
+    throw "No supported video files were found under $videoSourceRootRelativePath"
+}
+
+Write-StatusLine "INFO" ("Tracked video set | {0}" -f ($VideoNameList -join ", "))
 
 $videoStateList = @($VideoNameList | ForEach-Object { Get-VideoStageState -VideoName $_ })
 Write-RunState -RunStatus "running" -CurrentVideoName "" -CurrentVideoIndex 0 -VideoStateList $videoStateList
