@@ -276,6 +276,8 @@ assert len(joint_positions) == 6, f"Joint Positions Length must be 6 | {len(join
 - ML code should remain understandable from an engineering perspective and compatible with future export or deployment.
 - Apply the approved blank-line spacing rules to top-level functions, classes, dataclasses, and documented methods.
 - Treat Sphinx plus `napoleon` compatibility as part of the default definition of a complete script implementation, not as a later documentation-only cleanup step.
+- When new or materially changed scripts, features, or runnable workflows affect the repository documentation surface, update the canonical Sphinx source tree under `site/` in the same task instead of leaving the portal stale.
+- Treat the warning-free command `python -m sphinx -W -b html site site/_build/html` as part of the completion bar for documentation-relevant repository work.
 - Use the latest relevant manually refactored Python-script style as the repository reference when choosing between equally valid compact layouts.
 - For compact utility and exporter scripts, treat commit `0c8b5003ddcce34d672b2822c2afe8e357a1fb26` as the sharper reference for comment length, grouped imports, and concise helper layout.
 - For very small validation and reporting utilities, also treat the manual `scripts/reports/validate_report_pdf.py` refactor as a reference for compact import guards, one-line parser declarations, and tighter helper spacing when readability remains high.

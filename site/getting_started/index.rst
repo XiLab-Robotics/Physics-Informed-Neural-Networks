@@ -7,4 +7,5 @@ This section introduces the canonical documentation foundation and the local bui
    :maxdepth: 1
 
    local_build
+   github_pages
    documentation_scope

@@ -13,4 +13,10 @@ Successful output will be generated under:
 
 - ``site/_build/html``
 
-Batch 0 validation focuses on one clean local HTML build. Live hosting and CI publication are deferred to later batches.
+GitHub Pages publication is handled through the repository-owned GitHub Actions
+workflow:
+
+- ``.github/workflows/publish-sphinx-pages.yml``
+
+Keep the local warning-as-error build green before closing documentation-relevant
+repository work.

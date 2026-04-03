@@ -88,6 +88,7 @@ If you only want to get started, begin with:
 
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
 - [Documentation Index](./doc/README.md)
+- `GitHub Pages` Sphinx publication through `.github/workflows/publish-sphinx-pages.yml`
 - [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
 
 ## Quick Start
@@ -303,6 +304,11 @@ Use these entry points instead of treating `README.md` as an internal registry:
 - [Tooling Documentation Index](./doc/scripts/tooling/README.md)
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
 - [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
+
+The repository-owned Sphinx portal under `site/` is now also prepared for
+publication through the GitHub Pages workflow in:
+
+- `.github/workflows/publish-sphinx-pages.yml`
 
 For the current TwinCAT/TestRig video-analysis stack, the key references are:
 

@@ -1962,22 +1962,23 @@ conda run -n standard_ml_codex_env python scripts/training/train_feedforward_net
 
 ## Documentation Portal Build
 
-The repository now includes the canonical Batch 0 foundation for the future `Sphinx + RTD` documentation portal under:
+The repository now includes the canonical `Sphinx + RTD` documentation portal under:
 
 - `site/`
 
-Current Batch 0 scope:
+Current canonical scope:
 
 - canonical `Sphinx` configuration;
-- local build instructions;
+- local build instructions and GitHub Pages publication notes;
 - section shells for `Getting Started`, `Project Guide`, and `API Reference`.
 
-Deferred work:
+Repository rule:
 
-- guide migration;
-- NotebookLM media migration;
-- `GitHub Pages` publication;
-- large-scale canonical docstring rewrites.
+- when approved work adds or materially changes a script, feature, runnable
+  workflow, or documentation entry point, update the affected `site/` content
+  in the same task;
+- regenerate the portal before closing the task;
+- keep the warning-as-error build passing.
 
 To build the local HTML portal:
 
@@ -1991,7 +1992,12 @@ Successful output is written to:
 
 - `site/_build/html`
 
-Batch 0 is intentionally minimal. If the build succeeds, the next step is to add the first real canonical API slice on top of this foundation rather than expanding the shell structure blindly.
+The repository-owned publication path is now GitHub Pages through:
+
+- `.github/workflows/publish-sphinx-pages.yml`
+
+After the workflow is present in the default branch, configure the repository
+Pages source to use `GitHub Actions` if that setting is not already enabled.
 
 ## Inference Status
 

@@ -6,6 +6,7 @@ This is the canonical repository documentation portal built on `Sphinx + RTD`.
 The current scope now includes:
 
 - local build instructions and portal structure;
+- GitHub Pages publication guidance through the repository-owned workflow;
 - canonical operational guide content;
 - migrated learning-guide content under `doc/guide/`;
 - selected API reference slices for models, training, and report tooling;
@@ -13,7 +14,6 @@ The current scope now includes:
 
 The following work is intentionally deferred:
 
-- GitHub Pages publication;
 - large-scale canonical docstring rewrites;
 - promotion of historical proof-of-concept trees as canonical roots.
 

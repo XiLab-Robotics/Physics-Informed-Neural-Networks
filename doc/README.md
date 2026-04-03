@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-03
 
+- [technical/2026-04/2026-04-03/2026-04-03-14-29-07_sphinx_github_pages_publication_and_mandatory_update_pipeline.md](./technical/2026-04/2026-04-03/2026-04-03-14-29-07_sphinx_github_pages_publication_and_mandatory_update_pipeline.md)
+  Technical document for publishing the canonical Sphinx portal through GitHub Pages and for formalizing the repository rule that new scripts and features must keep the Sphinx documentation updated and rebuilt.
 - [technical/2026-04/2026-04-03/2026-04-03-00-54-03_sphinx_documentation_regeneration.md](./technical/2026-04/2026-04-03/2026-04-03-00-54-03_sphinx_documentation_regeneration.md)
   Technical document for regenerating the canonical repository Sphinx portal through the tracked `site/` build pipeline and resolving any warning-as-error build blockers that appear.
 - [technical/2026-04/2026-04-03/2026-04-03-00-44-44_repository_wide_script_documentation_audit_and_rule_formalization.md](./technical/2026-04/2026-04-03/2026-04-03-00-44-44_repository_wide_script_documentation_audit_and_rule_formalization.md)
