@@ -1930,7 +1930,13 @@ The launcher now performs these stages explicitly:
 - source sync of `scripts/`, `config/`, `doc/`, and `requirements.txt` to the
   remote repository path;
 - remote `run_training_campaign.py` execution through `conda run`;
-- manifest-driven artifact sync back into the local repository.
+- remote sync-manifest generation on the LAN workstation;
+- metadata-aware artifact sync back into the local repository.
+
+The sync phase is now hardened against stale manifest paths. If one run entry in
+the campaign manifest no longer matches the real immutable output folder, the
+remote helper recovers the canonical run directory from `run_metadata.yaml`
+before the artifact pullback is finalized.
 
 Tracking files written on the current workstation:
 
@@ -1945,8 +1951,8 @@ details:
 
 ### First Real Remote Validation Campaign
 
-The first repository-owned real remote validation campaign is now prepared as a
-five-run mixed package:
+The first repository-owned real remote validation campaign is now available as a
+validated five-run mixed package:
 
 - `te_random_forest_remote_medium`
 - `te_random_forest_remote_aggressive`
@@ -1976,9 +1982,10 @@ Real preflight performed on `2026-04-03` already established:
   `8ff4bf90e0d7cbdc06778a749e1eb7db5843b8de`;
 - the existing environment `standard_ml_lan_node` passes the repository
   validation check;
-- the remote workstation has an NVIDIA RTX A4000 visible through `nvidia-smi`,
-  but the current PyTorch build in `standard_ml_lan_node` is CPU-only, so
-  `torch.cuda.is_available()` is still `False`.
+- the remote workstation has an NVIDIA RTX A4000 visible through `nvidia-smi`;
+- the remote environment now exposes `torch==2.11.0+cu130`;
+- `torch.cuda.is_available()` is now `True`, so mixed tree plus Lightning GPU
+  validation campaigns are valid on the LAN node.
 
 Recommended one-time remote setup:
 
@@ -1998,7 +2005,7 @@ Recommended one-time current-workstation setup:
 [System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_CONDA_ENV", "standard_ml_lan_node", "User")
 ```
 
-After reopening PowerShell, the prepared campaign can be launched with:
+After reopening PowerShell, the validated campaign launcher can be reused with:
 
 ```powershell
 .\scripts\campaigns\run_remote_training_validation_campaign.ps1
@@ -2017,6 +2024,11 @@ use:
 Before launching, confirm the campaign is still marked as prepared in:
 
 - `doc/running/active_training_campaign.yaml`
+
+If the task is being executed through the repository-local Codex workflow, a
+dedicated skill now exists for this path:
+
+- `.codex/skills/remote-lan-training-campaigns/SKILL.md`
 
 ## Batch Runner Outputs
 

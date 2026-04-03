@@ -57,7 +57,8 @@ Implemented today:
 - a repository-owned remote LAN training campaign launcher that starts
   approved campaigns from the local terminal while executing the heavy training
   runtime on the stronger remote workstation and synchronizing the resulting
-  artifacts back into the canonical local repository state.
+  artifacts back into the canonical local repository state through
+  metadata-aware artifact recovery.
 
 Planned or future work:
 

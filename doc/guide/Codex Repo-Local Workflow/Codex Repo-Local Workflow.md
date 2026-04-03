@@ -60,6 +60,9 @@ The current repository-owned skills are:
 - `twincat-export-preparation`
   for TwinCAT-facing export preparation, PLC-friendly simplification, and
   deployment-readiness discipline.
+- `remote-lan-training-campaigns`
+  for SSH-backed remote training campaigns, launcher hardening, LAN preflight,
+  and remote artifact-sync bookkeeping.
 
 ## Current Subagents
 
@@ -95,6 +98,7 @@ Typical automatic activation patterns are:
 - presentation generation/export request -> `presentation-export-workflows`
 - request to prepare a commit -> `git-commit-preflight`
 - TwinCAT/export-preparation request -> `twincat-export-preparation`
+- remote training-campaign request -> `remote-lan-training-campaigns`
 
 The practical effect is not delegation.
 
@@ -187,6 +191,17 @@ Possible proposed subagents:
 
 - `repo-ml-reviewer`
 - `repo-test-strategist`
+
+### Remote LAN Training Campaign Execution
+
+Likely skills:
+
+- `remote-lan-training-campaigns`
+- `campaign-architect`
+
+Possible additional skill:
+
+- `powershell-campaign-tooling`
 
 ### Report Or PDF Work
 

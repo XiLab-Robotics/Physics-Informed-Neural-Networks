@@ -213,8 +213,20 @@ def prepare_output_artifact_training_config(
     # Clone the Training Config
     prepared_training_config = clone_training_config(training_config)
     prepared_run_name = build_run_name(prepared_training_config, run_name_suffix)
-    resolved_run_instance_id = run_instance_id or build_run_instance_id(prepared_run_name)
     metadata_dictionary = prepared_training_config.setdefault("metadata", {})
+    existing_artifact_kind = str(metadata_dictionary.get("output_artifact_kind", "")).strip()
+    existing_output_run_name = str(metadata_dictionary.get("output_run_name", "")).strip()
+    existing_run_instance_id = str(metadata_dictionary.get("run_instance_id", "")).strip()
+
+    # Preserve Existing Artifact Identity When the Config is Already Prepared
+    preserve_existing_identity = (
+        run_instance_id is None
+        and run_name_suffix is None
+        and existing_run_instance_id not in ["", None]
+        and existing_output_run_name == prepared_run_name
+        and existing_artifact_kind in ["", artifact_kind]
+    )
+    resolved_run_instance_id = existing_run_instance_id if preserve_existing_identity else (run_instance_id or build_run_instance_id(prepared_run_name))
 
     # Persist Output Artifact Identity Inside Training Metadata
     metadata_dictionary["output_artifact_kind"] = artifact_kind
@@ -307,6 +319,84 @@ def resolve_run_artifact_identity(training_config: dict[str, Any]) -> RunArtifac
         run_instance_id=resolve_run_instance_id(training_config),
         output_directory=output_directory,
     )
+
+def load_run_metadata_snapshot(output_directory: Path) -> dict[str, Any] | None:
+
+    """Load one run-metadata snapshot when it exists.
+
+    Args:
+        output_directory: Candidate immutable artifact directory.
+
+    Returns:
+        dict[str, Any] | None: Parsed run metadata dictionary, or `None` when
+        the snapshot is absent or malformed.
+    """
+
+    # Resolve Run-Metadata Path
+    run_metadata_path = output_directory / COMMON_RUN_METADATA_FILENAME
+    if not run_metadata_path.exists():
+        return None
+
+    # Load and Validate Run Metadata
+    with run_metadata_path.open("r", encoding="utf-8") as metadata_file:
+        run_metadata_dictionary = yaml.safe_load(metadata_file)
+
+    if not isinstance(run_metadata_dictionary, dict):
+        return None
+
+    return run_metadata_dictionary
+
+def find_run_output_directory(
+    model_family: str,
+    run_name: str | None = None,
+    run_instance_id: str | None = None,
+) -> Path | None:
+
+    """Find one immutable run output directory from canonical run metadata.
+
+    Args:
+        model_family: Model-family folder under `output/training_runs/`.
+        run_name: Optional logical run name to match.
+        run_instance_id: Optional immutable run instance identifier to match.
+
+    Returns:
+        Path | None: Matching artifact directory, or `None` when no canonical
+        match can be recovered.
+    """
+
+    # Resolve Candidate Family Root
+    family_output_root = OUTPUT_PATH / "training_runs" / str(model_family).strip().lower()
+    if not family_output_root.exists():
+        return None
+
+    normalized_run_name = str(run_name).strip() if run_name not in [None, ""] else ""
+    normalized_run_instance_id = str(run_instance_id).strip() if run_instance_id not in [None, ""] else ""
+    run_instance_match_path: Path | None = None
+    run_name_match_path_list: list[Path] = []
+
+    # Scan Immutable Run Directories for Matching Metadata
+    for candidate_output_directory in sorted([path for path in family_output_root.iterdir() if path.is_dir()]):
+        run_metadata_dictionary = load_run_metadata_snapshot(candidate_output_directory)
+        if run_metadata_dictionary is None:
+            continue
+
+        metadata_run_instance_id = str(run_metadata_dictionary.get("run_instance_id", "")).strip()
+        metadata_run_name = str(run_metadata_dictionary.get("run_name", "")).strip()
+
+        if normalized_run_instance_id and metadata_run_instance_id == normalized_run_instance_id:
+            run_instance_match_path = candidate_output_directory.resolve()
+            break
+
+        if normalized_run_name and metadata_run_name == normalized_run_name:
+            run_name_match_path_list.append(candidate_output_directory.resolve())
+
+    if run_instance_match_path is not None:
+        return run_instance_match_path
+
+    if len(run_name_match_path_list) > 0:
+        return sorted(run_name_match_path_list)[-1]
+
+    return None
 
 def summarize_model_parameters(regression_backbone: nn.Module) -> ModelParameterSummary:
 

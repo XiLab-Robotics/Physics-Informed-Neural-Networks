@@ -99,3 +99,24 @@ Instead, it syncs back the campaign artifacts that define the canonical result:
 
 This keeps the local repository as the canonical review surface while still
 using the LAN workstation as the execution node.
+
+The sync list is now built on the remote workstation after campaign completion
+instead of being inferred only from a local copy of the campaign manifest. That
+hardening matters because the helper can inspect the real remote output tree and
+recover the canonical artifact directory from `run_metadata.yaml` if one stale
+manifest field would otherwise point at the wrong immutable run folder.
+
+## Bookkeeping Hardening
+
+The launcher now relies on two complementary protections:
+
+1. the training entrypoints preserve an already prepared `run_instance_id`
+   instead of regenerating a second immutable identity when a queue-driven run
+   is executed;
+2. the remote sync helper still checks the real output tree through
+   `run_metadata.yaml` before finalizing the artifact list, so one stale path in
+   the manifest does not silently drop a completed run from the sync set.
+
+This means the campaign manifest, queue end state, and synchronized artifact
+paths should now converge on the same canonical immutable run directory even
+after long remote executions.

@@ -3,11 +3,20 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse, json
+import argparse, json, sys
 from pathlib import Path
+
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[2]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import YAML Utilities
 import yaml
+
+# Import Project Utilities
+from scripts.training import shared_training_infrastructure
 
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -41,6 +50,69 @@ def normalize_relative_path(relative_path_text: str | None) -> str | None:
 
     normalized_path = Path(str(relative_path_text).replace("\\", "/")).as_posix()
     return normalized_path.strip("/")
+
+
+def format_project_relative_path(path: Path) -> str:
+
+    """Format one absolute repository path as a relative POSIX path.
+
+    Args:
+        path: Absolute repository path.
+
+    Returns:
+        str: Repository-relative POSIX path.
+    """
+
+    return path.resolve().relative_to(PROJECT_PATH).as_posix()
+
+
+def resolve_run_output_directory_relative_path(run_dictionary: dict) -> str:
+
+    """Resolve the real output directory for one campaign run.
+
+    Args:
+        run_dictionary: One run entry from the campaign manifest.
+
+    Returns:
+        str: Repository-relative output-directory path that exists on disk.
+
+    Raises:
+        AssertionError: If the helper cannot recover a real output directory.
+    """
+
+    # Prefer the Manifest Path When it Already Matches a Real Directory
+    manifest_output_directory_relative_path = normalize_relative_path(run_dictionary.get("output_directory"))
+    if manifest_output_directory_relative_path is not None:
+        manifest_output_directory_path = (PROJECT_PATH / manifest_output_directory_relative_path).resolve()
+        if manifest_output_directory_path.exists():
+            return manifest_output_directory_relative_path
+
+    # Recover the Real Directory from Canonical Run Metadata
+    normalized_run_name = str(run_dictionary.get("run_name", "")).strip()
+    normalized_run_instance_id = str(run_dictionary.get("run_instance_id", "")).strip()
+    model_family = ""
+
+    if manifest_output_directory_relative_path is not None:
+        output_directory_parts = Path(manifest_output_directory_relative_path).parts
+        if len(output_directory_parts) >= 3 and output_directory_parts[:2] == ("output", "training_runs"):
+            model_family = str(output_directory_parts[2]).strip()
+
+    assert model_family, (
+        "Could not resolve model family for one campaign run while building the remote sync manifest | "
+        f"run_name={normalized_run_name} | output_directory={run_dictionary.get('output_directory')}"
+    )
+
+    recovered_output_directory = shared_training_infrastructure.find_run_output_directory(
+        model_family=model_family,
+        run_name=normalized_run_name,
+        run_instance_id=normalized_run_instance_id,
+    )
+    assert recovered_output_directory is not None, (
+        "Could not recover the canonical output directory for one remote campaign run | "
+        f"run_name={normalized_run_name} | run_instance_id={normalized_run_instance_id}"
+    )
+
+    return format_project_relative_path(recovered_output_directory)
 
 
 def build_sync_path_list(campaign_manifest: dict) -> list[str]:
@@ -84,10 +156,10 @@ def build_sync_path_list(campaign_manifest: dict) -> list[str]:
 
     for run_dictionary in campaign_manifest.get("run_list", []):
 
-        append_sync_path(run_dictionary.get("output_directory"))
+        append_sync_path(resolve_run_output_directory_relative_path(run_dictionary))
         append_sync_path(run_dictionary.get("final_queue_config_path"))
 
-        output_directory_relative_path = normalize_relative_path(run_dictionary.get("output_directory"))
+        output_directory_relative_path = normalize_relative_path(resolve_run_output_directory_relative_path(run_dictionary))
         if output_directory_relative_path is None:
             continue
 

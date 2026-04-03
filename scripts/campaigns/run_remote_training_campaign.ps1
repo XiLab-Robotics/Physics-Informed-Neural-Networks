@@ -26,7 +26,6 @@ $localTrackingRootRelativePath = ".temp\remote_training_campaigns"
 $localTrackingRootPath = Join-Path $projectRoot $localTrackingRootRelativePath
 $statusFileRelativePath = "doc\running\remote_training_campaign_status.json"
 $checklistFileRelativePath = "doc\running\remote_training_campaign_checklist.md"
-$syncManifestBuilderRelativePath = "scripts\training\build_remote_training_sync_manifest.py"
 
 New-Item -ItemType Directory -Force -Path $localTrackingRootPath | Out-Null
 New-Item -ItemType Directory -Force -Path (Join-Path $projectRoot "doc\running") | Out-Null
@@ -419,9 +418,17 @@ function Resolve-WindowsRelativePath {
 
 `$relativeCampaignOutputDirectory = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$matchingDirectory.FullName
 `$relativeManifestPath = [System.IO.Path]::Combine(`$relativeCampaignOutputDirectory, 'campaign_manifest.yaml')
+`$relativeSyncManifestPath = [System.IO.Path]::Combine('.temp', 'remote_training_sync_manifest.json')
+
+& conda run -n $RemoteCondaEnvironmentName python -B scripts/training/build_remote_training_sync_manifest.py --campaign-manifest-path `$relativeManifestPath --output-path `$relativeSyncManifestPath
+`$syncManifestExitCode = `$LASTEXITCODE
+if (`$syncManifestExitCode -ne 0) {
+    exit `$syncManifestExitCode
+}
 
 Write-Output ('REMOTE_CAMPAIGN_OUTPUT_DIRECTORY::{0}' -f `$relativeCampaignOutputDirectory)
 Write-Output ('REMOTE_CAMPAIGN_MANIFEST_PATH::{0}' -f `$relativeManifestPath)
+Write-Output ('REMOTE_SYNC_MANIFEST_PATH::{0}' -f `$relativeSyncManifestPath)
 exit 0
 "@
 
@@ -442,6 +449,7 @@ if ($remoteExitCode -ne 0) {
 
 $remoteCampaignOutputDirectory = ""
 $remoteManifestPath = ""
+$remoteSyncManifestPath = ""
 
 foreach ($remoteOutputLine in $remoteOutputLineList) {
     if ($remoteOutputLine -match "^REMOTE_CAMPAIGN_OUTPUT_DIRECTORY::(.+)$") {
@@ -449,6 +457,9 @@ foreach ($remoteOutputLine in $remoteOutputLineList) {
     }
     elseif ($remoteOutputLine -match "^REMOTE_CAMPAIGN_MANIFEST_PATH::(.+)$") {
         $remoteManifestPath = $Matches[1].Trim()
+    }
+    elseif ($remoteOutputLine -match "^REMOTE_SYNC_MANIFEST_PATH::(.+)$") {
+        $remoteSyncManifestPath = $Matches[1].Trim()
     }
 }
 
@@ -458,19 +469,21 @@ if ([string]::IsNullOrWhiteSpace($remoteManifestPath)) {
     throw $failureMessage
 }
 
-# Sync Manifest, Resolve Artifact List, And Pull Results Back
-Write-StatusLine "STEP" "Syncing remote campaign manifest to local workstation"
+# Sync Manifest And Remote Sync Payload Back To The Local Workstation
+if ([string]::IsNullOrWhiteSpace($remoteSyncManifestPath)) {
+    $failureMessage = "Remote campaign completed without returning a sync manifest path marker | campaign=$CampaignName"
+    Write-RunState -RunStatus "failed" -Stage "remote_run" -LocalLogPath $runLogPath -LastFailureMessage $failureMessage
+    throw $failureMessage
+}
+
+Write-StatusLine "STEP" "Syncing remote campaign manifest and sync payload to local workstation"
 Write-RunState -RunStatus "running" -Stage "sync_manifest" -LocalLogPath $runLogPath -RemoteCampaignOutputDirectory $remoteCampaignOutputDirectory -RemoteManifestPath $remoteManifestPath
-Invoke-RemoteTarCopyToLocal -RelativePathList @($remoteManifestPath)
+Invoke-RemoteTarCopyToLocal -RelativePathList @($remoteManifestPath, $remoteSyncManifestPath)
 
 $localResolvedManifestPath = Join-Path $projectRoot $remoteManifestPath
 Copy-Item -LiteralPath $localResolvedManifestPath -Destination $localManifestCopyPath -Force
-
-Write-StatusLine "STEP" "Building artifact sync list from remote campaign manifest"
-& python -B $syncManifestBuilderRelativePath --campaign-manifest-path $localManifestCopyPath --output-path $localSyncPayloadPath
-if ($LASTEXITCODE -ne 0) {
-    throw "Failed to build the local sync manifest from $localManifestCopyPath"
-}
+$localResolvedSyncManifestPath = Join-Path $projectRoot $remoteSyncManifestPath
+Copy-Item -LiteralPath $localResolvedSyncManifestPath -Destination $localSyncPayloadPath -Force
 
 $syncPayload = Get-Content -LiteralPath $localSyncPayloadPath -Raw | ConvertFrom-Json
 $artifactSyncPathList = @($syncPayload.sync_path_list)
@@ -478,6 +491,16 @@ $artifactSyncPathList = @($syncPayload.sync_path_list)
 Write-StatusLine "STEP" "Syncing remote campaign artifacts back to the local repository"
 Write-RunState -RunStatus "running" -Stage "sync_down" -LocalLogPath $runLogPath -RemoteCampaignOutputDirectory $remoteCampaignOutputDirectory -RemoteManifestPath $remoteManifestPath -SyncedPathList $artifactSyncPathList
 Invoke-RemoteTarCopyToLocal -RelativePathList $artifactSyncPathList
+
+$remoteCleanupScript = @"
+Remove-Item -LiteralPath (Join-Path '$RemoteRepositoryPath' '$remoteSyncManifestPath') -Force -ErrorAction SilentlyContinue
+exit 0
+"@
+
+& ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteCleanupScript) | Out-Null
+if ($LASTEXITCODE -ne 0) {
+    Write-StatusLine "WARN" "Remote sync-manifest cleanup failed | path=$remoteSyncManifestPath"
+}
 
 Write-RunState -RunStatus "completed" -Stage "completed" -LocalLogPath $runLogPath -RemoteCampaignOutputDirectory $remoteCampaignOutputDirectory -RemoteManifestPath $remoteManifestPath -SyncedPathList $artifactSyncPathList
 Write-StatusLine "DONE" "Remote training campaign completed and artifacts synchronized"

@@ -560,6 +560,42 @@ def resolve_metrics_snapshot_path(output_directory: Path) -> Path | None:
     if not metrics_snapshot_path.exists(): return None
     return metrics_snapshot_path.resolve()
 
+def resolve_completed_run_artifact_identity(training_config: dict[str, Any]) -> tuple[str, Path]:
+
+    """Resolve the actual completed-run artifact identity after training.
+
+    Args:
+        training_config: Prepared training configuration used for the run.
+
+    Returns:
+        tuple[str, Path]: Resolved run instance id and immutable output
+        directory.
+    """
+
+    # Start from the Prepared Expected Artifact Identity
+    expected_run_artifact_identity = shared_training_infrastructure.resolve_run_artifact_identity(training_config)
+    resolved_output_directory = expected_run_artifact_identity.output_directory.resolve()
+
+    # Recover the Real Output Directory from Canonical Run Metadata if Needed
+    if not resolved_output_directory.exists():
+        discovered_output_directory = shared_training_infrastructure.find_run_output_directory(
+            model_family=expected_run_artifact_identity.model_family,
+            run_name=expected_run_artifact_identity.run_name,
+            run_instance_id=expected_run_artifact_identity.run_instance_id,
+        )
+        if discovered_output_directory is not None:
+            resolved_output_directory = discovered_output_directory.resolve()
+
+    resolved_run_instance_id = expected_run_artifact_identity.run_instance_id
+    run_metadata_dictionary = shared_training_infrastructure.load_run_metadata_snapshot(resolved_output_directory)
+
+    if isinstance(run_metadata_dictionary, dict):
+        metadata_run_instance_id = str(run_metadata_dictionary.get("run_instance_id", "")).strip()
+        if metadata_run_instance_id:
+            resolved_run_instance_id = metadata_run_instance_id
+
+    return resolved_run_instance_id, resolved_output_directory
+
 def read_best_checkpoint_path(best_checkpoint_reference_path: Path | None) -> str | None:
 
     """ Read Best Checkpoint Path """
@@ -702,6 +738,16 @@ def execute_queue_item(
     final_queue_config_path = build_available_path(final_queue_directory / running_queue_config_path.name)
     shutil.move(str(running_queue_config_path), str(final_queue_config_path))
 
+    # Resolve the Actual Completed Artifact Identity
+    resolved_run_instance_id, output_directory = resolve_completed_run_artifact_identity(prepared_training_config)
+    if resolved_run_instance_id != run_instance_id:
+        print_warning_message(
+            f"Recovered completed run_instance_id from canonical run metadata | expected={run_instance_id} | resolved={resolved_run_instance_id}"
+        )
+        metadata_dictionary = prepared_training_config.setdefault("metadata", {})
+        metadata_dictionary["run_instance_id"] = resolved_run_instance_id
+        save_yaml_dictionary(prepared_training_config, final_queue_config_path)
+
     # Record End Time and Check for Generated Artifacts
     end_datetime = datetime.now()
     best_checkpoint_reference_path = (output_directory / "best_checkpoint_path.txt").resolve()
@@ -716,7 +762,7 @@ def execute_queue_item(
         final_queue_config_path=final_queue_config_path,
         source_config_path=queue_item_context.source_config_path,
         run_name=run_name,
-        run_instance_id=run_instance_id,
+        run_instance_id=resolved_run_instance_id,
         model_type=model_type,
         queue_status=queue_status,
         start_time=start_datetime.isoformat(timespec="seconds"),

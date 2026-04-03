@@ -56,6 +56,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-04
+
+- [technical/2026-04/2026-04-04/2026-04-04-00-57-29_remote_training_pipeline_hardening_and_skill_promotion.md](./technical/2026-04/2026-04-04/2026-04-04-00-57-29_remote_training_pipeline_hardening_and_skill_promotion.md)
+  Technical document for hardening the LAN-remote training campaign pipeline after the first real execution, eliminating the remaining artifact-bookkeeping bug, and promoting the validated workflow into a repository-local Codex skill.
+
 #### 2026-04-03
 
 - [technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md](./technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md)
