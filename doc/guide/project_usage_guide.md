@@ -1876,6 +1876,73 @@ python scripts/training/run_training_campaign.py `
   --campaign-name feedforward_density_check
 ```
 
+## Remote LAN Training Campaigns
+
+Use the remote campaign launcher when you want to keep campaign preparation and
+final review on the current workstation but execute the heavy training runtime
+on the stronger LAN workstation.
+
+Canonical launcher:
+
+- `scripts/campaigns/run_remote_training_campaign.ps1`
+
+This workflow is intended to mirror the repository-owned LAN AI operating
+pattern:
+
+- the current workstation remains the canonical repository and review surface;
+- the remote workstation executes the campaign through SSH;
+- the resulting campaign artifacts and registry updates are synchronized back
+  into the local repository after the run.
+
+Current remote assumptions:
+
+- the remote workstation already has a synchronized clone of this repository;
+- the remote workstation already has the expected dataset available;
+- the remote workstation already has a working training Conda environment;
+- the validated SSH alias path already works, for example:
+
+```powershell
+ssh xilab-remote
+ssh xilab-remote "hostname"
+```
+
+Recommended convenience variables on the current workstation:
+
+- `STANDARDML_REMOTE_TRAINING_REPO_PATH`
+- `STANDARDML_REMOTE_TRAINING_CONDA_ENV`
+
+Generic launcher example:
+
+```powershell
+.\scripts\campaigns\run_remote_training_campaign.ps1 `
+  -CampaignConfigPathList @(
+      "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\01_residual_h08_small_frozen.yaml",
+      "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\02_residual_h08_small_joint.yaml"
+  ) `
+  -CampaignName "remote_residual_test_campaign" `
+  -PlanningReportPath "doc\reports\campaign_plans\2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md" `
+  -RemoteHostAlias "xilab-remote"
+```
+
+The launcher now performs these stages explicitly:
+
+- remote reachability and environment preflight;
+- source sync of `scripts/`, `config/`, `doc/`, and `requirements.txt` to the
+  remote repository path;
+- remote `run_training_campaign.py` execution through `conda run`;
+- manifest-driven artifact sync back into the local repository.
+
+Tracking files written on the current workstation:
+
+- `doc/running/remote_training_campaign_status.json`
+- `doc/running/remote_training_campaign_checklist.md`
+- `.temp/remote_training_campaigns/`
+
+Use the paired launcher note for the exact sync contract and operational
+details:
+
+- `doc/scripts/campaigns/run_remote_training_campaign.md`
+
 ## Batch Runner Outputs
 
 Each campaign writes a new folder under:

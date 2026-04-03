@@ -13,7 +13,8 @@ The target setup is:
   - `LM Studio` for transcript cleanup and report synthesis;
   - `lan_ai_node_server.py` for `faster-whisper` transcription and
     `PaddleOCR`;
-  - optional future remote training or heavier inference workloads.
+  - repository-owned remote training campaign execution and other heavier
+    inference workloads.
 
 This guide starts from a clean remote machine and ends with health checks and
 first workflow execution from the current workstation terminal.
@@ -37,7 +38,7 @@ Use the remote workstation for:
 - `lan_ai_node_server.py`;
 - `faster-whisper` model execution;
 - `PaddleOCR`;
-- optional later remote training workloads.
+- repository-owned remote training campaign execution.
 
 ## Recommended Preparation Order
 

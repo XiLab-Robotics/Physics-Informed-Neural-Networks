@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-03
 
+- [technical/2026-04/2026-04-03/2026-04-03-17-10-28_remote_lan_training_campaign_execution_pipeline.md](./technical/2026-04/2026-04-03/2026-04-03-17-10-28_remote_lan_training_campaign_execution_pipeline.md)
+  Technical document for adding a repository-owned workflow that launches approved training campaigns from the local workstation while executing the heavy campaign runtime on the stronger LAN workstation.
 - [technical/2026-04/2026-04-03/2026-04-03-16-24-46_private_repo_pages_publication_backlog_note.md](./technical/2026-04/2026-04-03/2026-04-03-16-24-46_private_repo_pages_publication_backlog_note.md)
   Technical note for recording that the repository should stay private for now and that GitHub Pages publication of the Sphinx portal must be completed later, after a future public-repo transition.
 - [technical/2026-04/2026-04-03/2026-04-03-14-29-07_sphinx_github_pages_publication_and_mandatory_update_pipeline.md](./technical/2026-04/2026-04-03/2026-04-03-14-29-07_sphinx_github_pages_publication_and_mandatory_update_pipeline.md)

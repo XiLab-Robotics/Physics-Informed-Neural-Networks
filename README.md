@@ -54,6 +54,10 @@ Implemented today:
 - dual `NotebookLM` source-package tracks for guide-local concept videos and
   repository-specific project videos;
 - repository-owned isolated-mode and Markdown validation tooling.
+- a repository-owned remote LAN training campaign launcher that starts
+  approved campaigns from the local terminal while executing the heavy training
+  runtime on the stronger remote workstation and synchronizing the resulting
+  artifacts back into the canonical local repository state.
 
 Planned or future work:
 
@@ -156,6 +160,15 @@ conda run -n standard_ml_codex_env python scripts/training/train_feedforward_net
 
 ```powershell
 python scripts/training/run_training_campaign.py
+```
+
+### Launch A Prepared Campaign On The LAN Workstation
+
+```powershell
+.\scripts\campaigns\run_remote_training_campaign.ps1 `
+  -CampaignConfigPathList @("config\training\...\candidate_a.yaml","config\training\...\candidate_b.yaml") `
+  -CampaignName "remote_example_campaign" `
+  -PlanningReportPath "doc\reports\campaign_plans\YOUR_PLAN.md"
 ```
 
 ### Use The Short Wave 1 Recovery Launcher
