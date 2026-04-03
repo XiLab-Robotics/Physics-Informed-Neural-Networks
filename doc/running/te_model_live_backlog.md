@@ -127,6 +127,21 @@ Entry conditions:
 
 ## Deferred / Low Priority
 
+### Repository Documentation Publication
+
+- keep the repository private for now
+- keep GitHub Pages publication deferred until the repository is intentionally
+  made public
+- once the repository becomes public, activate the existing Sphinx publication
+  workflow through GitHub Pages with `GitHub Actions`
+- after activation, record the live documentation URL in the appropriate
+  documentation entry points if that public link should be surfaced
+
+Entry rule:
+
+- do not activate this branch while the repository must remain private
+- promote it when the user explicitly approves the public-repository transition
+
 ### Explicit Low-Priority Exploratory Families
 
 - `Lightweight Transformer`
