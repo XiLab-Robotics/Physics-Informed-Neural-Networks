@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-03
 
+- [technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md](./technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md)
+  Technical document for running the first real remote LAN training campaign, validating the new SSH-backed workflow end-to-end, and preparing the required local/remote setup guidance.
 - [technical/2026-04/2026-04-03/2026-04-03-17-10-28_remote_lan_training_campaign_execution_pipeline.md](./technical/2026-04/2026-04-03/2026-04-03-17-10-28_remote_lan_training_campaign_execution_pipeline.md)
   Technical document for adding a repository-owned workflow that launches approved training campaigns from the local workstation while executing the heavy campaign runtime on the stronger LAN workstation.
 - [technical/2026-04/2026-04-03/2026-04-03-16-24-46_private_repo_pages_publication_backlog_note.md](./technical/2026-04/2026-04-03/2026-04-03-16-24-46_private_repo_pages_publication_backlog_note.md)

@@ -6,9 +6,55 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-03-17T20:17:49'
-entry_count: 16
+updated_at: '2026-04-03T22:30:26'
+entry_count: 18
 entry_list:
+- run_instance_id: 2026-04-03-21-50-07__te_feedforward_high_compute_remote
+  run_name: te_feedforward_high_compute_remote
+  output_run_name: te_feedforward_high_compute_remote
+  output_artifact_kind: training_run
+  model_family: feedforward
+  model_type: feedforward
+  trainable_parameter_count: 109953
+  total_parameter_count: 109953
+  val_mae: 0.0030589629895985126
+  val_rmse: 0.0036252853460609913
+  test_mae: 0.003274263348430395
+  test_rmse: 0.003872811095789075
+  output_directory: output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote
+  best_checkpoint_path: output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote/checkpoints/feedforward-epoch=048-val_mae=0.00305896.ckpt
+  metrics_path: output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote/metrics_summary.yaml
+  report_path: output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-04-03T22:00:31'
+- run_instance_id: 2026-04-03-22-00-31__te_feedforward_stride1_big_remote
+  run_name: te_feedforward_stride1_big_remote
+  output_run_name: te_feedforward_stride1_big_remote
+  output_artifact_kind: training_run
+  model_family: feedforward
+  model_type: feedforward
+  trainable_parameter_count: 109953
+  total_parameter_count: 109953
+  val_mae: 0.0030187303200364113
+  val_rmse: 0.0034738006070256233
+  test_mae: 0.003278395626693964
+  test_rmse: 0.003670522477477789
+  output_directory: output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote
+  best_checkpoint_path: output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote/checkpoints/feedforward-epoch=136-val_mae=0.00301873.ckpt
+  metrics_path: output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote/metrics_summary.yaml
+  report_path: output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-04-03T22:30:26'
 - run_instance_id: legacy__te_feedforward_stride5_long_large_batch
   run_name: te_feedforward_stride5_long_large_batch
   output_run_name: te_feedforward_stride5_long_large_batch

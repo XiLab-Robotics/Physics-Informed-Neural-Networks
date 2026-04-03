@@ -1943,6 +1943,81 @@ details:
 
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 
+### First Real Remote Validation Campaign
+
+The first repository-owned real remote validation campaign is now prepared as a
+five-run mixed package:
+
+- `te_random_forest_remote_medium`
+- `te_random_forest_remote_aggressive`
+- `te_hist_gbr_remote_deep`
+- `te_feedforward_high_compute_remote`
+- `te_feedforward_stride1_big_remote`
+
+Prepared campaign root:
+
+- `config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/`
+
+Dedicated launcher:
+
+- `scripts/campaigns/run_remote_training_validation_campaign.ps1`
+
+Dedicated launcher note:
+
+- `doc/scripts/campaigns/run_remote_training_validation_campaign.md`
+
+Real preflight performed on `2026-04-03` already established:
+
+- the SSH alias works because `ssh xilab-remote "hostname"` returned
+  `DESKTOP-T7O45HF`;
+- the remote repository path exists at
+  `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`;
+- the remote clone is currently at commit
+  `8ff4bf90e0d7cbdc06778a749e1eb7db5843b8de`;
+- the existing environment `standard_ml_lan_node` passes the repository
+  validation check;
+- the remote workstation has an NVIDIA RTX A4000 visible through `nvidia-smi`,
+  but the current PyTorch build in `standard_ml_lan_node` is CPU-only, so
+  `torch.cuda.is_available()` is still `False`.
+
+Recommended one-time remote setup:
+
+```powershell
+Set-Location "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
+git checkout standard-ml-codex
+conda activate standard_ml_lan_node
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pip install --force-reinstall --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu130
+```
+
+Recommended one-time current-workstation setup:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_REPO_PATH", "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks", "User")
+[System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_CONDA_ENV", "standard_ml_lan_node", "User")
+```
+
+After reopening PowerShell, the prepared campaign can be launched with:
+
+```powershell
+.\scripts\campaigns\run_remote_training_validation_campaign.ps1
+```
+
+If you prefer not to persist the current-workstation environment variables yet,
+use:
+
+```powershell
+.\scripts\campaigns\run_remote_training_validation_campaign.ps1 `
+  -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
+  -RemoteCondaEnvironmentName "standard_ml_lan_node" `
+  -RemoteHostAlias "xilab-remote"
+```
+
+Before launching, confirm the campaign is still marked as prepared in:
+
+- `doc/running/active_training_campaign.yaml`
+
 ## Batch Runner Outputs
 
 Each campaign writes a new folder under:

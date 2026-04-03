@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward
+run_name: te_feedforward_high_compute_remote
+run_instance_id: 2026-04-03-21-50-07__te_feedforward_high_compute_remote
+output_directory: output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote

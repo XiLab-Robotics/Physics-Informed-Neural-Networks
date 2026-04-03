@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: tree
+run_name: te_hist_gbr_remote_deep
+run_instance_id: 2026-04-03-21-48-11__te_hist_gbr_remote_deep
+output_directory: output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep

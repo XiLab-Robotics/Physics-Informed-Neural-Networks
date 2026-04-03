@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward
+run_name: te_feedforward_stride1_big_remote
+run_instance_id: 2026-04-03-22-00-31__te_feedforward_stride1_big_remote
+output_directory: output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote

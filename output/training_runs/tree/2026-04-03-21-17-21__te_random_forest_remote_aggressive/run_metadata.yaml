@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: tree
+run_name: te_random_forest_remote_aggressive
+run_instance_id: 2026-04-03-21-17-21__te_random_forest_remote_aggressive
+output_directory: output/training_runs/tree/2026-04-03-21-17-21__te_random_forest_remote_aggressive

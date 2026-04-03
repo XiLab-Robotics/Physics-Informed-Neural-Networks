@@ -1,0 +1,41 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/training_runs/tree
+
+experiment:
+  run_name: te_random_forest_remote_medium
+  model_family: tree
+  model_type: random_forest
+
+metadata:
+  campaign_name: remote_training_validation_campaign_2026_04_03_17_54_21
+  planning_report_path: doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md
+  phase_name: remote_tree_validation
+  campaign_config_id: random_forest_remote_medium
+  notes: Stronger bounded remote random forest follow-up for the earlier local memory-limited branch.
+  random_seed: 42
+
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: false
+
+model:
+  input_size: 5
+  output_size: 1
+  n_estimators: 500
+  max_depth: 24
+  min_samples_leaf: 3
+  n_jobs: 8
+
+training:
+  deterministic: true
+
+runtime:
+  accelerator: cpu
+  devices: 1
+  precision: "32"
+  benchmark: false
+  use_non_blocking_transfer: false

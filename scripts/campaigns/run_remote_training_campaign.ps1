@@ -69,7 +69,28 @@ function Resolve-RepositoryRelativePath {
     )
 
     $resolvedPath = (Resolve-Path -LiteralPath $InputPath).Path
-    $relativePath = [System.IO.Path]::GetRelativePath($projectRoot, $resolvedPath)
+    $relativePath = Resolve-WindowsRelativePath -BasePath $projectRoot -TargetPath $resolvedPath
+    return $relativePath.Replace("/", "\")
+}
+
+function Resolve-WindowsRelativePath {
+
+    param(
+        [string]$BasePath,
+        [string]$TargetPath
+    )
+
+    $normalizedBasePath = [System.IO.Path]::GetFullPath($BasePath)
+    $normalizedTargetPath = [System.IO.Path]::GetFullPath($TargetPath)
+
+    if (-not $normalizedBasePath.EndsWith([System.IO.Path]::DirectorySeparatorChar)) {
+        $normalizedBasePath += [System.IO.Path]::DirectorySeparatorChar
+    }
+
+    $baseUri = New-Object System.Uri($normalizedBasePath)
+    $targetUri = New-Object System.Uri($normalizedTargetPath)
+    $relativeUri = $baseUri.MakeRelativeUri($targetUri)
+    $relativePath = [System.Uri]::UnescapeDataString($relativeUri.ToString())
     return $relativePath.Replace("/", "\")
 }
 
@@ -79,9 +100,28 @@ function New-EncodedRemotePowerShellCommand {
         [string]$ScriptText
     )
 
-    $scriptBytes = [System.Text.Encoding]::Unicode.GetBytes($ScriptText)
+    $wrappedScriptText = @"
+`$ProgressPreference = 'SilentlyContinue'
+$ScriptText
+"@
+
+    $scriptBytes = [System.Text.Encoding]::Unicode.GetBytes($wrappedScriptText)
     $encodedCommand = [Convert]::ToBase64String($scriptBytes)
-    return "powershell -NoProfile -EncodedCommand $encodedCommand"
+    return "powershell -NoProfile -NonInteractive -OutputFormat Text -EncodedCommand $encodedCommand"
+}
+
+function Convert-ToScpRemotePath {
+
+    param(
+        [string]$WindowsPath
+    )
+
+    $normalizedPath = $WindowsPath.Replace("\", "/")
+    if ($normalizedPath -match "^[A-Za-z]:/") {
+        return "/" + $normalizedPath
+    }
+
+    return $normalizedPath
 }
 
 function Write-RunState {
@@ -181,8 +221,34 @@ function Invoke-RemoteTarExtract {
         [string[]]$RelativePathList
     )
 
-    $remoteExtractCommand = ('cmd /c "cd /d ""{0}"" && tar.exe -xf -"' -f $RemoteRepositoryPath)
-    & tar.exe -cf - @RelativePathList | & ssh $RemoteHostAlias $remoteExtractCommand
+    $localArchivePath = Join-Path $runTrackingDirectory "source_sync_payload.tar"
+    $remoteArchivePath = Join-Path $RemoteRepositoryPath ".temp\remote_training_source_sync.tar"
+    $remoteScpArchivePath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath
+
+    if (Test-Path -LiteralPath $localArchivePath) {
+        Remove-Item -LiteralPath $localArchivePath -Force
+    }
+
+    & tar.exe -cf $localArchivePath @RelativePathList
+    if ($LASTEXITCODE -ne 0) {
+        throw "Local source archive build failed | path=$localArchivePath"
+    }
+
+    & scp $localArchivePath "${RemoteHostAlias}:${remoteScpArchivePath}"
+    if ($LASTEXITCODE -ne 0) {
+        throw "Remote source archive upload failed | host=$RemoteHostAlias"
+    }
+
+    $remoteExtractScript = @"
+New-Item -ItemType Directory -Force -Path (Join-Path '$RemoteRepositoryPath' '.temp') | Out-Null
+Set-Location -LiteralPath '$RemoteRepositoryPath'
+& tar.exe -xf '$remoteArchivePath'
+`$extractExitCode = `$LASTEXITCODE
+Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContinue
+exit `$extractExitCode
+"@
+
+    & ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteExtractScript)
     if ($LASTEXITCODE -ne 0) {
         throw "Remote source sync failed | host=$RemoteHostAlias"
     }
@@ -194,15 +260,43 @@ function Invoke-RemoteTarCopyToLocal {
         [string[]]$RelativePathList
     )
 
+    $localArchivePath = Join-Path $runTrackingDirectory "artifact_sync_payload.tar"
+    $remoteArchivePath = Join-Path $RemoteRepositoryPath ".temp\remote_training_artifact_sync.tar"
+    $remoteScpArchivePath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath
     $remoteTarArgumentList = @($RelativePathList | ForEach-Object { '"{0}"' -f $_ })
     $remoteTarScript = @"
+New-Item -ItemType Directory -Force -Path (Join-Path '$RemoteRepositoryPath' '.temp') | Out-Null
 Set-Location -LiteralPath '$RemoteRepositoryPath'
-& tar.exe -cf - $($remoteTarArgumentList -join ' ')
+& tar.exe -cf '$remoteArchivePath' $($remoteTarArgumentList -join ' ')
 exit `$LASTEXITCODE
 "@
 
+    if (Test-Path -LiteralPath $localArchivePath) {
+        Remove-Item -LiteralPath $localArchivePath -Force
+    }
+
     $encodedRemoteCommand = New-EncodedRemotePowerShellCommand -ScriptText $remoteTarScript
-    & ssh $RemoteHostAlias $encodedRemoteCommand | & tar.exe -xf - -C $projectRoot
+    & ssh $RemoteHostAlias $encodedRemoteCommand
+    if ($LASTEXITCODE -ne 0) {
+        throw "Remote artifact archive build failed | host=$RemoteHostAlias"
+    }
+
+    & scp "${RemoteHostAlias}:${remoteScpArchivePath}" $localArchivePath
+    if ($LASTEXITCODE -ne 0) {
+        throw "Remote artifact archive download failed | host=$RemoteHostAlias"
+    }
+
+    & tar.exe -xf $localArchivePath -C $projectRoot
+    if ($LASTEXITCODE -ne 0) {
+        throw "Local artifact archive extract failed | archive=$localArchivePath"
+    }
+
+    $remoteCleanupScript = @"
+Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContinue
+exit 0
+"@
+
+    & ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteCleanupScript) | Out-Null
     if ($LASTEXITCODE -ne 0) {
         throw "Remote artifact sync failed | host=$RemoteHostAlias"
     }
@@ -303,7 +397,27 @@ if (`$null -eq `$matchingDirectory) {
     throw 'Could not resolve the remote campaign output directory after campaign completion.'
 }
 
-`$relativeCampaignOutputDirectory = [System.IO.Path]::GetRelativePath((Get-Location).Path, `$matchingDirectory.FullName).Replace('/', '\')
+function Resolve-WindowsRelativePath {
+    param(
+        [string]`$BasePath,
+        [string]`$TargetPath
+    )
+
+    `$normalizedBasePath = [System.IO.Path]::GetFullPath(`$BasePath)
+    `$normalizedTargetPath = [System.IO.Path]::GetFullPath(`$TargetPath)
+
+    if (-not `$normalizedBasePath.EndsWith([System.IO.Path]::DirectorySeparatorChar)) {
+        `$normalizedBasePath += [System.IO.Path]::DirectorySeparatorChar
+    }
+
+    `$baseUri = New-Object System.Uri(`$normalizedBasePath)
+    `$targetUri = New-Object System.Uri(`$normalizedTargetPath)
+    `$relativeUri = `$baseUri.MakeRelativeUri(`$targetUri)
+    `$relativePath = [System.Uri]::UnescapeDataString(`$relativeUri.ToString())
+    return `$relativePath.Replace('/', '\')
+}
+
+`$relativeCampaignOutputDirectory = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$matchingDirectory.FullName
 `$relativeManifestPath = [System.IO.Path]::Combine(`$relativeCampaignOutputDirectory, 'campaign_manifest.yaml')
 
 Write-Output ('REMOTE_CAMPAIGN_OUTPUT_DIRECTORY::{0}' -f `$relativeCampaignOutputDirectory)

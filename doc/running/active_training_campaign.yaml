@@ -1,80 +1,49 @@
-﻿campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
+campaign_name: remote_training_validation_campaign_2026_04_03_17_54_21
 status: completed
-planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
-campaign_config_directory: config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign
+planning_report_path: doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md
+campaign_config_directory: config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign
 queue_root: config/training/queue
 campaign_output_root: output/training_campaigns
-campaign_output_directory: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
-launch_mode: queue_runner_with_campaign_file_arguments
+campaign_output_directory: output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21
+launch_mode: remote_lan_campaign_launcher
 activation_pending_user_confirmation: false
-started_at: '2026-03-26T15:10:49'
-finished_at: '2026-03-26T20:19:32'
-completion_recorded_at: '2026-03-27T10:33:24.8096863+01:00'
+prepared_at: '2026-04-03T20:18:00+02:00'
+started_at: '2026-04-03T20:30:02.5282954+02:00'
+finished_at: '2026-04-03T22:30:26+02:00'
+completion_recorded_at: '2026-04-03T22:35:07+02:00'
+remote_host_alias: xilab-remote
+remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
+remote_conda_environment_name: standard_ml_lan_node
 queue_config_path_list:
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/01_residual_h08_small_frozen.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/02_residual_h08_small_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/03_residual_h12_small_frozen.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/04_residual_h12_small_joint_anchor.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/05_residual_h16_small_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/06_residual_h12_medium_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/07_residual_h12_wide_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/08_residual_h12_deep_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/09_residual_h12_small_joint_low_dropout.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/10_residual_h12_small_joint_high_dropout.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/11_residual_h12_small_joint_no_layer_norm.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/12_residual_h12_small_joint_low_lr_long.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/13_residual_h12_wide_joint_low_lr_long.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/14_residual_h12_small_joint_dense.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/15_residual_h12_small_joint_medium_dense_large_batch.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/01_random_forest_remote_medium.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/02_random_forest_remote_aggressive.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/03_hist_gbr_remote_deep.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/04_feedforward_high_compute_remote.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/05_feedforward_stride1_big_remote.yaml
 run_name_list:
-  - te_residual_h08_small_frozen_wave1
-  - te_residual_h08_small_joint_wave1
-  - te_residual_h12_small_frozen_wave1
-  - te_residual_h12_small_joint_anchor_wave1
-  - te_residual_h16_small_joint_wave1
-  - te_residual_h12_medium_joint_wave1
-  - te_residual_h12_wide_joint_wave1
-  - te_residual_h12_deep_joint_wave1
-  - te_residual_h12_small_joint_low_dropout_wave1
-  - te_residual_h12_small_joint_high_dropout_wave1
-  - te_residual_h12_small_joint_no_layer_norm_wave1
-  - te_residual_h12_small_joint_low_lr_long_wave1
-  - te_residual_h12_wide_joint_low_lr_long_wave1
-  - te_residual_h12_small_joint_dense_wave1
-  - te_residual_h12_small_joint_medium_dense_large_batch_wave1
+  - te_random_forest_remote_medium
+  - te_random_forest_remote_aggressive
+  - te_hist_gbr_remote_deep
+  - te_feedforward_high_compute_remote
+  - te_feedforward_stride1_big_remote
 protected_file_list:
-  - doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/01_residual_h08_small_frozen.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/02_residual_h08_small_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/03_residual_h12_small_frozen.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/04_residual_h12_small_joint_anchor.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/05_residual_h16_small_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/06_residual_h12_medium_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/07_residual_h12_wide_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/08_residual_h12_deep_joint.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/09_residual_h12_small_joint_low_dropout.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/10_residual_h12_small_joint_high_dropout.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/11_residual_h12_small_joint_no_layer_norm.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/12_residual_h12_small_joint_low_lr_long.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/13_residual_h12_wide_joint_low_lr_long.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/14_residual_h12_small_joint_dense.yaml
-  - config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/15_residual_h12_small_joint_medium_dense_large_batch.yaml
-  - scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1
-  - doc/scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md
+  - doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/README.md
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/01_random_forest_remote_medium.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/02_random_forest_remote_aggressive.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/03_hist_gbr_remote_deep.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/04_feedforward_high_compute_remote.yaml
+  - config/training/remote_validation/campaigns/2026-04-03_remote_training_validation_campaign/05_feedforward_stride1_big_remote.yaml
+  - scripts/campaigns/run_remote_training_campaign.ps1
+  - scripts/campaigns/run_remote_training_validation_campaign.ps1
+  - scripts/training/build_remote_training_sync_manifest.py
   - scripts/training/run_training_campaign.py
   - scripts/training/train_feedforward_network.py
-  - scripts/training/validate_training_setup.py
-  - scripts/training/run_training_smoke_test.py
-  - scripts/training/transmission_error_regression_module.py
-  - scripts/models/model_factory.py
-  - scripts/models/feedforward_network.py
-  - scripts/models/harmonic_regression.py
-  - scripts/models/residual_harmonic_network.py
-  - scripts/datasets/transmission_error_dataset.py
-  - doc/running/te_model_live_backlog.md
+  - scripts/training/train_tree_regressor.py
+  - doc/scripts/campaigns/run_remote_training_campaign.md
+  - doc/scripts/campaigns/run_remote_training_validation_campaign.md
   - doc/guide/project_usage_guide.md
 launch_command_list:
   - conda activate standard_ml_codex_env
-  - .\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1
-  - python scripts\training\run_training_campaign.py config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\01_residual_h08_small_frozen.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\02_residual_h08_small_joint.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\03_residual_h12_small_frozen.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\04_residual_h12_small_joint_anchor.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\05_residual_h16_small_joint.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\06_residual_h12_medium_joint.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\07_residual_h12_wide_joint.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\08_residual_h12_deep_joint.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\09_residual_h12_small_joint_low_dropout.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\10_residual_h12_small_joint_high_dropout.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\11_residual_h12_small_joint_no_layer_norm.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\12_residual_h12_small_joint_low_lr_long.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\13_residual_h12_wide_joint_low_lr_long.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\14_residual_h12_small_joint_dense.yaml config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\15_residual_h12_small_joint_medium_dense_large_batch.yaml --campaign-name wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00 --planning-report-path doc\reports\campaign_plans\2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
-
+  - .\scripts\campaigns\run_remote_training_validation_campaign.ps1
+  - .\scripts\campaigns\run_remote_training_validation_campaign.ps1 -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "standard_ml_lan_node" -RemoteHostAlias "xilab-remote"

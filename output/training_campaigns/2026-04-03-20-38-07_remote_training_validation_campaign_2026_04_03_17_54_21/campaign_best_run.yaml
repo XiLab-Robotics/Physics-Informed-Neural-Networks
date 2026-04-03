@@ -1,0 +1,33 @@
+schema_version: 1
+campaign_name: remote_training_validation_campaign_2026_04_03_17_54_21
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-04-03T22:30:26'
+best_entry:
+  run_instance_id: 2026-04-03-21-48-11__te_hist_gbr_remote_deep
+  run_name: te_hist_gbr_remote_deep
+  output_run_name: te_hist_gbr_remote_deep
+  output_artifact_kind: training_run
+  model_family: tree
+  model_type: hist_gradient_boosting
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.002748584105610242
+  val_rmse: 0.0036640661001790743
+  test_mae: 0.0029198281928917787
+  test_rmse: 0.003644374228539183
+  output_directory: output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep
+  best_checkpoint_path: output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep/tree_model.pkl
+  metrics_path: output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep/metrics_summary.yaml
+  report_path: output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-04-03T22:30:26'
