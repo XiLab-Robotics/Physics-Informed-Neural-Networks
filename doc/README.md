@@ -58,6 +58,14 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-10-48-09_remote_training_campaign_results_pdf_completed_runs_table_refinement_round_four.md](./technical/2026-04/2026-04-04/2026-04-04-10-48-09_remote_training_campaign_results_pdf_completed_runs_table_refinement_round_four.md)
+  Technical document for a fourth narrow refinement pass on the `Ranked Completed Runs` table in the remote training validation campaign PDF, again focused on `Family` width and the `Test MAE [deg]` header fit.
+- [technical/2026-04/2026-04-04/2026-04-04-10-45-15_remote_training_campaign_results_pdf_completed_runs_table_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-10-45-15_remote_training_campaign_results_pdf_completed_runs_table_refinement.md)
+  Technical document for a final narrow refinement of the `Ranked Completed Runs` table in the remote training validation campaign PDF, focused on `Family` width and cleaner `Test MAE [deg]` header fit.
+- [technical/2026-04/2026-04-04/2026-04-04-10-42-25_remote_training_campaign_results_pdf_layout_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-10-42-25_remote_training_campaign_results_pdf_layout_refinement.md)
+  Technical document for the second refinement pass on the remote training validation campaign results PDF, including a narrower metric-header fit rebalance and a forced new-page start for `Recommended Next Actions`.
+- [technical/2026-04/2026-04-04/2026-04-04-10-35-03_remote_training_campaign_results_pdf_layout_repair.md](./technical/2026-04/2026-04-04/2026-04-04-10-35-03_remote_training_campaign_results_pdf_layout_repair.md)
+  Technical document for repairing the styled PDF layout of the remote training validation campaign results report, including table-width rebalance and a forced new-page start for the `Campaign Winner` section.
 - [technical/2026-04/2026-04-04/2026-04-04-00-57-29_remote_training_pipeline_hardening_and_skill_promotion.md](./technical/2026-04/2026-04-04/2026-04-04-00-57-29_remote_training_pipeline_hardening_and_skill_promotion.md)
   Technical document for hardening the LAN-remote training campaign pipeline after the first real execution, eliminating the remaining artifact-bookkeeping bug, and promoting the validated workflow into a repository-local Codex skill.
 

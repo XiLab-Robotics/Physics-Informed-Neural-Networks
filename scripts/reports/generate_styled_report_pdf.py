@@ -50,6 +50,8 @@ WAVE1_RESIDUAL_FAMILY_VALIDATION_SNAPSHOT_TABLE_CLASS_NAME = "report-table repor
 WAVE1_RESIDUAL_FAMILY_CAPACITY_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-capacity"
 WAVE1_RESIDUAL_FAMILY_DENSE_REGIME_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-dense-regime"
 WAVE1_RESIDUAL_FAMILY_TRAINING_MODE_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-training-mode"
+REMOTE_TRAINING_VALIDATION_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-remote-training-validation-completed"
+REMOTE_TRAINING_VALIDATION_FAILED_TABLE_CLASS_NAME = "report-table report-table-remote-training-validation-failed"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -145,6 +147,10 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-03-27-18-13-19_project_status_report": {
         "why-the-work-was-done-in-this-order",
         "high-level-future-roadmap",
+    },
+    "2026-04-03-22-35-07_remote_training_validation_campaign_results_report": {
+        "campaign-winner",
+        "recommended-next-actions",
     },
 }
 
@@ -646,6 +652,41 @@ REPORT_STYLESHEET = """
     .report-table-wave1-residual-family-training-mode th:nth-child(2), .report-table-wave1-residual-family-training-mode td:nth-child(2) { width: 36%; }
     .report-table-wave1-residual-family-training-mode th:nth-child(3), .report-table-wave1-residual-family-training-mode td:nth-child(3) { width: 11%; }
     .report-table-wave1-residual-family-training-mode th:nth-child(4), .report-table-wave1-residual-family-training-mode td:nth-child(4) { width: 17%; }
+
+    .report-table-remote-training-validation-completed,
+    .report-table-remote-training-validation-failed {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-remote-training-validation-completed th,
+    .report-table-remote-training-validation-completed td,
+    .report-table-remote-training-validation-failed th,
+    .report-table-remote-training-validation-failed td {
+      padding: 4px 4px;
+    }
+
+    .report-table-remote-training-validation-completed th,
+    .report-table-remote-training-validation-failed th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-remote-training-validation-completed th:nth-child(1), .report-table-remote-training-validation-completed td:nth-child(1) { width: 5%; }
+    .report-table-remote-training-validation-completed th:nth-child(2), .report-table-remote-training-validation-completed td:nth-child(2) { width: 35%; }
+    .report-table-remote-training-validation-completed th:nth-child(3), .report-table-remote-training-validation-completed td:nth-child(3) { width: 13%; }
+    .report-table-remote-training-validation-completed th:nth-child(4), .report-table-remote-training-validation-completed td:nth-child(4) { width: 9%; }
+    .report-table-remote-training-validation-completed th:nth-child(5), .report-table-remote-training-validation-completed td:nth-child(5) { width: 12%; }
+    .report-table-remote-training-validation-completed th:nth-child(6), .report-table-remote-training-validation-completed td:nth-child(6) { width: 13%; }
+    .report-table-remote-training-validation-completed th:nth-child(7), .report-table-remote-training-validation-completed td:nth-child(7) { width: 13%; }
+
+    .report-table-remote-training-validation-failed th:nth-child(1), .report-table-remote-training-validation-failed td:nth-child(1) { width: 35%; }
+    .report-table-remote-training-validation-failed th:nth-child(2), .report-table-remote-training-validation-failed td:nth-child(2) { width: 9%; }
+    .report-table-remote-training-validation-failed th:nth-child(3), .report-table-remote-training-validation-failed td:nth-child(3) { width: 9%; }
+    .report-table-remote-training-validation-failed th:nth-child(4), .report-table-remote-training-validation-failed td:nth-child(4) { width: 47%; }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
@@ -1356,6 +1397,23 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Config", "Training Mode", "Val MAE [deg]", "Test MAE [deg]")
         ):
             return WAVE1_RESIDUAL_FAMILY_TRAINING_MODE_TABLE_CLASS_NAME
+
+    # Resolve Remote Training Validation Table Profiles
+    if report_stem == "2026-04-03-22-35-07_remote_training_validation_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Rank", "Config", "Family", "Runtime", "Test MAE [deg]", "Test RMSE [deg]", "Val MAE [deg]")
+        ):
+            return REMOTE_TRAINING_VALIDATION_COMPLETED_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "failed-run"
+            and normalized_header_cells == ("Config", "Family", "Runtime", "Outcome")
+        ):
+            return REMOTE_TRAINING_VALIDATION_FAILED_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
