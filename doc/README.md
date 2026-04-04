@@ -58,6 +58,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-21-35-44_docs_requirements_location_alignment.md](./technical/2026-04/2026-04-04/2026-04-04-21-35-44_docs_requirements_location_alignment.md)
+  Technical document for relocating the documentation-only GitHub Pages requirements file out of the repository root and realigning the workflow/documentation references to the corrected support path.
+- [technical/2026-04/2026-04-04/2026-04-04-21-31-17_github_pages_workflow_dependency_footprint_fix.md](./technical/2026-04/2026-04-04/2026-04-04-21-31-17_github_pages_workflow_dependency_footprint_fix.md)
+  Technical document for fixing the GitHub Pages workflow so the Sphinx portal build no longer installs the full heavyweight training stack and fails with runner disk exhaustion.
 - [technical/2026-04/2026-04-04/2026-04-04-20-12-30_remote_training_completion_path_sync_fix.md](./technical/2026-04/2026-04-04/2026-04-04-20-12-30_remote_training_completion_path_sync_fix.md)
   Technical document for fixing the remaining LAN-remote training launcher defect in the local completion path so remote campaigns can sync their canonical artifacts back automatically after successful execution.
 - [technical/2026-04/2026-04-04/2026-04-04-11-41-47_remote_training_launcher_command_length_fix.md](./technical/2026-04/2026-04-04/2026-04-04-11-41-47_remote_training_launcher_command_length_fix.md)

@@ -2207,6 +2207,12 @@ Successful output is written to:
 The repository-owned publication path is now GitHub Pages through:
 
 - `.github/workflows/publish-sphinx-pages.yml`
+- `site/requirements-docs.txt`
+
+The GitHub Pages job intentionally uses a documentation-specific dependency set
+instead of the full `requirements.txt` training environment. This keeps the CI
+build light enough for hosted runners while preserving the local full
+environment for real training, OCR, and video workflows.
 
 After the workflow is present in the default branch, configure the repository
 Pages source to use `GitHub Actions` if that setting is not already enabled.

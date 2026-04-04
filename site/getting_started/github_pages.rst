@@ -10,14 +10,19 @@ The workflow builds the documentation from the canonical ``site/`` tree and
 publishes the generated HTML from:
 
 - ``site/_build/html``
+- ``site/requirements-docs.txt``
 
 The local validation command remains:
 
 .. code-block:: powershell
 
    conda activate standard_ml_codex_env
-   python -m pip install -r requirements.txt
    python -m sphinx -W -b html site site/_build/html
+
+The GitHub Pages workflow intentionally does **not** install the full
+repository training stack. Instead, it installs a documentation-specific
+dependency subset plus a CPU-only PyTorch wheel so the hosted runner does not
+exhaust disk space on unnecessary CUDA, OCR, and video-tooling packages.
 
 Repository rule:
 
