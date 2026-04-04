@@ -1,0 +1,69 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-04-04-11-49-11_001_01_residual_h12_deep_long_remote.yaml
+experiment:
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_h12_deep_long_remote
+  output_run_name: te_residual_h12_deep_long_remote
+  run_instance_id: 2026-04-04-11-49-11__te_residual_h12_deep_long_remote
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp\2026-04-04-11-49-11__te_residual_h12_deep_long_remote
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp\2026-04-04-11-49-11__te_residual_h12_deep_long_remote\checkpoints\residual_harmonic_mlp-epoch=080-val_mae=0.00297334.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26266
+  frozen_parameter_count: 0
+  total_parameter_count: 26266
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.007657492998987436
+  val_mae: 0.0029733360279351473
+  val_rmse: 0.003495011944323778
+  val_structured_mae: 0.04052967578172684
+  val_structured_rmse: 0.04257020726799965
+test_metrics:
+  test_loss: 0.008433911949396133
+  test_mae: 0.003383519360795617
+  test_rmse: 0.00390756968408823
+  test_structured_mae: 0.03940592706203461
+  test_structured_rmse: 0.04279642924666405
+comparison_payload:
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_h12_deep_long_remote
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0029733360279351473
+  val_rmse: 0.003495011944323778
+  test_mae: 0.003383519360795617
+  test_rmse: 0.00390756968408823
+  deployment_notes: ''
+  interpretability_notes: ''

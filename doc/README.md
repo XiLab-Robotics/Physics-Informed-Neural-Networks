@@ -58,6 +58,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-11-41-47_remote_training_launcher_command_length_fix.md](./technical/2026-04/2026-04-04/2026-04-04-11-41-47_remote_training_launcher_command_length_fix.md)
+  Technical document for fixing the Windows command-line length failure in the SSH-backed remote training launcher so prepared LAN campaigns can start successfully.
+- [technical/2026-04/2026-04-04/2026-04-04-11-21-09_targeted_remote_followup_campaign_preparation.md](./technical/2026-04/2026-04-04/2026-04-04-11-21-09_targeted_remote_followup_campaign_preparation.md)
+  Technical document for preparing the next targeted LAN-remote follow-up campaign around `residual_harmonic_mlp`, `feedforward`, and `hist_gradient_boosting` after the first validated remote execution.
 - [technical/2026-04/2026-04-04/2026-04-04-10-52-03_remote_lan_training_documentation_audit_and_family_best_refresh.md](./technical/2026-04/2026-04-04/2026-04-04-10-52-03_remote_lan_training_documentation_audit_and_family_best_refresh.md)
   Technical document for auditing the repository documentation coverage of the LAN-remote training workflow, refreshing the canonical family-best analysis with the new remote results, and evaluating which follow-up experiments are worth planning on the stronger workstation.
 - [technical/2026-04/2026-04-04/2026-04-04-10-48-09_remote_training_campaign_results_pdf_completed_runs_table_refinement_round_four.md](./technical/2026-04/2026-04-04/2026-04-04-10-48-09_remote_training_campaign_results_pdf_completed_runs_table_refinement_round_four.md)

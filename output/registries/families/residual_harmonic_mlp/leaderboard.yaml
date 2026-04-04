@@ -1,4 +1,4 @@
-﻿schema_version: 1
+schema_version: 1
 model_family: residual_harmonic_mlp
 selection_policy:
   primary_metric: test_mae
@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-03-26T20:19:32'
-entry_count: 17
+updated_at: '2026-04-04T12:18:37'
+entry_count: 19
 entry_list:
 - run_instance_id: 2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1
   run_name: te_residual_h12_deep_joint_wave1
@@ -170,6 +170,29 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T18:43:58'
+- run_instance_id: 2026-04-04-12-05-09__te_residual_h12_deep_dense_remote
+  run_name: te_residual_h12_deep_dense_remote
+  output_run_name: te_residual_h12_deep_dense_remote
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.003018338466063142
+  val_rmse: 0.0035492146853357553
+  test_mae: 0.003364956472069025
+  test_rmse: 0.003868407802656293
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/checkpoints/residual_harmonic_mlp-epoch=069-val_mae=0.00301834.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-04-04T12:18:36'
 - run_instance_id: 2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1
   run_name: te_residual_h12_small_frozen_wave1
   output_run_name: te_residual_h12_small_frozen_wave1
@@ -216,6 +239,29 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T17:19:47'
+- run_instance_id: 2026-04-04-11-49-11__te_residual_h12_deep_long_remote
+  run_name: te_residual_h12_deep_long_remote
+  output_run_name: te_residual_h12_deep_long_remote
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0029733360279351473
+  val_rmse: 0.003495011944323778
+  test_mae: 0.003383519360795617
+  test_rmse: 0.00390756968408823
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/checkpoints/residual_harmonic_mlp-epoch=080-val_mae=0.00297334.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-04-04T12:05:09'
 - run_instance_id: 2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1
   run_name: te_residual_h08_small_frozen_wave1
   output_run_name: te_residual_h08_small_frozen_wave1
@@ -400,4 +446,3 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T16:06:01'
-

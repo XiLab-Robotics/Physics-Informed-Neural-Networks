@@ -2030,6 +2030,59 @@ dedicated skill now exists for this path:
 
 - `.codex/skills/remote-lan-training-campaigns/SKILL.md`
 
+### Targeted Remote Follow-Up Campaign
+
+The next prepared LAN-remote campaign is a tighter mixed package aimed at the
+highest-value branches left after the first validation pass:
+
+- `te_residual_h12_deep_long_remote`
+- `te_residual_h12_deep_dense_remote`
+- `te_feedforward_high_compute_long_remote`
+- `te_feedforward_stride1_high_compute_long_remote`
+- `te_hist_gbr_remote_refined`
+
+Prepared campaign root:
+
+- `config/training/remote_followup/campaigns/2026-04-04_targeted_remote_followup_campaign/`
+
+Dedicated launcher:
+
+- `scripts/campaigns/run_targeted_remote_followup_campaign.ps1`
+
+Dedicated launcher note:
+
+- `doc/scripts/campaigns/run_targeted_remote_followup_campaign.md`
+
+This package is intentionally selective:
+
+- it keeps `residual_harmonic_mlp` in focus because that family is still the
+  strongest neural branch;
+- it keeps `feedforward` in focus because the remote GPU path already improved
+  the family best once;
+- it keeps one bounded `hist_gradient_boosting` refinement because the tree
+  family still leads the whole program;
+- it excludes `random_forest` because the first remote campaign already showed
+  poor value relative to memory cost and artifact size.
+
+If the local environment variables are already set, launch with:
+
+```powershell
+.\scripts\campaigns\run_targeted_remote_followup_campaign.ps1
+```
+
+If you prefer the explicit form, use:
+
+```powershell
+.\scripts\campaigns\run_targeted_remote_followup_campaign.ps1 `
+  -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
+  -RemoteCondaEnvironmentName "standard_ml_lan_node" `
+  -RemoteHostAlias "xilab-remote"
+```
+
+Before launching, confirm the active campaign state is still `prepared` in:
+
+- `doc/running/active_training_campaign.yaml`
+
 ## Batch Runner Outputs
 
 Each campaign writes a new folder under:

@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-04-03T21:50:07'
-entry_count: 4
+updated_at: '2026-04-04T13:03:55'
+entry_count: 5
 entry_list:
 - run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
   run_name: te_hist_gbr_tabular
@@ -55,6 +55,29 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-04-03T21:50:07'
+- run_instance_id: 2026-04-04-13-02-09__te_hist_gbr_remote_refined
+  run_name: te_hist_gbr_remote_refined
+  output_run_name: te_hist_gbr_remote_refined
+  output_artifact_kind: training_run
+  model_family: tree
+  model_type: hist_gradient_boosting
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0028088984338203
+  val_rmse: 0.003687272359160446
+  test_mae: 0.003100981383831685
+  test_rmse: 0.0037813046609156235
+  output_directory: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined
+  best_checkpoint_path: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/tree_model.pkl
+  metrics_path: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/metrics_summary.yaml
+  report_path: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-04-04T13:03:55'
 - run_instance_id: 2026-03-20-17-15-25__te_random_forest_tabular_recovery
   run_name: te_random_forest_tabular_recovery
   output_run_name: te_random_forest_tabular_recovery

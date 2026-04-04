@@ -1,4 +1,4 @@
-﻿schema_version: 1
+schema_version: 1
 model_family: residual_harmonic_mlp
 selection_policy:
   primary_metric: test_mae
@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-03-26T20:19:32'
+updated_at: '2026-04-04T12:18:37'
 best_entry:
   run_instance_id: 2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1
   run_name: te_residual_h12_deep_joint_wave1
@@ -31,4 +31,3 @@ best_entry:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T17:48:36'
-

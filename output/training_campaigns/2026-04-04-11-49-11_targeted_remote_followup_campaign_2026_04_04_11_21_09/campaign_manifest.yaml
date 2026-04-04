@@ -1,0 +1,111 @@
+campaign_name: targeted_remote_followup_campaign_2026_04_04_11_21_09
+generated_at: '2026-04-04T13:03:55'
+queue_root: config/training/queue
+campaign_output_directory: output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09
+planning_report_path: doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/pending/2026-04-04-11-49-11_001_01_residual_h12_deep_long_remote.yaml
+  final_queue_config_path: config/training/queue/completed/2026-04-04-11-49-11_001_01_residual_h12_deep_long_remote.yaml
+  source_config_path: config/training/remote_followup/campaigns/2026-04-04_targeted_remote_followup_campaign/01_residual_h12_deep_long_remote.yaml
+  run_name: te_residual_h12_deep_long_remote
+  run_instance_id: 2026-04-04-11-49-11__te_residual_h12_deep_long_remote
+  model_type: residual_harmonic_mlp
+  queue_status: completed
+  start_time: '2026-04-04T11:49:11'
+  end_time: '2026-04-04T12:05:09'
+  duration_seconds: 957.537
+  process_return_code: 0
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote
+  config_snapshot_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp\2026-04-04-11-49-11__te_residual_h12_deep_long_remote\checkpoints\residual_harmonic_mlp-epoch=080-val_mae=0.00297334.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/metrics_summary.yaml
+  training_report_path: output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/training_test_report.md
+  log_path: output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/logs/001_te_residual_h12_deep_long_remote.log
+  planning_report_path: doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md
+  campaign_name: targeted_remote_followup_campaign_2026_04_04_11_21_09
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-04-04-11-49-11_002_02_residual_h12_deep_dense_remote.yaml
+  final_queue_config_path: config/training/queue/completed/2026-04-04-11-49-11_002_02_residual_h12_deep_dense_remote.yaml
+  source_config_path: config/training/remote_followup/campaigns/2026-04-04_targeted_remote_followup_campaign/02_residual_h12_deep_dense_remote.yaml
+  run_name: te_residual_h12_deep_dense_remote
+  run_instance_id: 2026-04-04-12-05-09__te_residual_h12_deep_dense_remote
+  model_type: residual_harmonic_mlp
+  queue_status: completed
+  start_time: '2026-04-04T12:05:09'
+  end_time: '2026-04-04T12:18:37'
+  duration_seconds: 807.501
+  process_return_code: 0
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote
+  config_snapshot_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp\2026-04-04-12-05-09__te_residual_h12_deep_dense_remote\checkpoints\residual_harmonic_mlp-epoch=069-val_mae=0.00301834.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/metrics_summary.yaml
+  training_report_path: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/training_test_report.md
+  log_path: output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/logs/002_te_residual_h12_deep_dense_remote.log
+  planning_report_path: doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md
+  campaign_name: targeted_remote_followup_campaign_2026_04_04_11_21_09
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-04-04-11-49-11_003_03_feedforward_high_compute_long_remote.yaml
+  final_queue_config_path: config/training/queue/completed/2026-04-04-11-49-11_003_03_feedforward_high_compute_long_remote.yaml
+  source_config_path: config/training/remote_followup/campaigns/2026-04-04_targeted_remote_followup_campaign/03_feedforward_high_compute_long_remote.yaml
+  run_name: te_feedforward_high_compute_long_remote
+  run_instance_id: 2026-04-04-12-18-37__te_feedforward_high_compute_long_remote
+  model_type: feedforward
+  queue_status: completed
+  start_time: '2026-04-04T12:18:37'
+  end_time: '2026-04-04T12:32:00'
+  duration_seconds: 803.732
+  process_return_code: 0
+  output_directory: output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote
+  config_snapshot_path: output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\feedforward\2026-04-04-12-18-37__te_feedforward_high_compute_long_remote\checkpoints\feedforward-epoch=097-val_mae=0.00305764.ckpt
+  metrics_path: output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote/metrics_summary.yaml
+  training_report_path: output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote/training_test_report.md
+  log_path: output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/logs/003_te_feedforward_high_compute_long_remote.log
+  planning_report_path: doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md
+  campaign_name: targeted_remote_followup_campaign_2026_04_04_11_21_09
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-04-04-11-49-11_004_04_feedforward_stride1_high_compute_long_remote.yaml
+  final_queue_config_path: config/training/queue/completed/2026-04-04-11-49-11_004_04_feedforward_stride1_high_compute_long_remote.yaml
+  source_config_path: config/training/remote_followup/campaigns/2026-04-04_targeted_remote_followup_campaign/04_feedforward_stride1_high_compute_long_remote.yaml
+  run_name: te_feedforward_stride1_high_compute_long_remote
+  run_instance_id: 2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote
+  model_type: feedforward
+  queue_status: completed
+  start_time: '2026-04-04T12:32:00'
+  end_time: '2026-04-04T13:02:09'
+  duration_seconds: 1808.544
+  process_return_code: 0
+  output_directory: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote
+  config_snapshot_path: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\feedforward\2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote\checkpoints\feedforward-epoch=095-val_mae=0.00304393.ckpt
+  metrics_path: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/metrics_summary.yaml
+  training_report_path: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/training_test_report.md
+  log_path: output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/logs/004_te_feedforward_stride1_high_compute_long_remote.log
+  planning_report_path: doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md
+  campaign_name: targeted_remote_followup_campaign_2026_04_04_11_21_09
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-04-04-11-49-11_005_05_hist_gbr_remote_refined.yaml
+  final_queue_config_path: config/training/queue/completed/2026-04-04-11-49-11_005_05_hist_gbr_remote_refined.yaml
+  source_config_path: config/training/remote_followup/campaigns/2026-04-04_targeted_remote_followup_campaign/05_hist_gbr_remote_refined.yaml
+  run_name: te_hist_gbr_remote_refined
+  run_instance_id: 2026-04-04-13-02-09__te_hist_gbr_remote_refined
+  model_type: hist_gradient_boosting
+  queue_status: completed
+  start_time: '2026-04-04T13:02:09'
+  end_time: '2026-04-04T13:03:55'
+  duration_seconds: 106.088
+  process_return_code: 0
+  output_directory: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined
+  config_snapshot_path: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/training_config.yaml
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/metrics_summary.yaml
+  training_report_path: output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/training_test_report.md
+  log_path: output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/logs/005_te_hist_gbr_remote_refined.log
+  planning_report_path: doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md
+  campaign_name: targeted_remote_followup_campaign_2026_04_04_11_21_09
+  error_message: null

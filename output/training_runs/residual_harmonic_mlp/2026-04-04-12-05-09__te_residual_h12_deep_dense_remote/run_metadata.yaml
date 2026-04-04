@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_mlp
+run_name: te_residual_h12_deep_dense_remote
+run_instance_id: 2026-04-04-12-05-09__te_residual_h12_deep_dense_remote
+output_directory: output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote

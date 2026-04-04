@@ -1,0 +1,65 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-04-04-11-49-11_003_03_feedforward_high_compute_long_remote.yaml
+experiment:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_high_compute_long_remote
+  output_run_name: te_feedforward_high_compute_long_remote
+  run_instance_id: 2026-04-04-12-18-37__te_feedforward_high_compute_long_remote
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\feedforward\2026-04-04-12-18-37__te_feedforward_high_compute_long_remote
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\feedforward\2026-04-04-12-18-37__te_feedforward_high_compute_long_remote\checkpoints\feedforward-epoch=097-val_mae=0.00305764.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 109953
+  frozen_parameter_count: 0
+  total_parameter_count: 109953
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 0.008003542199730873
+  val_mae: 0.0030576398130506277
+  val_rmse: 0.003645774908363819
+test_metrics:
+  test_loss: 0.009019258432090282
+  test_mae: 0.0035418360494077206
+  test_rmse: 0.004228018689900637
+comparison_payload:
+  model_family: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_high_compute_long_remote
+  backbone_name: FeedForwardNetwork
+  trainable_parameter_count: 109953
+  total_parameter_count: 109953
+  val_mae: 0.0030576398130506277
+  val_rmse: 0.003645774908363819
+  test_mae: 0.0035418360494077206
+  test_rmse: 0.004228018689900637
+  deployment_notes: ''
+  interpretability_notes: ''

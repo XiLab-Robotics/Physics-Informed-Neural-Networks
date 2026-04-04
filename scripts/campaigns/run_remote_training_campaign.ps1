@@ -93,20 +93,21 @@ function Resolve-WindowsRelativePath {
     return $relativePath.Replace("/", "\")
 }
 
-function New-EncodedRemotePowerShellCommand {
+function New-RemotePowerShellScriptText {
 
     param(
         [string]$ScriptText
     )
 
-    $wrappedScriptText = @"
+    return @"
 `$ProgressPreference = 'SilentlyContinue'
 $ScriptText
 "@
+}
 
-    $scriptBytes = [System.Text.Encoding]::Unicode.GetBytes($wrappedScriptText)
-    $encodedCommand = [Convert]::ToBase64String($scriptBytes)
-    return "powershell -NoProfile -NonInteractive -OutputFormat Text -EncodedCommand $encodedCommand"
+function Get-RemotePowerShellCommand {
+
+    return "powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -OutputFormat Text -Command -"
 }
 
 function Convert-ToScpRemotePath {
@@ -247,7 +248,8 @@ Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContin
 exit `$extractExitCode
 "@
 
-    & ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteExtractScript)
+    (New-RemotePowerShellScriptText -ScriptText $remoteExtractScript) |
+        & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
     if ($LASTEXITCODE -ne 0) {
         throw "Remote source sync failed | host=$RemoteHostAlias"
     }
@@ -274,8 +276,8 @@ exit `$LASTEXITCODE
         Remove-Item -LiteralPath $localArchivePath -Force
     }
 
-    $encodedRemoteCommand = New-EncodedRemotePowerShellCommand -ScriptText $remoteTarScript
-    & ssh $RemoteHostAlias $encodedRemoteCommand
+    (New-RemotePowerShellScriptText -ScriptText $remoteTarScript) |
+        & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
     if ($LASTEXITCODE -ne 0) {
         throw "Remote artifact archive build failed | host=$RemoteHostAlias"
     }
@@ -295,7 +297,8 @@ Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContin
 exit 0
 "@
 
-    & ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteCleanupScript) | Out-Null
+    (New-RemotePowerShellScriptText -ScriptText $remoteCleanupScript) |
+        & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) | Out-Null
     if ($LASTEXITCODE -ne 0) {
         throw "Remote artifact sync failed | host=$RemoteHostAlias"
     }
@@ -350,7 +353,8 @@ exit `$LASTEXITCODE
 "@
 
 Write-StatusLine "INFO" "Running remote environment preflight"
-& ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remotePreflightScript)
+(New-RemotePowerShellScriptText -ScriptText $remotePreflightScript) |
+    & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
 if ($LASTEXITCODE -ne 0) {
     throw "Remote environment preflight failed | host=$RemoteHostAlias"
 }
@@ -436,7 +440,8 @@ Write-StatusLine "STEP" "Launching remote training campaign"
 Write-RunState -RunStatus "running" -Stage "remote_run" -LocalLogPath $runLogPath
 
 $remoteOutputLineList = @()
-& ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteRunScript) 2>&1 |
+(New-RemotePowerShellScriptText -ScriptText $remoteRunScript) |
+    & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) 2>&1 |
     Tee-Object -Variable remoteOutputLineList |
     Tee-Object -FilePath $runLogPath
 
@@ -497,7 +502,8 @@ Remove-Item -LiteralPath (Join-Path '$RemoteRepositoryPath' '$remoteSyncManifest
 exit 0
 "@
 
-& ssh $RemoteHostAlias (New-EncodedRemotePowerShellCommand -ScriptText $remoteCleanupScript) | Out-Null
+(New-RemotePowerShellScriptText -ScriptText $remoteCleanupScript) |
+    & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) | Out-Null
 if ($LASTEXITCODE -ne 0) {
     Write-StatusLine "WARN" "Remote sync-manifest cleanup failed | path=$remoteSyncManifestPath"
 }
