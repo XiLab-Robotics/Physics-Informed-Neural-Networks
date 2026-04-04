@@ -261,46 +261,55 @@ function Invoke-RemoteTarCopyToLocal {
         [string[]]$RelativePathList
     )
 
-    $localArchivePath = Join-Path $runTrackingDirectory "artifact_sync_payload.tar"
-    $remoteArchivePath = Join-Path $RemoteRepositoryPath ".temp\remote_training_artifact_sync.tar"
-    $remoteScpArchivePath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath
-    $remoteTarArgumentList = @($RelativePathList | ForEach-Object { '"{0}"' -f $_ })
-    $remoteTarScript = @"
+    $localArchiveDirectory = Join-Path $runTrackingDirectory "artifact_sync_payloads"
+    New-Item -ItemType Directory -Force -Path $localArchiveDirectory | Out-Null
+
+    for ($pathIndex = 0; $pathIndex -lt $RelativePathList.Count; $pathIndex++) {
+        $relativePath = $RelativePathList[$pathIndex]
+        $archiveSlug = "{0:D3}_{1}" -f ($pathIndex + 1), (Convert-ToSlug -RawText $relativePath)
+        $localArchivePath = Join-Path $localArchiveDirectory "${archiveSlug}.tar"
+        $remoteArchivePath = Join-Path $RemoteRepositoryPath ".temp\${archiveSlug}.tar"
+        $remoteScpArchivePath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath
+
+        if (Test-Path -LiteralPath $localArchivePath) {
+            Remove-Item -LiteralPath $localArchivePath -Force
+        }
+
+        $remoteTarScript = @"
 New-Item -ItemType Directory -Force -Path (Join-Path '$RemoteRepositoryPath' '.temp') | Out-Null
 Set-Location -LiteralPath '$RemoteRepositoryPath'
-& tar.exe -cf '$remoteArchivePath' $($remoteTarArgumentList -join ' ')
+& tar.exe -cf '$remoteArchivePath' '$relativePath'
 exit `$LASTEXITCODE
 "@
 
-    if (Test-Path -LiteralPath $localArchivePath) {
-        Remove-Item -LiteralPath $localArchivePath -Force
-    }
+        (New-RemotePowerShellScriptText -ScriptText $remoteTarScript) |
+            & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
+        if ($LASTEXITCODE -ne 0) {
+            throw "Remote artifact archive build failed | host=$RemoteHostAlias | path=$relativePath"
+        }
 
-    (New-RemotePowerShellScriptText -ScriptText $remoteTarScript) |
-        & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
-    if ($LASTEXITCODE -ne 0) {
-        throw "Remote artifact archive build failed | host=$RemoteHostAlias"
-    }
+        & scp "${RemoteHostAlias}:${remoteScpArchivePath}" $localArchivePath
+        if ($LASTEXITCODE -ne 0) {
+            throw "Remote artifact archive download failed | host=$RemoteHostAlias | path=$relativePath"
+        }
 
-    & scp "${RemoteHostAlias}:${remoteScpArchivePath}" $localArchivePath
-    if ($LASTEXITCODE -ne 0) {
-        throw "Remote artifact archive download failed | host=$RemoteHostAlias"
-    }
+        & tar.exe -xf $localArchivePath -C $projectRoot
+        if ($LASTEXITCODE -ne 0) {
+            throw "Local artifact archive extract failed | archive=$localArchivePath | path=$relativePath"
+        }
 
-    & tar.exe -xf $localArchivePath -C $projectRoot
-    if ($LASTEXITCODE -ne 0) {
-        throw "Local artifact archive extract failed | archive=$localArchivePath"
-    }
-
-    $remoteCleanupScript = @"
+        $remoteCleanupScript = @"
 Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContinue
 exit 0
 "@
 
-    (New-RemotePowerShellScriptText -ScriptText $remoteCleanupScript) |
-        & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) | Out-Null
-    if ($LASTEXITCODE -ne 0) {
-        throw "Remote artifact sync failed | host=$RemoteHostAlias"
+        (New-RemotePowerShellScriptText -ScriptText $remoteCleanupScript) |
+            & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) | Out-Null
+        if ($LASTEXITCODE -ne 0) {
+            throw "Remote artifact cleanup failed | host=$RemoteHostAlias | path=$relativePath"
+        }
+
+        Remove-Item -LiteralPath $localArchivePath -Force -ErrorAction SilentlyContinue
     }
 }
 

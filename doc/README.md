@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-20-12-30_remote_training_completion_path_sync_fix.md](./technical/2026-04/2026-04-04/2026-04-04-20-12-30_remote_training_completion_path_sync_fix.md)
+  Technical document for fixing the remaining LAN-remote training launcher defect in the local completion path so remote campaigns can sync their canonical artifacts back automatically after successful execution.
 - [technical/2026-04/2026-04-04/2026-04-04-11-41-47_remote_training_launcher_command_length_fix.md](./technical/2026-04/2026-04-04/2026-04-04-11-41-47_remote_training_launcher_command_length_fix.md)
   Technical document for fixing the Windows command-line length failure in the SSH-backed remote training launcher so prepared LAN campaigns can start successfully.
 - [technical/2026-04/2026-04-04/2026-04-04-11-21-09_targeted_remote_followup_campaign_preparation.md](./technical/2026-04/2026-04-04/2026-04-04-11-21-09_targeted_remote_followup_campaign_preparation.md)

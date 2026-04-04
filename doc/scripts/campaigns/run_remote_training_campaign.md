@@ -106,6 +106,11 @@ hardening matters because the helper can inspect the real remote output tree and
 recover the canonical artifact directory from `run_metadata.yaml` if one stale
 manifest field would otherwise point at the wrong immutable run folder.
 
+The return path now transfers the synchronized artifacts path by path instead of
+packing the full artifact set into one large multi-path archive. This keeps the
+sync contract manifest-driven, but removes the brittle completion-path behavior
+that appeared in the first long remote follow-up campaign.
+
 ## Bookkeeping Hardening
 
 The launcher now relies on two complementary protections:

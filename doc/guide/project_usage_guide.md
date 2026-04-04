@@ -1933,6 +1933,11 @@ The launcher now performs these stages explicitly:
 - remote sync-manifest generation on the LAN workstation;
 - metadata-aware artifact sync back into the local repository.
 
+The artifact return path now pulls the synchronized result set path by path
+instead of packing the whole remote payload into one large multi-path archive.
+This keeps the sync explicit and inspectable while avoiding the brittle
+completion-path behavior seen in the first long remote follow-up run.
+
 The sync phase is now hardened against stale manifest paths. If one run entry in
 the campaign manifest no longer matches the real immutable output folder, the
 remote helper recovers the canonical run directory from `run_metadata.yaml`
