@@ -63,6 +63,16 @@ Typical generated artifacts include:
   - `output/registries/families/tree/`
   - `output/registries/program/`
 
+Deployment/export constraint:
+
+- a previously validated aggressive random-forest variant produced a
+  `tree_model.pkl` artifact of roughly `91 GB`
+- treat that oversized artifact class as excluded from future TwinCAT / PLC
+  export candidate sets
+- future export work may still consider lighter tree variants, but should not
+  attempt to promote or export the already known deployment-incompatible
+  oversized class
+
 Each physical run writes into an immutable directory such as:
 
 - `output/training_runs/tree/2026-03-17-21-35-00__te_tree_random_forest/`

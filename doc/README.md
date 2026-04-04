@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-22-07-17_large_tree_model_exportability_constraint.md](./technical/2026-04/2026-04-04/2026-04-04-22-07-17_large_tree_model_exportability_constraint.md)
+  Technical document for recording that the oversized ~`91 GB` tree-model artifact class is excluded from future deployment/export candidate sets and should not be promoted into the TwinCAT-oriented export branch.
 - [technical/2026-04/2026-04-04/2026-04-04-21-35-44_docs_requirements_location_alignment.md](./technical/2026-04/2026-04-04/2026-04-04-21-35-44_docs_requirements_location_alignment.md)
   Technical document for relocating the documentation-only GitHub Pages requirements file out of the repository root and realigning the workflow/documentation references to the corrected support path.
 - [technical/2026-04/2026-04-04/2026-04-04-21-31-17_github_pages_workflow_dependency_footprint_fix.md](./technical/2026-04/2026-04-04/2026-04-04-21-31-17_github_pages_workflow_dependency_footprint_fix.md)

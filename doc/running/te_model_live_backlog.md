@@ -90,7 +90,10 @@ Verification:
 
 Current next step:
 
-- schedule a follow-up random forest retry on a higher-memory machine to verify whether the observed `MemoryError` is workstation-specific and whether a larger RAM budget improves the benchmark outcome
+- do not promote the oversized random-forest artifact class produced during the
+  remote LAN validation path into future deployment/export candidate sets,
+  because the observed `tree_model.pkl` size of roughly `91 GB` is incompatible
+  with practical PLC/TwinCAT memory budgets
 - use the consolidated `Wave 1` closeout report as the canonical summary when comparing future families against the current structured-baseline stage
 
 ### Post-Campaign TwinCAT Deployment Evaluation
@@ -116,6 +119,9 @@ Planned execution order after the now-closed `Wave 1` reporting work:
   - artifact workflow complexity
   - runtime behavior and timing suitability
   - maintainability and engineering cost
+- exclude the oversized random-forest artifact class already observed at
+  roughly `91 GB` from future export attempts, unless a later explicitly
+  lighter tree variant is produced and re-evaluated as a separate candidate
 - use isolated mode for preparatory or parallel experiments whenever campaign-
   sensitive repository areas should remain untouched
 
@@ -193,6 +199,9 @@ Entry rule:
 - the canonical feedforward reference baseline is the registry-selected best historical run, not the Wave 0 `trial` verification run
 - the currently tracked residual-harmonic family optimization belongs to `Wave 1` and its campaign assets have been realigned to the same naming
 - the first cross-family `Wave 1` execution had a mixed operational outcome, but the missing branches were recovered and the wave now has campaign-specific reporting plus a consolidated closeout summary
+- the remote LAN tree-validation path proved that an oversized random-forest
+  artifact class can reach roughly `91 GB`; treat that class as
+  deployment-incompatible and exclude it from future TwinCAT/PLC export work
 - best-result visibility should be read from:
   - campaign-level `campaign_best_run.yaml`
   - family-level `latest_family_best.yaml`
