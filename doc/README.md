@@ -58,6 +58,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-10-52-03_remote_lan_training_documentation_audit_and_family_best_refresh.md](./technical/2026-04/2026-04-04/2026-04-04-10-52-03_remote_lan_training_documentation_audit_and_family_best_refresh.md)
+  Technical document for auditing the repository documentation coverage of the LAN-remote training workflow, refreshing the canonical family-best analysis with the new remote results, and evaluating which follow-up experiments are worth planning on the stronger workstation.
 - [technical/2026-04/2026-04-04/2026-04-04-10-48-09_remote_training_campaign_results_pdf_completed_runs_table_refinement_round_four.md](./technical/2026-04/2026-04-04/2026-04-04-10-48-09_remote_training_campaign_results_pdf_completed_runs_table_refinement_round_four.md)
   Technical document for a fourth narrow refinement pass on the `Ranked Completed Runs` table in the remote training validation campaign PDF, again focused on `Family` width and the `Test MAE [deg]` header fit.
 - [technical/2026-04/2026-04-04/2026-04-04-10-45-15_remote_training_campaign_results_pdf_completed_runs_table_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-10-45-15_remote_training_campaign_results_pdf_completed_runs_table_refinement.md)

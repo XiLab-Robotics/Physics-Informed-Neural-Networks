@@ -16,12 +16,14 @@ The required closeout conditions are satisfied:
   validated PDF;
 - the running-state backlog now reflects that `Wave 1` reporting is complete.
 
-The only meaningful open item related to `Wave 1` is a future engineering
-follow-up, not a closeout blocker:
+The `2026-04-03` LAN-remote validation campaign refined the post-`Wave 1`
+picture without reopening `Wave 1` itself:
 
-- retry the random-forest branch on a higher-memory machine to separate model
-  quality limits from the workstation-specific memory ceiling seen in the first
-  campaign.
+- the stronger remote workstation did not displace the existing tree-based
+  global best;
+- the remote GPU path did produce a better `feedforward` family best;
+- the random-forest branch remained operationally weak even on the stronger
+  machine.
 
 The current global program leader remains:
 
@@ -52,11 +54,11 @@ Its core questions were:
 3. which family deserves a narrower follow-up campaign before the project
    moves toward later waves?
 
-The formal feedforward comparison anchor was:
+The updated feedforward comparison anchor is now:
 
 | Family | Run | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] |
 | --- | --- | ---: | ---: | ---: |
-| `feedforward` | `te_feedforward_stride5_long_large_batch` | 0.003109 | 0.003301 | 0.003791 |
+| `feedforward` | `te_feedforward_high_compute_remote` | 0.003059 | 0.003274 | 0.003873 |
 
 ## Wave 1 Execution Sequence
 
@@ -198,16 +200,47 @@ Key familywise outcome:
 
 ## Complete Wave 1 Family Summary
 
-The following table captures the best final result per relevant family after all
-`Wave 1` execution and recovery work.
+The following table captures the best current result per relevant family after
+all `Wave 1` execution, recovery work, and the later LAN-remote validation
+campaign.
 
 | Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Status |
 | --- | --- | --- | ---: | ---: | ---: | --- |
 | `tree` | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002719 | 0.002885 | 0.003607 | Current global program leader |
 | `residual_harmonic_mlp` | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003024 | 0.003152 | 0.003640 | Strongest neural family |
-| `feedforward` | `te_feedforward_stride5_long_large_batch` | `feedforward` | 0.003109 | 0.003301 | 0.003791 | Historical neural baseline |
+| `feedforward` | `te_feedforward_high_compute_remote` | `feedforward` | 0.003059 | 0.003274 | 0.003873 | Current feedforward family best from LAN remote validation |
 | `periodic_mlp` | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003097 | 0.003317 | 0.003793 | Competitive hybrid baseline |
 | `harmonic_regression` | `te_harmonic_order12_linear_conditioned_recovery` | `harmonic_regression` | 0.017004 | 0.020782 | 0.022405 | Structured interpretability reference |
+
+## Post-Wave 1 Remote Validation Addendum
+
+After `Wave 1` was already closed, the repository ran a focused LAN-remote
+validation campaign to test two things:
+
+- whether the stronger workstation reveals a better tree regime than the
+  existing leader;
+- whether the remote GPU path produces a better `feedforward` family anchor.
+
+The main outcomes were:
+
+- `te_hist_gbr_remote_deep` won the remote campaign with `test_mae = 0.002920
+  deg`, but it did not beat the existing tree leader
+  `te_hist_gbr_tabular` at `0.002885 deg`;
+- `te_feedforward_high_compute_remote` became the new `feedforward` family best
+  with `test_mae = 0.003274 deg`;
+- `te_feedforward_stride1_big_remote` was close and had a slightly stronger
+  `test_rmse`, but it did not beat the high-compute run on the primary ranking
+  metric;
+- `te_random_forest_remote_medium` completed on the stronger machine but
+  remained weak at `test_mae = 0.003865 deg`;
+- `te_random_forest_remote_aggressive` still failed due to memory pressure.
+
+This addendum changes the family-best picture only in one place:
+
+- `feedforward` is now stronger than the earlier historical baseline and is
+  closer to the `periodic_mlp` family than before;
+- the strongest current neural family is still `residual_harmonic_mlp`;
+- the strongest overall family is still `tree`.
 
 ## All Executed Wave 1 Training Runs
 
@@ -280,18 +313,19 @@ The best neural result is now:
 - `te_residual_h12_deep_joint_wave1`
 - `test_mae = 0.003152 deg`
 
-This family clearly outperformed the periodic MLP and the historical
-feedforward baseline on held-out test error.
+This family clearly outperformed the periodic MLP and still remained ahead of
+the updated remote `feedforward` family best on held-out test error.
 
 ### 3. Periodic Features Helped, But Did Not Produce The Best Family
 
-The best periodic model:
+The best periodic model remains:
 
 - `te_periodic_mlp_h04_standard`
 - `test_mae = 0.003317 deg`
 
-This result is respectable and close to the feedforward baseline, but it does
-not displace the residual family or the tree leader.
+This result is still respectable, but it now sits slightly behind the updated
+remote `feedforward` family best and does not displace the residual family or
+the tree leader.
 
 ### 4. Harmonic Regression Is Best Kept As A Structured Reference
 
@@ -351,11 +385,12 @@ Those running-state inconsistencies are now resolved through:
 
 ### Remaining Non-Blocking Follow-Up
 
-- run a higher-memory random-forest retry only if the project wants to separate
-  hardware memory pressure from family-level model quality.
+- use the validated LAN path for targeted follow-up campaigns only where the
+  stronger workstation opens a realistic search regime;
+- treat random forest as a low-priority branch because the remote test suggests
+  poor scaling and no credible path to program-level leadership.
 
-This is a future comparison refinement, not a blocker for declaring
-`Wave 1` closed.
+This is future campaign planning, not a blocker for declaring `Wave 1` closed.
 
 ## Recommended Post-Wave 1 Direction
 
@@ -363,10 +398,44 @@ The most defensible next steps are:
 
 1. keep `te_hist_gbr_tabular` as the current global reference winner;
 2. keep `te_residual_h12_deep_joint_wave1` as the neural family anchor;
-3. move the main repository execution focus toward TwinCAT deployment
-   evaluation and `Wave 2` temporal-model planning;
-4. treat any random-forest retry as a narrow follow-up experiment rather than a
-   reason to reopen `Wave 1` closeout.
+3. keep `te_feedforward_high_compute_remote` as the refreshed plain-MLP family
+   anchor for future neural comparisons;
+4. use the LAN workstation for targeted residual-harmonic, feedforward, and
+   histogram-boosting follow-ups rather than broad random-forest sweeps;
+5. move the main repository execution focus toward TwinCAT deployment
+   evaluation and `Wave 2` temporal-model planning.
+
+## Recommended LAN-Remote Follow-Up Tests
+
+The stronger LAN workstation is now worth using, but only for experiments where
+the extra compute budget has a plausible path to changing the family ranking.
+
+### High-Value Follow-Ups
+
+1. residual-harmonic family expansion:
+   test a narrow deeper-and-longer residual campaign because this is still the
+   strongest neural family and is already close enough to justify another
+   compute-aware search.
+2. feedforward family densification:
+   test one controlled follow-up around `te_feedforward_high_compute_remote`
+   with longer schedules, denser angular sampling, and modest width/depth
+   increases because the remote validation already proved that plain MLPs still
+   improve with more budget.
+3. narrow histogram-boosting refinement:
+   test one small tree-only follow-up around the existing histogram-boosting
+   leader because the remote deeper run landed very close to the current global
+   best and may still have a small remaining tuning margin.
+
+### Low-Value Follow-Ups
+
+The following directions currently look weak relative to their cost:
+
+- broad random-forest sweeps, because the family remains slower, heavier, and
+  weaker than histogram boosting even on the stronger workstation;
+- broad periodic-MLP expansion before the stronger residual or refreshed
+  feedforward branches are revisited;
+- harmonic-regression expansion for pure accuracy chasing, because its role is
+  still interpretability rather than leaderboard competition.
 
 ## Artifact References
 
@@ -380,6 +449,8 @@ The most defensible next steps are:
   `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 - Residual-family final report:
   `doc/reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
+- Remote validation campaign final report:
+  `doc/reports/campaign_results/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
 - Family registries:
   `output/registries/families/`
 - Program registry:

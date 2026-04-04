@@ -41,6 +41,12 @@ the best overall solution is currently a compact tabular model, while the best
 neural direction is a structured-plus-residual architecture that preserves more
 deployment relevance and interpretability than a purely opaque network.
 
+The later LAN-remote validation campaign did, however, improve one important
+family-local benchmark:
+
+- `te_feedforward_high_compute_remote` is now the best `feedforward` family
+  run with validation MAE `0.003059 deg` and test MAE `0.003274 deg`.
+
 ## Project Goal And Framing
 
 The repository studies machine-learning workflows for transmission error
@@ -65,7 +71,7 @@ The current implemented surface can be summarized as follows.
 | Area | Current State | Why It Matters |
 | --- | --- | --- |
 | Dataset handling | Validated TE dataset processing and point-wise training workflow are in place. | Keeps experiments aligned with the real test-rig data structure. |
-| Training infrastructure | Shared training, smoke-test, and validation paths exist under `scripts/training/`. | New families can be added without rebuilding the workflow from scratch. |
+| Training infrastructure | Shared training, smoke-test, validation, and LAN-remote campaign execution paths exist under `scripts/training/` and `scripts/campaigns/`. | New families can be added without rebuilding the workflow from scratch, and heavier runs can be delegated to the stronger workstation. |
 | Implemented model families | `feedforward`, `harmonic_regression`, `periodic_mlp`, `residual_harmonic_mlp`, and `tree`. | The repository now compares multiple practical baselines instead of one architecture. |
 | Experiment tracking | Output roots, campaign folders, family registries, and a program-level best registry are active. | Best-result selection is explicit and inspectable. |
 | Reporting | Styled analytical PDFs and campaign-results PDFs can be exported and validated. | Results can be reviewed and shared in a disciplined format. |
@@ -225,7 +231,7 @@ The repository's progression is intentional rather than accidental.
 | --- | --- | ---: | ---: | --- |
 | `tree` | `te_hist_gbr_tabular` | 0.002719 | 0.002885 | Current program leader |
 | `residual_harmonic_mlp` | `te_residual_h12_deep_joint_wave1` | 0.003024 | 0.003152 | Strongest neural challenger |
-| `feedforward` | `te_feedforward_stride5_long_large_batch` | 0.003109 | 0.003301 | Canonical historical MLP baseline |
+| `feedforward` | `te_feedforward_high_compute_remote` | 0.003059 | 0.003274 | Current feedforward family best from the validated LAN-remote campaign |
 | `periodic_mlp` | `te_periodic_mlp_h04_standard` | 0.003097 | 0.003317 | Competitive hybrid baseline |
 | `harmonic_regression` | `te_harmonic_order12_linear_conditioned_recovery` | 0.017004 | 0.020782 | Structured reference, not performance leader |
 
@@ -235,6 +241,7 @@ The repository's progression is intentional rather than accidental.
 | --- | --- | --- |
 | Wave 1 recovery campaign | Recover failed harmonic, residual, and random-forest branches. | Completed successfully and restored missing comparisons. |
 | Wave 1 residual-harmonic family campaign | Familywise search inside the residual-harmonic family. | Completed successfully and promoted a stronger residual family anchor. |
+| Remote LAN validation campaign | Validate the SSH-backed remote campaign path while probing heavier tree and feedforward runs. | Completed successfully, validated the remote workflow, and promoted a stronger `feedforward` family best without displacing the global tree leader. |
 
 ### Most Important Numerical Conclusion
 
@@ -243,6 +250,8 @@ The most important current model-selection conclusion is:
 - tree-based tabular learning is still the strongest overall empirical
   solution;
 - residual-harmonic modeling is the strongest current neural direction;
+- the validated LAN path improves the plain `feedforward` family enough to keep
+  it useful as a stronger baseline anchor;
 - harmonic regression remains valuable mainly as an interpretable structured
   reference rather than a metric leader.
 
@@ -281,7 +290,18 @@ architecturally more attractive.
 The residual-harmonic family has earned its role as the strongest current
 structured-neural direction and should remain the main neural comparison anchor.
 
-### 3. Open The Deployment Evaluation Branch Carefully
+### 3. Use The LAN Workstation Selectively
+
+The stronger LAN workstation is now worth using for targeted campaigns where
+the heavier compute budget can plausibly change the family-level picture:
+
+- larger or longer `feedforward` sweeps;
+- residual-harmonic family extensions with deeper or denser variants;
+- narrow `hist_gradient_boosting` follow-ups.
+
+The remote evidence does not currently justify broad random-forest expansion.
+
+### 4. Open The Deployment Evaluation Branch Carefully
 
 TwinCAT and PLC-oriented export feasibility is now a natural next step because
 the repository has:
@@ -306,6 +326,8 @@ The main open issues are:
 
 - the global best solution is still a tree model, so the main neural line has
   not yet won the accuracy race;
+- the stronger remote workstation did not make random forest attractive enough
+  to justify it as a leading family;
 - temporal families are approved but not yet implemented;
 - the TwinCAT deployment branch is framed but not yet executed as a real model
   export comparison;
