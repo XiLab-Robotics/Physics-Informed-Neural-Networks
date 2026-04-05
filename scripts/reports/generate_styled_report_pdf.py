@@ -52,6 +52,8 @@ WAVE1_RESIDUAL_FAMILY_DENSE_REGIME_TABLE_CLASS_NAME = "report-table report-table
 WAVE1_RESIDUAL_FAMILY_TRAINING_MODE_TABLE_CLASS_NAME = "report-table report-table-wave1-residual-family-training-mode"
 REMOTE_TRAINING_VALIDATION_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-remote-training-validation-completed"
 REMOTE_TRAINING_VALIDATION_FAILED_TABLE_CLASS_NAME = "report-table report-table-remote-training-validation-failed"
+TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-targeted-remote-followup-completed"
+TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME = "report-table report-table-targeted-remote-followup-family-bests"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -151,6 +153,10 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-03-22-35-07_remote_training_validation_campaign_results_report": {
         "campaign-winner",
         "recommended-next-actions",
+    },
+    "2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report": {
+        "main-conclusions",
+        "artifact-references",
     },
 }
 
@@ -654,7 +660,9 @@ REPORT_STYLESHEET = """
     .report-table-wave1-residual-family-training-mode th:nth-child(4), .report-table-wave1-residual-family-training-mode td:nth-child(4) { width: 17%; }
 
     .report-table-remote-training-validation-completed,
-    .report-table-remote-training-validation-failed {
+    .report-table-remote-training-validation-failed,
+    .report-table-targeted-remote-followup-completed,
+    .report-table-targeted-remote-followup-family-bests {
       font-size: 6.95pt;
       line-height: 1.18;
     }
@@ -662,12 +670,18 @@ REPORT_STYLESHEET = """
     .report-table-remote-training-validation-completed th,
     .report-table-remote-training-validation-completed td,
     .report-table-remote-training-validation-failed th,
-    .report-table-remote-training-validation-failed td {
+    .report-table-remote-training-validation-failed td,
+    .report-table-targeted-remote-followup-completed th,
+    .report-table-targeted-remote-followup-completed td,
+    .report-table-targeted-remote-followup-family-bests th,
+    .report-table-targeted-remote-followup-family-bests td {
       padding: 4px 4px;
     }
 
     .report-table-remote-training-validation-completed th,
-    .report-table-remote-training-validation-failed th {
+    .report-table-remote-training-validation-failed th,
+    .report-table-targeted-remote-followup-completed th,
+    .report-table-targeted-remote-followup-family-bests th {
       white-space: normal;
       overflow-wrap: normal;
       word-break: normal;
@@ -687,6 +701,24 @@ REPORT_STYLESHEET = """
     .report-table-remote-training-validation-failed th:nth-child(2), .report-table-remote-training-validation-failed td:nth-child(2) { width: 9%; }
     .report-table-remote-training-validation-failed th:nth-child(3), .report-table-remote-training-validation-failed td:nth-child(3) { width: 9%; }
     .report-table-remote-training-validation-failed th:nth-child(4), .report-table-remote-training-validation-failed td:nth-child(4) { width: 47%; }
+
+    .report-table-targeted-remote-followup-completed th:nth-child(1), .report-table-targeted-remote-followup-completed td:nth-child(1) { width: 5%; }
+    .report-table-targeted-remote-followup-completed th:nth-child(2), .report-table-targeted-remote-followup-completed td:nth-child(2) { width: 37%; }
+    .report-table-targeted-remote-followup-completed th:nth-child(3), .report-table-targeted-remote-followup-completed td:nth-child(3) { width: 13%; }
+    .report-table-targeted-remote-followup-completed th:nth-child(4), .report-table-targeted-remote-followup-completed td:nth-child(4) { width: 9%; }
+    .report-table-targeted-remote-followup-completed th:nth-child(5), .report-table-targeted-remote-followup-completed td:nth-child(5) { width: 11%; }
+    .report-table-targeted-remote-followup-completed th:nth-child(6), .report-table-targeted-remote-followup-completed td:nth-child(6) { width: 12%; }
+    .report-table-targeted-remote-followup-completed th:nth-child(7), .report-table-targeted-remote-followup-completed td:nth-child(7) { width: 13%; }
+
+    .report-table-targeted-remote-followup-family-bests th:nth-child(1), .report-table-targeted-remote-followup-family-bests td:nth-child(1) { width: 22%; }
+    .report-table-targeted-remote-followup-family-bests th:nth-child(2), .report-table-targeted-remote-followup-family-bests td:nth-child(2) { width: 48%; }
+    .report-table-targeted-remote-followup-family-bests th:nth-child(3), .report-table-targeted-remote-followup-family-bests td:nth-child(3) { width: 10%; }
+    .report-table-targeted-remote-followup-family-bests th:nth-child(4), .report-table-targeted-remote-followup-family-bests td:nth-child(4) { width: 20%; }
+
+    .report-table-targeted-remote-followup-completed .metric-unit,
+    .report-table-targeted-remote-followup-family-bests .metric-unit {
+      display: block;
+    }
 
     .report-table code {
       background: rgba(173, 213, 247, 0.18);
@@ -1144,7 +1176,24 @@ def collect_table_lines(markdown_lines: Sequence[str], start_index: int) -> tupl
 
     return table_lines, current_index
 
-def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[str]) -> str:
+def normalize_report_specific_header_cell(header_cell: str, table_class_name: str) -> str:
+
+    """ Normalize Report-Specific Header Cell Content """
+
+    if table_class_name in {
+        TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME,
+        TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME,
+    }:
+        if header_cell == "Test MAE [deg]":
+            return "Test MAE<span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "Test RMSE [deg]":
+            return "Test RMSE<span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "Val MAE [deg]":
+            return "Val MAE<span class=\"metric-unit\">[deg]</span>"
+
+    return convert_inline_markup(header_cell)
+
+def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[str], table_class_name: str = GENERIC_TABLE_CLASS_NAME) -> str:
 
     """ Render Table Header Cells """
 
@@ -1154,7 +1203,8 @@ def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[
 
         # Resolve Header Alignment
         alignment_class = alignments[header_index] if header_index < len(alignments) else ALIGN_LEFT
-        header_html_tokens.append(f'<th class="{alignment_class}">{convert_inline_markup(header_cell)}</th>')
+        normalized_header_cell = normalize_report_specific_header_cell(header_cell, table_class_name)
+        header_html_tokens.append(f'<th class="{alignment_class}">{normalized_header_cell}</th>')
 
     return "".join(header_html_tokens)
 
@@ -1215,7 +1265,7 @@ def render_standard_table(
     """ Render Standard Table """
 
     # Render Table Sections
-    header_html = render_table_header_cells(header_cells, alignments)
+    header_html = render_table_header_cells(header_cells, alignments, table_class_name)
     body_html = render_table_body_rows(body_rows, alignments)
 
     return (
@@ -1241,7 +1291,7 @@ def render_split_configuration_table(
     """ Render Split Configuration Table """
 
     # Render Selected Table Sections
-    header_html = render_table_header_cells(header_cells, alignments)
+    header_html = render_table_header_cells(header_cells, alignments, table_class_name)
     body_html = render_split_table_body_rows(body_rows, alignments, selected_indexes)
 
     return (
@@ -1414,6 +1464,23 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Config", "Family", "Runtime", "Outcome")
         ):
             return REMOTE_TRAINING_VALIDATION_FAILED_TABLE_CLASS_NAME
+
+    # Resolve Targeted Remote Follow-Up Table Profiles
+    if report_stem == "2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Rank", "Config", "Family", "Runtime", "Test MAE [deg]", "Test RMSE [deg]", "Val MAE [deg]")
+        ):
+            return TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "family-registry-impact"
+            and current_subsection_slug == "updated-family-bests"
+            and normalized_header_cells == ("Family", "Best Run After This Campaign", "Test MAE [deg]", "Status")
+        ):
+            return TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
@@ -1649,7 +1716,6 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                 current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS
                 or current_section_slug in report_specific_forced_page_break_section_slugs
             ):
-                section_class_names.append("section-keep-together")
                 section_class_names.append("section-force-page-break")
 
             document_html_tokens.append(

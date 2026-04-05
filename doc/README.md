@@ -58,6 +58,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-04
 
+- [technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md)
+- [technical/2026-04/2026-04-04/2026-04-04-22-24-40_targeted_remote_followup_results_pdf_layout_rebalance_and_page_break_fix.md](./technical/2026-04/2026-04-04/2026-04-04-22-24-40_targeted_remote_followup_results_pdf_layout_rebalance_and_page_break_fix.md)
+- [technical/2026-04/2026-04-04/2026-04-04-22-29-19_targeted_remote_followup_completed_runs_family_column_final_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-29-19_targeted_remote_followup_completed_runs_family_column_final_refinement.md)
+- [technical/2026-04/2026-04-04/2026-04-04-22-34-46_targeted_remote_followup_completed_runs_family_width_final_micro_adjustment.md](./technical/2026-04/2026-04-04/2026-04-04-22-34-46_targeted_remote_followup_completed_runs_family_width_final_micro_adjustment.md)
+  Technical document for refining the styled PDF layout of the targeted remote follow-up campaign results report, including table rebalancing and forced clean page starts for the final conclusions and artifact-reference sections.
 - [technical/2026-04/2026-04-04/2026-04-04-22-07-17_large_tree_model_exportability_constraint.md](./technical/2026-04/2026-04-04/2026-04-04-22-07-17_large_tree_model_exportability_constraint.md)
   Technical document for recording that the oversized ~`91 GB` tree-model artifact class is excluded from future deployment/export candidate sets and should not be promoted into the TwinCAT-oriented export branch.
 - [technical/2026-04/2026-04-04/2026-04-04-21-35-44_docs_requirements_location_alignment.md](./technical/2026-04/2026-04-04/2026-04-04-21-35-44_docs_requirements_location_alignment.md)
