@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a repository bug, regression, or broken workflow.
+title: "[bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the bug in one short paragraph.
+      placeholder: What failed, where, and why it matters.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: List the exact command, workflow, or steps that trigger the issue.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe the expected result.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or evidence
+      description: Paste the relevant error, warning, or screenshot references.
+      render: shell
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Affected scope
+      description: List the files, workflows, or environments involved.
+      placeholder: scripts/..., doc/..., GitHub Pages, remote LAN training, etc.

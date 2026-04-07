@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - standard-ml-codex
+  pull_request:
+    branches:
+      - standard-ml-codex
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set Up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install Documentation Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch>=2.10,<3.0"
+          python -m pip install -r site/requirements-docs.txt
+
+      - name: Check Markdown Structure
+        run: |
+          python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning README.md AGENTS.md doc site
+
+      - name: Run Markdownlint
+        run: |
+          npx --yes markdownlint-cli2 --config .markdownlint-cli2.jsonc README.md AGENTS.md doc site
+
+      - name: Syntax-Check Repository Scripts
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import py_compile
+
+          excluded_parts = {".git", ".temp", ".tools", ".vs", "isolated", "output", "__pycache__", "_build"}
+
+          for script_path in sorted(Path("scripts").rglob("*.py")):
+              if any(part in excluded_parts for part in script_path.parts):
+                  continue
+              py_compile.compile(str(script_path), doraise=True)
+              print(script_path.as_posix())
+          PY
+
+      - name: Build Sphinx Portal
+        run: |
+          python -m sphinx -W -b html site site/_build/html

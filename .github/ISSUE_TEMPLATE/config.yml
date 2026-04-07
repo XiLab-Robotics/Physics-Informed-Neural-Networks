@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Public Sphinx Portal
+    url: https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/
+    about: Browse the live repository documentation before opening a docs-related issue.
+  - name: Project Usage Guide
+    url: https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/guide/project_usage_guide.html
+    about: Check the canonical usage guide for current workflows and commands.

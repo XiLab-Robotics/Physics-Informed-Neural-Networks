@@ -97,6 +97,8 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-04/2026-04-07/2026-04-07-12-47-33_github_pages_live_url_publication_registration.md](./technical/2026-04/2026-04-07/2026-04-07-12-47-33_github_pages_live_url_publication_registration.md)
   Technical document for registering the now-live GitHub Pages public URL of the repository Sphinx portal and updating the main repository entry points to surface that published documentation endpoint.
+- [technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md](./technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md)
+  Technical document for defining the first practical GitHub governance baseline for the public repository, including a separate CI workflow, review templates, ownership hints, Dependabot, and recommended GitHub-side ruleset settings.
 
 #### 2026-04-03
 
