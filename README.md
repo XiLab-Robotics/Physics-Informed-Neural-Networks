@@ -93,7 +93,7 @@ If you only want to get started, begin with:
 
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
 - [Documentation Index](./doc/README.md)
-- `GitHub Pages` Sphinx publication through `.github/workflows/publish-sphinx-pages.yml`
+- public Sphinx portal: `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
 - [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
 
 ## Quick Start
@@ -323,6 +323,10 @@ The repository-owned Sphinx portal under `site/` is now also prepared for
 publication through the GitHub Pages workflow in:
 
 - `.github/workflows/publish-sphinx-pages.yml`
+
+The live public portal is available at:
+
+- `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
 
 For the current TwinCAT/TestRig video-analysis stack, the key references are:
 

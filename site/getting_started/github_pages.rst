@@ -6,6 +6,10 @@ through the repository-owned GitHub Actions workflow:
 
 - ``.github/workflows/publish-sphinx-pages.yml``
 
+The live public documentation portal is now available at:
+
+- ``https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/``
+
 The workflow builds the documentation from the canonical ``site/`` tree and
 publishes the generated HTML from:
 

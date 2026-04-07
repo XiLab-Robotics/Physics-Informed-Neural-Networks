@@ -3,6 +3,10 @@ Physics-Informed Neural Networks Documentation
 
 This is the canonical repository documentation portal built on `Sphinx + RTD`.
 
+Live public URL:
+
+- `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
+
 The current scope now includes:
 
 - local build instructions and portal structure;

@@ -2209,6 +2209,10 @@ The repository-owned publication path is now GitHub Pages through:
 - `.github/workflows/publish-sphinx-pages.yml`
 - `site/requirements-docs.txt`
 
+The live public documentation portal is:
+
+- `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
+
 The GitHub Pages job intentionally uses a documentation-specific dependency set
 instead of the full `requirements.txt` training environment. This keeps the CI
 build light enough for hosted runners while preserving the local full
