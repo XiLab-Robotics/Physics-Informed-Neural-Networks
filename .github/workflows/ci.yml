@@ -1,4 +1,4 @@
-name: CI
+name: Repository Quality Checks
 
 on:
   push:
@@ -40,9 +40,44 @@ jobs:
         run: |
           python -B scripts/tooling/markdown/markdown_style_check.py --fail-on-warning README.md AGENTS.md doc site
 
-      - name: Run Markdownlint
+      - name: Run Markdownlint In Chunks
+        shell: bash
         run: |
-          npx --yes markdownlint-cli2 --config .markdownlint-cli2.jsonc README.md AGENTS.md doc site
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+
+          markdown_path_list = [
+              Path("README.md"),
+              Path("AGENTS.md"),
+              *sorted(path for path in Path("doc").rglob("*.md") if "_build" not in path.parts),
+              *sorted(path for path in Path("site").rglob("*.md") if "_build" not in path.parts),
+          ]
+
+          unique_markdown_path_list = []
+          seen_relative_path_set = set()
+
+          for markdown_path in markdown_path_list:
+              relative_markdown_path = markdown_path.as_posix()
+              if relative_markdown_path in seen_relative_path_set:
+                  continue
+              seen_relative_path_set.add(relative_markdown_path)
+              unique_markdown_path_list.append(relative_markdown_path)
+
+          chunk_size = 25
+          for chunk_start_index in range(0, len(unique_markdown_path_list), chunk_size):
+              chunk_path_list = unique_markdown_path_list[chunk_start_index:chunk_start_index + chunk_size]
+              markdownlint_command = [
+                  "npx",
+                  "--yes",
+                  "markdownlint-cli2",
+                  "--config",
+                  ".markdownlint-cli2.jsonc",
+                  *chunk_path_list,
+              ]
+              print("lint chunk:", chunk_path_list[0], "->", chunk_path_list[-1], f"({len(chunk_path_list)} files)")
+              subprocess.run(markdownlint_command, check=True)
+          PY
 
       - name: Syntax-Check Repository Scripts
         shell: bash

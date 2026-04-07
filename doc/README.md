@@ -99,6 +99,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for registering the now-live GitHub Pages public URL of the repository Sphinx portal and updating the main repository entry points to surface that published documentation endpoint.
 - [technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md](./technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md)
   Technical document for defining the first practical GitHub governance baseline for the public repository, including a separate CI workflow, review templates, ownership hints, Dependabot, and recommended GitHub-side ruleset settings.
+- [technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md](./technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md)
+  Technical document for renaming the new repository-quality workflow to a clearer GitHub-facing label and fixing the GitHub Actions Markdownlint out-of-memory failure by switching to chunked lint execution.
 
 #### 2026-04-03
 
