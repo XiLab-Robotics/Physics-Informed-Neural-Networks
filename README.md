@@ -93,7 +93,9 @@ If you only want to get started, begin with:
 
 - [Project Usage Guide](./doc/guide/project_usage_guide.md)
 - [Documentation Index](./doc/README.md)
-- public Sphinx portal: `https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/`
+- Public Documentation:
+
+  [https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/](https://xilab-robotics.github.io/Physics-Informed-Neural-Networks/)
 - [LAN AI Node Server Setup Guide](./doc/scripts/tooling/lan_ai/lan_ai_node_server.md)
 
 ## Quick Start
