@@ -2214,8 +2214,21 @@ instead of the full `requirements.txt` training environment. This keeps the CI
 build light enough for hosted runners while preserving the local full
 environment for real training, OCR, and video workflows.
 
+The workflow now also opts into the GitHub Actions Node.js 24 runtime for
+JavaScript-based actions, so the Pages pipeline is aligned with GitHub's
+current deprecation path for Node.js 20 actions.
+
 After the workflow is present in the default branch, configure the repository
 Pages source to use `GitHub Actions` if that setting is not already enabled.
+
+If the workflow `build` job succeeds but `deploy` is rejected with a message
+that `standard-ml-codex` is not allowed to deploy to `github-pages`, fix the
+GitHub environment rule:
+
+- open `Settings -> Environments -> github-pages`;
+- inspect the deployment-branch protection settings;
+- allow `standard-ml-codex`, or remove the stale restrictive branch filter;
+- rerun the workflow.
 
 ## Inference Status
 

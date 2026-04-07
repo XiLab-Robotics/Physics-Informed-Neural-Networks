@@ -18,5 +18,10 @@ workflow:
 - ``.github/workflows/publish-sphinx-pages.yml``
 - ``site/requirements-docs.txt``
 
+If the Pages build succeeds but deploy fails, inspect the GitHub-side
+``github-pages`` environment separately. A rejected deploy from
+``standard-ml-codex`` is an environment-permission issue, not a local Sphinx
+build issue.
+
 Keep the local warning-as-error build green before closing documentation-relevant
 repository work.
