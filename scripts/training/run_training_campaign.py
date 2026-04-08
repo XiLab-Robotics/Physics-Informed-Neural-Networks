@@ -22,6 +22,10 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Dataset Utilities
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
+
+# Import Report Utilities
+from scripts.reports.generate_training_results_master_summary import DEFAULT_OUTPUT_MARKDOWN_PATH, generate_training_results_master_summary
+
 from scripts.training import shared_training_infrastructure
 
 DEFAULT_QUEUE_ROOT = PROJECT_PATH / "config" / "training" / "queue"
@@ -1037,6 +1041,26 @@ def write_campaign_best_run_artifacts(campaign_output_directory: Path, campaign_
     # Update the Shared Training Infrastructure Program Registry with the Best Run Entry for This Campaign
     shared_training_infrastructure.update_program_registry(best_registry_entry)
 
+def refresh_training_results_master_summary() -> None:
+
+    """Refresh the canonical training-results master summary.
+
+    The summary refresh must not invalidate a completed campaign execution. When
+    the summary update fails, the campaign should still remain complete and the
+    failure should be surfaced as a warning.
+    """
+
+    try:
+
+        # Refresh Canonical Master Summary
+        summary_output_path = generate_training_results_master_summary(DEFAULT_OUTPUT_MARKDOWN_PATH)
+        print_success_message(f"Updated training results master summary | {format_path_for_report(summary_output_path)}")
+
+    except Exception as summary_error:
+
+        # Preserve Campaign Completion And Surface the Documentation Failure
+        print_warning_message(f"Training results master summary update failed | {summary_error}")
+
 def main() -> None:
 
     """ Main Function """
@@ -1146,6 +1170,7 @@ def main() -> None:
     # Final Campaign Summary
     completed_count = sum(training_run_result.queue_status == "completed" for training_run_result in training_run_result_list)
     failed_count = sum(training_run_result.queue_status == "failed" for training_run_result in training_run_result_list)
+    refresh_training_results_master_summary()
     print_success_message(f"Campaign finished | Completed: {completed_count} | Failed: {failed_count} | Report: {report_path}")
 
 if __name__ == "__main__":

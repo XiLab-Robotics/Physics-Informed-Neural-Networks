@@ -104,6 +104,11 @@
   - `output/registries/families/<model_family>/leaderboard.yaml`
   - `output/registries/families/<model_family>/latest_family_best.yaml`
   - `output/registries/program/current_best_solution.yaml`
+- Treat `doc/reports/analysis/Training Results Master Summary.md` as the
+  canonical colleague-facing training-program control report. Keep it
+  synchronized after every completed training campaign and after any task that
+  materially changes family-best registries, the program-best registry, active
+  family status, or roadmap status before the task is considered complete.
 - Best-result selection must remain explicit and inspectable. Serialize the ranking policy together with the winning entry instead of relying on manual folder inspection.
 - Every final campaign-results report must be delivered both as Markdown and as a PDF export, and the real exported PDF must be validated before the task is considered complete.
 - Treat `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the visual golden standard for future styled analytical PDFs in this repository.

@@ -99,6 +99,10 @@ The current usage flow mainly relies on these folders:
 - `scripts/reports/`
   Styled report-export utilities.
 
+- `scripts/reports/generate_training_results_master_summary.py`
+  Repository-owned generator for the canonical always-updated training-results
+  master summary.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
@@ -196,6 +200,10 @@ The current usage flow mainly relies on these folders:
 
 - `doc/reports/analysis/`
   Analysis reports grouped by purpose (`training_analysis/`, `analytical_studies/`, `family_studies/`).
+
+- `doc/reports/analysis/Training Results Master Summary.md`
+  Canonical project-level summary of current status, best family results,
+  recent campaign changes, and family-by-family ranked outcomes.
 
 - `doc/guide/<Model Name>/`
   Canonical model guides with integrated explanation, technical reference content, guide-local assets, and PDF companions.
@@ -1830,6 +1838,9 @@ This runner:
 - prints a compact campaign-progress summary before and after each run;
 - generates a campaign manifest and markdown execution report under `output/training_campaigns/`.
 - generates explicit `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and `campaign_best_run.md` files inside each campaign folder.
+- refreshes the canonical `Training Results Master Summary.md` after local
+  campaign completion so the global project snapshot stays aligned with the new
+  registries and training artifacts.
 
 ## Queue Layout
 
@@ -1958,6 +1969,11 @@ Tracking files written on the current workstation:
 - `doc/running/remote_training_campaign_status.json`
 - `doc/running/remote_training_campaign_checklist.md`
 - `.temp/remote_training_campaigns/`
+
+After the remote artifacts are synchronized back locally, the launcher should
+also refresh:
+
+- `doc/reports/analysis/Training Results Master Summary.md`
 
 Use the paired launcher note for the exact sync contract and operational
 details:

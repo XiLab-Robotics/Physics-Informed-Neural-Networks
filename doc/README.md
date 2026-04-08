@@ -41,6 +41,8 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
+  Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
 - [reports/analysis/Wave 1 - Closeout Status.md](./reports/analysis/Wave%201%20-%20Closeout%20Status.md)
   Consolidated closeout report for `Wave 1`, covering campaign completion status, compared families, family winners, and final ranking.
 - [reports/analysis/Skill and Subagent Operational Test.md](./reports/analysis/Skill%20and%20Subagent%20Operational%20Test.md)
@@ -104,6 +106,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-08
 
+- [technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md](./technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md)
+  Technical document for promoting the canonical training-results master summary into a mandatory maintained project-control report that must stay synchronized after campaigns and result-registry updates.
+- [technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md](./technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md)
+  Technical document for creating a canonical always-updated master summary of implemented model families, roadmap state, best results, and family-by-family training outcomes for colleague-facing project control.
 - [technical/2026-04/2026-04-08/2026-04-08-16-11-02_post_wave_twincat_deployment_branch_deferral.md](./technical/2026-04/2026-04-08/2026-04-08-16-11-02_post_wave_twincat_deployment_branch_deferral.md)
   Technical document for deferring the TwinCAT deployment-evaluation branch until after the next modeling wave is implemented and reviewed, while keeping the branch available for later re-prioritization.
 - [technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md](./technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md)

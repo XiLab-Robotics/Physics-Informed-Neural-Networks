@@ -518,5 +518,21 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-RunState -RunStatus "completed" -Stage "completed" -LocalLogPath $runLogPath -RemoteCampaignOutputDirectory $remoteCampaignOutputDirectory -RemoteManifestPath $remoteManifestPath -SyncedPathList $artifactSyncPathList
+
+try {
+
+    # Refresh Local Master Summary After Remote Artifact Sync
+    Write-StatusLine "STEP" "Refreshing local training results master summary"
+    & python -B ".\scripts\reports\generate_training_results_master_summary.py"
+    if ($LASTEXITCODE -ne 0) {
+        Write-StatusLine "WARN" "Local training results master summary refresh returned a non-zero exit code"
+    }
+
+} catch {
+
+    # Preserve Campaign Completion And Surface the Summary Failure
+    Write-StatusLine "WARN" "Local training results master summary refresh failed | $($_.Exception.Message)"
+}
+
 Write-StatusLine "DONE" "Remote training campaign completed and artifacts synchronized"
 exit 0
