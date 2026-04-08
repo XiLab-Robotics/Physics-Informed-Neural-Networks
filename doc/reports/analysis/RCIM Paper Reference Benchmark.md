@@ -253,6 +253,9 @@ training results, but not yet a true reproduction of the paper benchmark.
 These four items belong to the immediate repository branch because they create
 the stable offline baseline that the online branch will later depend on.
 
+This immediate branch should now be read as an explicit intermediate stage
+between completed `Wave 1` and the later `Wave 2` temporal-model work.
+
 ### Implement Later
 
 - online compensation loop execution in the future TestRig / online branch
@@ -262,6 +265,10 @@ the stable offline baseline that the online branch will later depend on.
 These items should be treated as the follow-up online branch, not as the first
 implementation step, because they only become trustworthy once the offline
 harmonic prediction and reconstruction stack is already stable.
+
+The future `Wave 2` temporal-model branch also stays in the roadmap, but it is
+no longer the immediate next branch. It should open only after the
+harmonic-wise comparison framework is implemented and reviewed.
 
 ## Sources
 

@@ -82,9 +82,9 @@ Verification:
 ## In Progress
 
 - planning and implementation handoff from completed static structured
-  baselines toward `Wave 2` temporal-model work
-- post-`Wave 2` decision staging for the deferred TwinCAT deployment-evaluation
-  branch
+  baselines toward the intermediate paper-aligned harmonic-wise pipeline branch
+- post-harmonic-pipeline decision staging for the later `Wave 2` temporal-model
+  branch and the deferred TwinCAT deployment-evaluation branch
 
 ## Next Up
 
@@ -101,8 +101,10 @@ Current next step:
 - use `doc/reports/analysis/RCIM Paper Reference Benchmark.md` as the canonical
   paper-baseline reference while the repository still lacks online
   compensation validation
-- treat `Wave 2` as the immediate execution branch before any new TwinCAT
-  deployment-evaluation work is activated
+- treat the paper-aligned harmonic-wise pipeline as the immediate execution
+  branch before opening `Wave 2` temporal models
+- keep `Wave 2` temporal models planned, but only after the harmonic-wise
+  comparison framework is implemented and reviewed
 
 ### Paper Alignment Targets
 
@@ -149,13 +151,16 @@ Priority note:
 
 - treat `Pipelines 1-4` as the immediate repository branch because they build
   the stable offline baseline required before any online compensation work
+- treat this immediate branch as an explicit intermediate stage between
+  completed `Wave 1` and the future `Wave 2` temporal-model branch
 - treat `Pipelines 5-7` as follow-up work that belongs to the future TestRig /
   online integration branch after the offline baseline is implemented and
   reviewed
 
 ### Deferred Post-Wave TwinCAT Deployment Evaluation
 
-Planned execution order after the next wave is implemented and reviewed:
+Planned execution order after the harmonic-wise branch and the later next wave
+are implemented and reviewed:
 
 - formalize a dedicated `TwinCAT deployment evaluation` execution branch in the
   operational workstream
@@ -188,7 +193,8 @@ Planned execution order after the next wave is implemented and reviewed:
 
 Entry conditions:
 
-- the next wave has been implemented and reviewed;
+- the harmonic-wise intermediate branch has been implemented and reviewed;
+- and the later next wave has then been implemented and reviewed;
 - and the user then explicitly decides whether the TwinCAT branch should be
   activated immediately or deferred again;
 - or the user explicitly approves isolated parallel preparation before full
@@ -240,8 +246,14 @@ Entry rule:
 
 ### Wave 2. Temporal Models
 
-- next primary implementation wave
-- paper-reproduction scope:
+- planned after the harmonic-wise intermediate branch
+- temporal-model scope will start only after the harmonic-wise comparison
+  framework is stable and reviewed
+
+### Intermediate Branch. Harmonic-Wise Comparison Pipeline
+
+- next primary implementation branch
+- focused scope:
   - implement harmonic-wise prediction of `A_k` and `phi_k`
   - implement TE reconstruction from the predicted harmonic terms
   - add offline `Robot` and `Cycloidal` motion-profile playback
