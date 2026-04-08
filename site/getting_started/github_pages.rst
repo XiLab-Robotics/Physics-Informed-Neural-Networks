@@ -40,8 +40,8 @@ If the repository Pages settings are not already configured, set the source to
 ``GitHub Actions`` after the workflow is available on the default branch.
 
 The canonical active branch is ``main``. Historical branches such as
-``base``, ``standard-ml``, and ``codex-agent-pinns`` should remain outside the
-active Pages publication path.
+``base``, ``test-manual-ml``, and ``test-codex-agent-pinns`` should remain
+outside the active Pages publication path.
 
 If deployment still fails after a successful build with an error stating that
 ``main`` is not allowed to deploy to ``github-pages``, the

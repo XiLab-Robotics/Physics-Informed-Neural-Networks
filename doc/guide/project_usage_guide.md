@@ -2230,8 +2230,8 @@ The remaining historical branches are retained only for provenance or old test
 context:
 
 - `base` -> legacy historical branch
-- `standard-ml` -> legacy historical branch
-- `codex-agent-pinns` -> legacy experimental/test branch
+- `test-manual-ml` -> legacy historical branch
+- `test-codex-agent-pinns` -> legacy experimental/test branch
 
 After the workflow is present in the default branch, configure the repository
 Pages source to use `GitHub Actions` if that setting is not already enabled.
