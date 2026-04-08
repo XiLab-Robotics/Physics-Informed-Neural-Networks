@@ -108,6 +108,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for refactoring the repository branch topology around a new canonical `main` branch, retiring `standard-ml-codex`, and defining the legacy/test handling of the remaining historical branches plus the required GitHub ruleset and Pages follow-up.
 - [technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md](./technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md)
   Technical document for the narrow post-migration cleanup that removes stale pre-rename branch references from the active workflows and current-facing documentation after the repository has already moved to `main`.
+- [technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md](./technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md)
+  Technical document for the final read-only audit of the completed GitHub branch migration, focused on local tracking, remote branch topology, workflow triggers, and current-facing repository references.
 
 #### 2026-04-03
 
