@@ -241,6 +241,28 @@ The exact missing pipeline is:
 Until those six pieces exist, the repository results remain strong offline
 training results, but not yet a true reproduction of the paper benchmark.
 
+## Implementation Priority
+
+### Implement Now
+
+- harmonic-wise prediction of `A_k` and `phi_k`
+- TE reconstruction from the predicted harmonic terms
+- offline motion-profile playback for `Robot` and `Cycloidal` style profiles
+- paper-comparable offline validation protocol to close `Target A`
+
+These four items belong to the immediate repository branch because they create
+the stable offline baseline that the online branch will later depend on.
+
+### Implement Later
+
+- online compensation loop execution in the future TestRig / online branch
+- uncompensated vs compensated `TE RMS` and `TE max` measurement
+- final `Table 9` style benchmark report to close `Target B`
+
+These items should be treated as the follow-up online branch, not as the first
+implementation step, because they only become trustworthy once the offline
+harmonic prediction and reconstruction stack is already stable.
+
 ## Sources
 
 - `reference/RCIM_ML-compensation.pdf`

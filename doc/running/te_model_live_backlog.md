@@ -123,6 +123,36 @@ Current next step:
 - until `Target B` is executed, present all paper comparisons as `offline-only`
   rather than end-to-end equivalent
 
+### Paper Pipeline Breakdown
+
+Implement now:
+
+- `Pipeline 1`: harmonic-wise prediction of paper-style `A_k` and `phi_k`
+  terms for the selected harmonics across operating conditions
+- `Pipeline 2`: TE reconstruction from the predicted harmonic terms so the
+  repository can evaluate reconstructed TE curves instead of only direct
+  end-to-end regressors
+- `Pipeline 3`: offline motion-profile playback for `Robot` and `Cycloidal`
+  style profiles using the reconstructed TE path
+- `Pipeline 4`: paper-comparable offline validation protocol that reports
+  TE-curve percentage-error metrics and closes `Target A`
+
+Implement later in the deferred TestRig / online branch:
+
+- `Pipeline 5`: online compensation loop applied during real motion execution
+  inside the future TestRig/TwinCAT integration path
+- `Pipeline 6`: uncompensated vs compensated `TE RMS` and `TE max`
+  measurement path for the online compensation experiments
+- `Pipeline 7`: final `Table 9` style benchmark report that closes `Target B`
+
+Priority note:
+
+- treat `Pipelines 1-4` as the immediate repository branch because they build
+  the stable offline baseline required before any online compensation work
+- treat `Pipelines 5-7` as follow-up work that belongs to the future TestRig /
+  online integration branch after the offline baseline is implemented and
+  reviewed
+
 ### Deferred Post-Wave TwinCAT Deployment Evaluation
 
 Planned execution order after the next wave is implemented and reviewed:
@@ -146,6 +176,10 @@ Planned execution order after the next wave is implemented and reviewed:
   - artifact workflow complexity
   - runtime behavior and timing suitability
   - maintainability and engineering cost
+- include the later online-compensation execution branch for:
+  - repository-owned compensation-loop execution
+  - uncompensated vs compensated `TE RMS` / `TE max` measurements
+  - final `Table 9` style paper benchmark closure
 - exclude the oversized random-forest artifact class already observed at
   roughly `91 GB` from future export attempts, unless a later explicitly
   lighter tree variant is produced and re-evaluated as a separate candidate
@@ -208,7 +242,9 @@ Entry rule:
 
 - next primary implementation wave
 - paper-reproduction scope:
-  - implement a paper-comparable harmonic-component prediction pipeline
+  - implement harmonic-wise prediction of `A_k` and `phi_k`
+  - implement TE reconstruction from the predicted harmonic terms
+  - add offline `Robot` and `Cycloidal` motion-profile playback
   - define comparable offline validation scenarios and TE-curve error metrics
   - close `Target A`
 
@@ -216,7 +252,6 @@ Entry rule:
 
 - pending
 - paper-reproduction scope:
-  - implement harmonic-wise TE reconstruction from predicted amplitude and phase
   - compare hybrid structured predictors against the paper-style harmonic stack
   - prepare the repository-owned deployable predictor package
 
@@ -224,9 +259,9 @@ Entry rule:
 
 - pending
 - paper-reproduction scope:
-  - add motion-profile reproduction tooling for `Robot` and `Cycloidal` style
-    evaluation
-  - implement the repository-side compensation-loop evaluation path
+  - implement the repository-side compensation-loop evaluation path in the
+    future TestRig / online branch
+  - implement uncompensated vs compensated `TE RMS` / `TE max` measurements
   - prepare the final online benchmark harness
 
 ### Wave 5. Cross-Wave Comparison And Best Solution

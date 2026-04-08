@@ -108,6 +108,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-08
 
+- [technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md](./technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md)
+  Technical document for decomposing the remaining paper-aligned implementation gap into six concrete pipeline stages and prioritizing which stages should land immediately versus later in the backlog.
 - [technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md](./technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md)
   Technical document for turning the RCIM ML-compensation paper into a canonical repository benchmark package, adding explicit paper-vs-repository tracking, and recording the missing pipelines required for a true Table 9 comparison.
 - [technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md](./technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md)
