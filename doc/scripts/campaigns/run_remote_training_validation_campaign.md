@@ -121,15 +121,23 @@ Get-Content .\doc\running\active_training_campaign.yaml
 
 ## Launch Command
 
-If the two local environment variables are set, launch from the repository
-root with:
+This campaign follows the repository operator-handoff model:
+
+1. Codex prepares the campaign package and this dedicated launcher.
+2. Codex provides one of the commands below.
+3. The user launches the command locally.
+4. The user later reports start and completion back through the normal campaign
+   workflow.
+
+If the two local environment variables are set, the recommended operator
+command from the repository root is:
 
 ```powershell
 .\scripts\campaigns\run_remote_training_validation_campaign.ps1
 ```
 
-If you prefer not to persist the local environment variables yet, use the
-explicit command:
+If you prefer not to persist the local environment variables yet, use this
+explicit operator command:
 
 ```powershell
 .\scripts\campaigns\run_remote_training_validation_campaign.ps1 `

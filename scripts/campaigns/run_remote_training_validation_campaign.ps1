@@ -29,7 +29,7 @@ $sourceSyncPathList = @(
     "requirements.txt"
 )
 
-# Launch Remote Campaign Through The Canonical Sync Wrapper
+# Launch Operator-Triggered Remote Campaign Through The Canonical Sync Wrapper
 & ".\scripts\campaigns\run_remote_training_campaign.ps1" `
     -CampaignConfigPathList $campaignConfigPathList `
     -CampaignName $campaignName `

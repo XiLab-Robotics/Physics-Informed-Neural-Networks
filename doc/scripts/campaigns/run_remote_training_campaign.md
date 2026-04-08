@@ -13,6 +13,22 @@ It mirrors the repository pattern already used for the LAN AI node:
 - the workflow remains explicit and terminal-driven instead of turning into an
   undocumented manual SSH routine.
 
+## Operator Handoff Model
+
+This launcher should now be used with the same operator handoff model already
+used for local campaigns:
+
+1. Codex prepares the approved remote campaign package.
+2. Codex provides the dedicated PowerShell launcher and the exact terminal
+   command to run from the repository root.
+3. The user launches that command manually from a local terminal.
+4. The user later reports when the campaign has started and when it has
+   finished.
+
+This means the prepared remote campaign is still repository-owned and fully
+scripted, but the live terminal session belongs to the operator rather than to
+Codex holding the chat open during execution.
+
 ## Main Role
 
 The launcher:
@@ -66,6 +82,14 @@ Generic usage from the repository root:
 
 If the remote repository path and Conda environment are stored in environment
 variables, the launcher can stay short.
+
+For prepared remote campaigns, the exact command that should be handed to the
+operator should also be recorded in:
+
+- `doc/running/active_training_campaign.yaml`
+
+Use `launch_command_list` as the canonical handoff surface when the operator
+needs the exact command to paste into the terminal.
 
 ## Tracking Files
 

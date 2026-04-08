@@ -47,3 +47,11 @@ If the current workstation already stores
 `STANDARDML_REMOTE_TRAINING_REPO_PATH` and
 `STANDARDML_REMOTE_TRAINING_CONDA_ENV`, the launcher can be called without
 extra arguments.
+
+Operational rule:
+
+- treat this launcher as the command handed to the user after campaign
+  preparation;
+- the user starts it manually from the repository root;
+- the user later reports campaign start and completion through the persistent
+  campaign-state workflow.

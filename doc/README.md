@@ -104,6 +104,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-08
 
+- [technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md](./technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md)
+  Technical document for formalizing the LAN-remote training workflow so Codex prepares the launcher and exact terminal command, then waits for the user to start and finish the campaign instead of holding the live remote execution session open.
 - [technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md](./technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md)
   Technical document for refactoring the repository branch topology around a new canonical `main` branch, retiring `standard-ml-codex`, and defining the legacy/test handling of the remaining historical branches plus the required GitHub ruleset and Pages follow-up.
 - [technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md](./technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md)

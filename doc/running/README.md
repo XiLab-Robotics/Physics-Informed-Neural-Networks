@@ -22,6 +22,7 @@ Current policy:
 - `status: running` means the user explicitly confirmed that the campaign has started;
 - `status: completed` means the campaign finished and is ready for final reporting;
 - `status: cancelled` means the campaign stopped before full completion and needs a partial-results decision.
+- `launch_command_list` is the canonical operator handoff surface for prepared campaigns, including LAN-remote campaigns that are executed manually by the user from the terminal after Codex prepares the launcher bundle.
 
 Protected files listed in the state file must not be modified silently while the campaign is active.
 

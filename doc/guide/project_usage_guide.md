@@ -1894,6 +1894,16 @@ pattern:
 - the resulting campaign artifacts and registry updates are synchronized back
   into the local repository after the run.
 
+Operationally, prepared LAN-remote campaigns now follow the same handoff model
+used for local campaigns:
+
+- Codex prepares the YAML package, dedicated PowerShell launcher, and launcher
+  note;
+- Codex provides the exact launch command from the repository root;
+- the user runs that command manually in the terminal;
+- the user later reports when the campaign has started and when it has
+  finished.
+
 Current remote assumptions:
 
 - the remote workstation already has a synchronized clone of this repository;
@@ -1953,6 +1963,13 @@ Use the paired launcher note for the exact sync contract and operational
 details:
 
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
+
+For prepared campaigns, the exact handoff command should be copied from:
+
+- `doc/running/active_training_campaign.yaml`
+
+Use `launch_command_list` as the canonical source when the operator needs the
+exact short or explicit command to run.
 
 ### First Real Remote Validation Campaign
 
@@ -2139,6 +2156,7 @@ This state file stores:
 Operational rule:
 
 - approved campaign preparation must now include generated YAML files, the exact launch command, the dedicated PowerShell launcher, and the matching launcher usage note;
+- for LAN-remote campaigns, those launch commands are an operator handoff artifact: Codex prepares them, the user launches them manually, and the user later reports start and finish;
 - when the user confirms that the campaign has started, the campaign state should be updated to `running`;
 - while the campaign is prepared or running, any edit to a protected campaign file requires a `CRITICAL WARNING` and explicit user approval first;
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
