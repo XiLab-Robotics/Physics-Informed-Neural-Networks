@@ -58,7 +58,7 @@ PyTorch install before the first full mixed campaign.
 
 ```powershell
 Set-Location "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
-git checkout standard-ml-codex
+git checkout main
 ```
 
 3. Reuse the existing LAN node environment and make sure the repository

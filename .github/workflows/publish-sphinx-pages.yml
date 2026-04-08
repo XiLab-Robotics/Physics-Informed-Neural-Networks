@@ -3,6 +3,7 @@ name: Publish Sphinx Pages
 on:
   push:
     branches:
+      - main
       - standard-ml-codex
   workflow_dispatch:
 

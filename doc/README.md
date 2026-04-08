@@ -102,6 +102,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md](./technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md)
   Technical document for renaming the new repository-quality workflow to a clearer GitHub-facing label and fixing the GitHub Actions Markdownlint out-of-memory failure by switching to chunked lint execution.
 
+#### 2026-04-08
+
+- [technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md](./technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md)
+  Technical document for refactoring the repository branch topology around a new canonical `main` branch, retiring `standard-ml-codex`, and defining the legacy/test handling of the remaining historical branches plus the required GitHub ruleset and Pages follow-up.
+
 #### 2026-04-03
 
 - [technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md](./technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md)

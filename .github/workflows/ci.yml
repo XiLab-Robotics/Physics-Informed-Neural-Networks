@@ -3,9 +3,11 @@ name: Repository Quality Checks
 on:
   push:
     branches:
+      - main
       - standard-ml-codex
   pull_request:
     branches:
+      - main
       - standard-ml-codex
   workflow_dispatch:
 

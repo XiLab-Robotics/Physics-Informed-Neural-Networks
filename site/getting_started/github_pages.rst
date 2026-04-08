@@ -39,16 +39,24 @@ Repository rule:
 If the repository Pages settings are not already configured, set the source to
 ``GitHub Actions`` after the workflow is available on the default branch.
 
+The canonical active branch is ``main``. Historical branches such as
+``base``, ``standard-ml``, and ``codex-agent-pinns`` should remain outside the
+active Pages publication path.
+
 If deployment still fails after a successful build with an error stating that
-``standard-ml-codex`` is not allowed to deploy to ``github-pages``, the
+``main`` is not allowed to deploy to ``github-pages``, the
 remaining blocker is the GitHub environment configuration rather than the
 Sphinx build itself. In that case:
 
 - open ``Settings -> Environments -> github-pages``;
 - inspect the deployment-branch protection rule;
-- allow the ``standard-ml-codex`` branch to deploy, or remove the overly
-  restrictive branch filter;
+- allow the ``main`` branch to deploy, or remove the overly restrictive branch
+  filter;
 - rerun the Pages workflow after the environment rule is updated.
+
+If a repository ruleset is already active, retarget that ruleset to ``main``
+and keep ``Repository Quality Checks`` as the required status check on the
+active branch.
 
 The workflow also opts into Node.js 24 for JavaScript-based GitHub Actions so
 the repository stays aligned with GitHub's current Actions runtime transition.

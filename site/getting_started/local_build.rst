@@ -20,8 +20,11 @@ workflow:
 
 If the Pages build succeeds but deploy fails, inspect the GitHub-side
 ``github-pages`` environment separately. A rejected deploy from
-``standard-ml-codex`` is an environment-permission issue, not a local Sphinx
-build issue.
+``main`` is an environment-permission issue, not a local Sphinx build issue.
+
+The canonical active GitHub branch is now ``main``. Historical branches such as
+``base``, ``standard-ml``, and ``codex-agent-pinns`` are retained only as
+legacy branches and are not part of the active documentation publication path.
 
 Keep the local warning-as-error build green before closing documentation-relevant
 repository work.

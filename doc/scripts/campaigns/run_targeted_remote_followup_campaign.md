@@ -74,7 +74,7 @@ used recently:
 
 ```powershell
 Set-Location "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
-git checkout standard-ml-codex
+git checkout main
 conda run -n standard_ml_lan_node python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
 Test-Path ".\data\datasets"
 ```

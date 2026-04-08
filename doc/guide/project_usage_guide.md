@@ -1996,7 +1996,7 @@ Recommended one-time remote setup:
 
 ```powershell
 Set-Location "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
-git checkout standard-ml-codex
+git checkout main
 conda activate standard_ml_lan_node
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
@@ -2222,17 +2222,33 @@ The workflow now also opts into the GitHub Actions Node.js 24 runtime for
 JavaScript-based actions, so the Pages pipeline is aligned with GitHub's
 current deprecation path for Node.js 20 actions.
 
+The canonical active GitHub branch is now:
+
+- `main`
+
+The remaining historical branches are retained only for provenance or old test
+context:
+
+- `base` -> legacy historical branch
+- `standard-ml` -> legacy historical branch
+- `codex-agent-pinns` -> legacy experimental/test branch
+
 After the workflow is present in the default branch, configure the repository
 Pages source to use `GitHub Actions` if that setting is not already enabled.
 
 If the workflow `build` job succeeds but `deploy` is rejected with a message
-that `standard-ml-codex` is not allowed to deploy to `github-pages`, fix the
+that `main` is not allowed to deploy to `github-pages`, fix the
 GitHub environment rule:
 
 - open `Settings -> Environments -> github-pages`;
 - inspect the deployment-branch protection settings;
-- allow `standard-ml-codex`, or remove the stale restrictive branch filter;
+- allow `main`, or remove the stale restrictive branch filter;
 - rerun the workflow.
+
+If the repository ruleset is already active, move its protected target from the
+old canonical branch to `main`, keep `Repository Quality Checks` as the
+required status check, and leave the temporary admin bypass in place only while
+direct maintainer pushes are still intentionally allowed during development.
 
 ## Inference Status
 
