@@ -41,6 +41,8 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Paper Reference Benchmark.md](./reports/analysis/RCIM%20Paper%20Reference%20Benchmark.md)
+  Canonical repository-owned extraction of the RCIM ML-compensation paper baseline, including minimum targets, paper-vs-repository status, and the missing pipeline for a true Table 9 comparison.
 - [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
   Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
 - [reports/analysis/Wave 1 - Closeout Status.md](./reports/analysis/Wave%201%20-%20Closeout%20Status.md)
@@ -106,6 +108,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-08
 
+- [technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md](./technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md)
+  Technical document for turning the RCIM ML-compensation paper into a canonical repository benchmark package, adding explicit paper-vs-repository tracking, and recording the missing pipelines required for a true Table 9 comparison.
 - [technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md](./technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md)
   Technical document for promoting the canonical training-results master summary into a mandatory maintained project-control report that must stay synchronized after campaigns and result-registry updates.
 - [technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md](./technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md)

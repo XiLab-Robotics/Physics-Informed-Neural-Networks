@@ -98,8 +98,30 @@ Current next step:
   with practical PLC/TwinCAT memory budgets
 - use the consolidated `Wave 1` closeout report as the canonical summary when
   comparing future families against the current structured-baseline stage
+- use `doc/reports/analysis/RCIM Paper Reference Benchmark.md` as the canonical
+  paper-baseline reference while the repository still lacks online
+  compensation validation
 - treat `Wave 2` as the immediate execution branch before any new TwinCAT
   deployment-evaluation work is activated
+
+### Paper Alignment Targets
+
+- `Target A`: match or beat the paper on a comparable offline prediction
+  benchmark
+  - required validation path:
+    - reproduce a TE-curve validation protocol comparable to the paper
+    - report mean percentage error on unseen scenarios
+    - reach `<= 4.7%` mean percentage error
+- `Target B`: reproduce the online compensation benchmark
+  - required validation path:
+    - implement repository-owned online compensation tests
+    - run `Robot` and `Cycloidal` style motion-profile validation
+    - reach at least `83%` robot TE RMS reduction
+    - reach at least `90%` cycloidal TE RMS reduction
+    - report uncompensated and compensated TE RMS plus TE max in a Table 9
+      style comparison
+- until `Target B` is executed, present all paper comparisons as `offline-only`
+  rather than end-to-end equivalent
 
 ### Deferred Post-Wave TwinCAT Deployment Evaluation
 
@@ -185,18 +207,35 @@ Entry rule:
 ### Wave 2. Temporal Models
 
 - next primary implementation wave
+- paper-reproduction scope:
+  - implement a paper-comparable harmonic-component prediction pipeline
+  - define comparable offline validation scenarios and TE-curve error metrics
+  - close `Target A`
 
 ### Wave 3. Hybrid Structured Models
 
 - pending
+- paper-reproduction scope:
+  - implement harmonic-wise TE reconstruction from predicted amplitude and phase
+  - compare hybrid structured predictors against the paper-style harmonic stack
+  - prepare the repository-owned deployable predictor package
 
 ### Wave 4. PINN Formulation And First PINN
 
 - pending
+- paper-reproduction scope:
+  - add motion-profile reproduction tooling for `Robot` and `Cycloidal` style
+    evaluation
+  - implement the repository-side compensation-loop evaluation path
+  - prepare the final online benchmark harness
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
 - pending
+- paper-reproduction scope:
+  - execute Table 9 style online compensation tests
+  - evaluate `Target B`
+  - finalize the real `paper vs repository` comparison with online results
 
 ## Decision Notes
 
@@ -221,5 +260,6 @@ Entry rule:
   - a model family is promoted or deferred
   - a campaign is approved, started, completed, or cancelled
   - the current best candidate changes
+  - a paper-alignment target changes state
   - a TwinCAT deployment branch is promoted, deferred, or selected as the
     preferred deployment path

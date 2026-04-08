@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-08T16:40:36`
+- Generated At: `2026-04-08T17:18:51`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: `Wave 1` is now fully closed in campaign execution, reporting, and ranking; the next main focus is `Wave 2` planning and implementation, while the TwinCAT deployment-evaluation branch is deferred until after that wave is complete and reviewed
@@ -56,7 +56,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | next primary implementation wave |
+| Wave 2. Temporal Models | next primary implementation wave; paper-reproduction scope:; implement a paper-comparable harmonic-component prediction pipeline; define comparable offline validation scenarios and TE-curve error metrics; close `Target A` |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -65,7 +65,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | pending |
+| Wave 3. Hybrid Structured Models | pending; paper-reproduction scope:; implement harmonic-wise TE reconstruction from predicted amplitude and phase; compare hybrid structured predictors against the paper-style harmonic stack; prepare the repository-owned deployable predictor package |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -74,7 +74,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 4. PINN Formulation And First PINN | pending |
+| Wave 4. PINN Formulation And First PINN | pending; paper-reproduction scope:; add motion-profile reproduction tooling for `Robot` and `Cycloidal` style; implement the repository-side compensation-loop evaluation path; prepare the final online benchmark harness |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -83,7 +83,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5. Cross-Wave Comparison And Best Solution | pending |
+| Wave 5. Cross-Wave Comparison And Best Solution | pending; paper-reproduction scope:; execute Table 9 style online compensation tests; evaluate `Target B`; finalize the real `paper vs repository` comparison with online results |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -128,6 +128,44 @@ Low-priority exploratory families currently listed in the backlog:
 - Current plain-MLP comparison anchor: `te_feedforward_stride1_high_compute_long_remote`.
 - Predictive quality and deployment suitability must stay separate: the best leaderboard entry is not automatically the best TwinCAT/PLC candidate.
 - Large tree artifacts should be treated cautiously even when tree-based accuracy remains strong, because model weight and memory footprint can dominate deployment feasibility.
+
+## Paper Reference Benchmark
+
+The repository benchmark paper is `reference/RCIM_ML-compensation.pdf`.
+At the current repository state, the comparison is explicitly `offline-only`. A real paper-equivalent comparison still requires repository-owned online compensation tests.
+
+### Extracted Paper Targets
+
+- Paper dataset size: `1026` operating-condition samples.
+- Paper input axes: `input speed`, `applied torque`, `oil temperature`.
+- Offline prediction target: TE-curve mean percentage error at or below `4.7%` on unseen validation scenarios.
+- Online `robot` compensation target: at least `83.6%` TE RMS reduction.
+- Online `cycloidal` compensation target: at least `94.0%` TE RMS reduction and `91.7%` TE max reduction.
+- Paper compensation harmonics baseline: `0, 1, 39` with additional checks on `40, 78`.
+
+### Paper Vs Repository
+
+| Comparison Item | Paper Reference | Repository Status | Current Verdict |
+| --- | --- | --- | --- |
+| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
+| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
+| Offline prediction metric protocol | Mean percentage error over full TE curves | Repository currently tracks `test_mae` / `test_rmse` in degrees, not the same protocol | not_yet_comparable |
+| Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
+| Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
+| Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
+
+### Online Compensation Tracking Placeholder
+
+- Repository online compensation status: `not yet available`.
+- When online compensation tests are implemented, update this master summary with TE RMS, TE max, and reduction percentages for both robot and cycloidal motion profiles.
+- Until those tests exist, present the paper comparison as `offline-only` rather than end-to-end equivalent.
+
+### Gap Summary
+
+- Offline benchmark scope remains `partially comparable` rather than like-for-like.
+- Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.
+- Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
+- End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.
 
 ## Family-By-Family Result Breakdowns
 
@@ -255,5 +293,6 @@ Known failed campaign attempts for this family:
 - Family registries root: `output/registries/families`
 - Training campaign root: `output/training_campaigns`
 - Training run root: `output/training_runs`
+- Paper reference report: `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
 This document is repository-generated. Regenerate it after new campaign results so the cross-family snapshot stays aligned with the canonical registries and campaign artifacts.

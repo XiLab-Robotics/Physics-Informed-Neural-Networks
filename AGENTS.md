@@ -109,6 +109,11 @@
   synchronized after every completed training campaign and after any task that
   materially changes family-best registries, the program-best registry, active
   family status, or roadmap status before the task is considered complete.
+- Treat `doc/reports/analysis/RCIM Paper Reference Benchmark.md` as the
+  canonical paper-baseline comparison report. When repository-owned online
+  compensation results become available, update both that report and
+  `doc/reports/analysis/Training Results Master Summary.md` before closing the
+  task so the paper comparison stays aligned across offline and online results.
 - Best-result selection must remain explicit and inspectable. Serialize the ranking policy together with the winning entry instead of relying on manual folder inspection.
 - Every final campaign-results report must be delivered both as Markdown and as a PDF export, and the real exported PDF must be validated before the task is considered complete.
 - Treat `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf` as the visual golden standard for future styled analytical PDFs in this repository.

@@ -23,9 +23,27 @@ DEFAULT_PROGRAM_REGISTRY_PATH = PROJECT_PATH / "output" / "registries" / "progra
 DEFAULT_FAMILY_REGISTRY_ROOT = PROJECT_PATH / "output" / "registries" / "families"
 DEFAULT_TRAINING_RUN_ROOT = PROJECT_PATH / "output" / "training_runs"
 DEFAULT_TRAINING_CAMPAIGN_ROOT = PROJECT_PATH / "output" / "training_campaigns"
+DEFAULT_PAPER_REFERENCE_REPORT_PATH = PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
 
 TREE_MODEL_TYPE_SET = {"random_forest", "hist_gradient_boosting"}
 NEURAL_MODEL_TYPE_SET = {"feedforward", "periodic_mlp", "residual_harmonic_mlp"}
+PAPER_REFERENCE_DATA = {
+    "dataset_sample_count": 1026,
+    "input_axes": ["input speed", "applied torque", "oil temperature"],
+    "prediction_validation_mean_percentage_error": [2.6, 3.1, 4.7],
+    "selected_harmonics_primary": [0, 1, 39],
+    "selected_harmonics_extended": [40, 78],
+    "online_compensation": {
+        "robot": {
+            "best_rms_reduction_pct": 83.6,
+            "best_max_reduction_pct": 54.7,
+        },
+        "cycloidal": {
+            "best_rms_reduction_pct": 94.0,
+            "best_max_reduction_pct": 91.7,
+        },
+    },
+}
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -769,6 +787,104 @@ def build_recent_change_label(campaign_summary: dict[str, Any], family_best_by_r
     return "No family-best change"
 
 
+def build_paper_alignment_status_list(
+    program_best_entry: dict[str, Any], strongest_neural_family: str | None
+) -> list[str]:
+
+    """Build compact paper-alignment bullets.
+
+    Args:
+        program_best_entry: Current program-best registry entry.
+        strongest_neural_family: Current strongest neural family.
+
+    Returns:
+        Markdown bullet lines for paper alignment status.
+    """
+
+    current_best_family = str(program_best_entry.get("model_family", "N/A"))
+    current_best_model_type = str(program_best_entry.get("model_type", "N/A"))
+    offline_alignment_text = (
+        "Partially aligned: the current repository winner is tree-based "
+        f"(`{current_best_model_type}` / family `{current_best_family}`), which is "
+        "consistent with the paper's boosting/tree-heavy deployed predictors."
+        if current_best_family == "tree"
+        else "Not yet aligned: the current repository winner is not tree-based, "
+        "while the paper deployment path is dominated by boosting/tree models."
+    )
+
+    neural_alignment_text = (
+        f"Neural models remain secondary in the repository (`{strongest_neural_family or 'N/A'}`), "
+        "which is also consistent with the paper not promoting a plain neural winner for deployment."
+    )
+
+    return [
+        "- Offline benchmark scope remains `partially comparable` rather than like-for-like.",
+        f"- {offline_alignment_text}",
+        f"- {neural_alignment_text}",
+        "- End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.",
+    ]
+
+
+def build_paper_reference_section(
+    program_best_entry: dict[str, Any], strongest_neural_family: str | None
+) -> list[str]:
+
+    """Build the paper-reference benchmark section.
+
+    Args:
+        program_best_entry: Current program-best registry entry.
+        strongest_neural_family: Current strongest neural family.
+
+    Returns:
+        Markdown lines for the paper-reference benchmark section.
+    """
+
+    robot_dictionary = PAPER_REFERENCE_DATA["online_compensation"]["robot"]
+    cycloidal_dictionary = PAPER_REFERENCE_DATA["online_compensation"]["cycloidal"]
+    current_best_family = str(program_best_entry.get("model_family", "N/A"))
+    current_best_model_type = str(program_best_entry.get("model_type", "N/A"))
+    current_best_run_name = str(program_best_entry.get("run_name", "N/A"))
+    current_offline_verdict = "aligned" if current_best_family == "tree" else "not_aligned"
+
+    return [
+        "## Paper Reference Benchmark",
+        "",
+        "The repository benchmark paper is `reference/RCIM_ML-compensation.pdf`.",
+        "At the current repository state, the comparison is explicitly `offline-only`. A real paper-equivalent comparison still requires repository-owned online compensation tests.",
+        "",
+        "### Extracted Paper Targets",
+        "",
+        f"- Paper dataset size: `{PAPER_REFERENCE_DATA['dataset_sample_count']}` operating-condition samples.",
+        f"- Paper input axes: {', '.join(f'`{axis_name}`' for axis_name in PAPER_REFERENCE_DATA['input_axes'])}.",
+        f"- Offline prediction target: TE-curve mean percentage error at or below `{max(PAPER_REFERENCE_DATA['prediction_validation_mean_percentage_error']):.1f}%` on unseen validation scenarios.",
+        f"- Online `robot` compensation target: at least `{robot_dictionary['best_rms_reduction_pct']:.1f}%` TE RMS reduction.",
+        f"- Online `cycloidal` compensation target: at least `{cycloidal_dictionary['best_rms_reduction_pct']:.1f}%` TE RMS reduction and `{cycloidal_dictionary['best_max_reduction_pct']:.1f}%` TE max reduction.",
+        f"- Paper compensation harmonics baseline: `{', '.join(str(harmonic) for harmonic in PAPER_REFERENCE_DATA['selected_harmonics_primary'])}` with additional checks on `{', '.join(str(harmonic) for harmonic in PAPER_REFERENCE_DATA['selected_harmonics_extended'])}`.",
+        "",
+        "### Paper Vs Repository",
+        "",
+        "| Comparison Item | Paper Reference | Repository Status | Current Verdict |",
+        "| --- | --- | --- | --- |",
+        f"| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `{current_best_run_name}` from family `{current_best_family}` with model type `{current_best_model_type}` | {current_offline_verdict} |",
+        f"| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `{strongest_neural_family or 'N/A'}` and still trails the tree winner | aligned |",
+        "| Offline prediction metric protocol | Mean percentage error over full TE curves | Repository currently tracks `test_mae` / `test_rmse` in degrees, not the same protocol | not_yet_comparable |",
+        f"| Online robot-profile compensation | TE RMS reduction `{robot_dictionary['best_rms_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
+        f"| Online cycloidal-profile compensation | TE RMS reduction `{cycloidal_dictionary['best_rms_reduction_pct']:.1f}%`, TE max reduction `{cycloidal_dictionary['best_max_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
+        "| Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |",
+        "",
+        "### Online Compensation Tracking Placeholder",
+        "",
+        "- Repository online compensation status: `not yet available`.",
+        "- When online compensation tests are implemented, update this master summary with TE RMS, TE max, and reduction percentages for both robot and cycloidal motion profiles.",
+        "- Until those tests exist, present the paper comparison as `offline-only` rather than end-to-end equivalent.",
+        "",
+        "### Gap Summary",
+        "",
+        *build_paper_alignment_status_list(program_best_entry, strongest_neural_family),
+        "",
+    ]
+
+
 def build_master_summary_markdown() -> str:
 
     """Build the full master-summary Markdown text.
@@ -988,6 +1104,11 @@ def build_master_summary_markdown() -> str:
         "- Predictive quality and deployment suitability must stay separate: the best leaderboard entry is not automatically the best TwinCAT/PLC candidate.",
         "- Large tree artifacts should be treated cautiously even when tree-based accuracy remains strong, because model weight and memory footprint can dominate deployment feasibility.",
         "",
+    ])
+
+    report_line_list.extend(build_paper_reference_section(program_best_entry, strongest_neural_family))
+
+    report_line_list.extend([
         "## Family-By-Family Result Breakdowns",
         "",
     ])
@@ -1047,6 +1168,7 @@ def build_master_summary_markdown() -> str:
         f"- Family registries root: `{format_project_relative_path(DEFAULT_FAMILY_REGISTRY_ROOT)}`",
         f"- Training campaign root: `{format_project_relative_path(DEFAULT_TRAINING_CAMPAIGN_ROOT)}`",
         f"- Training run root: `{format_project_relative_path(DEFAULT_TRAINING_RUN_ROOT)}`",
+        f"- Paper reference report: `{format_project_relative_path(DEFAULT_PAPER_REFERENCE_REPORT_PATH)}`",
         "",
         "This document is repository-generated. Regenerate it after new campaign results so the cross-family snapshot stays aligned with the canonical registries and campaign artifacts.",
         "",
