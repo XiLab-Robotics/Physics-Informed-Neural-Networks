@@ -22,7 +22,7 @@ Historical rationale and approval history remain in:
 
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: `Wave 1` is now fully closed in campaign execution, reporting, and ranking; the next main focus is TwinCAT deployment evaluation preparation plus `Wave 2` planning
+- Current Focus: `Wave 1` is now fully closed in campaign execution, reporting, and ranking; the next main focus is `Wave 2` planning and implementation, while the TwinCAT deployment-evaluation branch is deferred until after that wave is complete and reviewed
 - Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Current Reference Feedforward Baseline Run:
@@ -81,8 +81,10 @@ Verification:
 
 ## In Progress
 
-- post-`Wave 1` transition toward the TwinCAT deployment-evaluation branch
-- planning handoff from completed static structured baselines toward `Wave 2` temporal-model work
+- planning and implementation handoff from completed static structured
+  baselines toward `Wave 2` temporal-model work
+- post-`Wave 2` decision staging for the deferred TwinCAT deployment-evaluation
+  branch
 
 ## Next Up
 
@@ -94,11 +96,14 @@ Current next step:
   remote LAN validation path into future deployment/export candidate sets,
   because the observed `tree_model.pkl` size of roughly `91 GB` is incompatible
   with practical PLC/TwinCAT memory budgets
-- use the consolidated `Wave 1` closeout report as the canonical summary when comparing future families against the current structured-baseline stage
+- use the consolidated `Wave 1` closeout report as the canonical summary when
+  comparing future families against the current structured-baseline stage
+- treat `Wave 2` as the immediate execution branch before any new TwinCAT
+  deployment-evaluation work is activated
 
-### Post-Campaign TwinCAT Deployment Evaluation
+### Deferred Post-Wave TwinCAT Deployment Evaluation
 
-Planned execution order after the now-closed `Wave 1` reporting work:
+Planned execution order after the next wave is implemented and reviewed:
 
 - formalize a dedicated `TwinCAT deployment evaluation` execution branch in the
   operational workstream
@@ -127,7 +132,9 @@ Planned execution order after the now-closed `Wave 1` reporting work:
 
 Entry conditions:
 
-- `Wave 1` closeout remains synchronized in the running-state documents and registries;
+- the next wave has been implemented and reviewed;
+- and the user then explicitly decides whether the TwinCAT branch should be
+  activated immediately or deferred again;
 - or the user explicitly approves isolated parallel preparation before full
   integration.
 
@@ -177,7 +184,7 @@ Entry rule:
 
 ### Wave 2. Temporal Models
 
-- pending
+- next primary implementation wave
 
 ### Wave 3. Hybrid Structured Models
 
@@ -202,6 +209,9 @@ Entry rule:
 - the remote LAN tree-validation path proved that an oversized random-forest
   artifact class can reach roughly `91 GB`; treat that class as
   deployment-incompatible and exclude it from future TwinCAT/PLC export work
+- the TwinCAT deployment-evaluation branch is intentionally deferred until
+  after the next wave is implemented and reviewed; re-evaluate that priority
+  only after the next wave closes
 - best-result visibility should be read from:
   - campaign-level `campaign_best_run.yaml`
   - family-level `latest_family_best.yaml`
