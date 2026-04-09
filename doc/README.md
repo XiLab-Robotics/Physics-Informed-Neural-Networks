@@ -631,6 +631,10 @@ This folder contains the internal project documents derived from the reference P
   Guide-local explanation of the paper-faithful harmonic-wise pipeline, including diagrams and NotebookLM source packages for future video-guide and presentation workflows.
 - [technical/2026-04/2026-04-09/2026-04-09-12-47-17_harmonic_wise_pipeline_guide_and_notebooklm_package.md](./technical/2026-04/2026-04-09/2026-04-09-12-47-17_harmonic_wise_pipeline_guide_and_notebooklm_package.md)
   Technical plan for the guide-local documentation, diagrams, PDF companion, and NotebookLM source packages for the harmonic-wise paper-reimplementation pipeline.
+- [technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md](./technical/2026-04/2026-04-09/2026-04-09-16-42-43_notebooklm_export_integration_for_harmonic_wise_guide.md)
+  Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
+- [technical/2026-04/2026-04-09/2026-04-09-17-55-53_remove_redundant_language_suffixes_from_guide_exports.md](./technical/2026-04/2026-04-09/2026-04-09-17-55-53_remove_redundant_language_suffixes_from_guide_exports.md)
+  Technical plan for removing redundant language suffixes from imported NotebookLM exports already organized under the English and Italiano guide folders.
 
 ## Usage
 

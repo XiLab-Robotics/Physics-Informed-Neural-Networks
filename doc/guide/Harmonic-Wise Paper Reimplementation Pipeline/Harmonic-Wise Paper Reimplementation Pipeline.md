@@ -31,9 +31,22 @@ This topic separates its guide-local material into:
 - `assets/`
   diagrams and `NotebookLM` source packages.
 - `English/`
-  reserved for future exported English presentation outputs.
+  imported final English `NotebookLM` exports for the concept and project
+  tracks.
 - `Italiano/`
-  reserved for future exported Italian presentation outputs.
+  imported final Italian `NotebookLM` exports for the concept and project
+  tracks.
+
+The imported export naming follows the repository rule that each filename must
+explicitly declare:
+
+- guide name;
+- track (`Concept` or `Project`);
+- artifact type (`Guide`, `Presentation`, `Video Overview`, `Mind Map`,
+  `Infographic`).
+
+Language is intentionally expressed by the parent folder name, so it is not
+repeated again inside each imported filename.
 
 ## Why This Pipeline Exists
 
