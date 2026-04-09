@@ -2341,6 +2341,20 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
   --output-suffix baseline_validation
 ```
 
+Prepared comprehensive second-iteration campaign launcher:
+
+```powershell
+.\scripts\campaigns\run_track1_second_iteration_harmonic_wise_campaign.ps1
+```
+
+Campaign package root:
+
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/`
+
+Campaign planning report:
+
+- `doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+
 Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/<run_instance_id>/`

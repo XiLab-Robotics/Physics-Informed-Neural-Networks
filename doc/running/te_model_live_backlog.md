@@ -107,12 +107,20 @@ Current next step:
   branch before opening `Wave 2` temporal models
 - keep `Wave 2` temporal models planned, but only after the harmonic-wise
   comparison framework is implemented and reviewed
-- implement the second `Track 1` harmonic-wise iteration as the immediate next
-  code pass:
-  - staged harmonic-set presets `0,1,39`, `0,1,39,40`, `0,1,39,40,78`
-  - engineered operating-condition features
-  - per-harmonic error diagnostics
-  - promotion back to the full RCIM set before evaluating `Target A`
+- treat the second `Track 1` harmonic-wise iteration as completed and use its
+  campaign results as the current paper-faithful offline baseline
+- use the completed campaign to lock three decisions:
+  - keep the full RCIM set as the mainline `Target A` branch;
+  - do not promote the reduced harmonic subsets as the main optimization path;
+  - do not promote the current engineered operating-condition features as the
+    new default
+- implement a third `Track 1` iteration as the immediate next code pass:
+  - explicit target-parameterization work around `h0`
+  - selective `cos/sin` versus `amplitude/phase` comparison on dominant
+    harmonics
+  - per-harmonic estimator specialization for the dominant error terms
+  - full RCIM promotion path retained as mandatory for every serious
+    `Target A` attempt
 
 ### Paper Alignment Targets
 

@@ -1,0 +1,72 @@
+schema_version: 1
+campaign_name: track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03
+generated_at: '2026-04-09T21:06:13+02:00'
+planning_report_path: doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md
+launch_mode: local_operator_campaign_launcher
+campaign_kind: paper_reimplementation_validation_campaign
+campaign_output_root: output/validation_checks/paper_reimplementation_rcim_harmonic_wise
+run_list:
+  - run_name: te_harmonic_wise_full_rcim_baseline_reference
+    run_instance_id: 2026-04-09-20-41-59__te_harmonic_wise_full_rcim_baseline_reference_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-41-59__te_harmonic_wise_full_rcim_baseline_reference_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-41-59__te_harmonic_wise_full_rcim_baseline_reference_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-42-53_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_baseline_reference_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_h013_engineered_stage1
+    run_instance_id: 2026-04-09-20-43-01__te_harmonic_wise_h013_engineered_stage1_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-01__te_harmonic_wise_h013_engineered_stage1_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-01__te_harmonic_wise_h013_engineered_stage1_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-43-34_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_h013_engineered_stage1_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_h013_random_forest_diagnostic
+    run_instance_id: 2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_random_forest
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-44-07_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_h013_random_forest_diagnostic_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_h01340_engineered_stage2
+    run_instance_id: 2026-04-09-20-44-15__te_harmonic_wise_h01340_engineered_stage2_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-44-15__te_harmonic_wise_h01340_engineered_stage2_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-44-15__te_harmonic_wise_h01340_engineered_stage2_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-44-52_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_h01340_engineered_stage2_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_h0134078_engineered_stage3
+    run_instance_id: 2026-04-09-20-44-59__te_harmonic_wise_h0134078_engineered_stage3_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-44-59__te_harmonic_wise_h0134078_engineered_stage3_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-44-59__te_harmonic_wise_h0134078_engineered_stage3_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-45-41_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_h0134078_engineered_stage3_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_full_rcim_no_engineering_reference
+    run_instance_id: 2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_full_rcim_engineered_balanced
+    run_instance_id: 2026-04-09-20-46-52__te_harmonic_wise_full_rcim_engineered_balanced_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-46-52__te_harmonic_wise_full_rcim_engineered_balanced_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-46-52__te_harmonic_wise_full_rcim_engineered_balanced_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-47-49_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_engineered_balanced_campaign_run_harmonic_wise_comparison_report.md
+  - run_name: te_harmonic_wise_full_rcim_engineered_deeper
+    run_instance_id: 2026-04-09-20-47-57__te_harmonic_wise_full_rcim_engineered_deeper_campaign_run
+    model_family: paper_reimplementation_rcim_harmonic_wise
+    model_type: harmonic_wise_hist_gradient_boosting
+    queue_status: completed
+    output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-47-57__te_harmonic_wise_full_rcim_engineered_deeper_campaign_run
+    metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-47-57__te_harmonic_wise_full_rcim_engineered_deeper_campaign_run/validation_summary.yaml
+    report_path: doc/reports/analysis/validation_checks/2026-04-09-20-49-07_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_engineered_deeper_campaign_run_harmonic_wise_comparison_report.md

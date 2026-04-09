@@ -2,12 +2,15 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-09T12:17:15`
+- Generated At: `2026-04-09T21:19:05`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: the immediate implementation branch is now the offline
+- Current Focus: the immediate implementation branch remains the offline
+  `Harmonic-Wise Comparison Pipeline`, with the second `Track 1` campaign now
+  completed and the next step narrowed to a third iteration focused on target
+  parameterization and dominant-harmonic error reduction
 - Active Campaign Status: `completed`
-- Active Campaign Name: `targeted_remote_followup_campaign_2026_04_04_11_21_09`
+- Active Campaign Name: `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -31,8 +34,11 @@
 
 ### Active Training Or Improvement Branches
 
-- No campaign is currently in `prepared` or `running` state.
-- The next active implementation branch should therefore be read from the live backlog focus and the next approved campaign plan.
+- Current campaign: `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03`
+- Launch mode: `local_operator_campaign_launcher`
+- Families under active improvement: `none currently running`
+- Latest completed campaign report:
+  `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
 
 ### Roadmap And Planned Work
 
@@ -106,6 +112,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03` | `2026-04-09 21:06:13` | 8 | 0 | `te_harmonic_wise_full_rcim_no_engineering_reference` | No family-best change |
 | `targeted_remote_followup_campaign_2026_04_04_11_21_09` | `2026-04-04 13:03:55` | 5 | 0 | `te_hist_gbr_remote_refined` | No family-best change |
 | `remote_training_validation_campaign_2026_04_03_17_54_21` | `2026-04-03 22:30:26` | 4 | 1 | `te_hist_gbr_remote_deep` | No family-best change |
 | `wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00` | `2026-03-26 20:19:32` | 15 | 0 | `te_residual_h12_deep_joint_wave1` | Updated residual_harmonic_mlp family best |
@@ -128,7 +135,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `residual_harmonic_mlp` | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003024 | 0.003152 | 0.003640 | 26,266 | 0.32 MB | Medium | Strongest Neural Family |
 | `feedforward` | `te_feedforward_stride1_high_compute_long_remote` | `feedforward` | 0.003044 | 0.003264 | 0.003679 | 109,953 | 1.28 MB | Medium | Current Plain MLP Anchor |
 | `periodic_mlp` | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003097 | 0.003317 | 0.003793 | 27,265 | 0.33 MB | Medium | Implemented Benchmark |
-| `harmonic_regression` | `te_harmonic_order12_linear_conditioned_recovery` | `harmonic_regression` | 0.017004 | 0.020782 | 0.022405 | 150 | 0.01 MB | Low | Implemented Benchmark |
+| `harmonic_regression` | `te_harmonic_order12_linear_conditioned_recovery` | `harmonic_regression` | 0.017004 | 0.020782 | 0.022405 | 150 | 0.01 MB | Low | Active Improvement |
 
 ## Cross-Family Interpretation
 
@@ -158,20 +165,16 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Offline prediction metric protocol | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `9.403%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | not_yet_met |
+| Offline prediction metric protocol | Mean percentage error over full TE curves | Best completed harmonic-wise campaign run reports `8.877%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
 
 ### Latest Harmonic-Wise Validation
 
-- Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
-- Harmonic-wise test mean percentage error: `9.403%`
+- Latest harmonic-wise campaign winner summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml`
+- Harmonic-wise test mean percentage error: `8.877%`
 - `Target A` status from the latest harmonic-wise run: `not_yet_met`
-- Immediate implementation focus: second `Track 1` iteration with staged
-  harmonic presets `0,1,39`, `0,1,39,40`, `0,1,39,40,78`, engineered
-  operating-condition features, per-harmonic diagnostics, and promotion back
-  to the full RCIM harmonic set.
 
 ### Online Compensation Tracking Placeholder
 
@@ -184,6 +187,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
+- The completed second `Track 1` campaign improved the paper-faithful offline branch from `9.403%` to `8.877%`, but the gap to the `4.7%` paper threshold remains large.
 - End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.
 
 ## Family-By-Family Result Breakdowns

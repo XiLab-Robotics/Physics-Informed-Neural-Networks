@@ -601,6 +601,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md](./reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md)
+  Final results report for the completed second `Track 1` paper-faithful harmonic-wise campaign, including reduced-set diagnostics, full-RCIM comparison, and the updated `Target A` status.
 - [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
   Comparative results report for the executed baseline, high-density, high-epoch, and high-compute feedforward training campaign.
 - [reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md](./reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md)
@@ -639,6 +641,18 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for clarifying that imported bilingual NotebookLM exports should not repeat the language in filenames when the parent folder already declares it.
 - [technical/2026-04/2026-04-09/2026-04-09-18-31-24_track1_second_harmonic_wise_iteration.md](./technical/2026-04/2026-04-09/2026-04-09-18-31-24_track1_second_harmonic_wise_iteration.md)
   Technical plan for the second Track 1 harmonic-wise iteration, including progressive harmonic-set experiments, feature engineering, and promotion back to the full RCIM harmonic set.
+- [technical/2026-04/2026-04-09/2026-04-09-18-56-03_track1_second_iteration_campaign_preparation.md](./technical/2026-04/2026-04-09/2026-04-09-18-56-03_track1_second_iteration_campaign_preparation.md)
+  Technical plan for packaging the second Track 1 harmonic-wise iteration as a dedicated operator-driven campaign with configs, launcher, launcher note, and persistent campaign state.
+- [technical/2026-04/2026-04-09/2026-04-09-21-41-11_track1_second_iteration_campaign_pdf_table_refinement.md](./technical/2026-04/2026-04-09/2026-04-09-21-41-11_track1_second_iteration_campaign_pdf_table_refinement.md)
+  Technical plan for refining the `Ranked Completed Runs` table layout in the Track 1 second-iteration campaign PDF and formalizing the unit-wrapping preference.
+- [technical/2026-04/2026-04-09/2026-04-09-21-43-01_pdf_metric_header_unit_wrapping_rule.md](./technical/2026-04/2026-04-09/2026-04-09-21-43-01_pdf_metric_header_unit_wrapping_rule.md)
+  Technical plan for making metric-unit second-line wrapping an explicit default rule for narrow styled-PDF metric headers.
+- [technical/2026-04/2026-04-09/2026-04-09-21-49-49_track1_second_iteration_campaign_pdf_objective_pagebreak_refinement.md](./technical/2026-04/2026-04-09/2026-04-09-21-49-49_track1_second_iteration_campaign_pdf_objective_pagebreak_refinement.md)
+  Technical plan for tightening the `Objective And Outcome` bullets so the Track 1 second-iteration campaign PDF avoids a weak section start on a nearly empty page.
+- [technical/2026-04/2026-04-09/2026-04-09-21-53-17_track1_second_iteration_campaign_pdf_rank_column_rebalance.md](./technical/2026-04/2026-04-09/2026-04-09-21-53-17_track1_second_iteration_campaign_pdf_rank_column_rebalance.md)
+  Technical plan for slightly widening the `Rank` column and correspondingly shrinking `Test MAE` in the Track 1 second-iteration campaign PDF table.
+- [technical/2026-04/2026-04-09/2026-04-09-22-10-21_track1_campaign_random_forest_bundle_git_lfs_tracking.md](./technical/2026-04/2026-04-09/2026-04-09-22-10-21_track1_campaign_random_forest_bundle_git_lfs_tracking.md)
+  Technical plan for tracking the oversized RandomForest harmonic-wise campaign bundle through Git LFS so the pending commit remains GitHub-safe.
 
 ## Usage
 

@@ -204,38 +204,59 @@ tables should explicitly label each entry as either:
 
 ### Latest Harmonic-Wise Offline Result
 
-The first repository-owned harmonic-wise baseline now exists under:
+The latest completed repository-owned harmonic-wise campaign is:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/<latest_run_instance_id>/validation_summary.yaml`
+- `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03`
 
-Companion report:
+Winning validation summary:
 
-- `doc/reports/analysis/validation_checks/2026-04-09-12-17-15_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_hist_gbr_baseline_baseline_validation_harmonic_wise_comparison_report.md`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml`
 
-Current result:
+Winning companion report:
+
+- `doc/reports/analysis/validation_checks/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
+
+Campaign results report:
+
+- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
+
+Current best paper-faithful offline result:
 
 - selected harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
-- validation mean percentage error: `9.474%`
-- test mean percentage error: `9.403%`
+- feature set: `base_only`
+- validation mean percentage error: `9.229%`
+- test mean percentage error: `8.877%`
+- oracle test mean percentage error: `2.749%`
 - current `Target A` status: `not_yet_met`
+
+What the second iteration established:
+
+- the full RCIM set still outperforms all reduced harmonic subsets;
+- the engineered operating-condition features did not improve the full-RCIM
+  branch in this campaign;
+- the reduced subsets `0,1,39` and `0,1,39,40` are weak final targets because
+  even their truncation-only oracle stays above `4.7%`;
+- the main remaining gap is now better localized to predictor design,
+  especially the dominant `h0` term and a smaller late-harmonic cluster.
 
 Immediate next repository step:
 
-- execute the second `Track 1` iteration with staged harmonic-set presets
-  `0,1,39`, `0,1,39,40`, and `0,1,39,40,78`;
-- combine those staged runs with engineered operating-condition features and
-  per-harmonic error diagnostics;
-- then promote the best improved predictor configuration back to the full RCIM
-  harmonic set before deciding whether `Target A` is met.
+- keep the full RCIM harmonic set as the mainline `Track 1` target;
+- start a third harmonic-wise iteration focused on target parameterization,
+  especially:
+  - explicit handling of `h0`;
+  - targeted comparison between `cos/sin` and `amplitude/phase` on dominant
+    harmonics;
+  - per-harmonic estimator specialization for the dominant error terms.
 
 Important interpretation:
 
-- the repository now has the right offline comparison protocol;
-- the first harmonic-wise baseline is still above the paper threshold of
-  `4.7%`;
-- the truncation-only oracle for the same harmonic set reaches `2.749%` on the
-  test split, which means the selected harmonics are expressive enough, but the
-  operating-condition predictor is not yet strong enough.
+- the repository now has a completed second `Track 1` campaign rather than only
+  a first baseline proof of concept;
+- the best harmonic-wise result improved from `9.403%` to `8.877%`, so the
+  branch is moving in the right direction;
+- the paper threshold of `4.7%` remains substantially unmet, so the repository
+  is still only partially aligned with the paper offline.
 
 ### Current Comparison Verdict
 

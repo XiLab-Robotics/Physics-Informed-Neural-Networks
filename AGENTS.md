@@ -123,6 +123,11 @@
 - After regenerating any styled PDF, validate the real exported PDF output and not only the HTML source. Explicitly check for clipped borders, wrapped headers, broken table fit, crushed identifier columns, oversized numeric columns, and right-edge pressure before closing the task.
 - If the PDF-validation evidence is inconclusive or does not prove that the real exported tables are well balanced, treat the PDF task as still open and continue until the layout issue is either fixed or clearly escalated to the user.
 - When a table header is too long for its current width, keep it inside its own cell by wrapping it cleanly inside that cell. Never allow a header label to visually spill into the neighboring column.
+- In styled PDF tables, when a narrow metric header includes a compact unit such
+  as `[deg]`, `[rpm]`, or a similar measurement suffix, prefer rendering the
+  metric name on the first line and the unit on a second line inside the same
+  header cell instead of over-compressing the column or forcing the full header
+  onto one line.
 - When identifier-style values such as `Config` names wrap, prefer semantically meaningful breakpoints such as underscore-delimited token groups. Avoid arbitrary one- or two-letter trailing fragments.
 - When balancing table columns, start from broadly similar widths, widen only the columns that clearly need more room, and redistribute the reduction across the others without over-compressing them. Do not allow text to sit too close to the borders or escape its own cell.
 - Vertically center table-cell content by default. Keep the existing horizontal alignment choices, but do not leave mixed single-line and multi-line cells visually top-aligned.

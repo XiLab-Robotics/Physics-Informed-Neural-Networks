@@ -1,0 +1,52 @@
+paths:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  output_root: output/validation_checks/paper_reimplementation_rcim_harmonic_wise
+experiment:
+  run_name: te_harmonic_wise_h013_engineered_stage1
+  model_family: paper_reimplementation_rcim_harmonic_wise
+  model_type: harmonic_wise_hist_gradient_boosting
+evaluation:
+  selected_harmonics:
+  - 0
+  - 1
+  - 39
+  decomposition_point_stride: 20
+  playback_angle_probe_count: 720
+  playback_step_count: 180
+  playback_direction_label: forward
+  percentage_error_denominator: mean_abs_truth
+features:
+  engineered_terms:
+  - speed_torque_product
+  - speed_temperature_product
+  - torque_temperature_product
+  - speed_squared
+  - torque_squared
+model:
+  estimator_type: hist_gradient_boosting
+  learning_rate: 0.04
+  max_iter: 500
+  max_depth: 8
+  min_samples_leaf: 2
+  max_bins: 255
+  random_seed: 42
+  harmonic_overrides:
+    '0':
+      max_iter: 650
+    '1':
+      max_iter: 650
+    '39':
+      max_iter: 650
+playback_profiles:
+  robot:
+    max_speed_rpm: 303.0
+    max_torque_nm: 759.0
+    oil_temperature_deg: 31.6
+  cycloidal:
+    max_speed_rpm: 500.0
+    max_torque_nm: 370.0
+    oil_temperature_deg: 26.7
+metadata:
+  output_artifact_kind: validation_check
+  output_run_name: te_harmonic_wise_h013_engineered_stage1_campaign_run
+  run_instance_id: 2026-04-09-20-43-01__te_harmonic_wise_h013_engineered_stage1_campaign_run

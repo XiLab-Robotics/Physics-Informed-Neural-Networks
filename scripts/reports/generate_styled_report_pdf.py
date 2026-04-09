@@ -54,6 +54,7 @@ REMOTE_TRAINING_VALIDATION_COMPLETED_TABLE_CLASS_NAME = "report-table report-tab
 REMOTE_TRAINING_VALIDATION_FAILED_TABLE_CLASS_NAME = "report-table report-table-remote-training-validation-failed"
 TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-targeted-remote-followup-completed"
 TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME = "report-table report-table-targeted-remote-followup-family-bests"
+TRACK1_SECOND_ITERATION_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-track1-second-iteration-completed"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -674,7 +675,8 @@ REPORT_STYLESHEET = """
     .report-table-remote-training-validation-completed,
     .report-table-remote-training-validation-failed,
     .report-table-targeted-remote-followup-completed,
-    .report-table-targeted-remote-followup-family-bests {
+    .report-table-targeted-remote-followup-family-bests,
+    .report-table-track1-second-iteration-completed {
       font-size: 6.95pt;
       line-height: 1.18;
     }
@@ -686,14 +688,17 @@ REPORT_STYLESHEET = """
     .report-table-targeted-remote-followup-completed th,
     .report-table-targeted-remote-followup-completed td,
     .report-table-targeted-remote-followup-family-bests th,
-    .report-table-targeted-remote-followup-family-bests td {
+    .report-table-targeted-remote-followup-family-bests td,
+    .report-table-track1-second-iteration-completed th,
+    .report-table-track1-second-iteration-completed td {
       padding: 4px 4px;
     }
 
     .report-table-remote-training-validation-completed th,
     .report-table-remote-training-validation-failed th,
     .report-table-targeted-remote-followup-completed th,
-    .report-table-targeted-remote-followup-family-bests th {
+    .report-table-targeted-remote-followup-family-bests th,
+    .report-table-track1-second-iteration-completed th {
       white-space: normal;
       overflow-wrap: normal;
       word-break: normal;
@@ -727,8 +732,17 @@ REPORT_STYLESHEET = """
     .report-table-targeted-remote-followup-family-bests th:nth-child(3), .report-table-targeted-remote-followup-family-bests td:nth-child(3) { width: 10%; }
     .report-table-targeted-remote-followup-family-bests th:nth-child(4), .report-table-targeted-remote-followup-family-bests td:nth-child(4) { width: 20%; }
 
+    .report-table-track1-second-iteration-completed th:nth-child(1), .report-table-track1-second-iteration-completed td:nth-child(1) { width: 5%; }
+    .report-table-track1-second-iteration-completed th:nth-child(2), .report-table-track1-second-iteration-completed td:nth-child(2) { width: 32%; }
+    .report-table-track1-second-iteration-completed th:nth-child(3), .report-table-track1-second-iteration-completed td:nth-child(3) { width: 11%; }
+    .report-table-track1-second-iteration-completed th:nth-child(4), .report-table-track1-second-iteration-completed td:nth-child(4) { width: 16%; }
+    .report-table-track1-second-iteration-completed th:nth-child(5), .report-table-track1-second-iteration-completed td:nth-child(5) { width: 11%; }
+    .report-table-track1-second-iteration-completed th:nth-child(6), .report-table-track1-second-iteration-completed td:nth-child(6) { width: 11%; }
+    .report-table-track1-second-iteration-completed th:nth-child(7), .report-table-track1-second-iteration-completed td:nth-child(7) { width: 14%; }
+
     .report-table-targeted-remote-followup-completed .metric-unit,
-    .report-table-targeted-remote-followup-family-bests .metric-unit {
+    .report-table-targeted-remote-followup-family-bests .metric-unit,
+    .report-table-track1-second-iteration-completed .metric-unit {
       display: block;
     }
 
@@ -1195,6 +1209,7 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
     if table_class_name in {
         TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME,
         TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME,
+        TRACK1_SECOND_ITERATION_COMPLETED_TABLE_CLASS_NAME,
     }:
         if header_cell == "Test MAE [deg]":
             return "Test MAE<span class=\"metric-unit\">[deg]</span>"
@@ -1493,6 +1508,16 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Family", "Best Run After This Campaign", "Test MAE [deg]", "Status")
         ):
             return TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME
+
+    # Resolve Track 1 Second Iteration Campaign Table Profiles
+    if report_stem == "2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Rank", "Config", "Harmonic Set", "Feature Set", "Test % Error", "Oracle Test %", "Test MAE [deg]")
+        ):
+            return TRACK1_SECOND_ITERATION_COMPLETED_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
