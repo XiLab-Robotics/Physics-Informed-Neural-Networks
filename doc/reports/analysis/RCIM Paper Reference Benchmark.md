@@ -173,6 +173,24 @@ Minimum repository target:
 - This is directionally consistent with the paper, where the deployable
   harmonic stack is dominated by tree and boosting models.
 
+### Comparison Structure To Preserve
+
+The repository should now keep two explicit offline comparison tracks:
+
+- `Track 1`: paper-faithful harmonic-wise benchmark
+- `Track 2`: repository direct-TE comparable benchmark
+
+The first track answers whether the repository can reproduce the paper's own
+harmonic-wise logic. The second track answers whether the repository's already
+trained direct-TE families can match or beat the paper at the level of final
+offline TE-curve prediction quality.
+
+These two tracks must not be merged in reporting. Future paper-comparison
+tables should explicitly label each entry as either:
+
+- `paper-faithful harmonic-wise`
+- `result-level comparable direct-TE`
+
 ### What Is Not Yet Comparable
 
 - The repository now has a repository-owned harmonic-wise offline validation
@@ -275,6 +293,11 @@ training results, but not yet a true reproduction of the paper benchmark.
 - TE reconstruction from the predicted harmonic terms
 - offline motion-profile playback for `Robot` and `Cycloidal` style profiles
 - paper-comparable offline validation protocol to close `Target A`
+- repository-owned shared offline evaluator for direct-TE model families under
+  the same final TE-curve percentage-error protocol
+- evaluation of current best direct-TE families under that shared evaluator
+- dual-track reporting that keeps paper-faithful and direct-TE result-level
+  comparisons separate
 
 These four items belong to the immediate repository branch because they create
 the stable offline baseline that the online branch will later depend on.

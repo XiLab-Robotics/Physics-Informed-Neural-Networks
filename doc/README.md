@@ -131,6 +131,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md](./technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md)
   Technical document for the final read-only audit of the completed GitHub branch migration, focused on local tracking, remote branch topology, workflow triggers, and current-facing repository references.
 
+#### 2026-04-09
+
+- [technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md](./technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md)
+  Technical document for separating the paper-faithful harmonic-wise benchmark from the repository direct-TE comparison track and for planning their coordinated backlog integration.
+
 #### 2026-04-03
 
 - [technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md](./technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md)
