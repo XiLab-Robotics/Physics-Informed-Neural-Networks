@@ -22,7 +22,9 @@ Historical rationale and approval history remain in:
 
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: `Wave 1` is now fully closed in campaign execution, reporting, and ranking; the next main focus is `Wave 2` planning and implementation, while the TwinCAT deployment-evaluation branch is deferred until after that wave is complete and reviewed
+- Current Focus: the immediate implementation branch is now the offline
+  `Harmonic-Wise Comparison Pipeline`; its job is to establish the paper-
+  comparable harmonic baseline before `Wave 2` temporal models are opened
 - Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
 - Current Reference Feedforward Baseline Run:
@@ -252,13 +254,17 @@ Entry rule:
 
 ### Intermediate Branch. Harmonic-Wise Comparison Pipeline
 
-- next primary implementation branch
+- current primary implementation branch
 - focused scope:
   - implement harmonic-wise prediction of `A_k` and `phi_k`
   - implement TE reconstruction from the predicted harmonic terms
   - add offline `Robot` and `Cycloidal` motion-profile playback
   - define comparable offline validation scenarios and TE-curve error metrics
   - close `Target A`
+- initial repository-owned offline pipeline script should live under
+  `scripts/training/run_harmonic_wise_comparison_pipeline.py`
+- validation artifacts for this branch should live under
+  `output/validation_checks/harmonic_wise_comparison/`
 
 ### Wave 3. Hybrid Structured Models
 

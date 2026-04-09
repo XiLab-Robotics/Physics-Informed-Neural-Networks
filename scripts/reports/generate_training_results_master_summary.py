@@ -23,6 +23,7 @@ DEFAULT_PROGRAM_REGISTRY_PATH = PROJECT_PATH / "output" / "registries" / "progra
 DEFAULT_FAMILY_REGISTRY_ROOT = PROJECT_PATH / "output" / "registries" / "families"
 DEFAULT_TRAINING_RUN_ROOT = PROJECT_PATH / "output" / "training_runs"
 DEFAULT_TRAINING_CAMPAIGN_ROOT = PROJECT_PATH / "output" / "training_campaigns"
+DEFAULT_VALIDATION_CHECK_ROOT = PROJECT_PATH / "output" / "validation_checks"
 DEFAULT_PAPER_REFERENCE_REPORT_PATH = PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
 
 TREE_MODEL_TYPE_SET = {"random_forest", "hist_gradient_boosting"}
@@ -692,6 +693,27 @@ def collect_family_best_records() -> list[dict[str, Any]]:
     return family_best_record_list
 
 
+def collect_latest_harmonic_wise_validation() -> dict[str, Any] | None:
+
+    """Collect the latest harmonic-wise validation summary when available."""
+
+    harmonic_validation_root = DEFAULT_VALIDATION_CHECK_ROOT / "harmonic_wise_comparison"
+    if not harmonic_validation_root.exists():
+        return None
+
+    validation_summary_path_list = sorted(
+        harmonic_validation_root.glob("*/validation_summary.yaml"),
+        key=lambda path_value: path_value.stat().st_mtime,
+        reverse=True,
+    )
+    if not validation_summary_path_list:
+        return None
+
+    latest_validation_dictionary = load_yaml_dictionary(validation_summary_path_list[0])
+    latest_validation_dictionary["validation_summary_path"] = format_project_relative_path(validation_summary_path_list[0])
+    return latest_validation_dictionary
+
+
 def extract_active_campaign_snapshot() -> dict[str, Any]:
 
     """Extract the active-campaign snapshot from persistent running state.
@@ -826,7 +848,9 @@ def build_paper_alignment_status_list(
 
 
 def build_paper_reference_section(
-    program_best_entry: dict[str, Any], strongest_neural_family: str | None
+    program_best_entry: dict[str, Any],
+    strongest_neural_family: str | None,
+    harmonic_wise_validation_dictionary: dict[str, Any] | None,
 ) -> list[str]:
 
     """Build the paper-reference benchmark section.
@@ -845,6 +869,28 @@ def build_paper_reference_section(
     current_best_model_type = str(program_best_entry.get("model_type", "N/A"))
     current_best_run_name = str(program_best_entry.get("run_name", "N/A"))
     current_offline_verdict = "aligned" if current_best_family == "tree" else "not_aligned"
+    harmonic_offline_status_text = "Repository currently tracks `test_mae` / `test_rmse` in degrees, not the same protocol"
+    harmonic_offline_verdict = "not_yet_comparable"
+    harmonic_latest_result_block = [
+        "- No repository-owned harmonic-wise validation artifact has been recorded yet.",
+    ]
+
+    if harmonic_wise_validation_dictionary is not None:
+        paper_alignment_dictionary = harmonic_wise_validation_dictionary.get("paper_reference_alignment", {})
+        test_metrics_dictionary = harmonic_wise_validation_dictionary.get("test_metrics", {})
+        curve_metrics_dictionary = test_metrics_dictionary.get("curve_metrics", {})
+        selected_harmonics = harmonic_wise_validation_dictionary.get("harmonic_configuration", {}).get("selected_harmonics", [])
+        test_mean_percentage_error_pct = curve_metrics_dictionary.get("mean_percentage_error_pct")
+        harmonic_offline_status_text = (
+            f"Latest harmonic-wise validation reports `{format_float(test_mean_percentage_error_pct, 3)}%` mean percentage error "
+            f"on held-out curves using harmonics `{', '.join(str(harmonic_order) for harmonic_order in selected_harmonics)}`"
+        )
+        harmonic_offline_verdict = str(paper_alignment_dictionary.get("target_a_status", "not_yet_met"))
+        harmonic_latest_result_block = [
+            f"- Latest harmonic-wise validation summary: `{harmonic_wise_validation_dictionary['validation_summary_path']}`",
+            f"- Harmonic-wise test mean percentage error: `{format_float(test_mean_percentage_error_pct, 3)}%`",
+            f"- `Target A` status from the latest harmonic-wise run: `{paper_alignment_dictionary.get('target_a_status', 'unknown')}`",
+        ]
 
     return [
         "## Paper Reference Benchmark",
@@ -867,10 +913,14 @@ def build_paper_reference_section(
         "| --- | --- | --- | --- |",
         f"| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `{current_best_run_name}` from family `{current_best_family}` with model type `{current_best_model_type}` | {current_offline_verdict} |",
         f"| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `{strongest_neural_family or 'N/A'}` and still trails the tree winner | aligned |",
-        "| Offline prediction metric protocol | Mean percentage error over full TE curves | Repository currently tracks `test_mae` / `test_rmse` in degrees, not the same protocol | not_yet_comparable |",
+        f"| Offline prediction metric protocol | Mean percentage error over full TE curves | {harmonic_offline_status_text} | {harmonic_offline_verdict} |",
         f"| Online robot-profile compensation | TE RMS reduction `{robot_dictionary['best_rms_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
         f"| Online cycloidal-profile compensation | TE RMS reduction `{cycloidal_dictionary['best_rms_reduction_pct']:.1f}%`, TE max reduction `{cycloidal_dictionary['best_max_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
         "| Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |",
+        "",
+        "### Latest Harmonic-Wise Validation",
+        "",
+        *harmonic_latest_result_block,
         "",
         "### Online Compensation Tracking Placeholder",
         "",
@@ -909,6 +959,7 @@ def build_master_summary_markdown() -> str:
     family_failure_dictionary = campaign_artifact_dictionary["family_failure_dictionary"]
     training_run_record_list = collect_training_run_records(run_metadata_dictionary, selection_policy)
     family_best_record_list = collect_family_best_records()
+    harmonic_wise_validation_dictionary = collect_latest_harmonic_wise_validation()
 
     # Build Derived Lookups
     family_best_entry_dictionary = {
@@ -1106,7 +1157,7 @@ def build_master_summary_markdown() -> str:
         "",
     ])
 
-    report_line_list.extend(build_paper_reference_section(program_best_entry, strongest_neural_family))
+    report_line_list.extend(build_paper_reference_section(program_best_entry, strongest_neural_family, harmonic_wise_validation_dictionary))
 
     report_line_list.extend([
         "## Family-By-Family Result Breakdowns",

@@ -2308,7 +2308,51 @@ The repository now already has:
 - additional Wave 1 structured-neural baselines;
 - tree-based structured benchmarks under the same artifact contract;
 - a reusable datamodule and regression module structure for future architectures;
+- an offline harmonic-wise comparison pipeline for paper-aligned baseline work;
 - technical, script-level, and user-facing documentation aligned with the current structure.
+
+## Harmonic-Wise Comparison Pipeline
+
+The immediate post-`Wave 1` implementation branch is the offline
+`Harmonic-Wise Comparison Pipeline`.
+
+Its role is to create a paper-comparable baseline before opening the later
+`Wave 2` temporal-model branch.
+
+Canonical script:
+
+- `scripts/training/run_harmonic_wise_comparison_pipeline.py`
+
+Canonical config:
+
+- `config/training/harmonic_wise/presets/baseline.yaml`
+
+Typical usage:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/training/run_harmonic_wise_comparison_pipeline.py `
+  --config-path config/training/harmonic_wise/presets/baseline.yaml `
+  --output-suffix baseline_validation
+```
+
+Main outputs:
+
+- `output/validation_checks/harmonic_wise_comparison/<run_instance_id>/`
+- `doc/reports/analysis/validation_checks/*_harmonic_wise_comparison_report.md`
+- refreshed `doc/reports/analysis/Training Results Master Summary.md`
+
+Current scope:
+
+- harmonic-wise prediction of selected paper-aligned harmonic terms;
+- TE reconstruction from the predicted harmonic stack;
+- offline `Robot` and `Cycloidal` style playback;
+- held-out offline percentage-error reporting for `Target A`.
+
+Current non-scope:
+
+- online compensation loop;
+- uncompensated vs compensated runtime TE measurements;
+- final `Table 9` style benchmark closure for `Target B`.
 
 This is enough to extend the project toward:
 

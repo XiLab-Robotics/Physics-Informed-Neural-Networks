@@ -2,10 +2,10 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-08T17:18:51`
+- Generated At: `2026-04-08T19:25:22`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: `Wave 1` is now fully closed in campaign execution, reporting, and ranking; the next main focus is `Wave 2` planning and implementation, while the TwinCAT deployment-evaluation branch is deferred until after that wave is complete and reviewed
+- Current Focus: the immediate implementation branch is now the offline
 - Active Campaign Status: `completed`
 - Active Campaign Name: `targeted_remote_followup_campaign_2026_04_04_11_21_09`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
@@ -56,7 +56,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | next primary implementation wave; paper-reproduction scope:; implement a paper-comparable harmonic-component prediction pipeline; define comparable offline validation scenarios and TE-curve error metrics; close `Target A` |
+| Wave 2. Temporal Models | planned after the harmonic-wise intermediate branch; temporal-model scope will start only after the harmonic-wise comparison |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -65,7 +65,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | pending; paper-reproduction scope:; implement harmonic-wise TE reconstruction from predicted amplitude and phase; compare hybrid structured predictors against the paper-style harmonic stack; prepare the repository-owned deployable predictor package |
+| Intermediate Branch. Harmonic-Wise Comparison Pipeline | current primary implementation branch; focused scope:; implement harmonic-wise prediction of `A_k` and `phi_k`; implement TE reconstruction from the predicted harmonic terms; add offline `Robot` and `Cycloidal` motion-profile playback; define comparable offline validation scenarios and TE-curve error metrics; close `Target A`; initial repository-owned offline pipeline script should live under; validation artifacts for this branch should live under |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -74,7 +74,16 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 4. PINN Formulation And First PINN | pending; paper-reproduction scope:; add motion-profile reproduction tooling for `Robot` and `Cycloidal` style; implement the repository-side compensation-loop evaluation path; prepare the final online benchmark harness |
+| Wave 3. Hybrid Structured Models | pending; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack; prepare the repository-owned deployable predictor package |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Wave 4. PINN Formulation And First PINN | pending; paper-reproduction scope:; implement the repository-side compensation-loop evaluation path in the; implement uncompensated vs compensated `TE RMS` / `TE max` measurements; prepare the final online benchmark harness |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -149,10 +158,16 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Offline prediction metric protocol | Mean percentage error over full TE curves | Repository currently tracks `test_mae` / `test_rmse` in degrees, not the same protocol | not_yet_comparable |
+| Offline prediction metric protocol | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `9.403%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
+
+### Latest Harmonic-Wise Validation
+
+- Latest harmonic-wise validation summary: `output/validation_checks/harmonic_wise_comparison/2026-04-08-19-24-37__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
+- Harmonic-wise test mean percentage error: `9.403%`
+- `Target A` status from the latest harmonic-wise run: `not_yet_met`
 
 ### Online Compensation Tracking Placeholder
 

@@ -108,6 +108,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-08
 
+- [technical/2026-04/2026-04-08/2026-04-08-18-57-43_harmonic_wise_comparison_pipeline.md](./technical/2026-04/2026-04-08/2026-04-08-18-57-43_harmonic_wise_comparison_pipeline.md)
+  Technical document for opening the offline paper-aligned harmonic-wise comparison pipeline branch, including harmonic prediction, TE reconstruction, offline motion-profile playback, and the benchmark path needed to close `Target A`.
 - [technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md](./technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md)
   Technical document for making the paper-aligned harmonic-wise pipeline the immediate post-Wave-1 branch before the future Wave 2 temporal-model work is opened.
 - [technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md](./technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md)

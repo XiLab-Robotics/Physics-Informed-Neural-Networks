@@ -175,8 +175,8 @@ Minimum repository target:
 
 ### What Is Not Yet Comparable
 
-- The repository does not yet report TE-curve mean percentage error on the same
-  offline validation protocol used in the paper.
+- The repository now has a repository-owned harmonic-wise offline validation
+  protocol, but the first baseline does not yet match the paper threshold.
 - The repository does not yet have a harmonic-wise online compensation loop.
 - The repository does not yet have TwinCAT-side or equivalent motion-profile
   compensation tests matching the paper's `Robot` and `Cycloidal` profile
@@ -184,12 +184,38 @@ Minimum repository target:
 - Therefore, the repository cannot yet claim a real comparison against the
   paper's `Table 9`.
 
+### Latest Harmonic-Wise Offline Result
+
+The first repository-owned harmonic-wise baseline now exists under:
+
+- `output/validation_checks/harmonic_wise_comparison/2026-04-08-19-24-37__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
+
+Companion report:
+
+- `doc/reports/analysis/validation_checks/2026-04-08-19-25-21_harmonic_wise_comparison_te_harmonic_wise_hist_gbr_baseline_baseline_validation_harmonic_wise_comparison_report.md`
+
+Current result:
+
+- selected harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
+- validation mean percentage error: `9.474%`
+- test mean percentage error: `9.403%`
+- current `Target A` status: `not_yet_met`
+
+Important interpretation:
+
+- the repository now has the right offline comparison protocol;
+- the first harmonic-wise baseline is still above the paper threshold of
+  `4.7%`;
+- the truncation-only oracle for the same harmonic set reaches `2.749%` on the
+  test split, which means the selected harmonics are expressive enough, but the
+  operating-condition predictor is not yet strong enough.
+
 ### Current Comparison Verdict
 
 | Comparison Axis | Current Repository Status | Verdict |
 | --- | --- | --- |
 | Offline winner family direction | Tree winner (`hist_gradient_boosting`) | aligned |
-| Offline metric protocol | `test_mae` / `test_rmse` in degrees | not yet comparable |
+| Offline metric protocol | Harmonic-wise held-out mean percentage error now available: `9.403%` | comparable_but_not_yet_matching |
 | Online compensation benchmark | missing | not yet comparable |
 | End-to-end paper replication | missing | not yet comparable |
 
