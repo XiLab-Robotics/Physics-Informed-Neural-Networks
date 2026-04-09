@@ -637,6 +637,8 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for removing redundant language suffixes from imported NotebookLM exports already organized under the English and Italiano guide folders.
 - [technical/2026-04/2026-04-09/2026-04-09-18-06-16_bilingual_notebooklm_export_filename_convention.md](./technical/2026-04/2026-04-09/2026-04-09-18-06-16_bilingual_notebooklm_export_filename_convention.md)
   Technical plan for clarifying that imported bilingual NotebookLM exports should not repeat the language in filenames when the parent folder already declares it.
+- [technical/2026-04/2026-04-09/2026-04-09-18-31-24_track1_second_harmonic_wise_iteration.md](./technical/2026-04/2026-04-09/2026-04-09-18-31-24_track1_second_harmonic_wise_iteration.md)
+  Technical plan for the second Track 1 harmonic-wise iteration, including progressive harmonic-set experiments, feature engineering, and promotion back to the full RCIM harmonic set.
 
 ## Usage
 

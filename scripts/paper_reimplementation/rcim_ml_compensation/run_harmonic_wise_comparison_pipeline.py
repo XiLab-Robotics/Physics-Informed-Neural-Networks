@@ -54,10 +54,12 @@ def run_harmonic_wise_comparison_pipeline(
 
     # Build Harmonic-Wise Datasets
     selected_harmonic_list = harmonic_wise_support.resolve_selected_harmonic_list(training_config)
+    engineered_feature_term_list = harmonic_wise_support.resolve_feature_term_list(training_config)
     split_record_bundle, directional_count_dictionary, file_count_dictionary, _ = harmonic_wise_support.build_split_record_bundle(training_config)
-    train_feature_matrix, train_target_matrix, target_name_list = harmonic_wise_support.build_feature_target_matrix(
+    train_feature_matrix, train_target_matrix, target_name_list, feature_name_list = harmonic_wise_support.build_feature_target_matrix(
         split_record_bundle["train"],
         selected_harmonic_list,
+        engineered_feature_term_list,
     )
 
     # Fit Harmonic Target Models
@@ -82,6 +84,7 @@ def run_harmonic_wise_comparison_pipeline(
         selected_harmonic_list,
         target_name_list,
         percentage_error_denominator,
+        engineered_feature_term_list,
     )
     test_evaluation = harmonic_wise_support.evaluate_curve_record_split(
         split_record_bundle["test"],
@@ -89,6 +92,7 @@ def run_harmonic_wise_comparison_pipeline(
         selected_harmonic_list,
         target_name_list,
         percentage_error_denominator,
+        engineered_feature_term_list,
     )
 
     # Run Offline Motion-Profile Playback
@@ -110,6 +114,7 @@ def run_harmonic_wise_comparison_pipeline(
         validation_evaluation,
         test_evaluation,
         playback_summary_dictionary,
+        feature_name_list,
     )
     validation_summary_path = output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME
     shared_training_infrastructure.save_yaml_snapshot(validation_summary, validation_summary_path)

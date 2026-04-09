@@ -64,19 +64,87 @@ def resolve_selected_harmonic_list(training_config: dict[str, Any]) -> list[int]
     return selected_harmonic_list
 
 
+def resolve_feature_term_list(training_config: dict[str, Any]) -> list[str]:
+
+    """Resolve the configured engineered feature terms."""
+
+    feature_configuration = training_config.get("features", {})
+    configured_feature_term_list = feature_configuration.get("engineered_terms", [])
+    feature_term_list = [str(feature_term).strip() for feature_term in configured_feature_term_list if str(feature_term).strip()]
+
+    supported_feature_term_set = {
+        "speed_torque_product",
+        "speed_temperature_product",
+        "torque_temperature_product",
+        "speed_squared",
+        "torque_squared",
+    }
+    unsupported_feature_term_list = sorted(set(feature_term_list) - supported_feature_term_set)
+    assert not unsupported_feature_term_list, (
+        "Unsupported harmonic-wise engineered features requested | "
+        f"{', '.join(unsupported_feature_term_list)}"
+    )
+    return feature_term_list
+
+
 def build_feature_vector(
     speed_rpm: float,
     torque_nm: float,
     oil_temperature_deg: float,
     direction_flag: float,
+    engineered_feature_term_list: list[str] | None = None,
 ) -> np.ndarray:
 
     """Build the harmonic-regression feature vector."""
 
-    return np.asarray(
-        [speed_rpm, torque_nm, oil_temperature_deg, direction_flag],
-        dtype=np.float32,
-    )
+    feature_value_list = [
+        float(speed_rpm),
+        float(torque_nm),
+        float(oil_temperature_deg),
+        float(direction_flag),
+    ]
+
+    engineered_feature_term_list = engineered_feature_term_list or []
+    for feature_term in engineered_feature_term_list:
+        if feature_term == "speed_torque_product":
+            feature_value_list.append(float(speed_rpm * torque_nm))
+            continue
+        if feature_term == "speed_temperature_product":
+            feature_value_list.append(float(speed_rpm * oil_temperature_deg))
+            continue
+        if feature_term == "torque_temperature_product":
+            feature_value_list.append(float(torque_nm * oil_temperature_deg))
+            continue
+        if feature_term == "speed_squared":
+            feature_value_list.append(float(speed_rpm ** 2))
+            continue
+        if feature_term == "torque_squared":
+            feature_value_list.append(float(torque_nm ** 2))
+            continue
+
+    return np.asarray(feature_value_list, dtype=np.float32)
+
+
+def build_feature_name_list(engineered_feature_term_list: list[str]) -> list[str]:
+
+    """Build the ordered feature-name list for the harmonic predictor."""
+
+    feature_name_list = [
+        "speed_rpm",
+        "torque_nm",
+        "oil_temperature_deg",
+        "direction_flag",
+    ]
+    feature_name_dictionary = {
+        "speed_torque_product": "speed_times_torque",
+        "speed_temperature_product": "speed_times_temperature",
+        "torque_temperature_product": "torque_times_temperature",
+        "speed_squared": "speed_squared",
+        "torque_squared": "torque_squared",
+    }
+    for feature_term in engineered_feature_term_list:
+        feature_name_list.append(feature_name_dictionary[feature_term])
+    return feature_name_list
 
 
 def build_target_name_list(selected_harmonic_list: list[int]) -> list[str]:
@@ -260,11 +328,13 @@ def build_split_record_bundle(
 def build_feature_target_matrix(
     curve_record_list: list[HarmonicCurveRecord],
     selected_harmonic_list: list[int],
-) -> tuple[np.ndarray, np.ndarray, list[str]]:
+    engineered_feature_term_list: list[str],
+) -> tuple[np.ndarray, np.ndarray, list[str], list[str]]:
 
     """Build feature and target matrices for one split."""
 
     target_name_list = build_target_name_list(selected_harmonic_list)
+    feature_name_list = build_feature_name_list(engineered_feature_term_list)
     feature_matrix = np.asarray(
         [
             build_feature_vector(
@@ -272,6 +342,7 @@ def build_feature_target_matrix(
                 record.torque_nm,
                 record.oil_temperature_deg,
                 record.direction_flag,
+                engineered_feature_term_list,
             )
             for record in curve_record_list
         ],
@@ -284,10 +355,35 @@ def build_feature_target_matrix(
         ],
         dtype=np.float32,
     )
-    return feature_matrix, target_matrix, target_name_list
+    return feature_matrix, target_matrix, target_name_list, feature_name_list
 
 
-def build_estimator(model_configuration: dict[str, Any]):
+def resolve_harmonic_order_from_target_name(target_name: str) -> int:
+
+    """Resolve the harmonic order encoded in one target name."""
+
+    return int(str(target_name).split("_h", maxsplit=1)[1])
+
+
+def build_target_specific_model_configuration(
+    model_configuration: dict[str, Any],
+    target_name: str,
+) -> dict[str, Any]:
+
+    """Build the effective model configuration for one target."""
+
+    effective_model_configuration = dict(model_configuration)
+    harmonic_override_dictionary = {
+        str(harmonic_order): override_dictionary
+        for harmonic_order, override_dictionary in model_configuration.get("harmonic_overrides", {}).items()
+    }
+    target_harmonic_order = resolve_harmonic_order_from_target_name(target_name)
+    target_override_dictionary = harmonic_override_dictionary.get(str(target_harmonic_order), {})
+    effective_model_configuration.update(target_override_dictionary)
+    return effective_model_configuration
+
+
+def build_estimator(model_configuration: dict[str, Any], target_name: str):
 
     """Build one scikit-learn estimator for a harmonic target."""
 
@@ -327,7 +423,10 @@ def fit_harmonic_target_models(
 
     harmonic_model_dictionary: dict[str, Any] = {}
     for target_index, target_name in enumerate(target_name_list):
-        estimator = build_estimator(model_configuration)
+        estimator = build_estimator(
+            build_target_specific_model_configuration(model_configuration, target_name),
+            target_name,
+        )
         estimator.fit(feature_matrix, target_matrix[:, target_index])
         harmonic_model_dictionary[target_name] = estimator
     return harmonic_model_dictionary
@@ -466,19 +565,142 @@ def compute_harmonic_target_metric_dictionary(
     }
 
 
+def compute_per_target_metric_dictionary(
+    target_matrix: np.ndarray,
+    prediction_matrix: np.ndarray,
+    target_name_list: list[str],
+) -> dict[str, dict[str, float]]:
+
+    """Compute per-target coefficient metrics."""
+
+    per_target_metric_dictionary: dict[str, dict[str, float]] = {}
+    for target_index, target_name in enumerate(target_name_list):
+        residual_vector = prediction_matrix[:, target_index].astype(np.float64) - target_matrix[:, target_index].astype(np.float64)
+        mse = float(np.mean(np.square(residual_vector)))
+        mae = float(np.mean(np.abs(residual_vector)))
+        rmse = float(np.sqrt(mse))
+        per_target_metric_dictionary[target_name] = {
+            "mse": mse,
+            "mae": mae,
+            "rmse": rmse,
+        }
+    return per_target_metric_dictionary
+
+
+def wrap_phase_difference_radians(phase_difference_radians: float) -> float:
+
+    """Wrap one phase difference into the principal interval."""
+
+    return float(np.arctan2(np.sin(phase_difference_radians), np.cos(phase_difference_radians)))
+
+
+def compute_per_harmonic_metric_dictionary(
+    curve_record_list: list[HarmonicCurveRecord],
+    prediction_matrix: np.ndarray,
+    target_name_list: list[str],
+    selected_harmonic_list: list[int],
+) -> tuple[dict[str, dict[str, float]], list[dict[str, float]]]:
+
+    """Compute per-harmonic diagnostic metrics and ranking."""
+
+    per_harmonic_accumulator_dictionary: dict[str, dict[str, list[float]]] = {}
+    for harmonic_order in selected_harmonic_list:
+        per_harmonic_accumulator_dictionary[str(harmonic_order)] = {
+            "coefficient_abs_error": [],
+            "amplitude_abs_error": [],
+            "phase_abs_error_rad": [],
+        }
+
+    for sample_index, curve_record in enumerate(curve_record_list):
+        predicted_coefficient_dictionary, predicted_amplitude_phase_dictionary = target_matrix_to_dictionary(
+            prediction_matrix[sample_index],
+            target_name_list,
+            selected_harmonic_list,
+        )
+        for harmonic_order in selected_harmonic_list:
+            harmonic_key = str(harmonic_order)
+            accumulator_dictionary = per_harmonic_accumulator_dictionary[harmonic_key]
+
+            if harmonic_order == 0:
+                coefficient_error = abs(
+                    predicted_coefficient_dictionary["coefficient_cos_h0"]
+                    - curve_record.coefficient_dictionary["coefficient_cos_h0"]
+                )
+            else:
+                coefficient_error = 0.5 * (
+                    abs(
+                        predicted_coefficient_dictionary[f"coefficient_cos_h{harmonic_order}"]
+                        - curve_record.coefficient_dictionary[f"coefficient_cos_h{harmonic_order}"]
+                    )
+                    + abs(
+                        predicted_coefficient_dictionary[f"coefficient_sin_h{harmonic_order}"]
+                        - curve_record.coefficient_dictionary[f"coefficient_sin_h{harmonic_order}"]
+                    )
+                )
+
+            amplitude_error = abs(
+                predicted_amplitude_phase_dictionary[f"amplitude_h{harmonic_order}"]
+                - curve_record.amplitude_phase_dictionary[f"amplitude_h{harmonic_order}"]
+            )
+            phase_error = 0.0
+            if harmonic_order != 0:
+                phase_error = abs(
+                    wrap_phase_difference_radians(
+                        predicted_amplitude_phase_dictionary[f"phase_rad_h{harmonic_order}"]
+                        - curve_record.amplitude_phase_dictionary[f"phase_rad_h{harmonic_order}"]
+                    )
+                )
+
+            accumulator_dictionary["coefficient_abs_error"].append(float(coefficient_error))
+            accumulator_dictionary["amplitude_abs_error"].append(float(amplitude_error))
+            accumulator_dictionary["phase_abs_error_rad"].append(float(phase_error))
+
+    per_harmonic_metric_dictionary: dict[str, dict[str, float]] = {}
+    for harmonic_key, accumulator_dictionary in per_harmonic_accumulator_dictionary.items():
+        per_harmonic_metric_dictionary[harmonic_key] = {
+            "coefficient_mae": float(np.mean(accumulator_dictionary["coefficient_abs_error"])),
+            "coefficient_rmse": float(np.sqrt(np.mean(np.square(accumulator_dictionary["coefficient_abs_error"])))),
+            "amplitude_mae": float(np.mean(accumulator_dictionary["amplitude_abs_error"])),
+            "phase_mae_rad": float(np.mean(accumulator_dictionary["phase_abs_error_rad"])),
+        }
+
+    dominant_harmonic_error_ranking = [
+        {
+            "harmonic_order": int(harmonic_key),
+            "coefficient_mae": float(metric_dictionary["coefficient_mae"]),
+            "amplitude_mae": float(metric_dictionary["amplitude_mae"]),
+        }
+        for harmonic_key, metric_dictionary in per_harmonic_metric_dictionary.items()
+    ]
+    dominant_harmonic_error_ranking.sort(key=lambda ranking_entry: ranking_entry["coefficient_mae"], reverse=True)
+    return per_harmonic_metric_dictionary, dominant_harmonic_error_ranking
+
+
 def evaluate_curve_record_split(
     curve_record_list: list[HarmonicCurveRecord],
     harmonic_model_dictionary: dict[str, Any],
     selected_harmonic_list: list[int],
     target_name_list: list[str],
     percentage_error_denominator: str,
+    engineered_feature_term_list: list[str],
 ) -> dict[str, Any]:
 
     """Evaluate one split by reconstructing TE curves from predicted harmonics."""
 
-    feature_matrix, target_matrix, _ = build_feature_target_matrix(curve_record_list, selected_harmonic_list)
+    feature_matrix, target_matrix, _, _ = build_feature_target_matrix(
+        curve_record_list,
+        selected_harmonic_list,
+        engineered_feature_term_list,
+    )
     prediction_matrix = predict_target_matrix(harmonic_model_dictionary, feature_matrix, target_name_list)
     harmonic_target_metrics = compute_harmonic_target_metric_dictionary(target_matrix, prediction_matrix)
+    per_target_metric_dictionary = compute_per_target_metric_dictionary(target_matrix, prediction_matrix, target_name_list)
+    per_harmonic_metric_dictionary, dominant_harmonic_error_ranking = compute_per_harmonic_metric_dictionary(
+        curve_record_list,
+        prediction_matrix,
+        target_name_list,
+        selected_harmonic_list,
+    )
 
     predicted_curve_metric_list: list[dict[str, float]] = []
     oracle_curve_metric_list: list[dict[str, float]] = []
@@ -538,6 +760,9 @@ def evaluate_curve_record_split(
     return {
         "sample_count": len(curve_record_list),
         "harmonic_target_metrics": harmonic_target_metrics,
+        "per_target_metrics": per_target_metric_dictionary,
+        "per_harmonic_metrics": per_harmonic_metric_dictionary,
+        "dominant_harmonic_error_ranking": dominant_harmonic_error_ranking[:5],
         "curve_metrics": average_metric_dictionary(predicted_curve_metric_list),
         "oracle_curve_metrics": average_metric_dictionary(oracle_curve_metric_list),
         "sample_preview_list": sample_preview_list,
@@ -639,6 +864,7 @@ def run_motion_profile_playback(
                     float(torque_nm),
                     float(temperature_deg),
                     direction_flag,
+                    resolve_feature_term_list(training_config),
                 )
                 for speed_rpm, torque_nm, temperature_deg in zip(
                     profile_dictionary["speed_profile_rpm"],
@@ -693,6 +919,7 @@ def build_validation_summary(
     validation_evaluation: dict[str, Any],
     test_evaluation: dict[str, Any],
     playback_summary_dictionary: dict[str, Any],
+    feature_name_list: list[str],
 ) -> dict[str, Any]:
 
     """Build the persisted validation summary for the harmonic pipeline."""
@@ -719,6 +946,10 @@ def build_validation_summary(
             "decomposition_point_stride": int(evaluation_configuration["decomposition_point_stride"]),
             "percentage_error_denominator": str(evaluation_configuration["percentage_error_denominator"]),
         },
+        "feature_configuration": {
+            "feature_name_list": feature_name_list,
+            "engineered_feature_terms": resolve_feature_term_list(training_config),
+        },
         "split_counts": {
             "train_directional_curve_count": directional_count_dictionary["train"],
             "validation_directional_curve_count": directional_count_dictionary["validation"],
@@ -733,6 +964,8 @@ def build_validation_summary(
             "max_iter": int(model_configuration.get("max_iter", 0)),
             "max_depth": int(model_configuration.get("max_depth", 0)),
             "min_samples_leaf": int(model_configuration.get("min_samples_leaf", 0)),
+            "n_estimators": int(model_configuration.get("n_estimators", 0)),
+            "harmonic_overrides": model_configuration.get("harmonic_overrides", {}),
         },
         "validation_metrics": validation_evaluation,
         "test_metrics": test_evaluation,
@@ -768,6 +1001,7 @@ def build_harmonic_report_markdown(validation_summary: dict[str, Any]) -> str:
 
     experiment_dictionary = validation_summary["experiment"]
     harmonic_configuration = validation_summary["harmonic_configuration"]
+    feature_configuration = validation_summary["feature_configuration"]
     split_counts = validation_summary["split_counts"]
     validation_metrics = validation_summary["validation_metrics"]
     test_metrics = validation_summary["test_metrics"]
@@ -815,6 +1049,7 @@ def build_harmonic_report_markdown(validation_summary: dict[str, Any]) -> str:
         f"- selected harmonics: `{', '.join(str(harmonic_order) for harmonic_order in harmonic_configuration['selected_harmonics'])}`",
         f"- decomposition point stride: `{harmonic_configuration['decomposition_point_stride']}`",
         f"- percentage-error denominator: `{harmonic_configuration['percentage_error_denominator']}`",
+        f"- feature terms: `{', '.join(feature_configuration['engineered_feature_terms']) if feature_configuration['engineered_feature_terms'] else 'base_only'}`",
         "",
         "## Split Coverage",
         "",
@@ -837,6 +1072,32 @@ def build_harmonic_report_markdown(validation_summary: dict[str, Any]) -> str:
         f"- Current repository test result: `{paper_reference_alignment['test_mean_percentage_error_pct']:.3f}%` mean percentage error.",
         f"- Current verdict: `{paper_reference_alignment['target_a_status']}`.",
         f"- Oracle truncation-only test error with the selected harmonics: `{test_metrics['oracle_curve_metrics']['mean_percentage_error_pct']:.3f}%`.",
+        "",
+        "## Per-Harmonic Error Diagnostics",
+        "",
+        "| Harmonic | Coefficient MAE | Coefficient RMSE | Amplitude MAE | Phase MAE [rad] |",
+        "| --- | ---: | ---: | ---: | ---: |",
+        *[
+            (
+                f"| `h{harmonic_order}` | "
+                f"{test_metrics['per_harmonic_metrics'][str(harmonic_order)]['coefficient_mae']:.6f} | "
+                f"{test_metrics['per_harmonic_metrics'][str(harmonic_order)]['coefficient_rmse']:.6f} | "
+                f"{test_metrics['per_harmonic_metrics'][str(harmonic_order)]['amplitude_mae']:.6f} | "
+                f"{test_metrics['per_harmonic_metrics'][str(harmonic_order)]['phase_mae_rad']:.6f} |"
+            )
+            for harmonic_order in harmonic_configuration['selected_harmonics']
+        ],
+        "",
+        "Top coefficient-error contributors on the test split:",
+        "",
+        *[
+            (
+                f"- `h{ranking_entry['harmonic_order']}` | coefficient MAE "
+                f"`{ranking_entry['coefficient_mae']:.6f}` | amplitude MAE "
+                f"`{ranking_entry['amplitude_mae']:.6f}`"
+            )
+            for ranking_entry in test_metrics["dominant_harmonic_error_ranking"]
+        ],
         "",
         "## Offline Motion-Profile Playback",
         "",

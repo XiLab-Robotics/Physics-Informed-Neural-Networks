@@ -219,6 +219,15 @@ Current result:
 - test mean percentage error: `9.403%`
 - current `Target A` status: `not_yet_met`
 
+Immediate next repository step:
+
+- execute the second `Track 1` iteration with staged harmonic-set presets
+  `0,1,39`, `0,1,39,40`, and `0,1,39,40,78`;
+- combine those staged runs with engineered operating-condition features and
+  per-harmonic error diagnostics;
+- then promote the best improved predictor configuration back to the full RCIM
+  harmonic set before deciding whether `Target A` is met.
+
 Important interpretation:
 
 - the repository now has the right offline comparison protocol;

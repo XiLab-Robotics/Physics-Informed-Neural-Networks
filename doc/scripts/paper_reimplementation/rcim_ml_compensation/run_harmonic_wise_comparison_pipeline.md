@@ -52,6 +52,16 @@ Provides:
 - estimator hyperparameters;
 - offline playback settings for `Robot` and `Cycloidal` style probes.
 
+### `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/`
+
+Provides staged `Track 1` second-iteration presets for:
+
+- reduced harmonic-set debugging runs;
+- engineered operating-condition features;
+- refined `HistGradientBoosting` configurations;
+- a diagnostic `RandomForest` comparison preset;
+- promotion back to the full RCIM harmonic set.
+
 ## Outputs
 
 The script writes its outputs under:
@@ -94,3 +104,11 @@ Use this script when:
   campaign;
 - the team wants a colleague-facing offline `paper vs repository` checkpoint
   before any online compensation work.
+
+Current second-iteration preset progression:
+
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage1_h013.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage2_h01340.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage3_h0134078.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage4_full_rcim_engineered.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage1_h013_random_forest_diagnostic.yaml`

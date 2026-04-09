@@ -107,6 +107,12 @@ Current next step:
   branch before opening `Wave 2` temporal models
 - keep `Wave 2` temporal models planned, but only after the harmonic-wise
   comparison framework is implemented and reviewed
+- implement the second `Track 1` harmonic-wise iteration as the immediate next
+  code pass:
+  - staged harmonic-set presets `0,1,39`, `0,1,39,40`, `0,1,39,40,78`
+  - engineered operating-condition features
+  - per-harmonic error diagnostics
+  - promotion back to the full RCIM set before evaluating `Target A`
 
 ### Paper Alignment Targets
 

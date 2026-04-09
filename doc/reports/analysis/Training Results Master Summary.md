@@ -168,6 +168,10 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
 - Harmonic-wise test mean percentage error: `9.403%`
 - `Target A` status from the latest harmonic-wise run: `not_yet_met`
+- Immediate implementation focus: second `Track 1` iteration with staged
+  harmonic presets `0,1,39`, `0,1,39,40`, `0,1,39,40,78`, engineered
+  operating-condition features, per-harmonic diagnostics, and promotion back
+  to the full RCIM harmonic set.
 
 ### Online Compensation Tracking Placeholder
 

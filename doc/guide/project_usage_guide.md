@@ -2326,6 +2326,12 @@ Canonical script:
 Canonical config:
 
 - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml`
+- staged second-iteration presets:
+  - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage1_h013.yaml`
+  - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage2_h01340.yaml`
+  - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage3_h0134078.yaml`
+  - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage4_full_rcim_engineered.yaml`
+  - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/presets/track1_stage1_h013_random_forest_diagnostic.yaml`
 
 Typical usage:
 
@@ -2347,6 +2353,9 @@ Current scope:
 - TE reconstruction from the predicted harmonic stack;
 - offline `Robot` and `Cycloidal` style playback;
 - held-out offline percentage-error reporting for `Target A`.
+- configurable engineered operating-condition features for the second Track 1
+  iteration;
+- per-harmonic error diagnostics in the validation summary and Markdown report.
 
 Current non-scope:
 
