@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+  <defs>
+    <style>
+      .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #132238; }
+      .subtitle { font: 500 17px 'Segoe UI', Arial, sans-serif; fill: #37506e; }
+      .laneTitle { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #16314e; }
+      .boxTitle { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #102033; text-anchor: middle; }
+      .boxText { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #22364d; text-anchor: middle; }
+      .small { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #36506a; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.2" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 z" fill="#54789d"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="980" fill="#f8fbfe"/>
+  <text x="60" y="66" class="title">Harmonic-Wise Pipeline Repository Architecture</text>
+  <text x="60" y="98" class="subtitle">Code modules, configuration, artifacts, and canonical reports for the paper-faithful offline branch</text>
+
+  <rect x="50" y="140" width="1290" height="248" rx="28" fill="#eef5fb" stroke="#a6bfd8" stroke-width="3"/>
+  <text x="78" y="183" class="laneTitle">Code And Configuration Layer</text>
+
+  <rect x="82" y="214" width="270" height="148" rx="22" fill="#dfeefb" stroke="#8eb5d8" stroke-width="2.5"/>
+  <text x="217" y="252" class="boxTitle">Runner Script</text>
+  <text x="217" y="279" class="boxText">scripts/paper_reimplementation/</text>
+  <text x="217" y="303" class="boxText">rcim_ml_compensation/</text>
+  <text x="217" y="327" class="boxText">run_harmonic_wise_</text>
+  <text x="217" y="353" class="boxText">comparison_pipeline.py</text>
+
+  <rect x="412" y="214" width="270" height="148" rx="22" fill="#e7f6e4" stroke="#88bc7e" stroke-width="2.5"/>
+  <text x="547" y="252" class="boxTitle">Support Module</text>
+  <text x="547" y="279" class="boxText">harmonic decomposition</text>
+  <text x="547" y="303" class="boxText">target assembly, model fit</text>
+  <text x="547" y="327" class="boxText">reconstruction</text>
+  <text x="547" y="353" class="boxText">and reporting</text>
+
+  <rect x="742" y="214" width="270" height="148" rx="22" fill="#fff1da" stroke="#dfb26a" stroke-width="2.5"/>
+  <text x="877" y="252" class="boxTitle">Baseline Config</text>
+  <text x="877" y="279" class="boxText">config/paper_reimplementation/</text>
+  <text x="877" y="303" class="boxText">rcim_ml_compensation/</text>
+  <text x="877" y="327" class="boxText">harmonic_wise/</text>
+  <text x="877" y="353" class="boxText">baseline.yaml</text>
+
+  <rect x="1072" y="214" width="220" height="148" rx="22" fill="#f8e5ea" stroke="#d89aac" stroke-width="2.5"/>
+  <text x="1182" y="252" class="boxTitle">Script Docs And API</text>
+  <text x="1182" y="279" class="boxText">doc/scripts/</text>
+  <text x="1182" y="303" class="boxText">paper_reimplementation/...</text>
+  <text x="1182" y="327" class="boxText">site/api/paper_</text>
+  <text x="1182" y="353" class="boxText">reimplementation/</text>
+
+  <rect x="50" y="412" width="1290" height="220" rx="28" fill="#f4f8ec" stroke="#b8c99b" stroke-width="3"/>
+  <text x="78" y="455" class="laneTitle">Execution And Artifact Layer</text>
+
+  <rect x="100" y="492" width="280" height="108" rx="22" fill="#ecf7e6" stroke="#9dc58c" stroke-width="2.5"/>
+  <text x="240" y="524" class="boxTitle">Input Data</text>
+  <text x="240" y="553" class="boxText">validated TE curves</text>
+  <text x="240" y="576" class="boxText">with operating-condition metadata</text>
+
+  <rect x="440" y="492" width="290" height="108" rx="22" fill="#e6f1fa" stroke="#90afd2" stroke-width="2.5"/>
+  <text x="585" y="524" class="boxTitle">Run Execution</text>
+  <text x="585" y="553" class="boxText">decompose curves</text>
+  <text x="585" y="576" class="boxText">fit regressors, reconstruct and evaluate</text>
+
+  <rect x="790" y="492" width="290" height="108" rx="22" fill="#fef2df" stroke="#d9b57a" stroke-width="2.5"/>
+  <text x="935" y="524" class="boxTitle">Validation Artifact Root</text>
+  <text x="935" y="553" class="boxText">output/validation_checks/</text>
+  <text x="935" y="576" class="boxText">paper_reimplementation_rcim_</text>
+  <text x="935" y="592" class="boxText">harmonic_wise/</text>
+
+  <rect x="1140" y="486" width="150" height="128" rx="22" fill="#fce7ed" stroke="#d89aac" stroke-width="2.5"/>
+  <text x="1215" y="524" class="boxTitle">Per-Run Files</text>
+  <text x="1215" y="551" class="boxText">config</text>
+  <text x="1215" y="575" class="boxText">metadata</text>
+  <text x="1215" y="599" class="boxText">summary and bundle</text>
+
+  <rect x="50" y="656" width="1290" height="265" rx="28" fill="#f9eef4" stroke="#cfadc0" stroke-width="3"/>
+  <text x="78" y="699" class="laneTitle">Canonical Reporting Layer</text>
+
+  <rect x="90" y="738" width="270" height="140" rx="22" fill="#fce7ed" stroke="#d89aac" stroke-width="2.5"/>
+  <text x="225" y="770" class="boxTitle">Run-Level Report</text>
+  <text x="225" y="799" class="boxText">doc/reports/analysis/</text>
+  <text x="225" y="822" class="boxText">validation_checks/</text>
+  <text x="225" y="845" class="boxText">harmonic_wise_comparison_report.md</text>
+
+  <rect x="390" y="738" width="270" height="140" rx="22" fill="#f3e9fb" stroke="#b196d2" stroke-width="2.5"/>
+  <text x="525" y="770" class="boxTitle">Paper Benchmark Report</text>
+  <text x="525" y="799" class="boxText">RCIM Paper Reference Benchmark.md</text>
+  <text x="525" y="822" class="boxText">tracks Target A progress</text>
+  <text x="525" y="845" class="boxText">and paper comparability status</text>
+
+  <rect x="690" y="738" width="270" height="140" rx="22" fill="#eaf2fb" stroke="#95b2d0" stroke-width="2.5"/>
+  <text x="825" y="770" class="boxTitle">Program Master Summary</text>
+  <text x="825" y="799" class="boxText">Training Results Master Summary.md</text>
+  <text x="825" y="822" class="boxText">keeps branch status visible</text>
+  <text x="825" y="845" class="boxText">for colleagues and roadmap control</text>
+
+  <rect x="990" y="738" width="310" height="140" rx="22" fill="#edf8ec" stroke="#96c28b" stroke-width="2.5"/>
+  <text x="1145" y="770" class="boxTitle">Guide And Teaching Layer</text>
+  <text x="1145" y="799" class="boxText">doc/guide/Harmonic-Wise Paper</text>
+  <text x="1145" y="822" class="boxText">Reimplementation Pipeline/</text>
+  <text x="1145" y="845" class="boxText">guide, diagrams and NotebookLM packages</text>
+
+  <line x1="352" y1="284" x2="402" y2="284" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="682" y1="284" x2="732" y2="284" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1012" y1="284" x2="1062" y2="284" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <line x1="380" y1="546" x2="430" y2="546" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="730" y1="546" x2="780" y2="546" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1080" y1="546" x2="1130" y2="546" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <path d="M1215 614 C1215 662 1192 688 1168 730" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M935 598 C935 654 890 682 848 730" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M935 598 C935 650 640 682 548 730" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M935 598 C935 646 420 686 305 730" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="88" y="910" class="small">Current scope: offline paper-faithful reproduction only. Online compensation and final Table 9 style validation remain future layers.</text>
+</svg>

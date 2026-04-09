@@ -627,6 +627,10 @@ This folder contains the internal project documents derived from the reference P
   Practical user guide for the repository-local Codex skill and subagent system.
 - [guide/Transmission Error Foundations/README.md](./guide/Transmission%20Error%20Foundations/README.md)
   Onboarding-oriented bilingual presentation and video bundle that explains transmission error foundations, measurement motivation, and the TE modeling roadmap for new students.
+- [guide/Harmonic-Wise Paper Reimplementation Pipeline/Harmonic-Wise Paper Reimplementation Pipeline.md](./guide/Harmonic-Wise%20Paper%20Reimplementation%20Pipeline/Harmonic-Wise%20Paper%20Reimplementation%20Pipeline.md)
+  Guide-local explanation of the paper-faithful harmonic-wise pipeline, including diagrams and NotebookLM source packages for future video-guide and presentation workflows.
+- [technical/2026-04/2026-04-09/2026-04-09-12-47-17_harmonic_wise_pipeline_guide_and_notebooklm_package.md](./technical/2026-04/2026-04-09/2026-04-09-12-47-17_harmonic_wise_pipeline_guide_and_notebooklm_package.md)
+  Technical plan for the guide-local documentation, diagrams, PDF companion, and NotebookLM source packages for the harmonic-wise paper-reimplementation pipeline.
 
 ## Usage
 

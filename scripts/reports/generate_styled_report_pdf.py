@@ -158,6 +158,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "main-conclusions",
         "artifact-references",
     },
+    "Harmonic-Wise Paper Reimplementation Pipeline": {
+        "stage-6-reconstruct-the-te-curve",
+    },
 }
 
 # Browser And Report Constants
@@ -266,6 +269,15 @@ REPORT_STYLESHEET = """
     .section-force-page-break {
       break-before: page;
       page-break-before: always;
+    }
+
+    .explicit-page-break {
+      break-before: page;
+      page-break-before: always;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
     }
 
     h2 {
@@ -1717,6 +1729,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                 or current_section_slug in report_specific_forced_page_break_section_slugs
             ):
                 section_class_names.append("section-force-page-break")
+                document_html_tokens.append('<div class="explicit-page-break"></div>')
 
             document_html_tokens.append(
                 f'<section id="{current_section_slug}" class="{" ".join(section_class_names)}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'

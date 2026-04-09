@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860">
+  <defs>
+    <style>
+      .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #132238; }
+      .subtitle { font: 500 17px 'Segoe UI', Arial, sans-serif; fill: #37506e; }
+      .boxTitle { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #102033; text-anchor: middle; }
+      .boxText { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #22364d; text-anchor: middle; }
+      .small { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #36506a; text-anchor: middle; }
+      .arrowText { font: 600 15px 'Segoe UI', Arial, sans-serif; fill: #28445f; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.2" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 z" fill="#54789d"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="860" fill="#f7fbff"/>
+  <text x="64" y="70" class="title">Harmonic-Wise Pipeline Conceptual Flow</text>
+  <text x="64" y="103" class="subtitle">Paper-faithful offline reproduction path from raw TE curves to TE-curve benchmark metrics</text>
+
+  <rect x="60" y="160" width="250" height="170" rx="28" fill="#dfeefb" stroke="#8eb5d8" stroke-width="3"/>
+  <text x="185" y="205" class="boxTitle">1. Read TE Curves</text>
+  <text x="185" y="242" class="boxText">angle grid</text>
+  <text x="185" y="270" class="boxText">TE curve</text>
+  <text x="185" y="294" class="boxText">speed, torque,</text>
+  <text x="185" y="318" class="boxText">temperature, direction</text>
+
+  <rect x="370" y="160" width="280" height="170" rx="28" fill="#e8f7e5" stroke="#88bc7e" stroke-width="3"/>
+  <text x="510" y="205" class="boxTitle">2. Harmonic Decomposition</text>
+  <text x="510" y="242" class="boxText">Selected set</text>
+  <text x="510" y="270" class="boxText">0, 1, 3, 39, 40, 78</text>
+  <text x="510" y="294" class="boxText">81, 156, 162, 240</text>
+  <text x="510" y="318" class="small">Truncated harmonic fit per full curve</text>
+
+  <rect x="710" y="160" width="290" height="170" rx="28" fill="#fff1da" stroke="#dfb26a" stroke-width="3"/>
+  <text x="855" y="205" class="boxTitle">3. Harmonic Targets</text>
+  <text x="855" y="242" class="boxText">Per harmonic, extract</text>
+  <text x="855" y="270" class="boxText">cosine coefficient</text>
+  <text x="855" y="294" class="boxText">sine coefficient</text>
+  <text x="855" y="318" class="small">Equivalent to amplitude-phase content</text>
+
+  <rect x="1060" y="160" width="280" height="170" rx="28" fill="#f9e2e2" stroke="#d69696" stroke-width="3"/>
+  <text x="1200" y="205" class="boxTitle">4. New Supervised Dataset</text>
+  <text x="1200" y="242" class="boxText">Input</text>
+  <text x="1200" y="270" class="boxText">speed, torque,</text>
+  <text x="1200" y="294" class="boxText">temperature, direction</text>
+  <text x="1200" y="318" class="boxText">Target: harmonic summary</text>
+
+  <rect x="160" y="455" width="320" height="180" rx="28" fill="#e4f2f0" stroke="#82b4ac" stroke-width="3"/>
+  <text x="320" y="500" class="boxTitle">5. Train Harmonic Predictors</text>
+  <text x="320" y="537" class="boxText">One regressor per target term</text>
+  <text x="320" y="565" class="boxText">Current baseline family</text>
+  <text x="320" y="593" class="boxText">HistGradientBoosting</text>
+  <text x="320" y="619" class="small">Predict compact descriptors, not TE samples</text>
+
+  <rect x="570" y="455" width="300" height="180" rx="28" fill="#ede7fb" stroke="#9f8fcd" stroke-width="3"/>
+  <text x="720" y="500" class="boxTitle">6. Reconstruct TE Curve</text>
+  <text x="720" y="537" class="boxText">Predicted harmonic stack</text>
+  <text x="720" y="565" class="boxText">becomes a full</text>
+  <text x="720" y="593" class="boxText">TE(theta) curve over angle</text>
+  <text x="720" y="619" class="small">Compact representation to physical signal</text>
+
+  <rect x="960" y="455" width="320" height="180" rx="28" fill="#ffe8ef" stroke="#dd8aa9" stroke-width="3"/>
+  <text x="1120" y="500" class="boxTitle">7. Offline Paper Comparison</text>
+  <text x="1120" y="537" class="boxText">Compare reconstructed and real TE</text>
+  <text x="1120" y="565" class="boxText">Metrics: MAE, RMSE,</text>
+  <text x="1120" y="593" class="boxText">mean percentage error</text>
+  <text x="1120" y="619" class="small">Current Target A threshold: 4.7%</text>
+
+  <rect x="445" y="700" width="520" height="110" rx="28" fill="#dcebf6" stroke="#87a9c7" stroke-width="3"/>
+  <text x="705" y="742" class="boxTitle">Output Role In The Repository</text>
+  <text x="705" y="774" class="boxText">Track 1 = paper-faithful offline reproduction path</text>
+  <text x="705" y="798" class="boxText">Track 2 = separate direct-TE comparison branch</text>
+
+  <line x1="310" y1="245" x2="362" y2="245" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="650" y1="245" x2="702" y2="245" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1000" y1="245" x2="1052" y2="245" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1200 330 C1200 390 1140 404 1120 449" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="480" y1="545" x2="562" y2="545" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="870" y1="545" x2="952" y2="545" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M320 330 C320 386 320 406 320 449" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1120 635 C1120 700 1035 755 972 755" fill="none" stroke="#54789d" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1160" y="712" class="arrowText">benchmark</text>
+  <text x="1160" y="732" class="arrowText">status</text>
+</svg>
