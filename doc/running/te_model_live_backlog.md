@@ -262,9 +262,9 @@ Entry rule:
   - define comparable offline validation scenarios and TE-curve error metrics
   - close `Target A`
 - initial repository-owned offline pipeline script should live under
-  `scripts/training/run_harmonic_wise_comparison_pipeline.py`
+  `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 - validation artifacts for this branch should live under
-  `output/validation_checks/harmonic_wise_comparison/`
+  `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
 
 ### Wave 3. Hybrid Structured Models
 

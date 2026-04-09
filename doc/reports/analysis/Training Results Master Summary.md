@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-08T19:25:22`
+- Generated At: `2026-04-09T12:17:15`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
@@ -165,7 +165,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Latest Harmonic-Wise Validation
 
-- Latest harmonic-wise validation summary: `output/validation_checks/harmonic_wise_comparison/2026-04-08-19-24-37__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
+- Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
 - Harmonic-wise test mean percentage error: `9.403%`
 - `Target A` status from the latest harmonic-wise run: `not_yet_met`
 

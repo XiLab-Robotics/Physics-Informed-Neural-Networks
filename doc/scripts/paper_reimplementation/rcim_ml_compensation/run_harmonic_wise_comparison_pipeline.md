@@ -8,7 +8,7 @@ pipeline created to align the project with the benchmark paper
 
 The script is stored in:
 
-- `scripts/training/run_harmonic_wise_comparison_pipeline.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 
 ## Main Role
 
@@ -32,7 +32,7 @@ It performs these stages:
 
 ## Main Components Used
 
-### `scripts/training/harmonic_wise_support.py`
+### `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_support.py`
 
 Provides:
 
@@ -43,7 +43,7 @@ Provides:
 - offline motion-profile playback helpers;
 - validation-summary and Markdown-report generation.
 
-### `config/training/harmonic_wise/presets/baseline.yaml`
+### `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml`
 
 Provides:
 
@@ -56,7 +56,7 @@ Provides:
 
 The script writes its outputs under:
 
-- `output/validation_checks/harmonic_wise_comparison/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
 
 Typical generated artifacts include:
 
@@ -82,8 +82,8 @@ Operational note:
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/run_harmonic_wise_comparison_pipeline.py `
-  --config-path config/training/harmonic_wise/presets/baseline.yaml `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml `
   --output-suffix baseline_validation
 ```
 

@@ -2321,23 +2321,23 @@ Its role is to create a paper-comparable baseline before opening the later
 
 Canonical script:
 
-- `scripts/training/run_harmonic_wise_comparison_pipeline.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 
 Canonical config:
 
-- `config/training/harmonic_wise/presets/baseline.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml`
 
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/run_harmonic_wise_comparison_pipeline.py `
-  --config-path config/training/harmonic_wise/presets/baseline.yaml `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml `
   --output-suffix baseline_validation
 ```
 
 Main outputs:
 
-- `output/validation_checks/harmonic_wise_comparison/<run_instance_id>/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/<run_instance_id>/`
 - `doc/reports/analysis/validation_checks/*_harmonic_wise_comparison_report.md`
 - refreshed `doc/reports/analysis/Training Results Master Summary.md`
 

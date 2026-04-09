@@ -206,11 +206,11 @@ tables should explicitly label each entry as either:
 
 The first repository-owned harmonic-wise baseline now exists under:
 
-- `output/validation_checks/harmonic_wise_comparison/2026-04-08-19-24-37__te_harmonic_wise_hist_gbr_baseline_baseline_validation/validation_summary.yaml`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/<latest_run_instance_id>/validation_summary.yaml`
 
 Companion report:
 
-- `doc/reports/analysis/validation_checks/2026-04-08-19-25-21_harmonic_wise_comparison_te_harmonic_wise_hist_gbr_baseline_baseline_validation_harmonic_wise_comparison_report.md`
+- `doc/reports/analysis/validation_checks/2026-04-09-12-17-15_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_hist_gbr_baseline_baseline_validation_harmonic_wise_comparison_report.md`
 
 Current result:
 

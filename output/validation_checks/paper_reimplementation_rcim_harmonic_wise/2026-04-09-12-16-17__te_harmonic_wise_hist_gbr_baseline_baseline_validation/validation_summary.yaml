@@ -1,11 +1,11 @@
 schema_version: 1
-config_path: config/training/harmonic_wise/presets/baseline.yaml
-output_directory: output/validation_checks/harmonic_wise_comparison/2026-04-08-19-24-37__te_harmonic_wise_hist_gbr_baseline_baseline_validation
+config_path: config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation
 experiment:
   run_name: te_harmonic_wise_hist_gbr_baseline
   output_run_name: te_harmonic_wise_hist_gbr_baseline_baseline_validation
-  run_instance_id: 2026-04-08-19-24-37__te_harmonic_wise_hist_gbr_baseline_baseline_validation
-  model_family: harmonic_wise_comparison
+  run_instance_id: 2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation
+  model_family: paper_reimplementation_rcim_harmonic_wise
   model_type: harmonic_wise_hist_gradient_boosting
 harmonic_configuration:
   selected_harmonics:

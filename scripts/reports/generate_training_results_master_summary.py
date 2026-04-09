@@ -697,7 +697,7 @@ def collect_latest_harmonic_wise_validation() -> dict[str, Any] | None:
 
     """Collect the latest harmonic-wise validation summary when available."""
 
-    harmonic_validation_root = DEFAULT_VALIDATION_CHECK_ROOT / "harmonic_wise_comparison"
+    harmonic_validation_root = DEFAULT_VALIDATION_CHECK_ROOT / "paper_reimplementation_rcim_harmonic_wise"
     if not harmonic_validation_root.exists():
         return None
 

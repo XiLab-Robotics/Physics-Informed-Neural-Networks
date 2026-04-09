@@ -8,18 +8,18 @@ import sys
 from pathlib import Path
 
 # Define Project Path
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(__file__).resolve().parents[3]
 
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.paper_reimplementation.rcim_ml_compensation import harmonic_wise_support
 from scripts.reports.generate_training_results_master_summary import generate_training_results_master_summary
-from scripts.training import harmonic_wise_support
 from scripts.training import shared_training_infrastructure
 
-DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "training" / "harmonic_wise" / "presets" / "baseline.yaml"
+DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "paper_reimplementation" / "rcim_ml_compensation" / "harmonic_wise" / "baseline.yaml"
 
 
 def run_harmonic_wise_comparison_pipeline(
