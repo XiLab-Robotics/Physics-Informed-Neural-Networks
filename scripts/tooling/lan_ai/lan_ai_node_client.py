@@ -49,14 +49,29 @@ class LanTranscriptSegment:
 
 def normalize_base_url(raw_base_url: str) -> str:
 
-    """ Normalize Base URL """
+    """Normalize one service base URL.
+
+    Args:
+        raw_base_url: Raw user-provided or config-provided base URL.
+
+    Returns:
+        Trimmed base URL without a trailing slash.
+    """
 
     return raw_base_url.strip().rstrip("/")
 
 
 def build_bearer_header_map(bearer_token: str) -> dict[str, str]:
 
-    """ Build Bearer Header Map """
+    """Build the optional bearer-authorization header map.
+
+    Args:
+        bearer_token: Optional bearer token string.
+
+    Returns:
+        Header map ready for `requests`. Returns an empty dictionary when the
+        token is blank.
+    """
 
     if not bearer_token.strip():
         return {}

@@ -133,6 +133,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-09
 
+- [technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md](./technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md)
+  Technical document for auditing repository-owned Python scripts against the
+  approved style baseline and for formalizing a mandatory style-compliance
+  check whenever a new Python script is created.
 - [technical/2026-04/2026-04-09/2026-04-09-11-56-36_paper_reimplementation_structure_reorganization.md](./technical/2026-04/2026-04-09/2026-04-09-11-56-36_paper_reimplementation_structure_reorganization.md)
   Technical document for reorganizing the paper-faithful reimplementation branch into a dedicated repository structure instead of leaving its scripts, configs, notes, and artifacts mixed with generic training helpers.
 - [technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md](./technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md)

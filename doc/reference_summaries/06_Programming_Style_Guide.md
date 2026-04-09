@@ -157,6 +157,17 @@ class TransmissionErrorRegressionModule(LightningModule):
 - Keep one blank line between consecutive top-level definitions.
 - Reduce superfluous blank lines between adjacent import blocks, constants, and top-level definitions when the file remains easy to scan.
 
+## Mandatory New-Script Check
+
+- Every new repository-owned Python script must end with an explicit
+  style-compliance pass before the task is considered complete.
+- This mandatory check must verify formatting and spacing alignment, docstring
+  alignment with the Google-style default, section-comment coverage inside
+  non-trivial functions, naming clarity, and staged-logic readability against
+  the repository baseline.
+- Do not treat a new Python script as complete while this verification is still
+  implicit or skipped.
+
 ## Manual Refactoring Patterns
 
 The broad manual refactoring applied across the Python scripts in commit `f624b975ab4c1829854a2c1b6dd63c945206ebd7` remains the repository-wide baseline refinement.

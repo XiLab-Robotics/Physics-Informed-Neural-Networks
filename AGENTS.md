@@ -187,6 +187,7 @@
 - Use Google-style docstrings as the default for new or materially refactored repository-owned Python scripts, especially for public modules, classes, dataclasses, and non-trivial public functions.
 - Keep the summary line concise, then add `Args`, `Returns`, `Raises`, `Attributes`, or `Notes` sections only when they materially improve API clarity.
 - Short one-line title-case docstrings may remain in untouched legacy code, but they are not the default target format for new script work.
+- Whenever a new repository-owned Python script is created, run an explicit style-compliance check before closing the task. That check must verify formatting and spacing alignment, Google-style docstrings where required, section-comment coverage inside non-trivial functions, naming clarity, and staged-logic readability against the repository baseline.
 - Add frequent section comments before logical blocks. The preferred pattern is imperative or descriptive title case, for example `# Initialize Admittance Controller`, `# Compute Cartesian Velocity`, `# Save Model`.
 - Do not rely on docstrings alone inside non-trivial functions. Use section comments frequently enough that the control flow stays visually scannable while reading the function body.
 - Keep comments capitalized and high-signal. It is acceptable to use arrows or quick clarifiers like `->`, parentheses, or acronym-heavy labels when that improves readability.

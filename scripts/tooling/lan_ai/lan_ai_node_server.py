@@ -53,8 +53,13 @@ PADDLE_OCR_CACHE: dict[str, Any] = {}
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
-    """ Parse Command-Line Arguments """
+    """Parse the LAN AI node server command-line arguments.
 
+    Returns:
+        Parsed command-line namespace for the LAN AI server entry point.
+    """
+
+    # Build Argument Parser
     argument_parser = argparse.ArgumentParser(
         description="Serve Faster-Whisper and PaddleOCR endpoints for the LAN AI node.",
     )
@@ -70,11 +75,22 @@ def parse_command_line_arguments() -> argparse.Namespace:
 
 def ensure_authorized(authorization_header: str | None, expected_bearer_token: str) -> None:
 
-    """ Ensure Authorized """
+    """Validate the optional bearer token for one request.
 
+    Args:
+        authorization_header: Incoming `Authorization` header value.
+        expected_bearer_token: Configured expected bearer token.
+
+    Raises:
+        HTTPException: If bearer-token authorization is enabled and the
+            provided header does not match.
+    """
+
+    # Skip Authorization When Disabled
     if not expected_bearer_token.strip():
         return
 
+    # Validate Authorization Header
     expected_header = f"Bearer {expected_bearer_token.strip()}"
     if authorization_header != expected_header:
         raise HTTPException(status_code=401, detail="Unauthorized")
@@ -198,8 +214,16 @@ def collect_paddle_ocr_text_and_confidence(ocr_result: Any) -> tuple[str, float]
 
 def find_windows_pid_listening_on_port(port: int) -> list[int]:
 
-    """ Find Windows PID Listening On Port """
+    """Find Windows process IDs that listen on one TCP port.
 
+    Args:
+        port: TCP port to inspect.
+
+    Returns:
+        Listening process IDs discovered through `netstat`.
+    """
+
+    # Inspect TCP Listeners
     netstat_result = subprocess.run(
         ["netstat", "-ano", "-p", "tcp"],
         capture_output=True,
@@ -211,6 +235,7 @@ def find_windows_pid_listening_on_port(port: int) -> list[int]:
     listening_pid_list: list[int] = []
     target_suffix = f":{port}"
 
+    # Parse Matching Listener Rows
     for output_line in netstat_result.stdout.splitlines():
         normalized_line = " ".join(output_line.split())
         if "LISTENING" not in normalized_line:
@@ -235,8 +260,16 @@ def find_windows_pid_listening_on_port(port: int) -> list[int]:
 
 def read_windows_process_command_line(process_id: int) -> str:
 
-    """ Read Windows Process Command Line """
+    """Read the command line of one Windows process.
 
+    Args:
+        process_id: Windows process identifier.
+
+    Returns:
+        Process command line text, or an empty string when it cannot be read.
+    """
+
+    # Query Process Metadata
     powershell_command = (
         f"$process = Get-CimInstance Win32_Process -Filter \"ProcessId = {process_id}\"; "
         "if ($process) { $process.CommandLine }"
@@ -255,8 +288,16 @@ def read_windows_process_command_line(process_id: int) -> str:
 
 def terminate_windows_process(process_id: int) -> None:
 
-    """ Terminate Windows Process """
+    """Terminate one Windows process forcibly.
 
+    Args:
+        process_id: Windows process identifier.
+
+    Raises:
+        AssertionError: If `taskkill` fails.
+    """
+
+    # Execute Forced Termination
     termination_result = subprocess.run(
         ["taskkill", "/PID", str(process_id), "/F"],
         capture_output=True,

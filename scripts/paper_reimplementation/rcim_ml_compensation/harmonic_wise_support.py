@@ -48,7 +48,14 @@ class HarmonicCurveRecord:
 
 def load_harmonic_pipeline_config(config_path: str | Path) -> dict[str, Any]:
 
-    """Load the harmonic-wise pipeline configuration."""
+    """Load one harmonic-wise pipeline configuration file.
+
+    Args:
+        config_path: Harmonic-wise YAML configuration path.
+
+    Returns:
+        Parsed training-configuration dictionary.
+    """
 
     return shared_training_infrastructure.load_training_config(config_path)
 
@@ -57,8 +64,11 @@ def resolve_selected_harmonic_list(training_config: dict[str, Any]) -> list[int]
 
     """Resolve and validate the configured harmonic list."""
 
+    # Read Selected Harmonics
     evaluation_configuration = training_config["evaluation"]
     selected_harmonic_list = [int(harmonic_order) for harmonic_order in evaluation_configuration["selected_harmonics"]]
+
+    # Validate Harmonic Ordering
     assert len(selected_harmonic_list) > 0, "Selected harmonic list must not be empty"
     assert selected_harmonic_list[0] == 0, "Selected harmonic list must start with harmonic 0"
     return selected_harmonic_list
@@ -66,12 +76,24 @@ def resolve_selected_harmonic_list(training_config: dict[str, Any]) -> list[int]
 
 def resolve_feature_term_list(training_config: dict[str, Any]) -> list[str]:
 
-    """Resolve the configured engineered feature terms."""
+    """Resolve the validated engineered feature term list.
 
+    Args:
+        training_config: Harmonic-wise pipeline configuration.
+
+    Returns:
+        Ordered engineered feature terms requested by the configuration.
+
+    Raises:
+        AssertionError: If unsupported engineered terms are requested.
+    """
+
+    # Read Requested Feature Terms
     feature_configuration = training_config.get("features", {})
     configured_feature_term_list = feature_configuration.get("engineered_terms", [])
     feature_term_list = [str(feature_term).strip() for feature_term in configured_feature_term_list if str(feature_term).strip()]
 
+    # Validate Supported Feature Terms
     supported_feature_term_set = {
         "speed_torque_product",
         "speed_temperature_product",
@@ -95,8 +117,20 @@ def build_feature_vector(
     engineered_feature_term_list: list[str] | None = None,
 ) -> np.ndarray:
 
-    """Build the harmonic-regression feature vector."""
+    """Build one harmonic-regression feature vector.
 
+    Args:
+        speed_rpm: Input speed in revolutions per minute.
+        torque_nm: Applied torque in newton meters.
+        oil_temperature_deg: Oil temperature in degrees Celsius.
+        direction_flag: Encoded motion direction flag.
+        engineered_feature_term_list: Optional engineered feature terms.
+
+    Returns:
+        Ordered feature vector used by the harmonic estimators.
+    """
+
+    # Start From Base Operating Variables
     feature_value_list = [
         float(speed_rpm),
         float(torque_nm),
@@ -104,6 +138,7 @@ def build_feature_vector(
         float(direction_flag),
     ]
 
+    # Append Requested Engineered Terms
     engineered_feature_term_list = engineered_feature_term_list or []
     for feature_term in engineered_feature_term_list:
         if feature_term == "speed_torque_product":
@@ -129,12 +164,15 @@ def build_feature_name_list(engineered_feature_term_list: list[str]) -> list[str
 
     """Build the ordered feature-name list for the harmonic predictor."""
 
+    # Start From Base Feature Names
     feature_name_list = [
         "speed_rpm",
         "torque_nm",
         "oil_temperature_deg",
         "direction_flag",
     ]
+
+    # Map Engineered Terms To Stable Names
     feature_name_dictionary = {
         "speed_torque_product": "speed_times_torque",
         "speed_temperature_product": "speed_times_temperature",
@@ -151,7 +189,10 @@ def build_target_name_list(selected_harmonic_list: list[int]) -> list[str]:
 
     """Build the ordered list of model target names."""
 
+    # Seed The Constant Harmonic Target
     target_name_list = ["coefficient_cos_h0"]
+
+    # Expand The Requested Harmonic Orders
     for harmonic_order in selected_harmonic_list:
         if harmonic_order == 0:
             continue
@@ -164,9 +205,11 @@ def build_harmonic_design_matrix(angular_position_deg: np.ndarray, selected_harm
 
     """Build the least-squares design matrix for the selected harmonics."""
 
+    # Convert Positions To Radians
     angle_radians = np.deg2rad(angular_position_deg.astype(np.float64))
     design_column_list = [np.ones_like(angle_radians, dtype=np.float64)]
 
+    # Append Cosine And Sine Harmonic Columns
     for harmonic_order in selected_harmonic_list:
         if harmonic_order == 0:
             continue
@@ -510,20 +553,34 @@ def compute_curve_metric_dictionary(
     percentage_error_denominator: str,
 ) -> dict[str, float]:
 
-    """Compute offline TE-curve metrics."""
+    """Compute offline TE-curve error metrics.
 
+    Args:
+        target_curve_deg: Reference TE curve in degrees.
+        predicted_curve_deg: Predicted TE curve in degrees.
+        percentage_error_denominator: Percentage-denominator selection policy.
+
+    Returns:
+        Aggregate curve-error metrics for one reconstructed curve.
+    """
+
+    # Prepare Flat Float64 Curves
     target_curve = target_curve_deg.astype(np.float64).reshape(-1)
     predicted_curve = predicted_curve_deg.astype(np.float64).reshape(-1)
     residual_curve = predicted_curve - target_curve
+
+    # Compute Absolute And Squared Error Metrics
     mse = float(np.mean(np.square(residual_curve)))
     mae = float(np.mean(np.abs(residual_curve)))
     rmse = float(np.sqrt(mse))
 
+    # Resolve Percentage Denominator
     if percentage_error_denominator == "peak_to_peak_truth":
         denominator_value = float(np.ptp(target_curve))
     else:
         denominator_value = float(np.mean(np.abs(target_curve)))
 
+    # Compute Relative Error Percentage
     denominator_value = max(denominator_value, 1.0e-8)
     mean_percentage_error_pct = float(100.0 * np.mean(np.abs(residual_curve)) / denominator_value)
 
@@ -552,8 +609,17 @@ def compute_harmonic_target_metric_dictionary(
     prediction_matrix: np.ndarray,
 ) -> dict[str, float]:
 
-    """Compute aggregate coefficient prediction metrics."""
+    """Compute aggregate coefficient-prediction metrics.
 
+    Args:
+        target_matrix: Reference harmonic coefficient matrix.
+        prediction_matrix: Predicted harmonic coefficient matrix.
+
+    Returns:
+        Aggregate coefficient-level MSE, MAE, and RMSE metrics.
+    """
+
+    # Compute Aggregate Residual Matrix
     residual_matrix = prediction_matrix.astype(np.float64) - target_matrix.astype(np.float64)
     mse = float(np.mean(np.square(residual_matrix)))
     mae = float(np.mean(np.abs(residual_matrix)))
@@ -571,8 +637,18 @@ def compute_per_target_metric_dictionary(
     target_name_list: list[str],
 ) -> dict[str, dict[str, float]]:
 
-    """Compute per-target coefficient metrics."""
+    """Compute per-target coefficient metrics.
 
+    Args:
+        target_matrix: Reference harmonic coefficient matrix.
+        prediction_matrix: Predicted harmonic coefficient matrix.
+        target_name_list: Ordered harmonic target names.
+
+    Returns:
+        Per-target metric dictionary keyed by target name.
+    """
+
+    # Accumulate Metrics Per Coefficient Target
     per_target_metric_dictionary: dict[str, dict[str, float]] = {}
     for target_index, target_name in enumerate(target_name_list):
         residual_vector = prediction_matrix[:, target_index].astype(np.float64) - target_matrix[:, target_index].astype(np.float64)
@@ -601,8 +677,20 @@ def compute_per_harmonic_metric_dictionary(
     selected_harmonic_list: list[int],
 ) -> tuple[dict[str, dict[str, float]], list[dict[str, float]]]:
 
-    """Compute per-harmonic diagnostic metrics and ranking."""
+    """Compute per-harmonic diagnostic metrics and ranking.
 
+    Args:
+        curve_record_list: Curve records for the evaluated split.
+        prediction_matrix: Predicted harmonic coefficient matrix.
+        target_name_list: Ordered harmonic target names.
+        selected_harmonic_list: Harmonic orders included in the model.
+
+    Returns:
+        Tuple containing per-harmonic summary metrics and the ranked dominant
+        harmonic error list.
+    """
+
+    # Initialize Per-Harmonic Error Accumulators
     per_harmonic_accumulator_dictionary: dict[str, dict[str, list[float]]] = {}
     for harmonic_order in selected_harmonic_list:
         per_harmonic_accumulator_dictionary[str(harmonic_order)] = {
@@ -611,6 +699,7 @@ def compute_per_harmonic_metric_dictionary(
             "phase_abs_error_rad": [],
         }
 
+    # Accumulate Sample-Level Harmonic Errors
     for sample_index, curve_record in enumerate(curve_record_list):
         predicted_coefficient_dictionary, predicted_amplitude_phase_dictionary = target_matrix_to_dictionary(
             prediction_matrix[sample_index],
@@ -655,6 +744,7 @@ def compute_per_harmonic_metric_dictionary(
             accumulator_dictionary["amplitude_abs_error"].append(float(amplitude_error))
             accumulator_dictionary["phase_abs_error_rad"].append(float(phase_error))
 
+    # Average Harmonic-Level Diagnostics
     per_harmonic_metric_dictionary: dict[str, dict[str, float]] = {}
     for harmonic_key, accumulator_dictionary in per_harmonic_accumulator_dictionary.items():
         per_harmonic_metric_dictionary[harmonic_key] = {
@@ -776,9 +866,22 @@ def build_robot_style_profile(
     oil_temperature_deg: float,
 ) -> dict[str, np.ndarray]:
 
-    """Build a smooth robot-style operating profile."""
+    """Build a smooth robot-style operating profile.
 
+    Args:
+        step_count: Playback sample count.
+        max_speed_rpm: Maximum playback speed.
+        max_torque_nm: Maximum playback torque.
+        oil_temperature_deg: Playback oil temperature.
+
+    Returns:
+        Operating-profile dictionary for the robot-style playback scenario.
+    """
+
+    # Build Smooth Playback Axes
     normalized_time = np.linspace(0.0, 1.0, step_count, dtype=np.float64)
+
+    # Shape Speed And Torque Profiles
     speed_profile_rpm = max_speed_rpm * np.clip(
         0.35 + 0.55 * np.sin(np.pi * normalized_time) ** 2 + 0.10 * np.sin(4.0 * np.pi * normalized_time),
         0.0,
@@ -789,6 +892,8 @@ def build_robot_style_profile(
         0.0,
         1.0,
     )
+
+    # Hold Temperature Constant
     temperature_profile_deg = np.full(step_count, oil_temperature_deg, dtype=np.float64)
 
     return {
@@ -806,15 +911,30 @@ def build_cycloidal_style_profile(
     oil_temperature_deg: float,
 ) -> dict[str, np.ndarray]:
 
-    """Build a cycloidal-style operating profile."""
+    """Build a cycloidal-style operating profile.
 
+    Args:
+        step_count: Playback sample count.
+        max_speed_rpm: Maximum playback speed.
+        max_torque_nm: Maximum playback torque.
+        oil_temperature_deg: Playback oil temperature.
+
+    Returns:
+        Operating-profile dictionary for the cycloidal playback scenario.
+    """
+
+    # Build Smooth Playback Axes
     normalized_time = np.linspace(0.0, 1.0, step_count, dtype=np.float64)
+
+    # Shape Speed And Torque Profiles
     speed_profile_rpm = max_speed_rpm * 0.5 * (1.0 - np.cos(2.0 * np.pi * normalized_time))
     torque_profile_nm = max_torque_nm * np.clip(
         0.15 + 0.80 * np.sin(np.pi * normalized_time) ** 2,
         0.0,
         1.0,
     )
+
+    # Hold Temperature Constant
     temperature_profile_deg = np.full(step_count, oil_temperature_deg, dtype=np.float64)
 
     return {
@@ -1125,9 +1245,22 @@ def save_harmonic_model_bundle(
     target_name_list: list[str],
 ) -> Path:
 
-    """Save the fitted harmonic model bundle."""
+    """Save the fitted harmonic model bundle.
 
+    Args:
+        harmonic_model_dictionary: Fitted per-target estimator dictionary.
+        output_directory: Output artifact directory for the current run.
+        selected_harmonic_list: Harmonic orders included in the bundle.
+        target_name_list: Ordered target names predicted by the bundle.
+
+    Returns:
+        Serialized harmonic-model bundle path.
+    """
+
+    # Resolve Bundle Output Path
     model_bundle_path = output_directory / HARMONIC_MODEL_FILENAME
+
+    # Serialize Bundle Payload
     with model_bundle_path.open("wb") as output_file:
         pickle.dump(
             {
