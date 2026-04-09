@@ -71,6 +71,7 @@
 - `notebooklm_concept_video_prompt.md` must request the neutral educational video for the topic.
 - `notebooklm_project_video_prompt.md` must request the repository-specific educational video for the topic.
 - Future imported `NotebookLM` exports must use filenames that explicitly declare guide name, track, and artifact type, for example `FeedForward Network - Concept Mind Map.png` or `FeedForward Network - Project Video Overview.mp4`, instead of generic names such as `Mind Map.png` or `Video Overview.mp4`.
+- When imported `NotebookLM` exports are stored under language-specific guide folders such as `English/` or `Italiano/`, do not repeat the language again in the filename. In that case, keep the filename explicit through guide name, track, and artifact type only.
 - If a topic root already exists under `doc/guide/` but does not yet have the full canonical guide Markdown/PDF pair, a `NotebookLM` source package may still be prepared only when the user explicitly approves that exception. In that case, the package scope notes must record the missing canonical-guide status explicitly rather than hiding it.
 - Do not generate or finalize a `NotebookLM` video guide immediately after the package is prepared. Stop after the source package is ready, report completion, and wait for the user's explicit approval before creating or finalizing the actual video-guide generation step.
 - For explanatory model reports, prefer providing both:

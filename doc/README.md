@@ -635,6 +635,8 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for importing, renaming, and canonically placing the generated NotebookLM concept and project exports for the harmonic-wise guide.
 - [technical/2026-04/2026-04-09/2026-04-09-17-55-53_remove_redundant_language_suffixes_from_guide_exports.md](./technical/2026-04/2026-04-09/2026-04-09-17-55-53_remove_redundant_language_suffixes_from_guide_exports.md)
   Technical plan for removing redundant language suffixes from imported NotebookLM exports already organized under the English and Italiano guide folders.
+- [technical/2026-04/2026-04-09/2026-04-09-18-06-16_bilingual_notebooklm_export_filename_convention.md](./technical/2026-04/2026-04-09/2026-04-09-18-06-16_bilingual_notebooklm_export_filename_convention.md)
+  Technical plan for clarifying that imported bilingual NotebookLM exports should not repeat the language in filenames when the parent folder already declares it.
 
 ## Usage
 
