@@ -145,13 +145,15 @@
   10. If the approved work adds or changes user-facing functionality, update `doc/guide/project_usage_guide.md` in detail before the final commit.
   11. If the approved work introduces a new third-party library, add it to `requirements.txt` and update every relevant setup or usage reference before the final commit.
   12. Before creating a GitHub-bound commit, check the files involved in the commit and stop immediately if any file exceeds `100 MB`, then explicitly warn the user because those files cannot be pushed to GitHub as regular repository objects.
-  13. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
-  14. Create the Git commit only after the user explicitly approves it.
+  13. Before creating a GitHub-bound commit, also check the aggregate staged/push size of the intended commit or commit sequence. If the staged delta is large enough to risk GitHub remote pack rejection, split the work into smaller commits before creating the GitHub-bound commit instead of discovering the problem through a failed push.
+  14. Tell the user the work is complete and explicitly ask for approval to create the Git commit.
+  15. Create the Git commit only after the user explicitly approves it.
 - Do not write or modify implementation code until the user has explicitly approved the technical document for that feature.
 - Do not execute any training campaign until both the technical document and the preliminary training-planning report in `doc/reports/campaign_plans/` have been created and explicitly approved by the user.
 - Do not treat a styled PDF export as complete until the exported PDF has been checked against the project golden standard for layout discipline and readability.
 - Do not create a Git commit immediately after finishing the work. Always stop, report completion, and wait for explicit user approval before committing.
 - Before creating a GitHub-bound commit, always check the commit's files for GitHub size-limit violations and stop with an explicit warning if any file exceeds `100 MB`.
+- Before creating a GitHub-bound commit, always check whether the aggregate staged content is likely to exceed practical GitHub remote pack limits. If the commit is too large to push safely, stop and split it into smaller commits before proceeding.
 - Before the final commit, update `README.md` whenever the approved work changes the public-facing repository description, implemented-capability summary, quick start, primary examples, or main documentation entry points. Keep `README.md` as a concise GitHub-facing landing page for a new human user rather than turning it into an internal technical registry or a chronological log of technical documents.
 - Keep detailed technical-document registries, topic-local provenance notes, and operational indexes in `doc/` rather than re-growing `README.md`. Use `doc/README.md` and narrower domain indexes such as `doc/scripts/tooling/README.md` for that purpose.
 - Before the final commit, update `doc/guide/project_usage_guide.md` whenever the approved work adds or changes runnable functionality such as training scripts, model architectures, inference/export flows, dataset-processing capabilities, or usage/configuration workflows.

@@ -18,6 +18,20 @@ This folder contains the internal project documents derived from the reference P
   Meaning of the measured variables, zeroing procedure, and `DataValid` logic.
 - [reference_summaries/06_Programming_Style_Guide.md](./reference_summaries/06_Programming_Style_Guide.md)
   Coding style mapped from `blind_handover_controller`, `mediapipe_gesture_recognition`, and `multimodal_fusion`.
+- [reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md](./reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md)
+  Summary of the recovered RCIM paper-era ONNX models, code snapshots, backup
+  material, TwinCAT XML exports, and heavy instance archive, with repository
+  implications for Track 1 and future deployment work.
+
+### Reference Asset Roots
+
+- [../reference/README.md](../reference/README.md)
+  Global index of the repository reference surface, including PDFs, imported
+  reference codebases, and recovered paper-owned assets.
+- [../reference/rcim_ml_compensation_recovered_assets/README.md](../reference/rcim_ml_compensation_recovered_assets/README.md)
+  Canonical index of the recovered RCIM paper asset package, including exact
+  ONNX models, original and later code snapshots, backup material, TwinCAT XML
+  exports, and the archived `instance_v1` subtree.
 
 ### Reference Code Notes
 
@@ -62,6 +76,15 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-10
 
+- [technical/2026-04/2026-04-10/2026-04-10-12-42-35_git_push_pack_size_guard_and_recovered_asset_commit_split.md](./technical/2026-04/2026-04-10/2026-04-10-12-42-35_git_push_pack_size_guard_and_recovered_asset_commit_split.md)
+  Technical document for formalizing a GitHub-bound aggregate push-size guard
+  in the repository rules and for replacing the oversized recovered-asset
+  integration commit with a smaller push-safe commit sequence.
+- [technical/2026-04/2026-04-10/2026-04-10-11-19-25_rcim_paper_asset_recovery_and_reference_integration.md](./technical/2026-04/2026-04-10/2026-04-10-11-19-25_rcim_paper_asset_recovery_and_reference_integration.md)
+  Technical document for analyzing, classifying, and integrating the newly
+  recovered RCIM paper assets from `.temp/` into a coherent paper-specific
+  reference area, including exact ONNX models, recovered code snapshots,
+  TwinCAT XML exports, backup material, and the heavy `instance_v1` archive.
 - [technical/2026-04/2026-04-10/2026-04-10-10-51-32_git_windows_line_ending_and_lfs_hook_noise_resolution.md](./technical/2026-04/2026-04-10/2026-04-10-10-51-32_git_windows_line_ending_and_lfs_hook_noise_resolution.md)
   Technical document for resolving the recurring Git-on-Windows LF/CRLF noise
   and the local Git LFS shell-hook `sh.exe` error path in this repository
