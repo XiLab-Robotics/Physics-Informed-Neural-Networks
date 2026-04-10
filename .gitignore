@@ -217,3 +217,4 @@ output/training_runs/tree/2026-04-03-20-38-08__te_random_forest_remote_medium/tr
 # .temp and .tools Folders
 .temp/
 .tools/
+.tmpdocenv/

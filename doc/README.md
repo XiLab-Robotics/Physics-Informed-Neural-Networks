@@ -60,6 +60,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-10
+
+- [technical/2026-04/2026-04-10/2026-04-10-10-51-32_git_windows_line_ending_and_lfs_hook_noise_resolution.md](./technical/2026-04/2026-04-10/2026-04-10-10-51-32_git_windows_line_ending_and_lfs_hook_noise_resolution.md)
+  Technical document for resolving the recurring Git-on-Windows LF/CRLF noise
+  and the local Git LFS shell-hook `sh.exe` error path in this repository
+  clone.
+
 #### 2026-04-04
 
 - [technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md)
