@@ -55,6 +55,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Recovered Asset Deep Analysis.md](./reports/analysis/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
+  Deep implementation-facing analysis of the recovered RCIM paper assets,
+  including the exact ONNX family bank, original and later code generations,
+  backup evolution, TwinCAT export evidence, archive limitations, and the
+  exact consequences for faithful `Track 1` reimplementation.
 - [reports/analysis/RCIM Paper Reference Benchmark.md](./reports/analysis/RCIM%20Paper%20Reference%20Benchmark.md)
   Canonical repository-owned extraction of the RCIM ML-compensation paper baseline, including minimum targets, paper-vs-repository status, and the missing pipeline for a true Table 9 comparison.
 - [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
@@ -76,6 +81,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-10
 
+- [technical/2026-04/2026-04-10/2026-04-10-13-30-40_rcim_recovered_asset_deep_analysis_report.md](./technical/2026-04/2026-04-10/2026-04-10-13-30-40_rcim_recovered_asset_deep_analysis_report.md)
+  Technical document for producing a deep implementation-facing analysis of
+  the recovered RCIM paper assets, including exact ONNX models, recovered code
+  generations, TwinCAT XML exports, archive uncertainties, and the precise
+  implications for faithful `Track 1` reimplementation.
 - [technical/2026-04/2026-04-10/2026-04-10-12-42-35_git_push_pack_size_guard_and_recovered_asset_commit_split.md](./technical/2026-04/2026-04-10/2026-04-10-12-42-35_git_push_pack_size_guard_and_recovered_asset_commit_split.md)
   Technical document for formalizing a GitHub-bound aggregate push-size guard
   in the repository rules and for replacing the oversized recovered-asset
