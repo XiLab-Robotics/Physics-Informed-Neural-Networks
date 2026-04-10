@@ -109,6 +109,12 @@ Current next step:
   comparison framework is implemented and reviewed
 - treat the second `Track 1` harmonic-wise iteration as completed and use its
   campaign results as the current paper-faithful offline baseline
+- treat the exact recovered RCIM family-bank branch as implemented at script
+  level under
+  `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- use the exact recovered branch to recreate paper-family and per-target
+  baselines before promoting any third harmonic-wise optimization pass as the
+  canonical exact-paper reference
 - use the completed campaign to lock three decisions:
   - keep the full RCIM set as the mainline `Target A` branch;
   - do not promote the reduced harmonic subsets as the main optimization path;

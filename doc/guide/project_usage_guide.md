@@ -2377,6 +2377,57 @@ Current non-scope:
 - uncompensated vs compensated runtime TE measurements;
 - final `Table 9` style benchmark closure for `Target B`.
 
+## Exact RCIM Paper Model Bank Validation
+
+The stricter paper-faithful branch of `Track 1` is the
+`Exact RCIM Paper Model Bank Validation` workflow.
+
+Its role is to reconstruct the recovered paper family bank directly from the
+recovered dataframe and exact `ampl_k` / `phase_k` target schema, rather than
+only through the repository-owned harmonic-wise approximation branch.
+
+Canonical script:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+
+Canonical config:
+
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
+
+Main supporting report:
+
+- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+
+Typical usage:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml `
+  --output-suffix exact_paper_validation
+```
+
+Main outputs:
+
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/<run_instance_id>/`
+- `doc/reports/analysis/validation_checks/*_exact_paper_model_bank_report.md`
+
+Current scope:
+
+- exact recovered input schema `rpm`, `deg`, `tor`;
+- exact recovered target schema over `ampl_k` and `phase_k`;
+- exact recovered family bank:
+  `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`;
+- family-wise `MultiOutputRegressor` fitting;
+- one ONNX export per family and target;
+- target-wise winner registry for later paper-style tabulation.
+
+Current non-scope:
+
+- final target-wise deployed winner assembly;
+- online compensation loop;
+- TwinCAT/TestRig execution;
+- `Track 2` direct-TE comparison.
+
 This is enough to extend the project toward:
 
 1. recurrent sequence models such as RNN or LSTM

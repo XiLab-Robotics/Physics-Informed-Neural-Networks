@@ -55,6 +55,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
+  Explanatory report for the strict paper-faithful RCIM family-bank branch,
+  including the exact target schema, recovered family inventory, operating
+  principle, Python structure, and relationship with the older repository-owned
+  harmonic-wise branch.
 - [reports/analysis/RCIM Recovered Asset Deep Analysis.md](./reports/analysis/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
   Deep implementation-facing analysis of the recovered RCIM paper assets,
   including the exact ONNX family bank, original and later code generations,
@@ -81,6 +86,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-10
 
+- [technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md](./technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md)
+  Technical document for evolving the current `Track 1` paper branch into a
+  strict RCIM paper-faithful family-bank reimplementation, including the exact
+  target schema, recovered model families, paper-style training surface, ONNX
+  export surface, and target-wise evaluation flow.
 - [technical/2026-04/2026-04-10/2026-04-10-13-30-40_rcim_recovered_asset_deep_analysis_report.md](./technical/2026-04/2026-04-10/2026-04-10-13-30-40_rcim_recovered_asset_deep_analysis_report.md)
   Technical document for producing a deep implementation-facing analysis of
   the recovered RCIM paper assets, including exact ONNX models, recovered code

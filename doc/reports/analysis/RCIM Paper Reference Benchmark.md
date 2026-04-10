@@ -229,6 +229,17 @@ Current best paper-faithful offline result:
 - oracle test mean percentage error: `2.749%`
 - current `Target A` status: `not_yet_met`
 
+The repository now also includes a stricter exact-paper validation branch:
+
+- script: `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- config: `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
+- scope: recovered `rpm`, `deg`, `tor` inputs; exact `ampl_k` / `phase_k`
+  targets; exact family bank; per-target ONNX export
+
+This exact branch is implemented but not yet executed, so the current offline
+paper-faithful status is still anchored to the completed harmonic-wise campaign
+above.
+
 What the second iteration established:
 
 - the full RCIM set still outperforms all reduced harmonic subsets;

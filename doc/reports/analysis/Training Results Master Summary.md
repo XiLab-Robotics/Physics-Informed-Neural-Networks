@@ -176,6 +176,17 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Harmonic-wise test mean percentage error: `8.877%`
 - `Target A` status from the latest harmonic-wise run: `not_yet_met`
 
+### Exact Paper Model-Bank Branch
+
+- Exact paper-faithful runner implemented:
+  `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- Exact baseline config implemented:
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
+- Scope of this stricter branch:
+  recovered `rpm`, `deg`, `tor` inputs; exact `ampl_k` / `phase_k` targets;
+  recovered family bank; per-target ONNX export
+- Execution status: `implemented_not_yet_run`
+
 ### Online Compensation Tracking Placeholder
 
 - Repository online compensation status: `not yet available`.
