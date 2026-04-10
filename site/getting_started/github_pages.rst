@@ -21,7 +21,12 @@ The local validation command remains:
 .. code-block:: powershell
 
    conda activate standard_ml_codex_env
+   python -m pip install -r site/requirements-docs.txt
    python -m sphinx -W -b html site site/_build/html
+
+Keep the documentation dependency file installed in the active build
+environment so the local validation path matches the GitHub Pages dependency
+resolution, including the explicitly aligned ``requests`` dependency family.
 
 The GitHub Pages workflow intentionally does **not** install the full
 repository training stack. Instead, it installs a documentation-specific

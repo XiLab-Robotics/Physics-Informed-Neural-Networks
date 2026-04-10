@@ -1,11 +1,13 @@
 Local Build
 ===========
 
-Use the main project environment and build the documentation site locally with:
+Use the main project environment with the canonical documentation dependency
+set installed, then build the documentation site locally with:
 
 .. code-block:: powershell
 
    conda activate standard_ml_codex_env
+   python -m pip install -r site/requirements-docs.txt
    python -m sphinx -W -b html site site/_build/html
 
 Successful output will be generated under:
@@ -17,6 +19,11 @@ workflow:
 
 - ``.github/workflows/publish-sphinx-pages.yml``
 - ``site/requirements-docs.txt``
+
+Keeping ``site/requirements-docs.txt`` installed in the active build
+environment avoids dependency drift in the documentation toolchain, including
+unsupported ``requests`` dependency combinations that can emit avoidable build
+warnings.
 
 If the Pages build succeeds but deploy fails, inspect the GitHub-side
 ``github-pages`` environment separately. A rejected deploy from

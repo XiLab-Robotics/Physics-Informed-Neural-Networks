@@ -133,6 +133,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-09
 
+- [technical/2026-04/2026-04-09/2026-04-09-22-40-59_sphinx_requests_dependency_warning_resolution.md](./technical/2026-04/2026-04-09/2026-04-09-22-40-59_sphinx_requests_dependency_warning_resolution.md)
+  Technical document for resolving the previously observed
+  `RequestsDependencyWarning` in the canonical Sphinx build path by aligning
+  the documentation dependency environment explicitly.
 - [technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md](./technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md)
   Technical document for auditing repository-owned Python scripts against the
   approved style baseline and for formalizing a mandatory style-compliance
