@@ -2406,10 +2406,25 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
   --output-suffix exact_paper_validation
 ```
 
+Prepared batch launcher:
+
+```powershell
+.\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1
+```
+
+Optional PowerShell usage:
+
+```powershell
+.\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1 `
+  -CondaEnvironmentName standard_ml_codex_env `
+  -PythonExecutable python
+```
+
 Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/<run_instance_id>/`
 - `doc/reports/analysis/validation_checks/*_exact_paper_model_bank_report.md`
+- `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 
 Current scope:
 
@@ -2420,6 +2435,10 @@ Current scope:
 - family-wise `MultiOutputRegressor` fitting;
 - one ONNX export per family and target;
 - target-wise winner registry for later paper-style tabulation.
+- prepared exact-paper campaign package under
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`;
+- prepared launcher note:
+  `doc/scripts/campaigns/run_exact_paper_model_bank_campaign.md`
 
 Current non-scope:
 

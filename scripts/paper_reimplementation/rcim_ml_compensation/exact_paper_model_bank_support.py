@@ -4,6 +4,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import importlib.metadata
+import os
 import pickle
 from dataclasses import dataclass
 from datetime import datetime
@@ -19,6 +20,7 @@ from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
@@ -27,6 +29,7 @@ from sklearn.neural_network import MLPRegressor
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeRegressor
+from threadpoolctl import threadpool_limits
 
 # Import Project Utilities
 from scripts.training import shared_training_infrastructure
@@ -330,6 +333,7 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
             subsample=0.1,
             random_state=0,
             objective="regression",
+            verbosity=-1,
         )
 
     raise ValueError(f"Unsupported exact paper family | {family_name}")
@@ -338,19 +342,26 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
 def fit_exact_family_model_bank(
     dataset_bundle: ExactPaperDatasetBundle,
     enabled_family_list: list[str],
+    training_config: dict[str, Any] | None = None,
 ) -> dict[str, MultiOutputRegressor]:
 
     """Fit the recovered family bank using MultiOutputRegressor wrappers."""
 
     # Fit Each Family Bank
     fitted_family_model_dictionary: dict[str, MultiOutputRegressor] = {}
+    threadpool_limit = int((training_config or {}).get("training", {}).get("threadpool_limit", 1))
+    os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(threadpool_limit))
     for family_name in enabled_family_list:
         base_estimator = create_exact_paper_base_estimator(family_name)
         wrapped_estimator = MultiOutputRegressor(base_estimator)
-        wrapped_estimator.fit(
-            dataset_bundle.train_feature_matrix,
-            dataset_bundle.train_target_matrix,
-        )
+        train_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.train_feature_matrix
+        if family_name == "XGBM":
+            train_feature_matrix = dataset_bundle.train_feature_matrix.to_numpy(dtype=np.float32)
+        with threadpool_limits(limits=threadpool_limit):
+            wrapped_estimator.fit(
+                train_feature_matrix,
+                dataset_bundle.train_target_matrix,
+            )
         fitted_family_model_dictionary[family_name] = wrapped_estimator
 
     return fitted_family_model_dictionary
@@ -384,7 +395,10 @@ def evaluate_exact_family_model_bank(
             continue
 
         wrapped_estimator = fitted_family_model_dictionary[family_name]
-        prediction_matrix = wrapped_estimator.predict(dataset_bundle.test_feature_matrix)
+        test_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.test_feature_matrix
+        if family_name == "XGBM":
+            test_feature_matrix = dataset_bundle.test_feature_matrix.to_numpy(dtype=np.float32)
+        prediction_matrix = wrapped_estimator.predict(test_feature_matrix)
         truth_matrix = dataset_bundle.test_target_matrix.to_numpy(dtype=np.float64)
         prediction_matrix = np.asarray(prediction_matrix, dtype=np.float64)
 
@@ -500,6 +514,58 @@ def _convert_estimator_to_onnx(
     return convert_lightgbm(estimator, initial_types=lgbm_initial_types, target_opset=target_opset)
 
 
+def _build_compact_export_error_message(export_error: Exception) -> str:
+
+    """Build one compact export error string for YAML/report serialization."""
+
+    # Normalize Whitespace For Stable Reporting
+    compact_message = " ".join(str(export_error).split())
+    if len(compact_message) > 400:
+        compact_message = compact_message[:397] + "..."
+    return compact_message
+
+
+def _is_empty_support_vector_regressor(estimator: object) -> bool:
+
+    """Return whether one fitted SVR has degenerated to a constant predictor."""
+
+    # Resolve Support-Vector Attributes Conservatively
+    if not isinstance(estimator, SVR):
+        return False
+
+    support_vector_array = getattr(estimator, "support_vectors_", None)
+    dual_coefficient_array = getattr(estimator, "dual_coef_", None)
+    if support_vector_array is None or dual_coefficient_array is None:
+        return False
+
+    return int(np.size(support_vector_array)) == 0 or int(np.size(dual_coefficient_array)) == 0
+
+
+def _build_constant_linear_regression_export_surrogate(
+    estimator: object,
+    feature_count: int,
+) -> LinearRegression:
+
+    """Create one ONNX-convertible constant regressor surrogate.
+
+    Args:
+        estimator: Fitted source estimator whose predictions are constant.
+        feature_count: Input feature count for the exported model.
+
+    Returns:
+        One fitted `LinearRegression` surrogate with zero coefficients and an
+        intercept equal to the constant prediction level.
+    """
+
+    # Fit One Simple Constant Linear Model
+    constant_prediction = float(np.ravel(getattr(estimator, "intercept_", [0.0]))[0])
+    surrogate_feature_matrix = np.zeros((2, feature_count), dtype=np.float64)
+    surrogate_target_vector = np.array([constant_prediction, constant_prediction], dtype=np.float64)
+    surrogate_estimator = LinearRegression()
+    surrogate_estimator.fit(surrogate_feature_matrix, surrogate_target_vector)
+    return surrogate_estimator
+
+
 def export_exact_family_onnx_bank(
     dataset_bundle: ExactPaperDatasetBundle,
     fitted_family_model_dictionary: dict[str, MultiOutputRegressor],
@@ -525,6 +591,14 @@ def export_exact_family_onnx_bank(
     export_config = training_config["export"]
     export_enabled = bool(export_config["enable_onnx_export"])
     target_opset = int(export_config["target_opset"])
+    export_failure_mode = str(export_config.get("export_failure_mode", "strict")).strip().lower()
+    assert export_failure_mode in ["strict", "continue"], (
+        "Unsupported export_failure_mode for exact paper workflow | "
+        f"{export_failure_mode}"
+    )
+    enable_empty_svr_constant_surrogate = bool(
+        export_config.get("enable_empty_svr_constant_surrogate", True)
+    )
     export_root = output_directory / "onnx_export"
     export_root.mkdir(parents=True, exist_ok=True)
 
@@ -577,25 +651,63 @@ def export_exact_family_onnx_bank(
             export_target_name = build_exact_target_export_name(target_name)
             export_filename = f"{estimator_name}_{export_target_name}.onnx"
             export_path = family_directory / export_filename
-            onnx_model = _convert_estimator_to_onnx(
-                per_target_estimator,
-                feature_count=len(dataset_bundle.feature_name_list),
-                estimator_name=estimator_name,
-                target_opset=target_opset,
-            )
-            with export_path.open("wb") as output_file:
-                output_file.write(onnx_model.SerializeToString())
+            try:
+                # Build An Export-Safe Estimator Representation
+                export_estimator = per_target_estimator
+                surrogate_strategy = "none"
+                if (
+                    family_name == "SVR"
+                    and enable_empty_svr_constant_surrogate
+                    and _is_empty_support_vector_regressor(per_target_estimator)
+                ):
+                    export_estimator = _build_constant_linear_regression_export_surrogate(
+                        per_target_estimator,
+                        feature_count=len(dataset_bundle.feature_name_list),
+                    )
+                    surrogate_strategy = "constant_linear_regression"
 
-            exported_relative_path = export_path.relative_to(export_root).as_posix()
-            exported_relative_path_set.add(exported_relative_path)
-            exported_target_list.append(
-                {
-                    "target_name": target_name,
-                    "export_target_name": export_target_name,
-                    "export_path": shared_training_infrastructure.format_project_relative_path(export_path),
-                    "file_size_bytes": int(export_path.stat().st_size),
-                }
-            )
+                # Convert And Persist One ONNX Target Artifact
+                export_estimator_name = type(export_estimator).__name__
+                onnx_model = _convert_estimator_to_onnx(
+                    export_estimator,
+                    feature_count=len(dataset_bundle.feature_name_list),
+                    estimator_name=export_estimator_name,
+                    target_opset=target_opset,
+                )
+                with export_path.open("wb") as output_file:
+                    output_file.write(onnx_model.SerializeToString())
+
+                exported_relative_path = export_path.relative_to(export_root).as_posix()
+                exported_relative_path_set.add(exported_relative_path)
+                exported_target_list.append(
+                    {
+                        "target_name": target_name,
+                        "export_target_name": export_target_name,
+                        "export_path": shared_training_infrastructure.format_project_relative_path(export_path),
+                        "file_size_bytes": int(export_path.stat().st_size),
+                        "export_status": "exported",
+                        "surrogate_strategy": surrogate_strategy,
+                        "export_estimator_name": export_estimator_name,
+                    }
+                )
+            except Exception as export_error:  # pragma: no cover - exercised in real runtime
+                exported_target_list.append(
+                    {
+                        "target_name": target_name,
+                        "export_target_name": export_target_name,
+                        "export_path": shared_training_infrastructure.format_project_relative_path(export_path),
+                        "file_size_bytes": 0,
+                        "export_status": "failed",
+                        "surrogate_strategy": "none",
+                        "export_estimator_name": estimator_name,
+                        "error_message": _build_compact_export_error_message(export_error),
+                    }
+                )
+                if export_failure_mode == "strict":
+                    raise RuntimeError(
+                        "Exact paper ONNX export failed | "
+                        f"family={family_name} target={target_name}"
+                    ) from export_error
 
         family_export_list.append(
             {
@@ -603,7 +715,12 @@ def export_exact_family_onnx_bank(
                 "display_name": EXACT_FAMILY_DISPLAY_NAME_MAP[family_name],
                 "estimator_name": estimator_name,
                 "export_directory": shared_training_infrastructure.format_project_relative_path(family_directory),
-                "exported_target_count": len(exported_target_list),
+                "exported_target_count": int(
+                    sum(1 for entry in exported_target_list if entry["export_status"] == "exported")
+                ),
+                "failed_target_count": int(
+                    sum(1 for entry in exported_target_list if entry["export_status"] == "failed")
+                ),
                 "exported_targets": exported_target_list,
             }
         )
@@ -616,6 +733,8 @@ def export_exact_family_onnx_bank(
     return {
         "enabled": True,
         "target_opset": target_opset,
+        "export_failure_mode": export_failure_mode,
+        "enable_empty_svr_constant_surrogate": enable_empty_svr_constant_surrogate,
         "export_root": shared_training_infrastructure.format_project_relative_path(export_root),
         "exported_file_count": len(exported_relative_path_set),
         "recovered_reference_root": shared_training_infrastructure.format_project_relative_path(recovered_reference_root),
@@ -803,6 +922,20 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     matched_reference_count = len(onnx_export_summary["matched_reference_relative_paths"])
     missing_reference_count = len(onnx_export_summary["missing_against_reference_relative_paths"])
     extra_export_count = len(onnx_export_summary["extra_export_relative_paths"])
+    failed_export_count = int(
+        sum(
+            family_entry["failed_target_count"]
+            for family_entry in onnx_export_summary["family_exports"]
+        )
+    )
+    surrogate_export_count = int(
+        sum(
+            1
+            for family_entry in onnx_export_summary["family_exports"]
+            for target_entry in family_entry["exported_targets"]
+            if target_entry.get("surrogate_strategy", "none") != "none"
+        )
+    )
 
     return "\n".join([
         "# Exact RCIM Paper Model-Bank Validation Report",
@@ -855,10 +988,13 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         f"- export enabled: `{onnx_export_summary['enabled']}`;",
         f"- export root: `{onnx_export_summary['export_root']}`;",
         f"- exported file count: `{onnx_export_summary['exported_file_count']}`;",
+        f"- export failure mode: `{onnx_export_summary['export_failure_mode']}`;",
         f"- recovered reference file count: `{onnx_export_summary['recovered_reference_file_count']}`;",
         f"- matched relative paths: `{matched_reference_count}`;",
         f"- missing against recovered reference: `{missing_reference_count}`;",
         f"- extra exported relative paths: `{extra_export_count}`;",
+        f"- failed exports: `{failed_export_count}`;",
+        f"- surrogate exports: `{surrogate_export_count}`;",
         "",
         "## Runtime Dependencies",
         "",

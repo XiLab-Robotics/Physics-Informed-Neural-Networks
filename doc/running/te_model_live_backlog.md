@@ -112,6 +112,9 @@ Current next step:
 - treat the exact recovered RCIM family-bank branch as implemented at script
   level under
   `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- treat the exact-paper branch as the immediate active `Track 1` execution path,
+  with the first prepared batch campaign now staged under
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`
 - use the exact recovered branch to recreate paper-family and per-target
   baselines before promoting any third harmonic-wise optimization pass as the
   canonical exact-paper reference
@@ -120,7 +123,13 @@ Current next step:
   - do not promote the reduced harmonic subsets as the main optimization path;
   - do not promote the current engineered operating-condition features as the
     new default
-- implement a third `Track 1` iteration as the immediate next code pass:
+- defer a third harmonic-wise optimization pass until after the exact-paper
+  campaign clarifies whether the remaining gap is primarily:
+  - export-surface only;
+  - family-selection only;
+  - or still predictor-quality limited
+- keep the third `Track 1` iteration available as the next modeling step only
+  after the exact-paper campaign results are reviewed:
   - explicit target-parameterization work around `h0`
   - selective `cos/sin` versus `amplitude/phase` comparison on dominant
     harmonics

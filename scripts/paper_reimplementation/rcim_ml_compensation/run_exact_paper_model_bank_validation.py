@@ -44,6 +44,7 @@ def run_exact_paper_model_bank_validation(
     """
 
     # Load And Prepare Configuration
+    print(f"[INFO] Loading exact-paper config | {config_path}")
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
         exact_paper_model_bank_support.load_exact_model_bank_config(config_path),
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
@@ -52,19 +53,32 @@ def run_exact_paper_model_bank_validation(
     resolved_config_path = shared_training_infrastructure.resolve_project_relative_path(config_path)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
+    print(
+        "[INFO] Exact-paper output directory | "
+        f"{shared_training_infrastructure.format_project_relative_path(output_directory)}"
+    )
 
     # Persist Canonical Artifact Metadata
     shared_training_infrastructure.save_training_config_snapshot(training_config, output_directory)
     shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
 
     # Build The Exact Paper Dataset
+    print("[INFO] Building exact-paper dataset bundle")
     dataset_bundle = exact_paper_model_bank_support.build_exact_paper_dataset_bundle(training_config)
     enabled_family_list = exact_paper_model_bank_support.resolve_enabled_family_list(training_config)
+    print(
+        "[INFO] Exact-paper dataset ready | "
+        f"rows={len(dataset_bundle.full_dataframe)} "
+        f"targets={len(dataset_bundle.target_name_list)} "
+        f"families={len(enabled_family_list)}"
+    )
 
     # Fit And Persist The Family Bank
+    print(f"[INFO] Fitting family bank | {', '.join(enabled_family_list)}")
     fitted_family_model_dictionary = exact_paper_model_bank_support.fit_exact_family_model_bank(
         dataset_bundle,
         enabled_family_list,
+        training_config,
     )
     model_bundle_path = exact_paper_model_bank_support.save_exact_family_model_bundle(
         fitted_family_model_dictionary,
@@ -72,17 +86,35 @@ def run_exact_paper_model_bank_validation(
     )
 
     # Evaluate And Export ONNX Artifacts
+    print("[INFO] Evaluating family bank")
     family_summary_list, per_target_ranking_dictionary = (
         exact_paper_model_bank_support.evaluate_exact_family_model_bank(
             dataset_bundle,
             fitted_family_model_dictionary,
         )
     )
+    print(
+        "[INFO] Evaluation complete | "
+        f"winner={family_summary_list[0]['family_name']} "
+        f"mean_component_mape={family_summary_list[0]['mean_component_mape_percent']:.3f}%"
+    )
+    print("[INFO] Exporting ONNX family bank")
     onnx_export_summary = exact_paper_model_bank_support.export_exact_family_onnx_bank(
         dataset_bundle,
         fitted_family_model_dictionary,
         training_config,
         output_directory,
+    )
+    failed_export_count = int(
+        sum(
+            family_entry["failed_target_count"]
+            for family_entry in onnx_export_summary["family_exports"]
+        )
+    )
+    print(
+        "[INFO] ONNX export complete | "
+        f"exported={onnx_export_summary['exported_file_count']} "
+        f"failed={failed_export_count}"
     )
 
     # Persist Validation Summary And Markdown Report

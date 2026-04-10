@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_exact_model_bank
+run_name: exact_svr_export_diagnostic_smoke_svr_2
+run_instance_id: 2026-04-10-17-11-45__exact_svr_export_diagnostic_smoke_svr_2
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-17-11-45__exact_svr_export_diagnostic_smoke_svr_2

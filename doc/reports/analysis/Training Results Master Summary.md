@@ -182,10 +182,14 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
   `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - Exact baseline config implemented:
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
+- Exact-paper campaign prepared:
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`
+- Exact-paper launcher prepared:
+  `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
 - Scope of this stricter branch:
   recovered `rpm`, `deg`, `tor` inputs; exact `ampl_k` / `phase_k` targets;
   recovered family bank; per-target ONNX export
-- Execution status: `implemented_not_yet_run`
+- Execution status: `prepared_not_yet_run`
 
 ### Online Compensation Tracking Placeholder
 

@@ -1,53 +1,41 @@
-campaign_name: track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03
-status: completed
-planning_report_path: doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md
-campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign
+campaign_name: exact_paper_model_bank_campaign_2026_04_10_17_04_41
+status: prepared
+planning_report_path: doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md
+campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign
 queue_root: null
-campaign_output_root: output/validation_checks/paper_reimplementation_rcim_harmonic_wise
-campaign_output_directory: output/training_campaigns/2026-04-09-20-41-59_track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03
+campaign_output_root: output/validation_checks/paper_reimplementation_rcim_exact_model_bank
+campaign_output_directory: output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41
 launch_mode: local_operator_campaign_launcher
 activation_pending_user_confirmation: false
-prepared_at: '2026-04-09T19:14:19+02:00'
-started_at: '2026-04-09T20:43:53+02:00'
-finished_at: '2026-04-09T21:06:13+02:00'
-completion_recorded_at: '2026-04-09T21:06:13+02:00'
-results_report_path: doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md
+prepared_at: '2026-04-10T17:08:15+02:00'
+started_at: null
+finished_at: null
+completion_recorded_at: null
+results_report_path: null
 remote_host_alias: null
 remote_repository_path: null
 remote_conda_environment_name: null
 queue_config_path_list:
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/01_full_rcim_baseline_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/02_h013_engineered_stage1.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/03_h013_random_forest_diagnostic.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/04_h01340_engineered_stage2.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/05_h0134078_engineered_stage3.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/06_full_rcim_no_engineering_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/07_full_rcim_engineered_balanced.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/08_full_rcim_engineered_deeper.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/03_exact_svr_export_diagnostic.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/04_exact_non_svr_export_reference.yaml
 run_name_list:
-  - te_harmonic_wise_full_rcim_baseline_reference
-  - te_harmonic_wise_h013_engineered_stage1
-  - te_harmonic_wise_h013_random_forest_diagnostic
-  - te_harmonic_wise_h01340_engineered_stage2
-  - te_harmonic_wise_h0134078_engineered_stage3
-  - te_harmonic_wise_full_rcim_no_engineering_reference
-  - te_harmonic_wise_full_rcim_engineered_balanced
-  - te_harmonic_wise_full_rcim_engineered_deeper
+  - exact_full_bank_diagnostic_continue
+  - exact_full_bank_strict_reference
+  - exact_svr_export_diagnostic
+  - exact_non_svr_export_reference
 protected_file_list:
-  - doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/README.md
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/01_full_rcim_baseline_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/02_h013_engineered_stage1.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/03_h013_random_forest_diagnostic.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/04_h01340_engineered_stage2.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/05_h0134078_engineered_stage3.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/06_full_rcim_no_engineering_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/07_full_rcim_engineered_balanced.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-09_track1_second_iteration_harmonic_wise_campaign/08_full_rcim_engineered_deeper.yaml
-  - scripts/campaigns/run_track1_second_iteration_harmonic_wise_campaign.ps1
-  - doc/scripts/campaigns/run_track1_second_iteration_harmonic_wise_campaign.md
+  - doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/README.md
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/03_exact_svr_export_diagnostic.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/04_exact_non_svr_export_reference.yaml
+  - scripts/campaigns/run_exact_paper_model_bank_campaign.ps1
+  - doc/scripts/campaigns/run_exact_paper_model_bank_campaign.md
   - doc/guide/project_usage_guide.md
 launch_command_list:
   - conda activate standard_ml_codex_env
-  - .\scripts\campaigns\run_track1_second_iteration_harmonic_wise_campaign.ps1
-  - .\scripts\campaigns\run_track1_second_iteration_harmonic_wise_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python
+  - .\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1
+  - .\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python

@@ -235,10 +235,14 @@ The repository now also includes a stricter exact-paper validation branch:
 - config: `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
 - scope: recovered `rpm`, `deg`, `tor` inputs; exact `ampl_k` / `phase_k`
   targets; exact family bank; per-target ONNX export
+- prepared campaign plan:
+  `doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
+- prepared launcher:
+  `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
 
-This exact branch is implemented but not yet executed, so the current offline
-paper-faithful status is still anchored to the completed harmonic-wise campaign
-above.
+This exact branch is implemented and campaign-prepared, but not yet executed,
+so the current offline paper-faithful status is still anchored to the
+completed harmonic-wise campaign above.
 
 What the second iteration established:
 

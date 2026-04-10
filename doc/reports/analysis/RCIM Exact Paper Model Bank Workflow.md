@@ -214,6 +214,14 @@ It defines:
 - deterministic split settings;
 - ONNX export behavior.
 
+The prepared batch campaign package is:
+
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`
+
+The canonical launcher is:
+
+- `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
+
 ## Relationship With The Existing Harmonic-Wise Branch
 
 The two branches should be kept separate.

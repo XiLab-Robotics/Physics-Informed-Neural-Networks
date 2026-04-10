@@ -12,10 +12,10 @@
 *.sh text eol=lf
 *.bat text eol=crlf
 requirements*.txt text eol=lf
-
 reference/video_guides/source_bundle/*.mp4 filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.mkv filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.mov filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.avi filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.m4v filter=lfs diff=lfs merge=lfs -text
 output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run/harmonic_model_bundle.pkl filter=lfs diff=lfs merge=lfs -text
+output/validation_checks/paper_reimplementation_rcim_exact_model_bank/**/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text

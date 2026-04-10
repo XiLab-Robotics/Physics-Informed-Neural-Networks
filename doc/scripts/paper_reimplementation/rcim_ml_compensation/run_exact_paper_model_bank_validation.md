@@ -47,7 +47,8 @@ Provides:
 - the recovered exact ONNX reference root;
 - the enabled exact paper family set;
 - deterministic split settings;
-- ONNX export settings.
+- ONNX export settings, including `strict` versus `continue` failure behavior
+  and the empty-`SVR` constant-surrogate safeguard.
 
 ## Outputs
 
@@ -90,3 +91,5 @@ Operational note:
 - this script is still an offline paper-faithful validation path;
 - it does not yet execute the online compensation loop or the final `Table 9`
   benchmark branch.
+- the prepared batch-run surface for this workflow is
+  `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`.

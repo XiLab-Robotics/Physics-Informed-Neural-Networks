@@ -86,6 +86,14 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-10
 
+- [technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md](./technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md)
+  Technical document for fixing the exact-paper ONNX export failure and
+  converting the strict RCIM exact-paper branch into a repository-style
+  batch-run workflow with launcher, logging, and campaign-oriented execution.
+- [technical/2026-04/2026-04-10/2026-04-10-17-42-04_track_exact_paper_model_bundles_with_git_lfs.md](./technical/2026-04/2026-04-10/2026-04-10-17-42-04_track_exact_paper_model_bundles_with_git_lfs.md)
+  Technical document for tracking only the newly generated exact-paper
+  `paper_family_model_bank.pkl` validation bundles with Git LFS so the branch
+  remains GitHub push-safe.
 - [technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md](./technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md)
   Technical document for evolving the current `Track 1` paper branch into a
   strict RCIM paper-faithful family-bank reimplementation, including the exact
@@ -563,7 +571,7 @@ This folder contains the internal project documents derived from the reference P
 - [guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf](./guide/Residual%20Harmonic%20Network/Residual%20Harmonic%20Network.pdf)
   Styled PDF export of the unified residual-harmonic network guide.
 
-#### Campaign Plans
+#### Latest Campaign Plans
 
 - [reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md](./reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md)
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
@@ -669,6 +677,13 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 recovery campaign, including campaign ranking, family-level outcomes, and program-level context.
 - [reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md](./reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md)
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
+
+#### Campaign Plans
+
+- [reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md](./reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md)
+  Planning report for the first exact-paper RCIM family-bank batch campaign,
+  including diagnostic and strict-reference runs, export-failure handling
+  strategy, and the intended PowerShell launcher workflow.
 
 ### Running State
 
