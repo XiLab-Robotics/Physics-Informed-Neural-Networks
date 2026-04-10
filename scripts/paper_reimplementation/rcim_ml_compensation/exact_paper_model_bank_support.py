@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import contextlib
 import importlib.metadata
 import os
 import pickle
@@ -51,9 +52,13 @@ except ImportError:  # pragma: no cover - runtime dependency check
 try:
     from skl2onnx import convert_sklearn
     from skl2onnx.common.data_types import FloatTensorType
+    from skl2onnx.common import tree_ensemble as skl2onnx_tree_ensemble
+    from skl2onnx.operator_converters import random_forest as skl2onnx_random_forest_converter
 except ImportError:  # pragma: no cover - runtime dependency check
     FloatTensorType = None
     convert_sklearn = None
+    skl2onnx_tree_ensemble = None
+    skl2onnx_random_forest_converter = None
 
 try:
     from xgboost import XGBRegressor
@@ -495,6 +500,12 @@ def _convert_estimator_to_onnx(
     # Build The Shared Input Signature
     initial_types = [("float_input", FloatTensorType([None, feature_count]))]
 
+    # Convert HistGradientBoosting Through A Sanitized Temporary Converter Patch
+    if estimator_name == "HistGradientBoostingRegressor":
+        _assert_optional_dependency(convert_sklearn, "skl2onnx")
+        with _patched_hist_gradient_boosting_onnx_converter():
+            return convert_sklearn(estimator, initial_types=initial_types, target_opset=target_opset)
+
     # Convert Standard Scikit-Learn Estimators
     if estimator_name not in ["XGBRegressor", "LGBMRegressor"]:
         _assert_optional_dependency(convert_sklearn, "skl2onnx")
@@ -512,6 +523,111 @@ def _convert_estimator_to_onnx(
     _assert_optional_dependency(ONNX_FLOAT_TENSOR_TYPE, "onnxconverter-common")
     lgbm_initial_types = [("float_input", ONNX_FLOAT_TENSOR_TYPE([None, feature_count]))]
     return convert_lightgbm(estimator, initial_types=lgbm_initial_types, target_opset=target_opset)
+
+
+@contextlib.contextmanager
+def _patched_hist_gradient_boosting_onnx_converter():
+
+    """Temporarily sanitize the local skl2onnx HGBM converter for sklearn 1.8.
+
+    Notes:
+        The currently installed `scikit-learn=1.8.0` exposes histogram-tree node
+        metadata such as `left`, `right`, and `missing_go_to_left` as NumPy
+        scalar types. The local `skl2onnx=1.20.0` converter forwards those raw
+        values into ONNX node attributes, but ONNX helper validation expects
+        plain Python `int` values for the integer attribute lists.
+
+        This patch only affects the temporary in-process conversion of
+        `HistGradientBoostingRegressor` and restores the original converter
+        functions immediately afterwards.
+    """
+
+    # Validate Optional Runtime Dependencies
+    _assert_optional_dependency(skl2onnx_tree_ensemble, "skl2onnx")
+    _assert_optional_dependency(skl2onnx_random_forest_converter, "skl2onnx")
+
+    # Capture Original Converter Functions
+    original_hist_converter = (
+        skl2onnx_tree_ensemble.add_tree_to_attribute_pairs_hist_gradient_boosting
+    )
+    original_random_forest_hist_converter = (
+        skl2onnx_random_forest_converter.add_tree_to_attribute_pairs_hist_gradient_boosting
+    )
+
+    def _sanitized_hist_gradient_boosting_converter(
+        attr_pairs: dict[str, Any],
+        is_classifier: bool,
+        tree: Any,
+        tree_id: int,
+        tree_weight: float,
+        weight_id_bias: int,
+        leaf_weights_are_counts: bool,
+        adjust_threshold_for_sklearn: bool = False,
+        dtype: Any = None,
+    ) -> None:
+
+        """Add one HGBM tree to ONNX attributes with plain Python integers."""
+
+        # Serialize Every HGBM Node Through Stable Python Scalar Types
+        for node_index, node in enumerate(tree.nodes):
+            node_id = int(node_index)
+            weight = node["value"]
+
+            if bool(node["is_leaf"]):
+                mode = "LEAF"
+                feature_id = 0
+                threshold = 0.0
+                left_child_id = 0
+                right_child_id = 0
+                missing_tracks_true = 0
+            else:
+                mode = "BRANCH_LEQ"
+                feature_id = int(node["feature_idx"])
+                try:
+                    threshold = node["threshold"]
+                except ValueError:
+                    threshold = node["num_threshold"]
+                left_child_id = int(node["left"])
+                right_child_id = int(node["right"])
+                missing_tracks_true = int(node["missing_go_to_left"])
+
+            skl2onnx_tree_ensemble.add_node(
+                attr_pairs,
+                is_classifier,
+                tree_id,
+                tree_weight,
+                node_id,
+                feature_id,
+                mode,
+                threshold,
+                left_child_id,
+                right_child_id,
+                weight,
+                weight_id_bias,
+                leaf_weights_are_counts,
+                adjust_threshold_for_sklearn=adjust_threshold_for_sklearn,
+                dtype=dtype,
+                nodes_missing_value_tracks_true=missing_tracks_true,
+            )
+
+    # Install Temporary Converter Patch
+    skl2onnx_tree_ensemble.add_tree_to_attribute_pairs_hist_gradient_boosting = (
+        _sanitized_hist_gradient_boosting_converter
+    )
+    skl2onnx_random_forest_converter.add_tree_to_attribute_pairs_hist_gradient_boosting = (
+        _sanitized_hist_gradient_boosting_converter
+    )
+
+    try:
+        yield
+    finally:
+        # Restore Original skl2onnx Converter Functions
+        skl2onnx_tree_ensemble.add_tree_to_attribute_pairs_hist_gradient_boosting = (
+            original_hist_converter
+        )
+        skl2onnx_random_forest_converter.add_tree_to_attribute_pairs_hist_gradient_boosting = (
+            original_random_forest_hist_converter
+        )
 
 
 def _build_compact_export_error_message(export_error: Exception) -> str:

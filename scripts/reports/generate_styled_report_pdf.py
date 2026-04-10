@@ -55,6 +55,13 @@ REMOTE_TRAINING_VALIDATION_FAILED_TABLE_CLASS_NAME = "report-table report-table-
 TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-targeted-remote-followup-completed"
 TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME = "report-table report-table-targeted-remote-followup-family-bests"
 TRACK1_SECOND_ITERATION_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-track1-second-iteration-completed"
+WIDE_IDENTIFIER_RANKING_TABLE_CLASS_NAME = "report-table report-table-wide-identifier-ranking"
+IDENTIFIER_METRIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-identifier-metric-summary"
+FAMILY_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-table-family-metric-ranking"
+FAMILY_ESTIMATOR_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-table-family-estimator-metric-ranking"
+EXACT_PAPER_COMPLETED_RANKING_TABLE_CLASS_NAME = WIDE_IDENTIFIER_RANKING_TABLE_CLASS_NAME
+EXACT_PAPER_EXPORT_SUMMARY_TABLE_CLASS_NAME = IDENTIFIER_METRIC_SUMMARY_TABLE_CLASS_NAME
+EXACT_PAPER_TOP_FAMILY_TABLE_CLASS_NAME = FAMILY_METRIC_RANKING_TABLE_CLASS_NAME
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -676,7 +683,11 @@ REPORT_STYLESHEET = """
     .report-table-remote-training-validation-failed,
     .report-table-targeted-remote-followup-completed,
     .report-table-targeted-remote-followup-family-bests,
-    .report-table-track1-second-iteration-completed {
+    .report-table-track1-second-iteration-completed,
+    .report-table-wide-identifier-ranking,
+    .report-table-identifier-metric-summary,
+    .report-table-family-metric-ranking,
+    .report-table-family-estimator-metric-ranking {
       font-size: 6.95pt;
       line-height: 1.18;
     }
@@ -690,7 +701,15 @@ REPORT_STYLESHEET = """
     .report-table-targeted-remote-followup-family-bests th,
     .report-table-targeted-remote-followup-family-bests td,
     .report-table-track1-second-iteration-completed th,
-    .report-table-track1-second-iteration-completed td {
+    .report-table-track1-second-iteration-completed td,
+    .report-table-wide-identifier-ranking th,
+    .report-table-wide-identifier-ranking td,
+    .report-table-identifier-metric-summary th,
+    .report-table-identifier-metric-summary td,
+    .report-table-family-metric-ranking th,
+    .report-table-family-metric-ranking td,
+    .report-table-family-estimator-metric-ranking th,
+    .report-table-family-estimator-metric-ranking td {
       padding: 4px 4px;
     }
 
@@ -698,7 +717,11 @@ REPORT_STYLESHEET = """
     .report-table-remote-training-validation-failed th,
     .report-table-targeted-remote-followup-completed th,
     .report-table-targeted-remote-followup-family-bests th,
-    .report-table-track1-second-iteration-completed th {
+    .report-table-track1-second-iteration-completed th,
+    .report-table-wide-identifier-ranking th,
+    .report-table-identifier-metric-summary th,
+    .report-table-family-metric-ranking th,
+    .report-table-family-estimator-metric-ranking th {
       white-space: normal;
       overflow-wrap: normal;
       word-break: normal;
@@ -740,9 +763,39 @@ REPORT_STYLESHEET = """
     .report-table-track1-second-iteration-completed th:nth-child(6), .report-table-track1-second-iteration-completed td:nth-child(6) { width: 11%; }
     .report-table-track1-second-iteration-completed th:nth-child(7), .report-table-track1-second-iteration-completed td:nth-child(7) { width: 14%; }
 
+    .report-table-wide-identifier-ranking th:nth-child(1), .report-table-wide-identifier-ranking td:nth-child(1) { width: 5%; }
+    .report-table-wide-identifier-ranking th:nth-child(2), .report-table-wide-identifier-ranking td:nth-child(2) { width: 35%; }
+    .report-table-wide-identifier-ranking th:nth-child(3), .report-table-wide-identifier-ranking td:nth-child(3) { width: 22%; }
+    .report-table-wide-identifier-ranking th:nth-child(4), .report-table-wide-identifier-ranking td:nth-child(4) { width: 13%; }
+    .report-table-wide-identifier-ranking th:nth-child(5), .report-table-wide-identifier-ranking td:nth-child(5) { width: 8%; }
+    .report-table-wide-identifier-ranking th:nth-child(6), .report-table-wide-identifier-ranking td:nth-child(6) { width: 17%; }
+
+    .report-table-identifier-metric-summary th:nth-child(1), .report-table-identifier-metric-summary td:nth-child(1) { width: 44%; }
+    .report-table-identifier-metric-summary th:nth-child(2), .report-table-identifier-metric-summary td:nth-child(2) { width: 22%; }
+    .report-table-identifier-metric-summary th:nth-child(3), .report-table-identifier-metric-summary td:nth-child(3) { width: 14%; }
+    .report-table-identifier-metric-summary th:nth-child(4), .report-table-identifier-metric-summary td:nth-child(4) { width: 10%; }
+    .report-table-identifier-metric-summary th:nth-child(5), .report-table-identifier-metric-summary td:nth-child(5) { width: 10%; }
+
+    .report-table-family-metric-ranking th:nth-child(1), .report-table-family-metric-ranking td:nth-child(1) { width: 6%; }
+    .report-table-family-metric-ranking th:nth-child(2), .report-table-family-metric-ranking td:nth-child(2) { width: 12%; }
+    .report-table-family-metric-ranking th:nth-child(3), .report-table-family-metric-ranking td:nth-child(3) { width: 30%; }
+    .report-table-family-metric-ranking th:nth-child(4), .report-table-family-metric-ranking td:nth-child(4) { width: 26%; }
+    .report-table-family-metric-ranking th:nth-child(5), .report-table-family-metric-ranking td:nth-child(5) { width: 26%; }
+
+    .report-table-family-estimator-metric-ranking th:nth-child(1), .report-table-family-estimator-metric-ranking td:nth-child(1) { width: 6%; }
+    .report-table-family-estimator-metric-ranking th:nth-child(2), .report-table-family-estimator-metric-ranking td:nth-child(2) { width: 10%; }
+    .report-table-family-estimator-metric-ranking th:nth-child(3), .report-table-family-estimator-metric-ranking td:nth-child(3) { width: 24%; }
+    .report-table-family-estimator-metric-ranking th:nth-child(4), .report-table-family-estimator-metric-ranking td:nth-child(4) { width: 20%; }
+    .report-table-family-estimator-metric-ranking th:nth-child(5), .report-table-family-estimator-metric-ranking td:nth-child(5) { width: 20%; }
+    .report-table-family-estimator-metric-ranking th:nth-child(6), .report-table-family-estimator-metric-ranking td:nth-child(6) { width: 20%; }
+
     .report-table-targeted-remote-followup-completed .metric-unit,
     .report-table-targeted-remote-followup-family-bests .metric-unit,
-    .report-table-track1-second-iteration-completed .metric-unit {
+    .report-table-track1-second-iteration-completed .metric-unit,
+    .report-table-wide-identifier-ranking .metric-unit,
+    .report-table-identifier-metric-summary .metric-unit,
+    .report-table-family-metric-ranking .metric-unit,
+    .report-table-family-estimator-metric-ranking .metric-unit {
       display: block;
     }
 
@@ -1202,21 +1255,96 @@ def collect_table_lines(markdown_lines: Sequence[str], start_index: int) -> tupl
 
     return table_lines, current_index
 
+def is_mean_component_metric_header(header_cell: str) -> bool:
+
+    """ Report Whether The Header Is A Mean-Component Metric """
+
+    return header_cell.startswith("Mean Component ")
+
+def normalize_common_metric_header_cell(header_cell: str) -> str | None:
+
+    """ Normalize Common Long Metric Header Cells """
+
+    # Wrap Repository Mean-Component Metrics
+    if is_mean_component_metric_header(header_cell):
+        metric_suffix = html.escape(header_cell.removeprefix("Mean Component ").strip())
+        return f"Mean Component<span class=\"metric-unit\">{metric_suffix}</span>"
+
+    # Wrap Common Val/Test Metric Headers With Units
+    unit_metric_match = re.fullmatch(r"((?:Test|Val) (?:MAE|RMSE)) (\[[^\]]+\])", header_cell)
+    if unit_metric_match is not None:
+        metric_label, metric_unit = unit_metric_match.groups()
+        return f"{html.escape(metric_label)}<span class=\"metric-unit\">{html.escape(metric_unit)}</span>"
+
+    return None
+
+def is_wide_identifier_ranking_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches A Wide-Identifier Ranking Table """
+
+    normalized_header_cells = tuple(header_cells)
+    return (
+        len(normalized_header_cells) == 6
+        and normalized_header_cells[0] == "Rank"
+        and normalized_header_cells[1] == "Config"
+        and any(is_mean_component_metric_header(header_cell) for header_cell in normalized_header_cells)
+    )
+
+def is_identifier_metric_summary_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches An Identifier-Metric Summary Table """
+
+    normalized_header_cells = tuple(header_cells)
+    return (
+        len(normalized_header_cells) == 5
+        and normalized_header_cells[0] == "Config"
+        and any(is_mean_component_metric_header(header_cell) for header_cell in normalized_header_cells)
+        and any(header_cell in {"ONNX Exported", "Failed Exports", "Surrogates"} for header_cell in normalized_header_cells)
+    )
+
+def is_family_metric_ranking_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches A Family-Metric Ranking Table """
+
+    normalized_header_cells = tuple(header_cells)
+    return (
+        len(normalized_header_cells) == 5
+        and normalized_header_cells[0] == "Rank"
+        and normalized_header_cells[1] == "Family"
+        and all(is_mean_component_metric_header(header_cell) for header_cell in normalized_header_cells[2:])
+    )
+
+def is_family_estimator_metric_ranking_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches A Family-Estimator Metric Ranking Table """
+
+    normalized_header_cells = tuple(header_cells)
+    return (
+        len(normalized_header_cells) == 6
+        and normalized_header_cells[0] == "Rank"
+        and normalized_header_cells[1] == "Family"
+        and normalized_header_cells[2] == "Estimator"
+        and all(is_mean_component_metric_header(header_cell) for header_cell in normalized_header_cells[3:])
+    )
+
 def normalize_report_specific_header_cell(header_cell: str, table_class_name: str) -> str:
 
     """ Normalize Report-Specific Header Cell Content """
 
+    wrapped_common_metric_header = normalize_common_metric_header_cell(header_cell)
+
     if table_class_name in {
+        HISTORICAL_REFERENCE_TABLE_CLASS_NAME,
+        PHASE_RESULTS_TABLE_CLASS_NAME,
         TARGETED_REMOTE_FOLLOWUP_COMPLETED_TABLE_CLASS_NAME,
         TARGETED_REMOTE_FOLLOWUP_FAMILY_BESTS_TABLE_CLASS_NAME,
         TRACK1_SECOND_ITERATION_COMPLETED_TABLE_CLASS_NAME,
-    }:
-        if header_cell == "Test MAE [deg]":
-            return "Test MAE<span class=\"metric-unit\">[deg]</span>"
-        if header_cell == "Test RMSE [deg]":
-            return "Test RMSE<span class=\"metric-unit\">[deg]</span>"
-        if header_cell == "Val MAE [deg]":
-            return "Val MAE<span class=\"metric-unit\">[deg]</span>"
+        WIDE_IDENTIFIER_RANKING_TABLE_CLASS_NAME,
+        IDENTIFIER_METRIC_SUMMARY_TABLE_CLASS_NAME,
+        FAMILY_METRIC_RANKING_TABLE_CLASS_NAME,
+        FAMILY_ESTIMATOR_METRIC_RANKING_TABLE_CLASS_NAME,
+    } and wrapped_common_metric_header is not None:
+        return wrapped_common_metric_header
 
     return convert_inline_markup(header_cell)
 
@@ -1397,6 +1525,19 @@ def resolve_standard_table_class_name(
     # Resolve Ranking Table
     if normalized_header_cells in RANKING_TABLE_HEADER_CELL_GROUPS:
         return RANKING_RESULTS_TABLE_CLASS_NAME
+
+    # Resolve Reusable Ranking/Metric Table Profiles
+    if is_wide_identifier_ranking_table(normalized_header_cells):
+        return WIDE_IDENTIFIER_RANKING_TABLE_CLASS_NAME
+
+    if is_identifier_metric_summary_table(normalized_header_cells):
+        return IDENTIFIER_METRIC_SUMMARY_TABLE_CLASS_NAME
+
+    if is_family_metric_ranking_table(normalized_header_cells):
+        return FAMILY_METRIC_RANKING_TABLE_CLASS_NAME
+
+    if is_family_estimator_metric_ranking_table(normalized_header_cells):
+        return FAMILY_ESTIMATOR_METRIC_RANKING_TABLE_CLASS_NAME
 
     # Resolve Decision Matrix Table
     if normalized_header_cells == DECISION_MATRIX_TABLE_HEADER_CELLS:
@@ -1674,6 +1815,25 @@ def render_paragraph(paragraph_lines: Sequence[str], markdown_directory: Path) -
     # Render Standard Paragraph
     return f"<p>{convert_inline_markup(paragraph_text)}</p>"
 
+def should_keep_section_together(section_body_tokens: Sequence[str]) -> bool:
+
+    """ Report Whether A Section Is Compact Enough To Stay Together """
+
+    section_body_html = "".join(section_body_tokens)
+
+    # Skip Table-Heavy Or Explicitly Structured Sections
+    if "<table" in section_body_html:
+        return False
+
+    if section_body_html.count('class="subsection-block"') > 1:
+        return False
+
+    # Estimate Visual Density From Visible Text
+    visible_section_text = re.sub(r"<[^>]+>", " ", section_body_html)
+    visible_word_count = len(visible_section_text.split())
+
+    return visible_word_count <= 165
+
 def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, str]:
 
     """ Render Markdown Body """
@@ -1755,6 +1915,9 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             ):
                 section_class_names.append("section-force-page-break")
                 document_html_tokens.append('<div class="explicit-page-break"></div>')
+
+            if should_keep_section_together(current_section_body_tokens):
+                section_class_names.append("section-keep-together")
 
             document_html_tokens.append(
                 f'<section id="{current_section_slug}" class="{" ".join(section_class_names)}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'

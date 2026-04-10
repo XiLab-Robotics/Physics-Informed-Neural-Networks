@@ -86,6 +86,24 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-10
 
+- [technical/2026-04/2026-04-10/2026-04-10-21-24-35_styled_pdf_pipeline_auto_layout_learning.md](./technical/2026-04/2026-04-10/2026-04-10-21-24-35_styled_pdf_pipeline_auto_layout_learning.md)
+  Technical document for promoting the successful exact-paper PDF layout
+  refinements into reusable styled-report pipeline behavior so future exports
+  inherit better table balancing, header wrapping, and page-break discipline
+  by default.
+- [technical/2026-04/2026-04-10/2026-04-10-21-05-20_exact_paper_campaign_results_pdf_layout_refinement.md](./technical/2026-04/2026-04-10/2026-04-10-21-05-20_exact_paper_campaign_results_pdf_layout_refinement.md)
+  Technical document for the narrow styled-PDF layout refinement pass on the
+  exact-paper campaign results report, focused on the `Objective And Outcome`
+  page break and the two `Ranked Completed Runs` tables.
+- [technical/2026-04/2026-04-10/2026-04-10-19-26-39_exact_paper_campaign_results_report.md](./technical/2026-04/2026-04-10/2026-04-10-19-26-39_exact_paper_campaign_results_report.md)
+  Technical document for producing the final Markdown plus validated PDF
+  campaign-results report for the completed exact-paper model-bank campaign and
+  synchronizing the canonical analysis reports afterwards.
+- [technical/2026-04/2026-04-10/2026-04-10-18-52-09_exact_paper_campaign_hgbm_export_debug.md](./technical/2026-04/2026-04-10/2026-04-10-18-52-09_exact_paper_campaign_hgbm_export_debug.md)
+  Technical document for reproducing and debugging the strict exact-paper
+  campaign failure currently observed on `HGBM`
+  `fft_y_Fw_filtered_ampl_0` ONNX export before re-running the canonical
+  batch launcher.
 - [technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md](./technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md)
   Technical document for fixing the exact-paper ONNX export failure and
   converting the strict RCIM exact-paper branch into a repository-style
@@ -671,6 +689,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md](./reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md)
+  Final results report for the completed exact-paper RCIM family-bank campaign,
+  including strict-reference promotion, `SVR` surrogate diagnostics, and the
+  validated exact-paper export-status outcome.
 - [reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md](./reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md)
   Final results report for the completed second `Track 1` paper-faithful harmonic-wise campaign, including reduced-set diagnostics, full-RCIM comparison, and the updated `Target A` status.
 - [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)

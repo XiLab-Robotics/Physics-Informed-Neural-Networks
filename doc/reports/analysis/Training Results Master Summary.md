@@ -2,15 +2,15 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-09T21:19:05`
+- Generated At: `2026-04-10T19:54:02`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: the immediate implementation branch remains the offline
-  `Harmonic-Wise Comparison Pipeline`, with the second `Track 1` campaign now
-  completed and the next step narrowed to a third iteration focused on target
-  parameterization and dominant-harmonic error reduction
+- Current Focus: the exact-paper family-bank branch is now campaign-validated
+  and export-stable, while the next paper-threshold optimization step still
+  remains the harmonic-wise `Track 1` branch focused on target parameterization
+  and dominant-harmonic error reduction
 - Active Campaign Status: `completed`
-- Active Campaign Name: `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03`
+- Active Campaign Name: `exact_paper_model_bank_campaign_2026_04_10_17_04_41`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -34,11 +34,11 @@
 
 ### Active Training Or Improvement Branches
 
-- Current campaign: `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03`
+- Current campaign: `exact_paper_model_bank_campaign_2026_04_10_17_04_41`
 - Launch mode: `local_operator_campaign_launcher`
 - Families under active improvement: `none currently running`
 - Latest completed campaign report:
-  `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
+  `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
 
 ### Roadmap And Planned Work
 
@@ -112,6 +112,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `exact_paper_model_bank_campaign_2026_04_10_17_04_41` | `2026-04-10 19:14:18` | 4 | 0 | `exact_full_bank_strict_reference` | Exact-paper branch stabilized; no family-best change |
 | `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03` | `2026-04-09 21:06:13` | 8 | 0 | `te_harmonic_wise_full_rcim_no_engineering_reference` | No family-best change |
 | `targeted_remote_followup_campaign_2026_04_04_11_21_09` | `2026-04-04 13:03:55` | 5 | 0 | `te_hist_gbr_remote_refined` | No family-best change |
 | `remote_training_validation_campaign_2026_04_03_17_54_21` | `2026-04-03 22:30:26` | 4 | 1 | `te_hist_gbr_remote_deep` | No family-best change |
@@ -189,7 +190,16 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Scope of this stricter branch:
   recovered `rpm`, `deg`, `tor` inputs; exact `ampl_k` / `phase_k` targets;
   recovered family bank; per-target ONNX export
-- Execution status: `prepared_not_yet_run`
+- Exact-paper campaign results report:
+  `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
+- Execution status: `completed`
+- Promoted exact-paper run: `exact_full_bank_strict_reference`
+- Promoted exact-paper winner family: `RF`
+- Promoted exact-paper winner metric:
+  `18.369%` mean component MAPE with `200` exported ONNX files and `0` failed exports
+- Current exact-paper limitation:
+  the branch is now export-stable, but it is still a component-level structural
+  reference and does not replace the harmonic-wise TE-curve `Target A` metric
 
 ### Online Compensation Tracking Placeholder
 

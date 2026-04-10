@@ -1,0 +1,167 @@
+schema_version: 1
+campaign_name: exact_paper_model_bank_campaign_2026_04_10_17_04_41
+selection_policy:
+  primary_metric: winning_mean_component_mape_percent
+  first_tie_breaker: winning_mean_component_mae
+  second_tie_breaker: prefer_export_failure_mode_strict
+  third_tie_breaker: enabled_family_count_desc
+  fourth_tie_breaker: winning_mean_component_rmse
+  fifth_tie_breaker: run_name
+  direction: minimize
+updated_at: '2026-04-10T19:54:02+02:00'
+entry_count: 4
+entry_list:
+- run_instance_id: 2026-04-10-19-12-14__exact_full_bank_strict_reference_campaign_run
+  run_name: exact_full_bank_strict_reference
+  output_run_name: exact_full_bank_strict_reference_campaign_run
+  output_artifact_kind: validation_check
+  enabled_family_count: 10
+  enabled_family_list:
+  - SVR
+  - MLP
+  - RF
+  - DT
+  - ET
+  - ERT
+  - GBM
+  - HGBM
+  - XGBM
+  - LGBM
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 18.36882351011561
+  winning_mean_component_mae: 0.05628443554453616
+  winning_mean_component_rmse: 0.1448385161017404
+  export_failure_mode: strict
+  exported_file_count: 200
+  failed_target_count: 0
+  surrogate_export_count: 5
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 200
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-14__exact_full_bank_strict_reference_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-14__exact_full_bank_strict_reference_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-14__exact_full_bank_strict_reference_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: winning_mean_component_mape_percent
+    first_tie_breaker: winning_mean_component_mae
+    second_tie_breaker: prefer_export_failure_mode_strict
+    third_tie_breaker: enabled_family_count_desc
+    fourth_tie_breaker: winning_mean_component_rmse
+    fifth_tie_breaker: run_name
+    direction: minimize
+  selected_at: '2026-04-10T19:54:02+02:00'
+- run_instance_id: 2026-04-10-19-11-32__exact_full_bank_diagnostic_continue_campaign_run
+  run_name: exact_full_bank_diagnostic_continue
+  output_run_name: exact_full_bank_diagnostic_continue_campaign_run
+  output_artifact_kind: validation_check
+  enabled_family_count: 10
+  enabled_family_list:
+  - SVR
+  - MLP
+  - RF
+  - DT
+  - ET
+  - ERT
+  - GBM
+  - HGBM
+  - XGBM
+  - LGBM
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 18.36882351011561
+  winning_mean_component_mae: 0.05628443554453616
+  winning_mean_component_rmse: 0.1448385161017404
+  export_failure_mode: continue
+  exported_file_count: 200
+  failed_target_count: 0
+  surrogate_export_count: 5
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 200
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-11-32__exact_full_bank_diagnostic_continue_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-11-32__exact_full_bank_diagnostic_continue_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-11-32__exact_full_bank_diagnostic_continue_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: winning_mean_component_mape_percent
+    first_tie_breaker: winning_mean_component_mae
+    second_tie_breaker: prefer_export_failure_mode_strict
+    third_tie_breaker: enabled_family_count_desc
+    fourth_tie_breaker: winning_mean_component_rmse
+    fifth_tie_breaker: run_name
+    direction: minimize
+  selected_at: '2026-04-10T19:54:02+02:00'
+- run_instance_id: 2026-04-10-19-13-05__exact_non_svr_export_reference_campaign_run
+  run_name: exact_non_svr_export_reference
+  output_run_name: exact_non_svr_export_reference_campaign_run
+  output_artifact_kind: validation_check
+  enabled_family_count: 9
+  enabled_family_list:
+  - MLP
+  - RF
+  - DT
+  - ET
+  - ERT
+  - GBM
+  - HGBM
+  - XGBM
+  - LGBM
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 18.36882351011561
+  winning_mean_component_mae: 0.05628443554453616
+  winning_mean_component_rmse: 0.1448385161017404
+  export_failure_mode: strict
+  exported_file_count: 180
+  failed_target_count: 0
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 180
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-13-05__exact_non_svr_export_reference_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-13-05__exact_non_svr_export_reference_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-13-05__exact_non_svr_export_reference_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: winning_mean_component_mape_percent
+    first_tie_breaker: winning_mean_component_mae
+    second_tie_breaker: prefer_export_failure_mode_strict
+    third_tie_breaker: enabled_family_count_desc
+    fourth_tie_breaker: winning_mean_component_rmse
+    fifth_tie_breaker: run_name
+    direction: minimize
+  selected_at: '2026-04-10T19:54:02+02:00'
+- run_instance_id: 2026-04-10-19-12-57__exact_svr_export_diagnostic_campaign_run
+  run_name: exact_svr_export_diagnostic
+  output_run_name: exact_svr_export_diagnostic_campaign_run
+  output_artifact_kind: validation_check
+  enabled_family_count: 1
+  enabled_family_list:
+  - SVR
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mean_component_mape_percent: 103.26481604181478
+  winning_mean_component_mae: 0.13834575150557943
+  winning_mean_component_rmse: 0.24861993230940732
+  export_failure_mode: continue
+  exported_file_count: 20
+  failed_target_count: 0
+  surrogate_export_count: 5
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 20
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-57__exact_svr_export_diagnostic_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-57__exact_svr_export_diagnostic_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-57__exact_svr_export_diagnostic_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: winning_mean_component_mape_percent
+    first_tie_breaker: winning_mean_component_mae
+    second_tie_breaker: prefer_export_failure_mode_strict
+    third_tie_breaker: enabled_family_count_desc
+    fourth_tie_breaker: winning_mean_component_rmse
+    fifth_tie_breaker: run_name
+    direction: minimize
+  selected_at: '2026-04-10T19:54:02+02:00'

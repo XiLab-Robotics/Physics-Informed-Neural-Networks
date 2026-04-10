@@ -239,10 +239,28 @@ The repository now also includes a stricter exact-paper validation branch:
   `doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
 - prepared launcher:
   `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
+- campaign results report:
+  `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
 
-This exact branch is implemented and campaign-prepared, but not yet executed,
-so the current offline paper-faithful status is still anchored to the
-completed harmonic-wise campaign above.
+This exact branch is now implemented, executed, and operationally stabilized.
+Its promoted strict reference run is:
+
+- `exact_full_bank_strict_reference`
+
+with:
+
+- winning family `RF`
+- winner mean component MAPE `18.369%`
+- `200` exported ONNX files
+- `0` failed exports
+
+Important scope boundary:
+
+- this exact branch validates recovered-family fitting and per-target ONNX
+  export stability;
+- it does not replace the harmonic-wise TE-curve benchmark used for `Target A`;
+- the current paper-threshold offline status therefore remains anchored to the
+  harmonic-wise branch, not to the exact-bank component metric.
 
 What the second iteration established:
 
@@ -266,8 +284,8 @@ Immediate next repository step:
 
 Important interpretation:
 
-- the repository now has a completed second `Track 1` campaign rather than only
-  a first baseline proof of concept;
+- the repository now has both a completed second harmonic-wise `Track 1`
+  campaign and a completed exact-paper family-bank stabilization campaign;
 - the best harmonic-wise result improved from `9.403%` to `8.877%`, so the
   branch is moving in the right direction;
 - the paper threshold of `4.7%` remains substantially unmet, so the repository
@@ -278,7 +296,7 @@ Important interpretation:
 | Comparison Axis | Current Repository Status | Verdict |
 | --- | --- | --- |
 | Offline winner family direction | Tree winner (`hist_gradient_boosting`) | aligned |
-| Offline metric protocol | Harmonic-wise held-out mean percentage error now available: `9.403%` | comparable_but_not_yet_matching |
+| Offline metric protocol | Harmonic-wise held-out mean percentage error now available: `8.877%`; exact-bank structural export branch also completed successfully | comparable_but_not_yet_matching |
 | Online compensation benchmark | missing | not yet comparable |
 | End-to-end paper replication | missing | not yet comparable |
 
