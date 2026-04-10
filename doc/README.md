@@ -94,6 +94,10 @@ This folder contains the internal project documents derived from the reference P
   Technical document for tracking only the newly generated exact-paper
   `paper_family_model_bank.pkl` validation bundles with Git LFS so the branch
   remains GitHub push-safe.
+- [technical/2026-04/2026-04-10/2026-04-10-18-30-57_exact_paper_untracked_artifact_cleanup.md](./technical/2026-04/2026-04-10/2026-04-10-18-30-57_exact_paper_untracked_artifact_cleanup.md)
+  Technical document for removing the leftover untracked exact-paper crash and
+  superseded intermediate validation artifacts after the stabilized workflow
+  commit.
 - [technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md](./technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md)
   Technical document for evolving the current `Track 1` paper branch into a
   strict RCIM paper-faithful family-bank reimplementation, including the exact
