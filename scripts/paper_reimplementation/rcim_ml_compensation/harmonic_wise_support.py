@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import os
 import pickle
 from dataclasses import dataclass
 from datetime import datetime
@@ -15,6 +16,7 @@ import numpy as np
 # Import Scikit-Learn Utilities
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
+from threadpoolctl import threadpool_limits
 
 # Import Project Utilities
 from scripts.datasets import transmission_error_dataset
@@ -464,13 +466,22 @@ def fit_harmonic_target_models(
 
     """Fit one estimator per harmonic coefficient target."""
 
+    # Limit Native Threadpools For HGBM Stability
+    threadpool_limit = int(model_configuration.get("threadpool_limit", 1))
+    os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(threadpool_limit))
+    os.environ.setdefault("OMP_NUM_THREADS", str(threadpool_limit))
+    os.environ.setdefault("OPENBLAS_NUM_THREADS", str(threadpool_limit))
+    os.environ.setdefault("MKL_NUM_THREADS", str(threadpool_limit))
+
+    # Fit One Estimator Per Target
     harmonic_model_dictionary: dict[str, Any] = {}
     for target_index, target_name in enumerate(target_name_list):
         estimator = build_estimator(
             build_target_specific_model_configuration(model_configuration, target_name),
             target_name,
         )
-        estimator.fit(feature_matrix, target_matrix[:, target_index])
+        with threadpool_limits(limits=threadpool_limit):
+            estimator.fit(feature_matrix, target_matrix[:, target_index])
         harmonic_model_dictionary[target_name] = estimator
     return harmonic_model_dictionary
 

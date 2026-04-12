@@ -9,6 +9,36 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..")).Path
 
 Set-Location $projectRoot
 
+function Invoke-CondaRun {
+    param(
+        [string]$EnvironmentName,
+        [string]$PythonExecutablePath,
+        [string]$RunnerScriptPath,
+        [string]$ConfigPath,
+        [string]$OutputSuffix
+    )
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    $global:ErrorActionPreference = "Continue"
+
+    try {
+        $commandOutput = & conda run -n $EnvironmentName $PythonExecutablePath `
+            $RunnerScriptPath `
+            --config-path $ConfigPath `
+            --output-suffix $OutputSuffix 2>&1
+        $nativeExitCode = $LASTEXITCODE
+    }
+    finally {
+        $global:ErrorActionPreference = $previousErrorActionPreference
+    }
+
+    $commandOutput | ForEach-Object {
+        Write-Host $_
+    }
+
+    return $nativeExitCode
+}
+
 # Define Campaign Identity
 $campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\harmonic_wise\campaigns\2026-04-09_track1_second_iteration_harmonic_wise_campaign"
 $planningReportPath = "doc\reports\campaign_plans\2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md"
@@ -37,14 +67,16 @@ for ($configIndex = 0; $configIndex -lt $campaignConfigPathList.Count; $configIn
     Write-Host ("[INFO] Harmonic-Wise Campaign Progress {0}/{1} | {2}" -f ($configIndex + 1), $campaignConfigPathList.Count, $configPath) -ForegroundColor Cyan
     Write-Host ("=" * 96) -ForegroundColor DarkCyan
 
-    & conda run -n $CondaEnvironmentName $PythonExecutable `
-        "scripts\paper_reimplementation\rcim_ml_compensation\run_harmonic_wise_comparison_pipeline.py" `
-        --config-path $configPath `
-        --output-suffix "campaign_run"
+    $nativeExitCode = Invoke-CondaRun `
+        -EnvironmentName $CondaEnvironmentName `
+        -PythonExecutablePath $PythonExecutable `
+        -RunnerScriptPath "scripts\paper_reimplementation\rcim_ml_compensation\run_harmonic_wise_comparison_pipeline.py" `
+        -ConfigPath $configPath `
+        -OutputSuffix "campaign_run"
 
-    if ($LASTEXITCODE -ne 0) {
+    if ($nativeExitCode -ne 0) {
         Write-Host "[ERROR] Harmonic-wise campaign run failed | $configPath" -ForegroundColor Red
-        exit $LASTEXITCODE
+        exit $nativeExitCode
     }
 }
 

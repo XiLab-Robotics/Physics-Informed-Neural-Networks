@@ -737,6 +737,8 @@ def export_exact_family_onnx_bank(
         return {
             "enabled": False,
             "target_opset": target_opset,
+            "export_failure_mode": export_failure_mode,
+            "enable_empty_svr_constant_surrogate": enable_empty_svr_constant_surrogate,
             "export_root": shared_training_infrastructure.format_project_relative_path(export_root),
             "exported_file_count": 0,
             "recovered_reference_root": shared_training_infrastructure.format_project_relative_path(recovered_reference_root),

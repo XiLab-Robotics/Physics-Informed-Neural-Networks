@@ -206,19 +206,19 @@ tables should explicitly label each entry as either:
 
 The latest completed repository-owned harmonic-wise campaign is:
 
-- `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03`
+- `exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55`
 
 Winning validation summary:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-11-13-52-42__track1_current_best_shared_evaluator_reference_campaign_run/validation_summary.yaml`
 
 Winning companion report:
 
-- `doc/reports/analysis/validation_checks/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
+- `doc/reports/analysis/validation_checks/2026-04-11-13-34-08_paper_reimplementation_rcim_harmonic_wise_track1_current_best_shared_evaluator_reference_campaign_run_harmonic_wise_comparison_report.md`
 
 Campaign results report:
 
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
+- `doc/reports/campaign_results/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md`
 
 Current best paper-faithful offline result:
 
@@ -271,6 +271,16 @@ What the second iteration established:
   even their truncation-only oracle stays above `4.7%`;
 - the main remaining gap is now better localized to predictor design,
   especially the dominant `h0` term and a smaller late-harmonic cluster.
+
+What the exact-paper faithful reproduction campaign added:
+
+- the exact-paper support surface is now runnable and stable under the current
+  repository stack;
+- the shared offline evaluator still favors
+  `track1_current_best_shared_evaluator_reference` over the exact-paper
+  dominant-harmonic specialization;
+- `Target A` remains anchored to the shared harmonic-wise path and still stops
+  at `8.877%`.
 
 Immediate next repository step:
 

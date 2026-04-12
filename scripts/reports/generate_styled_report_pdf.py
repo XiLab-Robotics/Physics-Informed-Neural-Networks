@@ -62,6 +62,10 @@ FAMILY_ESTIMATOR_METRIC_RANKING_TABLE_CLASS_NAME = "report-table report-table-fa
 EXACT_PAPER_COMPLETED_RANKING_TABLE_CLASS_NAME = WIDE_IDENTIFIER_RANKING_TABLE_CLASS_NAME
 EXACT_PAPER_EXPORT_SUMMARY_TABLE_CLASS_NAME = IDENTIFIER_METRIC_SUMMARY_TABLE_CLASS_NAME
 EXACT_PAPER_TOP_FAMILY_TABLE_CLASS_NAME = FAMILY_METRIC_RANKING_TABLE_CLASS_NAME
+CAMPAIGN_SHARED_OFFLINE_RANKING_TABLE_CLASS_NAME = "report-table report-table-campaign-shared-offline-ranking"
+CAMPAIGN_SHARED_OFFLINE_PLAYBACK_TABLE_CLASS_NAME = "report-table report-table-campaign-shared-offline-playback"
+CAMPAIGN_EXACT_SUPPORT_RANKING_TABLE_CLASS_NAME = "report-table report-table-campaign-exact-support-ranking"
+CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME = "report-table report-table-campaign-exact-support-export"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -679,6 +683,60 @@ REPORT_STYLESHEET = """
     .report-table-wave1-residual-family-training-mode th:nth-child(3), .report-table-wave1-residual-family-training-mode td:nth-child(3) { width: 11%; }
     .report-table-wave1-residual-family-training-mode th:nth-child(4), .report-table-wave1-residual-family-training-mode td:nth-child(4) { width: 17%; }
 
+    .report-table-campaign-shared-offline-ranking,
+    .report-table-campaign-shared-offline-playback,
+    .report-table-campaign-exact-support-ranking,
+    .report-table-campaign-exact-support-export {
+      font-size: 6.9pt;
+      line-height: 1.18;
+    }
+
+    .report-table-campaign-shared-offline-ranking th,
+    .report-table-campaign-shared-offline-ranking td,
+    .report-table-campaign-shared-offline-playback th,
+    .report-table-campaign-shared-offline-playback td,
+    .report-table-campaign-exact-support-ranking th,
+    .report-table-campaign-exact-support-ranking td,
+    .report-table-campaign-exact-support-export th,
+    .report-table-campaign-exact-support-export td {
+      padding: 4px 4px;
+    }
+
+    .report-table-campaign-shared-offline-ranking th,
+    .report-table-campaign-shared-offline-playback th,
+    .report-table-campaign-exact-support-ranking th,
+    .report-table-campaign-exact-support-export th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-campaign-shared-offline-ranking th:nth-child(1), .report-table-campaign-shared-offline-ranking td:nth-child(1) { width: 6%; }
+    .report-table-campaign-shared-offline-ranking th:nth-child(2), .report-table-campaign-shared-offline-ranking td:nth-child(2) { width: 34%; }
+    .report-table-campaign-shared-offline-ranking th:nth-child(3), .report-table-campaign-shared-offline-ranking td:nth-child(3) { width: 13%; }
+    .report-table-campaign-shared-offline-ranking th:nth-child(4), .report-table-campaign-shared-offline-ranking td:nth-child(4) { width: 13%; }
+    .report-table-campaign-shared-offline-ranking th:nth-child(5), .report-table-campaign-shared-offline-ranking td:nth-child(5) { width: 16%; }
+    .report-table-campaign-shared-offline-ranking th:nth-child(6), .report-table-campaign-shared-offline-ranking td:nth-child(6) { width: 18%; }
+
+    .report-table-campaign-shared-offline-playback th:nth-child(1), .report-table-campaign-shared-offline-playback td:nth-child(1) { width: 36%; }
+    .report-table-campaign-shared-offline-playback th:nth-child(2), .report-table-campaign-shared-offline-playback td:nth-child(2) { width: 13%; }
+    .report-table-campaign-shared-offline-playback th:nth-child(3), .report-table-campaign-shared-offline-playback td:nth-child(3) { width: 22%; }
+    .report-table-campaign-shared-offline-playback th:nth-child(4), .report-table-campaign-shared-offline-playback td:nth-child(4) { width: 29%; }
+
+    .report-table-campaign-exact-support-ranking th:nth-child(1), .report-table-campaign-exact-support-ranking td:nth-child(1) { width: 8%; }
+    .report-table-campaign-exact-support-ranking th:nth-child(2), .report-table-campaign-exact-support-ranking td:nth-child(2) { width: 32%; }
+    .report-table-campaign-exact-support-ranking th:nth-child(3), .report-table-campaign-exact-support-ranking td:nth-child(3) { width: 9%; }
+    .report-table-campaign-exact-support-ranking th:nth-child(4), .report-table-campaign-exact-support-ranking td:nth-child(4) { width: 7%; }
+    .report-table-campaign-exact-support-ranking th:nth-child(5), .report-table-campaign-exact-support-ranking td:nth-child(5) { width: 22%; }
+    .report-table-campaign-exact-support-ranking th:nth-child(6), .report-table-campaign-exact-support-ranking td:nth-child(6) { width: 22%; }
+
+    .report-table-campaign-exact-support-export th:nth-child(1), .report-table-campaign-exact-support-export td:nth-child(1) { width: 44%; }
+    .report-table-campaign-exact-support-export th:nth-child(2), .report-table-campaign-exact-support-export td:nth-child(2) { width: 22%; }
+    .report-table-campaign-exact-support-export th:nth-child(3), .report-table-campaign-exact-support-export td:nth-child(3) { width: 18%; }
+    .report-table-campaign-exact-support-export th:nth-child(4), .report-table-campaign-exact-support-export td:nth-child(4) { width: 16%; }
+
     .report-table-remote-training-validation-completed,
     .report-table-remote-training-validation-failed,
     .report-table-targeted-remote-followup-completed,
@@ -765,9 +823,9 @@ REPORT_STYLESHEET = """
 
     .report-table-wide-identifier-ranking th:nth-child(1), .report-table-wide-identifier-ranking td:nth-child(1) { width: 5%; }
     .report-table-wide-identifier-ranking th:nth-child(2), .report-table-wide-identifier-ranking td:nth-child(2) { width: 35%; }
-    .report-table-wide-identifier-ranking th:nth-child(3), .report-table-wide-identifier-ranking td:nth-child(3) { width: 22%; }
-    .report-table-wide-identifier-ranking th:nth-child(4), .report-table-wide-identifier-ranking td:nth-child(4) { width: 13%; }
-    .report-table-wide-identifier-ranking th:nth-child(5), .report-table-wide-identifier-ranking td:nth-child(5) { width: 8%; }
+    .report-table-wide-identifier-ranking th:nth-child(3), .report-table-wide-identifier-ranking td:nth-child(3) { width: 15%; }
+    .report-table-wide-identifier-ranking th:nth-child(4), .report-table-wide-identifier-ranking td:nth-child(4) { width: 11%; }
+    .report-table-wide-identifier-ranking th:nth-child(5), .report-table-wide-identifier-ranking td:nth-child(5) { width: 17%; }
     .report-table-wide-identifier-ranking th:nth-child(6), .report-table-wide-identifier-ranking td:nth-child(6) { width: 17%; }
 
     .report-table-identifier-metric-summary th:nth-child(1), .report-table-identifier-metric-summary td:nth-child(1) { width: 44%; }
@@ -795,7 +853,11 @@ REPORT_STYLESHEET = """
     .report-table-wide-identifier-ranking .metric-unit,
     .report-table-identifier-metric-summary .metric-unit,
     .report-table-family-metric-ranking .metric-unit,
-    .report-table-family-estimator-metric-ranking .metric-unit {
+    .report-table-family-estimator-metric-ranking .metric-unit,
+    .report-table-campaign-shared-offline-ranking .metric-unit,
+    .report-table-campaign-shared-offline-playback .metric-unit,
+    .report-table-campaign-exact-support-ranking .metric-unit,
+    .report-table-campaign-exact-support-export .metric-unit {
       display: block;
     }
 
@@ -1276,6 +1338,12 @@ def normalize_common_metric_header_cell(header_cell: str) -> str | None:
         metric_label, metric_unit = unit_metric_match.groups()
         return f"{html.escape(metric_label)}<span class=\"metric-unit\">{html.escape(metric_unit)}</span>"
 
+    # Wrap Generic Metric Headers With Compact Units
+    generic_unit_metric_match = re.fullmatch(r"(.+?) (\[[^\]]+\])", header_cell)
+    if generic_unit_metric_match is not None:
+        metric_label, metric_unit = generic_unit_metric_match.groups()
+        return f"{html.escape(metric_label)}<span class=\"metric-unit\">{html.escape(metric_unit)}</span>"
+
     return None
 
 def is_wide_identifier_ranking_table(header_cells: Sequence[str]) -> bool:
@@ -1343,6 +1411,10 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         IDENTIFIER_METRIC_SUMMARY_TABLE_CLASS_NAME,
         FAMILY_METRIC_RANKING_TABLE_CLASS_NAME,
         FAMILY_ESTIMATOR_METRIC_RANKING_TABLE_CLASS_NAME,
+        CAMPAIGN_SHARED_OFFLINE_RANKING_TABLE_CLASS_NAME,
+        CAMPAIGN_SHARED_OFFLINE_PLAYBACK_TABLE_CLASS_NAME,
+        CAMPAIGN_EXACT_SUPPORT_RANKING_TABLE_CLASS_NAME,
+        CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME,
     } and wrapped_common_metric_header is not None:
         return wrapped_common_metric_header
 
@@ -1659,6 +1731,33 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Rank", "Config", "Harmonic Set", "Feature Set", "Test % Error", "Oracle Test %", "Test MAE [deg]")
         ):
             return TRACK1_SECOND_ITERATION_COMPLETED_TABLE_CLASS_NAME
+
+    # Resolve Exact-Paper Faithful Reproduction Campaign Table Profiles
+    if report_stem == "2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report":
+
+        if (
+            current_section_slug == "comparable-offline-ranking"
+            and normalized_header_cells == ("Rank", "Config", "Target A", "Test MPE [%]", "Curve MAE [deg]", "Curve RMSE [deg]")
+        ):
+            return CAMPAIGN_SHARED_OFFLINE_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "comparable-offline-ranking"
+            and normalized_header_cells == ("Config", "Oracle MPE [%]", "Robot TE RMS [deg]", "Cycloidal TE RMS [deg]")
+        ):
+            return CAMPAIGN_SHARED_OFFLINE_PLAYBACK_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "exact-paper-support-runs"
+            and normalized_header_cells == ("Rank", "Config", "ONNX Export", "Winner", "Mean Component MAPE [%]", "Mean Component MAE")
+        ):
+            return CAMPAIGN_EXACT_SUPPORT_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "exact-paper-support-runs"
+            and normalized_header_cells == ("Config", "Mean Component RMSE", "ONNX Exported", "Failed Exports")
+        ):
+            return CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

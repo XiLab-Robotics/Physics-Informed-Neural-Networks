@@ -1,41 +1,41 @@
-campaign_name: exact_paper_model_bank_campaign_2026_04_10_17_04_41
+campaign_name: exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55
 status: finished
-planning_report_path: doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md
-campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign
+planning_report_path: doc/reports/campaign_plans/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md
+campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign
 queue_root: null
-campaign_output_root: output/validation_checks/paper_reimplementation_rcim_exact_model_bank
-campaign_output_directory: output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41
+campaign_output_root: output/training_campaigns
+campaign_output_directory: output/training_campaigns/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55
 launch_mode: local_operator_campaign_launcher
 activation_pending_user_confirmation: false
-prepared_at: '2026-04-10T17:08:15+02:00'
-started_at: '2026-04-10T18:44:39.0700428+02:00'
-finished_at: '2026-04-10T19:14:18.3733939+02:00'
-completion_recorded_at: '2026-04-10T19:14:18.3733939+02:00'
-results_report_path: doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md
+prepared_at: '2026-04-10T21:47:55+02:00'
+started_at: '2026-04-10T22:49:06.1087937+02:00'
+finished_at: '2026-04-11T20:08:29.5330140+02:00'
+completion_recorded_at: '2026-04-11T20:08:29.5330140+02:00'
+results_report_path: doc/reports/campaign_results/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md
 remote_host_alias: null
 remote_repository_path: null
 remote_conda_environment_name: null
 queue_config_path_list:
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/03_exact_svr_export_diagnostic.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/04_exact_non_svr_export_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/01_exact_paper_recovered_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/02_exact_paper_amplitude_phase_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/03_exact_paper_dominant_harmonic_specialized.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/04_track1_current_best_shared_evaluator_reference.yaml
 run_name_list:
-  - exact_full_bank_diagnostic_continue
-  - exact_full_bank_strict_reference
-  - exact_svr_export_diagnostic
-  - exact_non_svr_export_reference
+  - exact_paper_recovered_reference
+  - exact_paper_amplitude_phase_reference
+  - exact_paper_dominant_harmonic_specialized
+  - track1_current_best_shared_evaluator_reference
 protected_file_list:
-  - doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/README.md
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/03_exact_svr_export_diagnostic.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/04_exact_non_svr_export_reference.yaml
-  - scripts/campaigns/run_exact_paper_model_bank_campaign.ps1
-  - doc/scripts/campaigns/run_exact_paper_model_bank_campaign.md
+  - doc/reports/campaign_plans/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/README.md
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/01_exact_paper_recovered_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/02_exact_paper_amplitude_phase_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/03_exact_paper_dominant_harmonic_specialized.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/04_track1_current_best_shared_evaluator_reference.yaml
+  - scripts/campaigns/run_exact_paper_faithful_reproduction_campaign.ps1
+  - doc/scripts/campaigns/run_exact_paper_faithful_reproduction_campaign.md
   - doc/guide/project_usage_guide.md
 launch_command_list:
   - conda activate standard_ml_codex_env
-  - .\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1
-  - .\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python
+  - .\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1
+  - .\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python

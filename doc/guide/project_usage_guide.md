@@ -15,6 +15,10 @@ At the moment, the implemented workflows are:
 - minimal neural or tree smoke-test execution for the shared training infrastructure;
 - persistent batch training campaigns through a queue-based runner;
 - a short PowerShell launcher for the Wave 1 recovery campaign that keeps the same live terminal logging and per-run artifact behavior;
+- a coordinated short PowerShell launcher for the paper-faithful `Track 1`
+  reproduction campaign that chains exact-paper family-bank and harmonic-wise
+  offline benchmark runs through the currently available repository-owned
+  runners;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
@@ -111,6 +115,10 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
   Canonical short PowerShell launcher for the Wave 1 residual-harmonic family campaign.
+
+- `scripts/campaigns/run_exact_paper_faithful_reproduction_campaign.ps1`
+  Canonical coordinated launcher for the current paper-faithful `Track 1`
+  reproduction campaign package.
 
 - `scripts/models/`
   Neural-network backbones and the model factory.
@@ -254,6 +262,25 @@ exist:
 - exact raw launch command;
 - dedicated PowerShell launcher under `scripts/campaigns/`;
 - launcher usage note under `doc/scripts/campaigns/`.
+
+The current paper-faithful `Track 1` preparation also has a dedicated
+coordinated launcher:
+
+```powershell
+.\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1
+```
+
+This launcher intentionally mixes:
+
+- exact-paper family-bank runs through
+  `run_exact_paper_model_bank_validation.py`;
+- harmonic-wise benchmark runs through
+  `run_harmonic_wise_comparison_pipeline.py`.
+
+That reflects the current repository state: the branch is prepared for a
+paper-faithful reproduction campaign, but the exact-paper structural runner and
+the shared offline evaluator are not yet fused into one single Python entry
+point.
 
 ## TwinCAT Video-Guide Analysis
 

@@ -9,6 +9,36 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..")).Path
 
 Set-Location $projectRoot
 
+function Invoke-CondaRunWithLoggedOutput {
+    param(
+        [string]$EnvironmentName,
+        [string]$PythonExecutablePath,
+        [string]$RunnerScriptPath,
+        [string]$ConfigPath,
+        [string]$OutputSuffix,
+        [string]$LogPath
+    )
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    $global:ErrorActionPreference = "Continue"
+
+    try {
+        $commandOutput = & conda run -n $EnvironmentName $PythonExecutablePath `
+            $RunnerScriptPath `
+            --config-path $ConfigPath `
+            --output-suffix $OutputSuffix 2>&1
+        $nativeExitCode = $LASTEXITCODE
+    }
+    finally {
+        $global:ErrorActionPreference = $previousErrorActionPreference
+    }
+
+    $commandOutput | Tee-Object -FilePath $LogPath | ForEach-Object {
+        Write-Host $_
+    }
+    return $nativeExitCode
+}
+
 # Define Campaign Identity
 $campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-10_exact_paper_model_bank_campaign"
 $planningReportPath = "doc\reports\campaign_plans\2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md"
@@ -42,15 +72,18 @@ for ($configIndex = 0; $configIndex -lt $campaignConfigPathList.Count; $configIn
     Write-Host ("[INFO] Log Path | {0}" -f $runLogPath) -ForegroundColor Cyan
     Write-Host ("=" * 96) -ForegroundColor DarkCyan
 
-    & conda run -n $CondaEnvironmentName $PythonExecutable `
-        "scripts\paper_reimplementation\rcim_ml_compensation\run_exact_paper_model_bank_validation.py" `
-        --config-path $configPath `
-        --output-suffix "campaign_run" 2>&1 | Tee-Object -FilePath $runLogPath
+    $nativeExitCode = Invoke-CondaRunWithLoggedOutput `
+        -EnvironmentName $CondaEnvironmentName `
+        -PythonExecutablePath $PythonExecutable `
+        -RunnerScriptPath "scripts\paper_reimplementation\rcim_ml_compensation\run_exact_paper_model_bank_validation.py" `
+        -ConfigPath $configPath `
+        -OutputSuffix "campaign_run" `
+        -LogPath $runLogPath
 
-    if ($LASTEXITCODE -ne 0) {
+    if ($nativeExitCode -ne 0) {
         Write-Host "[ERROR] Exact-paper campaign run failed | $configPath" -ForegroundColor Red
         Write-Host "[ERROR] Failing log file | $runLogPath" -ForegroundColor Red
-        exit $LASTEXITCODE
+        exit $nativeExitCode
     }
 }
 

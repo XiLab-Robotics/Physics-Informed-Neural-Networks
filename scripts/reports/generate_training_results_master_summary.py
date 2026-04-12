@@ -5,6 +5,7 @@ from __future__ import annotations
 # Import Python Utilities
 import argparse, math, sys
 from datetime import datetime
+from datetime import timezone
 from pathlib import Path
 from typing import Any
 
@@ -197,6 +198,17 @@ def format_timestamp(datetime_value: datetime | None) -> str:
     if datetime_value is None:
         return "N/A"
     return datetime_value.strftime("%Y-%m-%d %H:%M:%S")
+
+
+def normalize_sortable_datetime(datetime_value: datetime | None) -> datetime:
+
+    """Normalize one datetime so mixed timezone styles remain sortable."""
+
+    if datetime_value is None:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    if datetime_value.tzinfo is None:
+        return datetime_value.replace(tzinfo=timezone.utc)
+    return datetime_value.astimezone(timezone.utc)
 
 
 def format_float(value: Any, digits: int = 6) -> str:
@@ -1088,7 +1100,11 @@ def build_master_summary_markdown() -> str:
         "| --- | --- | ---: | ---: | --- | --- |",
     ])
 
-    for campaign_summary in sorted(campaign_summary_list, key=lambda summary: summary["generated_at"] or datetime.min, reverse=True)[:5]:
+    for campaign_summary in sorted(
+        campaign_summary_list,
+        key=lambda summary: normalize_sortable_datetime(summary["generated_at"]),
+        reverse=True,
+    )[:5]:
         best_entry_dictionary = campaign_summary.get("best_entry", {})
         winner_text = "N/A"
         if isinstance(best_entry_dictionary, dict) and len(best_entry_dictionary) > 0:

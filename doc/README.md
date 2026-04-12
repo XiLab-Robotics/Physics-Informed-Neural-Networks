@@ -84,8 +84,35 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-12
+
+- [technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md](./technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md)
+  Technical document for the final narrow width-equalization pass on the first
+  `Exact-Paper Support Runs` table, focused on making `Mean Component MAPE [%]`
+  match `Mean Component MAE`.
+- [technical/2026-04/2026-04-12/2026-04-12-11-04-10_campaign_results_pdf_micro_rebalance_followup.md](./technical/2026-04/2026-04-12/2026-04-12-11-04-10_campaign_results_pdf_micro_rebalance_followup.md)
+  Technical document for a narrow follow-up rebalance of the campaign-results
+  PDF table profiles after the first renderer-level promotion, focused on
+  `Target A`, `Curve MAE`, and the first `Exact-Paper Support Runs` table.
+
+#### 2026-04-11
+
+- [technical/2026-04/2026-04-11/2026-04-11-20-32-27_campaign_results_pdf_layout_rule_promotion.md](./technical/2026-04/2026-04-11/2026-04-11-20-32-27_campaign_results_pdf_layout_rule_promotion.md)
+  Technical document for promoting the newly repeated campaign-results PDF
+  table-layout corrections into reusable renderer rules, with specific focus
+  on `Comparable Offline Ranking` and `Exact-Paper Support Runs`.
+- [technical/2026-04/2026-04-11/2026-04-11-13-05-23_exact_paper_faithful_campaign_stabilization_debug.md](./technical/2026-04/2026-04-11/2026-04-11-13-05-23_exact_paper_faithful_campaign_stabilization_debug.md)
+  Technical document for reproducing and fixing the recurring exact-paper
+  faithful-reproduction campaign failures exposed by the new coordinated
+  launcher, starting with the export-disabled report-generation crash.
+
 #### 2026-04-10
 
+- [technical/2026-04/2026-04-10/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_preparation.md](./technical/2026-04/2026-04-10/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_preparation.md)
+  Technical document for opening the next `Track 1` paper-faithful
+  reproduction campaign, aimed at turning the stabilized exact-paper bank into
+  a benchmark-facing offline reproduction path instead of another narrow
+  export-stability pass.
 - [technical/2026-04/2026-04-10/2026-04-10-21-24-35_styled_pdf_pipeline_auto_layout_learning.md](./technical/2026-04/2026-04-10/2026-04-10-21-24-35_styled_pdf_pipeline_auto_layout_learning.md)
   Technical document for promoting the successful exact-paper PDF layout
   refinements into reusable styled-report pipeline behavior so future exports
