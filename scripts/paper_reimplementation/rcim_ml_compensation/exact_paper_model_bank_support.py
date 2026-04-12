@@ -116,6 +116,69 @@ EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP = {
     162: ["ERT"],
     240: ["ERT"],
 }
+EXACT_PAPER_FAMILY_NAME_ALIAS_MAP = {
+    "SVM": "SVR",
+    "SVR": "SVR",
+    "MLP": "MLP",
+    "RF": "RF",
+    "DT": "DT",
+    "ET": "ET",
+    "ERT": "ERT",
+    "GBM": "GBM",
+    "HGBM": "HGBM",
+    "XGBM": "XGBM",
+    "LGBM": "LGBM",
+}
+EXACT_PAPER_TABLE3_HARMONIC_ORDER_LIST = [0, 1, 3, 39, 40, 78, 81, 156, 162, 240]
+EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST = [1, 3, 39, 40, 78, 81, 156, 162, 240]
+EXACT_PAPER_TABLE3_RMSE_AMPLITUDE_MAP = {
+    "SVM": {0: 3.3e-3, 1: 7.4e-5, 3: 1.8e-4, 39: 1.8e-4, 40: 9.5e-5, 78: 3.3e-4, 81: 1.0e-4, 156: 8.8e-4, 162: 2.2e-3, 240: 4.7e-4},
+    "MLP": {0: 1.4e-2, 1: 1.2e-2, 3: 1.2e-2, 39: 1.0e-2, 40: 1.4e-2, 78: 1.3e-2, 81: 1.5e-2, 156: 1.3e-2, 162: 1.6e-2, 240: 1.0e-2},
+    "RF": {0: 4.1e-3, 1: 3.5e-5, 3: 3.0e-5, 39: 3.8e-5, 40: 3.7e-5, 78: 5.6e-5, 81: 1.5e-5, 156: 1.7e-4, 162: 2.2e-4, 240: 5.4e-5},
+    "DT": {0: 4.9e-3, 1: 4.0e-5, 3: 3.3e-5, 39: 5.3e-5, 40: 4.5e-5, 78: 8.2e-5, 81: 1.8e-5, 156: 2.0e-4, 162: 1.7e-4, 240: 1.1e-4},
+    "ET": {0: 4.5e-3, 1: 4.2e-5, 3: 3.5e-5, 39: 5.1e-5, 40: 4.3e-5, 78: 8.5e-5, 81: 2.7e-5, 156: 1.9e-4, 162: 3.8e-4, 240: 1.8e-4},
+    "ERT": {0: 4.0e-3, 1: 3.7e-5, 3: 3.4e-5, 39: 4.0e-5, 40: 3.6e-5, 78: 5.7e-5, 81: 1.6e-5, 156: 1.3e-4, 162: 1.6e-4, 240: 4.2e-5},
+    "GBM": {0: 4.0e-3, 1: 3.6e-5, 3: 3.1e-5, 39: 3.9e-5, 40: 3.9e-5, 78: 5.5e-5, 81: 1.6e-5, 156: 1.7e-4, 162: 2.2e-4, 240: 4.7e-5},
+    "HGBM": {0: 3.4e-3, 1: 3.6e-5, 3: 2.5e-5, 39: 3.2e-5, 40: 3.8e-5, 78: 4.5e-5, 81: 1.6e-5, 156: 2.5e-4, 162: 5.0e-4, 240: 7.4e-5},
+    "XGBM": {0: 3.5e-3, 1: 7.1e-5, 3: 1.0e-4, 39: 1.3e-4, 40: 8.7e-5, 78: 1.5e-4, 81: 6.0e-5, 156: 5.4e-4, 162: 7.5e-4, 240: 2.1e-4},
+    "LGBM": {0: 3.5e-3, 1: 3.7e-5, 3: 2.6e-5, 39: 3.3e-5, 40: 3.8e-5, 78: 4.6e-5, 81: 1.6e-5, 156: 2.2e-4, 162: 4.7e-4, 240: 6.2e-5},
+}
+EXACT_PAPER_TABLE4_MAE_PHASE_MAP = {
+    "SVM": {1: 2.2e-3, 3: 3.3e-2, 39: 2.7e-2, 40: 6.1e-2, 78: 1.9e-1, 81: 1.3e-1, 156: 1.2, 162: 4.9e-1, 240: 4.9e-1},
+    "MLP": {1: 7.2e-3, 3: 6.5e-2, 39: 6.2e-2, 40: 8.0e-2, 78: 1.6e-1, 81: 1.5e-1, 156: 1.9, 162: 7.8e-1, 240: 7.0e-1},
+    "RF": {1: 2.0e-3, 3: 2.4e-2, 39: 2.8e-2, 40: 3.7e-2, 78: 7.4e-2, 81: 5.3e-2, 156: 5.1e-1, 162: 2.3e-1, 240: 2.5e-1},
+    "DT": {1: 2.1e-3, 3: 3.0e-2, 39: 3.6e-2, 40: 4.3e-2, 78: 9.0e-2, 81: 6.6e-2, 156: 5.2e-1, 162: 2.0e-1, 240: 2.3e-1},
+    "ET": {1: 2.4e-3, 3: 3.1e-2, 39: 3.5e-2, 40: 5.1e-2, 78: 9.4e-2, 81: 8.7e-2, 156: 7.1e-1, 162: 2.8e-1, 240: 2.6e-1},
+    "ERT": {1: 2.2e-3, 3: 2.7e-2, 39: 2.8e-2, 40: 4.0e-2, 78: 7.6e-2, 81: 5.6e-2, 156: 5.3e-1, 162: 2.0e-1, 240: 2.3e-1},
+    "GBM": {1: 2.0e-3, 3: 2.4e-2, 39: 3.0e-2, 40: 3.6e-2, 78: 7.4e-2, 81: 5.3e-2, 156: 5.4e-1, 162: 2.5e-1, 240: 2.9e-1},
+    "HGBM": {1: 1.9e-3, 3: 2.0e-2, 39: 2.1e-2, 40: 4.0e-2, 78: 9.1e-2, 81: 5.7e-2, 156: 7.4e-1, 162: 3.5e-1, 240: 3.6e-1},
+    "XGBM": {1: 1.9e-3, 3: 2.4e-2, 39: 3.2e-2, 40: 6.1e-2, 78: 1.4e-1, 81: 9.1e-2, 156: 9.6e-1, 162: 5.4e-1, 240: 3.9e-1},
+    "LGBM": {1: 1.8e-3, 3: 2.1e-2, 39: 2.1e-2, 40: 4.0e-2, 78: 9.5e-2, 81: 5.5e-2, 156: 7.4e-1, 162: 3.5e-1, 240: 3.4e-1},
+}
+EXACT_PAPER_TABLE5_RMSE_PHASE_MAP = {
+    "SVM": {1: 3.1e-3, 3: 4.2e-2, 39: 4.4e-2, 40: 9.7e-2, 78: 3.2e-1, 81: 2.0e-1, 156: 1.8, 162: 1.1, 240: 1.1},
+    "MLP": {1: 1.3e-2, 3: 8.4e-2, 39: 7.7e-2, 40: 1.1e-1, 78: 2.4e-1, 81: 2.2e-1, 156: 2.2, 162: 1.2, 240: 1.1},
+    "RF": {1: 2.8e-3, 3: 3.3e-2, 39: 4.3e-2, 40: 5.5e-2, 78: 1.6e-1, 81: 8.2e-2, 156: 1.2, 162: 6.8e-1, 240: 6.3e-1},
+    "DT": {1: 2.8e-3, 3: 4.2e-2, 39: 6.1e-2, 40: 6.1e-2, 78: 2.0e-1, 81: 1.0e-1, 156: 1.3, 162: 7.3e-1, 240: 6.7e-1},
+    "ET": {1: 3.3e-3, 3: 4.6e-2, 39: 6.2e-2, 40: 7.4e-2, 78: 2.3e-1, 81: 1.5e-1, 156: 1.5, 162: 9.3e-1, 240: 6.8e-1},
+    "ERT": {1: 3.6e-3, 3: 4.0e-2, 39: 4.4e-2, 40: 6.0e-2, 78: 1.8e-1, 81: 1.1e-1, 156: 1.2, 162: 6.4e-1, 240: 5.8e-1},
+    "GBM": {1: 2.6e-3, 3: 3.4e-2, 39: 4.5e-2, 40: 5.5e-2, 78: 1.8e-1, 81: 8.4e-2, 156: 1.3, 162: 7.1e-1, 240: 7.1e-1},
+    "HGBM": {1: 2.5e-3, 3: 2.9e-2, 39: 2.7e-2, 40: 6.0e-2, 78: 1.9e-1, 81: 8.5e-2, 156: 1.3, 162: 7.0e-1, 240: 7.4e-1},
+    "XGBM": {1: 2.8e-3, 3: 3.3e-2, 39: 4.3e-2, 40: 8.9e-2, 78: 2.3e-1, 81: 1.3e-1, 156: 1.4, 162: 8.1e-1, 240: 7.6e-1},
+    "LGBM": {1: 2.5e-3, 3: 3.0e-2, 39: 2.8e-2, 40: 6.0e-2, 78: 1.9e-1, 81: 8.2e-2, 156: 1.3, 162: 7.0e-1, 240: 7.1e-1},
+}
+EXACT_PAPER_TABLE6_SELECTED_MODEL_MAP = {
+    0: {"ampl": "SVM", "phase": None},
+    1: {"ampl": "RF", "phase": "LGBM"},
+    3: {"ampl": "HGBM", "phase": "HGBM"},
+    39: {"ampl": "HGBM", "phase": "HGBM"},
+    40: {"ampl": "ERT", "phase": "GBM"},
+    78: {"ampl": "HGBM", "phase": "RF"},
+    81: {"ampl": "RF", "phase": "RF"},
+    156: {"ampl": "ERT", "phase": "RF"},
+    162: {"ampl": "ERT", "phase": "ERT"},
+    240: {"ampl": "ERT", "phase": "ERT"},
+}
 
 
 @dataclass
@@ -143,6 +206,200 @@ def parse_exact_target_name(target_name: str) -> tuple[str, int]:
     assert target_kind in ["ampl", "phase"], f"Unsupported exact target kind | {target_kind}"
     return target_kind, harmonic_order
 
+
+def normalize_exact_paper_family_name(family_name: str | None) -> str | None:
+
+    """Normalize one paper-facing family label to the repository family code."""
+
+    if family_name is None:
+        return None
+    normalized_family_name = EXACT_PAPER_FAMILY_NAME_ALIAS_MAP.get(family_name, family_name)
+    return str(normalized_family_name)
+
+
+def format_exact_paper_metric_value(metric_value: float | None) -> str:
+
+    """Format one paper or repository metric value for compact Markdown tables."""
+
+    if metric_value is None:
+        return "-"
+    absolute_metric_value = abs(float(metric_value))
+    if absolute_metric_value == 0.0:
+        return "0.0"
+    if absolute_metric_value < 1e-3:
+        return f"{float(metric_value):.2e}"
+    if absolute_metric_value < 1e-2:
+        return f"{float(metric_value):.6f}"
+    if absolute_metric_value < 1.0:
+        return f"{float(metric_value):.4f}"
+    return f"{float(metric_value):.3f}"
+
+
+def resolve_exact_paper_table_metric_map(target_kind: str, metric_name: str) -> dict[str, dict[int, float]]:
+
+    """Resolve the canonical paper table metric map for one target kind."""
+
+    if target_kind == "ampl" and metric_name == "rmse":
+        return EXACT_PAPER_TABLE3_RMSE_AMPLITUDE_MAP
+    if target_kind == "phase" and metric_name == "mae":
+        return EXACT_PAPER_TABLE4_MAE_PHASE_MAP
+    if target_kind == "phase" and metric_name == "rmse":
+        return EXACT_PAPER_TABLE5_RMSE_PHASE_MAP
+    raise AssertionError(f"Unsupported paper table metric request | target_kind={target_kind} metric_name={metric_name}")
+
+
+def resolve_best_entry_for_metric(
+    ranking_list: list[dict[str, Any]],
+    metric_name: str,
+) -> dict[str, Any]:
+
+    """Resolve the best repository entry for one target and one metric."""
+
+    return min(
+        ranking_list,
+        key=lambda entry: (
+            float(entry[metric_name]),
+            float(entry["mae"]),
+            float(entry["rmse"]),
+            str(entry["family_name"]),
+        ),
+    )
+
+
+def resolve_paper_best_family_for_metric(
+    target_kind: str,
+    harmonic_order: int,
+    metric_name: str,
+) -> tuple[str | None, float | None]:
+
+    """Resolve the best paper-side family and metric value for one target."""
+
+    paper_metric_map = resolve_exact_paper_table_metric_map(target_kind, metric_name)
+    candidate_value_list: list[tuple[float, str]] = []
+    for family_name, harmonic_metric_dictionary in paper_metric_map.items():
+        if harmonic_order not in harmonic_metric_dictionary:
+            continue
+        candidate_value_list.append((float(harmonic_metric_dictionary[harmonic_order]), str(family_name)))
+
+    if not candidate_value_list:
+        return None, None
+
+    best_metric_value, best_family_name = min(candidate_value_list, key=lambda item: (item[0], item[1]))
+    return best_family_name, float(best_metric_value)
+
+
+def build_exact_paper_numeric_target_comparison_registry(
+    per_target_ranking_dictionary: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+
+    """Build the canonical numeric paper-vs-repository comparison per target."""
+
+    numeric_target_comparison_list: list[dict[str, Any]] = []
+    for target_name in sorted(per_target_ranking_dictionary.keys(), key=lambda name: (parse_exact_target_name(name)[1], parse_exact_target_name(name)[0])):
+        target_kind, harmonic_order = parse_exact_target_name(target_name)
+        ranking_list = per_target_ranking_dictionary[target_name]
+        table6_family_name = EXACT_PAPER_TABLE6_SELECTED_MODEL_MAP[harmonic_order][target_kind]
+        normalized_table6_family_name = normalize_exact_paper_family_name(table6_family_name)
+
+        best_repository_mae_entry = resolve_best_entry_for_metric(ranking_list, "mae")
+        best_repository_rmse_entry = resolve_best_entry_for_metric(ranking_list, "rmse")
+
+        paper_best_mae_family_name, paper_best_mae_value = (None, None)
+        if target_kind == "phase":
+            paper_best_mae_family_name, paper_best_mae_value = resolve_paper_best_family_for_metric(target_kind, harmonic_order, "mae")
+
+        paper_best_rmse_family_name, paper_best_rmse_value = resolve_paper_best_family_for_metric(target_kind, harmonic_order, "rmse")
+
+        if normalized_table6_family_name is None:
+            table6_family_status = "paper_not_defined"
+        else:
+            family_match_list = [
+                str(best_repository_rmse_entry["family_name"]) == normalized_table6_family_name,
+            ]
+            if target_kind == "phase":
+                family_match_list.append(str(best_repository_mae_entry["family_name"]) == normalized_table6_family_name)
+            table6_family_status = "matched_table6_family" if all(family_match_list) else "not_matched_table6_family"
+
+        mae_target_status = "not_applicable"
+        mae_gap = None
+        if paper_best_mae_value is not None:
+            mae_gap = float(best_repository_mae_entry["mae"]) - float(paper_best_mae_value)
+            mae_target_status = "met_paper_target" if mae_gap <= 0.0 else "above_paper_target"
+
+        rmse_gap = None
+        rmse_target_status = "not_applicable"
+        if paper_best_rmse_value is not None:
+            rmse_gap = float(best_repository_rmse_entry["rmse"]) - float(paper_best_rmse_value)
+            rmse_target_status = "met_paper_target" if rmse_gap <= 0.0 else "above_paper_target"
+
+        numeric_target_comparison_list.append(
+            {
+                "target_name": target_name,
+                "target_kind": target_kind,
+                "harmonic_order": harmonic_order,
+                "paper_table6_selected_family": table6_family_name,
+                "paper_table6_selected_family_normalized": normalized_table6_family_name,
+                "paper_best_mae_family": paper_best_mae_family_name,
+                "paper_best_mae_value": paper_best_mae_value,
+                "paper_best_rmse_family": paper_best_rmse_family_name,
+                "paper_best_rmse_value": paper_best_rmse_value,
+                "repository_best_mae_family": str(best_repository_mae_entry["family_name"]),
+                "repository_best_mae_value": float(best_repository_mae_entry["mae"]),
+                "repository_best_rmse_family": str(best_repository_rmse_entry["family_name"]),
+                "repository_best_rmse_value": float(best_repository_rmse_entry["rmse"]),
+                "table6_family_status": table6_family_status,
+                "mae_gap_vs_paper_best": mae_gap,
+                "mae_target_status": mae_target_status,
+                "rmse_gap_vs_paper_best": rmse_gap,
+                "rmse_target_status": rmse_target_status,
+            }
+        )
+    return numeric_target_comparison_list
+
+
+def build_exact_paper_numeric_harmonic_summary(
+    numeric_target_comparison_list: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+
+    """Build one harmonic-level numeric summary for paper tables 3-6."""
+
+    harmonic_summary_list: list[dict[str, Any]] = []
+    harmonic_order_list = sorted({int(entry["harmonic_order"]) for entry in numeric_target_comparison_list})
+    for harmonic_order in harmonic_order_list:
+        amplitude_entry = next((entry for entry in numeric_target_comparison_list if entry["harmonic_order"] == harmonic_order and entry["target_kind"] == "ampl"), None)
+        phase_entry = next((entry for entry in numeric_target_comparison_list if entry["harmonic_order"] == harmonic_order and entry["target_kind"] == "phase"), None)
+
+        status_token_list: list[str] = []
+        if amplitude_entry is not None:
+            status_token_list.append(str(amplitude_entry["rmse_target_status"]))
+            status_token_list.append(str(amplitude_entry["table6_family_status"]))
+        if phase_entry is not None:
+            status_token_list.append(str(phase_entry["mae_target_status"]))
+            status_token_list.append(str(phase_entry["rmse_target_status"]))
+            status_token_list.append(str(phase_entry["table6_family_status"]))
+
+        if status_token_list and all(status_token == "met_paper_target" or status_token == "matched_table6_family" for status_token in status_token_list):
+            harmonic_status = "fully_matched_tables_3_6"
+        elif any(status_token == "met_paper_target" or status_token == "matched_table6_family" for status_token in status_token_list):
+            harmonic_status = "partially_matched_tables_3_6"
+        else:
+            harmonic_status = "not_yet_matched_tables_3_6"
+
+        harmonic_summary_list.append(
+            {
+                "harmonic_order": harmonic_order,
+                "amplitude_paper_family": None if amplitude_entry is None else amplitude_entry["paper_table6_selected_family"],
+                "amplitude_repository_family": None if amplitude_entry is None else amplitude_entry["repository_best_rmse_family"],
+                "amplitude_rmse_status": None if amplitude_entry is None else amplitude_entry["rmse_target_status"],
+                "phase_paper_family": None if phase_entry is None else phase_entry["paper_table6_selected_family"],
+                "phase_repository_mae_family": None if phase_entry is None else phase_entry["repository_best_mae_family"],
+                "phase_repository_rmse_family": None if phase_entry is None else phase_entry["repository_best_rmse_family"],
+                "phase_mae_status": None if phase_entry is None else phase_entry["mae_target_status"],
+                "phase_rmse_status": None if phase_entry is None else phase_entry["rmse_target_status"],
+                "harmonic_numeric_status": harmonic_status,
+            }
+        )
+    return harmonic_summary_list
 
 def build_exact_paper_target_comparison_registry(
     target_winner_list: list[dict[str, Any]],
@@ -1042,6 +1299,8 @@ def build_exact_model_validation_summary(
         )
     target_comparison_list = build_exact_paper_target_comparison_registry(target_winner_list)
     harmonic_comparison_list = build_exact_paper_harmonic_comparison_registry(target_comparison_list)
+    numeric_target_comparison_list = build_exact_paper_numeric_target_comparison_registry(per_target_ranking_dictionary)
+    numeric_harmonic_summary_list = build_exact_paper_numeric_harmonic_summary(numeric_target_comparison_list)
 
     # Build Summary Dictionary
     return {
@@ -1077,7 +1336,7 @@ def build_exact_model_validation_summary(
             "enabled_family_list": resolve_enabled_family_list(training_config),
             "recovered_reference_onnx_root": training_config["paths"].get("exact_onnx_reference_root", ""),
             "harmonic_expected_family_map": EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP,
-            "paper_table_replication_scope": "family_direction_serialized_numeric_table_targets_pending",
+            "paper_table_replication_scope": "tables_3_4_5_6_numeric_targets_serialized",
         },
         "dependency_versions": resolve_dependency_version_dictionary(),
         "winner_summary": {
@@ -1092,6 +1351,8 @@ def build_exact_model_validation_summary(
         "target_winner_registry": target_winner_list,
         "paper_target_comparison_registry": target_comparison_list,
         "paper_harmonic_comparison_registry": harmonic_comparison_list,
+        "paper_numeric_target_comparison_registry": numeric_target_comparison_list,
+        "paper_numeric_harmonic_summary": numeric_harmonic_summary_list,
         "per_target_ranking": per_target_ranking_dictionary,
         "onnx_export_summary": onnx_export_summary,
         "artifacts": {
@@ -1134,7 +1395,15 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     target_winner_registry = validation_summary["target_winner_registry"]
     paper_target_comparison_registry = validation_summary["paper_target_comparison_registry"]
     paper_harmonic_comparison_registry = validation_summary["paper_harmonic_comparison_registry"]
+    paper_numeric_target_comparison_registry = validation_summary["paper_numeric_target_comparison_registry"]
+    paper_numeric_harmonic_summary = validation_summary["paper_numeric_harmonic_summary"]
     onnx_export_summary = validation_summary["onnx_export_summary"]
+
+    # Build Numeric Comparison Lookups
+    numeric_target_lookup = {
+        str(entry["target_name"]): entry
+        for entry in paper_numeric_target_comparison_registry
+    }
 
     # Build Family Ranking Rows
     family_row_list: list[str] = []
@@ -1179,6 +1448,91 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
             f"`{phase_winning_family}` | "
             f"{harmonic_comparison_entry['matching_target_count']}/{harmonic_comparison_entry['repository_target_count']} | "
             f"`{harmonic_comparison_entry['harmonic_match_status']}` |"
+        )
+
+    # Build Canonical Table 3 Comparison Rows
+    table3_row_list: list[str] = []
+    for paper_family_name in EXACT_FAMILY_ORDER:
+        paper_display_family_name = "SVM" if paper_family_name == "SVR" else paper_family_name
+        paper_metric_dictionary = EXACT_PAPER_TABLE3_RMSE_AMPLITUDE_MAP[paper_display_family_name]
+        metric_cell_list = [format_exact_paper_metric_value(paper_metric_dictionary[harmonic_order]) for harmonic_order in EXACT_PAPER_TABLE3_HARMONIC_ORDER_LIST]
+        table3_row_list.append(f"| `{paper_display_family_name}` | " + " | ".join(metric_cell_list) + " |")
+    table3_repo_family_row = []
+    table3_repo_rmse_row = []
+    table3_paper_best_family_row = []
+    table3_paper_target_row = []
+    table3_gap_row = []
+    table3_status_row = []
+    for harmonic_order in EXACT_PAPER_TABLE3_HARMONIC_ORDER_LIST:
+        target_name = f"fft_y_Fw_filtered_ampl_{harmonic_order}"
+        numeric_entry = numeric_target_lookup[target_name]
+        table3_repo_family_row.append(f"`{numeric_entry['repository_best_rmse_family']}`")
+        table3_repo_rmse_row.append(format_exact_paper_metric_value(numeric_entry["repository_best_rmse_value"]))
+        table3_paper_best_family_row.append(f"`{numeric_entry['paper_best_rmse_family']}`")
+        table3_paper_target_row.append(format_exact_paper_metric_value(numeric_entry["paper_best_rmse_value"]))
+        table3_gap_row.append(format_exact_paper_metric_value(numeric_entry["rmse_gap_vs_paper_best"]))
+        table3_status_row.append(f"`{numeric_entry['rmse_target_status']}`")
+
+    # Build Canonical Table 4 Comparison Rows
+    table4_row_list: list[str] = []
+    for paper_family_name in EXACT_FAMILY_ORDER:
+        paper_display_family_name = "SVM" if paper_family_name == "SVR" else paper_family_name
+        paper_metric_dictionary = EXACT_PAPER_TABLE4_MAE_PHASE_MAP[paper_display_family_name]
+        metric_cell_list = [format_exact_paper_metric_value(paper_metric_dictionary[harmonic_order]) for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST]
+        table4_row_list.append(f"| `{paper_display_family_name}` | " + " | ".join(metric_cell_list) + " |")
+    table4_repo_family_row = []
+    table4_repo_mae_row = []
+    table4_paper_best_family_row = []
+    table4_paper_target_row = []
+    table4_gap_row = []
+    table4_status_row = []
+    for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST:
+        target_name = f"fft_y_Fw_filtered_phase_{harmonic_order}"
+        numeric_entry = numeric_target_lookup[target_name]
+        table4_repo_family_row.append(f"`{numeric_entry['repository_best_mae_family']}`")
+        table4_repo_mae_row.append(format_exact_paper_metric_value(numeric_entry["repository_best_mae_value"]))
+        table4_paper_best_family_row.append(f"`{numeric_entry['paper_best_mae_family']}`")
+        table4_paper_target_row.append(format_exact_paper_metric_value(numeric_entry["paper_best_mae_value"]))
+        table4_gap_row.append(format_exact_paper_metric_value(numeric_entry["mae_gap_vs_paper_best"]))
+        table4_status_row.append(f"`{numeric_entry['mae_target_status']}`")
+
+    # Build Canonical Table 5 Comparison Rows
+    table5_row_list: list[str] = []
+    for paper_family_name in EXACT_FAMILY_ORDER:
+        paper_display_family_name = "SVM" if paper_family_name == "SVR" else paper_family_name
+        paper_metric_dictionary = EXACT_PAPER_TABLE5_RMSE_PHASE_MAP[paper_display_family_name]
+        metric_cell_list = [format_exact_paper_metric_value(paper_metric_dictionary[harmonic_order]) for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST]
+        table5_row_list.append(f"| `{paper_display_family_name}` | " + " | ".join(metric_cell_list) + " |")
+    table5_repo_family_row = []
+    table5_repo_rmse_row = []
+    table5_paper_best_family_row = []
+    table5_paper_target_row = []
+    table5_gap_row = []
+    table5_status_row = []
+    for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST:
+        target_name = f"fft_y_Fw_filtered_phase_{harmonic_order}"
+        numeric_entry = numeric_target_lookup[target_name]
+        table5_repo_family_row.append(f"`{numeric_entry['repository_best_rmse_family']}`")
+        table5_repo_rmse_row.append(format_exact_paper_metric_value(numeric_entry["repository_best_rmse_value"]))
+        table5_paper_best_family_row.append(f"`{numeric_entry['paper_best_rmse_family']}`")
+        table5_paper_target_row.append(format_exact_paper_metric_value(numeric_entry["paper_best_rmse_value"]))
+        table5_gap_row.append(format_exact_paper_metric_value(numeric_entry["rmse_gap_vs_paper_best"]))
+        table5_status_row.append(f"`{numeric_entry['rmse_target_status']}`")
+
+    # Build Canonical Table 6 Comparison Rows
+    table6_row_list: list[str] = []
+    for harmonic_summary_entry in paper_numeric_harmonic_summary:
+        table6_row_list.append(
+            f"| `{harmonic_summary_entry['harmonic_order']}` | "
+            f"`{harmonic_summary_entry['amplitude_paper_family'] or '-'}` | "
+            f"`{harmonic_summary_entry['amplitude_repository_family'] or '-'}` | "
+            f"`{harmonic_summary_entry['amplitude_rmse_status'] or '-'}` | "
+            f"`{harmonic_summary_entry['phase_paper_family'] or '-'}` | "
+            f"`{harmonic_summary_entry['phase_repository_mae_family'] or '-'}` | "
+            f"`{harmonic_summary_entry['phase_repository_rmse_family'] or '-'}` | "
+            f"`{harmonic_summary_entry['phase_mae_status'] or '-'}` | "
+            f"`{harmonic_summary_entry['phase_rmse_status'] or '-'}` | "
+            f"`{harmonic_summary_entry['harmonic_numeric_status']}` |"
         )
 
     # Build Dependency Rows
@@ -1255,9 +1609,9 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "## Paper-Target Comparison",
         "",
         "This section serializes the current `paper vs repository` comparison",
-        "for each exact-paper target. The paper-selected family direction is",
-        "available in the repository, while the exact numeric paper table targets",
-        "have not yet been serialized into this workflow.",
+        "for each exact-paper target at the family-direction level. The stricter",
+        "numeric table replication is reported in the canonical table sections",
+        "below.",
         "",
         "| Target | Paper Expected Family | Repository Winner | Repo MAPE [%] | Family Direction Status |",
         "| --- | --- | --- | ---: | --- |",
@@ -1272,6 +1626,64 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "| Harmonic | Paper Expected Family | Ampl Winner | Phase Winner | Matching Targets | Harmonic Status |",
         "| ---: | --- | --- | --- | ---: | --- |",
         *paper_harmonic_row_list,
+        "",
+        "## Canonical Table 3 Comparison",
+        "",
+        "This table mirrors paper Table 3 for amplitude RMSE and adds the",
+        "repository best-achieved RMSE per harmonic together with the remaining",
+        "numeric gap against the paper target.",
+        "",
+        "| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        *table3_row_list,
+        f"| `Repo Best Family` | {' | '.join(table3_repo_family_row)} |",
+        f"| `Repo Best RMSE` | {' | '.join(table3_repo_rmse_row)} |",
+        f"| `Paper Best Family` | {' | '.join(table3_paper_best_family_row)} |",
+        f"| `Paper Target RMSE` | {' | '.join(table3_paper_target_row)} |",
+        f"| `Gap Vs Paper` | {' | '.join(table3_gap_row)} |",
+        f"| `Status` | {' | '.join(table3_status_row)} |",
+        "",
+        "## Canonical Table 4 Comparison",
+        "",
+        "This table mirrors paper Table 4 for phase MAE and adds the repository",
+        "best-achieved MAE per harmonic together with the remaining numeric gap",
+        "against the paper target.",
+        "",
+        "| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        *table4_row_list,
+        f"| `Repo Best Family` | {' | '.join(table4_repo_family_row)} |",
+        f"| `Repo Best MAE` | {' | '.join(table4_repo_mae_row)} |",
+        f"| `Paper Best Family` | {' | '.join(table4_paper_best_family_row)} |",
+        f"| `Paper Target MAE` | {' | '.join(table4_paper_target_row)} |",
+        f"| `Gap Vs Paper` | {' | '.join(table4_gap_row)} |",
+        f"| `Status` | {' | '.join(table4_status_row)} |",
+        "",
+        "## Canonical Table 5 Comparison",
+        "",
+        "This table mirrors paper Table 5 for phase RMSE and adds the repository",
+        "best-achieved RMSE per harmonic together with the remaining numeric gap",
+        "against the paper target.",
+        "",
+        "| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        *table5_row_list,
+        f"| `Repo Best Family` | {' | '.join(table5_repo_family_row)} |",
+        f"| `Repo Best RMSE` | {' | '.join(table5_repo_rmse_row)} |",
+        f"| `Paper Best Family` | {' | '.join(table5_paper_best_family_row)} |",
+        f"| `Paper Target RMSE` | {' | '.join(table5_paper_target_row)} |",
+        f"| `Gap Vs Paper` | {' | '.join(table5_gap_row)} |",
+        f"| `Status` | {' | '.join(table5_status_row)} |",
+        "",
+        "## Canonical Table 6 Comparison",
+        "",
+        "This table compares the paper-selected top-performing models from Table 6",
+        "against the repository best families measured on the current exact-paper",
+        "validation split.",
+        "",
+        "| `k` | Paper `A*_k` | Repo Best Ampl RMSE Family | Ampl RMSE Status | Paper `phi*_k` | Repo Best Phase MAE Family | Repo Best Phase RMSE Family | Phase MAE Status | Phase RMSE Status | Harmonic Status |",
+        "| ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+        *table6_row_list,
         "",
         "## ONNX Export Surface",
         "",
@@ -1299,10 +1711,10 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "recovered input schema, target schema, and export surface before any",
         "repository-specific simplification or target-wise winner assembly.",
         "",
-        "At the current repository state, the workflow now serializes the paper",
-        "family-direction expectations per harmonic, but it still does not embed",
-        "the exact numeric paper table thresholds. `Track 1` therefore remains a",
-        "paper-table replication workstream in progress rather than a closed",
-        "replication claim.",
+        "At the current repository state, the workflow now serializes the numeric",
+        "targets from paper Tables 3, 4, 5, and the selected-model targets from",
+        "Table 6. The repository can therefore show both the paper thresholds and",
+        "the current exact-paper results side by side. `Track 1` still remains",
+        "open until those gaps are actually closed on the repository side.",
         "",
     ])

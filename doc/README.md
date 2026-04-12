@@ -86,6 +86,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-12
 
+- [technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md](./technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md)
+  Technical document for building the canonical `Track 1` paper-table
+  comparison against tables `3-6`, including paper targets, repository
+  results, explicit gap status, and a closure-oriented harmonic summary.
 - [technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md](./technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md)
   Technical document for redefining `Track 1` completion around faithful
   per-harmonic paper-table replication, including canonical `paper vs

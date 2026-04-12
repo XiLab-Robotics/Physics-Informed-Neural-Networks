@@ -254,6 +254,28 @@ with:
 - `200` exported ONNX files
 - `0` failed exports
 
+The exact branch now also has a canonical repository-owned `paper vs
+repository` table replication report for paper Tables `3`, `4`, `5`, and `6`:
+
+- `doc/reports/analysis/validation_checks/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
+
+That report serializes:
+
+- the numeric paper targets from Table `3` (`A_k` RMSE);
+- the numeric paper targets from Table `4` (`phi_k` MAE);
+- the numeric paper targets from Table `5` (`phi_k` RMSE);
+- the selected paper families from Table `6`;
+- the current repository best values and explicit gaps versus those targets.
+
+Current exact-paper table-replication status from that canonical report:
+
+- `5/9` phase-`MAE` targets already meet or beat the paper table values;
+- `9/10` `RMSE` targets already meet or beat the paper values when combining
+  amplitude and phase rows;
+- `7/20` target-level Table `6` family selections currently match exactly;
+- harmonic-level status is still `0/10` fully matched, `7/10` partially
+  matched, and `3/10` not yet matched.
+
 Important scope boundary:
 
 - this exact branch validates recovered-family fitting and per-target ONNX
