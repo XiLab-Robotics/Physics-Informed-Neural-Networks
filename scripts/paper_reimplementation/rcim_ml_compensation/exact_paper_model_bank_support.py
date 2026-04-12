@@ -104,6 +104,18 @@ EXACT_FAMILY_ESTIMATOR_NAME_MAP = {
     "XGBM": "XGBRegressor",
     "LGBM": "LGBMRegressor",
 }
+EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP = {
+    0: ["SVR"],
+    1: ["RF", "LGBM"],
+    3: ["HGBM"],
+    39: ["HGBM"],
+    40: ["ERT", "GBM"],
+    78: ["HGBM", "RF"],
+    81: ["RF"],
+    156: ["ERT", "RF"],
+    162: ["ERT"],
+    240: ["ERT"],
+}
 
 
 @dataclass
@@ -118,6 +130,114 @@ class ExactPaperDatasetBundle:
     train_target_matrix: pd.DataFrame
     test_target_matrix: pd.DataFrame
     full_dataframe: pd.DataFrame
+
+
+def parse_exact_target_name(target_name: str) -> tuple[str, int]:
+
+    """Parse one recovered target name into target kind and harmonic order."""
+
+    # Parse The Recovered Target Suffix
+    target_tokens = target_name.split("_")
+    target_kind = str(target_tokens[-2]).strip()
+    harmonic_order = int(target_tokens[-1])
+    assert target_kind in ["ampl", "phase"], f"Unsupported exact target kind | {target_kind}"
+    return target_kind, harmonic_order
+
+
+def build_exact_paper_target_comparison_registry(
+    target_winner_list: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+
+    """Build the canonical paper-vs-repository comparison per target."""
+
+    # Compare Repository Winners Against Harmonic-Level Paper Expectations
+    target_comparison_list: list[dict[str, Any]] = []
+    for target_winner_entry in target_winner_list:
+        target_name = str(target_winner_entry["target_name"])
+        target_kind, harmonic_order = parse_exact_target_name(target_name)
+        expected_family_list = EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP[harmonic_order]
+        repository_winning_family = str(target_winner_entry["winning_family"])
+        family_direction_match = repository_winning_family in expected_family_list
+        target_comparison_list.append(
+            {
+                "target_name": target_name,
+                "target_kind": target_kind,
+                "harmonic_order": harmonic_order,
+                "paper_expected_family_list": expected_family_list,
+                "paper_expected_family_text": " / ".join(expected_family_list),
+                "paper_metric_reference_status": "not_yet_serialized_from_table",
+                "paper_numeric_target_available": False,
+                "repository_winning_family": repository_winning_family,
+                "repository_winning_estimator_name": str(target_winner_entry["winning_estimator_name"]),
+                "repository_winning_mape_percent": float(target_winner_entry["winning_mape_percent"]),
+                "repository_winning_mae": float(target_winner_entry["winning_mae"]),
+                "repository_winning_rmse": float(target_winner_entry["winning_rmse"]),
+                "family_direction_match": family_direction_match,
+                "family_direction_status": (
+                    "matched_expected_family_direction"
+                    if family_direction_match
+                    else "not_matched_expected_family_direction"
+                ),
+            }
+        )
+    target_comparison_list.sort(
+        key=lambda entry: (
+            int(entry["harmonic_order"]),
+            str(entry["target_kind"]),
+        )
+    )
+    return target_comparison_list
+
+
+def build_exact_paper_harmonic_comparison_registry(
+    target_comparison_list: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+
+    """Build the canonical harmonic-level paper-vs-repository comparison."""
+
+    # Group Target Comparisons By Harmonic Order
+    harmonic_target_dictionary: dict[int, list[dict[str, Any]]] = {}
+    for target_comparison_entry in target_comparison_list:
+        harmonic_order = int(target_comparison_entry["harmonic_order"])
+        harmonic_target_dictionary.setdefault(harmonic_order, []).append(target_comparison_entry)
+
+    # Build One Harmonic-Level Closure View
+    harmonic_comparison_list: list[dict[str, Any]] = []
+    for harmonic_order in sorted(harmonic_target_dictionary.keys()):
+        harmonic_target_list = sorted(
+            harmonic_target_dictionary[harmonic_order],
+            key=lambda entry: str(entry["target_kind"]),
+        )
+        expected_family_list = EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP[harmonic_order]
+        matching_target_count = int(sum(1 for entry in harmonic_target_list if bool(entry["family_direction_match"])))
+        if matching_target_count == len(harmonic_target_list):
+            harmonic_match_status = "full_family_direction_match"
+        elif matching_target_count > 0:
+            harmonic_match_status = "partial_family_direction_match"
+        else:
+            harmonic_match_status = "no_family_direction_match"
+
+        amplitude_entry = next((entry for entry in harmonic_target_list if entry["target_kind"] == "ampl"), None)
+        phase_entry = next((entry for entry in harmonic_target_list if entry["target_kind"] == "phase"), None)
+        harmonic_comparison_list.append(
+            {
+                "harmonic_order": harmonic_order,
+                "paper_expected_family_list": expected_family_list,
+                "paper_expected_family_text": " / ".join(expected_family_list),
+                "paper_metric_reference_status": "not_yet_serialized_from_table",
+                "paper_numeric_target_available": False,
+                "repository_target_count": len(harmonic_target_list),
+                "matching_target_count": matching_target_count,
+                "harmonic_match_status": harmonic_match_status,
+                "amplitude_winning_family": (
+                    None if amplitude_entry is None else str(amplitude_entry["repository_winning_family"])
+                ),
+                "phase_winning_family": (
+                    None if phase_entry is None else str(phase_entry["repository_winning_family"])
+                ),
+            }
+        )
+    return harmonic_comparison_list
 
 
 def load_exact_model_bank_config(config_path: str | Path) -> dict[str, Any]:
@@ -920,6 +1040,8 @@ def build_exact_model_validation_summary(
                 "winning_rmse": float(winning_entry["rmse"]),
             }
         )
+    target_comparison_list = build_exact_paper_target_comparison_registry(target_winner_list)
+    harmonic_comparison_list = build_exact_paper_harmonic_comparison_registry(target_comparison_list)
 
     # Build Summary Dictionary
     return {
@@ -954,6 +1076,8 @@ def build_exact_model_validation_summary(
             "harmonic_order_list": [0, 1, 3, 39, 40, 78, 81, 156, 162, 240],
             "enabled_family_list": resolve_enabled_family_list(training_config),
             "recovered_reference_onnx_root": training_config["paths"].get("exact_onnx_reference_root", ""),
+            "harmonic_expected_family_map": EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP,
+            "paper_table_replication_scope": "family_direction_serialized_numeric_table_targets_pending",
         },
         "dependency_versions": resolve_dependency_version_dictionary(),
         "winner_summary": {
@@ -966,6 +1090,8 @@ def build_exact_model_validation_summary(
         },
         "family_ranking": family_summary_list,
         "target_winner_registry": target_winner_list,
+        "paper_target_comparison_registry": target_comparison_list,
+        "paper_harmonic_comparison_registry": harmonic_comparison_list,
         "per_target_ranking": per_target_ranking_dictionary,
         "onnx_export_summary": onnx_export_summary,
         "artifacts": {
@@ -1006,6 +1132,8 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     winner_summary = validation_summary["winner_summary"]
     family_ranking = validation_summary["family_ranking"]
     target_winner_registry = validation_summary["target_winner_registry"]
+    paper_target_comparison_registry = validation_summary["paper_target_comparison_registry"]
+    paper_harmonic_comparison_registry = validation_summary["paper_harmonic_comparison_registry"]
     onnx_export_summary = validation_summary["onnx_export_summary"]
 
     # Build Family Ranking Rows
@@ -1028,6 +1156,29 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
             f"{target_winner_entry['winning_mape_percent']:.3f} | "
             f"{target_winner_entry['winning_mae']:.6f} | "
             f"{target_winner_entry['winning_rmse']:.6f} |"
+        )
+
+    # Build Paper Comparison Rows
+    paper_target_row_list: list[str] = []
+    for target_comparison_entry in paper_target_comparison_registry:
+        paper_target_row_list.append(
+            f"| `{target_comparison_entry['target_name']}` | "
+            f"`{target_comparison_entry['paper_expected_family_text']}` | "
+            f"`{target_comparison_entry['repository_winning_family']}` | "
+            f"{target_comparison_entry['repository_winning_mape_percent']:.3f} | "
+            f"`{target_comparison_entry['family_direction_status']}` |"
+        )
+    paper_harmonic_row_list: list[str] = []
+    for harmonic_comparison_entry in paper_harmonic_comparison_registry:
+        amplitude_winning_family = harmonic_comparison_entry["amplitude_winning_family"] or "-"
+        phase_winning_family = harmonic_comparison_entry["phase_winning_family"] or "-"
+        paper_harmonic_row_list.append(
+            f"| `{harmonic_comparison_entry['harmonic_order']}` | "
+            f"`{harmonic_comparison_entry['paper_expected_family_text']}` | "
+            f"`{amplitude_winning_family}` | "
+            f"`{phase_winning_family}` | "
+            f"{harmonic_comparison_entry['matching_target_count']}/{harmonic_comparison_entry['repository_target_count']} | "
+            f"`{harmonic_comparison_entry['harmonic_match_status']}` |"
         )
 
     # Build Dependency Rows
@@ -1101,6 +1252,27 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "| --- | --- | --- | ---: | ---: | ---: |",
         *target_winner_row_list,
         "",
+        "## Paper-Target Comparison",
+        "",
+        "This section serializes the current `paper vs repository` comparison",
+        "for each exact-paper target. The paper-selected family direction is",
+        "available in the repository, while the exact numeric paper table targets",
+        "have not yet been serialized into this workflow.",
+        "",
+        "| Target | Paper Expected Family | Repository Winner | Repo MAPE [%] | Family Direction Status |",
+        "| --- | --- | --- | ---: | --- |",
+        *paper_target_row_list,
+        "",
+        "## Paper-Harmonic Comparison",
+        "",
+        "This section collapses the amplitude and phase target evidence into one",
+        "harmonic-facing status so `Track 1` closure can later be tied to a",
+        "single inspectable harmonic table.",
+        "",
+        "| Harmonic | Paper Expected Family | Ampl Winner | Phase Winner | Matching Targets | Harmonic Status |",
+        "| ---: | --- | --- | --- | ---: | --- |",
+        *paper_harmonic_row_list,
+        "",
         "## ONNX Export Surface",
         "",
         f"- export enabled: `{onnx_export_summary['enabled']}`;",
@@ -1126,5 +1298,11 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "Its role is to reproduce the original RCIM family bank with the exact",
         "recovered input schema, target schema, and export surface before any",
         "repository-specific simplification or target-wise winner assembly.",
+        "",
+        "At the current repository state, the workflow now serializes the paper",
+        "family-direction expectations per harmonic, but it still does not embed",
+        "the exact numeric paper table thresholds. `Track 1` therefore remains a",
+        "paper-table replication workstream in progress rather than a closed",
+        "replication claim.",
         "",
     ])

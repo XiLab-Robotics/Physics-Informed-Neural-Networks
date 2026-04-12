@@ -86,6 +86,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-12
 
+- [technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md](./technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md)
+  Technical document for redefining `Track 1` completion around faithful
+  per-harmonic paper-table replication, including canonical `paper vs
+  repository` comparison artifacts and explicit closure status per harmonic.
 - [technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md](./technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md)
   Technical document for the final narrow width-equalization pass on the first
   `Exact-Paper Support Runs` table, focused on making `Mean Component MAPE [%]`
