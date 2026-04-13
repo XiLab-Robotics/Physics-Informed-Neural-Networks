@@ -1,13 +1,14 @@
+<!-- markdownlint-disable MD013 -->
 # Training Results Master Summary
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-11T20:17:18`
+- Generated At: `2026-04-13T12:44:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
 - Active Campaign Status: `finished`
-- Active Campaign Name: `exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55`
+- Active Campaign Name: `track1_overnight_gap_closure_campaign_2026_04_13_01_02_23`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -106,6 +107,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_overnight_gap_closure_campaign_2026_04_13_01_02_23` | `2026-04-13 12:37:15` | 20 | 0 | `track1_hgbm_h01_shallow_regularized` | Improved Track 1 shared-evaluator reference from `8.877%` to `8.774%` |
 | `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03` | `2026-04-09 21:06:13` | 8 | 0 | `te_harmonic_wise_full_rcim_no_engineering_reference` | No family-best change |
 | `targeted_remote_followup_campaign_2026_04_04_11_21_09` | `2026-04-04 13:03:55` | 5 | 0 | `te_hist_gbr_remote_refined` | No family-best change |
 | `remote_training_validation_campaign_2026_04_03_17_54_21` | `2026-04-03 22:30:26` | 4 | 1 | `te_hist_gbr_remote_deep` | No family-best change |
@@ -158,16 +160,16 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Offline prediction metric protocol | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.877%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | not_yet_met |
+| Offline prediction metric protocol | Mean percentage error over full TE curves | Best current harmonic-wise validation reports `8.774%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
 
 ### Latest Harmonic-Wise Validation
 
-- Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-11-13-52-42__track1_current_best_shared_evaluator_reference_campaign_run/validation_summary.yaml`
-- Harmonic-wise test mean percentage error: `8.877%`
-- `Target A` status from the latest harmonic-wise run: `not_yet_met`
+- Best current harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-01-45-32__track1_hgbm_h01_shallow_regularized_campaign_run/validation_summary.yaml`
+- Harmonic-wise test mean percentage error: `8.774%`
+- `Target A` status from the current best harmonic-wise run: `not_yet_met`
 
 ### Online Compensation Tracking Placeholder
 

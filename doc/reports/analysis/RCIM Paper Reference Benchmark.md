@@ -206,26 +206,26 @@ tables should explicitly label each entry as either:
 
 The latest completed repository-owned harmonic-wise campaign is:
 
-- `exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55`
+- `track1_overnight_gap_closure_campaign_2026_04_13_01_02_23`
 
 Winning validation summary:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-11-13-52-42__track1_current_best_shared_evaluator_reference_campaign_run/validation_summary.yaml`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-01-45-32__track1_hgbm_h01_shallow_regularized_campaign_run/validation_summary.yaml`
 
 Winning companion report:
 
-- `doc/reports/analysis/validation_checks/2026-04-11-13-34-08_paper_reimplementation_rcim_harmonic_wise_track1_current_best_shared_evaluator_reference_campaign_run_harmonic_wise_comparison_report.md`
+- `doc/reports/analysis/validation_checks/2026-04-13-01-46-20_paper_reimplementation_rcim_harmonic_wise_track1_hgbm_h01_shallow_regularized_campaign_run_harmonic_wise_comparison_report.md`
 
 Campaign results report:
 
-- `doc/reports/campaign_results/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md`
+- `doc/reports/campaign_results/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
 
 Current best paper-faithful offline result:
 
 - selected harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
 - feature set: `base_only`
-- validation mean percentage error: `9.229%`
-- test mean percentage error: `8.877%`
+- validation mean percentage error: `9.611%`
+- test mean percentage error: `8.774%`
 - oracle test mean percentage error: `2.749%`
 - current `Target A` status: `not_yet_met`
 
@@ -294,43 +294,46 @@ What the second iteration established:
 - the main remaining gap is now better localized to predictor design,
   especially the dominant `h0` term and a smaller late-harmonic cluster.
 
-What the exact-paper faithful reproduction campaign added:
+What the overnight gap-closure campaign added:
 
-- the exact-paper support surface is now runnable and stable under the current
-  repository stack;
-- the shared offline evaluator still favors
-  `track1_current_best_shared_evaluator_reference` over the exact-paper
-  dominant-harmonic specialization;
-- `Target A` remains anchored to the shared harmonic-wise path and still stops
-  at `8.877%`.
+- the shared offline evaluator now has a new promoted winner:
+  `track1_hgbm_h01_shallow_regularized`;
+- the best harmonic-wise result improved from `8.877%` to `8.774%`;
+- the strongest companion direction in the same batch is
+  `track1_hgbm_h162_h240_repair` at `8.795%`;
+- `RandomForest` and engineered-feature retries did not justify promotion over
+  the best no-engineering `HGBM` variants.
 
 Immediate next repository step:
 
 - keep the full RCIM harmonic set as the mainline `Track 1` target;
-- start a third harmonic-wise iteration focused on target parameterization,
-  especially:
-  - explicit handling of `h0`;
-  - targeted comparison between `cos/sin` and `amplitude/phase` on dominant
-    harmonics;
-  - per-harmonic estimator specialization for the dominant error terms.
+- start a fourth harmonic-wise iteration around a combined low-order plus
+  late-harmonic specialization path, beginning from:
+  - `track1_hgbm_h01_shallow_regularized`;
+  - `track1_hgbm_h162_h240_repair`;
+- if that combined direction still stalls near `8.7-8.8%`, move the next
+  research step to a new target-parameterization implementation rather than
+  another `RF` or engineered-feature retry.
 
 Important interpretation:
 
 - the repository now has both a completed second harmonic-wise `Track 1`
   campaign and a completed exact-paper family-bank stabilization campaign;
-- the best harmonic-wise result improved from `9.403%` to `8.877%`, so the
+- the best harmonic-wise result improved from `9.403%` to `8.774%`, so the
   branch is moving in the right direction;
 - the paper threshold of `4.7%` remains substantially unmet, so the repository
   is still only partially aligned with the paper offline.
 
 ### Current Comparison Verdict
 
+<!-- markdownlint-disable MD013 -->
 | Comparison Axis | Current Repository Status | Verdict |
 | --- | --- | --- |
 | Offline winner family direction | Tree winner (`hist_gradient_boosting`) | aligned |
-| Offline metric protocol | Harmonic-wise held-out mean percentage error now available: `8.877%`; exact-bank structural export branch also completed successfully | comparable_but_not_yet_matching |
+| Offline metric protocol | Harmonic-wise held-out mean percentage error now available: `8.774%`; exact-bank structural export branch also completed successfully | comparable_but_not_yet_matching |
 | Online compensation benchmark | missing | not yet comparable |
 | End-to-end paper replication | missing | not yet comparable |
+<!-- markdownlint-enable MD013 -->
 
 ## Online Compensation Tracking
 

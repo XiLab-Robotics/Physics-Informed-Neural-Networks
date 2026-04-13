@@ -1,41 +1,88 @@
-campaign_name: exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55
+campaign_name: track1_overnight_gap_closure_campaign_2026_04_13_01_02_23
 status: finished
-planning_report_path: doc/reports/campaign_plans/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md
-campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign
+planning_report_path: doc/reports/campaign_plans/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md
+campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign
 queue_root: null
 campaign_output_root: output/training_campaigns
-campaign_output_directory: output/training_campaigns/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55
+campaign_output_directory: output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23
 launch_mode: local_operator_campaign_launcher
 activation_pending_user_confirmation: false
-prepared_at: '2026-04-10T21:47:55+02:00'
-started_at: '2026-04-10T22:49:06.1087937+02:00'
-finished_at: '2026-04-11T20:08:29.5330140+02:00'
-completion_recorded_at: '2026-04-11T20:08:29.5330140+02:00'
-results_report_path: doc/reports/campaign_results/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md
+prepared_at: '2026-04-13T01:02:23+02:00'
+started_at: '2026-04-13T01:42:34+02:00'
+finished_at: '2026-04-13T02:00:49+02:00'
+completion_recorded_at: '2026-04-13T12:37:15+02:00'
+results_report_path: doc/reports/campaign_results/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md
 remote_host_alias: null
 remote_repository_path: null
 remote_conda_environment_name: null
 queue_config_path_list:
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/01_exact_paper_recovered_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/02_exact_paper_amplitude_phase_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/03_exact_paper_dominant_harmonic_specialized.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/04_track1_current_best_shared_evaluator_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/01_track1_hgbm_h01_deeper_low_order.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/02_track1_hgbm_h013_deeper_low_order.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/03_track1_hgbm_h01_ultradeep_guarded.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/04_track1_hgbm_h01_shallow_regularized.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/05_track1_hgbm_h0139_low_order_anchor.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/06_track1_hgbm_h014078_low_order_anchor.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/07_track1_hgbm_h162_h240_repair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/08_track1_hgbm_h081_h162_h240_repair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/09_track1_hgbm_h156_h162_h240_repair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/10_track1_hgbm_h039_h162_h240_bridge.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/11_track1_hgbm_h013_h162_h240_joint.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/12_track1_hgbm_h240_extreme_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/13_track1_rf_full_rcim_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/14_track1_rf_h01_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/15_track1_rf_h081_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/16_track1_rf_h156_h162_h240_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/17_track1_hgbm_h01_engineered_recheck.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/18_track1_hgbm_h013_engineered_recheck.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/19_track1_hgbm_h162_h240_engineered_recheck.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/20_track1_rf_h01_h081_engineered_recheck.yaml
 run_name_list:
-  - exact_paper_recovered_reference
-  - exact_paper_amplitude_phase_reference
-  - exact_paper_dominant_harmonic_specialized
-  - track1_current_best_shared_evaluator_reference
+  - track1_hgbm_h01_deeper_low_order
+  - track1_hgbm_h013_deeper_low_order
+  - track1_hgbm_h01_ultradeep_guarded
+  - track1_hgbm_h01_shallow_regularized
+  - track1_hgbm_h0139_low_order_anchor
+  - track1_hgbm_h014078_low_order_anchor
+  - track1_hgbm_h162_h240_repair
+  - track1_hgbm_h081_h162_h240_repair
+  - track1_hgbm_h156_h162_h240_repair
+  - track1_hgbm_h039_h162_h240_bridge
+  - track1_hgbm_h013_h162_h240_joint
+  - track1_hgbm_h240_extreme_focus
+  - track1_rf_full_rcim_reference
+  - track1_rf_h01_focus
+  - track1_rf_h081_focus
+  - track1_rf_h156_h162_h240_focus
+  - track1_hgbm_h01_engineered_recheck
+  - track1_hgbm_h013_engineered_recheck
+  - track1_hgbm_h162_h240_engineered_recheck
+  - track1_rf_h01_h081_engineered_recheck
 protected_file_list:
-  - doc/reports/campaign_plans/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/README.md
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/01_exact_paper_recovered_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/02_exact_paper_amplitude_phase_reference.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/03_exact_paper_dominant_harmonic_specialized.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/paper_faithful_reproduction/campaigns/2026-04-10_exact_paper_faithful_reproduction_campaign/04_track1_current_best_shared_evaluator_reference.yaml
-  - scripts/campaigns/run_exact_paper_faithful_reproduction_campaign.ps1
-  - doc/scripts/campaigns/run_exact_paper_faithful_reproduction_campaign.md
-  - doc/guide/project_usage_guide.md
+  - doc/reports/campaign_plans/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/README.md
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/01_track1_hgbm_h01_deeper_low_order.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/02_track1_hgbm_h013_deeper_low_order.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/03_track1_hgbm_h01_ultradeep_guarded.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/04_track1_hgbm_h01_shallow_regularized.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/05_track1_hgbm_h0139_low_order_anchor.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/06_track1_hgbm_h014078_low_order_anchor.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/07_track1_hgbm_h162_h240_repair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/08_track1_hgbm_h081_h162_h240_repair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/09_track1_hgbm_h156_h162_h240_repair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/10_track1_hgbm_h039_h162_h240_bridge.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/11_track1_hgbm_h013_h162_h240_joint.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/12_track1_hgbm_h240_extreme_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/13_track1_rf_full_rcim_reference.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/14_track1_rf_h01_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/15_track1_rf_h081_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/16_track1_rf_h156_h162_h240_focus.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/17_track1_hgbm_h01_engineered_recheck.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/18_track1_hgbm_h013_engineered_recheck.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/19_track1_hgbm_h162_h240_engineered_recheck.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_overnight_gap_closure_campaign/20_track1_rf_h01_h081_engineered_recheck.yaml
+  - scripts/campaigns/run_track1_overnight_gap_closure_campaign.ps1
+  - doc/scripts/campaigns/run_track1_overnight_gap_closure_campaign.md
 launch_command_list:
   - conda activate standard_ml_codex_env
-  - .\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1
-  - .\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python
+  - .\scripts\campaigns\run_track1_overnight_gap_closure_campaign.ps1
+  - .\scripts\campaigns\run_track1_overnight_gap_closure_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python
