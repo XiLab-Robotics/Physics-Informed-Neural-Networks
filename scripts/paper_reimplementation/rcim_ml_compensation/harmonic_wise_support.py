@@ -1245,7 +1245,6 @@ def build_harmonic_report_markdown(validation_summary: dict[str, Any]) -> str:
         "## Interpretation",
         "",
         "The harmonic-wise pipeline is now implemented as a repository-owned offline benchmark path. The key comparison number is the TE-curve mean percentage error on held-out curves, while the offline playback block prepares the later online branch without claiming a real `Table 9` equivalence yet.",
-        "",
     ]) + "\n"
 
 

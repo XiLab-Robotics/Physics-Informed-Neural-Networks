@@ -103,6 +103,13 @@ This folder contains the internal project documents derived from the reference P
   PDF table profiles after the first renderer-level promotion, focused on
   `Target A`, `Curve MAE`, and the first `Exact-Paper Support Runs` table.
 
+#### 2026-04-13
+
+- [technical/2026-04/2026-04-13/2026-04-13-15-22-14_github_quality_check_markdown_md012_fix.md](./technical/2026-04/2026-04-13/2026-04-13-15-22-14_github_quality_check_markdown_md012_fix.md)
+  Technical document for the narrow GitHub quality-check repair focused on
+  `MD012/no-multiple-blanks` failures in harmonic-wise validation Markdown
+  reports and, only if needed, the shared report-generation path.
+
 #### 2026-04-11
 
 - [technical/2026-04/2026-04-11/2026-04-11-20-32-27_campaign_results_pdf_layout_rule_promotion.md](./technical/2026-04/2026-04-11/2026-04-11-20-32-27_campaign_results_pdf_layout_rule_promotion.md)

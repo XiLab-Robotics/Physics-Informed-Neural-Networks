@@ -82,4 +82,3 @@ These playback summaries are repository-owned `Robot` and `Cycloidal` style offl
 ## Interpretation
 
 The harmonic-wise pipeline is now implemented as a repository-owned offline benchmark path. The key comparison number is the TE-curve mean percentage error on held-out curves, while the offline playback block prepares the later online branch without claiming a real `Table 9` equivalence yet.
-
