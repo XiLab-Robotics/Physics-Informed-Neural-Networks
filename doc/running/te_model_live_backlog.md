@@ -123,6 +123,12 @@ Current next step:
   - do not promote the reduced harmonic subsets as the main optimization path;
   - do not promote the current engineered operating-condition features as the
     new default
+- while `Track 1` remains open, keep intermediate validation-model `.pkl`
+  bundles under
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  and `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+  out of Git tracking and out of Git LFS; at `Track 1` closure, revisit only
+  the final selected model artifacts for selective Git LFS promotion
 - defer a third harmonic-wise optimization pass until after the exact-paper
   campaign clarifies whether the remaining gap is primarily:
   - export-surface only;

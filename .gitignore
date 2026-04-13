@@ -213,6 +213,8 @@ doc/reports/analysis/.tmp_chrome_profiles/
 # Exclude the oversized recovery artifact that blocks GitHub pushes.
 output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/tree_model.pkl
 output/training_runs/tree/2026-04-03-20-38-08__te_random_forest_remote_medium/tree_model.pkl
+output/validation_checks/paper_reimplementation_rcim_exact_model_bank/**/paper_family_model_bank.pkl
+output/validation_checks/paper_reimplementation_rcim_harmonic_wise/**/harmonic_model_bundle.pkl
 
 # .temp and .tools Folders
 .temp/
