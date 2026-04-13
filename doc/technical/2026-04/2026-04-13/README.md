@@ -1,5 +1,9 @@
 # 2026-04-13 Technical Documents
 
+- [2026-04-13-20-35-43_github_quality_check_md012_and_node24_action_alignment.md](./2026-04-13-20-35-43_github_quality_check_md012_and_node24_action_alignment.md)
+  Technical document for fixing the reported GitHub quality-check `MD012`
+  Markdown failure and aligning the repository workflow actions with the
+  GitHub Node 24 migration path.
 - [2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md](./2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md)
   Technical document for aligning future `Track 1` report-generation and
   summary templates with canonical paper-table closure language instead of the
