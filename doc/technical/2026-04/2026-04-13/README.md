@@ -15,3 +15,16 @@
   Technical document for removing intermediate `Track 1` validation-model
   `.pkl` artifacts from Git LFS tracking, ignoring them until closure, and
   recording the selective final-model reminder in the live backlog.
+- [2026-04-13-13-27-37_track1_extended_overnight_campaign_preparation.md](./2026-04-13-13-27-37_track1_extended_overnight_campaign_preparation.md)
+  Technical document for preparing a much larger and heavier `Track 1`
+  overnight campaign after the latest batch showed that the current
+  harmonic-wise validation path is operationally cheap enough to support a
+  broader search portfolio.
+- [2026-04-13-16-16-23_track1_extended_overnight_campaign_results_reporting.md](./2026-04-13-16-16-23_track1_extended_overnight_campaign_results_reporting.md)
+  Technical document for closing the completed extended `Track 1` overnight
+  campaign through winner serialization, Markdown plus PDF reporting, and
+  canonical benchmark synchronization.
+- [2026-04-13-19-54-23_track1_extended_campaign_results_pdf_layout_alignment.md](./2026-04-13-19-54-23_track1_extended_campaign_results_pdf_layout_alignment.md)
+  Technical document for aligning the extended `Track 1` campaign-results PDF
+  with the existing `Track 1` table-layout rules so the second-table baseline
+  header and the ranking tables render cleanly in the real export.

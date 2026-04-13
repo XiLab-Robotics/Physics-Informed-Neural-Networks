@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_harmonic_wise
+run_name: track1_hgbm_h162_h240_wide_repair_2_campaign_run
+run_instance_id: 2026-04-13-15-29-58__track1_hgbm_h162_h240_wide_repair_2_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-15-29-58__track1_hgbm_h162_h240_wide_repair_2_campaign_run

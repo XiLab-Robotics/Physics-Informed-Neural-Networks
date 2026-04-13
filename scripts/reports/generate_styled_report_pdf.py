@@ -176,6 +176,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report": {
         "ranked-completed-runs",
     },
+    "2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report": {
+        "ranked-completed-runs",
+    },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
     },
@@ -1468,9 +1471,11 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
 
     if (
         table_class_name == TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME
-        and header_cell == "Delta Vs `8.877%` Baseline"
+        and header_cell.startswith("Delta Vs `")
+        and header_cell.endswith("` Baseline")
     ):
-        return "Delta Vs<span class=\"metric-unit\"><code>8.877%</code> Baseline</span>"
+        baseline_value = header_cell[len("Delta Vs `") : -len("` Baseline")]
+        return f"Delta Vs<span class=\"metric-unit\"><code>{html.escape(baseline_value)}</code> Baseline</span>"
 
     return convert_inline_markup(header_cell)
 
@@ -1828,7 +1833,10 @@ def resolve_standard_table_class_name(
             return CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME
 
     # Resolve Track 1 Overnight Gap-Closure Campaign Table Profiles
-    if report_stem == "2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report":
+    if report_stem in {
+        "2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report",
+        "2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report",
+    }:
 
         if (
             current_section_slug == "ranked-completed-runs"
@@ -1838,7 +1846,10 @@ def resolve_standard_table_class_name(
 
         if (
             current_section_slug == "ranked-completed-runs"
-            and normalized_header_cells == ("Config", "Validation MPE [%]", "Oracle Test MPE [%]", "Delta Vs `8.877%` Baseline")
+            and normalized_header_cells in {
+                ("Config", "Validation MPE [%]", "Oracle Test MPE [%]", "Delta Vs `8.877%` Baseline"),
+                ("Config", "Validation MPE [%]", "Oracle Test MPE [%]", "Delta Vs `8.774%` Baseline"),
+            }
         ):
             return TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME
 
