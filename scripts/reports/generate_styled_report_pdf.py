@@ -66,6 +66,9 @@ CAMPAIGN_SHARED_OFFLINE_RANKING_TABLE_CLASS_NAME = "report-table report-table-ca
 CAMPAIGN_SHARED_OFFLINE_PLAYBACK_TABLE_CLASS_NAME = "report-table report-table-campaign-shared-offline-playback"
 CAMPAIGN_EXACT_SUPPORT_RANKING_TABLE_CLASS_NAME = "report-table report-table-campaign-exact-support-ranking"
 CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME = "report-table report-table-campaign-exact-support-export"
+TRACK1_OVERNIGHT_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-completed"
+TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-delta"
+TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-block-winner"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -169,6 +172,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report": {
         "main-conclusions",
         "artifact-references",
+    },
+    "2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report": {
+        "ranked-completed-runs",
     },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
@@ -686,7 +692,10 @@ REPORT_STYLESHEET = """
     .report-table-campaign-shared-offline-ranking,
     .report-table-campaign-shared-offline-playback,
     .report-table-campaign-exact-support-ranking,
-    .report-table-campaign-exact-support-export {
+    .report-table-campaign-exact-support-export,
+    .report-table-track1-overnight-completed,
+    .report-table-track1-overnight-delta,
+    .report-table-track1-overnight-block-winner {
       font-size: 6.9pt;
       line-height: 1.18;
     }
@@ -698,14 +707,23 @@ REPORT_STYLESHEET = """
     .report-table-campaign-exact-support-ranking th,
     .report-table-campaign-exact-support-ranking td,
     .report-table-campaign-exact-support-export th,
-    .report-table-campaign-exact-support-export td {
+    .report-table-campaign-exact-support-export td,
+    .report-table-track1-overnight-completed th,
+    .report-table-track1-overnight-completed td,
+    .report-table-track1-overnight-delta th,
+    .report-table-track1-overnight-delta td,
+    .report-table-track1-overnight-block-winner th,
+    .report-table-track1-overnight-block-winner td {
       padding: 4px 4px;
     }
 
     .report-table-campaign-shared-offline-ranking th,
     .report-table-campaign-shared-offline-playback th,
     .report-table-campaign-exact-support-ranking th,
-    .report-table-campaign-exact-support-export th {
+    .report-table-campaign-exact-support-export th,
+    .report-table-track1-overnight-completed th,
+    .report-table-track1-overnight-delta th,
+    .report-table-track1-overnight-block-winner th {
       white-space: normal;
       overflow-wrap: normal;
       word-break: normal;
@@ -736,6 +754,23 @@ REPORT_STYLESHEET = """
     .report-table-campaign-exact-support-export th:nth-child(2), .report-table-campaign-exact-support-export td:nth-child(2) { width: 22%; }
     .report-table-campaign-exact-support-export th:nth-child(3), .report-table-campaign-exact-support-export td:nth-child(3) { width: 18%; }
     .report-table-campaign-exact-support-export th:nth-child(4), .report-table-campaign-exact-support-export td:nth-child(4) { width: 16%; }
+
+    .report-table-track1-overnight-completed th:nth-child(1), .report-table-track1-overnight-completed td:nth-child(1) { width: 5%; }
+    .report-table-track1-overnight-completed th:nth-child(2), .report-table-track1-overnight-completed td:nth-child(2) { width: 41%; }
+    .report-table-track1-overnight-completed th:nth-child(3), .report-table-track1-overnight-completed td:nth-child(3) { width: 7%; }
+    .report-table-track1-overnight-completed th:nth-child(4), .report-table-track1-overnight-completed td:nth-child(4) { width: 13%; }
+    .report-table-track1-overnight-completed th:nth-child(5), .report-table-track1-overnight-completed td:nth-child(5) { width: 17%; }
+    .report-table-track1-overnight-completed th:nth-child(6), .report-table-track1-overnight-completed td:nth-child(6) { width: 17%; }
+
+    .report-table-track1-overnight-delta th:nth-child(1), .report-table-track1-overnight-delta td:nth-child(1) { width: 47%; }
+    .report-table-track1-overnight-delta th:nth-child(2), .report-table-track1-overnight-delta td:nth-child(2) { width: 17%; }
+    .report-table-track1-overnight-delta th:nth-child(3), .report-table-track1-overnight-delta td:nth-child(3) { width: 14%; }
+    .report-table-track1-overnight-delta th:nth-child(4), .report-table-track1-overnight-delta td:nth-child(4) { width: 22%; }
+
+    .report-table-track1-overnight-block-winner th:nth-child(1), .report-table-track1-overnight-block-winner td:nth-child(1) { width: 7%; }
+    .report-table-track1-overnight-block-winner th:nth-child(2), .report-table-track1-overnight-block-winner td:nth-child(2) { width: 30%; }
+    .report-table-track1-overnight-block-winner th:nth-child(3), .report-table-track1-overnight-block-winner td:nth-child(3) { width: 10%; }
+    .report-table-track1-overnight-block-winner th:nth-child(4), .report-table-track1-overnight-block-winner td:nth-child(4) { width: 53%; }
 
     .report-table-remote-training-validation-completed,
     .report-table-remote-training-validation-failed,
@@ -857,7 +892,10 @@ REPORT_STYLESHEET = """
     .report-table-campaign-shared-offline-ranking .metric-unit,
     .report-table-campaign-shared-offline-playback .metric-unit,
     .report-table-campaign-exact-support-ranking .metric-unit,
-    .report-table-campaign-exact-support-export .metric-unit {
+    .report-table-campaign-exact-support-export .metric-unit,
+    .report-table-track1-overnight-completed .metric-unit,
+    .report-table-track1-overnight-delta .metric-unit,
+    .report-table-track1-overnight-block-winner .metric-unit {
       display: block;
     }
 
@@ -1278,6 +1316,13 @@ def is_table_row(markdown_line: str) -> bool:
     # Match Markdown Table Prefix
     return markdown_line.strip().startswith("|")
 
+def is_html_comment_line(markdown_line: str) -> bool:
+
+    """ Report Whether The Markdown Line Is A Standalone HTML Comment """
+
+    stripped_line = markdown_line.strip()
+    return stripped_line.startswith("<!--") and stripped_line.endswith("-->")
+
 def is_list_item(markdown_line: str) -> bool:
 
     """ Check List Item """
@@ -1415,10 +1460,29 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         CAMPAIGN_SHARED_OFFLINE_PLAYBACK_TABLE_CLASS_NAME,
         CAMPAIGN_EXACT_SUPPORT_RANKING_TABLE_CLASS_NAME,
         CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME,
+        TRACK1_OVERNIGHT_COMPLETED_TABLE_CLASS_NAME,
+        TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME,
+        TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME,
     } and wrapped_common_metric_header is not None:
         return wrapped_common_metric_header
 
+    if (
+        table_class_name == TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME
+        and header_cell == "Delta Vs `8.877%` Baseline"
+    ):
+        return "Delta Vs<span class=\"metric-unit\"><code>8.877%</code> Baseline</span>"
+
     return convert_inline_markup(header_cell)
+
+def is_identifier_column_header(header_cell: str) -> bool:
+
+    """ Report Whether The Header Represents An Identifier-Style Column """
+
+    return header_cell in {
+        "Config",
+        "Best Config",
+        "Best Run After This Campaign",
+    }
 
 def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[str], table_class_name: str = GENERIC_TABLE_CLASS_NAME) -> str:
 
@@ -1435,7 +1499,7 @@ def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[
 
     return "".join(header_html_tokens)
 
-def render_table_body_rows(body_rows: Sequence[str], alignments: Sequence[str]) -> str:
+def render_table_body_rows(body_rows: Sequence[str], header_cells: Sequence[str], alignments: Sequence[str]) -> str:
 
     """ Render Table Body Rows """
 
@@ -1449,8 +1513,12 @@ def render_table_body_rows(body_rows: Sequence[str], alignments: Sequence[str]) 
 
             # Resolve Cell Alignment
             alignment_class = alignments[cell_index] if cell_index < len(alignments) else ALIGN_LEFT
+            use_identifier_wrap = (
+                cell_index < len(header_cells)
+                and is_identifier_column_header(header_cells[cell_index])
+            )
             body_html_tokens.append(
-                f'<td class="{alignment_class}">{convert_inline_markup_with_semantic_identifier_wrap(body_cell) if cell_index == 0 else convert_inline_markup(body_cell)}</td>'
+                f'<td class="{alignment_class}">{convert_inline_markup_with_semantic_identifier_wrap(body_cell) if use_identifier_wrap else convert_inline_markup(body_cell)}</td>'
             )
 
         body_html_tokens.append("</tr>")
@@ -1493,7 +1561,7 @@ def render_standard_table(
 
     # Render Table Sections
     header_html = render_table_header_cells(header_cells, alignments, table_class_name)
-    body_html = render_table_body_rows(body_rows, alignments)
+    body_html = render_table_body_rows(body_rows, header_cells, alignments)
 
     return (
         '<div class="table-wrap">'
@@ -1759,6 +1827,27 @@ def resolve_standard_table_class_name(
         ):
             return CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME
 
+    # Resolve Track 1 Overnight Gap-Closure Campaign Table Profiles
+    if report_stem == "2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report":
+
+        if (
+            current_section_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Rank", "Config", "Block", "Test MPE [%]", "Curve MAE [deg]", "Curve RMSE [deg]")
+        ):
+            return TRACK1_OVERNIGHT_COMPLETED_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Config", "Validation MPE [%]", "Oracle Test MPE [%]", "Delta Vs `8.877%` Baseline")
+        ):
+            return TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "best-run-per-block"
+            and normalized_header_cells == ("Block", "Best Config", "Test MPE [%]", "Interpretation")
+        ):
+            return TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME
+
     return GENERIC_TABLE_CLASS_NAME
 
 def render_table(
@@ -2013,7 +2102,6 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                 or current_section_slug in report_specific_forced_page_break_section_slugs
             ):
                 section_class_names.append("section-force-page-break")
-                document_html_tokens.append('<div class="explicit-page-break"></div>')
 
             if should_keep_section_together(current_section_body_tokens):
                 section_class_names.append("section-keep-together")
@@ -2034,6 +2122,12 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
         # Flush On Empty Line
         if not stripped_line:
+            flush_paragraph()
+            current_index += 1
+            continue
+
+        # Skip Standalone HTML Comments
+        if is_html_comment_line(current_line):
             flush_paragraph()
             current_index += 1
             continue
