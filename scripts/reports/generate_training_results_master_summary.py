@@ -26,6 +26,7 @@ DEFAULT_TRAINING_RUN_ROOT = PROJECT_PATH / "output" / "training_runs"
 DEFAULT_TRAINING_CAMPAIGN_ROOT = PROJECT_PATH / "output" / "training_campaigns"
 DEFAULT_VALIDATION_CHECK_ROOT = PROJECT_PATH / "output" / "validation_checks"
 DEFAULT_PAPER_REFERENCE_REPORT_PATH = PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
+DEFAULT_EXACT_PAPER_VALIDATION_ROOT = DEFAULT_VALIDATION_CHECK_ROOT / "paper_reimplementation_rcim_exact_model_bank"
 
 TREE_MODEL_TYPE_SET = {"random_forest", "hist_gradient_boosting"}
 NEURAL_MODEL_TYPE_SET = {"feedforward", "periodic_mlp", "residual_harmonic_mlp"}
@@ -726,6 +727,30 @@ def collect_latest_harmonic_wise_validation() -> dict[str, Any] | None:
     return latest_validation_dictionary
 
 
+def collect_latest_exact_paper_validation() -> dict[str, Any] | None:
+
+    """Collect the latest exact-paper validation summary when available.
+
+    Returns:
+        Latest exact-paper validation dictionary when present.
+    """
+
+    if not DEFAULT_EXACT_PAPER_VALIDATION_ROOT.exists():
+        return None
+
+    validation_summary_path_list = sorted(
+        DEFAULT_EXACT_PAPER_VALIDATION_ROOT.glob("*/validation_summary.yaml"),
+        key=lambda path_value: path_value.stat().st_mtime,
+        reverse=True,
+    )
+    if not validation_summary_path_list:
+        return None
+
+    latest_validation_dictionary = load_yaml_dictionary(validation_summary_path_list[0])
+    latest_validation_dictionary["validation_summary_path"] = format_project_relative_path(validation_summary_path_list[0])
+    return latest_validation_dictionary
+
+
 def extract_active_campaign_snapshot() -> dict[str, Any]:
 
     """Extract the active-campaign snapshot from persistent running state.
@@ -859,10 +884,134 @@ def build_paper_alignment_status_list(
     ]
 
 
+def build_exact_paper_status_snapshot(
+    exact_paper_validation_dictionary: dict[str, Any] | None,
+) -> dict[str, Any]:
+
+    """Build a compact exact-paper Track 1 status snapshot.
+
+    Args:
+        exact_paper_validation_dictionary: Latest exact-paper validation dictionary.
+
+    Returns:
+        Compact status dictionary for the canonical exact-paper branch.
+    """
+
+    # Initialize the Default Snapshot for Missing Exact-Paper Evidence
+    default_snapshot = {
+        "validation_summary_path": "N/A",
+        "table3_met_count": 0,
+        "table3_total_count": 0,
+        "table4_met_count": 0,
+        "table4_total_count": 0,
+        "table5_met_count": 0,
+        "table5_total_count": 0,
+        "family_direction_match_count": 0,
+        "family_direction_total_count": 0,
+        "harmonic_full_match_count": 0,
+        "harmonic_partial_match_count": 0,
+        "harmonic_open_count": 0,
+        "harmonic_total_count": 0,
+        "highest_priority_open_harmonic_list": [],
+    }
+    if exact_paper_validation_dictionary is None:
+        return default_snapshot
+
+    # Resolve the Canonical Exact-Paper Registries
+    paper_target_registry = exact_paper_validation_dictionary.get("paper_target_comparison_registry", [])
+    paper_numeric_harmonic_summary = exact_paper_validation_dictionary.get("paper_numeric_harmonic_summary", [])
+
+    # Count Table-Level Closure Status Across the Exact-Paper Registry
+    table3_met_count = 0
+    table3_total_count = 0
+    table4_met_count = 0
+    table4_total_count = 0
+    table5_met_count = 0
+    table5_total_count = 0
+    family_direction_match_count = 0
+    family_direction_total_count = 0
+
+    if isinstance(paper_target_registry, list):
+        for target_dictionary in paper_target_registry:
+            if not isinstance(target_dictionary, dict):
+                continue
+
+            target_name = str(target_dictionary.get("target_name", ""))
+            family_direction_status = str(target_dictionary.get("family_direction_status", ""))
+
+            if family_direction_status != "":
+                family_direction_total_count += 1
+                if family_direction_status == "matched_expected_family_direction":
+                    family_direction_match_count += 1
+
+            if "_ampl_" in target_name:
+                table3_total_count += 1
+                if str(target_dictionary.get("rmse_target_status", "")) == "met_paper_target":
+                    table3_met_count += 1
+
+            if "_phase_" in target_name and "_phase_0" not in target_name:
+                table4_total_count += 1
+                if str(target_dictionary.get("mae_target_status", "")) == "met_paper_target":
+                    table4_met_count += 1
+
+                table5_total_count += 1
+                if str(target_dictionary.get("rmse_target_status", "")) == "met_paper_target":
+                    table5_met_count += 1
+
+    # Count Harmonic-Level Closure Status and Keep the Open-Harmonic Queue Explicit
+    harmonic_full_match_count = 0
+    harmonic_partial_match_count = 0
+    harmonic_open_count = 0
+    harmonic_total_count = 0
+    highest_priority_open_harmonic_list: list[int] = []
+
+    if isinstance(paper_numeric_harmonic_summary, list):
+        for harmonic_dictionary in paper_numeric_harmonic_summary:
+            if not isinstance(harmonic_dictionary, dict):
+                continue
+
+            harmonic_total_count += 1
+            harmonic_order = int(harmonic_dictionary.get("harmonic_order", -1))
+            harmonic_status = str(harmonic_dictionary.get("harmonic_numeric_status", "unknown"))
+
+            if harmonic_status == "fully_matched_tables_3_6":
+                harmonic_full_match_count += 1
+            elif harmonic_status == "partially_matched_tables_3_6":
+                harmonic_partial_match_count += 1
+                highest_priority_open_harmonic_list.append(harmonic_order)
+            else:
+                harmonic_open_count += 1
+                highest_priority_open_harmonic_list.append(harmonic_order)
+
+    highest_priority_open_harmonic_list = sorted(
+        harmonic_order
+        for harmonic_order in set(highest_priority_open_harmonic_list)
+        if harmonic_order >= 0
+    )
+
+    return {
+        "validation_summary_path": exact_paper_validation_dictionary.get("validation_summary_path", "N/A"),
+        "table3_met_count": table3_met_count,
+        "table3_total_count": table3_total_count,
+        "table4_met_count": table4_met_count,
+        "table4_total_count": table4_total_count,
+        "table5_met_count": table5_met_count,
+        "table5_total_count": table5_total_count,
+        "family_direction_match_count": family_direction_match_count,
+        "family_direction_total_count": family_direction_total_count,
+        "harmonic_full_match_count": harmonic_full_match_count,
+        "harmonic_partial_match_count": harmonic_partial_match_count,
+        "harmonic_open_count": harmonic_open_count,
+        "harmonic_total_count": harmonic_total_count,
+        "highest_priority_open_harmonic_list": highest_priority_open_harmonic_list,
+    }
+
+
 def build_paper_reference_section(
     program_best_entry: dict[str, Any],
     strongest_neural_family: str | None,
     harmonic_wise_validation_dictionary: dict[str, Any] | None,
+    exact_paper_validation_dictionary: dict[str, Any] | None,
 ) -> list[str]:
 
     """Build the paper-reference benchmark section.
@@ -870,6 +1019,7 @@ def build_paper_reference_section(
     Args:
         program_best_entry: Current program-best registry entry.
         strongest_neural_family: Current strongest neural family.
+        exact_paper_validation_dictionary: Latest exact-paper validation dictionary.
 
     Returns:
         Markdown lines for the paper-reference benchmark section.
@@ -881,6 +1031,7 @@ def build_paper_reference_section(
     current_best_model_type = str(program_best_entry.get("model_type", "N/A"))
     current_best_run_name = str(program_best_entry.get("run_name", "N/A"))
     current_offline_verdict = "aligned" if current_best_family == "tree" else "not_aligned"
+    exact_paper_status = build_exact_paper_status_snapshot(exact_paper_validation_dictionary)
     harmonic_offline_status_text = "Repository currently tracks `test_mae` / `test_rmse` in degrees, not the same protocol"
     harmonic_offline_verdict = "not_yet_comparable"
     harmonic_latest_result_block = [
@@ -925,12 +1076,23 @@ def build_paper_reference_section(
         "| --- | --- | --- | --- |",
         f"| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `{current_best_run_name}` from family `{current_best_family}` with model type `{current_best_model_type}` | {current_offline_verdict} |",
         f"| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `{strongest_neural_family or 'N/A'}` and still trails the tree winner | aligned |",
-        f"| Offline prediction metric protocol | Mean percentage error over full TE curves | {harmonic_offline_status_text} | {harmonic_offline_verdict} |",
+        f"| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `{exact_paper_status['harmonic_full_match_count']}/{exact_paper_status['harmonic_total_count']}` harmonics fully closed, `{exact_paper_status['harmonic_partial_match_count']}/{exact_paper_status['harmonic_total_count']}` partially closed, `{exact_paper_status['harmonic_open_count']}/{exact_paper_status['harmonic_total_count']}` still open | not_yet_met |",
+        f"| Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | {harmonic_offline_status_text} | supporting_only_{harmonic_offline_verdict} |",
         f"| Online robot-profile compensation | TE RMS reduction `{robot_dictionary['best_rms_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
         f"| Online cycloidal-profile compensation | TE RMS reduction `{cycloidal_dictionary['best_rms_reduction_pct']:.1f}%`, TE max reduction `{cycloidal_dictionary['best_max_reduction_pct']:.1f}%` | No repository-owned online compensation result yet | not_yet_comparable |",
         "| Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |",
         "",
-        "### Latest Harmonic-Wise Validation",
+        "### Track 1 Canonical Status",
+        "",
+        f"- Latest exact-paper validation summary: `{exact_paper_status['validation_summary_path']}`",
+        f"- Table `3` amplitude `RMSE`: `{exact_paper_status['table3_met_count']}/{exact_paper_status['table3_total_count']}` harmonics at or below the paper target",
+        f"- Table `4` phase `MAE`: `{exact_paper_status['table4_met_count']}/{exact_paper_status['table4_total_count']}` harmonics at or below the paper target",
+        f"- Table `5` phase `RMSE`: `{exact_paper_status['table5_met_count']}/{exact_paper_status['table5_total_count']}` harmonics at or below the paper target",
+        f"- Target-level expected-family direction: `{exact_paper_status['family_direction_match_count']}/{exact_paper_status['family_direction_total_count']}`",
+        f"- Harmonic-level Table `6` closure: `{exact_paper_status['harmonic_full_match_count']}/{exact_paper_status['harmonic_total_count']}` fully matched, `{exact_paper_status['harmonic_partial_match_count']}/{exact_paper_status['harmonic_total_count']}` partially matched, `{exact_paper_status['harmonic_open_count']}/{exact_paper_status['harmonic_total_count']}` still open",
+        f"- Highest-priority open harmonics: `{', '.join(str(harmonic_order) for harmonic_order in exact_paper_status['highest_priority_open_harmonic_list']) or 'N/A'}`",
+        "",
+        "### Latest Harmonic-Wise Validation Support",
         "",
         *harmonic_latest_result_block,
         "",
@@ -942,6 +1104,7 @@ def build_paper_reference_section(
         "",
         "### Gap Summary",
         "",
+        "- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.",
         *build_paper_alignment_status_list(program_best_entry, strongest_neural_family),
         "",
     ]
@@ -964,6 +1127,7 @@ def build_master_summary_markdown() -> str:
     assert isinstance(program_best_entry, dict), "Program registry best_entry must be a dictionary."
     selection_policy = program_registry_dictionary.get("selection_policy", {})
     assert isinstance(selection_policy, dict), "Program registry selection_policy must be a dictionary."
+    exact_paper_validation_dictionary = collect_latest_exact_paper_validation()
 
     campaign_artifact_dictionary = collect_campaign_artifacts()
     campaign_summary_list = campaign_artifact_dictionary["campaign_summary_list"]
@@ -1173,7 +1337,14 @@ def build_master_summary_markdown() -> str:
         "",
     ])
 
-    report_line_list.extend(build_paper_reference_section(program_best_entry, strongest_neural_family, harmonic_wise_validation_dictionary))
+    report_line_list.extend(
+        build_paper_reference_section(
+            program_best_entry,
+            strongest_neural_family,
+            harmonic_wise_validation_dictionary,
+            exact_paper_validation_dictionary,
+        )
+    )
 
     report_line_list.extend([
         "## Family-By-Family Result Breakdowns",

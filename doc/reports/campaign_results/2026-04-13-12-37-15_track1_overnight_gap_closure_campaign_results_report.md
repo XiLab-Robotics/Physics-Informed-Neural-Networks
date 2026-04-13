@@ -38,17 +38,23 @@ Outcome:
 
 - the batch completed successfully with `20/20` runs and no observed launcher
   failures;
-- the campaign winner is `track1_hgbm_h01_shallow_regularized`;
 - the best test mean percentage error improved from the previous repository
   best `8.877%` to `8.774%`;
-- the improvement is real but still small, so `Target A` remains
-  `not_yet_met` against the paper threshold `4.7%`;
+- the improvement is real but still small, so the support branch for `Target A`
+  remains `not_yet_met` against the paper threshold `4.7%`;
 - the strongest alternatives are still `HGBM`, especially the low-order and
   late-harmonic repair ladders;
 - `RandomForest` remained clearly non-competitive for the shared offline
   evaluator in this campaign;
 - the engineered-term re-check did not justify promotion over the best
   no-engineering `HGBM` runs.
+
+Primary `Track 1` interpretation:
+
+- this campaign does not close `Track 1` by winner selection alone;
+- its value is to provide support evidence for the still-open exact-paper cells;
+- the canonical closure status must still be read from the exact-paper Tables
+  `3-6` report, not from the campaign-local ranking table.
 
 ## Ranking Policy
 
@@ -113,7 +119,7 @@ This policy is serialized under:
 | `D` | `track1_hgbm_h162_h240_engineered_recheck` | 9.408 | Engineered terms did not recover enough value to beat the best no-engineering runs. |
 <!-- markdownlint-enable MD013 -->
 
-## Campaign Winner
+## Support-Branch Winner
 
 The explicit campaign winner is:
 
@@ -130,9 +136,25 @@ Its result was:
 - Target A threshold: `4.7%`
 - Target A status: `not_yet_met`
 
-This run won because it is the lowest-error completed candidate under the
-shared offline evaluator, and it beat both the previous repository best and
-the strongest late-harmonic repair variant.
+This run is useful as support evidence because it is the lowest-error completed
+candidate under the shared offline evaluator, but it is not the canonical
+`Track 1` closure signal.
+
+## Primary Track 1 Readout
+
+For `Track 1`, the important question after this campaign is not only which run
+won locally, but which paper-table cells can be treated as better supported for
+the next exact-paper repair pass.
+
+The main campaign conclusions for that purpose are:
+
+- `h0 / h1` remain the strongest support direction for the open low-order
+  cells at `0` and `1`;
+- `h162 / h240` remain the strongest isolated late-harmonic repair direction;
+- `RandomForest` did not earn additional priority under the current
+  coefficient-based support branch;
+- engineered features did not justify promotion into the next `Track 1`
+  repair cycle.
 
 ## Interpretation By Experiment Block
 
@@ -197,20 +219,19 @@ Interpretation:
 
 ## Recommended Next Step
 
-The batch improved the shared evaluator, but not enough to change the overall
-`Track 1` verdict.
+The batch improved the supporting harmonic-wise evaluator, but it did not
+change the canonical `Track 1` closure verdict by itself.
 
 The most defensible next step is:
 
-1. promote `track1_hgbm_h01_shallow_regularized` as the new shared-evaluator
-   reference;
+1. keep `track1_hgbm_h01_shallow_regularized` only as the current best
+   support-branch reference;
 2. keep `track1_hgbm_h162_h240_repair` as the strongest late-harmonic repair
    companion;
-3. start the next `Track 1` iteration around a combined low-order plus
-   late-harmonic specialization path;
-4. if that still plateaus near `8.7-8.8%`, move the next research step to a
-   new target-parameterization implementation rather than another `RF` or
-   engineered-feature retry.
+3. feed both directions into the next exact-paper open-cell repair plan;
+4. if those repair-driven iterations still plateau, move the next research
+   step to a new target-parameterization implementation rather than another
+   winner-centric `RF` or engineered-feature retry.
 
 ## Artifact References
 

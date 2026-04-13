@@ -6,11 +6,11 @@ This report prepares the next `Track 1` campaign after the completed overnight
  gap-closure batch showed that the current harmonic-wise validation branch is
  fast enough to support a much larger search package.
 
-The latest completed campaign established:
+The latest completed supporting harmonic-wise campaign established:
 
 - completed runs: `20`
 - observed launcher failures: `0`
-- promoted winner: `track1_hgbm_h01_shallow_regularized`
+- support-branch winner: `track1_hgbm_h01_shallow_regularized`
 - current best shared-evaluator test MPE: `8.774%`
 - paper offline threshold: `4.7%`
 
@@ -22,7 +22,7 @@ That result confirms two things:
   small portfolio sizes.
 
 The next package should therefore be significantly larger and intentionally
- split into:
+split into:
 
 - `wide` search coverage;
 - `heavy` specialization around the strongest branches;
@@ -32,8 +32,8 @@ The next package should therefore be significantly larger and intentionally
 
 The next campaign should answer five concrete questions:
 
-1. can a materially heavier `HGBM` search around `h0/h1` break below the
-   current `8.774%` plateau;
+1. can a materially heavier `HGBM` search around `h0/h1` help close the still-open
+   paper-table cells without damaging the exact-paper direction;
 2. can stronger late-harmonic specialization around `162/240` close more of
    the paper-table gaps while also helping TE reconstruction;
 3. do combined low-order plus late-harmonic bridge runs outperform isolated
@@ -45,7 +45,7 @@ The next campaign should answer five concrete questions:
 
 ## Current Baseline And Pressure Points
 
-### Shared Evaluator Baseline
+### Supporting Shared Evaluator Baseline
 
 - current winner: `track1_hgbm_h01_shallow_regularized`
 - current test MPE: `8.774%`
@@ -242,9 +242,17 @@ If a reduced overnight package is required, use this `18`-run subset:
 
 ## Evaluation Rules
 
-### Primary Promotion Gate
+### Primary Track 1 Gate
 
-Use the same explicit winner policy as the latest campaign:
+Use the campaign only to prioritize exact-paper cell repair:
+
+- close additional open cells on Tables `3`, `4`, and `5`;
+- improve expected-family alignment on Table `6`;
+- clarify which open harmonics should be repaired next in the exact-paper rerun.
+
+### Secondary Support Gate
+
+Use the same explicit support-branch policy as the latest campaign:
 
 - primary metric: `test_mean_percentage_error_pct`
 - first tie breaker: `test_curve_mae_deg`
@@ -261,18 +269,19 @@ Every run must also be interpreted against:
   joint bridge;
 - whether any engineered or `RF` branch still deserves future runtime budget.
 
-This preserves `Target A` as the main gate while keeping the campaign aligned
-with the canonical paper replication objective.
+This keeps the harmonic-wise TE metric available without letting it override
+the canonical paper-table objective.
 
 ## Success Criteria
 
 The extended campaign is successful if it achieves at least one of these:
 
-1. produces a new promoted shared-evaluator winner below `8.6%`;
-2. produces a clearly superior joint bridge winner over both isolated
-   low-order and isolated late-harmonic paths;
-3. closes additional canonical paper-table gaps on the high-priority harmonics
+1. closes additional canonical paper-table gaps on the high-priority harmonics
    `0`, `1`, `3`, `81`, `162`, `240`;
+2. produces a clearly better open-cell repair direction than the isolated
+   low-order-only or late-only paths;
+3. improves the supporting shared-evaluator branch without regressing the
+   canonical table status;
 4. proves that the current harmonic-wise branch is no longer runtime-limited,
    which would justify escalating to a target-parameterization change instead
    of only running more light tuning campaigns.

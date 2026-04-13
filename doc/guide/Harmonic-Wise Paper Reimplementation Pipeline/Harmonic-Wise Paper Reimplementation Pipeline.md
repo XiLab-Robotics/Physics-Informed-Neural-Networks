@@ -81,6 +81,22 @@ The repository now keeps two comparison tracks:
 
 This guide is only about `Track 1`.
 
+## Track 1 Completion Rule
+
+The canonical `Track 1` completion rule is not a single campaign winner.
+
+`Track 1` closes only when the repository reproduces the paper-facing cells in
+Tables `3`, `4`, `5`, and `6` with inspectable per-target and per-harmonic
+status.
+
+That means:
+
+- the primary `Track 1` readout is the exact-paper table-replication report;
+- the harmonic-wise TE-curve evaluator is still useful, but only as support
+  evidence;
+- a lower TE-level percentage error alone does not mean that `Track 1` is
+  closed.
+
 ## End-To-End Flow
 
 ![Harmonic-wise pipeline conceptual flow](assets/harmonic_wise_pipeline_flow_diagram.svg)
@@ -238,8 +254,8 @@ The main metrics are:
 - `RMSE`
 - mean percentage error
 
-The mean percentage error over the full TE curve is the key paper-comparable
-metric for the current offline phase.
+The mean percentage error over the full TE curve is now a supporting
+paper-comparable metric for the offline phase.
 
 The first repository-owned baseline established that protocol and produced:
 
@@ -251,6 +267,9 @@ The current offline paper target is:
 - `<= 4.7%`
 
 So the comparison protocol now exists, but `Target A` is not closed yet.
+
+More importantly, `Track 1` itself is still open until the canonical
+exact-paper report closes the remaining cells in Tables `3-6`.
 
 ## Why The First Baseline Still Matters
 
@@ -306,6 +325,7 @@ The canonical comparison reports that summarize the branch are:
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
+- `doc/reports/analysis/validation_checks/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 
 ## Practical Reading Map
 
@@ -333,6 +353,10 @@ That is exactly why it matters.
 
 It gives the repository a paper-faithful offline benchmark path instead of
 only a direct-TE leaderboard.
+
+The important operational nuance is that the harmonic-wise support branch and
+the exact-paper table-replication branch must not be collapsed into one
+winner-centric story. For `Track 1`, the table-replication branch is primary.
 
 ## Related Reading
 

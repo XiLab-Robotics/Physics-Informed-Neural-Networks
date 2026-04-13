@@ -105,6 +105,14 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-13
 
+- [technical/2026-04/2026-04-13/2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md](./technical/2026-04/2026-04-13/2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md)
+  Technical document for aligning future `Track 1` report-generation and
+  summary templates with canonical paper-table closure language instead of the
+  old winner-centric harmonic-wise framing.
+- [technical/2026-04/2026-04-13/2026-04-13-20-09-32_track1_objective_redefinition_to_paper_table_replication.md](./technical/2026-04/2026-04-13/2026-04-13-20-09-32_track1_objective_redefinition_to_paper_table_replication.md)
+  Technical document for promoting the paper-table cell closure criterion to
+  the canonical `Track 1` objective and for aligning future plans, analyses,
+  and results reports with per-target and per-harmonic status.
 - [technical/2026-04/2026-04-13/2026-04-13-15-22-14_github_quality_check_markdown_md012_fix.md](./technical/2026-04/2026-04-13/2026-04-13-15-22-14_github_quality_check_markdown_md012_fix.md)
   Technical document for the narrow GitHub quality-check repair focused on
   `MD012/no-multiple-blanks` failures in harmonic-wise validation Markdown

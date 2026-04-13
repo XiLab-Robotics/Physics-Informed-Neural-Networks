@@ -5,22 +5,29 @@
 This report prepares the next `Track 1` overnight campaign package after the
 canonical table-replication milestone.
 
-The goal is no longer generic offline improvement. The goal is to close the
-remaining gaps against paper Tables `3`, `4`, `5`, and `6` while still
-improving the TE-level shared offline evaluator used for `Target A`.
+The goal is no longer generic offline improvement and it is no longer the
+search for a single promoted campaign winner.
 
-The current baseline to beat remains:
+The canonical goal is to close the remaining open cells against paper Tables
+`3`, `4`, `5`, and `6`.
+
+The TE-level shared offline evaluator used for `Target A` remains a supporting
+diagnostic branch, not the primary `Track 1` closure criterion.
+
+The current supporting harmonic-wise baseline remains:
 
 - run: `track1_current_best_shared_evaluator_reference`;
 - test mean percentage error: `8.877%`;
 - paper offline threshold: `4.7%`.
 
-The current exact-paper table status is:
+The current canonical exact-paper table status is:
 
-- Table `3` amplitude `RMSE`: `6/10` harmonics already meet or beat the paper;
+- Table `3` amplitude `RMSE`: `5/10` harmonics already meet or beat the paper;
 - Table `4` phase `MAE`: `5/9` harmonics already meet or beat the paper;
 - Table `5` phase `RMSE`: `4/9` harmonics already meet or beat the paper;
-- Table `6` target-level family match: `7/20`.
+- target-level expected-family direction: `11/20`;
+- harmonic-level Table `6` closure: `0/10` fully matched, `7/10` partially
+  matched, `3/10` not yet matched.
 
 The highest-priority open harmonics remain:
 
@@ -46,7 +53,7 @@ This overnight package should answer four concrete questions:
 
 ## Current Gap Snapshot
 
-### TE-Level Gap
+### Supporting TE-Level Gap
 
 - best shared-evaluator test MPE: `8.877%`
 - paper threshold: `4.7%`
@@ -184,7 +191,14 @@ If the night budget is shorter, use this reduced package:
 
 Every run in the overnight package should be scored on two levels.
 
-### Primary Winner Gate
+### Primary Track 1 Gate
+
+- canonical paper-table progress on Tables `3`, `4`, `5`, and `6`;
+- number of newly closed cells on the highest-priority open harmonics;
+- whether the tested branch improves the expected-family direction where the
+  paper explicitly constrains the model choice.
+
+### Secondary Support Gate
 
 - shared offline evaluator `test_mean_percentage_error_pct`
 - tie breakers:
@@ -198,18 +212,19 @@ Every run in the overnight package should be scored on two levels.
 - improvement on harmonics `0`, `1`, `3`, `81`, `162`, `240`
 - change in robot and cycloidal playback summaries
 
-This keeps `Target A` as the main gate while preventing a run from looking good
-only because it shifts error away from the paper-critical harmonics.
+This prevents a run from looking successful only because it improves one
+aggregated TE number while leaving the paper-critical cells still open.
 
 ## Success Criteria
 
 The overnight package is successful if it produces at least one of these
 outcomes:
 
-1. a new shared-evaluator winner that improves materially over `8.877%`;
-2. a run that closes at least two additional open harmonic targets in the
+1. a run that closes at least two additional open harmonic targets in the
    canonical Tables `3-5`;
-3. a clearer family-selection pattern for the open Table `6` harmonics;
+2. a clearer family-selection pattern for the open Table `6` harmonics;
+3. a materially stronger supporting TE result than `8.877%` without degrading
+   the canonical table status;
 4. a narrower next-step decision about whether `Track 1` now needs:
    - more harmonic-wise tuning inside the current coefficient-based pipeline; or
    - a new implementation step for direct `amplitude / phase` training under

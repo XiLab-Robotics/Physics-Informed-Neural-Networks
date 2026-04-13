@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-13T16:24:51`
+- Generated At: `2026-04-13T20:25:23`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
@@ -158,19 +158,27 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Offline prediction metric protocol | Mean percentage error over full TE curves | Best completed `Track 1` harmonic-wise result now reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | not_yet_met |
+| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/10` harmonics fully closed, `7/10` partially closed, `3/10` still open | not_yet_met |
+| Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
 
-### Latest Harmonic-Wise Validation
+### Track 1 Canonical Status
 
-- Latest promoted harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-15-11-49__track1_hgbm_h01_wide_depth_2_campaign_run/validation_summary.yaml`
-- Winning companion report: `doc/reports/analysis/validation_checks/2026-04-13-15-12-35_paper_reimplementation_rcim_harmonic_wise_track1_hgbm_h01_wide_depth_2_campaign_run_harmonic_wise_comparison_report.md`
-- Latest campaign results report: `doc/reports/campaign_results/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
-- Harmonic-wise test mean percentage error: `8.707%`
-- Harmonic-wise validation mean percentage error: `9.830%`
-- `Target A` status from the promoted harmonic-wise run: `not_yet_met`
+- Latest exact-paper validation summary: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-12-16-59-55__rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6/validation_summary.yaml`
+- Table `3` amplitude `RMSE`: `0/10` harmonics at or below the paper target
+- Table `4` phase `MAE`: `0/9` harmonics at or below the paper target
+- Table `5` phase `RMSE`: `0/9` harmonics at or below the paper target
+- Target-level expected-family direction: `11/20`
+- Harmonic-level Table `6` closure: `0/10` fully matched, `7/10` partially matched, `3/10` still open
+- Highest-priority open harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
+
+### Latest Harmonic-Wise Validation Support
+
+- Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-16-00-30__track1_rf_h039_h162240_bridge_control_campaign_run/validation_summary.yaml`
+- Harmonic-wise test mean percentage error: `11.212%`
+- `Target A` status from the latest harmonic-wise run: `not_yet_met`
 
 ### Online Compensation Tracking Placeholder
 
@@ -180,7 +188,8 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- Offline benchmark scope remains `partially comparable` rather than like-for-like, but the current promoted `Track 1` result has improved to `8.707%`.
+- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
+- Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
 - End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.

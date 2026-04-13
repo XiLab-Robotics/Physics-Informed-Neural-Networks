@@ -36,12 +36,18 @@ The campaign had four practical questions:
 Outcome:
 
 - the batch completed successfully with `48/48` runs and no observed launcher failures;
-- the campaign winner is `track1_hgbm_h01_wide_depth_2`;
 - the best test mean percentage error improved from the previous repository best `8.774%` to `8.707%`;
-- the improvement is real but still small, so `Target A` remains `not_yet_met` against the paper threshold `4.7%`;
+- the improvement is real but still small, so the support branch for `Target A` remains `not_yet_met` against the paper threshold `4.7%`;
 - the strongest alternatives are still `HGBM`, especially the bridge joint and late-repair blocks;
 - the heavy low-order escalation did not beat the lighter wide winner, which means extra budget alone is not enough;
 - engineered-term and `RandomForest` controls remained clearly non-promotable in this branch.
+
+Primary `Track 1` interpretation:
+
+- this campaign does not close `Track 1` by campaign-local winner selection;
+- its value is to prioritize the next exact-paper table-repair actions;
+- the canonical `Track 1` closure state must still be read from the exact-paper
+  Tables `3-6` comparison report.
 
 ## Ranking Policy
 
@@ -135,7 +141,7 @@ This policy is serialized under:
 | `F` | `track1_rf_h01_h81_engineered_control` | 10.982 | RandomForest remained non-competitive even under the broader and heavier campaign budget. |
 <!-- markdownlint-enable MD013 -->
 
-## Campaign Winner
+## Support-Branch Winner
 
 The explicit campaign winner is:
 
@@ -153,9 +159,25 @@ Its result was:
 - Target A threshold: `4.7%`
 - Target A status: `not_yet_met`
 
-This run won because it is the lowest-error completed candidate under the
-shared offline evaluator, and it beat both the previous repository best and
-the strongest bridge-joint alternative.
+This run is useful as support evidence because it is the lowest-error completed
+candidate under the shared offline evaluator, but it is not the canonical
+`Track 1` closure signal.
+
+## Primary Track 1 Readout
+
+For `Track 1`, the relevant readout from this campaign is which repair
+directions should now be prioritized against the still-open paper-table cells.
+
+The main conclusions are:
+
+- low-order `h0 / h1` support remains the strongest direction for the open
+  low-order cells;
+- joint low-order plus `162/240` coupling is the strongest secondary repair
+  direction and should remain in scope for the next exact-paper repair pass;
+- isolated late-harmonic repair remains useful but is weaker than the best
+  coupled branch;
+- engineered terms and `RandomForest` still do not deserve primary runtime
+  budget in the next `Track 1` repair cycle.
 
 ## Interpretation By Experiment Block
 
@@ -224,19 +246,22 @@ Interpretation:
 
 ## Recommended Next Step
 
-The batch improved the shared evaluator, but the gain is still incremental.
+The batch improved the supporting harmonic-wise evaluator, but the gain is
+still incremental and does not change the canonical `Track 1` closure status
+by itself.
 
 The most defensible next step is:
 
-1. promote `track1_hgbm_h01_wide_depth_2` as the new shared-evaluator reference;
+1. keep `track1_hgbm_h01_wide_depth_2` only as the current best support-branch reference;
 2. keep `track1_hgbm_h01_h162240_joint_balanced` as the strongest bridge-joint companion;
 3. keep `track1_hgbm_h81156162240_cluster` as the strongest late-repair companion;
-4. design the next `Track 1` iteration around a combined low-order plus
+4. design the next exact-paper repair cycle around a combined low-order plus
    late-harmonic coupling path instead of another broad engineered or `RF`
    retry;
-5. if this stronger coupling path still stalls near `8.7%`, move the next
-   research step to a new target-parameterization implementation rather than
-   only adding more budget to the current coefficient path.
+5. if this stronger coupling path still stalls after the next exact-paper
+   rerun, move the next research step to a new target-parameterization
+   implementation rather than only adding more budget to the current
+   coefficient path.
 
 ## Artifact References
 

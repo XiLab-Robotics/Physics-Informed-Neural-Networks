@@ -1,5 +1,13 @@
 # 2026-04-13 Technical Documents
 
+- [2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md](./2026-04-13-20-21-12_track1_reporting_template_alignment_to_paper_table_closure.md)
+  Technical document for aligning future `Track 1` report-generation and
+  summary templates with canonical paper-table closure language instead of the
+  old winner-centric harmonic-wise framing.
+- [2026-04-13-20-09-32_track1_objective_redefinition_to_paper_table_replication.md](./2026-04-13-20-09-32_track1_objective_redefinition_to_paper_table_replication.md)
+  Technical document for redefining `Track 1` around canonical RCIM
+  paper-table replication, replacing the recent winner-centric
+  shared-evaluator framing with per-cell and per-harmonic closure status.
 - [2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_preparation.md](./2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_preparation.md)
   Technical document for preparing the next `Track 1` overnight gap-closure
   campaign portfolio after the canonical paper-table replication milestone.

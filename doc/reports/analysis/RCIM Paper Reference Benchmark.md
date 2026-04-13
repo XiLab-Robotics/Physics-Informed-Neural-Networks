@@ -191,6 +191,28 @@ tables should explicitly label each entry as either:
 - `paper-faithful harmonic-wise`
 - `result-level comparable direct-TE`
 
+### Canonical Track 1 Closure Rule
+
+For `Track 1`, the primary closure criterion is no longer the best campaign
+winner under the shared offline evaluator.
+
+The canonical `Track 1` closure rule is now:
+
+- reproduce the paper-facing cells in Tables `3`, `4`, `5`, and `6`;
+- track status per harmonic target:
+  - `A_k` RMSE;
+  - `phi_k` MAE;
+  - `phi_k` RMSE;
+- track harmonic-level closure from Table `6`;
+- treat the harmonic-wise TE-curve evaluator only as supporting evidence.
+
+Repository consequence:
+
+- a harmonic-wise campaign winner may still be useful diagnostically;
+- however, it does not close `Track 1` by itself;
+- `Track 1` closes only when the canonical exact-paper table comparison shows
+  the required paper-table cells as matched.
+
 ### What Is Not Yet Comparable
 
 - The repository now has a repository-owned harmonic-wise offline validation
@@ -202,7 +224,42 @@ tables should explicitly label each entry as either:
 - Therefore, the repository cannot yet claim a real comparison against the
   paper's `Table 9`.
 
-### Latest Harmonic-Wise Offline Result
+### Primary Track 1 Status: Exact-Paper Table Replication
+
+The primary `Track 1` status must now be read from the canonical exact-paper
+table-replication report:
+
+- `doc/reports/analysis/validation_checks/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
+
+Current exact-paper table-replication status from that canonical report:
+
+- Table `3` amplitude `RMSE`: `5/10` harmonics currently meet or beat the
+  paper target;
+- Table `4` phase `MAE`: `5/9` harmonics currently meet or beat the paper
+  target;
+- Table `5` phase `RMSE`: `4/9` harmonics currently meet or beat the paper
+  target;
+- target-level expected-family direction: `11/20` targets currently match the
+  paper family direction;
+- harmonic-level Table `6` closure: `0/10` fully matched, `7/10` partially
+  matched, `3/10` not yet matched.
+
+The highest-priority still-open harmonics remain:
+
+- `0`
+- `1`
+- `3`
+- `81`
+- `162`
+- `240`
+
+Important interpretation:
+
+- this exact-paper table status is the canonical `Track 1` status;
+- a harmonic-wise campaign result can inform which open cells to repair next;
+- but it does not replace the table-level closure rule.
+
+### Supporting Harmonic-Wise Offline Result
 
 The latest completed repository-owned harmonic-wise campaign is:
 
@@ -254,35 +311,13 @@ with:
 - `200` exported ONNX files
 - `0` failed exports
 
-The exact branch now also has a canonical repository-owned `paper vs
-repository` table replication report for paper Tables `3`, `4`, `5`, and `6`:
-
-- `doc/reports/analysis/validation_checks/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
-
-That report serializes:
-
-- the numeric paper targets from Table `3` (`A_k` RMSE);
-- the numeric paper targets from Table `4` (`phi_k` MAE);
-- the numeric paper targets from Table `5` (`phi_k` RMSE);
-- the selected paper families from Table `6`;
-- the current repository best values and explicit gaps versus those targets.
-
-Current exact-paper table-replication status from that canonical report:
-
-- `5/9` phase-`MAE` targets already meet or beat the paper table values;
-- `9/10` `RMSE` targets already meet or beat the paper values when combining
-  amplitude and phase rows;
-- `7/20` target-level Table `6` family selections currently match exactly;
-- harmonic-level status is still `0/10` fully matched, `7/10` partially
-  matched, and `3/10` not yet matched.
-
 Important scope boundary:
 
 - this exact branch validates recovered-family fitting and per-target ONNX
   export stability;
-- it does not replace the harmonic-wise TE-curve benchmark used for `Target A`;
-- the current paper-threshold offline status therefore remains anchored to the
-  harmonic-wise branch, not to the exact-bank component metric.
+- it is the canonical closure source for `Track 1` table replication;
+- the harmonic-wise TE-curve benchmark remains a supporting diagnostic branch
+  for `Target A`, not the primary `Track 1` completion gate.
 
 What the second iteration established:
 
@@ -310,14 +345,15 @@ What the extended overnight campaign added:
 Immediate next repository step:
 
 - keep the full RCIM harmonic set as the mainline `Track 1` target;
-- start the next harmonic-wise iteration around a combined low-order plus
-  late-harmonic coupling path, beginning from:
+- use the exact-paper report to define the open-cell repair queue first;
+- use the harmonic-wise branch only to support that repair queue, especially
+  around:
   - `track1_hgbm_h01_wide_depth_2`;
   - `track1_hgbm_h01_h162240_joint_balanced`;
   - `track1_hgbm_h81156162240_cluster`;
-- if that stronger coupling direction still stalls near `8.7%`, move the next
-  research step to a new target-parameterization implementation rather than
-  another heavy-budget, `RF`, or engineered-feature retry.
+- if the next exact-paper rerun still leaves the same cells open, move the
+  next research step to a new target-parameterization implementation rather
+  than another winner-centric tuning cycle.
 
 Important interpretation:
 
@@ -334,7 +370,8 @@ Important interpretation:
 | Comparison Axis | Current Repository Status | Verdict |
 | --- | --- | --- |
 | Offline winner family direction | Tree winner (`hist_gradient_boosting`) | aligned |
-| Offline metric protocol | Harmonic-wise held-out mean percentage error now available: `8.707%`; exact-bank structural export branch also completed successfully | comparable_but_not_yet_matching |
+| Track 1 table replication | Tables `3-6` now serialized canonically; `0/10` harmonics fully closed and `7/10` partially closed | comparable_but_not_yet_matching |
+| Supporting harmonic-wise TE metric | Held-out mean percentage error now available at `8.707%`, still above the paper threshold `4.7%` | supporting_only_not_yet_matching |
 | Online compensation benchmark | missing | not yet comparable |
 | End-to-end paper replication | missing | not yet comparable |
 <!-- markdownlint-enable MD013 -->
