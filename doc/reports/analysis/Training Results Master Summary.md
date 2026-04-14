@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-13T23:03:59`
+- Generated At: `2026-04-14T14:35:29`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
 - Active Campaign Status: `finished`
-- Active Campaign Name: `track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53`
+- Active Campaign Name: `track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -39,59 +39,11 @@
 | Wave Or Track | Status |
 | --- | --- |
 | Wave 0. Shared Infrastructure | completed |
-
-Low-priority exploratory families currently listed in the backlog:
-
-- `Lightweight Transformer`
-- `State-Space Sequence Model`
-- `Neural ODE`
-- `Hamiltonian-Inspired Model`
-- `optional Kernel Ridge / Gaussian Process benchmark`
 | Wave 1. Structured Static Baselines | planning report: completed; implementation: completed; smoke-tests: completed; validation checks: completed; campaign execution: completed; results report: completed |
-
-Low-priority exploratory families currently listed in the backlog:
-
-- `Lightweight Transformer`
-- `State-Space Sequence Model`
-- `Neural ODE`
-- `Hamiltonian-Inspired Model`
-- `optional Kernel Ridge / Gaussian Process benchmark`
 | Wave 2. Temporal Models | planned after the harmonic-wise intermediate branch; temporal-model scope will start only after the harmonic-wise comparison |
-
-Low-priority exploratory families currently listed in the backlog:
-
-- `Lightweight Transformer`
-- `State-Space Sequence Model`
-- `Neural ODE`
-- `Hamiltonian-Inspired Model`
-- `optional Kernel Ridge / Gaussian Process benchmark`
-| Intermediate Branch. Harmonic-Wise Comparison Pipeline | current primary implementation branch; focused scope:; implement harmonic-wise prediction of `A_k` and `phi_k`; implement TE reconstruction from the predicted harmonic terms; add offline `Robot` and `Cycloidal` motion-profile playback; define comparable offline validation scenarios and TE-curve error metrics; close `Target A`; initial repository-owned offline pipeline script should live under; validation artifacts for this branch should live under |
-
-Low-priority exploratory families currently listed in the backlog:
-
-- `Lightweight Transformer`
-- `State-Space Sequence Model`
-- `Neural ODE`
-- `Hamiltonian-Inspired Model`
-- `optional Kernel Ridge / Gaussian Process benchmark`
+| Intermediate Branch. Harmonic-Wise Comparison Pipeline | current primary implementation branch; focused scope: implement harmonic-wise prediction of `A_k` and `phi_k`; implement TE reconstruction from the predicted harmonic terms; add offline `Robot` and `Cycloidal` motion-profile playback; define comparable offline validation scenarios and TE-curve error metrics; close `Target A` |
 | Wave 3. Hybrid Structured Models | pending; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack; prepare the repository-owned deployable predictor package |
-
-Low-priority exploratory families currently listed in the backlog:
-
-- `Lightweight Transformer`
-- `State-Space Sequence Model`
-- `Neural ODE`
-- `Hamiltonian-Inspired Model`
-- `optional Kernel Ridge / Gaussian Process benchmark`
 | Wave 4. PINN Formulation And First PINN | pending; paper-reproduction scope:; implement the repository-side compensation-loop evaluation path in the; implement uncompensated vs compensated `TE RMS` / `TE max` measurements; prepare the final online benchmark harness |
-
-Low-priority exploratory families currently listed in the backlog:
-
-- `Lightweight Transformer`
-- `State-Space Sequence Model`
-- `Neural ODE`
-- `Hamiltonian-Inspired Model`
-- `optional Kernel Ridge / Gaussian Process benchmark`
 | Wave 5. Cross-Wave Comparison And Best Solution | pending; paper-reproduction scope:; execute Table 9 style online compensation tests; evaluate `Target B`; finalize the real `paper vs repository` comparison with online results |
 
 Low-priority exploratory families currently listed in the backlog:
@@ -106,6 +58,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51` | `2026-04-14 14:35:29` | 20 | 0 | `track1_rf_phase_full_matrix` | Full paper-matrix row-reproduction surface prepared; no family-best registry change |
 | `track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03` | `2026-04-09 21:06:13` | 8 | 0 | `te_harmonic_wise_full_rcim_no_engineering_reference` | No family-best change |
 | `targeted_remote_followup_campaign_2026_04_04_11_21_09` | `2026-04-04 13:03:55` | 5 | 0 | `te_hist_gbr_remote_refined` | No family-best change |
 | `remote_training_validation_campaign_2026_04_03_17_54_21` | `2026-04-03 22:30:26` | 4 | 1 | `te_hist_gbr_remote_deep` | No family-best change |
@@ -158,7 +111,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/10` harmonics fully closed, `8/10` partially closed, `2/10` still open | not_yet_met |
+| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target, per harmonic, and now per family row | Full-matrix campaign completed with `11/100` green amplitude cells, `16/90` green phase-MAE cells, and `16/90` green phase-RMSE cells; `Track 1` still open | not_yet_met |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -166,13 +119,13 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper validation summary: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run/validation_summary.yaml`
-- Table `3` amplitude `RMSE`: `5/10` harmonics at or below the paper target
-- Table `4` phase `MAE`: `5/9` harmonics at or below the paper target
-- Table `5` phase `RMSE`: `4/9` harmonics at or below the paper target
-- Target-level expected-family direction: `8/19`
-- Harmonic-level Table `6` closure: `0/10` fully matched, `8/10` partially matched, `2/10` still open
-- Highest-priority open harmonics: `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
+- Latest exact-paper full-matrix campaign report: `doc/reports/campaign_results/2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report.md`
+- Full paper-matrix row package status: `20/20` family-row runs completed
+- Table `3` amplitude `RMSE` full matrix: `11` green, `27` yellow, `62` red cells
+- Table `4` phase `MAE` full matrix: `16` green, `28` yellow, `46` red cells
+- Table `5` phase `RMSE` full matrix: `16` green, `22` yellow, `52` red cells
+- Strongest current rows: `track1_rf_phase_full_matrix`, `track1_ert_amplitude_full_matrix`, `track1_hgbm_amplitude_full_matrix`
+- `Track 1` verdict: full-matrix replication surface now exists, but the paper rows are not yet fully reproduced
 
 ### Latest Harmonic-Wise Validation Support
 

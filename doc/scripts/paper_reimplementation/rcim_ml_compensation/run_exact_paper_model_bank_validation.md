@@ -18,7 +18,8 @@ It performs these stages:
 
 1. load the recovered exact-paper dataframe;
 2. keep the exact paper input schema `rpm`, `deg`, `tor`;
-3. select the `20` recovered `ampl_k` and `phase_k` targets;
+3. select the recovered `ampl_k` and `phase_k` targets, optionally filtered
+   through the YAML `target_scope` section;
 4. split with `test_size = 0.20` and `random_state = 0`;
 5. fit the exact paper family bank through `MultiOutputRegressor`;
 6. evaluate family-level aggregate metrics and per-target metrics;
@@ -46,6 +47,8 @@ Provides:
 - the recovered dataframe path;
 - the recovered exact ONNX reference root;
 - the enabled exact paper family set;
+- the optional `target_scope` split for `all`, `amplitudes_only`, or
+  `phases_only` runs;
 - deterministic split settings;
 - ONNX export settings, including `strict` versus `continue` failure behavior
   and the empty-`SVR` constant-surrogate safeguard.
@@ -85,6 +88,12 @@ Use this script when:
   the final paper winner assembly;
 - the generated ONNX bank must be compared against the recovered exact ONNX
   release.
+
+Prepared campaign note:
+
+- the `Track 1` family-reproduction campaign uses the same script with
+  `target_scope.mode = amplitudes_only` or `phases_only` so one completed run
+  maps cleanly onto one paper-family row.
 
 Operational note:
 

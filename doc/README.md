@@ -132,9 +132,27 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-14
 
+- [technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md)
+  Technical document for extending the exact-paper workflow and preparing a
+  family-by-family `Track 1` full-matrix reproduction campaign across
+  amplitudes and phases.
+- [technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md)
+  Technical document for correcting the `Track 1` dashboard toward full
+  paper-matrix replication, with Tables `3-5` reproduced model-by-model and
+  harmonic-by-harmonic instead of only best-per-harmonic summaries.
+- [technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md)
+  Technical document for promoting `RCIM Paper Reference Benchmark.md` into
+  the canonical always-updated `Track 1` dashboard for paper Tables `2-6`,
+  including repository-owned paper-table reconstructions and color-coded
+  repository comparison tables.
 - [technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md)
   Technical document for rebalancing the two `Campaign Ranking` tables in the
   `Track 1` exact-paper open-cell repair campaign-results PDF.
+- [technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md)
+  Technical document for introducing table-specific PDF width rules for the
+  `Ranked Completed Runs` and `Campaign-Wide Cell Totals` tables in the
+  `Track 1` full-matrix campaign results report without changing the generic
+  table profile.
 
 #### 2026-04-11
 
@@ -779,6 +797,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Plans
 
+- [reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md](./reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md)
+  Planning report for the next umbrella `Track 1` campaign package, organized
+  as family-by-family amplitude and phase reproduction runs for the full
+  paper-matrix objective.
 - [reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md](./reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md)
   Planning report for the next `Track 1` exact-paper open-cell repair
   campaign, centered on the still-open cells and harmonic states in canonical

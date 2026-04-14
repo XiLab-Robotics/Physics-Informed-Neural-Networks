@@ -235,6 +235,17 @@ def format_exact_paper_metric_value(metric_value: float | None) -> str:
     return f"{float(metric_value):.3f}"
 
 
+def format_exact_paper_report_value(metric_value: Any) -> str:
+
+    """Format one optional report cell for partial-scope validation tables."""
+
+    if metric_value in [None, ""]:
+        return "-"
+    if isinstance(metric_value, str):
+        return f"`{metric_value}`"
+    return format_exact_paper_metric_value(float(metric_value))
+
+
 def resolve_exact_paper_table_metric_map(target_kind: str, metric_name: str) -> dict[str, dict[int, float]]:
 
     """Resolve the canonical paper table metric map for one target kind."""
@@ -536,6 +547,35 @@ def resolve_paper_input_feature_name_list(training_config: dict[str, Any]) -> li
     return input_feature_name_list
 
 
+def resolve_exact_target_scope(training_config: dict[str, Any]) -> dict[str, Any]:
+
+    """Resolve the configured target-scope controls for one exact-paper run."""
+
+    # Read Optional Target-Scope Configuration
+    target_scope_dictionary = training_config.get("target_scope", {})
+    if not isinstance(target_scope_dictionary, dict):
+        target_scope_dictionary = {}
+
+    scope_mode = str(target_scope_dictionary.get("mode", "all")).strip().lower()
+    assert scope_mode in ["all", "amplitudes_only", "phases_only"], (
+        "Unsupported exact target scope mode | "
+        f"{scope_mode}"
+    )
+
+    include_phase_zero = bool(target_scope_dictionary.get("include_phase_zero", True))
+    harmonic_order_filter = target_scope_dictionary.get("harmonic_order_filter", [])
+    assert isinstance(harmonic_order_filter, list), (
+        "Exact target harmonic_order_filter must be a list when provided"
+    )
+    resolved_harmonic_order_filter = sorted({int(harmonic_order) for harmonic_order in harmonic_order_filter})
+
+    return {
+        "mode": scope_mode,
+        "include_phase_zero": include_phase_zero,
+        "harmonic_order_filter": resolved_harmonic_order_filter,
+    }
+
+
 def load_exact_paper_dataframe(training_config: dict[str, Any]) -> pd.DataFrame:
 
     """Load the recovered paper dataframe with the configured CSV settings."""
@@ -565,22 +605,50 @@ def load_exact_paper_dataframe(training_config: dict[str, Any]) -> pd.DataFrame:
     return filtered_dataframe
 
 
-def resolve_target_name_list(dataframe: pd.DataFrame) -> list[str]:
+def resolve_target_name_list(
+    dataframe: pd.DataFrame,
+    training_config: dict[str, Any],
+) -> list[str]:
 
     """Resolve the ordered exact paper target list from the dataframe."""
 
-    # Collect Harmonic Targets In Dataframe Order
-    target_name_list = [
+    # Collect Full Harmonic Target Surface In Dataframe Order
+    full_target_name_list = [
         column_name
         for column_name in dataframe.columns
         if ("ampl" in column_name) or ("phase" in column_name)
     ]
 
-    # Validate Harmonic Target Count
-    assert len(target_name_list) == 20, (
+    # Validate Full Harmonic Target Count
+    assert len(full_target_name_list) == 20, (
         "Exact paper dataframe must expose 20 harmonic targets | "
-        f"found {len(target_name_list)}"
+        f"found {len(full_target_name_list)}"
     )
+
+    # Apply Configured Target-Scope Filtering
+    target_scope = resolve_exact_target_scope(training_config)
+    target_name_list: list[str] = []
+    for target_name in full_target_name_list:
+        target_kind, harmonic_order = parse_exact_target_name(target_name)
+
+        if target_scope["mode"] == "amplitudes_only" and target_kind != "ampl":
+            continue
+        if target_scope["mode"] == "phases_only" and target_kind != "phase":
+            continue
+        if (
+            target_kind == "phase"
+            and harmonic_order == 0
+            and not bool(target_scope["include_phase_zero"])
+        ):
+            continue
+        if (
+            target_scope["harmonic_order_filter"]
+            and harmonic_order not in target_scope["harmonic_order_filter"]
+        ):
+            continue
+        target_name_list.append(target_name)
+
+    assert target_name_list, "Configured exact target scope produced an empty target list"
     return target_name_list
 
 
@@ -591,7 +659,7 @@ def build_exact_paper_dataset_bundle(training_config: dict[str, Any]) -> ExactPa
     # Load The Recovered Dataframe
     dataframe = load_exact_paper_dataframe(training_config)
     feature_name_list = resolve_paper_input_feature_name_list(training_config)
-    target_name_list = resolve_target_name_list(dataframe)
+    target_name_list = resolve_target_name_list(dataframe, training_config)
 
     # Prepare Train/Test Split
     test_size = float(training_config["training"]["test_size"])
@@ -1281,6 +1349,15 @@ def build_exact_model_validation_summary(
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     run_artifact_identity = shared_training_infrastructure.resolve_run_artifact_identity(training_config)
     winner_family_summary = family_summary_list[0]
+    target_scope = resolve_exact_target_scope(training_config)
+    harmonic_order_list = sorted({
+        parse_exact_target_name(target_name)[1]
+        for target_name in dataset_bundle.target_name_list
+    })
+    target_kind_list = sorted({
+        parse_exact_target_name(target_name)[0]
+        for target_name in dataset_bundle.target_name_list
+    })
 
     # Build One Inspectable Target-Winner Registry
     target_winner_list: list[dict[str, Any]] = []
@@ -1331,12 +1408,19 @@ def build_exact_model_validation_summary(
         },
         "paper_alignment": {
             "input_feature_schema": ["rpm", "deg", "tor"],
-            "target_schema_kind": "ampl_phase_exact_paper",
-            "harmonic_order_list": [0, 1, 3, 39, 40, 78, 81, 156, 162, 240],
+            "target_schema_kind": "_".join(target_kind_list) + "_exact_paper",
+            "target_scope_mode": target_scope["mode"],
+            "include_phase_zero": bool(target_scope["include_phase_zero"]),
+            "harmonic_order_list": harmonic_order_list,
+            "harmonic_order_filter": target_scope["harmonic_order_filter"],
             "enabled_family_list": resolve_enabled_family_list(training_config),
             "recovered_reference_onnx_root": training_config["paths"].get("exact_onnx_reference_root", ""),
             "harmonic_expected_family_map": EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP,
-            "paper_table_replication_scope": "tables_3_4_5_6_numeric_targets_serialized",
+            "paper_table_replication_scope": (
+                "tables_3_4_5_6_numeric_targets_serialized"
+                if target_scope["mode"] == "all"
+                else f"{target_scope['mode']}_partial_table_replication"
+            ),
         },
         "dependency_versions": resolve_dependency_version_dictionary(),
         "winner_summary": {
@@ -1404,6 +1488,8 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         str(entry["target_name"]): entry
         for entry in paper_numeric_target_comparison_registry
     }
+    target_scope_mode = str(paper_alignment_dictionary.get("target_scope_mode", "all"))
+    include_phase_zero = bool(paper_alignment_dictionary.get("include_phase_zero", True))
 
     # Build Family Ranking Rows
     family_row_list: list[str] = []
@@ -1465,13 +1551,13 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     table3_status_row = []
     for harmonic_order in EXACT_PAPER_TABLE3_HARMONIC_ORDER_LIST:
         target_name = f"fft_y_Fw_filtered_ampl_{harmonic_order}"
-        numeric_entry = numeric_target_lookup[target_name]
-        table3_repo_family_row.append(f"`{numeric_entry['repository_best_rmse_family']}`")
-        table3_repo_rmse_row.append(format_exact_paper_metric_value(numeric_entry["repository_best_rmse_value"]))
-        table3_paper_best_family_row.append(f"`{numeric_entry['paper_best_rmse_family']}`")
-        table3_paper_target_row.append(format_exact_paper_metric_value(numeric_entry["paper_best_rmse_value"]))
-        table3_gap_row.append(format_exact_paper_metric_value(numeric_entry["rmse_gap_vs_paper_best"]))
-        table3_status_row.append(f"`{numeric_entry['rmse_target_status']}`")
+        numeric_entry = numeric_target_lookup.get(target_name)
+        table3_repo_family_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["repository_best_rmse_family"]))
+        table3_repo_rmse_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["repository_best_rmse_value"]))
+        table3_paper_best_family_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["paper_best_rmse_family"]))
+        table3_paper_target_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["paper_best_rmse_value"]))
+        table3_gap_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["rmse_gap_vs_paper_best"]))
+        table3_status_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["rmse_target_status"]))
 
     # Build Canonical Table 4 Comparison Rows
     table4_row_list: list[str] = []
@@ -1488,13 +1574,13 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     table4_status_row = []
     for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST:
         target_name = f"fft_y_Fw_filtered_phase_{harmonic_order}"
-        numeric_entry = numeric_target_lookup[target_name]
-        table4_repo_family_row.append(f"`{numeric_entry['repository_best_mae_family']}`")
-        table4_repo_mae_row.append(format_exact_paper_metric_value(numeric_entry["repository_best_mae_value"]))
-        table4_paper_best_family_row.append(f"`{numeric_entry['paper_best_mae_family']}`")
-        table4_paper_target_row.append(format_exact_paper_metric_value(numeric_entry["paper_best_mae_value"]))
-        table4_gap_row.append(format_exact_paper_metric_value(numeric_entry["mae_gap_vs_paper_best"]))
-        table4_status_row.append(f"`{numeric_entry['mae_target_status']}`")
+        numeric_entry = numeric_target_lookup.get(target_name)
+        table4_repo_family_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["repository_best_mae_family"]))
+        table4_repo_mae_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["repository_best_mae_value"]))
+        table4_paper_best_family_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["paper_best_mae_family"]))
+        table4_paper_target_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["paper_best_mae_value"]))
+        table4_gap_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["mae_gap_vs_paper_best"]))
+        table4_status_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["mae_target_status"]))
 
     # Build Canonical Table 5 Comparison Rows
     table5_row_list: list[str] = []
@@ -1511,13 +1597,13 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     table5_status_row = []
     for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST:
         target_name = f"fft_y_Fw_filtered_phase_{harmonic_order}"
-        numeric_entry = numeric_target_lookup[target_name]
-        table5_repo_family_row.append(f"`{numeric_entry['repository_best_rmse_family']}`")
-        table5_repo_rmse_row.append(format_exact_paper_metric_value(numeric_entry["repository_best_rmse_value"]))
-        table5_paper_best_family_row.append(f"`{numeric_entry['paper_best_rmse_family']}`")
-        table5_paper_target_row.append(format_exact_paper_metric_value(numeric_entry["paper_best_rmse_value"]))
-        table5_gap_row.append(format_exact_paper_metric_value(numeric_entry["rmse_gap_vs_paper_best"]))
-        table5_status_row.append(f"`{numeric_entry['rmse_target_status']}`")
+        numeric_entry = numeric_target_lookup.get(target_name)
+        table5_repo_family_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["repository_best_rmse_family"]))
+        table5_repo_rmse_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["repository_best_rmse_value"]))
+        table5_paper_best_family_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["paper_best_rmse_family"]))
+        table5_paper_target_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["paper_best_rmse_value"]))
+        table5_gap_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["rmse_gap_vs_paper_best"]))
+        table5_status_row.append(format_exact_paper_report_value(None if numeric_entry is None else numeric_entry["rmse_target_status"]))
 
     # Build Canonical Table 6 Comparison Rows
     table6_row_list: list[str] = []
@@ -1576,12 +1662,15 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         f"- run instance id: `{experiment_dictionary['run_instance_id']}`;",
         f"- source dataframe: `{dataset_dictionary['source_dataframe_path']}`;",
         f"- enabled families: `{', '.join(paper_alignment_dictionary['enabled_family_list'])}`;",
+        f"- target scope mode: `{target_scope_mode}`;",
         "",
         "## Dataset Scope",
         "",
         f"- filtered row count: `{dataset_dictionary['filtered_row_count']}`;",
         f"- feature schema: `{', '.join(dataset_dictionary['feature_name_list'])}`;",
         f"- target count: `{dataset_dictionary['target_count']}`;",
+        f"- target schema kind: `{paper_alignment_dictionary['target_schema_kind']}`;",
+        f"- included phase `0`: `{include_phase_zero}`;",
         f"- train rows: `{dataset_dictionary['train_row_count']}`;",
         f"- test rows: `{dataset_dictionary['test_row_count']}`;",
         f"- maximum `deg` filter: `{dataset_dictionary['maximum_deg']}`;",

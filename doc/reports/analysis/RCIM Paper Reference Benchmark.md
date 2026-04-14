@@ -262,6 +262,407 @@ Important interpretation:
   at `240`, but it still closed `0` new numeric paper-target cells in Tables
   `3-5`.
 
+### Deprecated Dashboard: Best-Envelope Reading
+
+This dashboard is kept temporarily for historical continuity, but it is **not**
+the primary first-reading surface for `Track 1`.
+
+Use the full paper-matrix replication dashboard below as the canonical view for
+model-by-model and harmonic-by-harmonic replication against the paper tables.
+
+This section is now the canonical always-updated colleague-facing dashboard
+for the paper-facing `Track 1` closure effort.
+
+Maintenance rule:
+
+- update this section after every material `Track 1` progress step;
+- keep the paper-side tables stable unless a source-reading correction is
+  required;
+- refresh the repository-side tables from the latest canonical exact-paper
+  best run;
+- treat this section as open work until `Track 1` reaches full closure.
+
+Current repository evidence source for the dashboard:
+
+- best current exact-paper run:
+  `exact_open_cell_paper_family_reference`
+- run instance id:
+  `2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run`
+- detailed supporting report:
+  `doc/reports/analysis/validation_checks/2026-04-13-22-09-00_paper_reimplementation_rcim_exact_model_bank_exact_open_cell_paper_family_reference_campaign_run_exact_paper_model_bank_report.md`
+
+Status legend used below:
+
+- `🟢` target reached or beaten
+- `🟡` not reached yet, but the positive gap is within `25%` of the paper
+  target and is therefore treated as near-target / acceptable follow-up
+- `🔴` not reached and still materially open
+
+Scope note:
+
+- the paper-side tables below are repository-owned reconstructions of paper
+  Tables `2-6`;
+- the repository-side tables are analogous tracking surfaces built from the
+  current exact-paper validation outputs;
+- Table `2` is necessarily a repository inference of the paper-facing deployed
+  harmonic selection summary, because the repository needs one normalized view
+  that can be compared directly against the current `Track 1` best run.
+
+#### Table 2 - Harmonic Selection And Deployed Family Direction
+
+Paper-side repository-owned reconstruction:
+
+| Harmonic | Paper-Selected Family Direction |
+| ---: | --- |
+| `0` | `SVM` |
+| `1` | `RF / LGBM` |
+| `3` | `HGBM` |
+| `39` | `HGBM` |
+| `40` | `ERT / GBM` |
+| `78` | `HGBM / RF` |
+| `81` | `RF` |
+| `156` | `ERT / RF` |
+| `162` | `ERT` |
+| `240` | `ERT` |
+
+Repository-side analogous Track 1 table:
+
+| Harmonic | Paper Family Direction | Repo Best Amplitude Family | Repo Best Phase Family | Matching Targets | Status |
+| ---: | --- | --- | --- | ---: | --- |
+| `0` | `SVM` | `HGBM` | `ERT` | `0/2` | `🔴` |
+| `1` | `RF / LGBM` | `HGBM` | `HGBM` | `0/2` | `🔴` |
+| `3` | `HGBM` | `HGBM` | `GBM` | `1/2` | `🟡` |
+| `39` | `HGBM` | `HGBM` | `HGBM` | `2/2` | `🟢` |
+| `40` | `ERT / GBM` | `RF` | `ERT` | `1/2` | `🟡` |
+| `78` | `HGBM / RF` | `LGBM` | `RF` | `2/2` | `🟢` |
+| `81` | `RF` | `RF` | `LGBM` | `1/2` | `🟡` |
+| `156` | `ERT / RF` | `ERT` | `ERT` | `2/2` | `🟢` |
+| `162` | `ERT` | `ERT` | `ERT` | `2/2` | `🟢` |
+| `240` | `ERT` | `RF` | `ERT` | `1/2` | `🟡` |
+
+Quick read:
+
+- family-direction alignment is already strong on `39`, `78`, `156`, and
+  `162`;
+- the main family-direction blockers remain `0` and `1`;
+- `240` is now structurally closer than before, but still not numerically
+  closed.
+
+#### Table 3 - Amplitude RMSE
+
+Paper-side repository-owned reconstruction:
+
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.003300 | 7.40e-05 | 1.80e-04 | 1.80e-04 | 9.50e-05 | 3.30e-04 | 1.00e-04 | 8.80e-04 | 0.002200 | 4.70e-04 |
+| `MLP` | 0.0140 | 0.0120 | 0.0120 | 0.0100 | 0.0140 | 0.0130 | 0.0150 | 0.0130 | 0.0160 | 0.0100 |
+| `RF` | 0.004100 | 3.50e-05 | 3.00e-05 | 3.80e-05 | 3.70e-05 | 5.60e-05 | 1.50e-05 | 1.70e-04 | 2.20e-04 | 5.40e-05 |
+| `DT` | 0.004900 | 4.00e-05 | 3.30e-05 | 5.30e-05 | 4.50e-05 | 8.20e-05 | 1.80e-05 | 2.00e-04 | 1.70e-04 | 1.10e-04 |
+| `ET` | 0.004500 | 4.20e-05 | 3.50e-05 | 5.10e-05 | 4.30e-05 | 8.50e-05 | 2.70e-05 | 1.90e-04 | 3.80e-04 | 1.80e-04 |
+| `ERT` | 0.004000 | 3.70e-05 | 3.40e-05 | 4.00e-05 | 3.60e-05 | 5.70e-05 | 1.60e-05 | 1.30e-04 | 1.60e-04 | 4.20e-05 |
+| `GBM` | 0.004000 | 3.60e-05 | 3.10e-05 | 3.90e-05 | 3.90e-05 | 5.50e-05 | 1.60e-05 | 1.70e-04 | 2.20e-04 | 4.70e-05 |
+| `HGBM` | 0.003400 | 3.60e-05 | 2.50e-05 | 3.20e-05 | 3.80e-05 | 4.50e-05 | 1.60e-05 | 2.50e-04 | 5.00e-04 | 7.40e-05 |
+| `XGBM` | 0.003500 | 7.10e-05 | 1.00e-04 | 1.30e-04 | 8.70e-05 | 1.50e-04 | 6.00e-05 | 5.40e-04 | 7.50e-04 | 2.10e-04 |
+| `LGBM` | 0.003500 | 3.70e-05 | 2.60e-05 | 3.30e-05 | 3.80e-05 | 4.60e-05 | 1.60e-05 | 2.20e-04 | 4.70e-04 | 6.20e-05 |
+
+Repository-side analogous Track 1 table:
+
+| Harmonic | Paper Best Family | Paper Target RMSE | Repo Best Family | Repo Best RMSE | Gap Vs Paper | Status |
+| ---: | --- | ---: | --- | ---: | ---: | --- |
+| `0` | `SVM` | 0.003300 | `HGBM` | 0.003699 | 3.99e-04 | `🟡` |
+| `1` | `RF` | 3.50e-05 | `HGBM` | 3.52e-05 | 1.76e-07 | `🟢` |
+| `3` | `HGBM` | 2.50e-05 | `HGBM` | 2.57e-05 | 7.42e-07 | `🟡` |
+| `39` | `HGBM` | 3.20e-05 | `HGBM` | 3.17e-05 | -3.47e-07 | `🟢` |
+| `40` | `ERT` | 3.60e-05 | `RF` | 3.28e-05 | -3.24e-06 | `🟢` |
+| `78` | `HGBM` | 4.50e-05 | `LGBM` | 3.57e-05 | -9.30e-06 | `🟢` |
+| `81` | `RF` | 1.50e-05 | `RF` | 1.82e-05 | 3.22e-06 | `🟡` |
+| `156` | `ERT` | 1.30e-04 | `ERT` | 1.05e-04 | -2.46e-05 | `🟢` |
+| `162` | `ERT` | 1.60e-04 | `ERT` | 1.44e-04 | -1.64e-05 | `🟢` |
+| `240` | `ERT` | 4.20e-05 | `RF` | 5.47e-05 | 1.27e-05 | `🔴` |
+
+#### Table 4 - Phase MAE
+
+Paper-side repository-owned reconstruction:
+
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.002200 | 0.0330 | 0.0270 | 0.0610 | 0.1900 | 0.1300 | 1.200 | 0.4900 | 0.4900 |
+| `MLP` | 0.007200 | 0.0650 | 0.0620 | 0.0800 | 0.1600 | 0.1500 | 1.900 | 0.7800 | 0.7000 |
+| `RF` | 0.002000 | 0.0240 | 0.0280 | 0.0370 | 0.0740 | 0.0530 | 0.5100 | 0.2300 | 0.2500 |
+| `DT` | 0.002100 | 0.0300 | 0.0360 | 0.0430 | 0.0900 | 0.0660 | 0.5200 | 0.2000 | 0.2300 |
+| `ET` | 0.002400 | 0.0310 | 0.0350 | 0.0510 | 0.0940 | 0.0870 | 0.7100 | 0.2800 | 0.2600 |
+| `ERT` | 0.002200 | 0.0270 | 0.0280 | 0.0400 | 0.0760 | 0.0560 | 0.5300 | 0.2000 | 0.2300 |
+| `GBM` | 0.002000 | 0.0240 | 0.0300 | 0.0360 | 0.0740 | 0.0530 | 0.5400 | 0.2500 | 0.2900 |
+| `HGBM` | 0.001900 | 0.0200 | 0.0210 | 0.0400 | 0.0910 | 0.0570 | 0.7400 | 0.3500 | 0.3600 |
+| `XGBM` | 0.001900 | 0.0240 | 0.0320 | 0.0610 | 0.1400 | 0.0910 | 0.9600 | 0.5400 | 0.3900 |
+| `LGBM` | 0.001800 | 0.0210 | 0.0210 | 0.0400 | 0.0950 | 0.0550 | 0.7400 | 0.3500 | 0.3400 |
+
+Repository-side analogous Track 1 table:
+
+| Harmonic | Paper Best Family | Paper Target MAE | Repo Best Family | Repo Best MAE | Gap Vs Paper | Status |
+| ---: | --- | ---: | --- | ---: | ---: | --- |
+| `1` | `LGBM` | 0.001800 | `HGBM` | 0.001846 | 4.64e-05 | `🟡` |
+| `3` | `HGBM` | 0.0200 | `GBM` | 0.0238 | 0.003757 | `🟡` |
+| `39` | `HGBM` | 0.0210 | `LGBM` | 0.0204 | -6.25e-04 | `🟢` |
+| `40` | `GBM` | 0.0360 | `ERT` | 0.0345 | -0.001478 | `🟢` |
+| `78` | `GBM` | 0.0740 | `RF` | 0.0516 | -0.0224 | `🟢` |
+| `81` | `GBM` | 0.0530 | `LGBM` | 0.0475 | -0.005526 | `🟢` |
+| `156` | `RF` | 0.5100 | `ERT` | 0.3967 | -0.1133 | `🟢` |
+| `162` | `DT` | 0.2000 | `ERT` | 0.2125 | 0.0125 | `🟡` |
+| `240` | `DT` | 0.2300 | `ERT` | 0.2699 | 0.0399 | `🟡` |
+
+#### Table 5 - Phase RMSE
+
+Paper-side repository-owned reconstruction:
+
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.003100 | 0.0420 | 0.0440 | 0.0970 | 0.3200 | 0.2000 | 1.800 | 1.100 | 1.100 |
+| `MLP` | 0.0130 | 0.0840 | 0.0770 | 0.1100 | 0.2400 | 0.2200 | 2.200 | 1.200 | 1.100 |
+| `RF` | 0.002800 | 0.0330 | 0.0430 | 0.0550 | 0.1600 | 0.0820 | 1.200 | 0.6800 | 0.6300 |
+| `DT` | 0.002800 | 0.0420 | 0.0610 | 0.0610 | 0.2000 | 0.1000 | 1.300 | 0.7300 | 0.6700 |
+| `ET` | 0.003300 | 0.0460 | 0.0620 | 0.0740 | 0.2300 | 0.1500 | 1.500 | 0.9300 | 0.6800 |
+| `ERT` | 0.003600 | 0.0400 | 0.0440 | 0.0600 | 0.1800 | 0.1100 | 1.200 | 0.6400 | 0.5800 |
+| `GBM` | 0.002600 | 0.0340 | 0.0450 | 0.0550 | 0.1800 | 0.0840 | 1.300 | 0.7100 | 0.7100 |
+| `HGBM` | 0.002500 | 0.0290 | 0.0270 | 0.0600 | 0.1900 | 0.0850 | 1.300 | 0.7000 | 0.7400 |
+| `XGBM` | 0.002800 | 0.0330 | 0.0430 | 0.0890 | 0.2300 | 0.1300 | 1.400 | 0.8100 | 0.7600 |
+| `LGBM` | 0.002500 | 0.0300 | 0.0280 | 0.0600 | 0.1900 | 0.0820 | 1.300 | 0.7000 | 0.7100 |
+
+Repository-side analogous Track 1 table:
+
+| Harmonic | Paper Best Family | Paper Target RMSE | Repo Best Family | Repo Best RMSE | Gap Vs Paper | Status |
+| ---: | --- | ---: | --- | ---: | ---: | --- |
+| `1` | `HGBM` | 0.002500 | `GBM` | 0.002510 | 1.01e-05 | `🟡` |
+| `3` | `HGBM` | 0.0290 | `HGBM` | 0.0343 | 0.005302 | `🟡` |
+| `39` | `HGBM` | 0.0270 | `HGBM` | 0.0326 | 0.005648 | `🟡` |
+| `40` | `GBM` | 0.0550 | `ERT` | 0.0541 | -8.81e-04 | `🟢` |
+| `78` | `RF` | 0.1600 | `RF` | 0.1250 | -0.0350 | `🟢` |
+| `81` | `LGBM` | 0.0820 | `RF` | 0.0681 | -0.0139 | `🟢` |
+| `156` | `ERT` | 1.200 | `ERT` | 0.9129 | -0.2871 | `🟢` |
+| `162` | `ERT` | 0.6400 | `ERT` | 0.7186 | 0.0786 | `🟡` |
+| `240` | `ERT` | 0.5800 | `ERT` | 0.7573 | 0.1773 | `🔴` |
+
+#### Table 6 - Harmonic Closure Summary
+
+Paper-side repository-owned reconstruction:
+
+| `k` | Paper `A*_k` | Paper `phi*_k` |
+| ---: | --- | --- |
+| `0` | `SVM` | `-` |
+| `1` | `RF` | `LGBM` |
+| `3` | `HGBM` | `HGBM` |
+| `39` | `HGBM` | `HGBM` |
+| `40` | `ERT` | `GBM` |
+| `78` | `HGBM` | `RF` |
+| `81` | `RF` | `RF` |
+| `156` | `ERT` | `RF` |
+| `162` | `ERT` | `ERT` |
+| `240` | `ERT` | `ERT` |
+
+Repository-side analogous Track 1 table:
+
+| `k` | Paper `A*_k` | Repo Best Ampl Family | Ampl Status | Paper `phi*_k` | Repo Best Phase MAE Family | Repo Best Phase RMSE Family | Phase MAE Status | Phase RMSE Status | Harmonic Status | Overall Color |
+| ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `0` | `SVM` | `HGBM` | `above_paper_target` | `-` | `ERT` | `ERT` | `not_applicable` | `not_applicable` | `not_yet_matched_tables_3_6` | `🔴` |
+| `1` | `RF` | `HGBM` | `above_paper_target` | `LGBM` | `HGBM` | `GBM` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` | `🔴` |
+| `3` | `HGBM` | `HGBM` | `above_paper_target` | `HGBM` | `GBM` | `HGBM` | `above_paper_target` | `above_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `39` | `HGBM` | `HGBM` | `met_paper_target` | `HGBM` | `LGBM` | `HGBM` | `met_paper_target` | `above_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `40` | `ERT` | `RF` | `met_paper_target` | `GBM` | `ERT` | `ERT` | `met_paper_target` | `met_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `78` | `HGBM` | `LGBM` | `met_paper_target` | `RF` | `RF` | `RF` | `met_paper_target` | `met_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `81` | `RF` | `RF` | `above_paper_target` | `RF` | `LGBM` | `RF` | `met_paper_target` | `met_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `156` | `ERT` | `ERT` | `met_paper_target` | `RF` | `ERT` | `ERT` | `met_paper_target` | `met_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `162` | `ERT` | `ERT` | `met_paper_target` | `ERT` | `ERT` | `ERT` | `above_paper_target` | `above_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+| `240` | `ERT` | `RF` | `above_paper_target` | `ERT` | `ERT` | `ERT` | `above_paper_target` | `above_paper_target` | `partially_matched_tables_3_6` | `🟡` |
+
+Current dashboard reading:
+
+- fully green harmonics: none yet
+- partial yellow harmonics: `3`, `39`, `40`, `78`, `81`, `156`, `162`, `240`
+- fully red harmonics: `0`, `1`
+
+This means `Track 1` is closer to structural closure than before, but still
+blocked by:
+
+- the low-order amplitude and phase pair at `1`;
+- the structural amplitude mismatch at `0`;
+- the late-phase numeric gaps at `162` and `240`;
+- and the still-open phase-side gap at `3`.
+
+### Canonical Track 1 Dashboard: Full Paper-Matrix Replication
+
+This dashboard is now the canonical first-reading surface for the clarified
+first objective of `Track 1`:
+
+- reproduce the paper matrices family by family;
+- keep the exact paper model rows intact;
+- read campaign progress as row replication, not only as best-envelope closure.
+
+Current repository evidence source for the full matrices:
+
+- latest full-matrix row-reproduction campaign:
+  `track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51`
+- execution window:
+  `2026-04-14 14:12:14+02:00` to `2026-04-14 14:15:18+02:00`
+- supporting campaign report:
+  `doc/reports/campaign_results/2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report.md`
+
+Status legend used in the repository matrices:
+
+- `G` green: repository value reached or beat the paper cell
+- `Y` yellow: repository value is still above the paper cell, but the positive gap is
+  within `25%` of the paper value
+- `R` red: repository value is still materially above the paper cell
+
+Important scope boundary:
+
+- the matrices below use the exact same model-family rows as the paper:
+  `SVM`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`
+- the repository values come from our repository-owned implementations of
+  those model families under the exact-paper validation branch
+- Tables `2` and `6` remain useful summary/context surfaces, but the primary
+  first `Track 1` replication target is the full matrix structure of Tables
+  `3`, `4`, and `5`
+
+#### Table 3 - Amplitude RMSE Full-Matrix Replication
+
+Paper-side repository-owned reconstruction:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.003300 | 7.40e-05 | 1.80e-04 | 1.80e-04 | 9.50e-05 | 3.30e-04 | 1.00e-04 | 8.80e-04 | 0.002200 | 4.70e-04 |
+| `MLP` | 0.0140 | 0.0120 | 0.0120 | 0.0100 | 0.0140 | 0.0130 | 0.0150 | 0.0130 | 0.0160 | 0.0100 |
+| `RF` | 0.004100 | 3.50e-05 | 3.00e-05 | 3.80e-05 | 3.70e-05 | 5.60e-05 | 1.50e-05 | 1.70e-04 | 2.20e-04 | 5.40e-05 |
+| `DT` | 0.004900 | 4.00e-05 | 3.30e-05 | 5.30e-05 | 4.50e-05 | 8.20e-05 | 1.80e-05 | 2.00e-04 | 1.70e-04 | 1.10e-04 |
+| `ET` | 0.004500 | 4.20e-05 | 3.50e-05 | 5.10e-05 | 4.30e-05 | 8.50e-05 | 2.70e-05 | 1.90e-04 | 3.80e-04 | 1.80e-04 |
+| `ERT` | 0.004000 | 3.70e-05 | 3.40e-05 | 4.00e-05 | 3.60e-05 | 5.70e-05 | 1.60e-05 | 1.30e-04 | 1.60e-04 | 4.20e-05 |
+| `GBM` | 0.004000 | 3.60e-05 | 3.10e-05 | 3.90e-05 | 3.90e-05 | 5.50e-05 | 1.60e-05 | 1.70e-04 | 2.20e-04 | 4.70e-05 |
+| `HGBM` | 0.003400 | 3.60e-05 | 2.50e-05 | 3.20e-05 | 3.80e-05 | 4.50e-05 | 1.60e-05 | 2.50e-04 | 5.00e-04 | 7.40e-05 |
+| `XGBM` | 0.003500 | 7.10e-05 | 1.00e-04 | 1.30e-04 | 8.70e-05 | 1.50e-04 | 6.00e-05 | 5.40e-04 | 7.50e-04 | 2.10e-04 |
+| `LGBM` | 0.003500 | 3.70e-05 | 2.60e-05 | 3.30e-05 | 3.80e-05 | 4.60e-05 | 1.60e-05 | 2.20e-04 | 4.70e-04 | 6.20e-05 |
+<!-- markdownlint-enable MD013 -->
+
+Repository-side analogous matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `Y 0.003918` | `G 7.01e-05` | `G 1.79e-04` | `G 1.78e-04` | `Y 9.63e-05` | `G 3.15e-04` | `Y 1.04e-04` | `R 0.001107` | `G 0.002181` | `Y 5.72e-04` |
+| `MLP` | `Y 0.0141` | `R 0.0156` | `R 0.0155` | `R 0.0126` | `G 0.0121` | `G 0.0120` | `G 0.0150` | `G 0.0127` | `G 0.0130` | `R 0.0165` |
+| `RF` | `Y 0.004114` | `Y 3.72e-05` | `G 2.73e-05` | `G 3.74e-05` | `G 3.28e-05` | `Y 5.67e-05` | `Y 1.82e-05` | `Y 1.97e-04` | `G 1.52e-04` | `Y 5.47e-05` |
+| `DT` | `G 0.004879` | `Y 4.31e-05` | `Y 3.34e-05` | `G 5.06e-05` | `Y 4.51e-05` | `G 7.97e-05` | `R 2.38e-05` | `R 2.98e-04` | `Y 1.97e-04` | `G 7.18e-05` |
+| `ET` | `G 0.004280` | `G 4.15e-05` | `Y 3.54e-05` | `R 7.57e-05` | `G 3.77e-05` | `Y 8.65e-05` | `G 2.01e-05` | `R 2.65e-04` | `G 2.86e-04` | `R 2.74e-04` |
+| `ERT` | `Y 0.004201` | `Y 3.75e-05` | `G 3.17e-05` | `G 3.80e-05` | `G 3.34e-05` | `G 5.21e-05` | `Y 1.85e-05` | `G 1.05e-04` | `G 1.44e-04` | `R 7.22e-05` |
+| `GBM` | `Y 0.004261` | `Y 3.79e-05` | `G 2.66e-05` | `G 3.80e-05` | `G 3.58e-05` | `G 5.49e-05` | `Y 1.88e-05` | `R 2.23e-04` | `G 2.12e-04` | `Y 5.81e-05` |
+| `HGBM` | `Y 0.003699` | `G 3.52e-05` | `Y 2.57e-05` | `G 3.17e-05` | `G 3.47e-05` | `G 3.75e-05` | `Y 1.86e-05` | `Y 2.97e-04` | `G 3.08e-04` | `Y 8.41e-05` |
+| `XGBM` | `Y 0.003714` | `G 6.81e-05` | `G 9.07e-05` | `G 1.24e-04` | `G 8.34e-05` | `Y 1.59e-04` | `G 5.98e-05` | `R 7.82e-04` | `G 6.77e-04` | `R 3.14e-04` |
+| `LGBM` | `Y 0.003829` | `G 3.69e-05` | `Y 2.66e-05` | `G 3.26e-05` | `G 3.54e-05` | `G 3.57e-05` | `Y 1.98e-05` | `Y 2.62e-04` | `G 2.76e-04` | `Y 6.78e-05` |
+<!-- markdownlint-enable MD013 -->
+
+Quick read for Table `3`:
+
+- strongest amplitude rows are now clearly `ERT`, `HGBM`, and `RF`;
+- the hardest amplitude columns remain `156`, `162`, and `240`;
+- `MLP` is fully red on the amplitude side and should not be treated as a
+  near-closure branch.
+
+#### Table 4 - Phase MAE Full-Matrix Replication
+
+Paper-side repository-owned reconstruction:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.002200 | 0.0330 | 0.0270 | 0.0610 | 0.1900 | 0.1300 | 1.200 | 0.4900 | 0.4900 |
+| `MLP` | 0.007200 | 0.0650 | 0.0620 | 0.0800 | 0.1600 | 0.1500 | 1.900 | 0.7800 | 0.7000 |
+| `RF` | 0.002000 | 0.0240 | 0.0280 | 0.0370 | 0.0740 | 0.0530 | 0.5100 | 0.2300 | 0.2500 |
+| `DT` | 0.002100 | 0.0300 | 0.0360 | 0.0430 | 0.0900 | 0.0660 | 0.5200 | 0.2000 | 0.2300 |
+| `ET` | 0.002400 | 0.0310 | 0.0350 | 0.0510 | 0.0940 | 0.0870 | 0.7100 | 0.2800 | 0.2600 |
+| `ERT` | 0.002200 | 0.0270 | 0.0280 | 0.0400 | 0.0760 | 0.0560 | 0.5300 | 0.2000 | 0.2300 |
+| `GBM` | 0.002000 | 0.0240 | 0.0300 | 0.0360 | 0.0740 | 0.0530 | 0.5400 | 0.2500 | 0.2900 |
+| `HGBM` | 0.001900 | 0.0200 | 0.0210 | 0.0400 | 0.0910 | 0.0570 | 0.7400 | 0.3500 | 0.3600 |
+| `XGBM` | 0.001900 | 0.0240 | 0.0320 | 0.0610 | 0.1400 | 0.0910 | 0.9600 | 0.5400 | 0.3900 |
+| `LGBM` | 0.001800 | 0.0210 | 0.0210 | 0.0400 | 0.0950 | 0.0550 | 0.7400 | 0.3500 | 0.3400 |
+<!-- markdownlint-enable MD013 -->
+
+Repository-side analogous matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `Y 0.002481` | `G 0.0323` | `G 0.0268` | `G 0.0573` | `G 0.1892` | `G 0.1230` | `G 1.088` | `Y 0.5422` | `R 0.7006` |
+| `MLP` | `R 0.009958` | `Y 0.0802` | `Y 0.0691` | `G 0.0788` | `Y 0.1734` | `Y 0.1655` | `G 1.562` | `Y 0.9248` | `Y 0.7559` |
+| `RF` | `G 0.001943` | `Y 0.0247` | `G 0.0268` | `G 0.0367` | `G 0.0516` | `G 0.0480` | `G 0.4251` | `Y 0.2305` | `Y 0.2770` |
+| `DT` | `Y 0.002236` | `G 0.0273` | `G 0.0323` | `Y 0.0455` | `G 0.0745` | `G 0.0636` | `G 0.4900` | `Y 0.2461` | `Y 0.2873` |
+| `ET` | `Y 0.002964` | `Y 0.0319` | `G 0.0328` | `G 0.0442` | `Y 0.1125` | `Y 0.0916` | `G 0.6079` | `Y 0.3136` | `Y 0.2742` |
+| `ERT` | `Y 0.002372` | `Y 0.0281` | `Y 0.0281` | `G 0.0345` | `G 0.0636` | `G 0.0492` | `G 0.3967` | `Y 0.2125` | `Y 0.2699` |
+| `GBM` | `G 0.001883` | `G 0.0238` | `G 0.0234` | `Y 0.0379` | `G 0.0608` | `G 0.0509` | `G 0.4678` | `Y 0.2797` | `Y 0.3021` |
+| `HGBM` | `G 0.001846` | `Y 0.0249` | `G 0.0204` | `G 0.0385` | `G 0.0698` | `G 0.0514` | `G 0.6100` | `Y 0.3627` | `Y 0.4136` |
+| `XGBM` | `Y 0.002165` | `Y 0.0269` | `G 0.0299` | `G 0.0596` | `G 0.1181` | `G 0.0864` | `G 0.8922` | `G 0.5388` | `Y 0.4270` |
+| `LGBM` | `Y 0.001890` | `Y 0.0256` | `G 0.0204` | `G 0.0372` | `G 0.0747` | `G 0.0475` | `G 0.6092` | `G 0.3491` | `Y 0.3904` |
+<!-- markdownlint-enable MD013 -->
+
+Quick read for Table `4`:
+
+- phase `MAE` is currently the healthiest matrix of the three;
+- strongest rows are `RF`, `ERT`, `GBM`, and `HGBM`;
+- the hardest columns remain `162` and especially `240`.
+
+#### Table 5 - Phase RMSE Full-Matrix Replication
+
+Paper-side repository-owned reconstruction:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.003100 | 0.0420 | 0.0440 | 0.0970 | 0.3200 | 0.2000 | 1.800 | 1.100 | 1.100 |
+| `MLP` | 0.0130 | 0.0840 | 0.0770 | 0.1100 | 0.2400 | 0.2200 | 2.200 | 1.200 | 1.100 |
+| `RF` | 0.002800 | 0.0330 | 0.0430 | 0.0550 | 0.1600 | 0.0820 | 1.200 | 0.6800 | 0.6300 |
+| `DT` | 0.002800 | 0.0420 | 0.0610 | 0.0610 | 0.2000 | 0.1000 | 1.300 | 0.7300 | 0.6700 |
+| `ET` | 0.003300 | 0.0460 | 0.0620 | 0.0740 | 0.2300 | 0.1500 | 1.500 | 0.9300 | 0.6800 |
+| `ERT` | 0.003600 | 0.0400 | 0.0440 | 0.0600 | 0.1800 | 0.1100 | 1.200 | 0.6400 | 0.5800 |
+| `GBM` | 0.002600 | 0.0340 | 0.0450 | 0.0550 | 0.1800 | 0.0840 | 1.300 | 0.7100 | 0.7100 |
+| `HGBM` | 0.002500 | 0.0290 | 0.0270 | 0.0600 | 0.1900 | 0.0850 | 1.300 | 0.7000 | 0.7400 |
+| `XGBM` | 0.002800 | 0.0330 | 0.0430 | 0.0890 | 0.2300 | 0.1300 | 1.400 | 0.8100 | 0.7600 |
+| `LGBM` | 0.002500 | 0.0300 | 0.0280 | 0.0600 | 0.1900 | 0.0820 | 1.300 | 0.7000 | 0.7100 |
+<!-- markdownlint-enable MD013 -->
+
+Repository-side analogous matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `Y 0.003851` | `G 0.0416` | `Y 0.0512` | `G 0.0937` | `G 0.3139` | `G 0.1943` | `G 1.637` | `Y 1.218` | `R 1.411` |
+| `MLP` | `Y 0.0155` | `Y 0.1022` | `Y 0.0899` | `Y 0.1119` | `Y 0.2580` | `Y 0.2296` | `G 1.912` | `Y 1.484` | `Y 1.252` |
+| `RF` | `G 0.002667` | `Y 0.0351` | `Y 0.0483` | `Y 0.0551` | `G 0.1250` | `G 0.0681` | `G 0.9644` | `Y 0.7472` | `R 0.8462` |
+| `DT` | `Y 0.003114` | `G 0.0391` | `G 0.0601` | `Y 0.0707` | `G 0.1513` | `G 0.0957` | `G 1.226` | `Y 0.8916` | `R 0.8720` |
+| `ET` | `R 0.004396` | `G 0.0429` | `G 0.0579` | `G 0.0701` | `R 0.3472` | `Y 0.1658` | `G 1.220` | `Y 0.9307` | `Y 0.7295` |
+| `ERT` | `Y 0.003630` | `Y 0.0409` | `Y 0.0549` | `G 0.0541` | `G 0.1694` | `G 0.0784` | `G 0.9129` | `Y 0.7186` | `R 0.7573` |
+| `GBM` | `G 0.002510` | `Y 0.0343` | `G 0.0401` | `Y 0.0570` | `G 0.1399` | `G 0.0759` | `G 1.019` | `Y 0.8248` | `Y 0.8578` |
+| `HGBM` | `Y 0.002563` | `Y 0.0343` | `Y 0.0326` | `G 0.0593` | `G 0.1377` | `G 0.0757` | `G 1.035` | `Y 0.8014` | `Y 0.9239` |
+| `XGBM` | `Y 0.003357` | `Y 0.0373` | `Y 0.0456` | `G 0.0883` | `G 0.1889` | `G 0.1192` | `G 1.309` | `Y 0.9495` | `Y 0.9021` |
+| `LGBM` | `Y 0.002605` | `Y 0.0365` | `Y 0.0329` | `G 0.0582` | `G 0.1492` | `G 0.0686` | `G 1.054` | `Y 0.8139` | `R 0.8967` |
+<!-- markdownlint-enable MD013 -->
+
+Quick read for Table `5`:
+
+- phase `RMSE` replication is meaningfully harder than phase `MAE`;
+- strongest rows are `RF`, `HGBM`, `GBM`, and `ERT`;
+- the dominant unresolved columns remain `240` and `162`.
+
+#### Table 2 And Table 6 Reading Rule
+
+For the clarified `Track 1` scope, Tables `2` and `6` should now be read as
+summary layers above the real matrix-replication work:
+
+- Table `2`:
+  paper-selected family direction and deployment-facing context
+- Table `6`:
+  harmonic-level closure summary derived from the lower-level cell evidence
+
+They remain useful, but they must not replace the full-matrix reading of
+Tables `3`, `4`, and `5`.
+
 ### Supporting Harmonic-Wise Offline Result
 
 The latest completed repository-owned harmonic-wise campaign is:

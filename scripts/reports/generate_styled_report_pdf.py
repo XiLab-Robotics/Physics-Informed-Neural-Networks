@@ -71,6 +71,8 @@ TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME = "report-table report-table-track1-over
 TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-block-winner"
 TRACK1_EXACT_OPEN_CELL_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-exact-open-cell-ranking"
 TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME = "report-table report-table-track1-exact-open-cell-export"
+TRACK1_FULL_MATRIX_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-ranking"
+TRACK1_FULL_MATRIX_CELL_TOTALS_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-cell-totals"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -184,6 +186,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report": {
         "open-numeric-gaps-after-the-best-run",
     },
+    "2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report": {                                                                                                                 
+        "main-conclusions",                                                                                                                                                                                 
+    },   
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
     },
@@ -532,6 +537,57 @@ REPORT_STYLESHEET = """
     .report-table-ranking-results th:nth-child(2), .report-table-ranking-results td:nth-child(2) { width: 20%; }
     .report-table-ranking-results th:nth-child(3), .report-table-ranking-results td:nth-child(3) { width: 20%; }
     .report-table-ranking-results th:nth-child(4), .report-table-ranking-results td:nth-child(4) { width: 18%; }
+
+    .report-table-track1-full-matrix-ranking {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track1-full-matrix-ranking th,
+    .report-table-track1-full-matrix-ranking td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-full-matrix-ranking th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-track1-full-matrix-ranking th:nth-child(1), .report-table-track1-full-matrix-ranking td:nth-child(1) { width: 6%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(2), .report-table-track1-full-matrix-ranking td:nth-child(2) { width: 29%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(3), .report-table-track1-full-matrix-ranking td:nth-child(3) { width: 8%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(4), .report-table-track1-full-matrix-ranking td:nth-child(4) { width: 16%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(5), .report-table-track1-full-matrix-ranking td:nth-child(5) { width: 7%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(6), .report-table-track1-full-matrix-ranking td:nth-child(6) { width: 8%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(7), .report-table-track1-full-matrix-ranking td:nth-child(7) { width: 6%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(8), .report-table-track1-full-matrix-ranking td:nth-child(8) { width: 8%; }
+    .report-table-track1-full-matrix-ranking th:nth-child(9), .report-table-track1-full-matrix-ranking td:nth-child(9) { width: 12%; }
+
+    .report-table-track1-full-matrix-cell-totals {
+      font-size: 7.1pt;
+      line-height: 1.2;
+    }
+
+    .report-table-track1-full-matrix-cell-totals th,
+    .report-table-track1-full-matrix-cell-totals td {
+      padding: 5px 5px;
+    }
+
+    .report-table-track1-full-matrix-cell-totals th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-track1-full-matrix-cell-totals th:nth-child(1), .report-table-track1-full-matrix-cell-totals td:nth-child(1) { width: 58%; }
+    .report-table-track1-full-matrix-cell-totals th:nth-child(2), .report-table-track1-full-matrix-cell-totals td:nth-child(2) { width: 14%; }
+    .report-table-track1-full-matrix-cell-totals th:nth-child(3), .report-table-track1-full-matrix-cell-totals td:nth-child(3) { width: 14%; }
+    .report-table-track1-full-matrix-cell-totals th:nth-child(4), .report-table-track1-full-matrix-cell-totals td:nth-child(4) { width: 14%; }
 
     .report-table-decision-matrix {
       font-size: 6.9pt;
@@ -1917,6 +1973,23 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Config", "Winner", "Mean Component MAPE [%]", "Export Mode", "Exported", "Failed")
         ):
             return TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME
+
+    # Resolve Track 1 Full-Matrix Family Reproduction Campaign Table Profiles
+    if report_stem == "2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Targets", "Met", "Near", "Open", "Closure Score")
+        ):
+            return TRACK1_FULL_MATRIX_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "matrix-reproduction-impact"
+            and current_subsection_slug == "campaign-wide-cell-totals"
+            and normalized_header_cells == ("Surface", "Green", "Yellow", "Red")
+        ):
+            return TRACK1_FULL_MATRIX_CELL_TOTALS_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
