@@ -25,7 +25,10 @@ The exact branch mirrors the recovered paper methodology:
 - targets are harmonic-wise `ampl_k` and `phase_k`;
 - the target set is the recovered RCIM harmonic bank:
   `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
-- each model family is fit through `MultiOutputRegressor`;
+- each model family is trained through `MultiOutputRegressor`;
+- the canonical training mode now applies the recovered paper-side
+  `GridSearchCV` path on top of the family wrapper instead of fitting only the
+  base estimator directly;
 - export happens as one ONNX artifact per target and per family;
 - evaluation produces both:
   - family-level aggregate metrics;
@@ -65,10 +68,12 @@ Instead it does this:
 2. keep only the exact operating-condition inputs `rpm`, `deg`, `tor`;
 3. select the `20` harmonic targets made of amplitudes and phases;
 4. split the dataframe with `test_size = 0.20` and `random_state = 0`;
-5. fit one `MultiOutputRegressor` wrapper per family;
-6. evaluate each family on the held-out split;
-7. export one ONNX model per fitted target estimator;
-8. build a target-wise winner registry.
+5. wrap each family estimator with `MultiOutputRegressor`;
+6. apply the recovered paper-reference `GridSearchCV` path to that wrapper;
+7. keep the best recovered search result per family;
+8. evaluate each family on the held-out split;
+9. export one ONNX model per fitted target estimator;
+10. build a target-wise winner registry.
 
 This means one family launch is operationally simple, but internally still
 produces one fitted estimator per harmonic target.
@@ -140,8 +145,11 @@ The key responsibilities are:
 - loading the recovered dataframe;
 - validating the exact feature schema;
 - resolving the exact target list;
-- creating the recovered family estimators with paper-derived hyperparameters;
-- fitting one `MultiOutputRegressor` bank per family;
+- creating the recovered family estimators with paper-derived base
+  hyperparameters;
+- resolving the recovered reference parameter grids;
+- fitting one `MultiOutputRegressor` bank per family through the recovered
+  `GridSearchCV` path;
 - evaluating family-level and per-target metrics;
 - exporting per-target ONNX files;
 - building the canonical validation summary and report text.
@@ -162,9 +170,12 @@ These functions reproduce the paper-faithful input and target schema.
 ### Family Creation And Training
 
 - `create_exact_paper_base_estimator`
+- `build_exact_paper_reference_parameter_grid`
+- `resolve_exact_paper_hyperparameter_search_settings`
 - `fit_exact_family_model_bank`
 
-These functions encode the recovered family inventory and hyperparameters.
+These functions encode the recovered family inventory, the recovered
+paper-reference search grids, and the exact-paper training strategy.
 
 ### Evaluation
 
@@ -212,6 +223,7 @@ It defines:
 - exact paper feature schema;
 - enabled family list;
 - deterministic split settings;
+- paper-reference hyperparameter-search settings;
 - ONNX export behavior.
 
 The prepared batch campaign package is:

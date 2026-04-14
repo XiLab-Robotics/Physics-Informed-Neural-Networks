@@ -24,6 +24,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.neural_network import MLPRegressor
@@ -179,6 +180,10 @@ EXACT_PAPER_TABLE6_SELECTED_MODEL_MAP = {
     162: {"ampl": "ERT", "phase": "ERT"},
     240: {"ampl": "ERT", "phase": "ERT"},
 }
+EXACT_PAPER_HYPERPARAMETER_SEARCH_MODE_LIST = [
+    "disabled",
+    "paper_reference_grid_search",
+]
 
 
 @dataclass
@@ -694,6 +699,38 @@ def _assert_optional_dependency(value: object, dependency_name: str) -> None:
     )
 
 
+def _generate_uniform_integer_sequence(
+    count: int,
+    minimum_value: int,
+    maximum_value: int,
+) -> list[int]:
+
+    """Reproduce the recovered integer-grid helper used in the paper code."""
+
+    assert count > 0, "Uniform integer sequence requires a positive count"
+    step = max(1, (maximum_value - minimum_value) // count)
+    value_array = np.arange(minimum_value, maximum_value + 1, step, dtype=np.int64)
+    return [int(value) for value in value_array[:count]]
+
+
+def resolve_exact_paper_hyperparameter_search_settings(
+    training_config: dict[str, Any] | None,
+) -> dict[str, Any]:
+
+    """Resolve the exact-paper hyperparameter-search settings."""
+
+    search_config = dict((training_config or {}).get("training", {}).get("hyperparameter_search", {}))
+    search_mode = str(search_config.get("mode", "paper_reference_grid_search")).strip()
+    assert search_mode in EXACT_PAPER_HYPERPARAMETER_SEARCH_MODE_LIST, (
+        f"Unsupported exact-paper hyperparameter search mode | {search_mode}"
+    )
+    grid_search_n_jobs = int(search_config.get("grid_search_n_jobs", -1))
+    return {
+        "mode": search_mode,
+        "grid_search_n_jobs": grid_search_n_jobs,
+    }
+
+
 def create_exact_paper_base_estimator(family_name: str) -> object:
 
     """Create one exact paper base estimator with recovered hyperparameters."""
@@ -789,32 +826,166 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
     raise ValueError(f"Unsupported exact paper family | {family_name}")
 
 
+def build_exact_paper_reference_parameter_grid(
+    family_name: str,
+    base_estimator: object,
+) -> dict[str, list[Any]]:
+
+    """Build the recovered paper-reference parameter grid for one family."""
+
+    if family_name == "DT":
+        return {
+            "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 4, 12) + [int(base_estimator.get_params()["min_samples_split"])])),
+        }
+
+    if family_name == "ET":
+        return {
+            "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
+        }
+
+    if family_name == "ERT":
+        return {
+            "estimator__n_estimators": list(dict.fromkeys([20, 40, 60, 80, 100, int(base_estimator.get_params()["n_estimators"])])),
+            "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
+        }
+
+    if family_name == "RF":
+        return {
+            "estimator__n_estimators": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 50, 100) + [int(base_estimator.get_params()["n_estimators"])])),
+            "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 12, 18) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
+        }
+
+    if family_name == "GBM":
+        return {
+            "estimator__n_estimators": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 20, 100) + [int(base_estimator.get_params()["n_estimators"])])),
+            "estimator__criterion": ["squared_error"],
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 10, 20) + [int(base_estimator.get_params()["min_samples_split"])])),
+            "estimator__learning_rate": list(dict.fromkeys([0.001, 0.01, 0.1, 1.0, float(base_estimator.get_params()["learning_rate"])])),
+        }
+
+    if family_name == "XGBM":
+        return {
+            "estimator__learning_rate": list(dict.fromkeys([0.01, 0.2, 0.5, float(base_estimator.get_params()["learning_rate"])])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(3, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__colsample_bytree": list(dict.fromkeys([0.3, 0.5, float(base_estimator.get_params()["colsample_bytree"])])),
+        }
+
+    if family_name == "HGBM":
+        return {
+            "estimator__max_iter": [int(base_estimator.get_params()["max_iter"])],
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 9, 14) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__learning_rate": list(dict.fromkeys(([value / 100 for value in _generate_uniform_integer_sequence(5, 18, 23)] + [float(base_estimator.get_params()["learning_rate"])]))),
+            "estimator__max_leaf_nodes": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 24, 29) + [int(base_estimator.get_params()["max_leaf_nodes"])])),
+        }
+
+    if family_name == "LGBM":
+        return {
+            "estimator__learning_rate": list(dict.fromkeys(([value / 100 for value in _generate_uniform_integer_sequence(5, 1, 100)] + [float(base_estimator.get_params()["learning_rate"])]))),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 10, 16) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__num_leaves": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 15) + [int(base_estimator.get_params()["num_leaves"])])),
+            "estimator__subsample": list(dict.fromkeys([0.001, 0.01, 0.1, 0.2, float(base_estimator.get_params()["subsample"])])),
+        }
+
+    if family_name == "MLP":
+        return {
+            "estimator__hidden_layer_sizes": list(dict.fromkeys([(100,), (100, 50), (200,), (200, 50), tuple(base_estimator.get_params()["hidden_layer_sizes"])])),
+            "estimator__activation": list(dict.fromkeys(["tanh", "relu", str(base_estimator.get_params()["activation"])])),
+            "estimator__solver": list(dict.fromkeys(["sgd", "adam", str(base_estimator.get_params()["solver"])])),
+            "estimator__learning_rate": list(dict.fromkeys(["adaptive", str(base_estimator.get_params()["learning_rate"])])),
+            "estimator__early_stopping": list(dict.fromkeys([True, bool(base_estimator.get_params()["early_stopping"])])),
+        }
+
+    if family_name == "SVR":
+        return {
+            "estimator__kernel": list(dict.fromkeys(["rbf", "linear", str(base_estimator.get_params()["kernel"])])),
+            "estimator__C": list(dict.fromkeys([0.001, 0.01, 0.1, 0.3, 1.0, float(base_estimator.get_params()["C"])])),
+            "estimator__epsilon": list(dict.fromkeys([0.001, 0.0001, 0.00001, 0.000001])),
+            "estimator__gamma": list(dict.fromkeys([0.0000011, float(base_estimator.get_params()["gamma"])])),
+        }
+
+    raise ValueError(f"Unsupported exact paper family grid search | {family_name}")
+
+
 def fit_exact_family_model_bank(
     dataset_bundle: ExactPaperDatasetBundle,
     enabled_family_list: list[str],
     training_config: dict[str, Any] | None = None,
-) -> dict[str, MultiOutputRegressor]:
+) -> tuple[dict[str, MultiOutputRegressor], dict[str, dict[str, Any]]]:
 
-    """Fit the recovered family bank using MultiOutputRegressor wrappers."""
+    """Fit the recovered family bank using the configured paper-side strategy."""
 
     # Fit Each Family Bank
     fitted_family_model_dictionary: dict[str, MultiOutputRegressor] = {}
+    family_search_summary_dictionary: dict[str, dict[str, Any]] = {}
     threadpool_limit = int((training_config or {}).get("training", {}).get("threadpool_limit", 1))
+    search_settings = resolve_exact_paper_hyperparameter_search_settings(training_config)
     os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(threadpool_limit))
     for family_name in enabled_family_list:
         base_estimator = create_exact_paper_base_estimator(family_name)
-        wrapped_estimator = MultiOutputRegressor(base_estimator)
         train_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.train_feature_matrix
         if family_name == "XGBM":
             train_feature_matrix = dataset_bundle.train_feature_matrix.to_numpy(dtype=np.float32)
+        wrapped_estimator = MultiOutputRegressor(base_estimator)
+
+        if search_settings["mode"] == "paper_reference_grid_search":
+            parameter_grid = build_exact_paper_reference_parameter_grid(family_name, base_estimator)
+            grid_search_estimator = GridSearchCV(
+                wrapped_estimator,
+                parameter_grid,
+                n_jobs=int(search_settings["grid_search_n_jobs"]),
+            )
+            with threadpool_limits(limits=threadpool_limit):
+                grid_search_estimator.fit(
+                    train_feature_matrix,
+                    dataset_bundle.train_target_matrix,
+                )
+            best_wrapped_estimator = grid_search_estimator.best_estimator_
+            fitted_family_model_dictionary[family_name] = best_wrapped_estimator
+            family_search_summary_dictionary[family_name] = {
+                "search_mode": search_settings["mode"],
+                "used_grid_search": True,
+                "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
+                "grid_search_cv": (
+                    int(grid_search_estimator.n_splits_)
+                    if hasattr(grid_search_estimator, "n_splits_")
+                    else None
+                ),
+                "parameter_grid": parameter_grid,
+                "best_params": dict(grid_search_estimator.best_params_),
+                "best_score": (
+                    float(grid_search_estimator.best_score_)
+                    if getattr(grid_search_estimator, "best_score_", None) is not None
+                    else None
+                ),
+            }
+            continue
+
         with threadpool_limits(limits=threadpool_limit):
             wrapped_estimator.fit(
                 train_feature_matrix,
                 dataset_bundle.train_target_matrix,
             )
         fitted_family_model_dictionary[family_name] = wrapped_estimator
+        family_search_summary_dictionary[family_name] = {
+            "search_mode": search_settings["mode"],
+            "used_grid_search": False,
+            "grid_search_n_jobs": None,
+            "grid_search_cv": None,
+            "parameter_grid": None,
+            "best_params": None,
+            "best_score": None,
+        }
 
-    return fitted_family_model_dictionary
+    return fitted_family_model_dictionary, family_search_summary_dictionary
 
 
 def _safe_mape(truth_vector: np.ndarray, prediction_vector: np.ndarray) -> float:
@@ -1338,6 +1509,7 @@ def build_exact_model_validation_summary(
     training_config: dict[str, Any],
     dataset_bundle: ExactPaperDatasetBundle,
     family_summary_list: list[dict[str, Any]],
+    family_search_summary_dictionary: dict[str, dict[str, Any]],
     per_target_ranking_dictionary: dict[str, list[dict[str, Any]]],
     onnx_export_summary: dict[str, Any],
     model_bundle_path: Path,
@@ -1350,6 +1522,7 @@ def build_exact_model_validation_summary(
     run_artifact_identity = shared_training_infrastructure.resolve_run_artifact_identity(training_config)
     winner_family_summary = family_summary_list[0]
     target_scope = resolve_exact_target_scope(training_config)
+    search_settings = resolve_exact_paper_hyperparameter_search_settings(training_config)
     harmonic_order_list = sorted({
         parse_exact_target_name(target_name)[1]
         for target_name in dataset_bundle.target_name_list
@@ -1406,6 +1579,11 @@ def build_exact_model_validation_summary(
             "test_size": float(training_config["training"]["test_size"]),
             "random_seed": int(training_config["training"]["random_seed"]),
         },
+        "training_strategy": {
+            "hyperparameter_search_mode": search_settings["mode"],
+            "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
+            "family_search_summary": family_search_summary_dictionary,
+        },
         "paper_alignment": {
             "input_feature_schema": ["rpm", "deg", "tor"],
             "target_schema_kind": "_".join(target_kind_list) + "_exact_paper",
@@ -1430,6 +1608,8 @@ def build_exact_model_validation_summary(
             "winning_mean_component_mape_percent": float(winner_family_summary["mean_component_mape_percent"]),
             "winning_mean_component_mae": float(winner_family_summary["mean_component_mae"]),
             "winning_mean_component_rmse": float(winner_family_summary["mean_component_rmse"]),
+            "winning_search_mode": family_search_summary_dictionary[winner_family_summary["family_name"]]["search_mode"],
+            "winning_best_params": family_search_summary_dictionary[winner_family_summary["family_name"]]["best_params"],
         },
         "family_ranking": family_summary_list,
         "target_winner_registry": target_winner_list,
@@ -1472,6 +1652,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     # Resolve Summary Sections
     experiment_dictionary = validation_summary["experiment"]
     dataset_dictionary = validation_summary["dataset"]
+    training_strategy_dictionary = validation_summary["training_strategy"]
     paper_alignment_dictionary = validation_summary["paper_alignment"]
     dependency_version_dictionary = validation_summary["dependency_versions"]
     winner_summary = validation_summary["winner_summary"]
@@ -1482,6 +1663,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     paper_numeric_target_comparison_registry = validation_summary["paper_numeric_target_comparison_registry"]
     paper_numeric_harmonic_summary = validation_summary["paper_numeric_harmonic_summary"]
     onnx_export_summary = validation_summary["onnx_export_summary"]
+    family_search_summary_dictionary = training_strategy_dictionary["family_search_summary"]
 
     # Build Numeric Comparison Lookups
     numeric_target_lookup = {
@@ -1494,12 +1676,38 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     # Build Family Ranking Rows
     family_row_list: list[str] = []
     for ranking_index, family_entry in enumerate(family_ranking, start=1):
+        family_search_entry = family_search_summary_dictionary[family_entry["family_name"]]
         family_row_list.append(
             f"| {ranking_index} | `{family_entry['family_name']}` | "
             f"`{family_entry['estimator_name']}` | "
+            f"`{family_search_entry['search_mode']}` | "
             f"{family_entry['mean_component_mape_percent']:.3f} | "
             f"{family_entry['mean_component_mae']:.6f} | "
             f"{family_entry['mean_component_rmse']:.6f} |"
+        )
+
+    # Build Family Search Rows
+    family_search_row_list: list[str] = []
+    for family_name in EXACT_FAMILY_ORDER:
+        if family_name not in family_search_summary_dictionary:
+            continue
+        family_search_entry = family_search_summary_dictionary[family_name]
+        best_score_text = (
+            f"{float(family_search_entry['best_score']):.6f}"
+            if family_search_entry["best_score"] is not None
+            else "-"
+        )
+        best_params_text = (
+            f"`{family_search_entry['best_params']}`"
+            if family_search_entry["best_params"] is not None
+            else "-"
+        )
+        family_search_row_list.append(
+            f"| `{family_name}` | "
+            f"`{family_search_entry['search_mode']}` | "
+            f"{family_search_entry['grid_search_cv'] if family_search_entry['grid_search_cv'] is not None else '-'} | "
+            f"{best_score_text} | "
+            f"{best_params_text} |"
         )
 
     # Build Target-Winner Rows
@@ -1679,14 +1887,27 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "",
         f"- winning family: `{winner_summary['winning_family']}`;",
         f"- winning estimator: `{winner_summary['winning_estimator_name']}`;",
+        f"- winning search mode: `{winner_summary['winning_search_mode']}`;",
+        f"- winning best params: `{winner_summary['winning_best_params']}`;",
         f"- winning mean component MAPE: `{winner_summary['winning_mean_component_mape_percent']:.3f}%`;",
         f"- winning mean component MAE: `{winner_summary['winning_mean_component_mae']:.6f}`;",
         f"- winning mean component RMSE: `{winner_summary['winning_mean_component_rmse']:.6f}`;",
         "",
+        "## Training Strategy",
+        "",
+        f"- hyperparameter search mode: `{training_strategy_dictionary['hyperparameter_search_mode']}`;",
+        f"- grid-search `n_jobs`: `{training_strategy_dictionary['grid_search_n_jobs']}`;",
+        "",
+        "### Family Search Summary",
+        "",
+        "| Family | Search Mode | CV Folds | Best Score | Best Params |",
+        "| --- | --- | ---: | ---: | --- |",
+        *family_search_row_list,
+        "",
         "## Family Ranking",
         "",
-        "| Rank | Family | Estimator | Mean Component MAPE [%] | Mean Component MAE | Mean Component RMSE |",
-        "| ---: | --- | --- | ---: | ---: | ---: |",
+        "| Rank | Family | Estimator | Search Mode | Mean Component MAPE [%] | Mean Component MAE | Mean Component RMSE |",
+        "| ---: | --- | --- | --- | ---: | ---: | ---: |",
         *family_row_list,
         "",
         "## Target-Winner Registry",
@@ -1802,7 +2023,9 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "",
         "At the current repository state, the workflow now serializes the numeric",
         "targets from paper Tables 3, 4, 5, and the selected-model targets from",
-        "Table 6. The repository can therefore show both the paper thresholds and",
+        "Table 6. The training path can also reproduce the recovered paper-side",
+        "`GridSearchCV` strategy instead of only fitting the recovered base",
+        "estimators directly. The repository can therefore show both the paper thresholds and",
         "the current exact-paper results side by side. `Track 1` still remains",
         "open until those gaps are actually closed on the repository side.",
         "",

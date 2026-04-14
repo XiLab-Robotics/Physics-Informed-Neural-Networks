@@ -75,7 +75,7 @@ def run_exact_paper_model_bank_validation(
 
     # Fit And Persist The Family Bank
     print(f"[INFO] Fitting family bank | {', '.join(enabled_family_list)}")
-    fitted_family_model_dictionary = exact_paper_model_bank_support.fit_exact_family_model_bank(
+    fitted_family_model_dictionary, family_search_summary_dictionary = exact_paper_model_bank_support.fit_exact_family_model_bank(
         dataset_bundle,
         enabled_family_list,
         training_config,
@@ -124,6 +124,7 @@ def run_exact_paper_model_bank_validation(
         training_config,
         dataset_bundle,
         family_summary_list,
+        family_search_summary_dictionary,
         per_target_ranking_dictionary,
         onnx_export_summary,
         model_bundle_path,
