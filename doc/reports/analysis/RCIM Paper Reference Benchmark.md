@@ -198,8 +198,9 @@ winner under the shared offline evaluator.
 
 The canonical `Track 1` closure rule is now:
 
-- reproduce the paper-facing cells in Tables `3`, `4`, `5`, and `6`;
+- reproduce the paper-facing cells in Tables `2`, `3`, `4`, and `5`;
 - track status per harmonic target:
+  - `A_k` MAE;
   - `A_k` RMSE;
   - `phi_k` MAE;
   - `phi_k` RMSE;
@@ -226,21 +227,24 @@ Repository consequence:
 
 ### Primary Track 1 Status: Exact-Paper Table Replication
 
-The primary `Track 1` status must now be read from the canonical exact-paper
-table-replication report:
+The primary `Track 1` status must now be read from this canonical benchmark
+surface, with the older exact-paper validation report treated as historical
+supporting evidence:
 
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/validation_checks/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 
-Current exact-paper table-replication status from that canonical report:
+Current exact-paper table-replication status from the canonical benchmark
+surface is:
 
+- Table `2` amplitude `MAE`: `3/10` harmonics currently meet or beat the paper
+  target;
 - Table `3` amplitude `RMSE`: `5/10` harmonics currently meet or beat the
   paper target;
 - Table `4` phase `MAE`: `5/9` harmonics currently meet or beat the paper
   target;
 - Table `5` phase `RMSE`: `4/9` harmonics currently meet or beat the paper
   target;
-- target-level expected-family direction: `11/20` targets currently match the
-  paper family direction;
 - harmonic-level Table `6` closure: `0/10` fully matched, `8/10` partially
   matched, `2/10` not yet matched.
 
@@ -260,7 +264,7 @@ Important interpretation:
 - but it does not replace the table-level closure rule.
 - the latest open-cell repair campaign improved harmonic-level partial matching
   at `240`, but it still closed `0` new numeric paper-target cells in Tables
-  `3-5`.
+  `2-5`.
 
 ### Deprecated Dashboard: Best-Envelope Reading
 
@@ -311,45 +315,43 @@ Scope note:
   harmonic selection summary, because the repository needs one normalized view
   that can be compared directly against the current `Track 1` best run.
 
-#### Table 2 - Harmonic Selection And Deployed Family Direction
+#### Table 2 - Amplitude MAE
 
 Paper-side repository-owned reconstruction:
 
-| Harmonic | Paper-Selected Family Direction |
-| ---: | --- |
-| `0` | `SVM` |
-| `1` | `RF / LGBM` |
-| `3` | `HGBM` |
-| `39` | `HGBM` |
-| `40` | `ERT / GBM` |
-| `78` | `HGBM / RF` |
-| `81` | `RF` |
-| `156` | `ERT / RF` |
-| `162` | `ERT` |
-| `240` | `ERT` |
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.002600 | 5.60e-05 | 1.60e-04 | 1.50e-04 | 7.90e-05 | 2.60e-04 | 9.10e-05 | 4.40e-04 | 6.90e-04 | 2.90e-04 |
+| `MLP` | 0.009500 | 0.006500 | 0.006500 | 0.005600 | 0.006900 | 0.007100 | 0.007400 | 0.006800 | 0.008100 | 0.005500 |
+| `RF` | 0.003000 | 2.40e-05 | 2.00e-05 | 2.90e-05 | 2.60e-05 | 3.80e-05 | 1.10e-05 | 5.70e-05 | 6.80e-05 | 2.90e-05 |
+| `DT` | 0.003400 | 2.90e-05 | 2.20e-05 | 4.00e-05 | 3.20e-05 | 5.90e-05 | 1.30e-05 | 6.30e-05 | 6.20e-05 | 5.10e-05 |
+| `ET` | 0.003500 | 3.10e-05 | 2.40e-05 | 3.80e-05 | 3.20e-05 | 5.90e-05 | 1.80e-05 | 5.70e-05 | 8.80e-05 | 7.20e-05 |
+| `ERT` | 0.003100 | 2.70e-05 | 2.30e-05 | 2.90e-05 | 2.30e-05 | 3.80e-05 | 1.20e-05 | 1.70e-05 | 2.30e-05 | 2.40e-05 |
+| `GBM` | 0.003100 | 2.70e-05 | 2.10e-05 | 2.80e-05 | 2.70e-05 | 3.90e-05 | 1.20e-05 | 6.10e-05 | 7.10e-05 | 3.00e-05 |
+| `HGBM` | 0.002400 | 2.70e-05 | 1.50e-05 | 2.10e-05 | 2.60e-05 | 2.70e-05 | 1.20e-05 | 1.00e-04 | 1.70e-04 | 3.50e-05 |
+| `XGBM` | 0.002500 | 5.50e-05 | 8.10e-05 | 1.10e-04 | 6.60e-05 | 1.10e-04 | 4.60e-05 | 2.30e-04 | 2.60e-04 | 1.40e-04 |
+| `LGBM` | 0.002500 | 2.70e-05 | 1.80e-05 | 2.40e-05 | 2.70e-05 | 3.00e-05 | 1.20e-05 | 9.00e-05 | 1.60e-04 | 3.20e-05 |
 
 Repository-side analogous Track 1 table:
 
-| Harmonic | Paper Family Direction | Repo Best Amplitude Family | Repo Best Phase Family | Matching Targets | Status |
-| ---: | --- | --- | --- | ---: | --- |
-| `0` | `SVM` | `HGBM` | `ERT` | `0/2` | `🔴` |
-| `1` | `RF / LGBM` | `HGBM` | `HGBM` | `0/2` | `🔴` |
-| `3` | `HGBM` | `HGBM` | `GBM` | `1/2` | `🟡` |
-| `39` | `HGBM` | `HGBM` | `HGBM` | `2/2` | `🟢` |
-| `40` | `ERT / GBM` | `RF` | `ERT` | `1/2` | `🟡` |
-| `78` | `HGBM / RF` | `LGBM` | `RF` | `2/2` | `🟢` |
-| `81` | `RF` | `RF` | `LGBM` | `1/2` | `🟡` |
-| `156` | `ERT / RF` | `ERT` | `ERT` | `2/2` | `🟢` |
-| `162` | `ERT` | `ERT` | `ERT` | `2/2` | `🟢` |
-| `240` | `ERT` | `RF` | `ERT` | `1/2` | `🟡` |
+| Harmonic | Paper Best Family | Paper Target MAE | Repo Best Family | Repo Best MAE | Gap Vs Paper | Status |
+| ---: | --- | ---: | --- | ---: | ---: | --- |
+| `0` | `HGBM` | 0.002400 | `XGBM` | 0.002465 | 6.46e-05 | `🟡` |
+| `1` | `RF` | 2.40e-05 | `HGBM` | 2.54e-05 | 1.45e-06 | `🟡` |
+| `3` | `HGBM` | 1.50e-05 | `HGBM` | 1.82e-05 | 3.21e-06 | `🟡` |
+| `39` | `HGBM` | 2.10e-05 | `HGBM` | 2.34e-05 | 2.35e-06 | `🟡` |
+| `40` | `ERT` | 2.30e-05 | `RF` | 2.21e-05 | -9.06e-07 | `🟢` |
+| `78` | `HGBM` | 2.70e-05 | `LGBM` | 2.46e-05 | -2.41e-06 | `🟢` |
+| `81` | `RF` | 1.10e-05 | `ERT` | 1.09e-05 | -1.26e-07 | `🟢` |
+| `156` | `ERT` | 1.70e-05 | `ERT` | 3.47e-05 | 1.77e-05 | `🔴` |
+| `162` | `ERT` | 2.30e-05 | `ERT` | 4.49e-05 | 2.19e-05 | `🔴` |
+| `240` | `ERT` | 2.40e-05 | `GBM` | 3.38e-05 | 9.84e-06 | `🔴` |
 
-Quick read:
+Quick read for Table `2`:
 
-- family-direction alignment is already strong on `39`, `78`, `156`, and
-  `162`;
-- the main family-direction blockers remain `0` and `1`;
-- `240` is now structurally closer than before, but still not numerically
-  closed.
+- amplitude `MAE` is strongest on `40`, `78`, and `81`;
+- the near-closure amplitude `MAE` columns are `0`, `1`, `3`, and `39`;
+- the dominant unresolved amplitude `MAE` columns are `156`, `162`, and `240`.
 
 #### Table 3 - Amplitude RMSE
 
@@ -526,6 +528,48 @@ Important scope boundary:
   first `Track 1` replication target is the full matrix structure of Tables
   `3`, `4`, and `5`
 
+#### Table 2 - Amplitude MAE Full-Matrix Replication
+
+Paper-side repository-owned reconstruction:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.002600 | 5.60e-05 | 1.60e-04 | 1.50e-04 | 7.90e-05 | 2.60e-04 | 9.10e-05 | 4.40e-04 | 6.90e-04 | 2.90e-04 |
+| `MLP` | 0.009500 | 0.006500 | 0.006500 | 0.005600 | 0.006900 | 0.007100 | 0.007400 | 0.006800 | 0.008100 | 0.005500 |
+| `RF` | 0.003000 | 2.40e-05 | 2.00e-05 | 2.90e-05 | 2.60e-05 | 3.80e-05 | 1.10e-05 | 5.70e-05 | 6.80e-05 | 2.90e-05 |
+| `DT` | 0.003400 | 2.90e-05 | 2.20e-05 | 4.00e-05 | 3.20e-05 | 5.90e-05 | 1.30e-05 | 6.30e-05 | 6.20e-05 | 5.10e-05 |
+| `ET` | 0.003500 | 3.10e-05 | 2.40e-05 | 3.80e-05 | 3.20e-05 | 5.90e-05 | 1.80e-05 | 5.70e-05 | 8.80e-05 | 7.20e-05 |
+| `ERT` | 0.003100 | 2.70e-05 | 2.30e-05 | 2.90e-05 | 2.30e-05 | 3.80e-05 | 1.20e-05 | 1.70e-05 | 2.30e-05 | 2.40e-05 |
+| `GBM` | 0.003100 | 2.70e-05 | 2.10e-05 | 2.80e-05 | 2.70e-05 | 3.90e-05 | 1.20e-05 | 6.10e-05 | 7.10e-05 | 3.00e-05 |
+| `HGBM` | 0.002400 | 2.70e-05 | 1.50e-05 | 2.10e-05 | 2.60e-05 | 2.70e-05 | 1.20e-05 | 1.00e-04 | 1.70e-04 | 3.50e-05 |
+| `XGBM` | 0.002500 | 5.50e-05 | 8.10e-05 | 1.10e-04 | 6.60e-05 | 1.10e-04 | 4.60e-05 | 2.30e-04 | 2.60e-04 | 1.40e-04 |
+| `LGBM` | 0.002500 | 2.70e-05 | 1.80e-05 | 2.40e-05 | 2.70e-05 | 3.00e-05 | 1.20e-05 | 9.00e-05 | 1.60e-04 | 3.20e-05 |
+<!-- markdownlint-enable MD013 -->
+
+Repository-side analogous matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `🟡 0.002659` | `🟢 5.31e-05` | `🟢 1.57e-04` | `🟢 1.49e-04` | `🟡 8.20e-05` | `🟢 2.52e-04` | `🟡 9.42e-05` | `🟡 4.95e-04` | `🟢 6.82e-04` | `🟡 3.05e-04` |
+| `MLP` | `🟡 0.0106` | `🔴 0.008904` | `🔴 0.009453` | `🔴 0.007449` | `🟡 0.006993` | `🟢 0.007089` | `🟡 0.00879` | `🟡 0.007806` | `🟢 0.007446` | `🔴 0.008946` |
+| `RF` | `🟡 0.003114` | `🟡 2.65e-05` | `🟢 1.89e-05` | `🟢 2.73e-05` | `🟢 2.21e-05` | `🟢 3.72e-05` | `🟢 1.10e-05` | `🟢 5.31e-05` | `🟢 5.28e-05` | `🟡 3.40e-05` |
+| `DT` | `🟡 0.00351` | `🟡 3.10e-05` | `🟡 2.32e-05` | `🟢 3.66e-05` | `🟢 2.97e-05` | `🟢 5.56e-05` | `🟡 1.52e-05` | `🔴 8.92e-05` | `🟡 6.70e-05` | `🟢 4.51e-05` |
+| `ET` | `🟢 0.003385` | `🟢 3.02e-05` | `🟢 2.38e-05` | `🟡 4.74e-05` | `🟢 2.59e-05` | `🟡 6.03e-05` | `🟢 1.31e-05` | `🔴 7.83e-05` | `🟢 7.69e-05` | `🟡 8.09e-05` |
+| `ERT` | `🟡 0.003229` | `🟢 2.63e-05` | `🟢 2.11e-05` | `🟢 2.66e-05` | `🟢 2.27e-05` | `🟢 3.56e-05` | `🟢 1.09e-05` | `🔴 3.47e-05` | `🔴 4.49e-05` | `🔴 3.81e-05` |
+| `GBM` | `🟡 0.003237` | `🟡 2.71e-05` | `🟢 1.88e-05` | `🟢 2.68e-05` | `🟢 2.55e-05` | `🟡 3.92e-05` | `🟢 1.15e-05` | `🟡 6.34e-05` | `🟡 7.24e-05` | `🟡 3.38e-05` |
+| `HGBM` | `🟡 0.002505` | `🟢 2.54e-05` | `🟡 1.82e-05` | `🟡 2.34e-05` | `🟢 2.48e-05` | `🟢 2.54e-05` | `🟢 1.16e-05` | `🟡 1.01e-04` | `🟢 1.38e-04` | `🟡 3.85e-05` |
+| `XGBM` | `🟢 0.002465` | `🟢 5.29e-05` | `🟢 7.21e-05` | `🟢 9.31e-05` | `🟢 6.44e-05` | `🟡 1.17e-04` | `🟡 4.66e-05` | `🟡 2.74e-04` | `🟢 2.21e-04` | `🔴 1.87e-04` |
+| `LGBM` | `🟡 0.002613` | `🟢 2.67e-05` | `🟡 1.89e-05` | `🟢 2.35e-05` | `🟢 2.53e-05` | `🟢 2.46e-05` | `🟡 1.26e-05` | `🟡 1.05e-04` | `🟢 1.21e-04` | `🟡 3.41e-05` |
+<!-- markdownlint-enable MD013 -->
+
+Quick read for Table `2`:
+
+- amplitude `MAE` is strongest row-wise on `RF`, `HGBM`, `XGBM`, and `LGBM`;
+- the hardest amplitude `MAE` columns remain `156`, `162`, and `240`;
+- `40`, `78`, and `81` are the healthiest amplitude `MAE` columns.
+
 #### Table 3 - Amplitude RMSE Full-Matrix Replication
 
 Paper-side repository-owned reconstruction:
@@ -653,18 +697,18 @@ Quick read for Table `5`:
 - strongest rows are `RF`, `HGBM`, `GBM`, and `ERT`;
 - the dominant unresolved columns remain `240` and `162`.
 
-#### Table 2 And Table 6 Reading Rule
+#### Supporting Summary Reading Rule
 
-For the clarified `Track 1` scope, Tables `2` and `6` should now be read as
-summary layers above the real matrix-replication work:
+For the clarified `Track 1` scope, Tables `2`, `3`, `4`, and `5` are the real
+paper-matching evaluation surfaces:
 
-- Table `2`:
-  paper-selected family direction and deployment-facing context
-- Table `6`:
-  harmonic-level closure summary derived from the lower-level cell evidence
+- Table `2`: amplitude `A_k` `MAE`
+- Table `3`: amplitude `A_k` `RMSE`
+- Table `4`: phase `phi_k` `MAE`
+- Table `5`: phase `phi_k` `RMSE`
 
-They remain useful, but they must not replace the full-matrix reading of
-Tables `3`, `4`, and `5`.
+Table `6` remains a useful harmonic-level support summary, but it must not
+replace the four matrix readings above.
 
 ### Supporting Harmonic-Wise Offline Result
 
@@ -786,8 +830,8 @@ Important interpretation:
 <!-- markdownlint-disable MD013 -->
 | Comparison Axis | Current Repository Status | Verdict |
 | --- | --- | --- |
-| Offline winner family direction | Tree winner (`hist_gradient_boosting`) | aligned |
-| Track 1 table replication | Tables `3-6` now serialized canonically; `0/10` harmonics fully closed and `7/10` partially closed | comparable_but_not_yet_matching |
+| Offline winner family direction | Supporting-only harmonic direction evidence remains available, but it is not the canonical `Track 1` closure surface | supporting_only |
+| Track 1 table replication | Tables `2-5` now serialized canonically; Table `6` remains the harmonic closure summary; `0/10` harmonics fully closed and `8/10` partially closed | comparable_but_not_yet_matching |
 | Supporting harmonic-wise TE metric | Held-out mean percentage error now available at `8.707%`, still above the paper threshold `4.7%` | supporting_only_not_yet_matching |
 | Online compensation benchmark | missing | not yet comparable |
 | End-to-end paper replication | missing | not yet comparable |

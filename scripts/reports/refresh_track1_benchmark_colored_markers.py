@@ -17,6 +17,7 @@ YELLOW_MARKER = "\U0001F7E1"
 RED_MARKER = "\U0001F534"
 
 FULL_MATRIX_SECTION_SPECS = (
+    ("#### Table 2 - Amplitude MAE Full-Matrix Replication", 10),
     ("#### Table 3 - Amplitude RMSE Full-Matrix Replication", 10),
     ("#### Table 4 - Phase MAE Full-Matrix Replication", 10),
     ("#### Table 5 - Phase RMSE Full-Matrix Replication", 10),

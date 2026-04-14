@@ -153,6 +153,16 @@ This folder contains the internal project documents derived from the reference P
   `Ranked Completed Runs` and `Campaign-Wide Cell Totals` tables in the
   `Track 1` full-matrix campaign results report without changing the generic
   table profile.
+- [technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md](./technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md)
+  Technical document for restoring and permanently preserving the colored
+  `🟢/🟡/🔴` status markers in the canonical `Track 1` benchmark full-matrix
+  tables during future campaign-driven updates.
+
+- [technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md](./technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md)
+  Technical document for realigning the canonical `Track 1` benchmark so that
+  sections labeled `Table 2-5` match the actual paper tables, including the
+  missing amplitude-MAE `Table 2` and the demotion of the current repository
+  derived harmonic-direction summary.
 
 #### 2026-04-11
 
