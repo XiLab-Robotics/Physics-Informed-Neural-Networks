@@ -163,6 +163,17 @@ This folder contains the internal project documents derived from the reference P
   sections labeled `Table 2-5` match the actual paper tables, including the
   missing amplitude-MAE `Table 2` and the demotion of the current repository
   derived harmonic-direction summary.
+- [technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md)
+  Technical document for preparing a broad but targeted `SVR` repair campaign
+  against the currently open `SVM` cells in the canonical `Track 1` benchmark.
+- [technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md)
+  Technical document for introducing report-specific styled-PDF width rules
+  for the `Ranked Completed Runs` and `Table-Level Before Vs After` tables in
+  the `Track 1` SVM repair campaign results report.
+- [technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md](./technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md)
+  Technical document for promoting manually validated report-specific table
+  width profiles into permanent styled-PDF renderer rules instead of relying on
+  visibly wrong generic fallback sizing for dense campaign tables.
 
 #### 2026-04-11
 

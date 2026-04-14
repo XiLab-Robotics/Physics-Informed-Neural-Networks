@@ -73,6 +73,10 @@ TRACK1_EXACT_OPEN_CELL_RANKING_TABLE_CLASS_NAME = "report-table report-table-tra
 TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME = "report-table report-table-track1-exact-open-cell-export"
 TRACK1_FULL_MATRIX_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-ranking"
 TRACK1_FULL_MATRIX_CELL_TOTALS_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-cell-totals"
+TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
+TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
+CAMPAIGN_CELL_REPAIR_RANKING_TABLE_CLASS_NAME = TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME
+SURFACE_BEFORE_AFTER_SUMMARY_TABLE_CLASS_NAME = TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -121,6 +125,23 @@ PHASE_RESULTS_TABLE_HEADER_CELLS = (
 RANKING_TABLE_HEADER_CELL_GROUPS = (
     ("Config", "Test MAE [deg]", "Test RMSE [deg]", "Runtime"),
     ("Config", "Test RMSE [deg]", "Test MAE [deg]", "Runtime"),
+)
+CAMPAIGN_CELL_REPAIR_RANKING_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Run",
+    "Scope",
+    "Cells",
+    "Met",
+    "Near",
+    "Open",
+    "Closure Score",
+    "Improved",
+    "Upgrades",
+)
+SURFACE_BEFORE_AFTER_SUMMARY_TABLE_HEADER_CELLS = (
+    "Surface",
+    "Before",
+    "After",
 )
 
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
@@ -588,6 +609,59 @@ REPORT_STYLESHEET = """
     .report-table-track1-full-matrix-cell-totals th:nth-child(2), .report-table-track1-full-matrix-cell-totals td:nth-child(2) { width: 14%; }
     .report-table-track1-full-matrix-cell-totals th:nth-child(3), .report-table-track1-full-matrix-cell-totals td:nth-child(3) { width: 14%; }
     .report-table-track1-full-matrix-cell-totals th:nth-child(4), .report-table-track1-full-matrix-cell-totals td:nth-child(4) { width: 14%; }
+
+    /* Reusable Cell-Repair Ranking Table Profile */
+    .report-table-track1-svm-repair-ranking {
+      font-size: 6.7pt;
+      line-height: 1.16;
+    }
+
+    .report-table-track1-svm-repair-ranking th,
+    .report-table-track1-svm-repair-ranking td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-svm-repair-ranking th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-svm-repair-ranking th:nth-child(1), .report-table-track1-svm-repair-ranking td:nth-child(1) { width: 5%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(2), .report-table-track1-svm-repair-ranking td:nth-child(2) { width: 24%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(3), .report-table-track1-svm-repair-ranking td:nth-child(3) { width: 16%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(4), .report-table-track1-svm-repair-ranking td:nth-child(4) { width: 7%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(5), .report-table-track1-svm-repair-ranking td:nth-child(5) { width: 6%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(6), .report-table-track1-svm-repair-ranking td:nth-child(6) { width: 6%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(7), .report-table-track1-svm-repair-ranking td:nth-child(7) { width: 6%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(8), .report-table-track1-svm-repair-ranking td:nth-child(8) { width: 11%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(9), .report-table-track1-svm-repair-ranking td:nth-child(9) { width: 9%; }
+    .report-table-track1-svm-repair-ranking th:nth-child(10), .report-table-track1-svm-repair-ranking td:nth-child(10) { width: 10%; }
+
+    /* Reusable Surface Before/After Summary Profile */
+    .report-table-track1-svm-repair-before-after {
+      font-size: 7.2pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track1-svm-repair-before-after th,
+    .report-table-track1-svm-repair-before-after td {
+      padding: 5px 5px;
+    }
+
+    .report-table-track1-svm-repair-before-after th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-svm-repair-before-after th:nth-child(1), .report-table-track1-svm-repair-before-after td:nth-child(1) { width: 38%; }
+    .report-table-track1-svm-repair-before-after th:nth-child(2), .report-table-track1-svm-repair-before-after td:nth-child(2) { width: 31%; }
+    .report-table-track1-svm-repair-before-after th:nth-child(3), .report-table-track1-svm-repair-before-after td:nth-child(3) { width: 31%; }
 
     .report-table-decision-matrix {
       font-size: 6.9pt;
@@ -1529,6 +1603,18 @@ def is_family_estimator_metric_ranking_table(header_cells: Sequence[str]) -> boo
         and all(is_mean_component_metric_header(header_cell) for header_cell in normalized_header_cells[3:])
     )
 
+def is_campaign_cell_repair_ranking_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches A Cell-Repair Ranking Table """
+
+    return tuple(header_cells) == CAMPAIGN_CELL_REPAIR_RANKING_TABLE_HEADER_CELLS
+
+def is_surface_before_after_summary_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches A Surface Before/After Summary Table """
+
+    return tuple(header_cells) == SURFACE_BEFORE_AFTER_SUMMARY_TABLE_HEADER_CELLS
+
 def normalize_report_specific_header_cell(header_cell: str, table_class_name: str) -> str:
 
     """ Normalize Report-Specific Header Cell Content """
@@ -1781,6 +1867,13 @@ def resolve_standard_table_class_name(
 
     if is_family_estimator_metric_ranking_table(normalized_header_cells):
         return FAMILY_ESTIMATOR_METRIC_RANKING_TABLE_CLASS_NAME
+
+    # Resolve Reusable Cell-Repair / Before-After Table Profiles
+    if is_campaign_cell_repair_ranking_table(normalized_header_cells):
+        return CAMPAIGN_CELL_REPAIR_RANKING_TABLE_CLASS_NAME
+
+    if is_surface_before_after_summary_table(normalized_header_cells):
+        return SURFACE_BEFORE_AFTER_SUMMARY_TABLE_CLASS_NAME
 
     # Resolve Decision Matrix Table
     if normalized_header_cells == DECISION_MATRIX_TABLE_HEADER_CELLS:
