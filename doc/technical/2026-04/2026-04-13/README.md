@@ -1,5 +1,13 @@
 # 2026-04-13 Technical Documents
 
+- [2026-04-13-22-53-36_track1_exact_paper_open_cell_repair_campaign_results_reporting.md](./2026-04-13-22-53-36_track1_exact_paper_open_cell_repair_campaign_results_reporting.md)
+  Technical document for closing the completed `Track 1` exact-paper
+  open-cell repair campaign through paper-closure-first reporting, winner
+  artifact serialization, active-state finalization, and validated PDF export.
+- [2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_preparation.md](./2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_preparation.md)
+  Technical document for preparing the next `Track 1` campaign as a narrow
+  exact-paper open-cell repair batch, centered on closing still-open paper
+  table cells instead of optimizing a harmonic-wise winner.
 - [2026-04-13-20-35-43_github_quality_check_md012_and_node24_action_alignment.md](./2026-04-13-20-35-43_github_quality_check_md012_and_node24_action_alignment.md)
   Technical document for fixing the reported GitHub quality-check `MD012`
   Markdown failure and aligning the repository workflow actions with the

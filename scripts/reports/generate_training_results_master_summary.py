@@ -711,11 +711,46 @@ def collect_latest_harmonic_wise_validation() -> dict[str, Any] | None:
     """Collect the latest harmonic-wise validation summary when available."""
 
     harmonic_validation_root = DEFAULT_VALIDATION_CHECK_ROOT / "paper_reimplementation_rcim_harmonic_wise"
-    if not harmonic_validation_root.exists():
+    resolved_harmonic_validation_root = harmonic_validation_root.resolve()
+    if not resolved_harmonic_validation_root.exists():
         return None
 
+    # Prefer The Latest Campaign-Best Harmonic-Wise Artifact When Available
+    campaign_best_run_path_list = sorted(
+        DEFAULT_TRAINING_CAMPAIGN_ROOT.glob("*/campaign_best_run.yaml"),
+        key=lambda path_value: path_value.stat().st_mtime,
+        reverse=True,
+    )
+    candidate_validation_path_list: list[Path] = []
+    for campaign_best_run_path in campaign_best_run_path_list:
+        campaign_best_run_dictionary = load_yaml_dictionary(campaign_best_run_path)
+        nested_best_entry_dictionary = campaign_best_run_dictionary.get("best_entry", {})
+        validation_summary_path = resolve_existing_path(
+            str(
+                campaign_best_run_dictionary.get(
+                    "validation_summary_path",
+                    nested_best_entry_dictionary.get("validation_summary_path", ""),
+                )
+            )
+        )
+        if validation_summary_path is None:
+            continue
+        if resolved_harmonic_validation_root not in validation_summary_path.parents:
+            continue
+        candidate_validation_path_list.append(validation_summary_path)
+
+    if candidate_validation_path_list:
+        selected_validation_path = sorted(
+            candidate_validation_path_list,
+            key=lambda path_value: path_value.stat().st_mtime,
+            reverse=True,
+        )[0]
+        latest_validation_dictionary = load_yaml_dictionary(selected_validation_path)
+        latest_validation_dictionary["validation_summary_path"] = format_project_relative_path(selected_validation_path)
+        return latest_validation_dictionary
+
     validation_summary_path_list = sorted(
-        harmonic_validation_root.glob("*/validation_summary.yaml"),
+        resolved_harmonic_validation_root.glob("*/validation_summary.yaml"),
         key=lambda path_value: path_value.stat().st_mtime,
         reverse=True,
     )
@@ -735,11 +770,47 @@ def collect_latest_exact_paper_validation() -> dict[str, Any] | None:
         Latest exact-paper validation dictionary when present.
     """
 
-    if not DEFAULT_EXACT_PAPER_VALIDATION_ROOT.exists():
+    resolved_exact_paper_validation_root = DEFAULT_EXACT_PAPER_VALIDATION_ROOT.resolve()
+    if not resolved_exact_paper_validation_root.exists():
         return None
 
+    # Prefer The Latest Campaign-Best Exact-Paper Artifact When Available
+    campaign_best_run_path_list = sorted(
+        DEFAULT_TRAINING_CAMPAIGN_ROOT.glob("*/campaign_best_run.yaml"),
+        key=lambda path_value: path_value.stat().st_mtime,
+        reverse=True,
+    )
+    candidate_validation_path_list: list[Path] = []
+    for campaign_best_run_path in campaign_best_run_path_list:
+        campaign_best_run_dictionary = load_yaml_dictionary(campaign_best_run_path)
+        nested_best_entry_dictionary = campaign_best_run_dictionary.get("best_entry", {})
+        validation_summary_path = resolve_existing_path(
+            str(
+                campaign_best_run_dictionary.get(
+                    "validation_summary_path",
+                    nested_best_entry_dictionary.get("validation_summary_path", ""),
+                )
+            )
+        )
+        if validation_summary_path is None:
+            continue
+        if resolved_exact_paper_validation_root not in validation_summary_path.parents:
+            continue
+        candidate_validation_path_list.append(validation_summary_path)
+
+    if candidate_validation_path_list:
+        selected_validation_path = sorted(
+            candidate_validation_path_list,
+            key=lambda path_value: path_value.stat().st_mtime,
+            reverse=True,
+        )[0]
+        latest_validation_dictionary = load_yaml_dictionary(selected_validation_path)
+        latest_validation_dictionary["validation_summary_path"] = format_project_relative_path(selected_validation_path)
+        return latest_validation_dictionary
+
+    # Fall Back To The Most Recent Raw Exact-Paper Validation Artifact
     validation_summary_path_list = sorted(
-        DEFAULT_EXACT_PAPER_VALIDATION_ROOT.glob("*/validation_summary.yaml"),
+        resolved_exact_paper_validation_root.glob("*/validation_summary.yaml"),
         key=lambda path_value: path_value.stat().st_mtime,
         reverse=True,
     )
@@ -918,7 +989,10 @@ def build_exact_paper_status_snapshot(
         return default_snapshot
 
     # Resolve the Canonical Exact-Paper Registries
-    paper_target_registry = exact_paper_validation_dictionary.get("paper_target_comparison_registry", [])
+    paper_target_registry = exact_paper_validation_dictionary.get(
+        "paper_numeric_target_comparison_registry",
+        [],
+    )
     paper_numeric_harmonic_summary = exact_paper_validation_dictionary.get("paper_numeric_harmonic_summary", [])
 
     # Count Table-Level Closure Status Across the Exact-Paper Registry
@@ -936,20 +1010,21 @@ def build_exact_paper_status_snapshot(
             if not isinstance(target_dictionary, dict):
                 continue
 
-            target_name = str(target_dictionary.get("target_name", ""))
-            family_direction_status = str(target_dictionary.get("family_direction_status", ""))
+            target_kind = str(target_dictionary.get("target_kind", ""))
+            harmonic_order = int(target_dictionary.get("harmonic_order", -1))
+            table6_family_status = str(target_dictionary.get("table6_family_status", ""))
 
-            if family_direction_status != "":
+            if table6_family_status not in ["", "paper_not_defined"]:
                 family_direction_total_count += 1
-                if family_direction_status == "matched_expected_family_direction":
+                if table6_family_status == "matched_table6_family":
                     family_direction_match_count += 1
 
-            if "_ampl_" in target_name:
+            if target_kind == "ampl":
                 table3_total_count += 1
                 if str(target_dictionary.get("rmse_target_status", "")) == "met_paper_target":
                     table3_met_count += 1
 
-            if "_phase_" in target_name and "_phase_0" not in target_name:
+            if target_kind == "phase" and harmonic_order != 0:
                 table4_total_count += 1
                 if str(target_dictionary.get("mae_target_status", "")) == "met_paper_target":
                     table4_met_count += 1
@@ -974,7 +1049,7 @@ def build_exact_paper_status_snapshot(
             harmonic_order = int(harmonic_dictionary.get("harmonic_order", -1))
             harmonic_status = str(harmonic_dictionary.get("harmonic_numeric_status", "unknown"))
 
-            if harmonic_status == "fully_matched_tables_3_6":
+            if harmonic_status == "matched_tables_3_6":
                 harmonic_full_match_count += 1
             elif harmonic_status == "partially_matched_tables_3_6":
                 harmonic_partial_match_count += 1

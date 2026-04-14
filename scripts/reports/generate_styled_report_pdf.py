@@ -69,6 +69,8 @@ CAMPAIGN_EXACT_SUPPORT_EXPORT_TABLE_CLASS_NAME = "report-table report-table-camp
 TRACK1_OVERNIGHT_COMPLETED_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-completed"
 TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-delta"
 TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME = "report-table report-table-track1-overnight-block-winner"
+TRACK1_EXACT_OPEN_CELL_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-exact-open-cell-ranking"
+TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME = "report-table report-table-track1-exact-open-cell-export"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -178,6 +180,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report": {
         "ranked-completed-runs",
+    },
+    "2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report": {
+        "open-numeric-gaps-after-the-best-run",
     },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
@@ -698,7 +703,9 @@ REPORT_STYLESHEET = """
     .report-table-campaign-exact-support-export,
     .report-table-track1-overnight-completed,
     .report-table-track1-overnight-delta,
-    .report-table-track1-overnight-block-winner {
+    .report-table-track1-overnight-block-winner,
+    .report-table-track1-exact-open-cell-ranking,
+    .report-table-track1-exact-open-cell-export {
       font-size: 6.9pt;
       line-height: 1.18;
     }
@@ -716,7 +723,11 @@ REPORT_STYLESHEET = """
     .report-table-track1-overnight-delta th,
     .report-table-track1-overnight-delta td,
     .report-table-track1-overnight-block-winner th,
-    .report-table-track1-overnight-block-winner td {
+    .report-table-track1-overnight-block-winner td,
+    .report-table-track1-exact-open-cell-ranking th,
+    .report-table-track1-exact-open-cell-ranking td,
+    .report-table-track1-exact-open-cell-export th,
+    .report-table-track1-exact-open-cell-export td {
       padding: 4px 4px;
     }
 
@@ -726,7 +737,9 @@ REPORT_STYLESHEET = """
     .report-table-campaign-exact-support-export th,
     .report-table-track1-overnight-completed th,
     .report-table-track1-overnight-delta th,
-    .report-table-track1-overnight-block-winner th {
+    .report-table-track1-overnight-block-winner th,
+    .report-table-track1-exact-open-cell-ranking th,
+    .report-table-track1-exact-open-cell-export th {
       white-space: normal;
       overflow-wrap: normal;
       word-break: normal;
@@ -774,6 +787,21 @@ REPORT_STYLESHEET = """
     .report-table-track1-overnight-block-winner th:nth-child(2), .report-table-track1-overnight-block-winner td:nth-child(2) { width: 30%; }
     .report-table-track1-overnight-block-winner th:nth-child(3), .report-table-track1-overnight-block-winner td:nth-child(3) { width: 10%; }
     .report-table-track1-overnight-block-winner th:nth-child(4), .report-table-track1-overnight-block-winner td:nth-child(4) { width: 53%; }
+
+    .report-table-track1-exact-open-cell-ranking th:nth-child(1), .report-table-track1-exact-open-cell-ranking td:nth-child(1) { width: 7%; }
+    .report-table-track1-exact-open-cell-ranking th:nth-child(2), .report-table-track1-exact-open-cell-ranking td:nth-child(2) { width: 31%; }
+    .report-table-track1-exact-open-cell-ranking th:nth-child(3), .report-table-track1-exact-open-cell-ranking td:nth-child(3) { width: 13%; }
+    .report-table-track1-exact-open-cell-ranking th:nth-child(4), .report-table-track1-exact-open-cell-ranking td:nth-child(4) { width: 11%; }
+    .report-table-track1-exact-open-cell-ranking th:nth-child(5), .report-table-track1-exact-open-cell-ranking td:nth-child(5) { width: 12%; }
+    .report-table-track1-exact-open-cell-ranking th:nth-child(6), .report-table-track1-exact-open-cell-ranking td:nth-child(6) { width: 9%; }
+    .report-table-track1-exact-open-cell-ranking th:nth-child(7), .report-table-track1-exact-open-cell-ranking td:nth-child(7) { width: 17%; }
+
+    .report-table-track1-exact-open-cell-export th:nth-child(1), .report-table-track1-exact-open-cell-export td:nth-child(1) { width: 38%; }
+    .report-table-track1-exact-open-cell-export th:nth-child(2), .report-table-track1-exact-open-cell-export td:nth-child(2) { width: 8%; }
+    .report-table-track1-exact-open-cell-export th:nth-child(3), .report-table-track1-exact-open-cell-export td:nth-child(3) { width: 17%; }
+    .report-table-track1-exact-open-cell-export th:nth-child(4), .report-table-track1-exact-open-cell-export td:nth-child(4) { width: 14%; }
+    .report-table-track1-exact-open-cell-export th:nth-child(5), .report-table-track1-exact-open-cell-export td:nth-child(5) { width: 15%; }
+    .report-table-track1-exact-open-cell-export th:nth-child(6), .report-table-track1-exact-open-cell-export td:nth-child(6) { width: 8%; }
 
     .report-table-remote-training-validation-completed,
     .report-table-remote-training-validation-failed,
@@ -898,7 +926,9 @@ REPORT_STYLESHEET = """
     .report-table-campaign-exact-support-export .metric-unit,
     .report-table-track1-overnight-completed .metric-unit,
     .report-table-track1-overnight-delta .metric-unit,
-    .report-table-track1-overnight-block-winner .metric-unit {
+    .report-table-track1-overnight-block-winner .metric-unit,
+    .report-table-track1-exact-open-cell-ranking .metric-unit,
+    .report-table-track1-exact-open-cell-export .metric-unit {
       display: block;
     }
 
@@ -1477,6 +1507,18 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         baseline_value = header_cell[len("Delta Vs `") : -len("` Baseline")]
         return f"Delta Vs<span class=\"metric-unit\"><code>{html.escape(baseline_value)}</code> Baseline</span>"
 
+    if table_class_name == TRACK1_EXACT_OPEN_CELL_RANKING_TABLE_CLASS_NAME:
+        if header_cell == "Harmonics Open":
+            return "Harmonics<span class=\"metric-unit\">Open</span>"
+        if header_cell == "Harmonics Partial":
+            return "Harmonics<span class=\"metric-unit\">Partial</span>"
+        if header_cell == "Met Cells":
+            return "Met<span class=\"metric-unit\">Cells</span>"
+
+    if table_class_name == TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME:
+        if header_cell == "Failed":
+            return "Fail."
+
     return convert_inline_markup(header_cell)
 
 def is_identifier_column_header(header_cell: str) -> bool:
@@ -1858,6 +1900,23 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Block", "Best Config", "Test MPE [%]", "Interpretation")
         ):
             return TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME
+
+    # Resolve Track 1 Exact Open-Cell Repair Campaign Table Profiles
+    if report_stem == "2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Rank", "Config", "Family Scope", "Harmonics Open", "Harmonics Partial", "Met Cells", "Regressions")
+        ):
+            return TRACK1_EXACT_OPEN_CELL_RANKING_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "campaign-ranking"
+            and current_subsection_slug == "ranked-completed-runs"
+            and normalized_header_cells == ("Config", "Winner", "Mean Component MAPE [%]", "Export Mode", "Exported", "Failed")
+        ):
+            return TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

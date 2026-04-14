@@ -241,8 +241,8 @@ Current exact-paper table-replication status from that canonical report:
   target;
 - target-level expected-family direction: `11/20` targets currently match the
   paper family direction;
-- harmonic-level Table `6` closure: `0/10` fully matched, `7/10` partially
-  matched, `3/10` not yet matched.
+- harmonic-level Table `6` closure: `0/10` fully matched, `8/10` partially
+  matched, `2/10` not yet matched.
 
 The highest-priority still-open harmonics remain:
 
@@ -258,6 +258,9 @@ Important interpretation:
 - this exact-paper table status is the canonical `Track 1` status;
 - a harmonic-wise campaign result can inform which open cells to repair next;
 - but it does not replace the table-level closure rule.
+- the latest open-cell repair campaign improved harmonic-level partial matching
+  at `240`, but it still closed `0` new numeric paper-target cells in Tables
+  `3-5`.
 
 ### Supporting Harmonic-Wise Offline Result
 
@@ -298,9 +301,19 @@ The repository now also includes a stricter exact-paper validation branch:
   `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
 - campaign results report:
   `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
+- open-cell repair campaign results report:
+  `doc/reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md`
 
 This exact branch is now implemented, executed, and operationally stabilized.
-Its promoted strict reference run is:
+Its latest paper-closure-first campaign result confirms:
+
+- best campaign bookkeeping run:
+  `exact_open_cell_paper_family_reference`
+- harmonic-level status improved from `7` partial / `3` open to
+  `8` partial / `2` open
+- no new numeric paper-target cells were closed
+
+Its promoted full-bank structural reference run is:
 
 - `exact_full_bank_strict_reference`
 

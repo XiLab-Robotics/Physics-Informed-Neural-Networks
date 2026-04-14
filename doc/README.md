@@ -105,6 +105,14 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-13
 
+- [technical/2026-04/2026-04-13/2026-04-13-22-53-36_track1_exact_paper_open_cell_repair_campaign_results_reporting.md](./technical/2026-04/2026-04-13/2026-04-13-22-53-36_track1_exact_paper_open_cell_repair_campaign_results_reporting.md)
+  Technical document for closing the completed `Track 1` exact-paper
+  open-cell repair campaign through paper-closure-first reporting and
+  validated PDF export.
+- [technical/2026-04/2026-04-13/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-13/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_preparation.md)
+  Technical document for preparing the next `Track 1` campaign as an
+  exact-paper open-cell repair batch focused on Tables `3-6` closure rather
+  than harmonic-wise winner optimization.
 - [technical/2026-04/2026-04-13/2026-04-13-20-35-43_github_quality_check_md012_and_node24_action_alignment.md](./technical/2026-04/2026-04-13/2026-04-13-20-35-43_github_quality_check_md012_and_node24_action_alignment.md)
   Technical document for fixing the reported GitHub quality-check `MD012`
   Markdown failure and aligning the repository workflow actions with the
@@ -121,6 +129,12 @@ This folder contains the internal project documents derived from the reference P
   Technical document for the narrow GitHub quality-check repair focused on
   `MD012/no-multiple-blanks` failures in harmonic-wise validation Markdown
   reports and, only if needed, the shared report-generation path.
+
+#### 2026-04-14
+
+- [technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md)
+  Technical document for rebalancing the two `Campaign Ranking` tables in the
+  `Track 1` exact-paper open-cell repair campaign-results PDF.
 
 #### 2026-04-11
 
@@ -747,6 +761,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed exact-paper RCIM family-bank campaign,
   including strict-reference promotion, `SVR` surrogate diagnostics, and the
   validated exact-paper export-status outcome.
+- [reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md](./reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md)
+  Final results report for the completed `Track 1` exact-paper open-cell
+  repair campaign, including paper-table closure status, harmonic-state
+  changes, and the explicit confirmation that no new numeric paper cells were
+  closed.
 - [reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md](./reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md)
   Final results report for the completed second `Track 1` paper-faithful harmonic-wise campaign, including reduced-set diagnostics, full-RCIM comparison, and the updated `Target A` status.
 - [reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md](./reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md)
@@ -760,6 +779,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Plans
 
+- [reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md](./reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md)
+  Planning report for the next `Track 1` exact-paper open-cell repair
+  campaign, centered on the still-open cells and harmonic states in canonical
+  Tables `3-6`.
 - [reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md](./reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md)
   Planning report for the first exact-paper RCIM family-bank batch campaign,
   including diagnostic and strict-reference runs, export-failure handling

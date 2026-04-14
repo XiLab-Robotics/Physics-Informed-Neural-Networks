@@ -1,0 +1,48 @@
+schema_version: 1
+campaign_name: track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53
+selection_policy:
+  primary_metric: harmonic_closed_count_desc
+  first_tie_breaker: harmonic_open_count_asc
+  second_tie_breaker: met_paper_cell_count_desc
+  third_tie_breaker: matched_table6_family_target_count_desc
+  fourth_tie_breaker: regression_count_asc
+  fifth_tie_breaker: enabled_family_count_desc
+  sixth_tie_breaker: run_name
+  direction: mixed
+  note: Track 1 campaign winner is a bookkeeping artifact only; campaign
+    interpretation remains paper-table cell closure first.
+selected_at: '2026-04-13T22:55:28+02:00'
+run_instance_id: 2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run
+run_name: exact_open_cell_paper_family_reference
+output_run_name: exact_open_cell_paper_family_reference_campaign_run
+output_artifact_kind: validation_check
+enabled_family_count: 6
+enabled_family_list:
+- SVR
+- RF
+- ERT
+- GBM
+- HGBM
+- LGBM
+winning_family: RF
+winning_display_name: Random Forest
+winning_estimator_name: RandomForestRegressor
+winning_mean_component_mape_percent: 18.36882351011561
+winning_mean_component_mae: 0.05628443554453616
+winning_mean_component_rmse: 0.1448385161017404
+harmonic_closed_count: 0
+harmonic_partial_count: 8
+harmonic_open_count: 2
+met_paper_cell_count: 14
+matched_table6_family_target_count: 8
+regression_count: 0
+export_failure_mode: strict
+exported_file_count: 120
+failed_target_count: 0
+surrogate_export_count: 0
+matched_reference_count: 0
+missing_reference_count: 201
+extra_export_count: 120
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run
+model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run/paper_family_model_bank.pkl
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run/validation_summary.yaml
