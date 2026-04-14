@@ -239,18 +239,17 @@ surface is:
 
 - Table `2` amplitude `MAE`: `3/10` harmonics currently meet or beat the paper
   target;
-- Table `3` amplitude `RMSE`: `5/10` harmonics currently meet or beat the
+- Table `3` amplitude `RMSE`: `6/10` harmonics currently meet or beat the
   paper target;
 - Table `4` phase `MAE`: `5/9` harmonics currently meet or beat the paper
   target;
 - Table `5` phase `RMSE`: `4/9` harmonics currently meet or beat the paper
   target;
-- harmonic-level Table `6` closure: `0/10` fully matched, `8/10` partially
-  matched, `2/10` not yet matched.
+- harmonic-level Table `6` closure: `1/10` fully matched, `8/10` partially
+  matched, `1/10` not yet matched.
 
-The highest-priority still-open harmonics remain:
+The highest-priority still-open harmonics now remain concentrated around:
 
-- `0`
 - `1`
 - `3`
 - `81`
@@ -262,9 +261,9 @@ Important interpretation:
 - this exact-paper table status is the canonical `Track 1` status;
 - a harmonic-wise campaign result can inform which open cells to repair next;
 - but it does not replace the table-level closure rule.
-- the latest open-cell repair campaign improved harmonic-level partial matching
-  at `240`, but it still closed `0` new numeric paper-target cells in Tables
-  `2-5`.
+- the latest `SVM` open-cell repair campaign closed the Table `3` harmonic `0`
+  gap on the canonical best-family surface and materially strengthened the
+  `SVM` full-matrix row across Tables `2-5`.
 
 ### Deprecated Dashboard: Best-Envelope Reading
 
@@ -374,7 +373,7 @@ Repository-side analogous Track 1 table:
 
 | Harmonic | Paper Best Family | Paper Target RMSE | Repo Best Family | Repo Best RMSE | Gap Vs Paper | Status |
 | ---: | --- | ---: | --- | ---: | ---: | --- |
-| `0` | `SVM` | 0.003300 | `HGBM` | 0.003699 | 3.99e-04 | `🟡` |
+| `0` | `SVM` | 0.003300 | `SVM` | 0.003110 | -1.90e-04 | `🟢` |
 | `1` | `RF` | 3.50e-05 | `HGBM` | 3.52e-05 | 1.76e-07 | `🟢` |
 | `3` | `HGBM` | 2.50e-05 | `HGBM` | 2.57e-05 | 7.42e-07 | `🟡` |
 | `39` | `HGBM` | 3.20e-05 | `HGBM` | 3.17e-05 | -3.47e-07 | `🟢` |
@@ -468,7 +467,7 @@ Repository-side analogous Track 1 table:
 
 | `k` | Paper `A*_k` | Repo Best Ampl Family | Ampl Status | Paper `phi*_k` | Repo Best Phase MAE Family | Repo Best Phase RMSE Family | Phase MAE Status | Phase RMSE Status | Harmonic Status | Overall Color |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `0` | `SVM` | `HGBM` | `above_paper_target` | `-` | `ERT` | `ERT` | `not_applicable` | `not_applicable` | `not_yet_matched_tables_3_6` | `🔴` |
+| `0` | `SVM` | `SVM` | `met_paper_target` | `-` | `ERT` | `ERT` | `not_applicable` | `not_applicable` | `fully_matched_tables_3_6` | `🟢` |
 | `1` | `RF` | `HGBM` | `above_paper_target` | `LGBM` | `HGBM` | `GBM` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` | `🔴` |
 | `3` | `HGBM` | `HGBM` | `above_paper_target` | `HGBM` | `GBM` | `HGBM` | `above_paper_target` | `above_paper_target` | `partially_matched_tables_3_6` | `🟡` |
 | `39` | `HGBM` | `HGBM` | `met_paper_target` | `HGBM` | `LGBM` | `HGBM` | `met_paper_target` | `above_paper_target` | `partially_matched_tables_3_6` | `🟡` |
@@ -552,7 +551,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟡 0.002659` | `🟢 5.31e-05` | `🟢 1.57e-04` | `🟢 1.49e-04` | `🟡 8.20e-05` | `🟢 2.52e-04` | `🟡 9.42e-05` | `🟡 4.95e-04` | `🟢 6.82e-04` | `🟡 3.05e-04` |
+| `SVM` | `🟢 0.002503` | `🟢 5.31e-05` | `🟢 1.57e-04` | `🟢 1.49e-04` | `🟡 8.20e-05` | `🟢 2.52e-04` | `🟢 8.23e-05` | `🟡 4.61e-04` | `🟢 6.82e-04` | `🟢 2.52e-04` |
 | `MLP` | `🟡 0.0106` | `🔴 0.008904` | `🔴 0.009453` | `🔴 0.007449` | `🟡 0.006993` | `🟢 0.007089` | `🟡 0.00879` | `🟡 0.007806` | `🟢 0.007446` | `🔴 0.008946` |
 | `RF` | `🟡 0.003114` | `🟡 2.65e-05` | `🟢 1.89e-05` | `🟢 2.73e-05` | `🟢 2.21e-05` | `🟢 3.72e-05` | `🟢 1.10e-05` | `🟢 5.31e-05` | `🟢 5.28e-05` | `🟡 3.40e-05` |
 | `DT` | `🟡 0.00351` | `🟡 3.10e-05` | `🟡 2.32e-05` | `🟢 3.66e-05` | `🟢 2.97e-05` | `🟢 5.56e-05` | `🟡 1.52e-05` | `🔴 8.92e-05` | `🟡 6.70e-05` | `🟢 4.51e-05` |
@@ -594,7 +593,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟡 0.003918` | `🟢 7.01e-05` | `🟢 1.79e-04` | `🟢 1.78e-04` | `🟡 9.63e-05` | `🟢 3.15e-04` | `🟡 1.04e-04` | `🔴 0.001107` | `🟢 0.002181` | `🟡 5.72e-04` |
+| `SVM` | `🟢 0.003110` | `🟢 7.01e-05` | `🟢 1.79e-04` | `🟢 1.78e-04` | `🟡 9.63e-05` | `🟢 3.15e-04` | `🟢 9.39e-05` | `🟡 0.001048` | `🟢 0.002181` | `🟡 4.86e-04` |
 | `MLP` | `🟡 0.0141` | `🔴 0.0156` | `🔴 0.0155` | `🔴 0.0126` | `🟢 0.0121` | `🟢 0.0120` | `🟢 0.0150` | `🟢 0.0127` | `🟢 0.0130` | `🔴 0.0165` |
 | `RF` | `🟡 0.004114` | `🟡 3.72e-05` | `🟢 2.73e-05` | `🟢 3.74e-05` | `🟢 3.28e-05` | `🟡 5.67e-05` | `🟡 1.82e-05` | `🟡 1.97e-04` | `🟢 1.52e-04` | `🟡 5.47e-05` |
 | `DT` | `🟢 0.004879` | `🟡 4.31e-05` | `🟡 3.34e-05` | `🟢 5.06e-05` | `🟡 4.51e-05` | `🟢 7.97e-05` | `🔴 2.38e-05` | `🔴 2.98e-04` | `🟡 1.97e-04` | `🟢 7.18e-05` |
@@ -637,7 +636,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟡 0.002481` | `🟢 0.0323` | `🟢 0.0268` | `🟢 0.0573` | `🟢 0.1892` | `🟢 0.1230` | `🟢 1.088` | `🟡 0.5422` | `🔴 0.7006` |
+| `SVM` | `🟢 0.002177` | `🟢 0.0323` | `🟢 0.0224` | `🟢 0.0573` | `🟢 0.1892` | `🟢 0.1230` | `🟢 1.088` | `🟡 0.5274` | `🟢 0.4320` |
 | `MLP` | `🔴 0.009958` | `🟡 0.0802` | `🟡 0.0691` | `🟢 0.0788` | `🟡 0.1734` | `🟡 0.1655` | `🟢 1.562` | `🟡 0.9248` | `🟡 0.7559` |
 | `RF` | `🟢 0.001943` | `🟡 0.0247` | `🟢 0.0268` | `🟢 0.0367` | `🟢 0.0516` | `🟢 0.0480` | `🟢 0.4251` | `🟡 0.2305` | `🟡 0.2770` |
 | `DT` | `🟡 0.002236` | `🟢 0.0273` | `🟢 0.0323` | `🟡 0.0455` | `🟢 0.0745` | `🟢 0.0636` | `🟢 0.4900` | `🟡 0.2461` | `🟡 0.2873` |
@@ -679,7 +678,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟡 0.003851` | `🟢 0.0416` | `🟡 0.0512` | `🟢 0.0937` | `🟢 0.3139` | `🟢 0.1943` | `🟢 1.637` | `🟡 1.218` | `🔴 1.411` |
+| `SVM` | `🟢 0.002908` | `🟢 0.0416` | `🟢 0.0350` | `🟢 0.0937` | `🟢 0.3139` | `🟢 0.1943` | `🟢 1.637` | `🟡 1.198` | `🟢 0.9522` |
 | `MLP` | `🟡 0.0155` | `🟡 0.1022` | `🟡 0.0899` | `🟡 0.1119` | `🟡 0.2580` | `🟡 0.2296` | `🟢 1.912` | `🟡 1.484` | `🟡 1.252` |
 | `RF` | `🟢 0.002667` | `🟡 0.0351` | `🟡 0.0483` | `🟡 0.0551` | `🟢 0.1250` | `🟢 0.0681` | `🟢 0.9644` | `🟡 0.7472` | `🔴 0.8462` |
 | `DT` | `🟡 0.003114` | `🟢 0.0391` | `🟢 0.0601` | `🟡 0.0707` | `🟢 0.1513` | `🟢 0.0957` | `🟢 1.226` | `🟡 0.8916` | `🔴 0.8720` |
@@ -831,7 +830,7 @@ Important interpretation:
 | Comparison Axis | Current Repository Status | Verdict |
 | --- | --- | --- |
 | Offline winner family direction | Supporting-only harmonic direction evidence remains available, but it is not the canonical `Track 1` closure surface | supporting_only |
-| Track 1 table replication | Tables `2-5` now serialized canonically; Table `6` remains the harmonic closure summary; `0/10` harmonics fully closed and `8/10` partially closed | comparable_but_not_yet_matching |
+| Track 1 table replication | Tables `2-5` now serialized canonically; Table `6` remains the harmonic closure summary; `1/10` harmonics fully closed and `8/10` partially closed | comparable_but_not_yet_matching |
 | Supporting harmonic-wise TE metric | Held-out mean percentage error now available at `8.707%`, still above the paper threshold `4.7%` | supporting_only_not_yet_matching |
 | Online compensation benchmark | missing | not yet comparable |
 | End-to-end paper replication | missing | not yet comparable |
