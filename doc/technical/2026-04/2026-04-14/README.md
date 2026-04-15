@@ -12,3 +12,7 @@
   Technical document for preparing the first `SVR` repair campaign that uses
   the recovered paper-reference `GridSearchCV` path instead of repository
   seed/split sweeps.
+- [2026-04-14-23-36-11_campaign_launcher_streaming_logs_and_live_output_standardization.md](./2026-04-14-23-36-11_campaign_launcher_streaming_logs_and_live_output_standardization.md)
+  Technical document for future repository-wide promotion of streaming
+  console/log behavior in campaign launchers so long-running runs expose live
+  progress instead of buffered end-of-run output.
