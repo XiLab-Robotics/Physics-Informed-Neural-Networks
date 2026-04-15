@@ -1,64 +1,41 @@
-campaign_name: track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21
-status: finished
-planning_report_path: doc/reports/campaign_plans/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_plan_report.md
-campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign
+campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+status: prepared
+planning_report_path: doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign
 queue_root: null
 campaign_output_root: output/training_campaigns
-campaign_output_directory: output/training_campaigns/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21
-launch_mode: local_operator_campaign_launcher
+campaign_output_directory: output/training_campaigns/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+launch_mode: remote_operator_campaign_launcher
 activation_pending_user_confirmation: false
-prepared_at: '2026-04-14T17:17:21+02:00'
-started_at: '2026-04-14T17:30:44+02:00'
-finished_at: '2026-04-14T17:32:30+02:00'
-completion_recorded_at: '2026-04-14T17:40:47+02:00'
-results_report_path: doc/reports/campaign_results/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md
-remote_host_alias: null
-remote_repository_path: null
-remote_conda_environment_name: null
+prepared_at: '2026-04-14T22:53:48+02:00'
+started_at: null
+finished_at: null
+completion_recorded_at: null
+results_report_path: null
+remote_host_alias: xilab-remote
+remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
+remote_conda_environment_name: standard_ml_lan_node
 queue_config_path_list:
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/01_track1_svm_amplitude_repair_baseline.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/04_track1_svm_amplitude_156_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/05_track1_svm_amplitude_156_240_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/06_track1_svm_amplitude_low_mid_bridge.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/07_track1_svm_phase_repair_baseline.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/09_track1_svm_phase_repair_seed23.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/10_track1_svm_phase_240_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/11_track1_svm_phase_162_240_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/12_track1_svm_phase_1_39_bridge.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/01_track1_svr_reference_grid_amplitude_pair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/02_track1_svr_reference_grid_amplitude_40_only.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/03_track1_svr_reference_grid_amplitude_240_only.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/04_track1_svr_reference_grid_phase_162_only.yaml
 run_name_list:
-  - track1_svm_amplitude_repair_baseline
-  - track1_svm_amplitude_repair_seed11
-  - track1_svm_amplitude_repair_seed23
-  - track1_svm_amplitude_156_focus
-  - track1_svm_amplitude_156_240_focus
-  - track1_svm_amplitude_low_mid_bridge
-  - track1_svm_phase_repair_baseline
-  - track1_svm_phase_repair_seed11
-  - track1_svm_phase_repair_seed23
-  - track1_svm_phase_240_focus
-  - track1_svm_phase_162_240_focus
-  - track1_svm_phase_1_39_bridge
+  - track1_svr_reference_grid_amplitude_pair
+  - track1_svr_reference_grid_amplitude_40_only
+  - track1_svr_reference_grid_amplitude_240_only
+  - track1_svr_reference_grid_phase_162_only
 protected_file_list:
-  - doc/reports/campaign_plans/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_plan_report.md
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/README.md
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/01_track1_svm_amplitude_repair_baseline.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/04_track1_svm_amplitude_156_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/05_track1_svm_amplitude_156_240_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/06_track1_svm_amplitude_low_mid_bridge.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/07_track1_svm_phase_repair_baseline.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/09_track1_svm_phase_repair_seed23.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/10_track1_svm_phase_240_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/11_track1_svm_phase_162_240_focus.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/12_track1_svm_phase_1_39_bridge.yaml
-  - scripts/campaigns/run_track1_svm_open_cell_repair_campaign.ps1
-  - doc/scripts/campaigns/run_track1_svm_open_cell_repair_campaign.md
+  - doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/README.md
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/01_track1_svr_reference_grid_amplitude_pair.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/02_track1_svr_reference_grid_amplitude_40_only.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/03_track1_svr_reference_grid_amplitude_240_only.yaml
+  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/04_track1_svr_reference_grid_phase_162_only.yaml
+  - scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign.ps1
+  - doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign.md
+  - scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
+  - doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.md
 launch_command_list:
-  - conda activate standard_ml_codex_env
-  - .\scripts\campaigns\run_track1_svm_open_cell_repair_campaign.ps1
-  - .\scripts\campaigns\run_track1_svm_open_cell_repair_campaign.ps1 -CondaEnvironmentName "standard_ml_codex_env" -PythonExecutable python
+  - .\scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
+  - .\scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1 -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "standard_ml_lan_node"
