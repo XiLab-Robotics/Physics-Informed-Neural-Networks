@@ -12,3 +12,11 @@
   Technical document for executing the already prepared `Track 1` `SVR`
   reference-grid repair campaign on the stronger LAN workstation through the
   canonical SSH-backed remote campaign workflow.
+- [2026-04-15-14-41-23_remote_campaign_launcher_stderr_tolerance_and_smoke_test.md](./2026-04-15-14-41-23_remote_campaign_launcher_stderr_tolerance_and_smoke_test.md)
+  Technical document for hardening the canonical remote campaign launcher so
+  benign remote `stderr` warnings do not abort local orchestration before the
+  real remote exit code is known.
+- [2026-04-15-16-37-03_remote_campaign_source_sync_verification.md](./2026-04-15-16-37-03_remote_campaign_source_sync_verification.md)
+  Technical document for hardening the remote launcher with an explicit
+  post-sync remote file-existence verification pass before the actual remote
+  training command starts.

@@ -36,12 +36,14 @@ The launcher:
 1. checks reachability of the remote workstation and its training environment;
 2. syncs the local `scripts/`, `config/`, `doc/`, and `requirements.txt`
    state to the remote repository path before launch;
-3. starts `scripts/training/run_training_campaign.py` on the remote machine
+3. verifies that the synchronized campaign YAML files and planning report are
+   actually present on the remote repository clone after sync;
+4. starts `scripts/training/run_training_campaign.py` on the remote machine
    through SSH and `conda run`;
-4. copies back the resulting campaign manifest, training-run artifacts,
+5. copies back the resulting campaign manifest, training-run artifacts,
    campaign outputs, queue end state, and affected registries into the local
    repository;
-5. writes local tracking files under `doc/running/` and a local terminal log
+6. writes local tracking files under `doc/running/` and a local terminal log
    under `.temp/remote_training_campaigns/`.
 
 ## Remote Preconditions
@@ -107,6 +109,15 @@ Use these files to inspect:
 - remote campaign output directory;
 - synchronized artifact paths;
 - last failure message when the remote run stops early.
+
+Remote warning lines emitted on `stderr` are still streamed into the local
+terminal and local remote-run log, but they are no longer treated as fatal by
+the local wrapper unless the real remote exit code is non-zero.
+
+If one of the required remote campaign source paths is still missing after the
+sync-up stage, the launcher now fails immediately during `sync_up` with the
+missing repository-relative path named explicitly. That makes remote
+source-sync problems visible before the actual training entrypoint starts.
 
 ## Sync Contract
 

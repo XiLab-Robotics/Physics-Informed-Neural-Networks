@@ -215,6 +215,135 @@ function Write-RunState {
     Set-Content -LiteralPath (Join-Path $projectRoot $checklistFileRelativePath) -Value $checklistText -Encoding UTF8
 }
 
+function Write-StreamingLine {
+
+    param(
+        [string]$LineText,
+        [System.IO.StreamWriter]$LogWriter,
+        [System.Collections.Generic.List[string]]$CollectedLineList
+    )
+
+    if ($null -eq $LineText) {
+        return
+    }
+
+    if ($null -ne $LogWriter) {
+        $LogWriter.WriteLine($LineText)
+        $LogWriter.Flush()
+    }
+
+    if ($null -ne $CollectedLineList) {
+        $CollectedLineList.Add($LineText) | Out-Null
+    }
+
+    Write-Host $LineText
+}
+
+function Invoke-RemotePowerShellScriptWithStreamingLog {
+
+    param(
+        [string]$RemoteScriptText,
+        [string]$LogPath
+    )
+
+    $sshExecutablePath = (Get-Command ssh -ErrorAction Stop).Source
+    if ([System.IO.Path]::IsPathRooted($LogPath)) {
+        $resolvedLogPath = $LogPath
+    }
+    else {
+        $resolvedLogPath = Join-Path $projectRoot $LogPath
+    }
+
+    $logDirectoryPath = Split-Path -Parent $resolvedLogPath
+    if (-not [string]::IsNullOrWhiteSpace($logDirectoryPath)) {
+        New-Item -ItemType Directory -Force -Path $logDirectoryPath | Out-Null
+    }
+
+    $utf8Encoding = [System.Text.UTF8Encoding]::new($false)
+    $logWriter = [System.IO.StreamWriter]::new($resolvedLogPath, $true, $utf8Encoding)
+    $collectedLineList = [System.Collections.Generic.List[string]]::new()
+    $process = $null
+    $normalizedRemoteScriptText = $RemoteScriptText.TrimStart([char]0xFEFF)
+    $temporaryScriptPath = Join-Path $logDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
+
+    try {
+        [System.IO.File]::WriteAllText($temporaryScriptPath, $normalizedRemoteScriptText, $utf8Encoding)
+
+        $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
+        $startInfo.FileName = "cmd.exe"
+        $startInfo.Arguments = (
+            '/d /c ""{0}" {1} {2} < "{3}""' -f
+            $sshExecutablePath,
+            $RemoteHostAlias,
+            (Get-RemotePowerShellCommand),
+            $temporaryScriptPath
+        )
+        $startInfo.UseShellExecute = $false
+        $startInfo.RedirectStandardOutput = $true
+        $startInfo.RedirectStandardError = $true
+        $startInfo.CreateNoWindow = $true
+        $startInfo.WorkingDirectory = $projectRoot
+
+        $process = [System.Diagnostics.Process]::new()
+        $process.StartInfo = $startInfo
+        $null = $process.Start()
+
+        while (-not $process.HasExited) {
+            while ($process.StandardOutput.Peek() -ge 0) {
+                Write-StreamingLine `
+                    -LineText $process.StandardOutput.ReadLine() `
+                    -LogWriter $logWriter `
+                    -CollectedLineList $collectedLineList
+            }
+
+            while ($process.StandardError.Peek() -ge 0) {
+                Write-StreamingLine `
+                    -LineText $process.StandardError.ReadLine() `
+                    -LogWriter $logWriter `
+                    -CollectedLineList $collectedLineList
+            }
+
+            $null = $process.WaitForExit(200)
+        }
+
+        while (-not $process.StandardOutput.EndOfStream) {
+            Write-StreamingLine `
+                -LineText $process.StandardOutput.ReadLine() `
+                -LogWriter $logWriter `
+                -CollectedLineList $collectedLineList
+        }
+
+        while (-not $process.StandardError.EndOfStream) {
+            Write-StreamingLine `
+                -LineText $process.StandardError.ReadLine() `
+                -LogWriter $logWriter `
+                -CollectedLineList $collectedLineList
+        }
+
+        return @{
+            exit_code = [int]$process.ExitCode
+            output_line_list = @($collectedLineList)
+        }
+    }
+    finally {
+        if ($null -ne $logWriter) {
+            $logWriter.Flush()
+            $logWriter.Dispose()
+        }
+        if (($null -ne $process) -and (-not $process.HasExited)) {
+            try {
+                $process.Kill()
+            }
+            catch {
+                Write-StatusLine "WARN" "Remote SSH process cleanup failed | $($_.Exception.Message)"
+            }
+        }
+        if (Test-Path -LiteralPath $temporaryScriptPath) {
+            Remove-Item -LiteralPath $temporaryScriptPath -Force -ErrorAction SilentlyContinue
+        }
+    }
+}
+
 function Invoke-RemoteTarExtract {
 
     param(
@@ -252,6 +381,57 @@ exit `$extractExitCode
         & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
     if ($LASTEXITCODE -ne 0) {
         throw "Remote source sync failed | host=$RemoteHostAlias"
+    }
+}
+
+function Test-RemoteSourcePathAvailability {
+
+    param(
+        [string[]]$RelativePathList,
+        [string]$LogPath
+    )
+
+    $remoteVerificationScript = @"
+Set-Location -LiteralPath '$RemoteRepositoryPath'
+
+`$requiredPathList = @(
+"@
+
+    foreach ($relativePath in $RelativePathList) {
+        $remoteVerificationScript += @"
+    '$relativePath'
+"@
+    }
+
+    $remoteVerificationScript += @"
+)
+
+foreach (`$requiredPath in `$requiredPathList) {
+    if (-not (Test-Path -LiteralPath `$requiredPath)) {
+        Write-Output ('REMOTE_MISSING_REQUIRED_PATH::{0}' -f `$requiredPath)
+        exit 3
+    }
+
+    Write-Output ('REMOTE_VERIFIED_REQUIRED_PATH::{0}' -f `$requiredPath)
+}
+
+exit 0
+"@
+
+    $verificationResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+        -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remoteVerificationScript) `
+        -LogPath $LogPath
+
+    $missingPathList = @()
+    foreach ($outputLine in @($verificationResult.output_line_list)) {
+        if ($outputLine -match "^REMOTE_MISSING_REQUIRED_PATH::(.+)$") {
+            $missingPathList += $Matches[1].Trim()
+        }
+    }
+
+    return @{
+        exit_code = [int]$verificationResult.exit_code
+        missing_path_list = @($missingPathList)
     }
 }
 
@@ -373,6 +553,24 @@ Write-StatusLine "STEP" "Syncing local repository state to remote workstation"
 Write-RunState -RunStatus "running" -Stage "sync_up" -LocalLogPath $runLogPath
 Invoke-RemoteTarExtract -RelativePathList $resolvedSourceSyncPathList
 
+$requiredRemoteSourcePathList = @($resolvedCampaignConfigPathList + @($resolvedPlanningReportPath))
+Write-StatusLine "STEP" "Verifying remote campaign source paths after sync"
+$remoteSourceVerificationResult = Test-RemoteSourcePathAvailability `
+    -RelativePathList $requiredRemoteSourcePathList `
+    -LogPath $runLogPath
+if ([int]$remoteSourceVerificationResult.exit_code -ne 0) {
+    $missingPathList = @($remoteSourceVerificationResult.missing_path_list)
+    if ($missingPathList.Count -gt 0) {
+        $failureMessage = "Remote source sync verification failed | missing_path=$($missingPathList[0]) | host=$RemoteHostAlias"
+    }
+    else {
+        $failureMessage = "Remote source sync verification failed | host=$RemoteHostAlias"
+    }
+
+    Write-RunState -RunStatus "failed" -Stage "sync_up" -LocalLogPath $runLogPath -LastFailureMessage $failureMessage
+    throw $failureMessage
+}
+
 $remoteRunScript = @"
 Set-Location -LiteralPath '$RemoteRepositoryPath'
 
@@ -448,13 +646,11 @@ exit 0
 Write-StatusLine "STEP" "Launching remote training campaign"
 Write-RunState -RunStatus "running" -Stage "remote_run" -LocalLogPath $runLogPath
 
-$remoteOutputLineList = @()
-(New-RemotePowerShellScriptText -ScriptText $remoteRunScript) |
-    & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) 2>&1 |
-    Tee-Object -Variable remoteOutputLineList |
-    Tee-Object -FilePath $runLogPath
-
-$remoteExitCode = $LASTEXITCODE
+$remoteRunResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+    -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remoteRunScript) `
+    -LogPath $runLogPath
+$remoteOutputLineList = @($remoteRunResult.output_line_list)
+$remoteExitCode = [int]$remoteRunResult.exit_code
 if ($remoteExitCode -ne 0) {
     $failureMessage = "Remote training campaign failed | campaign=$CampaignName | host=$RemoteHostAlias | log=$runLogPath"
     Write-RunState -RunStatus "failed" -Stage "remote_run" -LocalLogPath $runLogPath -LastFailureMessage $failureMessage
