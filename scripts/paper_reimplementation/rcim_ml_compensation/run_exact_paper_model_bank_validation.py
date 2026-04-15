@@ -44,7 +44,10 @@ def run_exact_paper_model_bank_validation(
     """
 
     # Load And Prepare Configuration
-    print(f"[INFO] Loading exact-paper config | {config_path}")
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        f"Loading exact-paper config | {config_path}",
+    )
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
         exact_paper_model_bank_support.load_exact_model_bank_config(config_path),
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
@@ -53,9 +56,10 @@ def run_exact_paper_model_bank_validation(
     resolved_config_path = shared_training_infrastructure.resolve_project_relative_path(config_path)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
-    print(
-        "[INFO] Exact-paper output directory | "
-        f"{shared_training_infrastructure.format_project_relative_path(output_directory)}"
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Exact-paper output directory | "
+        f"{shared_training_infrastructure.format_project_relative_path(output_directory)}",
     )
 
     # Persist Canonical Artifact Metadata
@@ -63,18 +67,41 @@ def run_exact_paper_model_bank_validation(
     shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
 
     # Build The Exact Paper Dataset
-    print("[INFO] Building exact-paper dataset bundle")
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Building exact-paper dataset bundle",
+    )
     dataset_bundle = exact_paper_model_bank_support.build_exact_paper_dataset_bundle(training_config)
     enabled_family_list = exact_paper_model_bank_support.resolve_enabled_family_list(training_config)
-    print(
-        "[INFO] Exact-paper dataset ready | "
+    target_scope = exact_paper_model_bank_support.resolve_exact_target_scope(training_config)
+    search_settings = exact_paper_model_bank_support.resolve_exact_paper_hyperparameter_search_settings(training_config)
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Exact-paper dataset ready | "
         f"rows={len(dataset_bundle.full_dataframe)} "
         f"targets={len(dataset_bundle.target_name_list)} "
-        f"families={len(enabled_family_list)}"
+        f"families={len(enabled_family_list)} "
+        f"scope_mode={target_scope['mode']}",
+    )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Exact-paper target scope | "
+        f"{exact_paper_model_bank_support.build_exact_target_scope_log_summary(dataset_bundle.target_name_list)}",
+    )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Exact-paper search settings | "
+        f"mode={search_settings['mode']} "
+        f"grid_search_n_jobs={search_settings['grid_search_n_jobs']} "
+        f"grid_search_verbose={search_settings['grid_search_verbose']} "
+        f"families={','.join(enabled_family_list)}",
     )
 
     # Fit And Persist The Family Bank
-    print(f"[INFO] Fitting family bank | {', '.join(enabled_family_list)}")
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        f"Fitting family bank | {', '.join(enabled_family_list)}",
+    )
     fitted_family_model_dictionary, family_search_summary_dictionary = exact_paper_model_bank_support.fit_exact_family_model_bank(
         dataset_bundle,
         enabled_family_list,
@@ -86,19 +113,26 @@ def run_exact_paper_model_bank_validation(
     )
 
     # Evaluate And Export ONNX Artifacts
-    print("[INFO] Evaluating family bank")
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Evaluating family bank",
+    )
     family_summary_list, per_target_ranking_dictionary = (
         exact_paper_model_bank_support.evaluate_exact_family_model_bank(
             dataset_bundle,
             fitted_family_model_dictionary,
         )
     )
-    print(
-        "[INFO] Evaluation complete | "
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Evaluation complete | "
         f"winner={family_summary_list[0]['family_name']} "
-        f"mean_component_mape={family_summary_list[0]['mean_component_mape_percent']:.3f}%"
+        f"mean_component_mape={family_summary_list[0]['mean_component_mape_percent']:.3f}%",
     )
-    print("[INFO] Exporting ONNX family bank")
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Exporting ONNX family bank",
+    )
     onnx_export_summary = exact_paper_model_bank_support.export_exact_family_onnx_bank(
         dataset_bundle,
         fitted_family_model_dictionary,
@@ -111,10 +145,11 @@ def run_exact_paper_model_bank_validation(
             for family_entry in onnx_export_summary["family_exports"]
         )
     )
-    print(
-        "[INFO] ONNX export complete | "
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "ONNX export complete | "
         f"exported={onnx_export_summary['exported_file_count']} "
-        f"failed={failed_export_count}"
+        f"failed={failed_export_count}",
     )
 
     # Persist Validation Summary And Markdown Report
@@ -139,13 +174,15 @@ def run_exact_paper_model_bank_validation(
     )
 
     # Report Final Artifact Locations
-    print(
-        "[DONE] Exact paper validation summary written | "
-        f"{shared_training_infrastructure.format_project_relative_path(validation_summary_path)}"
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "DONE",
+        "Exact paper validation summary written | "
+        f"{shared_training_infrastructure.format_project_relative_path(validation_summary_path)}",
     )
-    print(
-        "[DONE] Exact paper Markdown report written | "
-        f"{shared_training_infrastructure.format_project_relative_path(validation_report_path)}"
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "DONE",
+        "Exact paper Markdown report written | "
+        f"{shared_training_infrastructure.format_project_relative_path(validation_report_path)}",
     )
     return validation_summary_path, validation_report_path
 

@@ -7,6 +7,7 @@ import contextlib
 import importlib.metadata
 import os
 import pickle
+import time
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -198,6 +199,63 @@ class ExactPaperDatasetBundle:
     train_target_matrix: pd.DataFrame
     test_target_matrix: pd.DataFrame
     full_dataframe: pd.DataFrame
+
+
+def emit_exact_paper_progress_log(level: str, message: str) -> None:
+
+    """Emit one flushed exact-paper progress line for live campaign logs."""
+
+    print(f"[{level}] {message}", flush=True)
+
+
+def format_exact_elapsed_seconds(elapsed_seconds: float) -> str:
+
+    """Format one elapsed duration for compact progress logs."""
+
+    return f"{float(elapsed_seconds):.2f}s"
+
+
+def build_exact_target_name_preview(target_name_list: list[str]) -> str:
+
+    """Build one compact target-name preview string for progress logs."""
+
+    if not target_name_list:
+        return "<empty>"
+    if len(target_name_list) <= 6:
+        return ", ".join(target_name_list)
+    return ", ".join(target_name_list[:3] + ["..."] + target_name_list[-2:])
+
+
+def build_exact_target_scope_log_summary(target_name_list: list[str]) -> str:
+
+    """Build one compact target-scope summary for runner logs."""
+
+    target_kind_list = sorted({
+        parse_exact_target_name(target_name)[0]
+        for target_name in target_name_list
+    })
+    harmonic_order_list = sorted({
+        parse_exact_target_name(target_name)[1]
+        for target_name in target_name_list
+    })
+    harmonic_text = ",".join(str(harmonic_order) for harmonic_order in harmonic_order_list)
+    kind_text = ",".join(target_kind_list)
+    preview_text = build_exact_target_name_preview(target_name_list)
+    return (
+        f"kinds={kind_text} "
+        f"harmonics={harmonic_text} "
+        f"preview={preview_text}"
+    )
+
+
+def count_exact_parameter_grid_candidates(parameter_grid: dict[str, list[Any]]) -> int:
+
+    """Count one full Cartesian parameter-grid candidate surface."""
+
+    candidate_count = 1
+    for parameter_value_list in parameter_grid.values():
+        candidate_count *= int(len(parameter_value_list))
+    return int(candidate_count)
 
 
 def parse_exact_target_name(target_name: str) -> tuple[str, int]:
@@ -725,9 +783,11 @@ def resolve_exact_paper_hyperparameter_search_settings(
         f"Unsupported exact-paper hyperparameter search mode | {search_mode}"
     )
     grid_search_n_jobs = int(search_config.get("grid_search_n_jobs", -1))
+    grid_search_verbose = int(search_config.get("grid_search_verbose", 2))
     return {
         "mode": search_mode,
         "grid_search_n_jobs": grid_search_n_jobs,
+        "grid_search_verbose": grid_search_verbose,
     }
 
 
@@ -930,30 +990,58 @@ def fit_exact_family_model_bank(
     search_settings = resolve_exact_paper_hyperparameter_search_settings(training_config)
     os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(threadpool_limit))
     for family_name in enabled_family_list:
+        family_fit_start_time = time.perf_counter()
         base_estimator = create_exact_paper_base_estimator(family_name)
         train_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.train_feature_matrix
         if family_name == "XGBM":
             train_feature_matrix = dataset_bundle.train_feature_matrix.to_numpy(dtype=np.float32)
         wrapped_estimator = MultiOutputRegressor(base_estimator)
+        emit_exact_paper_progress_log(
+            "INFO",
+            "Family fit started | "
+            f"family={family_name} "
+            f"estimator={type(base_estimator).__name__} "
+            f"targets={len(dataset_bundle.target_name_list)} "
+            f"threadpool_limit={threadpool_limit}",
+        )
+        emit_exact_paper_progress_log(
+            "INFO",
+            "Family target scope | "
+            f"family={family_name} "
+            f"{build_exact_target_scope_log_summary(dataset_bundle.target_name_list)}",
+        )
 
         if search_settings["mode"] == "paper_reference_grid_search":
             parameter_grid = build_exact_paper_reference_parameter_grid(family_name, base_estimator)
+            parameter_grid_candidate_count = count_exact_parameter_grid_candidates(parameter_grid)
+            emit_exact_paper_progress_log(
+                "INFO",
+                "Grid search configured | "
+                f"family={family_name} "
+                f"candidates={parameter_grid_candidate_count} "
+                f"parameter_count={len(parameter_grid)} "
+                f"n_jobs={int(search_settings['grid_search_n_jobs'])} "
+                f"verbose={int(search_settings['grid_search_verbose'])}",
+            )
             grid_search_estimator = GridSearchCV(
                 wrapped_estimator,
                 parameter_grid,
                 n_jobs=int(search_settings["grid_search_n_jobs"]),
+                verbose=int(search_settings["grid_search_verbose"]),
             )
             with threadpool_limits(limits=threadpool_limit):
                 grid_search_estimator.fit(
                     train_feature_matrix,
                     dataset_bundle.train_target_matrix,
                 )
+            elapsed_seconds = time.perf_counter() - family_fit_start_time
             best_wrapped_estimator = grid_search_estimator.best_estimator_
             fitted_family_model_dictionary[family_name] = best_wrapped_estimator
             family_search_summary_dictionary[family_name] = {
                 "search_mode": search_settings["mode"],
                 "used_grid_search": True,
                 "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
+                "grid_search_verbose": int(search_settings["grid_search_verbose"]),
                 "grid_search_cv": (
                     int(grid_search_estimator.n_splits_)
                     if hasattr(grid_search_estimator, "n_splits_")
@@ -967,6 +1055,14 @@ def fit_exact_family_model_bank(
                     else None
                 ),
             }
+            emit_exact_paper_progress_log(
+                "DONE",
+                "Family fit complete | "
+                f"family={family_name} "
+                f"elapsed={format_exact_elapsed_seconds(elapsed_seconds)} "
+                f"best_score={family_search_summary_dictionary[family_name]['best_score']} "
+                f"best_params={family_search_summary_dictionary[family_name]['best_params']}",
+            )
             continue
 
         with threadpool_limits(limits=threadpool_limit):
@@ -974,16 +1070,25 @@ def fit_exact_family_model_bank(
                 train_feature_matrix,
                 dataset_bundle.train_target_matrix,
             )
+        elapsed_seconds = time.perf_counter() - family_fit_start_time
         fitted_family_model_dictionary[family_name] = wrapped_estimator
         family_search_summary_dictionary[family_name] = {
             "search_mode": search_settings["mode"],
             "used_grid_search": False,
             "grid_search_n_jobs": None,
+            "grid_search_verbose": None,
             "grid_search_cv": None,
             "parameter_grid": None,
             "best_params": None,
             "best_score": None,
         }
+        emit_exact_paper_progress_log(
+            "DONE",
+            "Family fit complete | "
+            f"family={family_name} "
+            f"elapsed={format_exact_elapsed_seconds(elapsed_seconds)} "
+            f"search_mode={search_settings['mode']}",
+        )
 
     return fitted_family_model_dictionary, family_search_summary_dictionary
 
@@ -1016,6 +1121,13 @@ def evaluate_exact_family_model_bank(
             continue
 
         wrapped_estimator = fitted_family_model_dictionary[family_name]
+        family_evaluation_start_time = time.perf_counter()
+        emit_exact_paper_progress_log(
+            "INFO",
+            "Family evaluation started | "
+            f"family={family_name} "
+            f"targets={len(dataset_bundle.target_name_list)}",
+        )
         test_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.test_feature_matrix
         if family_name == "XGBM":
             test_feature_matrix = dataset_bundle.test_feature_matrix.to_numpy(dtype=np.float32)
@@ -1057,6 +1169,14 @@ def evaluate_exact_family_model_bank(
                 "mean_component_mape_percent": float(np.mean([entry["mape_percent"] for entry in target_metric_list])),
                 "target_metrics": target_metric_list,
             }
+        )
+        emit_exact_paper_progress_log(
+            "DONE",
+            "Family evaluation complete | "
+            f"family={family_name} "
+            f"elapsed={format_exact_elapsed_seconds(time.perf_counter() - family_evaluation_start_time)} "
+            f"mean_component_mape={family_summary_list[-1]['mean_component_mape_percent']:.3f}% "
+            f"mean_component_mae={family_summary_list[-1]['mean_component_mae']:.6f}",
         )
 
     # Sort Family And Per-Target Rankings
@@ -1373,11 +1493,19 @@ def export_exact_family_onnx_bank(
             continue
 
         # Resolve Output Family Folder
+        family_export_start_time = time.perf_counter()
         wrapped_estimator = fitted_family_model_dictionary[family_name]
         family_directory = export_root / family_name
         family_directory.mkdir(parents=True, exist_ok=True)
         estimator_name = EXACT_FAMILY_ESTIMATOR_NAME_MAP[family_name]
         exported_target_list: list[dict[str, Any]] = []
+        emit_exact_paper_progress_log(
+            "INFO",
+            "Family ONNX export started | "
+            f"family={family_name} "
+            f"targets={len(dataset_bundle.target_name_list)} "
+            f"estimator={estimator_name}",
+        )
 
         # Export Per-Target Estimator Files
         for target_index, target_name in enumerate(dataset_bundle.target_name_list):
@@ -1437,26 +1565,43 @@ def export_exact_family_onnx_bank(
                         "error_message": _build_compact_export_error_message(export_error),
                     }
                 )
+                emit_exact_paper_progress_log(
+                    "WARN",
+                    "Target ONNX export failed | "
+                    f"family={family_name} "
+                    f"target={target_name} "
+                    f"error={_build_compact_export_error_message(export_error)}",
+                )
                 if export_failure_mode == "strict":
                     raise RuntimeError(
                         "Exact paper ONNX export failed | "
                         f"family={family_name} target={target_name}"
                     ) from export_error
 
+        exported_target_count = int(
+            sum(1 for entry in exported_target_list if entry["export_status"] == "exported")
+        )
+        failed_target_count = int(
+            sum(1 for entry in exported_target_list if entry["export_status"] == "failed")
+        )
         family_export_list.append(
             {
                 "family_name": family_name,
                 "display_name": EXACT_FAMILY_DISPLAY_NAME_MAP[family_name],
                 "estimator_name": estimator_name,
                 "export_directory": shared_training_infrastructure.format_project_relative_path(family_directory),
-                "exported_target_count": int(
-                    sum(1 for entry in exported_target_list if entry["export_status"] == "exported")
-                ),
-                "failed_target_count": int(
-                    sum(1 for entry in exported_target_list if entry["export_status"] == "failed")
-                ),
+                "exported_target_count": exported_target_count,
+                "failed_target_count": failed_target_count,
                 "exported_targets": exported_target_list,
             }
+        )
+        emit_exact_paper_progress_log(
+            "DONE",
+            "Family ONNX export complete | "
+            f"family={family_name} "
+            f"elapsed={format_exact_elapsed_seconds(time.perf_counter() - family_export_start_time)} "
+            f"exported={exported_target_count} "
+            f"failed={failed_target_count}",
         )
 
     # Compare Export Surface Against The Recovered ONNX Release
@@ -1582,6 +1727,7 @@ def build_exact_model_validation_summary(
         "training_strategy": {
             "hyperparameter_search_mode": search_settings["mode"],
             "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
+            "grid_search_verbose": int(search_settings["grid_search_verbose"]),
             "family_search_summary": family_search_summary_dictionary,
         },
         "paper_alignment": {

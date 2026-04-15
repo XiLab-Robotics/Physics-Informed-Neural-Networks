@@ -36,6 +36,7 @@ training:
   hyperparameter_search:
     mode: paper_reference_grid_search
     grid_search_n_jobs: -1
+    grid_search_verbose: 2
 
 export:
   enable_onnx_export: true

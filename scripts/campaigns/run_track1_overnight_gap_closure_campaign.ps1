@@ -8,36 +8,7 @@ $scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
 $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..")).Path
 
 Set-Location $projectRoot
-
-function Invoke-CondaRunWithLoggedOutput {
-    param(
-        [string]$EnvironmentName,
-        [string]$PythonExecutablePath,
-        [string]$RunnerScriptPath,
-        [string]$ConfigPath,
-        [string]$OutputSuffix,
-        [string]$LogPath
-    )
-
-    $previousErrorActionPreference = $ErrorActionPreference
-    $global:ErrorActionPreference = "Continue"
-
-    try {
-        $commandOutput = & conda run -n $EnvironmentName $PythonExecutablePath `
-            $RunnerScriptPath `
-            --config-path $ConfigPath `
-            --output-suffix $OutputSuffix 2>&1
-        $nativeExitCode = $LASTEXITCODE
-    }
-    finally {
-        $global:ErrorActionPreference = $previousErrorActionPreference
-    }
-
-    $commandOutput | Tee-Object -FilePath $LogPath | ForEach-Object {
-        Write-Host $_
-    }
-    return $nativeExitCode
-}
+. (Join-Path $scriptDirectory "shared_streaming_campaign_launcher.ps1")
 
 # Define Campaign Identity
 $campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\harmonic_wise\campaigns\2026-04-13_track1_overnight_gap_closure_campaign"
