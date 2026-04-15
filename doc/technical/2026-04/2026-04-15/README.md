@@ -49,3 +49,8 @@
   Technical document for fixing the latest remote blocker in
   `build_remote_training_sync_manifest.py`, where exact-paper validation output
   paths do not fit the helper's current `training_runs/<family>` assumption.
+- [2026-04-15-23-32-44_remote_exact_paper_launcher_parity_restoration.md](./2026-04-15-23-32-44_remote_exact_paper_launcher_parity_restoration.md)
+  Technical document for restoring strict behavioral parity between the local
+  exact-paper launcher and the LAN remote wrapper so remote execution keeps the
+  same per-run logging, failure semantics, and repository-relative artifact
+  contract.
