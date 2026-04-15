@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import os
 from copy import deepcopy
 from dataclasses import asdict
 from dataclasses import dataclass
@@ -24,7 +25,7 @@ from scripts.training.transmission_error_datamodule import NormalizationStatisti
 from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(os.path.abspath(__file__)).parents[2]
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "training" / "feedforward" / "presets" / "baseline.yaml"
 DEFAULT_RUNTIME_CONFIG_DICTIONARY = {
     "accelerator": "auto",

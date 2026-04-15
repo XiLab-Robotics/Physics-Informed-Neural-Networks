@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import os
 import re, random
 from dataclasses import dataclass
 from functools import lru_cache
@@ -18,7 +19,7 @@ import yaml
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-PACKAGE_PATH = Path(__file__).resolve().parent
+PACKAGE_PATH = Path(os.path.abspath(__file__)).parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "datasets" / "transmission_error_dataset.yaml"
 DEFAULT_DATASET_PATH = PROJECT_PATH / "data" / "datasets"
@@ -65,10 +66,10 @@ def resolve_project_relative_path(path_value: str | Path) -> Path:
 
     # Resolve Absolute Path
     if resolved_path.is_absolute():
-        return resolved_path.resolve()
+        return Path(os.path.abspath(str(resolved_path)))
 
     # Resolve Project Relative Path
-    return (PROJECT_PATH / resolved_path).resolve()
+    return Path(os.path.abspath(str(PROJECT_PATH / resolved_path)))
 
 def load_dataset_processing_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
 

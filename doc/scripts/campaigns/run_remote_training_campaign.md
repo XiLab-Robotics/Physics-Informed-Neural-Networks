@@ -119,6 +119,28 @@ sync-up stage, the launcher now fails immediately during `sync_up` with the
 missing repository-relative path named explicitly. That makes remote
 source-sync problems visible before the actual training entrypoint starts.
 
+This source-path verification now runs through the same remote Python
+environment used by the actual training entrypoint, so the pre-run check uses a
+path-resolution model aligned with the later `run_training_campaign.py`
+assertion path.
+
+On the Windows LAN node, the launcher now executes repository-sensitive
+verification and training steps through a short temporary execution alias for
+the remote clone instead of relying on the long native repository path
+directly. That keeps long campaign YAML paths below the practical Windows
+path-length ceiling during exact-paper campaign execution.
+
+During the final `remote_run` stage, the launcher also expects explicit
+`REMOTE_CAMPAIGN_*` marker lines from the remote wrapper. If marker extraction
+still fails, the local failure now records a short tail of the emitted remote
+output so the operator can see which final remote lifecycle step was reached.
+
+The remote PowerShell transport no longer depends on stdin-fed
+`powershell -Command -` execution. The launcher now uploads a temporary remote
+`.ps1` file, executes it with `powershell -File`, streams its output, and then
+removes the temporary remote script. This hardens marker capture on the Windows
+LAN node.
+
 ## Sync Contract
 
 The remote path does not blindly overwrite the whole local repository after the

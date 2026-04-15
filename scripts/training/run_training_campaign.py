@@ -4,6 +4,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import argparse, shutil, sys, traceback
+import os
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
@@ -15,7 +16,7 @@ from typing import Any
 import yaml
 
 # Define Project Path
-PROJECT_PATH = Path(__file__).resolve().parents[2]
+PROJECT_PATH = Path(os.path.abspath(__file__)).parents[2]
 
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))

@@ -66,7 +66,7 @@ def format_project_relative_path(path: Path) -> str:
     return path.resolve().relative_to(PROJECT_PATH).as_posix()
 
 
-def resolve_run_output_directory_relative_path(run_dictionary: dict) -> str:
+def resolve_run_output_directory_relative_path(run_dictionary: dict) -> str | None:
 
     """Resolve the real output directory for one campaign run.
 
@@ -74,18 +74,43 @@ def resolve_run_output_directory_relative_path(run_dictionary: dict) -> str:
         run_dictionary: One run entry from the campaign manifest.
 
     Returns:
-        str: Repository-relative output-directory path that exists on disk.
+        str | None: Repository-relative output-directory path that exists on
+        disk, or `None` when the run did not materialize a canonical
+        output-directory artifact.
 
     Raises:
         AssertionError: If the helper cannot recover a real output directory.
     """
 
     # Prefer the Manifest Path When it Already Matches a Real Directory
-    manifest_output_directory_relative_path = normalize_relative_path(run_dictionary.get("output_directory"))
-    if manifest_output_directory_relative_path is not None:
-        manifest_output_directory_path = (PROJECT_PATH / manifest_output_directory_relative_path).resolve()
-        if manifest_output_directory_path.exists():
-            return manifest_output_directory_relative_path
+    raw_output_directory = run_dictionary.get("output_directory")
+    manifest_output_directory_relative_path = normalize_relative_path(raw_output_directory)
+
+    if raw_output_directory not in [None, ""]:
+        raw_output_directory_path = Path(str(raw_output_directory).replace("\\", "/"))
+        output_directory_parts = raw_output_directory_path.parts
+
+        # Accept Absolute Manifest Paths That Already Point Inside This Project
+        if raw_output_directory_path.is_absolute():
+            absolute_output_directory_path = raw_output_directory_path.resolve()
+            if absolute_output_directory_path.exists() and absolute_output_directory_path.is_relative_to(PROJECT_PATH):
+                return format_project_relative_path(absolute_output_directory_path)
+
+            if (
+                len(output_directory_parts) >= 3
+                and output_directory_parts[-4:-2] == ("output", "validation_checks")
+            ):
+                return None
+
+        # Accept Repository-Relative Manifest Paths That Already Exist
+        if manifest_output_directory_relative_path is not None:
+            manifest_output_directory_path = (PROJECT_PATH / manifest_output_directory_relative_path).resolve()
+            if manifest_output_directory_path.exists():
+                return manifest_output_directory_relative_path
+
+            manifest_output_directory_parts = Path(manifest_output_directory_relative_path).parts
+            if len(manifest_output_directory_parts) >= 3 and manifest_output_directory_parts[:2] == ("output", "validation_checks"):
+                return None
 
     # Recover the Real Directory from Canonical Run Metadata
     normalized_run_name = str(run_dictionary.get("run_name", "")).strip()
@@ -156,10 +181,11 @@ def build_sync_path_list(campaign_manifest: dict) -> list[str]:
 
     for run_dictionary in campaign_manifest.get("run_list", []):
 
-        append_sync_path(resolve_run_output_directory_relative_path(run_dictionary))
+        resolved_run_output_directory_relative_path = resolve_run_output_directory_relative_path(run_dictionary)
+        append_sync_path(resolved_run_output_directory_relative_path)
         append_sync_path(run_dictionary.get("final_queue_config_path"))
 
-        output_directory_relative_path = normalize_relative_path(resolve_run_output_directory_relative_path(run_dictionary))
+        output_directory_relative_path = normalize_relative_path(resolved_run_output_directory_relative_path)
         if output_directory_relative_path is None:
             continue
 

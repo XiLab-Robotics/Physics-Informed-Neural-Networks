@@ -26,6 +26,9 @@ $localTrackingRootRelativePath = ".temp\remote_training_campaigns"
 $localTrackingRootPath = Join-Path $projectRoot $localTrackingRootRelativePath
 $statusFileRelativePath = "doc\running\remote_training_campaign_status.json"
 $checklistFileRelativePath = "doc\running\remote_training_campaign_checklist.md"
+$remoteStagingRootPath = "C:\Temp\standardml_remote_training"
+$remoteExecutionDrive = "R:"
+$remoteExecutionRoot = "R:\"
 
 New-Item -ItemType Directory -Force -Path $localTrackingRootPath | Out-Null
 New-Item -ItemType Directory -Force -Path (Join-Path $projectRoot "doc\running") | Out-Null
@@ -99,15 +102,46 @@ function New-RemotePowerShellScriptText {
         [string]$ScriptText
     )
 
-    return @"
-`$ProgressPreference = 'SilentlyContinue'
-$ScriptText
-"@
+    return ("`$ProgressPreference = 'SilentlyContinue'`n{0}" -f $ScriptText)
 }
 
 function Get-RemotePowerShellCommand {
 
     return "powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -OutputFormat Text -Command -"
+}
+
+function Get-RemotePowerShellFileCommand {
+
+    param(
+        [string]$RemoteScriptPath
+    )
+
+    return ('powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -OutputFormat Text -File "{0}"' -f $RemoteScriptPath)
+}
+
+function New-RemoteMappedRepositoryScriptText {
+
+    param(
+        [string]$ScriptText
+    )
+
+    return @"
+`$remoteExecutionDrive = '$remoteExecutionDrive'
+`$remoteExecutionRoot = '$remoteExecutionRoot'
+try {
+    & subst.exe `$remoteExecutionDrive /d | Out-Null
+} catch {}
+& subst.exe `$remoteExecutionDrive '$RemoteRepositoryPath' | Out-Null
+if (`$LASTEXITCODE -ne 0) {
+    throw 'Remote execution root mapping failed | drive=$remoteExecutionDrive | path=$RemoteRepositoryPath'
+}
+try {
+$ScriptText
+}
+finally {
+    & subst.exe `$remoteExecutionDrive /d | Out-Null
+}
+"@
 }
 
 function Convert-ToScpRemotePath {
@@ -247,6 +281,7 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
     )
 
     $sshExecutablePath = (Get-Command ssh -ErrorAction Stop).Source
+    $scpExecutablePath = (Get-Command scp -ErrorAction Stop).Source
     if ([System.IO.Path]::IsPathRooted($LogPath)) {
         $resolvedLogPath = $LogPath
     }
@@ -259,24 +294,44 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
         New-Item -ItemType Directory -Force -Path $logDirectoryPath | Out-Null
     }
 
-    $utf8Encoding = [System.Text.UTF8Encoding]::new($false)
+    $utf8Encoding = [System.Text.ASCIIEncoding]::new()
     $logWriter = [System.IO.StreamWriter]::new($resolvedLogPath, $true, $utf8Encoding)
     $collectedLineList = [System.Collections.Generic.List[string]]::new()
     $process = $null
     $normalizedRemoteScriptText = $RemoteScriptText.TrimStart([char]0xFEFF)
-    $temporaryScriptPath = Join-Path $logDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
+    $localTemporaryScriptPath = Join-Path $logDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
+    $remoteTemporaryDirectoryPath = $remoteStagingRootPath
+    $remoteTemporaryScriptPath = Join-Path $remoteTemporaryDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
+    $remoteTemporaryScpPath = Convert-ToScpRemotePath -WindowsPath $remoteTemporaryScriptPath
 
     try {
-        [System.IO.File]::WriteAllText($temporaryScriptPath, $normalizedRemoteScriptText, $utf8Encoding)
+        [System.IO.File]::WriteAllText($localTemporaryScriptPath, $normalizedRemoteScriptText, $utf8Encoding)
+
+        $remoteDirectoryEnsureArgumentList = @(
+            $RemoteHostAlias,
+            ('cmd /d /c if not exist "{0}" mkdir "{0}"' -f $remoteTemporaryDirectoryPath)
+        )
+        & $sshExecutablePath @remoteDirectoryEnsureArgumentList | Out-Null
+        if ($LASTEXITCODE -ne 0) {
+            throw "Remote temporary script directory prepare failed | host=$RemoteHostAlias | path=$remoteTemporaryDirectoryPath"
+        }
+
+        $scpArgumentList = @(
+            $localTemporaryScriptPath,
+            ('{0}:{1}' -f $RemoteHostAlias, $remoteTemporaryScpPath)
+        )
+        & $scpExecutablePath @scpArgumentList | Out-Null
+        if ($LASTEXITCODE -ne 0) {
+            throw "Remote temporary script upload failed | host=$RemoteHostAlias | path=$remoteTemporaryScriptPath"
+        }
 
         $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
         $startInfo.FileName = "cmd.exe"
         $startInfo.Arguments = (
-            '/d /c ""{0}" {1} {2} < "{3}""' -f
+            '/d /c ""{0}" {1} {2}""' -f
             $sshExecutablePath,
             $RemoteHostAlias,
-            (Get-RemotePowerShellCommand),
-            $temporaryScriptPath
+            (Get-RemotePowerShellFileCommand -RemoteScriptPath $remoteTemporaryScriptPath)
         )
         $startInfo.UseShellExecute = $false
         $startInfo.RedirectStandardOutput = $true
@@ -338,8 +393,13 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
                 Write-StatusLine "WARN" "Remote SSH process cleanup failed | $($_.Exception.Message)"
             }
         }
-        if (Test-Path -LiteralPath $temporaryScriptPath) {
-            Remove-Item -LiteralPath $temporaryScriptPath -Force -ErrorAction SilentlyContinue
+        $remoteCleanupArgumentList = @(
+            $RemoteHostAlias,
+            ('cmd /d /c if exist "{0}" del /f /q "{0}"' -f $remoteTemporaryScriptPath)
+        )
+        & $sshExecutablePath @remoteCleanupArgumentList | Out-Null
+        if (Test-Path -LiteralPath $localTemporaryScriptPath) {
+            Remove-Item -LiteralPath $localTemporaryScriptPath -Force -ErrorAction SilentlyContinue
         }
     }
 }
@@ -370,17 +430,123 @@ function Invoke-RemoteTarExtract {
 
     $remoteExtractScript = @"
 New-Item -ItemType Directory -Force -Path (Join-Path '$RemoteRepositoryPath' '.temp') | Out-Null
-Set-Location -LiteralPath '$RemoteRepositoryPath'
+Set-Location -LiteralPath '$remoteExecutionRoot'
 & tar.exe -xf '$remoteArchivePath'
 `$extractExitCode = `$LASTEXITCODE
 Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContinue
 exit `$extractExitCode
 "@
 
-    (New-RemotePowerShellScriptText -ScriptText $remoteExtractScript) |
-        & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
-    if ($LASTEXITCODE -ne 0) {
+    $extractResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+        -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remoteExtractScript)) `
+        -LogPath $runLogPath
+    if ([int]$extractResult.exit_code -ne 0) {
         throw "Remote source sync failed | host=$RemoteHostAlias"
+    }
+}
+
+function Invoke-RemoteSourceFileSync {
+
+    param(
+        [string[]]$RelativeFilePathList
+    )
+
+    foreach ($relativeFilePath in $RelativeFilePathList) {
+
+        # Resolve Local And Remote File Paths
+        $localSourceFilePath = Join-Path $projectRoot $relativeFilePath
+        if (-not (Test-Path -LiteralPath $localSourceFilePath)) {
+            throw "Local source file does not exist | $localSourceFilePath"
+        }
+
+        $sourceLeafName = Split-Path -Leaf $relativeFilePath
+        $remoteDestinationFilePath = Join-Path $RemoteRepositoryPath $relativeFilePath
+        $remoteDestinationParentPath = Split-Path -Parent $remoteDestinationFilePath
+        $remoteTemporaryDirectoryPath = Join-Path $RemoteRepositoryPath ".temp\source_sync_stage"
+        $remoteTemporaryDirectoryScpPath = Convert-ToScpRemotePath -WindowsPath $remoteTemporaryDirectoryPath
+        $remoteTemporaryFilePath = Join-Path $remoteTemporaryDirectoryPath $sourceLeafName
+
+        # Prepare Remote Destination
+        $remotePrepareScript = @"
+New-Item -ItemType Directory -Force -Path '$remoteDestinationParentPath' | Out-Null
+New-Item -ItemType Directory -Force -Path '$remoteTemporaryDirectoryPath' | Out-Null
+
+cmd.exe /d /c "if exist ""$remoteDestinationFilePath"" del /f /q ""$remoteDestinationFilePath""" | Out-Null
+cmd.exe /d /c "if exist ""$remoteDestinationFilePath"" rmdir /s /q ""$remoteDestinationFilePath""" | Out-Null
+Remove-Item -LiteralPath '$remoteDestinationFilePath' -Force -Recurse -ErrorAction SilentlyContinue
+Remove-Item -LiteralPath '$remoteTemporaryFilePath' -Force -Recurse -ErrorAction SilentlyContinue
+exit 0
+"@
+
+        $prepareResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+            -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remotePrepareScript) `
+            -LogPath $runLogPath
+        if ([int]$prepareResult.exit_code -ne 0) {
+            throw "Remote source-file sync prepare failed | host=$RemoteHostAlias | path=$relativeFilePath"
+        }
+
+        # Upload Local Source File To Remote Temporary Path
+        & scp $localSourceFilePath "${RemoteHostAlias}:${remoteTemporaryDirectoryScpPath}"
+        if ($LASTEXITCODE -ne 0) {
+            throw "Remote source-file upload failed | host=$RemoteHostAlias | path=$relativeFilePath"
+        }
+
+        # Materialize Final Destination
+        $remoteFinalizeScript = @"
+`$remoteTemporaryFilePath = '$remoteTemporaryFilePath'
+`$remoteDestinationFilePath = '$remoteDestinationFilePath'
+`$remoteVerificationScriptPath = Join-Path '$RemoteRepositoryPath' '.temp\remote_source_file_finalize.py'
+
+`$pythonFinalizeScriptText = @'
+from pathlib import Path
+import os
+import subprocess
+import shutil
+import sys
+
+source_path = Path(r'''$remoteTemporaryFilePath''')
+destination_path = Path(r'''$remoteDestinationFilePath''')
+
+if not source_path.exists():
+    print(f"REMOTE_SOURCE_TEMP_MISSING::{source_path}")
+    print(f"REMOTE_SOURCE_TEMP_PARENT::{source_path.parent}")
+    print(f"REMOTE_SOURCE_TEMP_PARENT_EXISTS::{source_path.parent.exists()}")
+    if source_path.parent.exists():
+        for child in sorted(source_path.parent.iterdir()):
+            print(f"REMOTE_SOURCE_TEMP_ENTRY::{child.name}::{child.exists()}::{child.is_file()}")
+    sys.exit(5)
+
+destination_path.parent.mkdir(parents=True, exist_ok=True)
+print(f"REMOTE_DESTINATION_PARENT::{destination_path.parent}")
+print(f"REMOTE_DESTINATION_PARENT_EXISTS::{destination_path.parent.exists()}")
+
+subprocess.run(f'cmd /d /c del /f /q \"{destination_path}\" 2>nul', shell=True)
+subprocess.run(f'cmd /d /c rmdir /s /q \"{destination_path}\" 2>nul', shell=True)
+
+destination_path.write_bytes(source_path.read_bytes())
+
+if not destination_path.exists() or not destination_path.is_file():
+    print(f"REMOTE_SOURCE_DESTINATION_INVALID::{destination_path}")
+    sys.exit(6)
+
+print(f"REMOTE_SOURCE_DESTINATION_READY::{destination_path}")
+sys.exit(0)
+'@
+
+Set-Content -LiteralPath `$remoteVerificationScriptPath -Value `$pythonFinalizeScriptText -Encoding UTF8
+& conda run -n $RemoteCondaEnvironmentName python `$remoteVerificationScriptPath
+`$finalizeExitCode = `$LASTEXITCODE
+Remove-Item -LiteralPath `$remoteVerificationScriptPath -Force -ErrorAction SilentlyContinue
+Remove-Item -LiteralPath `$remoteTemporaryFilePath -Force -ErrorAction SilentlyContinue
+exit `$finalizeExitCode
+"@
+
+        $finalizeResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+            -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remoteFinalizeScript) `
+            -LogPath $runLogPath
+        if ([int]$finalizeResult.exit_code -ne 0) {
+            throw "Remote source-file materialization failed | host=$RemoteHostAlias | path=$relativeFilePath"
+        }
     }
 }
 
@@ -391,35 +557,59 @@ function Test-RemoteSourcePathAvailability {
         [string]$LogPath
     )
 
-    $remoteVerificationScript = @"
-Set-Location -LiteralPath '$RemoteRepositoryPath'
-
-`$requiredPathList = @(
-"@
-
+    $pythonRequiredPathEntryList = @()
     foreach ($relativePath in $RelativePathList) {
-        $remoteVerificationScript += @"
-    '$relativePath'
-"@
+        $pythonFriendlyRelativePath = $relativePath.Replace("\", "/")
+        $pythonRequiredPathEntryList += ("    '{0}'" -f $pythonFriendlyRelativePath)
     }
+    $pythonRequiredPathBlock = [string]::Join(",`n", $pythonRequiredPathEntryList)
+    $pythonProjectRoot = $remoteExecutionRoot.Replace("\", "/")
 
-    $remoteVerificationScript += @"
-)
+    $remoteVerificationScript = @"
+Set-Location -LiteralPath '$remoteExecutionRoot'
+Write-Output ('REMOTE_VERIFICATION_WORKDIR::{0}' -f (Get-Location).Path)
 
-foreach (`$requiredPath in `$requiredPathList) {
-    if (-not (Test-Path -LiteralPath `$requiredPath)) {
-        Write-Output ('REMOTE_MISSING_REQUIRED_PATH::{0}' -f `$requiredPath)
-        exit 3
-    }
+`$pythonVerificationScriptPath = Join-Path '$remoteExecutionRoot' '.temp\remote_source_path_verification.py'
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent `$pythonVerificationScriptPath) | Out-Null
 
-    Write-Output ('REMOTE_VERIFIED_REQUIRED_PATH::{0}' -f `$requiredPath)
-}
+`$pythonVerificationScriptText = @'
+from pathlib import Path
+import sys
 
-exit 0
+project_root = Path('$pythonProjectRoot')
+required_paths = [
+$pythonRequiredPathBlock
+]
+
+print(f"REMOTE_VERIFICATION_PROJECT_ROOT::{project_root}")
+
+for relative_path in required_paths:
+    resolved_path = (project_root / relative_path).resolve()
+    if not resolved_path.exists():
+        parent_path = resolved_path.parent
+        print(f"REMOTE_MISSING_REQUIRED_PATH::{relative_path}")
+        print(f"REMOTE_MISSING_RESOLVED_PATH::{resolved_path}")
+        print(f"REMOTE_MISSING_PARENT_PATH::{parent_path}")
+        print(f"REMOTE_MISSING_PARENT_EXISTS::{parent_path.exists()}")
+        if parent_path.exists():
+            for child in sorted(parent_path.iterdir()):
+                print(f"REMOTE_PARENT_ENTRY::{child.name}::{child.exists()}::{child.is_file()}")
+        sys.exit(3)
+
+    print(f"REMOTE_VERIFIED_REQUIRED_PATH::{relative_path}")
+
+sys.exit(0)
+'@
+
+Set-Content -LiteralPath `$pythonVerificationScriptPath -Value `$pythonVerificationScriptText -Encoding UTF8
+& conda run -n $RemoteCondaEnvironmentName python `$pythonVerificationScriptPath
+`$verificationExitCode = `$LASTEXITCODE
+Remove-Item -LiteralPath `$pythonVerificationScriptPath -Force -ErrorAction SilentlyContinue
+exit `$verificationExitCode
 "@
 
     $verificationResult = Invoke-RemotePowerShellScriptWithStreamingLog `
-        -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remoteVerificationScript) `
+        -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remoteVerificationScript)) `
         -LogPath $LogPath
 
     $missingPathList = @()
@@ -448,7 +638,7 @@ function Invoke-RemoteTarCopyToLocal {
         $relativePath = $RelativePathList[$pathIndex]
         $archiveSlug = "{0:D3}_{1}" -f ($pathIndex + 1), (Convert-ToSlug -RawText $relativePath)
         $localArchivePath = Join-Path $localArchiveDirectory "${archiveSlug}.tar"
-        $remoteArchivePath = Join-Path $RemoteRepositoryPath ".temp\${archiveSlug}.tar"
+        $remoteArchivePath = Join-Path $remoteStagingRootPath "${archiveSlug}.tar"
         $remoteScpArchivePath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath
 
         if (Test-Path -LiteralPath $localArchivePath) {
@@ -456,15 +646,16 @@ function Invoke-RemoteTarCopyToLocal {
         }
 
         $remoteTarScript = @"
-New-Item -ItemType Directory -Force -Path (Join-Path '$RemoteRepositoryPath' '.temp') | Out-Null
-Set-Location -LiteralPath '$RemoteRepositoryPath'
+New-Item -ItemType Directory -Force -Path '$remoteStagingRootPath' | Out-Null
+Set-Location -LiteralPath '$remoteExecutionRoot'
 & tar.exe -cf '$remoteArchivePath' '$relativePath'
 exit `$LASTEXITCODE
 "@
 
-        (New-RemotePowerShellScriptText -ScriptText $remoteTarScript) |
-            & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
-        if ($LASTEXITCODE -ne 0) {
+        $remoteTarResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+            -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remoteTarScript)) `
+            -LogPath $runLogPath
+        if ([int]$remoteTarResult.exit_code -ne 0) {
             throw "Remote artifact archive build failed | host=$RemoteHostAlias | path=$relativePath"
         }
 
@@ -483,9 +674,10 @@ Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContin
 exit 0
 "@
 
-        (New-RemotePowerShellScriptText -ScriptText $remoteCleanupScript) |
-            & ssh $RemoteHostAlias (Get-RemotePowerShellCommand) | Out-Null
-        if ($LASTEXITCODE -ne 0) {
+        $remoteCleanupResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+            -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remoteCleanupScript) `
+            -LogPath $runLogPath
+        if ([int]$remoteCleanupResult.exit_code -ne 0) {
             throw "Remote artifact cleanup failed | host=$RemoteHostAlias | path=$relativePath"
         }
 
@@ -531,20 +723,19 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $remotePreflightScript = @"
-if (-not (Test-Path -LiteralPath '$RemoteRepositoryPath')) {
-    throw 'Remote repository path does not exist | $RemoteRepositoryPath'
-}
-
-Set-Location -LiteralPath '$RemoteRepositoryPath'
+New-Item -ItemType Directory -Force -Path '$remoteStagingRootPath' | Out-Null
+Set-Location -LiteralPath '$remoteExecutionRoot'
+Write-Output ('REMOTE_EXECUTION_ROOT::{0}' -f (Get-Location).Path)
 & tar.exe --version | Out-Null
 & conda run -n $RemoteCondaEnvironmentName python -c "import sys; print(sys.version)"
 exit `$LASTEXITCODE
 "@
 
 Write-StatusLine "INFO" "Running remote environment preflight"
-(New-RemotePowerShellScriptText -ScriptText $remotePreflightScript) |
-    & ssh $RemoteHostAlias (Get-RemotePowerShellCommand)
-if ($LASTEXITCODE -ne 0) {
+$preflightResult = Invoke-RemotePowerShellScriptWithStreamingLog `
+    -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remotePreflightScript)) `
+    -LogPath $runLogPath
+if ([int]$preflightResult.exit_code -ne 0) {
     throw "Remote environment preflight failed | host=$RemoteHostAlias"
 }
 
@@ -572,7 +763,8 @@ if ([int]$remoteSourceVerificationResult.exit_code -ne 0) {
 }
 
 $remoteRunScript = @"
-Set-Location -LiteralPath '$RemoteRepositoryPath'
+Set-Location -LiteralPath '$remoteExecutionRoot'
+Write-Output ('REMOTE_RUN_START::{0}' -f (Get-Location).Path)
 
 `$argumentList = @(
     '-B',
@@ -594,18 +786,23 @@ $remoteRunScript += @"
 
 & conda run -n $RemoteCondaEnvironmentName python @argumentList
 `$remoteExitCode = `$LASTEXITCODE
+Write-Output ('REMOTE_RUN_EXIT_CODE::{0}' -f `$remoteExitCode)
 if (`$remoteExitCode -ne 0) {
     exit `$remoteExitCode
 }
 
+Write-Output 'REMOTE_RUN_RESOLVE_OUTPUT_START'
 `$matchingDirectory = Get-ChildItem -LiteralPath 'output\training_campaigns' -Directory |
     Where-Object { `$_.Name -like '*$CampaignName*' } |
     Sort-Object LastWriteTime |
     Select-Object -Last 1
 
 if (`$null -eq `$matchingDirectory) {
+    Write-Output 'REMOTE_RUN_OUTPUT_DIRECTORY_NOT_FOUND'
     throw 'Could not resolve the remote campaign output directory after campaign completion.'
 }
+
+Write-Output ('REMOTE_RUN_OUTPUT_DIRECTORY_FOUND::{0}' -f `$matchingDirectory.FullName)
 
 function Resolve-WindowsRelativePath {
     param(
@@ -630,9 +827,12 @@ function Resolve-WindowsRelativePath {
 `$relativeCampaignOutputDirectory = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$matchingDirectory.FullName
 `$relativeManifestPath = [System.IO.Path]::Combine(`$relativeCampaignOutputDirectory, 'campaign_manifest.yaml')
 `$relativeSyncManifestPath = [System.IO.Path]::Combine('.temp', 'remote_training_sync_manifest.json')
+Write-Output ('REMOTE_RUN_MANIFEST_CANDIDATE::{0}' -f `$relativeManifestPath)
+Write-Output ('REMOTE_RUN_SYNC_MANIFEST_CANDIDATE::{0}' -f `$relativeSyncManifestPath)
 
 & conda run -n $RemoteCondaEnvironmentName python -B scripts/training/build_remote_training_sync_manifest.py --campaign-manifest-path `$relativeManifestPath --output-path `$relativeSyncManifestPath
 `$syncManifestExitCode = `$LASTEXITCODE
+Write-Output ('REMOTE_RUN_SYNC_MANIFEST_EXIT_CODE::{0}' -f `$syncManifestExitCode)
 if (`$syncManifestExitCode -ne 0) {
     exit `$syncManifestExitCode
 }
@@ -640,6 +840,7 @@ if (`$syncManifestExitCode -ne 0) {
 Write-Output ('REMOTE_CAMPAIGN_OUTPUT_DIRECTORY::{0}' -f `$relativeCampaignOutputDirectory)
 Write-Output ('REMOTE_CAMPAIGN_MANIFEST_PATH::{0}' -f `$relativeManifestPath)
 Write-Output ('REMOTE_SYNC_MANIFEST_PATH::{0}' -f `$relativeSyncManifestPath)
+Write-Output 'REMOTE_RUN_MARKERS_EMITTED'
 exit 0
 "@
 
@@ -647,7 +848,7 @@ Write-StatusLine "STEP" "Launching remote training campaign"
 Write-RunState -RunStatus "running" -Stage "remote_run" -LocalLogPath $runLogPath
 
 $remoteRunResult = Invoke-RemotePowerShellScriptWithStreamingLog `
-    -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText $remoteRunScript) `
+    -RemoteScriptText (New-RemotePowerShellScriptText -ScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remoteRunScript)) `
     -LogPath $runLogPath
 $remoteOutputLineList = @($remoteRunResult.output_line_list)
 $remoteExitCode = [int]$remoteRunResult.exit_code
@@ -674,14 +875,18 @@ foreach ($remoteOutputLine in $remoteOutputLineList) {
 }
 
 if ([string]::IsNullOrWhiteSpace($remoteManifestPath)) {
-    $failureMessage = "Remote campaign completed without returning a manifest path marker | campaign=$CampaignName"
+    $remoteOutputTail = @($remoteOutputLineList | Select-Object -Last 20)
+    $tailSummary = if ($remoteOutputTail.Count -gt 0) { ($remoteOutputTail -join " || ") } else { "no_remote_output_captured" }
+    $failureMessage = "Remote campaign completed without returning a manifest path marker | campaign=$CampaignName | remote_output_tail=$tailSummary"
     Write-RunState -RunStatus "failed" -Stage "remote_run" -LocalLogPath $runLogPath -LastFailureMessage $failureMessage
     throw $failureMessage
 }
 
 # Sync Manifest And Remote Sync Payload Back To The Local Workstation
 if ([string]::IsNullOrWhiteSpace($remoteSyncManifestPath)) {
-    $failureMessage = "Remote campaign completed without returning a sync manifest path marker | campaign=$CampaignName"
+    $remoteOutputTail = @($remoteOutputLineList | Select-Object -Last 20)
+    $tailSummary = if ($remoteOutputTail.Count -gt 0) { ($remoteOutputTail -join " || ") } else { "no_remote_output_captured" }
+    $failureMessage = "Remote campaign completed without returning a sync manifest path marker | campaign=$CampaignName | remote_output_tail=$tailSummary"
     Write-RunState -RunStatus "failed" -Stage "remote_run" -LocalLogPath $runLogPath -LastFailureMessage $failureMessage
     throw $failureMessage
 }
