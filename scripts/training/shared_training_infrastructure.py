@@ -61,6 +61,29 @@ SELECTION_POLICY_DICTIONARY = {
     "direction": "minimize",
 }
 
+def resolve_runtime_project_path() -> Path:
+
+    """Resolve the active repository root for the current runtime context."""
+
+    # Prefer the Live Working Directory When It Already Looks Like The Repo Root
+    working_directory = Path(os.getcwd())
+    required_entry_name_list = ["scripts", "config", "doc"]
+    if all((working_directory / entry_name).exists() for entry_name in required_entry_name_list):
+        return working_directory
+
+    return PROJECT_PATH
+
+
+def resolve_runtime_project_relative_path(path_value: str | Path) -> Path:
+
+    """Resolve one repository-relative path against the active runtime root."""
+
+    resolved_path = Path(path_value)
+    if resolved_path.is_absolute():
+        return resolved_path
+
+    return Path(os.path.abspath(str(resolve_runtime_project_path() / resolved_path)))
+
 @dataclass
 class ExperimentIdentity:
 
@@ -102,8 +125,20 @@ def load_training_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[
         dict[str, Any]: Parsed training configuration dictionary.
     """
 
-    # Resolve Config Path
-    resolved_config_path = resolve_project_relative_path(config_path)
+    # Resolve Config Path -> Prefer Live Working Directory For Relative Paths
+    candidate_config_path = Path(config_path)
+    if candidate_config_path.is_absolute():
+        if candidate_config_path.exists():
+            resolved_config_path = candidate_config_path
+        else:
+            resolved_config_path = resolve_project_relative_path(candidate_config_path)
+    else:
+        working_directory_config_path = Path(os.path.abspath(str(candidate_config_path)))
+        if working_directory_config_path.exists():
+            resolved_config_path = working_directory_config_path
+        else:
+            resolved_config_path = resolve_project_relative_path(candidate_config_path)
+
     assert resolved_config_path.exists(), f"Training Config Path does not exist | {resolved_config_path}"
 
     # Load YAML Configuration
@@ -285,15 +320,15 @@ def resolve_output_root(training_config: dict[str, Any]) -> Path:
 
     # Resolve Standard Training-Run Output Root
     if output_artifact_kind == RUN_OUTPUT_ARTIFACT_KIND:
-        return resolve_project_relative_path(training_config["paths"]["output_root"])
+        return resolve_runtime_project_relative_path(training_config["paths"]["output_root"])
 
     # Resolve Validation Output Root
     if output_artifact_kind == VALIDATION_OUTPUT_ARTIFACT_KIND:
-        return (VALIDATION_OUTPUT_ROOT / experiment_identity.model_family).resolve()
+        return resolve_runtime_project_path() / "output" / "validation_checks" / experiment_identity.model_family
 
     # Smoke Test Outputs are Organized Under a Separate Root Directory
     if output_artifact_kind == SMOKE_TEST_OUTPUT_ARTIFACT_KIND:
-        return (SMOKE_TEST_OUTPUT_ROOT / experiment_identity.model_family).resolve()
+        return resolve_runtime_project_path() / "output" / "smoke_tests" / experiment_identity.model_family
 
     raise ValueError(f"Unsupported output_artifact_kind | {output_artifact_kind}")
 
@@ -680,11 +715,16 @@ def format_project_relative_path(path_value: str | Path | None) -> str:
     if isinstance(path_value, str) and "Best checkpoint not available" in path_value:
         return path_value
 
-    resolved_path = Path(path_value).resolve()
+    resolved_path = Path(path_value)
 
     # Format Path as Project-Relative if Possible, Otherwise Return Absolute Path
-    try: return resolved_path.relative_to(PROJECT_PATH).as_posix()
-    except ValueError: return resolved_path.as_posix()
+    for candidate_project_root in [resolve_runtime_project_path(), PROJECT_PATH]:
+        try:
+            return resolved_path.relative_to(candidate_project_root).as_posix()
+        except ValueError:
+            continue
+
+    return resolved_path.as_posix()
 
 def load_yaml_snapshot(input_path: Path) -> dict[str, Any]:
 

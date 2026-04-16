@@ -166,11 +166,44 @@ function Write-StreamingLine {
     Write-Host $LineText
 }
 
+function Convert-ToPowerShellEncodedCommand {
+
+    param(
+        [string]$ScriptText
+    )
+
+    $unicodeBytes = [System.Text.Encoding]::Unicode.GetBytes($ScriptText)
+    return [Convert]::ToBase64String($unicodeBytes)
+}
+
+function Invoke-RemotePowerShellEncodedCommand {
+
+    param(
+        [string]$RemoteScriptText,
+        [switch]$IgnoreExitCode
+    )
+
+    $sshExecutablePath = (Get-Command ssh -ErrorAction Stop).Source
+    $encodedCommand = Convert-ToPowerShellEncodedCommand -ScriptText $RemoteScriptText
+    & $sshExecutablePath $RemoteHostAlias "powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -EncodedCommand $encodedCommand" | Out-Null
+
+    if ((-not $IgnoreExitCode) -and ($LASTEXITCODE -ne 0)) {
+        throw "Remote encoded PowerShell command failed | host=$RemoteHostAlias | exit_code=$LASTEXITCODE"
+    }
+
+    return [int]$LASTEXITCODE
+}
+
 function Invoke-RemotePowerShellScriptWithStreamingLog {
 
     param(
         [string]$RemoteScriptText,
-        [string]$LogPath
+        [string]$LogPath,
+        [string]$ProgressActivity = "Remote command",
+        [string[]]$RemoteKillMatchPatternList = @(),
+        [int]$InitialConfigCount = 0,
+        [string]$InitialConfigPath = "",
+        [string]$InitialLogPath = ""
     )
 
     $sshExecutablePath = (Get-Command ssh -ErrorAction Stop).Source
@@ -179,16 +212,33 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
     $logDirectoryPath = Split-Path -Parent $resolvedLogPath
     $utf8Encoding = [System.Text.ASCIIEncoding]::new()
     $logWriter = $null
-    $process = $null
     $localTemporaryScriptPath = Join-Path $logDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
     $remoteTemporaryDirectoryPath = $remoteStagingRootPath
     $remoteTemporaryScriptPath = Join-Path $remoteTemporaryDirectoryPath ("remote_command_{0}.ps1" -f ([guid]::NewGuid().ToString("N")))
     $remoteTemporaryScpPath = Convert-ToScpRemotePath -WindowsPath $remoteTemporaryScriptPath
     $collectedLineList = [System.Collections.Generic.List[string]]::new()
+    $progressId = [Math]::Abs([int](Get-Random -Minimum 1000 -Maximum 32767))
+    $currentConfigIndex = if (($InitialConfigCount -gt 0) -and (-not [string]::IsNullOrWhiteSpace($InitialConfigPath))) { 1 } else { 0 }
+    $configCount = $InitialConfigCount
+    $currentConfigPath = $InitialConfigPath
+    $currentLogPath = $InitialLogPath
+    $currentOperation = if ($currentConfigIndex -gt 0) { "Waiting for first remote line from exact-paper runner" } else { "Waiting for remote output" }
+    $lastProgressUpdateTime = Get-Date
+    $lastOutputTime = Get-Date
+    $script:remoteCancelRequested = $false
+    $cancelHandler = $null
+    $previousErrorActionPreference = $ErrorActionPreference
 
     New-Item -ItemType Directory -Force -Path $logDirectoryPath | Out-Null
 
     try {
+        $cancelHandler = [ConsoleCancelEventHandler]{
+            param($sender, $eventArgs)
+
+            $eventArgs.Cancel = $true
+            $script:remoteCancelRequested = $true
+        }
+        [Console]::add_CancelKeyPress($cancelHandler)
         $logWriter = [System.IO.StreamWriter]::new($resolvedLogPath, $true, $utf8Encoding)
         [System.IO.File]::WriteAllText($localTemporaryScriptPath, $RemoteScriptText.TrimStart([char]0xFEFF), $utf8Encoding)
 
@@ -202,62 +252,136 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
             throw "Remote temporary script upload failed | host=$RemoteHostAlias | path=$remoteTemporaryScriptPath"
         }
 
-        $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
-        $startInfo.FileName = "cmd.exe"
-        $startInfo.Arguments = (
-            '/d /c ""{0}" {1} powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -OutputFormat Text -File "{2}"""' -f
-            $sshExecutablePath,
-            $RemoteHostAlias,
+        $ErrorActionPreference = "Continue"
+        $remoteCommandLine = (
+            'powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -OutputFormat Text -File "{0}"' -f
             $remoteTemporaryScriptPath
         )
-        $startInfo.UseShellExecute = $false
-        $startInfo.RedirectStandardOutput = $true
-        $startInfo.RedirectStandardError = $true
-        $startInfo.CreateNoWindow = $true
-        $startInfo.WorkingDirectory = $projectRoot
 
-        $process = [System.Diagnostics.Process]::new()
-        $process.StartInfo = $startInfo
-        $null = $process.Start()
-
-        while (-not $process.HasExited) {
-            while ($process.StandardOutput.Peek() -ge 0) {
-                Write-StreamingLine -LineText $process.StandardOutput.ReadLine() -LogWriter $logWriter -CollectedLineList $collectedLineList
+        & $sshExecutablePath $RemoteHostAlias $remoteCommandLine 2>&1 | ForEach-Object {
+            if ($script:remoteCancelRequested) {
+                throw [System.Management.Automation.PipelineStoppedException]::new("Remote command interrupted by operator")
             }
 
-            while ($process.StandardError.Peek() -ge 0) {
-                Write-StreamingLine -LineText $process.StandardError.ReadLine() -LogWriter $logWriter -CollectedLineList $collectedLineList
+            if ($null -eq $_) {
+                return
             }
 
-            $null = $process.WaitForExit(200)
+            $outputLine = $_.ToString()
+            $lastOutputTime = Get-Date
+            Write-StreamingLine -LineText $outputLine -LogWriter $logWriter -CollectedLineList $collectedLineList
+
+            if ($outputLine -match "^REMOTE_ACTIVE_CONFIG::(\d+)::(\d+)::(.+)$") {
+                $currentConfigIndex = [int]$Matches[1]
+                $configCount = [int]$Matches[2]
+                $currentConfigPath = $Matches[3].Trim()
+                $currentOperation = "Running exact-paper config"
+            }
+            elseif ($outputLine -match "^REMOTE_ACTIVE_LOG::(.+)$") {
+                $currentLogPath = $Matches[1].Trim()
+            }
+            elseif ($outputLine -match "^REMOTE_ACTIVE_STAGE::(.+)$") {
+                $currentOperation = $Matches[1].Trim()
+            }
+            elseif ($outputLine -match "^\[INFO\] Grid search configured \| (.+)$") {
+                $currentOperation = "Grid search configured | $($Matches[1].Trim())"
+            }
+            elseif ($outputLine -match "^\[DONE\]") {
+                $currentOperation = $outputLine.Trim()
+            }
+
+            $now = Get-Date
+            if (($now - $lastProgressUpdateTime).TotalSeconds -ge 1) {
+                $percentComplete = 0
+                if ($configCount -gt 0) {
+                    $percentComplete = [Math]::Max(0, [Math]::Min(99, [int]((100.0 * [Math]::Max(0, ($currentConfigIndex - 1))) / $configCount)))
+                }
+
+                $statusText = if ($configCount -gt 0) {
+                    "Config $currentConfigIndex/$configCount | $currentConfigPath"
+                }
+                else {
+                    "Waiting for remote output"
+                }
+
+                $operationText = if ([string]::IsNullOrWhiteSpace($currentLogPath)) {
+                    $currentOperation
+                }
+                else {
+                    "$currentOperation | log $currentLogPath"
+                }
+
+                Write-Progress -Id $progressId -Activity $ProgressActivity -Status $statusText -CurrentOperation $operationText -PercentComplete $percentComplete
+                $lastProgressUpdateTime = $now
+            }
         }
 
-        while (-not $process.StandardOutput.EndOfStream) {
-            Write-StreamingLine -LineText $process.StandardOutput.ReadLine() -LogWriter $logWriter -CollectedLineList $collectedLineList
-        }
-
-        while (-not $process.StandardError.EndOfStream) {
-            Write-StreamingLine -LineText $process.StandardError.ReadLine() -LogWriter $logWriter -CollectedLineList $collectedLineList
-        }
-
+        Write-Progress -Id $progressId -Activity $ProgressActivity -Completed
         return @{
-            exit_code = [int]$process.ExitCode
+            exit_code = [int]$LASTEXITCODE
             output_line_list = @($collectedLineList)
         }
     }
+    catch [System.Management.Automation.PipelineStoppedException] {
+        Write-StatusLine "WARN" "Ctrl+C received | terminating remote command and remote child processes"
+
+        $remoteCleanupScript = @"
+`$killPatternList = @(
+    '$remoteTemporaryScriptPath'
+"@
+        foreach ($killPattern in $RemoteKillMatchPatternList) {
+            $remoteCleanupScript += @"
+    '$killPattern'
+"@
+        }
+        $remoteCleanupScript += @"
+)
+`$stoppedProcessCount = 0
+`$processList = Get-CimInstance Win32_Process
+foreach (`$processEntry in `$processList) {
+    `$commandLine = [string]`$processEntry.CommandLine
+    if ([string]::IsNullOrWhiteSpace(`$commandLine)) {
+        continue
+    }
+
+    `$shouldStop = `$false
+    foreach (`$pattern in `$killPatternList) {
+        if (`$commandLine -like ('*' + `$pattern + '*')) {
+            `$shouldStop = `$true
+            break
+        }
+    }
+
+    if (-not `$shouldStop) {
+        continue
+    }
+
+    Stop-Process -Id `$processEntry.ProcessId -Force -ErrorAction SilentlyContinue
+    `$stoppedProcessCount += 1
+}
+
+Write-Output ('REMOTE_CANCEL_STOPPED_PROCESSES::{0}' -f `$stoppedProcessCount)
+exit 0
+"@
+        try {
+            Invoke-RemotePowerShellEncodedCommand -RemoteScriptText $remoteCleanupScript -IgnoreExitCode | Out-Null
+        }
+        catch {
+            Write-StatusLine "WARN" "Remote cleanup after Ctrl+C failed | $($_.Exception.Message)"
+        }
+
+        throw "Remote command interrupted by operator"
+    }
     finally {
+        Write-Progress -Id $progressId -Activity $ProgressActivity -Completed
+        $ErrorActionPreference = $previousErrorActionPreference
+        if ($null -ne $cancelHandler) {
+            [Console]::remove_CancelKeyPress($cancelHandler)
+        }
+
         if ($null -ne $logWriter) {
             $logWriter.Flush()
             $logWriter.Dispose()
-        }
-
-        if (($null -ne $process) -and (-not $process.HasExited)) {
-            try {
-                $process.Kill()
-            }
-            catch {
-                Write-StatusLine "WARN" "Remote SSH process cleanup failed | $($_.Exception.Message)"
-            }
         }
 
         & $sshExecutablePath $RemoteHostAlias ('cmd /d /c if exist "{0}" del /f /q "{0}"' -f $remoteTemporaryScriptPath) | Out-Null
@@ -450,11 +574,14 @@ $resolvedSourceSyncPathList = @()
 foreach ($sourceSyncPath in $sourceSyncPathList) {
     $resolvedSourceSyncPathList += Resolve-RepositoryRelativePath -InputPath $sourceSyncPath
 }
+$remoteConfigLiteralListText = ($resolvedCampaignConfigPathList | ForEach-Object { "'$_'" }) -join ",`n    "
+$remoteRunNameLiteralListText = ($runNameList | ForEach-Object { "'$_'" }) -join ",`n    "
 
 $runTimestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
 $campaignSlug = Convert-ToSlug -RawText $campaignName
 $runTrackingDirectory = Join-Path $projectRoot (Join-Path $remoteTrackingRoot "${runTimestamp}_${campaignSlug}")
 $runLogPath = Resolve-WindowsRelativePath -BasePath $projectRoot -TargetPath (Join-Path $runTrackingDirectory "remote_training_campaign.log")
+$initialRemoteRunLogPath = Join-Path $campaignLogRoot "01_track1_svr_reference_grid_amplitude_pair.log"
 
 New-Item -ItemType Directory -Force -Path $runTrackingDirectory | Out-Null
 
@@ -489,7 +616,8 @@ exit `$LASTEXITCODE
 Write-StatusLine "INFO" "Running remote environment preflight"
 $preflightResult = Invoke-RemotePowerShellScriptWithStreamingLog `
     -RemoteScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remotePreflightScript) `
-    -LogPath $runLogPath
+    -LogPath $runLogPath `
+    -ProgressActivity "Remote exact-paper preflight"
 if ([int]$preflightResult.exit_code -ne 0) {
     throw "Remote environment preflight failed | host=$RemoteHostAlias"
 }
@@ -510,14 +638,46 @@ if ([int]$remoteSourceVerificationResult.exit_code -ne 0) {
 # Launch The Real Exact-Paper Campaign Launcher On The Remote Workstation
 $remoteRunScript = @"
 Set-Location -LiteralPath '$remoteExecutionRoot'
-Write-Output ('REMOTE_RUN_START::{0}' -f (Get-Location).Path)
 
-& powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File 'scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign.ps1' -CondaEnvironmentName '$RemoteCondaEnvironmentName' -PythonExecutable 'python'
-`$remoteExitCode = `$LASTEXITCODE
-Write-Output ('REMOTE_RUN_EXIT_CODE::{0}' -f `$remoteExitCode)
-if (`$remoteExitCode -ne 0) {
-    exit `$remoteExitCode
+function Emit-RemoteStatusLine {
+    param(
+        [string]`$LineText
+    )
+
+    Write-Output `$LineText
+    [Console]::Out.Flush()
 }
+
+Emit-RemoteStatusLine ('REMOTE_RUN_START::{0}' -f (Get-Location).Path)
+
+`$campaignName = '$campaignName'
+`$planningReportPath = '$resolvedPlanningReportPath'
+`$campaignOutputRoot = Join-Path 'output\training_campaigns' `$campaignName
+`$campaignLogRoot = Join-Path `$campaignOutputRoot 'logs'
+New-Item -ItemType Directory -Path `$campaignLogRoot -Force | Out-Null
+Emit-RemoteStatusLine ('REMOTE_ACTIVE_STAGE::{0}' -f 'Initialized remote campaign log root')
+Emit-RemoteStatusLine ('[INFO] Campaign Name | {0}' -f `$campaignName)
+Emit-RemoteStatusLine ('[INFO] Planning Report | {0}' -f `$planningReportPath)
+Emit-RemoteStatusLine ('[INFO] Campaign Output Root | {0}' -f `$campaignOutputRoot)
+
+`$launcherPath = Join-Path '$remoteExecutionRoot' 'scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign.ps1'
+if (-not (Test-Path -LiteralPath `$launcherPath)) {
+    throw ('Remote exact-paper launcher missing | {0}' -f `$launcherPath)
+}
+
+Emit-RemoteStatusLine ('REMOTE_ACTIVE_STAGE::{0}' -f 'Launching canonical exact-paper campaign launcher')
+& powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File `$launcherPath -CondaEnvironmentName '$RemoteCondaEnvironmentName'
+`$nativeExitCode = if (`$LASTEXITCODE -eq `$null) { 0 } else { [int]`$LASTEXITCODE }
+
+if (`$nativeExitCode -ne 0) {
+    Emit-RemoteStatusLine ('REMOTE_RUN_EXIT_CODE::{0}' -f `$nativeExitCode)
+    exit `$nativeExitCode
+}
+
+Emit-RemoteStatusLine ''
+Emit-RemoteStatusLine ('[DONE] Exact-paper SVR reference-grid repair campaign completed successfully')
+Emit-RemoteStatusLine ('[DONE] Campaign logs available under | {0}' -f `$campaignLogRoot)
+Emit-RemoteStatusLine 'REMOTE_RUN_EXIT_CODE::0'
 
 function Resolve-WindowsRelativePath {
     param(
@@ -543,18 +703,10 @@ function Resolve-WindowsRelativePath {
 if (-not (Test-Path -LiteralPath `$campaignOutputDirectory)) {
     throw 'Remote campaign output directory missing after exact-paper launcher completion.'
 }
-Write-Output ('REMOTE_SYNC_PATH::{0}' -f `$campaignOutputDirectory)
+Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$campaignOutputDirectory)
 
 `$runNameList = @(
-"@
-
-foreach ($runName in $runNameList) {
-    $remoteRunScript += @"
-    '$runName'
-"@
-}
-
-$remoteRunScript += @"
+    $remoteRunNameLiteralListText
 )
 
 foreach (`$runName in `$runNameList) {
@@ -568,7 +720,7 @@ foreach (`$runName in `$runNameList) {
     }
 
     `$validationRelativePath = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$validationDirectory.FullName
-    Write-Output ('REMOTE_SYNC_PATH::{0}' -f `$validationRelativePath)
+    Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$validationRelativePath)
 
     `$reportFile = Get-ChildItem -LiteralPath 'doc\reports\analysis\validation_checks' -File |
         Where-Object { `$_.Name -like "*_`${runName}_campaign_run_exact_paper_model_bank_report.md" } |
@@ -580,17 +732,25 @@ foreach (`$runName in `$runNameList) {
     }
 
     `$reportRelativePath = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$reportFile.FullName
-    Write-Output ('REMOTE_SYNC_PATH::{0}' -f `$reportRelativePath)
+    Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$reportRelativePath)
 }
 
-Write-Output 'REMOTE_RUN_MARKERS_EMITTED'
+Emit-RemoteStatusLine 'REMOTE_RUN_MARKERS_EMITTED'
 exit 0
 "@
 
 Write-StatusLine "STEP" "Launching remote exact-paper campaign"
 $remoteRunResult = Invoke-RemotePowerShellScriptWithStreamingLog `
     -RemoteScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remoteRunScript) `
-    -LogPath $runLogPath
+    -LogPath $runLogPath `
+    -ProgressActivity "Remote exact-paper campaign" `
+    -RemoteKillMatchPatternList @(
+        "run_exact_paper_model_bank_validation.py"
+        "2026-04-14_track1_svr_reference_grid_search_repair_campaign"
+    ) `
+    -InitialConfigCount $resolvedCampaignConfigPathList.Count `
+    -InitialConfigPath $resolvedCampaignConfigPathList[0] `
+    -InitialLogPath $initialRemoteRunLogPath
 if ([int]$remoteRunResult.exit_code -ne 0) {
     throw "Remote exact-paper campaign failed | campaign=$campaignName | host=$RemoteHostAlias | log=$(Join-Path $projectRoot $runLogPath)"
 }

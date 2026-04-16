@@ -784,10 +784,12 @@ def resolve_exact_paper_hyperparameter_search_settings(
     )
     grid_search_n_jobs = int(search_config.get("grid_search_n_jobs", -1))
     grid_search_verbose = int(search_config.get("grid_search_verbose", 2))
+    grid_search_pre_dispatch = str(search_config.get("grid_search_pre_dispatch", "2*n_jobs")).strip()
     return {
         "mode": search_mode,
         "grid_search_n_jobs": grid_search_n_jobs,
         "grid_search_verbose": grid_search_verbose,
+        "grid_search_pre_dispatch": grid_search_pre_dispatch,
     }
 
 
@@ -987,8 +989,12 @@ def fit_exact_family_model_bank(
     fitted_family_model_dictionary: dict[str, MultiOutputRegressor] = {}
     family_search_summary_dictionary: dict[str, dict[str, Any]] = {}
     threadpool_limit = int((training_config or {}).get("training", {}).get("threadpool_limit", 1))
+    joblib_cpu_limit = int((training_config or {}).get("training", {}).get("joblib_cpu_limit", 0))
     search_settings = resolve_exact_paper_hyperparameter_search_settings(training_config)
-    os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(threadpool_limit))
+    if joblib_cpu_limit > 0:
+        os.environ["LOKY_MAX_CPU_COUNT"] = str(joblib_cpu_limit)
+    elif "LOKY_MAX_CPU_COUNT" in os.environ:
+        del os.environ["LOKY_MAX_CPU_COUNT"]
     for family_name in enabled_family_list:
         family_fit_start_time = time.perf_counter()
         base_estimator = create_exact_paper_base_estimator(family_name)
@@ -1002,7 +1008,9 @@ def fit_exact_family_model_bank(
             f"family={family_name} "
             f"estimator={type(base_estimator).__name__} "
             f"targets={len(dataset_bundle.target_name_list)} "
-            f"threadpool_limit={threadpool_limit}",
+            f"threadpool_limit={threadpool_limit} "
+            f"joblib_cpu_limit={joblib_cpu_limit if joblib_cpu_limit > 0 else 'system_default'} "
+            f"os_cpu_count={os.cpu_count()}",
         )
         emit_exact_paper_progress_log(
             "INFO",
@@ -1021,13 +1029,15 @@ def fit_exact_family_model_bank(
                 f"candidates={parameter_grid_candidate_count} "
                 f"parameter_count={len(parameter_grid)} "
                 f"n_jobs={int(search_settings['grid_search_n_jobs'])} "
-                f"verbose={int(search_settings['grid_search_verbose'])}",
+                f"verbose={int(search_settings['grid_search_verbose'])} "
+                f"pre_dispatch={search_settings['grid_search_pre_dispatch']}",
             )
             grid_search_estimator = GridSearchCV(
                 wrapped_estimator,
                 parameter_grid,
                 n_jobs=int(search_settings["grid_search_n_jobs"]),
                 verbose=int(search_settings["grid_search_verbose"]),
+                pre_dispatch=search_settings["grid_search_pre_dispatch"],
             )
             with threadpool_limits(limits=threadpool_limit):
                 grid_search_estimator.fit(
@@ -1042,6 +1052,7 @@ def fit_exact_family_model_bank(
                 "used_grid_search": True,
                 "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
                 "grid_search_verbose": int(search_settings["grid_search_verbose"]),
+                "grid_search_pre_dispatch": search_settings["grid_search_pre_dispatch"],
                 "grid_search_cv": (
                     int(grid_search_estimator.n_splits_)
                     if hasattr(grid_search_estimator, "n_splits_")
@@ -1077,6 +1088,7 @@ def fit_exact_family_model_bank(
             "used_grid_search": False,
             "grid_search_n_jobs": None,
             "grid_search_verbose": None,
+            "grid_search_pre_dispatch": None,
             "grid_search_cv": None,
             "parameter_grid": None,
             "best_params": None,
@@ -1728,6 +1740,7 @@ def build_exact_model_validation_summary(
             "hyperparameter_search_mode": search_settings["mode"],
             "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
             "grid_search_verbose": int(search_settings["grid_search_verbose"]),
+            "grid_search_pre_dispatch": search_settings["grid_search_pre_dispatch"],
             "family_search_summary": family_search_summary_dictionary,
         },
         "paper_alignment": {
@@ -1786,7 +1799,14 @@ def build_validation_report_path(training_config: dict[str, Any]) -> Path:
         f"{timestamp_string}_{shared_training_infrastructure.sanitize_name(experiment_identity.model_family)}_"
         f"{shared_training_infrastructure.sanitize_name(output_run_name)}_exact_paper_model_bank_report.md"
     )
-    validation_report_path = EXACT_MODEL_REPORT_ROOT / validation_report_filename
+    validation_report_root = (
+        shared_training_infrastructure.resolve_runtime_project_path()
+        / "doc"
+        / "reports"
+        / "analysis"
+        / "validation_checks"
+    )
+    validation_report_path = validation_report_root / validation_report_filename
     validation_report_path.parent.mkdir(parents=True, exist_ok=True)
     return validation_report_path
 
@@ -2043,6 +2063,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "",
         f"- hyperparameter search mode: `{training_strategy_dictionary['hyperparameter_search_mode']}`;",
         f"- grid-search `n_jobs`: `{training_strategy_dictionary['grid_search_n_jobs']}`;",
+        f"- grid-search `pre_dispatch`: `{training_strategy_dictionary['grid_search_pre_dispatch']}`;",
         "",
         "### Family Search Summary",
         "",

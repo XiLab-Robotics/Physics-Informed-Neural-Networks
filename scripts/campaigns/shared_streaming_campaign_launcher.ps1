@@ -46,103 +46,19 @@ function Invoke-CondaRunWithStreamingLog {
 
     $utf8Encoding = [System.Text.UTF8Encoding]::new($false)
     $logWriter = [System.IO.StreamWriter]::new($resolvedLogPath, $false, $utf8Encoding)
-    $process = $null
     $interruptedByOperator = $false
-
-    function Format-ElapsedTime {
-        param(
-            [TimeSpan]$ElapsedTime
-        )
-
-        return $ElapsedTime.ToString("hh\:mm\:ss")
-    }
-
-    function Stop-ProcessTree {
-        param(
-            [System.Diagnostics.Process]$ProcessToStop
-        )
-
-        if (($null -eq $ProcessToStop) -or $ProcessToStop.HasExited) {
-            return
-        }
-
-        try {
-            & taskkill.exe /PID $ProcessToStop.Id /T /F | Out-Null
-        }
-        catch {
-            try {
-                if (-not $ProcessToStop.HasExited) {
-                    $ProcessToStop.Kill()
-                }
-            }
-            catch {
-                Write-Host (
-                    "[WARN] Failed to terminate child process tree | " +
-                    "pid=$($ProcessToStop.Id) error=$($_.Exception.Message)"
-                )
-            }
-        }
-    }
+    $previousErrorActionPreference = $ErrorActionPreference
 
     try {
-        $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
-        $startInfo.FileName = "cmd.exe"
-        $startInfo.Arguments = (
-            '/c {0} run --no-capture-output -n {1} {2} {3} --config-path {4} --output-suffix {5} 2>&1' -f
-            (Format-CmdArgument -Value $condaExecutablePath),
-            (Format-CmdArgument -Value $EnvironmentName),
-            (Format-CmdArgument -Value $PythonExecutablePath),
-            (Format-CmdArgument -Value $RunnerScriptPath),
-            (Format-CmdArgument -Value $ConfigPath),
-            (Format-CmdArgument -Value $OutputSuffix)
-        )
-        $startInfo.UseShellExecute = $false
-        $startInfo.RedirectStandardOutput = $true
-        $startInfo.RedirectStandardError = $false
-        $startInfo.CreateNoWindow = $true
-        $startInfo.WorkingDirectory = (Get-Location).Path
-
-        $process = [System.Diagnostics.Process]::new()
-        $process.StartInfo = $startInfo
-
-        $null = $process.Start()
-        $launchStartTime = Get-Date
-        $lastOutputTime = $launchStartTime
-        $lastHeartbeatTime = $launchStartTime
-
-        while (-not $process.HasExited) {
-            while ($process.StandardOutput.Peek() -ge 0) {
-                $outputLine = $process.StandardOutput.ReadLine()
-                if ($null -eq $outputLine) {
-                    continue
-                }
-
-                $logWriter.WriteLine($outputLine)
-                $logWriter.Flush()
-                Write-Host $outputLine
-                $lastOutputTime = Get-Date
+        $ErrorActionPreference = "Continue"
+        & $condaExecutablePath run --no-capture-output -n $EnvironmentName $PythonExecutablePath $RunnerScriptPath --config-path $ConfigPath --output-suffix $OutputSuffix 2>&1 | ForEach-Object {
+            if ($null -eq $_) {
+                return
             }
 
-            $now = Get-Date
-            if (($now - $lastHeartbeatTime).TotalSeconds -ge $heartbeatIntervalSeconds) {
-                $elapsedTime = $now - $launchStartTime
-                $silenceTime = $now - $lastOutputTime
-                Write-Host (
-                    "[HEARTBEAT] Child process alive | " +
-                    "pid=$($process.Id) " +
-                    "elapsed=$(Format-ElapsedTime -ElapsedTime $elapsedTime) " +
-                    "silent_for=$(Format-ElapsedTime -ElapsedTime $silenceTime)"
-                )
-                $lastHeartbeatTime = $now
-            }
-
-            $null = $process.WaitForExit(1000)
-        }
-
-        while (-not $process.StandardOutput.EndOfStream) {
-            $outputLine = $process.StandardOutput.ReadLine()
-            if ($null -eq $outputLine) {
-                continue
+            $outputLine = $_.ToString()
+            if ([string]::IsNullOrWhiteSpace($outputLine)) {
+                return
             }
 
             $logWriter.WriteLine($outputLine)
@@ -150,16 +66,14 @@ function Invoke-CondaRunWithStreamingLog {
             Write-Host $outputLine
         }
 
-        return [int]$process.ExitCode
+        return [int]$LASTEXITCODE
     }
     catch [System.Management.Automation.PipelineStoppedException] {
         $interruptedByOperator = $true
-        Write-Host "[WARN] Campaign launcher interrupted by operator | terminating child process tree"
+        Write-Host "[WARN] Campaign launcher interrupted by operator"
     }
     finally {
-        if (($null -ne $process) -and (-not $process.HasExited)) {
-            Stop-ProcessTree -ProcessToStop $process
-        }
+        $ErrorActionPreference = $previousErrorActionPreference
 
         if ($null -ne $logWriter) {
             $logWriter.Flush()

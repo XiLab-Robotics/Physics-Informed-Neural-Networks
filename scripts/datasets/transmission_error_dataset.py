@@ -64,9 +64,9 @@ def resolve_project_relative_path(path_value: str | Path) -> Path:
     # Convert To Path
     resolved_path = Path(path_value)
 
-    # Resolve Absolute Path
+    # Preserve Absolute Paths As-Is -> Important For Remote Short-Path Aliases
     if resolved_path.is_absolute():
-        return Path(os.path.abspath(str(resolved_path)))
+        return resolved_path
 
     # Resolve Project Relative Path
     return Path(os.path.abspath(str(PROJECT_PATH / resolved_path)))

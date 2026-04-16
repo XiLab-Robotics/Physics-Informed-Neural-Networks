@@ -94,6 +94,7 @@ def run_exact_paper_model_bank_validation(
         f"mode={search_settings['mode']} "
         f"grid_search_n_jobs={search_settings['grid_search_n_jobs']} "
         f"grid_search_verbose={search_settings['grid_search_verbose']} "
+        f"grid_search_pre_dispatch={search_settings['grid_search_pre_dispatch']} "
         f"families={','.join(enabled_family_list)}",
     )
 
