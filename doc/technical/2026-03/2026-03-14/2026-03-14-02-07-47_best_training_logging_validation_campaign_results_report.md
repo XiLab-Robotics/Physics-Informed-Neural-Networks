@@ -41,7 +41,7 @@ The PDF export should reuse the existing styled-report pipeline so the final del
   Main project document that must reference this technical note.
 - `doc/running/active_training_campaign.yaml`
   Persistent campaign state already updated to `completed`.
-- `doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
+- `doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
   Approved planning report for the completed campaign.
 - `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
   Machine-readable campaign execution record.

@@ -6,7 +6,7 @@
 - Generated At: `2026-03-20T15:20:04`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Completed Runs: `4`
 - Failed Runs: `6`
 
@@ -38,7 +38,7 @@
 - End Time: `2026-03-20T14:18:57`
 - Duration: `00:00:27`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/harmonic_regression/2026-03-20-14-18-30__te_harmonic_order06_static`
 - Config Snapshot: `output/training_runs/harmonic_regression/2026-03-20-14-18-30__te_harmonic_order06_static/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -59,7 +59,7 @@
 - End Time: `2026-03-20T14:19:15`
 - Duration: `00:00:18`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/harmonic_regression/2026-03-20-14-18-57__te_harmonic_order12_static`
 - Config Snapshot: `output/training_runs/harmonic_regression/2026-03-20-14-18-57__te_harmonic_order12_static/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -80,7 +80,7 @@
 - End Time: `2026-03-20T14:19:32`
 - Duration: `00:00:18`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/harmonic_regression/2026-03-20-14-19-15__te_harmonic_order12_linear_conditioned`
 - Config Snapshot: `output/training_runs/harmonic_regression/2026-03-20-14-19-15__te_harmonic_order12_linear_conditioned/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -101,7 +101,7 @@
 - End Time: `2026-03-20T14:35:54`
 - Duration: `00:16:22`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard`
 - Config Snapshot: `output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/best_checkpoint_path.txt`
@@ -122,7 +122,7 @@
 - End Time: `2026-03-20T14:52:40`
 - Duration: `00:16:46`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard`
 - Config Snapshot: `output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/periodic_mlp/2026-03-20-14-35-54__te_periodic_mlp_h08_standard/best_checkpoint_path.txt`
@@ -143,7 +143,7 @@
 - End Time: `2026-03-20T15:10:02`
 - Duration: `00:17:22`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide`
 - Config Snapshot: `output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/periodic_mlp/2026-03-20-14-52-40__te_periodic_mlp_h08_wide/best_checkpoint_path.txt`
@@ -164,7 +164,7 @@
 - End Time: `2026-03-20T15:10:22`
 - Duration: `00:00:20`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-20-15-10-02__te_residual_h12_small_frozen`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-20-15-10-02__te_residual_h12_small_frozen/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -185,7 +185,7 @@
 - End Time: `2026-03-20T15:10:42`
 - Duration: `00:00:20`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-20-15-10-22__te_residual_h12_small_joint`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-20-15-10-22__te_residual_h12_small_joint/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -206,7 +206,7 @@
 - End Time: `2026-03-20T15:17:29`
 - Duration: `00:06:46`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-03-20-15-10-42__te_random_forest_tabular`
 - Config Snapshot: `N/A`
 - Best Checkpoint Pointer: `N/A`
@@ -227,7 +227,7 @@
 - End Time: `2026-03-20T15:20:03`
 - Duration: `00:02:34`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-03-20-15-17-29__te_hist_gbr_tabular`
 - Config Snapshot: `N/A`
 - Best Checkpoint Pointer: `N/A`

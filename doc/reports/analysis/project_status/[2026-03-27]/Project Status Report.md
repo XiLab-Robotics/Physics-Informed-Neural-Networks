@@ -400,9 +400,9 @@ The main strategic conclusion is straightforward:
 - Current campaign state:
   `doc/running/active_training_campaign.yaml`
 - Wave 1 recovery report:
-  `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
+  `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 - Wave 1 residual family report:
-  `doc/reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
+  `doc/reports/campaign_results/wave1/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
 - TE roadmap:
   `doc/technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
 - TE implementation backlog:

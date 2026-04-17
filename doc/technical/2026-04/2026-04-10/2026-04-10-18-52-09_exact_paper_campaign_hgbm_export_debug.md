@@ -76,7 +76,7 @@ Reference and project context that should remain in scope:
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
 - `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
 - `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/`
 
 Potential follow-up workflow surface if local debug proves insufficient:

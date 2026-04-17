@@ -2,7 +2,7 @@ campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
 generated_at: '2026-03-20T18:32:18'
 queue_root: config/training/queue
 campaign_output_directory: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
-planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
 run_list:
 - original_queue_config_path: config/training/queue/pending/2026-03-20-16-11-22_001_01_harmonic_order06_static_recovery.yaml
   final_queue_config_path: config/training/queue/completed/2026-03-20-16-11-22_001_01_harmonic_order06_static_recovery.yaml
@@ -23,7 +23,7 @@ run_list:
   metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/metrics_summary.yaml
   training_report_path: output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/training_test_report.md
   log_path: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/logs/001_te_harmonic_order06_static_recovery.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-20-16-11-22_002_02_harmonic_order12_static_recovery.yaml
@@ -45,7 +45,7 @@ run_list:
   metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/metrics_summary.yaml
   training_report_path: output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/training_test_report.md
   log_path: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/logs/002_te_harmonic_order12_static_recovery.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-20-16-11-22_003_03_harmonic_order12_linear_conditioned_recovery.yaml
@@ -67,7 +67,7 @@ run_list:
   metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/metrics_summary.yaml
   training_report_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/training_test_report.md
   log_path: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/logs/003_te_harmonic_order12_linear_conditioned_recovery.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-20-16-11-22_004_04_residual_h12_small_frozen_recovery.yaml
@@ -89,7 +89,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery/training_test_report.md
   log_path: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/logs/004_te_residual_h12_small_frozen_recovery.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-20-16-11-22_005_05_residual_h12_small_joint_recovery.yaml
@@ -111,7 +111,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/training_test_report.md
   log_path: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/logs/005_te_residual_h12_small_joint_recovery.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-20-16-11-22_006_06_random_forest_tabular_conservative.yaml
@@ -132,6 +132,6 @@ run_list:
   metrics_path: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/metrics_summary.yaml
   training_report_path: output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/training_test_report.md
   log_path: output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/logs/006_te_random_forest_tabular_recovery.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
   error_message: null

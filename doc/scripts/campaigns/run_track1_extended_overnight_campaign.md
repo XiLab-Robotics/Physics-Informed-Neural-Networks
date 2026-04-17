@@ -59,6 +59,6 @@ Each successful run also refreshes:
 
 ## Related Documents
 
-- `doc/reports/campaign_plans/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
 - `doc/technical/2026-04/2026-04-13/2026-04-13-13-27-37_track1_extended_overnight_campaign_preparation.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.md`

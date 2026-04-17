@@ -4,7 +4,7 @@
 
 This document covers a follow-up layout refinement for the styled PDF:
 
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
 
 The current defect is in the transition between `Overview` and
 `Objective And Outcome`.
@@ -39,8 +39,8 @@ the exported artifact.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`
 - `doc/README.md`

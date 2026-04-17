@@ -4,7 +4,7 @@
 
 This report closes the dedicated `SVR` micro-closure campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_plan_report.md`
 
 The campaign executed `8` exact-paper validation runs through the dedicated
 launcher:

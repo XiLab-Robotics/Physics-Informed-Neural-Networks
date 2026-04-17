@@ -4,7 +4,7 @@
 
 This report summarizes the completed mixed feedforward training campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 
 The campaign was designed to test whether the next meaningful improvement over the earlier feedforward baseline family would come from:
 

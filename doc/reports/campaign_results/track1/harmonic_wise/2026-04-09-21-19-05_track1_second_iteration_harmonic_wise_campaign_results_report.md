@@ -4,7 +4,7 @@
 
 This report closes the second paper-faithful `Track 1` campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
 
 The campaign executed `8` harmonic-wise validation runs through the dedicated
 paper-reimplementation launcher:
@@ -280,4 +280,4 @@ The next technically justified steps are:
 - Winning run report:
   `doc/reports/analysis/validation_checks/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
 - Planning report:
-  `doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+  `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`

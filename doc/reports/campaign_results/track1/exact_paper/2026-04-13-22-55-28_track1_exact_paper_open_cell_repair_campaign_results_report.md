@@ -4,7 +4,7 @@
 
 This report closes the exact-paper open-cell repair campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md`
 
 The campaign executed `6` exact-paper validation runs through the dedicated
 launcher:

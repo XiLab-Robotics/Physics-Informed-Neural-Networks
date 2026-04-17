@@ -2208,7 +2208,7 @@ Operational rule:
 Current finished Wave 1 residual-family follow-up campaign:
 
 - campaign name: `wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00`
-- planning report: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- planning report: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - config package: `config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/`
 - canonical launcher: `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
 
@@ -2380,7 +2380,7 @@ Campaign package root:
 
 Campaign planning report:
 
-- `doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
 
 Main outputs:
 

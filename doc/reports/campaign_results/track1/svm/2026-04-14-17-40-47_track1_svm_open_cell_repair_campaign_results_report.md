@@ -4,7 +4,7 @@
 
 This report closes the dedicated `SVR` repair campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_plan_report.md`
 
 The campaign executed `12` exact-paper validation runs through the dedicated
 launcher:

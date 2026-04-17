@@ -6,7 +6,7 @@
 - Generated At: `2026-04-04T13:03:55`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - Completed Runs: `5`
 - Failed Runs: `0`
 
@@ -33,7 +33,7 @@
 - End Time: `2026-04-04T12:05:09`
 - Duration: `00:15:58`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-04-04-11-49-11__te_residual_h12_deep_long_remote/best_checkpoint_path.txt`
@@ -54,7 +54,7 @@
 - End Time: `2026-04-04T12:18:37`
 - Duration: `00:13:28`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-04-04-12-05-09__te_residual_h12_deep_dense_remote/best_checkpoint_path.txt`
@@ -75,7 +75,7 @@
 - End Time: `2026-04-04T12:32:00`
 - Duration: `00:13:24`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote`
 - Config Snapshot: `output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/2026-04-04-12-18-37__te_feedforward_high_compute_long_remote/best_checkpoint_path.txt`
@@ -96,7 +96,7 @@
 - End Time: `2026-04-04T13:02:09`
 - Duration: `00:30:09`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote`
 - Config Snapshot: `output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/best_checkpoint_path.txt`
@@ -117,7 +117,7 @@
 - End Time: `2026-04-04T13:03:55`
 - Duration: `00:01:46`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined`
 - Config Snapshot: `output/training_runs/tree/2026-04-04-13-02-09__te_hist_gbr_remote_refined/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`

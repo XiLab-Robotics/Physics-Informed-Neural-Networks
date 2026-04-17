@@ -53,10 +53,10 @@ The planning priority is:
 
 ## Involved Components
 
-- `doc/reports/campaign_results/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/campaign_plans/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
 - `doc/technical/2026-04/2026-04-13/README.md`
 
 ## Implementation Steps

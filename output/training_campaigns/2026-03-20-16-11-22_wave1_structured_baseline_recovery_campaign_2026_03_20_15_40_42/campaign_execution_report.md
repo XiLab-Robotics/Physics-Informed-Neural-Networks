@@ -6,7 +6,7 @@
 - Generated At: `2026-03-20T18:32:18`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Completed Runs: `6`
 - Failed Runs: `0`
 
@@ -34,7 +34,7 @@
 - End Time: `2026-03-20T16:20:27`
 - Duration: `00:09:05`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Output Directory: `output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery`
 - Config Snapshot: `output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/harmonic_regression/2026-03-20-16-11-22__te_harmonic_order06_static_recovery/best_checkpoint_path.txt`
@@ -55,7 +55,7 @@
 - End Time: `2026-03-20T16:31:19`
 - Duration: `00:10:53`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Output Directory: `output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery`
 - Config Snapshot: `output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/harmonic_regression/2026-03-20-16-20-27__te_harmonic_order12_static_recovery/best_checkpoint_path.txt`
@@ -76,7 +76,7 @@
 - End Time: `2026-03-20T16:41:05`
 - Duration: `00:09:45`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Output Directory: `output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery`
 - Config Snapshot: `output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/best_checkpoint_path.txt`
@@ -97,7 +97,7 @@
 - End Time: `2026-03-20T16:58:34`
 - Duration: `00:17:29`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery/best_checkpoint_path.txt`
@@ -118,7 +118,7 @@
 - End Time: `2026-03-20T17:15:25`
 - Duration: `00:16:51`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-20-16-58-34__te_residual_h12_small_joint_recovery/best_checkpoint_path.txt`
@@ -139,7 +139,7 @@
 - End Time: `2026-03-20T18:32:18`
 - Duration: `01:16:53`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery`
 - Config Snapshot: `output/training_runs/tree/2026-03-20-17-15-25__te_random_forest_tabular_recovery/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`

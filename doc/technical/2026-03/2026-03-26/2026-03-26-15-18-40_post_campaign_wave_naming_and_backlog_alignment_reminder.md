@@ -44,7 +44,7 @@ The post-campaign alignment pass should review and correct, where appropriate:
   and should not be renamed during execution.
 - `doc/technical/2026-03/2026-03-26/2026-03-26-13-44-27_wave1_familywise_hyperparameter_optimization_campaign.md`
   Technical note whose naming and wording may need post-campaign review.
-- `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
   Planning report whose wave framing may need post-campaign review.
 - `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
   Launcher whose naming may need post-campaign review.

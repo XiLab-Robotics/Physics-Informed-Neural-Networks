@@ -25,7 +25,7 @@ The refinement will:
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report.pdf`
+- `doc/reports/campaign_results/infrastructure/2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report.pdf`
 - `doc/README.md`
 
 ## Implementation Steps

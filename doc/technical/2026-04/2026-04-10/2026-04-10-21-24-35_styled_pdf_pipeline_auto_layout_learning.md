@@ -47,8 +47,8 @@ source alone, is the deliverable that must validate cleanly.
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`
 - `doc/reports/analysis/2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
-- `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.pdf`
 
 No subagent is planned for this task. The implementation scope is local to the
 repository renderer and validation workflow.

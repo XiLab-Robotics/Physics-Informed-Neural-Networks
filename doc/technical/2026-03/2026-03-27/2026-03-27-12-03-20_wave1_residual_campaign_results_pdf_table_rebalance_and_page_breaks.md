@@ -37,9 +37,9 @@ The planned approach is:
 
 ## Involved Components
 
-- `doc/reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
+- `doc/reports/campaign_results/wave1/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
   Canonical report source that may need table-layout and page-break hints.
-- `doc/reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.pdf`
+- `doc/reports/campaign_results/wave1/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.pdf`
   Target PDF output that must be regenerated and validated.
 - `scripts/reports/generate_styled_report_pdf.py`
   Styled PDF exporter that may already support the needed layout controls.

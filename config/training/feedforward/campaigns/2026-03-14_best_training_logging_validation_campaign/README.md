@@ -2,7 +2,7 @@
 
 This folder contains the `1` feedforward YAML configuration prepared from:
 
-- `doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
+- `doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
 
 Execution order:
 

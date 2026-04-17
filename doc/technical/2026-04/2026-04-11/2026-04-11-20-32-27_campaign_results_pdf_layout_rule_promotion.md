@@ -46,8 +46,8 @@ The intended direction is:
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.pdf`
 - `doc/technical/2026-04/2026-04-10/2026-04-10-21-24-35_styled_pdf_pipeline_auto_layout_learning.md`
 
 No subagent is planned for this task. The scope is local to the campaign-report

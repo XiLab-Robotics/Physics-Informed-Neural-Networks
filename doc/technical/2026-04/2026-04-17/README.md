@@ -1,5 +1,9 @@
 # 2026-04-17 Technical Documents
 
+- [2026-04-17-19-46-05_campaign_report_folder_taxonomy_reorganization.md](./2026-04-17-19-46-05_campaign_report_folder_taxonomy_reorganization.md)
+  Technical document for reorganizing the flat `campaign_results` and
+  `campaign_plans` roots into stable topic subfolders while preserving the
+  timestamp-based per-report naming convention.
 - [2026-04-17-19-43-39_track1_reference_family_archive_standardization.md](./2026-04-17-19-43-39_track1_reference_family_archive_standardization.md)
   Technical document for promoting the current `SVM` paper-reference archive
   layout into the canonical reusable `Track 1` family standard for all

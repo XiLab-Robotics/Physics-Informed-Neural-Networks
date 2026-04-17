@@ -44,11 +44,11 @@ The planned filename mapping is:
 
 - `doc/reports/2026-03-12-feedforward_variant_comparison_report.md`
   ->
-  `doc/reports/campaign_results/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
+  `doc/reports/campaign_results/mixed_training/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
 
 - `doc/reports/2026-03-12-mixed_training_campaign_plan_report.md`
   ->
-  `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+  `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 
 These timestamps are chosen to keep the report filenames chronologically informative and internally consistent with the current document set.
 

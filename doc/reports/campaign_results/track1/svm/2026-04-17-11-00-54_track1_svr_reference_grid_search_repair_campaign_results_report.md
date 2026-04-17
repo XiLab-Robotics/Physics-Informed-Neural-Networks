@@ -5,7 +5,7 @@
 This report closes the dedicated `SVR` reference-grid repair campaign prepared
 in:
 
-- `doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md`
 
 The campaign executed `4` exact-paper validation runs through the stabilized
 remote launcher:

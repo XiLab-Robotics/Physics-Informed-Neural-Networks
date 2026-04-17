@@ -28,7 +28,7 @@ matrix.
 
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.pdf`
+- `doc/reports/campaign_results/infrastructure/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.pdf`
 - `doc/technical/2026-04/2026-04-04/2026-04-04-10-45-15_remote_training_campaign_results_pdf_completed_runs_table_refinement.md`
 - `doc/README.md`
 

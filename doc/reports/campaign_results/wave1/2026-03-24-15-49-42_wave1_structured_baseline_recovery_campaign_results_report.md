@@ -4,7 +4,7 @@
 
 This report summarizes the completed recovery campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 
 The recovery campaign was created to rerun the Wave 1 configurations that had failed for operational reasons in the earlier execution:
 

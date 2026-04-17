@@ -4,7 +4,7 @@
 
 This report closes the first coordinated `Track 1` paper-faithful reproduction campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md`
 
 The package executed `4` repository-owned validation runs through the dedicated paper-faithful launcher:
 

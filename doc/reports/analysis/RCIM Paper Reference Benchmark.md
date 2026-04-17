@@ -508,7 +508,7 @@ Current repository evidence source for the full matrices:
 - execution window:
   `2026-04-14 14:12:14+02:00` to `2026-04-14 14:15:18+02:00`
 - supporting campaign report:
-  `doc/reports/campaign_results/2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/exact_paper/2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report.md`
 
 Status legend used in the repository matrices:
 
@@ -709,6 +709,56 @@ paper-matching evaluation surfaces:
 Table `6` remains a useful harmonic-level support summary, but it must not
 replace the four matrix readings above.
 
+### Track 1 Family Archive Standard
+
+The repository now treats curated `Track 1` family archives as canonical
+benchmark assets rather than optional side notes.
+
+Every family that reaches archive-grade `Track 1` closure should follow the
+same package contract under `models/paper_reference/rcim_track1/`:
+
+- `<family>_reference_models/README.md`
+- `<family>_reference_models/reference_inventory.yaml`
+- `<family>_reference_models/onnx/amplitude/`
+- `<family>_reference_models/onnx/phase/`
+- `<family>_reference_models/python/amplitude/`
+- `<family>_reference_models/python/phase/`
+- `<family>_reference_models/data/`
+- `<family>_reference_models/dataset_snapshot_manifest.yaml`
+- `<family>_reference_models/source_runs/<run_instance_id>/training_config.snapshot.yaml`
+- `<family>_reference_models/source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
+- `<family>_reference_models/source_runs/<run_instance_id>/split_manifest.yaml`
+
+Family-section reporting rule for this benchmark:
+
+- each archived family gets one dedicated benchmark section;
+- the section must expose archive root, inventory path, and archive note;
+- the section must list the accepted harmonic targets for that family;
+- each target row must identify accepted metrics, canonical source run, and
+  archived deployment path;
+- when the deployment export uses a surrogate estimator surface, the section
+  must state that explicitly and distinguish it from the original Python-side
+  fitted model identity;
+- once available, the section should also point to dataset snapshot and full
+  reconstruction provenance.
+
+Planned family rollout under this standard:
+
+- `SVM`
+- `MLP`
+- `RF`
+- `DT`
+- `ET`
+- `ERT`
+- `GBM`
+- `HGBM`
+- `XGBM`
+- `LGBM`
+
+The current `SVM` archive is the first fully populated instance of this
+standard and should be used as the template for future `Track 1` family
+archives.
+
 ### SVM Reference Model Inventory
 
 The accepted repository-owned `SVM` row is now pinned to an explicit curated
@@ -816,7 +866,7 @@ Winning companion report:
 
 Campaign results report:
 
-- `doc/reports/campaign_results/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
 
 Current best paper-faithful offline result:
 
@@ -834,21 +884,21 @@ The repository now also includes a stricter exact-paper validation branch:
 - scope: recovered `rpm`, `deg`, `tor` inputs; exact `ampl_k` / `phase_k`
   targets; exact family bank; per-target ONNX export
 - prepared campaign plan:
-  `doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
+  `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
 - prepared launcher:
   `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
 - campaign results report:
-  `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/exact_paper/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
 - open-cell repair campaign results report:
-  `doc/reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/exact_paper/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md`
 - `SVM` row final-closure campaign results report:
-  `doc/reports/campaign_results/2026-04-14-21-32-55_track1_svm_final_closure_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/svm/2026-04-14-21-32-55_track1_svm_final_closure_campaign_results_report.md`
 - `SVM` row micro-closure campaign results report:
-  `doc/reports/campaign_results/2026-04-14-22-04-12_track1_svm_micro_closure_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/svm/2026-04-14-22-04-12_track1_svm_micro_closure_campaign_results_report.md`
 - remote `SVR` reference-grid repair campaign results report:
-  `doc/reports/campaign_results/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/svm/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
 - exact-faithful `SVM` final-attempt campaign results report:
-  `doc/reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/svm/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md`
 
 This exact branch is now implemented, executed, and operationally stabilized.
 Its latest paper-closure-first campaign result confirms:

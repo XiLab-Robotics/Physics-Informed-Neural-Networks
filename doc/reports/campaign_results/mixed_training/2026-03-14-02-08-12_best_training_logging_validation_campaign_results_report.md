@@ -4,7 +4,7 @@
 
 This report summarizes the completed one-item campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
+- `doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
 
 The campaign objective was not to compare multiple model variants. The objective was to validate the revised live terminal behavior of `training/run_training_campaign.py` during a real feedforward training run using the current recommended preset:
 

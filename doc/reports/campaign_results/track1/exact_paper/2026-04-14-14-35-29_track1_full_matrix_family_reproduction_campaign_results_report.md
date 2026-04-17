@@ -4,7 +4,7 @@
 
 This report closes the full-matrix family-reproduction campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md`
 
 The campaign executed `20` exact-paper validation runs through the dedicated
 launcher:

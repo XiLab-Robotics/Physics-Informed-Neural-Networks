@@ -446,11 +446,11 @@ The following directions currently look weak relative to their cost:
 - Residual-family follow-up campaign:
   `output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
 - Recovery campaign final report:
-  `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
+  `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 - Residual-family final report:
-  `doc/reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
+  `doc/reports/campaign_results/wave1/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
 - Remote validation campaign final report:
-  `doc/reports/campaign_results/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
+  `doc/reports/campaign_results/infrastructure/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
 - Family registries:
   `output/registries/families/`
 - Program registry:

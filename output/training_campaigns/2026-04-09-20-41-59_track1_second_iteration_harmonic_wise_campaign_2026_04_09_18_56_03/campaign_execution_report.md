@@ -9,7 +9,7 @@
 - Started At: `2026-04-09T20:43:53+02:00`
 - Finished At: `2026-04-09T21:06:13+02:00`
 - Planning Report:
-  `doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+  `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
 
 ## Queue Outcome
 
@@ -25,4 +25,4 @@
 - All run-level validation artifacts were written under
   `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`.
 - The canonical human-facing campaign conclusion is stored in:
-  `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`

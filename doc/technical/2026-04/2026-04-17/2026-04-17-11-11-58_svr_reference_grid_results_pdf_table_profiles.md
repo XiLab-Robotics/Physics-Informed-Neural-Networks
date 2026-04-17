@@ -5,7 +5,7 @@
 This document defines a focused renderer update for the styled PDF export of
 the campaign results report:
 
-- `doc/reports/campaign_results/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/svm/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
 
 The current PDF export uses generic table handling for three report tables:
 
@@ -71,7 +71,7 @@ The following files are inspection references but are not expected to change in
 this task:
 
 - `scripts/reports/run_report_pipeline.py`
-- `doc/reports/campaign_results/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/svm/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
 
 ## Implementation Steps
 

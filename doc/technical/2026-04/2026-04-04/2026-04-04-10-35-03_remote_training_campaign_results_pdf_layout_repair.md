@@ -40,8 +40,8 @@ to local report-export tooling plus the affected report source.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.pdf`
+- `doc/reports/campaign_results/infrastructure/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
+- `doc/reports/campaign_results/infrastructure/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`
 - `doc/README.md`

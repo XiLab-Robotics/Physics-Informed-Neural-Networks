@@ -6,7 +6,7 @@
 - Generated At: `2026-03-26T20:19:32`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Completed Runs: `15`
 - Failed Runs: `0`
 
@@ -43,7 +43,7 @@
 - End Time: `2026-03-26T15:19:58`
 - Duration: `00:18:38`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/best_checkpoint_path.txt`
@@ -64,7 +64,7 @@
 - End Time: `2026-03-26T15:31:20`
 - Duration: `00:11:22`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/best_checkpoint_path.txt`
@@ -85,7 +85,7 @@
 - End Time: `2026-03-26T15:54:41`
 - Duration: `00:23:21`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/best_checkpoint_path.txt`
@@ -106,7 +106,7 @@
 - End Time: `2026-03-26T16:06:01`
 - Duration: `00:11:20`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/best_checkpoint_path.txt`
@@ -127,7 +127,7 @@
 - End Time: `2026-03-26T16:26:11`
 - Duration: `00:20:09`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/best_checkpoint_path.txt`
@@ -148,7 +148,7 @@
 - End Time: `2026-03-26T16:48:24`
 - Duration: `00:22:14`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/best_checkpoint_path.txt`
@@ -169,7 +169,7 @@
 - End Time: `2026-03-26T17:19:48`
 - Duration: `00:31:23`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/best_checkpoint_path.txt`
@@ -190,7 +190,7 @@
 - End Time: `2026-03-26T17:48:36`
 - Duration: `00:28:48`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/best_checkpoint_path.txt`
@@ -211,7 +211,7 @@
 - End Time: `2026-03-26T18:09:40`
 - Duration: `00:21:04`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/best_checkpoint_path.txt`
@@ -232,7 +232,7 @@
 - End Time: `2026-03-26T18:31:09`
 - Duration: `00:21:29`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/best_checkpoint_path.txt`
@@ -253,7 +253,7 @@
 - End Time: `2026-03-26T18:43:58`
 - Duration: `00:12:49`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/best_checkpoint_path.txt`
@@ -274,7 +274,7 @@
 - End Time: `2026-03-26T19:11:43`
 - Duration: `00:27:44`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/best_checkpoint_path.txt`
@@ -295,7 +295,7 @@
 - End Time: `2026-03-26T19:34:27`
 - Duration: `00:22:45`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/best_checkpoint_path.txt`
@@ -316,7 +316,7 @@
 - End Time: `2026-03-26T20:01:25`
 - Duration: `00:26:57`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/best_checkpoint_path.txt`
@@ -337,7 +337,7 @@
 - End Time: `2026-03-26T20:19:32`
 - Duration: `00:18:07`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Output Directory: `output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1`
 - Config Snapshot: `output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/best_checkpoint_path.txt`
@@ -357,4 +357,3 @@ Recommended references for the final report:
 - `training_test_report.md` for per-run interpretation notes.
 - `best_checkpoint_path.txt` for checkpoint traceability.
 - `logs/*.log` for terminal-level diagnostics and failure analysis.
-

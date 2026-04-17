@@ -4,7 +4,7 @@
 
 This document covers a narrow follow-up refinement for the styled PDF:
 
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
 
 The remaining issue is inside the `Ranked Completed Runs` table:
 
@@ -31,8 +31,8 @@ The expected change is:
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
 - `scripts/reports/validate_report_pdf.py`
 - `doc/README.md`
 

@@ -76,7 +76,7 @@ This rule should become part of the future PDF validation expectation, not just 
   Usage guidance that should reflect the stricter table-validation criteria after approval.
 - `scripts/reports/generate_styled_report_pdf.py`
   Styled PDF exporter that needs the final table-layout refinement.
-- `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
+- `doc/reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
   The PDF artifact to regenerate and validate again.
 
 ## Implementation Steps

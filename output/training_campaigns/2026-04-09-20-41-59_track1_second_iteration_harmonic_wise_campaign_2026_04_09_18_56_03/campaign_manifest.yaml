@@ -1,7 +1,7 @@
 schema_version: 1
 campaign_name: track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03
 generated_at: '2026-04-09T21:06:13+02:00'
-planning_report_path: doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md
+planning_report_path: doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md
 launch_mode: local_operator_campaign_launcher
 campaign_kind: paper_reimplementation_validation_campaign
 campaign_output_root: output/validation_checks/paper_reimplementation_rcim_harmonic_wise

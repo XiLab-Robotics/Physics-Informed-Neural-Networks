@@ -5,7 +5,7 @@
 This document defines a narrow styled-PDF layout correction for the campaign
 results report:
 
-- `doc/reports/campaign_results/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/svm/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md`
 
 The goal is to rebalance only these two report tables:
 
@@ -35,7 +35,7 @@ profiles.
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/svm/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md`
 - `doc/README.md`
 
 ## Implementation Steps

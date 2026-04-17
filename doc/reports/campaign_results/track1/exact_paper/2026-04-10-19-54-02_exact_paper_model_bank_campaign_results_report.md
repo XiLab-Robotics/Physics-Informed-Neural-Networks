@@ -4,7 +4,7 @@
 
 This report closes the exact-paper model-bank campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
 
 The campaign executed `4` repository-owned validation runs through the
 dedicated exact-paper launcher:

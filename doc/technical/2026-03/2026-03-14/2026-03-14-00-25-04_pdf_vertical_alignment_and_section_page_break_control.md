@@ -74,7 +74,7 @@ The repository rules should be tightened so future styled PDF validation explici
   Usage guidance that should reflect the stricter vertical-alignment and page-break checks after approval.
 - `scripts/reports/generate_styled_report_pdf.py`
   Styled PDF exporter that needs the alignment and page-break refinement.
-- `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
+- `doc/reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
   The target PDF artifact to regenerate and validate again.
 
 ## Implementation Steps

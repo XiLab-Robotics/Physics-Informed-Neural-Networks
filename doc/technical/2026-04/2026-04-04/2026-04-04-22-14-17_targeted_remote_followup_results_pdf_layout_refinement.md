@@ -30,8 +30,8 @@ export path and tightly coupled to the repository renderer and validation flow.
 
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report.pdf`
+- `doc/reports/campaign_results/infrastructure/2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report.md`
+- `doc/reports/campaign_results/infrastructure/2026-04-04-13-14-48_targeted_remote_followup_campaign_results_report.pdf`
 - `doc/README.md`
 
 ## Implementation Steps

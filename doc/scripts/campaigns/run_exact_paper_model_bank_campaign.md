@@ -76,6 +76,6 @@ The launcher writes per-run console logs under:
 
 ## Related Documents
 
-- `doc/reports/campaign_plans/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-17-04-41_exact_paper_model_bank_campaign_plan_report.md`
 - `doc/technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.md`

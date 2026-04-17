@@ -4,7 +4,7 @@
 
 This report summarizes the focused LAN-remote follow-up campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 
 The campaign was intentionally narrow and tested only the branches that still
 looked worth pushing on the stronger LAN workstation:

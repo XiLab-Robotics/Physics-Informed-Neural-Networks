@@ -4,7 +4,7 @@
 
 This report summarizes the first real LAN-backed training campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 
 The campaign was designed to answer two questions at once:
 

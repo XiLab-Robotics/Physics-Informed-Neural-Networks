@@ -2,7 +2,7 @@ campaign_name: best_training_logging_validation_campaign_2026_03_14_00_56_06
 generated_at: '2026-03-14T01:24:57'
 queue_root: config/training/queue
 campaign_output_directory: output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06
-planning_report_path: doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
+planning_report_path: doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
 run_list:
 - original_queue_config_path: config/training/queue/pending/2026-03-14-01-09-30_001_01_best_training_logging_validation.yaml
   final_queue_config_path: config/training/queue/completed/2026-03-14-01-09-30_001_01_best_training_logging_validation.yaml
@@ -22,6 +22,6 @@ run_list:
   metrics_path: output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml
   training_report_path: output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_report.md
   log_path: output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-01-09-30_001_01_best_training_logging_validation.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md
   campaign_name: best_training_logging_validation_campaign_2026_03_14_00_56_06
   error_message: null

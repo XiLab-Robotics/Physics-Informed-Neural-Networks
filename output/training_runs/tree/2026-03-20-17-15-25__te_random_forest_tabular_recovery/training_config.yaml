@@ -7,7 +7,7 @@ experiment:
   model_type: random_forest
 metadata:
   campaign_name: wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42
-  planning_report_path: doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md
   phase_name: tree_benchmark_recovery
   campaign_config_id: random_forest_tabular_conservative
   notes: Conservative recovery rerun for the random forest benchmark after the memory

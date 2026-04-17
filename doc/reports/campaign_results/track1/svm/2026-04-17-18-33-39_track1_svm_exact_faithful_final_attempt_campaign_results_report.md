@@ -4,7 +4,7 @@
 
 This report closes the final strict paper-faithful `SVR` attempt prepared in:
 
-- `doc/reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md`
 
 The campaign executed `4` exact-paper validation runs through the stabilized
 remote launcher:

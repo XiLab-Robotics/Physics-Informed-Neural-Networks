@@ -3,7 +3,7 @@
 ## Overview
 
 The current campaign-results PDF
-`doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
+`doc/reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
 contains multiple table-layout defects that are visible in the user's review screenshots:
 
 - the `Historical Reference Set` table compresses the `Config` column too aggressively and pushes the rightmost metric headers into an unusable layout;
@@ -18,7 +18,7 @@ The immediate goal is to repair the current PDF layout. The broader goal is to m
 The fix should stay inside the existing styled-report pipeline so that future campaign reports benefit automatically:
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
+- `doc/reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
 
 ### Table Width Rebalancing
 
@@ -69,9 +69,9 @@ The corrected workflow should explicitly require:
   Persistent workflow rules that should be updated after approval so future PDF validation is stricter and table-balance issues are caught proactively.
 - `scripts/reports/generate_styled_report_pdf.py`
   Styled report exporter that needs the table-layout correction.
-- `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
+- `doc/reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.md`
   Canonical Markdown source of the affected report.
-- `doc/reports/campaign_results/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
+- `doc/reports/campaign_results/mixed_training/2026-03-13-20-54-54_mixed_training_campaign_results_report.pdf`
   Affected PDF artifact to regenerate and validate again.
 
 ## Implementation Steps

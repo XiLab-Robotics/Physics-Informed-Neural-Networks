@@ -28,7 +28,7 @@ The wrapper should not suppress stdout, stderr, or Lightning progress bars. It s
 
 - `scripts/training/run_training_campaign.py`
 - `config/training/wave1_structured_baselines/campaigns/2026-03-20_wave1_structured_baseline_recovery_campaign/*.yaml`
-- `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/guide/project_usage_guide.md`
 - `README.md`

@@ -30,7 +30,7 @@ families that still have credible value on the stronger workstation:
 - Campaign name:
   `targeted_remote_followup_campaign_2026_04_04_11_21_09`
 - Planning report:
-  `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+  `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 
 ## Usage
 

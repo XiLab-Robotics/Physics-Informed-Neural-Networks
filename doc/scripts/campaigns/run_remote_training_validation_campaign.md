@@ -165,6 +165,6 @@ After completion, verify the synced results under:
 
 ## Related Documents
 
-- `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `doc/technical/2026-04/2026-04-03/2026-04-03-17-54-21_remote_training_campaign_real_validation_and_setup_guide.md`

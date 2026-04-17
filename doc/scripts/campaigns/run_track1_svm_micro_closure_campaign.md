@@ -57,4 +57,4 @@ Optional explicit environment arguments:
 ## Related Documents
 
 - `doc/technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md`
-- `doc/reports/campaign_plans/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_plan_report.md`

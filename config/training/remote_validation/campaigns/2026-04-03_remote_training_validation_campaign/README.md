@@ -32,7 +32,7 @@ The package is intentionally narrow and exercises both major runtime paths:
 
 - Campaign name: `remote_training_validation_campaign_2026_04_03_17_54_21`
 - Planning report:
-  `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+  `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 
 ## Usage
 

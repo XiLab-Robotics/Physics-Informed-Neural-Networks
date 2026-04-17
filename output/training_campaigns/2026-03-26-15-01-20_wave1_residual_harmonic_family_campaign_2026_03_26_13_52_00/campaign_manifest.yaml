@@ -2,7 +2,7 @@
 generated_at: '2026-03-26T20:19:32'
 queue_root: config/training/queue
 campaign_output_directory: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
-planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
 run_list:
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_001_01_residual_h08_small_frozen.yaml
   final_queue_config_path: config/training/queue/completed/2026-03-26-15-01-20_001_01_residual_h08_small_frozen.yaml
@@ -23,7 +23,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-01-20__te_residual_h08_small_frozen_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/001_te_residual_h08_small_frozen_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_002_02_residual_h08_small_joint.yaml
@@ -45,7 +45,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-19-58__te_residual_h08_small_joint_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/002_te_residual_h08_small_joint_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_003_03_residual_h12_small_frozen.yaml
@@ -67,7 +67,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-31-20__te_residual_h12_small_frozen_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/003_te_residual_h12_small_frozen_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_004_04_residual_h12_small_joint_anchor.yaml
@@ -89,7 +89,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-15-54-41__te_residual_h12_small_joint_anchor_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/004_te_residual_h12_small_joint_anchor_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_005_05_residual_h16_small_joint.yaml
@@ -111,7 +111,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-06-02__te_residual_h16_small_joint_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/005_te_residual_h16_small_joint_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_006_06_residual_h12_medium_joint.yaml
@@ -133,7 +133,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/006_te_residual_h12_medium_joint_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_007_07_residual_h12_wide_joint.yaml
@@ -155,7 +155,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/007_te_residual_h12_wide_joint_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_008_08_residual_h12_deep_joint.yaml
@@ -177,7 +177,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/008_te_residual_h12_deep_joint_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_009_09_residual_h12_small_joint_low_dropout.yaml
@@ -199,7 +199,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/009_te_residual_h12_small_joint_low_dropout_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_010_10_residual_h12_small_joint_high_dropout.yaml
@@ -221,7 +221,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/010_te_residual_h12_small_joint_high_dropout_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_011_11_residual_h12_small_joint_no_layer_norm.yaml
@@ -243,7 +243,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-31-09__te_residual_h12_small_joint_no_layer_norm_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/011_te_residual_h12_small_joint_no_layer_norm_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_012_12_residual_h12_small_joint_low_lr_long.yaml
@@ -265,7 +265,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/012_te_residual_h12_small_joint_low_lr_long_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_013_13_residual_h12_wide_joint_low_lr_long.yaml
@@ -287,7 +287,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-11-43__te_residual_h12_wide_joint_low_lr_long_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/013_te_residual_h12_wide_joint_low_lr_long_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_014_14_residual_h12_small_joint_dense.yaml
@@ -309,7 +309,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-19-34-28__te_residual_h12_small_joint_dense_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/014_te_residual_h12_small_joint_dense_wave1.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 - original_queue_config_path: config/training/queue/pending/2026-03-26-15-01-20_015_15_residual_h12_small_joint_medium_dense_large_batch.yaml
@@ -331,7 +331,7 @@ run_list:
   metrics_path: output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/metrics_summary.yaml
   training_report_path: output/training_runs/residual_harmonic_mlp/2026-03-26-20-01-25__te_residual_h12_small_joint_medium_dense_large_batch_wave1/training_test_report.md
   log_path: output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/logs/015_te_residual_h12_small_joint_medium_dense_large_b.log
-  planning_report_path: doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md
   campaign_name: wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00
   error_message: null
 

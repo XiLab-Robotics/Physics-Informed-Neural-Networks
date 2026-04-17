@@ -95,7 +95,7 @@ requested matrix-reproduction logic.
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/campaign_plans/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`

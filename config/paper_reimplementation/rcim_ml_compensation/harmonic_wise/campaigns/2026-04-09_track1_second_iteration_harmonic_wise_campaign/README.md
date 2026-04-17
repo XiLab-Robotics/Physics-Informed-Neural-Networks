@@ -12,7 +12,7 @@ The package intentionally combines:
 
 The canonical planning report for this package is:
 
-- `doc/reports/campaign_plans/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`
 
 The canonical launcher for this package is:
 

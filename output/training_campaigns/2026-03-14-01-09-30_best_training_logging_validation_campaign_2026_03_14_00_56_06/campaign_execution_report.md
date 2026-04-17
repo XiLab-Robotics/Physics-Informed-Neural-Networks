@@ -6,7 +6,7 @@
 - Generated At: `2026-03-14T01:24:57`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
 - Completed Runs: `1`
 - Failed Runs: `0`
 
@@ -28,7 +28,7 @@
 - End Time: `2026-03-14T01:24:57`
 - Duration: `00:15:27`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_best_training`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_best_training/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_best_training/best_checkpoint_path.txt`

@@ -6,7 +6,7 @@
 - Generated At: `2026-04-03T22:30:26`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - Completed Runs: `4`
 - Failed Runs: `1`
 
@@ -33,7 +33,7 @@
 - End Time: `2026-04-03T21:17:21`
 - Duration: `00:39:14`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-04-03-20-38-07__te_random_forest_remote_medium`
 - Config Snapshot: `N/A`
 - Best Checkpoint Pointer: `N/A`
@@ -54,7 +54,7 @@
 - End Time: `2026-04-03T21:48:11`
 - Duration: `00:30:50`
 - Process Return Code: `N/A`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-04-03-21-17-21__te_random_forest_remote_aggressive`
 - Config Snapshot: `output/training_runs/tree/2026-04-03-21-17-21__te_random_forest_remote_aggressive/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -75,7 +75,7 @@
 - End Time: `2026-04-03T21:50:07`
 - Duration: `00:01:55`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - Output Directory: `output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep`
 - Config Snapshot: `output/training_runs/tree/2026-04-03-21-48-11__te_hist_gbr_remote_deep/training_config.yaml`
 - Best Checkpoint Pointer: `N/A`
@@ -96,7 +96,7 @@
 - End Time: `2026-04-03T22:00:31`
 - Duration: `00:10:24`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote`
 - Config Snapshot: `output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/2026-04-03-21-50-07__te_feedforward_high_compute_remote/best_checkpoint_path.txt`
@@ -117,7 +117,7 @@
 - End Time: `2026-04-03T22:30:26`
 - Duration: `00:29:55`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote`
 - Config Snapshot: `output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote/training_config.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/2026-04-03-22-00-31__te_feedforward_stride1_big_remote/best_checkpoint_path.txt`

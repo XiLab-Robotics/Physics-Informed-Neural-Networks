@@ -40,7 +40,7 @@ This approach is preferable to trying to disable `colorama` shutdown behavior gl
   The tee stream is implemented here and is the direct source of the shutdown exception.
 - `README.md`
   Main project document that must reference this technical note.
-- `doc/reports/campaign_results/2026-03-14-02-08-12_best_training_logging_validation_campaign_results_report.md`
+- `doc/reports/campaign_results/mixed_training/2026-03-14-02-08-12_best_training_logging_validation_campaign_results_report.md`
   The completed campaign report already documents the issue and should remain consistent with the eventual fix.
 
 ## Implementation Steps

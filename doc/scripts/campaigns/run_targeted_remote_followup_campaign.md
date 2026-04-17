@@ -128,6 +128,6 @@ After completion, verify the synced results under:
 
 ## Related Documents
 
-- `doc/reports/campaign_plans/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
+- `doc/reports/campaign_plans/infrastructure/2026-04-04-11-21-09_targeted_remote_followup_campaign_plan_report.md`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
-- `doc/reports/campaign_results/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
+- `doc/reports/campaign_results/infrastructure/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`

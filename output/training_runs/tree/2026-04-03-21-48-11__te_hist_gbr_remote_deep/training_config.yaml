@@ -7,7 +7,7 @@ experiment:
   model_type: hist_gradient_boosting
 metadata:
   campaign_name: remote_training_validation_campaign_2026_04_03_17_54_21
-  planning_report_path: doc/reports/campaign_plans/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md
+  planning_report_path: doc/reports/campaign_plans/infrastructure/2026-04-03-17-54-21_remote_training_validation_campaign_plan_report.md
   phase_name: remote_tree_validation
   campaign_config_id: hist_gbr_remote_deep
   notes: Deeper histogram gradient boosting remote follow-up against the current global

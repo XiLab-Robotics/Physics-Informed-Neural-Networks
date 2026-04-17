@@ -87,7 +87,7 @@ All coordinated launcher logs write under:
 
 ## Related Documents
 
-- `doc/reports/campaign_plans/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_plan_report.md`
 - `doc/technical/2026-04/2026-04-10/2026-04-10-21-47-55_exact_paper_faithful_reproduction_campaign_preparation.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.md`

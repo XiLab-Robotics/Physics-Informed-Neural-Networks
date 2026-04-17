@@ -4,7 +4,7 @@
 
 This report closes the overnight `Track 1` campaign prepared in:
 
-- `doc/reports/campaign_plans/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md`
 
 The package executed `20` repository-owned harmonic-wise validation runs
 through one coordinated launcher:

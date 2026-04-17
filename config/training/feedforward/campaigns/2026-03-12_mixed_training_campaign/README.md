@@ -2,7 +2,7 @@
 
 This folder contains the `9` feedforward YAML configurations prepared from:
 
-- `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 
 Execution order:
 

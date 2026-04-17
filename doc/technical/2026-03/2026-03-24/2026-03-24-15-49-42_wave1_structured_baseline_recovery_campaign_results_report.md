@@ -42,7 +42,7 @@ The report should also capture the practical operational result of the recovery 
   Main project document that must reference this technical note.
 - `doc/running/active_training_campaign.yaml`
   Persistent campaign state that must be updated from `prepared` to `completed`.
-- `doc/reports/campaign_plans/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
   Approved planning report for the completed recovery campaign.
 - `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_execution_report.md`
   Campaign execution summary with run durations and artifact references.

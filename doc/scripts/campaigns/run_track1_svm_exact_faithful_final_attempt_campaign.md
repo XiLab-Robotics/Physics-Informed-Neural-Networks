@@ -48,4 +48,4 @@ Explicit Conda environment:
 ## Related Documents
 
 - `doc/technical/2026-04/2026-04-17/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_preparation.md`
-- `doc/reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md`

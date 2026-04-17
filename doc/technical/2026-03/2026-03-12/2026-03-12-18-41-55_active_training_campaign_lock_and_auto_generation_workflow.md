@@ -116,7 +116,7 @@ This keeps partial compute results usable instead of discarding them blindly.
   Internal documentation index that should also reference this technical document.
 - `AGENTS.md`
   Main repository instruction file that should be updated after approval to encode the new campaign workflow rule.
-- `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   Already approved planning report for the mixed feedforward campaign that should be used as the first concrete application of this workflow.
 - `config/training/feedforward/presets/`
   Source location for canonical feedforward presets used to generate campaign-specific queue YAML files.

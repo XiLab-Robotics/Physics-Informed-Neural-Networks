@@ -62,4 +62,4 @@ Optional explicit environment arguments:
 ## Related Documents
 
 - `doc/technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md`
-- `doc/reports/campaign_plans/2026-04-14-20-50-01_track1_svm_final_closure_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/svm/2026-04-14-20-50-01_track1_svm_final_closure_campaign_plan_report.md`

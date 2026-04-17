@@ -2,7 +2,7 @@ campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53
 generated_at: '2026-04-15T23:22:38'
 queue_root: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue
 campaign_output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
-planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/track1/svm/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
 run_list:
 - original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-22-38_001_01_track1_svr_reference_grid_amplitude_pair.yaml
   final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_001_01_track1_svr_reference_grid_amplitude_pair.yaml
@@ -22,7 +22,7 @@ run_list:
   metrics_path: N/A
   training_report_path: N/A
   log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/001_track1_svr_reference_grid_amplitude_pair.log
-  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/track1/svm/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
   campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
   error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
     | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
@@ -45,7 +45,7 @@ run_list:
   metrics_path: N/A
   training_report_path: N/A
   log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/002_track1_svr_reference_grid_amplitude_40_only.log
-  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/track1/svm/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
   campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
   error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
     | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
@@ -68,7 +68,7 @@ run_list:
   metrics_path: N/A
   training_report_path: N/A
   log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/003_track1_svr_reference_grid_amplitude_240_only.log
-  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/track1/svm/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
   campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
   error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
     | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
@@ -91,7 +91,7 @@ run_list:
   metrics_path: N/A
   training_report_path: N/A
   log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/004_track1_svr_reference_grid_phase_162_only.log
-  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/track1/svm/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
   campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
   error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
     | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',

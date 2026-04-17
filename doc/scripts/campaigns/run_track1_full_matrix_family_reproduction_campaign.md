@@ -81,6 +81,6 @@ The launcher writes per-run console logs under:
 
 ## Related Documents
 
-- `doc/reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md`
+- `doc/reports/campaign_plans/track1/exact_paper/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md`
 - `doc/technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.md`

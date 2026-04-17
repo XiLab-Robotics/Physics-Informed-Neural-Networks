@@ -3,7 +3,7 @@
 ## Overview
 
 The current styled PDF export
-`doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.pdf`
+`doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.pdf`
 still contains a set of user-identified layout defects that should be corrected
 without changing the analytical content of the report.
 
@@ -31,7 +31,7 @@ The correction should remain inside the existing repository-owned reporting
 pipeline:
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
+- `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 
 ### Section-Level Page Break Control
 
@@ -101,9 +101,9 @@ The validation pass should explicitly confirm:
   Styled PDF exporter that controls heading page breaks and table width maps.
 - `scripts/reports/run_report_pipeline.py`
   Existing orchestration entry point to regenerate and validate the report.
-- `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
+- `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
   Canonical Markdown source of the affected report.
-- `doc/reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.pdf`
+- `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.pdf`
   Target PDF artifact to regenerate and validate again.
 
 ## Implementation Steps

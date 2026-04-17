@@ -50,7 +50,7 @@ the repository guidance that future users will read and follow.
   artifact references.
 - `doc/technical/2026-03/2026-03-26/2026-03-26-13-44-27_wave1_familywise_hyperparameter_optimization_campaign.md`
   Historical technical note whose framing should be aligned to `Wave 1`.
-- `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
   Historical planning report whose wording should be aligned to `Wave 1`.
 - `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
   Canonical launcher for the aligned residual-harmonic family campaign.

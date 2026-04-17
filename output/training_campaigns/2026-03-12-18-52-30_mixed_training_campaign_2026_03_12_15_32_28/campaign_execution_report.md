@@ -6,7 +6,7 @@
 - Generated At: `2026-03-12T23:05:53`
 - Queue Root: `config/training/queue`
 - Campaign Output Directory: `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Completed Runs: `9`
 - Failed Runs: `0`
 
@@ -36,7 +36,7 @@
 - End Time: `2026-03-12T19:16:16`
 - Duration: `00:23:46`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long/best_checkpoint_path.txt`
@@ -56,7 +56,7 @@
 - End Time: `2026-03-12T19:33:26`
 - Duration: `00:17:09`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long/best_checkpoint_path.txt`
@@ -76,7 +76,7 @@
 - End Time: `2026-03-12T20:11:08`
 - Duration: `00:37:42`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long/best_checkpoint_path.txt`
@@ -96,7 +96,7 @@
 - End Time: `2026-03-12T20:29:30`
 - Duration: `00:18:22`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch/best_checkpoint_path.txt`
@@ -116,7 +116,7 @@
 - End Time: `2026-03-12T20:46:20`
 - Duration: `00:16:50`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/best_checkpoint_path.txt`
@@ -136,7 +136,7 @@
 - End Time: `2026-03-12T21:15:33`
 - Duration: `00:29:14`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch/best_checkpoint_path.txt`
@@ -156,7 +156,7 @@
 - End Time: `2026-03-12T21:35:23`
 - Duration: `00:19:50`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch_big_model`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch_big_model/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride10_long_large_batch_big_model/best_checkpoint_path.txt`
@@ -176,7 +176,7 @@
 - End Time: `2026-03-12T22:09:11`
 - Duration: `00:33:48`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch_big_model`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch_big_model/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch_big_model/best_checkpoint_path.txt`
@@ -196,7 +196,7 @@
 - End Time: `2026-03-12T23:05:53`
 - Duration: `00:56:42`
 - Process Return Code: `0`
-- Planning Report Path: `doc/reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
+- Planning Report Path: `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
 - Output Directory: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch_big_model`
 - Config Snapshot: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch_big_model/feedforward_network_training.yaml`
 - Best Checkpoint Pointer: `output/training_runs/feedforward/legacy__te_feedforward_stride1_long_large_batch_big_model/best_checkpoint_path.txt`

@@ -30,8 +30,8 @@ No Codex subagent is planned for this repair.
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
-- `doc/reports/campaign_results/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.pdf`
 - `.temp/report_pipeline/pdf_validation/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report/`
 
 ## Implementation Steps

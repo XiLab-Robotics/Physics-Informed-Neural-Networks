@@ -5,7 +5,7 @@
 This report summarizes the completed residual-harmonic family campaign prepared
 in:
 
-- `doc/reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
+- `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 
 The campaign goal was narrower than the earlier cross-family Wave 1 screening.
 This pass focused only on the `residual_harmonic_mlp` family and expanded the

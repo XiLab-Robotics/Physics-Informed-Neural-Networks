@@ -48,7 +48,7 @@ Concretely for the current renderer:
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/svm/2026-04-14-17-40-47_track1_svm_open_cell_repair_campaign_results_report.md`
 - future campaign-results Markdown reports that contain ranking or summary
   tables with similar structure
 - `doc/README.md`
