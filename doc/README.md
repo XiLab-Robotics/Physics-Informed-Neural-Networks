@@ -84,6 +84,17 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-17
+
+- [technical/2026-04/2026-04-17/2026-04-17-18-32-17_track1_svm_exact_faithful_final_attempt_results_reporting.md](./technical/2026-04/2026-04-17/2026-04-17-18-32-17_track1_svm_exact_faithful_final_attempt_results_reporting.md)
+  Technical document for closing the completed strict paper-faithful `SVR`
+  final-attempt campaign through winner-artifact serialization, final
+  reporting, PDF validation, and canonical-analysis refresh.
+- [technical/2026-04/2026-04-17/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_preparation.md](./technical/2026-04/2026-04-17/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_preparation.md)
+  Technical document for deciding whether one last `SVM`-row attempt should
+  be prepared under a strict exact-paper `SVR` constraint, without changing
+  the recovered algorithm or hyperparameter regime.
+
 #### 2026-04-12
 
 - [technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md](./technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md)
@@ -804,6 +815,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md](./reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md)
+  Final results report for the completed strict paper-faithful `SVR` final
+  attempt on the residual `SVM` yellow cells, including the repeated plateau
+  confirmation and the validated PDF closeout.
 - [reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md](./reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md)
   Final results report for the completed exact-paper RCIM family-bank campaign,
   including strict-reference promotion, `SVR` surrogate diagnostics, and the
@@ -826,6 +841,9 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Plans
 
+- [reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md](./reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md)
+  Planning report for deciding whether one final exact-faithful `SVR` rerun
+  package is still justified for the residual `SVM` yellow cells.
 - [reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md](./reports/campaign_plans/2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md)
   Planning report for the next umbrella `Track 1` campaign package, organized
   as family-by-family amplitude and phase reproduction runs for the full

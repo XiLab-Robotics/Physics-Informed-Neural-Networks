@@ -1,0 +1,45 @@
+schema_version: 1
+campaign_name: track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20
+selection_policy:
+  primary_metric: mean_normalized_gap_ratio_asc
+  first_tie_breaker: max_normalized_gap_ratio_asc
+  second_tie_breaker: open_paper_cell_count_asc
+  third_tie_breaker: failed_target_count_asc
+  fourth_tie_breaker: run_name
+  direction: minimize
+  note: Dedicated exact-faithful SVM final-attempt campaign ranks scoped exact-paper
+    reruns by normalized paper-gap proximity because none of the four scoped runs
+    reached a true paper-cell closure.
+selected_at: '2026-04-17T18:33:39+02:00'
+run_instance_id: 2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run
+run_name: track1_svr_exact_faithful_phase_162_repeat
+output_run_name: track1_svr_exact_faithful_phase_162_repeat_campaign_run
+output_artifact_kind: validation_check
+family_code: SVR
+target_scope_mode: phases_only
+harmonic_target_count: 1
+paper_cell_count: 2
+targeted_harmonic_list:
+- 162
+winning_family: SVR
+winning_display_name: Support Vector Regressor
+winning_estimator_name: SVR
+winning_mean_component_mape_percent: 27.259085528743483
+winning_mean_component_mae: 0.5422459541617565
+winning_mean_component_rmse: 1.2178325965517753
+closure_score: 0.0
+met_paper_cell_count: 0
+near_paper_cell_count: 0
+open_paper_cell_count: 2
+mean_normalized_gap_ratio: 1.3070466014604656
+max_normalized_gap_ratio: 1.7112297708087822
+export_failure_mode: continue
+exported_file_count: 0
+failed_target_count: 1
+surrogate_export_count: 0
+matched_reference_count: 0
+missing_reference_count: 201
+extra_export_count: 0
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run
+model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/paper_family_model_bank.pkl
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/validation_summary.yaml

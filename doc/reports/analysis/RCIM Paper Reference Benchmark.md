@@ -756,6 +756,8 @@ The repository now also includes a stricter exact-paper validation branch:
   `doc/reports/campaign_results/2026-04-14-22-04-12_track1_svm_micro_closure_campaign_results_report.md`
 - remote `SVR` reference-grid repair campaign results report:
   `doc/reports/campaign_results/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
+- exact-faithful `SVM` final-attempt campaign results report:
+  `doc/reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md`
 
 This exact branch is now implemented, executed, and operationally stabilized.
 Its latest paper-closure-first campaign result confirms:
@@ -766,14 +768,24 @@ Its latest paper-closure-first campaign result confirms:
   `8` partial / `2` open
 - no new numeric paper-target cells were closed
 
-The latest remote `SVR` reference-grid follow-up confirms:
+The latest exact-faithful `SVR` follow-up confirms:
 
 - the remote exact-paper launcher is now operational end to end on the LAN node;
 - the recovered paper-faithful `SVR` grid still does not close scoped targets
   `40`, `240`, or `162`;
-- the isolated reruns do not improve over the already known exact-paper `SVR`
-  values;
+- the final exact-faithful reruns reproduce the already known exact-paper
+  `SVR` values instead of improving them;
 - scoped `SVR` ONNX export remains open under the current stack.
+
+Repository decision after the final exact-faithful closeout:
+
+- the `SVM` model line is now considered closed for repository purposes;
+- the remaining differences against the paper on `40`, `240`, and `162` are
+  accepted as small residual mismatches rather than an active `SVM`
+  implementation blocker;
+- `Track 1` canonical paper replication remains a broader benchmark topic and
+  should not be read as a still-open request to rerun the same exact-faithful
+  `SVM` path again.
 
 Its promoted full-bank structural reference run is:
 
@@ -826,9 +838,10 @@ Immediate next repository step:
   - `track1_hgbm_h01_wide_depth_2`;
   - `track1_hgbm_h01_h162240_joint_balanced`;
   - `track1_hgbm_h81156162240_cluster`;
-- if the next exact-paper rerun still leaves the same cells open, move the
-  next research step to a new target-parameterization implementation rather
-  than another winner-centric tuning cycle.
+- the final exact-faithful rerun has now confirmed plateau on the residual
+  `SVM` cells, so the next research step should move to a new
+  target-parameterization implementation rather than another winner-centric
+  tuning cycle.
 
 Important interpretation:
 

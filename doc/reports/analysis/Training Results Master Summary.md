@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-17T11:05:58`
+- Generated At: `2026-04-17T18:38:04`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
 - Active Campaign Status: `finished`
-- Active Campaign Name: `track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48`
+- Active Campaign Name: `track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -166,13 +166,16 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper validation summary: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-05-57-27__track1_svr_reference_grid_phase_162_only_campaign_run/validation_summary.yaml`
+- Latest exact-paper validation summary: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/validation_summary.yaml`
 - Table `3` amplitude `RMSE`: `0/0` harmonics at or below the paper target
 - Table `4` phase `MAE`: `0/1` harmonics at or below the paper target
 - Table `5` phase `RMSE`: `0/1` harmonics at or below the paper target
 - Target-level expected-family direction: `0/1`
 - Harmonic-level Table `6` closure: `0/1` fully matched, `0/1` partially matched, `1/1` still open
 - Highest-priority open harmonics: `162`
+- Repository `SVM` status: closed and accepted after the final exact-faithful
+  rerun package, with residual paper deltas on `40`, `240`, and `162`
+  accepted as non-blocking
 
 ### Latest Harmonic-Wise Validation Support
 
