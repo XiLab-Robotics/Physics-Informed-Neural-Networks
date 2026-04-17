@@ -1,0 +1,152 @@
+schema_version: 1
+campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+selection_policy: &id001
+  primary_metric: mean_normalized_gap_ratio_asc
+  first_tie_breaker: max_normalized_gap_ratio_asc
+  second_tie_breaker: open_paper_cell_count_asc
+  third_tie_breaker: failed_target_count_asc
+  fourth_tie_breaker: run_name
+  direction: minimize
+  note: Dedicated SVR reference-grid repair campaign ranks scoped exact-paper runs
+    by normalized paper-gap proximity because none of the four scoped runs reached
+    a true paper-cell closure.
+updated_at: '2026-04-17T10:59:25.0931094+02:00'
+entry_count: 4
+entry_list:
+- run_instance_id: 2026-04-17-05-57-27__track1_svr_reference_grid_phase_162_only_campaign_run
+  run_name: track1_svr_reference_grid_phase_162_only
+  output_run_name: track1_svr_reference_grid_phase_162_only_campaign_run
+  output_artifact_kind: validation_check
+  family_code: SVR
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mean_component_mape_percent: 27.259085528743483
+  winning_mean_component_mae: 0.5422459541617565
+  winning_mean_component_rmse: 1.2178325965517753
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 1.3070466014604656
+  max_normalized_gap_ratio: 1.7112297708087822
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-05-57-27__track1_svr_reference_grid_phase_162_only_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-05-57-27__track1_svr_reference_grid_phase_162_only_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-05-57-27__track1_svr_reference_grid_phase_162_only_campaign_run/validation_summary.yaml
+  selection_policy: *id001
+  selected_at: '2026-04-17T10:59:25.0931094+02:00'
+- run_instance_id: 2026-04-17-03-26-32__track1_svr_reference_grid_amplitude_40_only_campaign_run
+  run_name: track1_svr_reference_grid_amplitude_40_only
+  output_run_name: track1_svr_reference_grid_amplitude_40_only_campaign_run
+  output_artifact_kind: validation_check
+  family_code: SVR
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 1
+  targeted_harmonic_list:
+  - 40
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mean_component_mape_percent: 10.097362995064522
+  winning_mean_component_mae: 8.20273680569381e-05
+  winning_mean_component_rmse: 9.633271393262379e-05
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 1.6759087203506609
+  max_normalized_gap_ratio: 1.6759087203506609
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-03-26-32__track1_svr_reference_grid_amplitude_40_only_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-03-26-32__track1_svr_reference_grid_amplitude_40_only_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-03-26-32__track1_svr_reference_grid_amplitude_40_only_campaign_run/validation_summary.yaml
+  selection_policy: *id001
+  selected_at: '2026-04-17T10:59:25.0931094+02:00'
+- run_instance_id: 2026-04-17-00-54-56__track1_svr_reference_grid_amplitude_pair_campaign_run
+  run_name: track1_svr_reference_grid_amplitude_pair
+  output_run_name: track1_svr_reference_grid_amplitude_pair_campaign_run
+  output_artifact_kind: validation_check
+  family_code: SVR
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 2
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 40
+  - 240
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mean_component_mape_percent: 37.7919259358074
+  winning_mean_component_mae: 0.00019190701058107394
+  winning_mean_component_rmse: 0.00035926984487461895
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 7.74518026275407
+  max_normalized_gap_ratio: 13.814451805157479
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 2
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-00-54-56__track1_svr_reference_grid_amplitude_pair_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-00-54-56__track1_svr_reference_grid_amplitude_pair_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-00-54-56__track1_svr_reference_grid_amplitude_pair_campaign_run/validation_summary.yaml
+  selection_policy: *id001
+  selected_at: '2026-04-17T10:59:25.0931094+02:00'
+- run_instance_id: 2026-04-17-03-26-46__track1_svr_reference_grid_amplitude_240_only_campaign_run
+  run_name: track1_svr_reference_grid_amplitude_240_only
+  output_run_name: track1_svr_reference_grid_amplitude_240_only_campaign_run
+  output_artifact_kind: validation_check
+  family_code: SVR
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 1
+  targeted_harmonic_list:
+  - 240
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mean_component_mape_percent: 65.48648887655028
+  winning_mean_component_mae: 0.0003017866531052098
+  winning_mean_component_rmse: 0.0006222069758166141
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 13.814451805157479
+  max_normalized_gap_ratio: 13.814451805157479
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 201
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-03-26-46__track1_svr_reference_grid_amplitude_240_only_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-03-26-46__track1_svr_reference_grid_amplitude_240_only_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-03-26-46__track1_svr_reference_grid_amplitude_240_only_campaign_run/validation_summary.yaml
+  selection_policy: *id001
+  selected_at: '2026-04-17T10:59:25.0931094+02:00'

@@ -1,0 +1,98 @@
+campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+generated_at: '2026-04-15T23:11:59'
+queue_root: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue
+campaign_output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-11-59_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+run_list:
+- original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-11-59_001_01_track1_svr_reference_grid_amplitude_pair.yaml
+  final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-11-59_001_01_track1_svr_reference_grid_amplitude_pair.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/01_track1_svr_reference_grid_amplitude_pair.yaml
+  run_name: track1_svr_reference_grid_amplitude_pair
+  run_instance_id: 2026-04-15-23-11-59__track1_svr_reference_grid_amplitude_pair
+  model_type: exact_paper_family_bank
+  queue_status: failed
+  start_time: '2026-04-15T23:11:59'
+  end_time: '2026-04-15T23:11:59'
+  duration_seconds: 0.0
+  process_return_code: null
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-11-59__track1_svr_reference_grid_amplitude_pair
+  config_snapshot_path: N/A
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-11-59_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/001_track1_svr_reference_grid_amplitude_pair.log
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+  error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
+    | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
+    ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'
+- original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-11-59_002_02_track1_svr_reference_grid_amplitude_40_only.yaml
+  final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-11-59_002_02_track1_svr_reference_grid_amplitude_40_only.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/02_track1_svr_reference_grid_amplitude_40_only.yaml
+  run_name: track1_svr_reference_grid_amplitude_40_only
+  run_instance_id: 2026-04-15-23-11-59__track1_svr_reference_grid_amplitude_40_only
+  model_type: exact_paper_family_bank
+  queue_status: failed
+  start_time: '2026-04-15T23:11:59'
+  end_time: '2026-04-15T23:11:59'
+  duration_seconds: 0.0
+  process_return_code: null
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-11-59__track1_svr_reference_grid_amplitude_40_only
+  config_snapshot_path: N/A
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-11-59_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/002_track1_svr_reference_grid_amplitude_40_only.log
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+  error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
+    | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
+    ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'
+- original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-11-59_003_03_track1_svr_reference_grid_amplitude_240_only.yaml
+  final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-11-59_003_03_track1_svr_reference_grid_amplitude_240_only.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/03_track1_svr_reference_grid_amplitude_240_only.yaml
+  run_name: track1_svr_reference_grid_amplitude_240_only
+  run_instance_id: 2026-04-15-23-11-59__track1_svr_reference_grid_amplitude_240_only
+  model_type: exact_paper_family_bank
+  queue_status: failed
+  start_time: '2026-04-15T23:11:59'
+  end_time: '2026-04-15T23:11:59'
+  duration_seconds: 0.0
+  process_return_code: null
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-11-59__track1_svr_reference_grid_amplitude_240_only
+  config_snapshot_path: N/A
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-11-59_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/003_track1_svr_reference_grid_amplitude_240_only.log
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+  error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
+    | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
+    ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'
+- original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-11-59_004_04_track1_svr_reference_grid_phase_162_only.yaml
+  final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-11-59_004_04_track1_svr_reference_grid_phase_162_only.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/04_track1_svr_reference_grid_phase_162_only.yaml
+  run_name: track1_svr_reference_grid_phase_162_only
+  run_instance_id: 2026-04-15-23-11-59__track1_svr_reference_grid_phase_162_only
+  model_type: exact_paper_family_bank
+  queue_status: failed
+  start_time: '2026-04-15T23:11:59'
+  end_time: '2026-04-15T23:11:59'
+  duration_seconds: 0.0
+  process_return_code: null
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-11-59__track1_svr_reference_grid_phase_162_only
+  config_snapshot_path: N/A
+  best_checkpoint_reference_path: N/A
+  best_checkpoint_path: null
+  metrics_path: N/A
+  training_report_path: N/A
+  log_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-11-59_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/004_track1_svr_reference_grid_phase_162_only.log
+  planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
+  campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
+  error_message: 'Unsupported Model Type for Campaign Runner | exact_paper_family_bank
+    | Supported: [''feedforward'', ''harmonic_regression'', ''hist_gradient_boosting'',
+    ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'

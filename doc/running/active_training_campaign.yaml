@@ -1,5 +1,5 @@
 campaign_name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
-status: prepared
+status: finished
 planning_report_path: doc/reports/campaign_plans/2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
 campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign
 queue_root: null
@@ -8,10 +8,10 @@ campaign_output_directory: output/training_campaigns/track1_svr_reference_grid_s
 launch_mode: remote_operator_campaign_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-04-14T22:53:48+02:00'
-started_at: null
-finished_at: null
-completion_recorded_at: null
-results_report_path: null
+started_at: '2026-04-17T00:54:27.9398612+02:00'
+finished_at: '2026-04-17T06:29:49+02:00'
+completion_recorded_at: '2026-04-17T10:59:25.0931094+02:00'
+results_report_path: doc/reports/campaign_results/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md
 remote_host_alias: xilab-remote
 remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 remote_conda_environment_name: standard_ml_lan_node

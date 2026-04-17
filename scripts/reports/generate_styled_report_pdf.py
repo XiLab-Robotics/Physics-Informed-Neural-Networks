@@ -75,6 +75,9 @@ TRACK1_FULL_MATRIX_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-
 TRACK1_FULL_MATRIX_CELL_TOTALS_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-cell-totals"
 TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
+SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
+SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-export-surface"
+SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-gap-vs-paper"
 CAMPAIGN_CELL_REPAIR_RANKING_TABLE_CLASS_NAME = TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME
 SURFACE_BEFORE_AFTER_SUMMARY_TABLE_CLASS_NAME = TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME
 
@@ -142,6 +145,28 @@ SURFACE_BEFORE_AFTER_SUMMARY_TABLE_HEADER_CELLS = (
     "Surface",
     "Before",
     "After",
+)
+SVR_REFERENCE_GRID_RANKING_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Run",
+    "Scope",
+    "Paper Cells",
+    "Mean Gap Ratio",
+    "Max Gap Ratio",
+    "Failed Exports",
+)
+SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_HEADER_CELLS = (
+    "Completed Runs",
+    "Exported ONNX Files",
+    "Failed Exports",
+    "Surrogate Exports",
+)
+SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_HEADER_CELLS = (
+    "Harmonic / Metric",
+    "Paper Target",
+    "Repository Result",
+    "Gap",
+    "Status",
 )
 
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
@@ -662,6 +687,51 @@ REPORT_STYLESHEET = """
     .report-table-track1-svm-repair-before-after th:nth-child(1), .report-table-track1-svm-repair-before-after td:nth-child(1) { width: 38%; }
     .report-table-track1-svm-repair-before-after th:nth-child(2), .report-table-track1-svm-repair-before-after td:nth-child(2) { width: 31%; }
     .report-table-track1-svm-repair-before-after th:nth-child(3), .report-table-track1-svm-repair-before-after td:nth-child(3) { width: 31%; }
+
+    .report-table-svr-reference-grid-ranking,
+    .report-table-svr-reference-grid-export-surface,
+    .report-table-svr-reference-grid-gap-vs-paper {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-svr-reference-grid-ranking th,
+    .report-table-svr-reference-grid-ranking td,
+    .report-table-svr-reference-grid-export-surface th,
+    .report-table-svr-reference-grid-export-surface td,
+    .report-table-svr-reference-grid-gap-vs-paper th,
+    .report-table-svr-reference-grid-gap-vs-paper td {
+      padding: 4px 4px;
+    }
+
+    .report-table-svr-reference-grid-ranking th,
+    .report-table-svr-reference-grid-export-surface th,
+    .report-table-svr-reference-grid-gap-vs-paper th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-svr-reference-grid-ranking th:nth-child(1), .report-table-svr-reference-grid-ranking td:nth-child(1) { width: 5%; }
+    .report-table-svr-reference-grid-ranking th:nth-child(2), .report-table-svr-reference-grid-ranking td:nth-child(2) { width: 32%; }
+    .report-table-svr-reference-grid-ranking th:nth-child(3), .report-table-svr-reference-grid-ranking td:nth-child(3) { width: 15%; }
+    .report-table-svr-reference-grid-ranking th:nth-child(4), .report-table-svr-reference-grid-ranking td:nth-child(4) { width: 9%; }
+    .report-table-svr-reference-grid-ranking th:nth-child(5), .report-table-svr-reference-grid-ranking td:nth-child(5) { width: 14%; }
+    .report-table-svr-reference-grid-ranking th:nth-child(6), .report-table-svr-reference-grid-ranking td:nth-child(6) { width: 14%; }
+    .report-table-svr-reference-grid-ranking th:nth-child(7), .report-table-svr-reference-grid-ranking td:nth-child(7) { width: 11%; }
+
+    .report-table-svr-reference-grid-export-surface th:nth-child(1), .report-table-svr-reference-grid-export-surface td:nth-child(1) { width: 20%; }
+    .report-table-svr-reference-grid-export-surface th:nth-child(2), .report-table-svr-reference-grid-export-surface td:nth-child(2) { width: 28%; }
+    .report-table-svr-reference-grid-export-surface th:nth-child(3), .report-table-svr-reference-grid-export-surface td:nth-child(3) { width: 24%; }
+    .report-table-svr-reference-grid-export-surface th:nth-child(4), .report-table-svr-reference-grid-export-surface td:nth-child(4) { width: 28%; }
+
+    .report-table-svr-reference-grid-gap-vs-paper th:nth-child(1), .report-table-svr-reference-grid-gap-vs-paper td:nth-child(1) { width: 28%; }
+    .report-table-svr-reference-grid-gap-vs-paper th:nth-child(2), .report-table-svr-reference-grid-gap-vs-paper td:nth-child(2) { width: 16%; }
+    .report-table-svr-reference-grid-gap-vs-paper th:nth-child(3), .report-table-svr-reference-grid-gap-vs-paper td:nth-child(3) { width: 18%; }
+    .report-table-svr-reference-grid-gap-vs-paper th:nth-child(4), .report-table-svr-reference-grid-gap-vs-paper td:nth-child(4) { width: 14%; }
+    .report-table-svr-reference-grid-gap-vs-paper th:nth-child(5), .report-table-svr-reference-grid-gap-vs-paper td:nth-child(5) { width: 24%; }
 
     .report-table-decision-matrix {
       font-size: 6.9pt;
@@ -1615,6 +1685,24 @@ def is_surface_before_after_summary_table(header_cells: Sequence[str]) -> bool:
 
     return tuple(header_cells) == SURFACE_BEFORE_AFTER_SUMMARY_TABLE_HEADER_CELLS
 
+def is_svr_reference_grid_ranking_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches The SVR Reference-Grid Ranking Table """
+
+    return tuple(header_cells) == SVR_REFERENCE_GRID_RANKING_TABLE_HEADER_CELLS
+
+def is_svr_reference_grid_export_surface_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches The SVR Reference-Grid Export Surface Table """
+
+    return tuple(header_cells) == SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_HEADER_CELLS
+
+def is_svr_reference_grid_gap_vs_paper_table(header_cells: Sequence[str]) -> bool:
+
+    """ Report Whether The Header Set Matches The SVR Reference-Grid Gap-Vs-Paper Table """
+
+    return tuple(header_cells) == SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_HEADER_CELLS
+
 def normalize_report_specific_header_cell(header_cell: str, table_class_name: str) -> str:
 
     """ Normalize Report-Specific Header Cell Content """
@@ -1874,6 +1962,16 @@ def resolve_standard_table_class_name(
 
     if is_surface_before_after_summary_table(normalized_header_cells):
         return SURFACE_BEFORE_AFTER_SUMMARY_TABLE_CLASS_NAME
+
+    # Resolve SVR Reference-Grid Campaign Table Profiles
+    if is_svr_reference_grid_ranking_table(normalized_header_cells):
+        return SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME
+
+    if is_svr_reference_grid_export_surface_table(normalized_header_cells):
+        return SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_CLASS_NAME
+
+    if is_svr_reference_grid_gap_vs_paper_table(normalized_header_cells):
+        return SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME
 
     # Resolve Decision Matrix Table
     if normalized_header_cells == DECISION_MATRIX_TABLE_HEADER_CELLS:

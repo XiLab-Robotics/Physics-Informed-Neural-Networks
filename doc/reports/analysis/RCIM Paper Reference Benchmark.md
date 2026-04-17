@@ -261,9 +261,9 @@ Important interpretation:
 - this exact-paper table status is the canonical `Track 1` status;
 - a harmonic-wise campaign result can inform which open cells to repair next;
 - but it does not replace the table-level closure rule.
-- the latest `SVM` open-cell repair campaign closed the Table `3` harmonic `0`
-  gap on the canonical best-family surface and materially strengthened the
-  `SVM` full-matrix row across Tables `2-5`.
+- the latest `SVM` final-closure campaign closed harmonic `156` on both
+  amplitude surfaces inside the canonical `SVM` row and tightened phase
+  harmonic `162`, but did not change the harmonic-level Table `6` reading.
 
 ### Deprecated Dashboard: Best-Envelope Reading
 
@@ -551,7 +551,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.002503` | `🟢 5.31e-05` | `🟢 1.57e-04` | `🟢 1.49e-04` | `🟡 8.20e-05` | `🟢 2.52e-04` | `🟢 8.23e-05` | `🟡 4.61e-04` | `🟢 6.82e-04` | `🟢 2.52e-04` |
+| `SVM` | `🟢 0.002503` | `🟢 5.31e-05` | `🟢 1.57e-04` | `🟢 1.49e-04` | `🟡 8.20e-05` | `🟢 2.52e-04` | `🟢 8.23e-05` | `🟢 3.94e-04` | `🟢 6.82e-04` | `🟢 2.52e-04` |
 | `MLP` | `🟡 0.0106` | `🔴 0.008904` | `🔴 0.009453` | `🔴 0.007449` | `🟡 0.006993` | `🟢 0.007089` | `🟡 0.00879` | `🟡 0.007806` | `🟢 0.007446` | `🔴 0.008946` |
 | `RF` | `🟡 0.003114` | `🟡 2.65e-05` | `🟢 1.89e-05` | `🟢 2.73e-05` | `🟢 2.21e-05` | `🟢 3.72e-05` | `🟢 1.10e-05` | `🟢 5.31e-05` | `🟢 5.28e-05` | `🟡 3.40e-05` |
 | `DT` | `🟡 0.00351` | `🟡 3.10e-05` | `🟡 2.32e-05` | `🟢 3.66e-05` | `🟢 2.97e-05` | `🟢 5.56e-05` | `🟡 1.52e-05` | `🔴 8.92e-05` | `🟡 6.70e-05` | `🟢 4.51e-05` |
@@ -593,7 +593,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.003110` | `🟢 7.01e-05` | `🟢 1.79e-04` | `🟢 1.78e-04` | `🟡 9.63e-05` | `🟢 3.15e-04` | `🟢 9.39e-05` | `🟡 0.001048` | `🟢 0.002181` | `🟡 4.86e-04` |
+| `SVM` | `🟢 0.003110` | `🟢 7.01e-05` | `🟢 1.79e-04` | `🟢 1.78e-04` | `🟡 9.63e-05` | `🟢 3.15e-04` | `🟢 9.39e-05` | `🟢 8.06e-04` | `🟢 0.002181` | `🟡 4.86e-04` |
 | `MLP` | `🟡 0.0141` | `🔴 0.0156` | `🔴 0.0155` | `🔴 0.0126` | `🟢 0.0121` | `🟢 0.0120` | `🟢 0.0150` | `🟢 0.0127` | `🟢 0.0130` | `🔴 0.0165` |
 | `RF` | `🟡 0.004114` | `🟡 3.72e-05` | `🟢 2.73e-05` | `🟢 3.74e-05` | `🟢 3.28e-05` | `🟡 5.67e-05` | `🟡 1.82e-05` | `🟡 1.97e-04` | `🟢 1.52e-04` | `🟡 5.47e-05` |
 | `DT` | `🟢 0.004879` | `🟡 4.31e-05` | `🟡 3.34e-05` | `🟢 5.06e-05` | `🟡 4.51e-05` | `🟢 7.97e-05` | `🔴 2.38e-05` | `🔴 2.98e-04` | `🟡 1.97e-04` | `🟢 7.18e-05` |
@@ -636,7 +636,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.002177` | `🟢 0.0323` | `🟢 0.0224` | `🟢 0.0573` | `🟢 0.1892` | `🟢 0.1230` | `🟢 1.088` | `🟡 0.5274` | `🟢 0.4320` |
+| `SVM` | `🟢 0.002177` | `🟢 0.0323` | `🟢 0.0224` | `🟢 0.0573` | `🟢 0.1892` | `🟢 0.1230` | `🟢 1.088` | `🟡 0.5030` | `🟢 0.4320` |
 | `MLP` | `🔴 0.009958` | `🟡 0.0802` | `🟡 0.0691` | `🟢 0.0788` | `🟡 0.1734` | `🟡 0.1655` | `🟢 1.562` | `🟡 0.9248` | `🟡 0.7559` |
 | `RF` | `🟢 0.001943` | `🟡 0.0247` | `🟢 0.0268` | `🟢 0.0367` | `🟢 0.0516` | `🟢 0.0480` | `🟢 0.4251` | `🟡 0.2305` | `🟡 0.2770` |
 | `DT` | `🟡 0.002236` | `🟢 0.0273` | `🟢 0.0323` | `🟡 0.0455` | `🟢 0.0745` | `🟢 0.0636` | `🟢 0.4900` | `🟡 0.2461` | `🟡 0.2873` |
@@ -678,7 +678,7 @@ Repository-side analogous matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.002908` | `🟢 0.0416` | `🟢 0.0350` | `🟢 0.0937` | `🟢 0.3139` | `🟢 0.1943` | `🟢 1.637` | `🟡 1.198` | `🟢 0.9522` |
+| `SVM` | `🟢 0.002908` | `🟢 0.0416` | `🟢 0.0350` | `🟢 0.0937` | `🟢 0.3139` | `🟢 0.1943` | `🟢 1.637` | `🟡 1.187` | `🟢 0.9522` |
 | `MLP` | `🟡 0.0155` | `🟡 0.1022` | `🟡 0.0899` | `🟡 0.1119` | `🟡 0.2580` | `🟡 0.2296` | `🟢 1.912` | `🟡 1.484` | `🟡 1.252` |
 | `RF` | `🟢 0.002667` | `🟡 0.0351` | `🟡 0.0483` | `🟡 0.0551` | `🟢 0.1250` | `🟢 0.0681` | `🟢 0.9644` | `🟡 0.7472` | `🔴 0.8462` |
 | `DT` | `🟡 0.003114` | `🟢 0.0391` | `🟢 0.0601` | `🟡 0.0707` | `🟢 0.1513` | `🟢 0.0957` | `🟢 1.226` | `🟡 0.8916` | `🔴 0.8720` |
@@ -750,6 +750,12 @@ The repository now also includes a stricter exact-paper validation branch:
   `doc/reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
 - open-cell repair campaign results report:
   `doc/reports/campaign_results/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md`
+- `SVM` row final-closure campaign results report:
+  `doc/reports/campaign_results/2026-04-14-21-32-55_track1_svm_final_closure_campaign_results_report.md`
+- `SVM` row micro-closure campaign results report:
+  `doc/reports/campaign_results/2026-04-14-22-04-12_track1_svm_micro_closure_campaign_results_report.md`
+- remote `SVR` reference-grid repair campaign results report:
+  `doc/reports/campaign_results/2026-04-17-11-00-54_track1_svr_reference_grid_search_repair_campaign_results_report.md`
 
 This exact branch is now implemented, executed, and operationally stabilized.
 Its latest paper-closure-first campaign result confirms:
@@ -759,6 +765,15 @@ Its latest paper-closure-first campaign result confirms:
 - harmonic-level status improved from `7` partial / `3` open to
   `8` partial / `2` open
 - no new numeric paper-target cells were closed
+
+The latest remote `SVR` reference-grid follow-up confirms:
+
+- the remote exact-paper launcher is now operational end to end on the LAN node;
+- the recovered paper-faithful `SVR` grid still does not close scoped targets
+  `40`, `240`, or `162`;
+- the isolated reruns do not improve over the already known exact-paper `SVR`
+  values;
+- scoped `SVR` ONNX export remains open under the current stack.
 
 Its promoted full-bank structural reference run is:
 

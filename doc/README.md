@@ -166,6 +166,14 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md)
   Technical document for preparing a broad but targeted `SVR` repair campaign
   against the currently open `SVM` cells in the canonical `Track 1` benchmark.
+- [technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md)
+  Technical document for preparing the narrow `SVR` final-closure campaign
+  against the last residual yellow `SVM` cells in canonical `Track 1`
+  Tables `2-5`.
+- [technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md)
+  Technical document for preparing the final `SVR` micro-pass against the
+  last residual `SVM` harmonics `40`, `240`, and `162` in canonical
+  `Track 1`.
 - [technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md)
   Technical document for introducing report-specific styled-PDF width rules
   for the `Ranked Completed Runs` and `Table-Level Before Vs After` tables in
