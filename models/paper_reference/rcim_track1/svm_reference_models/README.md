@@ -132,6 +132,6 @@ For each of the `19` canonical targets, the archive records:
 This means the repository now preserves both deployment-facing and
 Python-facing access paths for the accepted `SVM` reference row:
 
-- `onnx/` equivalent via `amplitude/*.onnx` and `phase/*.onnx`;
+- `onnx/` equivalent via `onnx/amplitude/*.onnx` and `onnx/phase/*.onnx`;
 - Python-side fitted estimator access via `python/amplitude/*.pkl` and
   `python/phase/*.pkl`.

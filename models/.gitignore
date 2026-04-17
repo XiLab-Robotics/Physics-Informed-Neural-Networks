@@ -13,10 +13,10 @@
 !paper_reference/rcim_track1/svm_reference_models/README.md
 !paper_reference/rcim_track1/svm_reference_models/reference_inventory.yaml
 !paper_reference/rcim_track1/svm_reference_models/dataset_snapshot_manifest.yaml
-!paper_reference/rcim_track1/svm_reference_models/amplitude/
-!paper_reference/rcim_track1/svm_reference_models/amplitude/*.onnx
-!paper_reference/rcim_track1/svm_reference_models/phase/
-!paper_reference/rcim_track1/svm_reference_models/phase/*.onnx
+!paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/
+!paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/*.onnx
+!paper_reference/rcim_track1/svm_reference_models/onnx/phase/
+!paper_reference/rcim_track1/svm_reference_models/onnx/phase/*.onnx
 !paper_reference/rcim_track1/svm_reference_models/python/
 !paper_reference/rcim_track1/svm_reference_models/python/amplitude/
 !paper_reference/rcim_track1/svm_reference_models/python/amplitude/*.pkl

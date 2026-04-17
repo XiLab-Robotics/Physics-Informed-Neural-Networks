@@ -86,6 +86,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-17
 
+- [technical/2026-04/2026-04-17/2026-04-17-19-30-41_svm_reference_onnx_subfolder_alignment.md](./technical/2026-04/2026-04-17/2026-04-17-19-30-41_svm_reference_onnx_subfolder_alignment.md)
+  Technical document for moving the curated `SVM` reference `ONNX` amplitude
+  and phase folders under a dedicated `onnx/` subtree and aligning every
+  canonical repository reference to the new archive layout.
 - [technical/2026-04/2026-04-17/2026-04-17-19-17-58_svm_reference_models_full_regeneration_provenance.md](./technical/2026-04/2026-04-17/2026-04-17-19-17-58_svm_reference_models_full_regeneration_provenance.md)
   Technical document for extending the curated `SVM` reference archive into a
   fully reconstructible package with explicit training-data provenance,

@@ -85,8 +85,8 @@ The approved implementation should therefore:
 The archive should prefer a family- and target-explicit structure such as:
 
 - `models/paper_reference/rcim_track1/svm_reference_models/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/amplitude/`
-- `models/paper_reference/rcim_track1/svm_reference_models/phase/`
+- `models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/`
+- `models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/`
 
 The archive is expected to preserve copied reference artifacts only after the
 source paths have been verified to exist and to correspond to the canonical

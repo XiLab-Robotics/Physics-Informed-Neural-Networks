@@ -47,7 +47,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run/onnx_export/SVR/SVR_ampl0.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl0.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl0.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run/validation_summary.yaml
@@ -109,7 +109,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl1.onnx
   export_estimator_name: LinearRegression
   surrogate_strategy: constant_linear_regression
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -181,7 +181,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl3.onnx
   export_estimator_name: LinearRegression
   surrogate_strategy: constant_linear_regression
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -253,7 +253,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl39.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -325,7 +325,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl40.onnx
   export_estimator_name: LinearRegression
   surrogate_strategy: constant_linear_regression
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -397,7 +397,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl78.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -469,7 +469,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run/onnx_export/SVR/SVR_ampl81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl81.onnx
   export_estimator_name: LinearRegression
   surrogate_strategy: constant_linear_regression
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run/validation_summary.yaml
@@ -531,7 +531,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/07_track1_svm_amplitude_full_closure_split15.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run/onnx_export/SVR/SVR_ampl156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl156.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl156.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run/validation_summary.yaml
@@ -589,7 +589,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl162.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl162.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -661,7 +661,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run/onnx_export/SVR/SVR_ampl240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl240.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/SVR_ampl240.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run/validation_summary.yaml
@@ -723,7 +723,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/onnx_export/SVR/SVR_phase1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase1.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/validation_summary.yaml
@@ -783,7 +783,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase3.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -855,7 +855,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/onnx_export/SVR/SVR_phase39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase39.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/validation_summary.yaml
@@ -915,7 +915,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase40.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -987,7 +987,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase78.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -1059,7 +1059,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase81.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -1131,7 +1131,7 @@ reference_models:
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase156.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase156.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml
@@ -1203,7 +1203,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/11_track1_svm_phase_final_closure_split15.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run/onnx_export/SVR/SVR_phase162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase162.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase162.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run/validation_summary.yaml
@@ -1257,7 +1257,7 @@ reference_models:
   source_run_instance_id: 2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/onnx_export/SVR/SVR_phase240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase240.onnx
+  archived_model_path: models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/SVR_phase240.onnx
   export_estimator_name: SVR
   surrogate_strategy: none
   source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/validation_summary.yaml
