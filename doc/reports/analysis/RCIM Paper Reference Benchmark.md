@@ -709,6 +709,97 @@ paper-matching evaluation surfaces:
 Table `6` remains a useful harmonic-level support summary, but it must not
 replace the four matrix readings above.
 
+### SVM Reference Model Inventory
+
+The accepted repository-owned `SVM` row is now pinned to an explicit curated
+set of `19` archived model artifacts:
+
+- archive root:
+  `models/paper_reference/rcim_track1/svm_reference_models/`
+- machine-readable inventory:
+  `models/paper_reference/rcim_track1/svm_reference_models/reference_inventory.yaml`
+- dedicated archive note:
+  `models/paper_reference/rcim_track1/svm_reference_models/README.md`
+- dataset snapshot manifest:
+  `models/paper_reference/rcim_track1/svm_reference_models/dataset_snapshot_manifest.yaml`
+
+Full regeneration coverage:
+
+- the archive stores both deployment-facing `ONNX` exports and Python-usable
+  fitted estimator pickles for the same `19` accepted targets;
+- each target entry in `reference_inventory.yaml` now records the exact fitted
+  estimator parameters, source bundle path, dataset snapshot hash, feature
+  list, target list, train/test row counts, split indices, test size, random
+  seed, harmonic filter, and target-scope mode;
+- source-run config snapshots and run-metadata snapshots are copied under
+  `models/paper_reference/rcim_track1/svm_reference_models/source_runs/`,
+  making the accepted `SVM` row reconstructible without relying on implicit
+  notebook memory or manual campaign folder inspection.
+
+Selection rule:
+
+- when several runs reproduce the same accepted `SVM` target metrics, the
+  repository pins the earliest stable canonical source run;
+- the strict full-bank reference run
+  `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro`
+  is preferred whenever later campaigns only reproduce the same accepted
+  target;
+- later `Track 1` `SVM` repair and closure runs are pinned only for harmonics
+  whose accepted benchmark value improved after the strict baseline.
+
+Important implementation note:
+
+- paper family name: `SVM`
+- repository implementation family: `SVR`
+- some constant-target exports are serialized as `LinearRegression` surrogate
+  ONNX models under the `SVR_*` filename surface
+- the archived Python pickle for the same target still preserves the fitted
+  `SVR` estimator class and parameters, so the surrogate-only ONNX surface does
+  not hide the original Python model identity
+
+#### SVM Reference Amplitude Models
+
+<!-- markdownlint-disable MD013 -->
+| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
+| --- | ---: | ---: | ---: | --- | --- | --- | --- |
+| `fft_y_Fw_filtered_ampl_0` | `0` | `0.002503271` | `0.003110405` | `2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl0.onnx` |
+| `fft_y_Fw_filtered_ampl_1` | `1` | `5.3106e-05` | `7.0056e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl1.onnx` |
+| `fft_y_Fw_filtered_ampl_3` | `3` | `0.000157041` | `0.000178649` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl3.onnx` |
+| `fft_y_Fw_filtered_ampl_39` | `39` | `0.000148910` | `0.000177738` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl39.onnx` |
+| `fft_y_Fw_filtered_ampl_40` | `40` | `8.2027e-05` | `9.6333e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl40.onnx` |
+| `fft_y_Fw_filtered_ampl_78` | `78` | `0.000251534` | `0.000315282` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl78.onnx` |
+| `fft_y_Fw_filtered_ampl_81` | `81` | `8.2292e-05` | `9.3918e-05` | `2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl81.onnx` |
+| `fft_y_Fw_filtered_ampl_156` | `156` | `0.000394296` | `0.000805795` | `2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl156.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `0.000682326` | `0.002181218` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `0.000252053` | `0.000486252` | `2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/amplitude/SVR_ampl240.onnx` |
+
+#### SVM Reference Phase Models
+
+| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
+| --- | ---: | ---: | ---: | --- | --- | --- | --- |
+| `fft_y_Fw_filtered_phase_1` | `1` | `0.002177289` | `0.002908073` | `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase1.onnx` |
+| `fft_y_Fw_filtered_phase_3` | `3` | `0.032275186` | `0.041559254` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase3.onnx` |
+| `fft_y_Fw_filtered_phase_39` | `39` | `0.022426698` | `0.035037809` | `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase39.onnx` |
+| `fft_y_Fw_filtered_phase_40` | `40` | `0.057268799` | `0.093671007` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase40.onnx` |
+| `fft_y_Fw_filtered_phase_78` | `78` | `0.189245921` | `0.313926178` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase78.onnx` |
+| `fft_y_Fw_filtered_phase_81` | `81` | `0.123016520` | `0.194313454` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase81.onnx` |
+| `fft_y_Fw_filtered_phase_156` | `156` | `1.088103571` | `1.636587809` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase156.onnx` |
+| `fft_y_Fw_filtered_phase_162` | `162` | `0.502968488` | `1.187302541` | `2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase162.onnx` |
+| `fft_y_Fw_filtered_phase_240` | `240` | `0.432040657` | `0.952225047` | `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/svm_reference_models/phase/SVR_phase240.onnx` |
+<!-- markdownlint-enable MD013 -->
+
+Reconstruction references:
+
+- baseline strict full-bank config:
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
+- repair campaign configs:
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml`
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml`
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml`
+- final-closure configs:
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/07_track1_svm_amplitude_full_closure_split15.yaml`
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/11_track1_svm_phase_final_closure_split15.yaml`
+
 ### Supporting Harmonic-Wise Offline Result
 
 The latest completed repository-owned harmonic-wise campaign is:

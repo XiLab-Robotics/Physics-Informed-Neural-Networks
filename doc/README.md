@@ -86,6 +86,15 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-17
 
+- [technical/2026-04/2026-04-17/2026-04-17-19-17-58_svm_reference_models_full_regeneration_provenance.md](./technical/2026-04/2026-04-17/2026-04-17-19-17-58_svm_reference_models_full_regeneration_provenance.md)
+  Technical document for extending the curated `SVM` reference archive into a
+  fully reconstructible package with explicit training-data provenance,
+  Python-usable model artifacts, and target-level regeneration records.
+- [technical/2026-04/2026-04-17/2026-04-17-18-52-51_svm_reference_model_inventory_and_archive.md](./technical/2026-04/2026-04-17/2026-04-17-18-52-51_svm_reference_model_inventory_and_archive.md)
+  Technical document for formalizing the canonical `SVM` paper-reference
+  model inventory inside the benchmark and for creating a curated `models/`
+  archive with provenance sufficient to reconstruct the `19` accepted
+  reference models.
 - [technical/2026-04/2026-04-17/2026-04-17-18-32-17_track1_svm_exact_faithful_final_attempt_results_reporting.md](./technical/2026-04/2026-04-17/2026-04-17-18-32-17_track1_svm_exact_faithful_final_attempt_results_reporting.md)
   Technical document for closing the completed strict paper-faithful `SVR`
   final-attempt campaign through winner-artifact serialization, final
