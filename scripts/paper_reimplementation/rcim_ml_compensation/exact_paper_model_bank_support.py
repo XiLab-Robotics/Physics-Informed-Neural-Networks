@@ -771,6 +771,36 @@ def _generate_uniform_integer_sequence(
     return [int(value) for value in value_array[:count]]
 
 
+def _resolve_float_grid_value(
+    estimator_parameters: dict[str, Any],
+    parameter_name: str,
+    fallback_value: float,
+) -> float:
+
+    """Resolve one float parameter for the grid with a safe fallback."""
+
+    parameter_value = estimator_parameters.get(parameter_name)
+    if parameter_value is None:
+        return float(fallback_value)
+
+    return float(parameter_value)
+
+
+def _resolve_int_grid_value(
+    estimator_parameters: dict[str, Any],
+    parameter_name: str,
+    fallback_value: int,
+) -> int:
+
+    """Resolve one integer parameter for the grid with a safe fallback."""
+
+    parameter_value = estimator_parameters.get(parameter_name)
+    if parameter_value is None:
+        return int(fallback_value)
+
+    return int(parameter_value)
+
+
 def resolve_exact_paper_hyperparameter_search_settings(
     training_config: dict[str, Any] | None,
 ) -> dict[str, Any]:
@@ -895,6 +925,8 @@ def build_exact_paper_reference_parameter_grid(
 
     """Build the recovered paper-reference parameter grid for one family."""
 
+    estimator_parameters = base_estimator.get_params()
+
     if family_name == "DT":
         return {
             "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
@@ -936,9 +968,31 @@ def build_exact_paper_reference_parameter_grid(
 
     if family_name == "XGBM":
         return {
-            "estimator__learning_rate": list(dict.fromkeys([0.01, 0.2, 0.5, float(base_estimator.get_params()["learning_rate"])])),
-            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(3, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
-            "estimator__colsample_bytree": list(dict.fromkeys([0.3, 0.5, float(base_estimator.get_params()["colsample_bytree"])])),
+            "estimator__learning_rate": list(
+                dict.fromkeys(
+                    [
+                        0.01,
+                        0.2,
+                        0.5,
+                        _resolve_float_grid_value(estimator_parameters, "learning_rate", 0.3),
+                    ]
+                )
+            ),
+            "estimator__max_depth": list(
+                dict.fromkeys(
+                    _generate_uniform_integer_sequence(3, 14, 21)
+                    + [_resolve_int_grid_value(estimator_parameters, "max_depth", 16)]
+                )
+            ),
+            "estimator__colsample_bytree": list(
+                dict.fromkeys(
+                    [
+                        0.3,
+                        0.5,
+                        _resolve_float_grid_value(estimator_parameters, "colsample_bytree", 0.8),
+                    ]
+                )
+            ),
         }
 
     if family_name == "HGBM":
@@ -951,10 +1005,29 @@ def build_exact_paper_reference_parameter_grid(
 
     if family_name == "LGBM":
         return {
-            "estimator__learning_rate": list(dict.fromkeys(([value / 100 for value in _generate_uniform_integer_sequence(5, 1, 100)] + [float(base_estimator.get_params()["learning_rate"])]))),
-            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 10, 16) + [int(base_estimator.get_params()["max_depth"])])),
-            "estimator__num_leaves": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 15) + [int(base_estimator.get_params()["num_leaves"])])),
-            "estimator__subsample": list(dict.fromkeys([0.001, 0.01, 0.1, 0.2, float(base_estimator.get_params()["subsample"])])),
+            "estimator__learning_rate": list(
+                dict.fromkeys(
+                    ([value / 100 for value in _generate_uniform_integer_sequence(5, 1, 100)]
+                     + [_resolve_float_grid_value(estimator_parameters, "learning_rate", 0.39)])
+                )
+            ),
+            "estimator__max_depth": list(
+                dict.fromkeys(
+                    _generate_uniform_integer_sequence(5, 10, 16)
+                    + [_resolve_int_grid_value(estimator_parameters, "max_depth", 12)]
+                )
+            ),
+            "estimator__num_leaves": list(
+                dict.fromkeys(
+                    _generate_uniform_integer_sequence(5, 2, 15)
+                    + [_resolve_int_grid_value(estimator_parameters, "num_leaves", 31)]
+                )
+            ),
+            "estimator__subsample": list(
+                dict.fromkeys(
+                    [0.001, 0.01, 0.1, 0.2, _resolve_float_grid_value(estimator_parameters, "subsample", 0.1)]
+                )
+            ),
         }
 
     if family_name == "MLP":

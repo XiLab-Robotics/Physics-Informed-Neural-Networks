@@ -73,6 +73,10 @@ TRACK1_EXACT_OPEN_CELL_RANKING_TABLE_CLASS_NAME = "report-table report-table-tra
 TRACK1_EXACT_OPEN_CELL_EXPORT_TABLE_CLASS_NAME = "report-table report-table-track1-exact-open-cell-export"
 TRACK1_FULL_MATRIX_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-ranking"
 TRACK1_FULL_MATRIX_CELL_TOTALS_TABLE_CLASS_NAME = "report-table report-table-track1-full-matrix-cell-totals"
+TRACK1_PARTIAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-partial-closeout-family"
+TRACK1_PARTIAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME = "report-table report-table-track1-partial-closeout-aggregate"
+TRACK1_FINAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-final-closeout-family"
+TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME = "report-table report-table-track1-final-closeout-aggregate"
 TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
@@ -234,7 +238,13 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report": {                                                                                                                 
         "main-conclusions",                                                                                                                                                                                 
-    },   
+    },
+    "2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report": {
+        "completed-family-closeout",
+    },
+    "2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report": {
+        "family-recovery-outcome",
+    },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
     },
@@ -634,6 +644,72 @@ REPORT_STYLESHEET = """
     .report-table-track1-full-matrix-cell-totals th:nth-child(2), .report-table-track1-full-matrix-cell-totals td:nth-child(2) { width: 14%; }
     .report-table-track1-full-matrix-cell-totals th:nth-child(3), .report-table-track1-full-matrix-cell-totals td:nth-child(3) { width: 14%; }
     .report-table-track1-full-matrix-cell-totals th:nth-child(4), .report-table-track1-full-matrix-cell-totals td:nth-child(4) { width: 14%; }
+
+    .report-table-track1-partial-closeout-family,
+    .report-table-track1-partial-closeout-aggregate,
+    .report-table-track1-final-closeout-family,
+    .report-table-track1-final-closeout-aggregate {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track1-partial-closeout-family th,
+    .report-table-track1-partial-closeout-family td,
+    .report-table-track1-partial-closeout-aggregate th,
+    .report-table-track1-partial-closeout-aggregate td,
+    .report-table-track1-final-closeout-family th,
+    .report-table-track1-final-closeout-family td,
+    .report-table-track1-final-closeout-aggregate th,
+    .report-table-track1-final-closeout-aggregate td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-partial-closeout-family th,
+    .report-table-track1-partial-closeout-aggregate th,
+    .report-table-track1-final-closeout-family th,
+    .report-table-track1-final-closeout-aggregate th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.14;
+    }
+
+    .report-table-track1-partial-closeout-family th:nth-child(1), .report-table-track1-partial-closeout-family td:nth-child(1) { width: 8%; }
+    .report-table-track1-partial-closeout-family th:nth-child(2), .report-table-track1-partial-closeout-family td:nth-child(2) { width: 24%; }
+    .report-table-track1-partial-closeout-family th:nth-child(3), .report-table-track1-partial-closeout-family td:nth-child(3) { width: 18%; }
+    .report-table-track1-partial-closeout-family th:nth-child(4), .report-table-track1-partial-closeout-family td:nth-child(4) { width: 24%; }
+    .report-table-track1-partial-closeout-family th:nth-child(5), .report-table-track1-partial-closeout-family td:nth-child(5) { width: 12%; }
+    .report-table-track1-partial-closeout-family th:nth-child(6), .report-table-track1-partial-closeout-family td:nth-child(6) { width: 9%; }
+    .report-table-track1-partial-closeout-family th:nth-child(7), .report-table-track1-partial-closeout-family td:nth-child(7) { width: 5%; }
+
+    .report-table-track1-partial-closeout-aggregate th:nth-child(1), .report-table-track1-partial-closeout-aggregate td:nth-child(1) { width: 4%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(2), .report-table-track1-partial-closeout-aggregate td:nth-child(2) { width: 33%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(3), .report-table-track1-partial-closeout-aggregate td:nth-child(3) { width: 6%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(4), .report-table-track1-partial-closeout-aggregate td:nth-child(4) { width: 16%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(5), .report-table-track1-partial-closeout-aggregate td:nth-child(5) { width: 7%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(6), .report-table-track1-partial-closeout-aggregate td:nth-child(6) { width: 6%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(7), .report-table-track1-partial-closeout-aggregate td:nth-child(7) { width: 6%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(8), .report-table-track1-partial-closeout-aggregate td:nth-child(8) { width: 6%; }
+    .report-table-track1-partial-closeout-aggregate th:nth-child(9), .report-table-track1-partial-closeout-aggregate td:nth-child(9) { width: 16%; }
+
+    .report-table-track1-final-closeout-family th:nth-child(1), .report-table-track1-final-closeout-family td:nth-child(1) { width: 8%; }
+    .report-table-track1-final-closeout-family th:nth-child(2), .report-table-track1-final-closeout-family td:nth-child(2) { width: 25%; }
+    .report-table-track1-final-closeout-family th:nth-child(3), .report-table-track1-final-closeout-family td:nth-child(3) { width: 17%; }
+    .report-table-track1-final-closeout-family th:nth-child(4), .report-table-track1-final-closeout-family td:nth-child(4) { width: 23%; }
+    .report-table-track1-final-closeout-family th:nth-child(5), .report-table-track1-final-closeout-family td:nth-child(5) { width: 14%; }
+    .report-table-track1-final-closeout-family th:nth-child(6), .report-table-track1-final-closeout-family td:nth-child(6) { width: 8%; }
+    .report-table-track1-final-closeout-family th:nth-child(7), .report-table-track1-final-closeout-family td:nth-child(7) { width: 5%; }
+
+    .report-table-track1-final-closeout-aggregate th:nth-child(1), .report-table-track1-final-closeout-aggregate td:nth-child(1) { width: 4%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(2), .report-table-track1-final-closeout-aggregate td:nth-child(2) { width: 33%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(3), .report-table-track1-final-closeout-aggregate td:nth-child(3) { width: 6%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(4), .report-table-track1-final-closeout-aggregate td:nth-child(4) { width: 16%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(5), .report-table-track1-final-closeout-aggregate td:nth-child(5) { width: 7%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(6), .report-table-track1-final-closeout-aggregate td:nth-child(6) { width: 6%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(7), .report-table-track1-final-closeout-aggregate td:nth-child(7) { width: 6%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(8), .report-table-track1-final-closeout-aggregate td:nth-child(8) { width: 6%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(9), .report-table-track1-final-closeout-aggregate td:nth-child(9) { width: 16%; }
 
     /* Reusable Cell-Repair Ranking Table Profile */
     .report-table-track1-svm-repair-ranking {
@@ -1116,6 +1192,10 @@ REPORT_STYLESHEET = """
     .report-table-targeted-remote-followup-completed .metric-unit,
     .report-table-targeted-remote-followup-family-bests .metric-unit,
     .report-table-track1-second-iteration-completed .metric-unit,
+    .report-table-track1-partial-closeout-family .metric-unit,
+    .report-table-track1-partial-closeout-aggregate .metric-unit,
+    .report-table-track1-final-closeout-family .metric-unit,
+    .report-table-track1-final-closeout-aggregate .metric-unit,
     .report-table-wide-identifier-ranking .metric-unit,
     .report-table-identifier-metric-summary .metric-unit,
     .report-table-family-metric-ranking .metric-unit,
@@ -1749,6 +1829,13 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         if header_cell == "Failed":
             return "Fail."
 
+    if header_cell == "Paper Cell":
+        return "Paper<span class=\"metric-unit\">Cell</span>"
+    if header_cell == "Closure Score":
+        return "Closure<span class=\"metric-unit\">Score</span>"
+    if header_cell == "Best Closure Score":
+        return "Best Closure<span class=\"metric-unit\">Score</span>"
+
     return convert_inline_markup(header_cell)
 
 def is_identifier_column_header(header_cell: str) -> bool:
@@ -2181,6 +2268,34 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Surface", "Green", "Yellow", "Red")
         ):
             return TRACK1_FULL_MATRIX_CELL_TOTALS_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report":
+
+        if (
+            current_section_slug == "completed-family-closeout"
+            and normalized_header_cells == ("Family", "Amplitude Run", "Phase Run", "Best Run", "Best Scope", "Best Closure Score", "Open Cells")
+        ):
+            return TRACK1_PARTIAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "aggregate-ranking"
+            and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Paper Cell", "Met", "Near", "Open", "Closure Score")
+        ):
+            return TRACK1_PARTIAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report":
+
+        if (
+            current_section_slug == "family-recovery-outcome"
+            and normalized_header_cells == ("Family", "Amplitude Run", "Phase Run", "Best Run", "Best Scope", "Best Closure Score", "Open Cells")
+        ):
+            return TRACK1_FINAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "aggregate-ranking"
+            and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Paper Cell", "Met", "Near", "Open", "Closure Score")
+        ):
+            return TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

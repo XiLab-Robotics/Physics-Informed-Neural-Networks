@@ -1,0 +1,13 @@
+# Track 1 RF Full-Matrix Campaign Package
+
+This package contains the dedicated `Track 1` exact-paper `RF` family
+campaign.
+
+Included configs:
+
+1. `01_track1_rf_amplitude_full_matrix.yaml`
+2. `02_track1_rf_phase_full_matrix.yaml`
+
+Canonical launcher:
+
+- `scripts/campaigns/run_track1_rf_full_matrix_campaign.ps1`

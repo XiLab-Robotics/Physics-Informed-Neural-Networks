@@ -1,0 +1,239 @@
+# Exact RCIM Paper Model-Bank Validation Report
+
+## Overview
+
+This report summarizes one repository-owned validation run of the
+exact paper-faithful RCIM family bank reconstructed from the recovered
+paper assets.
+
+- model family: `paper_reimplementation_rcim_exact_model_bank`;
+- model type: `exact_paper_family_bank`;
+- run name: `track1_rf_phase_full_matrix`;
+- output run name: `track1_rf_phase_full_matrix_campaign_run`;
+- run instance id: `2026-04-18-01-23-24__track1_rf_phase_full_matrix_campaign_run`;
+- source dataframe: `reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv`;
+- enabled families: `RF`;
+- target scope mode: `phases_only`;
+
+## Dataset Scope
+
+- filtered row count: `969`;
+- feature schema: `rpm, deg, tor`;
+- target count: `9`;
+- target schema kind: `phase_exact_paper`;
+- included phase `0`: `False`;
+- train rows: `775`;
+- test rows: `194`;
+- maximum `deg` filter: `35.0`;
+
+## Winner Summary
+
+- winning family: `RF`;
+- winning estimator: `RandomForestRegressor`;
+- winning search mode: `paper_reference_grid_search`;
+- winning best params: `{'estimator__criterion': 'squared_error', 'estimator__max_depth': 13, 'estimator__min_samples_split': 2, 'estimator__n_estimators': 80}`;
+- winning mean component MAPE: `32.881%`;
+- winning mean component MAE: `0.121164`;
+- winning mean component RMSE: `0.316120`;
+
+## Training Strategy
+
+- hyperparameter search mode: `paper_reference_grid_search`;
+- grid-search `n_jobs`: `-1`;
+- grid-search `pre_dispatch`: `2*n_jobs`;
+
+### Family Search Summary
+
+| Family | Search Mode | CV Folds | Best Score | Best Params |
+| --- | --- | ---: | ---: | --- |
+| `RF` | `paper_reference_grid_search` | 5 | 0.799426 | `{'estimator__criterion': 'squared_error', 'estimator__max_depth': 13, 'estimator__min_samples_split': 2, 'estimator__n_estimators': 80}` |
+
+## Family Ranking
+
+| Rank | Family | Estimator | Search Mode | Mean Component MAPE [%] | Mean Component MAE | Mean Component RMSE |
+| ---: | --- | --- | --- | ---: | ---: | ---: |
+| 1 | `RF` | `RandomForestRegressor` | `paper_reference_grid_search` | 32.881 | 0.121164 | 0.316120 |
+
+## Target-Winner Registry
+
+| Target | Winning Family | Estimator | MAPE [%] | MAE | RMSE |
+| --- | --- | --- | ---: | ---: | ---: |
+| `fft_y_Fw_filtered_phase_1` | `RF` | `RandomForestRegressor` | 22.906 | 0.001962 | 0.002673 |
+| `fft_y_Fw_filtered_phase_3` | `RF` | `RandomForestRegressor` | 1.387 | 0.024853 | 0.036058 |
+| `fft_y_Fw_filtered_phase_39` | `RF` | `RandomForestRegressor` | 2.074 | 0.026966 | 0.048532 |
+| `fft_y_Fw_filtered_phase_40` | `RF` | `RandomForestRegressor` | 66.903 | 0.036271 | 0.054572 |
+| `fft_y_Fw_filtered_phase_78` | `RF` | `RandomForestRegressor` | 73.766 | 0.051208 | 0.124640 |
+| `fft_y_Fw_filtered_phase_81` | `RF` | `RandomForestRegressor` | 4.201 | 0.047078 | 0.065945 |
+| `fft_y_Fw_filtered_phase_156` | `RF` | `RandomForestRegressor` | 95.528 | 0.412111 | 0.943710 |
+| `fft_y_Fw_filtered_phase_162` | `RF` | `RandomForestRegressor` | 9.878 | 0.223500 | 0.738917 |
+| `fft_y_Fw_filtered_phase_240` | `RF` | `RandomForestRegressor` | 19.283 | 0.266524 | 0.830030 |
+
+## Paper-Target Comparison
+
+This section serializes the current `paper vs repository` comparison
+for each exact-paper target at the family-direction level. The stricter
+numeric table replication is reported in the canonical table sections
+below.
+
+| Target | Paper Expected Family | Repository Winner | Repo MAPE [%] | Family Direction Status |
+| --- | --- | --- | ---: | --- |
+| `fft_y_Fw_filtered_phase_1` | `RF / LGBM` | `RF` | 22.906 | `matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_3` | `HGBM` | `RF` | 1.387 | `not_matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_39` | `HGBM` | `RF` | 2.074 | `not_matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_40` | `ERT / GBM` | `RF` | 66.903 | `not_matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_78` | `HGBM / RF` | `RF` | 73.766 | `matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_81` | `RF` | `RF` | 4.201 | `matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_156` | `ERT / RF` | `RF` | 95.528 | `matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_162` | `ERT` | `RF` | 9.878 | `not_matched_expected_family_direction` |
+| `fft_y_Fw_filtered_phase_240` | `ERT` | `RF` | 19.283 | `not_matched_expected_family_direction` |
+
+## Paper-Harmonic Comparison
+
+This section collapses the amplitude and phase target evidence into one
+harmonic-facing status so `Track 1` closure can later be tied to a
+single inspectable harmonic table.
+
+| Harmonic | Paper Expected Family | Ampl Winner | Phase Winner | Matching Targets | Harmonic Status |
+| ---: | --- | --- | --- | ---: | --- |
+| `1` | `RF / LGBM` | `-` | `RF` | 1/1 | `full_family_direction_match` |
+| `3` | `HGBM` | `-` | `RF` | 0/1 | `no_family_direction_match` |
+| `39` | `HGBM` | `-` | `RF` | 0/1 | `no_family_direction_match` |
+| `40` | `ERT / GBM` | `-` | `RF` | 0/1 | `no_family_direction_match` |
+| `78` | `HGBM / RF` | `-` | `RF` | 1/1 | `full_family_direction_match` |
+| `81` | `RF` | `-` | `RF` | 1/1 | `full_family_direction_match` |
+| `156` | `ERT / RF` | `-` | `RF` | 1/1 | `full_family_direction_match` |
+| `162` | `ERT` | `-` | `RF` | 0/1 | `no_family_direction_match` |
+| `240` | `ERT` | `-` | `RF` | 0/1 | `no_family_direction_match` |
+
+## Canonical Table 3 Comparison
+
+This table mirrors paper Table 3 for amplitude RMSE and adds the
+repository best-achieved RMSE per harmonic together with the remaining
+numeric gap against the paper target.
+
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.003300 | 7.40e-05 | 1.80e-04 | 1.80e-04 | 9.50e-05 | 3.30e-04 | 1.00e-04 | 8.80e-04 | 0.002200 | 4.70e-04 |
+| `MLP` | 0.0140 | 0.0120 | 0.0120 | 0.0100 | 0.0140 | 0.0130 | 0.0150 | 0.0130 | 0.0160 | 0.0100 |
+| `RF` | 0.004100 | 3.50e-05 | 3.00e-05 | 3.80e-05 | 3.70e-05 | 5.60e-05 | 1.50e-05 | 1.70e-04 | 2.20e-04 | 5.40e-05 |
+| `DT` | 0.004900 | 4.00e-05 | 3.30e-05 | 5.30e-05 | 4.50e-05 | 8.20e-05 | 1.80e-05 | 2.00e-04 | 1.70e-04 | 1.10e-04 |
+| `ET` | 0.004500 | 4.20e-05 | 3.50e-05 | 5.10e-05 | 4.30e-05 | 8.50e-05 | 2.70e-05 | 1.90e-04 | 3.80e-04 | 1.80e-04 |
+| `ERT` | 0.004000 | 3.70e-05 | 3.40e-05 | 4.00e-05 | 3.60e-05 | 5.70e-05 | 1.60e-05 | 1.30e-04 | 1.60e-04 | 4.20e-05 |
+| `GBM` | 0.004000 | 3.60e-05 | 3.10e-05 | 3.90e-05 | 3.90e-05 | 5.50e-05 | 1.60e-05 | 1.70e-04 | 2.20e-04 | 4.70e-05 |
+| `HGBM` | 0.003400 | 3.60e-05 | 2.50e-05 | 3.20e-05 | 3.80e-05 | 4.50e-05 | 1.60e-05 | 2.50e-04 | 5.00e-04 | 7.40e-05 |
+| `XGBM` | 0.003500 | 7.10e-05 | 1.00e-04 | 1.30e-04 | 8.70e-05 | 1.50e-04 | 6.00e-05 | 5.40e-04 | 7.50e-04 | 2.10e-04 |
+| `LGBM` | 0.003500 | 3.70e-05 | 2.60e-05 | 3.30e-05 | 3.80e-05 | 4.60e-05 | 1.60e-05 | 2.20e-04 | 4.70e-04 | 6.20e-05 |
+| `Repo Best Family` | - | - | - | - | - | - | - | - | - | - |
+| `Repo Best RMSE` | - | - | - | - | - | - | - | - | - | - |
+| `Paper Best Family` | - | - | - | - | - | - | - | - | - | - |
+| `Paper Target RMSE` | - | - | - | - | - | - | - | - | - | - |
+| `Gap Vs Paper` | - | - | - | - | - | - | - | - | - | - |
+| `Status` | - | - | - | - | - | - | - | - | - | - |
+
+## Canonical Table 4 Comparison
+
+This table mirrors paper Table 4 for phase MAE and adds the repository
+best-achieved MAE per harmonic together with the remaining numeric gap
+against the paper target.
+
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.002200 | 0.0330 | 0.0270 | 0.0610 | 0.1900 | 0.1300 | 1.200 | 0.4900 | 0.4900 |
+| `MLP` | 0.007200 | 0.0650 | 0.0620 | 0.0800 | 0.1600 | 0.1500 | 1.900 | 0.7800 | 0.7000 |
+| `RF` | 0.002000 | 0.0240 | 0.0280 | 0.0370 | 0.0740 | 0.0530 | 0.5100 | 0.2300 | 0.2500 |
+| `DT` | 0.002100 | 0.0300 | 0.0360 | 0.0430 | 0.0900 | 0.0660 | 0.5200 | 0.2000 | 0.2300 |
+| `ET` | 0.002400 | 0.0310 | 0.0350 | 0.0510 | 0.0940 | 0.0870 | 0.7100 | 0.2800 | 0.2600 |
+| `ERT` | 0.002200 | 0.0270 | 0.0280 | 0.0400 | 0.0760 | 0.0560 | 0.5300 | 0.2000 | 0.2300 |
+| `GBM` | 0.002000 | 0.0240 | 0.0300 | 0.0360 | 0.0740 | 0.0530 | 0.5400 | 0.2500 | 0.2900 |
+| `HGBM` | 0.001900 | 0.0200 | 0.0210 | 0.0400 | 0.0910 | 0.0570 | 0.7400 | 0.3500 | 0.3600 |
+| `XGBM` | 0.001900 | 0.0240 | 0.0320 | 0.0610 | 0.1400 | 0.0910 | 0.9600 | 0.5400 | 0.3900 |
+| `LGBM` | 0.001800 | 0.0210 | 0.0210 | 0.0400 | 0.0950 | 0.0550 | 0.7400 | 0.3500 | 0.3400 |
+| `Repo Best Family` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` |
+| `Repo Best MAE` | 0.001962 | 0.0249 | 0.0270 | 0.0363 | 0.0512 | 0.0471 | 0.4121 | 0.2235 | 0.2665 |
+| `Paper Best Family` | `LGBM` | `HGBM` | `HGBM` | `GBM` | `GBM` | `GBM` | `RF` | `DT` | `DT` |
+| `Paper Target MAE` | 0.001800 | 0.0200 | 0.0210 | 0.0360 | 0.0740 | 0.0530 | 0.5100 | 0.2000 | 0.2300 |
+| `Gap Vs Paper` | 1.62e-04 | 0.004853 | 0.005966 | 2.71e-04 | -0.0228 | -0.005922 | -0.0979 | 0.0235 | 0.0365 |
+| `Status` | `above_paper_target` | `above_paper_target` | `above_paper_target` | `above_paper_target` | `met_paper_target` | `met_paper_target` | `met_paper_target` | `above_paper_target` | `above_paper_target` |
+
+## Canonical Table 5 Comparison
+
+This table mirrors paper Table 5 for phase RMSE and adds the repository
+best-achieved RMSE per harmonic together with the remaining numeric gap
+against the paper target.
+
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | 0.003100 | 0.0420 | 0.0440 | 0.0970 | 0.3200 | 0.2000 | 1.800 | 1.100 | 1.100 |
+| `MLP` | 0.0130 | 0.0840 | 0.0770 | 0.1100 | 0.2400 | 0.2200 | 2.200 | 1.200 | 1.100 |
+| `RF` | 0.002800 | 0.0330 | 0.0430 | 0.0550 | 0.1600 | 0.0820 | 1.200 | 0.6800 | 0.6300 |
+| `DT` | 0.002800 | 0.0420 | 0.0610 | 0.0610 | 0.2000 | 0.1000 | 1.300 | 0.7300 | 0.6700 |
+| `ET` | 0.003300 | 0.0460 | 0.0620 | 0.0740 | 0.2300 | 0.1500 | 1.500 | 0.9300 | 0.6800 |
+| `ERT` | 0.003600 | 0.0400 | 0.0440 | 0.0600 | 0.1800 | 0.1100 | 1.200 | 0.6400 | 0.5800 |
+| `GBM` | 0.002600 | 0.0340 | 0.0450 | 0.0550 | 0.1800 | 0.0840 | 1.300 | 0.7100 | 0.7100 |
+| `HGBM` | 0.002500 | 0.0290 | 0.0270 | 0.0600 | 0.1900 | 0.0850 | 1.300 | 0.7000 | 0.7400 |
+| `XGBM` | 0.002800 | 0.0330 | 0.0430 | 0.0890 | 0.2300 | 0.1300 | 1.400 | 0.8100 | 0.7600 |
+| `LGBM` | 0.002500 | 0.0300 | 0.0280 | 0.0600 | 0.1900 | 0.0820 | 1.300 | 0.7000 | 0.7100 |
+| `Repo Best Family` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` | `RF` |
+| `Repo Best RMSE` | 0.002673 | 0.0361 | 0.0485 | 0.0546 | 0.1246 | 0.0659 | 0.9437 | 0.7389 | 0.8300 |
+| `Paper Best Family` | `HGBM` | `HGBM` | `HGBM` | `GBM` | `RF` | `LGBM` | `ERT` | `ERT` | `ERT` |
+| `Paper Target RMSE` | 0.002500 | 0.0290 | 0.0270 | 0.0550 | 0.1600 | 0.0820 | 1.200 | 0.6400 | 0.5800 |
+| `Gap Vs Paper` | 1.73e-04 | 0.007058 | 0.0215 | -4.28e-04 | -0.0354 | -0.0161 | -0.2563 | 0.0989 | 0.2500 |
+| `Status` | `above_paper_target` | `above_paper_target` | `above_paper_target` | `met_paper_target` | `met_paper_target` | `met_paper_target` | `met_paper_target` | `above_paper_target` | `above_paper_target` |
+
+## Canonical Table 6 Comparison
+
+This table compares the paper-selected top-performing models from Table 6
+against the repository best families measured on the current exact-paper
+validation split.
+
+| `k` | Paper `A*_k` | Repo Best Ampl RMSE Family | Ampl RMSE Status | Paper `phi*_k` | Repo Best Phase MAE Family | Repo Best Phase RMSE Family | Phase MAE Status | Phase RMSE Status | Harmonic Status |
+| ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `1` | `-` | `-` | `-` | `LGBM` | `RF` | `RF` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` |
+| `3` | `-` | `-` | `-` | `HGBM` | `RF` | `RF` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` |
+| `39` | `-` | `-` | `-` | `HGBM` | `RF` | `RF` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` |
+| `40` | `-` | `-` | `-` | `GBM` | `RF` | `RF` | `above_paper_target` | `met_paper_target` | `partially_matched_tables_3_6` |
+| `78` | `-` | `-` | `-` | `RF` | `RF` | `RF` | `met_paper_target` | `met_paper_target` | `fully_matched_tables_3_6` |
+| `81` | `-` | `-` | `-` | `RF` | `RF` | `RF` | `met_paper_target` | `met_paper_target` | `fully_matched_tables_3_6` |
+| `156` | `-` | `-` | `-` | `RF` | `RF` | `RF` | `met_paper_target` | `met_paper_target` | `fully_matched_tables_3_6` |
+| `162` | `-` | `-` | `-` | `ERT` | `RF` | `RF` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` |
+| `240` | `-` | `-` | `-` | `ERT` | `RF` | `RF` | `above_paper_target` | `above_paper_target` | `not_yet_matched_tables_3_6` |
+
+## ONNX Export Surface
+
+- export enabled: `True`;
+- export root: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-18-01-23-24__track1_rf_phase_full_matrix_campaign_run/onnx_export`;
+- exported file count: `0`;
+- export failure mode: `continue`;
+- recovered reference file count: `201`;
+- matched relative paths: `0`;
+- missing against recovered reference: `201`;
+- extra exported relative paths: `0`;
+- failed exports: `9`;
+- surrogate exports: `0`;
+
+## Runtime Dependencies
+
+| Dependency | Version |
+| --- | --- |
+| `numpy` | `2.4.3` |
+| `pandas` | `2.3.3` |
+| `scikit-learn` | `1.8.0` |
+| `skl2onnx` | `not_installed` |
+| `onnxmltools` | `not_installed` |
+| `xgboost` | `not_installed` |
+| `lightgbm` | `not_installed` |
+
+## Interpretation
+
+This validation run is the strict paper-faithful branch of `Track 1`.
+Its role is to reproduce the original RCIM family bank with the exact
+recovered input schema, target schema, and export surface before any
+repository-specific simplification or target-wise winner assembly.
+
+At the current repository state, the workflow now serializes the numeric
+targets from paper Tables 3, 4, 5, and the selected-model targets from
+Table 6. The training path can also reproduce the recovered paper-side
+`GridSearchCV` strategy instead of only fitting the recovered base
+estimators directly. The repository can therefore show both the paper thresholds and
+the current exact-paper results side by side. `Track 1` still remains
+open until those gaps are actually closed on the repository side.

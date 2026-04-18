@@ -1,41 +1,127 @@
-campaign_name: track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20
+campaign_name: track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05
 status: finished
-planning_report_path: doc/reports/campaign_plans/track1/svm/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md
-campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign
+planning_report_path: doc/reports/campaign_plans/track1/exact_paper/2026-04-18-00-48-05_track1_remaining_exact_paper_family_campaigns_plan_report.md
+campaign_config_directory: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns
 queue_root: null
 campaign_output_root: output/training_campaigns
-campaign_output_directory: output/training_campaigns/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20
-launch_mode: remote_operator_campaign_launcher
+campaign_output_directory: output/training_campaigns/track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05
+launch_mode: hybrid_campaign_launcher
 activation_pending_user_confirmation: false
-prepared_at: '2026-04-17T11:51:37+02:00'
-started_at: '2026-04-17T12:00:42+02:00'
-finished_at: '2026-04-17T17:36:26+02:00'
-completion_recorded_at: '2026-04-17T18:31:13+02:00'
-results_report_path: doc/reports/campaign_results/track1/svm/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md
+prepared_at: '2026-04-18T01:08:24+02:00'
+started_at: '2026-04-18T01:08:24+02:00'
+finished_at: '2026-04-18T16:34:18+02:00'
+completion_recorded_at: '2026-04-18T16:34:18+02:00'
+results_report_path: doc/reports/campaign_results/track1/exact_paper/2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report.md
 remote_host_alias: xilab-remote
 remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 remote_conda_environment_name: standard_ml_lan_node
 queue_config_path_list:
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/01_track1_svr_exact_faithful_amplitude_pair_repeat.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/02_track1_svr_exact_faithful_amplitude_40_repeat.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/03_track1_svr_exact_faithful_amplitude_240_repeat.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/04_track1_svr_exact_faithful_phase_162_repeat.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_mlp_full_matrix_campaign/01_track1_mlp_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_mlp_full_matrix_campaign/02_track1_mlp_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_rf_full_matrix_campaign/01_track1_rf_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_rf_full_matrix_campaign/02_track1_rf_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_dt_full_matrix_campaign/01_track1_dt_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_dt_full_matrix_campaign/02_track1_dt_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_et_full_matrix_campaign/01_track1_et_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_et_full_matrix_campaign/02_track1_et_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_ert_full_matrix_campaign/01_track1_ert_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_ert_full_matrix_campaign/02_track1_ert_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_gbm_full_matrix_campaign/01_track1_gbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_gbm_full_matrix_campaign/02_track1_gbm_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_hgbm_full_matrix_campaign/01_track1_hgbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_hgbm_full_matrix_campaign/02_track1_hgbm_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_xgbm_full_matrix_campaign/01_track1_xgbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_xgbm_full_matrix_campaign/02_track1_xgbm_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_lgbm_full_matrix_campaign/01_track1_lgbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_lgbm_full_matrix_campaign/02_track1_lgbm_phase_full_matrix.yaml
 run_name_list:
-  - track1_svr_exact_faithful_amplitude_pair_repeat
-  - track1_svr_exact_faithful_amplitude_40_repeat
-  - track1_svr_exact_faithful_amplitude_240_repeat
-  - track1_svr_exact_faithful_phase_162_repeat
+- track1_mlp_amplitude_full_matrix
+- track1_mlp_phase_full_matrix
+- track1_rf_amplitude_full_matrix
+- track1_rf_phase_full_matrix
+- track1_dt_amplitude_full_matrix
+- track1_dt_phase_full_matrix
+- track1_et_amplitude_full_matrix
+- track1_et_phase_full_matrix
+- track1_ert_amplitude_full_matrix
+- track1_ert_phase_full_matrix
+- track1_gbm_amplitude_full_matrix
+- track1_gbm_phase_full_matrix
+- track1_hgbm_amplitude_full_matrix
+- track1_hgbm_phase_full_matrix
+- track1_xgbm_amplitude_full_matrix
+- track1_xgbm_phase_full_matrix
+- track1_lgbm_amplitude_full_matrix
+- track1_lgbm_phase_full_matrix
 protected_file_list:
-  - doc/reports/campaign_plans/track1/svm/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/README.md
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/01_track1_svr_exact_faithful_amplitude_pair_repeat.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/02_track1_svr_exact_faithful_amplitude_40_repeat.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/03_track1_svr_exact_faithful_amplitude_240_repeat.yaml
-  - config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-17_track1_svm_exact_faithful_final_attempt_campaign/04_track1_svr_exact_faithful_phase_162_repeat.yaml
-  - scripts/campaigns/run_track1_svm_exact_faithful_final_attempt_campaign.ps1
-  - doc/scripts/campaigns/run_track1_svm_exact_faithful_final_attempt_campaign.md
-  - scripts/campaigns/run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1
-  - doc/scripts/campaigns/run_track1_svm_exact_faithful_final_attempt_campaign_remote.md
+- doc/reports/campaign_plans/track1/exact_paper/2026-04-18-00-48-05_track1_remaining_exact_paper_family_campaigns_plan_report.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_mlp_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_mlp_full_matrix_campaign/01_track1_mlp_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_mlp_full_matrix_campaign/02_track1_mlp_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_rf_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_rf_full_matrix_campaign/01_track1_rf_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_rf_full_matrix_campaign/02_track1_rf_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_dt_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_dt_full_matrix_campaign/01_track1_dt_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_dt_full_matrix_campaign/02_track1_dt_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_et_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_et_full_matrix_campaign/01_track1_et_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_et_full_matrix_campaign/02_track1_et_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_ert_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_ert_full_matrix_campaign/01_track1_ert_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_ert_full_matrix_campaign/02_track1_ert_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_gbm_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_gbm_full_matrix_campaign/01_track1_gbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_gbm_full_matrix_campaign/02_track1_gbm_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_hgbm_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_hgbm_full_matrix_campaign/01_track1_hgbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_hgbm_full_matrix_campaign/02_track1_hgbm_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_xgbm_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_xgbm_full_matrix_campaign/01_track1_xgbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_xgbm_full_matrix_campaign/02_track1_xgbm_phase_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_lgbm_full_matrix_campaign/README.md
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_lgbm_full_matrix_campaign/01_track1_lgbm_amplitude_full_matrix.yaml
+- config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-18_track1_lgbm_full_matrix_campaign/02_track1_lgbm_phase_full_matrix.yaml
+- scripts/campaigns/invoke_exact_paper_campaign_local.ps1
+- scripts/campaigns/run_exact_paper_campaign_remote.ps1
+- scripts/campaigns/run_track1_mlp_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_rf_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_dt_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_et_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_ert_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_gbm_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_hgbm_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_xgbm_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_lgbm_full_matrix_campaign.ps1
+- scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.ps1
+- doc/scripts/campaigns/run_track1_mlp_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_rf_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_dt_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_et_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_ert_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_gbm_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_hgbm_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_xgbm_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_lgbm_full_matrix_campaign.md
+- doc/scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.md
 launch_command_list:
-  - .\scripts\campaigns\run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1
-  - .\scripts\campaigns\run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1 -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "standard_ml_lan_node"
+- .\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1
+- .\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1 -Remote
+- .\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1 -Remote
+  -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
+  -RemoteCondaEnvironmentName "standard_ml_lan_node"
+completed_family_list:
+- DT
+- ERT
+- ET
+- GBM
+- HGBM
+- MLP
+- RF
+- XGBM
+- LGBM
+pending_family_list: []
+interruption_note: Remote terminal crashed during the original XGBM portion of
+  the sequential -Remote launcher, but the subsequent recovery reruns completed
+  both XGBM and LGBM successfully. The aggregate remaining-family batch is now
+  fully closed out.

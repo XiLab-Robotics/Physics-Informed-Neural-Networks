@@ -1,0 +1,111 @@
+schema_version: 1
+campaign_name: track1_xgbm_full_matrix_campaign_2026_04_18_00_48_05
+selection_policy: &id001
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 exact-paper
+    XGBM family campaign after the recovery rerun.
+updated_at: '2026-04-18T16:29:35+02:00'
+entry_count: 2
+entry_list:
+- run_instance_id: 2026-04-18-15-48-17__track1_xgbm_phase_full_matrix_campaign_run
+  run_name: track1_xgbm_phase_full_matrix
+  output_run_name: track1_xgbm_phase_full_matrix_campaign_run
+  output_artifact_kind: validation_check
+  family_code: XGBM
+  target_scope_mode: phases_only
+  harmonic_target_count: 9
+  paper_cell_count: 18
+  targeted_harmonic_list:
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  winning_family: XGBM
+  winning_display_name: XGBoost
+  winning_estimator_name: XGBRegressor
+  winning_mean_component_mape_percent: 82.45545978034666
+  winning_mean_component_mae: 0.22846367470625056
+  winning_mean_component_rmse: 0.3909781036535818
+  closure_score: 0.1111111111111111
+  met_paper_cell_count: 0
+  near_paper_cell_count: 4
+  open_paper_cell_count: 14
+  mean_normalized_gap_ratio: 0.4826010398758372
+  max_normalized_gap_ratio: 1.5174382312073116
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 0
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-18-15-48-17__track1_xgbm_phase_full_matrix_campaign_run
+  model_bundle_path: output\validation_checks\paper_reimplementation_rcim_exact_model_bank\2026-04-18-15-48-17__track1_xgbm_phase_full_matrix_campaign_run\paper_family_model_bank.pkl
+  validation_summary_path: output\validation_checks\paper_reimplementation_rcim_exact_model_bank\2026-04-18-15-48-17__track1_xgbm_phase_full_matrix_campaign_run\validation_summary.yaml
+  selection_policy: *id001
+  selected_at: '2026-04-18T16:29:35+02:00'
+- run_instance_id: 2026-04-18-15-47-59__track1_xgbm_amplitude_full_matrix_campaign_run
+  run_name: track1_xgbm_amplitude_full_matrix
+  output_run_name: track1_xgbm_amplitude_full_matrix_campaign_run
+  output_artifact_kind: validation_check
+  family_code: XGBM
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 10
+  paper_cell_count: 10
+  targeted_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  winning_family: XGBM
+  winning_display_name: XGBoost
+  winning_estimator_name: XGBRegressor
+  winning_mean_component_mape_percent: 29.618002059393643
+  winning_mean_component_mae: 0.0003593051597578621
+  winning_mean_component_rmse: 0.0006072701067011464
+  closure_score: 0.05
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 9
+  mean_normalized_gap_ratio: 2.8136809331597563
+  max_normalized_gap_ratio: 6.471665816185622
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 0
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-18-15-47-59__track1_xgbm_amplitude_full_matrix_campaign_run
+  model_bundle_path: output\validation_checks\paper_reimplementation_rcim_exact_model_bank\2026-04-18-15-47-59__track1_xgbm_amplitude_full_matrix_campaign_run\paper_family_model_bank.pkl
+  validation_summary_path: output\validation_checks\paper_reimplementation_rcim_exact_model_bank\2026-04-18-15-47-59__track1_xgbm_amplitude_full_matrix_campaign_run\validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 exact-paper
+      XGBM family campaign after the recovery rerun.
+  selected_at: '2026-04-18T16:29:35+02:00'
