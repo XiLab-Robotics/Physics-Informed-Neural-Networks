@@ -1,5 +1,10 @@
 # 2026-04-18 Technical Documents
 
+- [2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns.md](./2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns.md)
+  Technical document for preparing the `171`-run remaining-family `Track 1`
+  cellwise exact-paper wave that generalizes the `SVM` reference-model closure
+  pattern to `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and
+  `LGBM`.
 - [2026-04-18-17-11-45_track1_partial_closeout_family_row_backfill_in_full_matrix_tables.md](./2026-04-18-17-11-45_track1_partial_closeout_family_row_backfill_in_full_matrix_tables.md)
   Technical document for re-checking the seven-family partial-closeout rerun
   rows and backfilling any still-stale family entries in the canonical `Track 1`

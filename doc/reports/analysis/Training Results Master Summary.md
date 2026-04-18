@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-18T16:34:18`
+- Generated At: `2026-04-19T00:51:06+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
 - Active Campaign Status: `finished`
-- Active Campaign Name: `track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05`
+- Active Campaign Name: `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04` | `2026-04-19 00:51:06+02:00` | 171 | 0 | `track1_dt_amplitude_240_cellwise_reference` | Exact-paper cellwise refresh completed `19` models for each non-`SVM` Track 1 family and promoted the canonical family rows into the benchmark tables |
 | `track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05` | `2026-04-18 16:34:18` | 18 | 0 | `track1_rf_phase_full_matrix` | Exact-paper family rows fully refreshed for `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and `LGBM`; `LGBM` improved the final amplitude-side envelope |
 | `track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48` | `2026-04-15 23:22:38` | 0 | 4 | N/A | No winner artifact |
 | `track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48` | `2026-04-15 23:11:59` | 0 | 4 | N/A | No winner artifact |
@@ -159,7 +160,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Canonical benchmark now shows `2/10` harmonics fully matched, `5/10` partially matched, `3/10` still open after the final remaining-family closeout | not_yet_met |
+| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Canonical benchmark now shows `0/10` harmonics fully matched, `8/10` partially matched, `2/10` still open after the cellwise remaining-family closeout | not_yet_met |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -167,18 +168,19 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper final-closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report.md`
+- Latest exact-paper final-closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-19-00-43-47_track1_remaining_family_cellwise_final_closeout_campaign_results_report.md`
 - Table `2` amplitude `MAE`: `3/10` harmonics at or below the paper target
-- Table `3` amplitude `RMSE`: `6/10` harmonics at or below the paper target
+- Table `3` amplitude `RMSE`: `7/10` harmonics at or below the paper target
 - Table `4` phase `MAE`: `5/9` harmonics at or below the paper target
-- Table `5` phase `RMSE`: `5/9` harmonics at or below the paper target
-- Harmonic-level Table `6` closure: `2/10` fully matched, `5/10` partially matched, `3/10` still open
-- Highest-priority open harmonics: `3`, `81`, `156`, `162`, `240`
+- Table `5` phase `RMSE`: `4/9` harmonics at or below the paper target
+- Harmonic-level Table `6` closure: `0/10` fully matched, `8/10` partially matched, `2/10` still open
+- Highest-priority open harmonics: `3`, `240`, `0`, `1`, `156`, `162`
 - Repository `SVM` status: closed and accepted after the final exact-faithful
   rerun package, with residual paper deltas on `40`, `240`, and `162`
   accepted as non-blocking
 - Remaining-family exact-paper batch status: fully closed out after the
-  recovered `XGBM` and `LGBM` reruns
+  `171`-run cellwise refresh, with canonical family rows now reading from the
+  promoted cellwise references where applicable
 
 ### Latest Harmonic-Wise Validation Support
 
@@ -194,8 +196,8 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
-- The `2026-04-18` final closeout improved the amplitude-side exact-paper envelope further through `LGBM`, but it did not remove the remaining blockers at `3`, `81`, `156`, `162`, and `240`.
+- `Track 1` remains open primarily because the canonical Tables `3-6` are still not harmonically family-aligned.
+- The `2026-04-19` cellwise closeout improved the amplitude `RMSE` envelope to `7/10`, but the family-alignment rule in Table `6` still leaves every harmonic open.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.

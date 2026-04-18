@@ -245,6 +245,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report": {
         "family-recovery-outcome",
     },
+    "2026-04-19-00-43-47_track1_remaining_family_cellwise_final_closeout_campaign_results_report": {
+        "family-recovery-outcome",
+    },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
     },
@@ -2284,6 +2287,20 @@ def resolve_standard_table_class_name(
             return TRACK1_PARTIAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
 
     if report_stem == "2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report":
+
+        if (
+            current_section_slug == "family-recovery-outcome"
+            and normalized_header_cells == ("Family", "Amplitude Run", "Phase Run", "Best Run", "Best Scope", "Best Closure Score", "Open Cells")
+        ):
+            return TRACK1_FINAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "aggregate-ranking"
+            and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Paper Cell", "Met", "Near", "Open", "Closure Score")
+        ):
+            return TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-19-00-43-47_track1_remaining_family_cellwise_final_closeout_campaign_results_report":
 
         if (
             current_section_slug == "family-recovery-outcome"
