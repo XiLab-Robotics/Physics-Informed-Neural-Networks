@@ -248,6 +248,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-19-00-43-47_track1_remaining_family_cellwise_final_closeout_campaign_results_report": {
         "family-recovery-outcome",
     },
+    "2026-04-19-11-34-36_track1_remaining_family_residual_cellwise_closure_campaign_results_report": {
+        "family-recovery-outcome",
+    },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
     },
@@ -697,15 +700,15 @@ REPORT_STYLESHEET = """
     .report-table-track1-partial-closeout-aggregate th:nth-child(9), .report-table-track1-partial-closeout-aggregate td:nth-child(9) { width: 16%; }
 
     .report-table-track1-final-closeout-family th:nth-child(1), .report-table-track1-final-closeout-family td:nth-child(1) { width: 8%; }
-    .report-table-track1-final-closeout-family th:nth-child(2), .report-table-track1-final-closeout-family td:nth-child(2) { width: 25%; }
-    .report-table-track1-final-closeout-family th:nth-child(3), .report-table-track1-final-closeout-family td:nth-child(3) { width: 17%; }
-    .report-table-track1-final-closeout-family th:nth-child(4), .report-table-track1-final-closeout-family td:nth-child(4) { width: 23%; }
-    .report-table-track1-final-closeout-family th:nth-child(5), .report-table-track1-final-closeout-family td:nth-child(5) { width: 14%; }
-    .report-table-track1-final-closeout-family th:nth-child(6), .report-table-track1-final-closeout-family td:nth-child(6) { width: 8%; }
+    .report-table-track1-final-closeout-family th:nth-child(2), .report-table-track1-final-closeout-family td:nth-child(2) { width: 21%; }
+    .report-table-track1-final-closeout-family th:nth-child(3), .report-table-track1-final-closeout-family td:nth-child(3) { width: 21%; }
+    .report-table-track1-final-closeout-family th:nth-child(4), .report-table-track1-final-closeout-family td:nth-child(4) { width: 21%; }
+    .report-table-track1-final-closeout-family th:nth-child(5), .report-table-track1-final-closeout-family td:nth-child(5) { width: 15%; }
+    .report-table-track1-final-closeout-family th:nth-child(6), .report-table-track1-final-closeout-family td:nth-child(6) { width: 9%; }
     .report-table-track1-final-closeout-family th:nth-child(7), .report-table-track1-final-closeout-family td:nth-child(7) { width: 5%; }
 
-    .report-table-track1-final-closeout-aggregate th:nth-child(1), .report-table-track1-final-closeout-aggregate td:nth-child(1) { width: 4%; }
-    .report-table-track1-final-closeout-aggregate th:nth-child(2), .report-table-track1-final-closeout-aggregate td:nth-child(2) { width: 33%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(1), .report-table-track1-final-closeout-aggregate td:nth-child(1) { width: 5%; }
+    .report-table-track1-final-closeout-aggregate th:nth-child(2), .report-table-track1-final-closeout-aggregate td:nth-child(2) { width: 32%; }
     .report-table-track1-final-closeout-aggregate th:nth-child(3), .report-table-track1-final-closeout-aggregate td:nth-child(3) { width: 6%; }
     .report-table-track1-final-closeout-aggregate th:nth-child(4), .report-table-track1-final-closeout-aggregate td:nth-child(4) { width: 16%; }
     .report-table-track1-final-closeout-aggregate th:nth-child(5), .report-table-track1-final-closeout-aggregate td:nth-child(5) { width: 7%; }
@@ -1399,16 +1402,9 @@ def resolve_output_html_path(output_html_path: str, output_pdf_path: Path, keep_
     if output_html_path:
         return Path(output_html_path), False
 
-    # Create Persistent Preview Path
-    if keep_html:
-        persistent_output_html_path = output_pdf_path.with_name(f"{output_pdf_path.stem}_preview.html")
-        return persistent_output_html_path, False
-
-    # Create Temporary Preview Path
-    temporary_html_directory_path = create_workspace_temp_directory(HTML_PREVIEW_TEMP_ROOT, "codex_report_html")
-    temporary_output_html_path = temporary_html_directory_path / f"{output_pdf_path.stem}_preview.html"
-
-    return temporary_output_html_path, True
+    # Always Use The Stable Sibling Preview Path
+    persistent_output_html_path = output_pdf_path.with_name(f"{output_pdf_path.stem}_preview.html")
+    return persistent_output_html_path, not keep_html
 
 def detect_browser_executable(explicit_path: str) -> Path:
 
@@ -1834,6 +1830,14 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
 
     if header_cell == "Paper Cell":
         return "Paper<span class=\"metric-unit\">Cell</span>"
+    if header_cell == "Amplitude Run":
+        return "Amplitude<span class=\"metric-unit\">Run</span>"
+    if header_cell == "Phase Run":
+        return "Phase<span class=\"metric-unit\">Run</span>"
+    if header_cell == "Best Run":
+        return "Best<span class=\"metric-unit\">Run</span>"
+    if header_cell == "Open Cells":
+        return "Open<span class=\"metric-unit\">Cells</span>"
     if header_cell == "Closure Score":
         return "Closure<span class=\"metric-unit\">Score</span>"
     if header_cell == "Best Closure Score":
@@ -1849,6 +1853,10 @@ def is_identifier_column_header(header_cell: str) -> bool:
         "Config",
         "Best Config",
         "Best Run After This Campaign",
+        "Run",
+        "Amplitude Run",
+        "Phase Run",
+        "Best Run",
     }
 
 def render_table_header_cells(header_cells: Sequence[str], alignments: Sequence[str], table_class_name: str = GENERIC_TABLE_CLASS_NAME) -> str:
@@ -2301,6 +2309,20 @@ def resolve_standard_table_class_name(
             return TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
 
     if report_stem == "2026-04-19-00-43-47_track1_remaining_family_cellwise_final_closeout_campaign_results_report":
+
+        if (
+            current_section_slug == "family-recovery-outcome"
+            and normalized_header_cells == ("Family", "Amplitude Run", "Phase Run", "Best Run", "Best Scope", "Best Closure Score", "Open Cells")
+        ):
+            return TRACK1_FINAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "aggregate-ranking"
+            and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Paper Cell", "Met", "Near", "Open", "Closure Score")
+        ):
+            return TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-19-11-34-36_track1_remaining_family_residual_cellwise_closure_campaign_results_report":
 
         if (
             current_section_slug == "family-recovery-outcome"
@@ -2789,10 +2811,7 @@ def main() -> None:
     )
 
     # Remove Temporary HTML Preview
-    if use_temporary_html_path:
-        remove_temporary_file(output_html_path)
-        remove_temporary_directory(output_html_path.parent)
-    elif not parsed_arguments.keep_html and output_html_path.exists():
+    if use_temporary_html_path and output_html_path.exists():
         remove_temporary_file(output_html_path)
 
     print(f"Styled PDF generated at: {output_pdf_path}")

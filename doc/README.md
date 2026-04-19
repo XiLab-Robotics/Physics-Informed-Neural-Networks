@@ -91,6 +91,33 @@ This folder contains the internal project documents derived from the reference P
   remaining-family `Track 1` exact-paper cellwise campaign wave, including
   winner-bookkeeping reconstruction, canonical benchmark refresh, and final
   results reporting.
+- [technical/2026-04/2026-04-19/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md](./technical/2026-04/2026-04-19/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md)
+  Technical document for the next aggressive overnight `Track 1`
+  residual-cell closure wave, designed to spend a `6-7x` larger compute budget
+  on the remaining non-green family-target cells across the nine non-`SVM`
+  exact-paper families.
+- [technical/2026-04/2026-04-19/2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md](./technical/2026-04/2026-04-19/2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md)
+  Technical document for the narrow aggregate-launcher repair after the
+  prepared overnight residual-closure package failed before launch because the
+  execution-mode status line used bare `remote/local` PowerShell tokens.
+- [technical/2026-04/2026-04-19/2026-04-19-11-23-44_track1_remaining_family_residual_cellwise_closure_final_closeout.md](./technical/2026-04/2026-04-19/2026-04-19-11-23-44_track1_remaining_family_residual_cellwise_closure_final_closeout.md)
+  Technical document for the final closeout of the completed `1026`-run
+  remaining-family residual-cell closure wave, including reconstructed
+  bookkeeping, benchmark refresh, and final Markdown plus PDF reporting.
+- [technical/2026-04/2026-04-19/2026-04-19-12-08-11_residual_closeout_styled_pdf_repair.md](./technical/2026-04/2026-04-19/2026-04-19-12-08-11_residual_closeout_styled_pdf_repair.md)
+  Technical document for repairing the residual closeout report so its final
+  PDF returns to the canonical styled export workflow.
+- [technical/2026-04/2026-04-19/2026-04-19-12-20-48_residual_closeout_exact_styled_parity_repair.md](./technical/2026-04/2026-04-19/2026-04-19-12-20-48_residual_closeout_exact_styled_parity_repair.md)
+  Technical document for the stricter residual closeout repair that requires
+  the final PDF to match the earlier exact-paper closeout style in practice.
+- [technical/2026-04/2026-04-19/2026-04-19-13-07-54_styled_pdf_persistent_preview_cleanup_fix.md](./technical/2026-04/2026-04-19/2026-04-19-13-07-54_styled_pdf_persistent_preview_cleanup_fix.md)
+  Technical document for fixing the styled PDF exporter so it always renders
+  from the stable preview HTML path beside the target PDF and only uses
+  `--keep-html` to decide whether that preview file is deleted afterward.
+- [technical/2026-04/2026-04-19/2026-04-19-13-17-01_residual_closeout_pdf_table_micro_rebalance.md](./technical/2026-04/2026-04-19/2026-04-19-13-17-01_residual_closeout_pdf_table_micro_rebalance.md)
+  Technical document for the narrow PDF table rebalance of the residual
+  closeout report, focused on the `Family Recovery Outcome` and
+  `Aggregate Ranking` tables.
 
 #### 2026-04-18
 
