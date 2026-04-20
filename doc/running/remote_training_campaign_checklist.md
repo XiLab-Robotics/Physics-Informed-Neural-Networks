@@ -34,4 +34,3 @@
 - C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_003_03_track1_svr_reference_grid_amplitude_240_only.yaml
 - C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_004_04_track1_svr_reference_grid_phase_162_only.yaml
 - output/registries/program/current_best_solution.yaml
-

@@ -86,6 +86,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-20
 
+- [technical/2026-04/2026-04-20/2026-04-20-23-00-20_markdownlint_chunk_failure_cleanup_for_campaign_readmes_and_remote_checklist.md](./technical/2026-04/2026-04-20/2026-04-20-23-00-20_markdownlint_chunk_failure_cleanup_for_campaign_readmes_and_remote_checklist.md)
+  Technical document for repairing the Markdownlint chunk failure caused by missing blank-line separation in the residual-closure campaign package READMEs and an extra blank line in the remote training campaign checklist.
 - [technical/2026-04/2026-04-20/2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md](./technical/2026-04/2026-04-20/2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md)
   Technical document for making the four colored `Track 1` full-matrix
   replication tables the canonical progress surface and for defining `Track 1`
