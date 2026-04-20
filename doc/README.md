@@ -892,6 +892,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for eliminating repository-wide Markdown warnings across Git-tracked authored Markdown files and aligning the documentation surface with a zero-warning policy.
 - [technical/2026-04/2026-04-02/2026-04-02-18-40-31_video_guides_markdown_strict_cleanup_and_lint_alignment.md](./technical/2026-04/2026-04-02/2026-04-02-18-40-31_video_guides_markdown_strict_cleanup_and_lint_alignment.md)
   Technical document for hardening the canonical TwinCAT/TestRig video-guide Markdown files against stricter editor linting and aligning them with the repository zero-warning policy.
+- [technical/2026-04/2026-04-20/2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md](./technical/2026-04/2026-04-20/2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md)
+  Technical document for slimming the always-on repository instruction surface, moving specialist workflow policy to on-demand references, and preferring persistent repository-owned command entry points over repeated inline scripting.
 - [technical/2026-03/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)

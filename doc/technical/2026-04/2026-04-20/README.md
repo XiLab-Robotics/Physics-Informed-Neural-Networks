@@ -1,5 +1,10 @@
 # 2026-04-20 Technical Documents
 
+- [2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md](./2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md)
+  Technical document for slimming the always-on repository instruction surface,
+  moving specialist workflow policy to on-demand references, and preferring
+  persistent repository-owned command entry points over repeated inline
+  scripting.
 - [2026-04-20-12-44-46_wave1_dataset_split_export_script.md](./2026-04-20-12-44-46_wave1_dataset_split_export_script.md)
   Technical document for exporting the canonical `Wave 1` dataset split so a
   colleague can reproduce the same `70/20/10` partition with the repository
