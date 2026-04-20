@@ -894,6 +894,8 @@ This folder contains the internal project documents derived from the reference P
   Technical document for hardening the canonical TwinCAT/TestRig video-guide Markdown files against stricter editor linting and aligning them with the repository zero-warning policy.
 - [technical/2026-04/2026-04-20/2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md](./technical/2026-04/2026-04-20/2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md)
   Technical document for slimming the always-on repository instruction surface, moving specialist workflow policy to on-demand references, and preferring persistent repository-owned command entry points over repeated inline scripting.
+- [technical/2026-04/2026-04-20/2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md](./technical/2026-04/2026-04-20/2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md)
+  Technical document for a lightweight Python helper that creates timestamped technical documents with the required section scaffold and registers them in the day-local index and `doc/README.md`.
 - [technical/2026-03/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md](./technical/2026-03/2026-03-25/2026-03-25-15-10-18_sphinx_portal_root_rename_from_docs.md)
   Technical document for separating the canonical `doc/` source tree from the Sphinx portal root by renaming `docs/` to `site/`.
 - [technical/2026-03/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md](./technical/2026-03/2026-03-25/2026-03-25-15-50-58_dual_notebooklm_video_package_strategy_for_guides.md)

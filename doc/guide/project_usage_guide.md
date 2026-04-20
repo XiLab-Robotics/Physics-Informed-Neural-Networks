@@ -20,6 +20,8 @@ At the moment, the implemented workflows are:
   offline benchmark runs through the currently available repository-owned
   runners;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
+- timestamped technical-document scaffolding and index registration through a
+  repository-owned tooling entry point;
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;
@@ -140,6 +142,9 @@ The current usage flow mainly relies on these folders:
 - `scripts/tooling/session/`
   Isolated-mode session tooling.
 
+- `scripts/tooling/technical_documents/`
+  Technical-document creation and index-registration tooling.
+
 - `scripts/tooling/video_guides/analyze_video_guides.py`
   Video-guide analysis utility for `reference/video_guides/source_bundle/`,
   with inventory, quality-scored transcript extraction, frame sampling, and
@@ -163,6 +168,10 @@ The current usage flow mainly relies on these folders:
   Formal process note for the strongest currently validated TwinCAT/TestRig
   video-analysis workflow, including topology, launcher behavior, outputs,
   quality gates, and recovery policy.
+
+- `doc/scripts/tooling/technical_documents/create_technical_document.md`
+  Canonical usage note for creating a new timestamped technical document and
+  registering it in the day-local technical index plus `doc/README.md`.
 
 - `models/`
   Reserved root folder for trained checkpoints and exported model artifacts.
@@ -244,6 +253,21 @@ The Wave 1 recovery campaign can also be launched through the short wrapper:
 
 This wrapper only reduces typing. It preserves the same terminal output, logs, and campaign artifacts as the full runner command.
 It also clears stale pending or running recovery YAML files from earlier failed launcher attempts before re-enqueuing the approved recovery set.
+
+## Technical Document Helper
+
+The repository now also exposes a small helper for the mandatory
+technical-document-first workflow:
+
+```powershell
+python -B scripts/tooling/technical_documents/create_technical_document.py `
+  --slug your_feature_name `
+  --summary "Technical document for the approved repository change."
+```
+
+This command reads the real local timestamp, creates the timestamped document
+under `doc/technical/`, writes the required four-section scaffold, updates the
+day-local technical `README.md`, and registers the document from `doc/README.md`.
 
 The Wave 1 residual-family follow-up also has a dedicated launcher:
 

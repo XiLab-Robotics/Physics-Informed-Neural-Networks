@@ -1,5 +1,9 @@
 # 2026-04-20 Technical Documents
 
+- [2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md](./2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md)
+  Technical document for a lightweight Python helper that creates timestamped
+  technical documents with the required section scaffold and registers them in
+  the day-local index and `doc/README.md`.
 - [2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md](./2026-04-20-14-48-45_agents_instruction_slimming_and_persistent_workflow_consolidation.md)
   Technical document for slimming the always-on repository instruction surface,
   moving specialist workflow policy to on-demand references, and preferring

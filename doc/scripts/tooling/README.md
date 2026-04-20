@@ -5,6 +5,13 @@ This folder groups the repository-owned operational notes for tooling under
 
 ## Available Tooling Domains
 
+### Technical Documents
+
+- [technical_documents/create_technical_document.md](./technical_documents/create_technical_document.md)
+  Repository-owned helper for creating timestamped technical documents with the
+  required section scaffold and registering them in the canonical technical
+  indices.
+
 ### LAN AI
 
 - [lan_ai/lan_ai_node_server.md](./lan_ai/lan_ai_node_server.md)
