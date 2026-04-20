@@ -31,11 +31,22 @@ The run artifacts are present, but the campaign closeout is not complete yet.
 The repository still needs the final reporting and bookkeeping layer that turns
 raw run artifacts into a canonical program state.
 
+The "final closeout" in this document refers to this `171`-run campaign wave.
+It does not imply that overall `Track 1` is complete.
+
 ## Technical Approach
 
 The closeout should treat the `171`-run wave as one aggregate campaign with
 `9` family-local subcampaigns, following the same discipline already used for
 the earlier `Track 1` exact-paper closeouts.
+
+For `Track 1` state summaries, the authoritative progress surface remains the
+four colored full-matrix replication tables:
+
+- `Table 2 - Amplitude MAE Full-Matrix Replication`
+- `Table 3 - Amplitude RMSE Full-Matrix Replication`
+- `Table 4 - Phase MAE Full-Matrix Replication`
+- `Table 5 - Phase RMSE Full-Matrix Replication`
 
 The final pass must cover four surfaces together:
 
@@ -103,3 +114,7 @@ The closeout should also explicitly acknowledge the current artifact gap:
    the final report and no longer remains only a raw finished execution record.
 7. Run Markdown warning checks on the touched Markdown scope before closing the
    task.
+
+The track-level completion condition remains stricter than this wave closeout:
+`Track 1` is concluded only when the `Table 2-5` surface is fully closed for
+all `10` algorithm families with `19` accepted models per family.

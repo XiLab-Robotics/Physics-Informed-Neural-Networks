@@ -14,6 +14,9 @@ The goal of this task is to refresh the four canonical comparative tables in
 rule that every future `Track 1` closeout must update those tables whenever a
 campaign changes the accepted family results.
 
+These four tables are also the canonical reference surface for future `Track 1`
+state summaries and progress statements.
+
 ## Technical Approach
 
 The implementation stays intentionally narrow:
@@ -31,8 +34,11 @@ The implementation stays intentionally narrow:
    closeouts update both:
    - the addendum-style summary sections;
    - the canonical family-by-family colored replication tables.
-4. Run repository Markdown QA on the touched Markdown scope before closing the
-   task.
+4. Treat full `Track 1` completion as separate from any single closeout wave:
+   the track is complete only when the `Table 2-5` surface is closed for all
+   `10` algorithm families with `19` accepted models per family.
+5. Run repository Markdown QA on the touched Markdown scope before closing the
+  task.
 
 No subagent is planned for this task. The scope is small, local, and directly
 inspectable.
@@ -55,5 +61,8 @@ inspectable.
 3. Patch the four family-by-family full-matrix tables in the benchmark report.
 4. Add the persistent closeout-maintenance note for future `Track 1` campaign
    completions.
-5. Run Markdown warning checks on the touched Markdown files and resolve any
+5. Record in the touched documentation that `Track 1` progress and completion
+   are judged through the `Table 2-5` surface, with `10 x 19` accepted models
+   as the finish condition.
+6. Run Markdown warning checks on the touched Markdown files and resolve any
    issues before closing the task.

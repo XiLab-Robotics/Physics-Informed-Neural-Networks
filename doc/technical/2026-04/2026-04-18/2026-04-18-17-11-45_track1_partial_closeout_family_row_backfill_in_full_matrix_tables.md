@@ -14,6 +14,9 @@ partial-closeout outputs and update the canonical matrices in
 `doc/reports/analysis/RCIM Paper Reference Benchmark.md` where any value or
 `🟢/🟡/🔴` marker still reflects the older pre-refresh state.
 
+Those four colored matrices are the canonical reference for future `Track 1`
+state summaries, so this task directly affects the official progress readout.
+
 ## Technical Approach
 
 The implementation remains narrow and benchmark-focused:
@@ -40,6 +43,11 @@ The implementation remains narrow and benchmark-focused:
    - `🟡` still above paper but within `25%`;
    - `🔴` materially above paper;
 5. run Markdown QA on the touched benchmark file before closing the task.
+
+This row-backfill task improves the progress surface, but it is not itself a
+`Track 1` completion event. Overall completion remains defined by fully closed
+`Table 2-5` coverage across all `10` families with `19` accepted models per
+family.
 
 No subagent is planned for this task. The scope is local, deterministic, and
 does not justify delegation.

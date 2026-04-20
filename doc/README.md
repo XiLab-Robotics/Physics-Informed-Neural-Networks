@@ -86,6 +86,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-20
 
+- [technical/2026-04/2026-04-20/2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md](./technical/2026-04/2026-04-20/2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md)
+  Technical document for making the four colored `Track 1` full-matrix
+  replication tables the canonical progress surface and for defining `Track 1`
+  completion as `19` accepted models across each of the `10` algorithm
+  families.
 - [technical/2026-04/2026-04-20/2026-04-20-16-03-46_campaign_folder_taxonomy_extension.md](./technical/2026-04/2026-04-20/2026-04-20-16-03-46_campaign_folder_taxonomy_extension.md)
   Technical document for extending the stable campaign-results folder taxonomy
   to the still-flat `scripts/campaigns`, validation-check analysis bundle, and

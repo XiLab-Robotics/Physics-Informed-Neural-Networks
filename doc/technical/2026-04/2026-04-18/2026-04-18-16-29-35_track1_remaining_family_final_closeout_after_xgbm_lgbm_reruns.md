@@ -11,11 +11,23 @@ families. The missing final step is now to promote the recovered `XGBM` and
 `LGBM` runs into the canonical campaign bookkeeping and refresh the benchmark
 surfaces so the batch is no longer represented as interrupted.
 
+This "final closeout" refers to the remaining-family batch only. It does not
+by itself define overall `Track 1` completion, which is instead read from the
+canonical colored `Table 2-5` full-matrix replication surface.
+
 ## Technical Approach
 
 The closeout should preserve the already accepted partial-closeout results and
 extend them with the two completed families, rather than rewriting the full
 campaign package from scratch.
+
+The benchmark refresh in this task should therefore be interpreted as a
+progress update on the four canonical tables:
+
+- `Table 2 - Amplitude MAE Full-Matrix Replication`
+- `Table 3 - Amplitude RMSE Full-Matrix Replication`
+- `Table 4 - Phase MAE Full-Matrix Replication`
+- `Table 5 - Phase RMSE Full-Matrix Replication`
 
 The final pass should:
 
@@ -32,6 +44,10 @@ The final pass should:
 4. write the final campaign-results report and validate its PDF export;
 5. refresh the canonical benchmark and master-summary surfaces with the final
    batch outcome.
+
+Even after this wave-level closeout, `Track 1` remains open until all `10`
+families expose `19` accepted exact-paper models each on the `Table 2-5`
+surface.
 
 ## Involved Components
 
@@ -51,4 +67,4 @@ The final pass should:
 3. Write the final remaining-family closeout report in Markdown.
 4. Export and validate the PDF companion.
 5. Refresh the canonical benchmark and master summary to remove the pending
-   `XGBM/LGBM` status.
+   `XGBM/LGBM` status in the canonical `Table 2-5` progress surface.

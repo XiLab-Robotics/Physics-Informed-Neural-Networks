@@ -15,6 +15,10 @@ It must reconstruct winner bookkeeping, refresh the canonical benchmark
 surfaces, update the colored full-matrix tables, and publish a final validated
 results report.
 
+The "final closeout" in this document applies to the residual-cell campaign
+wave. It should not be read as an automatic declaration that overall `Track 1`
+is finished.
+
 ## Technical Approach
 
 The closeout should proceed in four layers:
@@ -25,6 +29,14 @@ The closeout should proceed in four layers:
 3. refresh the canonical benchmark and master summary from the newly promoted
    residual-closure winners;
 4. publish the final campaign-results report as Markdown plus validated PDF.
+
+For status reporting, the benchmark refresh must be interpreted through the
+four colored full-matrix replication tables:
+
+- `Table 2 - Amplitude MAE Full-Matrix Replication`
+- `Table 3 - Amplitude RMSE Full-Matrix Replication`
+- `Table 4 - Phase MAE Full-Matrix Replication`
+- `Table 5 - Phase RMSE Full-Matrix Replication`
 
 The aggregate campaign root may need to be materialized during closeout if the
 launcher produced family campaign folders but did not create the aggregate root
@@ -81,3 +93,7 @@ alignment.
 6. Write the final campaign-results Markdown report and export its validated
    PDF companion.
 7. Record the final results-report path in `active_training_campaign.yaml`.
+
+Overall `Track 1` completion remains tied to the closure of those four tables
+across the full family bank, meaning `19` accepted exact-paper models for each
+of the `10` algorithm families.

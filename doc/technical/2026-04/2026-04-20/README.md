@@ -1,5 +1,10 @@
 # 2026-04-20 Technical Documents
 
+- [2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md](./2026-04-20-22-46-07_track1_tables_2_5_progress_focus_and_completion_definition.md)
+  Technical document for making the four colored `Track 1` full-matrix
+  replication tables the canonical progress surface and for defining `Track 1`
+  completion as `19` accepted models across each of the `10` algorithm
+  families.
 - [2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md](./2026-04-20-15-19-14_technical_document_scaffold_and_index_helper.md)
   Technical document for a lightweight Python helper that creates timestamped
   technical documents with the required section scaffold and registers them in

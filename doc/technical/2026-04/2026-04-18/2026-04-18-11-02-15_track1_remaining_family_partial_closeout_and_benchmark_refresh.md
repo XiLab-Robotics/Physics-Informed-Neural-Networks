@@ -32,6 +32,10 @@ The user's requested next action is:
 The repository should treat this situation as a partial campaign closeout, not
 as a fully completed `9`-family sequence.
 
+For `Track 1` state summaries, the practical advancement signal must be read
+from the colored full-matrix benchmark surface in `Table 2-5`, not from the
+mere existence of a partial closeout report.
+
 The correct implementation scope is:
 
 1. inspect the materialized campaign outputs and validation artifacts for the
@@ -49,6 +53,10 @@ The correct implementation scope is:
 6. update the master summary so the active `Track 1` state reflects:
    - `7` completed family campaigns closed out;
    - `2` remaining interrupted families still pending rerun.
+
+This document therefore defines an intermediate benchmark-refresh step, not
+`Track 1` completion. The track remains open until the `Table 2-5`
+family-by-family surface is fully closed.
 
 The interrupted aggregate sequence itself should not yet be represented as a
 completed campaign-results package because the `XGBM` and `LGBM` branches still
@@ -79,7 +87,7 @@ remain local to the repository workflow.
    - `campaign_best_run.md`
 4. Write campaign-results reports for the `7` completed family campaigns.
 5. Refresh `RCIM Paper Reference Benchmark.md` using only the newly verified
-   completed family rows.
+   completed family rows in the canonical `Table 2-5` surface.
 6. Refresh `Training Results Master Summary.md` so it reflects the partial
    closeout status and the still-pending interrupted families.
 7. Leave crash diagnosis and rerun preparation for `XGBM` and `LGBM` to the
