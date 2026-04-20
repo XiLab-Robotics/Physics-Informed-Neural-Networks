@@ -97,7 +97,7 @@ so future sessions follow the same workflow without relying on memory.
   Home for repository-owned PowerShell launchers.
 - `doc/scripts/campaigns/`
   Home for launcher usage notes.
-- `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1`
   Existing launcher pattern to mirror for the new campaign-specific wrapper.
 - `doc/scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md`
   Existing launcher documentation pattern to mirror for the new campaign note.
@@ -112,7 +112,7 @@ so future sessions follow the same workflow without relying on memory.
 2. Wait for explicit user approval before modifying repository rules or adding
    launcher files.
 3. After approval, create
-   `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`.
+   `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`.
 4. Add the matching usage note under
    `doc/scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md`.
 5. Update `AGENTS.md` so every future approved campaign preparation must also

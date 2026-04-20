@@ -34,7 +34,7 @@ The planned approach is:
 
 ## Involved Components
 
-- `output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
+- `output/training_campaigns/wave1/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
   Campaign-level manifest, leaderboard, best-run files, and execution report.
 - `output/training_runs/residual_harmonic_mlp/`
   Per-run metric snapshots and training reports for the 15 aligned campaign runs.

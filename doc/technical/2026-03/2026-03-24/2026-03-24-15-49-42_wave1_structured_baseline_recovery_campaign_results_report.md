@@ -21,7 +21,7 @@ The final deliverable must include:
 The final report should synthesize the following evidence sources:
 
 1. the persistent campaign state in `doc/running/active_training_campaign.yaml`;
-2. the campaign-level execution artifacts under `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`;
+2. the campaign-level execution artifacts under `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`;
 3. the per-run metrics in the six `metrics_summary.yaml` files produced by the campaign;
 4. the per-run `training_test_report.md` files for model-specific interpretation;
 5. the family and program registries under `output/registries/`.
@@ -44,11 +44,11 @@ The report should also capture the practical operational result of the recovery 
   Persistent campaign state that must be updated from `prepared` to `completed`.
 - `doc/reports/campaign_plans/wave1/2026-03-20-15-40-42_wave1_structured_baseline_recovery_campaign_plan_report.md`
   Approved planning report for the completed recovery campaign.
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_execution_report.md`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_execution_report.md`
   Campaign execution summary with run durations and artifact references.
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_leaderboard.yaml`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_leaderboard.yaml`
   Explicit ranked ordering of the completed recovery runs.
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_best_run.yaml`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_best_run.yaml`
   Explicit campaign winner record.
 - `output/training_runs/harmonic_regression/*/metrics_summary.yaml`
   Harmonic recovery metrics.

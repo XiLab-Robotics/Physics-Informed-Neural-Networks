@@ -35,7 +35,7 @@ documentation workflow.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 - `scripts/campaigns/run_*remote*.ps1`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `doc/scripts/campaigns/run_*remote*.md`

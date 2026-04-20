@@ -39,7 +39,7 @@ The package is intentionally narrow and exercises both major runtime paths:
 Use the dedicated launcher:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_validation_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1 `
   -RemoteRepositoryPath "C:\Work\StandardML - Codex"
 ```
 

@@ -5,7 +5,7 @@
 The current LAN remote wrapper for
 `track1_svr_reference_grid_search_repair_campaign` has drifted away from the
 behavior of the approved local launcher
-`scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign.ps1`.
+`scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.ps1`.
 The result is unacceptable operator experience and incorrect execution
 semantics:
 
@@ -50,16 +50,16 @@ that were destabilized by the recent remote-launch debugging commits.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign.ps1`
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.md`
 - `doc/running/active_training_campaign.yaml`
 
 Protected campaign files expected to require modification:
 
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
 - `doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.md`
 
 No subagent is planned for this implementation.

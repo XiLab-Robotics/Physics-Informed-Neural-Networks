@@ -13,7 +13,7 @@ launcher:
 - failed runs: `0`
 - execution window: `2026-04-13 22:07:17+02:00` to `2026-04-13 22:09:59+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
+  `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
 
 This campaign was designed under the new `Track 1` paradigm:
 
@@ -270,16 +270,16 @@ The next technically justified steps are:
 ## Artifact References
 
 - Campaign root:
-  `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
+  `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
 - Campaign leaderboard:
-  `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/campaign_leaderboard.yaml`
+  `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/campaign_leaderboard.yaml`
 - Campaign best run YAML:
-  `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/campaign_best_run.yaml`
+  `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/campaign_best_run.yaml`
 - Campaign best run note:
-  `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/campaign_best_run.md`
+  `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/campaign_best_run.md`
 - Winning validation summary:
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run/validation_summary.yaml`
 - Winning model bundle:
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run/paper_family_model_bank.pkl`
 - Per-run launcher logs:
-  `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/logs/`
+  `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/logs/`

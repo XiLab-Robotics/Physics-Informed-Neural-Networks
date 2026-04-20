@@ -11,7 +11,7 @@ campaign back into the local repository without operator intervention.
 ## Technical Approach
 
 The fix will focus on the local completion path inside
-`scripts/campaigns/run_remote_training_campaign.ps1`, especially the post-run
+`scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`, especially the post-run
 artifact sync stages that happen after the remote training process exits. The
 implementation will:
 
@@ -29,7 +29,7 @@ tightly coupled to the repository-owned launcher and bookkeeping files.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `doc/guide/project_usage_guide.md`
 - `doc/running/remote_training_campaign_status.json`

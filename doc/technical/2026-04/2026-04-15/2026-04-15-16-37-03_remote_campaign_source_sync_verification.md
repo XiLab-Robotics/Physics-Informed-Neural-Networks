@@ -37,7 +37,7 @@ remote training script.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical remote launcher whose `sync_up` stage needs a remote file-existence
   verification pass before `remote_run`.
 - `doc/scripts/campaigns/run_remote_training_campaign.md`

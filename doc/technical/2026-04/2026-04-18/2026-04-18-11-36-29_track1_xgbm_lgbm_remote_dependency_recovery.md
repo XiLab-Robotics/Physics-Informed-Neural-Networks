@@ -41,7 +41,7 @@ surface this requirement until after the full source sync and launch step.
 The recovery implementation should therefore:
 
 1. add a remote optional-dependency preflight in
-   `scripts/campaigns/run_exact_paper_campaign_remote.ps1`;
+   `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`;
 2. infer the required optional packages from the requested family names or run
    names;
 3. verify those imports inside the same remote Conda environment used by the
@@ -65,10 +65,10 @@ recovery plan.
 
 ## Involved Components
 
-- `scripts/campaigns/run_exact_paper_campaign_remote.ps1`
-- `scripts/campaigns/run_track1_xgbm_full_matrix_campaign.ps1`
-- `scripts/campaigns/run_track1_lgbm_full_matrix_campaign.ps1`
-- `scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.ps1`
 - `doc/scripts/campaigns/run_track1_xgbm_full_matrix_campaign.md`
 - `doc/scripts/campaigns/run_track1_lgbm_full_matrix_campaign.md`
 - `doc/scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.md`

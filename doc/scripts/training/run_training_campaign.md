@@ -127,7 +127,7 @@ The same runner can now dispatch both neural and tree-based structured baselines
 The repository also provides a short PowerShell launcher that expands to the approved Wave 1 recovery campaign and preserves the same terminal logging behavior:
 
 ```powershell
-.\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
+.\scripts\\campaigns\\wave1\\run_wave1_structured_baseline_recovery_campaign.ps1
 ```
 
 The launcher is a convenience wrapper only. It does not change queue handling, output paths, or per-run logging. For the recovery campaign, it also removes stale pending or running recovery YAML files left by previous failed launch attempts before re-enqueuing the approved config set.

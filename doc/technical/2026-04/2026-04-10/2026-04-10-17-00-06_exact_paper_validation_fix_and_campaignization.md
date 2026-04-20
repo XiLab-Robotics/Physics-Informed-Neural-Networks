@@ -85,7 +85,7 @@ Reference material that should stay in scope:
 New repository workflow components likely to be added:
 
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/...`
-- `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1`
 - `doc/scripts/campaigns/run_exact_paper_model_bank_campaign.md`
 - `doc/reports/campaign_plans/...` for the exact-paper campaign preparation
 

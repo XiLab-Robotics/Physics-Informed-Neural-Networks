@@ -23,13 +23,13 @@ support.
 - Planning report:
   `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - Launcher:
-  `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
+  `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
 - Launcher note:
   `doc/scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md`
 - Active campaign state:
   `doc/running/active_training_campaign.yaml`
 - Campaign outputs:
-  `output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
+  `output/training_campaigns/wave1/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
 - Family and program registries:
   `output/registries/families/residual_harmonic_mlp/latest_family_best.yaml`
   and `output/registries/program/current_best_solution.yaml`
@@ -196,8 +196,8 @@ Contribution:
 
 - added the strongest concrete findings of the whole wave;
 - found real workflow and bookkeeping issues, not style nits;
-- changed the conclusion from “package is fully aligned” to “package is mostly
-  aligned, but replay and audit semantics are weaker than they look.”
+- changed the conclusion from â€œpackage is fully alignedâ€ to â€œpackage is mostly
+  aligned, but replay and audit semantics are weaker than they look.â€
 
 Net value:
 

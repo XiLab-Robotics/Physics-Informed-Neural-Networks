@@ -52,7 +52,7 @@ owned reporting task over already completed artifacts.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/`
+- `output/training_campaigns/track1/svm/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-*track1_svr_exact_faithful*`
 - `doc/reports/analysis/validation_checks/2026-04-17-*track1_svr_exact_faithful*`
 - `doc/reports/campaign_results/`

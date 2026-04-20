@@ -1,4 +1,4 @@
-﻿# Track 1 Full-Matrix Family Reproduction Campaign Launcher
+# Track 1 Full-Matrix Family Reproduction Campaign Launcher
 
 ## Overview
 
@@ -54,13 +54,13 @@ Each run enables exactly one paper family and one target group:
 Run the canonical family-reproduction launcher from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_track1_full_matrix_family_reproduction_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_full_matrix_family_reproduction_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_track1_full_matrix_family_reproduction_campaign.ps1 `
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_full_matrix_family_reproduction_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -77,7 +77,7 @@ Each run also produces a validation report under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
+- `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
 
 ## Related Documents
 

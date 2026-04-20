@@ -30,7 +30,7 @@ The main design rule is that a reader should be able to infer:
 ## Involved Components
 
 - `scripts/training/run_training_campaign.py`
-- `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1`
 - future campaign-specific launcher wrappers
 - `doc/scripts/training/run_training_campaign.md`
 - `doc/scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md`

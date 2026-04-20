@@ -7,14 +7,14 @@ This report closes the residual exact-paper `Track 1` retry wave prepared in:
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns_plan_report.md`
 
 The batch targeted every non-`SVM` family-harmonic pair that still remained
-`🟡` or `🔴` after the earlier `171`-run cellwise reference wave.
+`ðŸŸ¡` or `ðŸ”´` after the earlier `171`-run cellwise reference wave.
 
 - completed family campaigns: `9`
 - completed validation runs: `1026`
 - failed validation runs: `0`
 - promoted residual pair winners: `90/171`
 - aggregate campaign artifact root:
-  `output/training_campaigns/track1_remaining_family_residual_cellwise_closure_campaigns_2026_04_19_01_04_28/`
+  `output/training_campaigns/track1/exact_paper/track1_remaining_family_residual_cellwise_closure_campaigns_2026_04_19_01_04_28/`
 
 ## Operational Outcome
 

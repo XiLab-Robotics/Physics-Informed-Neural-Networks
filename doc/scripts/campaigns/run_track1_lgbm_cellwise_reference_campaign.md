@@ -28,11 +28,11 @@
     Local command:
 
     ```powershell
-    .\scripts\campaigns\run_track1_lgbm_cellwise_reference_campaign.ps1
+    .\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_cellwise_reference_campaign.ps1
     ```
 
     Remote command:
 
     ```powershell
-    .\scripts\campaigns\run_track1_lgbm_cellwise_reference_campaign.ps1 -Remote
+    .\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_cellwise_reference_campaign.ps1 -Remote
     ```

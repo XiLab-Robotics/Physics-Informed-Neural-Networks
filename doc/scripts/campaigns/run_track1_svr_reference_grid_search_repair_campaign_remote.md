@@ -59,13 +59,13 @@ If your LAN workstation uses different values, pass them explicitly or set:
 Launch from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
+.\scripts\\campaigns\\track1\\svm\\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
 ```
 
 Explicit remote arguments:
 
 ```powershell
-.\scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1 `
+.\scripts\\campaigns\\track1\\svm\\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1 `
   -RemoteHostAlias xilab-remote `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
   -RemoteCondaEnvironmentName standard_ml_lan_node

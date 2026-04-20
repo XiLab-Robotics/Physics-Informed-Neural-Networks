@@ -10,4 +10,4 @@ Included configs:
 
 Canonical launcher:
 
-- `scripts/campaigns/run_track1_lgbm_full_matrix_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.ps1`

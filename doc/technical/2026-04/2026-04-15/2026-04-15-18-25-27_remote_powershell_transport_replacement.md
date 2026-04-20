@@ -49,7 +49,7 @@ remote script is launched, not where it runs inside the remote filesystem.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical SSH-backed remote launcher whose helper currently feeds script text
   through stdin to `powershell -Command -`.
 - `doc/scripts/campaigns/run_remote_training_campaign.md`

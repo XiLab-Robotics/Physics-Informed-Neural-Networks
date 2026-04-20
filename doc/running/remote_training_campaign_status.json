@@ -1,11 +1,11 @@
-﻿{
+{
     "run_status":  "completed",
     "stage":  "completed",
     "remote_host_alias":  "xilab-remote",
     "remote_repository_path":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
     "remote_conda_environment_name":  "standard_ml_lan_node",
     "campaign_name":  "track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48",
-    "planning_report_path":  "doc\\reports\\campaign_plans\\2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md",
+    "planning_report_path":  "doc\\reports\\campaign_plans\\track1\\svm\\2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md",
     "campaign_config_path_list":  [
                                       "config\\paper_reimplementation\\rcim_ml_compensation\\exact_model_bank\\campaigns\\2026-04-14_track1_svr_reference_grid_search_repair_campaign\\01_track1_svr_reference_grid_amplitude_pair.yaml",
                                       "config\\paper_reimplementation\\rcim_ml_compensation\\exact_model_bank\\campaigns\\2026-04-14_track1_svr_reference_grid_search_repair_campaign\\02_track1_svr_reference_grid_amplitude_40_only.yaml",
@@ -19,11 +19,11 @@
                                   "requirements.txt"
                               ],
     "local_log_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\.temp\\remote_training_campaigns\\2026-04-15-23-21-58_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48\\remote_training_campaign.log",
-    "remote_campaign_output_directory":  "output\\training_campaigns\\2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48",
-    "remote_manifest_path":  "output\\training_campaigns\\2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48\\campaign_manifest.yaml",
+    "remote_campaign_output_directory":  "output\\training_campaigns\\track1\\svm\\2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48",
+    "remote_manifest_path":  "output\\training_campaigns\\track1\\svm\\2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48\\campaign_manifest.yaml",
     "last_failure_message":  "",
     "synced_path_list":  [
-                             "C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48",
+                             "C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/training_campaigns/track1/svm/2026-04-15-23-22-38_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48",
                              "C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_001_01_track1_svr_reference_grid_amplitude_pair.yaml",
                              "C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_002_02_track1_svr_reference_grid_amplitude_40_only.yaml",
                              "C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_003_03_track1_svr_reference_grid_amplitude_240_only.yaml",

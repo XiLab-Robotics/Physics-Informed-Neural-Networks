@@ -7,7 +7,7 @@ recovery attempt for the interrupted `Track 1` `XGBM` and `LGBM` remote
 campaigns.
 
 The previously approved recovery hardening added optional-dependency preflight
-to `scripts/campaigns/run_exact_paper_campaign_remote.ps1`. That logic was
+to `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`. That logic was
 correct in intent but introduced a PowerShell runtime failure before the remote
 host preflight could even start.
 
@@ -18,7 +18,7 @@ The observed error is:
 The stack trace points to:
 
 - `Get-OptionalExactPaperDependencySpecificationList`
-- `scripts/campaigns/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
 
 This is therefore a launcher micro-fix task, not a model, YAML, or remote
 environment task.
@@ -55,7 +55,7 @@ The implementation should stay intentionally narrow:
 
 ## Involved Components
 
-- `scripts/campaigns/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `doc/scripts/campaigns/run_track1_xgbm_full_matrix_campaign.md`
 - `doc/scripts/campaigns/run_track1_lgbm_full_matrix_campaign.md`
 - `doc/scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.md`

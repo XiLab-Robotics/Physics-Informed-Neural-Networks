@@ -15,7 +15,7 @@ families.
 - completed validation runs: `171`
 - failed validation runs: `0`
 - aggregate campaign artifact root:
-  `output/training_campaigns/track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04/`
+  `output/training_campaigns/track1/exact_paper/track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04/`
 
 ## Operational Outcome
 

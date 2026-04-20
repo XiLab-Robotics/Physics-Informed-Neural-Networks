@@ -22,7 +22,7 @@ The final deliverable must include:
 The final report should synthesize four evidence sources:
 
 1. the persistent campaign state in `doc/running/active_training_campaign.yaml`;
-2. the campaign-level execution artifacts under `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`;
+2. the campaign-level execution artifacts under `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`;
 3. the per-run metrics and training summary in `output/training_runs/feedforward/legacy__te_feedforward_best_training/`;
 4. the observed terminal behavior reported during the real campaign execution.
 
@@ -43,9 +43,9 @@ The PDF export should reuse the existing styled-report pipeline so the final del
   Persistent campaign state already updated to `completed`.
 - `doc/reports/campaign_plans/mixed_training/2026-03-14-00-56-06_best_training_logging_validation_campaign_plan_report.md`
   Approved planning report for the completed campaign.
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
   Machine-readable campaign execution record.
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
   Human-readable campaign execution summary.
 - `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml`
   Canonical numeric metrics for the executed run.

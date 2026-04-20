@@ -27,4 +27,4 @@ Included configs:
 
 Canonical launcher:
 
-- `scripts/campaigns/run_track1_et_cellwise_reference_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.ps1`

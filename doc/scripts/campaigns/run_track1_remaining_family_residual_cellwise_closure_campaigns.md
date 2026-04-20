@@ -9,11 +9,11 @@ This launcher runs the full overnight residual-cell closure sequence for all nin
 Remote command:
 
 ```powershell
-.\scripts\campaigns\run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1 -Remote
 ```
 
 Explicit remote form:
 
 ```powershell
-.\scripts\campaigns\run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1 -Remote -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "standard_ml_lan_node"
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1 -Remote -RemoteHostAlias "xilab-remote" -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" -RemoteCondaEnvironmentName "standard_ml_lan_node"
 ```

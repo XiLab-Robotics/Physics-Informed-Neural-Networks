@@ -13,7 +13,7 @@ paper-reimplementation launcher:
 - failed runs: `0`
 - execution window: `2026-04-09T20:43:53+02:00` to `2026-04-09T21:06:13+02:00`
 - campaign artifact root:
-  `output/training_campaigns/2026-04-09-20-41-59_track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03/`
+  `output/training_campaigns/track1/harmonic_wise/2026-04-09-20-41-59_track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03/`
 
 Unlike the earlier generic training campaigns, this package evaluates the
 repository-owned RCIM paper reimplementation path:
@@ -274,10 +274,10 @@ The next technically justified steps are:
 ## Artifact References
 
 - Campaign artifact root:
-  `output/training_campaigns/2026-04-09-20-41-59_track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03/`
+  `output/training_campaigns/track1/harmonic_wise/2026-04-09-20-41-59_track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03/`
 - Winning validation summary:
   `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml`
 - Winning run report:
-  `doc/reports/analysis/validation_checks/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
+  `doc/reports/analysis/validation_checks/track1/harmonic_wise/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md`
 - Planning report:
   `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-09-18-56-03_track1_second_iteration_harmonic_wise_campaign_plan_report.md`

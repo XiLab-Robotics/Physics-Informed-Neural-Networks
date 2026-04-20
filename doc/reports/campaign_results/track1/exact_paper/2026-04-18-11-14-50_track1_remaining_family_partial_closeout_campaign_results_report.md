@@ -18,7 +18,7 @@ crash diagnosis and rerun.
 - completed families: `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`
 - pending families: `XGBM`, `LGBM`
 - aggregate campaign artifact root:
-  `output/training_campaigns/track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05/`
+  `output/training_campaigns/track1/exact_paper/track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05/`
 
 ## Operational Outcome
 

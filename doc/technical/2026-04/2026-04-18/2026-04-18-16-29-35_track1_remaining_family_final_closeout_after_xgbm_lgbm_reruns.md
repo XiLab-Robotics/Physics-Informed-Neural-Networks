@@ -36,9 +36,9 @@ The final pass should:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1_xgbm_full_matrix_campaign_2026_04_18_00_48_05/`
-- `output/training_campaigns/track1_lgbm_full_matrix_campaign_2026_04_18_00_48_05/`
-- `output/training_campaigns/track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05/`
+- `output/training_campaigns/track1/exact_paper/track1_xgbm_full_matrix_campaign_2026_04_18_00_48_05/`
+- `output/training_campaigns/track1/exact_paper/track1_lgbm_full_matrix_campaign_2026_04_18_00_48_05/`
+- `output/training_campaigns/track1/exact_paper/track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05/`
 - `doc/reports/campaign_results/track1/exact_paper/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`

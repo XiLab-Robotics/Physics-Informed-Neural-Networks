@@ -24,7 +24,7 @@ failure and one workflow-bookkeeping anomaly:
 
 The campaign artifact root is:
 
-- `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/`
+- `output/training_campaigns/infrastructure/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/`
 
 ## Objective And Outcome
 
@@ -311,11 +311,11 @@ The next technically useful steps are:
 
 Campaign-level references:
 
-- `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_manifest.yaml`
-- `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_execution_report.md`
-- `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_leaderboard.yaml`
-- `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_best_run.yaml`
-- `output/training_campaigns/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_best_run.md`
+- `output/training_campaigns/infrastructure/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_manifest.yaml`
+- `output/training_campaigns/infrastructure/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_execution_report.md`
+- `output/training_campaigns/infrastructure/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_leaderboard.yaml`
+- `output/training_campaigns/infrastructure/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_best_run.yaml`
+- `output/training_campaigns/infrastructure/2026-04-03-20-38-07_remote_training_validation_campaign_2026_04_03_17_54_21/campaign_best_run.md`
 
 Key per-run references:
 

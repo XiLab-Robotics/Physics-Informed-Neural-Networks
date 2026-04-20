@@ -14,7 +14,7 @@ remote launcher:
 - failed runs: `0`
 - execution window: `2026-04-17 00:54:27+02:00` to `2026-04-17 06:29:49+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/`
+  `output/training_campaigns/track1/svm/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/`
 
 The campaign goal was twofold:
 
@@ -198,9 +198,9 @@ remains the next exact-paper blocker if `SVR` export parity is still a goal.
 The campaign output folder now contains the required serialized winner
 artifacts:
 
-- `output/training_campaigns/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/campaign_best_run.yaml`
-- `output/training_campaigns/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/campaign_best_run.md`
+- `output/training_campaigns/track1/svm/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/svm/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/campaign_best_run.yaml`
+- `output/training_campaigns/track1/svm/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/campaign_best_run.md`
 
 The remote wrapper log for the successful campaign execution is:
 

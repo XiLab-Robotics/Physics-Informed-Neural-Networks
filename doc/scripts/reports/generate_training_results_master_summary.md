@@ -57,7 +57,7 @@ The repository workflow should refresh this master summary automatically:
 - after local training campaigns complete through
   `scripts/training/run_training_campaign.py`;
 - after LAN-remote training campaigns finish syncing back to the local
-  repository through `scripts/campaigns/run_remote_training_campaign.ps1`.
+  repository through `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`.
 
 This keeps the report aligned with the latest campaign artifacts and family
 registries without requiring a separate manual bookkeeping step after every

@@ -8,7 +8,7 @@ campaign.
 
 The failure occurs immediately in:
 
-- `scripts/campaigns/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1`
 
 Observed error:
 
@@ -46,7 +46,7 @@ workflow itself.
 
 ## Involved Components
 
-- `scripts/campaigns/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1`
 - `doc/running/active_training_campaign.yaml`
 - `doc/scripts/campaigns/run_track1_remaining_family_residual_cellwise_closure_campaigns.md`
 - `doc/technical/2026-04/2026-04-19/README.md`

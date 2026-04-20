@@ -21,7 +21,7 @@ The campaign executed successfully end to end:
 
 The campaign artifact root is:
 
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`
 
 ## Recovery Objective And Outcome
 
@@ -196,11 +196,11 @@ The next technically useful steps are:
 
 Campaign-level references:
 
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_manifest.yaml`
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_execution_report.md`
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_leaderboard.yaml`
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_best_run.yaml`
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_best_run.md`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_manifest.yaml`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_execution_report.md`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_leaderboard.yaml`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_best_run.yaml`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/campaign_best_run.md`
 
 Winning recovered run:
 

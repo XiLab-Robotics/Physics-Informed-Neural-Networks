@@ -29,9 +29,9 @@ This keeps the report historically honest while still making it useful to a read
   Existing report that should receive the addendum.
 - `doc/reports/campaign_results/mixed_training/2026-03-14-02-08-12_best_training_logging_validation_campaign_results_report.pdf`
   PDF export that must be regenerated after the markdown update and revalidated against the project PDF quality rules.
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
   First campaign artifact root referenced by the current report.
-- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
+- `output/training_campaigns/mixed_training/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
   Post-fix rerun artifact root that confirms the shutdown fix and provides the updated campaign execution record.
 - `output/training_runs/feedforward/legacy__te_feedforward_best_training/training_test_metrics.yaml`
   Current shared run-level metrics file now reflecting the rerun.

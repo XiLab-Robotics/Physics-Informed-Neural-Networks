@@ -83,13 +83,13 @@ Every prepared family campaign should follow the same structure:
   - `01_<family>_amplitude_full_matrix.yaml`
   - `02_<family>_phase_full_matrix.yaml`
 - hybrid launcher:
-  - `scripts/campaigns/run_track1_<family>_full_matrix_campaign.ps1`
+  - `scripts/campaigns/track1/exact_paper/run_track1_<family>_full_matrix_campaign.ps1`
 - launcher note:
   - `doc/scripts/campaigns/run_track1_<family>_full_matrix_campaign.md`
 
 The aggregate sequential layer should add:
 
-- `scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.ps1`
 - `doc/scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.md`
 
 Hybrid launcher rule:
@@ -152,36 +152,36 @@ These are the commands that should exist after the campaign package is
 generated:
 
 ```powershell
-.\scripts\campaigns\run_track1_mlp_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_rf_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_dt_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_et_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_ert_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_gbm_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_hgbm_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_xgbm_full_matrix_campaign.ps1
-.\scripts\campaigns\run_track1_lgbm_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_mlp_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_rf_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_ert_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_gbm_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_hgbm_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_full_matrix_campaign.ps1
 ```
 
 Aggregate sequential command:
 
 ```powershell
-.\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_full_matrix_campaigns.ps1
 ```
 
 Remote variants that should also exist after generation:
 
 ```powershell
-.\scripts\campaigns\run_track1_mlp_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_rf_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_dt_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_et_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_ert_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_gbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_hgbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_mlp_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_rf_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_ert_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_gbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_hgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_full_matrix_campaigns.ps1 -Remote
 ```
 
 These commands are still planned commands at this stage. They become actual

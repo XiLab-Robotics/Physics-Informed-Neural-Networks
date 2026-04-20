@@ -14,7 +14,7 @@ on warning text alone.
 
 ## Technical Approach
 
-The fix should stay inside `scripts/campaigns/run_remote_training_campaign.ps1`
+The fix should stay inside `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 and should preserve the existing canonical SSH-based workflow:
 
 1. keep streaming remote output to the local terminal;
@@ -37,7 +37,7 @@ The implementation should additionally verify that:
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical SSH-backed remote campaign launcher whose remote-run stage needs
   stderr-tolerant streaming behavior.
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
@@ -53,7 +53,7 @@ The implementation should additionally verify that:
 ## Implementation Steps
 
 1. Refactor the remote-run section of
-   `scripts/campaigns/run_remote_training_campaign.ps1` so remote `stderr`
+   `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` so remote `stderr`
    warning lines do not become fatal local pipeline errors.
 2. Ensure the local remote-run log file is created deterministically before the
    remote command starts streaming.

@@ -33,13 +33,13 @@ All files live under:
 Run the entire overnight package from the repository root with one command:
 
 ```powershell
-.\scripts\campaigns\run_track1_overnight_gap_closure_campaign.ps1
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_overnight_gap_closure_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_track1_overnight_gap_closure_campaign.ps1 `
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_overnight_gap_closure_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -52,7 +52,7 @@ Each coordinated run writes validation artifacts under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/logs/`
+- `output/training_campaigns/track1/harmonic_wise/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/logs/`
 
 Each successful run also refreshes:
 

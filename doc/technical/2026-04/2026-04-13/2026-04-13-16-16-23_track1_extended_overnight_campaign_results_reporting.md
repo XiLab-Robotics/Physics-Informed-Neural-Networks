@@ -29,7 +29,7 @@ The work should:
    `test_mean_percentage_error_pct`, then `curve_mae_deg`, then
    `curve_rmse_deg`, then lexical `run_name`;
 3. serialize campaign winner artifacts under
-   `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/`;
+   `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/`;
 4. produce a final Markdown report under `doc/reports/campaign_results/`;
 5. export the report PDF through the repository report pipeline and validate the
    real exported PDF output;
@@ -41,7 +41,7 @@ No Codex subagent is planned for this closeout.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/`
+- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/`
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
 - `doc/reports/campaign_results/`
 - `doc/reports/analysis/Training Results Master Summary.md`

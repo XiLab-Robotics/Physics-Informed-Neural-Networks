@@ -13,7 +13,7 @@ through one coordinated launcher:
 - failed runs: `0`
 - execution window: `2026-04-13T01:42:34+02:00` to `2026-04-13T02:00:49+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/`
+  `output/training_campaigns/track1/harmonic_wise/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/`
 
 The overnight batch was organized into four logical experiment blocks:
 
@@ -71,7 +71,7 @@ plan:
 
 This policy is serialized under:
 
-- `output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/harmonic_wise/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_leaderboard.yaml`
 
 ## Ranked Completed Runs
 
@@ -235,6 +235,6 @@ The most defensible next step is:
 
 ## Artifact References
 
-- `output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_best_run.yaml`
-- `output/training_campaigns/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_best_run.md`
+- `output/training_campaigns/track1/harmonic_wise/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/harmonic_wise/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_best_run.yaml`
+- `output/training_campaigns/track1/harmonic_wise/track1_overnight_gap_closure_campaign_2026_04_13_01_02_23/campaign_best_run.md`

@@ -19,11 +19,11 @@ Attempt matrix:
 Local command:
 
 ```powershell
-.\scripts\campaigns\run_track1_dt_residual_cellwise_closure_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_residual_cellwise_closure_campaign.ps1
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\run_track1_dt_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_residual_cellwise_closure_campaign.ps1 -Remote
 ```

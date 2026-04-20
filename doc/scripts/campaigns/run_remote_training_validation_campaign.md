@@ -133,14 +133,14 @@ If the two local environment variables are set, the recommended operator
 command from the repository root is:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_validation_campaign.ps1
+.\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1
 ```
 
 If you prefer not to persist the local environment variables yet, use this
 explicit operator command:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_validation_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
   -RemoteCondaEnvironmentName "standard_ml_lan_node" `
   -RemoteHostAlias "xilab-remote"

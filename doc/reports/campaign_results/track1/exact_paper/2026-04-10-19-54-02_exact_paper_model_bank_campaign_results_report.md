@@ -13,7 +13,7 @@ dedicated exact-paper launcher:
 - failed runs: `0`
 - execution window: `2026-04-10T18:44:39.0700428+02:00` to `2026-04-10T19:14:18.3733939+02:00`
 - campaign artifact root:
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
 
 Unlike the harmonic-wise `Track 1` campaign, this package does not optimize the
 full TE-curve offline benchmark directly. Its purpose is to validate the
@@ -304,13 +304,13 @@ The next technically justified steps are:
 ## Artifact References
 
 - Campaign root:
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
 - Campaign leaderboard:
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/campaign_leaderboard.yaml`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/campaign_leaderboard.yaml`
 - Campaign best run YAML:
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/campaign_best_run.yaml`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/campaign_best_run.yaml`
 - Campaign best run note:
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/campaign_best_run.md`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/campaign_best_run.md`
 - Winning strict validation summary:
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-14__exact_full_bank_strict_reference_campaign_run/validation_summary.yaml`
 - Winning strict model bundle:
@@ -318,4 +318,4 @@ The next technically justified steps are:
 - Diagnostic `SVR` validation summary:
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-12-57__exact_svr_export_diagnostic_campaign_run/validation_summary.yaml`
 - Per-run launcher logs:
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`

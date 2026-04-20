@@ -112,13 +112,13 @@ The current usage flow mainly relies on these folders:
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
-- `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1`
   Short PowerShell launcher for the Wave 1 recovery campaign.
 
-- `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
   Canonical short PowerShell launcher for the Wave 1 residual-harmonic family campaign.
 
-- `scripts/campaigns/run_exact_paper_faithful_reproduction_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
   Canonical coordinated launcher for the current paper-faithful `Track 1`
   reproduction campaign package.
 
@@ -248,7 +248,7 @@ The current usage flow mainly relies on these folders:
 The Wave 1 recovery campaign can also be launched through the short wrapper:
 
 ```powershell
-.\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
+.\scripts\\campaigns\\wave1\\run_wave1_structured_baseline_recovery_campaign.ps1
 ```
 
 This wrapper only reduces typing. It preserves the same terminal output, logs, and campaign artifacts as the full runner command.
@@ -272,7 +272,7 @@ day-local technical `README.md`, and registers the document from `doc/README.md`
 The Wave 1 residual-family follow-up also has a dedicated launcher:
 
 ```powershell
-.\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1
+.\scripts\\campaigns\\wave1\\run_wave1_residual_harmonic_family_campaign.ps1
 ```
 
 For approved campaigns, the repository workflow should now treat the launcher as
@@ -291,7 +291,7 @@ The current paper-faithful `Track 1` preparation also has a dedicated
 coordinated launcher:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_faithful_reproduction_campaign.ps1
 ```
 
 This launcher intentionally mixes:
@@ -1946,7 +1946,7 @@ on the stronger LAN workstation.
 
 Canonical launcher:
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 
 This workflow is intended to mirror the repository-owned LAN AI operating
 pattern:
@@ -1986,7 +1986,7 @@ Recommended convenience variables on the current workstation:
 Generic launcher example:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_remote_training_campaign.ps1 `
   -CampaignConfigPathList @(
       "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\01_residual_h08_small_frozen.yaml",
       "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\02_residual_h08_small_joint.yaml"
@@ -2055,7 +2055,7 @@ Prepared campaign root:
 
 Dedicated launcher:
 
-- `scripts/campaigns/run_remote_training_validation_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_validation_campaign.ps1`
 
 Dedicated launcher note:
 
@@ -2097,14 +2097,14 @@ Recommended one-time current-workstation setup:
 After reopening PowerShell, the validated campaign launcher can be reused with:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_validation_campaign.ps1
+.\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1
 ```
 
 If you prefer not to persist the current-workstation environment variables yet,
 use:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_validation_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
   -RemoteCondaEnvironmentName "standard_ml_lan_node" `
   -RemoteHostAlias "xilab-remote"
@@ -2136,7 +2136,7 @@ Prepared campaign root:
 
 Dedicated launcher:
 
-- `scripts/campaigns/run_targeted_remote_followup_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.ps1`
 
 Dedicated launcher note:
 
@@ -2156,13 +2156,13 @@ This package is intentionally selective:
 If the local environment variables are already set, launch with:
 
 ```powershell
-.\scripts\campaigns\run_targeted_remote_followup_campaign.ps1
+.\scripts\\campaigns\\infrastructure\\run_targeted_remote_followup_campaign.ps1
 ```
 
 If you prefer the explicit form, use:
 
 ```powershell
-.\scripts\campaigns\run_targeted_remote_followup_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_targeted_remote_followup_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
   -RemoteCondaEnvironmentName "standard_ml_lan_node" `
   -RemoteHostAlias "xilab-remote"
@@ -2234,7 +2234,7 @@ Current finished Wave 1 residual-family follow-up campaign:
 - campaign name: `wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00`
 - planning report: `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
 - config package: `config/training/residual_harmonic_mlp/campaigns/2026-03-26_wave1_residual_harmonic_family_campaign/`
-- canonical launcher: `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
+- canonical launcher: `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
 
 ## Typical Workflow For The Current Project
 
@@ -2395,7 +2395,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Prepared comprehensive second-iteration campaign launcher:
 
 ```powershell
-.\scripts\campaigns\run_track1_second_iteration_harmonic_wise_campaign.ps1
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_second_iteration_harmonic_wise_campaign.ps1
 ```
 
 Campaign package root:
@@ -2409,7 +2409,7 @@ Campaign planning report:
 Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/<run_instance_id>/`
-- `doc/reports/analysis/validation_checks/*_harmonic_wise_comparison_report.md`
+- `doc/reports/analysis/validation_checks/track1/harmonic_wise/*_harmonic_wise_comparison_report.md`
 - refreshed `doc/reports/analysis/Training Results Master Summary.md`
 
 Current scope:
@@ -2460,13 +2460,13 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Prepared batch launcher:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_model_bank_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1 `
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_model_bank_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -2474,8 +2474,8 @@ Optional PowerShell usage:
 Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/<run_instance_id>/`
-- `doc/reports/analysis/validation_checks/*_exact_paper_model_bank_report.md`
-- `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
+- `doc/reports/analysis/validation_checks/track1/exact_paper/*_exact_paper_model_bank_report.md`
+- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 
 Current scope:
 

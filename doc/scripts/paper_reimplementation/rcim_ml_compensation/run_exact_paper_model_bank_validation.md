@@ -101,4 +101,4 @@ Operational note:
 - it does not yet execute the online compensation loop or the final `Table 9`
   benchmark branch.
 - the prepared batch-run surface for this workflow is
-  `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`.
+  `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1`.

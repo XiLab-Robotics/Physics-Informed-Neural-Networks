@@ -99,7 +99,7 @@ It should include:
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 - `scripts/training/run_training_campaign.py`
 - `scripts/training/train_feedforward_network.py`
 - `scripts/training/train_residual_harmonic_mlp.py`

@@ -32,13 +32,13 @@ Logical block order:
 Run the entire package from the repository root with one command:
 
 ```powershell
-.\scripts\campaigns\run_track1_extended_overnight_campaign.ps1
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_extended_overnight_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_track1_extended_overnight_campaign.ps1 `
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_extended_overnight_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -51,7 +51,7 @@ Each coordinated run writes validation artifacts under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/logs/`
+- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/logs/`
 
 Each successful run also refreshes:
 

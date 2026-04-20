@@ -37,7 +37,7 @@ families that still have credible value on the stronger workstation:
 Use the dedicated launcher:
 
 ```powershell
-.\scripts\campaigns\run_targeted_remote_followup_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_targeted_remote_followup_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
 ```
 

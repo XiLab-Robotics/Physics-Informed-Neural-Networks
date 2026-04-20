@@ -61,7 +61,7 @@ observability fields already compatible with the current workflow.
   Active campaign state file that remains relevant context because the logging
   upgrade is motivated by an active campaign, even though the implementation
   itself should not modify this file.
-- `scripts/campaigns/shared_streaming_campaign_launcher.ps1`
+- `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1`
   Already-fixed launcher helper that will surface the new runner-side lines
   live once the Python workflow emits them.
 

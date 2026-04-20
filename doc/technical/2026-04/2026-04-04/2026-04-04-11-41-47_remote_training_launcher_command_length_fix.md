@@ -41,8 +41,8 @@ prepared dedicated launcher without regenerating the campaign package.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
-- `scripts/campaigns/run_targeted_remote_followup_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.ps1`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `doc/scripts/campaigns/run_targeted_remote_followup_campaign.md`
 - `doc/guide/project_usage_guide.md`
@@ -53,7 +53,7 @@ prepared dedicated launcher without regenerating the campaign package.
 ## Implementation Steps
 
 1. Refactor the remote PowerShell transport in
-   `scripts/campaigns/run_remote_training_campaign.ps1` so the launcher no
+   `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` so the launcher no
    longer sends an oversized encoded script directly on the `ssh.exe` command
    line.
 2. Keep the existing remote execution semantics and artifact-sync behavior

@@ -65,8 +65,8 @@ Out of scope:
 After this repair, the commands should remain:
 
 ```powershell
-.\scripts\campaigns\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
 ```
 
 ## Acceptance Criteria

@@ -98,13 +98,13 @@ Each family package should contain:
 - one campaign-local `README.md`;
 - `19` YAML files, one per target cell;
 - one family launcher:
-  `scripts/campaigns/run_track1_<family>_cellwise_reference_campaign.ps1`;
+  `scripts/campaigns/track1/exact_paper/run_track1_<family>_cellwise_reference_campaign.ps1`;
 - one launcher note:
   `doc/scripts/campaigns/run_track1_<family>_cellwise_reference_campaign.md`.
 
 The aggregate orchestration layer should contain:
 
-- `scripts/campaigns/run_track1_remaining_family_cellwise_reference_campaigns.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.ps1`
 - `doc/scripts/campaigns/run_track1_remaining_family_cellwise_reference_campaigns.md`
 
 Hybrid launcher rule:
@@ -191,31 +191,31 @@ after the approved implementation generates the launcher set.
 Local form:
 
 ```powershell
-.\scripts\campaigns\run_track1_mlp_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_rf_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_dt_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_et_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_ert_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_gbm_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_hgbm_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_xgbm_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_lgbm_cellwise_reference_campaign.ps1
-.\scripts\campaigns\run_track1_remaining_family_cellwise_reference_campaigns.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_mlp_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_rf_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_ert_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_gbm_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_hgbm_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_cellwise_reference_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_cellwise_reference_campaigns.ps1
 ```
 
 Remote form:
 
 ```powershell
-.\scripts\campaigns\run_track1_mlp_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_rf_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_dt_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_et_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_ert_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_gbm_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_hgbm_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_xgbm_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_lgbm_cellwise_reference_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_remaining_family_cellwise_reference_campaigns.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_mlp_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_rf_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_ert_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_gbm_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_hgbm_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_cellwise_reference_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_cellwise_reference_campaigns.ps1 -Remote
 ```
 
 ## Expected Closeout Consequences

@@ -24,11 +24,11 @@ The launcher:
 Run the canonical residual-family launcher from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1
+.\scripts\\campaigns\\wave1\\run_wave1_residual_harmonic_family_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1 -PythonExecutable python
+.\scripts\\campaigns\\wave1\\run_wave1_residual_harmonic_family_campaign.ps1 -PythonExecutable python
 ```

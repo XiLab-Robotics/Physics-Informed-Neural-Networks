@@ -38,13 +38,13 @@ The launcher executes the following `12` prepared validation configs:
 Launch from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_track1_svm_open_cell_repair_campaign.ps1
+.\scripts\\campaigns\\track1\\svm\\run_track1_svm_open_cell_repair_campaign.ps1
 ```
 
 Optional explicit environment arguments:
 
 ```powershell
-.\scripts\campaigns\run_track1_svm_open_cell_repair_campaign.ps1 `
+.\scripts\\campaigns\\track1\\svm\\run_track1_svm_open_cell_repair_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -52,7 +52,7 @@ Optional explicit environment arguments:
 ## Outputs To Monitor
 
 - campaign logs under
-  `output/training_campaigns/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/logs/`
+  `output/training_campaigns/track1/svm/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/logs/`
 - validation artifacts under
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
 - canonical benchmark status in

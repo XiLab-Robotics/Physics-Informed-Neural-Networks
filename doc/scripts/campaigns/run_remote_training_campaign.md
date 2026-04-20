@@ -72,7 +72,7 @@ Use these environment variables on the current workstation for convenience:
 Generic usage from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_remote_training_campaign.ps1 `
+.\scripts\\campaigns\\infrastructure\\run_remote_training_campaign.ps1 `
   -CampaignConfigPathList @(
       "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\01_residual_h08_small_frozen.yaml",
       "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\02_residual_h08_small_joint.yaml"

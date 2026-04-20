@@ -13,7 +13,7 @@ remote launcher:
 - failed runs: `0`
 - execution window: `2026-04-17 12:00:42+02:00` to `2026-04-17 17:36:26+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/`
+  `output/training_campaigns/track1/svm/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/`
 
 The campaign goal was intentionally narrow:
 
@@ -205,9 +205,9 @@ Training and validation still run correctly, but all scoped `SVR` ONNX exports
 The campaign output folder now contains the required serialized winner
 artifacts:
 
-- `output/training_campaigns/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/campaign_best_run.yaml`
-- `output/training_campaigns/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/campaign_best_run.md`
+- `output/training_campaigns/track1/svm/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/campaign_best_run.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/campaign_best_run.md`
 
 The remote wrapper log for the successful campaign execution is:
 

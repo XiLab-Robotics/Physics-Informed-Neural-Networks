@@ -8,7 +8,7 @@ a real regression in the styled report export workflow.
 Observed artifacts:
 
 - the current PDF at
-  `doc/reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf`
+  `doc/reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf`
   renders as a browser error page with `ERR_FILE_NOT_FOUND`;
 - a preview HTML artifact was left behind at
   `doc/reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report_preview.html`.
@@ -52,8 +52,8 @@ The repair should keep the repository rule unchanged:
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md`
-- `doc/reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf`
+- `doc/reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.md`
+- `doc/reports/analysis/validation_checks/infrastructure/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf`
 - `doc/reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report_preview.html`
 - `doc/technical/2026-03/2026-03-30/2026-03-30-10-57-14_validation_setup_report_pdf_export_regression_in_report_pipeline.md`
 

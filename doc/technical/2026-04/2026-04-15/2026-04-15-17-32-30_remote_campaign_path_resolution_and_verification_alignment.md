@@ -22,7 +22,7 @@ valid repository-relative paths.
 ## Technical Approach
 
 The fix should stay inside the canonical remote launcher
-`scripts/campaigns/run_remote_training_campaign.ps1`.
+`scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`.
 
 The implementation should:
 
@@ -46,7 +46,7 @@ resolution.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical SSH-backed remote campaign launcher that currently generates the
   malformed verification script and owns the path handoff into the remote
   training entrypoint.

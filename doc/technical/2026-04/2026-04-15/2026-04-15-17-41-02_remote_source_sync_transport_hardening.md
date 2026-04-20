@@ -49,7 +49,7 @@ files visible to both PowerShell and Python, not placeholder-like entries.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical remote launcher whose `Invoke-RemoteTarExtract(...)` sync-up path
   currently produces broken remote YAML entries for this campaign.
 - `doc/scripts/campaigns/run_remote_training_campaign.md`

@@ -27,7 +27,7 @@ The fix should remain narrow and should not alter the current logging behavior.
 ## Involved Components
 
 - `scripts/training/run_training_campaign.py`
-- `scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1`
 - `doc/scripts/training/run_training_campaign.md`
 - `doc/scripts/campaigns/run_wave1_structured_baseline_recovery_campaign.md`
 - `doc/guide/project_usage_guide.md`

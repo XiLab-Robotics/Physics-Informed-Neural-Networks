@@ -10,11 +10,11 @@ Included configs:
 Local command:
 
 ```powershell
-.\scripts\campaigns\run_track1_et_full_matrix_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_full_matrix_campaign.ps1
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\run_track1_et_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_full_matrix_campaign.ps1 -Remote
 ```

@@ -49,7 +49,7 @@ behavior, and the exact files to inspect before or after a remote campaign.
 - `scripts/training/train_feedforward_network.py`
 - `scripts/training/run_training_campaign.py`
 - `scripts/training/build_remote_training_sync_manifest.py`
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `doc/guide/project_usage_guide.md`
 - `.codex/skills/`

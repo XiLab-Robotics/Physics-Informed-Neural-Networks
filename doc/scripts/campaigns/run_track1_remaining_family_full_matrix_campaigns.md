@@ -16,13 +16,13 @@ campaigns in sequence:
 Local command:
 
 ```powershell
-.\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_full_matrix_campaigns.ps1
 ```
 
 Remote command:
 
 ```powershell
-.\scripts\campaigns\run_track1_remaining_family_full_matrix_campaigns.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_full_matrix_campaigns.ps1 -Remote
 ```
 
 For post-interruption recovery, prefer launching the dedicated pending-family
@@ -30,8 +30,8 @@ commands directly instead of replaying the full `9`-family aggregate wrapper
 from the beginning:
 
 ```powershell
-.\scripts\campaigns\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
 ```
 
 The shared remote exact-paper launcher now performs optional-dependency

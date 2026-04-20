@@ -17,7 +17,7 @@ repository as the canonical state, bookkeeping, and review surface.
 ## Technical Approach
 
 The implementation should reuse the existing remote campaign launcher
-infrastructure under `scripts/campaigns/run_remote_training_campaign.ps1`
+infrastructure under `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 instead of creating a new one-off launcher for this specific exact-paper
 campaign.
 
@@ -40,7 +40,7 @@ silently repurposing the old local-launch assumptions.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical repository-owned remote launcher that should be reused.
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
   Canonical operator documentation for the SSH-backed campaign path.

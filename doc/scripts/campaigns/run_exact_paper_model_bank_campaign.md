@@ -49,13 +49,13 @@ independently of the special-case `SVR` path.
 Run the canonical exact-paper campaign launcher from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_model_bank_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_model_bank_campaign.ps1 `
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_model_bank_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -72,7 +72,7 @@ Each run also produces a validation report under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
+- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 
 ## Related Documents
 

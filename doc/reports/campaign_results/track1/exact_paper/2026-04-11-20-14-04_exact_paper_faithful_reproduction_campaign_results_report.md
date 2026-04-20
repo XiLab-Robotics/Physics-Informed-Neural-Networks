@@ -12,7 +12,7 @@ The package executed `4` repository-owned validation runs through the dedicated 
 - failed runs: `0`
 - execution window: `2026-04-10T22:49:06.1087937+02:00` to `2026-04-11T20:08:29.5330140+02:00`
 - campaign artifact root:
-  `output/training_campaigns/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/`
+  `output/training_campaigns/track1/exact_paper/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/`
 
 Unlike a single-runner paper benchmark, this package used a coordinated structure:
 

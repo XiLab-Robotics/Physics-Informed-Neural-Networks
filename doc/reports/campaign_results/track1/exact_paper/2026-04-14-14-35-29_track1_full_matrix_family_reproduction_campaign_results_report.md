@@ -13,7 +13,7 @@ launcher:
 - failed runs: `0`
 - execution window: `2026-04-14 14:12:14+02:00` to `2026-04-14 14:15:18+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/`
+  `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/`
 
 This campaign was designed for the clarified first objective of `Track 1`:
 
@@ -248,7 +248,7 @@ So the amplitude matrix remains the larger closure burden.
 
 Both `MLP` rows remain scientifically weak.
 
-That does not just mean “not best”; it means materially off the paper matrix.
+That does not just mean â€œnot bestâ€; it means materially off the paper matrix.
 
 ### 6. The Next Iteration Should Be Row-Aware And Harmonic-Aware
 
@@ -279,14 +279,14 @@ The next technically justified steps are:
 ## Artifact References
 
 - Campaign root:
-  `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/`
+  `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/`
 - Campaign leaderboard:
-  `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/campaign_leaderboard.yaml`
+  `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/campaign_leaderboard.yaml`
 - Campaign best run YAML:
-  `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/campaign_best_run.yaml`
+  `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/campaign_best_run.yaml`
 - Campaign best run note:
-  `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/campaign_best_run.md`
+  `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/campaign_best_run.md`
 - Campaign logs:
-  `output/training_campaigns/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
+  `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
 - Canonical benchmark dashboard:
   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`

@@ -13,7 +13,7 @@ launcher:
 - failed runs: `0`
 - execution window: `2026-04-14 21:09:00+02:00` to `2026-04-14 21:10:39+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_svm_final_closure_campaign_2026_04_14_20_50_01/`
+  `output/training_campaigns/track1/svm/track1_svm_final_closure_campaign_2026_04_14_20_50_01/`
 
 The campaign goal was explicit:
 
@@ -207,9 +207,9 @@ The rational options are:
 The campaign output folder now contains the required serialized winner
 artifacts:
 
-- `output/training_campaigns/track1_svm_final_closure_campaign_2026_04_14_20_50_01/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_svm_final_closure_campaign_2026_04_14_20_50_01/campaign_best_run.yaml`
-- `output/training_campaigns/track1_svm_final_closure_campaign_2026_04_14_20_50_01/campaign_best_run.md`
+- `output/training_campaigns/track1/svm/track1_svm_final_closure_campaign_2026_04_14_20_50_01/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_final_closure_campaign_2026_04_14_20_50_01/campaign_best_run.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_final_closure_campaign_2026_04_14_20_50_01/campaign_best_run.md`
 
 The canonical reports updated by this closure are:
 

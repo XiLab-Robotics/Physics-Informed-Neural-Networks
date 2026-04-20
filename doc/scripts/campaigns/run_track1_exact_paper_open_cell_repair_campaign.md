@@ -62,13 +62,13 @@ Run the canonical exact-paper open-cell repair launcher from the repository
 root:
 
 ```powershell
-.\scripts\campaigns\run_track1_exact_paper_open_cell_repair_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_exact_paper_open_cell_repair_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_track1_exact_paper_open_cell_repair_campaign.ps1 `
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_exact_paper_open_cell_repair_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -85,7 +85,7 @@ Each run also produces a validation report under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/logs/`
+- `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/logs/`
 
 ## Related Documents
 

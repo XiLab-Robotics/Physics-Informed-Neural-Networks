@@ -168,7 +168,7 @@ python scripts/training/run_training_campaign.py
 ### Launch A Prepared Campaign On The LAN Workstation
 
 ```powershell
-.\scripts\campaigns\run_remote_training_campaign.ps1 `
+.\scripts\campaigns\infrastructure\run_remote_training_campaign.ps1 `
   -CampaignConfigPathList @("config\training\...\candidate_a.yaml","config\training\...\candidate_b.yaml") `
   -CampaignName "remote_example_campaign" `
   -PlanningReportPath "doc\reports\campaign_plans\YOUR_PLAN.md"
@@ -177,13 +177,13 @@ python scripts/training/run_training_campaign.py
 ### Use The Short Wave 1 Recovery Launcher
 
 ```powershell
-.\scripts\campaigns\run_wave1_structured_baseline_recovery_campaign.ps1
+.\scripts\campaigns\wave1\run_wave1_structured_baseline_recovery_campaign.ps1
 ```
 
 ### Use The Wave 1 Residual Launcher
 
 ```powershell
-.\scripts\campaigns\run_wave1_residual_harmonic_family_campaign.ps1
+.\scripts\campaigns\wave1\run_wave1_residual_harmonic_family_campaign.ps1
 ```
 
 ### Check Markdown Quality For Repository Docs

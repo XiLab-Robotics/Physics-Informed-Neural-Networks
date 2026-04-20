@@ -46,7 +46,7 @@ The launcher should also:
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical SSH-backed remote launcher that currently operates directly against
   the long repository path and therefore reproduces the Windows path-length
   failure.

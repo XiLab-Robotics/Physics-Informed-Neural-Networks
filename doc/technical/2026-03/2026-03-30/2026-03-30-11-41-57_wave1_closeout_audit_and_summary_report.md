@@ -74,9 +74,9 @@ minimal churn:
 - `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 - `doc/reports/campaign_results/wave1/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md`
 - `doc/reports/campaign_plans/wave1/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md`
-- `output/training_campaigns/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/`
-- `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`
-- `output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
+- `output/training_campaigns/wave1/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/`
+- `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`
+- `output/training_campaigns/wave1/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
 - `output/registries/families/`
 - `output/registries/program/current_best_solution.yaml`
 - `README.md`

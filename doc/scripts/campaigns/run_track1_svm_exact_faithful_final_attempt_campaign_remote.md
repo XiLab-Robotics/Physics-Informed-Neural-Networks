@@ -36,13 +36,13 @@ By default the launcher uses:
 Launch from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1
+.\scripts\\campaigns\\track1\\svm\\run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1
 ```
 
 Explicit remote arguments:
 
 ```powershell
-.\scripts\campaigns\run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1 `
+.\scripts\\campaigns\\track1\\svm\\run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1 `
   -RemoteHostAlias xilab-remote `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
   -RemoteCondaEnvironmentName standard_ml_lan_node

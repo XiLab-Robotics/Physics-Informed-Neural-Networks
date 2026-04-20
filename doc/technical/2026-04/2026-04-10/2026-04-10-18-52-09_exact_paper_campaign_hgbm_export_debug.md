@@ -62,8 +62,8 @@ runtime approval request will be raised before launch.
 Active campaign state and operator-facing execution surface:
 
 - `doc/running/active_training_campaign.yaml`
-- `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
-- `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/02_exact_full_bank_strict_reference.log`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1`
+- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/02_exact_full_bank_strict_reference.log`
 
 Primary implementation surface expected to be inspected or modified:
 

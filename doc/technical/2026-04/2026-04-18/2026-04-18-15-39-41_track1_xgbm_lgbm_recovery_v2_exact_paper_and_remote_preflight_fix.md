@@ -60,7 +60,7 @@ and to make the remote preflight truthful.
 ## Involved Components
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
-- `scripts/campaigns/run_exact_paper_campaign_remote.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `doc/scripts/campaigns/run_track1_xgbm_full_matrix_campaign.md`
 - `doc/scripts/campaigns/run_track1_lgbm_full_matrix_campaign.md`
 - `doc/scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.md`

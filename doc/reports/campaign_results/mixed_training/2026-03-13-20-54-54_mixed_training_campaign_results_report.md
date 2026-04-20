@@ -21,7 +21,7 @@ The campaign executed successfully end to end:
 
 The execution artifact root is:
 
-- `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/`
+- `output/training_campaigns/mixed_training/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/`
 
 ## Historical Reference Set
 
@@ -226,8 +226,8 @@ The next useful feedforward experiments are:
 
 Campaign-level references:
 
-- `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_manifest.yaml`
-- `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_execution_report.md`
+- `output/training_campaigns/mixed_training/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_manifest.yaml`
+- `output/training_campaigns/mixed_training/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_execution_report.md`
 
 Best practical mixed-campaign run:
 

@@ -47,7 +47,7 @@ The implementation should preserve:
 
 ## Involved Components
 
-- `scripts/campaigns/shared_streaming_campaign_launcher.ps1`
+- `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1`
   Shared campaign helper that currently streams child output but does not yet
   provide an operator-visible heartbeat or explicit process-tree cancellation.
 - `scripts/campaigns/*.ps1`

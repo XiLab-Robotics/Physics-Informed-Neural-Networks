@@ -70,7 +70,7 @@ After the fix:
 Validate with the real command:
 
 ```powershell
-.\scripts\campaigns\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
+.\scripts\\campaigns\\track1\\svm\\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1
 ```
 
 Success criteria:

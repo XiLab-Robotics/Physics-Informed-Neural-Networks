@@ -13,7 +13,7 @@ launcher:
 - failed runs: `0`
 - execution window: `2026-04-14 21:44:13+02:00` to `2026-04-14 21:52:37+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/`
+  `output/training_campaigns/track1/svm/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/`
 
 The campaign goal was minimal and explicit:
 
@@ -177,9 +177,9 @@ The rational options are now:
 The campaign output folder now contains the required serialized winner
 artifacts:
 
-- `output/training_campaigns/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/campaign_best_run.yaml`
-- `output/training_campaigns/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/campaign_best_run.md`
+- `output/training_campaigns/track1/svm/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/campaign_best_run.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/campaign_best_run.md`
 
 The canonical reports updated by this closure are:
 

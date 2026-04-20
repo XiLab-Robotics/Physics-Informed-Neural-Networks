@@ -68,13 +68,13 @@ It is not intended as a deployment-promotion candidate.
 Run the canonical harmonic-wise campaign launcher from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_track1_second_iteration_harmonic_wise_campaign.ps1
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_second_iteration_harmonic_wise_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_track1_second_iteration_harmonic_wise_campaign.ps1 `
+.\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_second_iteration_harmonic_wise_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```

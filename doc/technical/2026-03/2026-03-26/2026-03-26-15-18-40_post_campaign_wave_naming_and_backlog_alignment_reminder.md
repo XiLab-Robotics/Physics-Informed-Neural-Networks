@@ -46,7 +46,7 @@ The post-campaign alignment pass should review and correct, where appropriate:
   Technical note whose naming and wording may need post-campaign review.
 - `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
   Planning report whose wave framing may need post-campaign review.
-- `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
   Launcher whose naming may need post-campaign review.
 
 ## Implementation Steps

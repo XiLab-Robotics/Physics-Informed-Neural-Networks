@@ -14,7 +14,7 @@ The campaign has already been completed and the persistent campaign state confir
 - `0` failed runs;
 - queue folders cleared of pending/running items;
 - a campaign execution manifest and report under:
-  - `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/`
+  - `output/training_campaigns/mixed_training/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/`
 
 ## Technical Approach
 
@@ -82,9 +82,9 @@ The report should make that tradeoff explicit and the final `best_training` YAML
   Persistent campaign state, already marked as completed and pointing to the execution artifact root.
 - `doc/reports/campaign_plans/mixed_training/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md`
   Approved planning report for the completed campaign.
-- `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_manifest.yaml`
+- `output/training_campaigns/mixed_training/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_manifest.yaml`
   Machine-readable index of the `9` completed runs and their artifacts.
-- `output/training_campaigns/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_execution_report.md`
+- `output/training_campaigns/mixed_training/2026-03-12-18-52-30_mixed_training_campaign_2026_03_12_15_32_28/campaign_execution_report.md`
   Human-readable execution summary for the completed campaign.
 - `doc/reports/campaign_results/mixed_training/2026-03-12-15-04-34_feedforward_variant_comparison_report.md`
   Previous feedforward comparison report that should be used as historical context.

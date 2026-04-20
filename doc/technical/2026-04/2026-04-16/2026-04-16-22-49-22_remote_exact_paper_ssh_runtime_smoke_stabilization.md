@@ -50,9 +50,9 @@ transport itself or high-parallel `loky` execution under SSH.
 
 ## Involved Components
 
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
-- `scripts/campaigns/run_track1_svr_reference_grid_smoke_campaign.ps1`
-- `scripts/campaigns/run_track1_svr_reference_grid_smoke_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.ps1`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `scripts/training/shared_training_infrastructure.py`

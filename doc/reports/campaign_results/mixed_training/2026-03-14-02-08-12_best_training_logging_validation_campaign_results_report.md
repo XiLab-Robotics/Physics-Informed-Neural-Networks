@@ -18,7 +18,7 @@ The campaign completed successfully at the training and queue level:
 
 The execution artifact root is:
 
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
 
 ## Campaign Goal
 
@@ -156,7 +156,7 @@ After the original report was completed, the same one-item campaign was rerun af
 
 The rerun completed successfully under:
 
-- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
+- `output/training_campaigns/mixed_training/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/`
 
 ### What Changed After The Fix
 
@@ -185,17 +185,17 @@ It also shows slightly improved numerical results in the rerun, but those update
 
 ### Rerun-Specific Artifact References
 
-- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
-- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
-- `output/training_campaigns/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-02-22-52_001_01_best_training_logging_validation.log`
+- `output/training_campaigns/mixed_training/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
+- `output/training_campaigns/mixed_training/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
+- `output/training_campaigns/mixed_training/2026-03-14-02-22-52_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-02-22-52_001_01_best_training_logging_validation.log`
 
 ## Artifact References
 
 Campaign-level references:
 
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
-- `output/training_campaigns/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-01-09-30_001_01_best_training_logging_validation.log`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_manifest.yaml`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/campaign_execution_report.md`
+- `output/training_campaigns/mixed_training/2026-03-14-01-09-30_best_training_logging_validation_campaign_2026_03_14_00_56_06/logs/2026-03-14-01-09-30_001_01_best_training_logging_validation.log`
 
 Run-level references:
 

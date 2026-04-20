@@ -86,6 +86,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-20
 
+- [technical/2026-04/2026-04-20/2026-04-20-16-03-46_campaign_folder_taxonomy_extension.md](./technical/2026-04/2026-04-20/2026-04-20-16-03-46_campaign_folder_taxonomy_extension.md)
+  Technical document for extending the stable campaign-results folder taxonomy
+  to the still-flat `scripts/campaigns`, validation-check analysis bundle, and
+  `output/training_campaigns` roots.
 - [technical/2026-04/2026-04-20/2026-04-20-12-44-46_wave1_dataset_split_export_script.md](./technical/2026-04/2026-04-20/2026-04-20-12-44-46_wave1_dataset_split_export_script.md)
   Technical document for exporting the canonical `Wave 1` dataset split so a
   colleague can reproduce the same `70/20/10` partition with the repository

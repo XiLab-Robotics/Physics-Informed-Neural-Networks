@@ -16,4 +16,4 @@ The canonical planning report for this package is:
 
 The canonical launcher for this package is:
 
-- `scripts/campaigns/run_track1_second_iteration_harmonic_wise_campaign.ps1`
+- `scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.ps1`

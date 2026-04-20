@@ -81,8 +81,8 @@ After the launcher-hardening implementation is approved and generated, the
 intended commands remain:
 
 ```powershell
-.\scripts\campaigns\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_full_matrix_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_full_matrix_campaign.ps1 -Remote
 ```
 
 If the user prefers the convenience wrapper, the aggregate launcher may also be

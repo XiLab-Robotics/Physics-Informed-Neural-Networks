@@ -353,7 +353,7 @@ The closeout audit checked the following repository conditions.
 ### Confirmed Present
 
 - initial `Wave 1` campaign execution artifacts under
-  `output/training_campaigns/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/`
+  `output/training_campaigns/wave1/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/`
 - recovery campaign execution artifacts plus campaign-level winner artifacts
 - residual-family follow-up campaign execution artifacts plus campaign-level
   winner artifacts
@@ -440,11 +440,11 @@ The following directions currently look weak relative to their cost:
 ## Artifact References
 
 - Initial `Wave 1` campaign:
-  `output/training_campaigns/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/`
+  `output/training_campaigns/wave1/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/`
 - Recovery campaign:
-  `output/training_campaigns/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`
+  `output/training_campaigns/wave1/2026-03-20-16-11-22_wave1_structured_baseline_recovery_campaign_2026_03_20_15_40_42/`
 - Residual-family follow-up campaign:
-  `output/training_campaigns/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
+  `output/training_campaigns/wave1/2026-03-26-15-01-20_wave1_residual_harmonic_family_campaign_2026_03_26_13_52_00/`
 - Recovery campaign final report:
   `doc/reports/campaign_results/wave1/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md`
 - Residual-family final report:

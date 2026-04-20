@@ -40,7 +40,7 @@ selection logic.
 
 ## Involved Components
 
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
 - `doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.md`
@@ -48,7 +48,7 @@ selection logic.
 
 Protected campaign files expected to require modification:
 
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
 - `doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.md`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
 

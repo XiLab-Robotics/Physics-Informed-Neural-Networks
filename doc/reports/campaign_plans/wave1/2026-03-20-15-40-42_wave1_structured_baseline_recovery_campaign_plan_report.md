@@ -16,8 +16,8 @@ This recovery campaign has two goals:
 
 Reference artifacts from the first campaign:
 
-- `output/training_campaigns/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/campaign_execution_report.md`
-- `output/training_campaigns/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/campaign_manifest.yaml`
+- `output/training_campaigns/wave1/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/campaign_execution_report.md`
+- `output/training_campaigns/wave1/2026-03-20-14-18-30_wave1_structured_baseline_campaign_2026_03_17_21_01_47/campaign_manifest.yaml`
 - `output/registries/program/current_best_solution.yaml`
 
 ## Technical Context

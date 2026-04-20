@@ -36,12 +36,12 @@ The target behavior is:
 ## Involved Components
 
 - `scripts/training/shared_training_infrastructure.py`
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
 - `doc/technical/2026-04/2026-04-16/README.md`
 
 Protected campaign file expected to require modification:
 
-- `scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
+- `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1`
 
 No subagent is planned for this implementation.
 

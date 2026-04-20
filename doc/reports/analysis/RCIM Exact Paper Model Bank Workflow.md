@@ -232,7 +232,7 @@ The prepared batch campaign package is:
 
 The canonical launcher is:
 
-- `scripts/campaigns/run_exact_paper_model_bank_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1`
 
 ## Relationship With The Existing Harmonic-Wise Branch
 

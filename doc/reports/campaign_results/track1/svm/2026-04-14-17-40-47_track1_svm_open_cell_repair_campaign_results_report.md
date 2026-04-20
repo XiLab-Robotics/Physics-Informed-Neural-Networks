@@ -13,7 +13,7 @@ launcher:
 - failed runs: `0`
 - execution window: `2026-04-14 17:30:44+02:00` to `2026-04-14 17:32:30+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/`
+  `output/training_campaigns/track1/svm/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/`
 
 The campaign goal was narrow and explicit:
 
@@ -213,9 +213,9 @@ residual `SVM` yellow cells.
 The campaign output folder now contains the required serialized winner
 artifacts:
 
-- `output/training_campaigns/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/campaign_best_run.yaml`
-- `output/training_campaigns/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/campaign_best_run.md`
+- `output/training_campaigns/track1/svm/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/campaign_best_run.yaml`
+- `output/training_campaigns/track1/svm/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/campaign_best_run.md`
 
 The canonical reports updated by this closure are:
 

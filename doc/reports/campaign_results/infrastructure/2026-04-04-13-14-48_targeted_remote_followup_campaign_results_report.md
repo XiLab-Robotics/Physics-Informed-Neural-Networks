@@ -19,7 +19,7 @@ The campaign completed all planned runs on the remote workstation:
 - failed runs: `0`
 - remote execution window: `2026-04-04T11:49:11` to `2026-04-04T13:03:55`
 - campaign artifact root:
-  `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/`
+  `output/training_campaigns/infrastructure/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/`
 
 One operational caveat remains:
 
@@ -274,11 +274,11 @@ The next technically useful steps are:
 
 Campaign-level references:
 
-- `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_manifest.yaml`
-- `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_execution_report.md`
-- `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_leaderboard.yaml`
-- `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_best_run.yaml`
-- `output/training_campaigns/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_best_run.md`
+- `output/training_campaigns/infrastructure/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_manifest.yaml`
+- `output/training_campaigns/infrastructure/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_execution_report.md`
+- `output/training_campaigns/infrastructure/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_leaderboard.yaml`
+- `output/training_campaigns/infrastructure/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_best_run.yaml`
+- `output/training_campaigns/infrastructure/2026-04-04-11-49-11_targeted_remote_followup_campaign_2026_04_04_11_21_09/campaign_best_run.md`
 
 Key per-run references:
 

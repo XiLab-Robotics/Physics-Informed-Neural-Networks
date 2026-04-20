@@ -17,7 +17,7 @@ closure wave for the nine non-`SVM` families:
 
 The completed `171`-run cellwise batch already materialized the canonical
 reference banks for these families. The next wave is therefore not about
-coverage. It is about closing the remaining `🟡` and `🔴` cells against the
+coverage. It is about closing the remaining `ðŸŸ¡` and `ðŸ”´` cells against the
 paper.
 
 ## Objective
@@ -29,7 +29,7 @@ Prepare a high-pressure residual-cell closure campaign that:
 - keeps the accepted exact-paper family implementations unchanged;
 - spends an overnight runtime budget roughly `6-7x` the just-finished
   `171`-run pass;
-- maximizes the chance of turning current `🟡/🔴` cells into `🟢`.
+- maximizes the chance of turning current `ðŸŸ¡/ðŸ”´` cells into `ðŸŸ¢`.
 
 ## Campaign Strategy
 
@@ -169,21 +169,21 @@ approved implementation generates the launcher package.
 Per-family remote form:
 
 ```powershell
-.\scripts\campaigns\run_track1_mlp_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_rf_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_dt_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_et_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_ert_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_gbm_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_hgbm_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_xgbm_residual_cellwise_closure_campaign.ps1 -Remote
-.\scripts\campaigns\run_track1_lgbm_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_mlp_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_rf_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_dt_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_et_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_ert_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_gbm_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_hgbm_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_xgbm_residual_cellwise_closure_campaign.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_lgbm_residual_cellwise_closure_campaign.ps1 -Remote
 ```
 
 Aggregate overnight remote form:
 
 ```powershell
-.\scripts\campaigns\run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1 -Remote
+.\scripts\\campaigns\\track1\\exact_paper\\run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1 -Remote
 ```
 
 ## Expected Post-Campaign Obligations

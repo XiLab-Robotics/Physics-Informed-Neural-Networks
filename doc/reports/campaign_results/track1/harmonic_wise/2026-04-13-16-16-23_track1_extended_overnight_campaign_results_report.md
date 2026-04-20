@@ -13,7 +13,7 @@ through one coordinated launcher:
 - failed runs: `0`
 - execution window: `2026-04-13T15:10:50+02:00` to `2026-04-13T16:00:30+02:00`
 - campaign artifact root:
-  `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/`
+  `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/`
 
 The extended batch was organized into six logical experiment blocks:
 
@@ -63,7 +63,7 @@ plan:
 
 This policy is serialized under:
 
-- `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_leaderboard.yaml`
 
 ## Ranked Completed Runs
 
@@ -265,9 +265,9 @@ The most defensible next step is:
 
 ## Artifact References
 
-- `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_leaderboard.yaml`
-- `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_best_run.yaml`
-- `output/training_campaigns/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_best_run.md`
+- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_leaderboard.yaml`
+- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_best_run.yaml`
+- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/campaign_best_run.md`
 - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-15-11-49__track1_hgbm_h01_wide_depth_2_campaign_run/validation_summary.yaml`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`

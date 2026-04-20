@@ -44,7 +44,7 @@ approved should the real remote execution begin.
 - `config/training/feedforward/`
 - `config/training/residual_harmonic_mlp/`
 - `config/training/remote_validation/`
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 - `doc/scripts/campaigns/run_remote_training_campaign.md`
 - `scripts/training/run_training_campaign.py`
 - `scripts/training/train_feedforward_network.py`

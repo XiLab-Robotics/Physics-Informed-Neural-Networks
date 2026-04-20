@@ -58,7 +58,7 @@ No Codex subagent use is planned for this reporting pass.
 Campaign state and produced artifacts:
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
+- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
 
 Expected report deliverables:
@@ -66,7 +66,7 @@ Expected report deliverables:
 - `doc/reports/campaign_results/<timestamp>_exact_paper_model_bank_campaign_results_report.md`
 - `doc/reports/campaign_results/<timestamp>_exact_paper_model_bank_campaign_results_report.pdf`
 - campaign-level winner artifacts under
-  `output/training_campaigns/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
+  `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/`
 
 Supporting report/PDF tooling:
 

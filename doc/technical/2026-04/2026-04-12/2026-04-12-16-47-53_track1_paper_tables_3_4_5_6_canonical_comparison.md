@@ -80,7 +80,7 @@ Markdown scope must be re-checked before closure.
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/analysis/validation_checks/2026-04-12-15-39-15_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_per_harmonic_replication_exact_paper_model_bank_report.md`
+- `doc/reports/analysis/validation_checks/track1/exact_paper/2026-04-12-15-39-15_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_per_harmonic_replication_exact_paper_model_bank_report.md`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`

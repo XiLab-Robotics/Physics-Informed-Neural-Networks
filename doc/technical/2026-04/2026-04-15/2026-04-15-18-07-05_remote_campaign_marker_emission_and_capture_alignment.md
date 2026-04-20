@@ -27,7 +27,7 @@ between the remote run wrapper and the local marker parser:
 ## Technical Approach
 
 The fix should stay inside
-`scripts/campaigns/run_remote_training_campaign.ps1` and focus on the final
+`scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` and focus on the final
 marker-emission stage of the remote run.
 
 The launcher should:
@@ -49,7 +49,7 @@ extraction fails, so the failure surface records what the remote side did emit.
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
   Canonical SSH-backed remote launcher whose `remote_run` stage currently
   completes without returning the required `REMOTE_CAMPAIGN_*` markers to the
   local parser.

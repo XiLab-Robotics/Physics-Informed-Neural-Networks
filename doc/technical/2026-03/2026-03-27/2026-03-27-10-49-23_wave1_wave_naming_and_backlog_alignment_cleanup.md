@@ -52,7 +52,7 @@ the repository guidance that future users will read and follow.
   Historical technical note whose framing should be aligned to `Wave 1`.
 - `doc/reports/campaign_plans/wave1/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md`
   Historical planning report whose wording should be aligned to `Wave 1`.
-- `scripts/campaigns/run_wave1_residual_harmonic_family_campaign.ps1`
+- `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
   Canonical launcher for the aligned residual-harmonic family campaign.
 - `doc/scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md`
   Canonical launcher note for the aligned residual-harmonic family campaign.

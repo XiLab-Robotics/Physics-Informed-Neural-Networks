@@ -72,16 +72,16 @@ The closeout should also explicitly acknowledge the current artifact gap:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_mlp_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_rf_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_dt_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_et_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_ert_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_gbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_hgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_xgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
-- `output/training_campaigns/track1_lgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_mlp_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_rf_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_dt_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_et_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_ert_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_gbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_hgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_xgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
+- `output/training_campaigns/track1/exact_paper/track1_lgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
 - `doc/reports/campaign_results/track1/exact_paper/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`

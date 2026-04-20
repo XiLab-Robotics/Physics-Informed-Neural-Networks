@@ -1,0 +1,27 @@
+schema_version: 1
+campaign_name: track1_second_iteration_harmonic_wise_campaign_2026_04_09_18_56_03
+selection_policy:
+  primary_metric: test_curve_mean_percentage_error_pct
+  first_tie_breaker: test_curve_rmse_deg
+  second_tie_breaker: validation_curve_mean_percentage_error_pct
+  third_tie_breaker: harmonic_target_mae
+  direction: minimize
+updated_at: '2026-04-09T21:06:13+02:00'
+best_entry:
+  run_instance_id: 2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run
+  run_name: te_harmonic_wise_full_rcim_no_engineering_reference
+  output_artifact_kind: validation_check
+  model_family: paper_reimplementation_rcim_harmonic_wise
+  model_type: harmonic_wise_hist_gradient_boosting
+  selected_harmonics: [0, 1, 3, 39, 40, 78, 81, 156, 162, 240]
+  feature_set_label: base_only
+  validation_curve_mean_percentage_error_pct: 9.228612783236935
+  test_curve_mean_percentage_error_pct: 8.877223608797837
+  oracle_test_curve_mean_percentage_error_pct: 2.748842676857252
+  harmonic_target_mae: 0.0001714506972397095
+  test_curve_mae_deg: 0.0026129042692488605
+  test_curve_rmse_deg: 0.002811615479457332
+  output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run
+  best_checkpoint_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/harmonic_model_bundle.pkl
+  metrics_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-45-48__te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run/validation_summary.yaml
+  report_path: doc/reports/analysis/validation_checks/track1/harmonic_wise/2026-04-09-20-46-45_paper_reimplementation_rcim_harmonic_wise_te_harmonic_wise_full_rcim_no_engineering_reference_campaign_run_harmonic_wise_comparison_report.md

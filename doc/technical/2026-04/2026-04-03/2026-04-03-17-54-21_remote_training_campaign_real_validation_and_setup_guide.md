@@ -80,7 +80,7 @@ The implementation should also add a clear step-by-step guide that states:
 
 ## Involved Components
 
-- `scripts/campaigns/run_remote_training_campaign.ps1`
+- `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1`
 - `scripts/training/build_remote_training_sync_manifest.py`
 - `config/training/`
 - `doc/reports/campaign_plans/`

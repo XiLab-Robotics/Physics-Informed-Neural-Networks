@@ -60,13 +60,13 @@ evaluator and playback protocol.
 Run the canonical coordinated campaign launcher from the repository root:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_faithful_reproduction_campaign.ps1
 ```
 
 Optional PowerShell usage:
 
 ```powershell
-.\scripts\campaigns\run_exact_paper_faithful_reproduction_campaign.ps1 `
+.\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_faithful_reproduction_campaign.ps1 `
   -CondaEnvironmentName standard_ml_codex_env `
   -PythonExecutable python
 ```
@@ -83,7 +83,7 @@ Harmonic-wise offline benchmark runs write under:
 
 All coordinated launcher logs write under:
 
-- `output/training_campaigns/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/logs/`
+- `output/training_campaigns/track1/exact_paper/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/logs/`
 
 ## Related Documents
 
