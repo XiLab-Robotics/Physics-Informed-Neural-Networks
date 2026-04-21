@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-21T16:32:04+02:00`
+- Generated At: `2026-04-21T22:30:05+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
 - Active Campaign Status: `completed`
-- Active Campaign Name: `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13`
+- Active Campaign Name: `track1_mlp_family_full_matrix_repair_campaign_2026_04_21_17_20_12`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_mlp_family_full_matrix_repair_campaign_2026_04_21_17_20_12` | `2026-04-21-22-19-09` | 324 | 0 | `track1_mlp_amplitude_0_closure_attempt_17` | Dedicated `MLP` full-matrix repair completed `324` retries, promoted `1/12` targeted family-target pairs, and left the accepted `MLP` row with `7` non-green cells on Tables `2-5` (`Table 2`: 1, 156, 240; `Table 3`: 1, 240; `Table 4`: 162; `Table 5`: 162) |
 | `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13` | `2026-04-21-14-58-00` | 756 | 0 | `track1_dt_phase_162_closure_attempt_03` | Open-cell exact-paper full-matrix closure completed the `756` targeted retries, promoted `17/28` family-target pairs, and refreshed the canonical Tables `2-5` benchmark surface; later post-closeout recovery also restored the full `297`-run `MLP` first-launch artifact set without changing the canonical winner or table counts |
 | `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04` | `2026-04-19 00:51:06+02:00` | 171 | 0 | `track1_dt_amplitude_240_cellwise_reference` | Exact-paper cellwise refresh completed `19` models for each non-`SVM` Track 1 family and promoted the canonical family rows into the benchmark tables |
 | `track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05` | `2026-04-18 16:34:18` | 18 | 0 | `track1_rf_phase_full_matrix` | Exact-paper family rows fully refreshed for `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and `LGBM`; `LGBM` improved the final amplitude-side envelope |
@@ -169,7 +170,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.md`
 - Canonical progress surface:
   - `Table 2 - Amplitude MAE Full-Matrix Replication`
   - `Table 3 - Amplitude RMSE Full-Matrix Replication`
@@ -184,7 +185,9 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and no longer gates Track 1 closeout
 - Repository `SVM` status: closed and accepted after the final exact-faithful rerun package, with residual paper deltas on `40`, `240`, and `162` accepted as non-blocking
 - Remaining-family exact-paper open-cell batch status: fully closed out after the overnight retry wave, with the benchmark now reading from the better value between the accepted baseline and the new targeted retries
-- Recovered first-launch `MLP` artifact status: fully reconciled locally after post-closeout recovery of all `297` validation folders and `297` validation reports; the recovered `MLP` evidence improves family-internal auditability but does not change the canonical `Table 2-5` counts or the accepted `MLP` representative
+- Recovered first-launch `MLP` artifact status: fully reconciled locally after post-closeout recovery of all `297` validation folders and `297` validation reports
+- Dedicated `MLP` family repair campaign status: completed with `1/12` promoted targeted pairs and `11/12` retained baseline pairs
+- Accepted `MLP` row remaining non-green cells after the dedicated repair wave: `Table 2 -> 1, 156, 240`; `Table 3 -> 1, 240`; `Table 4 -> 162`; `Table 5 -> 162`
 
 ### Track 1.5 Harmonic-Wise Validation Support
 

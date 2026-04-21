@@ -79,6 +79,7 @@ TRACK1_FINAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track
 TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME = "report-table report-table-track1-final-closeout-aggregate"
 TRACK1_OPEN_CELL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-open-cell-closeout-family"
 TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME = "report-table report-table-track1-open-cell-closeout-benchmark"
+TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME = "report-table report-table-track1-mlp-closeout-targeted-pair"
 TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
@@ -255,6 +256,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "Harmonic-Wise Paper Reimplementation Pipeline": {
         "stage-6-reconstruct-the-te-curve",
+    },
+    "2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report": {
+        "targeted-pair-outcome",
     },
 }
 
@@ -757,6 +761,13 @@ REPORT_STYLESHEET = """
     .report-table-track1-open-cell-closeout-benchmark th:nth-child(2), .report-table-track1-open-cell-closeout-benchmark td:nth-child(2) { width: 25%; }
     .report-table-track1-open-cell-closeout-benchmark th:nth-child(3), .report-table-track1-open-cell-closeout-benchmark td:nth-child(3) { width: 25%; }
     .report-table-track1-open-cell-closeout-benchmark th:nth-child(4), .report-table-track1-open-cell-closeout-benchmark td:nth-child(4) { width: 25%; }
+
+    .report-table-track1-mlp-closeout-targeted-pair th:nth-child(1), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(1) { width: 9%; }
+    .report-table-track1-mlp-closeout-targeted-pair th:nth-child(2), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(2) { width: 23%; }
+    .report-table-track1-mlp-closeout-targeted-pair th:nth-child(3), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(3) { width: 23%; }
+    .report-table-track1-mlp-closeout-targeted-pair th:nth-child(4), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(4) { width: 23%; }
+    .report-table-track1-mlp-closeout-targeted-pair th:nth-child(5), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(5) { width: 10%; }
+    .report-table-track1-mlp-closeout-targeted-pair th:nth-child(6), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(6) { width: 14%; }
 
     /* Reusable Cell-Repair Ranking Table Profile */
     .report-table-track1-svm-repair-ranking {
@@ -2396,6 +2407,14 @@ def resolve_standard_table_class_name(
         ):
             return TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME
 
+    if report_stem == "2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report":
+
+        if (
+            current_section_slug == "targeted-pair-outcome"
+            and normalized_header_cells == ("Pair", "Baseline", "Campaign Best", "Accepted", "Source", "Result")
+        ):
+            return TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME
+
     return GENERIC_TABLE_CLASS_NAME
 
 def render_table(
@@ -2644,15 +2663,20 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             section_title_html = convert_inline_markup(current_section_title)
             section_class_names = ["section-card", f"section-{current_section_slug}"]
             report_specific_forced_page_break_section_slugs = REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS.get(report_stem, set())
+            force_page_break_before_section = False
 
             if (
                 current_section_slug in FORCED_PAGE_BREAK_SECTION_SLUGS
                 or current_section_slug in report_specific_forced_page_break_section_slugs
             ):
                 section_class_names.append("section-force-page-break")
+                force_page_break_before_section = True
 
             if should_keep_section_together(current_section_body_tokens):
                 section_class_names.append("section-keep-together")
+
+            if force_page_break_before_section:
+                document_html_tokens.append('<div class="explicit-page-break"></div>')
 
             document_html_tokens.append(
                 f'<section id="{current_section_slug}" class="{" ".join(section_class_names)}"><h2>{section_title_html}</h2>{"".join(current_section_body_tokens)}</section>'

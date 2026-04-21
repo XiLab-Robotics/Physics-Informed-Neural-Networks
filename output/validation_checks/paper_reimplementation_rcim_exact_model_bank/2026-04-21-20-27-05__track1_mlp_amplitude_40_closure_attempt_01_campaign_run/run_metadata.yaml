@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_exact_model_bank
+run_name: track1_mlp_amplitude_40_closure_attempt_01_campaign_run
+run_instance_id: 2026-04-21-20-27-05__track1_mlp_amplitude_40_closure_attempt_01_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-20-27-05__track1_mlp_amplitude_40_closure_attempt_01_campaign_run

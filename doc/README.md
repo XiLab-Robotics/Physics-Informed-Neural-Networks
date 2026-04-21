@@ -86,6 +86,18 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-21
 
+- [technical/2026-04/2026-04-21/2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md](./technical/2026-04/2026-04-21/2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md)
+  Technical document for the narrow PDF-only layout rebalance of the final
+  `Track 1` `MLP` closeout report, focused on the `Targeted Pair Outcome`
+  page break and column-width redistribution.
+- [technical/2026-04/2026-04-21/2026-04-21-22-08-26_track1_mlp_family_full_matrix_repair_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-22-08-26_track1_mlp_family_full_matrix_repair_closeout.md)
+  Technical document for formally closing the completed exact-paper `Track 1`
+  `MLP` family repair wave through results reporting, PDF validation,
+  active-state backlinking, and canonical benchmark refresh.
+- [technical/2026-04/2026-04-21/2026-04-21-17-16-53_track1_mlp_family_full_matrix_repair_campaign.md](./technical/2026-04/2026-04-21/2026-04-21-17-16-53_track1_mlp_family_full_matrix_repair_campaign.md)
+  Technical document for preparing a dedicated exact-paper `Track 1` `MLP`
+  family repair wave that targets every still-non-green `MLP` family-target
+  pair across the four canonical full-matrix replication tables.
 - [technical/2026-04/2026-04-21/2026-04-21-16-26-57_track1_mlp_first_launch_closeout_refresh_after_artifact_recovery.md](./technical/2026-04/2026-04-21/2026-04-21-16-26-57_track1_mlp_first_launch_closeout_refresh_after_artifact_recovery.md)
   Technical document for refreshing the canonical `Track 1` closeout and
   benchmark bookkeeping after the full local recovery of the `MLP`
