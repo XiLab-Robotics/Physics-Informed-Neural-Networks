@@ -77,6 +77,8 @@ TRACK1_PARTIAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-tra
 TRACK1_PARTIAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME = "report-table report-table-track1-partial-closeout-aggregate"
 TRACK1_FINAL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-final-closeout-family"
 TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME = "report-table report-table-track1-final-closeout-aggregate"
+TRACK1_OPEN_CELL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-open-cell-closeout-family"
+TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME = "report-table report-table-track1-open-cell-closeout-benchmark"
 TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
@@ -717,6 +719,45 @@ REPORT_STYLESHEET = """
     .report-table-track1-final-closeout-aggregate th:nth-child(8), .report-table-track1-final-closeout-aggregate td:nth-child(8) { width: 6%; }
     .report-table-track1-final-closeout-aggregate th:nth-child(9), .report-table-track1-final-closeout-aggregate td:nth-child(9) { width: 16%; }
 
+    .report-table-track1-open-cell-closeout-family {
+      font-size: 6.85pt;
+      line-height: 1.16;
+    }
+
+    .report-table-track1-open-cell-closeout-family th,
+    .report-table-track1-open-cell-closeout-family td,
+    .report-table-track1-open-cell-closeout-benchmark th,
+    .report-table-track1-open-cell-closeout-benchmark td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-open-cell-closeout-family th,
+    .report-table-track1-open-cell-closeout-benchmark th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-open-cell-closeout-family th:nth-child(1), .report-table-track1-open-cell-closeout-family td:nth-child(1) { width: 8%; }
+    .report-table-track1-open-cell-closeout-family th:nth-child(2), .report-table-track1-open-cell-closeout-family td:nth-child(2) { width: 40%; }
+    .report-table-track1-open-cell-closeout-family th:nth-child(3), .report-table-track1-open-cell-closeout-family td:nth-child(3) { width: 12%; }
+    .report-table-track1-open-cell-closeout-family th:nth-child(4), .report-table-track1-open-cell-closeout-family td:nth-child(4) { width: 16%; }
+    .report-table-track1-open-cell-closeout-family th:nth-child(5), .report-table-track1-open-cell-closeout-family td:nth-child(5) { width: 8%; }
+    .report-table-track1-open-cell-closeout-family th:nth-child(6), .report-table-track1-open-cell-closeout-family td:nth-child(6) { width: 8%; }
+    .report-table-track1-open-cell-closeout-family th:nth-child(7), .report-table-track1-open-cell-closeout-family td:nth-child(7) { width: 8%; }
+
+    .report-table-track1-open-cell-closeout-benchmark {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track1-open-cell-closeout-benchmark th:nth-child(1), .report-table-track1-open-cell-closeout-benchmark td:nth-child(1) { width: 25%; }
+    .report-table-track1-open-cell-closeout-benchmark th:nth-child(2), .report-table-track1-open-cell-closeout-benchmark td:nth-child(2) { width: 25%; }
+    .report-table-track1-open-cell-closeout-benchmark th:nth-child(3), .report-table-track1-open-cell-closeout-benchmark td:nth-child(3) { width: 25%; }
+    .report-table-track1-open-cell-closeout-benchmark th:nth-child(4), .report-table-track1-open-cell-closeout-benchmark td:nth-child(4) { width: 25%; }
+
     /* Reusable Cell-Repair Ranking Table Profile */
     .report-table-track1-svm-repair-ranking {
       font-size: 6.7pt;
@@ -1202,6 +1243,7 @@ REPORT_STYLESHEET = """
     .report-table-track1-partial-closeout-aggregate .metric-unit,
     .report-table-track1-final-closeout-family .metric-unit,
     .report-table-track1-final-closeout-aggregate .metric-unit,
+    .report-table-track1-open-cell-closeout-family .metric-unit,
     .report-table-wide-identifier-ranking .metric-unit,
     .report-table-identifier-metric-summary .metric-unit,
     .report-table-family-metric-ranking .metric-unit,
@@ -1828,6 +1870,10 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         if header_cell == "Failed":
             return "Fail."
 
+    if table_class_name == TRACK1_OPEN_CELL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME:
+        if header_cell == "Closure Score":
+            return "Closure<br><span class=\"metric-unit\">Score</span>"
+
     if header_cell == "Paper Cell":
         return "Paper<span class=\"metric-unit\">Cell</span>"
     if header_cell == "Amplitude Run":
@@ -2335,6 +2381,20 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Paper Cell", "Met", "Near", "Open", "Closure Score")
         ):
             return TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report":
+
+        if (
+            current_section_slug == "family-representative-outcome"
+            and normalized_header_cells == ("Family", "Best Run", "Scope", "Closure Score", "Met", "Near", "Open")
+        ):
+            return TRACK1_OPEN_CELL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "canonical-benchmark-outcome"
+            and normalized_header_cells == ("Surface", "Harmonics Met", "Total Harmonics", "Open Harmonics")
+        ):
+            return TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

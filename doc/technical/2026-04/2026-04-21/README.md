@@ -1,5 +1,9 @@
 # 2026-04-21 Technical Documents
 
+- [2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md](./2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md)
+  Technical document for the narrow PDF-only table rebalance of the final
+  `Track 1` open-cell full-matrix closeout report, focused on the
+  `Family Representative Outcome` and `Canonical Benchmark Outcome` tables.
 - [2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md](./2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md)
   Technical document for consolidating the completed `Track 1` relaunch
   package by versioning its campaign YAMLs, launchers, launcher notes, and raw

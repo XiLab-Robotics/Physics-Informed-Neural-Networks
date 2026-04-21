@@ -86,6 +86,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-21
 
+- [technical/2026-04/2026-04-21/2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md](./technical/2026-04/2026-04-21/2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md)
+  Technical document for the narrow PDF-only table rebalance of the final
+  `Track 1` open-cell full-matrix closeout report, focused on the
+  `Family Representative Outcome` and `Canonical Benchmark Outcome` tables.
 - [technical/2026-04/2026-04-21/2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md)
   Technical document for consolidating the completed `Track 1` relaunch
   package by versioning its campaign YAMLs, launchers, launcher notes, and raw
