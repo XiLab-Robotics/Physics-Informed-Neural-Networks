@@ -15,7 +15,7 @@ param(
     [string[]]$RunNameList,
 
     [string]$ValidationOutputRoot = "output\\validation_checks\\paper_reimplementation_rcim_exact_model_bank",
-    [string]$ValidationReportRoot = "doc\\reports\\analysis\\validation_checks\\track1\\exact_paper",
+    [string]$ValidationReportRoot = "doc\\reports\\analysis\\validation_checks",
     [string[]]$SourceSyncPathList = @(
         "scripts"
         "config"
@@ -619,6 +619,16 @@ $resolvedPlanningReportPath = Resolve-RepositoryRelativePath -InputPath $Plannin
 $resolvedLauncherRelativePath = Resolve-RepositoryRelativePath -InputPath $LauncherRelativePath
 $resolvedValidationOutputRoot = Resolve-RepositoryRelativePath -InputPath $ValidationOutputRoot
 $resolvedValidationReportRoot = Resolve-RepositoryRelativePath -InputPath $ValidationReportRoot
+$resolvedValidationReportCandidateRootList = @()
+foreach ($candidateRoot in @(
+        $resolvedValidationReportRoot
+        "doc\reports\analysis\validation_checks"
+        "doc\reports\analysis\validation_checks\track1\exact_paper"
+    )) {
+    if ($resolvedValidationReportCandidateRootList -notcontains $candidateRoot) {
+        $resolvedValidationReportCandidateRootList += $candidateRoot
+    }
+}
 $resolvedSourceSyncPathList = @()
 foreach ($sourceSyncPath in $sourceSyncPathList) {
     $resolvedSourceSyncPathList += Resolve-RepositoryRelativePath -InputPath $sourceSyncPath
@@ -634,6 +644,7 @@ $optionalDependencyLabelText = if ($optionalDependencySpecificationList.Count -g
 else {
     "none"
 }
+$remoteValidationReportRootLiteralListText = ($resolvedValidationReportCandidateRootList | ForEach-Object { "'$_'" }) -join ",`n    "
 
 $runTimestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
 $campaignSlug = Convert-ToSlug -RawText $campaignName
@@ -822,13 +833,26 @@ foreach (`$runName in `$runNameList) {
     `$validationRelativePath = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$validationDirectory.FullName
     Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$validationRelativePath)
 
-    `$reportFile = Get-ChildItem -LiteralPath '$resolvedValidationReportRoot' -File |
-        Where-Object { `$_.Name -like "*_`${runName}_campaign_run_exact_paper_model_bank_report.md" } |
+    `$validationReportRootList = @(
+        $remoteValidationReportRootLiteralListText
+    )
+    `$candidateReportFileList = @()
+    foreach (`$validationReportRoot in `$validationReportRootList) {
+        if (-not (Test-Path -LiteralPath `$validationReportRoot)) {
+            continue
+        }
+
+        `$candidateReportFileList += Get-ChildItem -LiteralPath `$validationReportRoot -File |
+            Where-Object { `$_.Name -like "*_`${runName}_campaign_run_exact_paper_model_bank_report.md" }
+    }
+
+    `$reportFile = `$candidateReportFileList |
         Sort-Object LastWriteTime |
         Select-Object -Last 1
 
     if (`$null -eq `$reportFile) {
-        throw ('Missing exact-paper validation report for run | {0}' -f `$runName)
+        `$searchedRootText = (`$validationReportRootList -join '; ')
+        throw ('Missing exact-paper validation report for run | {0} | searched_roots={1}' -f `$runName, `$searchedRootText)
     }
 
     `$reportRelativePath = Resolve-WindowsRelativePath -BasePath (Get-Location).Path -TargetPath `$reportFile.FullName
@@ -872,7 +896,7 @@ Write-StatusLine "STEP" "Syncing remote campaign artifacts back to the local rep
 Invoke-RemoteTarCopyToLocal -RelativePathList $artifactSyncPathList -LogPath $runLogPath
 
 Write-Host ""
-Write-Host "[DONE] Remote exact-paper SVM faithful-final campaign completed successfully" -ForegroundColor Green
+Write-Host "[DONE] Remote exact-paper campaign completed successfully" -ForegroundColor Green
 Write-Host "[DONE] Campaign logs available under | $campaignLogRoot" -ForegroundColor Green
 Write-Host "[DONE] Remote wrapper log available under | $(Join-Path $projectRoot $runLogPath)" -ForegroundColor Green
 exit 0

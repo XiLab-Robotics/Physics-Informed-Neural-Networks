@@ -86,6 +86,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-21
 
+- [technical/2026-04/2026-04-21/2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-15-19-36_track1_relaunch_artifact_and_preparatory_file_closeout.md)
+  Technical document for consolidating the completed `Track 1` relaunch
+  package by versioning its campaign YAMLs, launchers, launcher notes, and raw
+  validation artifacts, while leaving the earlier missing `MLP` first-launch
+  artifact recovery for a later dedicated task.
 - [technical/2026-04/2026-04-21/2026-04-21-14-44-53_track1_open_cell_full_matrix_closure_campaigns_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-14-44-53_track1_open_cell_full_matrix_closure_campaigns_closeout.md)
   Technical document for formally closing the completed `Track 1` open-cell
   full-matrix closure wave through final results reporting, PDF validation,
