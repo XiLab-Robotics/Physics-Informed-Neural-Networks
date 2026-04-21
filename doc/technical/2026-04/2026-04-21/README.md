@@ -1,5 +1,9 @@
 # 2026-04-21 Technical Documents
 
+- [2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign.md](./2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign.md)
+  Technical document for preparing the final narrow exact-paper `Track 1`
+  `MLP` residual-cell closure wave, focused only on the four still-open
+  accepted `MLP` target pairs across the canonical full-matrix tables.
 - [2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md](./2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md)
   Technical document for the narrow PDF-only layout rebalance of the final
   `Track 1` `MLP` closeout report, focused on the `Targeted Pair Outcome`

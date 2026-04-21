@@ -260,6 +260,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report": {
         "targeted-pair-outcome",
     },
+    "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report": {
+        "targeted-pair-outcome",
+    },
 }
 
 # Browser And Report Constants
@@ -2407,13 +2410,11 @@ def resolve_standard_table_class_name(
         ):
             return TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME
 
-    if report_stem == "2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report":
-
-        if (
-            current_section_slug == "targeted-pair-outcome"
-            and normalized_header_cells == ("Pair", "Baseline", "Campaign Best", "Accepted", "Source", "Result")
-        ):
-            return TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME
+    if (
+        current_section_slug == "targeted-pair-outcome"
+        and normalized_header_cells == ("Pair", "Baseline", "Campaign Best", "Accepted", "Source", "Result")
+    ):
+        return TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
@@ -2675,7 +2676,13 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             if should_keep_section_together(current_section_body_tokens):
                 section_class_names.append("section-keep-together")
 
-            if force_page_break_before_section:
+            if (
+                force_page_break_before_section
+                and not (
+                    report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
+                    and current_section_slug == "targeted-pair-outcome"
+                )
+            ):
                 document_html_tokens.append('<div class="explicit-page-break"></div>')
 
             document_html_tokens.append(

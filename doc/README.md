@@ -84,8 +84,24 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-22
+
+- [technical/2026-04/2026-04-22/2026-04-22-01-19-27_track1_mlp_residual_closeout_pdf_targeted_pair_default_layout.md](./technical/2026-04/2026-04-22/2026-04-22-01-19-27_track1_mlp_residual_closeout_pdf_targeted_pair_default_layout.md)
+  Technical document for the narrow residual `MLP` closeout PDF repair,
+  focused on forcing `Targeted Pair Outcome` onto a fresh page and promoting
+  the accepted `MLP` targeted-pair table widths into the automatic styled-PDF
+  defaults for future reports.
+- [technical/2026-04/2026-04-22/2026-04-22-01-03-07_track1_mlp_residual_cell_final_closure_closeout.md](./technical/2026-04/2026-04-22/2026-04-22-01-03-07_track1_mlp_residual_cell_final_closure_closeout.md)
+  Technical document for formally closing the completed exact-paper `Track 1`
+  residual-cell `MLP` final-closure wave through results reporting, PDF
+  validation, active-state backlinking, and canonical benchmark refresh.
+
 #### 2026-04-21
 
+- [technical/2026-04/2026-04-21/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign.md](./technical/2026-04/2026-04-21/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign.md)
+  Technical document for preparing the final narrow exact-paper `Track 1`
+  `MLP` residual-cell closure wave, focused only on the four still-open
+  accepted `MLP` target pairs across the canonical full-matrix tables.
 - [technical/2026-04/2026-04-21/2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md](./technical/2026-04/2026-04-21/2026-04-21-22-57-46_track1_mlp_closeout_pdf_targeted_pair_outcome_rebalance.md)
   Technical document for the narrow PDF-only layout rebalance of the final
   `Track 1` `MLP` closeout report, focused on the `Targeted Pair Outcome`
