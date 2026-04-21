@@ -246,16 +246,13 @@ Current exact-paper table-replication status from the canonical benchmark
 surface is:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication` remains partially open;
-- `Table 3 - Amplitude RMSE Full-Matrix Replication` remains partially open;
-- `Table 4 - Phase MAE Full-Matrix Replication` remains partially open;
-- `Table 5 - Phase RMSE Full-Matrix Replication` remains partially open.
+- `Table 3 - Amplitude RMSE Full-Matrix Replication` is numerically closed;
+- `Table 4 - Phase MAE Full-Matrix Replication` is numerically closed;
+- `Table 5 - Phase RMSE Full-Matrix Replication` is numerically closed.
 
 The highest-priority still-open harmonics now remain concentrated around:
 
-- `3`
-- `240`
-- `0`
-- `1`
+- `39`
 - `156`
 - `162`
 
@@ -369,7 +366,9 @@ and is now the canonical benchmark refresh after the open-cell
 full-matrix closure campaign.
 
 - completed refreshed families: `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`
-- completed validation runs: `756/756`
+- completed validation runs now available in canonical local review paths: `756/756`
+- locally reconstructed relaunch validation artifacts: `459`
+- later recovered first-launch `MLP` validation artifacts: `297`
 - promoted targeted family-target pairs: `17/28`
 - retained baseline family-target pairs: `11/28`
 - supporting report: `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
@@ -381,6 +380,17 @@ The benchmark now reads from the better value between:
 
 This keeps previously healthy cells stable while allowing the closure
 wave to upgrade only the family-target pairs it actually improved.
+
+The later post-closeout `MLP` artifact recovery resolves the original local
+wrapper-reconciliation incident without changing the canonical best-envelope
+reading:
+
+- the full `297`-run `MLP` first-launch artifact set is now available in the
+  canonical local validation roots;
+- several family-internal `MLP` cells improved relative to the earlier partial
+  local snapshot;
+- none of those recovered `MLP` values beats the already accepted
+  cross-family benchmark envelope on Tables `2-5`.
 
 #### 2026-04-21 Table 2 - Amplitude MAE
 
@@ -704,7 +714,7 @@ Repository-side analogous matrix:
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `SVM` | `🟢 0.002503` | `🟢 5.31e-05` | `🟢 0.000157` | `🟢 0.000149` | `🟡 8.2e-05` | `🟢 0.000252` | `🟢 8.23e-05` | `🟢 0.000394` | `🟢 0.000682` | `🟢 0.000252` |
-| `MLP` | `🟡 0.010615` | `🟡 0.0079771` | `🔴 0.00945296` | `🟡 0.00674791` | `🟡 0.00699309` | `🟢 0.00708899` | `🟡 0.00878984` | `🟡 0.00780601` | `🟢 0.0074463` | `🔴 0.0086816` |
+| `MLP` | `🟡 0.0093971` | `🟡 0.00755033` | `🔴 0.00552258` | `🟡 0.00520776` | `🟡 0.00699309` | `🟢 0.00708899` | `🟡 0.00536461` | `🟡 0.00682945` | `🟢 0.0074463` | `🔴 0.00638307` |
 | `RF` | `🟢 0.00287636` | `🟢 2.36445e-05` | `🟢 1.89885e-05` | `🟢 2.72524e-05` | `🟢 2.40255e-05` | `🟢 3.58527e-05` | `🟢 1.01903e-05` | `🟢 4.4192e-05` | `🟢 4.98419e-05` | `🟢 2.76709e-05` |
 | `DT` | `🟢 0.00326314` | `🟢 2.79865e-05` | `🟢 2.05247e-05` | `🟢 3.47292e-05` | `🟢 2.90986e-05` | `🟢 4.95384e-05` | `🟢 1.22117e-05` | `🟢 4.6714e-05` | `🟢 4.734e-05` | `🟢 4.13029e-05` |
 | `ET` | `🟢 0.0033636` | `🟢 2.61874e-05` | `🟢 2.24156e-05` | `🟢 3.58241e-05` | `🟢 3.02046e-05` | `🟢 5.15611e-05` | `🟢 1.75224e-05` | `🟢 4.96642e-05` | `🟢 6.32571e-05` | `🟢 4.78238e-05` |
@@ -746,7 +756,7 @@ Repository-side analogous matrix:
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `SVM` | `🟢 0.00311` | `🟢 7.01e-05` | `🟢 0.000179` | `🟢 0.000178` | `🟡 9.63e-05` | `🟢 0.000315` | `🟢 9.39e-05` | `🟢 0.000806` | `🟢 0.002181` | `🟡 0.000486` |
-| `MLP` | `🟡 0.0140806` | `🟡 0.0149934` | `🔴 0.0154506` | `🔴 0.0129921` | `🟢 0.0120674` | `🟢 0.0120067` | `🟡 0.0150447` | `🟢 0.0126757` | `🟢 0.0129738` | `🔴 0.0150441` |
+| `MLP` | `🟡 0.013702` | `🟡 0.0137694` | `🔴 0.00892685` | `🔴 0.00919113` | `🟢 0.0120674` | `🟢 0.0120067` | `🟡 0.00939595` | `🟢 0.011491` | `🟢 0.0129738` | `🔴 0.0121452` |
 | `RF` | `🟢 0.00368415` | `🟢 3.18311e-05` | `🟢 2.75465e-05` | `🟢 3.73688e-05` | `🟢 3.58481e-05` | `🟢 5.52258e-05` | `🟢 1.37922e-05` | `🟢 0.00013078` | `🟢 0.000138426` | `🟢 4.66103e-05` |
 | `DT` | `🟢 0.00401001` | `🟢 3.93718e-05` | `🟢 3.04097e-05` | `🟢 4.87791e-05` | `🟢 4.06903e-05` | `🟢 7.44308e-05` | `🟢 1.70016e-05` | `🟢 0.000135869` | `🟢 0.000151565` | `🟢 6.77663e-05` |
 | `ET` | `🟢 0.00440252` | `🟢 3.61006e-05` | `🟢 3.21414e-05` | `🟢 4.80518e-05` | `🟢 3.97828e-05` | `🟢 7.44966e-05` | `🟢 2.67569e-05` | `🟢 0.000159566` | `🟢 0.000238115` | `🟢 7.38702e-05` |
@@ -789,7 +799,7 @@ Repository-side analogous matrix:
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `SVM` | `🟢 0.002177` | `🟢 0.0323` | `🟢 0.0224` | `🟢 0.0573` | `🟢 0.1892` | `🟢 0.123` | `🟢 1.088` | `🟡 0.503` | `🟢 0.432` |
-| `MLP` | `🟡 0.00856953` | `🟡 0.0659439` | `🟡 0.0640497` | `🟢 0.073` | `🟢 0.157194` | `🟢 0.143806` | `🟢 1.54007` | `🔴 1.03924` | `🟢 0.64417` |
+| `MLP` | `🟡 0.00582546` | `🟡 0.0590324` | `🟡 0.0531587` | `🟢 0.073` | `🟢 0.157194` | `🟢 0.143806` | `🟢 1.54007` | `🔴 0.826864` | `🟢 0.64417` |
 | `RF` | `🟢 0.00193376` | `🟢 0.0219236` | `🟢 0.0246318` | `🟢 0.0362808` | `🟢 0.0542333` | `🟢 0.0472205` | `🟢 0.412497` | `🟢 0.202594` | `🟢 0.191745` |
 | `DT` | `🟢 0.00201343` | `🟢 0.0270278` | `🟢 0.0318524` | `🟢 0.0372639` | `🟢 0.073876` | `🟢 0.0585477` | `🟢 0.510887` | `🟢 0.137578` | `🟢 0.149592` |
 | `ET` | `🟢 0.00237884` | `🟢 0.0286836` | `🟢 0.0343791` | `🟢 0.0453993` | `🟢 0.0828462` | `🟢 0.0699662` | `🟢 0.495464` | `🟢 0.192877` | `🟢 0.208415` |
@@ -831,7 +841,7 @@ Repository-side analogous matrix:
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `SVM` | `🟢 0.002908` | `🟢 0.0416` | `🟢 0.035` | `🟢 0.0937` | `🟢 0.3139` | `🟢 0.1943` | `🟢 1.637` | `🟡 1.187` | `🟢 0.9522` |
-| `MLP` | `🟡 0.0151827` | `🟢 0.0837486` | `🟡 0.0821853` | `🟢 0.0996137` | `🟢 0.226805` | `🟢 0.202734` | `🟢 1.93482` | `🟡 1.4649` | `🟢 1.01921` |
+| `MLP` | `🟡 0.00916257` | `🟢 0.0742506` | `🟡 0.0696308` | `🟢 0.0996137` | `🟢 0.226805` | `🟢 0.202734` | `🟢 1.93482` | `🟡 1.33334` | `🟢 1.01921` |
 | `RF` | `🟢 0.00267412` | `🟢 0.0315594` | `🟢 0.039249` | `🟢 0.0549868` | `🟢 0.124701` | `🟢 0.0660225` | `🟢 0.941372` | `🟢 0.555209` | `🟢 0.527103` |
 | `DT` | `🟢 0.00268797` | `🟢 0.0383855` | `🟢 0.0594564` | `🟢 0.0528138` | `🟢 0.147209` | `🟢 0.0739717` | `🟢 1.25949` | `🟢 0.646171` | `🟢 0.581393` |
 | `ET` | `🟡 0.00371638` | `🟢 0.0391934` | `🟢 0.059372` | `🟢 0.0712212` | `🟢 0.183262` | `🟢 0.121725` | `🟢 1.13823` | `🟢 0.80715` | `🟢 0.60888` |

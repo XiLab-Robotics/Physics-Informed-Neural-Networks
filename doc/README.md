@@ -86,6 +86,15 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-21
 
+- [technical/2026-04/2026-04-21/2026-04-21-16-26-57_track1_mlp_first_launch_closeout_refresh_after_artifact_recovery.md](./technical/2026-04/2026-04-21/2026-04-21-16-26-57_track1_mlp_first_launch_closeout_refresh_after_artifact_recovery.md)
+  Technical document for refreshing the canonical `Track 1` closeout and
+  benchmark bookkeeping after the full local recovery of the `MLP`
+  first-launch artifact set.
+- [technical/2026-04/2026-04-21/2026-04-21-16-01-48_track1_mlp_first_launch_artifact_recovery.md](./technical/2026-04/2026-04-21/2026-04-21-16-01-48_track1_mlp_first_launch_artifact_recovery.md)
+  Technical document for recovering the missing local repository artifacts of
+  the first `MLP` launch in the `Track 1` open-cell full-matrix closure wave,
+  treating the problem as post-run artifact reconciliation rather than a new
+  training pass.
 - [technical/2026-04/2026-04-21/2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md](./technical/2026-04/2026-04-21/2026-04-21-15-34-39_track1_open_cell_closeout_pdf_table_layout_micro_rebalance.md)
   Technical document for the narrow PDF-only table rebalance of the final
   `Track 1` open-cell full-matrix closeout report, focused on the

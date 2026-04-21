@@ -18,10 +18,10 @@ The batch targeted only the still-open family-target pairs in the canonical
 - campaign name: `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13`
 - report timestamp: `2026-04-21-14-58-00`
 - completed family campaigns: `9`
-- completed validation runs: `756`
+- completed validation runs now available in canonical local review paths: `756`
 - failed validation runs: `0`
-- locally reconstructed retry validation artifacts: `459`
-- locally missing `MLP` retry artifacts after the first-wrapper crash: `297`
+- locally reconstructed relaunch validation artifacts: `459`
+- later recovered first-launch `MLP` validation artifacts: `297`
 - promoted targeted pairs: `17/28`
 - retained canonical baseline pairs: `11/28`
 - aggregate campaign artifact root: `output/training_campaigns/track1/exact_paper/track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13`
@@ -33,13 +33,19 @@ The batch targeted only the still-open family-target pairs in the canonical
   - `campaign_best_run.yaml`
   - `campaign_best_run.md`
 - the aggregate campaign root now exposes the final `459`-entry locally
-  reconstructed leaderboard and deterministic bookkeeping representative
+  reconstructed leaderboard and deterministic bookkeeping representative for
+  the relaunched non-`MLP` family batch
 - `doc/running/active_training_campaign.yaml` now records the canonical
   results report path for the completed open-cell closure wave
-- the first `MLP` launch had already completed remotely, but the original
-  wrapper failure interrupted local per-run artifact reconciliation after the
-  first sync window; canonical `MLP` values therefore remain pinned to the
-  already accepted baseline during this closeout
+- the first `MLP` launch artifact gap is now closed locally:
+  - all `297` first-launch validation folders are present in the canonical
+    validation-check output root;
+  - all `297` first-launch validation reports are present in the canonical
+    validation-report root
+- the recovered `MLP` first-launch retry evidence does not beat the already
+  accepted baseline representative or change the canonical `Table 2-5`
+  envelope; `MLP` therefore remains pinned to the accepted baseline
+  representative in the family summary
 - the canonical benchmark now reads from the better value between:
   - the already accepted benchmark baseline;
   - the new open-cell retry wave.
@@ -47,9 +53,9 @@ The batch targeted only the still-open family-target pairs in the canonical
 ## Family Representative Outcome
 
 The table below uses one stable representative entry per family across the
-accepted baseline plus the new retry wave. For `MLP`, the representative may
-still be a baseline entry because the retry artifacts were not fully
-reconciled locally after the first-wrapper crash.
+accepted baseline plus the new retry wave. For `MLP`, the representative
+remains the accepted baseline entry because the fully recovered first-launch
+retry evidence still does not beat that baseline representative.
 
 | Family | Best Run | Scope | Closure Score | Met | Near | Open |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
@@ -99,6 +105,11 @@ reconciled locally after the first-wrapper crash.
 
 - This batch is operationally complete and closes the intended overnight
   retry wave without regressing already accepted cells.
+- The earlier `MLP` first-launch sync incident is now closed as a bookkeeping
+  and artifact-recovery issue rather than as an unresolved training gap.
+- The recovered `MLP` artifact set improves family-level auditability but does
+  not change the canonical Tables `2-5` outcome or the accepted family
+  representative outcome.
 - The closure rule now stays fully aligned with the repository-wide decision
   to keep `Track 1` focused only on the four full-matrix replication tables.
 - Any remaining work should therefore target only the still-open cells in

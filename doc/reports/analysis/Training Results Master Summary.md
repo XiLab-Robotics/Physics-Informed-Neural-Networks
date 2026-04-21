@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-21T14:59:57+02:00`
+- Generated At: `2026-04-21T16:32:04+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
@@ -106,7 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
-| `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13` | `2026-04-21-14-58-00` | 756 | 0 | `track1_dt_phase_162_closure_attempt_03` | Open-cell exact-paper full-matrix closure completed the `756` targeted retries, promoted `17/28` family-target pairs, and refreshed the canonical Tables `2-5` benchmark surface |
+| `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13` | `2026-04-21-14-58-00` | 756 | 0 | `track1_dt_phase_162_closure_attempt_03` | Open-cell exact-paper full-matrix closure completed the `756` targeted retries, promoted `17/28` family-target pairs, and refreshed the canonical Tables `2-5` benchmark surface; later post-closeout recovery also restored the full `297`-run `MLP` first-launch artifact set without changing the canonical winner or table counts |
 | `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04` | `2026-04-19 00:51:06+02:00` | 171 | 0 | `track1_dt_amplitude_240_cellwise_reference` | Exact-paper cellwise refresh completed `19` models for each non-`SVM` Track 1 family and promoted the canonical family rows into the benchmark tables |
 | `track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05` | `2026-04-18 16:34:18` | 18 | 0 | `track1_rf_phase_full_matrix` | Exact-paper family rows fully refreshed for `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and `LGBM`; `LGBM` improved the final amplitude-side envelope |
 | `track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48` | `2026-04-15 23:22:38` | 0 | 4 | N/A | No winner artifact |
@@ -184,6 +184,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and no longer gates Track 1 closeout
 - Repository `SVM` status: closed and accepted after the final exact-faithful rerun package, with residual paper deltas on `40`, `240`, and `162` accepted as non-blocking
 - Remaining-family exact-paper open-cell batch status: fully closed out after the overnight retry wave, with the benchmark now reading from the better value between the accepted baseline and the new targeted retries
+- Recovered first-launch `MLP` artifact status: fully reconciled locally after post-closeout recovery of all `297` validation folders and `297` validation reports; the recovered `MLP` evidence improves family-internal auditability but does not change the canonical `Table 2-5` counts or the accepted `MLP` representative
 
 ### Track 1.5 Harmonic-Wise Validation Support
 

@@ -1614,7 +1614,9 @@ completed_family_list:
 - XGBM
 - LGBM
 pending_family_list: []
-interruption_note: First launch completed the full MLP family batch but stopped during
-  remote artifact reconciliation because the wrapper searched a stale validation-report
-  path. Wrapper fixed; relaunch prepared from RF onward with the dedicated resume
-  launcher.
+interruption_note: First launch completed the full MLP family batch but originally
+  stopped during remote artifact reconciliation because the wrapper searched a stale
+  validation-report path. The wrapper was fixed, the relaunch resumed from RF
+  onward, and a later post-closeout recovery imported the full 297-run MLP
+  first-launch artifact set into the canonical local validation roots without
+  changing the accepted benchmark envelope.

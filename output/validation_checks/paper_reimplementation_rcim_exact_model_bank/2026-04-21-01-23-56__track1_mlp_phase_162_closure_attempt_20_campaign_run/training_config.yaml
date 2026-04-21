@@ -1,0 +1,42 @@
+paths:
+  source_dataframe_path: reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv
+  exact_onnx_reference_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
+  output_root: output/validation_checks/paper_reimplementation_rcim_exact_model_bank
+experiment:
+  run_name: track1_mlp_phase_162_closure_attempt_20
+  model_family: paper_reimplementation_rcim_exact_model_bank
+  model_type: exact_paper_family_bank
+data:
+  input_feature_names:
+  - rpm
+  - deg
+  - tor
+  maximum_deg: 35.0
+  csv_separator: ;
+  csv_decimal: ','
+training:
+  enabled_families:
+  - MLP
+  test_size: 0.25
+  random_seed: 7
+  deterministic: true
+  threadpool_limit: 1
+  hyperparameter_search:
+    mode: paper_reference_grid_search
+    grid_search_n_jobs: 24
+    grid_search_verbose: 2
+    grid_search_pre_dispatch: 24
+target_scope:
+  mode: phases_only
+  include_phase_zero: false
+  harmonic_order_filter:
+  - 162
+export:
+  enable_onnx_export: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+metadata:
+  output_artifact_kind: validation_check
+  output_run_name: track1_mlp_phase_162_closure_attempt_20_campaign_run
+  run_instance_id: 2026-04-21-01-23-56__track1_mlp_phase_162_closure_attempt_20_campaign_run
