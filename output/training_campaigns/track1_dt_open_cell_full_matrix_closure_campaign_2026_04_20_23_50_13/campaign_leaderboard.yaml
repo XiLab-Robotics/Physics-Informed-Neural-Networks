@@ -1,0 +1,2392 @@
+schema_version: 1
+campaign_name: track1_dt_open_cell_full_matrix_closure_campaign_2026_04_20_23_50_13
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 residual
+    cellwise closure campaign.
+updated_at: '2026-04-21T14:59:56+02:00'
+entry_count: 54
+entry_list:
+- run_instance_id: 2026-04-21-10-09-07__track1_dt_phase_162_closure_attempt_03_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_03
+  output_run_name: track1_dt_phase_162_closure_attempt_03_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 5.86271933646874
+  winning_mean_component_mae: 0.13757767349666677
+  winning_mean_component_rmse: 0.6461706746548361
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-07__track1_dt_phase_162_closure_attempt_03_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-07__track1_dt_phase_162_closure_attempt_03_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-07__track1_dt_phase_162_closure_attempt_03_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-12-16__track1_dt_phase_162_closure_attempt_16_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_16
+  output_run_name: track1_dt_phase_162_closure_attempt_16_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 5.938531669635721
+  winning_mean_component_mae: 0.1158592895336206
+  winning_mean_component_rmse: 0.5283161443869919
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-16__track1_dt_phase_162_closure_attempt_16_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-16__track1_dt_phase_162_closure_attempt_16_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-16__track1_dt_phase_162_closure_attempt_16_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-05-59__track1_dt_phase_1_closure_attempt_17_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_17
+  output_run_name: track1_dt_phase_1_closure_attempt_17_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 36.29122549258349
+  winning_mean_component_mae: 0.0020134313702642203
+  winning_mean_component_rmse: 0.0026879692558308007
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-59__track1_dt_phase_1_closure_attempt_17_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-59__track1_dt_phase_1_closure_attempt_17_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-59__track1_dt_phase_1_closure_attempt_17_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-08-09__track1_dt_phase_1_closure_attempt_26_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_26
+  output_run_name: track1_dt_phase_1_closure_attempt_26_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 39.20017985531245
+  winning_mean_component_mae: 0.002046551119375702
+  winning_mean_component_rmse: 0.0026452164855641134
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-09__track1_dt_phase_1_closure_attempt_26_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-09__track1_dt_phase_1_closure_attempt_26_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-09__track1_dt_phase_1_closure_attempt_26_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-03-48__track1_dt_phase_1_closure_attempt_08_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_08
+  output_run_name: track1_dt_phase_1_closure_attempt_08_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 73.75240103884815
+  winning_mean_component_mae: 0.0020632662265470986
+  winning_mean_component_rmse: 0.0029762624598049722
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0314754392508879
+  max_normalized_gap_ratio: 0.0629508785017758
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-48__track1_dt_phase_1_closure_attempt_08_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-48__track1_dt_phase_1_closure_attempt_08_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-48__track1_dt_phase_1_closure_attempt_08_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-04-17__track1_dt_phase_1_closure_attempt_10_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_10
+  output_run_name: track1_dt_phase_1_closure_attempt_10_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 23.892120644485754
+  winning_mean_component_mae: 0.0020983623887678897
+  winning_mean_component_rmse: 0.0031908967998746703
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.06980299997761971
+  max_normalized_gap_ratio: 0.13960599995523942
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-17__track1_dt_phase_1_closure_attempt_10_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-17__track1_dt_phase_1_closure_attempt_10_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-17__track1_dt_phase_1_closure_attempt_10_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-11-18__track1_dt_phase_162_closure_attempt_12_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_12
+  output_run_name: track1_dt_phase_162_closure_attempt_12_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 8.450310608713279
+  winning_mean_component_mae: 0.19408262414199973
+  winning_mean_component_rmse: 0.8563046004073324
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.08651000027899479
+  max_normalized_gap_ratio: 0.17302000055798958
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-18__track1_dt_phase_162_closure_attempt_12_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-18__track1_dt_phase_162_closure_attempt_12_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-18__track1_dt_phase_162_closure_attempt_12_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-04-03__track1_dt_phase_1_closure_attempt_09_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_09
+  output_run_name: track1_dt_phase_1_closure_attempt_09_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 50.68159147084764
+  winning_mean_component_mae: 0.0021144505612347873
+  winning_mean_component_rmse: 0.0029837797414157406
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.03625842078490308
+  max_normalized_gap_ratio: 0.0656356219341931
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-03__track1_dt_phase_1_closure_attempt_09_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-03__track1_dt_phase_1_closure_attempt_09_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-03__track1_dt_phase_1_closure_attempt_09_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-04-46__track1_dt_phase_1_closure_attempt_12_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_12
+  output_run_name: track1_dt_phase_1_closure_attempt_12_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 24.788489867098633
+  winning_mean_component_mae: 0.0021590806437421363
+  winning_mean_component_rmse: 0.0029425807819652354
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.03952767386096737
+  max_normalized_gap_ratio: 0.05092170784472693
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-46__track1_dt_phase_1_closure_attempt_12_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-46__track1_dt_phase_1_closure_attempt_12_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-46__track1_dt_phase_1_closure_attempt_12_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-06-27__track1_dt_phase_1_closure_attempt_19_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_19
+  output_run_name: track1_dt_phase_1_closure_attempt_19_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 31.490359144635367
+  winning_mean_component_mae: 0.002181590989847137
+  winning_mean_component_rmse: 0.0029940210487380352
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.054073042000158035
+  max_normalized_gap_ratio: 0.06929323169215545
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-27__track1_dt_phase_1_closure_attempt_19_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-27__track1_dt_phase_1_closure_attempt_19_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-27__track1_dt_phase_1_closure_attempt_19_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-08-23__track1_dt_phase_1_closure_attempt_27_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_27
+  output_run_name: track1_dt_phase_1_closure_attempt_27_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 63.33864805615058
+  winning_mean_component_mae: 0.0021788902894516898
+  winning_mean_component_rmse: 0.0030194528160523712
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.05797140511689723
+  max_normalized_gap_ratio: 0.07837600573298974
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-23__track1_dt_phase_1_closure_attempt_27_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-23__track1_dt_phase_1_closure_attempt_27_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-23__track1_dt_phase_1_closure_attempt_27_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-06-56__track1_dt_phase_1_closure_attempt_21_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_21
+  output_run_name: track1_dt_phase_1_closure_attempt_21_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 56.061953088799896
+  winning_mean_component_mae: 0.0022105820877970045
+  winning_mean_component_rmse: 0.00300368074512701
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.06270063015291955
+  max_normalized_gap_ratio: 0.07274312325964641
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-56__track1_dt_phase_1_closure_attempt_21_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-56__track1_dt_phase_1_closure_attempt_21_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-56__track1_dt_phase_1_closure_attempt_21_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-13-43__track1_dt_phase_162_closure_attempt_22_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_22
+  output_run_name: track1_dt_phase_162_closure_attempt_22_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 9.746351274069246
+  winning_mean_component_mae: 0.22600829873182646
+  winning_mean_component_rmse: 0.7333192558067352
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.06729420971089159
+  max_normalized_gap_ratio: 0.13004149365913223
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-43__track1_dt_phase_162_closure_attempt_22_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-43__track1_dt_phase_162_closure_attempt_22_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-43__track1_dt_phase_162_closure_attempt_22_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-02-37__track1_dt_phase_1_closure_attempt_03_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_03
+  output_run_name: track1_dt_phase_1_closure_attempt_03_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 24.729388797453442
+  winning_mean_component_mae: 0.002190129352848878
+  winning_mean_component_rmse: 0.0031356076529525543
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.08138930775316522
+  max_normalized_gap_ratio: 0.1198598760544837
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-37__track1_dt_phase_1_closure_attempt_03_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-37__track1_dt_phase_1_closure_attempt_03_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-37__track1_dt_phase_1_closure_attempt_03_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-05-00__track1_dt_phase_1_closure_attempt_13_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_13
+  output_run_name: track1_dt_phase_1_closure_attempt_13_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 56.0058334202907
+  winning_mean_component_mae: 0.0022494325625166955
+  winning_mean_component_rmse: 0.003095750166459903
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.08839171127657691
+  max_normalized_gap_ratio: 0.10562505944996542
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-00__track1_dt_phase_1_closure_attempt_13_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-00__track1_dt_phase_1_closure_attempt_13_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-00__track1_dt_phase_1_closure_attempt_13_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-02-08__track1_dt_phase_1_closure_attempt_01_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_01
+  output_run_name: track1_dt_phase_1_closure_attempt_01_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 32.883859521707684
+  winning_mean_component_mae: 0.0022346171851618636
+  winning_mean_component_rmse: 0.0031639459881590746
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0970420657812309
+  max_normalized_gap_ratio: 0.12998071005681236
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-08__track1_dt_phase_1_closure_attempt_01_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-08__track1_dt_phase_1_closure_attempt_01_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-08__track1_dt_phase_1_closure_attempt_01_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-04-32__track1_dt_phase_1_closure_attempt_11_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_11
+  output_run_name: track1_dt_phase_1_closure_attempt_11_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 38.457427367993255
+  winning_mean_component_mae: 0.0023005656460908064
+  winning_mean_component_rmse: 0.0031996445321846234
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.11911882029268431
+  max_normalized_gap_ratio: 0.14273019006593693
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-32__track1_dt_phase_1_closure_attempt_11_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-32__track1_dt_phase_1_closure_attempt_11_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-04-32__track1_dt_phase_1_closure_attempt_11_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-06-42__track1_dt_phase_1_closure_attempt_20_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_20
+  output_run_name: track1_dt_phase_1_closure_attempt_20_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 42.408391635108856
+  winning_mean_component_mae: 0.0023338850104735794
+  winning_mean_component_rmse: 0.003201954639140824
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.12746452138790418
+  max_normalized_gap_ratio: 0.14355522826458
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-42__track1_dt_phase_1_closure_attempt_20_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-42__track1_dt_phase_1_closure_attempt_20_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-42__track1_dt_phase_1_closure_attempt_20_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-02-22__track1_dt_phase_1_closure_attempt_02_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_02
+  output_run_name: track1_dt_phase_1_closure_attempt_02_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 43.287523545447634
+  winning_mean_component_mae: 0.0023452509651310243
+  winning_mean_component_rmse: 0.0031869281395762697
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.12748739757457778
+  max_normalized_gap_ratio: 0.1381886212772392
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-22__track1_dt_phase_1_closure_attempt_02_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-22__track1_dt_phase_1_closure_attempt_02_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-22__track1_dt_phase_1_closure_attempt_02_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-05-15__track1_dt_phase_1_closure_attempt_14_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_14
+  output_run_name: track1_dt_phase_1_closure_attempt_14_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 813.4248730042348
+  winning_mean_component_mae: 0.0023435751377829366
+  winning_mean_component_rmse: 0.0032453692438043275
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.13752430253242437
+  max_normalized_gap_ratio: 0.15906044421583126
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-15__track1_dt_phase_1_closure_attempt_14_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-15__track1_dt_phase_1_closure_attempt_14_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-15__track1_dt_phase_1_closure_attempt_14_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-06-13__track1_dt_phase_1_closure_attempt_18_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_18
+  output_run_name: track1_dt_phase_1_closure_attempt_18_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 57.31391125955866
+  winning_mean_component_mae: 0.0022588850172730267
+  winning_mean_component_rmse: 0.003466825086350639
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.1569056742942872
+  max_normalized_gap_ratio: 0.2381518165537997
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-13__track1_dt_phase_1_closure_attempt_18_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-13__track1_dt_phase_1_closure_attempt_18_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-06-13__track1_dt_phase_1_closure_attempt_18_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-03-20__track1_dt_phase_1_closure_attempt_06_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_06
+  output_run_name: track1_dt_phase_1_closure_attempt_06_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 36.799174373419675
+  winning_mean_component_mae: 0.002287950235509742
+  winning_mean_component_rmse: 0.0034506515516016826
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.16093783314547716
+  max_normalized_gap_ratio: 0.2323755541434581
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-20__track1_dt_phase_1_closure_attempt_06_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-20__track1_dt_phase_1_closure_attempt_06_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-20__track1_dt_phase_1_closure_attempt_06_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-07-26__track1_dt_phase_1_closure_attempt_23_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_23
+  output_run_name: track1_dt_phase_1_closure_attempt_23_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 2054.192808956821
+  winning_mean_component_mae: 0.0025145890644940514
+  winning_mean_component_rmse: 0.0034972570652634614
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.22322187224801135
+  max_normalized_gap_ratio: 0.24902038045123626
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-26__track1_dt_phase_1_closure_attempt_23_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-26__track1_dt_phase_1_closure_attempt_23_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-26__track1_dt_phase_1_closure_attempt_23_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-08-38__track1_dt_phase_162_closure_attempt_01_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_01
+  output_run_name: track1_dt_phase_162_closure_attempt_01_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 11.605530501064344
+  winning_mean_component_mae: 0.24531160256925483
+  winning_mean_component_rmse: 0.8916062705011738
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.22396823279380404
+  max_normalized_gap_ratio: 0.22655801284627408
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-38__track1_dt_phase_162_closure_attempt_01_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-38__track1_dt_phase_162_closure_attempt_01_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-38__track1_dt_phase_162_closure_attempt_01_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-05-30__track1_dt_phase_1_closure_attempt_15_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_15
+  output_run_name: track1_dt_phase_1_closure_attempt_15_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 41.649703783361105
+  winning_mean_component_mae: 0.002198296742411156
+  winning_mean_component_rmse: 0.003510721053233459
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.15031846008005967
+  max_normalized_gap_ratio: 0.2538289475833782
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-30__track1_dt_phase_1_closure_attempt_15_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-30__track1_dt_phase_1_closure_attempt_15_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-30__track1_dt_phase_1_closure_attempt_15_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-03-05__track1_dt_phase_1_closure_attempt_05_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_05
+  output_run_name: track1_dt_phase_1_closure_attempt_05_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 1700.8657142335985
+  winning_mean_component_mae: 0.0022593555136917456
+  winning_mean_component_rmse: 0.003508336120362541
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.1644303818961075
+  max_normalized_gap_ratio: 0.25297718584376466
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-05__track1_dt_phase_1_closure_attempt_05_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-05__track1_dt_phase_1_closure_attempt_05_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-05__track1_dt_phase_1_closure_attempt_05_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-07-55__track1_dt_phase_1_closure_attempt_25_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_25
+  output_run_name: track1_dt_phase_1_closure_attempt_25_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 48.53995304371977
+  winning_mean_component_mae: 0.0023107595676687353
+  winning_mean_component_rmse: 0.003543403551660396
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.1829314836700077
+  max_normalized_gap_ratio: 0.2655012684501414
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-55__track1_dt_phase_1_closure_attempt_25_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-55__track1_dt_phase_1_closure_attempt_25_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-55__track1_dt_phase_1_closure_attempt_25_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-07-11__track1_dt_phase_1_closure_attempt_22_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_22
+  output_run_name: track1_dt_phase_1_closure_attempt_22_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 41.455864191935596
+  winning_mean_component_mae: 0.0023255235057956076
+  winning_mean_component_rmse: 0.003563170701697085
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.18997655525438606
+  max_normalized_gap_ratio: 0.2725609648918161
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-11__track1_dt_phase_1_closure_attempt_22_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-11__track1_dt_phase_1_closure_attempt_22_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-11__track1_dt_phase_1_closure_attempt_22_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-10-06__track1_dt_phase_162_closure_attempt_07_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_07
+  output_run_name: track1_dt_phase_162_closure_attempt_07_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 9.450359559545909
+  winning_mean_component_mae: 0.2209796949296305
+  winning_mean_component_rmse: 0.9498409410334385
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.20302522433328068
+  max_normalized_gap_ratio: 0.301151974018409
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-06__track1_dt_phase_162_closure_attempt_07_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-06__track1_dt_phase_162_closure_attempt_07_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-06__track1_dt_phase_162_closure_attempt_07_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-05-44__track1_dt_phase_1_closure_attempt_16_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_16
+  output_run_name: track1_dt_phase_1_closure_attempt_16_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 37.872899830959675
+  winning_mean_component_mae: 0.002444474674319224
+  winning_mean_component_rmse: 0.0035203196797801485
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.21064629384627037
+  max_normalized_gap_ratio: 0.25725702849291016
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-44__track1_dt_phase_1_closure_attempt_16_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-44__track1_dt_phase_1_closure_attempt_16_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-05-44__track1_dt_phase_1_closure_attempt_16_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-03-34__track1_dt_phase_1_closure_attempt_07_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_07
+  output_run_name: track1_dt_phase_1_closure_attempt_07_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 35.38913151198475
+  winning_mean_component_mae: 0.0023462827387939924
+  winning_mean_component_rmse: 0.003658209086010488
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.21189036983377588
+  max_normalized_gap_ratio: 0.30650324500374576
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-34__track1_dt_phase_1_closure_attempt_07_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-34__track1_dt_phase_1_closure_attempt_07_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-03-34__track1_dt_phase_1_closure_attempt_07_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-09-22__track1_dt_phase_162_closure_attempt_04_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_04
+  output_run_name: track1_dt_phase_162_closure_attempt_04_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 10.668635964426306
+  winning_mean_component_mae: 0.273490822793897
+  winning_mean_component_rmse: 0.8061184234498324
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.2358629634572305
+  max_normalized_gap_ratio: 0.3674541139694851
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-22__track1_dt_phase_162_closure_attempt_04_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-22__track1_dt_phase_162_closure_attempt_04_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-22__track1_dt_phase_162_closure_attempt_04_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-12-59__track1_dt_phase_162_closure_attempt_19_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_19
+  output_run_name: track1_dt_phase_162_closure_attempt_19_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 10.52920456769904
+  winning_mean_component_mae: 0.24053525879178875
+  winning_mean_component_rmse: 0.9610052315603221
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.2595609083221583
+  max_normalized_gap_ratio: 0.31644552268537285
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-59__track1_dt_phase_162_closure_attempt_19_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-59__track1_dt_phase_162_closure_attempt_19_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-59__track1_dt_phase_162_closure_attempt_19_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-07-40__track1_dt_phase_1_closure_attempt_24_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_24
+  output_run_name: track1_dt_phase_1_closure_attempt_24_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 44.981060367296585
+  winning_mean_component_mae: 0.0024342467047602976
+  winning_mean_component_rmse: 0.0038430240118207254
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.2658368365775814
+  max_normalized_gap_ratio: 0.3725085756502591
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-40__track1_dt_phase_1_closure_attempt_24_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-40__track1_dt_phase_1_closure_attempt_24_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-07-40__track1_dt_phase_1_closure_attempt_24_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-12-02__track1_dt_phase_162_closure_attempt_15_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_15
+  output_run_name: track1_dt_phase_162_closure_attempt_15_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 12.479282057287703
+  winning_mean_component_mae: 0.2714033261176789
+  winning_mean_component_rmse: 0.8873412559221177
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.28627629880249705
+  max_normalized_gap_ratio: 0.35701663058839456
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-02__track1_dt_phase_162_closure_attempt_15_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-02__track1_dt_phase_162_closure_attempt_15_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-02__track1_dt_phase_162_closure_attempt_15_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-12-31__track1_dt_phase_162_closure_attempt_17_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_17
+  output_run_name: track1_dt_phase_162_closure_attempt_17_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 10.845641748080814
+  winning_mean_component_mae: 0.28293191524359934
+  winning_mean_component_rmse: 0.8777149392686924
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.30850440404645885
+  max_normalized_gap_ratio: 0.41465957621799665
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-31__track1_dt_phase_162_closure_attempt_17_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-31__track1_dt_phase_162_closure_attempt_17_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-31__track1_dt_phase_162_closure_attempt_17_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-14-26__track1_dt_phase_162_closure_attempt_25_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_25
+  output_run_name: track1_dt_phase_162_closure_attempt_25_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 10.421970157113304
+  winning_mean_component_mae: 0.25187077256725315
+  winning_mean_component_rmse: 0.9840372452715948
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.3036750446178553
+  max_normalized_gap_ratio: 0.3479962263994449
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-26__track1_dt_phase_162_closure_attempt_25_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-26__track1_dt_phase_162_closure_attempt_25_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-26__track1_dt_phase_162_closure_attempt_25_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-13-28__track1_dt_phase_162_closure_attempt_21_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_21
+  output_run_name: track1_dt_phase_162_closure_attempt_21_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 10.565050555706186
+  winning_mean_component_mae: 0.2654437048791837
+  winning_mean_component_rmse: 0.9571100614733685
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.319164098823554
+  max_normalized_gap_ratio: 0.3272185243959183
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-28__track1_dt_phase_162_closure_attempt_21_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-28__track1_dt_phase_162_closure_attempt_21_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-28__track1_dt_phase_162_closure_attempt_21_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-02-51__track1_dt_phase_1_closure_attempt_04_campaign_run
+  run_name: track1_dt_phase_1_closure_attempt_04
+  output_run_name: track1_dt_phase_1_closure_attempt_04_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 53.52486770060927
+  winning_mean_component_mae: 0.0026456584755038103
+  winning_mean_component_rmse: 0.0043893381205987025
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.41372906332210413
+  max_normalized_gap_ratio: 0.5676207573566795
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-51__track1_dt_phase_1_closure_attempt_04_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-51__track1_dt_phase_1_closure_attempt_04_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-02-51__track1_dt_phase_1_closure_attempt_04_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-10-08-53__track1_dt_phase_162_closure_attempt_02_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_02
+  output_run_name: track1_dt_phase_162_closure_attempt_02_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 10.777205494529426
+  winning_mean_component_mae: 0.2845764748124276
+  winning_mean_component_rmse: 1.0577786557336957
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.435947115615792
+  max_normalized_gap_ratio: 0.44901185716944614
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-53__track1_dt_phase_162_closure_attempt_02_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-53__track1_dt_phase_162_closure_attempt_02_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-08-53__track1_dt_phase_162_closure_attempt_02_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-11-33__track1_dt_phase_162_closure_attempt_13_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_13
+  output_run_name: track1_dt_phase_162_closure_attempt_13_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 13.07108825142968
+  winning_mean_component_mae: 0.3406199522077747
+  winning_mean_component_rmse: 0.9478535320023815
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5007646284662733
+  max_normalized_gap_ratio: 0.7030997610388734
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-33__track1_dt_phase_162_closure_attempt_13_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-33__track1_dt_phase_162_closure_attempt_13_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-33__track1_dt_phase_162_closure_attempt_13_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-11-04__track1_dt_phase_162_closure_attempt_11_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_11
+  output_run_name: track1_dt_phase_162_closure_attempt_11_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 11.388774206853167
+  winning_mean_component_mae: 0.3102889583074894
+  winning_mean_component_rmse: 1.1457086636742226
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.560454357189424
+  max_normalized_gap_ratio: 0.5694639228414009
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-04__track1_dt_phase_162_closure_attempt_11_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-04__track1_dt_phase_162_closure_attempt_11_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-04__track1_dt_phase_162_closure_attempt_11_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-10-49__track1_dt_phase_162_closure_attempt_10_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_10
+  output_run_name: track1_dt_phase_162_closure_attempt_10_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 11.835624439956721
+  winning_mean_component_mae: 0.31513067037383563
+  winning_mean_component_rmse: 1.1421203538020641
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5701008908675097
+  max_normalized_gap_ratio: 0.5756533518691781
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-49__track1_dt_phase_162_closure_attempt_10_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-49__track1_dt_phase_162_closure_attempt_10_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-49__track1_dt_phase_162_closure_attempt_10_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-14-41__track1_dt_phase_162_closure_attempt_26_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_26
+  output_run_name: track1_dt_phase_162_closure_attempt_26_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 12.650836810283256
+  winning_mean_component_mae: 0.3297889408013606
+  winning_mean_component_rmse: 1.1179036908453215
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5901598114864984
+  max_normalized_gap_ratio: 0.648944704006803
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-41__track1_dt_phase_162_closure_attempt_26_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-41__track1_dt_phase_162_closure_attempt_26_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-41__track1_dt_phase_162_closure_attempt_26_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-14-12__track1_dt_phase_162_closure_attempt_24_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_24
+  output_run_name: track1_dt_phase_162_closure_attempt_24_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 13.218687713254354
+  winning_mean_component_mae: 0.3385378416268274
+  winning_mean_component_rmse: 1.1612953538025574
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.6417523806441625
+  max_normalized_gap_ratio: 0.6926892081341368
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-12__track1_dt_phase_162_closure_attempt_24_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-12__track1_dt_phase_162_closure_attempt_24_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-12__track1_dt_phase_162_closure_attempt_24_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-13-14__track1_dt_phase_162_closure_attempt_20_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_20
+  output_run_name: track1_dt_phase_162_closure_attempt_20_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 12.552021732454907
+  winning_mean_component_mae: 0.3325220779925587
+  winning_mean_component_rmse: 1.1939391724070876
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.6490717514246074
+  max_normalized_gap_ratio: 0.6626103899627933
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-14__track1_dt_phase_162_closure_attempt_20_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-14__track1_dt_phase_162_closure_attempt_20_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-14__track1_dt_phase_162_closure_attempt_20_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-09-51__track1_dt_phase_162_closure_attempt_06_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_06
+  output_run_name: track1_dt_phase_162_closure_attempt_06_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 13.593321681899603
+  winning_mean_component_mae: 0.3443714757368463
+  winning_mean_component_rmse: 1.174058866163784
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.6650785976734747
+  max_normalized_gap_ratio: 0.7218573786842314
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-51__track1_dt_phase_162_closure_attempt_06_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-51__track1_dt_phase_162_closure_attempt_06_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-51__track1_dt_phase_162_closure_attempt_06_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-13-57__track1_dt_phase_162_closure_attempt_23_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_23
+  output_run_name: track1_dt_phase_162_closure_attempt_23_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 14.138445204211402
+  winning_mean_component_mae: 0.3430086426461076
+  winning_mean_component_rmse: 1.2134719912924132
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.6886668061306205
+  max_normalized_gap_ratio: 0.7150432132305379
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-57__track1_dt_phase_162_closure_attempt_23_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-57__track1_dt_phase_162_closure_attempt_23_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-13-57__track1_dt_phase_162_closure_attempt_23_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-14-55__track1_dt_phase_162_closure_attempt_27_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_27
+  output_run_name: track1_dt_phase_162_closure_attempt_27_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 14.855092365069517
+  winning_mean_component_mae: 0.39112190269174246
+  winning_mean_component_rmse: 1.2208572205782413
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.8140083324678775
+  max_normalized_gap_ratio: 0.9556095134587123
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-55__track1_dt_phase_162_closure_attempt_27_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-55__track1_dt_phase_162_closure_attempt_27_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-14-55__track1_dt_phase_162_closure_attempt_27_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-10-35__track1_dt_phase_162_closure_attempt_09_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_09
+  output_run_name: track1_dt_phase_162_closure_attempt_09_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 14.900379664084994
+  winning_mean_component_mae: 0.40891221760607543
+  winning_mean_component_rmse: 1.2180230194397736
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.8565428860972253
+  max_normalized_gap_ratio: 1.044561088030377
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-35__track1_dt_phase_162_closure_attempt_09_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-35__track1_dt_phase_162_closure_attempt_09_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-35__track1_dt_phase_162_closure_attempt_09_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-09-37__track1_dt_phase_162_closure_attempt_05_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_05
+  output_run_name: track1_dt_phase_162_closure_attempt_05_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 16.98696645672139
+  winning_mean_component_mae: 0.4177738162598496
+  winning_mean_component_rmse: 1.2599737138079121
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.9074302350386049
+  max_normalized_gap_ratio: 1.0888690812992479
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-37__track1_dt_phase_162_closure_attempt_05_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-37__track1_dt_phase_162_closure_attempt_05_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-09-37__track1_dt_phase_162_closure_attempt_05_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-11-47__track1_dt_phase_162_closure_attempt_14_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_14
+  output_run_name: track1_dt_phase_162_closure_attempt_14_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 16.68320162336033
+  winning_mean_component_mae: 0.40386125100477704
+  winning_mean_component_rmse: 1.3140306029281141
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.9096740884216098
+  max_normalized_gap_ratio: 1.0193062550238852
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-47__track1_dt_phase_162_closure_attempt_14_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-47__track1_dt_phase_162_closure_attempt_14_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-11-47__track1_dt_phase_162_closure_attempt_14_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-10-20__track1_dt_phase_162_closure_attempt_08_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_08
+  output_run_name: track1_dt_phase_162_closure_attempt_08_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 15.00301348237722
+  winning_mean_component_mae: 0.4035501153598503
+  winning_mean_component_rmse: 1.3201464002055088
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.9130851515540838
+  max_normalized_gap_ratio: 1.0177505767992514
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-20__track1_dt_phase_162_closure_attempt_08_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-20__track1_dt_phase_162_closure_attempt_08_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-10-20__track1_dt_phase_162_closure_attempt_08_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'
+- run_instance_id: 2026-04-21-10-12-45__track1_dt_phase_162_closure_attempt_18_campaign_run
+  run_name: track1_dt_phase_162_closure_attempt_18
+  output_run_name: track1_dt_phase_162_closure_attempt_18_campaign_run
+  output_artifact_kind: validation_check
+  family_code: DT
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 15.689224452225842
+  winning_mean_component_mae: 0.428990560635232
+  winning_mean_component_rmse: 1.2828276142399782
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.95112545243738
+  max_normalized_gap_ratio: 1.1449528031761598
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-45__track1_dt_phase_162_closure_attempt_18_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-45__track1_dt_phase_162_closure_attempt_18_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-10-12-45__track1_dt_phase_162_closure_attempt_18_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:49+02:00'

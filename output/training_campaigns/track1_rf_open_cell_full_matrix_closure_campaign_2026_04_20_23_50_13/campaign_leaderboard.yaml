@@ -1,0 +1,2392 @@
+schema_version: 1
+campaign_name: track1_rf_open_cell_full_matrix_closure_campaign_2026_04_20_23_50_13
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 residual
+    cellwise closure campaign.
+updated_at: '2026-04-21T14:59:56+02:00'
+entry_count: 54
+entry_list:
+- run_instance_id: 2026-04-21-09-36-16__track1_rf_amplitude_240_closure_attempt_07_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_07
+  output_run_name: track1_rf_amplitude_240_closure_attempt_07_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.212672364599435
+  winning_mean_component_mae: 2.7670861952700727e-05
+  winning_mean_component_rmse: 4.661026347353714e-05
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-36-16__track1_rf_amplitude_240_closure_attempt_07_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-36-16__track1_rf_amplitude_240_closure_attempt_07_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-36-16__track1_rf_amplitude_240_closure_attempt_07_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-38-19__track1_rf_amplitude_240_closure_attempt_12_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_12
+  output_run_name: track1_rf_amplitude_240_closure_attempt_12_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 8.99092132834188
+  winning_mean_component_mae: 2.6155300336988348e-05
+  winning_mean_component_rmse: 3.772174542523222e-05
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-38-19__track1_rf_amplitude_240_closure_attempt_12_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-38-19__track1_rf_amplitude_240_closure_attempt_12_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-38-19__track1_rf_amplitude_240_closure_attempt_12_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-39-58__track1_rf_amplitude_240_closure_attempt_16_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_16
+  output_run_name: track1_rf_amplitude_240_closure_attempt_16_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.91150354416268
+  winning_mean_component_mae: 2.8427594022315126e-05
+  winning_mean_component_rmse: 4.7403569857583207e-05
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-58__track1_rf_amplitude_240_closure_attempt_16_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-58__track1_rf_amplitude_240_closure_attempt_16_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-58__track1_rf_amplitude_240_closure_attempt_16_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-40-48__track1_rf_amplitude_240_closure_attempt_18_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_18
+  output_run_name: track1_rf_amplitude_240_closure_attempt_18_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.368309325485107
+  winning_mean_component_mae: 2.780613020353791e-05
+  winning_mean_component_rmse: 4.586421062466447e-05
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-40-48__track1_rf_amplitude_240_closure_attempt_18_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-40-48__track1_rf_amplitude_240_closure_attempt_18_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-40-48__track1_rf_amplitude_240_closure_attempt_18_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-41-37__track1_rf_amplitude_240_closure_attempt_20_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_20
+  output_run_name: track1_rf_amplitude_240_closure_attempt_20_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.905109007678945
+  winning_mean_component_mae: 2.6538752693290937e-05
+  winning_mean_component_rmse: 4.115996722996316e-05
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-41-37__track1_rf_amplitude_240_closure_attempt_20_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-41-37__track1_rf_amplitude_240_closure_attempt_20_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-41-37__track1_rf_amplitude_240_closure_attempt_20_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-47-19__track1_rf_phase_162_closure_attempt_07_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_07
+  output_run_name: track1_rf_phase_162_closure_attempt_07_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 8.643352623352934
+  winning_mean_component_mae: 0.20259415565224126
+  winning_mean_component_rmse: 0.5552091669707618
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-47-19__track1_rf_phase_162_closure_attempt_07_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-47-19__track1_rf_phase_162_closure_attempt_07_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-47-19__track1_rf_phase_162_closure_attempt_07_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-49-24__track1_rf_phase_162_closure_attempt_12_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_12
+  output_run_name: track1_rf_phase_162_closure_attempt_12_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 7.745750160070106
+  winning_mean_component_mae: 0.1768494587508485
+  winning_mean_component_rmse: 0.5664591167195038
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-49-24__track1_rf_phase_162_closure_attempt_12_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-49-24__track1_rf_phase_162_closure_attempt_12_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-49-24__track1_rf_phase_162_closure_attempt_12_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-50-41__track1_rf_phase_162_closure_attempt_15_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_15
+  output_run_name: track1_rf_phase_162_closure_attempt_15_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 8.23838340111651
+  winning_mean_component_mae: 0.19225619777832575
+  winning_mean_component_rmse: 0.5277649323076241
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-50-41__track1_rf_phase_162_closure_attempt_15_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-50-41__track1_rf_phase_162_closure_attempt_15_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-50-41__track1_rf_phase_162_closure_attempt_15_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-51-07__track1_rf_phase_162_closure_attempt_16_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_16
+  output_run_name: track1_rf_phase_162_closure_attempt_16_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 8.12201118635464
+  winning_mean_component_mae: 0.20457048488711593
+  winning_mean_component_rmse: 0.593485568253567
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-07__track1_rf_phase_162_closure_attempt_16_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-07__track1_rf_phase_162_closure_attempt_16_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-07__track1_rf_phase_162_closure_attempt_16_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-54-52__track1_rf_phase_162_closure_attempt_25_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_25
+  output_run_name: track1_rf_phase_162_closure_attempt_25_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.352038230866334
+  winning_mean_component_mae: 0.21622636766241102
+  winning_mean_component_rmse: 0.593751973144157
+  closure_score: 1.0
+  met_paper_cell_count: 2
+  near_paper_cell_count: 0
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.0
+  max_normalized_gap_ratio: 0.0
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-52__track1_rf_phase_162_closure_attempt_25_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-52__track1_rf_phase_162_closure_attempt_25_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-52__track1_rf_phase_162_closure_attempt_25_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-45-38__track1_rf_phase_162_closure_attempt_03_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_03
+  output_run_name: track1_rf_phase_162_closure_attempt_03_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 8.64983377863824
+  winning_mean_component_mae: 0.20742657310631293
+  winning_mean_component_rmse: 0.6859787521301007
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.004396141272132855
+  max_normalized_gap_ratio: 0.00879228254426571
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-45-38__track1_rf_phase_162_closure_attempt_03_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-45-38__track1_rf_phase_162_closure_attempt_03_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-45-38__track1_rf_phase_162_closure_attempt_03_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-35-04__track1_rf_amplitude_240_closure_attempt_04_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_04
+  output_run_name: track1_rf_amplitude_240_closure_attempt_04_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.53242276554778
+  winning_mean_component_mae: 2.95995244307345e-05
+  winning_mean_component_rmse: 4.599214794383095e-05
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.010336628116112087
+  max_normalized_gap_ratio: 0.020673256232224175
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-04__track1_rf_amplitude_240_closure_attempt_04_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-04__track1_rf_amplitude_240_closure_attempt_04_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-04__track1_rf_amplitude_240_closure_attempt_04_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-42-24__track1_rf_amplitude_240_closure_attempt_22_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_22
+  output_run_name: track1_rf_amplitude_240_closure_attempt_22_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.011541427415631
+  winning_mean_component_mae: 3.0030007215792663e-05
+  winning_mean_component_rmse: 4.717734159123832e-05
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.017758745099873494
+  max_normalized_gap_ratio: 0.03551749019974699
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-24__track1_rf_amplitude_240_closure_attempt_22_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-24__track1_rf_amplitude_240_closure_attempt_22_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-24__track1_rf_amplitude_240_closure_attempt_22_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-46-03__track1_rf_phase_162_closure_attempt_04_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_04
+  output_run_name: track1_rf_phase_162_closure_attempt_04_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.837473094002313
+  winning_mean_component_mae: 0.24208158049725798
+  winning_mean_component_rmse: 0.6432892517765084
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.026264305428821664
+  max_normalized_gap_ratio: 0.05252861085764333
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-03__track1_rf_phase_162_closure_attempt_04_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-03__track1_rf_phase_162_closure_attempt_04_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-03__track1_rf_phase_162_closure_attempt_04_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-38-44__track1_rf_amplitude_240_closure_attempt_13_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_13
+  output_run_name: track1_rf_amplitude_240_closure_attempt_13_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 10.14552884088285
+  winning_mean_component_mae: 3.133019168421335e-05
+  winning_mean_component_rmse: 4.5942736939533175e-05
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.040175718693333605
+  max_normalized_gap_ratio: 0.08035143738666721
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-38-44__track1_rf_amplitude_240_closure_attempt_13_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-38-44__track1_rf_amplitude_240_closure_attempt_13_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-38-44__track1_rf_amplitude_240_closure_attempt_13_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-44-48__track1_rf_phase_162_closure_attempt_01_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_01
+  output_run_name: track1_rf_phase_162_closure_attempt_01_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.404316602759376
+  winning_mean_component_mae: 0.21928019884386996
+  winning_mean_component_rmse: 0.7610457498728554
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.059592463141805434
+  max_normalized_gap_ratio: 0.11918492628361087
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-48__track1_rf_phase_162_closure_attempt_01_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-48__track1_rf_phase_162_closure_attempt_01_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-48__track1_rf_phase_162_closure_attempt_01_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-53-37__track1_rf_phase_162_closure_attempt_22_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_22
+  output_run_name: track1_rf_phase_162_closure_attempt_22_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.639348572407417
+  winning_mean_component_mae: 0.27456385355348084
+  winning_mean_component_rmse: 0.6784040691951748
+  closure_score: 0.75
+  met_paper_cell_count: 1
+  near_paper_cell_count: 1
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.09687794250756702
+  max_normalized_gap_ratio: 0.19375588501513405
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-53-37__track1_rf_phase_162_closure_attempt_22_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-53-37__track1_rf_phase_162_closure_attempt_22_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-53-37__track1_rf_phase_162_closure_attempt_22_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-37-29__track1_rf_amplitude_240_closure_attempt_10_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_10
+  output_run_name: track1_rf_amplitude_240_closure_attempt_10_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.296756696757024
+  winning_mean_component_mae: 3.051080069945758e-05
+  winning_mean_component_rmse: 5.491218467657229e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.03449444233438885
+  max_normalized_gap_ratio: 0.052096575843364856
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-29__track1_rf_amplitude_240_closure_attempt_10_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-29__track1_rf_amplitude_240_closure_attempt_10_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-29__track1_rf_amplitude_240_closure_attempt_10_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-48-33__track1_rf_phase_162_closure_attempt_10_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_10
+  output_run_name: track1_rf_phase_162_closure_attempt_10_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.052232623221007
+  winning_mean_component_mae: 0.24016215187857812
+  winning_mean_component_rmse: 0.7559814396392448
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.07796034013573978
+  max_normalized_gap_ratio: 0.11173741123418345
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-33__track1_rf_phase_162_closure_attempt_10_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-33__track1_rf_phase_162_closure_attempt_10_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-33__track1_rf_phase_162_closure_attempt_10_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-53-13__track1_rf_phase_162_closure_attempt_21_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_21
+  output_run_name: track1_rf_phase_162_closure_attempt_21_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.740444863640336
+  winning_mean_component_mae: 0.24097755678558444
+  winning_mean_component_rmse: 0.7537237688889042
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.07807290747648778
+  max_normalized_gap_ratio: 0.10841730718956498
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-53-13__track1_rf_phase_162_closure_attempt_21_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-53-13__track1_rf_phase_162_closure_attempt_21_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-53-13__track1_rf_phase_162_closure_attempt_21_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-33-52__track1_rf_amplitude_240_closure_attempt_01_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_01
+  output_run_name: track1_rf_amplitude_240_closure_attempt_01_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.002886678624693
+  winning_mean_component_mae: 3.394008199373011e-05
+  winning_mean_component_rmse: 5.698235896053117e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.1127882622978384
+  max_normalized_gap_ratio: 0.1703476549562106
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-33-52__track1_rf_amplitude_240_closure_attempt_01_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-33-52__track1_rf_amplitude_240_closure_attempt_01_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-33-52__track1_rf_amplitude_240_closure_attempt_01_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-35-52__track1_rf_amplitude_240_closure_attempt_06_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_06
+  output_run_name: track1_rf_amplitude_240_closure_attempt_06_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.994510874297967
+  winning_mean_component_mae: 3.3679750455955815e-05
+  winning_mean_component_rmse: 5.771556681419816e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.11508874911665415
+  max_normalized_gap_ratio: 0.16137070537778672
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-52__track1_rf_amplitude_240_closure_attempt_06_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-52__track1_rf_amplitude_240_closure_attempt_06_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-52__track1_rf_amplitude_240_closure_attempt_06_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-43-12__track1_rf_amplitude_240_closure_attempt_24_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_24
+  output_run_name: track1_rf_amplitude_240_closure_attempt_24_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 12.257524109238377
+  winning_mean_component_mae: 3.3734091003552085e-05
+  winning_mean_component_rmse: 5.8532170907769295e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.1235868041242408
+  max_normalized_gap_ratio: 0.163244517363865
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-43-12__track1_rf_amplitude_240_closure_attempt_24_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-43-12__track1_rf_amplitude_240_closure_attempt_24_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-43-12__track1_rf_amplitude_240_closure_attempt_24_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-52-23__track1_rf_phase_162_closure_attempt_19_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_19
+  output_run_name: track1_rf_phase_162_closure_attempt_19_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 10.53178859902984
+  winning_mean_component_mae: 0.2507048244394494
+  winning_mean_component_rmse: 0.8057087278330932
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.13744337602441503
+  max_normalized_gap_ratio: 0.184865776225137
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-52-23__track1_rf_phase_162_closure_attempt_19_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-52-23__track1_rf_phase_162_closure_attempt_19_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-52-23__track1_rf_phase_162_closure_attempt_19_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-39-33__track1_rf_amplitude_240_closure_attempt_15_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_15
+  output_run_name: track1_rf_amplitude_240_closure_attempt_15_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.013132504968338
+  winning_mean_component_mae: 3.4014169491839166e-05
+  winning_mean_component_rmse: 6.042124357165417e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.14590715713195593
+  max_normalized_gap_ratio: 0.1729023962703161
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-33__track1_rf_amplitude_240_closure_attempt_15_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-33__track1_rf_amplitude_240_closure_attempt_15_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-33__track1_rf_amplitude_240_closure_attempt_15_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-36-40__track1_rf_amplitude_240_closure_attempt_08_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_08
+  output_run_name: track1_rf_amplitude_240_closure_attempt_08_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 10.307454548053638
+  winning_mean_component_mae: 3.3818947327514116e-05
+  winning_mean_component_rmse: 6.481057262748072e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.18318319344913897
+  max_normalized_gap_ratio: 0.2001957893977912
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-36-40__track1_rf_amplitude_240_closure_attempt_08_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-36-40__track1_rf_amplitude_240_closure_attempt_08_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-36-40__track1_rf_amplitude_240_closure_attempt_08_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-41-13__track1_rf_amplitude_240_closure_attempt_19_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_19
+  output_run_name: track1_rf_amplitude_240_closure_attempt_19_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 10.957906549980052
+  winning_mean_component_mae: 3.552368370394275e-05
+  winning_mean_component_rmse: 6.334341111639206e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.19899037113291135
+  max_normalized_gap_ratio: 0.22495461048078447
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-41-13__track1_rf_amplitude_240_closure_attempt_19_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-41-13__track1_rf_amplitude_240_closure_attempt_19_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-41-13__track1_rf_amplitude_240_closure_attempt_19_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-40-23__track1_rf_amplitude_240_closure_attempt_17_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_17
+  output_run_name: track1_rf_amplitude_240_closure_attempt_17_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 10.077855875548552
+  winning_mean_component_mae: 3.469402300548334e-05
+  winning_mean_component_rmse: 6.647405855651943e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.21367335262936266
+  max_normalized_gap_ratio: 0.23100108437998948
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-40-23__track1_rf_amplitude_240_closure_attempt_17_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-40-23__track1_rf_amplitude_240_closure_attempt_17_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-40-23__track1_rf_amplitude_240_closure_attempt_17_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-37-54__track1_rf_amplitude_240_closure_attempt_11_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_11
+  output_run_name: track1_rf_amplitude_240_closure_attempt_11_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 13.838412704166394
+  winning_mean_component_mae: 3.554083214671336e-05
+  winning_mean_component_rmse: 6.727386456263293e-05
+  closure_score: 0.5
+  met_paper_cell_count: 0
+  near_paper_cell_count: 2
+  open_paper_cell_count: 0
+  mean_normalized_gap_ratio: 0.23567912140449443
+  max_normalized_gap_ratio: 0.24581230671542464
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-54__track1_rf_amplitude_240_closure_attempt_11_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-54__track1_rf_amplitude_240_closure_attempt_11_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-54__track1_rf_amplitude_240_closure_attempt_11_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-49-50__track1_rf_phase_162_closure_attempt_13_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_13
+  output_run_name: track1_rf_phase_162_closure_attempt_13_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.860726614141996
+  winning_mean_component_mae: 0.291288677062072
+  winning_mean_component_rmse: 0.7492084572873873
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.18412482601760877
+  max_normalized_gap_ratio: 0.26647250896553043
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-49-50__track1_rf_phase_162_closure_attempt_13_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-49-50__track1_rf_phase_162_closure_attempt_13_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-49-50__track1_rf_phase_162_closure_attempt_13_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-44-24__track1_rf_amplitude_240_closure_attempt_27_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_27
+  output_run_name: track1_rf_amplitude_240_closure_attempt_27_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.845592156708124
+  winning_mean_component_mae: 3.4410355583330464e-05
+  winning_mean_component_rmse: 6.772721837229306e-05
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.22038586663357088
+  max_normalized_gap_ratio: 0.25420774763505677
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-24__track1_rf_amplitude_240_closure_attempt_27_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-24__track1_rf_amplitude_240_closure_attempt_27_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-24__track1_rf_amplitude_240_closure_attempt_27_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-37-05__track1_rf_amplitude_240_closure_attempt_09_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_09
+  output_run_name: track1_rf_amplitude_240_closure_attempt_09_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 9.366228212887357
+  winning_mean_component_mae: 3.3004006716567696e-05
+  winning_mean_component_rmse: 7.085804035058013e-05
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.22512756477058726
+  max_normalized_gap_ratio: 0.31218593241815057
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-05__track1_rf_amplitude_240_closure_attempt_09_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-05__track1_rf_amplitude_240_closure_attempt_09_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-37-05__track1_rf_amplitude_240_closure_attempt_09_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-55-17__track1_rf_phase_162_closure_attempt_26_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_26
+  output_run_name: track1_rf_phase_162_closure_attempt_26_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.973418099878156
+  winning_mean_component_mae: 0.2993532791017438
+  winning_mean_component_rmse: 0.795213346016702
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.23548369364778526
+  max_normalized_gap_ratio: 0.30153599609453824
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-55-17__track1_rf_phase_162_closure_attempt_26_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-55-17__track1_rf_phase_162_closure_attempt_26_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-55-17__track1_rf_phase_162_closure_attempt_26_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-51-58__track1_rf_phase_162_closure_attempt_18_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_18
+  output_run_name: track1_rf_phase_162_closure_attempt_18_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.815944884648815
+  winning_mean_component_mae: 0.31882878830104744
+  winning_mean_component_rmse: 0.7919272870245619
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.2754055372773705
+  max_normalized_gap_ratio: 0.38621212304803226
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-58__track1_rf_phase_162_closure_attempt_18_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-58__track1_rf_phase_162_closure_attempt_18_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-58__track1_rf_phase_162_closure_attempt_18_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-46-53__track1_rf_phase_162_closure_attempt_06_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_06
+  output_run_name: track1_rf_phase_162_closure_attempt_06_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.135954106649194
+  winning_mean_component_mae: 0.2871520733439478
+  winning_mean_component_rmse: 0.886912855358192
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.2763854431146696
+  max_normalized_gap_ratio: 0.30428361082087046
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-53__track1_rf_phase_162_closure_attempt_06_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-53__track1_rf_phase_162_closure_attempt_06_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-53__track1_rf_phase_162_closure_attempt_06_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-34-16__track1_rf_amplitude_240_closure_attempt_02_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_02
+  output_run_name: track1_rf_amplitude_240_closure_attempt_02_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 14.128324379709731
+  winning_mean_component_mae: 3.556474861712789e-05
+  winning_mean_component_rmse: 7.331060523946902e-05
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.29198722135041755
+  max_normalized_gap_ratio: 0.3576038007309078
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-34-16__track1_rf_amplitude_240_closure_attempt_02_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-34-16__track1_rf_amplitude_240_closure_attempt_02_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-34-16__track1_rf_amplitude_240_closure_attempt_02_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-55-41__track1_rf_phase_162_closure_attempt_27_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_27
+  output_run_name: track1_rf_phase_162_closure_attempt_27_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 12.918271805253179
+  winning_mean_component_mae: 0.32850998019076655
+  winning_mean_component_rmse: 0.8112459982246351
+  closure_score: 0.25
+  met_paper_cell_count: 0
+  near_paper_cell_count: 1
+  open_paper_cell_count: 1
+  mean_normalized_gap_ratio: 0.3106565413087829
+  max_normalized_gap_ratio: 0.42830426169898494
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-55-41__track1_rf_phase_162_closure_attempt_27_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-55-41__track1_rf_phase_162_closure_attempt_27_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-55-41__track1_rf_phase_162_closure_attempt_27_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-48-59__track1_rf_phase_162_closure_attempt_11_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_11
+  output_run_name: track1_rf_phase_162_closure_attempt_11_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.282668977279913
+  winning_mean_component_mae: 0.3003491033787448
+  winning_mean_component_rmse: 0.9066904543699404
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.31961699105701014
+  max_normalized_gap_ratio: 0.33336831524991234
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-59__track1_rf_phase_162_closure_attempt_11_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-59__track1_rf_phase_162_closure_attempt_11_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-59__track1_rf_phase_162_closure_attempt_11_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-54-27__track1_rf_phase_162_closure_attempt_24_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_24
+  output_run_name: track1_rf_phase_162_closure_attempt_24_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 12.146819683458968
+  winning_mean_component_mae: 0.3170003205629497
+  winning_mean_component_rmse: 0.9104371916065345
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.3585702431339792
+  max_normalized_gap_ratio: 0.3782622633171725
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-27__track1_rf_phase_162_closure_attempt_24_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-27__track1_rf_phase_162_closure_attempt_24_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-27__track1_rf_phase_162_closure_attempt_24_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-50-16__track1_rf_phase_162_closure_attempt_14_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_14
+  output_run_name: track1_rf_phase_162_closure_attempt_14_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 13.32989579972892
+  winning_mean_component_mae: 0.33910142849360325
+  winning_mean_component_rmse: 0.8765948620305525
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.38173206407505517
+  max_normalized_gap_ratio: 0.4743540369287097
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-50-16__track1_rf_phase_162_closure_attempt_14_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-50-16__track1_rf_phase_162_closure_attempt_14_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-50-16__track1_rf_phase_162_closure_attempt_14_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-47-43__track1_rf_phase_162_closure_attempt_08_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_08
+  output_run_name: track1_rf_phase_162_closure_attempt_08_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 13.55808998807092
+  winning_mean_component_mae: 0.34849385568610153
+  winning_mean_component_rmse: 0.8936017844556737
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.4146554740772186
+  max_normalized_gap_ratio: 0.5151906768960935
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-47-43__track1_rf_phase_162_closure_attempt_08_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-47-43__track1_rf_phase_162_closure_attempt_08_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-47-43__track1_rf_phase_162_closure_attempt_08_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-45-13__track1_rf_phase_162_closure_attempt_02_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_02
+  output_run_name: track1_rf_phase_162_closure_attempt_02_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 12.56537222231323
+  winning_mean_component_mae: 0.3258434943805742
+  winning_mean_component_rmse: 0.9673135201937652
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.41961536388541054
+  max_normalized_gap_ratio: 0.4225198826378898
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-45-13__track1_rf_phase_162_closure_attempt_02_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-45-13__track1_rf_phase_162_closure_attempt_02_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-45-13__track1_rf_phase_162_closure_attempt_02_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-48-08__track1_rf_phase_162_closure_attempt_09_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_09
+  output_run_name: track1_rf_phase_162_closure_attempt_09_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 13.394050085008644
+  winning_mean_component_mae: 0.35856342922445283
+  winning_mean_component_rmse: 0.8922348079490777
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.43554072155024226
+  max_normalized_gap_ratio: 0.5589714314106644
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-08__track1_rf_phase_162_closure_attempt_09_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-08__track1_rf_phase_162_closure_attempt_09_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-48-08__track1_rf_phase_162_closure_attempt_09_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-54-02__track1_rf_phase_162_closure_attempt_23_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_23
+  output_run_name: track1_rf_phase_162_closure_attempt_23_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 14.6711287657695
+  winning_mean_component_mae: 0.35239129645707845
+  winning_mean_component_rmse: 0.9336205910080319
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.4525537644586338
+  max_normalized_gap_ratio: 0.532136071552515
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-02__track1_rf_phase_162_closure_attempt_23_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-02__track1_rf_phase_162_closure_attempt_23_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-54-02__track1_rf_phase_162_closure_attempt_23_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-51-33__track1_rf_phase_162_closure_attempt_17_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_17
+  output_run_name: track1_rf_phase_162_closure_attempt_17_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 14.774700536721399
+  winning_mean_component_mae: 0.3785624394189702
+  winning_mean_component_rmse: 0.9391936604075415
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5135453986529228
+  max_normalized_gap_ratio: 0.6459236496476966
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-33__track1_rf_phase_162_closure_attempt_17_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-33__track1_rf_phase_162_closure_attempt_17_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-51-33__track1_rf_phase_162_closure_attempt_17_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-34-40__track1_rf_amplitude_240_closure_attempt_03_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_03
+  output_run_name: track1_rf_amplitude_240_closure_attempt_03_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 18.762657011325082
+  winning_mean_component_mae: 4.031889636381956e-05
+  winning_mean_component_rmse: 9.032956567526975e-05
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5315382529467046
+  max_normalized_gap_ratio: 0.6727697347272177
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-34-40__track1_rf_amplitude_240_closure_attempt_03_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-34-40__track1_rf_amplitude_240_closure_attempt_03_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-34-40__track1_rf_amplitude_240_closure_attempt_03_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'
+- run_instance_id: 2026-04-21-09-44-00__track1_rf_amplitude_240_closure_attempt_26_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_26
+  output_run_name: track1_rf_amplitude_240_closure_attempt_26_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 11.550333977358651
+  winning_mean_component_mae: 4.038181988556147e-05
+  winning_mean_component_rmse: 9.126384515727494e-05
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5412738771970922
+  max_normalized_gap_ratio: 0.6900712066162027
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-00__track1_rf_amplitude_240_closure_attempt_26_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-00__track1_rf_amplitude_240_closure_attempt_26_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-44-00__track1_rf_amplitude_240_closure_attempt_26_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-52-48__track1_rf_phase_162_closure_attempt_20_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_20
+  output_run_name: track1_rf_phase_162_closure_attempt_20_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 14.092856619301122
+  winning_mean_component_mae: 0.3528873256513911
+  winning_mean_component_rmse: 1.0607842813764126
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5471348023002582
+  max_normalized_gap_ratio: 0.5599768843770772
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-52-48__track1_rf_phase_162_closure_attempt_20_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-52-48__track1_rf_phase_162_closure_attempt_20_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-52-48__track1_rf_phase_162_closure_attempt_20_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-46-28__track1_rf_phase_162_closure_attempt_05_campaign_run
+  run_name: track1_rf_phase_162_closure_attempt_05
+  output_run_name: track1_rf_phase_162_closure_attempt_05_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: phases_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 16.558476589314058
+  winning_mean_component_mae: 0.3935520035314223
+  winning_mean_component_rmse: 0.9903913478873669
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.5837767660340841
+  max_normalized_gap_ratio: 0.7110956675279229
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-28__track1_rf_phase_162_closure_attempt_05_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-28__track1_rf_phase_162_closure_attempt_05_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-46-28__track1_rf_phase_162_closure_attempt_05_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-43-36__track1_rf_amplitude_240_closure_attempt_25_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_25
+  output_run_name: track1_rf_amplitude_240_closure_attempt_25_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 14.7048401245357
+  winning_mean_component_mae: 3.9473500775149375e-05
+  winning_mean_component_rmse: 0.00010155364027307995
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.6208890835815405
+  max_normalized_gap_ratio: 0.8806229680199992
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-43-36__track1_rf_amplitude_240_closure_attempt_25_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-43-36__track1_rf_amplitude_240_closure_attempt_25_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-43-36__track1_rf_amplitude_240_closure_attempt_25_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-39-09__track1_rf_amplitude_240_closure_attempt_14_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_14
+  output_run_name: track1_rf_amplitude_240_closure_attempt_14_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 26.134241087664485
+  winning_mean_component_mae: 4.2182018982316014e-05
+  winning_mean_component_rmse: 0.00010939833633840344
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.7402237480391969
+  max_normalized_gap_ratio: 1.0258951173778417
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-09__track1_rf_amplitude_240_closure_attempt_14_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-09__track1_rf_amplitude_240_closure_attempt_14_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-39-09__track1_rf_amplitude_240_closure_attempt_14_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-42-00__track1_rf_amplitude_240_closure_attempt_21_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_21
+  output_run_name: track1_rf_amplitude_240_closure_attempt_21_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 24.309663027431654
+  winning_mean_component_mae: 4.2102574486671075e-05
+  winning_mean_component_rmse: 0.00011297930526262334
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 0.7720111350243662
+  max_normalized_gap_ratio: 1.092209356715247
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-00__track1_rf_amplitude_240_closure_attempt_21_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-00__track1_rf_amplitude_240_closure_attempt_21_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-00__track1_rf_amplitude_240_closure_attempt_21_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-42-48__track1_rf_amplitude_240_closure_attempt_23_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_23
+  output_run_name: track1_rf_amplitude_240_closure_attempt_23_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 43.42421984621579
+  winning_mean_component_mae: 5.615116957892759e-05
+  winning_mean_component_rmse: 0.00022148957841673582
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 2.018953043214377
+  max_normalized_gap_ratio: 3.101658859569182
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-48__track1_rf_amplitude_240_closure_attempt_23_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-48__track1_rf_amplitude_240_closure_attempt_23_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-42-48__track1_rf_amplitude_240_closure_attempt_23_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:48+02:00'
+- run_instance_id: 2026-04-21-09-35-28__track1_rf_amplitude_240_closure_attempt_05_campaign_run
+  run_name: track1_rf_amplitude_240_closure_attempt_05
+  output_run_name: track1_rf_amplitude_240_closure_attempt_05_campaign_run
+  output_artifact_kind: validation_check
+  family_code: RF
+  target_scope_mode: amplitudes_only
+  harmonic_target_count: 1
+  paper_cell_count: 2
+  targeted_harmonic_list:
+  - 240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 51.95099951130479
+  winning_mean_component_mae: 6.183096350090253e-05
+  winning_mean_component_rmse: 0.00024657944469452906
+  closure_score: 0.0
+  met_paper_cell_count: 0
+  near_paper_cell_count: 0
+  open_paper_cell_count: 2
+  mean_normalized_gap_ratio: 2.349194101273971
+  max_normalized_gap_ratio: 3.566286012861649
+  export_failure_mode: continue
+  exported_file_count: 0
+  failed_target_count: 1
+  surrogate_export_count: 0
+  matched_reference_count: 0
+  missing_reference_count: 0
+  extra_export_count: 0
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-28__track1_rf_amplitude_240_closure_attempt_05_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-28__track1_rf_amplitude_240_closure_attempt_05_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-21-09-35-28__track1_rf_amplitude_240_closure_attempt_05_campaign_run/validation_summary.yaml
+  selection_policy:
+    primary_metric: closure_score_desc
+    first_tie_breaker: met_paper_cell_count_desc
+    second_tie_breaker: near_paper_cell_count_desc
+    third_tie_breaker: open_paper_cell_count_asc
+    fourth_tie_breaker: mean_normalized_gap_ratio_asc
+    fifth_tie_breaker: max_normalized_gap_ratio_asc
+    sixth_tie_breaker: run_name
+    direction: maximize_then_minimize
+    note: This winner is the bookkeeping representative of the completed Track 1 residual
+      cellwise closure campaign.
+  selected_at: '2026-04-21T14:59:47+02:00'

@@ -84,8 +84,30 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-21
+
+- [technical/2026-04/2026-04-21/2026-04-21-14-44-53_track1_open_cell_full_matrix_closure_campaigns_closeout.md](./technical/2026-04/2026-04-21/2026-04-21-14-44-53_track1_open_cell_full_matrix_closure_campaigns_closeout.md)
+  Technical document for formally closing the completed `Track 1` open-cell
+  full-matrix closure wave through final results reporting, PDF validation,
+  active-state backlinking, and canonical benchmark refresh.
+- [technical/2026-04/2026-04-21/2026-04-21-09-26-42_remote_wrapper_report_path_fix_and_track1_relaunch_preparation.md](./technical/2026-04/2026-04-21/2026-04-21-09-26-42_remote_wrapper_report_path_fix_and_track1_relaunch_preparation.md)
+  Technical document for repairing the exact-paper remote wrapper after the
+  overnight `Track 1` launch stopped during artifact reconciliation despite the
+  completed `MLP` batch, and for preparing a relaunch that resumes from the
+  first not-yet-executed family.
+
 #### 2026-04-20
 
+- [technical/2026-04/2026-04-20/2026-04-20-23-46-33_track1_overnight_open_cell_full_matrix_closure_campaigns.md](./technical/2026-04/2026-04-20/2026-04-20-23-46-33_track1_overnight_open_cell_full_matrix_closure_campaigns.md)
+  Technical document for preparing the next overnight `Track 1` exact-paper
+  closure wave, focused only on the still-open cells in the canonical
+  `Table 2-5` full-matrix replication surface and sized for roughly
+  `700-800` training jobs.
+- [technical/2026-04/2026-04-20/2026-04-20-23-21-36_track1_scope_separation_from_harmonic_wise_branch.md](./technical/2026-04/2026-04-20/2026-04-20-23-21-36_track1_scope_separation_from_harmonic_wise_branch.md)
+  Technical document for separating canonical `Track 1` family-bank progress
+  from the postponed harmonic-wise follow-up branch and for keeping `Track 1`
+  status tied only to the four full-matrix replication tables plus the
+  `10 x 19` model-bank completion rule.
 - [technical/2026-04/2026-04-20/2026-04-20-23-12-52_track1_benchmark_status_marker_encoding_repair.md](./technical/2026-04/2026-04-20/2026-04-20-23-12-52_track1_benchmark_status_marker_encoding_repair.md)
   Technical document for repairing corrupted green/yellow/red status markers
   in the canonical `Track 1` benchmark so the benchmark tables again render

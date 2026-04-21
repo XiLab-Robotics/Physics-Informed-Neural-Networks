@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-19T00:51:06+02:00`
+- Generated At: `2026-04-21T14:59:57+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
-- Active Campaign Status: `finished`
-- Active Campaign Name: `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04`
+- Active Campaign Status: `completed`
+- Active Campaign Name: `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -56,7 +56,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | planned after the harmonic-wise intermediate branch; temporal-model scope will start only after the harmonic-wise comparison |
+| Wave 2. Temporal Models | planned after the current exact-paper family-bank closeout priorities; temporal-model scope no longer depends on harmonic-wise work being treated as canonical `Track 1` |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -65,7 +65,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Intermediate Branch. Harmonic-Wise Comparison Pipeline | current primary implementation branch; focused scope:; implement harmonic-wise prediction of `A_k` and `phi_k`; implement TE reconstruction from the predicted harmonic terms; add offline `Robot` and `Cycloidal` motion-profile playback; define comparable offline validation scenarios and TE-curve error metrics; close `Target A`; initial repository-owned offline pipeline script should live under; validation artifacts for this branch should live under |
+| Track 1.5. Harmonic-Wise Support Branch | postponed support branch; focused scope:; harmonic-wise prediction of `A_k` and `phi_k`; TE reconstruction from predicted harmonic terms; offline `Robot` and `Cycloidal` playback; comparable offline TE-curve validation; this branch is no longer the canonical `Track 1` status surface |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13` | `2026-04-21-14-58-00` | 756 | 0 | `track1_dt_phase_162_closure_attempt_03` | Open-cell exact-paper full-matrix closure completed the `756` targeted retries, promoted `17/28` family-target pairs, and refreshed the canonical Tables `2-5` benchmark surface |
 | `track1_remaining_family_cellwise_reference_campaigns_2026_04_18_22_28_04` | `2026-04-19 00:51:06+02:00` | 171 | 0 | `track1_dt_amplitude_240_cellwise_reference` | Exact-paper cellwise refresh completed `19` models for each non-`SVM` Track 1 family and promoted the canonical family rows into the benchmark tables |
 | `track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05` | `2026-04-18 16:34:18` | 18 | 0 | `track1_rf_phase_full_matrix` | Exact-paper family rows fully refreshed for `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, and `LGBM`; `LGBM` improved the final amplitude-side envelope |
 | `track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48` | `2026-04-15 23:22:38` | 0 | 4 | N/A | No winner artifact |
@@ -160,29 +161,36 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Canonical benchmark now shows `2/10` harmonics fully matched, `8/10` partially matched, `0/10` still open after the residual closure wave | not_yet_met |
-| Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
+| Track 1 canonical closure rule | Four full-matrix replication tables plus `10 x 19` accepted family-bank models | Canonical benchmark now reads `7/10`, `10/10`, `9/9`, and `9/9` across Tables `2-5`, with `3` non-green cells still open | not_yet_met |
+| Track 1.5 harmonic-wise support metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper residual-closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-19-11-34-36_track1_remaining_family_residual_cellwise_closure_campaign_results_report.md`
-- Table `2` amplitude `MAE`: `7/10` harmonics at or below the paper target
-- Table `3` amplitude `RMSE`: `10/10` harmonics at or below the paper target
-- Table `4` phase `MAE`: `9/9` harmonics at or below the paper target
-- Table `5` phase `RMSE`: `8/9` harmonics at or below the paper target
-- Harmonic-level Table `6` closure: `2/10` fully matched, `8/10` partially matched, `0/10` still open
-- Highest-priority open harmonics: `0, 3, 39, 78, 81, 156, 162, 240`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
+- Canonical progress surface:
+  - `Table 2 - Amplitude MAE Full-Matrix Replication`
+  - `Table 3 - Amplitude RMSE Full-Matrix Replication`
+  - `Table 4 - Phase MAE Full-Matrix Replication`
+  - `Table 5 - Phase RMSE Full-Matrix Replication`
+- Completion rule: `19` accepted models for each of the `10` algorithm families
+- Table `2` status: `7/10` harmonics at or below the paper target
+- Table `3` status: `10/10` harmonics at or below the paper target
+- Table `4` status: `9/9` harmonics at or below the paper target
+- Table `5` status: `9/9` harmonics at or below the paper target
+- Remaining non-green cells across Tables `2-5`: `3`
+- Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and no longer gates Track 1 closeout
 - Repository `SVM` status: closed and accepted after the final exact-faithful rerun package, with residual paper deltas on `40`, `240`, and `162` accepted as non-blocking
-- Remaining-family exact-paper residual batch status: fully closed out after the overnight retry wave, with the benchmark now reading from the best accepted pair winner across the cellwise and residual branches
+- Remaining-family exact-paper open-cell batch status: fully closed out after the overnight retry wave, with the benchmark now reading from the better value between the accepted baseline and the new targeted retries
 
-### Latest Harmonic-Wise Validation Support
+### Track 1.5 Harmonic-Wise Validation Support
 
 - Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-15-11-49__track1_hgbm_h01_wide_depth_2_campaign_run/validation_summary.yaml`
 - Harmonic-wise test mean percentage error: `8.707%`
 - `Target A` status from the latest harmonic-wise run: `not_yet_met`
+- This branch is postponed and no longer defines canonical `Track 1` status
 
 ### Online Compensation Tracking Placeholder
 
@@ -192,8 +200,8 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open primarily because the canonical Tables `3-6` are still not harmonically family-aligned.
-- The residual retry wave lifts the accepted benchmark to `10/10` on amplitude `RMSE`, but Table `6` still remains open with `0` harmonics fully red.
+- `Track 1` remains open because `3` non-green cells still remain across the canonical `Table 2-5` full-matrix replication surface.
+- Harmonic-wise alignment is no longer treated as the primary `Track 1` gate and has been postponed into `Track 1.5`.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
