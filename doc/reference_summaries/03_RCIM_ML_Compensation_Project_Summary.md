@@ -16,6 +16,18 @@ The paper proposes a strategy for online modeling and compensation of Transmissi
 
 These three variables describe a large part of the operating dependence of the TE observed on the test rig.
 
+## Directional Clarification
+
+- The paper explicitly distinguishes `forward` and `backward` TE behavior.
+- These are analogous phenomena under the same physical and mathematical
+  treatment, but they are modeled with distinct datasets and distinct trained
+  models.
+- Equation `(2)` uses a generalized direction subscript, so later symbols such
+  as amplitudes, phases, datasets, and tables must be read as valid for both
+  the forward and backward formulations.
+- The repository's currently recovered paper assets correspond only to the
+  `forward` branch.
+
 ## Process Architecture
 
 - Data collection on a dedicated test rig.
@@ -41,6 +53,10 @@ These three variables describe a large part of the operating dependence of the T
 - Models must be designed with export and deployment constraints in mind, not only offline accuracy.
 - Every training pipeline should consider a TwinCAT-compatible or Structured Text-compatible final output.
 - Input features must stay aligned with the real test rig: speed, torque, temperature, and angular position.
+- Paper-faithful comparisons must keep `forward` and `backward` model banks
+  separate.
+- The current recovered RCIM reference package in the repository must be read
+  as a `forward-only` asset surface.
 
 ## Design Decisions To Preserve
 

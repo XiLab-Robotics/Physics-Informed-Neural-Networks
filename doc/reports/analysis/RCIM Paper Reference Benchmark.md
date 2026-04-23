@@ -32,6 +32,9 @@ PLC and produce large online reductions in TE during real motion profiles.
 
 - The paper models rotational Transmission Error of an RV reducer as a function
   of `input speed`, `applied torque`, and `oil temperature`.
+- The paper explicitly treats `forward` and `backward` TE curves as distinct
+  phenomena, even though the later notation is generalized with one shared
+  directional subscript.
 - The TE is reconstructed from selected harmonic components rather than from
   one monolithic end-to-end neural predictor.
 - The paper explicitly separates:
@@ -45,6 +48,21 @@ PLC and produce large online reductions in TE during real motion profiles.
 - Speed levels: `100` to `1800 rpm`
 - Torque levels: `0` to `1800 Nm`
 - Temperature levels: `25`, `30`, `35 C`
+
+### Forward And Backward Interpretation
+
+- Equation `(2)` is direction-generic and must be read as valid for both the
+  forward and backward formulations.
+- The generalized amplitude and phase symbols therefore stand for two parallel
+  branches: forward-side harmonic parameters and backward-side harmonic
+  parameters.
+- Section `3.1` implies direction-specific training datasets, so the paper
+  families should be understood as trained separately on forward and backward
+  data.
+- The tables published in the paper for the full family comparison surface are
+  the forward-side tables.
+- The recovered models currently stored in this repository are also the
+  forward-side models.
 
 ### Harmonic Structure
 
@@ -204,6 +222,8 @@ winner under the shared offline evaluator.
 The canonical `Track 1` closure rule is now:
 
 - reproduce the paper-facing cells in Tables `2`, `3`, `4`, and `5`;
+- interpret the current repository `Track 1` closure target as the
+  forward-side exact-paper replication surface;
 - keep progress summaries tied to the four full-matrix replication surfaces:
   - `Table 2 - Amplitude MAE Full-Matrix Replication`;
   - `Table 3 - Amplitude RMSE Full-Matrix Replication`;

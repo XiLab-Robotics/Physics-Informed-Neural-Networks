@@ -17,12 +17,22 @@ The goal is to recreate the original paper family bank as faithfully as the
 recovered evidence allows, so the repository can later reproduce paper-style
 tables per family and per target `A_k` / `phi_k`.
 
+Important scope clarification:
+
+- the currently recovered repository-owned exact-paper bank is the
+  `forward-only` bank;
+- the paper notation is generalized, but the currently recovered assets do not
+  provide the backward-side bank;
+- current `Track 1` exact-paper replication therefore targets the paper's
+  forward tables and forward model bank only.
+
 ## What This Workflow Implements
 
 The exact branch mirrors the recovered paper methodology:
 
 - input features are exactly `rpm`, `deg`, and `tor`;
 - targets are harmonic-wise `ampl_k` and `phase_k`;
+- the currently recovered dataframe source is `Fw` forward-only;
 - the target set is the recovered RCIM harmonic bank:
   `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
 - each model family is trained through `MultiOutputRegressor`;
@@ -219,6 +229,7 @@ It defines:
 
 - recovered dataframe path;
 - recovered exact ONNX reference root;
+- a forward-only recovered paper asset surface under a legacy path name;
 - experiment identity;
 - exact paper feature schema;
 - enabled family list;

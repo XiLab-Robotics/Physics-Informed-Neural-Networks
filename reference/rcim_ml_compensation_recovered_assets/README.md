@@ -1,13 +1,19 @@
 # RCIM ML Compensation Recovered Assets
 
-This folder contains the recovered asset package associated with the RCIM
-ML-compensation paper and adjacent paper-era experimentation.
+This legacy path name is retained temporarily while an exact-paper `Track 1`
+campaign is still active. The recovered assets currently stored here are the
+recovered `forward` assets only. The later physical root rename to a
+forward-explicit path is documented separately and must be executed only after
+campaign closeout.
+
+This folder contains the recovered forward-side asset package associated with
+the RCIM ML-compensation paper and adjacent paper-era experimentation.
 
 It is intended as a repository-owned reference surface for:
 
-- exact recovered ONNX model exports;
-- original recovered paper workflow code;
-- later recovered code snapshots that appear to postdate the exact paper
+- exact recovered forward-only ONNX model exports;
+- original recovered forward-side paper workflow code;
+- later recovered forward-side code snapshots that appear to postdate the exact paper
   release;
 - backup ONNX bundles and backup code variants;
 - recovered TwinCAT XML exports;
@@ -19,7 +25,13 @@ It is intended as a repository-owned reference surface for:
 
 - [models/exact_onnx_paper_release/](./models/exact_onnx_paper_release/)
 
-Recovered exact ONNX exports grouped by family and by target type:
+Recovered exact ONNX exports grouped by family and by target type.
+
+Important interpretation:
+
+- these recovered models correspond to the `forward` branch only;
+- they must not be treated as interchangeable with the missing
+  backward-specific models implied by the generalized notation in the paper.
 
 - `DT`
 - `ET`
@@ -87,6 +99,7 @@ Main implementation facts extracted from this snapshot:
 
 - the learning targets are harmonic-wise `ampl` and `phase` outputs;
 - the working input columns are `rpm`, `deg`, and `tor`;
+- the generated dataframe is `Fw`-specific and therefore forward-only;
 - the workflow exports ONNX models for scikit-learn, XGBoost, and LightGBM
   families;
 - the recovered `v18` script includes tuned concrete models for the main paper
@@ -105,6 +118,12 @@ release. It contains:
 - `dataFrame_prediction_Fw_v14_newFreq.csv`
 - `requirements.txt`
 - `output_prediction/`
+
+The shipped CSV and training entrypoints in this snapshot are also
+forward-specific:
+
+- `dataFrame_prediction_Fw_v14_newFreq.csv`
+- `main_prediction_v17.py`
 
 Compared with the original recovered pipeline, this snapshot is narrower and
 appears focused on export and prediction runs for:
@@ -190,13 +209,16 @@ The recovered assets support these repository-relevant conclusions:
 
 1. The paper workflow is genuinely harmonic-wise and predicts amplitude and
    phase components rather than only direct TE curves.
-2. The exact recovered model families match the paper family set used in the
+2. The currently recovered repository-owned asset bank corresponds to the
+   `forward` branch only, even though the paper notation is generalized to
+   cover both forward and backward formulations.
+3. The exact recovered model families match the paper family set used in the
    repository benchmark discussion.
-3. The pipeline was organized as a staged process:
+4. The pipeline was organized as a staged process:
    dataframe creation, model prediction/export, and offline evaluation.
-4. TwinCAT-facing export was a real implementation branch, not just a paper
+5. TwinCAT-facing export was a real implementation branch, not just a paper
    claim.
-5. The recovered codebase evolved over multiple internal generations, so the
+6. The recovered codebase evolved over multiple internal generations, so the
    repository must keep a clear distinction between:
    exact paper assets, later snapshots, and historical backups.
 
@@ -205,7 +227,7 @@ The recovered assets support these repository-relevant conclusions:
 This asset package supports the repository in three different ways:
 
 - `Track 1`
-  Exact paper-faithful reimplementation and verification.
+  Exact paper-faithful `forward` reimplementation and verification.
 - `Paper Reference Benchmark`
   Evidence-backed comparison between the paper workflow and the repository
   offline results.

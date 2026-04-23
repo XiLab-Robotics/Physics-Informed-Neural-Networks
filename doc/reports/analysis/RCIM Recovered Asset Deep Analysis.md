@@ -18,6 +18,15 @@ generations. This report therefore separates:
 - implementation-facing inferences;
 - unresolved uncertainties.
 
+Important clarification adopted after direct author feedback:
+
+- the current repository root name is legacy only;
+- the recovered assets currently stored there correspond to the paper's
+  `forward` branch only;
+- the paper's generalized notation later collapses forward and backward into
+  one symbolic treatment, but the underlying trained models remain
+  direction-specific.
+
 ## Executive Summary
 
 The recovered material shows that the paper workflow was fundamentally
@@ -33,6 +42,8 @@ harmonic-wise and target-wise:
 - evaluation code produced both total-signal metrics and per-component metrics,
   which is exactly the information needed to choose the best family for each
   harmonic target.
+- the shipped recovered dataframe and the shipped recovered model bank are
+  forward-only artifacts.
 
 The strongest practical conclusion is this:
 
@@ -49,6 +60,13 @@ The second major conclusion is this:
 
 That distinction matters because it makes exact reimplementation much more
 practical than "train thousands of separate scripts".
+
+The third major conclusion is this:
+
+- the repository's recovered bank must currently be treated as the
+  forward-only half of the paper methodology;
+- the missing backward-side branch should be considered conceptually parallel,
+  not interchangeable.
 
 ## What The Recovered Reference Actually Says
 
@@ -167,6 +185,9 @@ Observed facts:
 - it generates the dataframe through `genDfWithAmplEPhase('Fw')`;
 - it writes `dataFrame_prediction_Fw_v14_newFreq.csv`.
 
+This is one of the clearest recovered proofs that the currently stored
+training/evaluation branch is forward-side only.
+
 The recovered dataframe header from the later snapshot matches the exact
 10-harmonic RCIM set and contains:
 
@@ -205,6 +226,9 @@ Recovered facts from `1-main_prediction_v18.py`:
 - it uses `MLModelMultipleOutput(..., 'tot')`;
 - it calls `predictorMLEvalutationOnTrain(dfInput, 0.20)`;
 - it writes outputs to `output_prediction/instV3.8_Fw_allFreq_def/`.
+
+These recovered names are internally consistent with a forward-only branch and
+should not be read as direction-agnostic assets.
 
 Recovered final tuned model list in `v18`:
 
