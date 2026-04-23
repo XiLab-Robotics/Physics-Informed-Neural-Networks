@@ -1,0 +1,178 @@
+config_path: config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/baseline.yaml
+output_directory: output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation
+comparison_scope:
+  reference_family_name: LGBM
+  reference_bank_model_count: 19
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 194
+feedforward_reference:
+  run_instance_id: 2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote
+  run_name: te_feedforward_stride1_high_compute_long_remote
+  best_checkpoint_path: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/checkpoints/feedforward-epoch=095-val_mae=0.00304393.ckpt
+  registry_test_mae: 0.003263814840465784
+  registry_test_rmse: 0.0036791618913412094
+reference_bank:
+  reference_inventory_path: models/paper_reference/rcim_track1/lgbm_reference_models/reference_inventory.yaml
+  paper_family_name: LGBM
+  target_metric_summary:
+    amplitude_mae: 0.010267262480908503
+    amplitude_rmse: 0.034658966245975115
+    phase_mae_rad: 0.5819019970384807
+    phase_rmse_rad: 1.032405122290004
+aggregate_metrics:
+  lgbm19_reference_bank:
+    mse: 0.004220616276829895
+    mae: 0.0417926225060169
+    rmse: 0.04195682365381323
+    mean_percentage_error_pct: 93.13276868285085
+    p95_mean_percentage_error_pct: 303.2035377544197
+  feedforward_best:
+    mse: 1.9864480600738407e-05
+    mae: 0.003502296016195317
+    rmse: 0.003931788089684616
+    mean_percentage_error_pct: 7.7182213651169755
+    p95_mean_percentage_error_pct: 14.459768050356391
+  oracle_harmonic_truncation:
+    mse: 1.7019861675009595e-06
+    mae: 0.0008456263519446306
+    rmse: 0.001033739616590427
+    mean_percentage_error_pct: 1.7852744196262864
+    p95_mean_percentage_error_pct: 4.548169378316061
+direction_breakdown:
+  forward:
+    lgbm19_reference_bank:
+      mse: 7.278367047985292e-06
+      mae: 0.0019500479629749638
+      rmse: 0.0021602652916068456
+      mean_percentage_error_pct: 4.329037436475499
+      p95_mean_percentage_error_pct: 9.421737006517109
+    feedforward_best:
+      mse: 1.84820697571738e-05
+      mae: 0.003475237050407834
+      rmse: 0.0039053306517439854
+      mean_percentage_error_pct: 7.7219468406386955
+      p95_mean_percentage_error_pct: 14.6778023287458
+    oracle_harmonic_truncation:
+      mse: 1.5790490487720552e-06
+      mae: 0.0008278497074721658
+      rmse: 0.0010134575458117367
+      mean_percentage_error_pct: 1.7662216925461516
+      p95_mean_percentage_error_pct: 4.406197631452229
+  backward:
+    lgbm19_reference_bank:
+      mse: 0.008433954186611803
+      mae: 0.08163519704905883
+      rmse: 0.08175338201601963
+      mean_percentage_error_pct: 181.9364999292262
+      p95_mean_percentage_error_pct: 317.89945859651453
+    feedforward_best:
+      mse: 2.1246891444303018e-05
+      mae: 0.0035293549819828
+      rmse: 0.003958245527625247
+      mean_percentage_error_pct: 7.714495889595256
+      p95_mean_percentage_error_pct: 13.717747397550388
+    oracle_harmonic_truncation:
+      mse: 1.824923286229864e-06
+      mae: 0.0008634029964170953
+      rmse: 0.0010540216873691176
+      mean_percentage_error_pct: 1.804327146706422
+      p95_mean_percentage_error_pct: 4.808473907676431
+temperature_breakdown:
+  '25.0':
+    lgbm19_reference_bank:
+      mse: 0.003951942662200991
+      mae: 0.04053986498455751
+      rmse: 0.04062488287496074
+      mean_percentage_error_pct: 94.32456287083367
+      p95_mean_percentage_error_pct: 298.0701849279699
+    feedforward_best:
+      mse: 1.4942405693736728e-05
+      mae: 0.0032486965976515334
+      rmse: 0.0035831059910640018
+      mean_percentage_error_pct: 7.687563556723653
+      p95_mean_percentage_error_pct: 14.082472108299024
+    oracle_harmonic_truncation:
+      mse: 5.971562371426868e-07
+      mae: 0.0005882726107476413
+      rmse: 0.0007297427717992087
+      mean_percentage_error_pct: 1.3637269711601525
+      p95_mean_percentage_error_pct: 2.295454711817023
+  '30.0':
+    lgbm19_reference_bank:
+      mse: 0.00416564726286907
+      mae: 0.04173097012108027
+      rmse: 0.041939264467178765
+      mean_percentage_error_pct: 91.44337336582491
+      p95_mean_percentage_error_pct: 310.07223498589076
+    feedforward_best:
+      mse: 2.0608441914611173e-05
+      mae: 0.003544832176673297
+      rmse: 0.004031210774158211
+      mean_percentage_error_pct: 7.553942337825625
+      p95_mean_percentage_error_pct: 13.663398857138553
+    oracle_harmonic_truncation:
+      mse: 2.38635928831523e-06
+      mae: 0.0010260008933173483
+      rmse: 0.0012453370298215502
+      mean_percentage_error_pct: 2.117459609917078
+      p95_mean_percentage_error_pct: 4.827986545458348
+  '35.0':
+    lgbm19_reference_bank:
+      mse: 0.004729402582132718
+      mae: 0.043923593798531675
+      rmse: 0.04416297992255806
+      mean_percentage_error_pct: 93.27307640767108
+      p95_mean_percentage_error_pct: 295.54442859247877
+    feedforward_best:
+      mse: 2.7014171419018936e-05
+      mae: 0.003865454223614425
+      rmse: 0.004380342602675166
+      mean_percentage_error_pct: 7.972206164723293
+      p95_mean_percentage_error_pct: 14.863149356226938
+    oracle_harmonic_truncation:
+      mse: 2.6652845834788318e-06
+      mae: 0.0010440220562055232
+      rmse: 0.0012699136496414321
+      mean_percentage_error_pct: 2.064702599150165
+      p95_mean_percentage_error_pct: 5.394302060247736
+preview_plot_path_list:
+- output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation/preview_curves/preview_01.png
+- output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation/preview_curves/preview_02.png
+- output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation/preview_curves/preview_03.png
+per_condition_metrics_csv_path: output/validation_checks/track2_reference_comparison/2026-04-23-19-11-37__track2_lgbm19_vs_feedforward_smoke_validation/per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1000.0
+  torque_nm: 1200.0
+  oil_temperature_deg: 25.0
+  lgbm19_mean_percentage_error_pct: 6.984768812989475
+  feedforward_mean_percentage_error_pct: 9.651805806980928
+  oracle_mean_percentage_error_pct: 1.4654592644503261
+- source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 1000.0
+  torque_nm: 1200.0
+  oil_temperature_deg: 25.0
+  lgbm19_mean_percentage_error_pct: 224.12263503530005
+  feedforward_mean_percentage_error_pct: 13.454133431051586
+  oracle_mean_percentage_error_pct: 1.2920451733949025
+- source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1000.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  lgbm19_mean_percentage_error_pct: 2.404273322522265
+  feedforward_mean_percentage_error_pct: 6.079395679300369
+  oracle_mean_percentage_error_pct: 1.4597841556978113

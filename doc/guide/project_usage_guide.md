@@ -306,6 +306,23 @@ paper-faithful reproduction campaign, but the exact-paper structural runner and
 the shared offline evaluator are not yet fused into one single Python entry
 point.
 
+The repository also exposes the first `Track 2` comparison entry point between
+the curated `LGBM-19` exact-paper reference bank and the canonical best
+direct-TE `feedforward` baseline:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_reference_family_vs_feedforward_comparison.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/baseline.yaml `
+  --output-suffix baseline_validation
+```
+
+This workflow is explicitly `result-level comparable`:
+
+- the `LGBM-19` side remains paper-faithful at the harmonic-prediction level;
+- the `feedforward` side remains a direct-TE predictor;
+- both are compared only after projection onto the same held-out TE-curve
+  metric surface.
+
 ## TwinCAT Video-Guide Analysis
 
 Use the repository-owned video-analysis utility when you want to extract
