@@ -53,6 +53,9 @@ from scripts.reports.closeout_track1_residual_cellwise_closure import (
     resolve_status_marker,
     save_yaml_dictionary,
 )
+from scripts.reports.refresh_track1_family_reference_archives import (
+    refresh_track1_family_reference_archives,
+)
 
 OPEN_CELL_RUN_PATTERN = re.compile(
     r"^track1_(?P<family>[a-z0-9]+)_(?P<scope>amplitude|phase)_(?P<harmonic>\d+)_closure_attempt_(?P<attempt>\d+)$"
@@ -1050,6 +1053,7 @@ def main() -> None:
         phase_rmse_row_list,
         improvement_summary_dictionary,
     )
+    refresh_track1_family_reference_archives()
 
     print(f"[DONE] Open-cell full-matrix closure closeout written | report={report_relative_path}")
     print(

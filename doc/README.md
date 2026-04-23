@@ -86,6 +86,20 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-22
 
+- [technical/2026-04/2026-04-22/2026-04-22-17-51-21_track1_family_reference_archives_and_closeout_integration.md](./technical/2026-04/2026-04-22/2026-04-22-17-51-21_track1_family_reference_archives_and_closeout_integration.md)
+  Technical document for extending the curated `Track 1` paper-reference
+  archive pattern from `SVM` to every other exact-paper family and for making
+  family-archive refresh a mandatory future closeout step whenever accepted
+  family results improve.
+- [technical/2026-04/2026-04-22/2026-04-22-09-03-17_track1_remaining_yellow_cell_campaign_svm_alias_fix.md](./technical/2026-04/2026-04-22/2026-04-22-09-03-17_track1_remaining_yellow_cell_campaign_svm_alias_fix.md)
+  Technical document for the narrow post-launch repair of the prepared
+  `Track 1` remaining-yellow-cell overnight bundle after the first `SVM`
+  config failed because the exact-paper runner expects the canonical family
+  name `SVR` rather than the paper-facing alias `SVM`.
+- [technical/2026-04/2026-04-22/2026-04-22-01-36-32_track1_remaining_yellow_cells_multi_family_campaign_bundle.md](./technical/2026-04/2026-04-22/2026-04-22-01-36-32_track1_remaining_yellow_cells_multi_family_campaign_bundle.md)
+  Technical document for preparing the next overnight exact-paper `Track 1`
+  package as a multi-family yellow-cell bundle with one campaign per still-open
+  family and one global launcher across the unfinished families.
 - [technical/2026-04/2026-04-22/2026-04-22-01-19-27_track1_mlp_residual_closeout_pdf_targeted_pair_default_layout.md](./technical/2026-04/2026-04-22/2026-04-22-01-19-27_track1_mlp_residual_closeout_pdf_targeted_pair_default_layout.md)
   Technical document for the narrow residual `MLP` closeout PDF repair,
   focused on forcing `Targeted Pair Outcome` onto a fresh page and promoting

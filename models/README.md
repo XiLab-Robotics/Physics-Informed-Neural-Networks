@@ -14,6 +14,15 @@ Project-authored Python source code no longer lives here. Source files are store
 - `scripts/models/`
 - `scripts/training/`
 
-Current curated paper-reference archive:
+Current curated Track 1 paper-reference archives:
 
 - `paper_reference/rcim_track1/svm_reference_models/`
+- `paper_reference/rcim_track1/mlp_reference_models/`
+- `paper_reference/rcim_track1/rf_reference_models/`
+- `paper_reference/rcim_track1/dt_reference_models/`
+- `paper_reference/rcim_track1/et_reference_models/`
+- `paper_reference/rcim_track1/ert_reference_models/`
+- `paper_reference/rcim_track1/gbm_reference_models/`
+- `paper_reference/rcim_track1/hgbm_reference_models/`
+- `paper_reference/rcim_track1/xgbm_reference_models/`
+- `paper_reference/rcim_track1/lgbm_reference_models/`

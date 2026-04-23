@@ -1,59 +1,49 @@
 # SVM Reference Models
 
-This archive stores the `19` canonical `SVM` reference model artifacts that
-generate the currently accepted repository-owned `SVM` row in
+This archive stores the canonical `SVM` Track 1 reference model artifacts that
+reproduce the currently accepted repository-owned family row in
 `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
 Important naming note:
 
 - the paper family name is `SVM`;
 - the repository implementation family is `SVR`;
-- the archived ONNX files therefore retain the implementation-side `SVR_*`
-  filenames.
+- the archived ONNX files therefore retain the implementation-side `SVR_*` filenames.
 
 Archive scope:
 
-- `10` amplitude reference models for harmonics
-  `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
-- `9` phase reference models for harmonics
-  `1, 3, 39, 40, 78, 81, 156, 162, 240`;
-- phase harmonic `0` is intentionally excluded because it is not part of the
-  `19`-model paper-facing `SVM` reference set requested for Tables `2-5`.
+- `10` amplitude reference models for harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
+- `9` phase reference models for harmonics `1, 3, 39, 40, 78, 81, 156, 162, 240`;
+- phase harmonic `0` is intentionally excluded because it is not part of the Track 1 paper-facing `19`-model family archive.
 
 ## Canonical Selection Rule
 
-The benchmark `SVM` row is not sourced from one single validation run.
-
 The canonical reference rule for this archive is:
 
-1. choose the exact run whose target metrics match the accepted benchmark
-   `SVM` cell values for that harmonic;
-2. when several runs reproduce the same accepted metric pair, prefer the
-   earliest stable canonical source run;
-3. prefer the strict full-bank reference run
-   `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro`
-   whenever later campaigns merely reproduce the same target result;
-4. when a later `Track 1` repair or closure campaign introduced the accepted
-   benchmark value, pin that later run explicitly instead of the older
-   full-bank baseline.
+1. choose the exact run whose family-target metrics reproduce the currently accepted benchmark cell values for that target;
+2. when several runs reproduce the same accepted metric pair, prefer the earliest stable canonical source run;
+3. when a later Track 1 campaign introduced the accepted improvement, pin that later run explicitly instead of the older baseline;
+4. when a later campaign merely reproduces the same accepted value, retain the earlier canonical source run.
 
 ## Source Surface
 
-The canonical strict-reference baseline run is:
+Current pinned source runs:
 
-- validation run:
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/`
-- config:
-  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
-
-Later `Track 1` `SVM` repair and closure runs contribute the harmonics whose
-accepted benchmark values improved after the strict baseline:
-
+- `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro`
 - `2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run`
 - `2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run`
 - `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run`
 - `2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run`
 - `2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run`
+
+Canonical reconstruction config paths represented in this archive:
+
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/07_track1_svm_amplitude_full_closure_split15.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/11_track1_svm_phase_final_closure_split15.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml`
 
 ## Training And Reconstruction References
 
@@ -68,28 +58,6 @@ Canonical reconstruction inputs:
   `reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv`
 - recovered reference ONNX root:
   `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`
-
-Search and fitting provenance:
-
-- all archived entries come from repository-owned `SVR` exact-paper runs;
-- the archive now stores target-level exact estimator parameters inside
-  `reference_inventory.yaml` under `exact_estimator_params`;
-- the run snapshots preserve dataset split, target scope, export settings, test
-  size, random seed, and harmonic filter;
-- when a config does not override the search block explicitly, the exact-paper
-  workflow falls back to the repository default search resolver in
-  `exact_paper_model_bank_support.py`;
-- the archive now includes the extracted fitted Python estimators, so the
-  accepted `SVM` row can be reloaded from Python without reconstructing ONNX
-  surrogates or reopening the original campaign folders.
-
-Large bundle note:
-
-- the strict baseline run also produced
-  `paper_family_model_bank.pkl`, but that bundle is `188.97 MB` and is not
-  copied into this curated archive;
-- the bundle remains referenced from its immutable validation artifact
-  location instead.
 
 ## Inventory Files
 
@@ -112,8 +80,8 @@ Large bundle note:
 
 ## Full Regeneration Coverage
 
-The archive is now intended to support `100%` deterministic reconstruction of
-the accepted repository-owned `SVM` benchmark row.
+The archive is intended to support deterministic reconstruction of the
+accepted repository-owned `SVM` benchmark row.
 
 For each of the `19` canonical targets, the archive records:
 
@@ -129,9 +97,8 @@ For each of the `19` canonical targets, the archive records:
 - the source config snapshot and run metadata snapshot;
 - the immutable source bundle path that contained the fitted estimator.
 
-This means the repository now preserves both deployment-facing and
-Python-facing access paths for the accepted `SVM` reference row:
+This means the repository preserves both deployment-facing and Python-facing
+access paths for the accepted `SVM` reference row:
 
-- `onnx/` equivalent via `onnx/amplitude/*.onnx` and `onnx/phase/*.onnx`;
-- Python-side fitted estimator access via `python/amplitude/*.pkl` and
-  `python/phase/*.pkl`.
+- `onnx/` via `onnx/amplitude/*.onnx` and `onnx/phase/*.onnx`;
+- Python-side fitted estimator access via `python/amplitude/*.pkl` and `python/phase/*.pkl`.

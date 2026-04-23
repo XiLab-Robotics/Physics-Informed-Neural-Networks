@@ -44,6 +44,9 @@ from scripts.reports.closeout_track1_residual_cellwise_closure import (
 from scripts.reports.refresh_track1_benchmark_colored_markers import (
     refresh_track1_benchmark_colored_markers,
 )
+from scripts.reports.refresh_track1_family_reference_archives import (
+    refresh_track1_family_reference_archives,
+)
 
 CAMPAIGN_NAME = "track1_mlp_family_full_matrix_repair_campaign_2026_04_21_17_20_12"
 CAMPAIGN_CONFIG_FOLDER_NAME = "2026-04-21_track1_mlp_family_full_matrix_repair_campaign"
@@ -779,6 +782,7 @@ def main() -> None:
         total_remaining_non_green_count=total_remaining_non_green_count,
         remaining_non_green_dictionary=remaining_non_green_dictionary,
     )
+    refresh_track1_family_reference_archives()
 
     print(f"[DONE] MLP family repair closeout written | report={report_relative_path}")
     print(

@@ -25,8 +25,8 @@ archive_scope:
   - 162
   - 240
 canonical_selection_rule: when several runs reproduce the same accepted benchmark
-  metric pair, pin the earliest stable canonical source run and prefer the strict
-  full-bank reference when later runs only reproduce the same value.
+  metric pair, pin the earliest stable canonical source run and keep later campaigns
+  only when they introduce the accepted improvement.
 source_code:
   validation_script: scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py
   support_module: scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py
@@ -34,16 +34,16 @@ source_data:
   dataframe_path: reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv
   recovered_reference_onnx_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
 notes:
-- phase harmonic 0 is intentionally excluded from the curated SVM paper-facing archive.
-- some archived ONNX files use LinearRegression surrogate exports for constant-target
-  SVR cases.
-- target-level best_params are not serialized in final validation_summary artifacts.
+- phase harmonic 0 is intentionally excluded from the curated Track 1 paper-facing
+  archive.
+- the archive pins the accepted family row currently visible in Tables 2-5 of the
+  canonical benchmark.
 reference_models:
 - target_name: fft_y_Fw_filtered_ampl_0
   target_kind: amplitude
   harmonic_order: 0
-  benchmark_mae: 0.002503271
-  benchmark_rmse: 0.003110405
+  benchmark_mae: 0.002503270762936651
+  benchmark_rmse: 0.003110405472482605
   source_run_instance_id: 2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run/onnx_export/SVR/SVR_ampl0.onnx
@@ -104,8 +104,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_1
   target_kind: amplitude
   harmonic_order: 1
-  benchmark_mae: 5.3106e-05
-  benchmark_rmse: 7.0056e-05
+  benchmark_mae: 5.310638465062364e-05
+  benchmark_rmse: 7.005604208625274e-05
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl1.onnx
@@ -176,8 +176,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_3
   target_kind: amplitude
   harmonic_order: 3
-  benchmark_mae: 0.000157041
-  benchmark_rmse: 0.000178649
+  benchmark_mae: 0.00015704121465961752
+  benchmark_rmse: 0.00017864906667505742
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl3.onnx
@@ -248,8 +248,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_39
   target_kind: amplitude
   harmonic_order: 39
-  benchmark_mae: 0.00014891
-  benchmark_rmse: 0.000177738
+  benchmark_mae: 0.00014891007532286156
+  benchmark_rmse: 0.00017773782884962416
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl39.onnx
@@ -320,8 +320,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_40
   target_kind: amplitude
   harmonic_order: 40
-  benchmark_mae: 8.2027e-05
-  benchmark_rmse: 9.6333e-05
+  benchmark_mae: 8.20273680569381e-05
+  benchmark_rmse: 9.633271393262379e-05
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl40.onnx
@@ -392,8 +392,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_78
   target_kind: amplitude
   harmonic_order: 78
-  benchmark_mae: 0.000251534
-  benchmark_rmse: 0.000315282
+  benchmark_mae: 0.0002515341079950909
+  benchmark_rmse: 0.0003152821535449069
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl78.onnx
@@ -464,8 +464,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_81
   target_kind: amplitude
   harmonic_order: 81
-  benchmark_mae: 8.2292e-05
-  benchmark_rmse: 9.3918e-05
+  benchmark_mae: 8.229154664047063e-05
+  benchmark_rmse: 9.391785479505031e-05
   source_run_instance_id: 2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run/onnx_export/SVR/SVR_ampl81.onnx
@@ -526,8 +526,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
-  benchmark_mae: 0.000394296
-  benchmark_rmse: 0.000805795
+  benchmark_mae: 0.00039429560824399057
+  benchmark_rmse: 0.0008057949532891249
   source_run_instance_id: 2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/07_track1_svm_amplitude_full_closure_split15.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run/onnx_export/SVR/SVR_ampl156.onnx
@@ -584,8 +584,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
-  benchmark_mae: 0.000682326
-  benchmark_rmse: 0.002181218
+  benchmark_mae: 0.000682326343683918
+  benchmark_rmse: 0.0021812181990381032
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_ampl162.onnx
@@ -656,8 +656,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
-  benchmark_mae: 0.000252053
-  benchmark_rmse: 0.000486252
+  benchmark_mae: 0.00025205252181878925
+  benchmark_rmse: 0.0004862524238545896
   source_run_instance_id: 2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run/onnx_export/SVR/SVR_ampl240.onnx
@@ -718,8 +718,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_1
   target_kind: phase
   harmonic_order: 1
-  benchmark_mae: 0.002177289
-  benchmark_rmse: 0.002908073
+  benchmark_mae: 0.0021772886941106985
+  benchmark_rmse: 0.002908072820594615
   source_run_instance_id: 2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/onnx_export/SVR/SVR_phase1.onnx
@@ -778,8 +778,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_3
   target_kind: phase
   harmonic_order: 3
-  benchmark_mae: 0.032275186
-  benchmark_rmse: 0.041559254
+  benchmark_mae: 0.032275186343321806
+  benchmark_rmse: 0.041559254321021435
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase3.onnx
@@ -850,8 +850,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_39
   target_kind: phase
   harmonic_order: 39
-  benchmark_mae: 0.022426698
-  benchmark_rmse: 0.035037809
+  benchmark_mae: 0.022426697625093844
+  benchmark_rmse: 0.035037809334840554
   source_run_instance_id: 2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/onnx_export/SVR/SVR_phase39.onnx
@@ -910,8 +910,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_40
   target_kind: phase
   harmonic_order: 40
-  benchmark_mae: 0.057268799
-  benchmark_rmse: 0.093671007
+  benchmark_mae: 0.05726879898434384
+  benchmark_rmse: 0.09367100709428133
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase40.onnx
@@ -982,8 +982,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_78
   target_kind: phase
   harmonic_order: 78
-  benchmark_mae: 0.189245921
-  benchmark_rmse: 0.313926178
+  benchmark_mae: 0.18924592101529628
+  benchmark_rmse: 0.31392617798988864
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase78.onnx
@@ -1054,8 +1054,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_81
   target_kind: phase
   harmonic_order: 81
-  benchmark_mae: 0.12301652
-  benchmark_rmse: 0.194313454
+  benchmark_mae: 0.12301652014164842
+  benchmark_rmse: 0.19431345419106377
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase81.onnx
@@ -1126,8 +1126,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_156
   target_kind: phase
   harmonic_order: 156
-  benchmark_mae: 1.088103571
-  benchmark_rmse: 1.636587809
+  benchmark_mae: 1.0881035708878053
+  benchmark_rmse: 1.636587808649362
   source_run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/onnx_export/SVR/SVR_phase156.onnx
@@ -1198,8 +1198,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_162
   target_kind: phase
   harmonic_order: 162
-  benchmark_mae: 0.502968488
-  benchmark_rmse: 1.187302541
+  benchmark_mae: 0.5029684879436246
+  benchmark_rmse: 1.1873025412369163
   source_run_instance_id: 2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_final_closure_campaign/11_track1_svm_phase_final_closure_split15.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run/onnx_export/SVR/SVR_phase162.onnx
@@ -1252,8 +1252,8 @@ reference_models:
 - target_name: fft_y_Fw_filtered_phase_240
   target_kind: phase
   harmonic_order: 240
-  benchmark_mae: 0.432040657
-  benchmark_rmse: 0.952225047
+  benchmark_mae: 0.43204065709723805
+  benchmark_rmse: 0.9522250470449638
   source_run_instance_id: 2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run
   source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml
   source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run/onnx_export/SVR/SVR_phase240.onnx

@@ -6,6 +6,15 @@ This folder groups curated paper-reference model archives for the canonical
 Current family archives:
 
 - `svm_reference_models/`
+- `mlp_reference_models/`
+- `rf_reference_models/`
+- `dt_reference_models/`
+- `et_reference_models/`
+- `ert_reference_models/`
+- `gbm_reference_models/`
+- `hgbm_reference_models/`
+- `xgbm_reference_models/`
+- `lgbm_reference_models/`
 
 Canonical family archive template:
 
@@ -30,8 +39,9 @@ Benchmark integration rule for every future family archive:
 - point the family section to the archive root, inventory, dataset snapshot
   manifest, and reconstruction references.
 
-The long-term target is to extend this root with the remaining paper families:
+Current Track 1 family archive rollout under this standard:
 
+- `svm_reference_models/`
 - `mlp_reference_models/`
 - `rf_reference_models/`
 - `dt_reference_models/`
@@ -42,5 +52,6 @@ The long-term target is to extend this root with the remaining paper families:
 - `xgbm_reference_models/`
 - `lgbm_reference_models/`
 
-The current `svm_reference_models/` package is the template instance to copy
-for future family closures.
+The current repository now treats all listed Track 1 family archives as
+canonical benchmark assets. The `svm_reference_models/` package remains the
+template instance that originally established this contract.

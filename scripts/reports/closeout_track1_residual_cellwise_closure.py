@@ -21,6 +21,10 @@ from typing import Any
 # Import Third-Party Utilities
 import yaml
 
+from scripts.reports.refresh_track1_family_reference_archives import (
+    refresh_track1_family_reference_archives,
+)
+
 PROJECT_PATH = Path(__file__).resolve().parents[2]
 
 BENCHMARK_REPORT_PATH = (
@@ -1235,6 +1239,7 @@ def main() -> None:
         harmonic_summary_dictionary,
         open_harmonic_list,
     )
+    refresh_track1_family_reference_archives()
 
     print(f"[DONE] Residual closure closeout written | report={report_relative_path}")
 
