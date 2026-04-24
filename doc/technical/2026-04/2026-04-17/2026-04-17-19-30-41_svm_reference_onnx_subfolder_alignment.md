@@ -5,8 +5,8 @@
 The curated `SVM` paper-reference archive currently stores its deployment-side
 artifacts directly under:
 
-- `models/paper_reference/rcim_track1/svm_reference_models/amplitude/`
-- `models/paper_reference/rcim_track1/svm_reference_models/phase/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/amplitude/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/phase/`
 
 The archive already distinguishes deployment-facing `ONNX` artifacts from the
 Python-side fitted-estimator archive under `python/`. This change aligns the
@@ -32,15 +32,15 @@ paths will be updated.
 The following surfaces will be kept aligned:
 
 - `reference_inventory.yaml`
-- `models/paper_reference/rcim_track1/svm_reference_models/README.md`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `models/.gitignore`
 
 ## Involved Components
 
-- `models/paper_reference/rcim_track1/svm_reference_models/`
-- `models/paper_reference/rcim_track1/svm_reference_models/reference_inventory.yaml`
-- `models/paper_reference/rcim_track1/svm_reference_models/README.md`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/reference_inventory.yaml`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `models/.gitignore`
 - `doc/technical/2026-04/2026-04-17/README.md`

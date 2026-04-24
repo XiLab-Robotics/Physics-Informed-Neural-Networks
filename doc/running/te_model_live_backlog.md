@@ -114,7 +114,7 @@ Current next step:
   `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - treat the exact-paper branch as the immediate active `Track 1` execution path,
   with the first prepared batch campaign now staged under
-  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`
 - use the exact recovered branch to recreate paper-family and per-target
   baselines before promoting any third harmonic-wise optimization pass as the
   canonical exact-paper reference
@@ -125,8 +125,8 @@ Current next step:
     new default
 - while `Track 1` remains open, keep intermediate validation-model `.pkl`
   bundles under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
-  and `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
+  and `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
   out of Git tracking and out of Git LFS; at `Track 1` closure, revisit only
   the final selected model artifacts for selective Git LFS promotion
 - defer a third harmonic-wise optimization pass until after the exact-paper
@@ -333,7 +333,7 @@ Entry rule:
 - initial repository-owned offline pipeline script should live under
   `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 - validation artifacts for this branch should live under
-  `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+  `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 ### Wave 3. Hybrid Structured Models
 

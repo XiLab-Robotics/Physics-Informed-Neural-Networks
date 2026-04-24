@@ -45,8 +45,8 @@ task on repository-owned artifacts.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-13-22-*`
+- `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/2026-04-13-22-*`
 - `doc/reports/campaign_results/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`

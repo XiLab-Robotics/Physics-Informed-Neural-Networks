@@ -127,8 +127,8 @@ comparison on the common offline evaluator.
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/validation_checks/track1/harmonic_wise/`
-- `models/paper_reference/rcim_track1/lgbm_reference_models/`
-- `models/paper_reference/rcim_track1/lgbm_reference_models/reference_inventory.yaml`
+- `models/paper_reference/rcim_track1/forward/lgbm_reference_models/`
+- `models/paper_reference/rcim_track1/forward/lgbm_reference_models/reference_inventory.yaml`
 - `output/registries/families/feedforward/leaderboard.yaml`
 - `output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/`

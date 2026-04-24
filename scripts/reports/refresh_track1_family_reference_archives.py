@@ -1,8 +1,8 @@
-"""Refresh the canonical Track 1 family reference archives.
+"""Refresh the canonical forward Track 1 family reference archives.
 
 This utility rebuilds the curated paper-reference archive packages under
-`models/paper_reference/rcim_track1/` from the currently accepted family rows
-stored in the canonical Track 1 benchmark.
+`models/paper_reference/rcim_track1/forward/` from the currently accepted
+family rows stored in the canonical Track 1 benchmark.
 """
 
 from __future__ import annotations
@@ -27,6 +27,7 @@ from scripts.paper_reimplementation.rcim_ml_compensation import exact_paper_mode
 from scripts.training import shared_training_infrastructure
 
 TRACK1_REFERENCE_ROOT = PROJECT_PATH / "models" / "paper_reference" / "rcim_track1"
+TRACK1_REFERENCE_FORWARD_ROOT = TRACK1_REFERENCE_ROOT / "forward"
 BENCHMARK_REPORT_PATH = (
     PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
 )
@@ -38,6 +39,7 @@ VALIDATION_ROOT = (
     / "output"
     / "validation_checks"
     / "paper_reimplementation_rcim_exact_model_bank"
+    / "forward"
 )
 SOURCE_DATAFRAME_PATH = (
     "reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/"
@@ -387,7 +389,7 @@ def build_canonical_dataset_snapshot_bundle() -> tuple[str, dict[str, Any]]:
     manifest_dictionary = {
         "schema_version": 1,
         "dataset_snapshot_path": (
-            "models/paper_reference/rcim_track1/<family>_reference_models/data/"
+            "models/paper_reference/rcim_track1/forward/<family>_reference_models/data/"
             f"{CANONICAL_DATASET_SNAPSHOT_FILENAME}"
         ),
         "dataset_snapshot_sha256": snapshot_sha256,
@@ -405,7 +407,7 @@ def collect_validation_summary_path_list() -> list[Path]:
 
     """Collect all exact-paper validation-summary paths."""
 
-    return sorted(VALIDATION_ROOT.glob("*/validation_summary.yaml"))
+    return sorted(VALIDATION_ROOT.rglob("validation_summary.yaml"))
 
 
 def load_validation_summary(summary_path: Path) -> dict[str, Any]:
@@ -813,7 +815,7 @@ def build_family_archive(
 
     implementation_family_code = FAMILY_IMPLEMENTATION_CODE_MAP[paper_family_code]
     archive_folder_name = FAMILY_ARCHIVE_FOLDER_MAP[paper_family_code]
-    archive_root = TRACK1_REFERENCE_ROOT / archive_folder_name
+    archive_root = TRACK1_REFERENCE_FORWARD_ROOT / archive_folder_name
     existing_reference_inventory = load_existing_reference_inventory(archive_root)
     existing_reference_entry_map = build_existing_reference_entry_map(
         existing_reference_inventory
@@ -1370,17 +1372,17 @@ def update_track1_reference_readme(archive_summary_list: list[dict[str, Any]]) -
             "",
             "Canonical family archive template:",
             "",
-            "- `<family>_reference_models/README.md`",
-            "- `<family>_reference_models/reference_inventory.yaml`",
-            "- `<family>_reference_models/onnx/amplitude/`",
-            "- `<family>_reference_models/onnx/phase/`",
-            "- `<family>_reference_models/python/amplitude/`",
-            "- `<family>_reference_models/python/phase/`",
-            "- `<family>_reference_models/data/`",
-            "- `<family>_reference_models/dataset_snapshot_manifest.yaml`",
-            "- `<family>_reference_models/source_runs/<run_instance_id>/training_config.snapshot.yaml`",
-            "- `<family>_reference_models/source_runs/<run_instance_id>/run_metadata.snapshot.yaml`",
-            "- `<family>_reference_models/source_runs/<run_instance_id>/split_manifest.yaml`",
+            "- `forward/<family>_reference_models/README.md`",
+            "- `forward/<family>_reference_models/reference_inventory.yaml`",
+            "- `forward/<family>_reference_models/onnx/amplitude/`",
+            "- `forward/<family>_reference_models/onnx/phase/`",
+            "- `forward/<family>_reference_models/python/amplitude/`",
+            "- `forward/<family>_reference_models/python/phase/`",
+            "- `forward/<family>_reference_models/data/`",
+            "- `forward/<family>_reference_models/dataset_snapshot_manifest.yaml`",
+            "- `forward/<family>_reference_models/source_runs/<run_instance_id>/training_config.snapshot.yaml`",
+            "- `forward/<family>_reference_models/source_runs/<run_instance_id>/run_metadata.snapshot.yaml`",
+            "- `forward/<family>_reference_models/source_runs/<run_instance_id>/split_manifest.yaml`",
             "",
             "Benchmark integration rule for every future family archive:",
             "",

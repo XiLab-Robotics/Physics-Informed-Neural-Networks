@@ -172,7 +172,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.md`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.md`
 - Canonical progress surface:
   - `Table 2 - Amplitude MAE Full-Matrix Replication`
   - `Table 3 - Amplitude RMSE Full-Matrix Replication`
@@ -194,7 +194,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1.5 Harmonic-Wise Validation Support
 
-- Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-13-15-11-49__track1_hgbm_h01_wide_depth_2_campaign_run/validation_summary.yaml`
+- Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/family_exploration/hgbm/2026-04-13-15-11-49__track1_hgbm_h01_wide_depth_2_campaign_run/validation_summary.yaml`
 - Harmonic-wise test mean percentage error: `8.707%`
 - `Target A` status from the latest harmonic-wise run: `not_yet_met`
 - This branch is postponed and no longer defines canonical `Track 1` status

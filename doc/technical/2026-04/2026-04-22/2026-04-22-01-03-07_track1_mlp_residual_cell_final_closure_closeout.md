@@ -10,7 +10,7 @@ active-campaign state has already been marked `completed`. The repository
 still lacks the canonical closeout artifacts for this wave:
 
 - the final campaign-results Markdown report under
-  `doc/reports/campaign_results/track1/exact_paper/`;
+  `doc/reports/campaign_results/track1/exact_paper/forward/`;
 - the matching validated PDF export;
 - the `results_report_path` backlink in
   `doc/running/active_training_campaign.yaml`;
@@ -67,12 +67,12 @@ closeout flow in the main rollout.
 
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_results/track1/exact_paper/forward/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-21_track1_mlp_residual_cell_final_closure_campaign/`
-- `output/training_campaigns/track1/exact_paper/track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/family_repair/mlp/2026-04-21_track1_mlp_residual_cell_final_closure_campaign/`
+- `output/training_campaigns/track1/exact_paper/forward/family_repair/mlp/track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/analysis/validation_checks/`
 - repository report-export and PDF-validation scripts under `scripts/reports/`
 

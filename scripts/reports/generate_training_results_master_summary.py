@@ -26,7 +26,9 @@ DEFAULT_TRAINING_RUN_ROOT = PROJECT_PATH / "output" / "training_runs"
 DEFAULT_TRAINING_CAMPAIGN_ROOT = PROJECT_PATH / "output" / "training_campaigns"
 DEFAULT_VALIDATION_CHECK_ROOT = PROJECT_PATH / "output" / "validation_checks"
 DEFAULT_PAPER_REFERENCE_REPORT_PATH = PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
-DEFAULT_EXACT_PAPER_VALIDATION_ROOT = DEFAULT_VALIDATION_CHECK_ROOT / "paper_reimplementation_rcim_exact_model_bank"
+DEFAULT_EXACT_PAPER_VALIDATION_ROOT = (
+    DEFAULT_VALIDATION_CHECK_ROOT / "paper_reimplementation_rcim_exact_model_bank" / "forward"
+)
 
 TREE_MODEL_TYPE_SET = {"random_forest", "hist_gradient_boosting"}
 NEURAL_MODEL_TYPE_SET = {"feedforward", "periodic_mlp", "residual_harmonic_mlp"}
@@ -750,7 +752,7 @@ def collect_latest_harmonic_wise_validation() -> dict[str, Any] | None:
         return latest_validation_dictionary
 
     validation_summary_path_list = sorted(
-        resolved_harmonic_validation_root.glob("*/validation_summary.yaml"),
+        resolved_harmonic_validation_root.rglob("validation_summary.yaml"),
         key=lambda path_value: path_value.stat().st_mtime,
         reverse=True,
     )
@@ -810,7 +812,7 @@ def collect_latest_exact_paper_validation() -> dict[str, Any] | None:
 
     # Fall Back To The Most Recent Raw Exact-Paper Validation Artifact
     validation_summary_path_list = sorted(
-        resolved_exact_paper_validation_root.glob("*/validation_summary.yaml"),
+        resolved_exact_paper_validation_root.rglob("validation_summary.yaml"),
         key=lambda path_value: path_value.stat().st_mtime,
         reverse=True,
     )

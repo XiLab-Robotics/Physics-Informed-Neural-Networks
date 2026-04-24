@@ -56,7 +56,7 @@ transport itself or high-parallel `loky` execution under SSH.
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `scripts/training/shared_training_infrastructure.py`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-16_track1_svr_reference_grid_smoke_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-16_track1_svr_reference_grid_smoke_campaign/`
 - `doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign_remote.md`
 - `doc/running/active_training_campaign.yaml`
 

@@ -1,19 +1,21 @@
 # RCIM ML Compensation Recovered Assets
 
-This legacy path name is retained temporarily while an exact-paper `Track 1`
-campaign is still active. The recovered assets currently stored here are the
-recovered `forward` assets only. The later physical root rename to a
-forward-explicit path is documented separately and must be executed only after
-campaign closeout.
+This root stores the generic recovered RCIM asset package associated with the
+RCIM ML-compensation paper and adjacent paper-era experimentation.
 
-This folder contains the recovered forward-side asset package associated with
-the RCIM ML-compensation paper and adjacent paper-era experimentation.
+The root stays generic because it contains:
+
+- generic recovered code snapshots and backup material;
+- deployment-facing recovered exports;
+- heavy archived instance material;
+- forward-only benchmark artifacts such as the exact ONNX paper release and
+  the shipped `Fw` dataframe.
 
 It is intended as a repository-owned reference surface for:
 
 - exact recovered forward-only ONNX model exports;
-- original recovered forward-side paper workflow code;
-- later recovered forward-side code snapshots that appear to postdate the exact paper
+- original recovered paper workflow code;
+- later recovered code snapshots that appear to postdate the exact paper
   release;
 - backup ONNX bundles and backup code variants;
 - recovered TwinCAT XML exports;
@@ -29,7 +31,7 @@ Recovered exact ONNX exports grouped by family and by target type.
 
 Important interpretation:
 
-- these recovered models correspond to the `forward` branch only;
+- these recovered exact ONNX models correspond to the `forward` branch only;
 - they must not be treated as interchangeable with the missing
   backward-specific models implied by the generalized notation in the paper.
 

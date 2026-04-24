@@ -83,7 +83,7 @@ Optional PowerShell usage:
 
 Each run writes under:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 Each run also produces a validation report under:
 

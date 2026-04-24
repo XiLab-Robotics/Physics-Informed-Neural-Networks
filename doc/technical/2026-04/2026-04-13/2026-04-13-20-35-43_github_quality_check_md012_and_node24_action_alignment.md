@@ -9,7 +9,7 @@ The failure has two distinct parts:
 
 1. one real Markdownlint error:
    `MD012/no-multiple-blanks` in
-   `doc/reports/analysis/validation_checks/track1/harmonic_wise/2026-04-13-15-27-41_paper_reimplementation_rcim_harmonic_wise_track1_hgbm_h0181_heavy_reference_campaign_run_harmonic_wise_comparison_report.md`;
+   `doc/reports/analysis/validation_checks/track1/harmonic_wise/forward/2026-04-13-15-27-41_paper_reimplementation_rcim_harmonic_wise_track1_hgbm_h0181_heavy_reference_campaign_run_harmonic_wise_comparison_report.md`;
 2. one GitHub Actions platform warning stating that several marketplace
    actions still target `Node.js 20` and are being forced to run on
    `Node.js 24`.
@@ -58,7 +58,7 @@ action builds.
 ## Involved Components
 
 - `.github/workflows/ci.yml`
-- `doc/reports/analysis/validation_checks/track1/harmonic_wise/2026-04-13-15-27-41_paper_reimplementation_rcim_harmonic_wise_track1_hgbm_h0181_heavy_reference_campaign_run_harmonic_wise_comparison_report.md`
+- `doc/reports/analysis/validation_checks/track1/harmonic_wise/forward/2026-04-13-15-27-41_paper_reimplementation_rcim_harmonic_wise_track1_hgbm_h0181_heavy_reference_campaign_run_harmonic_wise_comparison_report.md`
 - `doc/technical/2026-04/2026-04-13/README.md`
 - `doc/README.md`
 

@@ -39,7 +39,7 @@ plan language remain unchanged.
 ## Involved Components
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-22_track1_svm_remaining_yellow_cell_campaign/*.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/remaining_yellow_cells/svm/2026-04-22_track1_svm_remaining_yellow_cell_campaign/*.yaml`
 - `doc/running/active_training_campaign.yaml`
 
 ## Implementation Steps

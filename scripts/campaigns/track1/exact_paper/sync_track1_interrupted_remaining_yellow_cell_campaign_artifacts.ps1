@@ -12,7 +12,7 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..\.." )).Path
 Set-Location $projectRoot
 
 $expectedCampaignName = "track1_remaining_yellow_cell_campaigns_2026_04_22_01_40_43"
-$expectedRemoteCampaignDirectory = "output\training_campaigns\track1\exact_paper\track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43"
+$expectedRemoteCampaignDirectory = "output\training_campaigns\track1\exact_paper\forward\remaining_yellow_cells\svm\track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43"
 $validationPattern = "*__track1_svm_*_yellow_cell_attempt_*_campaign_run"
 $reportPattern = "*_track1_svm_*_yellow_cell_attempt_*_campaign_run_exact_paper_model_bank_report.md"
 $remoteTemporaryRoot = "C:\Temp\standardml_manual_sync"
@@ -165,7 +165,7 @@ if (-not `$campaignDirectoryExists) {
 Write-MarkerLine ('REMOTE_ARCHIVE_READY::campaign_output::{0}::{1}' -f `$campaignArchivePath, 1)
 
 `$validationRelativePathList = @(
-    Get-ChildItem 'output\validation_checks\paper_reimplementation_rcim_exact_model_bank' -Directory -ErrorAction SilentlyContinue |
+    Get-ChildItem 'output\validation_checks\paper_reimplementation_rcim_exact_model_bank\forward' -Directory -Recurse -ErrorAction SilentlyContinue |
         Where-Object { `$_.Name -like `$validationPattern } |
         Sort-Object Name |
         ForEach-Object { `$_.FullName.Substring(`$repositoryRoot.Length + 1) }
@@ -174,7 +174,7 @@ Write-MarkerLine ('REMOTE_ARCHIVE_READY::campaign_output::{0}::{1}' -f `$campaig
 Write-MarkerLine ('REMOTE_ARCHIVE_READY::validation_dirs::{0}::{1}' -f `$validationArchivePath, `$validationCount)
 
 `$reportRelativePathList = @(
-    Get-ChildItem 'doc\reports\analysis\validation_checks' -File -ErrorAction SilentlyContinue |
+    Get-ChildItem 'doc\reports\analysis\validation_checks' -Recurse -File -ErrorAction SilentlyContinue |
         Where-Object { `$_.Name -like `$reportPattern } |
         Sort-Object Name |
         ForEach-Object { `$_.FullName.Substring(`$repositoryRoot.Length + 1) }
@@ -324,12 +324,12 @@ if (-not $SkipRemoteCleanup) {
 }
 
 $localValidationDirectoryList = @(
-    Get-ChildItem -LiteralPath (Join-Path $projectRoot "output\validation_checks\paper_reimplementation_rcim_exact_model_bank") -Directory -ErrorAction SilentlyContinue |
+    Get-ChildItem -LiteralPath (Join-Path $projectRoot "output\validation_checks\paper_reimplementation_rcim_exact_model_bank\forward") -Directory -Recurse -ErrorAction SilentlyContinue |
         Where-Object { $_.Name -like $validationPattern } |
         Sort-Object Name
 )
 $localReportFileList = @(
-    Get-ChildItem -LiteralPath (Join-Path $projectRoot "doc\reports\analysis\validation_checks") -File -ErrorAction SilentlyContinue |
+    Get-ChildItem -LiteralPath (Join-Path $projectRoot "doc\reports\analysis\validation_checks") -Recurse -File -ErrorAction SilentlyContinue |
         Where-Object { $_.Name -like $reportPattern } |
         Sort-Object Name
 )

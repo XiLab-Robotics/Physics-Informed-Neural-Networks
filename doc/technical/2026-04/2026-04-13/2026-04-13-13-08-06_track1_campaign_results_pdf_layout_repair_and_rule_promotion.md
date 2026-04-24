@@ -9,7 +9,7 @@ exports do not repeat the same defects.
 
 The immediate target artifact is:
 
-- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/forward/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.pdf`
 
 The user requested three concrete layout repairs:
 
@@ -45,8 +45,8 @@ pages to confirm:
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/forward/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/forward/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.pdf`
 - `doc/technical/2026-04/2026-04-13/README.md`
 
 ## Implementation Steps

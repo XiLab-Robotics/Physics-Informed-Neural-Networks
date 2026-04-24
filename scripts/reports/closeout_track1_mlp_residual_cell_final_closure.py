@@ -52,7 +52,7 @@ from scripts.reports.refresh_track1_family_reference_archives import (
 CAMPAIGN_NAME = "track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36"
 CAMPAIGN_CONFIG_FOLDER_NAME = "2026-04-21_track1_mlp_residual_cell_final_closure_campaign"
 CAMPAIGN_OUTPUT_DIRECTORY = (
-    TRAINING_CAMPAIGN_ROOT / "track1" / "exact_paper" / CAMPAIGN_NAME
+    TRAINING_CAMPAIGN_ROOT / "track1" / "exact_paper" / "forward" / CAMPAIGN_NAME
 )
 
 TARGETED_PAIR_IDENTIFIER_LIST = [
@@ -205,7 +205,7 @@ def collect_campaign_entry_list(
 
     collected_entry_list: list[dict[str, Any]] = []
 
-    for summary_path in sorted(VALIDATION_ROOT.glob("*/validation_summary.yaml")):
+    for summary_path in sorted(VALIDATION_ROOT.rglob("validation_summary.yaml")):
         summary_dictionary = load_yaml_dictionary(summary_path)
         config_path_text = str(summary_dictionary.get("config_path", "")).replace("\\", "/")
         if CAMPAIGN_CONFIG_FOLDER_NAME not in config_path_text:
@@ -783,7 +783,7 @@ def main() -> None:
     )
 
     report_relative_path = (
-        "doc/reports/campaign_results/track1/exact_paper/"
+        "doc/reports/campaign_results/track1/exact_paper/forward/"
         f"{report_timestamp}_track1_mlp_residual_cell_final_closure_campaign_results_report.md"
     )
     updated_benchmark_text = "\n".join(benchmark_line_list) + "\n"

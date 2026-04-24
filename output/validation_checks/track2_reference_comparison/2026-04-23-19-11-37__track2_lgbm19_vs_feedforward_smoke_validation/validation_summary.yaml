@@ -23,7 +23,7 @@ feedforward_reference:
   registry_test_mae: 0.003263814840465784
   registry_test_rmse: 0.0036791618913412094
 reference_bank:
-  reference_inventory_path: models/paper_reference/rcim_track1/lgbm_reference_models/reference_inventory.yaml
+  reference_inventory_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/reference_inventory.yaml
   paper_family_name: LGBM
   target_metric_summary:
     amplitude_mae: 0.010267262480908503

@@ -3,7 +3,7 @@
 This technical document defines a narrow layout-refinement pass for the exact
 paper model-bank campaign results report PDF:
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.pdf`
 
 The report content is already complete, but the real exported PDF still shows
 layout issues that should be corrected before considering the styled
@@ -57,8 +57,8 @@ No Codex subagent use is planned for this refinement pass.
 
 Primary report sources and deliverables:
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.pdf`
 
 Supporting export and validation tooling:
 

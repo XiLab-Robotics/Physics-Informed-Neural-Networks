@@ -81,7 +81,7 @@ This campaign should therefore be read as:
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
 - `scripts/campaigns/`
 - `doc/scripts/campaigns/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `output/training_campaigns/`
 - `models/paper_reference/rcim_track1/`
 

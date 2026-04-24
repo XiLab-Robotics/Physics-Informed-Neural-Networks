@@ -65,9 +65,9 @@ need crash recovery and rerun.
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1/exact_paper/track1_*_full_matrix_campaign_2026_04_18_00_48_05/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `output/training_campaigns/track1/exact_paper/forward/track1_*_full_matrix_campaign_2026_04_18_00_48_05/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
+- `doc/reports/campaign_results/track1/exact_paper/forward/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/`

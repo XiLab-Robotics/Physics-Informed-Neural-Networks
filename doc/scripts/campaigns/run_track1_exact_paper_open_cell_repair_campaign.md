@@ -22,7 +22,7 @@ The dedicated launcher forwards these YAML files:
 
 All files live under:
 
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-13_track1_exact_paper_open_cell_repair_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/open_cell_repair/shared/2026-04-13_track1_exact_paper_open_cell_repair_campaign/`
 
 ## Purpose Of Each Block
 
@@ -77,7 +77,7 @@ Optional PowerShell usage:
 
 Each run writes under:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 
 Each run also produces a validation report under:
 
@@ -85,7 +85,7 @@ Each run also produces a validation report under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1/exact_paper/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/logs/`
+- `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/track1_exact_paper_open_cell_repair_campaign_2026_04_13_21_20_53/logs/`
 
 ## Related Documents
 

@@ -117,7 +117,7 @@ Planned analysis additions:
 - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_support.py`
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 ## Implementation Steps
 

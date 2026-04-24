@@ -54,7 +54,7 @@ Optional explicit environment arguments:
 - campaign logs under
   `output/training_campaigns/track1/svm/track1_svm_open_cell_repair_campaign_2026_04_14_17_17_21/logs/`
 - validation artifacts under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - canonical benchmark status in
   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 

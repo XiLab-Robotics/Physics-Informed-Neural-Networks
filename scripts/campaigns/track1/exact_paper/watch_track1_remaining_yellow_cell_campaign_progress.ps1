@@ -40,8 +40,8 @@ function New-RemoteProgressCollectionScript {
 
 `$campaignName = '$campaignName'
 `$repositoryRootPath = '$RepositoryRootPath'
-`$trainingCampaignRoot = Join-Path `$repositoryRootPath 'output\training_campaigns\track1\exact_paper'
-`$validationRoot = Join-Path `$repositoryRootPath 'output\validation_checks\paper_reimplementation_rcim_exact_model_bank'
+`$trainingCampaignRoot = Join-Path `$repositoryRootPath 'output\training_campaigns\track1\exact_paper\forward'
+`$validationRoot = Join-Path `$repositoryRootPath 'output\validation_checks\paper_reimplementation_rcim_exact_model_bank\forward'
 `$familySpecificationList = @(
     @{ Name = 'SVM'; CanonicalRuntimeName = 'SVR'; Slug = 'svm'; Expected = 180 }
     @{ Name = 'MLP'; CanonicalRuntimeName = 'MLP'; Slug = 'mlp'; Expected = 60 }
@@ -65,7 +65,7 @@ foreach (`$familySpecification in `$familySpecificationList) {
     `$familySlug = `$familySpecification.Slug
     `$expectedCount = [int]`$familySpecification.Expected
     `$validationDirectoryList = @(
-        Get-ChildItem `$validationRoot -Directory -ErrorAction SilentlyContinue |
+        Get-ChildItem `$validationRoot -Directory -Recurse -ErrorAction SilentlyContinue |
             Where-Object { `$_.Name -like ('*__track1_' + `$familySlug + '_*_yellow_cell_attempt_*_campaign_run') } |
             Sort-Object Name
     )
@@ -91,7 +91,7 @@ foreach (`$familySpecification in `$familySpecificationList) {
 }
 
 `$currentWaveValidationDirectoryList = @(
-    Get-ChildItem `$validationRoot -Directory -ErrorAction SilentlyContinue |
+    Get-ChildItem `$validationRoot -Directory -Recurse -ErrorAction SilentlyContinue |
         Where-Object { `$_.Name -like '*__track1_*_yellow_cell_attempt_*_campaign_run' } |
         Sort-Object LastWriteTime
 )
@@ -116,9 +116,14 @@ if (`$currentWaveValidationDirectoryList.Count -gt 0) {
 `$campaignLogFileList = @()
 foreach (`$familySpecification in `$familySpecificationList) {
     `$familyCampaignName = 'track1_' + `$familySpecification.Slug + '_remaining_yellow_cell_campaign_2026_04_22_01_40_43'
-    `$logRoot = Join-Path `$trainingCampaignRoot (Join-Path `$familyCampaignName 'logs')
-    if (Test-Path -LiteralPath `$logRoot) {
-        `$campaignLogFileList += Get-ChildItem `$logRoot -File -ErrorAction SilentlyContinue
+    `$familyCampaignDirectory = Get-ChildItem `$trainingCampaignRoot -Directory -Recurse -ErrorAction SilentlyContinue |
+        Where-Object { `$_.Name -eq `$familyCampaignName } |
+        Select-Object -First 1
+    if (`$null -ne `$familyCampaignDirectory) {
+        `$logRoot = Join-Path `$familyCampaignDirectory.FullName 'logs'
+        if (Test-Path -LiteralPath `$logRoot) {
+            `$campaignLogFileList += Get-ChildItem `$logRoot -File -ErrorAction SilentlyContinue
+        }
     }
 }
 `$campaignLogFileList = @(`$campaignLogFileList | Sort-Object LastWriteTime)
@@ -155,9 +160,16 @@ if (`$null -ne `$activeValidationProcess) {
         `$activeLogName = [System.IO.Path]::GetFileNameWithoutExtension(`$activeConfigPath) + '.log'
         foreach (`$familySpecification in `$familySpecificationList) {
             `$familyCampaignName = 'track1_' + `$familySpecification.Slug + '_remaining_yellow_cell_campaign_2026_04_22_01_40_43'
-            `$candidateLogPath = Join-Path `$trainingCampaignRoot (Join-Path `$familyCampaignName ('logs\' + `$activeLogName))
+            `$familyCampaignDirectory = Get-ChildItem `$trainingCampaignRoot -Directory -Recurse -ErrorAction SilentlyContinue |
+                Where-Object { `$_.Name -eq `$familyCampaignName } |
+                Select-Object -First 1
+            if (`$null -eq `$familyCampaignDirectory) {
+                continue
+            }
+
+            `$candidateLogPath = Join-Path `$familyCampaignDirectory.FullName ('logs\' + `$activeLogName)
             if (Test-Path -LiteralPath `$candidateLogPath) {
-                `$activeLogFile = Get-Item `$candidateLogPath
+                `$activeLogFile = Get-Item -LiteralPath `$candidateLogPath
                 Write-MonitorLine ('ACTIVE_LOG::{0}::{1}::{2}' -f `$activeLogFile.FullName, `$activeLogFile.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss'), `$activeLogFile.Length)
                 break
             }

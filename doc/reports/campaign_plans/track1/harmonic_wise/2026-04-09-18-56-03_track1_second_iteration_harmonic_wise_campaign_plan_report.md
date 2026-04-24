@@ -239,7 +239,7 @@ The implementation phase should provide an explicit operator guide that covers:
 3. launch the campaign with the exact PowerShell command from the repository
    root;
 4. watch the per-run validation artifact directories under:
-   - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+   - `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 5. review the generated validation reports under:
    - `doc/reports/analysis/validation_checks/`
 

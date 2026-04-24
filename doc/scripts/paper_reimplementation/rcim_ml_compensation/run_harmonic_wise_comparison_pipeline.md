@@ -66,7 +66,7 @@ Provides staged `Track 1` second-iteration presets for:
 
 The script writes its outputs under:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 Typical generated artifacts include:
 

@@ -48,7 +48,7 @@ remain local to the repository.
 ## Involved Components
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/validation_checks/track1/exact_paper/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
+- `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-13-21-20-53_track1_exact_paper_open_cell_repair_campaign_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/`

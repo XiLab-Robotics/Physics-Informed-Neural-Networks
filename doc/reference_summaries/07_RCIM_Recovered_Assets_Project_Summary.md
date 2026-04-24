@@ -18,9 +18,10 @@
 
 Important clarification:
 
-- the current path name is legacy and will be renamed after campaign closeout;
-- the assets currently stored under this root are the recovered `forward`
-  assets only.
+- the recovered asset root remains generic because the code and backup surface
+  is generic recovered material;
+- the exact ONNX paper release and the shipped `Fw` dataframe currently stored
+  under this root are `forward` only.
 
 ## What The Recovered Assets Actually Say
 

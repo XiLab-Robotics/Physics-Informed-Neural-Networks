@@ -20,7 +20,7 @@ The implementation will update the paper-facing documentation at the repository 
 
 The work will update the canonical recovered-asset indexes, the paper summary material, and the deeper RCIM analytical notes so that future comparison, replication, and deployment work does not incorrectly treat forward and backward banks as interchangeable.
 
-The work will also rename the recovered asset root from `reference/rcim_ml_compensation_recovered_assets/` to a forward-explicit name so the physical folder structure matches the corrected interpretation. The current planned target name is `reference/rcim_ml_compensation_recovered_forward_assets/`, subject to adjustment if a shorter project-consistent variant is preferable during implementation.
+The work will also rename the recovered asset root from `reference/rcim_ml_compensation_recovered_assets/` to a forward-explicit name so the physical folder structure matches the corrected interpretation. The current planned target name is `reference/rcim_ml_compensation_recovered_assets/`, subject to adjustment if a shorter project-consistent variant is preferable during implementation.
 
 ## Involved Components
 

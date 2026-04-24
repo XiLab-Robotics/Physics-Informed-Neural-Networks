@@ -36,7 +36,7 @@ blank error PDF.
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-19-11-34-36_track1_remaining_family_residual_cellwise_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-19-11-34-36_track1_remaining_family_residual_cellwise_closure_campaign_results_report.md`
 - `doc/technical/2026-04/2026-04-19/README.md`
 - `doc/README.md`
 

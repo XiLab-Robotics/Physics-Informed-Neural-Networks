@@ -77,12 +77,12 @@ Instead, they will frame `Track 1` around:
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/analysis/validation_checks/track1/exact_paper/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
+- `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md`
 - `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-13-13-27-37_track1_extended_overnight_campaign_plan_report.md`
-- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/forward/2026-04-13-12-37-15_track1_overnight_gap_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/harmonic_wise/forward/2026-04-13-16-16-23_track1_extended_overnight_campaign_results_report.md`
 - `doc/guide/Harmonic-Wise Paper Reimplementation Pipeline/Harmonic-Wise Paper Reimplementation Pipeline.md`
 - `doc/README.md`
 - `doc/technical/2026-04/2026-04-13/README.md`

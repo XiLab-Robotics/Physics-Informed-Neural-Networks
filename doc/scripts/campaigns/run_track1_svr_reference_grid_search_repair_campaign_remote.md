@@ -76,7 +76,7 @@ Explicit remote arguments:
 - remote wrapper log under `.temp/remote_training_campaigns/`
 - synchronized campaign artifacts under `output/training_campaigns/`
 - synchronized validation artifacts under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - synchronized exact-paper validation reports under
   `doc/reports/analysis/validation_checks/`
 

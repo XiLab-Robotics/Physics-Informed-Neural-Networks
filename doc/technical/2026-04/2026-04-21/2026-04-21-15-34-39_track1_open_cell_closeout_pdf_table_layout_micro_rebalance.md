@@ -6,9 +6,9 @@ This technical document defines a narrow PDF-layout correction for the final
 `Track 1` open-cell full-matrix closeout report:
 
 - source Markdown:
-  `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
 - target PDF:
-  `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.pdf`
+  `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.pdf`
 
 The user requested a report-PDF-only table rebalance with these exact goals:
 
@@ -47,8 +47,8 @@ scientific results, campaign bookkeeping, or benchmark semantics.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/validate_report_pdf.py`
 - `doc/technical/2026-04/2026-04-21/README.md`

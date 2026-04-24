@@ -5,7 +5,7 @@
 This technical document records a narrow styled-PDF layout repair for the
 campaign results report:
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.pdf`
 
 The current PDF export still shows suboptimal width allocation in the two
 ranking tables under `Campaign Ranking`.
@@ -52,8 +52,8 @@ No subagent is planned for this work.
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report.pdf`
 - `.temp/report_pipeline/pdf_validation/`
 
 ## Implementation Steps

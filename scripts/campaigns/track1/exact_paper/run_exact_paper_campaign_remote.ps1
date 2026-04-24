@@ -14,8 +14,8 @@ param(
     [Parameter(Mandatory = $true)]
     [string[]]$RunNameList,
 
-    [string]$ValidationOutputRoot = "output\\validation_checks\\paper_reimplementation_rcim_exact_model_bank",
-    [string]$ValidationReportRoot = "doc\\reports\\analysis\\validation_checks",
+    [string]$ValidationOutputRoot = "output\\validation_checks\\paper_reimplementation_rcim_exact_model_bank\\forward",
+    [string]$ValidationReportRoot = "doc\\reports\\analysis\\validation_checks\\track1\\exact_paper\\forward",
     [string[]]$SourceSyncPathList = @(
         "scripts"
         "config"
@@ -34,7 +34,7 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..\..")).Path
 Set-Location $projectRoot
 
 # Define Campaign Identity
-$campaignOutputRoot = Join-Path "output\training_campaigns\track1\exact_paper" $campaignName
+$campaignOutputRoot = Join-Path "output\training_campaigns\track1\exact_paper\forward" $campaignName
 $campaignLogRoot = Join-Path $campaignOutputRoot "logs"
 $remoteTrackingRoot = ".temp\remote_training_campaigns"
 $remoteExecutionDrive = "R:"
@@ -617,6 +617,7 @@ foreach ($campaignConfigPath in $CampaignConfigPathList) {
 
 $resolvedPlanningReportPath = Resolve-RepositoryRelativePath -InputPath $PlanningReportPath
 $resolvedLauncherRelativePath = Resolve-RepositoryRelativePath -InputPath $LauncherRelativePath
+$resolvedCampaignOutputRoot = Resolve-RepositoryRelativePath -InputPath $campaignOutputRoot
 $resolvedValidationOutputRoot = Resolve-RepositoryRelativePath -InputPath $ValidationOutputRoot
 $resolvedValidationReportRoot = Resolve-RepositoryRelativePath -InputPath $ValidationReportRoot
 $resolvedValidationReportCandidateRootList = @()
@@ -763,7 +764,7 @@ Emit-RemoteStatusLine ('REMOTE_RUN_START::{0}' -f (Get-Location).Path)
 
 `$campaignName = '$campaignName'
 `$planningReportPath = '$resolvedPlanningReportPath'
-`$campaignOutputRoot = Join-Path 'output\training_campaigns' `$campaignName
+`$campaignOutputRoot = '$resolvedCampaignOutputRoot'
 `$campaignLogRoot = Join-Path `$campaignOutputRoot 'logs'
 New-Item -ItemType Directory -Path `$campaignLogRoot -Force | Out-Null
 Emit-RemoteStatusLine ('REMOTE_ACTIVE_STAGE::{0}' -f 'Initialized remote campaign log root')
@@ -810,7 +811,7 @@ function Resolve-WindowsRelativePath {
     return `$relativePath.Replace('/', '\')
 }
 
-`$campaignOutputDirectory = 'output\training_campaigns\$campaignName'
+`$campaignOutputDirectory = '$resolvedCampaignOutputRoot'
 if (-not (Test-Path -LiteralPath `$campaignOutputDirectory)) {
     throw 'Remote campaign output directory missing after exact-paper launcher completion.'
 }
@@ -821,7 +822,7 @@ Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$campaignOutputDirectory)
 )
 
 foreach (`$runName in `$runNameList) {
-    `$validationDirectory = Get-ChildItem -LiteralPath '$resolvedValidationOutputRoot' -Directory |
+    `$validationDirectory = Get-ChildItem -LiteralPath '$resolvedValidationOutputRoot' -Directory -Recurse |
         Where-Object { `$_.Name -like "*__`${runName}_campaign_run" } |
         Sort-Object LastWriteTime |
         Select-Object -Last 1
@@ -842,7 +843,7 @@ foreach (`$runName in `$runNameList) {
             continue
         }
 
-        `$candidateReportFileList += Get-ChildItem -LiteralPath `$validationReportRoot -File |
+        `$candidateReportFileList += Get-ChildItem -LiteralPath `$validationReportRoot -Recurse -File |
             Where-Object { `$_.Name -like "*_`${runName}_campaign_run_exact_paper_model_bank_report.md" }
     }
 

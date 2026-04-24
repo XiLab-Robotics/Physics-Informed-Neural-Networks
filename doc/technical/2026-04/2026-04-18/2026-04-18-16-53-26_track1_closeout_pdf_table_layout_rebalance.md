@@ -16,8 +16,8 @@ presentation repairs focused on:
 
 The affected reports are:
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report.md`
 
 ## Technical Approach
 
@@ -55,8 +55,8 @@ delegation.
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-18-16-34-18_track1_remaining_family_final_closeout_campaign_results_report.md`
 - the two exported PDF artifacts under the same folder
 
 ## Implementation Steps

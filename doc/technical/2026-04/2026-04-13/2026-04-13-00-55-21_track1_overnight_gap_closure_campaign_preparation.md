@@ -63,8 +63,8 @@ current repository context.
 ## Involved Components
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/validation_checks/track1/exact_paper/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md`
+- `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-11-20-14-04_exact_paper_faithful_reproduction_campaign_results_report.md`
 - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_support.py`

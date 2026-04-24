@@ -13,7 +13,7 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\.." )).Path
 Set-Location $projectRoot
 . (Join-Path $scriptDirectory "invoke_exact_paper_campaign_local.ps1")
 
-$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-18_track1_gbm_cellwise_reference_campaign"
+$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\track1\exact_paper\forward\cellwise_reference\gbm\2026-04-18_track1_gbm_cellwise_reference_campaign"
 $planningReportPath = "doc\reports\campaign_plans\track1\exact_paper\2026-04-18-22-28-04_track1_remaining_family_cellwise_reference_campaigns_plan_report.md"
 $campaignName = "track1_gbm_cellwise_reference_campaign_2026_04_18_22_28_04"
 $campaignConfigFileNameList = @(

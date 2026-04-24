@@ -11,7 +11,7 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..\..")).Path
 Set-Location $projectRoot
 
 # Define Campaign Identity
-$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-14_track1_svr_reference_grid_search_repair_campaign"
+$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\track1\exact_paper\forward\svm_targeted_closure\svm\2026-04-14_track1_svr_reference_grid_search_repair_campaign"
 $planningReportPath = "doc\reports\campaign_plans\track1\svm\2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md"
 $campaignName = "track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48"
 $campaignOutputRoot = Join-Path "output\training_campaigns\track1\svm" $campaignName
@@ -710,7 +710,7 @@ Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$campaignOutputDirectory)
 )
 
 foreach (`$runName in `$runNameList) {
-    `$validationDirectory = Get-ChildItem -LiteralPath 'output\validation_checks\paper_reimplementation_rcim_exact_model_bank' -Directory |
+    `$validationDirectory = Get-ChildItem -LiteralPath 'output\validation_checks\paper_reimplementation_rcim_exact_model_bank\forward' -Directory -Recurse |
         Where-Object { `$_.Name -like "*__`${runName}_campaign_run" } |
         Sort-Object LastWriteTime |
         Select-Object -Last 1

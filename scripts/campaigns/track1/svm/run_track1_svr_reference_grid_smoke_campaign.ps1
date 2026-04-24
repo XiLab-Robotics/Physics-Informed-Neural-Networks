@@ -10,7 +10,7 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..\..")).Path
 Set-Location $projectRoot
 . (Join-Path $projectRoot "scripts\campaigns\infrastructure\shared_streaming_campaign_launcher.ps1")
 
-$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-16_track1_svr_reference_grid_smoke_campaign"
+$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\track1\exact_paper\forward\svm_targeted_closure\svm\2026-04-16_track1_svr_reference_grid_smoke_campaign"
 $planningReportPath = "doc\reports\campaign_plans\track1\svm\2026-04-16-12-45-00_track1_svr_reference_grid_smoke_campaign_plan_report.md"
 $campaignName = "track1_svr_reference_grid_smoke_campaign_2026_04_16_12_45_00"
 $campaignOutputRoot = Join-Path "output\training_campaigns\track1\svm" $campaignName

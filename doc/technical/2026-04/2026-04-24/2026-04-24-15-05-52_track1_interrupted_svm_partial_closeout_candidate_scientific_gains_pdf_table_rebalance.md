@@ -39,7 +39,7 @@ tables.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.md`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `doc/technical/2026-04/2026-04-24/2026-04-24-15-05-52_track1_interrupted_svm_partial_closeout_candidate_scientific_gains_pdf_table_rebalance.md`
 - `doc/technical/2026-04/2026-04-24/README.md`

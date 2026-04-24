@@ -31,7 +31,7 @@ No subagent usage is planned for this work.
 ## Technical Approach
 
 The provenance-completion task should extend the current
-`models/paper_reference/rcim_track1/svm_reference_models/` archive into a
+`models/paper_reference/rcim_track1/forward/svm_reference_models/` archive into a
 dual-format, reconstruction-grade package.
 
 The approved implementation should do five things:
@@ -82,10 +82,10 @@ of duplicating the full monolithic bundle unchanged.
 - `models/README.md`
 - `models/paper_reference/README.md`
 - `models/paper_reference/rcim_track1/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/reference_inventory.yaml`
-- `models/paper_reference/rcim_track1/svm_reference_models/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/reference_inventory.yaml`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 
@@ -95,7 +95,7 @@ of duplicating the full monolithic bundle unchanged.
    Python-usable artifact unit that can be archived safely for the `19`
    canonical `SVM` references.
 2. Create the Python-side archive layout under
-   `models/paper_reference/rcim_track1/svm_reference_models/`.
+   `models/paper_reference/rcim_track1/forward/svm_reference_models/`.
 3. Populate the archive with both:
    - ONNX reference artifacts;
    - Python-usable serialized model artifacts.

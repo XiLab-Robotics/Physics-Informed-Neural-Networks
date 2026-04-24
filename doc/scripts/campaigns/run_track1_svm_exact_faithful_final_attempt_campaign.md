@@ -41,7 +41,7 @@ Explicit Conda environment:
 - campaign logs under
   `output/training_campaigns/track1/svm/track1_svm_exact_faithful_final_attempt_campaign_2026_04_17_11_44_20/logs/`
 - validation artifacts under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - exact-paper validation reports under
   `doc/reports/analysis/validation_checks/`
 

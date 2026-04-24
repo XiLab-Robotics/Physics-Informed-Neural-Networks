@@ -63,8 +63,8 @@ completes successfully.
 - new local sync helper script for the interrupted `SVM` wave
 - matching launcher note under `doc/scripts/campaigns/`
 - `.temp/manual_sync_track1_svm/`
-- `output/training_campaigns/track1/exact_paper/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/training_campaigns/track1/exact_paper/forward/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/analysis/validation_checks/`
 
 ## Implementation Steps

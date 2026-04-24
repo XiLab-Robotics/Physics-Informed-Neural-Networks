@@ -4,7 +4,7 @@
 
 This technical document covers a narrow PDF-only layout refinement for the
 final exact-paper `MLP` family closeout report:
-`doc/reports/campaign_results/track1/exact_paper/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.pdf`.
+`doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.pdf`.
 
 The requested changes are specific to the rendered PDF layout of the
 `Targeted Pair Outcome` section:
@@ -40,8 +40,8 @@ canonical pipeline and validated on the real exported PDF.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`

@@ -50,7 +50,7 @@ Optional explicit environment arguments:
 - campaign logs under
   `output/training_campaigns/track1/svm/track1_svm_micro_closure_campaign_2026_04_14_21_42_47/logs/`
 - validation artifacts under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - canonical benchmark status in
   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 

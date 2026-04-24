@@ -63,13 +63,13 @@ Active campaign state and operator-facing execution surface:
 
 - `doc/running/active_training_campaign.yaml`
 - `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1`
-- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/02_exact_full_bank_strict_reference.log`
+- `output/training_campaigns/track1/exact_paper/forward/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/02_exact_full_bank_strict_reference.log`
 
 Primary implementation surface expected to be inspected or modified:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
 
 Reference and project context that should remain in scope:
 

@@ -8,7 +8,7 @@ exact-paper `Track 1` family and to make archive refresh a formal required
 step of future `Track 1` campaign closeout.
 
 The current repository already contains the first complete archive instance at
-`models/paper_reference/rcim_track1/svm_reference_models/`, and the benchmark
+`models/paper_reference/rcim_track1/forward/svm_reference_models/`, and the benchmark
 surface already declares the target contract for future family archives.
 However, the remaining `Track 1` families do not yet expose the same stable
 paper-reference package, and the closeout flow does not yet enforce archive
@@ -90,16 +90,16 @@ and validation artifacts already used to refresh:
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_results/track1/exact_paper/forward/`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-22-01-40-43_track1_remaining_yellow_cell_multi_family_campaign_bundle_plan_report.md`
 - `doc/running/active_training_campaign.yaml`
 - `models/README.md`
 - `models/paper_reference/README.md`
 - `models/paper_reference/rcim_track1/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/`
 - `models/paper_reference/rcim_track1/<family>_reference_models/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
-- `output/training_campaigns/track1/exact_paper/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
+- `output/training_campaigns/track1/exact_paper/forward/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - repository-owned closeout and report-refresh scripts under `scripts/reports/`

@@ -55,7 +55,7 @@ does not justify delegation.
 ## Involved Components
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
 - accepted exact-paper validation summaries for the seven completed rerun
   families
 - `doc/technical/2026-04/2026-04-18/README.md`

@@ -3,7 +3,7 @@
 ## Overview
 
 The repository now has a curated `SVM` paper-reference archive under
-`models/paper_reference/rcim_track1/svm_reference_models/`, plus canonical
+`models/paper_reference/rcim_track1/forward/svm_reference_models/`, plus canonical
 benchmark documentation that identifies the accepted `Track 1` reference models
 and their reconstruction provenance.
 
@@ -70,7 +70,7 @@ future families:
 
 - `models/paper_reference/README.md`
 - `models/paper_reference/rcim_track1/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/`
 - future family roots under `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/README.md`

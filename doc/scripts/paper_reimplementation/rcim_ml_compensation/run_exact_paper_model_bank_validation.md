@@ -57,7 +57,7 @@ Provides:
 
 The script writes its outputs under:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 
 Typical artifacts include:
 

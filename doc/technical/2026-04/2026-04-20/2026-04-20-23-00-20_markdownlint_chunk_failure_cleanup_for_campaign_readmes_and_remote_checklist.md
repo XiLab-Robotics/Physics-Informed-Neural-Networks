@@ -48,15 +48,15 @@ and any subagent use would require explicit user approval before launch.
 
 ## Involved Components
 
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_dt_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_ert_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_et_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_gbm_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_hgbm_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_lgbm_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_mlp_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_rf_residual_cellwise_closure_campaign/README.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-19_track1_xgbm_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/dt/2026-04-19_track1_dt_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/ert/2026-04-19_track1_ert_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/et/2026-04-19_track1_et_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/gbm/2026-04-19_track1_gbm_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/hgbm/2026-04-19_track1_hgbm_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/lgbm/2026-04-19_track1_lgbm_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/mlp/2026-04-19_track1_mlp_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/rf/2026-04-19_track1_rf_residual_cellwise_closure_campaign/README.md`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/residual_cellwise_closure/xgbm/2026-04-19_track1_xgbm_residual_cellwise_closure_campaign/README.md`
 - `doc/running/remote_training_campaign_checklist.md`
 - `scripts/tooling/markdown/run_markdownlint.py`
 - `scripts/tooling/markdown/markdown_style_check.py`

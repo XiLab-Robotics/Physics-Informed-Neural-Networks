@@ -4,7 +4,7 @@
 
 This technical document covers a narrow PDF-layout repair for the residual
 `MLP` closeout report:
-`doc/reports/campaign_results/track1/exact_paper/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.pdf`.
+`doc/reports/campaign_results/track1/exact_paper/forward/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.pdf`.
 
 The requested outcome is twofold:
 
@@ -41,9 +41,9 @@ behavior automatically.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.pdf`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-22-19-09_track1_mlp_family_full_matrix_repair_campaign_results_report.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`

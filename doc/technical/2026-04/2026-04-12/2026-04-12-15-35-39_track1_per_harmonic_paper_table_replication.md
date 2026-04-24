@@ -81,7 +81,7 @@ table comparison.
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/README.md`
 
 ## Implementation Steps

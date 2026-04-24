@@ -7,7 +7,7 @@ generated exact-paper validation artifacts push-safe.
 
 The exact-paper reimplementation produced five new
 `paper_family_model_bank.pkl` artifacts under
-`output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`.
+`output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`.
 Each of those files is larger than `100 MB`, so they cannot be pushed to
 GitHub as regular Git objects.
 
@@ -36,7 +36,7 @@ This preserves repository discipline:
 ## Involved Components
 
 - `.gitattributes`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/README.md`
 
 ## Implementation Steps

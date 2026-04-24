@@ -75,15 +75,15 @@ Optional PowerShell usage:
 
 Exact-paper structural runs write under:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 
 Harmonic-wise offline benchmark runs write under:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 All coordinated launcher logs write under:
 
-- `output/training_campaigns/track1/exact_paper/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/logs/`
+- `output/training_campaigns/track1/exact_paper/forward/baseline_reproduction/shared/exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55/logs/`
 
 ## Related Documents
 

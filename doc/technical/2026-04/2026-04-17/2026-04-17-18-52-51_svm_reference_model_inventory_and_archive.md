@@ -46,7 +46,7 @@ source for the `SVM` reference-model inventory rather than reconstructing the
 The current best candidate source is the strict exact-paper full-bank
 validation artifact:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml`
 
 That artifact already preserves:
 
@@ -84,9 +84,9 @@ The approved implementation should therefore:
 
 The archive should prefer a family- and target-explicit structure such as:
 
-- `models/paper_reference/rcim_track1/svm_reference_models/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/onnx/amplitude/`
-- `models/paper_reference/rcim_track1/svm_reference_models/onnx/phase/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/`
 
 The archive is expected to preserve copied reference artifacts only after the
 source paths have been verified to exist and to correspond to the canonical
@@ -96,11 +96,11 @@ source paths have been verified to exist and to correspond to the canonical
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `models/README.md`
-- `models/paper_reference/rcim_track1/svm_reference_models/`
+- `models/paper_reference/rcim_track1/forward/svm_reference_models/`
 - `doc/README.md`
 - `doc/technical/2026-04/2026-04-17/README.md`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/training_config.yaml`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/validation_summary.yaml`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro/training_config.yaml`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 
@@ -108,7 +108,7 @@ source paths have been verified to exist and to correspond to the canonical
 
 1. Confirm the canonical exact-paper validation artifact and enumerate the
    `19` `SVM` reference targets from that source.
-2. Create the curated `models/paper_reference/rcim_track1/svm_reference_models/`
+2. Create the curated `models/paper_reference/rcim_track1/forward/svm_reference_models/`
    archive structure and its dedicated provenance `README.md`.
 3. Copy or curate the verified `SVM` reference model artifacts into the new
    archive while preserving traceable filenames.

@@ -200,7 +200,7 @@ def collect_open_cell_entry_lists(
     family_entry_list_dictionary: dict[str, list[dict[str, Any]]] = defaultdict(list)
     aggregate_entry_list: list[dict[str, Any]] = []
 
-    for summary_path in sorted(VALIDATION_ROOT.glob("*/validation_summary.yaml")):
+    for summary_path in sorted(VALIDATION_ROOT.rglob("validation_summary.yaml")):
         summary_dictionary = load_yaml_dictionary(summary_path)
         run_name = str(summary_dictionary["experiment"]["run_name"])
         run_instance_id = str(summary_dictionary["experiment"]["run_instance_id"])

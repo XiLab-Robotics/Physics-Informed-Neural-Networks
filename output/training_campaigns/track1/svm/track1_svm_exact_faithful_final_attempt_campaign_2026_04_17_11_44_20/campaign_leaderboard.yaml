@@ -42,9 +42,9 @@ entry_list:
   matched_reference_count: 0
   missing_reference_count: 201
   extra_export_count: 0
-  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run
-  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/paper_family_model_bank.pkl
-  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/validation_summary.yaml
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-17-03-43__track1_svr_exact_faithful_phase_162_repeat_campaign_run/validation_summary.yaml
   selection_policy: *id001
   selected_at: '2026-04-17T18:33:39+02:00'
 - run_instance_id: 2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run
@@ -76,9 +76,9 @@ entry_list:
   matched_reference_count: 0
   missing_reference_count: 201
   extra_export_count: 0
-  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run
-  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run/paper_family_model_bank.pkl
-  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run/validation_summary.yaml
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-14-31-49__track1_svr_exact_faithful_amplitude_40_repeat_campaign_run/validation_summary.yaml
   selection_policy: *id001
   selected_at: '2026-04-17T18:33:39+02:00'
 - run_instance_id: 2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run
@@ -111,9 +111,9 @@ entry_list:
   matched_reference_count: 0
   missing_reference_count: 201
   extra_export_count: 0
-  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run
-  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run/paper_family_model_bank.pkl
-  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run/validation_summary.yaml
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-12-01-16__track1_svr_exact_faithful_amplitude_pair_repeat_campaign_run/validation_summary.yaml
   selection_policy: *id001
   selected_at: '2026-04-17T18:33:39+02:00'
 - run_instance_id: 2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run
@@ -145,8 +145,8 @@ entry_list:
   matched_reference_count: 0
   missing_reference_count: 201
   extra_export_count: 0
-  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run
-  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run/paper_family_model_bank.pkl
-  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run/validation_summary.yaml
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-17-14-32-03__track1_svr_exact_faithful_amplitude_240_repeat_campaign_run/validation_summary.yaml
   selection_policy: *id001
   selected_at: '2026-04-17T18:33:39+02:00'

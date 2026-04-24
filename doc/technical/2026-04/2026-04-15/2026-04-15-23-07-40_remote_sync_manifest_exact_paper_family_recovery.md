@@ -22,7 +22,7 @@ The failing assertion is:
 
 The relevant run output directory belongs to the exact-paper validation surface:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/...`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/...`
 
 That path does not follow the standard:
 
@@ -37,7 +37,7 @@ The sync-manifest helper currently infers `model_family` only from
 `output/training_runs/<model_family>/...` style paths. That logic is too narrow
 for exact-paper campaign runs whose outputs are stored under:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/...`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/...`
 
 The fix should extend the helper so it can recover the appropriate family or
 sync target for exact-paper validation artifacts without forcing them into the
@@ -48,7 +48,7 @@ The expected direction is:
 1. keep the current fast path for standard `training_runs/<family>/...`
    outputs;
 2. add an exact-paper path branch that accepts
-   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/...`
+   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/...`
    as a valid canonical output surface;
 3. derive the registry family or sync grouping explicitly for that branch
    instead of asserting that the path must look like `training_runs`;
@@ -66,7 +66,7 @@ campaign manifest into the canonical sync-back path set.
 - `scripts/training/shared_training_infrastructure.py`
   May be needed for family naming or registry target alignment if the helper
   delegates exact-paper family recovery to an existing utility.
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/...`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/...`
   Exact-paper output surface that must be accepted as a first-class sync-back
   artifact source.
 - `output/registries/families/`

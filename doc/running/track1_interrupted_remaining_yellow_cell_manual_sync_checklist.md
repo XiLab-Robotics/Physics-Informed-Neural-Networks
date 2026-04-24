@@ -29,8 +29,8 @@
 - Then copy every exact-paper validation directory created by the interrupted SVM yellow-cell wave.
 - Then copy every per-run exact-paper analysis report tied to those validation directories.
 
-- `output/training_campaigns/track1/exact_paper/track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/*__track1_svm_*_yellow_cell_attempt_*_campaign_run`
+- `output/training_campaigns/track1/exact_paper/forward/remaining_yellow_cells/svm/track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/*__track1_svm_*_yellow_cell_attempt_*_campaign_run`
 - `doc/reports/analysis/validation_checks/*_track1_svm_*_yellow_cell_attempt_*_campaign_run_exact_paper_model_bank_report.md`
 
 ## Remote Copy Notes
@@ -62,7 +62,7 @@ Get-ChildItem -LiteralPath 'doc\reports\analysis\validation_checks' -File |
 ```
 
 ```powershell
-Get-ChildItem -LiteralPath 'output\training_campaigns\track1\exact_paper\track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43\logs' -File |
+Get-ChildItem -LiteralPath 'output\training_campaigns\track1\exact_paper\forward\remaining_yellow_cells\svm\track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43\logs' -File |
   Sort-Object Name |
   Select-Object -Last 20 Name, LastWriteTime, Length
 ```

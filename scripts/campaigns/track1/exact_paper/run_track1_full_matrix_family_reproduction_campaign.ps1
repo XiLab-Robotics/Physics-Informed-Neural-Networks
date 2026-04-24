@@ -11,7 +11,7 @@ Set-Location $projectRoot
 . (Join-Path $projectRoot "scripts\campaigns\infrastructure\shared_streaming_campaign_launcher.ps1")
 
 # Define Campaign Identity
-$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-14_track1_full_matrix_family_reproduction_campaign"
+$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\track1\exact_paper\forward\full_matrix\shared\2026-04-14_track1_full_matrix_family_reproduction_campaign"
 $planningReportPath = "doc\reports\campaign_plans\track1\exact_paper\2026-04-14-13-42-10_track1_full_matrix_family_reproduction_campaign_plan_report.md"
 $campaignName = "track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51"
 $campaignOutputRoot = Join-Path "output\training_campaigns\track1\exact_paper" $campaignName

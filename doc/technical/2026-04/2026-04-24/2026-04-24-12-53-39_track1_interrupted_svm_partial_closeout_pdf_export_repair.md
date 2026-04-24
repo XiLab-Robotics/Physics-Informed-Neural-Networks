@@ -10,7 +10,7 @@ The repository-owned PDF pipeline generated the HTML preview successfully and
 then failed during the browser-driven `print-to-pdf` step. The task is now to
 repair only that final PDF export path and deliver the real PDF artifact for:
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.md`
 
 ## Technical Approach
 
@@ -38,9 +38,9 @@ The task should not:
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report_preview.html`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report_preview.html`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report.pdf`
 - `scripts/reports/generate_styled_report_pdf.py`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/validate_report_pdf.py`

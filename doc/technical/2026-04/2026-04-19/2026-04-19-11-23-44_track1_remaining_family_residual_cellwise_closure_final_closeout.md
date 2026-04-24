@@ -58,8 +58,8 @@ closure-first bookkeeping convention:
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/campaign_results/track1/exact_paper/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `doc/reports/campaign_results/track1/exact_paper/forward/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `output/training_campaigns/`
 - `scripts/reports/generate_styled_report_pdf.py`
 

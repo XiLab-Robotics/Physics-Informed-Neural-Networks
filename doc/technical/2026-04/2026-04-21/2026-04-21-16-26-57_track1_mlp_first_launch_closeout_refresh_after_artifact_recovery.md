@@ -10,7 +10,7 @@ The repository now contains the full recovered `2026-04-21` `MLP` first-launch
 artifact set:
 
 - `297` validation-check output directories under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `297` validation reports under
   `doc/reports/analysis/validation_checks/`
 
@@ -49,12 +49,12 @@ in place.
 
 ## Involved Components
 
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/validation_checks/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/technical/2026-04/2026-04-21/README.md`
 - `doc/README.md`
 

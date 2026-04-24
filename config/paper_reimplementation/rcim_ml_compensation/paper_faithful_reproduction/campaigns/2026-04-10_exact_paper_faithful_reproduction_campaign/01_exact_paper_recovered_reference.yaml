@@ -1,4 +1,4 @@
-paths:
+﻿paths:
   source_dataframe_path: reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv
   exact_onnx_reference_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
   output_root: output/validation_checks/paper_reimplementation_rcim_exact_model_bank

@@ -36,7 +36,7 @@ The dedicated launcher forwards these YAML files:
 
 All files live under:
 
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_full_matrix_family_reproduction_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/full_matrix/shared/2026-04-14_track1_full_matrix_family_reproduction_campaign/`
 
 ## Campaign Rule
 
@@ -69,7 +69,7 @@ Optional PowerShell usage:
 
 Each run writes under:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 
 Each run also produces a validation report under:
 
@@ -77,7 +77,7 @@ Each run also produces a validation report under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1/exact_paper/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
+- `output/training_campaigns/track1/exact_paper/forward/full_matrix/shared/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
 
 ## Related Documents
 

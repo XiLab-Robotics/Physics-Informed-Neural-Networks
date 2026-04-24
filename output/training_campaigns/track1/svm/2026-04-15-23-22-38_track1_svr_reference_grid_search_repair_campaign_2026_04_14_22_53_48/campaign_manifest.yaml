@@ -6,7 +6,7 @@ planning_report_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-
 run_list:
 - original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-22-38_001_01_track1_svr_reference_grid_amplitude_pair.yaml
   final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_001_01_track1_svr_reference_grid_amplitude_pair.yaml
-  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/01_track1_svr_reference_grid_amplitude_pair.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svr_reference_grid_search_repair_campaign/01_track1_svr_reference_grid_amplitude_pair.yaml
   run_name: track1_svr_reference_grid_amplitude_pair
   run_instance_id: 2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_pair
   model_type: exact_paper_family_bank
@@ -15,7 +15,7 @@ run_list:
   end_time: '2026-04-15T23:22:38'
   duration_seconds: 0.0
   process_return_code: null
-  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_pair
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_pair
   config_snapshot_path: N/A
   best_checkpoint_reference_path: N/A
   best_checkpoint_path: null
@@ -29,7 +29,7 @@ run_list:
     ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'
 - original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-22-38_002_02_track1_svr_reference_grid_amplitude_40_only.yaml
   final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_002_02_track1_svr_reference_grid_amplitude_40_only.yaml
-  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/02_track1_svr_reference_grid_amplitude_40_only.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svr_reference_grid_search_repair_campaign/02_track1_svr_reference_grid_amplitude_40_only.yaml
   run_name: track1_svr_reference_grid_amplitude_40_only
   run_instance_id: 2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_40_only
   model_type: exact_paper_family_bank
@@ -38,7 +38,7 @@ run_list:
   end_time: '2026-04-15T23:22:38'
   duration_seconds: 0.0
   process_return_code: null
-  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_40_only
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_40_only
   config_snapshot_path: N/A
   best_checkpoint_reference_path: N/A
   best_checkpoint_path: null
@@ -52,7 +52,7 @@ run_list:
     ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'
 - original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-22-38_003_03_track1_svr_reference_grid_amplitude_240_only.yaml
   final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_003_03_track1_svr_reference_grid_amplitude_240_only.yaml
-  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/03_track1_svr_reference_grid_amplitude_240_only.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svr_reference_grid_search_repair_campaign/03_track1_svr_reference_grid_amplitude_240_only.yaml
   run_name: track1_svr_reference_grid_amplitude_240_only
   run_instance_id: 2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_240_only
   model_type: exact_paper_family_bank
@@ -61,7 +61,7 @@ run_list:
   end_time: '2026-04-15T23:22:38'
   duration_seconds: 0.0
   process_return_code: null
-  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_240_only
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-15-23-22-38__track1_svr_reference_grid_amplitude_240_only
   config_snapshot_path: N/A
   best_checkpoint_reference_path: N/A
   best_checkpoint_path: null
@@ -75,7 +75,7 @@ run_list:
     ''periodic_mlp'', ''random_forest'', ''residual_harmonic_mlp'']'
 - original_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/pending/2026-04-15-23-22-38_004_04_track1_svr_reference_grid_phase_162_only.yaml
   final_queue_config_path: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/training/queue/failed/2026-04-15-23-22-38_004_04_track1_svr_reference_grid_phase_162_only.yaml
-  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/04_track1_svr_reference_grid_phase_162_only.yaml
+  source_config_path: //?/C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svr_reference_grid_search_repair_campaign/04_track1_svr_reference_grid_phase_162_only.yaml
   run_name: track1_svr_reference_grid_phase_162_only
   run_instance_id: 2026-04-15-23-22-38__track1_svr_reference_grid_phase_162_only
   model_type: exact_paper_family_bank
@@ -84,7 +84,7 @@ run_list:
   end_time: '2026-04-15T23:22:38'
   duration_seconds: 0.0
   process_return_code: null
-  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-15-23-22-38__track1_svr_reference_grid_phase_162_only
+  output_directory: C:/Users/Martina Salami/Documents/Davide/Physics-Informed-Neural-Networks/output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-15-23-22-38__track1_svr_reference_grid_phase_162_only
   config_snapshot_path: N/A
   best_checkpoint_reference_path: N/A
   best_checkpoint_path: null

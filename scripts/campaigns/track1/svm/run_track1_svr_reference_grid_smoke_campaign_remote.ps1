@@ -22,8 +22,8 @@ $sourceText = $sourceText.Replace(
 )
 
 $sourceText = $sourceText.Replace(
-    '$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-14_track1_svr_reference_grid_search_repair_campaign"',
-    '$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-16_track1_svr_reference_grid_smoke_campaign"'
+    '$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\track1\exact_paper\forward\svm_targeted_closure\svm\2026-04-14_track1_svr_reference_grid_search_repair_campaign"',
+    '$campaignConfigRoot = "config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\track1\exact_paper\forward\svm_targeted_closure\svm\2026-04-16_track1_svr_reference_grid_smoke_campaign"'
 )
 $sourceText = $sourceText.Replace(
     '$planningReportPath = "doc\reports\campaign_plans\track1\svm\2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md"',

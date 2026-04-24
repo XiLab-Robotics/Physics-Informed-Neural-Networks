@@ -7,7 +7,7 @@ GitHub-safe while preserving the oversized harmonic-wise campaign artifact.
 
 The blocking file is:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run/harmonic_model_bundle.pkl`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/baseline_reference/shared/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run/harmonic_model_bundle.pkl`
 
 Its size exceeds the standard GitHub object limit for regular Git objects, so
 the requested path is:
@@ -37,7 +37,7 @@ decision.
 
 - `.gitattributes`
 - `doc/README.md`
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run/harmonic_model_bundle.pkl`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/baseline_reference/shared/2026-04-09-20-43-42__te_harmonic_wise_h013_random_forest_diagnostic_campaign_run/harmonic_model_bundle.pkl`
 
 ## Implementation Steps
 

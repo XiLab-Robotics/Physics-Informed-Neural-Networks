@@ -229,7 +229,8 @@ It defines:
 
 - recovered dataframe path;
 - recovered exact ONNX reference root;
-- a forward-only recovered paper asset surface under a legacy path name;
+- a forward-only recovered paper asset surface under an explicit forward-only
+  root name;
 - experiment identity;
 - exact paper feature schema;
 - enabled family list;
@@ -239,7 +240,7 @@ It defines:
 
 The prepared batch campaign package is:
 
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`
 
 The canonical launcher is:
 

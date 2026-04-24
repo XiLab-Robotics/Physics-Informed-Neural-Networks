@@ -2443,7 +2443,7 @@ Campaign planning report:
 
 Main outputs:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/<run_instance_id>/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/<run_instance_id>/`
 - `doc/reports/analysis/validation_checks/track1/harmonic_wise/*_harmonic_wise_comparison_report.md`
 - refreshed `doc/reports/analysis/Training Results Master Summary.md`
 
@@ -2517,9 +2517,9 @@ Optional PowerShell usage:
 
 Main outputs:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/<run_instance_id>/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/<run_instance_id>/`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/*_exact_paper_model_bank_report.md`
-- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
+- `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 
 Current scope:
 
@@ -2531,7 +2531,7 @@ Current scope:
 - one ONNX export per family and target;
 - target-wise winner registry for later paper-style tabulation.
 - prepared exact-paper campaign package under
-  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`;
+  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`;
 - prepared launcher note:
   `doc/scripts/campaigns/run_exact_paper_model_bank_campaign.md`
 

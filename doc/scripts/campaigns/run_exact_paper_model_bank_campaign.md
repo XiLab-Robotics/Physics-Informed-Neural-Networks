@@ -20,7 +20,7 @@ The dedicated launcher forwards these YAML files:
 
 All files live under:
 
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-10_exact_paper_model_bank_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`
 
 ## Purpose Of Each Block
 
@@ -64,7 +64,7 @@ Optional PowerShell usage:
 
 Each run writes under:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 
 Each run also produces a validation report under:
 
@@ -72,7 +72,7 @@ Each run also produces a validation report under:
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1/exact_paper/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
+- `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 
 ## Related Documents
 

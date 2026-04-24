@@ -7,7 +7,7 @@ stabilizing the exact-paper RCIM validation workflow.
 
 After the normal commit of the exact-paper workflow, several untracked
 validation roots remained under
-`output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`.
+`output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`.
 Those roots correspond either to:
 
 - crash-interrupted runs; or
@@ -30,7 +30,7 @@ The cleanup must remain narrow and explicit:
 
 ## Involved Components
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/analysis/validation_checks/`
 - `doc/README.md`
 

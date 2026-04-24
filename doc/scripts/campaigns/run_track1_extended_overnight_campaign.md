@@ -47,11 +47,11 @@ Optional PowerShell usage:
 
 Each coordinated run writes validation artifacts under:
 
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 The launcher writes per-run console logs under:
 
-- `output/training_campaigns/track1/harmonic_wise/track1_extended_overnight_campaign_2026_04_13_13_31_57/logs/`
+- `output/training_campaigns/track1/harmonic_wise/forward/track1_extended_overnight_campaign_2026_04_13_13_31_57/logs/`
 
 Each successful run also refreshes:
 

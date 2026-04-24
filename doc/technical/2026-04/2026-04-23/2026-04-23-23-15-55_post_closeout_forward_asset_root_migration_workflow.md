@@ -21,7 +21,7 @@ its protected files are no longer locked by campaign governance. The intended
 target is to move from the current legacy root name to a forward-explicit root
 such as:
 
-- `reference/rcim_ml_compensation_recovered_forward_assets/`
+- `reference/rcim_ml_compensation_recovered_assets/`
 
 The post-closeout migration must be treated as one coherent operation:
 

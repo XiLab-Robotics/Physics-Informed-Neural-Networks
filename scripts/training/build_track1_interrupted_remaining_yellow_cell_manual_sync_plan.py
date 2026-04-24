@@ -104,12 +104,12 @@ def build_checklist_text(active_campaign_dictionary: dict) -> str:
     ]
 
     remote_relative_copy_target_list = [
-        "output/training_campaigns/track1/exact_paper/track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43",
-        "output/validation_checks/paper_reimplementation_rcim_exact_model_bank/*__track1_svm_*_yellow_cell_attempt_*_campaign_run",
+        "output/training_campaigns/track1/exact_paper/forward/remaining_yellow_cells/svm/track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43",
+        "output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/*__track1_svm_*_yellow_cell_attempt_*_campaign_run",
         "doc/reports/analysis/validation_checks/*_track1_svm_*_yellow_cell_attempt_*_campaign_run_exact_paper_model_bank_report.md",
     ]
 
-    campaign_output_directory = PROJECT_PATH / "output/training_campaigns/track1/exact_paper/track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43"
+    campaign_output_directory = PROJECT_PATH / "output/training_campaigns/track1/exact_paper/forward/remaining_yellow_cells/svm/track1_svm_remaining_yellow_cell_campaign_2026_04_22_01_40_43"
     local_validation_directory_list = list(
         (PROJECT_PATH / "output/validation_checks/paper_reimplementation_rcim_exact_model_bank").glob(
             "*__track1_svm_*_yellow_cell_attempt_*_campaign_run"

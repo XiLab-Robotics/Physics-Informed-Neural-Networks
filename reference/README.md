@@ -28,13 +28,9 @@ implementation, deployment constraints, and coding style decisions.
 
 - [rcim_ml_compensation_recovered_assets/README.md](./rcim_ml_compensation_recovered_assets/README.md)
   Organized repository-owned copy of the recovered RCIM paper assets currently
-  available in the repository. Important clarification: this legacy-named root
-  currently contains the recovered `forward` assets only, including the
-  forward-only exact ONNX models, forward-side recovered code snapshots,
-  TwinCAT XML exports, backup material, and the heavy `instance_v1` archive.
-  The physical root rename to a forward-explicit name is deferred until the
-  active `Track 1` campaign closeout because protected campaign files still
-  point to the legacy path.
+  available in the repository. This recovered root remains generic because it
+  contains generic recovered code snapshots plus forward-only benchmark
+  artifacts such as the shipped `Fw` dataframe and exact ONNX paper release.
 
 ## Usage
 
@@ -43,6 +39,6 @@ implementation, deployment constraints, and coding style decisions.
   repository-facing conclusions rather than raw source artifacts.
 - Use the recovered RCIM asset package when you need exact paper-era models,
   recovered paper code, or deployment-facing backup exports.
-- Treat the currently stored recovered RCIM model bank as `forward-only`
-  unless a future repository update explicitly adds the missing backward-side
-  recovered assets.
+- Treat the currently stored recovered RCIM exact ONNX release and shipped
+  `Fw` dataframe as `forward-only` unless a future repository update
+  explicitly adds the missing backward-side recovered assets.

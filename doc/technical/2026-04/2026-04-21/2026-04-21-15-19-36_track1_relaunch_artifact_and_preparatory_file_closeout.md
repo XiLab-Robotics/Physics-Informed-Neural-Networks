@@ -22,7 +22,7 @@ made that closeout possible:
 - the matching launcher notes under `doc/scripts/campaigns/`;
 - the raw relaunch validation artifacts under
   `doc/reports/analysis/validation_checks/` and
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`.
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`.
 
 This task will close that relaunch surface as a repository-owned artifact set
 so the preparation package, the execution package, and the validation evidence
@@ -87,7 +87,7 @@ recovery will not be approximated or backfilled during this pass.
 - `scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-20_track1_*_open_cell_full_matrix_closure_campaign/`
 - `doc/reports/analysis/validation_checks/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/technical/2026-04/2026-04-20/README.md`
 
 ## Implementation Steps

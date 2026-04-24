@@ -47,7 +47,7 @@ Optional explicit environment arguments:
   `output/training_campaigns/track1/svm/track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48/logs/`
   These logs are expected to grow live during execution.
 - validation artifacts under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - canonical benchmark status in
   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 

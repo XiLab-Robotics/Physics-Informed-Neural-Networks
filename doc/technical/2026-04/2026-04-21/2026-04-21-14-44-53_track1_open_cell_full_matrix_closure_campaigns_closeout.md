@@ -11,7 +11,7 @@ families, and the persistent active-campaign state has already been marked
 this wave:
 
 - the final campaign-results Markdown report under
-  `doc/reports/campaign_results/track1/exact_paper/`;
+  `doc/reports/campaign_results/track1/exact_paper/forward/`;
 - the matching validated PDF export;
 - the `results_report_path` backlink in
   `doc/running/active_training_campaign.yaml`;
@@ -57,11 +57,11 @@ harmonic-wise branch as part of the success criteria.
 
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `doc/reports/campaign_results/track1/exact_paper/forward/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `output/training_campaigns/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/analysis/validation_checks/`
 - `.temp/remote_training_campaigns/`
 - repository report-export and PDF-validation scripts under `scripts/reports/`

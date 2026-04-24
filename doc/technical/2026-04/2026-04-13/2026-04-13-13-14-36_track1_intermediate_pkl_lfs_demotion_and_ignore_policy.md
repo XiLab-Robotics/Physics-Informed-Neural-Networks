@@ -8,8 +8,8 @@ under Git LFS while the track is still open.
 
 The requested scope is limited to the intermediate model bundles inside:
 
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
-- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 
 The intended policy is:
 

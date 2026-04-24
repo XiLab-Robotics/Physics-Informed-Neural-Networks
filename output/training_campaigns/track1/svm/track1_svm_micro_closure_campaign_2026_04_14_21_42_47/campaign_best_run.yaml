@@ -46,11 +46,11 @@ best_entry:
   matched_reference_count: 0
   missing_reference_count: 201
   extra_export_count: 1
-  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run
-  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run/paper_family_model_bank.pkl
-  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run/validation_summary.yaml
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run/validation_summary.yaml
   selection_policy: *id001
   selected_at: '2026-04-14T22:04:12+02:00'
 run_name: track1_svm_amplitude_240_only
 run_instance_id: 2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run
-validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run/validation_summary.yaml
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-14-21-52-08__track1_svm_amplitude_240_only_campaign_run/validation_summary.yaml

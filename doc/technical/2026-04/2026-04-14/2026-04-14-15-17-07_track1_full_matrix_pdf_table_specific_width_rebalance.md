@@ -54,7 +54,7 @@ Requested width target for `Campaign-Wide Cell Totals`:
 ## Involved Components
 
 - `scripts/reports/generate_styled_report_pdf.py`
-- `doc/reports/campaign_results/track1/exact_paper/2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report.md`
+- `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report.md`
 
 No Markdown report content change is required for this task.
 

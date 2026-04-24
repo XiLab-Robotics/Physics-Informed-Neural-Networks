@@ -15,7 +15,7 @@ The recurring pattern is consistent:
 
 The immediate trigger is the refinement of:
 
-- `doc/reports/campaign_results/track1/harmonic_wise/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
+- `doc/reports/campaign_results/track1/harmonic_wise/forward/2026-04-09-21-19-05_track1_second_iteration_harmonic_wise_campaign_results_report.pdf`
 
 ## Technical Approach
 

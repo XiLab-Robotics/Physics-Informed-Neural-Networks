@@ -40,9 +40,10 @@ VALIDATION_ROOT = (
     / "output"
     / "validation_checks"
     / "paper_reimplementation_rcim_exact_model_bank"
+    / "forward"
 )
 REPORT_OUTPUT_ROOT = (
-    PROJECT_PATH / "doc" / "reports" / "campaign_results" / "track1" / "exact_paper"
+    PROJECT_PATH / "doc" / "reports" / "campaign_results" / "track1" / "exact_paper" / "forward"
 )
 
 FAMILY_ORDER = ["SVM", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "XGBM", "LGBM"]
@@ -453,7 +454,7 @@ def collect_residual_entry_lists(
     family_entry_list_dictionary: dict[str, list[dict[str, Any]]] = defaultdict(list)
     aggregate_entry_list: list[dict[str, Any]] = []
 
-    for summary_path in sorted(VALIDATION_ROOT.glob("*/validation_summary.yaml")):
+    for summary_path in sorted(VALIDATION_ROOT.rglob("validation_summary.yaml")):
         summary_dictionary = load_yaml_dictionary(summary_path)
         run_name = str(summary_dictionary["experiment"]["run_name"])
         if not RESIDUAL_RUN_PATTERN.match(run_name):

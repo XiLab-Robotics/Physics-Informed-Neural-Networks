@@ -41,7 +41,7 @@ The implementation will:
 4. resynchronize only the missing campaign-owned artifact set back into the
    canonical local repository paths:
    - `doc/reports/analysis/validation_checks/`
-   - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+   - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
    - any campaign-owned bookkeeping path still needed for deterministic review;
 5. verify how many of the `297` intended runs become fully recoverable after
    the artifact pass;
@@ -60,10 +60,10 @@ that limitation explicitly instead of silently substituting a rerun.
 - `.temp/remote_training_campaigns/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-20-23-50-13_track1_open_cell_full_matrix_closure_campaigns_plan_report.md`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-20_track1_mlp_open_cell_full_matrix_closure_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/open_cell_full_matrix_closure/mlp/2026-04-20_track1_mlp_open_cell_full_matrix_closure_campaign/`
 - `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `doc/reports/analysis/validation_checks/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - remote repository roots under:
   `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`
 - `doc/technical/2026-04/2026-04-21/README.md`

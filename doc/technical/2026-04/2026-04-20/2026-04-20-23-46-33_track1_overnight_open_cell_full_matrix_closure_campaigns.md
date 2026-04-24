@@ -67,7 +67,7 @@ preparation flow and remains in the main rollout.
 - `scripts/campaigns/track1/exact_paper/`
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
-- `output/training_campaigns/track1/exact_paper/`
+- `output/training_campaigns/track1/exact_paper/forward/`
 
 The implementation is expected to create after approval:
 

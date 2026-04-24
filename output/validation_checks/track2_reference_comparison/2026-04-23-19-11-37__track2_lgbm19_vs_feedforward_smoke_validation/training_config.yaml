@@ -1,6 +1,6 @@
 paths:
   dataset_config_path: config/datasets/transmission_error_dataset.yaml
-  reference_inventory_path: models/paper_reference/rcim_track1/lgbm_reference_models/reference_inventory.yaml
+  reference_inventory_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/reference_inventory.yaml
   feedforward_leaderboard_path: output/registries/families/feedforward/leaderboard.yaml
 experiment:
   run_name: track2_lgbm19_vs_feedforward

@@ -47,7 +47,7 @@ silently repurposing the old local-launch assumptions.
 - `doc/running/active_training_campaign.yaml`
   Current protected campaign state that must be updated carefully if the launch
   mode changes from local to remote.
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/2026-04-14_track1_svr_reference_grid_search_repair_campaign/`
+- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svr_reference_grid_search_repair_campaign/`
   Already approved exact-paper campaign package that should remain the source
   of truth for the queue.
 - `doc/scripts/campaigns/run_track1_svr_reference_grid_search_repair_campaign.md`

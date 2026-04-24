@@ -57,9 +57,9 @@ The partial closeout should then:
 
 - `doc/running/active_training_campaign.yaml`
 - `.temp/remote_training_campaigns/`
-- `output/training_campaigns/track1/exact_paper/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
-- `doc/reports/campaign_results/track1/exact_paper/`
+- `output/training_campaigns/track1/exact_paper/forward/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
+- `doc/reports/campaign_results/track1/exact_paper/forward/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/`

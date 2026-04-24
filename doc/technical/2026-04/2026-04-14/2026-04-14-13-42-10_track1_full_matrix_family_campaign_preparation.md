@@ -104,7 +104,7 @@ requested matrix-reproduction logic.
 - `scripts/campaigns/`
 - `doc/scripts/campaigns/`
 - `output/training_campaigns/`
-- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+- `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/README.md`
 
 ## Implementation Steps
