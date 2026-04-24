@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_exact_model_bank
+run_name: exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
+run_instance_id: 2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro

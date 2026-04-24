@@ -1,5 +1,12 @@
 # 2026-04-24 Technical Documents
 
+- [2026-04-24-18-01-00_track1_exact_paper_second_pass_taxonomy_reorganization.md](./2026-04-24-18-01-00_track1_exact_paper_second_pass_taxonomy_reorganization.md)
+  Technical document for the second-pass internal taxonomy reorganization of Track 1 exact-paper forward configs, training-campaign outputs, and validation outputs, including grouped subfolders by campaign phase and family plus cleanup of remaining flat roots and duplicated forward path fragments.
+- [2026-04-24-16-10-10_rcim_forward_backward_artifact_reorganization_and_generic_recovered_root_restore.md](./2026-04-24-16-10-10_rcim_forward_backward_artifact_reorganization_and_generic_recovered_root_restore.md)
+  Technical document for restoring the generic recovered RCIM asset root and
+  moving the real forward-versus-backward separation into campaign configs,
+  validation reports, campaign results, paper-reference models, and output
+  artifacts.
 - [2026-04-24-15-05-52_track1_interrupted_svm_partial_closeout_candidate_scientific_gains_pdf_table_rebalance.md](./2026-04-24-15-05-52_track1_interrupted_svm_partial_closeout_candidate_scientific_gains_pdf_table_rebalance.md)
   Plan the styled PDF table-width rebalance for the two Candidate Scientific Gains tables in the interrupted SVM partial closeout report, shrinking Candidate and MAE, matching MAE to RMSE, and widening Run Instance plus Notes.
 - [2026-04-24-13-47-29_styled_pdf_pipeline_chromium_manual_handoff_rule.md](./2026-04-24-13-47-29_styled_pdf_pipeline_chromium_manual_handoff_rule.md)

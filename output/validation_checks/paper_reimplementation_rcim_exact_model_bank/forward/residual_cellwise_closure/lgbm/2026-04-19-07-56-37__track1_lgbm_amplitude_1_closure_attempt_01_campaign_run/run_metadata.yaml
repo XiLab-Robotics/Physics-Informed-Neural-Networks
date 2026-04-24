@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_exact_model_bank
+run_name: track1_lgbm_amplitude_1_closure_attempt_01_campaign_run
+run_instance_id: 2026-04-19-07-56-37__track1_lgbm_amplitude_1_closure_attempt_01_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/lgbm/2026-04-19-07-56-37__track1_lgbm_amplitude_1_closure_attempt_01_campaign_run

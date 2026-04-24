@@ -1,0 +1,440 @@
+﻿schema_version: 1
+workflow_name: rcim_exact_paper_model_bank_validation
+reference_scope: paper_faithful_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/family_repair/mlp/2026-04-21_track1_mlp_residual_cell_final_closure_campaign/048_track1_mlp_amplitude_1_final_closure_attempt_48.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_exact_model_bank
+  model_type: exact_paper_family_bank
+  run_name: track1_mlp_amplitude_1_final_closure_attempt_48
+  output_run_name: track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run
+  run_instance_id: 2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run
+  output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/mlp/2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run
+dataset:
+  source_dataframe_path: reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 1
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Fw_filtered_ampl_1
+  maximum_deg: 35.0
+  train_row_count: 726
+  test_row_count: 243
+  test_size: 0.25
+  random_seed: 27
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  grid_search_n_jobs: 24
+  grid_search_verbose: 2
+  grid_search_pre_dispatch: '24'
+  family_search_summary:
+    MLP:
+      search_mode: paper_reference_grid_search
+      used_grid_search: true
+      grid_search_n_jobs: 24
+      grid_search_verbose: 2
+      grid_search_pre_dispatch: '24'
+      grid_search_cv: 5
+      parameter_grid:
+        estimator__hidden_layer_sizes:
+        - - 100
+        - - 100
+          - 50
+        - - 200
+        - &id001
+          - 200
+          - 50
+        estimator__activation:
+        - tanh
+        - relu
+        estimator__solver:
+        - sgd
+        - adam
+        estimator__learning_rate:
+        - adaptive
+        estimator__early_stopping:
+        - true
+      best_params: &id002
+        estimator__activation: tanh
+        estimator__early_stopping: true
+        estimator__hidden_layer_sizes: *id001
+        estimator__learning_rate: adaptive
+        estimator__solver: adam
+      best_score: -71964.49136374981
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  target_schema_kind: ampl_exact_paper
+  target_scope_mode: amplitudes_only
+  include_phase_zero: false
+  harmonic_order_list:
+  - 1
+  harmonic_order_filter:
+  - 1
+  enabled_family_list:
+  - MLP
+  recovered_reference_onnx_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
+  harmonic_expected_family_map:
+    0:
+    - SVR
+    1: &id003
+    - RF
+    - LGBM
+    3:
+    - HGBM
+    39:
+    - HGBM
+    40:
+    - ERT
+    - GBM
+    78:
+    - HGBM
+    - RF
+    81:
+    - RF
+    156:
+    - ERT
+    - RF
+    162:
+    - ERT
+    240:
+    - ERT
+  paper_table_replication_scope: amplitudes_only_partial_table_replication
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: not_installed
+  onnxmltools: not_installed
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mean_component_mape_percent: 65.08180143140711
+  winning_mean_component_mae: 0.011179352659195854
+  winning_mean_component_rmse: 0.017808140598906206
+  winning_search_mode: paper_reference_grid_search
+  winning_best_params: *id002
+family_ranking:
+- family_name: MLP
+  display_name: Multi-Layer Perceptron
+  estimator_name: MLPRegressor
+  component_count: 1
+  mean_component_mse: 0.00031712987159041153
+  mean_component_rmse: 0.017808140598906206
+  mean_component_mae: 0.011179352659195854
+  mean_component_mape_percent: 65.08180143140711
+  target_metrics:
+  - &id004
+    target_name: fft_y_Fw_filtered_ampl_1
+    family_name: MLP
+    mse: 0.00031712987159041153
+    rmse: 0.017808140598906206
+    mae: 0.011179352659195854
+    mape_percent: 65.08180143140711
+target_winner_registry:
+- target_name: fft_y_Fw_filtered_ampl_1
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 65.08180143140711
+  winning_mae: 0.011179352659195854
+  winning_rmse: 0.017808140598906206
+paper_target_comparison_registry:
+- target_name: fft_y_Fw_filtered_ampl_1
+  target_kind: ampl
+  harmonic_order: 1
+  paper_expected_family_list: *id003
+  paper_expected_family_text: RF / LGBM
+  paper_metric_reference_status: not_yet_serialized_from_table
+  paper_numeric_target_available: false
+  repository_winning_family: MLP
+  repository_winning_estimator_name: MLPRegressor
+  repository_winning_mape_percent: 65.08180143140711
+  repository_winning_mae: 0.011179352659195854
+  repository_winning_rmse: 0.017808140598906206
+  family_direction_match: false
+  family_direction_status: not_matched_expected_family_direction
+paper_harmonic_comparison_registry:
+- harmonic_order: 1
+  paper_expected_family_list: *id003
+  paper_expected_family_text: RF / LGBM
+  paper_metric_reference_status: not_yet_serialized_from_table
+  paper_numeric_target_available: false
+  repository_target_count: 1
+  matching_target_count: 0
+  harmonic_match_status: no_family_direction_match
+  amplitude_winning_family: MLP
+  phase_winning_family: null
+paper_numeric_target_comparison_registry:
+- target_name: fft_y_Fw_filtered_ampl_1
+  target_kind: ampl
+  harmonic_order: 1
+  paper_table6_selected_family: RF
+  paper_table6_selected_family_normalized: RF
+  paper_best_mae_family: null
+  paper_best_mae_value: null
+  paper_best_rmse_family: RF
+  paper_best_rmse_value: 3.5e-05
+  repository_best_mae_family: MLP
+  repository_best_mae_value: 0.011179352659195854
+  repository_best_rmse_family: MLP
+  repository_best_rmse_value: 0.017808140598906206
+  table6_family_status: not_matched_table6_family
+  mae_gap_vs_paper_best: null
+  mae_target_status: not_applicable
+  rmse_gap_vs_paper_best: 0.017773140598906206
+  rmse_target_status: above_paper_target
+paper_numeric_harmonic_summary:
+- harmonic_order: 1
+  amplitude_paper_family: RF
+  amplitude_repository_family: MLP
+  amplitude_rmse_status: above_paper_target
+  phase_paper_family: null
+  phase_repository_mae_family: null
+  phase_repository_rmse_family: null
+  phase_mae_status: null
+  phase_rmse_status: null
+  harmonic_numeric_status: not_yet_matched_tables_3_6
+per_target_ranking:
+  fft_y_Fw_filtered_ampl_1:
+  - *id004
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/mlp/2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run/onnx_export
+  exported_file_count: 0
+  recovered_reference_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
+  recovered_reference_file_count: 201
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths:
+  - DT/ampl/DecisionTreeRegressor_ampl0.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl1.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl156.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl162.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl240.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl3.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl39.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl40.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl78.onnx
+  - DT/ampl/DecisionTreeRegressor_ampl81.onnx
+  - DT/phase/DecisionTreeRegressor_phase0.onnx
+  - DT/phase/DecisionTreeRegressor_phase1.onnx
+  - DT/phase/DecisionTreeRegressor_phase156.onnx
+  - DT/phase/DecisionTreeRegressor_phase162.onnx
+  - DT/phase/DecisionTreeRegressor_phase240.onnx
+  - DT/phase/DecisionTreeRegressor_phase3.onnx
+  - DT/phase/DecisionTreeRegressor_phase39.onnx
+  - DT/phase/DecisionTreeRegressor_phase40.onnx
+  - DT/phase/DecisionTreeRegressor_phase78.onnx
+  - DT/phase/DecisionTreeRegressor_phase81.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl0.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl1.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl156.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl162.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl240.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl3.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl39.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl40.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl78.onnx
+  - ERT/ampl/ExtraTreesRegressor_ampl81.onnx
+  - ERT/phase/ExtraTreesRegressor_phase0.onnx
+  - ERT/phase/ExtraTreesRegressor_phase1.onnx
+  - ERT/phase/ExtraTreesRegressor_phase156.onnx
+  - ERT/phase/ExtraTreesRegressor_phase162.onnx
+  - ERT/phase/ExtraTreesRegressor_phase240.onnx
+  - ERT/phase/ExtraTreesRegressor_phase3.onnx
+  - ERT/phase/ExtraTreesRegressor_phase39.onnx
+  - ERT/phase/ExtraTreesRegressor_phase40.onnx
+  - ERT/phase/ExtraTreesRegressor_phase78.onnx
+  - ERT/phase/ExtraTreesRegressor_phase81.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl0.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl1.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl156.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl162.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl240.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl3.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl39.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl40.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl78.onnx
+  - ET/ampl/ExtraTreeRegressor_ampl81.onnx
+  - ET/phase/ExtraTreeRegressor_phase0.onnx
+  - ET/phase/ExtraTreeRegressor_phase1.onnx
+  - ET/phase/ExtraTreeRegressor_phase156.onnx
+  - ET/phase/ExtraTreeRegressor_phase162.onnx
+  - ET/phase/ExtraTreeRegressor_phase240.onnx
+  - ET/phase/ExtraTreeRegressor_phase3.onnx
+  - ET/phase/ExtraTreeRegressor_phase39.onnx
+  - ET/phase/ExtraTreeRegressor_phase40.onnx
+  - ET/phase/ExtraTreeRegressor_phase78.onnx
+  - ET/phase/ExtraTreeRegressor_phase81.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl0.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl1.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl156.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl162.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl240.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl3.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl39.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl40.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl78.onnx
+  - GBM/ampl/GradientBoostingRegressor_ampl81.onnx
+  - GBM/phase/GradientBoostingRegressor_phase0.onnx
+  - GBM/phase/GradientBoostingRegressor_phase1.onnx
+  - GBM/phase/GradientBoostingRegressor_phase156.onnx
+  - GBM/phase/GradientBoostingRegressor_phase162.onnx
+  - GBM/phase/GradientBoostingRegressor_phase240.onnx
+  - GBM/phase/GradientBoostingRegressor_phase3.onnx
+  - GBM/phase/GradientBoostingRegressor_phase39.onnx
+  - GBM/phase/GradientBoostingRegressor_phase40.onnx
+  - GBM/phase/GradientBoostingRegressor_phase78.onnx
+  - GBM/phase/GradientBoostingRegressor_phase81.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl0.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl1.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl156.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl162.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl240.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl3.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl39.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl40.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl78.onnx
+  - HGBM/ampl/HistGradientBoostingRegressor_ampl81.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase0.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase1.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase156.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase162.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase240.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase3.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase39.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase40.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase78.onnx
+  - HGBM/phase/HistGradientBoostingRegressor_phase81.onnx
+  - LGBM/ampl/LGBMRegressor_ampl0.onnx
+  - LGBM/ampl/LGBMRegressor_ampl1.onnx
+  - LGBM/ampl/LGBMRegressor_ampl156.onnx
+  - LGBM/ampl/LGBMRegressor_ampl162.onnx
+  - LGBM/ampl/LGBMRegressor_ampl240.onnx
+  - LGBM/ampl/LGBMRegressor_ampl3.onnx
+  - LGBM/ampl/LGBMRegressor_ampl39.onnx
+  - LGBM/ampl/LGBMRegressor_ampl40.onnx
+  - LGBM/ampl/LGBMRegressor_ampl78.onnx
+  - LGBM/ampl/LGBMRegressor_ampl81.onnx
+  - LGBM/phase/LGBMRegressor_phase0.onnx
+  - LGBM/phase/LGBMRegressor_phase1.onnx
+  - LGBM/phase/LGBMRegressor_phase156.onnx
+  - LGBM/phase/LGBMRegressor_phase162.onnx
+  - LGBM/phase/LGBMRegressor_phase240.onnx
+  - LGBM/phase/LGBMRegressor_phase3.onnx
+  - LGBM/phase/LGBMRegressor_phase39.onnx
+  - LGBM/phase/LGBMRegressor_phase40.onnx
+  - LGBM/phase/LGBMRegressor_phase78.onnx
+  - LGBM/phase/LGBMRegressor_phase81.onnx
+  - MLP/ampl/MLPRegressor_ampl0.onnx
+  - MLP/ampl/MLPRegressor_ampl1.onnx
+  - MLP/ampl/MLPRegressor_ampl156.onnx
+  - MLP/ampl/MLPRegressor_ampl162.onnx
+  - MLP/ampl/MLPRegressor_ampl240.onnx
+  - MLP/ampl/MLPRegressor_ampl3.onnx
+  - MLP/ampl/MLPRegressor_ampl39.onnx
+  - MLP/ampl/MLPRegressor_ampl40.onnx
+  - MLP/ampl/MLPRegressor_ampl78.onnx
+  - MLP/ampl/MLPRegressor_ampl81.onnx
+  - MLP/phase/MLPRegressor_phase0.onnx
+  - MLP/phase/MLPRegressor_phase1.onnx
+  - MLP/phase/MLPRegressor_phase156.onnx
+  - MLP/phase/MLPRegressor_phase162.onnx
+  - MLP/phase/MLPRegressor_phase240.onnx
+  - MLP/phase/MLPRegressor_phase3.onnx
+  - MLP/phase/MLPRegressor_phase39.onnx
+  - MLP/phase/MLPRegressor_phase40.onnx
+  - MLP/phase/MLPRegressor_phase78.onnx
+  - MLP/phase/MLPRegressor_phase81.onnx
+  - RF/ampl/RandomForestRegressor_ampl0.onnx
+  - RF/ampl/RandomForestRegressor_ampl1.onnx
+  - RF/ampl/RandomForestRegressor_ampl156.onnx
+  - RF/ampl/RandomForestRegressor_ampl162.onnx
+  - RF/ampl/RandomForestRegressor_ampl240 (1).onnx
+  - RF/ampl/RandomForestRegressor_ampl240.onnx
+  - RF/ampl/RandomForestRegressor_ampl3.onnx
+  - RF/ampl/RandomForestRegressor_ampl39.onnx
+  - RF/ampl/RandomForestRegressor_ampl40.onnx
+  - RF/ampl/RandomForestRegressor_ampl78.onnx
+  - RF/ampl/RandomForestRegressor_ampl81.onnx
+  - RF/phase/RandomForestRegressor_phase0.onnx
+  - RF/phase/RandomForestRegressor_phase1.onnx
+  - RF/phase/RandomForestRegressor_phase156.onnx
+  - RF/phase/RandomForestRegressor_phase162.onnx
+  - RF/phase/RandomForestRegressor_phase240.onnx
+  - RF/phase/RandomForestRegressor_phase3.onnx
+  - RF/phase/RandomForestRegressor_phase39.onnx
+  - RF/phase/RandomForestRegressor_phase40.onnx
+  - RF/phase/RandomForestRegressor_phase78.onnx
+  - RF/phase/RandomForestRegressor_phase81.onnx
+  - SVR/ampl/SVR_ampl0.onnx
+  - SVR/ampl/SVR_ampl1.onnx
+  - SVR/ampl/SVR_ampl156.onnx
+  - SVR/ampl/SVR_ampl162.onnx
+  - SVR/ampl/SVR_ampl240.onnx
+  - SVR/ampl/SVR_ampl3.onnx
+  - SVR/ampl/SVR_ampl39.onnx
+  - SVR/ampl/SVR_ampl40.onnx
+  - SVR/ampl/SVR_ampl78.onnx
+  - SVR/ampl/SVR_ampl81.onnx
+  - SVR/phase/SVR_phase0.onnx
+  - SVR/phase/SVR_phase1.onnx
+  - SVR/phase/SVR_phase156.onnx
+  - SVR/phase/SVR_phase162.onnx
+  - SVR/phase/SVR_phase240.onnx
+  - SVR/phase/SVR_phase3.onnx
+  - SVR/phase/SVR_phase39.onnx
+  - SVR/phase/SVR_phase40.onnx
+  - SVR/phase/SVR_phase78.onnx
+  - SVR/phase/SVR_phase81.onnx
+  - XGBM/ampl/XGBRegressor_ampl0.onnx
+  - XGBM/ampl/XGBRegressor_ampl1.onnx
+  - XGBM/ampl/XGBRegressor_ampl156.onnx
+  - XGBM/ampl/XGBRegressor_ampl162.onnx
+  - XGBM/ampl/XGBRegressor_ampl240.onnx
+  - XGBM/ampl/XGBRegressor_ampl3.onnx
+  - XGBM/ampl/XGBRegressor_ampl39.onnx
+  - XGBM/ampl/XGBRegressor_ampl40.onnx
+  - XGBM/ampl/XGBRegressor_ampl78.onnx
+  - XGBM/ampl/XGBRegressor_ampl81.onnx
+  - XGBM/phase/XGBRegressor_phase0.onnx
+  - XGBM/phase/XGBRegressor_phase1.onnx
+  - XGBM/phase/XGBRegressor_phase156.onnx
+  - XGBM/phase/XGBRegressor_phase162.onnx
+  - XGBM/phase/XGBRegressor_phase240.onnx
+  - XGBM/phase/XGBRegressor_phase3.onnx
+  - XGBM/phase/XGBRegressor_phase39.onnx
+  - XGBM/phase/XGBRegressor_phase40.onnx
+  - XGBM/phase/XGBRegressor_phase78.onnx
+  - XGBM/phase/XGBRegressor_phase81.onnx
+  extra_export_relative_paths: []
+  family_exports:
+  - family_name: MLP
+    display_name: Multi-Layer Perceptron
+    estimator_name: MLPRegressor
+    export_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/mlp/2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run/onnx_export/MLP
+    exported_target_count: 0
+    failed_target_count: 1
+    exported_targets:
+    - target_name: fft_y_Fw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/mlp/2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run/onnx_export/MLP/MLPRegressor_ampl1.onnx
+      file_size_bytes: 0
+      export_status: failed
+      surrogate_strategy: none
+      export_estimator_name: MLPRegressor
+      error_message: '''NoneType'' object is not callable'
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/mlp/2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/mlp/2026-04-21-23-53-43__track1_mlp_amplitude_1_final_closure_attempt_48_campaign_run/validation_summary.yaml

@@ -1,0 +1,505 @@
+schema_version: 1
+config_path: config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/campaigns/2026-04-13_track1_extended_overnight_campaign/35_track1_hgbm_h01_engineered_heavy.yaml
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/family_exploration/hgbm/2026-04-13-15-44-34__track1_hgbm_h01_engineered_heavy_campaign_run
+experiment:
+  run_name: track1_hgbm_h01_engineered_heavy
+  output_run_name: track1_hgbm_h01_engineered_heavy_campaign_run
+  run_instance_id: 2026-04-13-15-44-34__track1_hgbm_h01_engineered_heavy_campaign_run
+  model_family: paper_reimplementation_rcim_harmonic_wise
+  model_type: harmonic_wise_hist_gradient_boosting_track1_h01_engineered_heavy
+harmonic_configuration:
+  selected_harmonics:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 20
+  percentage_error_denominator: mean_abs_truth
+feature_configuration:
+  feature_name_list:
+  - speed_rpm
+  - torque_nm
+  - oil_temperature_deg
+  - direction_flag
+  - speed_times_torque
+  - speed_times_temperature
+  - torque_times_temperature
+  - speed_squared
+  - torque_squared
+  engineered_feature_terms:
+  - speed_torque_product
+  - speed_temperature_product
+  - torque_temperature_product
+  - speed_squared
+  - torque_squared
+split_counts:
+  train_directional_curve_count: 1356
+  validation_directional_curve_count: 388
+  test_directional_curve_count: 194
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+model_configuration:
+  estimator_type: hist_gradient_boosting
+  learning_rate: 0.028
+  max_iter: 1450
+  max_depth: 9
+  min_samples_leaf: 2
+  n_estimators: 0
+  harmonic_overrides:
+    '0':
+      max_iter: 1640
+      max_depth: 10
+      min_samples_leaf: 1
+    '1':
+      max_iter: 1600
+      max_depth: 10
+      min_samples_leaf: 1
+validation_metrics:
+  sample_count: 388
+  harmonic_target_metrics:
+    mse: 5.342349062721641e-07
+    mae: 0.00017688687383729635
+    rmse: 0.0007309137474915655
+  per_target_metrics:
+    coefficient_cos_h0:
+      mse: 9.131206121005514e-06
+      mae: 0.0023818951713860535
+      rmse: 0.003021788563252815
+    coefficient_cos_h1:
+      mse: 1.5491063783878732e-09
+      mae: 2.7816997092101992e-05
+      rmse: 3.935868872800354e-05
+    coefficient_sin_h1:
+      mse: 2.587899151141333e-09
+      mae: 3.1790437606339524e-05
+      rmse: 5.087139816381434e-05
+    coefficient_cos_h3:
+      mse: 2.066503558233848e-09
+      mae: 2.2203753153655843e-05
+      rmse: 4.5458811667638744e-05
+    coefficient_sin_h3:
+      mse: 7.097124545531099e-10
+      mae: 1.809282308461183e-05
+      rmse: 2.664042894836924e-05
+    coefficient_cos_h39:
+      mse: 9.105455769084842e-10
+      mae: 2.1326347644107294e-05
+      rmse: 3.0175247752230374e-05
+    coefficient_sin_h39:
+      mse: 8.93804654634388e-10
+      mae: 2.0886057898423197e-05
+      rmse: 2.9896565933805644e-05
+    coefficient_cos_h40:
+      mse: 1.778508802005712e-09
+      mae: 2.627500595932811e-05
+      rmse: 4.2172370125542054e-05
+    coefficient_sin_h40:
+      mse: 2.1587484617722973e-09
+      mae: 2.9529620260698548e-05
+      rmse: 4.646233379601478e-05
+    coefficient_cos_h78:
+      mse: 2.1195907644028816e-09
+      mae: 3.124683152270087e-05
+      rmse: 4.6039013503797856e-05
+    coefficient_sin_h78:
+      mse: 3.584522678110325e-09
+      mae: 3.999551460985702e-05
+      rmse: 5.987088339176502e-05
+    coefficient_cos_h81:
+      mse: 7.09572175085314e-10
+      mae: 1.811704093284723e-05
+      rmse: 2.663779598775608e-05
+    coefficient_sin_h81:
+      mse: 7.358647816119317e-10
+      mae: 1.6788378970649362e-05
+      rmse: 2.712682771007203e-05
+    coefficient_cos_h156:
+      mse: 3.009035717443459e-07
+      mae: 0.0001590351692637918
+      rmse: 0.0005485467817281822
+    coefficient_sin_h156:
+      mse: 4.901374904100189e-07
+      mae: 0.0002070347255120233
+      rmse: 0.0007000982005476224
+    coefficient_cos_h162:
+      mse: 6.856409904135742e-08
+      mae: 8.70989790242445e-05
+      rmse: 0.00026184747285654185
+    coefficient_sin_h162:
+      mse: 8.076848246470082e-08
+      mae: 9.290904646131258e-05
+      rmse: 0.0002841979635125854
+    coefficient_cos_h240:
+      mse: 2.0056429090162285e-08
+      mae: 5.5698676609301594e-05
+      rmse: 0.00014162072267208032
+    coefficient_sin_h240:
+      mse: 3.902264597817245e-08
+      mae: 7.311002591658268e-05
+      rmse: 0.00019754150444443934
+  per_harmonic_metrics:
+    '0':
+      coefficient_mae: 0.0023818951803476346
+      coefficient_rmse: 0.003021788628933539
+      amplitude_mae: 0.002352730028322485
+      phase_mae_rad: 0.0
+    '1':
+      coefficient_mae: 2.9803684226007784e-05
+      coefficient_rmse: 4.107754988388846e-05
+      amplitude_mae: 2.7896606649968736e-05
+      phase_mae_rad: 0.0018481263793147659
+    '3':
+      coefficient_mae: 2.0148289024637886e-05
+      coefficient_rmse: 3.242837442948281e-05
+      amplitude_mae: 1.8903111641744865e-05
+      phase_mae_rad: 0.02563308023975536
+    '39':
+      coefficient_mae: 2.1106203430018556e-05
+      coefficient_rmse: 2.7024203622792934e-05
+      amplitude_mae: 2.0820136288152714e-05
+      phase_mae_rad: 0.034266504022882865
+    '40':
+      coefficient_mae: 2.790231374729185e-05
+      coefficient_rmse: 3.887875407502047e-05
+      amplitude_mae: 2.8779928074285472e-05
+      phase_mae_rad: 0.06390560293541181
+    '78':
+      coefficient_mae: 3.562117261971026e-05
+      coefficient_rmse: 4.7849423053428676e-05
+      amplitude_mae: 3.282965985691304e-05
+      phase_mae_rad: 0.06366138226687039
+    '81':
+      coefficient_mae: 1.7452709811156685e-05
+      coefficient_rmse: 2.4256772801549244e-05
+      amplitude_mae: 1.5493059176308526e-05
+      phase_mae_rad: 0.10347027371924687
+    '156':
+      coefficient_mae: 0.00018303494941082586
+      coefficient_rmse: 0.0005887638931268021
+      amplitude_mae: 0.0002142675026496186
+      phase_mae_rad: 0.13743047313854587
+    '162':
+      coefficient_mae: 9.000401352280866e-05
+      coefficient_rmse: 0.00024206224213929025
+      amplitude_mae: 9.932227211840854e-05
+      phase_mae_rad: 0.11196291411070125
+    '240':
+      coefficient_mae: 6.440435148613099e-05
+      coefficient_rmse: 0.00016331875765568033
+      amplitude_mae: 7.107380101127837e-05
+      phase_mae_rad: 0.13380658908875612
+  dominant_harmonic_error_ranking:
+  - harmonic_order: 0
+    coefficient_mae: 0.0023818951803476346
+    amplitude_mae: 0.002352730028322485
+  - harmonic_order: 156
+    coefficient_mae: 0.00018303494941082586
+    amplitude_mae: 0.0002142675026496186
+  - harmonic_order: 162
+    coefficient_mae: 9.000401352280866e-05
+    amplitude_mae: 9.932227211840854e-05
+  - harmonic_order: 240
+    coefficient_mae: 6.440435148613099e-05
+    amplitude_mae: 7.107380101127837e-05
+  - harmonic_order: 78
+    coefficient_mae: 3.562117261971026e-05
+    amplitude_mae: 3.282965985691304e-05
+  curve_metrics:
+    mse: 1.1978122266712033e-05
+    mae: 0.002691673964711979
+    rmse: 0.002938129842662453
+    mean_percentage_error_pct: 9.515754399376787
+  oracle_curve_metrics:
+    mse: 2.360062081770101e-06
+    mae: 0.0009822908574575703
+    rmse: 0.0011968220836161632
+    mean_percentage_error_pct: 3.588094765506886
+  sample_preview_list:
+  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm100.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1000.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+    predicted_curve_mae_deg: 0.0007635595761895862
+    predicted_curve_rmse_deg: 0.0009242633286477544
+    predicted_curve_mean_percentage_error_pct: 3.195332024845478
+    oracle_curve_mean_percentage_error_pct: 2.3077158809768843
+    predicted_primary_amplitudes:
+      h0: 0.024527259171009064
+      h1: 0.01722374686394682
+      h3: 0.000631044646076783
+      h39: 0.0007816291846396586
+      h40: 0.0008501229208049698
+  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm100.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1000.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+    predicted_curve_mae_deg: 0.0010435966724357307
+    predicted_curve_rmse_deg: 0.0012002271686434797
+    predicted_curve_mean_percentage_error_pct: 8.76021529500296
+    oracle_curve_mean_percentage_error_pct: 4.390908465818814
+    predicted_primary_amplitudes:
+      h0: 0.007650128100067377
+      h1: 0.017277560241857705
+      h3: 0.0007693952035172642
+      h39: 0.0005521753938659136
+      h40: 0.0004540388441236692
+  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm700.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1000.0
+    torque_nm: 700.0
+    oil_temperature_deg: 25.0
+    predicted_curve_mae_deg: 0.0006801590338778593
+    predicted_curve_rmse_deg: 0.000839375326517195
+    predicted_curve_mean_percentage_error_pct: 1.4186976182678421
+    oracle_curve_mean_percentage_error_pct: 1.2396276238929234
+    predicted_primary_amplitudes:
+      h0: 0.048314619809389114
+      h1: 0.017189675360832907
+      h3: 0.0006895488044232099
+      h39: 0.0009633599761120322
+      h40: 0.000990555396280709
+test_metrics:
+  sample_count: 194
+  harmonic_target_metrics:
+    mse: 5.439261341344313e-07
+    mae: 0.00016190888026143424
+    rmse: 0.0007375134806459007
+  per_target_metrics:
+    coefficient_cos_h0:
+      mse: 1.0038770464165846e-05
+      mae: 0.0024380308450511704
+      rmse: 0.0031684018785763032
+    coefficient_cos_h1:
+      mse: 1.1575802572007343e-09
+      mae: 2.4865947894214353e-05
+      rmse: 3.402323113992459e-05
+    coefficient_sin_h1:
+      mse: 1.248557118509343e-09
+      mae: 2.8480887007643423e-05
+      rmse: 3.5334927741674287e-05
+    coefficient_cos_h3:
+      mse: 1.8181540228137408e-09
+      mae: 2.5423968314427285e-05
+      rmse: 4.263981734029522e-05
+    coefficient_sin_h3:
+      mse: 5.406040777700192e-10
+      mae: 1.718995963060057e-05
+      rmse: 2.3250894128399002e-05
+    coefficient_cos_h39:
+      mse: 9.652052435802266e-10
+      mae: 2.233142945196397e-05
+      rmse: 3.106775247069261e-05
+    coefficient_sin_h39:
+      mse: 8.848150252411115e-10
+      mae: 2.0244246413017444e-05
+      rmse: 2.9745840469570053e-05
+    coefficient_cos_h40:
+      mse: 3.622673241851648e-09
+      mae: 3.2891811144231346e-05
+      rmse: 6.018864711763879e-05
+    coefficient_sin_h40:
+      mse: 1.8380561716240743e-09
+      mae: 3.07683994858402e-05
+      rmse: 4.2872557325450905e-05
+    coefficient_cos_h78:
+      mse: 1.2762721275876894e-09
+      mae: 2.4568075110401015e-05
+      rmse: 3.5724951050878844e-05
+    coefficient_sin_h78:
+      mse: 3.3287172598636127e-09
+      mae: 3.925280646589056e-05
+      rmse: 5.769503670042695e-05
+    coefficient_cos_h81:
+      mse: 5.702010931054367e-10
+      mae: 1.630651343958496e-05
+      rmse: 2.3878883832906358e-05
+    coefficient_sin_h81:
+      mse: 3.2159607487666633e-10
+      mae: 1.2159502850324512e-05
+      rmse: 1.7933099979553627e-05
+    coefficient_cos_h156:
+      mse: 5.51640614980694e-08
+      mae: 7.29124501386772e-05
+      rmse: 0.00023487030782555168
+    coefficient_sin_h156:
+      mse: 1.6387639088470825e-07
+      mae: 9.991315495527328e-05
+      rmse: 0.00040481649038139273
+    coefficient_cos_h162:
+      mse: 1.1518187616880498e-08
+      mae: 4.218863518350687e-05
+      rmse: 0.00010732281964652483
+    coefficient_sin_h162:
+      mse: 2.8809079533272447e-08
+      mae: 4.248839345575913e-05
+      rmse: 0.00016973237620817206
+    coefficient_cos_h240:
+      mse: 8.62488810179214e-09
+      mae: 3.827921817170023e-05
+      rmse: 9.287027566337972e-05
+    coefficient_sin_h240:
+      mse: 1.0261045039600732e-08
+      mae: 4.797248080302376e-05
+      rmse: 0.00010129681653241
+  per_harmonic_metrics:
+    '0':
+      coefficient_mae: 0.0024380308096292247
+      coefficient_rmse: 0.00316840184179129
+      amplitude_mae: 0.0024089225922057393
+      phase_mae_rad: 0.0
+    '1':
+      coefficient_mae: 2.6673432105681142e-05
+      coefficient_rmse: 3.148131972720186e-05
+      amplitude_mae: 2.48946912200471e-05
+      phase_mae_rad: 0.001657492128203649
+    '3':
+      coefficient_mae: 2.1306963421048735e-05
+      coefficient_rmse: 2.951722171629498e-05
+      amplitude_mae: 1.843423833331678e-05
+      phase_mae_rad: 0.02764783214040979
+    '39':
+      coefficient_mae: 2.1287836327381224e-05
+      coefficient_rmse: 2.781964550405912e-05
+      amplitude_mae: 2.142655029231099e-05
+      phase_mae_rad: 0.0301225851703426
+    '40':
+      coefficient_mae: 3.183010547110889e-05
+      coefficient_rmse: 4.683521446293862e-05
+      amplitude_mae: 3.3403070882927435e-05
+      phase_mae_rad: 0.07177764769846612
+    '78':
+      coefficient_mae: 3.1910441492687574e-05
+      coefficient_rmse: 4.146315453840026e-05
+      amplitude_mae: 2.84121552046875e-05
+      phase_mae_rad: 0.06257393332028492
+    '81':
+      coefficient_mae: 1.4233008129417362e-05
+      coefficient_rmse: 1.8741906339618078e-05
+      amplitude_mae: 1.356433269034537e-05
+      phase_mae_rad: 0.08744206231284088
+    '156':
+      coefficient_mae: 8.641280793621999e-05
+      coefficient_rmse: 0.0003057650485941941
+      amplitude_mae: 9.956979147560494e-05
+      phase_mae_rad: 0.1090950874050929
+    '162':
+      coefficient_mae: 4.233851598910031e-05
+      coefficient_rmse: 0.00012087094099040352
+      amplitude_mae: 4.2768801669721154e-05
+      phase_mae_rad: 0.09606735648172077
+    '240':
+      coefficient_mae: 4.312585088687098e-05
+      coefficient_rmse: 8.824656378593877e-05
+      amplitude_mae: 4.441034549596004e-05
+      phase_mae_rad: 0.08566004578679319
+  dominant_harmonic_error_ranking:
+  - harmonic_order: 0
+    coefficient_mae: 0.0024380308096292247
+    amplitude_mae: 0.0024089225922057393
+  - harmonic_order: 156
+    coefficient_mae: 8.641280793621999e-05
+    amplitude_mae: 9.956979147560494e-05
+  - harmonic_order: 240
+    coefficient_mae: 4.312585088687098e-05
+    amplitude_mae: 4.441034549596004e-05
+  - harmonic_order: 162
+    coefficient_mae: 4.233851598910031e-05
+    amplitude_mae: 4.2768801669721154e-05
+  - harmonic_order: 78
+    coefficient_mae: 3.1910441492687574e-05
+    amplitude_mae: 2.84121552046875e-05
+  curve_metrics:
+    mse: 1.1890530175349916e-05
+    mae: 0.0026772417245578546
+    rmse: 0.0028785141454764768
+    mean_percentage_error_pct: 9.360458435102508
+  oracle_curve_metrics:
+    mse: 1.7065365258172728e-06
+    mae: 0.0008463223617908748
+    rmse: 0.00103508124481291
+    mean_percentage_error_pct: 2.7490651472987206
+  sample_preview_list:
+  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1000.0
+    torque_nm: 1200.0
+    oil_temperature_deg: 25.0
+    predicted_curve_mae_deg: 0.0036348939490017823
+    predicted_curve_rmse_deg: 0.0037252185333502183
+    predicted_curve_mean_percentage_error_pct: 5.886604931861462
+    oracle_curve_mean_percentage_error_pct: 1.0555550634240602
+    predicted_primary_amplitudes:
+      h0: 0.06538346409797668
+      h1: 0.017187110010527504
+      h3: 0.0008558016136813699
+      h39: 0.001190259550069852
+      h40: 0.0008393669995143954
+  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1000.0
+    torque_nm: 1200.0
+    oil_temperature_deg: 25.0
+    predicted_curve_mae_deg: 0.0034225277258217363
+    predicted_curve_rmse_deg: 0.003495820437133673
+    predicted_curve_mean_percentage_error_pct: 10.466318435553298
+    oracle_curve_mean_percentage_error_pct: 1.7216285762133232
+    predicted_primary_amplitudes:
+      h0: 0.02927788347005844
+      h1: 0.017109527832853667
+      h3: 0.0009716378292088024
+      h39: 0.00041254773012600944
+      h40: 0.0003014418208290014
+  - source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1300.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1000.0
+    torque_nm: 1300.0
+    oil_temperature_deg: 25.0
+    predicted_curve_mae_deg: 0.000754163560453695
+    predicted_curve_rmse_deg: 0.0009361165067938552
+    predicted_curve_mean_percentage_error_pct: 1.1255783889573507
+    oracle_curve_mean_percentage_error_pct: 0.9758304834323617
+    predicted_primary_amplitudes:
+      h0: 0.06745360046625137
+      h1: 0.017211633199076683
+      h3: 0.0008769088515753475
+      h39: 0.001283944758889645
+      h40: 0.000810267062946997
+playback_summary:
+  robot:
+    profile_style: robot_style_offline_playback
+    step_count: 180
+    angle_probe_count: 720
+    direction_label: forward
+    max_speed_rpm: 288.1249084472656
+    max_torque_nm: 598.2416381835938
+    oil_temperature_deg: 31.6
+    mean_reconstructed_te_rms_deg: 0.04035561179933765
+    max_reconstructed_te_rms_deg: 0.05357359442094947
+    mean_reconstructed_te_max_deg: 0.05711918398737907
+    peak_reconstructed_te_max_deg: 0.0711224153637886
+  cycloidal:
+    profile_style: cycloidal_style_offline_playback
+    step_count: 180
+    angle_probe_count: 720
+    direction_label: forward
+    max_speed_rpm: 499.96148681640625
+    max_torque_nm: 351.4772033691406
+    oil_temperature_deg: 26.7
+    mean_reconstructed_te_rms_deg: 0.03334024022514627
+    max_reconstructed_te_rms_deg: 0.04206923686809684
+    mean_reconstructed_te_max_deg: 0.04951052301459842
+    peak_reconstructed_te_max_deg: 0.05883624032139778
+paper_reference_alignment:
+  target_a_threshold_mean_percentage_error_pct: 4.7
+  test_mean_percentage_error_pct: 9.360458435102508
+  target_a_status: not_yet_met
+  comparison_scope: offline_only

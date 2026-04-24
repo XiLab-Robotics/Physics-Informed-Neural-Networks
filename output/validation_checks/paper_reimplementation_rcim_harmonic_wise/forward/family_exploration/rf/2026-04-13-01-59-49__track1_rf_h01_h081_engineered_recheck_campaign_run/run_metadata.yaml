@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_harmonic_wise
+run_name: track1_rf_h01_h081_engineered_recheck_campaign_run
+run_instance_id: 2026-04-13-01-59-49__track1_rf_h01_h081_engineered_recheck_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/family_exploration/rf/2026-04-13-01-59-49__track1_rf_h01_h081_engineered_recheck_campaign_run

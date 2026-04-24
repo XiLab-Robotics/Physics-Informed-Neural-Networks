@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_exact_model_bank
+run_name: track1_rf_amplitude_78_closure_attempt_02_campaign_run
+run_instance_id: 2026-04-19-02-30-28__track1_rf_amplitude_78_closure_attempt_02_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/residual_cellwise_closure/rf/2026-04-19-02-30-28__track1_rf_amplitude_78_closure_attempt_02_campaign_run

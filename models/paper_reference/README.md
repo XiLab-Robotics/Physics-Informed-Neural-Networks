@@ -22,7 +22,7 @@ Canonical archive standard for future paper-family archives:
 For `Track 1` paper-reimplementation families, the canonical family package
 contract is:
 
-- `models/paper_reference/rcim_track1/<family>_reference_models/`
+- `models/paper_reference/rcim_track1/forward/<family>_reference_models/`
 - `README.md`
 - `reference_inventory.yaml`
 - `onnx/amplitude/`
@@ -45,5 +45,5 @@ Every fully curated family archive is expected to preserve:
 - family-specific implementation notes when exported deployment artifacts use a
   surrogate estimator surface that differs from the original Python model.
 
-The current `SVM` archive under `rcim_track1/svm_reference_models/` is the
+The current `SVM` archive under `rcim_track1/forward/svm_reference_models/` is the
 first fully populated reference implementation of this standard.

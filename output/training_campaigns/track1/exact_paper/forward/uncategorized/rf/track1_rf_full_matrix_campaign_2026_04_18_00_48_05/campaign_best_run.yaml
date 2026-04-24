@@ -1,0 +1,56 @@
+run_instance_id: 2026-04-18-01-23-24__track1_rf_phase_full_matrix_campaign_run
+run_name: track1_rf_phase_full_matrix
+output_run_name: track1_rf_phase_full_matrix_campaign_run
+output_artifact_kind: validation_check
+family_code: RF
+target_scope_mode: phases_only
+harmonic_target_count: 9
+paper_cell_count: 18
+targeted_harmonic_list:
+- 1
+- 3
+- 39
+- 40
+- 78
+- 81
+- 156
+- 162
+- 240
+winning_family: RF
+winning_display_name: Random Forest
+winning_estimator_name: RandomForestRegressor
+winning_mean_component_mape_percent: 32.88073126840742
+winning_mean_component_mae: 0.12116365878349827
+winning_mean_component_rmse: 0.31611967021504167
+closure_score: 0.6111111111111112
+met_paper_cell_count: 7
+near_paper_cell_count: 8
+open_paper_cell_count: 3
+mean_normalized_gap_ratio: 0.14423873728607514
+max_normalized_gap_ratio: 0.7974874997006776
+export_failure_mode: continue
+exported_file_count: 0
+failed_target_count: 0
+surrogate_export_count: 0
+matched_reference_count: 0
+missing_reference_count: 0
+extra_export_count: 0
+output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/full_matrix/rf/2026-04-18-01-23-24__track1_rf_phase_full_matrix_campaign_run
+model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/full_matrix/rf/2026-04-18-01-23-24__track1_rf_phase_full_matrix_campaign_run/paper_family_model_bank.pkl
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/full_matrix/rf/2026-04-18-01-23-24__track1_rf_phase_full_matrix_campaign_run/validation_summary.yaml
+schema_version: 1
+campaign_name: track1_rf_full_matrix_campaign_2026_04_18_00_48_05
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative for the completed RF full-matrix
+    exact-paper rerun package. It serializes the stronger of the amplitude and phase
+    reruns under the explicit row-closure policy and does not imply that the family
+    closes Track 1 by itself.
+selected_at: '2026-04-18T11:14:50+02:00'

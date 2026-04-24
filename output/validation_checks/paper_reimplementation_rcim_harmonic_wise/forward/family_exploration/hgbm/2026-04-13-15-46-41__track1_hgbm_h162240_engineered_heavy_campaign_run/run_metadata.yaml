@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_harmonic_wise
+run_name: track1_hgbm_h162240_engineered_heavy_campaign_run
+run_instance_id: 2026-04-13-15-46-41__track1_hgbm_h162240_engineered_heavy_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/family_exploration/hgbm/2026-04-13-15-46-41__track1_hgbm_h162240_engineered_heavy_campaign_run

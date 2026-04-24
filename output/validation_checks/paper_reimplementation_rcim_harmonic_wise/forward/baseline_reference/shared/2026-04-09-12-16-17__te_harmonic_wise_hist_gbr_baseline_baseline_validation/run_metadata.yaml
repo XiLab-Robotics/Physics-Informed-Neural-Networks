@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_harmonic_wise
+run_name: te_harmonic_wise_hist_gbr_baseline_baseline_validation
+run_instance_id: 2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/baseline_reference/shared/2026-04-09-12-16-17__te_harmonic_wise_hist_gbr_baseline_baseline_validation

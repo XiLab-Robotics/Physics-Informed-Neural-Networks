@@ -1,0 +1,26 @@
+run_name: track1_current_best_shared_evaluator_reference
+run_instance_id: 2026-04-11-13-52-42__track1_current_best_shared_evaluator_reference_campaign_run
+track_kind: shared_offline_evaluator
+eligibility: eligible_for_campaign_winner
+test_mean_percentage_error_pct: 8.876929945237082
+test_curve_mae_deg: 0.0026127336054047523
+test_curve_rmse_deg: 0.0028123864269117044
+oracle_test_mean_percentage_error_pct: 2.7490651472987206
+target_a_status: not_yet_met
+target_a_threshold_mean_percentage_error_pct: 4.7
+robot_mean_reconstructed_te_rms_deg: 0.04135000264529782
+cycloidal_mean_reconstructed_te_rms_deg: 0.03276661896665407
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/baseline_reference/shared/2026-04-11-13-52-42__track1_current_best_shared_evaluator_reference_campaign_run
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/baseline_reference/shared/2026-04-11-13-52-42__track1_current_best_shared_evaluator_reference_campaign_run/validation_summary.yaml
+campaign_name: exact_paper_faithful_reproduction_campaign_2026_04_10_21_47_55
+selection_policy:
+  eligibility_gate: shared_offline_evaluator_only
+  primary_metric: test_mean_percentage_error_pct
+  first_tie_breaker: test_curve_mae_deg
+  second_tie_breaker: test_curve_rmse_deg
+  third_tie_breaker: run_name
+  direction: minimize
+  support_track_note: exact-paper family-bank runs remain serialized as support evidence
+    but are excluded from the campaign winner ranking because they do not emit the
+    shared offline evaluator metric used for Target A.
+selected_at: '2026-04-11T20:14:04+02:00'

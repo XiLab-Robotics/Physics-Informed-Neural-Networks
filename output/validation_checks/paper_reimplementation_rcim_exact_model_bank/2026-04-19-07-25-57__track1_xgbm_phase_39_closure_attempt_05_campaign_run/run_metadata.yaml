@@ -1,6 +1,0 @@
-schema_version: 1
-artifact_kind: validation_check
-model_family: paper_reimplementation_rcim_exact_model_bank
-run_name: track1_xgbm_phase_39_closure_attempt_05_campaign_run
-run_instance_id: 2026-04-19-07-25-57__track1_xgbm_phase_39_closure_attempt_05_campaign_run
-output_directory: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-07-25-57__track1_xgbm_phase_39_closure_attempt_05_campaign_run

@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: paper_reimplementation_rcim_harmonic_wise
+run_name: exact_paper_dominant_harmonic_specialized_campaign_run
+run_instance_id: 2026-04-11-13-51-52__exact_paper_dominant_harmonic_specialized_campaign_run
+output_directory: output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/dominant_harmonic_specialization/shared/2026-04-11-13-51-52__exact_paper_dominant_harmonic_specialized_campaign_run

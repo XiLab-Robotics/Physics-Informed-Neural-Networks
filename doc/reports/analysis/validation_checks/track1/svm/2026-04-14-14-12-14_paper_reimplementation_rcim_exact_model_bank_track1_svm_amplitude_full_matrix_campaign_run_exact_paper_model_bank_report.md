@@ -191,7 +191,7 @@ validation split.
 ## ONNX Export Surface
 
 - export enabled: `True`;
-- export root: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-14-14-12-14__track1_svm_amplitude_full_matrix_campaign_run/onnx_export`;
+- export root: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/full_matrix/svm/2026-04-14-14-12-14__track1_svm_amplitude_full_matrix_campaign_run/onnx_export`;
 - exported file count: `10`;
 - export failure mode: `continue`;
 - recovered reference file count: `201`;
