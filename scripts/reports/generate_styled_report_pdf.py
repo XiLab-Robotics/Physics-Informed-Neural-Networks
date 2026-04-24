@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse, html, tempfile
+import argparse, html
 import re, shutil, subprocess, time
 from pathlib import Path
 from typing import Sequence
@@ -80,6 +80,7 @@ TRACK1_FINAL_CLOSEOUT_AGGREGATE_TABLE_CLASS_NAME = "report-table report-table-tr
 TRACK1_OPEN_CELL_CLOSEOUT_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-open-cell-closeout-family"
 TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME = "report-table report-table-track1-open-cell-closeout-benchmark"
 TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME = "report-table report-table-track1-mlp-closeout-targeted-pair"
+TRACK1_INTERRUPTED_SVM_CANDIDATE_GAINS_TABLE_CLASS_NAME = "report-table report-table-track1-interrupted-svm-candidate-gains"
 TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
@@ -771,6 +772,30 @@ REPORT_STYLESHEET = """
     .report-table-track1-mlp-closeout-targeted-pair th:nth-child(4), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(4) { width: 23%; }
     .report-table-track1-mlp-closeout-targeted-pair th:nth-child(5), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(5) { width: 10%; }
     .report-table-track1-mlp-closeout-targeted-pair th:nth-child(6), .report-table-track1-mlp-closeout-targeted-pair td:nth-child(6) { width: 14%; }
+
+    .report-table-track1-interrupted-svm-candidate-gains {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track1-interrupted-svm-candidate-gains th,
+    .report-table-track1-interrupted-svm-candidate-gains td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-interrupted-svm-candidate-gains th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-interrupted-svm-candidate-gains th:nth-child(1), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(1) { width: 9%; }
+    .report-table-track1-interrupted-svm-candidate-gains th:nth-child(2), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(2) { width: 40%; }
+    .report-table-track1-interrupted-svm-candidate-gains th:nth-child(3), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(3) { width: 14%; }
+    .report-table-track1-interrupted-svm-candidate-gains th:nth-child(4), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(4) { width: 14%; }
+    .report-table-track1-interrupted-svm-candidate-gains th:nth-child(5), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(5) { width: 23%; }
 
     /* Reusable Cell-Repair Ranking Table Profile */
     .report-table-track1-svm-repair-ranking {
@@ -2415,6 +2440,14 @@ def resolve_standard_table_class_name(
         and normalized_header_cells == ("Pair", "Baseline", "Campaign Best", "Accepted", "Source", "Result")
     ):
         return TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-24-12-39-24_track1_remaining_yellow_cell_interrupted_svm_partial_closeout_campaign_results_report":
+
+        if (
+            current_section_slug == "candidate-scientific-gains"
+            and normalized_header_cells == ("Candidate", "Run Instance", "MAE", "RMSE", "Notes")
+        ):
+            return TRACK1_INTERRUPTED_SVM_CANDIDATE_GAINS_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

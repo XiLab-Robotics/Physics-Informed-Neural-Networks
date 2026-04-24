@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-22T01:11:46+02:00`
+- Generated At: `2026-04-24T12:39:24+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
-- Active Campaign Status: `completed`
-- Active Campaign Name: `track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36`
+- Active Campaign Status: `interrupted`
+- Active Campaign Name: `track1_remaining_yellow_cell_campaigns_2026_04_22_01_40_43`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_remaining_yellow_cell_campaigns_2026_04_22_01_40_43` | `2026-04-24-12-39-24` | 79 | 2 | N/A | Interrupted six-family yellow-cell overnight bundle now closed in `SVM-only` partial form after manual sync; recovered `79` completed report-backed `SVM` runs, `1` duplicate pre-fix failed retry, and `1` interrupted tail run, while leaving candidate `SVM A40` and `SVM A240` gains documented but not yet promoted |
 | `track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36` | `2026-04-22-01-08-33` | 216 | 0 | `track1_mlp_amplitude_156_final_closure_attempt_32` | Dedicated residual `MLP` closure completed `216` retries across `4` final target pairs, promoted `4/4` targeted pairs, and left the accepted `MLP` row with `2` non-green cells on Tables `2-5` (`Table 2`: none; `Table 3`: none; `Table 4`: 162; `Table 5`: 162) |
 | `track1_mlp_family_full_matrix_repair_campaign_2026_04_21_17_20_12` | `2026-04-21-22-19-09` | 324 | 0 | `track1_mlp_amplitude_0_closure_attempt_17` | Dedicated `MLP` full-matrix repair completed `324` retries, promoted `1/12` targeted family-target pairs, and left the accepted `MLP` row with `7` non-green cells on Tables `2-5` (`Table 2`: 1, 156, 240; `Table 3`: 1, 240; `Table 4`: 162; `Table 5`: 162) |
 | `track1_open_cell_full_matrix_closure_campaigns_2026_04_20_23_50_13` | `2026-04-21-14-58-00` | 756 | 0 | `track1_dt_phase_162_closure_attempt_03` | Open-cell exact-paper full-matrix closure completed the `756` targeted retries, promoted `17/28` family-target pairs, and refreshed the canonical Tables `2-5` benchmark surface; later post-closeout recovery also restored the full `297`-run `MLP` first-launch artifact set without changing the canonical winner or table counts |
