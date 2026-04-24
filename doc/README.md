@@ -86,6 +86,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-23
 
+- [technical/2026-04/2026-04-23/2026-04-23-23-29-52_track1_bidirectional_original_dataset_rebuild_and_mega_campaign.md](./technical/2026-04/2026-04-23/2026-04-23-23-29-52_track1_bidirectional_original_dataset_rebuild_and_mega_campaign.md)
+  Technical document for rebuilding `Track 1` from the original repository
+  dataset with separate `forward` and `backward` family banks, expanding the
+  canonical benchmark to dual-direction tables, restructuring the reference
+  archives, and preparing a future mega-campaign after workflow stabilization.
 - [technical/2026-04/2026-04-23/2026-04-23-23-15-55_post_closeout_forward_asset_root_migration_workflow.md](./technical/2026-04/2026-04-23/2026-04-23-23-15-55_post_closeout_forward_asset_root_migration_workflow.md)
   Technical document for the deferred post-closeout rename of the legacy RCIM
   recovered-asset root and the corresponding operational path migration across

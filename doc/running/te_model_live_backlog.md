@@ -162,6 +162,40 @@ Current next step:
 - until `Target B` is executed, present all paper comparisons as `offline-only`
   rather than end-to-end equivalent
 
+### Track 1 Bidirectional Original-Dataset Rebuild
+
+- open a new repository-owned `Track 1` rebuild branch that reads harmonic
+  training data from the original dataset root `data/datasets/` instead of the
+  recovered forward-only CSV snapshot
+- treat `forward` and `backward` as distinct modeling targets and train
+  direction-specific family banks rather than one shared direction-agnostic
+  bank
+- rebuild the exact-paper family surface as:
+  - `10 x 19` models for `Fw`
+  - `10 x 19` models for `Bw`
+- expand the canonical benchmark so each of the four exact-paper table
+  surfaces has:
+  - the paper reference table
+  - the repository `Fw` table
+  - the repository `Bw` table
+- restructure `models/paper_reference/rcim_track1/` so each family archive has
+  separate `forward` and `backward` subtrees for ONNX, Python, manifests, and
+  recreation metadata
+- freeze a canonical split policy before launch:
+  - evaluate repository-native `70/20/10`
+  - versus paper-closer `80/20`
+  - then keep one chosen rule fixed for both directional branches
+- after workflow stabilization, prepare a dedicated mega-campaign sized well
+  beyond the minimum `380` family-target-direction runs
+- keep the current recovered-paper branch documented as the forward-only
+  recovered baseline, not as the final shape of the new bidirectional
+  repository-owned rebuild
+- for `SVR`, temporarily disable the current grid-search path and use direct
+  training during the rebuild branch and the mega-campaign
+- backlog note:
+  re-open `SVR` grid-search only if needed later to push the `SVM` cells to
+  all-green status on the new `Fw`/`Bw` benchmark surfaces
+
 ### Paper Pipeline Breakdown
 
 Implement now:

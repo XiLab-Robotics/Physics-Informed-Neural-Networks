@@ -584,10 +584,25 @@ def resolve_enabled_family_list(training_config: dict[str, Any]) -> list[str]:
 
     # Read Enabled Family Names
     configured_family_list = training_config["training"]["enabled_families"]
-    enabled_family_list = [str(family_name).strip().upper() for family_name in configured_family_list]
+    enabled_family_list = []
+    unsupported_family_list = []
+
+    for configured_family_name in configured_family_list:
+        normalized_family_name = str(configured_family_name).strip().upper()
+        canonical_family_name = EXACT_PAPER_FAMILY_NAME_ALIAS_MAP.get(normalized_family_name)
+
+        if canonical_family_name is None:
+            unsupported_family_list.append(normalized_family_name)
+            continue
+
+        enabled_family_list.append(canonical_family_name)
 
     # Validate Enabled Family Names
-    unsupported_family_list = [family_name for family_name in enabled_family_list if family_name not in EXACT_FAMILY_ORDER]
+    unsupported_family_list.extend(
+        family_name
+        for family_name in enabled_family_list
+        if family_name not in EXACT_FAMILY_ORDER
+    )
     assert not unsupported_family_list, (
         "Unsupported exact paper family names requested | "
         f"{', '.join(unsupported_family_list)}"
@@ -807,7 +822,16 @@ def resolve_exact_paper_hyperparameter_search_settings(
 
     """Resolve the exact-paper hyperparameter-search settings."""
 
-    search_config = dict((training_config or {}).get("training", {}).get("hyperparameter_search", {}))
+    training_section = dict((training_config or {}).get("training", {}))
+    search_config = dict(training_section.get("hyperparameter_search", {}))
+    configured_disabled_family_list = training_section.get("grid_search_disabled_families", [])
+    if not isinstance(configured_disabled_family_list, list):
+        configured_disabled_family_list = []
+    normalized_disabled_family_list = [
+        str(family_name).strip().upper()
+        for family_name in configured_disabled_family_list
+        if str(family_name).strip()
+    ]
     search_mode = str(search_config.get("mode", "paper_reference_grid_search")).strip()
     assert search_mode in EXACT_PAPER_HYPERPARAMETER_SEARCH_MODE_LIST, (
         f"Unsupported exact-paper hyperparameter search mode | {search_mode}"
@@ -820,6 +844,7 @@ def resolve_exact_paper_hyperparameter_search_settings(
         "grid_search_n_jobs": grid_search_n_jobs,
         "grid_search_verbose": grid_search_verbose,
         "grid_search_pre_dispatch": grid_search_pre_dispatch,
+        "grid_search_disabled_families": normalized_disabled_family_list,
     }
 
 
@@ -1075,6 +1100,7 @@ def fit_exact_family_model_bank(
         if family_name == "XGBM":
             train_feature_matrix = dataset_bundle.train_feature_matrix.to_numpy(dtype=np.float32)
         wrapped_estimator = MultiOutputRegressor(base_estimator)
+        grid_search_disabled_for_family = family_name in search_settings["grid_search_disabled_families"]
         emit_exact_paper_progress_log(
             "INFO",
             "Family fit started | "
@@ -1092,7 +1118,11 @@ def fit_exact_family_model_bank(
             f"{build_exact_target_scope_log_summary(dataset_bundle.target_name_list)}",
         )
 
-        if search_settings["mode"] == "paper_reference_grid_search":
+        use_grid_search = (
+            search_settings["mode"] == "paper_reference_grid_search"
+            and not grid_search_disabled_for_family
+        )
+        if use_grid_search:
             parameter_grid = build_exact_paper_reference_parameter_grid(family_name, base_estimator)
             parameter_grid_candidate_count = count_exact_parameter_grid_candidates(parameter_grid)
             emit_exact_paper_progress_log(
@@ -1123,6 +1153,7 @@ def fit_exact_family_model_bank(
             family_search_summary_dictionary[family_name] = {
                 "search_mode": search_settings["mode"],
                 "used_grid_search": True,
+                "grid_search_disabled_for_family": False,
                 "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
                 "grid_search_verbose": int(search_settings["grid_search_verbose"]),
                 "grid_search_pre_dispatch": search_settings["grid_search_pre_dispatch"],
@@ -1149,6 +1180,13 @@ def fit_exact_family_model_bank(
             )
             continue
 
+        if grid_search_disabled_for_family:
+            emit_exact_paper_progress_log(
+                "INFO",
+                "Grid search bypassed for family | "
+                f"family={family_name} "
+                f"configured_disabled_families={','.join(search_settings['grid_search_disabled_families'])}",
+            )
         with threadpool_limits(limits=threadpool_limit):
             wrapped_estimator.fit(
                 train_feature_matrix,
@@ -1159,6 +1197,7 @@ def fit_exact_family_model_bank(
         family_search_summary_dictionary[family_name] = {
             "search_mode": search_settings["mode"],
             "used_grid_search": False,
+            "grid_search_disabled_for_family": bool(grid_search_disabled_for_family),
             "grid_search_n_jobs": None,
             "grid_search_verbose": None,
             "grid_search_pre_dispatch": None,
@@ -1172,7 +1211,8 @@ def fit_exact_family_model_bank(
             "Family fit complete | "
             f"family={family_name} "
             f"elapsed={format_exact_elapsed_seconds(elapsed_seconds)} "
-            f"search_mode={search_settings['mode']}",
+            f"search_mode={search_settings['mode']} "
+            f"grid_search_disabled_for_family={grid_search_disabled_for_family}",
         )
 
     return fitted_family_model_dictionary, family_search_summary_dictionary

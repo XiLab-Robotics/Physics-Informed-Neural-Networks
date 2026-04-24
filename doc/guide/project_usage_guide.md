@@ -323,6 +323,24 @@ This workflow is explicitly `result-level comparable`:
 - both are compared only after projection onto the same held-out TE-curve
   metric surface.
 
+The repository also exposes a separate original-dataset exact-model-bank branch
+for the bidirectional `Track 1` rebuild:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
+  --output-suffix forward_validation
+```
+
+Key differences against the recovered exact-paper branch:
+
+- it reads from `data/datasets` through the dataset-processing config;
+- it trains separate `forward` and `backward` banks;
+- it keeps the paper-style feature schema `rpm`, `deg`, `tor`;
+- it fixes the split policy to `70 / 20 / 10` at file level;
+- it temporarily disables `SVR` grid search while keeping grid search enabled
+  for the other families.
+
 ## TwinCAT Video-Guide Analysis
 
 Use the repository-owned video-analysis utility when you want to extract
@@ -2465,6 +2483,7 @@ Canonical config:
 Main supporting report:
 
 - `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.md`
 
 Typical usage:
 
@@ -2472,6 +2491,14 @@ Typical usage:
 conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml `
   --output-suffix exact_paper_validation
+```
+
+Original-dataset bidirectional usage:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py `
+  --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
+  --output-suffix forward_validation
 ```
 
 Prepared batch launcher:
