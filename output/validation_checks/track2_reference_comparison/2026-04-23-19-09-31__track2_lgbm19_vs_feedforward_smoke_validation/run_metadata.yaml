@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: track2_reference_comparison
+run_name: track2_lgbm19_vs_feedforward_smoke_validation
+run_instance_id: 2026-04-23-19-09-31__track2_lgbm19_vs_feedforward_smoke_validation
+output_directory: output/validation_checks/track2_reference_comparison/2026-04-23-19-09-31__track2_lgbm19_vs_feedforward_smoke_validation
