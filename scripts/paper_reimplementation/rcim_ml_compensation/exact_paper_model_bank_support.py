@@ -29,6 +29,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.neural_network import MLPRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeRegressor
@@ -857,15 +859,23 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
         return SVR(C=1, epsilon=0.0001, gamma=1.1e-06, kernel="rbf")
 
     if family_name == "MLP":
-        return MLPRegressor(
-            activation="tanh",
-            early_stopping=True,
-            hidden_layer_sizes=(200, 50),
-            learning_rate="adaptive",
-            max_iter=1000,
-            n_iter_no_change=25,
-            solver="adam",
-            random_state=0,
+        return Pipeline(
+            steps=[
+                ("feature_scaler", StandardScaler()),
+                (
+                    "mlp",
+                    MLPRegressor(
+                        activation="tanh",
+                        alpha=1e-2,
+                        early_stopping=False,
+                        hidden_layer_sizes=(100, 50),
+                        max_fun=20000,
+                        max_iter=2000,
+                        solver="lbfgs",
+                        random_state=0,
+                    ),
+                ),
+            ]
         )
 
     if family_name == "RF":
@@ -1058,12 +1068,29 @@ def build_exact_paper_reference_parameter_grid(
         }
 
     if family_name == "MLP":
+        mlp_estimator = base_estimator.named_steps["mlp"]
+        mlp_parameter_dictionary = mlp_estimator.get_params()
         return {
-            "estimator__hidden_layer_sizes": list(dict.fromkeys([(100,), (100, 50), (200,), (200, 50), tuple(base_estimator.get_params()["hidden_layer_sizes"])])),
-            "estimator__activation": list(dict.fromkeys(["tanh", "relu", str(base_estimator.get_params()["activation"])])),
-            "estimator__solver": list(dict.fromkeys(["sgd", "adam", str(base_estimator.get_params()["solver"])])),
-            "estimator__learning_rate": list(dict.fromkeys(["adaptive", str(base_estimator.get_params()["learning_rate"])])),
-            "estimator__early_stopping": list(dict.fromkeys([True, bool(base_estimator.get_params()["early_stopping"])])),
+            "estimator__mlp__hidden_layer_sizes": list(
+                dict.fromkeys(
+                    [
+                        (50,),
+                        (100,),
+                        (100, 50),
+                        tuple(mlp_parameter_dictionary["hidden_layer_sizes"]),
+                    ]
+                )
+            ),
+            "estimator__mlp__activation": list(
+                dict.fromkeys(["tanh", str(mlp_parameter_dictionary["activation"])])
+            ),
+            "estimator__mlp__solver": list(
+                dict.fromkeys(["lbfgs", str(mlp_parameter_dictionary["solver"])])
+            ),
+            "estimator__mlp__alpha": list(
+                dict.fromkeys([1e-4, 1e-3, 1e-2, float(mlp_parameter_dictionary["alpha"])])
+            ),
+            "estimator__mlp__max_iter": [int(mlp_parameter_dictionary["max_iter"])],
         }
 
     if family_name == "SVR":
@@ -1101,8 +1128,7 @@ def fit_exact_family_model_bank(
         base_estimator = create_exact_paper_base_estimator(family_name)
         if family_name == "MLP" and smoke_enabled:
             base_estimator.set_params(
-                early_stopping=False,
-                max_iter=min(int(base_estimator.get_params()["max_iter"]), 50),
+                mlp__max_iter=min(int(base_estimator.named_steps["mlp"].get_params()["max_iter"]), 50),
             )
         train_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.train_feature_matrix
         if family_name == "XGBM":

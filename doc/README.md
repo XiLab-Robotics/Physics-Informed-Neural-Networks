@@ -90,6 +90,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-25
 
+- [technical/2026-04/2026-04-25/2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md](./technical/2026-04/2026-04-25/2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md)
+  Plan a protected-file redesign of the remote Track 1 campaign progress surface, separating total campaign progress, active task progress, and verbose grid-search noise into a clearer operator-facing stream.
+- [technical/2026-04/2026-04-25/2026-04-25-22-20-57_track1_mlp_overflow_stabilization_for_original_dataset_exact_model_bank.md](./technical/2026-04/2026-04-25/2026-04-25-22-20-57_track1_mlp_overflow_stabilization_for_original_dataset_exact_model_bank.md)
+  Plan the MLP stabilization pass for the running Track 1 original-dataset exact-model-bank campaign, covering feature scaling, solver/runtime adjustments, and overflow-warning mitigation without widening the campaign surface.
 - [technical/2026-04/2026-04-25/2026-04-25-16-00-29_track1_bidirectional_remote_onnx_dependency_guard_and_interrupted_state_repair.md](./technical/2026-04/2026-04-25/2026-04-25-16-00-29_track1_bidirectional_remote_onnx_dependency_guard_and_interrupted_state_repair.md)
   Technical document for reconciling the interrupted Track 1 bidirectional mega-campaign state and hardening the remote ONNX export path with explicit dependency guards and preflight checks.
 - [technical/2026-04/2026-04-25/2026-04-25-13-26-38_track1_bidirectional_remote_launcher_path_literal_fix_and_preparation_formalization.md](./technical/2026-04/2026-04-25/2026-04-25-13-26-38_track1_bidirectional_remote_launcher_path_literal_fix_and_preparation_formalization.md)
