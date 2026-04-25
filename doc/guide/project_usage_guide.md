@@ -355,6 +355,28 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
   --output-suffix forward_validation
 ```
 
+Validated smoke launcher for the post-refactor structural check:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_smoke_validation.ps1
+```
+
+Prepared mega-campaign package generator and launcher:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
+```
+
+Forward-only remote diagnostic package for validating the repaired remote
+bootstrap and ONNX export surface before relaunching the full bidirectional
+campaign:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
+.\scripts\campaigns\track1\exact_paper\run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1 -Remote
+```
+
 Key differences against the recovered exact-paper branch:
 
 - it reads from `data/datasets` through the dataset-processing config;

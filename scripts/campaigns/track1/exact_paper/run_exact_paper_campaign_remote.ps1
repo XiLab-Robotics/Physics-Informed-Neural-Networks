@@ -14,6 +14,7 @@ param(
     [Parameter(Mandatory = $true)]
     [string[]]$RunNameList,
 
+    [string]$CampaignOutputRootOverride = "",
     [string]$ValidationOutputRoot = "output\\validation_checks\\paper_reimplementation_rcim_exact_model_bank\\forward",
     [string]$ValidationReportRoot = "doc\\reports\\analysis\\validation_checks\\track1\\exact_paper\\forward",
     [string[]]$SourceSyncPathList = @(
@@ -34,7 +35,12 @@ $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..\..")).Path
 Set-Location $projectRoot
 
 # Define Campaign Identity
-$campaignOutputRoot = Join-Path "output\training_campaigns\track1\exact_paper\forward" $campaignName
+$campaignOutputRoot = if ([string]::IsNullOrWhiteSpace($CampaignOutputRootOverride)) {
+    Join-Path "output\training_campaigns\track1\exact_paper\forward" $campaignName
+}
+else {
+    $CampaignOutputRootOverride
+}
 $campaignLogRoot = Join-Path $campaignOutputRoot "logs"
 $remoteTrackingRoot = ".temp\remote_training_campaigns"
 $remoteExecutionDrive = "R:"
@@ -93,32 +99,92 @@ function Get-OptionalExactPaperDependencySpecificationList {
 
     if ($inspectionText.Contains("xgbm")) {
         $dependencySpecificationList += [PSCustomObject]@{
-            family_name  = "XGBM"
-            package_name = "xgboost"
-            symbol_name  = "XGBRegressor"
+            family_name     = "XGBM"
+            package_name    = "xgboost"
+            module_name     = "xgboost"
+            attribute_name  = "XGBRegressor"
+            dependency_name = "xgboost"
         }
     }
 
     if ($inspectionText.Contains("lgbm")) {
         $dependencySpecificationList += [PSCustomObject]@{
-            family_name  = "LGBM"
-            package_name = "lightgbm"
-            symbol_name  = "LGBMRegressor"
+            family_name     = "LGBM"
+            package_name    = "lightgbm"
+            module_name     = "lightgbm"
+            attribute_name  = "LGBMRegressor"
+            dependency_name = "lightgbm"
         }
     }
 
-    return @($dependencySpecificationList)
+    if ($inspectionText -match "svr|mlp|rf|dt|et|ert|gbm|hgbm|xgbm|lgbm") {
+        $dependencySpecificationList += [PSCustomObject]@{
+            family_name     = "CORE_ONNX"
+            package_name    = "skl2onnx"
+            module_name     = "skl2onnx"
+            attribute_name  = "convert_sklearn"
+            dependency_name = "skl2onnx"
+        }
+        $dependencySpecificationList += [PSCustomObject]@{
+            family_name     = "CORE_ONNX"
+            package_name    = "skl2onnx"
+            module_name     = "skl2onnx.common.data_types"
+            attribute_name  = "FloatTensorType"
+            dependency_name = "skl2onnx"
+        }
+    }
+
+    if ($inspectionText.Contains("xgbm") -or $inspectionText.Contains("lgbm")) {
+        $dependencySpecificationList += [PSCustomObject]@{
+            family_name     = "CORE_ONNX"
+            package_name    = "onnxmltools"
+            module_name     = "onnxmltools.convert"
+            attribute_name  = "convert_xgboost"
+            dependency_name = "onnxmltools"
+        }
+        $dependencySpecificationList += [PSCustomObject]@{
+            family_name     = "CORE_ONNX"
+            package_name    = "onnxmltools"
+            module_name     = "onnxmltools.convert"
+            attribute_name  = "convert_lightgbm"
+            dependency_name = "onnxmltools"
+        }
+        $dependencySpecificationList += [PSCustomObject]@{
+            family_name     = "CORE_ONNX"
+            package_name    = "onnxconverter-common"
+            module_name     = "onnxconverter_common.data_types"
+            attribute_name  = "FloatTensorType"
+            dependency_name = "onnxconverter-common"
+        }
+    }
+
+    return @(
+        $dependencySpecificationList |
+            Sort-Object dependency_name, module_name, attribute_name -Unique
+    )
 }
 
-function New-RemoteCondaPythonCommandText {
+function New-RemoteCondaPythonInvocationScriptText {
 
     param(
         [string]$CondaEnvironmentName,
-        [string]$PythonInlineCode
+        [string]$PythonInlineCode,
+        [string]$TemporaryScriptLabel = "remote_inline_python"
     )
 
-    $escapedInlineCode = $PythonInlineCode.Replace('"', '\"')
-    return 'cmd.exe /d /c ""conda run -n {0} python -c ""{1}""""' -f $CondaEnvironmentName, $escapedInlineCode
+    return @"
+`$remotePythonScriptPath = Join-Path '$remoteStagingRootPath' ('${TemporaryScriptLabel}_' + [guid]::NewGuid().ToString('N') + '.py')
+`$remotePythonScriptBody = @'
+$PythonInlineCode
+'@
+Set-Content -LiteralPath `$remotePythonScriptPath -Value `$remotePythonScriptBody -Encoding UTF8
+& conda run -n $CondaEnvironmentName python `$remotePythonScriptPath
+`$remotePythonExitCode = `$LASTEXITCODE
+Remove-Item -LiteralPath `$remotePythonScriptPath -Force -ErrorAction SilentlyContinue
+if (`$remotePythonExitCode -ne 0) {
+    exit `$remotePythonExitCode
+}
+"@
 }
 
 function Resolve-WindowsRelativePath {
@@ -150,6 +216,24 @@ function Resolve-RepositoryRelativePath {
 
     $resolvedPath = (Resolve-Path -LiteralPath $InputPath).Path
     $relativePath = Resolve-WindowsRelativePath -BasePath $projectRoot -TargetPath $resolvedPath
+    return $relativePath.Replace("/", "\")
+}
+
+function Resolve-RepositoryRelativePathAllowMissing {
+
+    param(
+        [string]$InputPath
+    )
+
+    $candidatePath = if ([System.IO.Path]::IsPathRooted($InputPath)) {
+        $InputPath
+    }
+    else {
+        Join-Path $projectRoot $InputPath
+    }
+
+    $normalizedPath = [System.IO.Path]::GetFullPath($candidatePath)
+    $relativePath = Resolve-WindowsRelativePath -BasePath $projectRoot -TargetPath $normalizedPath
     return $relativePath.Replace("/", "\")
 }
 
@@ -617,9 +701,9 @@ foreach ($campaignConfigPath in $CampaignConfigPathList) {
 
 $resolvedPlanningReportPath = Resolve-RepositoryRelativePath -InputPath $PlanningReportPath
 $resolvedLauncherRelativePath = Resolve-RepositoryRelativePath -InputPath $LauncherRelativePath
-$resolvedCampaignOutputRoot = Resolve-RepositoryRelativePath -InputPath $campaignOutputRoot
-$resolvedValidationOutputRoot = Resolve-RepositoryRelativePath -InputPath $ValidationOutputRoot
-$resolvedValidationReportRoot = Resolve-RepositoryRelativePath -InputPath $ValidationReportRoot
+$resolvedCampaignOutputRoot = Resolve-RepositoryRelativePathAllowMissing -InputPath $campaignOutputRoot
+$resolvedValidationOutputRoot = Resolve-RepositoryRelativePathAllowMissing -InputPath $ValidationOutputRoot
+$resolvedValidationReportRoot = Resolve-RepositoryRelativePathAllowMissing -InputPath $ValidationReportRoot
 $resolvedValidationReportCandidateRootList = @()
 foreach ($candidateRoot in @(
         $resolvedValidationReportRoot
@@ -640,7 +724,7 @@ $optionalDependencySpecificationList = Get-OptionalExactPaperDependencySpecifica
     -LauncherRelativePath $resolvedLauncherRelativePath
 $remoteRunNameLiteralListText = ($RunNameList | ForEach-Object { "'$_'" }) -join ",`n    "
 $optionalDependencyLabelText = if ($optionalDependencySpecificationList.Count -gt 0) {
-    ($optionalDependencySpecificationList | ForEach-Object { "$($_.family_name):$($_.package_name)" }) -join ", "
+    ($optionalDependencySpecificationList | ForEach-Object { "$($_.family_name):$($_.dependency_name)" } | Select-Object -Unique) -join ", "
 }
 else {
     "none"
@@ -680,36 +764,30 @@ $remotePreflightScript = @"
 New-Item -ItemType Directory -Force -Path '$remoteStagingRootPath' | Out-Null
 Set-Location -LiteralPath '$remoteExecutionRoot'
 Write-Output ('REMOTE_EXECUTION_ROOT::{0}' -f (Get-Location).Path)
-& $(New-RemoteCondaPythonCommandText -CondaEnvironmentName '$RemoteCondaEnvironmentName' -PythonInlineCode 'import sys; print(sys.version)')
-"@
-
-$remotePreflightScript += @"
-if (`$LASTEXITCODE -ne 0) {
-    exit `$LASTEXITCODE
-}
+$(New-RemoteCondaPythonInvocationScriptText -CondaEnvironmentName $RemoteCondaEnvironmentName -PythonInlineCode 'import sys; print(sys.version)' -TemporaryScriptLabel 'remote_python_version_check')
 "@
 
 if ($optionalDependencySpecificationList.Count -gt 0) {
     foreach ($dependencySpecification in $optionalDependencySpecificationList) {
         $familyName = $dependencySpecification.family_name
         $packageName = $dependencySpecification.package_name
-        $symbolName = $dependencySpecification.symbol_name
+        $moduleName = $dependencySpecification.module_name
+        $symbolName = $dependencySpecification.attribute_name
+        $dependencyName = $dependencySpecification.dependency_name
         $pythonDependencyCheck = @(
             "import importlib"
-            "module = importlib.import_module('$packageName')"
+            "module = importlib.import_module('$moduleName')"
             "getattr(module, '$symbolName')"
-            "print('REMOTE_OPTIONAL_DEPENDENCY_OK::$packageName|$symbolName|$familyName')"
+            "print('REMOTE_OPTIONAL_DEPENDENCY_OK::$dependencyName|$moduleName|$symbolName|$familyName')"
         ) -join "; "
-        $remoteDependencyCheckCommandText = New-RemoteCondaPythonCommandText `
+        $remoteDependencyCheckCommandText = New-RemoteCondaPythonInvocationScriptText `
             -CondaEnvironmentName $RemoteCondaEnvironmentName `
-            -PythonInlineCode $pythonDependencyCheck
+            -PythonInlineCode $pythonDependencyCheck `
+            -TemporaryScriptLabel ("remote_optional_dependency_" + ($dependencyName.Replace("-", "_")))
 
         $remotePreflightScript += @"
-Write-Output ('REMOTE_OPTIONAL_DEPENDENCY_CHECK::{0}|{1}|{2}' -f '$packageName', '$symbolName', '$familyName')
-& $remoteDependencyCheckCommandText
-if (`$LASTEXITCODE -ne 0) {
-    throw 'Remote optional dependency preflight failed | package=$packageName | symbol=$symbolName | family=$familyName | conda_env=$RemoteCondaEnvironmentName'
-}
+Write-Output ('REMOTE_OPTIONAL_DEPENDENCY_CHECK::{0}|{1}|{2}|{3}' -f '$dependencyName', '$moduleName', '$symbolName', '$familyName')
+$remoteDependencyCheckCommandText
 "@
     }
 }
@@ -822,8 +900,9 @@ Emit-RemoteStatusLine ('REMOTE_SYNC_PATH::{0}' -f `$campaignOutputDirectory)
 )
 
 foreach (`$runName in `$runNameList) {
+    `$validationDirectoryPattern = '*__' + `$runName + '_*'
     `$validationDirectory = Get-ChildItem -LiteralPath '$resolvedValidationOutputRoot' -Directory -Recurse |
-        Where-Object { `$_.Name -like "*__`${runName}_campaign_run" } |
+        Where-Object { `$_.Name -like `$validationDirectoryPattern } |
         Sort-Object LastWriteTime |
         Select-Object -Last 1
 
@@ -843,8 +922,9 @@ foreach (`$runName in `$runNameList) {
             continue
         }
 
+        `$validationReportPattern = '*_' + `$runName + '_*_exact_model_bank_report.md'
         `$candidateReportFileList += Get-ChildItem -LiteralPath `$validationReportRoot -Recurse -File |
-            Where-Object { `$_.Name -like "*_`${runName}_campaign_run_exact_paper_model_bank_report.md" }
+            Where-Object { `$_.Name -like `$validationReportPattern }
     }
 
     `$reportFile = `$candidateReportFileList |

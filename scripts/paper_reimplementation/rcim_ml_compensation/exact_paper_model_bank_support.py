@@ -862,6 +862,8 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
             early_stopping=True,
             hidden_layer_sizes=(200, 50),
             learning_rate="adaptive",
+            max_iter=1000,
+            n_iter_no_change=25,
             solver="adam",
             random_state=0,
         )
@@ -1088,6 +1090,7 @@ def fit_exact_family_model_bank(
     family_search_summary_dictionary: dict[str, dict[str, Any]] = {}
     threadpool_limit = int((training_config or {}).get("training", {}).get("threadpool_limit", 1))
     joblib_cpu_limit = int((training_config or {}).get("training", {}).get("joblib_cpu_limit", 0))
+    smoke_enabled = bool((training_config or {}).get("smoke", {}).get("enabled", False))
     search_settings = resolve_exact_paper_hyperparameter_search_settings(training_config)
     if joblib_cpu_limit > 0:
         os.environ["LOKY_MAX_CPU_COUNT"] = str(joblib_cpu_limit)
@@ -1096,6 +1099,11 @@ def fit_exact_family_model_bank(
     for family_name in enabled_family_list:
         family_fit_start_time = time.perf_counter()
         base_estimator = create_exact_paper_base_estimator(family_name)
+        if family_name == "MLP" and smoke_enabled:
+            base_estimator.set_params(
+                early_stopping=False,
+                max_iter=min(int(base_estimator.get_params()["max_iter"]), 50),
+            )
         train_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.train_feature_matrix
         if family_name == "XGBM":
             train_feature_matrix = dataset_bundle.train_feature_matrix.to_numpy(dtype=np.float32)
@@ -1358,18 +1366,19 @@ def _convert_estimator_to_onnx(
 
     """Convert one fitted estimator into an ONNX model."""
 
-    # Build The Shared Input Signature
-    initial_types = [("float_input", FloatTensorType([None, feature_count]))]
-
     # Convert HistGradientBoosting Through A Sanitized Temporary Converter Patch
     if estimator_name == "HistGradientBoostingRegressor":
         _assert_optional_dependency(convert_sklearn, "skl2onnx")
+        _assert_optional_dependency(FloatTensorType, "skl2onnx")
+        initial_types = [("float_input", FloatTensorType([None, feature_count]))]
         with _patched_hist_gradient_boosting_onnx_converter():
             return convert_sklearn(estimator, initial_types=initial_types, target_opset=target_opset)
 
     # Convert Standard Scikit-Learn Estimators
     if estimator_name not in ["XGBRegressor", "LGBMRegressor"]:
         _assert_optional_dependency(convert_sklearn, "skl2onnx")
+        _assert_optional_dependency(FloatTensorType, "skl2onnx")
+        initial_types = [("float_input", FloatTensorType([None, feature_count]))]
         return convert_sklearn(estimator, initial_types=initial_types, target_opset=target_opset)
 
     # Convert XGBoost Estimators
