@@ -90,6 +90,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-25
 
+- [technical/2026-04/2026-04-25/2026-04-25-22-43-08_track1_interrupted_mega_campaign_discard_closeout_and_remote_micro_relaunch_gate.md](./technical/2026-04/2026-04-25/2026-04-25-22-43-08_track1_interrupted_mega_campaign_discard_closeout_and_remote_micro_relaunch_gate.md)
+  Plan the interrupted-discard closeout of the broken Track 1 bidirectional mega-campaign, the preparation of a fresh forward-only `10`-run remote micro-campaign, and the gate that must pass before regenerating the full mega-campaign from zero.
 - [technical/2026-04/2026-04-25/2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md](./technical/2026-04/2026-04-25/2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md)
   Plan a protected-file redesign of the remote Track 1 campaign progress surface, separating total campaign progress, active task progress, and verbose grid-search noise into a clearer operator-facing stream.
 - [technical/2026-04/2026-04-25/2026-04-25-22-20-57_track1_mlp_overflow_stabilization_for_original_dataset_exact_model_bank.md](./technical/2026-04/2026-04-25/2026-04-25-22-20-57_track1_mlp_overflow_stabilization_for_original_dataset_exact_model_bank.md)

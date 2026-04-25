@@ -26,6 +26,11 @@ The remote bootstrap contract for this campaign is:
 - remote preflight validates the full ONNX toolchain required by the queue:
   `skl2onnx`, `onnxmltools`, `onnxconverter-common`, `xgboost`, and
   `lightgbm`.
+- the local branch emits structured progress markers consumed by the remote
+  wrapper, so the operator progress bar advances on real config boundaries.
+- grid-search console noise such as raw `[CV] END ...` lines is suppressed from
+  the main terminal stream while still being preserved inside per-run log
+  files.
 
 The prepared package covers:
 
@@ -47,3 +52,13 @@ conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/p
 ```powershell
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
 ```
+
+## Operator View
+
+The remote operator console is intentionally compact:
+
+- the progress bar shows total campaign completion, remaining queue size, and
+  the active run name;
+- stage updates continue to reflect the current subprocess phase;
+- detailed grid-search chatter remains available in the per-run log file under
+  `output/training_campaigns/.../logs/`.

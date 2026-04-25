@@ -280,7 +280,8 @@ function Write-StreamingLine {
     param(
         [string]$LineText,
         [System.IO.StreamWriter]$LogWriter,
-        [System.Collections.Generic.List[string]]$CollectedLineList
+        [System.Collections.Generic.List[string]]$CollectedLineList,
+        [bool]$EchoToConsole = $true
     )
 
     if ($null -eq $LineText) {
@@ -296,7 +297,9 @@ function Write-StreamingLine {
         $CollectedLineList.Add($LineText) | Out-Null
     }
 
-    Write-Host $LineText
+    if ($EchoToConsole) {
+        Write-Host $LineText
+    }
 }
 
 function Convert-ToPowerShellEncodedCommand {
@@ -355,6 +358,7 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
     $configCount = $InitialConfigCount
     $currentConfigPath = $InitialConfigPath
     $currentLogPath = $InitialLogPath
+    $completedConfigCount = 0
     $currentOperation = if ($currentConfigIndex -gt 0) { "Waiting for first remote line from exact-paper runner" } else { "Waiting for remote output" }
     $lastProgressUpdateTime = Get-Date
     $script:remoteCancelRequested = $false
@@ -399,13 +403,27 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
             }
 
             $outputLine = $_.ToString()
-            Write-StreamingLine -LineText $outputLine -LogWriter $logWriter -CollectedLineList $collectedLineList
+            $isInternalMarkerLine = $outputLine -match "^REMOTE_[A-Z0-9_]+::"
+            $isConsoleNoiseLine = $outputLine -match '^\[CV\] END '
+            Write-StreamingLine `
+                -LineText $outputLine `
+                -LogWriter $logWriter `
+                -CollectedLineList $collectedLineList `
+                -EchoToConsole (-not $isInternalMarkerLine -and -not $isConsoleNoiseLine)
 
             if ($outputLine -match "^REMOTE_ACTIVE_CONFIG::(\d+)::(\d+)::(.+)$") {
                 $currentConfigIndex = [int]$Matches[1]
                 $configCount = [int]$Matches[2]
                 $currentConfigPath = $Matches[3].Trim()
+                $completedConfigCount = [Math]::Max(0, $currentConfigIndex - 1)
                 $currentOperation = "Running exact-paper config"
+            }
+            elseif ($outputLine -match "^REMOTE_COMPLETED_CONFIG::(\d+)::(\d+)::(.+)$") {
+                $currentConfigIndex = [int]$Matches[1]
+                $configCount = [int]$Matches[2]
+                $currentConfigPath = $Matches[3].Trim()
+                $completedConfigCount = [int]$Matches[1]
+                $currentOperation = "Completed exact-paper config"
             }
             elseif ($outputLine -match "^REMOTE_ACTIVE_LOG::(.+)$") {
                 $currentLogPath = $Matches[1].Trim()
@@ -424,11 +442,23 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
             if (($now - $lastProgressUpdateTime).TotalSeconds -ge 1) {
                 $percentComplete = 0
                 if ($configCount -gt 0) {
-                    $percentComplete = [Math]::Max(0, [Math]::Min(99, [int]((100.0 * [Math]::Max(0, ($currentConfigIndex - 1))) / $configCount)))
+                    $percentComplete = [Math]::Max(0, [Math]::Min(99, [int]((100.0 * [Math]::Max(0, $completedConfigCount)) / $configCount)))
                 }
 
+                $activeConfigLabel = if ([string]::IsNullOrWhiteSpace($currentConfigPath)) {
+                    "not_started"
+                }
+                else {
+                    [System.IO.Path]::GetFileNameWithoutExtension($currentConfigPath)
+                }
+                $remainingCount = if ($configCount -gt 0) {
+                    [Math]::Max(0, $configCount - $completedConfigCount)
+                }
+                else {
+                    0
+                }
                 $statusText = if ($configCount -gt 0) {
-                    "Config $currentConfigIndex/$configCount | $currentConfigPath"
+                    "Completed $completedConfigCount/$configCount | Remaining $remainingCount | Active $currentConfigIndex/$configCount | $activeConfigLabel"
                 }
                 else {
                     "Waiting for remote output"
@@ -446,6 +476,9 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
             }
         }
 
+        if ($configCount -gt 0) {
+            Write-Progress -Id $progressId -Activity $ProgressActivity -Status "Completed $configCount/$configCount | Remaining 0 | Campaign finalizing" -CurrentOperation "Remote exact-paper campaign completed" -PercentComplete 100
+        }
         Write-Progress -Id $progressId -Activity $ProgressActivity -Completed
         return @{
             exit_code = [int]$LASTEXITCODE

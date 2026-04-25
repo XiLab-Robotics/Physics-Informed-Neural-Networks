@@ -368,14 +368,20 @@ conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/p
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
 ```
 
-Forward-only remote diagnostic package for validating the repaired remote
-bootstrap and ONNX export surface before relaunching the full bidirectional
-campaign:
+Forward-only remote micro-campaign package for validating the repaired remote
+launcher stack before regenerating the full bidirectional campaign from zero:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
-.\scripts\campaigns\track1\exact_paper\run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1 -Remote
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
+.\scripts\campaigns\track1\exact_paper\run_track1_forward_original_dataset_remote_micro_campaign.ps1 -Remote
 ```
+
+This micro-campaign is intentionally small:
+
+- `forward` only;
+- `10` total runs;
+- `1` run per exact-paper family;
+- no benchmark promotion during the gate phase.
 
 Key differences against the recovered exact-paper branch:
 
