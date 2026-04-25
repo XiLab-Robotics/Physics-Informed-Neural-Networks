@@ -11,6 +11,8 @@ At the moment, the implemented workflows are:
 - feedforward neural-network training, validation, held-out testing, and per-run reporting through a PyTorch Lightning baseline;
 - structured static neural baselines through harmonic, periodic-feature, and residual-harmonic training configurations;
 - tree-based structured baselines through `RandomForestRegressor` and `HistGradientBoostingRegressor`;
+- offline Wave 1 family-best TE-curve prediction plotting and reporting from
+  existing model artifacts;
 - one-batch training-setup validation for the shared Wave 0 training infrastructure;
 - minimal neural or tree smoke-test execution for the shared training infrastructure;
 - persistent batch training campaigns through a queue-based runner;
@@ -108,6 +110,11 @@ The current usage flow mainly relies on these folders:
 - `scripts/reports/generate_training_results_master_summary.py`
   Repository-owned generator for the canonical always-updated training-results
   master summary.
+
+- `scripts/reports/plot_wave1_best_model_te_curves.py`
+  Offline evaluator that loads the current Wave 1 family-best model registry
+  entries, predicts selected held-out TE test curves, writes prediction CSVs,
+  saves overlay plots, and generates a Markdown comparison report.
 
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
@@ -322,6 +329,22 @@ This workflow is explicitly `result-level comparable`:
 - the `feedforward` side remains a direct-TE predictor;
 - both are compared only after projection onto the same held-out TE-curve
   metric surface.
+
+The repository also exposes an offline Wave 1 family-best TE-curve plotting
+workflow. It loads each current `latest_family_best.yaml` registry entry,
+predicts a deterministic subset of the canonical held-out test curves, writes
+per-curve prediction CSVs, saves overlay plots, and generates a Markdown
+comparison report:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/reports/plot_wave1_best_model_te_curves.py
+```
+
+For a quick loader and plot smoke test, cap the selected curves:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/reports/plot_wave1_best_model_te_curves.py --max-curves 2
+```
 
 The repository also exposes a separate original-dataset exact-model-bank branch
 for the bidirectional `Track 1` rebuild:

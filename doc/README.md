@@ -55,6 +55,10 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
+  Offline comparison report for the current Wave 1 family-best models on a
+  deterministic 20% subset of the canonical held-out TE test curves, including
+  aggregate metrics and plot artifact pointers.
 - [reports/analysis/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
   Explanatory report for the strict paper-faithful RCIM family-bank branch,
   including the exact target schema, recovered family inventory, operating
@@ -83,6 +87,13 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-04-25
+
+- [technical/2026-04/2026-04-25/2026-04-25-11-01-19_wave1_best_model_te_curve_prediction_report.md](./technical/2026-04/2026-04-25/2026-04-25-11-01-19_wave1_best_model_te_curve_prediction_report.md)
+  Technical document for adding a non-training evaluation script that loads the
+  Wave 1 family-best TE models, evaluates them on the held-out test-curve
+  subset, plots prediction curves, and generates a comparison report.
 
 #### 2026-04-24
 

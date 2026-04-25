@@ -1,0 +1,1327 @@
+schema_version: 1
+run_instance_id: 2026-04-25-11-22-44__wave1_best_model_te_curve_prediction
+output_directory: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction
+report_path: doc/reports/analysis/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md
+selection:
+  sample_fraction: 0.2
+  random_seed: 42
+  test_curve_count: 194
+  selected_curve_count: 39
+  selected_curve_index_list:
+  - 1
+  - 6
+  - 7
+  - 8
+  - 22
+  - 23
+  - 26
+  - 28
+  - 35
+  - 39
+  - 40
+  - 50
+  - 55
+  - 56
+  - 57
+  - 59
+  - 62
+  - 70
+  - 71
+  - 86
+  - 87
+  - 107
+  - 108
+  - 114
+  - 129
+  - 139
+  - 143
+  - 150
+  - 151
+  - 154
+  - 163
+  - 166
+  - 173
+  - 176
+  - 180
+  - 183
+  - 189
+  - 191
+  - 193
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+models:
+- family_name: tree
+  model_type: hist_gradient_boosting
+  run_name: te_hist_gbr_tabular
+  run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
+  best_checkpoint_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/tree_model.pkl
+  registry_test_mae: 0.0028851175665997324
+  registry_test_rmse: 0.00360686466478114
+- family_name: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_h12_deep_joint_wave1
+  run_instance_id: 2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1/checkpoints/residual_harmonic_mlp-epoch=077-val_mae=0.00302384.ckpt
+  registry_test_mae: 0.0031523776706308126
+  registry_test_rmse: 0.0036404686979949474
+- family_name: feedforward
+  model_type: feedforward
+  run_name: te_feedforward_stride1_high_compute_long_remote
+  run_instance_id: 2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote
+  best_checkpoint_path: output/training_runs/feedforward/2026-04-04-12-32-00__te_feedforward_stride1_high_compute_long_remote/checkpoints/feedforward-epoch=095-val_mae=0.00304393.ckpt
+  registry_test_mae: 0.003263814840465784
+  registry_test_rmse: 0.0036791618913412094
+- family_name: periodic_mlp
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_h04_standard
+  run_instance_id: 2026-03-20-14-19-32__te_periodic_mlp_h04_standard
+  best_checkpoint_path: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/checkpoints/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt
+  registry_test_mae: 0.003317474853247404
+  registry_test_rmse: 0.003792748088017106
+- family_name: harmonic_regression
+  model_type: harmonic_regression
+  run_name: te_harmonic_order12_linear_conditioned_recovery
+  run_instance_id: 2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
+  best_checkpoint_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/checkpoints/harmonic_regression-epoch=026-val_mae=0.01700371.ckpt
+  registry_test_mae: 0.02078191749751568
+  registry_test_rmse: 0.02240518294274807
+aggregate_metrics:
+  tree:
+    mae: 0.0030229837892677197
+    rmse: 0.0033731963698572045
+    mean_percentage_error_pct: 6.946765782071936
+    p95_mean_percentage_error_pct: 14.079242121014094
+  residual_harmonic_mlp:
+    mae: 0.0033525315886857466
+    rmse: 0.003727136077240982
+    mean_percentage_error_pct: 7.734403869741746
+    p95_mean_percentage_error_pct: 13.47433141989122
+  feedforward:
+    mae: 0.0034316914606990967
+    rmse: 0.003813665581933854
+    mean_percentage_error_pct: 7.9173086196875735
+    p95_mean_percentage_error_pct: 15.059970851820385
+  periodic_mlp:
+    mae: 0.003422474756607845
+    rmse: 0.0038043877866308206
+    mean_percentage_error_pct: 7.897647223066949
+    p95_mean_percentage_error_pct: 13.68412602155841
+  harmonic_regression:
+    mae: 0.018996833250456764
+    rmse: 0.01916005687991653
+    mean_percentage_error_pct: 44.41185628397422
+    p95_mean_percentage_error_pct: 86.73619913483952
+per_curve_metrics_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/per_curve_metrics.csv
+plot_path_list:
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_001_dataset_0001_backward_1000_0rpm1200_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_002_dataset_0006_forward_1000_0rpm400_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_003_dataset_0007_backward_1000_0rpm400_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_004_dataset_0008_forward_1000_0rpm800_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_005_dataset_0022_forward_1300_0rpm1700_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_006_dataset_0023_backward_1300_0rpm1700_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_007_dataset_0026_forward_1600_0rpm1300_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_008_dataset_0028_forward_1600_0rpm1500_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_009_dataset_0035_backward_200_0rpm100_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_010_dataset_0039_backward_200_0rpm300_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_011_dataset_0040_forward_300_0rpm100_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_012_dataset_0050_forward_400_0rpm1200_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_013_dataset_0055_backward_500_0rpm200_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_014_dataset_0056_forward_600_0rpm1000_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_015_dataset_0057_backward_600_0rpm1000_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_016_dataset_0059_backward_600_0rpm1700_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_017_dataset_0062_forward_700_0rpm1400_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_018_dataset_0070_forward_800_0rpm1300_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_019_dataset_0071_backward_800_0rpm1300_0nm25_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_020_dataset_0086_forward_100_0rpm1500_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_021_dataset_0087_backward_100_0rpm1500_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_022_dataset_0107_backward_1500_0rpm1500_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_023_dataset_0108_forward_1500_0rpm900_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_024_dataset_0114_forward_1700_0rpm1300_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_025_dataset_0129_backward_600_0rpm1700_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_026_dataset_0139_backward_800_0rpm1400_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_027_dataset_0143_backward_900_0rpm200_0nm30_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_028_dataset_0150_forward_1300_0rpm1300_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_029_dataset_0151_backward_1300_0rpm1300_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_030_dataset_0154_forward_1500_0rpm1500_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_031_dataset_0163_backward_1800_0rpm0_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_032_dataset_0166_forward_200_0rpm100_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_033_dataset_0173_backward_400_0rpm1500_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_034_dataset_0176_forward_400_0rpm800_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_035_dataset_0180_forward_500_0rpm800_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_036_dataset_0183_backward_600_0rpm1800_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_037_dataset_0189_backward_800_0rpm0_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_038_dataset_0191_backward_800_0rpm1100_0nm35_0deg.png
+- output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_039_dataset_0193_backward_800_0rpm1800_0nm35_0deg.png
+curve_entry_list:
+- dataset_index: 1
+  source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm1200.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 1000.0
+  torque_nm: 1200.0
+  oil_temperature_deg: 25.0
+  sequence_length: 19440
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_001_dataset_0001_backward_1000_0rpm1200_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_001_dataset_0001_backward_1000_0rpm1200_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0027431787873633635
+      rmse: 0.0031837070184827523
+      mean_percentage_error_pct: 6.302274895610384
+    residual_harmonic_mlp:
+      mae: 0.00440329702924592
+      rmse: 0.004699436569176612
+      mean_percentage_error_pct: 10.116288611288557
+    feedforward:
+      mae: 0.0058561541731737615
+      rmse: 0.006090991782895509
+      mean_percentage_error_pct: 13.454133431051586
+    periodic_mlp:
+      mae: 0.003997099469751196
+      rmse: 0.004316031472157208
+      mean_percentage_error_pct: 9.183076130332347
+    harmonic_regression:
+      mae: 0.011737187684910303
+      rmse: 0.011850373076629336
+      mean_percentage_error_pct: 26.965425524734243
+- dataset_index: 6
+  source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm400.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1000.0
+  torque_nm: 400.0
+  oil_temperature_deg: 25.0
+  sequence_length: 19440
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_002_dataset_0006_forward_1000_0rpm400_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_002_dataset_0006_forward_1000_0rpm400_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0032221708513332586
+      rmse: 0.003365393153122582
+      mean_percentage_error_pct: 7.860692581923986
+    residual_harmonic_mlp:
+      mae: 0.00119893500996263
+      rmse: 0.0014707593327000646
+      mean_percentage_error_pct: 2.9248789011676974
+    feedforward:
+      mae: 0.001062043046496364
+      rmse: 0.0013181809434227205
+      mean_percentage_error_pct: 2.5909221709406096
+    periodic_mlp:
+      mae: 0.0013069049237246161
+      rmse: 0.0015948556217747704
+      mean_percentage_error_pct: 3.1882784350032907
+    harmonic_regression:
+      mae: 0.024628013434365714
+      rmse: 0.0246563811157868
+      mean_percentage_error_pct: 60.0816193315567
+- dataset_index: 7
+  source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm400.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 1000.0
+  torque_nm: 400.0
+  oil_temperature_deg: 25.0
+  sequence_length: 19440
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_003_dataset_0007_backward_1000_0rpm400_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_003_dataset_0007_backward_1000_0rpm400_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.005550878142126054
+      rmse: 0.005621275381937926
+      mean_percentage_error_pct: 13.911729733391237
+    residual_harmonic_mlp:
+      mae: 0.0051720736158030745
+      rmse: 0.005247300689006514
+      mean_percentage_error_pct: 12.962361713222057
+    feedforward:
+      mae: 0.007415178345309381
+      rmse: 0.007486714574441137
+      mean_percentage_error_pct: 18.584078847266603
+    periodic_mlp:
+      mae: 0.002836400290265114
+      rmse: 0.0029771638581614157
+      mean_percentage_error_pct: 7.10864718042024
+    harmonic_regression:
+      mae: 0.014745251745746335
+      rmse: 0.014774315394063044
+      mean_percentage_error_pct: 36.954865858228025
+- dataset_index: 8
+  source_file_path: data/datasets/Test_25degree/1000rpm/1000.0rpm800.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1000.0
+  torque_nm: 800.0
+  oil_temperature_deg: 25.0
+  sequence_length: 19440
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_004_dataset_0008_forward_1000_0rpm800_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_004_dataset_0008_forward_1000_0rpm800_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.002149074535563956
+      rmse: 0.0024294788199623685
+      mean_percentage_error_pct: 4.942389004927575
+    residual_harmonic_mlp:
+      mae: 0.0036563558933236963
+      rmse: 0.003921506254400953
+      mean_percentage_error_pct: 8.408797771419774
+    feedforward:
+      mae: 0.004396892977886116
+      rmse: 0.004628275819047409
+      mean_percentage_error_pct: 10.111866829246551
+    periodic_mlp:
+      mae: 0.003116602175045038
+      rmse: 0.0034324023512898915
+      mean_percentage_error_pct: 7.1674853839510115
+    harmonic_regression:
+      mae: 0.0038296407839827577
+      rmse: 0.004080466227241535
+      mean_percentage_error_pct: 8.807314120732283
+- dataset_index: 22
+  source_file_path: data/datasets/Test_25degree/1300rpm/1300.0rpm1700.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1300.0
+  torque_nm: 1700.0
+  oil_temperature_deg: 25.0
+  sequence_length: 14954
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_005_dataset_0022_forward_1300_0rpm1700_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_005_dataset_0022_forward_1300_0rpm1700_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.002181659359572102
+      rmse: 0.0027034795535179662
+      mean_percentage_error_pct: 4.792451722540415
+    residual_harmonic_mlp:
+      mae: 0.003138374514310807
+      rmse: 0.003767956276641448
+      mean_percentage_error_pct: 6.894068169301976
+    feedforward:
+      mae: 0.0026461828504516526
+      rmse: 0.0033069401966469777
+      mean_percentage_error_pct: 5.812870604277674
+    periodic_mlp:
+      mae: 0.002052772105122786
+      rmse: 0.002562376111858681
+      mean_percentage_error_pct: 4.509325054809721
+    harmonic_regression:
+      mae: 0.02717449293198218
+      rmse: 0.0272755128913612
+      mean_percentage_error_pct: 59.69421618899449
+- dataset_index: 23
+  source_file_path: data/datasets/Test_25degree/1300rpm/1300.0rpm1700.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 1300.0
+  torque_nm: 1700.0
+  oil_temperature_deg: 25.0
+  sequence_length: 14954
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_006_dataset_0023_backward_1300_0rpm1700_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_006_dataset_0023_backward_1300_0rpm1700_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0027144278595327407
+      rmse: 0.003233302878270332
+      mean_percentage_error_pct: 5.868211641064487
+    residual_harmonic_mlp:
+      mae: 0.002984915100066949
+      rmse: 0.0035435520740883845
+      mean_percentage_error_pct: 6.452967050234021
+    feedforward:
+      mae: 0.0027599683475116525
+      rmse: 0.0032842249596874294
+      mean_percentage_error_pct: 5.966663777399254
+    periodic_mlp:
+      mae: 0.004175685649052396
+      rmse: 0.004725685574194435
+      mean_percentage_error_pct: 9.027245667679395
+    harmonic_regression:
+      mae: 0.020535793047190564
+      rmse: 0.0206672428923362
+      mean_percentage_error_pct: 44.39549918219562
+- dataset_index: 26
+  source_file_path: data/datasets/Test_25degree/1600rpm/1600.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1600.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  sequence_length: 12150
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_007_dataset_0026_forward_1600_0rpm1300_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_007_dataset_0026_forward_1600_0rpm1300_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.002637865559615716
+      rmse: 0.003236858245831087
+      mean_percentage_error_pct: 5.161630239949806
+    residual_harmonic_mlp:
+      mae: 0.0032192416547379868
+      rmse: 0.003956769856547941
+      mean_percentage_error_pct: 6.299235006207952
+    feedforward:
+      mae: 0.003034134029790207
+      rmse: 0.0037356196561397887
+      mean_percentage_error_pct: 5.93702658694532
+    periodic_mlp:
+      mae: 0.0027916652341315774
+      rmse: 0.003449904370011354
+      mean_percentage_error_pct: 5.462576983797949
+    harmonic_regression:
+      mae: 0.0119978971947981
+      rmse: 0.012434512660082287
+      mean_percentage_error_pct: 23.476825325965663
+- dataset_index: 28
+  source_file_path: data/datasets/Test_25degree/1600rpm/1600.0rpm1500.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 1600.0
+  torque_nm: 1500.0
+  oil_temperature_deg: 25.0
+  sequence_length: 12150
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_008_dataset_0028_forward_1600_0rpm1500_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_008_dataset_0028_forward_1600_0rpm1500_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0031462025320456353
+      rmse: 0.003928428101274996
+      mean_percentage_error_pct: 6.192721779806501
+    residual_harmonic_mlp:
+      mae: 0.00294514444783146
+      rmse: 0.003587720693438025
+      mean_percentage_error_pct: 5.796975872021683
+    feedforward:
+      mae: 0.002873245791643245
+      rmse: 0.0035209094443807267
+      mean_percentage_error_pct: 5.655456573889886
+    periodic_mlp:
+      mae: 0.0031005393174082163
+      rmse: 0.0038428654555312416
+      mean_percentage_error_pct: 6.102842129357786
+    harmonic_regression:
+      mae: 0.01659365404872492
+      rmse: 0.016958024956188634
+      mean_percentage_error_pct: 32.66156001956412
+- dataset_index: 35
+  source_file_path: data/datasets/Test_25degree/200rpm/200.0rpm100.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 200.0
+  torque_nm: 100.0
+  oil_temperature_deg: 25.0
+  sequence_length: 97200
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_009_dataset_0035_backward_200_0rpm100_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_009_dataset_0035_backward_200_0rpm100_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0027414598329431887
+      rmse: 0.002849551075411267
+      mean_percentage_error_pct: 7.251405803738565
+    residual_harmonic_mlp:
+      mae: 0.006836086571860829
+      rmse: 0.006881004206506832
+      mean_percentage_error_pct: 18.082058779913613
+    feedforward:
+      mae: 0.0048009773851816736
+      rmse: 0.004888386962537862
+      mean_percentage_error_pct: 12.699013443924287
+    periodic_mlp:
+      mae: 0.0031716226146621443
+      rmse: 0.0033101359966192165
+      mean_percentage_error_pct: 8.389224733064385
+    harmonic_regression:
+      mae: 0.026042028126524924
+      rmse: 0.026054299044708205
+      mean_percentage_error_pct: 68.8834874137363
+- dataset_index: 39
+  source_file_path: data/datasets/Test_25degree/200rpm/200.0rpm300.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 200.0
+  torque_nm: 300.0
+  oil_temperature_deg: 25.0
+  sequence_length: 97200
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_010_dataset_0039_backward_200_0rpm300_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_010_dataset_0039_backward_200_0rpm300_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.00284331292424318
+      rmse: 0.002973267436067557
+      mean_percentage_error_pct: 7.254777390943219
+    residual_harmonic_mlp:
+      mae: 0.007484633866945214
+      rmse: 0.007539170789660706
+      mean_percentage_error_pct: 19.09721300614677
+    feedforward:
+      mae: 0.0052603731473602
+      rmse: 0.005389643271357111
+      mean_percentage_error_pct: 13.421961350789982
+    periodic_mlp:
+      mae: 0.0060263607798248485
+      rmse: 0.006105051841628619
+      mean_percentage_error_pct: 15.376396161803902
+    harmonic_regression:
+      mae: 0.024091612142748794
+      rmse: 0.024109256560295708
+      mean_percentage_error_pct: 61.47029459696527
+- dataset_index: 40
+  source_file_path: data/datasets/Test_25degree/300rpm/300.0rpm100.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 300.0
+  torque_nm: 100.0
+  oil_temperature_deg: 25.0
+  sequence_length: 64800
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_011_dataset_0040_forward_300_0rpm100_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_011_dataset_0040_forward_300_0rpm100_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0007495718952886369
+      rmse: 0.000944060277135497
+      mean_percentage_error_pct: 1.9289876397517753
+    residual_harmonic_mlp:
+      mae: 0.003207079055093884
+      rmse: 0.003366977069306454
+      mean_percentage_error_pct: 8.253265491765413
+    feedforward:
+      mae: 0.0019467166120856196
+      rmse: 0.002240421642928318
+      mean_percentage_error_pct: 5.009782659162539
+    periodic_mlp:
+      mae: 0.0032349491123624583
+      rmse: 0.0034187343607966127
+      mean_percentage_error_pct: 8.324987759273258
+    harmonic_regression:
+      mae: 0.03342628596903164
+      rmse: 0.033441776176613855
+      mean_percentage_error_pct: 86.02095793925332
+- dataset_index: 50
+  source_file_path: data/datasets/Test_25degree/400rpm/400.0rpm1200.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 400.0
+  torque_nm: 1200.0
+  oil_temperature_deg: 25.0
+  sequence_length: 48600
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_012_dataset_0050_forward_400_0rpm1200_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_012_dataset_0050_forward_400_0rpm1200_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0020118478730842162
+      rmse: 0.0023160660870443456
+      mean_percentage_error_pct: 4.670753544237535
+    residual_harmonic_mlp:
+      mae: 0.0023327568347408694
+      rmse: 0.0026941994958993537
+      mean_percentage_error_pct: 5.415783369846351
+    feedforward:
+      mae: 0.002245854957205523
+      rmse: 0.0026825036099883412
+      mean_percentage_error_pct: 5.214029918241254
+    periodic_mlp:
+      mae: 0.0035430688701508714
+      rmse: 0.003854927853023875
+      mean_percentage_error_pct: 8.225672380171128
+    harmonic_regression:
+      mae: 0.007347052542439091
+      rmse: 0.007504369353011347
+      mean_percentage_error_pct: 17.05709072808225
+- dataset_index: 55
+  source_file_path: data/datasets/Test_25degree/500rpm/500.0rpm200.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 500.0
+  torque_nm: 200.0
+  oil_temperature_deg: 25.0
+  sequence_length: 38880
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_013_dataset_0055_backward_500_0rpm200_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_013_dataset_0055_backward_500_0rpm200_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0019264716933424075
+      rmse: 0.0020262946860596163
+      mean_percentage_error_pct: 4.989504311248035
+    residual_harmonic_mlp:
+      mae: 0.003576240459371582
+      rmse: 0.0036438352698666978
+      mean_percentage_error_pct: 9.262356281568607
+    feedforward:
+      mae: 0.0025200788589439796
+      rmse: 0.0027134556269840485
+      mean_percentage_error_pct: 6.526929191246177
+    periodic_mlp:
+      mae: 0.002194707868226771
+      rmse: 0.002323816178265707
+      mean_percentage_error_pct: 5.68422801554299
+    harmonic_regression:
+      mae: 0.02241076615868143
+      rmse: 0.022423021212463194
+      mean_percentage_error_pct: 58.04321690972188
+- dataset_index: 56
+  source_file_path: data/datasets/Test_25degree/600rpm/600.0rpm1000.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 600.0
+  torque_nm: 1000.0
+  oil_temperature_deg: 25.0
+  sequence_length: 32400
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_014_dataset_0056_forward_600_0rpm1000_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_014_dataset_0056_forward_600_0rpm1000_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0009163864739929084
+      rmse: 0.001163199195669801
+      mean_percentage_error_pct: 2.199294634450944
+    residual_harmonic_mlp:
+      mae: 0.001521652689617541
+      rmse: 0.001807292483459574
+      mean_percentage_error_pct: 3.6519118196845013
+    feedforward:
+      mae: 0.001167100917915871
+      rmse: 0.00142673126942536
+      mean_percentage_error_pct: 2.80100029788852
+    periodic_mlp:
+      mae: 0.0018408440566265289
+      rmse: 0.002157144369631905
+      mean_percentage_error_pct: 4.417959639844013
+    harmonic_regression:
+      mae: 0.001206213441780872
+      rmse: 0.0015258284818064887
+      mean_percentage_error_pct: 2.8948689508175858
+- dataset_index: 57
+  source_file_path: data/datasets/Test_25degree/600rpm/600.0rpm1000.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 600.0
+  torque_nm: 1000.0
+  oil_temperature_deg: 25.0
+  sequence_length: 32400
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_015_dataset_0057_backward_600_0rpm1000_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_015_dataset_0057_backward_600_0rpm1000_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0021129388332418683
+      rmse: 0.00232816693789409
+      mean_percentage_error_pct: 5.37200209814181
+    residual_harmonic_mlp:
+      mae: 0.0011591112705516733
+      rmse: 0.001379818064231786
+      mean_percentage_error_pct: 2.9469609244815427
+    feedforward:
+      mae: 0.0008974768534262469
+      rmse: 0.0011267334219428483
+      mean_percentage_error_pct: 2.281773359355746
+    periodic_mlp:
+      mae: 0.0009015314736443768
+      rmse: 0.0011034402971831572
+      mean_percentage_error_pct: 2.292081953232807
+    harmonic_regression:
+      mae: 0.003097341126937672
+      rmse: 0.003284528862725398
+      mean_percentage_error_pct: 7.87477742885775
+- dataset_index: 59
+  source_file_path: data/datasets/Test_25degree/600rpm/600.0rpm1700.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 600.0
+  torque_nm: 1700.0
+  oil_temperature_deg: 25.0
+  sequence_length: 32400
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_016_dataset_0059_backward_600_0rpm1700_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_016_dataset_0059_backward_600_0rpm1700_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.006617096013240056
+      rmse: 0.006818558384350905
+      mean_percentage_error_pct: 15.586853609619775
+    residual_harmonic_mlp:
+      mae: 0.004819348982454818
+      rmse: 0.005161521541401522
+      mean_percentage_error_pct: 11.352183334334235
+    feedforward:
+      mae: 0.005981000206191783
+      rmse: 0.00629010986057735
+      mean_percentage_error_pct: 14.088502640204167
+    periodic_mlp:
+      mae: 0.004485792349449094
+      rmse: 0.00483557554521165
+      mean_percentage_error_pct: 10.566476371827557
+    harmonic_regression:
+      mae: 0.024843067042817028
+      rmse: 0.024911600752160427
+      mean_percentage_error_pct: 58.51891047607062
+- dataset_index: 62
+  source_file_path: data/datasets/Test_25degree/700rpm/700.0rpm1400.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 700.0
+  torque_nm: 1400.0
+  oil_temperature_deg: 25.0
+  sequence_length: 27771
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_017_dataset_0062_forward_700_0rpm1400_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_017_dataset_0062_forward_700_0rpm1400_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0034425940797479277
+      rmse: 0.0037269015581405003
+      mean_percentage_error_pct: 7.604435204114209
+    residual_harmonic_mlp:
+      mae: 0.005006790534185001
+      rmse: 0.005301070792167362
+      mean_percentage_error_pct: 11.059629255090693
+    feedforward:
+      mae: 0.004272618971850625
+      rmse: 0.0046284730488010345
+      mean_percentage_error_pct: 9.437898680661817
+    periodic_mlp:
+      mae: 0.002627029781985054
+      rmse: 0.0030865405932397356
+      mean_percentage_error_pct: 5.802914108841544
+    harmonic_regression:
+      mae: 0.020100291984852043
+      rmse: 0.020176132366678184
+      mean_percentage_error_pct: 44.40005543545685
+- dataset_index: 70
+  source_file_path: data/datasets/Test_25degree/800rpm/800.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  speed_rpm: 800.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  sequence_length: 24300
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_018_dataset_0070_forward_800_0rpm1300_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_018_dataset_0070_forward_800_0rpm1300_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.004346501520938344
+      rmse: 0.0045519953506197395
+      mean_percentage_error_pct: 9.883755664786309
+    residual_harmonic_mlp:
+      mae: 0.0030437854677438734
+      rmse: 0.00340798906466837
+      mean_percentage_error_pct: 6.921435944353027
+    feedforward:
+      mae: 0.0033369341662820473
+      rmse: 0.00371663788804358
+      mean_percentage_error_pct: 7.5880433516767685
+    periodic_mlp:
+      mae: 0.004510158221754763
+      rmse: 0.00480094836985693
+      mean_percentage_error_pct: 10.255903893880983
+    harmonic_regression:
+      mae: 0.008806521527377176
+      rmse: 0.008959533765749253
+      mean_percentage_error_pct: 20.02564743483301
+- dataset_index: 71
+  source_file_path: data/datasets/Test_25degree/800rpm/800.0rpm1300.0Nm25.0deg.csv
+  direction_label: backward
+  speed_rpm: 800.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  sequence_length: 24300
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_019_dataset_0071_backward_800_0rpm1300_0nm25_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_019_dataset_0071_backward_800_0rpm1300_0nm25_0deg.png
+  metrics:
+    tree:
+      mae: 0.0039769295080269804
+      rmse: 0.004210350841870208
+      mean_percentage_error_pct: 9.4337027387465
+    residual_harmonic_mlp:
+      mae: 0.0036116156950899603
+      rmse: 0.0038900385431945546
+      mean_percentage_error_pct: 8.5671392478297
+    feedforward:
+      mae: 0.004330066405083417
+      rmse: 0.004574022806415599
+      mean_percentage_error_pct: 10.271381280996172
+    periodic_mlp:
+      mae: 0.003409065830333488
+      rmse: 0.003698003035018699
+      mean_percentage_error_pct: 8.086669274693605
+    harmonic_regression:
+      mae: 0.016214535890584008
+      rmse: 0.016278119000512997
+      mean_percentage_error_pct: 38.46261577676122
+- dataset_index: 86
+  source_file_path: data/datasets/Test_30degree/100rpm/100.0rpm1500.0Nm30.0deg.csv
+  direction_label: forward
+  speed_rpm: 100.0
+  torque_nm: 1500.0
+  oil_temperature_deg: 30.0
+  sequence_length: 194399
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_020_dataset_0086_forward_100_0rpm1500_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_020_dataset_0086_forward_100_0rpm1500_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.0014243575396917989
+      rmse: 0.0017805554745998718
+      mean_percentage_error_pct: 3.1806407239053964
+    residual_harmonic_mlp:
+      mae: 0.0017137368615290488
+      rmse: 0.0021008331403966317
+      mean_percentage_error_pct: 3.826834976431937
+    feedforward:
+      mae: 0.0017824315579015569
+      rmse: 0.0021765865239313583
+      mean_percentage_error_pct: 3.980232661149492
+    periodic_mlp:
+      mae: 0.0024861093236633602
+      rmse: 0.0030276824920555806
+      mean_percentage_error_pct: 5.551569980551082
+    harmonic_regression:
+      mae: 0.023212567833927392
+      rmse: 0.023304642676152558
+      mean_percentage_error_pct: 51.83448432124801
+- dataset_index: 87
+  source_file_path: data/datasets/Test_30degree/100rpm/100.0rpm1500.0Nm30.0deg.csv
+  direction_label: backward
+  speed_rpm: 100.0
+  torque_nm: 1500.0
+  oil_temperature_deg: 30.0
+  sequence_length: 194400
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_021_dataset_0087_backward_100_0rpm1500_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_021_dataset_0087_backward_100_0rpm1500_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.0016711073544704253
+      rmse: 0.002087864392822544
+      mean_percentage_error_pct: 3.816874912841861
+    residual_harmonic_mlp:
+      mae: 0.0017598556035002808
+      rmse: 0.0021657754472967647
+      mean_percentage_error_pct: 4.019579403594369
+    feedforward:
+      mae: 0.0017927604270600733
+      rmse: 0.002147790165881399
+      mean_percentage_error_pct: 4.094735314566145
+    periodic_mlp:
+      mae: 0.0018177631708751183
+      rmse: 0.002336985272389373
+      mean_percentage_error_pct: 4.151842564656669
+    harmonic_regression:
+      mae: 0.028611902641956483
+      rmse: 0.028686467127770367
+      mean_percentage_error_pct: 65.35071077906036
+- dataset_index: 107
+  source_file_path: data/datasets/Test_30degree/1500rpm/1500.0rpm1500.0Nm30.0deg.csv
+  direction_label: backward
+  speed_rpm: 1500.0
+  torque_nm: 1500.0
+  oil_temperature_deg: 30.0
+  sequence_length: 12960
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_022_dataset_0107_backward_1500_0rpm1500_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_022_dataset_0107_backward_1500_0rpm1500_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.002458594954158697
+      rmse: 0.003163992106325072
+      mean_percentage_error_pct: 5.1311897176781445
+    residual_harmonic_mlp:
+      mae: 0.0027385834023862343
+      rmse: 0.0035056372547775196
+      mean_percentage_error_pct: 5.715537230546693
+    feedforward:
+      mae: 0.0025591932559086952
+      rmse: 0.0033206640816237846
+      mean_percentage_error_pct: 5.341142548941523
+    periodic_mlp:
+      mae: 0.00299255867505929
+      rmse: 0.0037599487046215976
+      mean_percentage_error_pct: 6.245594166309999
+    harmonic_regression:
+      mae: 0.021354557304602853
+      rmse: 0.02149772385776817
+      mean_percentage_error_pct: 44.567847453523285
+- dataset_index: 108
+  source_file_path: data/datasets/Test_30degree/1500rpm/1500.0rpm900.0Nm30.0deg.csv
+  direction_label: forward
+  speed_rpm: 1500.0
+  torque_nm: 900.0
+  oil_temperature_deg: 30.0
+  sequence_length: 12960
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_023_dataset_0108_forward_1500_0rpm900_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_023_dataset_0108_forward_1500_0rpm900_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.003839211361942652
+      rmse: 0.004218495241070492
+      mean_percentage_error_pct: 8.545165469111259
+    residual_harmonic_mlp:
+      mae: 0.004987221957977723
+      rmse: 0.005333706356720584
+      mean_percentage_error_pct: 11.100362247454004
+    feedforward:
+      mae: 0.006590287900460815
+      rmse: 0.006864054261053275
+      mean_percentage_error_pct: 14.668403296770798
+    periodic_mlp:
+      mae: 0.00472887231318717
+      rmse: 0.005092038132454689
+      mean_percentage_error_pct: 10.525337781360447
+    harmonic_regression:
+      mae: 0.001779512835689533
+      rmse: 0.0022251595395495825
+      mean_percentage_error_pct: 3.9607695960974802
+- dataset_index: 114
+  source_file_path: data/datasets/Test_30degree/1700rpm/1700.0rpm1300.0Nm30.0deg.csv
+  direction_label: forward
+  speed_rpm: 1700.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 30.0
+  sequence_length: 11435
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_024_dataset_0114_forward_1700_0rpm1300_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_024_dataset_0114_forward_1700_0rpm1300_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.006170396705511933
+      rmse: 0.0075868122637549615
+      mean_percentage_error_pct: 9.881355677128468
+    residual_harmonic_mlp:
+      mae: 0.00676365999653968
+      rmse: 0.00831043230639904
+      mean_percentage_error_pct: 10.831415433187958
+    feedforward:
+      mae: 0.006704861042629333
+      rmse: 0.008227876026448777
+      mean_percentage_error_pct: 10.737254003257172
+    periodic_mlp:
+      mae: 0.005934411996855817
+      rmse: 0.007288740639462574
+      mean_percentage_error_pct: 9.503446613597497
+    harmonic_regression:
+      mae: 0.014698224756125545
+      rmse: 0.01595076539052449
+      mean_percentage_error_pct: 23.537933388936217
+- dataset_index: 129
+  source_file_path: data/datasets/Test_30degree/600rpm/600.0rpm1700.0Nm30.0deg.csv
+  direction_label: backward
+  speed_rpm: 600.0
+  torque_nm: 1700.0
+  oil_temperature_deg: 30.0
+  sequence_length: 32400
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_025_dataset_0129_backward_600_0rpm1700_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_025_dataset_0129_backward_600_0rpm1700_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.0014394204127659768
+      rmse: 0.0017161227370260884
+      mean_percentage_error_pct: 3.345637088872552
+    residual_harmonic_mlp:
+      mae: 0.002893846899408985
+      rmse: 0.003438006541113398
+      mean_percentage_error_pct: 6.726152714186646
+    feedforward:
+      mae: 0.0020798845366103414
+      rmse: 0.0026478285253043465
+      mean_percentage_error_pct: 4.834264391794052
+    periodic_mlp:
+      mae: 0.0025369367073577497
+      rmse: 0.0030958583790045217
+      mean_percentage_error_pct: 5.896588283021826
+    harmonic_regression:
+      mae: 0.03266967042538993
+      rmse: 0.03272561511801342
+      mean_percentage_error_pct: 75.93393847069026
+- dataset_index: 139
+  source_file_path: data/datasets/Test_30degree/800rpm/800.0rpm1400.0Nm30.0deg.csv
+  direction_label: backward
+  speed_rpm: 800.0
+  torque_nm: 1400.0
+  oil_temperature_deg: 30.0
+  sequence_length: 24300
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_026_dataset_0139_backward_800_0rpm1400_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_026_dataset_0139_backward_800_0rpm1400_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.003128580622099064
+      rmse: 0.00341845342885172
+      mean_percentage_error_pct: 7.229979974098494
+    residual_harmonic_mlp:
+      mae: 0.003756840881036878
+      rmse: 0.004068432608326068
+      mean_percentage_error_pct: 8.68185532567398
+    feedforward:
+      mae: 0.0042227175206313895
+      rmse: 0.004506872278550735
+      mean_percentage_error_pct: 9.758470948386856
+    periodic_mlp:
+      mae: 0.004737262425967205
+      rmse: 0.005006393715734308
+      mean_percentage_error_pct: 10.947556291137712
+    harmonic_regression:
+      mae: 0.013338825122871026
+      rmse: 0.013430242012940578
+      mean_percentage_error_pct: 30.82530072428024
+- dataset_index: 143
+  source_file_path: data/datasets/Test_30degree/900rpm/900.0rpm200.0Nm30.0deg.csv
+  direction_label: backward
+  speed_rpm: 900.0
+  torque_nm: 200.0
+  oil_temperature_deg: 30.0
+  sequence_length: 21600
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_027_dataset_0143_backward_900_0rpm200_0nm30_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_027_dataset_0143_backward_900_0rpm200_0nm30_0deg.png
+  metrics:
+    tree:
+      mae: 0.00409134204557728
+      rmse: 0.004153847872595367
+      mean_percentage_error_pct: 10.726953964639653
+    residual_harmonic_mlp:
+      mae: 0.0030118487166523075
+      rmse: 0.003095797584454112
+      mean_percentage_error_pct: 7.896666221518453
+    feedforward:
+      mae: 0.0041704337135463785
+      rmse: 0.004298939031747718
+      mean_percentage_error_pct: 10.934321784743625
+    periodic_mlp:
+      mae: 0.0046397011432182155
+      rmse: 0.004712241168877278
+      mean_percentage_error_pct: 12.164678489003073
+    harmonic_regression:
+      mae: 0.030492913457220706
+      rmse: 0.030502627514166467
+      mean_percentage_error_pct: 79.94835808385581
+- dataset_index: 150
+  source_file_path: data/datasets/Test_35degree/1300rpm/1300.0rpm1300.0Nm35.0deg.csv
+  direction_label: forward
+  speed_rpm: 1300.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 35.0
+  sequence_length: 14954
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_028_dataset_0150_forward_1300_0rpm1300_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_028_dataset_0150_forward_1300_0rpm1300_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0023311264862769646
+      rmse: 0.002857559739023525
+      mean_percentage_error_pct: 4.969423409096978
+    residual_harmonic_mlp:
+      mae: 0.0022000476503210367
+      rmse: 0.0026780709598437807
+      mean_percentage_error_pct: 4.689993597084976
+    feedforward:
+      mae: 0.0024442226182924995
+      rmse: 0.003018963387730445
+      mean_percentage_error_pct: 5.210518248533995
+    periodic_mlp:
+      mae: 0.0023754635974974083
+      rmse: 0.0029230533389974383
+      mean_percentage_error_pct: 5.063939892731677
+    harmonic_regression:
+      mae: 0.011217875710317472
+      rmse: 0.011529723374964789
+      mean_percentage_error_pct: 23.913920794673142
+- dataset_index: 151
+  source_file_path: data/datasets/Test_35degree/1300rpm/1300.0rpm1300.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 1300.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 35.0
+  sequence_length: 14953
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_029_dataset_0151_backward_1300_0rpm1300_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_029_dataset_0151_backward_1300_0rpm1300_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.002213741299022797
+      rmse: 0.0027035020523520814
+      mean_percentage_error_pct: 4.878395948681505
+    residual_harmonic_mlp:
+      mae: 0.0019237988258546381
+      rmse: 0.002380771720532846
+      mean_percentage_error_pct: 4.239453093399084
+    feedforward:
+      mae: 0.0018774438216546854
+      rmse: 0.0023253873124526522
+      mean_percentage_error_pct: 4.137301109881413
+    periodic_mlp:
+      mae: 0.0019302102375574027
+      rmse: 0.002380231591821593
+      mean_percentage_error_pct: 4.253581846785896
+    harmonic_regression:
+      mae: 0.014474601011606436
+      rmse: 0.014626458504571609
+      mean_percentage_error_pct: 31.89750986936567
+- dataset_index: 154
+  source_file_path: data/datasets/Test_35degree/1500rpm/1500.0rpm1500.0Nm35.0deg.csv
+  direction_label: forward
+  speed_rpm: 1500.0
+  torque_nm: 1500.0
+  oil_temperature_deg: 35.0
+  sequence_length: 12960
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_030_dataset_0154_forward_1500_0rpm1500_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_030_dataset_0154_forward_1500_0rpm1500_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0030010804746667913
+      rmse: 0.0035243509931481057
+      mean_percentage_error_pct: 6.4112455603945975
+    residual_harmonic_mlp:
+      mae: 0.002006796973090573
+      rmse: 0.0024984088553191485
+      mean_percentage_error_pct: 4.2871453441343546
+    feedforward:
+      mae: 0.0025536023890944544
+      rmse: 0.003082462858587335
+      mean_percentage_error_pct: 5.455292558228585
+    periodic_mlp:
+      mae: 0.0032314451376873033
+      rmse: 0.0037951085005166287
+      mean_percentage_error_pct: 6.903376456426646
+    harmonic_regression:
+      mae: 0.01716512163589352
+      rmse: 0.017344546819215607
+      mean_percentage_error_pct: 36.6700629359079
+- dataset_index: 163
+  source_file_path: data/datasets/Test_35degree/1800rpm/1800.0rpm0.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 1800.0
+  torque_nm: 0.0
+  oil_temperature_deg: 35.0
+  sequence_length: 10800
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_031_dataset_0163_backward_1800_0rpm0_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_031_dataset_0163_backward_1800_0rpm0_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0012889309791118346
+      rmse: 0.001568281670552783
+      mean_percentage_error_pct: 3.079851617499567
+    residual_harmonic_mlp:
+      mae: 0.00141227975626887
+      rmse: 0.0016947079759870856
+      mean_percentage_error_pct: 3.3745888353958002
+    feedforward:
+      mae: 0.001077780811559579
+      rmse: 0.0013419055268688433
+      mean_percentage_error_pct: 2.575316312188472
+    periodic_mlp:
+      mae: 0.005904884721870126
+      rmse: 0.006024346582773352
+      mean_percentage_error_pct: 14.1094977594004
+    harmonic_regression:
+      mae: 0.038993450919418186
+      rmse: 0.03901243810962235
+      mean_percentage_error_pct: 93.1733698951153
+- dataset_index: 166
+  source_file_path: data/datasets/Test_35degree/200rpm/200.0rpm100.0Nm35.0deg.csv
+  direction_label: forward
+  speed_rpm: 200.0
+  torque_nm: 100.0
+  oil_temperature_deg: 35.0
+  sequence_length: 97200
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_032_dataset_0166_forward_200_0rpm100_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_032_dataset_0166_forward_200_0rpm100_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.006653200781361847
+      rmse: 0.006742860265178172
+      mean_percentage_error_pct: 16.523773767962933
+    residual_harmonic_mlp:
+      mae: 0.004029717987495256
+      rmse: 0.0042111440622533075
+      mean_percentage_error_pct: 10.008137520905079
+    feedforward:
+      mae: 0.007974006029577933
+      rmse: 0.008146933336488731
+      mean_percentage_error_pct: 19.804102714926323
+    periodic_mlp:
+      mae: 0.004668323803240809
+      rmse: 0.004827190649265231
+      mean_percentage_error_pct: 11.594167820162786
+    harmonic_regression:
+      mae: 0.024596776413058654
+      rmse: 0.024629985002810613
+      mean_percentage_error_pct: 61.08812618568762
+- dataset_index: 173
+  source_file_path: data/datasets/Test_35degree/400rpm/400.0rpm1500.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 400.0
+  torque_nm: 1500.0
+  oil_temperature_deg: 35.0
+  sequence_length: 48600
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_033_dataset_0173_backward_400_0rpm1500_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_033_dataset_0173_backward_400_0rpm1500_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0021012436713900707
+      rmse: 0.002585077797311145
+      mean_percentage_error_pct: 4.923467181369692
+    residual_harmonic_mlp:
+      mae: 0.001692134981108791
+      rmse: 0.002167468866325829
+      mean_percentage_error_pct: 3.964876210870536
+    feedforward:
+      mae: 0.0015168109027967776
+      rmse: 0.0018348071138234048
+      mean_percentage_error_pct: 3.5540707638744533
+    periodic_mlp:
+      mae: 0.0015829965315851163
+      rmse: 0.0018914300663728156
+      mean_percentage_error_pct: 3.7091516693660704
+    harmonic_regression:
+      mae: 0.02459169279872114
+      rmse: 0.0246586273138854
+      mean_percentage_error_pct: 57.621300222040055
+- dataset_index: 176
+  source_file_path: data/datasets/Test_35degree/400rpm/400.0rpm800.0Nm35.0deg.csv
+  direction_label: forward
+  speed_rpm: 400.0
+  torque_nm: 800.0
+  oil_temperature_deg: 35.0
+  sequence_length: 48600
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_034_dataset_0176_forward_400_0rpm800_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_034_dataset_0176_forward_400_0rpm800_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.004481573123561502
+      rmse: 0.004644964215385125
+      mean_percentage_error_pct: 10.355948265419766
+    residual_harmonic_mlp:
+      mae: 0.0044827605362353015
+      rmse: 0.004712378764566846
+      mean_percentage_error_pct: 10.35869211983886
+    feedforward:
+      mae: 0.005411254058787484
+      rmse: 0.0056435235950907945
+      mean_percentage_error_pct: 12.504240260909109
+    periodic_mlp:
+      mae: 0.005257618213034093
+      rmse: 0.005467974525426685
+      mean_percentage_error_pct: 12.149220979404731
+    harmonic_regression:
+      mae: 0.002291510942326897
+      rmse: 0.0026722167330709887
+      mean_percentage_error_pct: 5.295187228702814
+- dataset_index: 180
+  source_file_path: data/datasets/Test_35degree/500rpm/500.0rpm800.0Nm35.0deg.csv
+  direction_label: forward
+  speed_rpm: 500.0
+  torque_nm: 800.0
+  oil_temperature_deg: 35.0
+  sequence_length: 38880
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_035_dataset_0180_forward_500_0rpm800_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_035_dataset_0180_forward_500_0rpm800_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0046860648858564075
+      rmse: 0.004791643155549494
+      mean_percentage_error_pct: 11.075918989008686
+    residual_harmonic_mlp:
+      mae: 0.005188673399120508
+      rmse: 0.005340353455965171
+      mean_percentage_error_pct: 12.263877609236348
+    feedforward:
+      mae: 0.006109046774682562
+      rmse: 0.006281412968587971
+      mean_percentage_error_pct: 14.439259554572505
+    periodic_mlp:
+      mae: 0.005769563912042252
+      rmse: 0.005916791481202486
+      mean_percentage_error_pct: 13.63686249513152
+    harmonic_regression:
+      mae: 0.002427897181020812
+      rmse: 0.0027270650510378
+      mean_percentage_error_pct: 5.738544630867726
+- dataset_index: 183
+  source_file_path: data/datasets/Test_35degree/600rpm/600.0rpm1800.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 600.0
+  torque_nm: 1800.0
+  oil_temperature_deg: 35.0
+  sequence_length: 32400
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_036_dataset_0183_backward_600_0rpm1800_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_036_dataset_0183_backward_600_0rpm1800_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0021838738738248747
+      rmse: 0.0027344731345647117
+      mean_percentage_error_pct: 5.006402266575232
+    residual_harmonic_mlp:
+      mae: 0.0036803385790115523
+      rmse: 0.004194719086647565
+      mean_percentage_error_pct: 8.43695948954112
+    feedforward:
+      mae: 0.0019164055845711703
+      rmse: 0.0024495815251317677
+      mean_percentage_error_pct: 4.393246962321555
+    periodic_mlp:
+      mae: 0.0028599319110314053
+      rmse: 0.003491740524256819
+      mean_percentage_error_pct: 6.5562255097460005
+    harmonic_regression:
+      mae: 0.035657435846227555
+      rmse: 0.03571529991256448
+      mean_percentage_error_pct: 81.74257212398419
+- dataset_index: 189
+  source_file_path: data/datasets/Test_35degree/800rpm/800.0rpm0.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 800.0
+  torque_nm: 0.0
+  oil_temperature_deg: 35.0
+  sequence_length: 24300
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_037_dataset_0189_backward_800_0rpm0_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_037_dataset_0189_backward_800_0rpm0_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.001813418453143968
+      rmse: 0.0020301758839139377
+      mean_percentage_error_pct: 4.572915853433146
+    residual_harmonic_mlp:
+      mae: 0.0006822739974293358
+      rmse: 0.0008560486794738254
+      mean_percentage_error_pct: 1.720497314792748
+    feedforward:
+      mae: 0.001347543642952836
+      rmse: 0.0015750912228054176
+      mean_percentage_error_pct: 3.398114581534403
+    periodic_mlp:
+      mae: 0.004953828513911449
+      rmse: 0.005062134467267573
+      mean_percentage_error_pct: 12.492120010789572
+    harmonic_regression:
+      mae: 0.0399449481260041
+      rmse: 0.03995366346258151
+      mean_percentage_error_pct: 100.72958408098154
+- dataset_index: 191
+  source_file_path: data/datasets/Test_35degree/800rpm/800.0rpm1100.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 800.0
+  torque_nm: 1100.0
+  oil_temperature_deg: 35.0
+  sequence_length: 24300
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_038_dataset_0191_backward_800_0rpm1100_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_038_dataset_0191_backward_800_0rpm1100_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.003476698891807792
+      rmse: 0.0037097222217043575
+      mean_percentage_error_pct: 8.415814374519679
+    residual_harmonic_mlp:
+      mae: 0.002518415802422865
+      rmse: 0.0028341856783443624
+      mean_percentage_error_pct: 6.0961620694242145
+    feedforward:
+      mae: 0.002871109614294375
+      rmse: 0.003160550298466194
+      mean_percentage_error_pct: 6.949904583262967
+    periodic_mlp:
+      mae: 0.0028145300619948055
+      rmse: 0.0031050725009363184
+      mean_percentage_error_pct: 6.812946214314596
+    harmonic_regression:
+      mae: 0.009793796281525751
+      rmse: 0.00988465604087377
+      mean_percentage_error_pct: 23.707192970146494
+- dataset_index: 193
+  source_file_path: data/datasets/Test_35degree/800rpm/800.0rpm1800.0Nm35.0deg.csv
+  direction_label: backward
+  speed_rpm: 800.0
+  torque_nm: 1800.0
+  oil_temperature_deg: 35.0
+  sequence_length: 24300
+  prediction_csv_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/prediction_tables/curve_039_dataset_0193_backward_800_0rpm1800_0nm35_0deg.csv
+  plot_path: output/validation_checks/wave1_best_model_te_curve_prediction/2026-04-25-11-22-44__wave1_best_model_te_curve_prediction/plots/curve_039_dataset_0193_backward_800_0rpm1800_0nm35_0deg.png
+  metrics:
+    tree:
+      mae: 0.0034118355899558635
+      rmse: 0.003925568796037932
+      mean_percentage_error_pct: 7.645336499574777
+    residual_harmonic_mlp:
+      mae: 0.003988460458416507
+      rmse: 0.004503508601291215
+      mean_percentage_error_pct: 8.937453612832773
+    feedforward:
+      mae: 0.0020311727204624518
+      rmse: 0.0026327508691822163
+      mean_percentage_error_pct: 4.551508572807011
+    periodic_mlp:
+      mae: 0.002931302986548516
+      rmse: 0.003570557689710051
+      mean_percentage_error_pct: 6.568545618184911
+    harmonic_regression:
+      mae: 0.034735568698434305
+      rmse: 0.03479899996424608
+      mean_percentage_error_pct: 77.83643267730329
