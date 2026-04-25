@@ -52,6 +52,7 @@ function Invoke-CondaRunWithStreamingLog {
     $suppressedGridSearchLineCount = 0
     $lastSuppressedGridSearchLine = ""
     $lastGridSearchHeartbeatTime = Get-Date
+    $suppressedTorchNoiseLineCount = 0
 
     function Write-ConsoleHeartbeatLine {
         param(
@@ -79,6 +80,11 @@ function Invoke-CondaRunWithStreamingLog {
 
             $logWriter.WriteLine($outputLine)
             $logWriter.Flush()
+
+            if ($outputLine -match 'triton not found; flop counting will not work for triton kernels') {
+                $suppressedTorchNoiseLineCount += 1
+                return
+            }
 
             if ($SuppressGridSearchConsoleNoise -and $outputLine -match '^\[CV\] END ') {
                 $suppressedGridSearchLineCount += 1
@@ -113,6 +119,15 @@ function Invoke-CondaRunWithStreamingLog {
 
         if ($SuppressGridSearchConsoleNoise -and $suppressedGridSearchLineCount -gt 0) {
             $summaryLine = "[INFO] Grid-search console noise suppressed | total_cv_lines=$suppressedGridSearchLineCount | full_detail_log=$resolvedLogPath"
+            if ($EmitRemoteStageMarkers) {
+                Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_STAGE::{0}" -f $summaryLine)
+            }
+
+            Write-ConsoleHeartbeatLine -LineText $summaryLine
+        }
+
+        if ($suppressedTorchNoiseLineCount -gt 0) {
+            $summaryLine = "[INFO] Torch console noise suppressed | total_lines=$suppressedTorchNoiseLineCount | pattern=triton_not_found"
             if ($EmitRemoteStageMarkers) {
                 Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_STAGE::{0}" -f $summaryLine)
             }

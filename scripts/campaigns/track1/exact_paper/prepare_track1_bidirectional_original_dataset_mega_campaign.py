@@ -41,12 +41,16 @@ CAMPAIGN_CONFIG_ROOT = (
 ACTIVE_CAMPAIGN_STATE_PATH = PROJECT_PATH / "doc" / "running" / "active_training_campaign.yaml"
 PLANNING_REPORT_RELATIVE_PATH = (
     "doc/reports/campaign_plans/track1/exact_paper/"
-    "2026-04-25-12-02-54_track1_bidirectional_original_dataset_mega_campaign_plan_report.md"
+    "2026-04-26-00-43-19_track1_bidirectional_original_dataset_mega_relaunch_after_micro_gate_plan_report.md"
 )
 LAUNCHER_RELATIVE_PATH = "scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1"
 REMOTE_WRAPPER_RELATIVE_PATH = "scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1"
+LOCAL_HELPER_RELATIVE_PATH = "scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1"
+SHARED_LAUNCHER_RELATIVE_PATH = "scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1"
 LAUNCHER_NOTE_RELATIVE_PATH = "doc/scripts/campaigns/run_track1_bidirectional_original_dataset_mega_campaign.md"
-CAMPAIGN_OUTPUT_DIRECTORY = "output/training_campaigns/track1/exact_paper/bidirectional_original_dataset"
+CAMPAIGN_OUTPUT_DIRECTORY_TEMPLATE = (
+    "output/training_campaigns/track1/exact_paper/bidirectional_original_dataset/{campaign_name}"
+)
 VALIDATION_OUTPUT_ROOT = "output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank"
 ATTEMPT_SEED_LIST = [0, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 27, 29, 31, 37, 42, 47, 53, 59, 61]
 
@@ -149,6 +153,8 @@ def main() -> None:
         PLANNING_REPORT_RELATIVE_PATH.replace("/", "\\"),
         LAUNCHER_RELATIVE_PATH.replace("/", "\\"),
         REMOTE_WRAPPER_RELATIVE_PATH.replace("/", "\\"),
+        LOCAL_HELPER_RELATIVE_PATH.replace("/", "\\"),
+        SHARED_LAUNCHER_RELATIVE_PATH.replace("/", "\\"),
         LAUNCHER_NOTE_RELATIVE_PATH.replace("/", "\\"),
         "doc\\running\\active_training_campaign.yaml",
     ]
@@ -185,7 +191,9 @@ def main() -> None:
         "campaign_config_directory": str(CAMPAIGN_CONFIG_ROOT.relative_to(PROJECT_PATH)).replace("/", "\\"),
         "queue_root": None,
         "campaign_output_root": "output/training_campaigns",
-        "campaign_output_directory": CAMPAIGN_OUTPUT_DIRECTORY.replace("/", "\\"),
+        "campaign_output_directory": CAMPAIGN_OUTPUT_DIRECTORY_TEMPLATE.format(
+            campaign_name=campaign_name
+        ).replace("/", "\\"),
         "launch_mode": "remote_operator_launcher",
         "activation_pending_user_confirmation": False,
         "prepared_at": datetime.now().astimezone().isoformat(),

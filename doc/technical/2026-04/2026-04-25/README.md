@@ -1,5 +1,7 @@
 # 2026-04-25 Technical Documents
 
+- [2026-04-25-22-59-19_track1_forward_remote_micro_runner_mismatch_repair_and_remote_bringup.md](./2026-04-25-22-59-19_track1_forward_remote_micro_runner_mismatch_repair_and_remote_bringup.md)
+  Plan the repair of the forward-only remote micro-campaign after it launched the legacy recovered-CSV exact-paper runner instead of the original-dataset validation branch, and keep iterating on remote bringup fixes until the `10`-run gate completes cleanly.
 - [2026-04-25-22-43-08_track1_interrupted_mega_campaign_discard_closeout_and_remote_micro_relaunch_gate.md](./2026-04-25-22-43-08_track1_interrupted_mega_campaign_discard_closeout_and_remote_micro_relaunch_gate.md)
   Plan the interrupted-discard closeout of the broken Track 1 bidirectional mega-campaign, the preparation of a fresh forward-only `10`-run remote micro-campaign, and the gate that must pass before regenerating the full mega-campaign from zero.
 - [2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md](./2026-04-25-22-27-14_track1_remote_campaign_progress_ui_and_log_stream_cleanup.md)

@@ -383,6 +383,10 @@ This micro-campaign is intentionally small:
 - `1` run per exact-paper family;
 - no benchmark promotion during the gate phase.
 
+The operator console keeps the total queue progress visible and suppresses raw
+`[CV] END ...` plus repeated Torch `triton not found` noise, while preserving
+the full per-run logs under the campaign output root.
+
 Key differences against the recovered exact-paper branch:
 
 - it reads from `data/datasets` through the dataset-processing config;

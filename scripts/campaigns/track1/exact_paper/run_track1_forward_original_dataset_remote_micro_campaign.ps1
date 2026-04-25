@@ -10,6 +10,7 @@ param(
 $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $ActiveCampaignPath = Join-Path $ProjectRoot "doc\running\active_training_campaign.yaml"
+$RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\run_original_dataset_exact_model_bank_validation.py"
 Set-Location $ProjectRoot
 
 function Get-CampaignQueueBundle {
@@ -99,6 +100,9 @@ $NativeExitCode = Invoke-ExactPaperCampaignLocal `
     -PlanningReportPath $CampaignQueueBundle.planning_report_path `
     -CampaignConfigRoot $CampaignConfigRoot `
     -CampaignConfigFileNameList $CampaignConfigFileNameList `
+    -CampaignOutputRootOverride $CampaignQueueBundle.campaign_output_directory `
+    -RunnerScriptPath $RunnerPath `
+    -OutputSuffix "campaign_run" `
     -CondaEnvironmentName $CondaEnvironmentName `
     -PythonExecutable $PythonExecutable
 

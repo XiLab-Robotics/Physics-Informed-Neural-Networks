@@ -16,13 +16,21 @@ function Invoke-ExactPaperCampaignLocal {
         [Parameter(Mandatory = $true)]
         [string[]]$CampaignConfigFileNameList,
 
+        [string]$CampaignOutputRootOverride = "",
+        [string]$RunnerScriptPath = "scripts\paper_reimplementation\rcim_ml_compensation\run_exact_paper_model_bank_validation.py",
+        [string]$OutputSuffix = "campaign_run",
         [string]$CondaEnvironmentName = "standard_ml_codex_env",
         [string]$PythonExecutable = "python"
     )
 
     . (Join-Path $script:invoke_exact_paper_campaign_local_project_root "scripts\campaigns\infrastructure\shared_streaming_campaign_launcher.ps1")
 
-    $campaignOutputRoot = Join-Path "output\training_campaigns\track1\exact_paper" $CampaignName
+    $campaignOutputRoot = if ([string]::IsNullOrWhiteSpace($CampaignOutputRootOverride)) {
+        Join-Path "output\training_campaigns\track1\exact_paper" $CampaignName
+    }
+    else {
+        $CampaignOutputRootOverride
+    }
     $campaignLogRoot = Join-Path $campaignOutputRoot "logs"
 
     New-Item -ItemType Directory -Path $campaignLogRoot -Force | Out-Null
@@ -54,9 +62,9 @@ function Invoke-ExactPaperCampaignLocal {
         $nativeExitCode = Invoke-CondaRunWithLoggedOutput `
             -EnvironmentName $CondaEnvironmentName `
             -PythonExecutablePath $PythonExecutable `
-            -RunnerScriptPath "scripts\paper_reimplementation\rcim_ml_compensation\run_exact_paper_model_bank_validation.py" `
+            -RunnerScriptPath $RunnerScriptPath `
             -ConfigPath $configPath `
-            -OutputSuffix "campaign_run" `
+            -OutputSuffix $OutputSuffix `
             -LogPath $runLogPath `
             -SuppressGridSearchConsoleNoise `
             -GridSearchHeartbeatSeconds 20 `

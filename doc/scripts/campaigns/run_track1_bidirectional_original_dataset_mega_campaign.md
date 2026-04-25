@@ -39,6 +39,11 @@ The prepared package covers:
 - `20` split-seed attempts per family-direction surface;
 - total queue size `400`.
 
+Each prepared mega-campaign instance writes to a fresh campaign-specific output
+root under:
+
+- `output/training_campaigns/track1/exact_paper/bidirectional_original_dataset/<campaign_name>/`
+
 ## Preparation Step
 
 Generate the package and update the active campaign state with:

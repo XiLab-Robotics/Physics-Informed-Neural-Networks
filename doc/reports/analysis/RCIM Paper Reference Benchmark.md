@@ -782,28 +782,47 @@ Paper-side repository-owned reconstruction:
 | `LGBM` | 0.002500 | 2.70e-05 | 1.80e-05 | 2.40e-05 | 2.70e-05 | 3.00e-05 | 1.20e-05 | 9.00e-05 | 1.60e-04 | 3.20e-05 |
 <!-- markdownlint-enable MD013 -->
 
-Repository-side analogous matrix:
+Forward repository-owned restart matrix:
 
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.002503` | `🟢 5.31e-05` | `🟢 0.000157` | `🟢 0.000149` | `🟡 8.2e-05` | `🟢 0.000252` | `🟢 8.23e-05` | `🟢 0.000394` | `🟢 0.000682` | `🟢 0.000252` |
-| `MLP` | `🟢 0.0093971` | `🟢 0.00476074` | `🟢 0.00552258` | `🟢 0.00520776` | `🟢 0.00672959` | `🟢 0.00708899` | `🟢 0.00536461` | `🟢 0.00644413` | `🟢 0.0074463` | `🟢 0.00524356` |
-| `RF` | `🟢 0.00287636` | `🟢 2.36445e-05` | `🟢 1.89885e-05` | `🟢 2.72524e-05` | `🟢 2.40255e-05` | `🟢 3.58527e-05` | `🟢 1.01903e-05` | `🟢 4.4192e-05` | `🟢 4.98419e-05` | `🟢 2.76709e-05` |
-| `DT` | `🟢 0.00326314` | `🟢 2.79865e-05` | `🟢 2.05247e-05` | `🟢 3.47292e-05` | `🟢 2.90986e-05` | `🟢 4.95384e-05` | `🟢 1.22117e-05` | `🟢 4.6714e-05` | `🟢 4.734e-05` | `🟢 4.13029e-05` |
-| `ET` | `🟢 0.0033636` | `🟢 2.61874e-05` | `🟢 2.24156e-05` | `🟢 3.58241e-05` | `🟢 3.02046e-05` | `🟢 5.15611e-05` | `🟢 1.75224e-05` | `🟢 4.96642e-05` | `🟢 6.32571e-05` | `🟢 4.78238e-05` |
-| `ERT` | `🟢 0.00291527` | `🟢 2.41384e-05` | `🟢 2.1025e-05` | `🟢 2.72659e-05` | `🟢 2.23281e-05` | `🟢 3.27466e-05` | `🟢 1.07679e-05` | `🟡 1.86274e-05` | `🟡 2.61501e-05` | `🟡 2.70987e-05` |
-| `GBM` | `🟢 0.0028568` | `🟢 2.63343e-05` | `🟢 1.76206e-05` | `🟢 2.25048e-05` | `🟢 2.55258e-05` | `🟢 3.06237e-05` | `🟢 1.1163e-05` | `🟢 4.28673e-05` | `🟢 6.13125e-05` | `🟢 2.05529e-05` |
-| `HGBM` | `🟢 0.00232717` | `🟢 2.56865e-05` | `🟢 1.43994e-05` | `🟡 2.13842e-05` | `🟢 2.44736e-05` | `🟢 2.46364e-05` | `🟢 1.04951e-05` | `🟢 7.76841e-05` | `🟢 0.000141813` | `🟢 3.45044e-05` |
-| `XGBM` | `🟢 0.00248114` | `🟢 5.29274e-05` | `🟢 7.21061e-05` | `🟢 9.4299e-05` | `🟢 6.44126e-05` | `🟢 0.000104555` | `🟢 4.42156e-05` | `🟢 0.000225169` | `🟢 0.000222739` | `🟢 0.000137229` |
-| `LGBM` | `🟢 0.00244298` | `🟢 2.52877e-05` | `🟢 1.4423e-05` | `🟢 2.33254e-05` | `🟢 2.60136e-05` | `🟢 2.66757e-05` | `🟢 1.0296e-05` | `🟢 7.80403e-05` | `🟢 9.47068e-05` | `🟢 3.03811e-05` |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+<!-- markdownlint-enable MD013 -->
+
+Backward repository-owned restart matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `2`:
 
-- amplitude `MAE` is strongest row-wise on `RF`, `HGBM`, `XGBM`, and `LGBM`;
-- the hardest amplitude `MAE` columns remain `156`, `162`, and `240`;
-- `40`, `78`, and `81` are the healthiest amplitude `MAE` columns.
+- paper-side values remain the fixed reconstruction target;
+- forward and backward repository-side matrices are intentionally reset to
+  `pending`;
+- smoke-validation runs are structural checks only and do not populate
+  benchmark cells.
 
 #### Table 3 - Amplitude RMSE Full-Matrix Replication
 
@@ -824,29 +843,47 @@ Paper-side repository-owned reconstruction:
 | `LGBM` | 0.003500 | 3.70e-05 | 2.60e-05 | 3.30e-05 | 3.80e-05 | 4.60e-05 | 1.60e-05 | 2.20e-04 | 4.70e-04 | 6.20e-05 |
 <!-- markdownlint-enable MD013 -->
 
-Repository-side analogous matrix:
+Forward repository-owned restart matrix:
 
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.00311` | `🟢 7.01e-05` | `🟢 0.000179` | `🟢 0.000178` | `🟡 9.63e-05` | `🟢 0.000315` | `🟢 9.39e-05` | `🟢 0.000806` | `🟢 0.002181` | `🟡 0.000486` |
-| `MLP` | `🟢 0.013702` | `🟢 0.00898767` | `🟢 0.00892685` | `🟢 0.00919113` | `🟢 0.0120674` | `🟢 0.0120067` | `🟢 0.00939595` | `🟢 0.0106664` | `🟢 0.0129738` | `🟢 0.00911022` |
-| `RF` | `🟢 0.00368415` | `🟢 3.18311e-05` | `🟢 2.75465e-05` | `🟢 3.73688e-05` | `🟢 3.58481e-05` | `🟢 5.52258e-05` | `🟢 1.37922e-05` | `🟢 0.00013078` | `🟢 0.000138426` | `🟢 4.66103e-05` |
-| `DT` | `🟢 0.00401001` | `🟢 3.93718e-05` | `🟢 3.04097e-05` | `🟢 4.87791e-05` | `🟢 4.06903e-05` | `🟢 7.44308e-05` | `🟢 1.70016e-05` | `🟢 0.000135869` | `🟢 0.000151565` | `🟢 6.77663e-05` |
-| `ET` | `🟢 0.00440252` | `🟢 3.61006e-05` | `🟢 3.21414e-05` | `🟢 4.80518e-05` | `🟢 3.97828e-05` | `🟢 7.44966e-05` | `🟢 2.67569e-05` | `🟢 0.000159566` | `🟢 0.000238115` | `🟢 7.38702e-05` |
-| `ERT` | `🟢 0.0034787` | `🟢 3.42578e-05` | `🟢 3.15139e-05` | `🟢 3.80692e-05` | `🟢 3.30992e-05` | `🟢 4.95336e-05` | `🟢 1.42277e-05` | `🟢 4.45204e-05` | `🟢 4.92697e-05` | `🟢 4.01583e-05` |
-| `GBM` | `🟢 0.00355621` | `🟢 3.53892e-05` | `🟢 2.56694e-05` | `🟢 3.38161e-05` | `🟢 3.57886e-05` | `🟢 4.27867e-05` | `🟢 1.4861e-05` | `🟢 0.000114785` | `🟢 0.000195342` | `🟢 3.30219e-05` |
-| `HGBM` | `🟢 0.00312145` | `🟢 3.5195e-05` | `🟢 1.95199e-05` | `🟢 2.88632e-05` | `🟢 3.45716e-05` | `🟢 3.6544e-05` | `🟢 1.3664e-05` | `🟢 0.000192185` | `🟢 0.000328387` | `🟢 5.90607e-05` |
-| `XGBM` | `🟢 0.0030287` | `🟢 6.81352e-05` | `🟢 9.06612e-05` | `🟢 0.000124137` | `🟢 8.33804e-05` | `🟢 0.000134532` | `🟢 5.66135e-05` | `🟢 0.000524553` | `🟢 0.000642072` | `🟢 0.000185656` |
-| `LGBM` | `🟢 0.00297361` | `🟢 3.48695e-05` | `🟢 1.9916e-05` | `🟢 3.19287e-05` | `🟢 3.63588e-05` | `🟢 3.79175e-05` | `🟢 1.36486e-05` | `🟢 0.00018223` | `🟢 0.000210618` | `🟢 5.59085e-05` |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+<!-- markdownlint-enable MD013 -->
+
+Backward repository-owned restart matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `3`:
 
-- strongest amplitude rows are now clearly `ERT`, `HGBM`, and `RF`;
-- the hardest amplitude columns remain `156`, `162`, and `240`;
-- `MLP` is fully red on the amplitude side and should not be treated as a
-  near-closure branch.
+- paper-side values remain the fixed reconstruction target;
+- forward and backward repository-side matrices are intentionally reset to
+  `pending`;
+- smoke-validation runs are structural checks only and do not populate
+  benchmark cells.
 
 #### Table 4 - Phase MAE Full-Matrix Replication
 
@@ -867,28 +904,47 @@ Paper-side repository-owned reconstruction:
 | `LGBM` | 0.001800 | 0.0210 | 0.0210 | 0.0400 | 0.0950 | 0.0550 | 0.7400 | 0.3500 | 0.3400 |
 <!-- markdownlint-enable MD013 -->
 
-Repository-side analogous matrix:
+Forward repository-owned restart matrix:
 
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.002177` | `🟢 0.0323` | `🟢 0.0224` | `🟢 0.0573` | `🟢 0.1892` | `🟢 0.123` | `🟢 1.088` | `🟡 0.503` | `🟢 0.432` |
-| `MLP` | `🟢 0.00582546` | `🟢 0.0590324` | `🟢 0.0531587` | `🟢 0.073` | `🟢 0.157194` | `🟢 0.143806` | `🟢 1.54007` | `🟡 0.826864` | `🟢 0.64417` |
-| `RF` | `🟢 0.00193376` | `🟢 0.0219236` | `🟢 0.0246318` | `🟢 0.0362808` | `🟢 0.0542333` | `🟢 0.0472205` | `🟢 0.412497` | `🟢 0.202594` | `🟢 0.191745` |
-| `DT` | `🟢 0.00201343` | `🟢 0.0270278` | `🟢 0.0318524` | `🟢 0.0372639` | `🟢 0.073876` | `🟢 0.0585477` | `🟢 0.510887` | `🟢 0.137578` | `🟢 0.149592` |
-| `ET` | `🟢 0.00237884` | `🟢 0.0286836` | `🟢 0.0343791` | `🟢 0.0453993` | `🟢 0.0828462` | `🟢 0.0699662` | `🟢 0.495464` | `🟢 0.192877` | `🟢 0.208415` |
-| `ERT` | `🟢 0.00209562` | `🟢 0.0229372` | `🟢 0.0238084` | `🟢 0.0362107` | `🟢 0.0564314` | `🟢 0.0487983` | `🟢 0.377856` | `🟢 0.167727` | `🟢 0.191021` |
-| `GBM` | `🟢 0.00195404` | `🟢 0.0232364` | `🟢 0.0233007` | `🟢 0.0326008` | `🟢 0.0697761` | `🟢 0.0445389` | `🟢 0.529773` | `🟢 0.192177` | `🟢 0.231465` |
-| `HGBM` | `🟢 0.00182824` | `🟢 0.0198844` | `🟢 0.0190255` | `🟢 0.0390488` | `🟢 0.070318` | `🟢 0.0507623` | `🟢 0.603297` | `🟢 0.347187` | `🟢 0.336262` |
-| `XGBM` | `🟡 0.00192788` | `🟢 0.0238281` | `🟢 0.0252061` | `🟢 0.0562446` | `🟢 0.110526` | `🟢 0.0823464` | `🟢 0.815807` | `🟢 0.520247` | `🟢 0.341097` |
-| `LGBM` | `🟢 0.0017062` | `🟢 0.0199469` | `🟢 0.0192924` | `🟢 0.0346287` | `🟢 0.0724434` | `🟢 0.0470145` | `🟢 0.605383` | `🟢 0.320645` | `🟢 0.330344` |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+<!-- markdownlint-enable MD013 -->
+
+Backward repository-owned restart matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `4`:
 
-- phase `MAE` is currently the healthiest matrix of the three;
-- strongest rows are `RF`, `ERT`, `GBM`, and `HGBM`;
-- the hardest columns remain `162` and especially `240`.
+- paper-side values remain the fixed reconstruction target;
+- forward and backward repository-side matrices are intentionally reset to
+  `pending`;
+- smoke-validation runs are structural checks only and do not populate
+  benchmark cells.
 
 #### Table 5 - Phase RMSE Full-Matrix Replication
 
@@ -909,51 +965,79 @@ Paper-side repository-owned reconstruction:
 | `LGBM` | 0.002500 | 0.0300 | 0.0280 | 0.0600 | 0.1900 | 0.0820 | 1.300 | 0.7000 | 0.7100 |
 <!-- markdownlint-enable MD013 -->
 
-Repository-side analogous matrix:
+Forward repository-owned restart matrix:
 
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `🟢 0.002908` | `🟢 0.0416` | `🟢 0.035` | `🟢 0.0937` | `🟢 0.3139` | `🟢 0.1943` | `🟢 1.637` | `🟡 1.187` | `🟢 0.9522` |
-| `MLP` | `🟢 0.00916257` | `🟢 0.0742506` | `🟢 0.0696308` | `🟢 0.0996137` | `🟢 0.226805` | `🟢 0.202734` | `🟢 1.93482` | `🟡 1.29701` | `🟢 1.01921` |
-| `RF` | `🟢 0.00267412` | `🟢 0.0315594` | `🟢 0.039249` | `🟢 0.0549868` | `🟢 0.124701` | `🟢 0.0660225` | `🟢 0.941372` | `🟢 0.555209` | `🟢 0.527103` |
-| `DT` | `🟢 0.00268797` | `🟢 0.0383855` | `🟢 0.0594564` | `🟢 0.0528138` | `🟢 0.147209` | `🟢 0.0739717` | `🟢 1.25949` | `🟢 0.646171` | `🟢 0.581393` |
-| `ET` | `🟡 0.00371638` | `🟢 0.0391934` | `🟢 0.059372` | `🟢 0.0712212` | `🟢 0.183262` | `🟢 0.121725` | `🟢 1.13823` | `🟢 0.80715` | `🟢 0.60888` |
-| `ERT` | `🟢 0.00316582` | `🟢 0.0309303` | `🟢 0.0435895` | `🟢 0.0573151` | `🟢 0.119094` | `🟢 0.0801151` | `🟢 0.88784` | `🟢 0.639154` | `🟢 0.534656` |
-| `GBM` | `🟢 0.00258385` | `🟢 0.0327854` | `🟢 0.0394802` | `🟢 0.0490362` | `🟢 0.139112` | `🟢 0.0643284` | `🟢 1.04587` | `🟢 0.658451` | `🟢 0.570647` |
-| `HGBM` | `🟢 0.00246842` | `🟢 0.0277127` | `🟢 0.0260493` | `🟢 0.0599849` | `🟢 0.139007` | `🟢 0.0747348` | `🟢 1.04071` | `🟢 0.675484` | `🟢 0.669652` |
-| `XGBM` | `🟢 0.00252142` | `🟢 0.0321961` | `🟢 0.0363323` | `🟢 0.0845955` | `🟢 0.180655` | `🟢 0.114812` | `🟢 1.23997` | `🟡 0.886353` | `🟢 0.67343` |
-| `LGBM` | `🟢 0.00242588` | `🟢 0.0277626` | `🟢 0.0258044` | `🟢 0.0496799` | `🟢 0.142386` | `🟢 0.0669714` | `🟢 1.053` | `🟢 0.636155` | `🟢 0.648184` |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+<!-- markdownlint-enable MD013 -->
+
+Backward repository-owned restart matrix:
+
+<!-- markdownlint-disable MD013 -->
+| Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `5`:
 
-- phase `RMSE` replication is meaningfully harder than phase `MAE`;
-- strongest rows are `RF`, `HGBM`, `GBM`, and `ERT`;
-- the dominant unresolved columns remain `240` and `162`.
+- paper-side values remain the fixed reconstruction target;
+- forward and backward repository-side matrices are intentionally reset to
+  `pending`;
+- smoke-validation runs are structural checks only and do not populate
+  benchmark cells.
 
 #### Supporting Summary Reading Rule
 
-For the clarified `Track 1` scope, Tables `2`, `3`, `4`, and `5` are the real
-paper-matching evaluation surfaces:
+For the clarified bidirectional `Track 1` scope, Tables `2`, `3`, `4`, and `5`
+now each carry three aligned surfaces:
 
-- Table `2`: amplitude `A_k` `MAE`
-- Table `3`: amplitude `A_k` `RMSE`
-- Table `4`: phase `phi_k` `MAE`
-- Table `5`: phase `phi_k` `RMSE`
+- the fixed paper-side reconstruction target;
+- the repository-owned `forward` replication matrix;
+- the repository-owned `backward` replication matrix.
+
+Canonical reading rule:
+
+- paper-side values remain the immutable benchmark target;
+- repository `forward` and `backward` values must be trained, reviewed,
+  and accepted independently;
+- no smoke-validation artifact may be copied into the canonical
+  benchmark matrices;
+- a cell becomes non-pending only after the corresponding accepted
+  family-target result is available in the repository.
 
 Table `6` remains a useful harmonic-level support summary, but it must not
 replace the four matrix readings above.
 
 Closeout maintenance rule:
 
-- every future `Track 1` campaign closeout that changes any accepted family
-  best result must refresh both:
-  - the best-envelope/addendum summary surfaces above;
-  - the family-by-family colored replication matrices for Tables `2-5`;
+- every future `Track 1` campaign closeout that changes any accepted
+  family best result must refresh all four canonical tables;
+- each refresh must update both repository-side direction matrices
+  independently;
 - the benchmark is not considered synchronized after closeout until the
-  numeric cells and the `🟢/🟡/🔴` markers in those four tables reflect the
-  latest accepted post-campaign values.
+  paper, `forward`, and `backward` surfaces all reflect the latest
+  accepted post-campaign state.
 
 ### Track 1 Family Archive Standard
 

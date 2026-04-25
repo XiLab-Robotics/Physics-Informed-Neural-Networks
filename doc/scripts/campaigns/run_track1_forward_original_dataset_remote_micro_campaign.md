@@ -16,6 +16,11 @@ The launcher reads the prepared queue from
 family-specific run for each of the `10` exact-paper families through the
 canonical remote exact-paper wrapper when `-Remote` is used.
 
+For the actual family execution step, the launcher invokes the original-dataset
+runner:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py`
+
 The campaign purpose is a relaunch gate, not a scientific benchmark wave:
 
 - one `forward` run per family;
@@ -42,7 +47,9 @@ conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/p
 - remote preflight validates `skl2onnx`, `onnxmltools`,
   `onnxconverter-common`, `xgboost`, and `lightgbm` when required by the queue;
 - the operator console uses structured queue progress markers and suppresses
-  raw `[CV] END ...` grid-search noise.
+  raw `[CV] END ...` grid-search noise;
+- the operator console suppresses repeated Torch `triton not found` noise while
+  preserving the full per-run log files.
 
 ## Launch Command
 

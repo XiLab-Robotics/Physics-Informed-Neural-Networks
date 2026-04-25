@@ -40,6 +40,7 @@ class OriginalDatasetExactModelBankBundle:
     decomposition_point_stride: int
     split_row_count_dictionary: dict[str, int]
     split_file_count_dictionary: dict[str, int]
+    smoke_settings: dict[str, Any]
 
 
 def load_original_dataset_exact_model_bank_config(config_path: str | Path) -> dict[str, Any]:
@@ -59,6 +60,43 @@ def resolve_original_dataset_direction_settings(training_config: dict[str, Any])
         f"{direction_label}"
     )
     return direction_label, ORIGINAL_DATASET_DIRECTION_PREFIX_MAP[direction_label]
+
+
+def resolve_original_dataset_smoke_settings(training_config: dict[str, Any] | None) -> dict[str, Any]:
+
+    """Resolve optional smoke-validation limits for the original-dataset branch."""
+
+    smoke_configuration = dict((training_config or {}).get("smoke", {}))
+    smoke_enabled = bool(smoke_configuration.get("enabled", False))
+    return {
+        "enabled": smoke_enabled,
+        "max_train_file_count": int(smoke_configuration.get("max_train_file_count", 0)),
+        "max_validation_file_count": int(smoke_configuration.get("max_validation_file_count", 0)),
+        "max_test_file_count": int(smoke_configuration.get("max_test_file_count", 0)),
+    }
+
+
+def _limit_directional_manifest_by_unique_file_count(
+    directional_manifest: list[tuple[Path, str]],
+    maximum_unique_file_count: int,
+) -> list[tuple[Path, str]]:
+
+    """Limit one directional manifest to the first N unique files."""
+
+    if maximum_unique_file_count <= 0:
+        return directional_manifest
+
+    limited_manifest: list[tuple[Path, str]] = []
+    selected_file_path_set: set[Path] = set()
+    for csv_file_path, direction_label in directional_manifest:
+        if csv_file_path not in selected_file_path_set:
+            if len(selected_file_path_set) >= maximum_unique_file_count:
+                continue
+            selected_file_path_set.add(csv_file_path)
+        limited_manifest.append((csv_file_path, direction_label))
+
+    assert limited_manifest, "Smoke-limited directional manifest became empty"
+    return limited_manifest
 
 
 def _build_directional_target_name_list(
@@ -137,6 +175,20 @@ def build_original_dataset_exact_model_bank_bundle(
             random_seed=random_seed,
         )
     )
+    smoke_settings = resolve_original_dataset_smoke_settings(training_config)
+    if smoke_settings["enabled"]:
+        train_manifest = _limit_directional_manifest_by_unique_file_count(
+            train_manifest,
+            smoke_settings["max_train_file_count"],
+        )
+        validation_manifest = _limit_directional_manifest_by_unique_file_count(
+            validation_manifest,
+            smoke_settings["max_validation_file_count"],
+        )
+        test_manifest = _limit_directional_manifest_by_unique_file_count(
+            test_manifest,
+            smoke_settings["max_test_file_count"],
+        )
 
     # Build Harmonic Curve Records
     selected_harmonic_list = harmonic_wise_support.resolve_selected_harmonic_list(training_config)
@@ -221,6 +273,7 @@ def build_original_dataset_exact_model_bank_bundle(
         decomposition_point_stride=decomposition_point_stride,
         split_row_count_dictionary=split_row_count_dictionary,
         split_file_count_dictionary=split_file_count_dictionary,
+        smoke_settings=smoke_settings,
     )
 
 
@@ -298,6 +351,7 @@ def build_original_dataset_validation_summary(
             "validation_split": float(training_config["training"]["validation_split"]),
             "test_size": float(training_config["training"]["test_size"]),
             "random_seed": int(training_config["training"]["random_seed"]),
+            "smoke_settings": dict(original_dataset_bundle.smoke_settings),
         },
         "training_strategy": {
             "hyperparameter_search_mode": exact_paper_model_bank_support.resolve_exact_paper_hyperparameter_search_settings(

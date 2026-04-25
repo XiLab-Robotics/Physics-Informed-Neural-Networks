@@ -984,6 +984,7 @@ $remoteRunResult = Invoke-RemotePowerShellScriptWithStreamingLog `
     -ProgressActivity "Remote exact-paper campaign" `
     -RemoteKillMatchPatternList @(
         "run_exact_paper_model_bank_validation.py"
+        "run_original_dataset_exact_model_bank_validation.py"
         $campaignName
         ([System.IO.Path]::GetFileName($resolvedLauncherRelativePath))
     ) `
