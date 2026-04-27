@@ -55,6 +55,10 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md](./reports/analysis/RCIM%20Original%20Pipeline%20And%20Reimplementation%20Audit.md)
+  Code-level audit of the copied recovered RCIM original workflow versus the
+  current repository reimplementation, including runnable-stage boundaries and
+  the main engineering divergences.
 - [reports/analysis/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
   Offline comparison report for the current Wave 1 family-best models on a
   deterministic 20% subset of the canonical held-out TE test curves, including
@@ -90,6 +94,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-27
 
+- [technical/2026-04/2026-04-27/2026-04-27-16-25-53_rcim_original_pipeline_runnable_workflow_and_diff_audit.md](./technical/2026-04/2026-04-27/2026-04-27-16-25-53_rcim_original_pipeline_runnable_workflow_and_diff_audit.md)
+  Plan a repository-owned runnable copy of the recovered RCIM original
+  pipeline plus a structured code-difference audit against the current
+  reimplementation.
 - [technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md](./technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md)
   Plan the closeout of the completed bidirectional original-dataset Track 1 mega-campaign, the benchmark-table refresh, and the promotion of the new canonical forward/backward paper-reference model archives.
 
