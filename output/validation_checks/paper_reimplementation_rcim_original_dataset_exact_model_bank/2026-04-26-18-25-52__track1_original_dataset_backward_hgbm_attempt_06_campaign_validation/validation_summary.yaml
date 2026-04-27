@@ -1,0 +1,628 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/hgbm/2026-04-26_track1_backward_hgbm_original_dataset_mega_campaign/006_track1_original_dataset_backward_hgbm_attempt_06.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank
+  model_type: exact_model_bank_backward_hgbm_campaign
+  run_name: track1_original_dataset_backward_hgbm_attempt_06
+  output_run_name: track1_original_dataset_backward_hgbm_attempt_06_campaign_validation
+  run_instance_id: 2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation
+  output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation
+dataset:
+  dataset_root: data/datasets
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  direction_label: backward
+  direction_prefix: Bw
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 13
+  smoke_settings:
+    enabled: false
+    max_train_file_count: 0
+    max_validation_file_count: 0
+    max_test_file_count: 0
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  family_search_summary:
+    HGBM:
+      search_mode: paper_reference_grid_search
+      used_grid_search: true
+      grid_search_disabled_for_family: false
+      grid_search_n_jobs: -1
+      grid_search_verbose: 2
+      grid_search_pre_dispatch: 2*n_jobs
+      grid_search_cv: 5
+      parameter_grid:
+        estimator__max_iter:
+        - 100
+        estimator__max_depth:
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        estimator__learning_rate:
+        - 0.18
+        - 0.19
+        - 0.2
+        - 0.21
+        - 0.22
+        estimator__max_leaf_nodes:
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+      best_params: &id001
+        estimator__learning_rate: 0.18
+        estimator__max_depth: 12
+        estimator__max_iter: 100
+        estimator__max_leaf_nodes: 24
+      best_score: 0.29554312099682284
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mean_component_mape_percent: 20.491003776323215
+  winning_mean_component_mae: 0.07744931563509211
+  winning_mean_component_rmse: 0.1618343043368467
+  winning_best_params: *id001
+family_ranking:
+- family_name: HGBM
+  display_name: HistGradientBoosting
+  estimator_name: HistGradientBoostingRegressor
+  component_count: 19
+  mean_component_mse: 0.11600438265472936
+  mean_component_rmse: 0.1618343043368467
+  mean_component_mae: 0.07744931563509211
+  mean_component_mape_percent: 20.491003776323215
+  target_metrics:
+  - &id002
+    target_name: fft_y_Bw_filtered_ampl_0
+    family_name: HGBM
+    mse: 9.203897202763279e-06
+    rmse: 0.003033792544450474
+    mae: 0.002255416603485937
+    mape_percent: 37.49766680860766
+  - &id003
+    target_name: fft_y_Bw_filtered_ampl_1
+    family_name: HGBM
+    mse: 1.2886942580399688e-09
+    rmse: 3.5898387958792364e-05
+    mae: 2.551403768558142e-05
+    mape_percent: 0.14861566690185984
+  - &id004
+    target_name: fft_y_Bw_filtered_phase_1
+    family_name: HGBM
+    mse: 4.135628849125734e-06
+    rmse: 0.002033624559530528
+    mae: 0.00150062171792947
+    mape_percent: 85.76328863626124
+  - &id005
+    target_name: fft_y_Bw_filtered_ampl_3
+    family_name: HGBM
+    mse: 6.11699679550056e-10
+    rmse: 2.4732563141535817e-05
+    mae: 1.6810131696718055e-05
+    mape_percent: 1.7025206738539511
+  - &id006
+    target_name: fft_y_Bw_filtered_phase_3
+    family_name: HGBM
+    mse: 0.0006300575924160536
+    rmse: 0.025100948038192773
+    mae: 0.018734113937778553
+    mape_percent: 1.3709607897082814
+  - &id007
+    target_name: fft_y_Bw_filtered_ampl_39
+    family_name: HGBM
+    mse: 3.996490517783279e-10
+    rmse: 1.9991224369165783e-05
+    mae: 1.5020252942031146e-05
+    mape_percent: 3.302699100880845
+  - &id008
+    target_name: fft_y_Bw_filtered_phase_39
+    family_name: HGBM
+    mse: 0.6727248891692217
+    rmse: 0.820198079227952
+    mae: 0.3086638024639661
+    mape_percent: 10.607766813768608
+  - &id009
+    target_name: fft_y_Bw_filtered_ampl_40
+    family_name: HGBM
+    mse: 2.017444657339747e-09
+    rmse: 4.491597329836845e-05
+    mae: 3.128663706332336e-05
+    mape_percent: 10.177605127715946
+  - &id010
+    target_name: fft_y_Bw_filtered_phase_40
+    family_name: HGBM
+    mse: 0.02297961604721756
+    rmse: 0.15159029008223965
+    mae: 0.10220073172764362
+    mape_percent: 39.15717573293811
+  - &id011
+    target_name: fft_y_Bw_filtered_ampl_78
+    family_name: HGBM
+    mse: 1.966741986886977e-09
+    rmse: 4.434796485620256e-05
+    mae: 3.251854978634206e-05
+    mape_percent: 4.321226259712382
+  - &id012
+    target_name: fft_y_Bw_filtered_phase_78
+    family_name: HGBM
+    mse: 0.01587898260085899
+    rmse: 0.12601183516185688
+    mae: 0.07114536664447971
+    mape_percent: 25.079188025345378
+  - &id013
+    target_name: fft_y_Bw_filtered_ampl_81
+    family_name: HGBM
+    mse: 2.0598308000383573e-10
+    rmse: 1.4352110646306896e-05
+    mae: 9.25008722140843e-06
+    mape_percent: 7.101642183364214
+  - &id014
+    target_name: fft_y_Bw_filtered_phase_81
+    family_name: HGBM
+    mse: 0.017319401506004875
+    rmse: 0.13160319717242766
+    mae: 0.09900603375536782
+    mape_percent: 57.46716536951848
+  - &id015
+    target_name: fft_y_Bw_filtered_ampl_156
+    family_name: HGBM
+    mse: 2.4911858547127627e-07
+    rmse: 0.0004991178072071526
+    mae: 0.00023174521134239627
+    mape_percent: 24.398294425653916
+  - &id016
+    target_name: fft_y_Bw_filtered_phase_156
+    family_name: HGBM
+    mse: 0.28622033142970954
+    rmse: 0.534995636832404
+    mae: 0.2106802297673019
+    mape_percent: 18.07608700652373
+  - &id017
+    target_name: fft_y_Bw_filtered_ampl_162
+    family_name: HGBM
+    mse: 1.9873028939254405e-07
+    rmse: 0.0004457917556354582
+    mae: 0.0001696412966248969
+    mape_percent: 15.7249185725478
+  - &id018
+    target_name: fft_y_Bw_filtered_phase_162
+    family_name: HGBM
+    mse: 0.043640158255511166
+    rmse: 0.20890226962747716
+    mae: 0.11549119756375276
+    mape_percent: 6.35302216818327
+  - &id019
+    target_name: fft_y_Bw_filtered_ampl_240
+    family_name: HGBM
+    mse: 1.2793533400948987e-07
+    rmse: 0.000357680491513711
+    mae: 0.0001347152347396938
+    mape_percent: 18.555186325800953
+  - &id020
+    target_name: fft_y_Bw_filtered_phase_240
+    family_name: HGBM
+    mse: 1.1446759120384442
+    rmse: 1.0698952808749294
+    mae: 0.5411929814459416
+    mape_percent: 22.524042062854498
+target_winner_registry:
+- target_name: fft_y_Bw_filtered_ampl_0
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 37.49766680860766
+  winning_mae: 0.002255416603485937
+  winning_rmse: 0.003033792544450474
+- target_name: fft_y_Bw_filtered_ampl_1
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 0.14861566690185984
+  winning_mae: 2.551403768558142e-05
+  winning_rmse: 3.5898387958792364e-05
+- target_name: fft_y_Bw_filtered_phase_1
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 85.76328863626124
+  winning_mae: 0.00150062171792947
+  winning_rmse: 0.002033624559530528
+- target_name: fft_y_Bw_filtered_ampl_3
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 1.7025206738539511
+  winning_mae: 1.6810131696718055e-05
+  winning_rmse: 2.4732563141535817e-05
+- target_name: fft_y_Bw_filtered_phase_3
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 1.3709607897082814
+  winning_mae: 0.018734113937778553
+  winning_rmse: 0.025100948038192773
+- target_name: fft_y_Bw_filtered_ampl_39
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 3.302699100880845
+  winning_mae: 1.5020252942031146e-05
+  winning_rmse: 1.9991224369165783e-05
+- target_name: fft_y_Bw_filtered_phase_39
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 10.607766813768608
+  winning_mae: 0.3086638024639661
+  winning_rmse: 0.820198079227952
+- target_name: fft_y_Bw_filtered_ampl_40
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 10.177605127715946
+  winning_mae: 3.128663706332336e-05
+  winning_rmse: 4.491597329836845e-05
+- target_name: fft_y_Bw_filtered_phase_40
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 39.15717573293811
+  winning_mae: 0.10220073172764362
+  winning_rmse: 0.15159029008223965
+- target_name: fft_y_Bw_filtered_ampl_78
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 4.321226259712382
+  winning_mae: 3.251854978634206e-05
+  winning_rmse: 4.434796485620256e-05
+- target_name: fft_y_Bw_filtered_phase_78
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 25.079188025345378
+  winning_mae: 0.07114536664447971
+  winning_rmse: 0.12601183516185688
+- target_name: fft_y_Bw_filtered_ampl_81
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 7.101642183364214
+  winning_mae: 9.25008722140843e-06
+  winning_rmse: 1.4352110646306896e-05
+- target_name: fft_y_Bw_filtered_phase_81
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 57.46716536951848
+  winning_mae: 0.09900603375536782
+  winning_rmse: 0.13160319717242766
+- target_name: fft_y_Bw_filtered_ampl_156
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 24.398294425653916
+  winning_mae: 0.00023174521134239627
+  winning_rmse: 0.0004991178072071526
+- target_name: fft_y_Bw_filtered_phase_156
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 18.07608700652373
+  winning_mae: 0.2106802297673019
+  winning_rmse: 0.534995636832404
+- target_name: fft_y_Bw_filtered_ampl_162
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 15.7249185725478
+  winning_mae: 0.0001696412966248969
+  winning_rmse: 0.0004457917556354582
+- target_name: fft_y_Bw_filtered_phase_162
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 6.35302216818327
+  winning_mae: 0.11549119756375276
+  winning_rmse: 0.20890226962747716
+- target_name: fft_y_Bw_filtered_ampl_240
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 18.555186325800953
+  winning_mae: 0.0001347152347396938
+  winning_rmse: 0.000357680491513711
+- target_name: fft_y_Bw_filtered_phase_240
+  winning_family: HGBM
+  winning_display_name: HistGradientBoosting
+  winning_estimator_name: HistGradientBoostingRegressor
+  winning_mape_percent: 22.524042062854498
+  winning_mae: 0.5411929814459416
+  winning_rmse: 1.0698952808749294
+per_target_ranking:
+  fft_y_Bw_filtered_ampl_0:
+  - *id002
+  fft_y_Bw_filtered_ampl_1:
+  - *id003
+  fft_y_Bw_filtered_phase_1:
+  - *id004
+  fft_y_Bw_filtered_ampl_3:
+  - *id005
+  fft_y_Bw_filtered_phase_3:
+  - *id006
+  fft_y_Bw_filtered_ampl_39:
+  - *id007
+  fft_y_Bw_filtered_phase_39:
+  - *id008
+  fft_y_Bw_filtered_ampl_40:
+  - *id009
+  fft_y_Bw_filtered_phase_40:
+  - *id010
+  fft_y_Bw_filtered_ampl_78:
+  - *id011
+  fft_y_Bw_filtered_phase_78:
+  - *id012
+  fft_y_Bw_filtered_ampl_81:
+  - *id013
+  fft_y_Bw_filtered_phase_81:
+  - *id014
+  fft_y_Bw_filtered_ampl_156:
+  - *id015
+  fft_y_Bw_filtered_phase_156:
+  - *id016
+  fft_y_Bw_filtered_ampl_162:
+  - *id017
+  fft_y_Bw_filtered_phase_162:
+  - *id018
+  fft_y_Bw_filtered_ampl_240:
+  - *id019
+  fft_y_Bw_filtered_phase_240:
+  - *id020
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export
+  exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - HGBM/HistGradientBoostingRegressor_ampl0.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl1.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl156.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl162.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl240.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl3.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl39.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl40.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl78.onnx
+  - HGBM/HistGradientBoostingRegressor_ampl81.onnx
+  - HGBM/HistGradientBoostingRegressor_phase1.onnx
+  - HGBM/HistGradientBoostingRegressor_phase156.onnx
+  - HGBM/HistGradientBoostingRegressor_phase162.onnx
+  - HGBM/HistGradientBoostingRegressor_phase240.onnx
+  - HGBM/HistGradientBoostingRegressor_phase3.onnx
+  - HGBM/HistGradientBoostingRegressor_phase39.onnx
+  - HGBM/HistGradientBoostingRegressor_phase40.onnx
+  - HGBM/HistGradientBoostingRegressor_phase78.onnx
+  - HGBM/HistGradientBoostingRegressor_phase81.onnx
+  family_exports:
+  - family_name: HGBM
+    display_name: HistGradientBoosting
+    estimator_name: HistGradientBoostingRegressor
+    export_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM
+    exported_target_count: 19
+    failed_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Bw_filtered_ampl_0
+      export_target_name: ampl0
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl0.onnx
+      file_size_bytes: 171535
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl1.onnx
+      file_size_bytes: 168250
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_1
+      export_target_name: phase1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase1.onnx
+      file_size_bytes: 169637
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_3
+      export_target_name: ampl3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl3.onnx
+      file_size_bytes: 169418
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_3
+      export_target_name: phase3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase3.onnx
+      file_size_bytes: 170586
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_39
+      export_target_name: ampl39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl39.onnx
+      file_size_bytes: 171681
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_39
+      export_target_name: phase39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase39.onnx
+      file_size_bytes: 166352
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_40
+      export_target_name: ampl40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl40.onnx
+      file_size_bytes: 170513
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_40
+      export_target_name: phase40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase40.onnx
+      file_size_bytes: 167666
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_78
+      export_target_name: ampl78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl78.onnx
+      file_size_bytes: 170659
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_78
+      export_target_name: phase78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase78.onnx
+      file_size_bytes: 169345
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_81
+      export_target_name: ampl81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl81.onnx
+      file_size_bytes: 171097
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_81
+      export_target_name: phase81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase81.onnx
+      file_size_bytes: 170294
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_156
+      export_target_name: ampl156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl156.onnx
+      file_size_bytes: 165695
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_156
+      export_target_name: phase156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase156.onnx
+      file_size_bytes: 170294
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_162
+      export_target_name: ampl162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl162.onnx
+      file_size_bytes: 163359
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_162
+      export_target_name: phase162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase162.onnx
+      file_size_bytes: 171389
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_ampl_240
+      export_target_name: ampl240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl240.onnx
+      file_size_bytes: 171316
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+    - target_name: fft_y_Bw_filtered_phase_240
+      export_target_name: phase240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase240.onnx
+      file_size_bytes: 171243
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: HistGradientBoostingRegressor
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-18-25-52__track1_original_dataset_backward_hgbm_attempt_06_campaign_validation/validation_summary.yaml

@@ -1,0 +1,604 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/svr/2026-04-26_track1_backward_svr_original_dataset_mega_campaign/009_track1_original_dataset_backward_svr_attempt_09.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank
+  model_type: exact_model_bank_backward_svr_campaign
+  run_name: track1_original_dataset_backward_svr_attempt_09
+  output_run_name: track1_original_dataset_backward_svr_attempt_09_campaign_validation
+  run_instance_id: 2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation
+  output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation
+dataset:
+  dataset_root: data/datasets
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  direction_label: backward
+  direction_prefix: Bw
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 19
+  smoke_settings:
+    enabled: false
+    max_train_file_count: 0
+    max_validation_file_count: 0
+    max_test_file_count: 0
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  family_search_summary:
+    SVR:
+      search_mode: paper_reference_grid_search
+      used_grid_search: false
+      grid_search_disabled_for_family: true
+      grid_search_n_jobs: null
+      grid_search_verbose: null
+      grid_search_pre_dispatch: null
+      grid_search_cv: null
+      parameter_grid: null
+      best_params: null
+      best_score: null
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mean_component_mape_percent: 41.6599655306218
+  winning_mean_component_mae: 0.14631541406028398
+  winning_mean_component_rmse: 0.2663803234342753
+  winning_best_params: null
+family_ranking:
+- family_name: SVR
+  display_name: Support Vector Regressor
+  estimator_name: SVR
+  component_count: 19
+  mean_component_mse: 0.28497298582956515
+  mean_component_rmse: 0.2663803234342753
+  mean_component_mae: 0.14631541406028398
+  mean_component_mape_percent: 41.6599655306218
+  target_metrics:
+  - &id001
+    target_name: fft_y_Bw_filtered_ampl_0
+    family_name: SVR
+    mse: 1.759918059566283e-05
+    rmse: 0.004195137732621282
+    mae: 0.0029432582298458054
+    mape_percent: 35.989766827395044
+  - &id002
+    target_name: fft_y_Bw_filtered_ampl_1
+    family_name: SVR
+    mse: 4.1726733094329875e-08
+    rmse: 0.0002042712243423676
+    mae: 0.0001893911870338903
+    mape_percent: 1.1082515289228985
+  - &id003
+    target_name: fft_y_Bw_filtered_phase_1
+    family_name: SVR
+    mse: 1.1426648004250579e-05
+    rmse: 0.0033803325286501885
+    mae: 0.0023348263900632746
+    mape_percent: 82.59912427350531
+  - &id004
+    target_name: fft_y_Bw_filtered_ampl_3
+    family_name: SVR
+    mse: 2.250635079118749e-08
+    rmse: 0.00015002116781037098
+    mae: 0.0001288698195566436
+    mape_percent: 14.561200152244231
+  - &id005
+    target_name: fft_y_Bw_filtered_phase_3
+    family_name: SVR
+    mse: 0.0026498030552816365
+    rmse: 0.05147623777318654
+    mae: 0.028572251643931006
+    mape_percent: 2.130489716411552
+  - &id006
+    target_name: fft_y_Bw_filtered_ampl_39
+    family_name: SVR
+    mse: 1.2889863650195217e-08
+    rmse: 0.00011353353535495676
+    mae: 0.00010039314477495629
+    mape_percent: 25.02266565047817
+  - &id007
+    target_name: fft_y_Bw_filtered_phase_39
+    family_name: SVR
+    mse: 2.108204635125636
+    rmse: 1.4519657830422987
+    mae: 0.9123373941053854
+    mape_percent: 31.35465624293912
+  - &id008
+    target_name: fft_y_Bw_filtered_ampl_40
+    family_name: SVR
+    mse: 2.347022419737641e-09
+    rmse: 4.844607744428481e-05
+    mae: 3.724789040361228e-05
+    mape_percent: 12.06346519114978
+  - &id009
+    target_name: fft_y_Bw_filtered_phase_40
+    family_name: SVR
+    mse: 0.04916965018782076
+    rmse: 0.2217423058142509
+    mae: 0.12177025412724592
+    mape_percent: 32.98582409563547
+  - &id010
+    target_name: fft_y_Bw_filtered_ampl_78
+    family_name: SVR
+    mse: 4.585043992044691e-08
+    rmse: 0.0002141271582972298
+    mae: 0.00018870097023500272
+    mape_percent: 29.181775729919963
+  - &id011
+    target_name: fft_y_Bw_filtered_phase_78
+    family_name: SVR
+    mse: 0.02334266920919728
+    rmse: 0.1527830789361089
+    mae: 0.10643599160169964
+    mape_percent: 53.81151567385325
+  - &id012
+    target_name: fft_y_Bw_filtered_ampl_81
+    family_name: SVR
+    mse: 2.7283001071529685e-09
+    rmse: 5.2233132273997974e-05
+    mae: 4.818217337022048e-05
+    mape_percent: 48.40827104433342
+  - &id013
+    target_name: fft_y_Bw_filtered_phase_81
+    family_name: SVR
+    mse: 0.03274319009311598
+    rmse: 0.18095079467390018
+    mae: 0.1353674698662742
+    mape_percent: 120.57842295128518
+  - &id014
+    target_name: fft_y_Bw_filtered_ampl_156
+    family_name: SVR
+    mse: 6.123075072657678e-06
+    rmse: 0.0024744848095427214
+    mae: 0.0006054554442039411
+    mape_percent: 43.64077200348501
+  - &id015
+    target_name: fft_y_Bw_filtered_phase_156
+    family_name: SVR
+    mse: 0.6546641938289971
+    rmse: 0.809113214469395
+    mae: 0.384645031118328
+    mape_percent: 28.692141040461856
+  - &id016
+    target_name: fft_y_Bw_filtered_ampl_162
+    family_name: SVR
+    mse: 7.1335931957615755e-06
+    rmse: 0.0026708787310099976
+    mae: 0.0008455506214974243
+    mape_percent: 99.22010151737425
+  - &id017
+    target_name: fft_y_Bw_filtered_phase_162
+    family_name: SVR
+    mse: 0.6386605379419121
+    rmse: 0.799162397727716
+    mae: 0.4353895022975783
+    mape_percent: 22.265442143494905
+  - &id018
+    target_name: fft_y_Bw_filtered_ampl_240
+    family_name: SVR
+    mse: 9.4885207857079e-08
+    rmse: 0.0003080344264154236
+    mae: 0.00021794409507118432
+    mape_percent: 47.119420328192135
+  - &id019
+    target_name: fft_y_Bw_filtered_phase_240
+    family_name: SVR
+    mse: 1.905009545888991
+    rmse: 1.3802208322906124
+    mae: 0.6478351524188968
+    mape_percent: 60.80603897073248
+target_winner_registry:
+- target_name: fft_y_Bw_filtered_ampl_0
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 35.989766827395044
+  winning_mae: 0.0029432582298458054
+  winning_rmse: 0.004195137732621282
+- target_name: fft_y_Bw_filtered_ampl_1
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 1.1082515289228985
+  winning_mae: 0.0001893911870338903
+  winning_rmse: 0.0002042712243423676
+- target_name: fft_y_Bw_filtered_phase_1
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 82.59912427350531
+  winning_mae: 0.0023348263900632746
+  winning_rmse: 0.0033803325286501885
+- target_name: fft_y_Bw_filtered_ampl_3
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 14.561200152244231
+  winning_mae: 0.0001288698195566436
+  winning_rmse: 0.00015002116781037098
+- target_name: fft_y_Bw_filtered_phase_3
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 2.130489716411552
+  winning_mae: 0.028572251643931006
+  winning_rmse: 0.05147623777318654
+- target_name: fft_y_Bw_filtered_ampl_39
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 25.02266565047817
+  winning_mae: 0.00010039314477495629
+  winning_rmse: 0.00011353353535495676
+- target_name: fft_y_Bw_filtered_phase_39
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 31.35465624293912
+  winning_mae: 0.9123373941053854
+  winning_rmse: 1.4519657830422987
+- target_name: fft_y_Bw_filtered_ampl_40
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 12.06346519114978
+  winning_mae: 3.724789040361228e-05
+  winning_rmse: 4.844607744428481e-05
+- target_name: fft_y_Bw_filtered_phase_40
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 32.98582409563547
+  winning_mae: 0.12177025412724592
+  winning_rmse: 0.2217423058142509
+- target_name: fft_y_Bw_filtered_ampl_78
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 29.181775729919963
+  winning_mae: 0.00018870097023500272
+  winning_rmse: 0.0002141271582972298
+- target_name: fft_y_Bw_filtered_phase_78
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 53.81151567385325
+  winning_mae: 0.10643599160169964
+  winning_rmse: 0.1527830789361089
+- target_name: fft_y_Bw_filtered_ampl_81
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 48.40827104433342
+  winning_mae: 4.818217337022048e-05
+  winning_rmse: 5.2233132273997974e-05
+- target_name: fft_y_Bw_filtered_phase_81
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 120.57842295128518
+  winning_mae: 0.1353674698662742
+  winning_rmse: 0.18095079467390018
+- target_name: fft_y_Bw_filtered_ampl_156
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 43.64077200348501
+  winning_mae: 0.0006054554442039411
+  winning_rmse: 0.0024744848095427214
+- target_name: fft_y_Bw_filtered_phase_156
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 28.692141040461856
+  winning_mae: 0.384645031118328
+  winning_rmse: 0.809113214469395
+- target_name: fft_y_Bw_filtered_ampl_162
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 99.22010151737425
+  winning_mae: 0.0008455506214974243
+  winning_rmse: 0.0026708787310099976
+- target_name: fft_y_Bw_filtered_phase_162
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 22.265442143494905
+  winning_mae: 0.4353895022975783
+  winning_rmse: 0.799162397727716
+- target_name: fft_y_Bw_filtered_ampl_240
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 47.119420328192135
+  winning_mae: 0.00021794409507118432
+  winning_rmse: 0.0003080344264154236
+- target_name: fft_y_Bw_filtered_phase_240
+  winning_family: SVR
+  winning_display_name: Support Vector Regressor
+  winning_estimator_name: SVR
+  winning_mape_percent: 60.80603897073248
+  winning_mae: 0.6478351524188968
+  winning_rmse: 1.3802208322906124
+per_target_ranking:
+  fft_y_Bw_filtered_ampl_0:
+  - *id001
+  fft_y_Bw_filtered_ampl_1:
+  - *id002
+  fft_y_Bw_filtered_phase_1:
+  - *id003
+  fft_y_Bw_filtered_ampl_3:
+  - *id004
+  fft_y_Bw_filtered_phase_3:
+  - *id005
+  fft_y_Bw_filtered_ampl_39:
+  - *id006
+  fft_y_Bw_filtered_phase_39:
+  - *id007
+  fft_y_Bw_filtered_ampl_40:
+  - *id008
+  fft_y_Bw_filtered_phase_40:
+  - *id009
+  fft_y_Bw_filtered_ampl_78:
+  - *id010
+  fft_y_Bw_filtered_phase_78:
+  - *id011
+  fft_y_Bw_filtered_ampl_81:
+  - *id012
+  fft_y_Bw_filtered_phase_81:
+  - *id013
+  fft_y_Bw_filtered_ampl_156:
+  - *id014
+  fft_y_Bw_filtered_phase_156:
+  - *id015
+  fft_y_Bw_filtered_ampl_162:
+  - *id016
+  fft_y_Bw_filtered_phase_162:
+  - *id017
+  fft_y_Bw_filtered_ampl_240:
+  - *id018
+  fft_y_Bw_filtered_phase_240:
+  - *id019
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export
+  exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - SVR/SVR_ampl0.onnx
+  - SVR/SVR_ampl1.onnx
+  - SVR/SVR_ampl156.onnx
+  - SVR/SVR_ampl162.onnx
+  - SVR/SVR_ampl240.onnx
+  - SVR/SVR_ampl3.onnx
+  - SVR/SVR_ampl39.onnx
+  - SVR/SVR_ampl40.onnx
+  - SVR/SVR_ampl78.onnx
+  - SVR/SVR_ampl81.onnx
+  - SVR/SVR_phase1.onnx
+  - SVR/SVR_phase156.onnx
+  - SVR/SVR_phase162.onnx
+  - SVR/SVR_phase240.onnx
+  - SVR/SVR_phase3.onnx
+  - SVR/SVR_phase39.onnx
+  - SVR/SVR_phase40.onnx
+  - SVR/SVR_phase78.onnx
+  - SVR/SVR_phase81.onnx
+  family_exports:
+  - family_name: SVR
+    display_name: Support Vector Regressor
+    estimator_name: SVR
+    export_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR
+    exported_target_count: 19
+    failed_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Bw_filtered_ampl_0
+      export_target_name: ampl0
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl0.onnx
+      file_size_bytes: 13688
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl1.onnx
+      file_size_bytes: 280
+      export_status: exported
+      surrogate_strategy: constant_linear_regression
+      export_estimator_name: LinearRegression
+    - target_name: fft_y_Bw_filtered_phase_1
+      export_target_name: phase1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase1.onnx
+      file_size_bytes: 13588
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_3
+      export_target_name: ampl3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl3.onnx
+      file_size_bytes: 280
+      export_status: exported
+      surrogate_strategy: constant_linear_regression
+      export_estimator_name: LinearRegression
+    - target_name: fft_y_Bw_filtered_phase_3
+      export_target_name: phase3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase3.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_39
+      export_target_name: ampl39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl39.onnx
+      file_size_bytes: 280
+      export_status: exported
+      surrogate_strategy: constant_linear_regression
+      export_estimator_name: LinearRegression
+    - target_name: fft_y_Bw_filtered_phase_39
+      export_target_name: phase39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase39.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_40
+      export_target_name: ampl40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl40.onnx
+      file_size_bytes: 280
+      export_status: exported
+      surrogate_strategy: constant_linear_regression
+      export_estimator_name: LinearRegression
+    - target_name: fft_y_Bw_filtered_phase_40
+      export_target_name: phase40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase40.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_78
+      export_target_name: ampl78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl78.onnx
+      file_size_bytes: 646
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_phase_78
+      export_target_name: phase78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase78.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_81
+      export_target_name: ampl81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl81.onnx
+      file_size_bytes: 280
+      export_status: exported
+      surrogate_strategy: constant_linear_regression
+      export_estimator_name: LinearRegression
+    - target_name: fft_y_Bw_filtered_phase_81
+      export_target_name: phase81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase81.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_156
+      export_target_name: ampl156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl156.onnx
+      file_size_bytes: 7088
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_phase_156
+      export_target_name: phase156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase156.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_162
+      export_target_name: ampl162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl162.onnx
+      file_size_bytes: 6948
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_phase_162
+      export_target_name: phase162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase162.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_ampl_240
+      export_target_name: ampl240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl240.onnx
+      file_size_bytes: 6288
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+    - target_name: fft_y_Bw_filtered_phase_240
+      export_target_name: phase240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase240.onnx
+      file_size_bytes: 13968
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: SVR
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-13-56-04__track1_original_dataset_backward_svr_attempt_09_campaign_validation/validation_summary.yaml

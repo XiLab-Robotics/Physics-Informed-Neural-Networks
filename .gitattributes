@@ -17,3 +17,4 @@ reference/video_guides/source_bundle/*.mkv filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.mov filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.avi filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.m4v filter=lfs diff=lfs merge=lfs -text
+output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/**/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text

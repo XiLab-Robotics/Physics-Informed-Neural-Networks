@@ -1,0 +1,629 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/rf/2026-04-26_track1_backward_rf_original_dataset_mega_campaign/018_track1_original_dataset_backward_rf_attempt_18.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank
+  model_type: exact_model_bank_backward_rf_campaign
+  run_name: track1_original_dataset_backward_rf_attempt_18
+  output_run_name: track1_original_dataset_backward_rf_attempt_18_campaign_validation
+  run_instance_id: 2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation
+  output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation
+dataset:
+  dataset_root: data/datasets
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  direction_label: backward
+  direction_prefix: Bw
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 53
+  smoke_settings:
+    enabled: false
+    max_train_file_count: 0
+    max_validation_file_count: 0
+    max_test_file_count: 0
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  family_search_summary:
+    RF:
+      search_mode: paper_reference_grid_search
+      used_grid_search: true
+      grid_search_disabled_for_family: false
+      grid_search_n_jobs: -1
+      grid_search_verbose: 2
+      grid_search_pre_dispatch: 2*n_jobs
+      grid_search_cv: 5
+      parameter_grid:
+        estimator__n_estimators:
+        - 50
+        - 60
+        - 70
+        - 80
+        - 90
+        estimator__criterion:
+        - squared_error
+        - absolute_error
+        estimator__max_depth:
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        estimator__min_samples_split:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      best_params: &id001
+        estimator__criterion: absolute_error
+        estimator__max_depth: 12
+        estimator__min_samples_split: 2
+        estimator__n_estimators: 50
+      best_score: 0.18292937702959672
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mean_component_mape_percent: 28.717699755234356
+  winning_mean_component_mae: 0.04750379427320568
+  winning_mean_component_rmse: 0.1267520839849945
+  winning_best_params: *id001
+family_ranking:
+- family_name: RF
+  display_name: Random Forest
+  estimator_name: RandomForestRegressor
+  component_count: 19
+  mean_component_mse: 0.06150026391653395
+  mean_component_rmse: 0.1267520839849945
+  mean_component_mae: 0.04750379427320568
+  mean_component_mape_percent: 28.717699755234356
+  target_metrics:
+  - &id002
+    target_name: fft_y_Bw_filtered_ampl_0
+    family_name: RF
+    mse: 1.1568833011140146e-05
+    rmse: 0.0034012987241846524
+    mae: 0.002644363659000162
+    mape_percent: 39.3405168717498
+  - &id003
+    target_name: fft_y_Bw_filtered_ampl_1
+    family_name: RF
+    mse: 1.7224579216100344e-09
+    rmse: 4.1502505004036015e-05
+    mae: 2.8205068327744455e-05
+    mape_percent: 0.16453922203829752
+  - &id004
+    target_name: fft_y_Bw_filtered_phase_1
+    family_name: RF
+    mse: 7.2239435491945845e-06
+    rmse: 0.002687739486854071
+    mae: 0.0019182896285871874
+    mape_percent: 34.73480136023879
+  - &id005
+    target_name: fft_y_Bw_filtered_ampl_3
+    family_name: RF
+    mse: 1.369263526830739e-09
+    rmse: 3.700356100202708e-05
+    mae: 2.3214522858158816e-05
+    mape_percent: 2.4252270385947834
+  - &id006
+    target_name: fft_y_Bw_filtered_phase_3
+    family_name: RF
+    mse: 0.0015076781171859362
+    rmse: 0.03882883100462769
+    mae: 0.022016689398118006
+    mape_percent: 1.6309528441086032
+  - &id007
+    target_name: fft_y_Bw_filtered_ampl_39
+    family_name: RF
+    mse: 6.179821498458184e-10
+    rmse: 2.4859246767467e-05
+    mae: 1.6702378409892702e-05
+    mape_percent: 3.7272046175832463
+  - &id008
+    target_name: fft_y_Bw_filtered_phase_39
+    family_name: RF
+    mse: 0.5519322543978278
+    rmse: 0.7429214321836649
+    mae: 0.17040806536161496
+    mape_percent: 6.23105015956398
+  - &id009
+    target_name: fft_y_Bw_filtered_ampl_40
+    family_name: RF
+    mse: 1.915344797677466e-09
+    rmse: 4.376465237697503e-05
+    mae: 2.946706713532984e-05
+    mape_percent: 10.005915655594126
+  - &id010
+    target_name: fft_y_Bw_filtered_phase_40
+    family_name: RF
+    mse: 0.03144446563484868
+    rmse: 0.1773258741268422
+    mae: 0.10999950522164717
+    mape_percent: 230.6877453354174
+  - &id011
+    target_name: fft_y_Bw_filtered_ampl_78
+    family_name: RF
+    mse: 3.119722157666798e-09
+    rmse: 5.5854473031860194e-05
+    mae: 4.472564366009097e-05
+    mape_percent: 8.158256971110301
+  - &id012
+    target_name: fft_y_Bw_filtered_phase_78
+    family_name: RF
+    mse: 0.023698683449756456
+    rmse: 0.15394376716761368
+    mae: 0.0745582905461482
+    mape_percent: 34.3449286521257
+  - &id013
+    target_name: fft_y_Bw_filtered_ampl_81
+    family_name: RF
+    mse: 1.2170874349884573e-10
+    rmse: 1.1032168576433454e-05
+    mae: 7.428214198991733e-06
+    mape_percent: 6.346876752710355
+  - &id014
+    target_name: fft_y_Bw_filtered_phase_81
+    family_name: RF
+    mse: 0.037851121693305845
+    rmse: 0.1945536473400225
+    mae: 0.10588626090173574
+    mape_percent: 97.48025365973633
+  - &id015
+    target_name: fft_y_Bw_filtered_ampl_156
+    family_name: RF
+    mse: 1.492536392516007e-07
+    rmse: 0.0003863335854564041
+    mae: 0.00013471530596524943
+    mape_percent: 7.804121671688385
+  - &id016
+    target_name: fft_y_Bw_filtered_phase_156
+    family_name: RF
+    mse: 0.0583354289626189
+    rmse: 0.24152728409564603
+    mae: 0.09329236319753902
+    mape_percent: 22.25370863935654
+  - &id017
+    target_name: fft_y_Bw_filtered_ampl_162
+    family_name: RF
+    mse: 3.284495353027221e-08
+    rmse: 0.00018123176744233393
+    mae: 7.068837372202811e-05
+    mape_percent: 7.290193201208319
+  - &id018
+    target_name: fft_y_Bw_filtered_phase_162
+    family_name: RF
+    mse: 0.040743365150021166
+    rmse: 0.2018498579390661
+    mae: 0.08138342961682545
+    mape_percent: 4.570261704874754
+  - &id019
+    target_name: fft_y_Bw_filtered_ampl_240
+    family_name: RF
+    mse: 1.0924458171605255e-08
+    rmse: 0.00010452013285298318
+    mae: 5.593477758659129e-05
+    mape_percent: 14.577061713154299
+  - &id020
+    target_name: fft_y_Bw_filtered_phase_240
+    family_name: RF
+    mse: 0.4229730223424896
+    rmse: 0.6503637615538628
+    mae: 0.24005375230782797
+    mape_percent: 13.862679278598733
+target_winner_registry:
+- target_name: fft_y_Bw_filtered_ampl_0
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 39.3405168717498
+  winning_mae: 0.002644363659000162
+  winning_rmse: 0.0034012987241846524
+- target_name: fft_y_Bw_filtered_ampl_1
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 0.16453922203829752
+  winning_mae: 2.8205068327744455e-05
+  winning_rmse: 4.1502505004036015e-05
+- target_name: fft_y_Bw_filtered_phase_1
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 34.73480136023879
+  winning_mae: 0.0019182896285871874
+  winning_rmse: 0.002687739486854071
+- target_name: fft_y_Bw_filtered_ampl_3
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 2.4252270385947834
+  winning_mae: 2.3214522858158816e-05
+  winning_rmse: 3.700356100202708e-05
+- target_name: fft_y_Bw_filtered_phase_3
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 1.6309528441086032
+  winning_mae: 0.022016689398118006
+  winning_rmse: 0.03882883100462769
+- target_name: fft_y_Bw_filtered_ampl_39
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 3.7272046175832463
+  winning_mae: 1.6702378409892702e-05
+  winning_rmse: 2.4859246767467e-05
+- target_name: fft_y_Bw_filtered_phase_39
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 6.23105015956398
+  winning_mae: 0.17040806536161496
+  winning_rmse: 0.7429214321836649
+- target_name: fft_y_Bw_filtered_ampl_40
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 10.005915655594126
+  winning_mae: 2.946706713532984e-05
+  winning_rmse: 4.376465237697503e-05
+- target_name: fft_y_Bw_filtered_phase_40
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 230.6877453354174
+  winning_mae: 0.10999950522164717
+  winning_rmse: 0.1773258741268422
+- target_name: fft_y_Bw_filtered_ampl_78
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 8.158256971110301
+  winning_mae: 4.472564366009097e-05
+  winning_rmse: 5.5854473031860194e-05
+- target_name: fft_y_Bw_filtered_phase_78
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 34.3449286521257
+  winning_mae: 0.0745582905461482
+  winning_rmse: 0.15394376716761368
+- target_name: fft_y_Bw_filtered_ampl_81
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 6.346876752710355
+  winning_mae: 7.428214198991733e-06
+  winning_rmse: 1.1032168576433454e-05
+- target_name: fft_y_Bw_filtered_phase_81
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 97.48025365973633
+  winning_mae: 0.10588626090173574
+  winning_rmse: 0.1945536473400225
+- target_name: fft_y_Bw_filtered_ampl_156
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 7.804121671688385
+  winning_mae: 0.00013471530596524943
+  winning_rmse: 0.0003863335854564041
+- target_name: fft_y_Bw_filtered_phase_156
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 22.25370863935654
+  winning_mae: 0.09329236319753902
+  winning_rmse: 0.24152728409564603
+- target_name: fft_y_Bw_filtered_ampl_162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 7.290193201208319
+  winning_mae: 7.068837372202811e-05
+  winning_rmse: 0.00018123176744233393
+- target_name: fft_y_Bw_filtered_phase_162
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 4.570261704874754
+  winning_mae: 0.08138342961682545
+  winning_rmse: 0.2018498579390661
+- target_name: fft_y_Bw_filtered_ampl_240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 14.577061713154299
+  winning_mae: 5.593477758659129e-05
+  winning_rmse: 0.00010452013285298318
+- target_name: fft_y_Bw_filtered_phase_240
+  winning_family: RF
+  winning_display_name: Random Forest
+  winning_estimator_name: RandomForestRegressor
+  winning_mape_percent: 13.862679278598733
+  winning_mae: 0.24005375230782797
+  winning_rmse: 0.6503637615538628
+per_target_ranking:
+  fft_y_Bw_filtered_ampl_0:
+  - *id002
+  fft_y_Bw_filtered_ampl_1:
+  - *id003
+  fft_y_Bw_filtered_phase_1:
+  - *id004
+  fft_y_Bw_filtered_ampl_3:
+  - *id005
+  fft_y_Bw_filtered_phase_3:
+  - *id006
+  fft_y_Bw_filtered_ampl_39:
+  - *id007
+  fft_y_Bw_filtered_phase_39:
+  - *id008
+  fft_y_Bw_filtered_ampl_40:
+  - *id009
+  fft_y_Bw_filtered_phase_40:
+  - *id010
+  fft_y_Bw_filtered_ampl_78:
+  - *id011
+  fft_y_Bw_filtered_phase_78:
+  - *id012
+  fft_y_Bw_filtered_ampl_81:
+  - *id013
+  fft_y_Bw_filtered_phase_81:
+  - *id014
+  fft_y_Bw_filtered_ampl_156:
+  - *id015
+  fft_y_Bw_filtered_phase_156:
+  - *id016
+  fft_y_Bw_filtered_ampl_162:
+  - *id017
+  fft_y_Bw_filtered_phase_162:
+  - *id018
+  fft_y_Bw_filtered_ampl_240:
+  - *id019
+  fft_y_Bw_filtered_phase_240:
+  - *id020
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export
+  exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - RF/RandomForestRegressor_ampl0.onnx
+  - RF/RandomForestRegressor_ampl1.onnx
+  - RF/RandomForestRegressor_ampl156.onnx
+  - RF/RandomForestRegressor_ampl162.onnx
+  - RF/RandomForestRegressor_ampl240.onnx
+  - RF/RandomForestRegressor_ampl3.onnx
+  - RF/RandomForestRegressor_ampl39.onnx
+  - RF/RandomForestRegressor_ampl40.onnx
+  - RF/RandomForestRegressor_ampl78.onnx
+  - RF/RandomForestRegressor_ampl81.onnx
+  - RF/RandomForestRegressor_phase1.onnx
+  - RF/RandomForestRegressor_phase156.onnx
+  - RF/RandomForestRegressor_phase162.onnx
+  - RF/RandomForestRegressor_phase240.onnx
+  - RF/RandomForestRegressor_phase3.onnx
+  - RF/RandomForestRegressor_phase39.onnx
+  - RF/RandomForestRegressor_phase40.onnx
+  - RF/RandomForestRegressor_phase78.onnx
+  - RF/RandomForestRegressor_phase81.onnx
+  family_exports:
+  - family_name: RF
+    display_name: Random Forest
+    estimator_name: RandomForestRegressor
+    export_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF
+    exported_target_count: 19
+    failed_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Bw_filtered_ampl_0
+      export_target_name: ampl0
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl0.onnx
+      file_size_bytes: 1517749
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl1.onnx
+      file_size_bytes: 1209764
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_1
+      export_target_name: phase1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase1.onnx
+      file_size_bytes: 1230765
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_3
+      export_target_name: ampl3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl3.onnx
+      file_size_bytes: 1548401
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_3
+      export_target_name: phase3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase3.onnx
+      file_size_bytes: 1586001
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_39
+      export_target_name: ampl39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl39.onnx
+      file_size_bytes: 1331466
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_39
+      export_target_name: phase39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase39.onnx
+      file_size_bytes: 1513780
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_40
+      export_target_name: ampl40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl40.onnx
+      file_size_bytes: 1460088
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_40
+      export_target_name: phase40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase40.onnx
+      file_size_bytes: 1521775
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_78
+      export_target_name: ampl78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl78.onnx
+      file_size_bytes: 1573360
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_78
+      export_target_name: phase78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase78.onnx
+      file_size_bytes: 1475587
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_81
+      export_target_name: ampl81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl81.onnx
+      file_size_bytes: 1121475
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_81
+      export_target_name: phase81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase81.onnx
+      file_size_bytes: 1423575
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_156
+      export_target_name: ampl156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl156.onnx
+      file_size_bytes: 1392575
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_156
+      export_target_name: phase156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase156.onnx
+      file_size_bytes: 1412840
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_162
+      export_target_name: ampl162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl162.onnx
+      file_size_bytes: 1507007
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_162
+      export_target_name: phase162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase162.onnx
+      file_size_bytes: 1406975
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_ampl_240
+      export_target_name: ampl240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_ampl240.onnx
+      file_size_bytes: 1542628
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+    - target_name: fft_y_Bw_filtered_phase_240
+      export_target_name: phase240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/onnx_export/RF/RandomForestRegressor_phase240.onnx
+      file_size_bytes: 1446211
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: RandomForestRegressor
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-48-34__track1_original_dataset_backward_rf_attempt_18_campaign_validation/validation_summary.yaml

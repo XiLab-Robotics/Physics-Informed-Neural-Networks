@@ -1,0 +1,632 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/lgbm/2026-04-26_track1_backward_lgbm_original_dataset_mega_campaign/016_track1_original_dataset_backward_lgbm_attempt_16.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank
+  model_type: exact_model_bank_backward_lgbm_campaign
+  run_name: track1_original_dataset_backward_lgbm_attempt_16
+  output_run_name: track1_original_dataset_backward_lgbm_attempt_16_campaign_validation
+  run_instance_id: 2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation
+  output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation
+dataset:
+  dataset_root: data/datasets
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  direction_label: backward
+  direction_prefix: Bw
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 42
+  smoke_settings:
+    enabled: false
+    max_train_file_count: 0
+    max_validation_file_count: 0
+    max_test_file_count: 0
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  family_search_summary:
+    LGBM:
+      search_mode: paper_reference_grid_search
+      used_grid_search: true
+      grid_search_disabled_for_family: false
+      grid_search_n_jobs: -1
+      grid_search_verbose: 2
+      grid_search_pre_dispatch: 2*n_jobs
+      grid_search_cv: 5
+      parameter_grid:
+        estimator__learning_rate:
+        - 0.01
+        - 0.2
+        - 0.39
+        - 0.58
+        - 0.77
+        estimator__max_depth:
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        estimator__num_leaves:
+        - 2
+        - 4
+        - 6
+        - 8
+        - 10
+        - 31
+        estimator__subsample:
+        - 0.001
+        - 0.01
+        - 0.1
+        - 0.2
+      best_params: &id001
+        estimator__learning_rate: 0.39
+        estimator__max_depth: 11
+        estimator__num_leaves: 31
+        estimator__subsample: 0.001
+      best_score: 0.2052995508987127
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mean_component_mape_percent: 23.24782106863875
+  winning_mean_component_mae: 0.056179503139960354
+  winning_mean_component_rmse: 0.10590575931249317
+  winning_best_params: *id001
+family_ranking:
+- family_name: LGBM
+  display_name: LightGBM
+  estimator_name: LGBMRegressor
+  component_count: 19
+  mean_component_mse: 0.04533740285993359
+  mean_component_rmse: 0.10590575931249317
+  mean_component_mae: 0.056179503139960354
+  mean_component_mape_percent: 23.24782106863875
+  target_metrics:
+  - &id002
+    target_name: fft_y_Bw_filtered_ampl_0
+    family_name: LGBM
+    mse: 9.526742716157075e-06
+    rmse: 0.003086542194131983
+    mae: 0.0024076419870486605
+    mape_percent: 45.17218858275018
+  - &id003
+    target_name: fft_y_Bw_filtered_ampl_1
+    family_name: LGBM
+    mse: 1.1471615269120853e-09
+    rmse: 3.3869773056695925e-05
+    mae: 2.5153058354366852e-05
+    mape_percent: 0.14658314432833472
+  - &id004
+    target_name: fft_y_Bw_filtered_phase_1
+    family_name: LGBM
+    mse: 4.285936558385608e-06
+    rmse: 0.0020702503612813616
+    mae: 0.0016347448164657692
+    mape_percent: 46.65403705146411
+  - &id005
+    target_name: fft_y_Bw_filtered_ampl_3
+    family_name: LGBM
+    mse: 1.0684441776625957e-09
+    rmse: 3.2687064378169476e-05
+    mae: 2.2116306117276977e-05
+    mape_percent: 2.1081591424030535
+  - &id006
+    target_name: fft_y_Bw_filtered_phase_3
+    family_name: LGBM
+    mse: 0.0006547511007508113
+    rmse: 0.02558810467289071
+    mae: 0.019746772736488585
+    mape_percent: 1.4697447548488816
+  - &id007
+    target_name: fft_y_Bw_filtered_ampl_39
+    family_name: LGBM
+    mse: 6.774313954914199e-10
+    rmse: 2.6027512280112746e-05
+    mae: 1.8406572902672273e-05
+    mape_percent: 3.965194561207518
+  - &id008
+    target_name: fft_y_Bw_filtered_phase_39
+    family_name: LGBM
+    mse: 0.4978493321654314
+    rmse: 0.7055843905341384
+    mae: 0.3380165251225942
+    mape_percent: 12.095970290271707
+  - &id009
+    target_name: fft_y_Bw_filtered_ampl_40
+    family_name: LGBM
+    mse: 1.895498969508796e-09
+    rmse: 4.3537328460859836e-05
+    mae: 2.9767463981853733e-05
+    mape_percent: 9.604514146212983
+  - &id010
+    target_name: fft_y_Bw_filtered_phase_40
+    family_name: LGBM
+    mse: 0.03264810323569863
+    rmse: 0.18068786134020912
+    mae: 0.0986096624726351
+    mape_percent: 37.54625610489967
+  - &id011
+    target_name: fft_y_Bw_filtered_ampl_78
+    family_name: LGBM
+    mse: 1.3522613588892287e-09
+    rmse: 3.6773106462321464e-05
+    mae: 2.7822929530711905e-05
+    mape_percent: 4.136737445637712
+  - &id012
+    target_name: fft_y_Bw_filtered_phase_78
+    family_name: LGBM
+    mse: 0.020325642333044777
+    rmse: 0.14256802703637578
+    mae: 0.07120990561879738
+    mape_percent: 42.188771320564605
+  - &id013
+    target_name: fft_y_Bw_filtered_ampl_81
+    family_name: LGBM
+    mse: 1.8653524552238143e-10
+    rmse: 1.3657790653044197e-05
+    mae: 8.483550397190235e-06
+    mape_percent: 7.398715888461367
+  - &id014
+    target_name: fft_y_Bw_filtered_phase_81
+    family_name: LGBM
+    mse: 0.012424771240051183
+    rmse: 0.11146645791470716
+    mae: 0.08540414518499603
+    mape_percent: 151.5283430715656
+  - &id015
+    target_name: fft_y_Bw_filtered_ampl_156
+    family_name: LGBM
+    mse: 2.1079380310366638e-07
+    rmse: 0.00045912286275425927
+    mae: 0.00018706401729305463
+    mape_percent: 17.16657022173101
+  - &id016
+    target_name: fft_y_Bw_filtered_phase_156
+    family_name: LGBM
+    mse: 0.06610299923984204
+    rmse: 0.25710503542296104
+    mae: 0.12965258658430615
+    mape_percent: 11.93588840418684
+  - &id017
+    target_name: fft_y_Bw_filtered_ampl_162
+    family_name: LGBM
+    mse: 4.6807643495732465e-08
+    rmse: 0.00021635074184234374
+    mae: 9.639365778014662e-05
+    mape_percent: 16.123868865407513
+  - &id018
+    target_name: fft_y_Bw_filtered_phase_162
+    family_name: LGBM
+    mse: 0.013503053380552592
+    rmse: 0.1162026393011475
+    mae: 0.0769278047946987
+    mape_percent: 4.514932575285637
+  - &id019
+    target_name: fft_y_Bw_filtered_ampl_240
+    family_name: LGBM
+    mse: 4.139990196412565e-08
+    rmse: 0.00020346965858359728
+    mae: 9.938356316351226e-05
+    mape_percent: 16.1955399609267
+  - &id020
+    target_name: fft_y_Bw_filtered_phase_240
+    family_name: LGBM
+    mse: 0.21788788363541087
+    rmse: 0.466784622321056
+    mae: 0.24328617922169518
+    mape_percent: 11.756584771982926
+target_winner_registry:
+- target_name: fft_y_Bw_filtered_ampl_0
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 45.17218858275018
+  winning_mae: 0.0024076419870486605
+  winning_rmse: 0.003086542194131983
+- target_name: fft_y_Bw_filtered_ampl_1
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 0.14658314432833472
+  winning_mae: 2.5153058354366852e-05
+  winning_rmse: 3.3869773056695925e-05
+- target_name: fft_y_Bw_filtered_phase_1
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 46.65403705146411
+  winning_mae: 0.0016347448164657692
+  winning_rmse: 0.0020702503612813616
+- target_name: fft_y_Bw_filtered_ampl_3
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 2.1081591424030535
+  winning_mae: 2.2116306117276977e-05
+  winning_rmse: 3.2687064378169476e-05
+- target_name: fft_y_Bw_filtered_phase_3
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 1.4697447548488816
+  winning_mae: 0.019746772736488585
+  winning_rmse: 0.02558810467289071
+- target_name: fft_y_Bw_filtered_ampl_39
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 3.965194561207518
+  winning_mae: 1.8406572902672273e-05
+  winning_rmse: 2.6027512280112746e-05
+- target_name: fft_y_Bw_filtered_phase_39
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 12.095970290271707
+  winning_mae: 0.3380165251225942
+  winning_rmse: 0.7055843905341384
+- target_name: fft_y_Bw_filtered_ampl_40
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 9.604514146212983
+  winning_mae: 2.9767463981853733e-05
+  winning_rmse: 4.3537328460859836e-05
+- target_name: fft_y_Bw_filtered_phase_40
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 37.54625610489967
+  winning_mae: 0.0986096624726351
+  winning_rmse: 0.18068786134020912
+- target_name: fft_y_Bw_filtered_ampl_78
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 4.136737445637712
+  winning_mae: 2.7822929530711905e-05
+  winning_rmse: 3.6773106462321464e-05
+- target_name: fft_y_Bw_filtered_phase_78
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 42.188771320564605
+  winning_mae: 0.07120990561879738
+  winning_rmse: 0.14256802703637578
+- target_name: fft_y_Bw_filtered_ampl_81
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 7.398715888461367
+  winning_mae: 8.483550397190235e-06
+  winning_rmse: 1.3657790653044197e-05
+- target_name: fft_y_Bw_filtered_phase_81
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 151.5283430715656
+  winning_mae: 0.08540414518499603
+  winning_rmse: 0.11146645791470716
+- target_name: fft_y_Bw_filtered_ampl_156
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 17.16657022173101
+  winning_mae: 0.00018706401729305463
+  winning_rmse: 0.00045912286275425927
+- target_name: fft_y_Bw_filtered_phase_156
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 11.93588840418684
+  winning_mae: 0.12965258658430615
+  winning_rmse: 0.25710503542296104
+- target_name: fft_y_Bw_filtered_ampl_162
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 16.123868865407513
+  winning_mae: 9.639365778014662e-05
+  winning_rmse: 0.00021635074184234374
+- target_name: fft_y_Bw_filtered_phase_162
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 4.514932575285637
+  winning_mae: 0.0769278047946987
+  winning_rmse: 0.1162026393011475
+- target_name: fft_y_Bw_filtered_ampl_240
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 16.1955399609267
+  winning_mae: 9.938356316351226e-05
+  winning_rmse: 0.00020346965858359728
+- target_name: fft_y_Bw_filtered_phase_240
+  winning_family: LGBM
+  winning_display_name: LightGBM
+  winning_estimator_name: LGBMRegressor
+  winning_mape_percent: 11.756584771982926
+  winning_mae: 0.24328617922169518
+  winning_rmse: 0.466784622321056
+per_target_ranking:
+  fft_y_Bw_filtered_ampl_0:
+  - *id002
+  fft_y_Bw_filtered_ampl_1:
+  - *id003
+  fft_y_Bw_filtered_phase_1:
+  - *id004
+  fft_y_Bw_filtered_ampl_3:
+  - *id005
+  fft_y_Bw_filtered_phase_3:
+  - *id006
+  fft_y_Bw_filtered_ampl_39:
+  - *id007
+  fft_y_Bw_filtered_phase_39:
+  - *id008
+  fft_y_Bw_filtered_ampl_40:
+  - *id009
+  fft_y_Bw_filtered_phase_40:
+  - *id010
+  fft_y_Bw_filtered_ampl_78:
+  - *id011
+  fft_y_Bw_filtered_phase_78:
+  - *id012
+  fft_y_Bw_filtered_ampl_81:
+  - *id013
+  fft_y_Bw_filtered_phase_81:
+  - *id014
+  fft_y_Bw_filtered_ampl_156:
+  - *id015
+  fft_y_Bw_filtered_phase_156:
+  - *id016
+  fft_y_Bw_filtered_ampl_162:
+  - *id017
+  fft_y_Bw_filtered_phase_162:
+  - *id018
+  fft_y_Bw_filtered_ampl_240:
+  - *id019
+  fft_y_Bw_filtered_phase_240:
+  - *id020
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export
+  exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - LGBM/LGBMRegressor_ampl0.onnx
+  - LGBM/LGBMRegressor_ampl1.onnx
+  - LGBM/LGBMRegressor_ampl156.onnx
+  - LGBM/LGBMRegressor_ampl162.onnx
+  - LGBM/LGBMRegressor_ampl240.onnx
+  - LGBM/LGBMRegressor_ampl3.onnx
+  - LGBM/LGBMRegressor_ampl39.onnx
+  - LGBM/LGBMRegressor_ampl40.onnx
+  - LGBM/LGBMRegressor_ampl78.onnx
+  - LGBM/LGBMRegressor_ampl81.onnx
+  - LGBM/LGBMRegressor_phase1.onnx
+  - LGBM/LGBMRegressor_phase156.onnx
+  - LGBM/LGBMRegressor_phase162.onnx
+  - LGBM/LGBMRegressor_phase240.onnx
+  - LGBM/LGBMRegressor_phase3.onnx
+  - LGBM/LGBMRegressor_phase39.onnx
+  - LGBM/LGBMRegressor_phase40.onnx
+  - LGBM/LGBMRegressor_phase78.onnx
+  - LGBM/LGBMRegressor_phase81.onnx
+  family_exports:
+  - family_name: LGBM
+    display_name: LightGBM
+    estimator_name: LGBMRegressor
+    export_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM
+    exported_target_count: 19
+    failed_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Bw_filtered_ampl_0
+      export_target_name: ampl0
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl0.onnx
+      file_size_bytes: 174825
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl1.onnx
+      file_size_bytes: 163072
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_1
+      export_target_name: phase1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase1.onnx
+      file_size_bytes: 167379
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_3
+      export_target_name: ampl3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl3.onnx
+      file_size_bytes: 169569
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_3
+      export_target_name: phase3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase3.onnx
+      file_size_bytes: 174460
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_39
+      export_target_name: ampl39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl39.onnx
+      file_size_bytes: 180592
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_39
+      export_target_name: phase39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase39.onnx
+      file_size_bytes: 171613
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_40
+      export_target_name: ampl40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl40.onnx
+      file_size_bytes: 174752
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_40
+      export_target_name: phase40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase40.onnx
+      file_size_bytes: 177599
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_78
+      export_target_name: ampl78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl78.onnx
+      file_size_bytes: 168693
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_78
+      export_target_name: phase78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase78.onnx
+      file_size_bytes: 169934
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_81
+      export_target_name: ampl81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl81.onnx
+      file_size_bytes: 174679
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_81
+      export_target_name: phase81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase81.onnx
+      file_size_bytes: 175847
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_156
+      export_target_name: ampl156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl156.onnx
+      file_size_bytes: 169715
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_156
+      export_target_name: phase156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase156.onnx
+      file_size_bytes: 171686
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_162
+      export_target_name: ampl162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl162.onnx
+      file_size_bytes: 170226
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_162
+      export_target_name: phase162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase162.onnx
+      file_size_bytes: 175263
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_ampl_240
+      export_target_name: ampl240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_ampl240.onnx
+      file_size_bytes: 180373
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+    - target_name: fft_y_Bw_filtered_phase_240
+      export_target_name: phase240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/onnx_export/LGBM/LGBMRegressor_phase240.onnx
+      file_size_bytes: 179205
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: LGBMRegressor
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-27-00-39-11__track1_original_dataset_backward_lgbm_attempt_16_campaign_validation/validation_summary.yaml
