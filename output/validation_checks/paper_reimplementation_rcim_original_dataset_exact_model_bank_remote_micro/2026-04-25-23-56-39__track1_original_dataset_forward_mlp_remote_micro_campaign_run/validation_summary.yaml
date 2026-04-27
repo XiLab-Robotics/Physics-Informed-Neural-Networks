@@ -1,0 +1,625 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_remote_micro/mlp/2026-04-25_track1_forward_mlp_remote_micro/001_track1_original_dataset_forward_mlp_remote_micro.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro
+  model_type: exact_model_bank_forward_mlp_remote_micro
+  run_name: track1_original_dataset_forward_mlp_remote_micro
+  output_run_name: track1_original_dataset_forward_mlp_remote_micro_campaign_run
+  run_instance_id: 2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run
+  output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run
+dataset:
+  dataset_root: data/datasets
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  direction_label: forward
+  direction_prefix: Fw
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 42
+  smoke_settings:
+    enabled: false
+    max_train_file_count: 0
+    max_validation_file_count: 0
+    max_test_file_count: 0
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  family_search_summary:
+    MLP:
+      search_mode: paper_reference_grid_search
+      used_grid_search: true
+      grid_search_disabled_for_family: false
+      grid_search_n_jobs: -1
+      grid_search_verbose: 2
+      grid_search_pre_dispatch: 2*n_jobs
+      grid_search_cv: 5
+      parameter_grid:
+        estimator__mlp__hidden_layer_sizes:
+        - &id001
+          - 50
+        - - 100
+        - - 100
+          - 50
+        estimator__mlp__activation:
+        - tanh
+        estimator__mlp__solver:
+        - lbfgs
+        estimator__mlp__alpha:
+        - 0.0001
+        - 0.001
+        - 0.01
+        estimator__mlp__max_iter:
+        - 2000
+      best_params: &id002
+        estimator__mlp__activation: tanh
+        estimator__mlp__alpha: 0.01
+        estimator__mlp__hidden_layer_sizes: *id001
+        estimator__mlp__max_iter: 2000
+        estimator__mlp__solver: lbfgs
+      best_score: -2176.6412590000377
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mean_component_mape_percent: 454.20487951797384
+  winning_mean_component_mae: 0.11205312888571832
+  winning_mean_component_rmse: 0.1937358418401001
+  winning_best_params: *id002
+family_ranking:
+- family_name: MLP
+  display_name: Multi-Layer Perceptron
+  estimator_name: MLPRegressor
+  component_count: 19
+  mean_component_mse: 0.18325241563263342
+  mean_component_rmse: 0.1937358418401001
+  mean_component_mae: 0.11205312888571832
+  mean_component_mape_percent: 454.20487951797384
+  target_metrics:
+  - &id003
+    target_name: fft_y_Fw_filtered_ampl_0
+    family_name: MLP
+    mse: 2.298706087051653e-05
+    rmse: 0.004794482336031339
+    mae: 0.0038933064508834105
+    mape_percent: 8.346686329100406
+  - &id004
+    target_name: fft_y_Fw_filtered_ampl_1
+    family_name: MLP
+    mse: 1.1705094750204958e-05
+    rmse: 0.0034212709261625214
+    mae: 0.002548988756708714
+    mape_percent: 14.84669072743364
+  - &id005
+    target_name: fft_y_Fw_filtered_phase_1
+    family_name: MLP
+    mse: 2.268259791920618e-05
+    rmse: 0.00476262510798469
+    mae: 0.0036829369409298526
+    mape_percent: 389.19111234361014
+  - &id006
+    target_name: fft_y_Fw_filtered_ampl_3
+    family_name: MLP
+    mse: 1.1881414350056387e-05
+    rmse: 0.0034469427541020154
+    mae: 0.0026483831141976746
+    mape_percent: 336.9806196151442
+  - &id007
+    target_name: fft_y_Fw_filtered_phase_3
+    family_name: MLP
+    mse: 0.0014435067595653906
+    rmse: 0.03799350943997396
+    mae: 0.029054664998967902
+    mape_percent: 1.6109687121201897
+  - &id008
+    target_name: fft_y_Fw_filtered_ampl_39
+    family_name: MLP
+    mse: 1.2740226029860803e-05
+    rmse: 0.0035693453223050306
+    mae: 0.0026793015769501147
+    mape_percent: 256.3278622705595
+  - &id009
+    target_name: fft_y_Fw_filtered_phase_39
+    family_name: MLP
+    mse: 0.00137871858530395
+    rmse: 0.03713109997433351
+    mae: 0.026463967339970255
+    mape_percent: 2.3841150485272298
+  - &id010
+    target_name: fft_y_Fw_filtered_ampl_40
+    family_name: MLP
+    mse: 1.3211433781178784e-05
+    rmse: 0.0036347536066670028
+    mae: 0.002570646763169274
+    mape_percent: 341.98397473684105
+  - &id011
+    target_name: fft_y_Fw_filtered_phase_40
+    family_name: MLP
+    mse: 0.004328364337238686
+    rmse: 0.06579030579985691
+    mae: 0.044887529528575526
+    mape_percent: 78.496211213246
+  - &id012
+    target_name: fft_y_Fw_filtered_ampl_78
+    family_name: MLP
+    mse: 1.4670457678508712e-05
+    rmse: 0.003830203346887566
+    mae: 0.0030869627856810865
+    mape_percent: 723.2330408823307
+  - &id013
+    target_name: fft_y_Fw_filtered_phase_78
+    family_name: MLP
+    mse: 0.06176862313679471
+    rmse: 0.2485329417537939
+    mae: 0.12269794882348697
+    mape_percent: 110.1786374815341
+  - &id014
+    target_name: fft_y_Fw_filtered_ampl_81
+    family_name: MLP
+    mse: 1.1350655140844967e-05
+    rmse: 0.0033690733356287997
+    mae: 0.0026453151225204335
+    mape_percent: 872.1024071916569
+  - &id015
+    target_name: fft_y_Fw_filtered_phase_81
+    family_name: MLP
+    mse: 0.005601000231842099
+    rmse: 0.07483983051719251
+    mae: 0.05166974927068505
+    mape_percent: 5.00725151022716
+  - &id016
+    target_name: fft_y_Fw_filtered_ampl_156
+    family_name: MLP
+    mse: 1.5317458711707818e-05
+    rmse: 0.003913752510278061
+    mae: 0.0031412541853506636
+    mape_percent: 2264.3743287355455
+  - &id017
+    target_name: fft_y_Fw_filtered_phase_156
+    family_name: MLP
+    mse: 0.7765657400798758
+    rmse: 0.8812296749882381
+    mae: 0.6752062041973338
+    mape_percent: 37.47524333923968
+  - &id018
+    target_name: fft_y_Fw_filtered_ampl_162
+    family_name: MLP
+    mse: 1.6620090641899795e-05
+    rmse: 0.0040767745390074975
+    mae: 0.00317944540387013
+    mape_percent: 2223.8931728172765
+  - &id019
+    target_name: fft_y_Fw_filtered_phase_162
+    family_name: MLP
+    mse: 1.2457454395752974
+    rmse: 1.1161296696958187
+    mae: 0.5194444670808009
+    mape_percent: 22.485358519248493
+  - &id020
+    target_name: fft_y_Fw_filtered_ampl_240
+    family_name: MLP
+    mse: 1.3992179245801345e-05
+    rmse: 0.003740612148539507
+    mae: 0.002590214549838371
+    mape_percent: 769.0738636047478
+  - &id021
+    target_name: fft_y_Fw_filtered_phase_240
+    family_name: MLP
+    mse: 1.3847973456449976
+    rmse: 1.1767741268591
+    mae: 0.626918161938728
+    mape_percent: 171.9011657631151
+target_winner_registry:
+- target_name: fft_y_Fw_filtered_ampl_0
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 8.346686329100406
+  winning_mae: 0.0038933064508834105
+  winning_rmse: 0.004794482336031339
+- target_name: fft_y_Fw_filtered_ampl_1
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 14.84669072743364
+  winning_mae: 0.002548988756708714
+  winning_rmse: 0.0034212709261625214
+- target_name: fft_y_Fw_filtered_phase_1
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 389.19111234361014
+  winning_mae: 0.0036829369409298526
+  winning_rmse: 0.00476262510798469
+- target_name: fft_y_Fw_filtered_ampl_3
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 336.9806196151442
+  winning_mae: 0.0026483831141976746
+  winning_rmse: 0.0034469427541020154
+- target_name: fft_y_Fw_filtered_phase_3
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 1.6109687121201897
+  winning_mae: 0.029054664998967902
+  winning_rmse: 0.03799350943997396
+- target_name: fft_y_Fw_filtered_ampl_39
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 256.3278622705595
+  winning_mae: 0.0026793015769501147
+  winning_rmse: 0.0035693453223050306
+- target_name: fft_y_Fw_filtered_phase_39
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 2.3841150485272298
+  winning_mae: 0.026463967339970255
+  winning_rmse: 0.03713109997433351
+- target_name: fft_y_Fw_filtered_ampl_40
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 341.98397473684105
+  winning_mae: 0.002570646763169274
+  winning_rmse: 0.0036347536066670028
+- target_name: fft_y_Fw_filtered_phase_40
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 78.496211213246
+  winning_mae: 0.044887529528575526
+  winning_rmse: 0.06579030579985691
+- target_name: fft_y_Fw_filtered_ampl_78
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 723.2330408823307
+  winning_mae: 0.0030869627856810865
+  winning_rmse: 0.003830203346887566
+- target_name: fft_y_Fw_filtered_phase_78
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 110.1786374815341
+  winning_mae: 0.12269794882348697
+  winning_rmse: 0.2485329417537939
+- target_name: fft_y_Fw_filtered_ampl_81
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 872.1024071916569
+  winning_mae: 0.0026453151225204335
+  winning_rmse: 0.0033690733356287997
+- target_name: fft_y_Fw_filtered_phase_81
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 5.00725151022716
+  winning_mae: 0.05166974927068505
+  winning_rmse: 0.07483983051719251
+- target_name: fft_y_Fw_filtered_ampl_156
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 2264.3743287355455
+  winning_mae: 0.0031412541853506636
+  winning_rmse: 0.003913752510278061
+- target_name: fft_y_Fw_filtered_phase_156
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 37.47524333923968
+  winning_mae: 0.6752062041973338
+  winning_rmse: 0.8812296749882381
+- target_name: fft_y_Fw_filtered_ampl_162
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 2223.8931728172765
+  winning_mae: 0.00317944540387013
+  winning_rmse: 0.0040767745390074975
+- target_name: fft_y_Fw_filtered_phase_162
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 22.485358519248493
+  winning_mae: 0.5194444670808009
+  winning_rmse: 1.1161296696958187
+- target_name: fft_y_Fw_filtered_ampl_240
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 769.0738636047478
+  winning_mae: 0.002590214549838371
+  winning_rmse: 0.003740612148539507
+- target_name: fft_y_Fw_filtered_phase_240
+  winning_family: MLP
+  winning_display_name: Multi-Layer Perceptron
+  winning_estimator_name: MLPRegressor
+  winning_mape_percent: 171.9011657631151
+  winning_mae: 0.626918161938728
+  winning_rmse: 1.1767741268591
+per_target_ranking:
+  fft_y_Fw_filtered_ampl_0:
+  - *id003
+  fft_y_Fw_filtered_ampl_1:
+  - *id004
+  fft_y_Fw_filtered_phase_1:
+  - *id005
+  fft_y_Fw_filtered_ampl_3:
+  - *id006
+  fft_y_Fw_filtered_phase_3:
+  - *id007
+  fft_y_Fw_filtered_ampl_39:
+  - *id008
+  fft_y_Fw_filtered_phase_39:
+  - *id009
+  fft_y_Fw_filtered_ampl_40:
+  - *id010
+  fft_y_Fw_filtered_phase_40:
+  - *id011
+  fft_y_Fw_filtered_ampl_78:
+  - *id012
+  fft_y_Fw_filtered_phase_78:
+  - *id013
+  fft_y_Fw_filtered_ampl_81:
+  - *id014
+  fft_y_Fw_filtered_phase_81:
+  - *id015
+  fft_y_Fw_filtered_ampl_156:
+  - *id016
+  fft_y_Fw_filtered_phase_156:
+  - *id017
+  fft_y_Fw_filtered_ampl_162:
+  - *id018
+  fft_y_Fw_filtered_phase_162:
+  - *id019
+  fft_y_Fw_filtered_ampl_240:
+  - *id020
+  fft_y_Fw_filtered_phase_240:
+  - *id021
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export
+  exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - MLP/MLPRegressor_ampl0.onnx
+  - MLP/MLPRegressor_ampl1.onnx
+  - MLP/MLPRegressor_ampl156.onnx
+  - MLP/MLPRegressor_ampl162.onnx
+  - MLP/MLPRegressor_ampl240.onnx
+  - MLP/MLPRegressor_ampl3.onnx
+  - MLP/MLPRegressor_ampl39.onnx
+  - MLP/MLPRegressor_ampl40.onnx
+  - MLP/MLPRegressor_ampl78.onnx
+  - MLP/MLPRegressor_ampl81.onnx
+  - MLP/MLPRegressor_phase1.onnx
+  - MLP/MLPRegressor_phase156.onnx
+  - MLP/MLPRegressor_phase162.onnx
+  - MLP/MLPRegressor_phase240.onnx
+  - MLP/MLPRegressor_phase3.onnx
+  - MLP/MLPRegressor_phase39.onnx
+  - MLP/MLPRegressor_phase40.onnx
+  - MLP/MLPRegressor_phase78.onnx
+  - MLP/MLPRegressor_phase81.onnx
+  family_exports:
+  - family_name: MLP
+    display_name: Multi-Layer Perceptron
+    estimator_name: MLPRegressor
+    export_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP
+    exported_target_count: 19
+    failed_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Fw_filtered_ampl_0
+      export_target_name: ampl0
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl0.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl1.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_1
+      export_target_name: phase1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase1.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_3
+      export_target_name: ampl3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl3.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_3
+      export_target_name: phase3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase3.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_39
+      export_target_name: ampl39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl39.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_39
+      export_target_name: phase39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase39.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_40
+      export_target_name: ampl40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl40.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_40
+      export_target_name: phase40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase40.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_78
+      export_target_name: ampl78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl78.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_78
+      export_target_name: phase78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase78.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_81
+      export_target_name: ampl81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl81.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_81
+      export_target_name: phase81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase81.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_156
+      export_target_name: ampl156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl156.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_156
+      export_target_name: phase156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase156.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_162
+      export_target_name: ampl162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl162.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_162
+      export_target_name: phase162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase162.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_ampl_240
+      export_target_name: ampl240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_ampl240.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+    - target_name: fft_y_Fw_filtered_phase_240
+      export_target_name: phase240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/onnx_export/MLP/MLPRegressor_phase240.onnx
+      file_size_bytes: 1773
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: Pipeline
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_remote_micro/2026-04-25-23-56-39__track1_original_dataset_forward_mlp_remote_micro_campaign_run/validation_summary.yaml

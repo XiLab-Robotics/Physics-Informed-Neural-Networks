@@ -1,0 +1,604 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/smoke/forward/et_smoke.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke
+  model_type: exact_model_bank_forward_et_smoke
+  run_name: rcim_original_dataset_exact_model_bank_forward_et_smoke
+  output_run_name: rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation
+  run_instance_id: 2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation
+  output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation
+dataset:
+  dataset_root: data/datasets
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  direction_label: forward
+  direction_prefix: Fw
+  filtered_row_count: 16
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 10
+  validation_row_count: 3
+  test_row_count: 3
+  train_file_count: 10
+  validation_file_count: 3
+  test_file_count: 3
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 42
+  smoke_settings:
+    enabled: true
+    max_train_file_count: 10
+    max_validation_file_count: 3
+    max_test_file_count: 3
+training_strategy:
+  hyperparameter_search_mode: disabled
+  family_search_summary:
+    ET:
+      search_mode: disabled
+      used_grid_search: false
+      grid_search_disabled_for_family: true
+      grid_search_n_jobs: null
+      grid_search_verbose: null
+      grid_search_pre_dispatch: null
+      grid_search_cv: null
+      parameter_grid: null
+      best_params: null
+      best_score: null
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.3.5
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mean_component_mape_percent: 25.3588212736525
+  winning_mean_component_mae: 0.06889295640801701
+  winning_mean_component_rmse: 0.0728993588784704
+  winning_best_params: null
+family_ranking:
+- family_name: ET
+  display_name: Extra Tree
+  estimator_name: ExtraTreeRegressor
+  component_count: 19
+  mean_component_mse: 0.022645912922960816
+  mean_component_rmse: 0.0728993588784704
+  mean_component_mae: 0.06889295640801701
+  mean_component_mape_percent: 25.3588212736525
+  target_metrics:
+  - &id001
+    target_name: fft_y_Fw_filtered_ampl_0
+    family_name: ET
+    mse: 0.00010538409476236895
+    rmse: 0.010265675562882793
+    mae: 0.010005573526880208
+    mape_percent: 14.609988068845347
+  - &id002
+    target_name: fft_y_Fw_filtered_ampl_1
+    family_name: ET
+    mse: 8.82957963317486e-10
+    rmse: 2.9714608584288738e-05
+    mae: 2.8378647348400777e-05
+    mape_percent: 0.1651416129189466
+  - &id003
+    target_name: fft_y_Fw_filtered_phase_1
+    family_name: ET
+    mse: 1.1813681420466084e-05
+    rmse: 0.0034371036383074173
+    mae: 0.002821209311316938
+    mape_percent: 24.144078376829682
+  - &id004
+    target_name: fft_y_Fw_filtered_ampl_3
+    family_name: ET
+    mse: 1.0746749355055386e-08
+    rmse: 0.00010366652957949054
+    mae: 0.00010184423464367806
+    mape_percent: 11.307945080699248
+  - &id005
+    target_name: fft_y_Fw_filtered_phase_3
+    family_name: ET
+    mse: 0.002431547905994401
+    rmse: 0.04931072810245658
+    mae: 0.04443572012404965
+    mape_percent: 2.3487304056553433
+  - &id006
+    target_name: fft_y_Fw_filtered_ampl_39
+    family_name: ET
+    mse: 5.9600491005781065e-08
+    rmse: 0.00024413211793162542
+    mae: 0.00023409863663320204
+    mape_percent: 17.866774655747342
+  - &id007
+    target_name: fft_y_Fw_filtered_phase_39
+    family_name: ET
+    mse: 0.008972130435743325
+    rmse: 0.094721330415822
+    mae: 0.08898361067440001
+    mape_percent: 8.46044614453627
+  - &id008
+    target_name: fft_y_Fw_filtered_ampl_40
+    family_name: ET
+    mse: 5.041070516977491e-09
+    rmse: 7.100049659669636e-05
+    mae: 4.7043718227699045e-05
+    mape_percent: 5.283740582227155
+  - &id009
+    target_name: fft_y_Fw_filtered_phase_40
+    family_name: ET
+    mse: 0.008129803453508874
+    rmse: 0.09016542271574439
+    mae: 0.08887347139484225
+    mape_percent: 64.55346211363492
+  - &id010
+    target_name: fft_y_Fw_filtered_ampl_78
+    family_name: ET
+    mse: 1.2421200609916678e-07
+    rmse: 0.00035243723710636307
+    mae: 0.00034849506478888334
+    mape_percent: 24.726387013965937
+  - &id011
+    target_name: fft_y_Fw_filtered_phase_78
+    family_name: ET
+    mse: 0.0010673911051691503
+    rmse: 0.032670952008919944
+    mae: 0.02762741048456796
+    mape_percent: 205.67650494102395
+  - &id012
+    target_name: fft_y_Fw_filtered_ampl_81
+    family_name: ET
+    mse: 3.415155708348296e-10
+    rmse: 1.8480139903010193e-05
+    mae: 1.8231355584755697e-05
+    mape_percent: 5.408433421541022
+  - &id013
+    target_name: fft_y_Fw_filtered_phase_81
+    family_name: ET
+    mse: 0.025039458615521416
+    rmse: 0.1582386129094963
+    mae: 0.1451710535485536
+    mape_percent: 8.385601107095725
+  - &id014
+    target_name: fft_y_Fw_filtered_ampl_156
+    family_name: ET
+    mse: 4.383997250749617e-10
+    rmse: 2.0937997160066713e-05
+    mae: 1.7098573365481468e-05
+    mape_percent: 13.162264000052751
+  - &id015
+    target_name: fft_y_Fw_filtered_phase_156
+    family_name: ET
+    mse: 0.2293639846731287
+    rmse: 0.47891960147098667
+    mae: 0.4656140627143032
+    mape_percent: 19.55886352728804
+  - &id016
+    target_name: fft_y_Fw_filtered_ampl_162
+    family_name: ET
+    mse: 1.5329456541234462e-09
+    rmse: 3.915284988507792e-05
+    mae: 3.857439122942476e-05
+    mape_percent: 15.295667603249056
+  - &id017
+    target_name: fft_y_Fw_filtered_phase_162
+    family_name: ET
+    mse: 0.006543766731427589
+    rmse: 0.08089355185320761
+    mae: 0.06890530484423014
+    mape_percent: 3.4528442621542523
+  - &id018
+    target_name: fft_y_Fw_filtered_ampl_240
+    family_name: ET
+    mse: 8.050169986353074e-09
+    rmse: 8.972273951654103e-05
+    mae: 8.696237158134924e-05
+    mape_percent: 15.977332533414016
+  - &id019
+    target_name: fft_y_Fw_filtered_phase_240
+    family_name: ET
+    mse: 0.1486068539932733
+    rmse: 0.38549559529685073
+    mae: 0.36560802813577636
+    mape_percent: 21.433398748518496
+target_winner_registry:
+- target_name: fft_y_Fw_filtered_ampl_0
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 14.609988068845347
+  winning_mae: 0.010005573526880208
+  winning_rmse: 0.010265675562882793
+- target_name: fft_y_Fw_filtered_ampl_1
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 0.1651416129189466
+  winning_mae: 2.8378647348400777e-05
+  winning_rmse: 2.9714608584288738e-05
+- target_name: fft_y_Fw_filtered_phase_1
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 24.144078376829682
+  winning_mae: 0.002821209311316938
+  winning_rmse: 0.0034371036383074173
+- target_name: fft_y_Fw_filtered_ampl_3
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 11.307945080699248
+  winning_mae: 0.00010184423464367806
+  winning_rmse: 0.00010366652957949054
+- target_name: fft_y_Fw_filtered_phase_3
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 2.3487304056553433
+  winning_mae: 0.04443572012404965
+  winning_rmse: 0.04931072810245658
+- target_name: fft_y_Fw_filtered_ampl_39
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 17.866774655747342
+  winning_mae: 0.00023409863663320204
+  winning_rmse: 0.00024413211793162542
+- target_name: fft_y_Fw_filtered_phase_39
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 8.46044614453627
+  winning_mae: 0.08898361067440001
+  winning_rmse: 0.094721330415822
+- target_name: fft_y_Fw_filtered_ampl_40
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 5.283740582227155
+  winning_mae: 4.7043718227699045e-05
+  winning_rmse: 7.100049659669636e-05
+- target_name: fft_y_Fw_filtered_phase_40
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 64.55346211363492
+  winning_mae: 0.08887347139484225
+  winning_rmse: 0.09016542271574439
+- target_name: fft_y_Fw_filtered_ampl_78
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 24.726387013965937
+  winning_mae: 0.00034849506478888334
+  winning_rmse: 0.00035243723710636307
+- target_name: fft_y_Fw_filtered_phase_78
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 205.67650494102395
+  winning_mae: 0.02762741048456796
+  winning_rmse: 0.032670952008919944
+- target_name: fft_y_Fw_filtered_ampl_81
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 5.408433421541022
+  winning_mae: 1.8231355584755697e-05
+  winning_rmse: 1.8480139903010193e-05
+- target_name: fft_y_Fw_filtered_phase_81
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 8.385601107095725
+  winning_mae: 0.1451710535485536
+  winning_rmse: 0.1582386129094963
+- target_name: fft_y_Fw_filtered_ampl_156
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 13.162264000052751
+  winning_mae: 1.7098573365481468e-05
+  winning_rmse: 2.0937997160066713e-05
+- target_name: fft_y_Fw_filtered_phase_156
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 19.55886352728804
+  winning_mae: 0.4656140627143032
+  winning_rmse: 0.47891960147098667
+- target_name: fft_y_Fw_filtered_ampl_162
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 15.295667603249056
+  winning_mae: 3.857439122942476e-05
+  winning_rmse: 3.915284988507792e-05
+- target_name: fft_y_Fw_filtered_phase_162
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 3.4528442621542523
+  winning_mae: 0.06890530484423014
+  winning_rmse: 0.08089355185320761
+- target_name: fft_y_Fw_filtered_ampl_240
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 15.977332533414016
+  winning_mae: 8.696237158134924e-05
+  winning_rmse: 8.972273951654103e-05
+- target_name: fft_y_Fw_filtered_phase_240
+  winning_family: ET
+  winning_display_name: Extra Tree
+  winning_estimator_name: ExtraTreeRegressor
+  winning_mape_percent: 21.433398748518496
+  winning_mae: 0.36560802813577636
+  winning_rmse: 0.38549559529685073
+per_target_ranking:
+  fft_y_Fw_filtered_ampl_0:
+  - *id001
+  fft_y_Fw_filtered_ampl_1:
+  - *id002
+  fft_y_Fw_filtered_phase_1:
+  - *id003
+  fft_y_Fw_filtered_ampl_3:
+  - *id004
+  fft_y_Fw_filtered_phase_3:
+  - *id005
+  fft_y_Fw_filtered_ampl_39:
+  - *id006
+  fft_y_Fw_filtered_phase_39:
+  - *id007
+  fft_y_Fw_filtered_ampl_40:
+  - *id008
+  fft_y_Fw_filtered_phase_40:
+  - *id009
+  fft_y_Fw_filtered_ampl_78:
+  - *id010
+  fft_y_Fw_filtered_phase_78:
+  - *id011
+  fft_y_Fw_filtered_ampl_81:
+  - *id012
+  fft_y_Fw_filtered_phase_81:
+  - *id013
+  fft_y_Fw_filtered_ampl_156:
+  - *id014
+  fft_y_Fw_filtered_phase_156:
+  - *id015
+  fft_y_Fw_filtered_ampl_162:
+  - *id016
+  fft_y_Fw_filtered_phase_162:
+  - *id017
+  fft_y_Fw_filtered_ampl_240:
+  - *id018
+  fft_y_Fw_filtered_phase_240:
+  - *id019
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  export_root: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export
+  exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - ET/ExtraTreeRegressor_ampl0.onnx
+  - ET/ExtraTreeRegressor_ampl1.onnx
+  - ET/ExtraTreeRegressor_ampl156.onnx
+  - ET/ExtraTreeRegressor_ampl162.onnx
+  - ET/ExtraTreeRegressor_ampl240.onnx
+  - ET/ExtraTreeRegressor_ampl3.onnx
+  - ET/ExtraTreeRegressor_ampl39.onnx
+  - ET/ExtraTreeRegressor_ampl40.onnx
+  - ET/ExtraTreeRegressor_ampl78.onnx
+  - ET/ExtraTreeRegressor_ampl81.onnx
+  - ET/ExtraTreeRegressor_phase1.onnx
+  - ET/ExtraTreeRegressor_phase156.onnx
+  - ET/ExtraTreeRegressor_phase162.onnx
+  - ET/ExtraTreeRegressor_phase240.onnx
+  - ET/ExtraTreeRegressor_phase3.onnx
+  - ET/ExtraTreeRegressor_phase39.onnx
+  - ET/ExtraTreeRegressor_phase40.onnx
+  - ET/ExtraTreeRegressor_phase78.onnx
+  - ET/ExtraTreeRegressor_phase81.onnx
+  family_exports:
+  - family_name: ET
+    display_name: Extra Tree
+    estimator_name: ExtraTreeRegressor
+    export_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET
+    exported_target_count: 19
+    failed_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Fw_filtered_ampl_0
+      export_target_name: ampl0
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl0.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_1
+      export_target_name: ampl1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl1.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_1
+      export_target_name: phase1
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase1.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_3
+      export_target_name: ampl3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl3.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_3
+      export_target_name: phase3
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase3.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_39
+      export_target_name: ampl39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl39.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_39
+      export_target_name: phase39
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase39.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_40
+      export_target_name: ampl40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl40.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_40
+      export_target_name: phase40
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase40.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_78
+      export_target_name: ampl78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl78.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_78
+      export_target_name: phase78
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase78.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_81
+      export_target_name: ampl81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl81.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_81
+      export_target_name: phase81
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase81.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_156
+      export_target_name: ampl156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl156.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_156
+      export_target_name: phase156
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase156.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_162
+      export_target_name: ampl162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl162.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_162
+      export_target_name: phase162
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase162.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_ampl_240
+      export_target_name: ampl240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_ampl240.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+    - target_name: fft_y_Fw_filtered_phase_240
+      export_target_name: phase240
+      export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/onnx_export/ET/ExtraTreeRegressor_phase240.onnx
+      file_size_bytes: 755
+      export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: ExtraTreeRegressor
+artifacts:
+  model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/paper_family_model_bank.pkl
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_smoke/2026-04-25-11-59-43__rcim_original_dataset_exact_model_bank_forward_et_smoke_smoke_validation/validation_summary.yaml
