@@ -55,6 +55,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md](./reports/analysis/RCIM%20Original%20Pipeline%20To%20Reimplementation%20Companion.md)
+  Deep explanatory companion that walks through the recovered original RCIM
+  prediction pipeline, maps the active `v18` path inside `predictorML_v7.py`,
+  and explains how the repository exact-paper reimplementation redistributes
+  that workflow.
+
 - [reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md](./reports/analysis/RCIM%20Original%20Pipeline%20And%20Reimplementation%20Audit.md)
   Code-level audit of the copied recovered RCIM original workflow versus the
   current repository reimplementation, including runnable-stage boundaries and
@@ -93,6 +99,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-04-27
+
+- [technical/2026-04/2026-04-27/2026-04-27-19-06-13_rcim_original_pipeline_to_reimplementation_explanatory_companion.md](./technical/2026-04/2026-04-27/2026-04-27-19-06-13_rcim_original_pipeline_to_reimplementation_explanatory_companion.md)
+  Plan a deep explanatory companion report that walks through the recovered
+  original RCIM prediction pipeline and maps it carefully onto the repository
+  reimplementation.
 
 - [technical/2026-04/2026-04-27/2026-04-27-16-25-53_rcim_original_pipeline_runnable_workflow_and_diff_audit.md](./technical/2026-04/2026-04-27/2026-04-27-16-25-53_rcim_original_pipeline_runnable_workflow_and_diff_audit.md)
   Plan a repository-owned runnable copy of the recovered RCIM original
