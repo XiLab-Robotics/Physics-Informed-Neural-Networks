@@ -3,14 +3,15 @@ topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: RF
 implementation_family_name: RF
 archive_scope: track1_original_dataset_forward
-canonical_selection_rule: Per direction and target, select the completed mega-campaign
-  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
-  then run name.
+canonical_selection_rule: Per direction and target, store the accepted canonical benchmark
+  winner currently visible in Tables 2-5. When a later closeout improves the accepted
+  target winner, replace the archive entry; otherwise retain the stored entry unchanged.
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was rebuilt during the bidirectional original-dataset mega-campaign
-  closeout.
+- This archive was refreshed during the forward open-cell repair closeout. Improved
+  accepted targets were replaced and retained targets preserved their previous canonical
+  source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:

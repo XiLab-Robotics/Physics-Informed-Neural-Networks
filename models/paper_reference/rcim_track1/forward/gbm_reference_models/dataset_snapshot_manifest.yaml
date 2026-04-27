@@ -1,6 +1,6 @@
 schema_version: 1
 dataset_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-dataset_snapshot_sha256: 6f21e1327dc65628dad77efe0b34941be1b044eb7c9ec1d457ccd8c6df35e435
+dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
 source_dataset_root: data/datasets
 source_dataset_config_path: config/datasets/transmission_error_dataset.yaml
 direction_label: forward
@@ -49,7 +49,7 @@ validation_file_count: 194
 test_file_count: 97
 validation_split: 0.2
 test_size: 0.1
-random_seed: 9
+random_seed: 7
 smoke_settings:
   enabled: false
   max_train_file_count: 0

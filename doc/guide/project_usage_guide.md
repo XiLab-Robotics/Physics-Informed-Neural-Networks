@@ -107,11 +107,11 @@ The current usage flow mainly relies on these folders:
 - `scripts/reports/`
   Styled report-export utilities.
 
-- `scripts/reports/generate_training_results_master_summary.py`
+- `scripts/reports/analysis/generate_training_results_master_summary.py`
   Repository-owned generator for the canonical always-updated training-results
   master summary.
 
-- `scripts/reports/plot_wave1_best_model_te_curves.py`
+- `scripts/reports/analysis/plot_wave1_best_model_te_curves.py`
   Offline evaluator that loads the current Wave 1 family-best model registry
   entries, predicts selected held-out TE test curves, writes prediction CSVs,
   saves overlay plots, and generates a Markdown comparison report.
@@ -337,13 +337,13 @@ per-curve prediction CSVs, saves overlay plots, and generates a Markdown
 comparison report:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/plot_wave1_best_model_te_curves.py
+conda run -n standard_ml_codex_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py
 ```
 
 For a quick loader and plot smoke test, cap the selected curves:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/plot_wave1_best_model_te_curves.py --max-curves 2
+conda run -n standard_ml_codex_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py --max-curves 2
 ```
 
 The repository also exposes a separate original-dataset exact-model-bank branch
@@ -759,7 +759,7 @@ This avoids ambiguous filenames such as `Mind Map.png` or `Video Overview.mp4`.
 
 The styled PDF export entry point is:
 
-- `scripts/reports/generate_styled_report_pdf.py`
+- `scripts/reports/pdf/generate_styled_report_pdf.py`
 
 This utility:
 
@@ -771,15 +771,15 @@ This utility:
 
 The permanent validation entry point is:
 
-- `scripts/reports/validate_report_pdf.py`
+- `scripts/reports/pdf/validate_report_pdf.py`
 
 The repository also now exposes a diagram-generation utility used by the model explanatory reports:
 
-- `scripts/reports/generate_model_report_diagrams.py`
+- `scripts/reports/analysis/generate_model_report_diagrams.py`
 
 The standardized orchestration entry point is:
 
-- `scripts/reports/run_report_pipeline.py`
+- `scripts/reports/pdf/run_report_pipeline.py`
 
 This utility:
 
@@ -1096,7 +1096,7 @@ python -B scripts/tooling/session/isolated_mode.py close-session `
 ## Regenerate The Styled Training-Configuration PDF
 
 ```powershell
-python scripts/reports/generate_styled_report_pdf.py `
+python scripts/reports/pdf/generate_styled_report_pdf.py `
   --input-markdown-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.md" `
   --output-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
   --report-subtitle "Feedforward Transmission Error Baseline" `
@@ -1112,7 +1112,7 @@ What this does:
 If a persistent HTML preview is explicitly needed, request it on purpose:
 
 ```powershell
-python scripts/reports/generate_styled_report_pdf.py `
+python scripts/reports/pdf/generate_styled_report_pdf.py `
   --input-markdown-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.md" `
   --output-html-path "doc/reports/analysis/training_analysis/Training Configuration Analysis_preview.html" `
   --output-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
@@ -1156,7 +1156,7 @@ Use the orchestration runner when you want one repository-owned command for:
 For the current four structured-model explanatory reports:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/run_report_pipeline.py `
+conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
   --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe
@@ -1165,7 +1165,7 @@ conda run -n standard_ml_codex_env python scripts/reports/run_report_pipeline.py
 If the repository-local validation environment does not exist yet, bootstrap it once:
 
 ```powershell
-python scripts/reports/run_report_pipeline.py `
+python scripts/reports/pdf/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
   --bootstrap-tool-env
@@ -1205,7 +1205,7 @@ for:
 For the current project-status deck:
 
 ```powershell
-python scripts/reports/run_presentation_pipeline.py `
+python scripts/reports/presentation/run_presentation_pipeline.py `
   --input-markdown-path "doc/reports/analysis/project_status/[2026-03-27]/Project Status Presentation.md" `
   --clean-temp `
   --cleanup-validation-images
@@ -1241,7 +1241,7 @@ Current environment assumption:
 ## Regenerate The Model Report Diagrams
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/generate_model_report_diagrams.py
+conda run -n standard_ml_codex_env python scripts/reports/analysis/generate_model_report_diagrams.py
 ```
 
 This command regenerates the current SVG assets stored under:
@@ -1259,7 +1259,7 @@ Use it whenever:
 After every styled report export, validate the real PDF artifact rather than relying only on the HTML preview.
 
 ```powershell
-python scripts/reports/validate_report_pdf.py `
+python scripts/reports/pdf/validate_report_pdf.py `
   --input-pdf-path "doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf" `
   --output-image-directory .temp/pdf_validation_training_configuration_analysis `
   --clean-output-directory
@@ -2316,7 +2316,7 @@ For the bidirectional original-dataset `Track 1` exact-paper mega wave, the
 repo-owned closeout entry point is:
 
 ```powershell
-conda run -n standard_ml_codex_env python -B scripts\reports\closeout_track1_bidirectional_original_dataset_mega_campaign.py
+conda run -n standard_ml_codex_env python -B scripts\reports\closeout\track1\closeout_track1_bidirectional_original_dataset_mega_campaign.py
 ```
 
 That closeout utility is responsible for:

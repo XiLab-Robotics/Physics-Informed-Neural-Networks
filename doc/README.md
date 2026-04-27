@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-27
 
+- [technical/2026-04/2026-04-27/2026-04-27-23-29-14_scripts_reports_reorganization_and_pipeline_path_formalization.md](./technical/2026-04/2026-04-27/2026-04-27-23-29-14_scripts_reports_reorganization_and_pipeline_path_formalization.md)
+  Plan the reorganization of `scripts/reports/` into dedicated closeout, presentation, PDF, analysis, and Track 1 support subfolders, and formalize the new paths in campaign and report documentation.
+- [technical/2026-04/2026-04-27/2026-04-27-23-27-38_track1_closeout_reference_archive_refresh_enforcement.md](./technical/2026-04/2026-04-27/2026-04-27-23-27-38_track1_closeout_reference_archive_refresh_enforcement.md)
+  Plan the Track 1 closeout pipeline fix that makes `models/paper_reference/rcim_track1/` refresh mandatory and reusable for the current forward closeout path and future backward closeout paths.
 - [technical/2026-04/2026-04-27/2026-04-27-23-13-41_styled_pdf_pipeline_default_table_width_rebalancing.md](./technical/2026-04/2026-04-27/2026-04-27-23-13-41_styled_pdf_pipeline_default_table_width_rebalancing.md)
   Plan the styled PDF renderer improvement that promotes recurring table-width rebalancing into default first-pass profiles instead of repeated post-export manual fixes.
 - [technical/2026-04/2026-04-27/2026-04-27-22-18-57_track1_forward_open_cell_repair_closeout_and_forward_benchmark_refresh.md](./technical/2026-04/2026-04-27/2026-04-27-22-18-57_track1_forward_open_cell_repair_closeout_and_forward_benchmark_refresh.md)
@@ -921,10 +925,18 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the TE dataset parser, PyTorch dataset, and dataloader utilities.
 - [scripts/datasets/visualize_transmission_error.md](./scripts/datasets/visualize_transmission_error.md)
   Script-level documentation for the TE curve visualization utility.
-- [scripts/reports/generate_model_report_diagrams.md](./scripts/reports/generate_model_report_diagrams.md)
+- [scripts/reports/README.md](./scripts/reports/README.md)
+  Canonical index for the reorganized `scripts/reports/` subfolders and their operator-facing notes.
+- [scripts/reports/analysis/generate_model_report_diagrams.md](./scripts/reports/analysis/generate_model_report_diagrams.md)
   Script-level documentation for the SVG generator used by the model explanatory reports.
-- [scripts/reports/run_report_pipeline.md](./scripts/reports/run_report_pipeline.md)
+- [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
+  Script-level documentation for the canonical training-results master-summary generator.
+- [scripts/reports/pdf/run_report_pipeline.md](./scripts/reports/pdf/run_report_pipeline.md)
   Script-level documentation for the orchestration runner that standardizes diagram regeneration, styled PDF export, and PDF validation.
+- [scripts/reports/presentation/run_presentation_pipeline.md](./scripts/reports/presentation/run_presentation_pipeline.md)
+  Script-level documentation for the repository-owned Markdown-to-presentation pipeline runner.
+- [scripts/reports/closeout/README.md](./scripts/reports/closeout/README.md)
+  Script-level documentation for the canonical Track 1 closeout entrypoint subtree.
 - [scripts/training/train_feedforward_network.md](./scripts/training/train_feedforward_network.md)
   Script-level documentation for the first PyTorch Lightning feedforward training entry point.
 - [scripts/training/train_tree_regressor.md](./scripts/training/train_tree_regressor.md)

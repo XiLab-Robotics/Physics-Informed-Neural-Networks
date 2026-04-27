@@ -44,9 +44,9 @@ PDF output, not only the source Markdown or HTML.
 ## Commands And Tools To Prefer
 
 ```powershell
-python -B scripts/reports/run_report_pipeline.py
-python -B scripts/reports/generate_styled_report_pdf.py
-python -B scripts/reports/validate_report_pdf.py
+python -B scripts/reports/pdf/run_report_pipeline.py
+python -B scripts/reports/pdf/generate_styled_report_pdf.py
+python -B scripts/reports/pdf/validate_report_pdf.py
 ```
 
 ## Validation Output Pattern
@@ -60,8 +60,8 @@ Prefer this structure:
 
 ## File Targets To Read First
 
-- `scripts/reports/generate_styled_report_pdf.py`
-- `scripts/reports/run_report_pipeline.py`
-- `scripts/reports/validate_report_pdf.py`
+- `scripts/reports/pdf/generate_styled_report_pdf.py`
+- `scripts/reports/pdf/run_report_pipeline.py`
+- `scripts/reports/pdf/validate_report_pdf.py`
 - relevant report Markdown in `doc/reports/` or `doc/guide/`
 - the exported PDF artifact under the task output folder

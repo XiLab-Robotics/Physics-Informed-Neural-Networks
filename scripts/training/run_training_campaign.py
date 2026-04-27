@@ -25,7 +25,7 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 
 # Import Report Utilities
-from scripts.reports.generate_training_results_master_summary import DEFAULT_OUTPUT_MARKDOWN_PATH, generate_training_results_master_summary
+from scripts.reports.analysis.generate_training_results_master_summary import DEFAULT_OUTPUT_MARKDOWN_PATH, generate_training_results_master_summary
 
 from scripts.training import shared_training_infrastructure
 

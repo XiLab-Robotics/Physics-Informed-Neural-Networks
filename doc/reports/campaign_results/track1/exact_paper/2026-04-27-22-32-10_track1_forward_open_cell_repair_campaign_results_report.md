@@ -14,9 +14,9 @@
 
 - The forward-only repair wave completed the full `300/300` queue successfully.
 - Targeted family-target pairs: `30`.
-- Promoted pair winners: `25`.
-- Retained baseline pair winners: `5`.
-- Forward non-green cells moved from `53` to `11`.
+- Promoted pair winners: `11`.
+- Retained baseline pair winners: `19`.
+- Forward non-green cells moved from `11` to `11`.
 
 ## Family Best Retry Outcome
 
@@ -42,10 +42,10 @@
 
 | Surface | Before | After | Delta |
 | --- | --- | --- | --- |
-| Table `2` forward amplitude MAE | `82G / 2Y / 16R` | `94G / 3Y / 3R` | `1Y / -13R` |
-| Table `3` forward amplitude RMSE | `82G / 6Y / 12R` | `96G / 3Y / 1R` | `-3Y / -11R` |
-| Table `4` forward phase MAE | `82G / 0Y / 8R` | `89G / 1Y / 0R` | `1Y / -8R` |
-| Table `5` forward phase RMSE | `81G / 6Y / 3R` | `90G / 0Y / 0R` | `-6Y / -3R` |
+| Table `2` forward amplitude MAE | `94G / 3Y / 3R` | `94G / 3Y / 3R` | `0Y / 0R` |
+| Table `3` forward amplitude RMSE | `96G / 3Y / 1R` | `96G / 3Y / 1R` | `0Y / 0R` |
+| Table `4` forward phase MAE | `89G / 1Y / 0R` | `89G / 1Y / 0R` | `0Y / 0R` |
+| Table `5` forward phase RMSE | `90G / 0Y / 0R` | `90G / 0Y / 0R` | `0Y / 0R` |
 
 ## Canonical Forward Status After Closeout
 
@@ -54,10 +54,26 @@
 - Table `4`: `1` yellow, `0` red
 - Table `5`: `0` yellow, `0` red
 
+## Reference Archive Refresh
+
+| Direction | Family | Archived Targets | Unique Source Runs | Unique Source Configs | Archive Root |
+| --- | --- | ---: | ---: | ---: | --- |
+| `forward` | `SVM` | 19 | 11 | 11 | `models/paper_reference/rcim_track1/forward/svm_reference_models` |
+| `forward` | `MLP` | 19 | 13 | 13 | `models/paper_reference/rcim_track1/forward/mlp_reference_models` |
+| `forward` | `RF` | 19 | 12 | 12 | `models/paper_reference/rcim_track1/forward/rf_reference_models` |
+| `forward` | `DT` | 19 | 12 | 12 | `models/paper_reference/rcim_track1/forward/dt_reference_models` |
+| `forward` | `ET` | 19 | 12 | 12 | `models/paper_reference/rcim_track1/forward/et_reference_models` |
+| `forward` | `ERT` | 19 | 10 | 10 | `models/paper_reference/rcim_track1/forward/ert_reference_models` |
+| `forward` | `GBM` | 19 | 11 | 11 | `models/paper_reference/rcim_track1/forward/gbm_reference_models` |
+| `forward` | `HGBM` | 19 | 11 | 11 | `models/paper_reference/rcim_track1/forward/hgbm_reference_models` |
+| `forward` | `XGBM` | 19 | 11 | 11 | `models/paper_reference/rcim_track1/forward/xgbm_reference_models` |
+| `forward` | `LGBM` | 19 | 17 | 17 | `models/paper_reference/rcim_track1/forward/lgbm_reference_models` |
+
 ## Linked Artifacts
 
 - benchmark report: `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - training results master summary: `doc/reports/analysis/Training Results Master Summary.md`
+- track1 reference root: `models/paper_reference/rcim_track1/forward/`
 - campaign leaderboard: `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10/campaign_leaderboard.yaml`
 - campaign best run YAML: `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10/campaign_best_run.yaml`
 - campaign best run Markdown: `output/training_campaigns/track1/exact_paper/forward_open_cell_repair/track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10/campaign_best_run.md`

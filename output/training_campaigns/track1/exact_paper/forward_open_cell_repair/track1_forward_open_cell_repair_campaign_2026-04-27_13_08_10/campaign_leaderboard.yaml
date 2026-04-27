@@ -13,7 +13,7 @@ selection_policy:
   direction: maximize_then_minimize
   note: This winner is the bookkeeping representative of the completed Track 1 forward
     open-cell repair campaign.
-updated_at: '2026-04-27T22:33:00+02:00'
+updated_at: '2026-04-27T23:53:09+02:00'
 entry_count: 300
 entry_list:
 - entry_origin: campaign

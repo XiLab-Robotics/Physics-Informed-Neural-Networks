@@ -3,14 +3,15 @@ topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: DT
 implementation_family_name: DT
 archive_scope: track1_original_dataset_forward
-canonical_selection_rule: Per direction and target, select the completed mega-campaign
-  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
-  then run name.
+canonical_selection_rule: Per direction and target, store the accepted canonical benchmark
+  winner currently visible in Tables 2-5. When a later closeout improves the accepted
+  target winner, replace the archive entry; otherwise retain the stored entry unchanged.
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was rebuilt during the bidirectional original-dataset mega-campaign
-  closeout.
+- This archive was refreshed during the forward open-cell repair closeout. Improved
+  accepted targets were replaced and retained targets preserved their previous canonical
+  source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -32,7 +33,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-25-54__track1_original_dataset_forward_dt_attempt_18_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-25-54__track1_original_dataset_forward_dt_attempt_18_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl0.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -118,7 +119,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-23-08__track1_original_dataset_forward_dt_attempt_15_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-23-08__track1_original_dataset_forward_dt_attempt_15_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -204,7 +205,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-26-49__track1_original_dataset_forward_dt_attempt_19_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-26-49__track1_original_dataset_forward_dt_attempt_19_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -290,7 +291,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -376,7 +377,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-15-42__track1_original_dataset_forward_dt_attempt_07_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-15-42__track1_original_dataset_forward_dt_attempt_07_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -462,7 +463,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-13-49__track1_original_dataset_forward_dt_attempt_05_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-13-49__track1_original_dataset_forward_dt_attempt_05_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -548,7 +549,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-25-54__track1_original_dataset_forward_dt_attempt_18_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-25-54__track1_original_dataset_forward_dt_attempt_18_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -634,7 +635,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-17-32__track1_original_dataset_forward_dt_attempt_09_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-17-32__track1_original_dataset_forward_dt_attempt_09_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -720,7 +721,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-15-42__track1_original_dataset_forward_dt_attempt_07_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-15-42__track1_original_dataset_forward_dt_attempt_07_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -806,7 +807,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-17-32__track1_original_dataset_forward_dt_attempt_09_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-17-32__track1_original_dataset_forward_dt_attempt_09_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -892,7 +893,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-24-04__track1_original_dataset_forward_dt_attempt_16_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-24-04__track1_original_dataset_forward_dt_attempt_16_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -978,7 +979,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-24-04__track1_original_dataset_forward_dt_attempt_16_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-24-04__track1_original_dataset_forward_dt_attempt_16_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1064,7 +1065,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1150,7 +1151,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1236,7 +1237,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-19-21__track1_original_dataset_forward_dt_attempt_11_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-19-21__track1_original_dataset_forward_dt_attempt_11_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1322,7 +1323,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-16-37__track1_original_dataset_forward_dt_attempt_08_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1408,7 +1409,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-27-44__track1_original_dataset_forward_dt_attempt_20_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-27-44__track1_original_dataset_forward_dt_attempt_20_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1494,7 +1495,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-20-16__track1_original_dataset_forward_dt_attempt_12_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-20-16__track1_original_dataset_forward_dt_attempt_12_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
@@ -1580,7 +1581,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-21-12__track1_original_dataset_forward_dt_attempt_13_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/dt_reference_models/source_runs/2026-04-26-03-21-12__track1_original_dataset_forward_dt_attempt_13_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 6cd8ac67c732506be0e9ea0da225080934c1bbf134aa540999128918cc321235
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/dt_reference_models/python/phase/DecisionTreeRegressor_phase81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor

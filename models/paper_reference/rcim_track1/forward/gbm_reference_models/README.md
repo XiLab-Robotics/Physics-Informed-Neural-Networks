@@ -1,7 +1,7 @@
 # RCIM Track 1 Forward GBM Reference Models
 
 This archive stores the accepted `GBM` target-level winners for the
-`forward` branch of the bidirectional original-dataset Track 1 restart wave.
+`forward` branch of the canonical original-dataset Track 1 benchmark surface.
 
 Archive contents:
 
@@ -18,7 +18,9 @@ Archive contents:
 
 Selection rule:
 
-- lowest target `MAE`; ties break on target `RMSE`, then target `MAPE`, then run name.
+- store the accepted canonical target winner currently visible in the benchmark matrices.
+- when a later closeout improves the accepted target winner, replace the archived entry.
+- when the accepted target winner does not improve, retain the existing archived entry unchanged.
 - archive refresh is mandatory at closeout only when the accepted winner improves the stored target entry.
 
 Accepted amplitude targets:
@@ -29,8 +31,8 @@ Accepted amplitude targets:
 | `fft_y_Fw_filtered_ampl_1` | `1` | `2.24145e-05` | `2.91983e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl1.onnx` |
 | `fft_y_Fw_filtered_ampl_156` | `156` | `0.000108567` | `0.000163884` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl156.onnx` |
 | `fft_y_Fw_filtered_ampl_162` | `162` | `0.000118525` | `0.000352059` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `4.39369e-05` | `6.78321e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `2.45673e-05` | `3.13798e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `2.06143e-05` | `3.64241e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_3` | `3` | `1.62835e-05` | `2.24733e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx` |
 | `fft_y_Fw_filtered_ampl_39` | `39` | `4.08111e-05` | `5.06426e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl39.onnx` |
 | `fft_y_Fw_filtered_ampl_40` | `40` | `2.38098e-05` | `3.18227e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl40.onnx` |
 | `fft_y_Fw_filtered_ampl_78` | `78` | `6.74426e-05` | `8.39781e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl78.onnx` |
@@ -48,7 +50,7 @@ Accepted phase targets:
 | `fft_y_Fw_filtered_phase_39` | `39` | `0.029536` | `0.037133` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase39.onnx` |
 | `fft_y_Fw_filtered_phase_40` | `40` | `0.0346363` | `0.04588` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase40.onnx` |
 | `fft_y_Fw_filtered_phase_78` | `78` | `0.0636816` | `0.0988506` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0673461` | `0.0893568` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase81.onnx` |
+| `fft_y_Fw_filtered_phase_81` | `81` | `0.0454351` | `0.0594284` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase81.onnx` |
 
 Provenance summary:
 
@@ -56,7 +58,7 @@ Provenance summary:
 - paper family: `GBM`
 - implementation family: `GBM`
 - archived target count: `19`
-- unique source runs: `8`
-- unique source configs: `8`
+- unique source runs: `11`
+- unique source configs: `11`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/gbm_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/gbm_reference_models/reference_inventory.yaml`

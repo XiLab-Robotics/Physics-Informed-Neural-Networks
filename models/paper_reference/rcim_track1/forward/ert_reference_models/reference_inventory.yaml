@@ -3,14 +3,15 @@ topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: ERT
 implementation_family_name: ERT
 archive_scope: track1_original_dataset_forward
-canonical_selection_rule: Per direction and target, select the completed mega-campaign
-  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
-  then run name.
+canonical_selection_rule: Per direction and target, store the accepted canonical benchmark
+  winner currently visible in Tables 2-5. When a later closeout improves the accepted
+  target winner, replace the archive entry; otherwise retain the stored entry unchanged.
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was rebuilt during the bidirectional original-dataset mega-campaign
-  closeout.
+- This archive was refreshed during the forward open-cell repair closeout. Improved
+  accepted targets were replaced and retained targets preserved their previous canonical
+  source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -32,7 +33,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-04-28__track1_original_dataset_forward_ert_attempt_06_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-04-28__track1_original_dataset_forward_ert_attempt_06_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl0.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -124,7 +125,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-33-19__track1_original_dataset_forward_ert_attempt_15_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-33-19__track1_original_dataset_forward_ert_attempt_15_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -216,7 +217,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-46-06__track1_original_dataset_forward_ert_attempt_19_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-46-06__track1_original_dataset_forward_ert_attempt_19_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -308,7 +309,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -400,7 +401,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -492,7 +493,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-33-19__track1_original_dataset_forward_ert_attempt_15_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-33-19__track1_original_dataset_forward_ert_attempt_15_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -584,7 +585,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-48-16__track1_original_dataset_forward_ert_attempt_01_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-03-48-16__track1_original_dataset_forward_ert_attempt_01_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -676,7 +677,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-48-16__track1_original_dataset_forward_ert_attempt_01_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-03-48-16__track1_original_dataset_forward_ert_attempt_01_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -768,7 +769,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-14-07__track1_original_dataset_forward_ert_attempt_09_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-14-07__track1_original_dataset_forward_ert_attempt_09_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -860,7 +861,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -952,7 +953,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-36-25__track1_original_dataset_forward_ert_attempt_16_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-36-25__track1_original_dataset_forward_ert_attempt_16_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1044,7 +1045,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-57-56__track1_original_dataset_forward_ert_attempt_04_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-03-57-56__track1_original_dataset_forward_ert_attempt_04_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1136,7 +1137,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-04-28__track1_original_dataset_forward_ert_attempt_06_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-04-28__track1_original_dataset_forward_ert_attempt_06_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1228,7 +1229,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-54-40__track1_original_dataset_forward_ert_attempt_03_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-03-54-40__track1_original_dataset_forward_ert_attempt_03_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1320,7 +1321,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-04-28__track1_original_dataset_forward_ert_attempt_06_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-04-28__track1_original_dataset_forward_ert_attempt_06_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1412,7 +1413,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-49-19__track1_original_dataset_forward_ert_attempt_20_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-49-19__track1_original_dataset_forward_ert_attempt_20_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1504,7 +1505,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-49-19__track1_original_dataset_forward_ert_attempt_20_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-49-19__track1_original_dataset_forward_ert_attempt_20_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1596,7 +1597,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
@@ -1688,7 +1689,7 @@ reference_models:
   source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-48-16__track1_original_dataset_forward_ert_attempt_01_campaign_validation/paper_family_model_bank.pkl
   split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-03-48-16__track1_original_dataset_forward_ert_attempt_01_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: fa5ed8fdc6148bedd8bae4c29ca4166c32de0214617d925ff66ccc983e5127f3
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/phase/ExtraTreesRegressor_phase81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor

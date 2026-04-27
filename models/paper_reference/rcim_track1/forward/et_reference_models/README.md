@@ -1,7 +1,7 @@
 # RCIM Track 1 Forward ET Reference Models
 
 This archive stores the accepted `ET` target-level winners for the
-`forward` branch of the bidirectional original-dataset Track 1 restart wave.
+`forward` branch of the canonical original-dataset Track 1 benchmark surface.
 
 Archive contents:
 
@@ -18,7 +18,9 @@ Archive contents:
 
 Selection rule:
 
-- lowest target `MAE`; ties break on target `RMSE`, then target `MAPE`, then run name.
+- store the accepted canonical target winner currently visible in the benchmark matrices.
+- when a later closeout improves the accepted target winner, replace the archived entry.
+- when the accepted target winner does not improve, retain the existing archived entry unchanged.
 - archive refresh is mandatory at closeout only when the accepted winner improves the stored target entry.
 
 Accepted amplitude targets:

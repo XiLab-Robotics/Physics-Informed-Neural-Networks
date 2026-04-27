@@ -5,7 +5,7 @@ source_training_config_path: output/validation_checks/paper_reimplementation_rci
 source_run_metadata_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/run_metadata.yaml
 source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/paper_family_model_bank.pkl
 dataset_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-dataset_snapshot_sha256: 6f21e1327dc65628dad77efe0b34941be1b044eb7c9ec1d457ccd8c6df35e435
+dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
 source_dataset_root: data/datasets
 source_dataset_config_path: config/datasets/transmission_error_dataset.yaml
 direction_label: forward
@@ -54,7 +54,7 @@ validation_file_count: 194
 test_file_count: 97
 validation_split: 0.2
 test_size: 0.1
-random_seed: 9
+random_seed: 7
 smoke_settings:
   enabled: false
   max_train_file_count: 0

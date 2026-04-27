@@ -16,7 +16,7 @@ if str(PROJECT_PATH) not in sys.path:
 
 # Import Project Utilities
 from scripts.paper_reimplementation.rcim_ml_compensation import harmonic_wise_support
-from scripts.reports.generate_training_results_master_summary import generate_training_results_master_summary
+from scripts.reports.analysis.generate_training_results_master_summary import generate_training_results_master_summary
 from scripts.training import shared_training_infrastructure
 
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "paper_reimplementation" / "rcim_ml_compensation" / "harmonic_wise" / "baseline.yaml"

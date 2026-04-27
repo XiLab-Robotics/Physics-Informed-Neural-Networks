@@ -113,9 +113,9 @@
 - Do not treat a styled PDF export as complete until the exported PDF has been
   checked against the real deliverable, not only the HTML source.
 - Prefer the repository-owned entry points:
-  - `python -B scripts/reports/run_report_pipeline.py`
-  - `python -B scripts/reports/generate_styled_report_pdf.py`
-  - `python -B scripts/reports/validate_report_pdf.py`
+  - `python -B scripts/reports/pdf/run_report_pipeline.py`
+  - `python -B scripts/reports/pdf/generate_styled_report_pdf.py`
+  - `python -B scripts/reports/pdf/validate_report_pdf.py`
 - Prefer persistent repository-owned scripts over ad hoc inline Python snippets
   for export or validation work, except when debugging a broken tool.
 - Prefer the `styled-report-pdf-qa` skill when the task is primarily PDF or

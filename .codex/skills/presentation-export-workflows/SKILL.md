@@ -54,9 +54,9 @@ decks to real `.pptx` and slide-PDF deliverables.
 ## Commands And Tools To Prefer
 
 ```powershell
-python -B scripts/reports/generate_markdown_presentation.py
-python -B scripts/reports/run_presentation_pipeline.py
-python -B scripts/reports/validate_report_pdf.py
+python -B scripts/reports/presentation/generate_markdown_presentation.py
+python -B scripts/reports/presentation/run_presentation_pipeline.py
+python -B scripts/reports/pdf/validate_report_pdf.py
 ```
 
 ## Validation Output Pattern
@@ -71,9 +71,9 @@ Prefer this structure:
 
 ## File Targets To Read First
 
-- `scripts/reports/generate_markdown_presentation.py`
-- `scripts/reports/run_presentation_pipeline.py`
-- `scripts/reports/validate_report_pdf.py`
+- `scripts/reports/presentation/generate_markdown_presentation.py`
+- `scripts/reports/presentation/run_presentation_pipeline.py`
+- `scripts/reports/pdf/validate_report_pdf.py`
 - `reference/templates/Template_XiLab_Research.pptx`
 - the owning Markdown slide deck under `doc/reports/` or `doc/guide/`
 - `doc/README.md`
