@@ -1,0 +1,36 @@
+{
+  "profile_name": "latest_snapshot_v17",
+  "description": "Recovered later snapshot with default-family export workflow.",
+  "dataframe_path": "scripts\\paper_reimplementation\\rcim_ml_compensation\\recovered_original_workflow\\latest_snapshot\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "row_count": 969,
+  "target_column_count": 20,
+  "selected_family_code_list": [
+    "DT"
+  ],
+  "export_onnx": true,
+  "test_size": 0.2,
+  "generated_prediction_files": [
+    "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-27-16-35-28_latest_snapshot_v17_smoke_dt_latest_fix\\original_style_output\\instV3.2_Fw\\dfOutTot_prediction_DecisionTreeRegressor_.csv"
+  ],
+  "generated_onnx_roots": [
+    "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-27-16-35-28_latest_snapshot_v17_smoke_dt_latest_fix\\original_style_output\\instV3.2_Fw\\DecisionTreeRegressor__MultiOutput_tot"
+  ],
+  "workspace_root": "scripts\\paper_reimplementation\\rcim_ml_compensation\\recovered_original_workflow\\latest_snapshot",
+  "stage_status": {
+    "dataframe_creation": {
+      "copied": true,
+      "directly_runnable": false,
+      "blocking_reason": "The recovered creation stage imports instance_v5 via copied statistic.py, but no recovered instance_v5.py exists in the archived source trees."
+    },
+    "prediction": {
+      "copied": true,
+      "directly_runnable": true,
+      "notes": "The repository-owned wrapper can run the copied predictorML_v7 logic against the shipped recovered dataframe."
+    },
+    "evaluation": {
+      "copied": true,
+      "directly_runnable": false,
+      "blocking_reason": "The recovered evaluation stage imports instance_v4 and instance_v5, which are not present in the recovered original_pipeline tree."
+    }
+  }
+}
