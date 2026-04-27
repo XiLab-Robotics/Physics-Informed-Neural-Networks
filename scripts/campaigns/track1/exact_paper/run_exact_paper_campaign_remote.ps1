@@ -78,6 +78,48 @@ function Convert-ToSlug {
     return $characterBuilder.ToString().Trim("_")
 }
 
+function Get-DeterministicShortHash {
+
+    param(
+        [string]$RawText,
+        [int]$HexLength = 16
+    )
+
+    $sha256 = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $rawByteArray = [System.Text.Encoding]::UTF8.GetBytes($RawText)
+        $hashByteArray = $sha256.ComputeHash($rawByteArray)
+        $hexText = ([System.BitConverter]::ToString($hashByteArray)).Replace("-", "").ToLowerInvariant()
+        if ($HexLength -gt 0 -and $HexLength -lt $hexText.Length) {
+            return $hexText.Substring(0, $HexLength)
+        }
+        return $hexText
+    }
+    finally {
+        $sha256.Dispose()
+    }
+}
+
+function Get-RemoteArtifactArchiveSlug {
+
+    param(
+        [int]$PathIndex,
+        [string]$RelativePath
+    )
+
+    $fileNameStem = [System.IO.Path]::GetFileNameWithoutExtension($RelativePath)
+    $fileNameSlug = Convert-ToSlug -RawText $fileNameStem
+    if ([string]::IsNullOrWhiteSpace($fileNameSlug)) {
+        $fileNameSlug = "artifact"
+    }
+    if ($fileNameSlug.Length -gt 40) {
+        $fileNameSlug = $fileNameSlug.Substring(0, 40).Trim("_")
+    }
+
+    $pathHash = Get-DeterministicShortHash -RawText $RelativePath -HexLength 16
+    return "{0:D3}_{1}_{2}" -f ($PathIndex + 1), $fileNameSlug, $pathHash
+}
+
 function Get-OptionalExactPaperDependencySpecificationList {
 
     param(
@@ -678,7 +720,7 @@ function Invoke-RemoteTarCopyToLocal {
 
     for ($pathIndex = 0; $pathIndex -lt $RelativePathList.Count; $pathIndex++) {
         $relativePath = $RelativePathList[$pathIndex]
-        $archiveSlug = "{0:D3}_{1}" -f ($pathIndex + 1), (Convert-ToSlug -RawText $relativePath)
+        $archiveSlug = Get-RemoteArtifactArchiveSlug -PathIndex $pathIndex -RelativePath $relativePath
         $localArchivePath = Join-Path $localArchiveDirectory "${archiveSlug}.tar"
         $remoteArchivePath = Join-Path $remoteStagingRootPath "${archiveSlug}.tar"
         $remoteScpArchivePath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath

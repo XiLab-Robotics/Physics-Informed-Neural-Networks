@@ -85,6 +85,10 @@ TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-s
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-benchmark-surface"
 TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-reference-archive"
+TRACK1_FORWARD_OPEN_CELL_REPAIR_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-forward-open-cell-repair-family"
+TRACK1_FORWARD_OPEN_CELL_REPAIR_DELTA_TABLE_CLASS_NAME = "report-table report-table-track1-forward-open-cell-repair-delta"
+FAMILY_BEST_RETRY_OUTCOME_TABLE_CLASS_NAME = TRACK1_FORWARD_OPEN_CELL_REPAIR_FAMILY_TABLE_CLASS_NAME
+SURFACE_DELTA_SUMMARY_TABLE_CLASS_NAME = TRACK1_FORWARD_OPEN_CELL_REPAIR_DELTA_TABLE_CLASS_NAME
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
 SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-export-surface"
 SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-gap-vs-paper"
@@ -155,6 +159,22 @@ SURFACE_BEFORE_AFTER_SUMMARY_TABLE_HEADER_CELLS = (
     "Surface",
     "Before",
     "After",
+)
+FAMILY_BEST_RETRY_OUTCOME_TABLE_HEADER_CELLS = (
+    "Family",
+    "Best Run",
+    "Scope",
+    "Harmonic",
+    "Closure Score",
+    "Met",
+    "Near",
+    "Open",
+)
+SURFACE_DELTA_SUMMARY_TABLE_HEADER_CELLS = (
+    "Surface",
+    "Before",
+    "After",
+    "Delta",
 )
 SVR_REFERENCE_GRID_RANKING_TABLE_HEADER_CELLS = (
     "Rank",
@@ -897,6 +917,42 @@ REPORT_STYLESHEET = """
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(4), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(4) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(5), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(5) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(6), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(6) { width: 46%; }
+
+    .report-table-track1-forward-open-cell-repair-family,
+    .report-table-track1-forward-open-cell-repair-delta {
+      font-size: 6.9pt;
+      line-height: 1.17;
+    }
+
+    .report-table-track1-forward-open-cell-repair-family th,
+    .report-table-track1-forward-open-cell-repair-family td,
+    .report-table-track1-forward-open-cell-repair-delta th,
+    .report-table-track1-forward-open-cell-repair-delta td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-forward-open-cell-repair-family th,
+    .report-table-track1-forward-open-cell-repair-delta th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(1), .report-table-track1-forward-open-cell-repair-family td:nth-child(1) { width: 9%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(2), .report-table-track1-forward-open-cell-repair-family td:nth-child(2) { width: 40%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(3), .report-table-track1-forward-open-cell-repair-family td:nth-child(3) { width: 11%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(4), .report-table-track1-forward-open-cell-repair-family td:nth-child(4) { width: 9%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(5), .report-table-track1-forward-open-cell-repair-family td:nth-child(5) { width: 11%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(6), .report-table-track1-forward-open-cell-repair-family td:nth-child(6) { width: 7%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(7), .report-table-track1-forward-open-cell-repair-family td:nth-child(7) { width: 7%; }
+    .report-table-track1-forward-open-cell-repair-family th:nth-child(8), .report-table-track1-forward-open-cell-repair-family td:nth-child(8) { width: 6%; }
+
+    .report-table-track1-forward-open-cell-repair-delta th:nth-child(1), .report-table-track1-forward-open-cell-repair-delta td:nth-child(1) { width: 43%; }
+    .report-table-track1-forward-open-cell-repair-delta th:nth-child(2), .report-table-track1-forward-open-cell-repair-delta td:nth-child(2) { width: 19%; }
+    .report-table-track1-forward-open-cell-repair-delta th:nth-child(3), .report-table-track1-forward-open-cell-repair-delta td:nth-child(3) { width: 19%; }
+    .report-table-track1-forward-open-cell-repair-delta th:nth-child(4), .report-table-track1-forward-open-cell-repair-delta td:nth-child(4) { width: 19%; }
 
     .report-table-svr-reference-grid-ranking,
     .report-table-svr-reference-grid-export-surface,
@@ -1893,6 +1949,18 @@ def is_surface_before_after_summary_table(header_cells: Sequence[str]) -> bool:
 
     return tuple(header_cells) == SURFACE_BEFORE_AFTER_SUMMARY_TABLE_HEADER_CELLS
 
+def is_family_best_retry_outcome_table(header_cells: Sequence[str]) -> bool:
+
+    """Report whether the table matches the shared family-best retry outcome profile."""
+
+    return tuple(header_cells) == FAMILY_BEST_RETRY_OUTCOME_TABLE_HEADER_CELLS
+
+def is_surface_delta_summary_table(header_cells: Sequence[str]) -> bool:
+
+    """Report whether the table matches the shared surface delta summary profile."""
+
+    return tuple(header_cells) == SURFACE_DELTA_SUMMARY_TABLE_HEADER_CELLS
+
 def is_svr_reference_grid_ranking_table(header_cells: Sequence[str]) -> bool:
 
     """ Report Whether The Header Set Matches The SVR Reference-Grid Ranking Table """
@@ -2193,6 +2261,12 @@ def resolve_standard_table_class_name(
 
     if is_surface_before_after_summary_table(normalized_header_cells):
         return SURFACE_BEFORE_AFTER_SUMMARY_TABLE_CLASS_NAME
+
+    if is_family_best_retry_outcome_table(normalized_header_cells):
+        return FAMILY_BEST_RETRY_OUTCOME_TABLE_CLASS_NAME
+
+    if is_surface_delta_summary_table(normalized_header_cells):
+        return SURFACE_DELTA_SUMMARY_TABLE_CLASS_NAME
 
     # Resolve SVR Reference-Grid Campaign Table Profiles
     if is_svr_reference_grid_ranking_table(normalized_header_cells):

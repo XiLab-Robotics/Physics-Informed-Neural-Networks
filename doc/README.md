@@ -60,7 +60,6 @@ This folder contains the internal project documents derived from the reference P
   prediction pipeline, maps the active `v18` path inside `predictorML_v7.py`,
   and explains how the repository exact-paper reimplementation redistributes
   that workflow.
-
 - [reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md](./reports/analysis/RCIM%20Original%20Pipeline%20And%20Reimplementation%20Audit.md)
   Code-level audit of the copied recovered RCIM original workflow versus the
   current repository reimplementation, including runnable-stage boundaries and
@@ -100,15 +99,24 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-27
 
+- [technical/2026-04/2026-04-27/2026-04-27-23-13-41_styled_pdf_pipeline_default_table_width_rebalancing.md](./technical/2026-04/2026-04-27/2026-04-27-23-13-41_styled_pdf_pipeline_default_table_width_rebalancing.md)
+  Plan the styled PDF renderer improvement that promotes recurring table-width rebalancing into default first-pass profiles instead of repeated post-export manual fixes.
+- [technical/2026-04/2026-04-27/2026-04-27-22-18-57_track1_forward_open_cell_repair_closeout_and_forward_benchmark_refresh.md](./technical/2026-04/2026-04-27/2026-04-27-22-18-57_track1_forward_open_cell_repair_closeout_and_forward_benchmark_refresh.md)
+  Plan the formal closeout of the completed forward open-cell repair campaign and the canonical benchmark refresh for the `forward` branch.
+- [technical/2026-04/2026-04-27/2026-04-27-22-04-48_track1_forward_open_cell_repair_remote_artifact_sync_length_fix.md](./technical/2026-04/2026-04-27/2026-04-27-22-04-48_track1_forward_open_cell_repair_remote_artifact_sync_length_fix.md)
+  Plan the narrow repair of the post-run remote artifact packaging failure that blocked local synchronization after the completed `300/300` forward open-cell repair campaign.
 - [technical/2026-04/2026-04-27/2026-04-27-19-06-13_rcim_original_pipeline_to_reimplementation_explanatory_companion.md](./technical/2026-04/2026-04-27/2026-04-27-19-06-13_rcim_original_pipeline_to_reimplementation_explanatory_companion.md)
   Plan a deep explanatory companion report that walks through the recovered
   original RCIM prediction pipeline and maps it carefully onto the repository
   reimplementation.
-
 - [technical/2026-04/2026-04-27/2026-04-27-16-25-53_rcim_original_pipeline_runnable_workflow_and_diff_audit.md](./technical/2026-04/2026-04-27/2026-04-27-16-25-53_rcim_original_pipeline_runnable_workflow_and_diff_audit.md)
   Plan a repository-owned runnable copy of the recovered RCIM original
   pipeline plus a structured code-difference audit against the current
   reimplementation.
+- [technical/2026-04/2026-04-27/2026-04-27-13-10-45_original_dataset_exact_model_bank_lfs_repair_for_github_push.md](./technical/2026-04/2026-04-27/2026-04-27-13-10-45_original_dataset_exact_model_bank_lfs_repair_for_github_push.md)
+  Plan the Git LFS policy and local-history repair required after an oversized original-dataset exact-model-bank validation bundle blocked the GitHub push.
+- [technical/2026-04/2026-04-27/2026-04-27-13-00-21_track1_forward_open_cell_repair_campaign.md](./technical/2026-04/2026-04-27/2026-04-27-13-00-21_track1_forward_open_cell_repair_campaign.md)
+  Plan a forward-only Track 1 original-dataset repair campaign that targets only the still non-green forward cells in Tables 2-5 through a target-level retry queue.
 - [technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md](./technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md)
   Plan the closeout of the completed bidirectional original-dataset Track 1 mega-campaign, the benchmark-table refresh, and the promotion of the new canonical forward/backward paper-reference model archives.
 

@@ -387,6 +387,22 @@ The operator console keeps the total queue progress visible and suppresses raw
 `[CV] END ...` plus repeated Torch `triton not found` noise, while preserving
 the full per-run logs under the campaign output root.
 
+Forward-only open-cell repair package for the current residual forward
+benchmark cells:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
+.\scripts\campaigns\track1\exact_paper\run_track1_forward_open_cell_repair_campaign.ps1 -Remote
+```
+
+This repair campaign is intentionally target-level instead of full-bank:
+
+- `forward` only;
+- only current non-green benchmark targets are retried;
+- `30` grouped repair items;
+- `10` retries per repair item;
+- `300` total runs.
+
 Key differences against the recovered exact-paper branch:
 
 - it reads from `data/datasets` through the dataset-processing config;
