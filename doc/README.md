@@ -88,6 +88,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-27
+
+- [technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md](./technical/2026-04/2026-04-27/2026-04-27-11-08-53_track1_bidirectional_original_dataset_mega_closeout_and_reference_archive_refresh.md)
+  Plan the closeout of the completed bidirectional original-dataset Track 1 mega-campaign, the benchmark-table refresh, and the promotion of the new canonical forward/backward paper-reference model archives.
+
 #### 2026-04-26
 
 - [technical/2026-04/2026-04-26/2026-04-26-00-43-01_track1_forward_micro_closeout_and_bidirectional_mega_relaunch.md](./technical/2026-04/2026-04-26/2026-04-26-00-43-01_track1_forward_micro_closeout_and_bidirectional_mega_relaunch.md)

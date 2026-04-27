@@ -16,13 +16,23 @@ Project-authored Python source code no longer lives here. Source files are store
 
 Current curated Track 1 paper-reference archives:
 
-- `paper_reference/rcim_track1/svm_reference_models/`
-- `paper_reference/rcim_track1/mlp_reference_models/`
-- `paper_reference/rcim_track1/rf_reference_models/`
-- `paper_reference/rcim_track1/dt_reference_models/`
-- `paper_reference/rcim_track1/et_reference_models/`
-- `paper_reference/rcim_track1/ert_reference_models/`
-- `paper_reference/rcim_track1/gbm_reference_models/`
-- `paper_reference/rcim_track1/hgbm_reference_models/`
-- `paper_reference/rcim_track1/xgbm_reference_models/`
-- `paper_reference/rcim_track1/lgbm_reference_models/`
+- `paper_reference/rcim_track1/forward/svm_reference_models/`
+- `paper_reference/rcim_track1/forward/mlp_reference_models/`
+- `paper_reference/rcim_track1/forward/rf_reference_models/`
+- `paper_reference/rcim_track1/forward/dt_reference_models/`
+- `paper_reference/rcim_track1/forward/et_reference_models/`
+- `paper_reference/rcim_track1/forward/ert_reference_models/`
+- `paper_reference/rcim_track1/forward/gbm_reference_models/`
+- `paper_reference/rcim_track1/forward/hgbm_reference_models/`
+- `paper_reference/rcim_track1/forward/xgbm_reference_models/`
+- `paper_reference/rcim_track1/forward/lgbm_reference_models/`
+- `paper_reference/rcim_track1/backward/svm_reference_models/`
+- `paper_reference/rcim_track1/backward/mlp_reference_models/`
+- `paper_reference/rcim_track1/backward/rf_reference_models/`
+- `paper_reference/rcim_track1/backward/dt_reference_models/`
+- `paper_reference/rcim_track1/backward/et_reference_models/`
+- `paper_reference/rcim_track1/backward/ert_reference_models/`
+- `paper_reference/rcim_track1/backward/gbm_reference_models/`
+- `paper_reference/rcim_track1/backward/hgbm_reference_models/`
+- `paper_reference/rcim_track1/backward/xgbm_reference_models/`
+- `paper_reference/rcim_track1/backward/lgbm_reference_models/`

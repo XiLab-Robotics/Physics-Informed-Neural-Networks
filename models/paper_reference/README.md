@@ -12,17 +12,11 @@ Current topic roots:
 
 - `rcim_track1/`
 
-Canonical archive standard for future paper-family archives:
-
-- family-scoped artifact folder;
-- dedicated `README.md`;
-- machine-readable inventory file;
-- explicit references to source run, config, and training code.
-
 For `Track 1` paper-reimplementation families, the canonical family package
 contract is:
 
 - `models/paper_reference/rcim_track1/forward/<family>_reference_models/`
+- `models/paper_reference/rcim_track1/backward/<family>_reference_models/`
 - `README.md`
 - `reference_inventory.yaml`
 - `onnx/amplitude/`
@@ -41,9 +35,7 @@ Every fully curated family archive is expected to preserve:
 - the canonical source run per accepted target;
 - deployment-facing archived exports;
 - Python-usable fitted estimators when the training stack supports them;
-- dataset provenance and deterministic split reconstruction metadata;
-- family-specific implementation notes when exported deployment artifacts use a
-  surrogate estimator surface that differs from the original Python model.
+- dataset provenance and deterministic split reconstruction metadata.
 
-The current `SVM` archive under `rcim_track1/forward/svm_reference_models/` is the
-first fully populated reference implementation of this standard.
+The bidirectional original-dataset Track 1 mega-campaign closeout is the first
+wave that fully populates both `forward` and `backward` archive branches.

@@ -1,9 +1,77 @@
-schema_version: 1
-topic: rcim_track1_xgbm_reference_models
+schema_version: 2
+topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: XGBM
 implementation_family_name: XGBM
-archive_scope:
-  amplitude_harmonic_order_list:
+archive_scope: track1_original_dataset_forward
+canonical_selection_rule: Per direction and target, select the completed mega-campaign
+  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
+  then run name.
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
+source_data: config/datasets/transmission_error_dataset.yaml
+notes:
+- This archive was rebuilt during the bidirectional original-dataset mega-campaign
+  closeout.
+- Detailed per-target provenance remains machine-readable in the reference inventory
+  entries.
+reference_models:
+- target_name: fft_y_Fw_filtered_ampl_0
+  target_kind: amplitude
+  harmonic_order: 0
+  direction_label: forward
+  benchmark_mae: 0.00232205444116086
+  benchmark_rmse: 0.002899547007459427
+  source_run_instance_id: 2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/004_track1_original_dataset_forward_xgbm_attempt_04.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl0.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl0.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl0.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 7e411f42f7c85ef665f671240be35014c200e643f68f62a2f603052d0953f746
+  archived_model_sha256: 3705cadb6e7a0d883dbbd6455d0818486b62a681cf3690f7be6e3de375cefe31
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 9
+  selected_harmonic_list:
   - 0
   - 1
   - 3
@@ -14,7 +82,111 @@ archive_scope:
   - 156
   - 162
   - 240
-  phase_harmonic_order_list:
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.00232205444116086
+  training_metric_rmse: 0.002899547007459427
+  training_metric_mse: 8.407372848466918e-06
+  training_metric_mape_percent: 4.692995529762908
+- target_name: fft_y_Fw_filtered_ampl_1
+  target_kind: amplitude
+  harmonic_order: 1
+  direction_label: forward
+  benchmark_mae: 4.568247935108381e-05
+  benchmark_rmse: 5.795455078807435e-05
+  source_run_instance_id: 2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/015_track1_original_dataset_forward_xgbm_attempt_15.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl1.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl1.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: fabc52b383a22c7d99d1464660e56b24d83ec6b2c195174ba220f158fb91919e
+  archived_model_sha256: 05e83a0027a7cf8dccea240ed9f7b098b841c74413d29275700f9564f372119d
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 37
+  selected_harmonic_list:
+  - 0
   - 1
   - 3
   - 39
@@ -24,77 +196,7 @@ archive_scope:
   - 156
   - 162
   - 240
-canonical_selection_rule: when several runs reproduce the same accepted benchmark
-  metric pair, pin the earliest stable canonical source run and keep later campaigns
-  only when they introduce the accepted improvement.
-source_code:
-  validation_script: scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py
-  support_module: scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py
-source_data:
-  dataframe_path: reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv
-  recovered_reference_onnx_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
-notes:
-- phase harmonic 0 is intentionally excluded from the curated Track 1 paper-facing
-  archive.
-- the archive pins the accepted family row currently visible in Tables 2-5 of the
-  canonical benchmark.
-reference_models:
-- target_name: fft_y_Fw_filtered_ampl_0
-  target_kind: amplitude
-  harmonic_order: 0
-  benchmark_mae: 0.0024646469698047153
-  benchmark_rmse: 0.0037144020593834572
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl0.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl0.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl0.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: a292efb3ccdf0432cd392ada9aed5d3de17b3417cf96f49d4b49c75de028f753
-  archived_model_sha256: 4c7d84a4690faad4d135cbb27248fe40df3cb573bb2f7fbca97df26bc8ddefa4
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -113,12 +215,12 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
     max_delta_step: null
-    max_depth: 16
+    max_depth: 14
     max_leaves: null
     min_child_weight: null
     missing: .nan
@@ -136,639 +238,34 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.0024646469698047153
-  training_metric_rmse: 0.0037144020593834572
-  training_metric_mse: 1.3796782658752067e-05
-  training_metric_mape_percent: 11.615009837293753
-- target_name: fft_y_Fw_filtered_ampl_1
-  target_kind: amplitude
-  harmonic_order: 1
-  benchmark_mae: 5.2927413626886326e-05
-  benchmark_rmse: 6.813519639699368e-05
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/XGBM/XGBRegressor_ampl1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl1.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl1.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: c0b97ba9e55d1cc381f3493d74249477199494732e82614b8ed606d4aa56a823
-  archived_model_sha256: 92b15805e43910f36a3acbf298818de23d2f69d7c6ef9aad6dedddfe7b17a6e7
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 5.2927413626886326e-05
-  training_metric_rmse: 6.813519639699368e-05
-  training_metric_mse: 4.6424049880568995e-09
-  training_metric_mape_percent: 0.30844970455412546
-- target_name: fft_y_Fw_filtered_ampl_3
-  target_kind: amplitude
-  harmonic_order: 3
-  benchmark_mae: 7.210607087898685e-05
-  benchmark_rmse: 9.066118657291053e-05
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl3.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: 98fe0c076f706500a3b34214305e7fb019ed9224b3206d7e20f1be7da9337c73
-  archived_model_sha256: 40c70892d867d3447629381eaa7c728f85b27d7676a709006fe387dfc38aff5f
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 7.210607087898685e-05
-  training_metric_rmse: 9.066118657291053e-05
-  training_metric_mse: 8.219450750808092e-09
-  training_metric_mape_percent: 9.592857318258154
-- target_name: fft_y_Fw_filtered_ampl_39
-  target_kind: amplitude
-  harmonic_order: 39
-  benchmark_mae: 9.311655140749134e-05
-  benchmark_rmse: 0.0001239923276217058
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl39.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl39.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: ca210fa2edfc2a4838f7bcec33e7e60c758c44ed6bd2b761a26accbbb3a1b317
-  archived_model_sha256: c6d0f90ee3daad0d5a7da214fc4af94f74487d8ec1e90a3496fe9eadfbd5509e
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 9.311655140749134e-05
-  training_metric_rmse: 0.0001239923276217058
-  training_metric_mse: 1.5374097309048428e-08
-  training_metric_mape_percent: 8.963642703210326
-- target_name: fft_y_Fw_filtered_ampl_40
-  target_kind: amplitude
-  harmonic_order: 40
-  benchmark_mae: 6.441262262139725e-05
-  benchmark_rmse: 8.338035197986559e-05
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/XGBM/XGBRegressor_ampl40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl40.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: 9a52b18878943d15a8cb7bb6e055a40fb63585a19fc2730282529227ebf9fcec
-  archived_model_sha256: 397ab9ab94e6a27debc86046b9e9ba49f009f1508de18665e962fed5198b0e07
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 6.441262262139725e-05
-  training_metric_rmse: 8.338035197986559e-05
-  training_metric_mse: 6.952283096286275e-09
-  training_metric_mape_percent: 8.3374120671491
-- target_name: fft_y_Fw_filtered_ampl_78
-  target_kind: amplitude
-  harmonic_order: 78
-  benchmark_mae: 0.00011715788261629462
-  benchmark_rmse: 0.00015922869034541736
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl78.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: 0dd51f5bceaa6d1e0a298f278165df9aa51c0d864da654743346af32a38159e7
-  archived_model_sha256: 91b5aa321fd4e0271c18370a43050e2e379f60529e651922a60583bcf3b2d2ea
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 0.00011715788261629462
-  training_metric_rmse: 0.00015922869034541736
-  training_metric_mse: 2.535377582911681e-08
-  training_metric_mape_percent: 42.01429369077342
-- target_name: fft_y_Fw_filtered_ampl_81
-  target_kind: amplitude
-  harmonic_order: 81
-  benchmark_mae: 4.655810200361048e-05
-  benchmark_rmse: 5.982685802926406e-05
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/XGBM/XGBRegressor_ampl81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl81.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: d627411266dc78f6c909c0a9f94e50ece8de58c1fe6527692c2390a2a9de1039
-  archived_model_sha256: 8eb3a565e141eb430da732f39bcef6d8e72482c4a55396eb01eac8a6c4fcaa25
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 4.655810200361048e-05
-  training_metric_rmse: 5.982685802926406e-05
-  training_metric_mse: 3.5792529416537176e-09
-  training_metric_mape_percent: 15.325691226701155
+  training_metric_mae: 4.568247935108381e-05
+  training_metric_rmse: 5.795455078807435e-05
+  training_metric_mse: 3.358729957047489e-09
+  training_metric_mape_percent: 0.26609324557118397
 - target_name: fft_y_Fw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
-  benchmark_mae: 0.0002739834896564188
-  benchmark_rmse: 0.000782248758599536
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl156.onnx
+  direction_label: forward
+  benchmark_mae: 0.00018096200143766998
+  benchmark_rmse: 0.0003810298140997106
+  source_run_instance_id: 2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/019_track1_original_dataset_forward_xgbm_attempt_19.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl156.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-25-07__track1_original_dataset_forward_xgbm_attempt_19_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: dd387c798f5372e2a076b59a6cb0b205caaab7bc59f7e3626f56e8fb517c7af8
-  archived_model_sha256: 67bb5f7699fb5f6bfe5bdadba464f19bb6966aff3d264b547e41d923a6c6e7e8
+  python_model_sha256: b822faec8c0058853d328430b8326f3662ea33a2f3cd580f780ba52d234714ae
+  archived_model_sha256: f4f9fd506f31d7a51689406a5b12d99ad35e2d08e0caa9f933a939b6d164668d
   feature_name_list:
   - rpm
   - deg
@@ -776,32 +273,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 59
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -820,12 +329,12 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
     max_delta_step: null
-    max_depth: 16
+    max_depth: 14
     max_leaves: null
     min_child_weight: null
     missing: .nan
@@ -843,33 +352,34 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.0002739834896564188
-  training_metric_rmse: 0.000782248758599536
-  training_metric_mse: 6.119131203305152e-07
-  training_metric_mape_percent: 83.33472445843904
+  training_metric_mae: 0.00018096200143766998
+  training_metric_rmse: 0.0003810298140997106
+  training_metric_mse: 1.4518371923286005e-07
+  training_metric_mape_percent: 104.46806353227018
 - target_name: fft_y_Fw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
-  benchmark_mae: 0.00022075079536359603
-  benchmark_rmse: 0.0006770156738025179
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl162.onnx
+  direction_label: forward
+  benchmark_mae: 0.00013014415687399899
+  benchmark_rmse: 0.00019650851819341778
+  source_run_instance_id: 2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/012_track1_original_dataset_forward_xgbm_attempt_12.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl162.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-18-03__track1_original_dataset_forward_xgbm_attempt_12_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 55ca879136a57408aa5c24fd1f86b633353431d1235490323d9fe9baa369299b
-  archived_model_sha256: 8cfa243a6dfc03773670fb9ed4a4a56a2836774cf4ad3de949468cfda5eaa033
+  python_model_sha256: e51ebf0305f1cbdd05daadc443c06aea066278f607d2cad2a7360f16280e3911
+  archived_model_sha256: 454268c941d79649ebbaf62d6890ecb1638cf0d2b55f371a7e9941d2fab018a7
   feature_name_list:
   - rpm
   - deg
@@ -877,32 +387,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 27
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -921,12 +443,12 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
     max_delta_step: null
-    max_depth: 16
+    max_depth: 18
     max_leaves: null
     min_child_weight: null
     missing: .nan
@@ -944,33 +466,34 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.00022075079536359603
-  training_metric_rmse: 0.0006770156738025179
-  training_metric_mse: 4.5835022257427736e-07
-  training_metric_mape_percent: 34.526553574948515
+  training_metric_mae: 0.00013014415687399899
+  training_metric_rmse: 0.00019650851819341778
+  training_metric_mse: 3.8615597722572805e-08
+  training_metric_mape_percent: 37.28921348753605
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
-  benchmark_mae: 0.00018739169959922393
-  benchmark_rmse: 0.0003138099642797961
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_ampl240.onnx
+  direction_label: forward
+  benchmark_mae: 0.00013604030187525378
+  benchmark_rmse: 0.00021763664201993567
+  source_run_instance_id: 2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/016_track1_original_dataset_forward_xgbm_attempt_16.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl240.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 5bf86e683a68058db7ad33221dae99f7f907927772cafd91427927dc52f23241
-  archived_model_sha256: 106ab654112f946a366b320a339cd5308b5db13925919e4cee5d3c871b473ab6
+  python_model_sha256: 1fbe0a562facc9a3661e37e0458dcb1d55bd8b80c62b29ce1076d82190b01ccb
+  archived_model_sha256: 0bfd95129e2247f4ae83cae9ab02a610ec9f735189a62f46066ef637f07ddd7b
   feature_name_list:
   - rpm
   - deg
@@ -978,32 +501,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 42
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -1022,7 +557,7 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
@@ -1045,33 +580,604 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.00018739169959922393
-  training_metric_rmse: 0.0003138099642797961
-  training_metric_mse: 9.84766936812869e-08
-  training_metric_mape_percent: 82.16138601260884
+  training_metric_mae: 0.00013604030187525378
+  training_metric_rmse: 0.00021763664201993567
+  training_metric_mse: 4.7365707949713634e-08
+  training_metric_mape_percent: 40.305520078285625
+- target_name: fft_y_Fw_filtered_ampl_3
+  target_kind: amplitude
+  harmonic_order: 3
+  direction_label: forward
+  benchmark_mae: 7.006352059422277e-05
+  benchmark_rmse: 9.142481241958993e-05
+  source_run_instance_id: 2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/001_track1_original_dataset_forward_xgbm_attempt_01.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl3.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 052173812560f54d8de13153a98b160a6d47cd5041bd0dfe6cc801d4c1bea512
+  archived_model_sha256: c7250bf994416d1e667b339194817f43946183c0546d24d2be4813c815e917ca
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 16
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 7.006352059422277e-05
+  training_metric_rmse: 9.142481241958993e-05
+  training_metric_mse: 8.358496325957206e-09
+  training_metric_mape_percent: 9.373081362179603
+- target_name: fft_y_Fw_filtered_ampl_39
+  target_kind: amplitude
+  harmonic_order: 39
+  direction_label: forward
+  benchmark_mae: 8.817484877687704e-05
+  benchmark_rmse: 0.00011549063837341421
+  source_run_instance_id: 2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/009_track1_original_dataset_forward_xgbm_attempt_09.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl39.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 2b35475458ae6527a08463ac28369489e3cd21a961545191980b7b90d12be68c
+  archived_model_sha256: 4ff44a348443b3cd395c6b54d02b8098e17e65112548ed5b1a649bef6f6f988c
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 19
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 8.817484877687704e-05
+  training_metric_rmse: 0.00011549063837341421
+  training_metric_mse: 1.3338087551898734e-08
+  training_metric_mape_percent: 8.133721224821274
+- target_name: fft_y_Fw_filtered_ampl_40
+  target_kind: amplitude
+  harmonic_order: 40
+  direction_label: forward
+  benchmark_mae: 5.7506303923608714e-05
+  benchmark_rmse: 7.781066179950616e-05
+  source_run_instance_id: 2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/006_track1_original_dataset_forward_xgbm_attempt_06.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl40.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: fac88488efbf6c2b84d1d7daf5ab242ae7921bb6829dd661070d08b211541628
+  archived_model_sha256: 82e3493c042efa9f2ba9b97f02a42d3a40e243e6f498055cbcc4cd3d0875a7b1
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 13
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 5.7506303923608714e-05
+  training_metric_rmse: 7.781066179950616e-05
+  training_metric_mse: 6.054499089677127e-09
+  training_metric_mape_percent: 7.371751922961087
+- target_name: fft_y_Fw_filtered_ampl_78
+  target_kind: amplitude
+  harmonic_order: 78
+  direction_label: forward
+  benchmark_mae: 0.00010089390969977281
+  benchmark_rmse: 0.00014042414391098485
+  source_run_instance_id: 2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/001_track1_original_dataset_forward_xgbm_attempt_01.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl78.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-06-48__track1_original_dataset_forward_xgbm_attempt_01_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: eced2dc81aa234e086b2f02386b93216a31587f009f5db75e758fd7e963c198f
+  archived_model_sha256: 38ab05f49b86eb8f6ff4397e3b456998854d99fa475bfb32d2190360452b5029
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 16
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.00010089390969977281
+  training_metric_rmse: 0.00014042414391098485
+  training_metric_mse: 1.9718940193132982e-08
+  training_metric_mape_percent: 72.79778172233154
+- target_name: fft_y_Fw_filtered_ampl_81
+  target_kind: amplitude
+  harmonic_order: 81
+  direction_label: forward
+  benchmark_mae: 4.437222657283622e-05
+  benchmark_rmse: 5.6695133386888915e-05
+  source_run_instance_id: 2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/013_track1_original_dataset_forward_xgbm_attempt_13.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl81.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-19-05__track1_original_dataset_forward_xgbm_attempt_13_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: aa3b37b58ceacbf2423a1a3ddae3b0c37fdc148ff2ac3e6b57c600fc716ca776
+  archived_model_sha256: 0b0fb7738b3d7e27f4dad6ccd6193d841dc55b24425c8d799c377b5f02eeca1d
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 29
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 4.437222657283622e-05
+  training_metric_rmse: 5.6695133386888915e-05
+  training_metric_mse: 3.214338149757126e-09
+  training_metric_mape_percent: 13.9743764369788
 - target_name: fft_y_Fw_filtered_phase_1
   target_kind: phase
   harmonic_order: 1
-  benchmark_mae: 0.0021651271189341457
-  benchmark_rmse: 0.0033572309924123933
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase1.onnx
+  direction_label: forward
+  benchmark_mae: 0.0017394907394119093
+  benchmark_rmse: 0.0023320289814658165
+  source_run_instance_id: 2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/016_track1_original_dataset_forward_xgbm_attempt_16.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/onnx_export/XGBM/XGBRegressor_phase1.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase1.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 4d6f0a56b714de35ca2935f7b3baef15a94ebed95936e617baff7d2ce6cf10d5
-  archived_model_sha256: 64efb514f67ac5bb9de47da3a3fea3f4c7e70e3dbc02c53d0ad4504c6912352f
+  python_model_sha256: a010de2d61f411783e0e645426ac94bbf494b860fc257792df46e13a53e6d17f
+  archived_model_sha256: 885a9c205ce662d35e94d59e1197cd09152aa4d81cbe800c6d17616dd62a4fd1
   feature_name_list:
   - rpm
   - deg
@@ -1079,32 +1185,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 42
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -1123,7 +1241,7 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
@@ -1146,538 +1264,34 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.0021651271189341457
-  training_metric_rmse: 0.0033572309924123933
-  training_metric_mse: 1.1270999936414302e-05
-  training_metric_mape_percent: 25.255292196611634
-- target_name: fft_y_Fw_filtered_phase_3
-  target_kind: phase
-  harmonic_order: 3
-  benchmark_mae: 0.02688762999509414
-  benchmark_rmse: 0.03726310135399162
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase3.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: 2f543ab87f2c50a1cfca650ad79ed9f372aa633cb2e8499beff7e965691286c5
-  archived_model_sha256: 496386390b06f2ae9f3609521a47859c13e40d78d7d66710ebd24ea1890fc5a4
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 0.02688762999509414
-  training_metric_rmse: 0.03726310135399162
-  training_metric_mse: 0.0013885387225178523
-  training_metric_mape_percent: 1.5083590452826074
-- target_name: fft_y_Fw_filtered_phase_39
-  target_kind: phase
-  harmonic_order: 39
-  benchmark_mae: 0.02985010313721886
-  benchmark_rmse: 0.045554830907210755
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase39.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase39.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: f7601b965fa381e57034be1fc05c444663f7be7886449f9d8130ceec7847e88b
-  archived_model_sha256: e80a1bc9ccd45a19808d28907f8929fc6c891641867d40a69b50b529b5f4ba34
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 0.02985010313721886
-  training_metric_rmse: 0.045554830907210755
-  training_metric_mse: 0.0020752426189845643
-  training_metric_mape_percent: 2.416939113555392
-- target_name: fft_y_Fw_filtered_phase_40
-  target_kind: phase
-  harmonic_order: 40
-  benchmark_mae: 0.05958578508811239
-  benchmark_rmse: 0.08832072703943757
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase40.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: 8416409c1218c91c8fef89b3f3cd0d079d77cc9bf7a207f6a61b1fd58de73e50
-  archived_model_sha256: 12c6633cc44aaffd87f47ca38babd2e8b4cdc6bb137a7c797138589aecce7020
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 0.05958578508811239
-  training_metric_rmse: 0.08832072703943757
-  training_metric_mse: 0.007800550824774837
-  training_metric_mape_percent: 117.33748323502986
-- target_name: fft_y_Fw_filtered_phase_78
-  target_kind: phase
-  harmonic_order: 78
-  benchmark_mae: 0.1181248050853701
-  benchmark_rmse: 0.18885522490171483
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase78.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: fb2c005fd5acd4509ac41f3af9d25b5c7cd84d0d41735d5fec85a343f22825cf
-  archived_model_sha256: d2cfa0d093303c5134f719048efbbbc9b23fcc482fe3b44f00ca64b5ee00e4b2
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 0.1181248050853701
-  training_metric_rmse: 0.18885522490171483
-  training_metric_mse: 0.03566629597267729
-  training_metric_mape_percent: 470.0087461351578
-- target_name: fft_y_Fw_filtered_phase_81
-  target_kind: phase
-  harmonic_order: 81
-  benchmark_mae: 0.08637177938627033
-  benchmark_rmse: 0.11918389796572683
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase81.onnx
-  export_estimator_name: XGBRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: XGBRegressor
-  python_model_sha256: b14245b8e2c3c8b04dab4038b2362ef5a8764c68459db5dd98551df11778cacc
-  archived_model_sha256: 75ca72249ac0836109ec35ff3e8213048b78fc1c1c958854c0dacd6b68255437
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    objective: reg:squarederror
-    base_score: null
-    booster: null
-    callbacks: null
-    colsample_bylevel: null
-    colsample_bynode: null
-    colsample_bytree: 0.8
-    device: null
-    early_stopping_rounds: null
-    enable_categorical: false
-    eval_metric: null
-    feature_types: null
-    feature_weights: null
-    gamma: null
-    grow_policy: null
-    importance_type: null
-    interaction_constraints: null
-    learning_rate: null
-    max_bin: null
-    max_cat_threshold: null
-    max_cat_to_onehot: null
-    max_delta_step: null
-    max_depth: 16
-    max_leaves: null
-    min_child_weight: null
-    missing: .nan
-    monotone_constraints: null
-    multi_strategy: null
-    n_estimators: null
-    n_jobs: null
-    num_parallel_tree: null
-    random_state: 0
-    reg_alpha: 0.01
-    reg_lambda: 20
-    sampling_method: null
-    scale_pos_weight: null
-    subsample: null
-    tree_method: null
-    validate_parameters: null
-    verbosity: null
-  training_metric_mae: 0.08637177938627033
-  training_metric_rmse: 0.11918389796572683
-  training_metric_mse: 0.014204801534304782
-  training_metric_mape_percent: 7.9343421219082515
+  training_metric_mae: 0.0017394907394119093
+  training_metric_rmse: 0.0023320289814658165
+  training_metric_mse: 5.438359170396493e-06
+  training_metric_mape_percent: 82.36893446302788
 - target_name: fft_y_Fw_filtered_phase_156
   target_kind: phase
   harmonic_order: 156
-  benchmark_mae: 0.8921774961250957
-  benchmark_rmse: 1.3091636788930563
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase156.onnx
+  direction_label: forward
+  benchmark_mae: 0.6817619856288577
+  benchmark_rmse: 1.0991910532220928
+  source_run_instance_id: 2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/004_track1_original_dataset_forward_xgbm_attempt_04.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/onnx_export/XGBM/XGBRegressor_phase156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase156.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-09-54__track1_original_dataset_forward_xgbm_attempt_04_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 150dffcd6f80598163478b43f55e9df3cfe0cd22b774bb39b80d2f04dc57b300
-  archived_model_sha256: 649225b85b2cdc6587324ab85da7ace52b1e8c6494ea7275ad1a38f0e372df13
+  python_model_sha256: bc4abe303483d7de30d42893c20ae5589a59bafb5a3a8a24cdcfa9fdd583eb37
+  archived_model_sha256: d7917419b7d6f1ad84659982b04bebd28ea110a13053b96a838ed027643a0b96
   feature_name_list:
   - rpm
   - deg
@@ -1685,32 +1299,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 9
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -1729,12 +1355,12 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
     max_delta_step: null
-    max_depth: 16
+    max_depth: 14
     max_leaves: null
     min_child_weight: null
     missing: .nan
@@ -1752,33 +1378,34 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.8921774961250957
-  training_metric_rmse: 1.3091636788930563
-  training_metric_mse: 1.7139095381328016
-  training_metric_mape_percent: 57.02745919424734
+  training_metric_mae: 0.6817619856288577
+  training_metric_rmse: 1.0991910532220928
+  training_metric_mse: 1.2082209714834935
+  training_metric_mape_percent: 35.60558277053099
 - target_name: fft_y_Fw_filtered_phase_162
   target_kind: phase
   harmonic_order: 162
-  benchmark_mae: 0.5388030337303232
-  benchmark_rmse: 0.9495404764401029
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase162.onnx
+  direction_label: forward
+  benchmark_mae: 0.41133795311741267
+  benchmark_rmse: 0.7273961185646233
+  source_run_instance_id: 2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/006_track1_original_dataset_forward_xgbm_attempt_06.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/onnx_export/XGBM/XGBRegressor_phase162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase162.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-12-04__track1_original_dataset_forward_xgbm_attempt_06_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 6aadf907fdab584ad37aca37de06a3ef8a30d4550578642128b87c50f4605903
-  archived_model_sha256: 91d37e9731b4ab4acbdc3feefd6eddf7b04b35dffe7e387eb7753578da08873b
+  python_model_sha256: 5be69eb5537f161393cb62aac6842369ef9266de83d715525c5f29a63b27cae7
+  archived_model_sha256: 7fa6914f1d8d1dd6c72a01645d578457b36110efaaf08ceb7265b9e40fb09b91
   feature_name_list:
   - rpm
   - deg
@@ -1786,32 +1413,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 13
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -1830,12 +1469,12 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
     max_delta_step: null
-    max_depth: 16
+    max_depth: 14
     max_leaves: null
     min_child_weight: null
     missing: .nan
@@ -1853,33 +1492,34 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.5388030337303232
-  training_metric_rmse: 0.9495404764401029
-  training_metric_mse: 0.9016271163980976
-  training_metric_mape_percent: 26.269461621626878
+  training_metric_mae: 0.41133795311741267
+  training_metric_rmse: 0.7273961185646233
+  training_metric_mse: 0.5291051133028795
+  training_metric_mape_percent: 22.394187558279373
 - target_name: fft_y_Fw_filtered_phase_240
   target_kind: phase
   harmonic_order: 240
-  benchmark_mae: 0.42703033860800926
-  benchmark_rmse: 0.9020574216244179
-  source_run_instance_id: 2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/onnx_export/XGBM/XGBRegressor_phase240.onnx
+  direction_label: forward
+  benchmark_mae: 0.30548584842856996
+  benchmark_rmse: 0.5716195818580648
+  source_run_instance_id: 2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/008_track1_original_dataset_forward_xgbm_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/onnx_export/XGBM/XGBRegressor_phase240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase240.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 4537e568f19a0fd82f2026e5fb23b0222ab7775ac26465d4a080614797f1f778
-  archived_model_sha256: c3fefe361492f5b8e15606b6b8ec50317d2897523fb2196e1d19cd9d53f26f4e
+  python_model_sha256: d75d0bba4650a0d8e358ee339fd39cc55ba03782f14f36d31b6ea897a222df1c
+  archived_model_sha256: e1f699935282562e8c2d63c1cd66db592bd3ebf9e2febc5ba39c8f9c49370d32
   feature_name_list:
   - rpm
   - deg
@@ -1887,32 +1527,44 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
     objective: reg:squarederror
     base_score: null
@@ -1931,7 +1583,7 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: null
+    learning_rate: 0.2
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
@@ -1954,11 +1606,577 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.42703033860800926
-  training_metric_rmse: 0.9020574216244179
-  training_metric_mse: 0.8137075919076928
-  training_metric_mape_percent: 42.05059459052457
-python_archive_format: pickle_protocol_5_single_target_estimators
-dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-dataset_snapshot_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/dataset_snapshot_manifest.yaml
-source_run_count: 2
+  training_metric_mae: 0.30548584842856996
+  training_metric_rmse: 0.5716195818580648
+  training_metric_mse: 0.3267489463635889
+  training_metric_mape_percent: 21.02303349324996
+- target_name: fft_y_Fw_filtered_phase_3
+  target_kind: phase
+  harmonic_order: 3
+  direction_label: forward
+  benchmark_mae: 0.019992840290316064
+  benchmark_rmse: 0.030879551632310993
+  source_run_instance_id: 2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/005_track1_original_dataset_forward_xgbm_attempt_05.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation/onnx_export/XGBM/XGBRegressor_phase3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase3.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-10-59__track1_original_dataset_forward_xgbm_attempt_05_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: aa03d602eff7df417775ae30e32e185f3b5faa4be75a6e5bfb86ecab0731fd9c
+  archived_model_sha256: 007b6e6d671be6a0e9664a5f17b89ac09c6fc7a5fa6d7df5a5d5b226489cbf1a
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 11
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.019992840290316064
+  training_metric_rmse: 0.030879551632310993
+  training_metric_mse: 0.0009535467090125606
+  training_metric_mape_percent: 1.114648894595169
+- target_name: fft_y_Fw_filtered_phase_39
+  target_kind: phase
+  harmonic_order: 39
+  direction_label: forward
+  benchmark_mae: 0.022018955855706488
+  benchmark_rmse: 0.03303284651260778
+  source_run_instance_id: 2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/009_track1_original_dataset_forward_xgbm_attempt_09.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/onnx_export/XGBM/XGBRegressor_phase39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase39.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 67c6d47a06b4c802f3275b92cbc57a13fcd624e4203ee4d282d589d4033ad52e
+  archived_model_sha256: 718a931193807218a7833297ac65afee3ec51db32a30db4ec585360e98077165
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 19
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.022018955855706488
+  training_metric_rmse: 0.03303284651260778
+  training_metric_mse: 0.001091168948725504
+  training_metric_mape_percent: 1.8255389434653335
+- target_name: fft_y_Fw_filtered_phase_40
+  target_kind: phase
+  harmonic_order: 40
+  direction_label: forward
+  benchmark_mae: 0.047147755787480976
+  benchmark_rmse: 0.06326613347574445
+  source_run_instance_id: 2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/015_track1_original_dataset_forward_xgbm_attempt_15.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/onnx_export/XGBM/XGBRegressor_phase40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase40.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-21-04__track1_original_dataset_forward_xgbm_attempt_15_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 248d12db489b67450848b1a8e7faf4b239c44f33280c7df2708edb58f50883f4
+  archived_model_sha256: f72a41b75925b80be0c2e0bf5b0f81130e50b7d69cbcc274398eb5799a028b7c
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 37
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.047147755787480976
+  training_metric_rmse: 0.06326613347574445
+  training_metric_mse: 0.004002603644970713
+  training_metric_mape_percent: 77.42223190022204
+- target_name: fft_y_Fw_filtered_phase_78
+  target_kind: phase
+  harmonic_order: 78
+  direction_label: forward
+  benchmark_mae: 0.09319979475646757
+  benchmark_rmse: 0.1359056037786293
+  source_run_instance_id: 2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/009_track1_original_dataset_forward_xgbm_attempt_09.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/onnx_export/XGBM/XGBRegressor_phase78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase78.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-15-04__track1_original_dataset_forward_xgbm_attempt_09_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 91076ae55ead6ff6b14db5e0ddbf559a13822949d346e9cde5d833a4606b2416
+  archived_model_sha256: 30454fe179c6016153162df41c264344d033e31d8870ef519ccbb34a2093df65
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 19
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 14
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.09319979475646757
+  training_metric_rmse: 0.1359056037786293
+  training_metric_mse: 0.01847033313843378
+  training_metric_mape_percent: 243.41030089206902
+- target_name: fft_y_Fw_filtered_phase_81
+  target_kind: phase
+  harmonic_order: 81
+  direction_label: forward
+  benchmark_mae: 0.06884627417835909
+  benchmark_rmse: 0.10068066463593145
+  source_run_instance_id: 2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/008_track1_original_dataset_forward_xgbm_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/onnx_export/XGBM/XGBRegressor_phase81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase81.onnx
+  export_estimator_name: XGBRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-14-01__track1_original_dataset_forward_xgbm_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/phase/XGBRegressor_phase81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: XGBRegressor
+  python_model_sha256: 861cfa30a9bce19e9e2106aa55daab21297f576c3736f67a65ff991afd463ac6
+  archived_model_sha256: 53e2b5fe359d5f45f5dfd72bd069bef34bf4ae6265d67dafc518e434f97c31e0
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    objective: reg:squarederror
+    base_score: null
+    booster: null
+    callbacks: null
+    colsample_bylevel: null
+    colsample_bynode: null
+    colsample_bytree: 0.8
+    device: null
+    early_stopping_rounds: null
+    enable_categorical: false
+    eval_metric: null
+    feature_types: null
+    feature_weights: null
+    gamma: null
+    grow_policy: null
+    importance_type: null
+    interaction_constraints: null
+    learning_rate: 0.2
+    max_bin: null
+    max_cat_threshold: null
+    max_cat_to_onehot: null
+    max_delta_step: null
+    max_depth: 16
+    max_leaves: null
+    min_child_weight: null
+    missing: .nan
+    monotone_constraints: null
+    multi_strategy: null
+    n_estimators: null
+    n_jobs: null
+    num_parallel_tree: null
+    random_state: 0
+    reg_alpha: 0.01
+    reg_lambda: 20
+    sampling_method: null
+    scale_pos_weight: null
+    subsample: null
+    tree_method: null
+    validate_parameters: null
+    verbosity: null
+  training_metric_mae: 0.06884627417835909
+  training_metric_rmse: 0.10068066463593145
+  training_metric_mse: 0.010136596231532898
+  training_metric_mape_percent: 5.813607290917182

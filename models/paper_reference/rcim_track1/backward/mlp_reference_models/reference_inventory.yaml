@@ -1,0 +1,2182 @@
+schema_version: 2
+topic: track1_bidirectional_original_dataset_reference_archive
+paper_family_name: MLP
+implementation_family_name: MLP
+archive_scope: track1_original_dataset_backward
+canonical_selection_rule: Per direction and target, select the completed mega-campaign
+  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
+  then run name.
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
+source_data: config/datasets/transmission_error_dataset.yaml
+notes:
+- This archive was rebuilt during the bidirectional original-dataset mega-campaign
+  closeout.
+- Detailed per-target provenance remains machine-readable in the reference inventory
+  entries.
+reference_models:
+- target_name: fft_y_Bw_filtered_ampl_0
+  target_kind: amplitude
+  harmonic_order: 0
+  direction_label: backward
+  benchmark_mae: 0.003936785119847249
+  benchmark_rmse: 0.005003045394489451
+  source_run_instance_id: 2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_backward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_ampl0.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl0.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl0.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: ad5a124087d307a0e6327e7bc45123efd046a4fcbf91942f870fe0cc16fc7d75
+  archived_model_sha256: 6385c09902e948a1d6c2df97d14c22c616097a077d45aa6755a1de55f6223051
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.003936785119847249
+  training_metric_rmse: 0.005003045394489451
+  training_metric_mse: 2.5030463219322108e-05
+  training_metric_mape_percent: 43.51547270427787
+- target_name: fft_y_Bw_filtered_ampl_1
+  target_kind: amplitude
+  harmonic_order: 1
+  direction_label: backward
+  benchmark_mae: 0.0018246143907353412
+  benchmark_rmse: 0.0021758718001069492
+  source_run_instance_id: 2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_backward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_ampl1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl1.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl1.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: efc1ec8803b65c6bb61650cbe82d9be578a42b39c9f4225c013045a3c21b1729
+  archived_model_sha256: 004aa21037d85f5b1b1f1a8c482c585812d8bbd459bae6af09a6c845124f0c80
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0018246143907353412
+  training_metric_rmse: 0.0021758718001069492
+  training_metric_mse: 4.734418090500655e-06
+  training_metric_mape_percent: 10.641760371161327
+- target_name: fft_y_Bw_filtered_ampl_156
+  target_kind: amplitude
+  harmonic_order: 156
+  direction_label: backward
+  benchmark_mae: 0.002324993235286374
+  benchmark_rmse: 0.0035966925445294895
+  source_run_instance_id: 2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_backward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl156.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl156.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl156.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: f3a01e8364811493f5135ebe8b7de73691f3ae2ac89a18bba666ecad1e683bdc
+  archived_model_sha256: 8778902b6cad4c3f67aa29169a64386f37a16d85560d038c222d5e3921333079
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.002324993235286374
+  training_metric_rmse: 0.0035966925445294895
+  training_metric_mse: 1.2936197259874015e-05
+  training_metric_mape_percent: 581.2644086494461
+- target_name: fft_y_Bw_filtered_ampl_162
+  target_kind: amplitude
+  harmonic_order: 162
+  direction_label: backward
+  benchmark_mae: 0.0022548835230385813
+  benchmark_rmse: 0.003333417033436761
+  source_run_instance_id: 2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/018_track1_original_dataset_backward_mlp_attempt_18.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation/onnx_export/MLP/MLPRegressor_ampl162.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl162.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-45-34__track1_original_dataset_backward_mlp_attempt_18_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl162.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 5cf11f5c7e744dff583cdcd7aa76ff8607a11bd5a8090d0700e56a787cc78d72
+  archived_model_sha256: c501d99868cb80d34703fcf0dc9f6059ee2db39e56565b69b24ba9090d897f0e
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 53
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0022548835230385813
+  training_metric_rmse: 0.003333417033436761
+  training_metric_mse: 1.1111669118806336e-05
+  training_metric_mape_percent: 1024.5683891841968
+- target_name: fft_y_Bw_filtered_ampl_240
+  target_kind: amplitude
+  harmonic_order: 240
+  direction_label: backward
+  benchmark_mae: 0.0025975680849465673
+  benchmark_rmse: 0.0031083973968034136
+  source_run_instance_id: 2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_backward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl240.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl240.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl240.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 036feec8cea97be0671fa030d1ab6129200da27bc84353474ab4fed61c03bdaa
+  archived_model_sha256: edf65eb51045640317809672821869f699f66f2b9a7dec56c0f16b4eac8c8103
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0025975680849465673
+  training_metric_rmse: 0.0031083973968034136
+  training_metric_mse: 9.662134376454239e-06
+  training_metric_mape_percent: 677.5265429013248
+- target_name: fft_y_Bw_filtered_ampl_3
+  target_kind: amplitude
+  harmonic_order: 3
+  direction_label: backward
+  benchmark_mae: 0.002470289069085027
+  benchmark_rmse: 0.0030595341760467827
+  source_run_instance_id: 2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_backward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl3.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 3620dc4c220e5de94e30ec4cdcce57d9e6c4f1660ae856b5c3eb5d8da769c6dc
+  archived_model_sha256: 1d8a066388fd050eab5a5ca45f84356789cbf7d476ce99b7513b3d0b9df7b6b1
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.002470289069085027
+  training_metric_rmse: 0.0030595341760467827
+  training_metric_mse: 9.360749374398265e-06
+  training_metric_mape_percent: 266.70860564890586
+- target_name: fft_y_Bw_filtered_ampl_39
+  target_kind: amplitude
+  harmonic_order: 39
+  direction_label: backward
+  benchmark_mae: 0.0024776960504476675
+  benchmark_rmse: 0.0030624846062369104
+  source_run_instance_id: 2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_backward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl39.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: f2aa77a33a73bcea87d9e5ec33e00e81d87b801030caaa5955bb0eedab5476f0
+  archived_model_sha256: d1daf3e13d610966e4bdd55dd93be0d0fd0373bcbaebe5f9f3ee2b492cb84081
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0024776960504476675
+  training_metric_rmse: 0.0030624846062369104
+  training_metric_mse: 9.378811963438045e-06
+  training_metric_mape_percent: 563.7356807396171
+- target_name: fft_y_Bw_filtered_ampl_40
+  target_kind: amplitude
+  harmonic_order: 40
+  direction_label: backward
+  benchmark_mae: 0.0024869759180203505
+  benchmark_rmse: 0.0030619729514633634
+  source_run_instance_id: 2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_backward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl40.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: e2b4a95eb8fe59069388878a2b81662b58c4bcfd581c015422bf95f84fbc9b38
+  archived_model_sha256: bae17d6612efa39db514d36bb5935b48240ae8af13fb545ee840f1417ba9eaf8
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0024869759180203505
+  training_metric_rmse: 0.0030619729514633634
+  training_metric_mse: 9.37567835549326e-06
+  training_metric_mape_percent: 773.1773999614699
+- target_name: fft_y_Bw_filtered_ampl_78
+  target_kind: amplitude
+  harmonic_order: 78
+  direction_label: backward
+  benchmark_mae: 0.0021288600741356644
+  benchmark_rmse: 0.002742499623919588
+  source_run_instance_id: 2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/014_track1_original_dataset_backward_mlp_attempt_14.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation/onnx_export/MLP/MLPRegressor_ampl78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl78.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-36-03__track1_original_dataset_backward_mlp_attempt_14_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 9c7b26dc37de403c6a16828b387219888dcbfc08abd4ad38c03d7b180300b1a6
+  archived_model_sha256: 5f1242d316838aab0d8b46f9c527afca12360925abad66f75fef9b14c883cd9b
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 31
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0021288600741356644
+  training_metric_rmse: 0.002742499623919588
+  training_metric_mse: 7.521304187199081e-06
+  training_metric_mape_percent: 542.5426994017478
+- target_name: fft_y_Bw_filtered_ampl_81
+  target_kind: amplitude
+  harmonic_order: 81
+  direction_label: backward
+  benchmark_mae: 0.002465613667004419
+  benchmark_rmse: 0.003047813485763238
+  source_run_instance_id: 2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_backward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl81.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-19-44__track1_original_dataset_backward_mlp_attempt_07_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/amplitude/Pipeline_ampl81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: dc7f608511ebabe1cd5de33638ccda431f9d7578779772f6704495be777050cd
+  archived_model_sha256: 3977421ec2ae367bb9fa8c3e6b86f3f27b17c42bc1152ea6835ca8c9fa929992
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+        \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.001, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.001
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.002465613667004419
+  training_metric_rmse: 0.003047813485763238
+  training_metric_mse: 9.28916704400026e-06
+  training_metric_mape_percent: 2147.680813500731
+- target_name: fft_y_Bw_filtered_phase_1
+  target_kind: phase
+  harmonic_order: 1
+  direction_label: backward
+  benchmark_mae: 0.003180026233011998
+  benchmark_rmse: 0.003948856206039774
+  source_run_instance_id: 2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_backward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_phase1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase1.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase1.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 4b04345592a6a2d7752ca6d2491e3af8f564ad865b0c8177bbaee72c1b06fa21
+  archived_model_sha256: 38a6d5d98a4db3970d96d97b4fe9267930a17a809804473a381d454de72529a5
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.003180026233011998
+  training_metric_rmse: 0.003948856206039774
+  training_metric_mse: 1.559346533597884e-05
+  training_metric_mape_percent: 80.83755000446469
+- target_name: fft_y_Bw_filtered_phase_156
+  target_kind: phase
+  harmonic_order: 156
+  direction_label: backward
+  benchmark_mae: 0.1575580728394707
+  benchmark_rmse: 0.3683687866084123
+  source_run_instance_id: 2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/011_track1_original_dataset_backward_mlp_attempt_11.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation/onnx_export/MLP/MLPRegressor_phase156.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase156.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-29-03__track1_original_dataset_backward_mlp_attempt_11_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase156.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 745820e0acd785c65fea9630d8ac873efa1b688cebe1db8c42c59b88c47476a1
+  archived_model_sha256: add2c9f2286ab36019000447c54b64f78a214864dc9b990babc36aa79559eb03
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 23
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.1575580728394707
+  training_metric_rmse: 0.3683687866084123
+  training_metric_mse: 0.13569556294735402
+  training_metric_mape_percent: 19.204034181568343
+- target_name: fft_y_Bw_filtered_phase_162
+  target_kind: phase
+  harmonic_order: 162
+  direction_label: backward
+  benchmark_mae: 0.07679020661852322
+  benchmark_rmse: 0.15205512876451285
+  source_run_instance_id: 2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/020_track1_original_dataset_backward_mlp_attempt_20.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/onnx_export/MLP/MLPRegressor_phase162.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase162.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase162.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 693f71e9aa3bfbdb93ab0f01aea9841bef8eb66e9b044c50d8528235acd38727
+  archived_model_sha256: 417c83d0eeb30f5a16fefc8111b783513278654fc034fb604baf473c58625784
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 61
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.07679020661852322
+  training_metric_rmse: 0.15205512876451285
+  training_metric_mse: 0.023120762183592585
+  training_metric_mape_percent: 4.7436649155955575
+- target_name: fft_y_Bw_filtered_phase_240
+  target_kind: phase
+  harmonic_order: 240
+  direction_label: backward
+  benchmark_mae: 0.299698529140531
+  benchmark_rmse: 0.47310184016899764
+  source_run_instance_id: 2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/020_track1_original_dataset_backward_mlp_attempt_20.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/onnx_export/MLP/MLPRegressor_phase240.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase240.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-50-07__track1_original_dataset_backward_mlp_attempt_20_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase240.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 4043442b8df691c0bd389d5445b071db870be8518dc97fda36bcad8c964a6617
+  archived_model_sha256: 2f1107cbea732166278610fb59644a3deaebd2d5cb0468fd1840d8f5e555d930
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 61
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.299698529140531
+  training_metric_rmse: 0.47310184016899764
+  training_metric_mse: 0.22382535117129182
+  training_metric_mape_percent: 17.994870833876075
+- target_name: fft_y_Bw_filtered_phase_3
+  target_kind: phase
+  harmonic_order: 3
+  direction_label: backward
+  benchmark_mae: 0.020017675998197267
+  benchmark_rmse: 0.025117717731214306
+  source_run_instance_id: 2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_backward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_phase3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase3.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-22-02__track1_original_dataset_backward_mlp_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 8eed2cc3277ac00be588ce913e7bede29082c530aeafc73928feb92caba16c34
+  archived_model_sha256: 0ac0b7696d840d5bbd4b34074f139d84d32039fc70f6692256eb2023423e84e2
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.020017675998197267
+  training_metric_rmse: 0.025117717731214306
+  training_metric_mse: 0.0006308997440249575
+  training_metric_mape_percent: 1.5524227815143539
+- target_name: fft_y_Bw_filtered_phase_39
+  target_kind: phase
+  harmonic_order: 39
+  direction_label: backward
+  benchmark_mae: 0.2819406795730232
+  benchmark_rmse: 0.7525830462627571
+  source_run_instance_id: 2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/015_track1_original_dataset_backward_mlp_attempt_15.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation/onnx_export/MLP/MLPRegressor_phase39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase39.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-38-18__track1_original_dataset_backward_mlp_attempt_15_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: a3b7c204e38f74e563d81c85e323516b69b9970c69bf083851152bafa5e3d9d8
+  archived_model_sha256: efd8e399ff423b9ed13f68d23ad89fc8d3a85ac1b85b075c7971622b725a3bd6
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 37
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.2819406795730232
+  training_metric_rmse: 0.7525830462627571
+  training_metric_mse: 0.5663812415221311
+  training_metric_mape_percent: 10.498622382355686
+- target_name: fft_y_Bw_filtered_phase_40
+  target_kind: phase
+  harmonic_order: 40
+  direction_label: backward
+  benchmark_mae: 0.08657197197683156
+  benchmark_rmse: 0.11735056463985448
+  source_run_instance_id: 2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/005_track1_original_dataset_backward_mlp_attempt_05.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation/onnx_export/MLP/MLPRegressor_phase40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase40.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-15-08__track1_original_dataset_backward_mlp_attempt_05_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 6dfa058446f0ff2884c98f2168b366bd7258ab64c1c12313484d3b6e80188e13
+  archived_model_sha256: 7d8542abf7834f2f8111ecae64a37f1f165284fef3aef3699a7b3223adcc6bd9
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 11
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.08657197197683156
+  training_metric_rmse: 0.11735056463985448
+  training_metric_mse: 0.013771155021292664
+  training_metric_mape_percent: 53.22499905296494
+- target_name: fft_y_Bw_filtered_phase_78
+  target_kind: phase
+  harmonic_order: 78
+  direction_label: backward
+  benchmark_mae: 0.055336179543126834
+  benchmark_rmse: 0.08484917812200689
+  source_run_instance_id: 2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/006_track1_original_dataset_backward_mlp_attempt_06.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation/onnx_export/MLP/MLPRegressor_phase78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase78.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-17-28__track1_original_dataset_backward_mlp_attempt_06_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: bad8d881c23cea3998f72d27b5995f72991b6142a432dea8fb343621d71f82b5
+  archived_model_sha256: 0a089a69e6f92f4b77ae2322b791f0408e6f408e01a5227fd6a3dc793d734b31
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 13
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.055336179543126834
+  training_metric_rmse: 0.08484917812200689
+  training_metric_mse: 0.007199383027980053
+  training_metric_mape_percent: 22.58799225550045
+- target_name: fft_y_Bw_filtered_phase_81
+  target_kind: phase
+  harmonic_order: 81
+  direction_label: backward
+  benchmark_mae: 0.07702967396725698
+  benchmark_rmse: 0.10617302894273146
+  source_run_instance_id: 2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/003_track1_original_dataset_backward_mlp_attempt_03.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation/onnx_export/MLP/MLPRegressor_phase81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/onnx/phase/MLPRegressor_phase81.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/source_runs/2026-04-26-14-10-26__track1_original_dataset_backward_mlp_attempt_03_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
+  python_model_path: models/paper_reference/rcim_track1/backward/mlp_reference_models/python/phase/Pipeline_phase81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 1b1417e52ac1d9b6fa17d1db026fe2b4bcdac8bb52c3ee212fd01a3f16936a0b
+  archived_model_sha256: 39695a841e3e40d1ad736611b7ef9feb01ec534509fb7e06e9afb39a8385f6ce
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 7
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.07702967396725698
+  training_metric_rmse: 0.10617302894273146
+  training_metric_mse: 0.011272712074874094
+  training_metric_mape_percent: 48.65128947674894

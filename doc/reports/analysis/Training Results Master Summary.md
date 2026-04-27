@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-04-24T12:39:24+02:00`
+- Generated At: `2026-04-27T12:06:34.219540+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
-- Active Campaign Status: `interrupted`
-- Active Campaign Name: `track1_remaining_yellow_cell_campaigns_2026_04_22_01_40_43`
+- Active Campaign Status: `completed`
+- Active Campaign Name: `track1_bidirectional_original_dataset_mega_campaign_2026-04-26_00_49_17`
 - Current Global Winner: `te_hist_gbr_tabular` | Family `tree` | Test MAE `0.002885`
 
 ## Main Takeaways
@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_bidirectional_original_dataset_mega_campaign_2026-04-26_00_49_17` | `2026-04-27-12-06-34` | 400 | 0 | `track1_original_dataset_backward_ert_attempt_20` | Bidirectional original-dataset mega wave completed `400/400`, refreshed both benchmark restart surfaces, and rebuilt the full `2 x 10 x 19` paper-reference archive set under `models/paper_reference/rcim_track1/` |
 | `track1_remaining_yellow_cell_campaigns_2026_04_22_01_40_43` | `2026-04-24-12-39-24` | 79 | 2 | N/A | Interrupted six-family yellow-cell overnight bundle now closed in `SVM-only` partial form after manual sync; recovered `79` completed report-backed `SVM` runs, `1` duplicate pre-fix failed retry, and `1` interrupted tail run, while leaving candidate `SVM A40` and `SVM A240` gains documented but not yet promoted |
 | `track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36` | `2026-04-22-01-08-33` | 216 | 0 | `track1_mlp_amplitude_156_final_closure_attempt_32` | Dedicated residual `MLP` closure completed `216` retries across `4` final target pairs, promoted `4/4` targeted pairs, and left the accepted `MLP` row with `2` non-green cells on Tables `2-5` (`Table 2`: none; `Table 3`: none; `Table 4`: 162; `Table 5`: 162) |
 | `track1_mlp_family_full_matrix_repair_campaign_2026_04_21_17_20_12` | `2026-04-21-22-19-09` | 324 | 0 | `track1_mlp_amplitude_0_closure_attempt_17` | Dedicated `MLP` full-matrix repair completed `324` retries, promoted `1/12` targeted family-target pairs, and left the accepted `MLP` row with `7` non-green cells on Tables `2-5` (`Table 2`: 1, 156, 240; `Table 3`: 1, 240; `Table 4`: 162; `Table 5`: 162) |
@@ -172,25 +173,23 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report.md`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-27-12-06-34_track1_bidirectional_original_dataset_mega_campaign_results_report.md`
 - Canonical progress surface:
   - `Table 2 - Amplitude MAE Full-Matrix Replication`
   - `Table 3 - Amplitude RMSE Full-Matrix Replication`
   - `Table 4 - Phase MAE Full-Matrix Replication`
   - `Table 5 - Phase RMSE Full-Matrix Replication`
-- Completion rule: `19` accepted models for each of the `10` algorithm families
-- Table `2` status: no remaining non-green cells in the accepted benchmark surface
-- Table `3` status: no remaining non-green cells in the accepted benchmark surface
-- Table `4` status: only harmonic `162` remains non-green
-- Table `5` status: only harmonic `162` remains non-green
-- Remaining non-green cells across Tables `2-5`: `2`
-- Harmonic-wise Table `6` evidence is postponed into `Track 1.5` and no longer gates Track 1 closeout
-- Repository `SVM` status: closed and accepted after the final exact-faithful rerun package, with residual paper deltas on `40`, `240`, and `162` accepted as non-blocking
-- Remaining-family exact-paper open-cell batch status: fully closed out after the overnight retry wave, with the benchmark now reading from the better value between the accepted baseline and the new targeted retries
-- Recovered first-launch `MLP` artifact status: fully reconciled locally after post-closeout recovery of all `297` validation folders and `297` validation reports
-- Dedicated `MLP` family repair campaign status: completed with `1/12` promoted targeted pairs and `11/12` retained baseline pairs
-- Dedicated residual `MLP` closure campaign status: completed with `4/4` promoted targeted pairs and `0/4` retained baseline pairs
-- Accepted `MLP` row remaining non-green cells after the residual closure wave: `Table 2 -> none`; `Table 3 -> none`; `Table 4 -> 162`; `Table 5 -> 162`
+- Completion rule: `19` accepted models for each of the `10` algorithm families in both `forward` and `backward` directions
+- Table `2` `forward` status: `82` green, `2` yellow, `16` red
+- Table `2` `backward` status: `76` green, `7` yellow, `17` red
+- Table `3` `forward` status: `82` green, `6` yellow, `12` red
+- Table `3` `backward` status: `81` green, `6` yellow, `13` red
+- Table `4` `forward` status: `82` green, `0` yellow, `8` red
+- Table `4` `backward` status: `61` green, `5` yellow, `24` red
+- Table `5` `forward` status: `81` green, `6` yellow, `3` red
+- Table `5` `backward` status: `63` green, `5` yellow, `22` red
+- Remaining non-green cells across both directional restart surfaces: `152`
+- Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.
 
 ### Track 1.5 Harmonic-Wise Validation Support
 
@@ -207,7 +206,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open because `2` non-green cells still remain across the canonical `Table 2-5` full-matrix replication surface, both on harmonic `162` (`Table 4` and `Table 5`).
+- `Track 1` still has `152` non-green cells across the bidirectional original-dataset restart benchmark surface.
 - Harmonic-wise alignment is no longer treated as the primary `Track 1` gate and has been postponed into `Track 1.5`.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.

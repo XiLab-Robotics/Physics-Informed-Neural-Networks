@@ -1,11 +1,17 @@
-# RCIM Track 1 Backward Branch Placeholder
+# RCIM Track 1 Backward Reference Branch
 
-This folder is reserved for the future `backward` branch of the Track 1 paper
-reference archives.
+This branch now stores the canonical backward-direction paper-reference
+archives rebuilt from the original dataset under `data/datasets/`.
 
-Current repository state:
+Populated family archives:
 
-- the populated canonical archive branch is `../forward/`;
-- the future backward rebuild is planned from the original dataset under
-  `data/datasets/`;
-- no backward family archive is stored here yet.
+- `svm_reference_models/`
+- `mlp_reference_models/`
+- `rf_reference_models/`
+- `dt_reference_models/`
+- `et_reference_models/`
+- `ert_reference_models/`
+- `gbm_reference_models/`
+- `hgbm_reference_models/`
+- `xgbm_reference_models/`
+- `lgbm_reference_models/`

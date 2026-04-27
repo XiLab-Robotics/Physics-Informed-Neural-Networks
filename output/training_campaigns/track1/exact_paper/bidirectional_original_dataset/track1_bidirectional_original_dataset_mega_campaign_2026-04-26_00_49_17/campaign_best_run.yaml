@@ -1,0 +1,21 @@
+run_instance_id: 2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation
+run_name: track1_original_dataset_backward_ert_attempt_20
+direction_label: backward
+winning_family: ERT
+winning_estimator_name: ExtraTreesRegressor
+winning_mean_component_mae: 0.03397504571690718
+winning_mean_component_rmse: 0.0871690379780107
+winning_mean_component_mape_percent: 14.811354010292181
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/validation_summary.yaml
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/020_track1_original_dataset_backward_ert_attempt_20.yaml
+output_artifact_kind: validation_check
+selection_policy:
+  primary_metric: winning_mean_component_mae_asc
+  first_tie_breaker: winning_mean_component_rmse_asc
+  second_tie_breaker: winning_mean_component_mape_percent_asc
+  third_tie_breaker: run_name
+  direction: minimize_then_lexicographic
+  note: This campaign-best representative is a bookkeeping convenience for the completed
+    bidirectional original-dataset exact-paper mega campaign. The canonical paper-reference
+    archive remains target-level, not run-level.
+selected_at: '2026-04-27T12:06:33.798452+02:00'

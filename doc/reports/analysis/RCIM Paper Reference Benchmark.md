@@ -787,16 +787,16 @@ Forward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00240236` | `🟢 4.74467e-05` | `🟢 0.000135655` | `🟢 6.97981e-05` | `🟢 7.72822e-05` | `🟢 0.00015192` | `🟢 6.98458e-05` | `🟢 0.000316539` | `🟢 0.000371459` | `🟢 0.000242439` |
+| `MLP` | `🟢 0.00345704` | `🟢 0.00171012` | `🟢 0.00210367` | `🟢 0.00194599` | `🟢 0.00215552` | `🟢 0.00206027` | `🟢 0.00179699` | `🟢 0.00246043` | `🟢 0.00211723` | `🟢 0.00255737` |
+| `RF` | `🟢 0.0027414` | `🟢 2.16036e-05` | `🟢 1.75022e-05` | `🟢 2.48662e-05` | `🟢 2.09579e-05` | `🟢 3.65863e-05` | `🟢 9.25868e-06` | `🟢 3.65455e-05` | `🟢 3.84016e-05` | `🟢 2.86232e-05` |
+| `DT` | `🟢 0.00297738` | `🟢 2.65389e-05` | `🟢 1.96269e-05` | `🟢 3.50183e-05` | `🟢 2.75625e-05` | `🟢 4.74183e-05` | `🟢 1.07044e-05` | `🟢 4.25289e-05` | `🟢 4.42742e-05` | `🟢 3.60934e-05` |
+| `ET` | `🟢 0.00289541` | `🟢 2.72356e-05` | `🟢 1.97413e-05` | `🟢 3.35054e-05` | `🟢 2.66845e-05` | `🟢 4.82001e-05` | `🟢 1.16915e-05` | `🟢 4.21641e-05` | `🟢 4.20594e-05` | `🟢 4.49836e-05` |
+| `ERT` | `🟢 0.0026374` | `🟢 2.07938e-05` | `🟢 1.88926e-05` | `🟢 2.58271e-05` | `🟢 2.06984e-05` | `🟢 2.93542e-05` | `🟢 8.76095e-06` | `🔴 2.60746e-05` | `🔴 3.38998e-05` | `🟡 2.93168e-05` |
+| `GBM` | `🟢 0.00306606` | `🟢 2.24145e-05` | `🟡 2.45673e-05` | `🔴 4.08111e-05` | `🟢 2.38098e-05` | `🔴 6.74426e-05` | `🟢 1.08931e-05` | `🔴 0.000108567` | `🔴 0.000118525` | `🔴 4.39369e-05` |
+| `HGBM` | `🟢 0.00230286` | `🟢 2.15532e-05` | `🟢 1.40313e-05` | `🟢 2.0816e-05` | `🟢 2.16954e-05` | `🟢 2.60491e-05` | `🟢 8.91012e-06` | `🟢 7.95097e-05` | `🟢 5.79553e-05` | `🟢 2.82265e-05` |
+| `XGBM` | `🟢 0.00232205` | `🟢 4.56825e-05` | `🟢 7.00635e-05` | `🟢 8.81748e-05` | `🟢 5.75063e-05` | `🟢 0.000100894` | `🟢 4.43722e-05` | `🟢 0.000180962` | `🟢 0.000130144` | `🟢 0.00013604` |
+| `LGBM` | `🔴 0.00599484` | `🟢 2.38161e-05` | `🔴 5.04073e-05` | `🔴 9.81963e-05` | `🔴 3.45316e-05` | `🔴 0.000176727` | `🔴 2.35726e-05` | `🔴 0.000271427` | `🔴 0.000294093` | `🔴 0.000113644` |
 <!-- markdownlint-enable MD013 -->
 
 Backward repository-owned restart matrix:
@@ -804,16 +804,16 @@ Backward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00244815` | `🔴 0.00012218` | `🟢 0.000122128` | `🟢 9.19617e-05` | `🟢 3.72479e-05` | `🟢 0.000109804` | `🟢 3.67643e-05` | `🟢 0.000386544` | `🟢 0.00042391` | `🟢 0.000217944` |
+| `MLP` | `🟢 0.00393679` | `🟢 0.00182461` | `🟢 0.00247029` | `🟢 0.0024777` | `🟢 0.00248698` | `🟢 0.00212886` | `🟢 0.00246561` | `🟢 0.00232499` | `🟢 0.00225488` | `🟢 0.00259757` |
+| `RF` | `🟢 0.00248235` | `🟢 1.91284e-05` | `🟢 1.6782e-05` | `🟢 1.50283e-05` | `🟢 2.22018e-05` | `🟢 3.45098e-05` | `🟢 6.83012e-06` | `🔴 7.90409e-05` | `🟢 4.94272e-05` | `🔴 5.05932e-05` |
+| `DT` | `🟢 0.00278626` | `🟢 2.56777e-05` | `🟢 2.19025e-05` | `🟢 1.97372e-05` | `🟢 2.57958e-05` | `🟢 5.06834e-05` | `🟢 8.54166e-06` | `🟡 6.61816e-05` | `🟢 4.61088e-05` | `🔴 7.03775e-05` |
+| `ET` | `🟢 0.0030276` | `🟢 2.47334e-05` | `🟡 2.49502e-05` | `🟢 2.00874e-05` | `🟢 2.54493e-05` | `🟢 5.48314e-05` | `🟢 9.33761e-06` | `🔴 7.92687e-05` | `🟢 5.12173e-05` | `🟡 7.48752e-05` |
+| `ERT` | `🟢 0.00259573` | `🟢 1.75332e-05` | `🟢 1.96649e-05` | `🟢 1.5993e-05` | `🟡 2.31882e-05` | `🟢 3.48878e-05` | `🟢 6.95047e-06` | `🔴 5.3009e-05` | `🔴 3.22538e-05` | `🔴 5.68946e-05` |
+| `GBM` | `🟢 0.00306205` | `🟢 2.10163e-05` | `🟢 1.90911e-05` | `🟢 1.8684e-05` | `🟢 2.17104e-05` | `🔴 7.34086e-05` | `🟢 8.54983e-06` | `🔴 0.000178687` | `🔴 0.000135366` | `🔴 6.98378e-05` |
+| `HGBM` | `🟢 0.0022091` | `🟢 1.94415e-05` | `🟡 1.60564e-05` | `🟢 1.43313e-05` | `🟢 2.17759e-05` | `🟢 2.43281e-05` | `🟢 8.08478e-06` | `🔴 0.000203439` | `🟢 7.37356e-05` | `🔴 8.15566e-05` |
+| `XGBM` | `🟢 0.00229591` | `🟡 5.91334e-05` | `🟢 6.92384e-05` | `🟢 7.69295e-05` | `🟢 3.69048e-05` | `🟢 0.000105099` | `🟢 2.32094e-05` | `🔴 0.000335013` | `🟢 0.000149581` | `🟡 0.000141314` |
+| `LGBM` | `🟢 0.00229855` | `🟢 2.25836e-05` | `🟢 1.66943e-05` | `🟢 1.45366e-05` | `🟢 2.39831e-05` | `🟢 2.6598e-05` | `🟢 8.48355e-06` | `🔴 0.000187064` | `🟢 8.70423e-05` | `🔴 7.79646e-05` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `2`:
@@ -848,16 +848,16 @@ Forward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00296139` | `🟢 6.03741e-05` | `🟢 0.000164272` | `🟢 8.96664e-05` | `🟡 9.65513e-05` | `🟢 0.000183971` | `🟢 8.16855e-05` | `🟢 0.00057808` | `🟢 0.0010278` | `🟢 0.000426407` |
+| `MLP` | `🟢 0.00441997` | `🟢 0.0021178` | `🟢 0.00274825` | `🟢 0.00246956` | `🟢 0.00294075` | `🟢 0.00269949` | `🟢 0.00216725` | `🟢 0.00306965` | `🟢 0.00276464` | `🟢 0.00311164` |
+| `RF` | `🟢 0.00349851` | `🟢 2.87058e-05` | `🟢 2.51533e-05` | `🟢 3.39759e-05` | `🟢 2.92267e-05` | `🟢 5.18908e-05` | `🟢 1.25482e-05` | `🟢 0.000123423` | `🟢 9.18693e-05` | `🟢 4.42349e-05` |
+| `DT` | `🟢 0.0037916` | `🟢 3.51154e-05` | `🟢 2.7134e-05` | `🟢 4.87467e-05` | `🟢 3.77766e-05` | `🟢 6.89225e-05` | `🟢 1.63082e-05` | `🟢 0.000132915` | `🟢 0.000102053` | `🟢 6.12138e-05` |
+| `ET` | `🟢 0.00372992` | `🟢 3.87746e-05` | `🟢 2.75335e-05` | `🟢 4.96286e-05` | `🟢 4.00261e-05` | `🟢 7.49928e-05` | `🟢 1.83752e-05` | `🟢 9.85037e-05` | `🟢 8.58138e-05` | `🟢 7.24233e-05` |
+| `ERT` | `🟢 0.00317175` | `🟢 2.82282e-05` | `🟢 2.50886e-05` | `🟢 3.32522e-05` | `🟢 2.74003e-05` | `🟢 4.15779e-05` | `🟢 1.17256e-05` | `🟢 5.90567e-05` | `🟢 0.000114712` | `🟡 4.63842e-05` |
+| `GBM` | `🟢 0.0035555` | `🟢 2.91983e-05` | `🟡 3.13798e-05` | `🔴 5.06426e-05` | `🟢 3.18227e-05` | `🔴 8.39781e-05` | `🟢 1.49892e-05` | `🟢 0.000163884` | `🔴 0.000352059` | `🔴 6.78321e-05` |
+| `HGBM` | `🟡 0.00357874` | `🟢 2.83106e-05` | `🟢 2.11261e-05` | `🟢 2.87325e-05` | `🟢 2.91001e-05` | `🟢 3.783e-05` | `🟢 1.24157e-05` | `🟢 0.000174311` | `🟢 0.000158348` | `🟢 4.40781e-05` |
+| `XGBM` | `🟢 0.00289955` | `🟢 5.79546e-05` | `🟢 9.14248e-05` | `🟢 0.000115491` | `🟢 7.78107e-05` | `🟢 0.000140424` | `🟢 5.66951e-05` | `🟢 0.00038103` | `🟢 0.000196509` | `🟡 0.000217637` |
+| `LGBM` | `🔴 0.00703257` | `🟢 3.13631e-05` | `🔴 6.24599e-05` | `🔴 0.000116485` | `🔴 4.81988e-05` | `🔴 0.000210241` | `🔴 3.03546e-05` | `🔴 0.000349297` | `🟡 0.000563996` | `🔴 0.000202821` |
 <!-- markdownlint-enable MD013 -->
 
 Backward repository-owned restart matrix:
@@ -865,16 +865,16 @@ Backward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00297317` | `🔴 0.00013583` | `🟢 0.000144553` | `🟢 0.000106955` | `🟢 4.84461e-05` | `🟢 0.000134146` | `🟢 4.11811e-05` | `🟢 0.000849184` | `🟢 0.00148789` | `🟢 0.000308034` |
+| `MLP` | `🟢 0.00500305` | `🟢 0.00217587` | `🟢 0.00305953` | `🟢 0.00306248` | `🟢 0.00306197` | `🟢 0.0027425` | `🟢 0.00304781` | `🟢 0.00359669` | `🟢 0.00333342` | `🟢 0.0031084` |
+| `RF` | `🟢 0.00334782` | `🟢 2.68348e-05` | `🟢 2.33095e-05` | `🟢 2.09622e-05` | `🟢 3.10832e-05` | `🟢 4.61607e-05` | `🟢 1.01763e-05` | `🔴 0.000269695` | `🟢 0.000139798` | `🔴 8.98524e-05` |
+| `DT` | `🟢 0.00387706` | `🟢 3.63799e-05` | `🟡 3.62724e-05` | `🟢 2.74815e-05` | `🟢 3.65537e-05` | `🟢 7.22581e-05` | `🟢 1.26956e-05` | `🟢 0.000130625` | `🟢 0.000113406` | `🟡 0.000127643` |
+| `ET` | `🟢 0.0037362` | `🟢 3.68429e-05` | `🟡 3.6898e-05` | `🟢 2.74252e-05` | `🟢 3.9828e-05` | `🟢 7.6e-05` | `🟢 1.43082e-05` | `🟡 0.000197998` | `🟢 0.000128692` | `🟢 0.000145861` |
+| `ERT` | `🟢 0.00333832` | `🟢 2.5813e-05` | `🟢 2.84382e-05` | `🟢 2.25142e-05` | `🟢 3.34479e-05` | `🟢 4.72119e-05` | `🟢 1.02593e-05` | `🟡 0.000141236` | `🟢 8.91091e-05` | `🔴 0.00012125` |
+| `GBM` | `🟡 0.00417315` | `🟢 3.01611e-05` | `🟢 2.74886e-05` | `🟢 2.70105e-05` | `🟢 2.90895e-05` | `🔴 9.02598e-05` | `🟢 1.22017e-05` | `🔴 0.000414926` | `🟢 0.000172889` | `🔴 9.90601e-05` |
+| `HGBM` | `🟢 0.002885` | `🟢 2.82635e-05` | `🟢 2.28014e-05` | `🟢 2.09007e-05` | `🟢 3.10076e-05` | `🟢 3.28317e-05` | `🟢 1.12506e-05` | `🔴 0.000691378` | `🟢 0.000174312` | `🔴 0.000128594` |
+| `XGBM` | `🟢 0.00272319` | `🔴 0.000106882` | `🟢 9.0386e-05` | `🟢 9.52484e-05` | `🟢 4.83494e-05` | `🟢 0.000139793` | `🟢 2.96543e-05` | `🔴 0.000773105` | `🟢 0.000234227` | `🟢 0.000200511` |
+| `LGBM` | `🟢 0.00287786` | `🟢 3.28906e-05` | `🟢 2.59054e-05` | `🟢 2.13157e-05` | `🟢 3.58482e-05` | `🟢 3.59238e-05` | `🟢 1.36578e-05` | `🔴 0.000459123` | `🟢 0.000194276` | `🔴 0.000154784` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `3`:
@@ -909,16 +909,16 @@ Forward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00206264` | `🟢 0.0272462` | `🟢 0.0199` | `🟢 0.0475367` | `🟢 0.132166` | `🟢 0.0971196` | `🟢 1.08053` | `🟢 0.387766` | `🟢 0.322142` |
+| `MLP` | `🟢 0.00317452` | `🟢 0.0233929` | `🟢 0.0216331` | `🟢 0.0376109` | `🟢 0.0743748` | `🟢 0.0516697` | `🟢 0.658122` | `🟢 0.35434` | `🟢 0.463599` |
+| `RF` | `🟢 0.00158251` | `🟢 0.0181623` | `🟢 0.0194139` | `🟢 0.0299737` | `🟢 0.0465618` | `🟢 0.0463556` | `🟢 0.333473` | `🟢 0.131089` | `🟢 0.14954` |
+| `DT` | `🟢 0.00196674` | `🟢 0.0231842` | `🟢 0.0227185` | `🟢 0.0365718` | `🟢 0.0525289` | `🟢 0.0537444` | `🟢 0.327853` | `🟢 0.129959` | `🟢 0.141427` |
+| `ET` | `🟢 0.00220789` | `🟢 0.0254555` | `🟢 0.0227454` | `🟢 0.0411961` | `🟢 0.064332` | `🟢 0.0565684` | `🟢 0.482571` | `🟢 0.132855` | `🟢 0.174853` |
+| `ERT` | `🟢 0.00172458` | `🟢 0.020385` | `🟢 0.0193248` | `🟢 0.0298409` | `🟢 0.0467775` | `🟢 0.0456165` | `🟢 0.375921` | `🟢 0.13894` | `🟢 0.139049` |
+| `GBM` | `🟢 0.00167712` | `🟢 0.0227536` | `🟢 0.029536` | `🟢 0.0346363` | `🟢 0.0636816` | `🔴 0.0673461` | `🟢 0.490354` | `🟢 0.236174` | `🟢 0.219106` |
+| `HGBM` | `🟢 0.00147875` | `🟢 0.0186126` | `🟢 0.0167981` | `🟢 0.0339588` | `🟢 0.0590081` | `🟢 0.043818` | `🟢 0.47611` | `🟢 0.271985` | `🟢 0.234177` |
+| `XGBM` | `🟢 0.00173949` | `🟢 0.0199928` | `🟢 0.022019` | `🟢 0.0471478` | `🟢 0.0931998` | `🟢 0.0688463` | `🟢 0.681762` | `🟢 0.411338` | `🟢 0.305486` |
+| `LGBM` | `🟢 0.00179832` | `🔴 0.045093` | `🔴 0.0722734` | `🔴 0.0523988` | `🔴 0.136832` | `🔴 0.130158` | `🔴 1.04653` | `🔴 0.55861` | `🟢 0.298069` |
 <!-- markdownlint-enable MD013 -->
 
 Backward repository-owned restart matrix:
@@ -926,16 +926,16 @@ Backward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00195786` | `🟢 0.0260747` | `🔴 0.56393` | `🔴 0.119861` | `🟢 0.106436` | `🟢 0.11743` | `🟢 0.34775` | `🟢 0.329799` | `🟡 0.539813` |
+| `MLP` | `🟢 0.00318003` | `🟢 0.0200177` | `🔴 0.281941` | `🟡 0.086572` | `🟢 0.0553362` | `🟢 0.0770297` | `🟢 0.157558` | `🟢 0.0767902` | `🟢 0.299699` |
+| `RF` | `🟢 0.00148515` | `🟢 0.0202588` | `🔴 0.153195` | `🔴 0.0753753` | `🟢 0.0348443` | `🔴 0.0725617` | `🟢 0.0597704` | `🟢 0.0486596` | `🟢 0.0918517` |
+| `DT` | `🟢 0.00174665` | `🟢 0.0223217` | `🔴 0.10863` | `🔴 0.0945902` | `🟢 0.0458503` | `🟡 0.0816804` | `🟢 0.0492645` | `🟢 0.0512655` | `🟢 0.0885101` |
+| `ET` | `🟢 0.00164147` | `🟢 0.024494` | `🔴 0.113296` | `🔴 0.0911072` | `🟢 0.045039` | `🟡 0.0961469` | `🟢 0.0653404` | `🟢 0.0534907` | `🟢 0.229348` |
+| `ERT` | `🟢 0.00147949` | `🟢 0.0203398` | `🔴 0.136584` | `🔴 0.0743557` | `🟢 0.0386345` | `🔴 0.0715767` | `🟢 0.0461639` | `🟢 0.0420995` | `🟢 0.14226` |
+| `GBM` | `🟢 0.00153303` | `🟡 0.0288352` | `🔴 0.344885` | `🔴 0.0870806` | `🟢 0.0501809` | `🔴 0.0846315` | `🟢 0.102615` | `🟢 0.129266` | `🟢 0.185277` |
+| `HGBM` | `🟢 0.00146077` | `🟢 0.0176262` | `🔴 0.239677` | `🔴 0.0810616` | `🟢 0.0501669` | `🔴 0.0785164` | `🟢 0.126681` | `🟢 0.0800121` | `🟢 0.266872` |
+| `XGBM` | `🟢 0.00179753` | `🟢 0.0166029` | `🔴 0.303307` | `🔴 0.137977` | `🟢 0.0623943` | `🟢 0.0861429` | `🟢 0.157072` | `🟢 0.151022` | `🟢 0.356205` |
+| `LGBM` | `🟢 0.00150908` | `🟢 0.0180053` | `🔴 0.268393` | `🔴 0.090958` | `🟢 0.0469313` | `🔴 0.0764587` | `🟢 0.129653` | `🟢 0.0621016` | `🟢 0.243286` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `4`:
@@ -970,16 +970,16 @@ Forward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00288537` | `🟢 0.0362175` | `🟢 0.0307171` | `🟢 0.0686588` | `🟢 0.18991` | `🟢 0.157212` | `🟢 1.56247` | `🟢 0.913507` | `🟢 0.504478` |
+| `MLP` | `🟢 0.00387037` | `🟢 0.0320967` | `🟢 0.0313669` | `🟢 0.0548608` | `🟢 0.106545` | `🟢 0.0748398` | `🟢 1.00843` | `🟢 0.687019` | `🟢 0.739707` |
+| `RF` | `🟢 0.00211702` | `🟢 0.0248681` | `🟢 0.0286565` | `🟢 0.0482205` | `🟢 0.0864449` | `🟢 0.060343` | `🟢 0.676607` | `🟢 0.438288` | `🟢 0.425903` |
+| `DT` | `🟢 0.00242446` | `🟢 0.030571` | `🟢 0.0307026` | `🟢 0.0532294` | `🟢 0.0890493` | `🟢 0.0805034` | `🟢 1.03094` | `🟢 0.629177` | `🟢 0.578067` |
+| `ET` | `🟢 0.00306814` | `🟢 0.035136` | `🟢 0.0346159` | `🟢 0.0665412` | `🟢 0.118259` | `🟢 0.0726197` | `🟢 1.36028` | `🟢 0.459432` | `🟢 0.645875` |
+| `ERT` | `🟢 0.00250188` | `🟢 0.0275896` | `🟢 0.0279451` | `🟢 0.0466426` | `🟢 0.0964938` | `🟢 0.0622622` | `🟢 0.824318` | `🟢 0.413294` | `🟢 0.349334` |
+| `GBM` | `🟢 0.00243444` | `🟢 0.0303319` | `🟢 0.037133` | `🟢 0.04588` | `🟢 0.0988506` | `🟡 0.0893568` | `🟢 0.850627` | `🟢 0.485444` | `🟢 0.440246` |
+| `HGBM` | `🟢 0.00211531` | `🟢 0.0246378` | `🟢 0.0219907` | `🟢 0.0551468` | `🟢 0.0950965` | `🟢 0.0618701` | `🟢 0.748709` | `🟢 0.560556` | `🟢 0.499349` |
+| `XGBM` | `🟢 0.00233203` | `🟢 0.0308796` | `🟢 0.0330328` | `🟢 0.0632661` | `🟢 0.135906` | `🟢 0.100681` | `🟢 1.09919` | `🟢 0.727396` | `🟢 0.57162` |
+| `LGBM` | `🟡 0.00260982` | `🔴 0.0535386` | `🔴 0.0940117` | `🟡 0.0684755` | `🟡 0.206742` | `🔴 0.177617` | `🟡 1.38511` | `🟡 0.812561` | `🟢 0.469953` |
 <!-- markdownlint-enable MD013 -->
 
 Backward repository-owned restart matrix:
@@ -987,16 +987,16 @@ Backward repository-owned restart matrix:
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `SVM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `MLP` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `RF` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `DT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ET` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `ERT` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `GBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `HGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `XGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
-| `LGBM` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` | `pending` |
+| `SVM` | `🟢 0.00302093` | `🟢 0.0367106` | `🔴 0.995695` | `🔴 0.173432` | `🟢 0.152783` | `🟢 0.158214` | `🟢 0.662342` | `🟢 0.618167` | `🟡 1.27925` |
+| `MLP` | `🟢 0.00394886` | `🟢 0.0251177` | `🔴 0.752583` | `🟡 0.117351` | `🟢 0.0848492` | `🟢 0.106173` | `🟢 0.368369` | `🟢 0.152055` | `🟢 0.473102` |
+| `RF` | `🟢 0.00219941` | `🟢 0.029553` | `🔴 0.596752` | `🔴 0.11356` | `🟢 0.0595121` | `🟡 0.097616` | `🟢 0.216907` | `🟢 0.0824429` | `🟢 0.195657` |
+| `DT` | `🟢 0.00234214` | `🟢 0.0311835` | `🔴 0.621849` | `🔴 0.142264` | `🟢 0.0785874` | `🟡 0.111159` | `🟢 0.0925728` | `🟢 0.0801539` | `🟢 0.165663` |
+| `ET` | `🟢 0.00263308` | `🟢 0.0339203` | `🔴 0.633153` | `🔴 0.125636` | `🟢 0.0780663` | `🟢 0.13548` | `🟢 0.124204` | `🟢 0.0712563` | `🟢 0.510765` |
+| `ERT` | `🟢 0.00195305` | `🟢 0.0256952` | `🔴 0.617764` | `🔴 0.105595` | `🟢 0.080009` | `🟢 0.102052` | `🟢 0.0956603` | `🟢 0.0809778` | `🟢 0.497061` |
+| `GBM` | `🟢 0.00232457` | `🟡 0.034693` | `🔴 0.73478` | `🔴 0.134991` | `🟢 0.0903153` | `🔴 0.113678` | `🟢 0.202684` | `🟢 0.191873` | `🟢 0.387719` |
+| `HGBM` | `🟢 0.00198454` | `🟢 0.0255339` | `🔴 0.707389` | `🔴 0.145841` | `🟢 0.0758641` | `🔴 0.107151` | `🟢 0.201806` | `🟢 0.134257` | `🟢 0.564205` |
+| `XGBM` | `🟢 0.00267142` | `🟢 0.0223981` | `🔴 0.61998` | `🔴 0.200606` | `🟢 0.0891048` | `🟢 0.108707` | `🟢 0.236763` | `🟢 0.275683` | `🟢 0.692858` |
+| `LGBM` | `🟢 0.00216154` | `🟢 0.0228194` | `🔴 0.654804` | `🔴 0.140965` | `🟢 0.0716468` | `🔴 0.103333` | `🟢 0.257105` | `🟢 0.0882539` | `🟢 0.466785` |
 <!-- markdownlint-enable MD013 -->
 
 Quick read for Table `5`:
@@ -1044,33 +1044,31 @@ Closeout maintenance rule:
 The repository now treats curated `Track 1` family archives as canonical
 benchmark assets rather than optional side notes.
 
-Every family that reaches archive-grade `Track 1` closure should follow the
-same package contract under `models/paper_reference/rcim_track1/forward/`:
+Every family that reaches archive-grade `Track 1` closure now follows the
+same bidirectional package contract under `models/paper_reference/rcim_track1/`:
 
-- `forward/<family>_reference_models/README.md`
-- `forward/<family>_reference_models/reference_inventory.yaml`
-- `forward/<family>_reference_models/onnx/amplitude/`
-- `forward/<family>_reference_models/onnx/phase/`
-- `forward/<family>_reference_models/python/amplitude/`
-- `forward/<family>_reference_models/python/phase/`
-- `forward/<family>_reference_models/data/`
-- `forward/<family>_reference_models/dataset_snapshot_manifest.yaml`
-- `forward/<family>_reference_models/source_runs/<run_instance_id>/training_config.snapshot.yaml`
-- `forward/<family>_reference_models/source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
-- `forward/<family>_reference_models/source_runs/<run_instance_id>/split_manifest.yaml`
+- `<direction>/<family>_reference_models/README.md`
+- `<direction>/<family>_reference_models/reference_inventory.yaml`
+- `<direction>/<family>_reference_models/onnx/amplitude/`
+- `<direction>/<family>_reference_models/onnx/phase/`
+- `<direction>/<family>_reference_models/python/amplitude/`
+- `<direction>/<family>_reference_models/python/phase/`
+- `<direction>/<family>_reference_models/data/`
+- `<direction>/<family>_reference_models/dataset_snapshot_manifest.yaml`
+- `<direction>/<family>_reference_models/source_runs/<run_instance_id>/training_config.snapshot.yaml`
+- `<direction>/<family>_reference_models/source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
+- `<direction>/<family>_reference_models/source_runs/<run_instance_id>/split_manifest.yaml`
 
-Family-section reporting rule for this benchmark:
+Closeout governance rule:
 
-- each archived family gets one dedicated benchmark section;
-- the section must expose archive root, inventory path, and archive note;
-- the section must list the accepted harmonic targets for that family;
-- each target row must identify accepted metrics, canonical source run, and
-  archived deployment path;
-- when the deployment export uses a surrogate estimator surface, the section
-  must state that explicitly and distinguish it from the original Python-side
-  fitted model identity;
-- once available, the section should also point to dataset snapshot and full
-  reconstruction provenance.
+- every future accepted `Track 1` closeout must compare the newly accepted
+  target winner against the archived target entry already stored under
+  `models/paper_reference/rcim_track1/`;
+- when the new closeout improves the accepted target winner, the archive
+  entry must be replaced together with its provenance snapshots, dataset
+  snapshot manifest, and benchmark references;
+- when the accepted target winner does not improve, the existing archive
+  entry must be retained unchanged to avoid unnecessary canonical churn.
 
 Planned family rollout under this standard:
 
@@ -1085,684 +1083,428 @@ Planned family rollout under this standard:
 - `XGBM`
 - `LGBM`
 
-The current `SVM` archive is the first fully populated instance of this
-standard and should be used as the template for future `Track 1` family
-archives.
+The bidirectional original-dataset restart wave is the first closeout that
+materializes both `forward` and `backward` archive branches under this
+standard.
 
 ### SVM Reference Model Inventory
 
-The accepted repository-owned `SVM` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `SVM` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/svm_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/svm_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/svm_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/svm_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/svm_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/svm_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/svm_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/svm_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/svm_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `SVM` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `SVM`
 - repository implementation family: `SVR`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### SVM Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.002503` | `0.003110` | `2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `5.31e-05` | `7.01e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.57e-04` | `1.79e-04` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `1.49e-04` | `1.78e-04` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `8.20e-05` | `9.63e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `2.52e-04` | `3.15e-04` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `8.23e-05` | `9.39e-05` | `2026-04-14-17-30-55__track1_svm_amplitude_repair_seed11_campaign_run` | `LinearRegression` | `constant_linear_regression` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `3.94e-04` | `8.06e-04` | `2026-04-14-21-09-51__track1_svm_amplitude_full_closure_split15_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `6.82e-04` | `0.002181` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `2.52e-04` | `4.86e-04` | `2026-04-14-17-31-04__track1_svm_amplitude_repair_seed23_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### SVM Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.002177` | `0.002908` | `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0323` | `0.0416` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0224` | `0.0350` | `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0573` | `0.0937` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.1892` | `0.3139` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.1230` | `0.1943` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `1.088` | `1.637` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.5030` | `1.187` | `2026-04-14-21-10-28__track1_svm_phase_final_closure_split15_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.4320` | `0.9522` | `2026-04-14-17-31-51__track1_svm_phase_repair_seed11_campaign_run` | `SVR` | `none` | `models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svm_final_closure_campaign/07_track1_svm_amplitude_full_closure_split15.yaml`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svm_final_closure_campaign/11_track1_svm_phase_final_closure_split15.yaml`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svm_open_cell_repair_campaign/02_track1_svm_amplitude_repair_seed11.yaml`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svm_open_cell_repair_campaign/03_track1_svm_amplitude_repair_seed23.yaml`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/svm_targeted_closure/svm/2026-04-14_track1_svm_open_cell_repair_campaign/08_track1_svm_phase_repair_seed11.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `11` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/003_track1_original_dataset_forward_svr_attempt_03.yaml` |
+| `backward` | `14` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/svr/2026-04-26_track1_backward_svr_original_dataset_mega_campaign/010_track1_original_dataset_backward_svr_attempt_10.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### MLP Reference Model Inventory
 
-The accepted repository-owned `MLP` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `MLP` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/mlp_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/mlp_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/mlp_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/mlp_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/mlp_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/mlp_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/mlp_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/mlp_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/mlp_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/mlp_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `MLP` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `MLP`
 - repository implementation family: `MLP`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### MLP Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.0106` | `0.0141` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `0.008904` | `0.0156` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `0.009453` | `0.0155` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `0.007449` | `0.0126` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `0.006993` | `0.0121` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `0.007089` | `0.0120` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `0.008790` | `0.0150` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `0.007806` | `0.0127` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `0.007446` | `0.0130` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `0.008946` | `0.0165` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### MLP Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.009958` | `0.0155` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0802` | `0.1022` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0691` | `0.0899` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0788` | `0.1119` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.1734` | `0.2580` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.1655` | `0.2296` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `1.562` | `1.912` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.9248` | `1.484` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.7559` | `1.252` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `MLPRegressor` | `none` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `13` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/006_track1_original_dataset_forward_mlp_attempt_06.yaml` |
+| `backward` | `10` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/mlp/2026-04-26_track1_backward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_backward_mlp_attempt_08.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### RF Reference Model Inventory
 
-The accepted repository-owned `RF` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `RF` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/rf_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/rf_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/rf_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/rf_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/rf_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/rf_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/rf_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/rf_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/rf_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/rf_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `RF` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `RF`
 - repository implementation family: `RF`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### RF Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.003114` | `0.004114` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.65e-05` | `3.72e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.89e-05` | `2.73e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `2.73e-05` | `3.74e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.21e-05` | `3.28e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `3.72e-05` | `5.67e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.10e-05` | `1.82e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `5.31e-05` | `1.97e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `5.28e-05` | `1.52e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `3.40e-05` | `5.47e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### RF Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.001943` | `0.002667` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0247` | `0.0351` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0268` | `0.0483` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0367` | `0.0551` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0516` | `0.1250` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0480` | `0.0681` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.4251` | `0.9644` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.2305` | `0.7472` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.2770` | `0.8462` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `RandomForestRegressor` | `none` | `models/paper_reference/rcim_track1/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `12` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/rf/2026-04-26_track1_forward_rf_original_dataset_mega_campaign/006_track1_original_dataset_forward_rf_attempt_06.yaml` |
+| `backward` | `12` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/rf/2026-04-26_track1_backward_rf_original_dataset_mega_campaign/002_track1_original_dataset_backward_rf_attempt_02.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### DT Reference Model Inventory
 
-The accepted repository-owned `DT` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `DT` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/dt_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/dt_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/dt_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/dt_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/dt_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/dt_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/dt_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/dt_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/dt_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/dt_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `DT` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `DT`
 - repository implementation family: `DT`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### DT Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.003510` | `0.004879` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `3.10e-05` | `4.31e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `2.32e-05` | `3.34e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `3.66e-05` | `5.06e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.97e-05` | `4.51e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `5.56e-05` | `7.97e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.52e-05` | `2.38e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `8.92e-05` | `2.98e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `6.70e-05` | `1.97e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `4.51e-05` | `7.18e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### DT Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.002236` | `0.003114` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0273` | `0.0391` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0323` | `0.0601` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0455` | `0.0707` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0745` | `0.1513` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0636` | `0.0957` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.4900` | `1.226` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.2461` | `0.8916` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.2873` | `0.8720` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `DecisionTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `12` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/dt/2026-04-26_track1_forward_dt_original_dataset_mega_campaign/018_track1_original_dataset_forward_dt_attempt_18.yaml` |
+| `backward` | `9` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/002_track1_original_dataset_backward_dt_attempt_02.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### ET Reference Model Inventory
 
-The accepted repository-owned `ET` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `ET` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/et_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/et_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/et_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/et_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/et_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/et_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/et_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/et_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/et_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/et_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `ET` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `ET`
 - repository implementation family: `ET`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### ET Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.003385` | `0.004280` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `3.02e-05` | `4.15e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `2.38e-05` | `3.54e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `4.74e-05` | `7.57e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.59e-05` | `3.77e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `6.03e-05` | `8.65e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.31e-05` | `2.01e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `7.83e-05` | `2.65e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `7.69e-05` | `2.86e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `8.09e-05` | `2.74e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### ET Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.002964` | `0.004396` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0319` | `0.0429` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0328` | `0.0579` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0442` | `0.0701` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.1125` | `0.3472` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0916` | `0.1658` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.6079` | `1.220` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.3136` | `0.9307` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.2742` | `0.7295` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreeRegressor` | `none` | `models/paper_reference/rcim_track1/forward/et_reference_models/onnx/phase/ExtraTreeRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `12` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/et/2026-04-26_track1_forward_et_original_dataset_mega_campaign/019_track1_original_dataset_forward_et_attempt_19.yaml` |
+| `backward` | `12` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/et/2026-04-26_track1_backward_et_original_dataset_mega_campaign/016_track1_original_dataset_backward_et_attempt_16.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### ERT Reference Model Inventory
 
-The accepted repository-owned `ERT` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `ERT` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/ert_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/ert_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/ert_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/ert_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/ert_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/ert_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/ert_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/ert_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/ert_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/ert_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `ERT` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `ERT`
 - repository implementation family: `ERT`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### ERT Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.003229` | `0.004201` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.63e-05` | `3.75e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `2.11e-05` | `3.17e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `2.66e-05` | `3.80e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.27e-05` | `3.34e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `3.56e-05` | `5.21e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.09e-05` | `1.85e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `3.47e-05` | `1.05e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `4.49e-05` | `1.44e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `3.81e-05` | `7.22e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### ERT Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.002372` | `0.003630` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0281` | `0.0409` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0281` | `0.0549` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0345` | `0.0541` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0636` | `0.1694` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0492` | `0.0784` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.3967` | `0.9129` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.2125` | `0.7186` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.2699` | `0.7573` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `ExtraTreesRegressor` | `none` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `10` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/ert/2026-04-26_track1_forward_ert_original_dataset_mega_campaign/006_track1_original_dataset_forward_ert_attempt_06.yaml` |
+| `backward` | `9` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/006_track1_original_dataset_backward_ert_attempt_06.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### GBM Reference Model Inventory
 
-The accepted repository-owned `GBM` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `GBM` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/gbm_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/gbm_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/gbm_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/gbm_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/gbm_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/gbm_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/gbm_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/gbm_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/gbm_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/gbm_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `GBM` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `GBM`
 - repository implementation family: `GBM`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### GBM Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.003237` | `0.004261` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.71e-05` | `3.79e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.88e-05` | `2.66e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `2.68e-05` | `3.80e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.55e-05` | `3.58e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `3.92e-05` | `5.49e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.15e-05` | `1.88e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `6.34e-05` | `2.23e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `7.24e-05` | `2.12e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `3.38e-05` | `5.81e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### GBM Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.001883` | `0.002510` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0238` | `0.0343` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0234` | `0.0401` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0379` | `0.0570` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0608` | `0.1399` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0509` | `0.0759` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.4678` | `1.019` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.2797` | `0.8248` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.3021` | `0.8578` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `GradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `8` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/gbm/2026-04-26_track1_forward_gbm_original_dataset_mega_campaign/004_track1_original_dataset_forward_gbm_attempt_04.yaml` |
+| `backward` | `9` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/gbm/2026-04-26_track1_backward_gbm_original_dataset_mega_campaign/002_track1_original_dataset_backward_gbm_attempt_02.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### HGBM Reference Model Inventory
 
-The accepted repository-owned `HGBM` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `HGBM` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/hgbm_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/hgbm_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/hgbm_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/hgbm_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/hgbm_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/hgbm_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/hgbm_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/hgbm_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/hgbm_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/hgbm_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `HGBM` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `HGBM`
 - repository implementation family: `HGBM`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### HGBM Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.002505` | `0.003699` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.54e-05` | `3.52e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.82e-05` | `2.57e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `2.34e-05` | `3.17e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.48e-05` | `3.47e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `2.54e-05` | `3.75e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.16e-05` | `1.86e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `1.01e-04` | `2.97e-04` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `1.38e-04` | `3.08e-04` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `3.85e-05` | `8.41e-05` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### HGBM Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.001846` | `0.002563` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0249` | `0.0343` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0204` | `0.0326` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0385` | `0.0593` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0698` | `0.1377` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0514` | `0.0757` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.6100` | `1.035` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.3627` | `0.8014` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.4136` | `0.9239` | `2026-04-10-19-10-37__exact_full_bank_strict_reference_post_hgbm_fix_strict_repro` | `HistGradientBoostingRegressor` | `none` | `models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/02_exact_full_bank_strict_reference.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `11` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/002_track1_original_dataset_forward_hgbm_attempt_02.yaml` |
+| `backward` | `10` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/hgbm/2026-04-26_track1_backward_hgbm_original_dataset_mega_campaign/012_track1_original_dataset_backward_hgbm_attempt_12.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### XGBM Reference Model Inventory
 
-The accepted repository-owned `XGBM` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `XGBM` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/xgbm_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/xgbm_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/xgbm_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/xgbm_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/xgbm_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/xgbm_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/xgbm_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/xgbm_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/xgbm_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/xgbm_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `XGBM` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `XGBM`
 - repository implementation family: `XGBM`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### XGBM Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.002465` | `0.003714` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `5.29e-05` | `6.81e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `7.21e-05` | `9.07e-05` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `9.31e-05` | `1.24e-04` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `6.44e-05` | `8.34e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `1.17e-04` | `1.59e-04` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `4.66e-05` | `5.98e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `2.74e-04` | `7.82e-04` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `2.21e-04` | `6.77e-04` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `1.87e-04` | `3.14e-04` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### XGBM Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.002165` | `0.003357` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0269` | `0.0373` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0299` | `0.0456` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0596` | `0.0883` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.1181` | `0.1889` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0864` | `0.1192` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.8922` | `1.309` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.5388` | `0.9495` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.4270` | `0.9021` | `2026-04-10-17-19-53__rcim_exact_paper_model_bank_exact_paper_validation_after_fix` | `XGBRegressor` | `none` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/phase/XGBRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `11` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/004_track1_original_dataset_forward_xgbm_attempt_04.yaml` |
+| `backward` | `12` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/xgbm/2026-04-26_track1_backward_xgbm_original_dataset_mega_campaign/008_track1_original_dataset_backward_xgbm_attempt_08.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### LGBM Reference Model Inventory
 
-The accepted repository-owned `LGBM` row is now pinned to an explicit curated
-set of `19` archived model artifacts:
+The accepted repository-owned `LGBM` row is now pinned to explicit curated
+directional archives rebuilt from the completed original-dataset exact-paper mega
+campaign.
 
 <!-- markdownlint-disable MD013 -->
-- archive root:
-  `models/paper_reference/rcim_track1/forward/lgbm_reference_models`
-- machine-readable inventory:
-  `models/paper_reference/rcim_track1/forward/lgbm_reference_models/reference_inventory.yaml`
-- dedicated archive note:
-  `models/paper_reference/rcim_track1/forward/lgbm_reference_models/README.md`
-- dataset snapshot manifest:
-  `models/paper_reference/rcim_track1/forward/lgbm_reference_models/dataset_snapshot_manifest.yaml`
-
-Full regeneration coverage:
-
-- the archive stores both deployment-facing `ONNX` exports and Python-usable fitted estimator pickles for the same accepted targets;
-- each target entry in `reference_inventory.yaml` records the exact fitted estimator parameters, source bundle path, dataset snapshot hash, feature list, target list, train/test row counts, split indices, test size, random seed, harmonic filter, and target-scope mode;
-- source-run config snapshots and run-metadata snapshots are copied under the archive `source_runs/` subtree, making the accepted family row reconstructible without implicit notebook memory or manual campaign-folder inspection.
+- forward archive root: `models/paper_reference/rcim_track1/forward/lgbm_reference_models`
+- backward archive root: `models/paper_reference/rcim_track1/backward/lgbm_reference_models`
+- forward machine-readable inventory: `models/paper_reference/rcim_track1/forward/lgbm_reference_models/reference_inventory.yaml`
+- backward machine-readable inventory: `models/paper_reference/rcim_track1/backward/lgbm_reference_models/reference_inventory.yaml`
+- forward dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/lgbm_reference_models/dataset_snapshot_manifest.yaml`
+- backward dataset snapshot manifest: `models/paper_reference/rcim_track1/backward/lgbm_reference_models/dataset_snapshot_manifest.yaml`
 
 Selection rule:
 
-- when several runs reproduce the same accepted `LGBM` target metrics, the repository pins the earliest stable canonical source run;
-- later Track 1 repair or closure runs are pinned only for harmonics whose accepted benchmark value improved after the older stable baseline.
+- for each direction and target, the canonical archive promotes the attempt with the lowest `MAE`;
+- ties break on lower `RMSE`, then lower target `MAPE`, then lexicographically earlier run name;
+- every future closeout must refresh the archive only when the accepted target winner improves over the stored archive entry.
 
 Important implementation note:
 
 - paper family name: `LGBM`
 - repository implementation family: `LGBM`
-- the archive keeps the original Python-side fitted estimator identity even when the deployment export uses a surrogate surface for ONNX compatibility.
+- workflow scope: `original_dataset_directional_exact_model_bank`
+- both directions archive deployment-facing `ONNX` exports and Python-usable fitted estimator pickles.
 
-#### LGBM Reference Amplitude Models
+Accepted directional target coverage:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.002613` | `0.003829` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.67e-05` | `3.69e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.89e-05` | `2.66e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `2.35e-05` | `3.26e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.53e-05` | `3.54e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `2.46e-05` | `3.57e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.26e-05` | `1.98e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl81.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `1.05e-04` | `2.62e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `1.21e-04` | `2.76e-04` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `3.41e-05` | `6.78e-05` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl240.onnx` |
+| Direction | Target Count | Amplitude Harmonics | Phase Harmonics |
+| --- | ---: | --- | --- |
+| `forward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
+| `backward` | `19` | `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | `1, 3, 39, 40, 78, 81, 156, 162, 240` |
 
-#### LGBM Reference Phase Models
+Directional archive snapshot:
 
-| Target | Harmonic | Accepted MAE | Accepted RMSE | Source Run | Export Estimator | Surrogate | Archived Model |
-| --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.001890` | `0.002605` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0256` | `0.0365` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0204` | `0.0329` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0372` | `0.0582` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0747` | `0.1492` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0475` | `0.0686` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase81.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.6092` | `1.054` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.3491` | `0.8139` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.3904` | `0.8967` | `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix` | `LGBMRegressor` | `none` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase240.onnx` |
-
-Reconstruction references:
-
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
+| Direction | Unique Source Runs | Representative Source Config |
+| --- | ---: | --- |
+| `forward` | `13` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/lgbm/2026-04-26_track1_forward_lgbm_original_dataset_mega_campaign/004_track1_original_dataset_forward_lgbm_attempt_04.yaml` |
+| `backward` | `9` | `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/lgbm/2026-04-26_track1_backward_lgbm_original_dataset_mega_campaign/006_track1_original_dataset_backward_lgbm_attempt_06.yaml` |
 <!-- markdownlint-enable MD013 -->
 
 ### Supporting Harmonic-Wise Offline Result

@@ -1,5 +1,5 @@
 campaign_name: track1_bidirectional_original_dataset_mega_campaign_2026-04-26_00_49_17
-status: running
+status: completed
 planning_report_path: doc\reports\campaign_plans\track1\exact_paper\2026-04-26-00-43-19_track1_bidirectional_original_dataset_mega_relaunch_after_micro_gate_plan_report.md
 campaign_config_directory: config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_original_dataset
 queue_root: null
@@ -9,9 +9,9 @@ launch_mode: remote_operator_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-04-26T00:49:19.449658+02:00'
 started_at: '2026-04-26T00:50:53.6012344+02:00'
-finished_at: null
-completion_recorded_at: null
-results_report_path: null
+finished_at: '2026-04-27T12:06:33.798452+02:00'
+completion_recorded_at: '2026-04-27T12:06:33.798452+02:00'
+results_report_path: doc\reports\campaign_results\track1\exact_paper\2026-04-27-12-06-34_track1_bidirectional_original_dataset_mega_campaign_results_report.md
 remote_host_alias: xilab-remote
 remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 remote_conda_environment_name: standard_ml_lan_node
@@ -459,9 +459,8 @@ remote_bootstrap_contract:
   forbidden_patterns:
   - python -c for queue bundle parsing
   - raw python path literals that terminate with a backslash
-completed_family_list: []
-pending_family_list:
-- SVR
+completed_family_list:
+- SVM
 - MLP
 - RF
 - DT
@@ -471,4 +470,5 @@ pending_family_list:
 - HGBM
 - XGBM
 - LGBM
+pending_family_list: []
 interruption_note: null

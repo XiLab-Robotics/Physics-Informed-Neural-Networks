@@ -8,7 +8,7 @@ Direction branches:
 - `forward/`
 - `backward/`
 
-Current populated family archives under `forward/`:
+Current populated family archives under both directions:
 
 - `forward/svm_reference_models/`
 - `forward/mlp_reference_models/`
@@ -20,6 +20,16 @@ Current populated family archives under `forward/`:
 - `forward/hgbm_reference_models/`
 - `forward/xgbm_reference_models/`
 - `forward/lgbm_reference_models/`
+- `backward/svm_reference_models/`
+- `backward/mlp_reference_models/`
+- `backward/rf_reference_models/`
+- `backward/dt_reference_models/`
+- `backward/et_reference_models/`
+- `backward/ert_reference_models/`
+- `backward/gbm_reference_models/`
+- `backward/hgbm_reference_models/`
+- `backward/xgbm_reference_models/`
+- `backward/lgbm_reference_models/`
 
 Canonical family archive template:
 
@@ -35,15 +45,8 @@ Canonical family archive template:
 - `<direction>/<family>_reference_models/source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
 - `<direction>/<family>_reference_models/source_runs/<run_instance_id>/split_manifest.yaml`
 
-Benchmark integration rule for every future family archive:
+Closeout rule:
 
-- add one dedicated family section to
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
-- list the accepted `Track 1` targets, accepted metrics, canonical source run,
-  archived `ONNX` path, and any surrogate-export note;
-- point the family section to the archive root, inventory, dataset snapshot
-  manifest, and reconstruction references.
-
-The current repository now treats the `forward/` branch as the canonical
-benchmark asset surface completed so far. The `backward/` branch is reserved
-for the future rebuild sourced from the original dataset under `data/datasets/`.
+- every future Track 1 closeout must compare newly accepted target winners against the archive entries already stored here;
+- when a newly accepted winner improves the stored archive entry, the archive must be replaced together with its provenance bundle and linked benchmark references;
+- when the accepted winner does not improve, the stored archive entry must remain unchanged.

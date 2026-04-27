@@ -1,88 +1,62 @@
-# ERT Reference Models
+# RCIM Track 1 Forward ERT Reference Models
 
-This archive stores the canonical `ERT` Track 1 reference model artifacts that
-reproduce the currently accepted repository-owned family row in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+This archive stores the accepted `ERT` target-level winners for the
+`forward` branch of the bidirectional original-dataset Track 1 restart wave.
 
-Archive scope:
+Archive contents:
 
-- `10` amplitude reference models for harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
-- `9` phase reference models for harmonics `1, 3, 39, 40, 78, 81, 156, 162, 240`;
-- phase harmonic `0` is intentionally excluded because it is not part of the Track 1 paper-facing `19`-model family archive.
+- `reference_inventory.yaml`
+- `onnx/amplitude/`
+- `onnx/phase/`
+- `python/amplitude/`
+- `python/phase/`
+- `data/filtered_dataframe_deg_le_35.csv`
+- `dataset_snapshot_manifest.yaml`
+- `source_runs/<run_instance_id>/training_config.snapshot.yaml`
+- `source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
+- `source_runs/<run_instance_id>/split_manifest.yaml`
 
-## Canonical Selection Rule
+Selection rule:
 
-The canonical reference rule for this archive is:
+- lowest target `MAE`; ties break on target `RMSE`, then target `MAPE`, then run name.
+- archive refresh is mandatory at closeout only when the accepted winner improves the stored target entry.
 
-1. choose the exact run whose family-target metrics reproduce the currently accepted benchmark cell values for that target;
-2. when several runs reproduce the same accepted metric pair, prefer the earliest stable canonical source run;
-3. when a later Track 1 campaign introduced the accepted improvement, pin that later run explicitly instead of the older baseline;
-4. when a later campaign merely reproduces the same accepted value, retain the earlier canonical source run.
+Accepted amplitude targets:
 
-## Source Surface
+| Target | Harmonic | MAE | RMSE | Archived ONNX |
+| --- | ---: | ---: | ---: | --- |
+| `fft_y_Fw_filtered_ampl_0` | `0` | `0.0026374` | `0.00317175` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx` |
+| `fft_y_Fw_filtered_ampl_1` | `1` | `2.07938e-05` | `2.82282e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx` |
+| `fft_y_Fw_filtered_ampl_156` | `156` | `2.60746e-05` | `5.90567e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `3.38998e-05` | `0.000114712` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `2.93168e-05` | `4.63842e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_3` | `3` | `1.88926e-05` | `2.50886e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx` |
+| `fft_y_Fw_filtered_ampl_39` | `39` | `2.58271e-05` | `3.32522e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl39.onnx` |
+| `fft_y_Fw_filtered_ampl_40` | `40` | `2.06984e-05` | `2.74003e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl40.onnx` |
+| `fft_y_Fw_filtered_ampl_78` | `78` | `2.93542e-05` | `4.15779e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl78.onnx` |
+| `fft_y_Fw_filtered_ampl_81` | `81` | `8.76095e-06` | `1.17256e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl81.onnx` |
 
-Current pinned source runs:
+Accepted phase targets:
 
-- `2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix`
+| Target | Harmonic | MAE | RMSE | Archived ONNX |
+| --- | ---: | ---: | ---: | --- |
+| `fft_y_Fw_filtered_phase_1` | `1` | `0.00172458` | `0.00250188` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase1.onnx` |
+| `fft_y_Fw_filtered_phase_156` | `156` | `0.375921` | `0.824318` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase156.onnx` |
+| `fft_y_Fw_filtered_phase_162` | `162` | `0.13894` | `0.413294` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase162.onnx` |
+| `fft_y_Fw_filtered_phase_240` | `240` | `0.139049` | `0.349334` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase240.onnx` |
+| `fft_y_Fw_filtered_phase_3` | `3` | `0.020385` | `0.0275896` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase3.onnx` |
+| `fft_y_Fw_filtered_phase_39` | `39` | `0.0193248` | `0.0279451` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase39.onnx` |
+| `fft_y_Fw_filtered_phase_40` | `40` | `0.0298409` | `0.0466426` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase40.onnx` |
+| `fft_y_Fw_filtered_phase_78` | `78` | `0.0467775` | `0.0964938` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase78.onnx` |
+| `fft_y_Fw_filtered_phase_81` | `81` | `0.0456165` | `0.0622622` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase81.onnx` |
 
-Canonical reconstruction config paths represented in this archive:
+Provenance summary:
 
-- `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml`
-
-## Training And Reconstruction References
-
-Canonical training and validation code:
-
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
-- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
-
-Canonical reconstruction inputs:
-
-- dataframe source:
-  `reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv`
-- recovered reference ONNX root:
-  `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`
-
-## Inventory Files
-
-- machine-readable inventory:
-  `reference_inventory.yaml`
-- dataset snapshot manifest:
-  `dataset_snapshot_manifest.yaml`
-- dataset snapshot copy:
-  `data/filtered_dataframe_deg_le_35.csv`
-- Python estimator archive:
-  `python/amplitude/*.pkl`
-  `python/phase/*.pkl`
-- source-run reconstruction manifests:
-  `source_runs/<run_instance_id>/split_manifest.yaml`
-- source-run config and metadata snapshots:
-  `source_runs/<run_instance_id>/training_config.snapshot.yaml`
-  `source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
-- benchmark-facing canonical report:
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-
-## Full Regeneration Coverage
-
-The archive is intended to support deterministic reconstruction of the
-accepted repository-owned `ERT` benchmark row.
-
-For each of the `19` canonical targets, the archive records:
-
-- the accepted benchmark metrics;
-- the canonical source validation run;
-- the archived ONNX export path;
-- the archived Python pickle path for the fitted estimator;
-- the exact fitted estimator class and parameter dictionary;
-- the filtered dataset snapshot hash;
-- the feature list and target list;
-- the train/test row counts and exact filtered row indices;
-- the test size, random seed, harmonic filter, and target-scope mode;
-- the source config snapshot and run metadata snapshot;
-- the immutable source bundle path that contained the fitted estimator.
-
-This means the repository preserves both deployment-facing and Python-facing
-access paths for the accepted `ERT` reference row:
-
-- `onnx/` via `onnx/amplitude/*.onnx` and `onnx/phase/*.onnx`;
-- Python-side fitted estimator access via `python/amplitude/*.pkl` and `python/phase/*.pkl`.
+- direction label: `forward`
+- paper family: `ERT`
+- implementation family: `ERT`
+- archived target count: `19`
+- unique source runs: `10`
+- unique source configs: `10`
+- dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/ert_reference_models/dataset_snapshot_manifest.yaml`
+- machine-readable inventory: `models/paper_reference/rcim_track1/forward/ert_reference_models/reference_inventory.yaml`

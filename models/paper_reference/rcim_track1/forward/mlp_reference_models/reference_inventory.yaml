@@ -1,9 +1,77 @@
-schema_version: 1
-topic: rcim_track1_mlp_reference_models
+schema_version: 2
+topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: MLP
 implementation_family_name: MLP
-archive_scope:
-  amplitude_harmonic_order_list:
+archive_scope: track1_original_dataset_forward
+canonical_selection_rule: Per direction and target, select the completed mega-campaign
+  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
+  then run name.
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
+source_data: config/datasets/transmission_error_dataset.yaml
+notes:
+- This archive was rebuilt during the bidirectional original-dataset mega-campaign
+  closeout.
+- Detailed per-target provenance remains machine-readable in the reference inventory
+  entries.
+reference_models:
+- target_name: fft_y_Fw_filtered_ampl_0
+  target_kind: amplitude
+  harmonic_order: 0
+  direction_label: forward
+  benchmark_mae: 0.003457039395808121
+  benchmark_rmse: 0.004419966076314412
+  source_run_instance_id: 2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/006_track1_original_dataset_forward_mlp_attempt_06.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/onnx_export/MLP/MLPRegressor_ampl0.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl0.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl0.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: c2908d76e498e3691457b7147c95b275cf5e1e657431324c4c47451df98e03f1
+  archived_model_sha256: 28d6615b5b4a555860a18bd04398648a7fa5e6969a08c61f87e490aeabd8a6bb
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 13
+  selected_harmonic_list:
   - 0
   - 1
   - 3
@@ -14,7 +82,111 @@ archive_scope:
   - 156
   - 162
   - 240
-  phase_harmonic_order_list:
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.003457039395808121
+  training_metric_rmse: 0.004419966076314412
+  training_metric_mse: 1.953610011577022e-05
+  training_metric_mape_percent: 6.804276029525351
+- target_name: fft_y_Fw_filtered_ampl_1
+  target_kind: amplitude
+  harmonic_order: 1
+  direction_label: forward
+  benchmark_mae: 0.0017101248198437297
+  benchmark_rmse: 0.0021177982417263357
+  source_run_instance_id: 2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_forward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_ampl1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl1.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl1.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 3453ff50175dbda701f9cac384be5cdd39d341ea6ad30e7999dbc191cf025ece
+  archived_model_sha256: 07a82720d590f174ff6d4ad12c42d645c26c2cf074874738f79a3ca3d3b7325c
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
   - 1
   - 3
   - 39
@@ -24,653 +196,76 @@ archive_scope:
   - 156
   - 162
   - 240
-canonical_selection_rule: when several runs reproduce the same accepted benchmark
-  metric pair, pin the earliest stable canonical source run and keep later campaigns
-  only when they introduce the accepted improvement.
-source_code:
-  validation_script: scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py
-  support_module: scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py
-source_data:
-  dataframe_path: reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv
-  recovered_reference_onnx_root: reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release
-notes:
-- phase harmonic 0 is intentionally excluded from the curated Track 1 paper-facing
-  archive.
-- the archive pins the accepted family row currently visible in Tables 2-5 of the
-  canonical benchmark.
-reference_models:
-- target_name: fft_y_Fw_filtered_ampl_0
-  target_kind: amplitude
-  harmonic_order: 0
-  benchmark_mae: 0.010615013259984726
-  benchmark_rmse: 0.014080647051814351
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl0.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl0.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl0.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: f5f577f10bc3e59074bbaecc028d3b4ea888e5a5f5a0315a99eb87f59904e6b2
-  archived_model_sha256: 070030247dc6536dc4617f90b92d85e9c40848a025012015dea0a772f86de4ad
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.010615013259984726
-  training_metric_rmse: 0.014080647051814351
-  training_metric_mse: 0.0001982646213977682
-  training_metric_mape_percent: 29.764130103951825
-- target_name: fft_y_Fw_filtered_ampl_1
-  target_kind: amplitude
-  harmonic_order: 1
-  benchmark_mae: 0.008904428963805144
-  benchmark_rmse: 0.015568684640677993
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl1.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl1.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: ece152cc1e9ef681398b64d729d64c435841ccf6b3d702650a489093836d8866
-  archived_model_sha256: 3b05091ad622c19587128db28f476b743bb6fbcaae656f52683ee8c434bc7c4e
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
     - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.008904428963805144
-  training_metric_rmse: 0.015568684640677993
-  training_metric_mse: 0.0002423839414408828
-  training_metric_mape_percent: 51.77029873964234
-- target_name: fft_y_Fw_filtered_ampl_3
-  target_kind: amplitude
-  harmonic_order: 3
-  benchmark_mae: 0.00945295881386809
-  benchmark_rmse: 0.01545059643363279
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl3.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: a056beadfdf2c55b6e83b3ab64d04e886aa33e375b4ec96e9f96f972414b36f5
-  archived_model_sha256: 3f6f3f2ee59451b6de13205a3ae5ba7eb0af92cc28170fc2f4e0958db282b6c4
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.00945295881386809
-  training_metric_rmse: 0.01545059643363279
-  training_metric_mse: 0.00023872093015498628
-  training_metric_mape_percent: 1334.3016215127159
-- target_name: fft_y_Fw_filtered_ampl_39
-  target_kind: amplitude
-  harmonic_order: 39
-  benchmark_mae: 0.007449053210825373
-  benchmark_rmse: 0.012641629806634243
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl39.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl39.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: aa628a0f1d4ba1506bdfcd92ec3e84d4996b8f3846fb8b95101bb4a65fca607b
-  archived_model_sha256: 6588ba2beaffb933f86348a66e3cd645f2af7ed657cead2bf3e3e52ddb181e8e
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.007449053210825373
-  training_metric_rmse: 0.012641629806634243
-  training_metric_mse: 0.00015981080416798335
-  training_metric_mape_percent: 809.158627058158
-- target_name: fft_y_Fw_filtered_ampl_40
-  target_kind: amplitude
-  harmonic_order: 40
-  benchmark_mae: 0.006993089540272891
-  benchmark_rmse: 0.012067357975896928
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl40.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: c6c51949f9b380308bd38df9f80daedec9a516e0d5119089c5a7b606d03ff671
-  archived_model_sha256: 72c9c482924eb41d6335a68db980fe7792c2646d5fd5fca0ac5bcdaf2e52a0ed
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.006993089540272891
-  training_metric_rmse: 0.012067357975896928
-  training_metric_mse: 0.0001456211285184432
-  training_metric_mape_percent: 829.1938890593324
-- target_name: fft_y_Fw_filtered_ampl_78
-  target_kind: amplitude
-  harmonic_order: 78
-  benchmark_mae: 0.007088993114705706
-  benchmark_rmse: 0.012006688508333429
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl78.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 668cbb03fd880879f0f1f71eb7177e6d9f0f45860094b0a9825a82a8964015b6
-  archived_model_sha256: de83d082521de8a9c802d0005b7334ce8d25023c9890d2e3ed63602615696707
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.007088993114705706
-  training_metric_rmse: 0.012006688508333429
-  training_metric_mse: 0.000144160568936146
-  training_metric_mape_percent: 2075.3221300591185
-- target_name: fft_y_Fw_filtered_ampl_81
-  target_kind: amplitude
-  harmonic_order: 81
-  benchmark_mae: 0.00878984444030949
-  benchmark_rmse: 0.015044697750150325
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl81.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 156b41c14abf9f319fd86666ff50b61402c4e439814e88fda8a99076847371d3
-  archived_model_sha256: 4b0e5c536410eb6e42c374bfa8d30ff4e9600ef17ca88367b837f36624014cf1
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.00878984444030949
-  training_metric_rmse: 0.015044697750150325
-  training_metric_mse: 0.00022634293039337823
-  training_metric_mape_percent: 3067.440844521748
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0017101248198437297
+  training_metric_rmse: 0.0021177982417263357
+  training_metric_mse: 4.485069392659159e-06
+  training_metric_mape_percent: 9.960263230896366
 - target_name: fft_y_Fw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
-  benchmark_mae: 0.007806014169770502
-  benchmark_rmse: 0.012675718373178232
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl156.onnx
+  direction_label: forward
+  benchmark_mae: 0.002460426611457428
+  benchmark_rmse: 0.003069650185143912
+  source_run_instance_id: 2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_forward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl156.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl156.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl156.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 3eb08bae76c507bbe3185b9664d1d55274e0a785edfef7a70f71411962c55b82
-  archived_model_sha256: b1c0bce22b345ea1aa0f8bf5caf4aa83879f5d57dddc926d0da8d6d4601e9f4b
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 6bd88ab227333fbd59c35dedeaabe428fef478561c7904fd945dcaf0d7c7d65f
+  archived_model_sha256: 2e9911ab082e89849f41bcf71a115ba3e33b7f70c194a062525ff65d264431e6
   feature_name_list:
   - rpm
   - deg
@@ -678,86 +273,113 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.007806014169770502
-  training_metric_rmse: 0.012675718373178232
-  training_metric_mse: 0.0001606738362761282
-  training_metric_mape_percent: 7691.3824394415515
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.002460426611457428
+  training_metric_rmse: 0.003069650185143912
+  training_metric_mse: 9.422752259154053e-06
+  training_metric_mape_percent: 2438.4955770626852
 - target_name: fft_y_Fw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
-  benchmark_mae: 0.007446299713071843
-  benchmark_rmse: 0.012973835390026132
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl162.onnx
+  direction_label: forward
+  benchmark_mae: 0.002117227011003201
+  benchmark_rmse: 0.0027646418956059626
+  source_run_instance_id: 2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/019_track1_original_dataset_forward_mlp_attempt_19.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation/onnx_export/MLP/MLPRegressor_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl162.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-59-30__track1_original_dataset_forward_mlp_attempt_19_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl162.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl162.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: e4b8918bc05be6407b6d136e03298bd2658581514e09b2ca1730b7ce964020df
-  archived_model_sha256: 128de0a8265fe222499a1309e4a61e2f53321f46bb4c2bd931e5629d3465ec17
+  python_estimator_class_name: Pipeline
+  python_model_sha256: f4cbe2580f005d9644154a4b49b936dc4697b801a2530097303f04eb2644c28a
+  archived_model_sha256: c225d92487c39cf6f879258c85e6145a598b655ce8e9425456e9500343d99ed3
   feature_name_list:
   - rpm
   - deg
@@ -765,86 +387,113 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 59
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.007446299713071843
-  training_metric_rmse: 0.012973835390026132
-  training_metric_mse: 0.0001683204047274945
-  training_metric_mape_percent: 5132.886053305562
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.002117227011003201
+  training_metric_rmse: 0.0027646418956059626
+  training_metric_mse: 7.64324481093973e-06
+  training_metric_mape_percent: 1192.9901107171415
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
-  benchmark_mae: 0.008945676549764997
-  benchmark_rmse: 0.016512801211971316
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_ampl240.onnx
+  direction_label: forward
+  benchmark_mae: 0.0025573740749233196
+  benchmark_rmse: 0.0031116447169893323
+  source_run_instance_id: 2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/007_track1_original_dataset_forward_mlp_attempt_07.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/onnx_export/MLP/MLPRegressor_ampl240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl240.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-34-27__track1_original_dataset_forward_mlp_attempt_07_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/MLPRegressor_ampl240.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl240.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 976d04bea2c5c1810b45c38bd8f33d22f00183da9d8902d532c2186bd571fa27
-  archived_model_sha256: e566aa178fd1d5ed03a194751f9be96d8d74311e917f27ba7e8e22cb9aa76a01
+  python_estimator_class_name: Pipeline
+  python_model_sha256: e4c6eeaac08b96126eb4d9af3ffdd53bcb035b857ecdd66a34bb9adc38f77c9b
+  archived_model_sha256: 748ff3118ae20e76f1e7bac891b7a2774fd3339203c0efbda545018da5e43951
   feature_name_list:
   - rpm
   - deg
@@ -852,86 +501,683 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 15
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.008945676549764997
-  training_metric_rmse: 0.016512801211971316
-  training_metric_mse: 0.0002726726038660814
-  training_metric_mape_percent: 3917.757220451724
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0025573740749233196
+  training_metric_rmse: 0.0031116447169893323
+  training_metric_mse: 9.682332844767622e-06
+  training_metric_mape_percent: 873.278530378458
+- target_name: fft_y_Fw_filtered_ampl_3
+  target_kind: amplitude
+  harmonic_order: 3
+  direction_label: forward
+  benchmark_mae: 0.002103672860614273
+  benchmark_rmse: 0.0027482454254484745
+  source_run_instance_id: 2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/014_track1_original_dataset_forward_mlp_attempt_14.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/onnx_export/MLP/MLPRegressor_ampl3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl3.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 3dd7338e897a5dc459177d7201107fb6a76d0cfbe71462d7f8b4338579075667
+  archived_model_sha256: d4af6c81653c20e7c5920c98bb949d905ede7b51374dcb528c10eaa30a53f011
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 31
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.002103672860614273
+  training_metric_rmse: 0.0027482454254484745
+  training_metric_mse: 7.552852918498467e-06
+  training_metric_mape_percent: 284.79368880100935
+- target_name: fft_y_Fw_filtered_ampl_39
+  target_kind: amplitude
+  harmonic_order: 39
+  direction_label: forward
+  benchmark_mae: 0.0019459871363471611
+  benchmark_rmse: 0.002469564144333815
+  source_run_instance_id: 2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/012_track1_original_dataset_forward_mlp_attempt_12.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/onnx_export/MLP/MLPRegressor_ampl39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl39.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 7fc593a6c278543a90a206dd455c7b2a3196c4a162e06486aaf624a23a92b763
+  archived_model_sha256: 21eb4b9e60518eca87c9c5ce09480e173aa50a049a65daac1d6f07ecfb92847a
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 27
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0019459871363471611
+  training_metric_rmse: 0.002469564144333815
+  training_metric_mse: 6.098747062979208e-06
+  training_metric_mape_percent: 185.66590932934568
+- target_name: fft_y_Fw_filtered_ampl_40
+  target_kind: amplitude
+  harmonic_order: 40
+  direction_label: forward
+  benchmark_mae: 0.0021555168720849695
+  benchmark_rmse: 0.0029407510698363196
+  source_run_instance_id: 2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/015_track1_original_dataset_forward_mlp_attempt_15.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation/onnx_export/MLP/MLPRegressor_ampl40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl40.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-51-10__track1_original_dataset_forward_mlp_attempt_15_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 3358bfd63a266131cf044fbdf11bd810a6500e78ca27b84064e55ed3f243f9cc
+  archived_model_sha256: 193e48c194379226cf46f80cad3cb5f18eda266f0fb32143ab40ad79c7d751f4
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 37
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0021555168720849695
+  training_metric_rmse: 0.0029407510698363196
+  training_metric_mse: 8.648016854743457e-06
+  training_metric_mape_percent: 264.0956356811994
+- target_name: fft_y_Fw_filtered_ampl_78
+  target_kind: amplitude
+  harmonic_order: 78
+  direction_label: forward
+  benchmark_mae: 0.0020602724406522167
+  benchmark_rmse: 0.0026994920383436455
+  source_run_instance_id: 2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/014_track1_original_dataset_forward_mlp_attempt_14.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/onnx_export/MLP/MLPRegressor_ampl78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl78.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-48-57__track1_original_dataset_forward_mlp_attempt_14_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: d8f74eef2387aaf36d9dd45a7080d8dc0b521497c15dea02f61b17f2c14afc2c
+  archived_model_sha256: 0a3a22e90cfdf81a3e1d93c38e5489cc0561841222968db4fdb01b5168ea6586
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 31
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0020602724406522167
+  training_metric_rmse: 0.0026994920383436455
+  training_metric_mse: 7.28725726508073e-06
+  training_metric_mape_percent: 741.6574882210226
+- target_name: fft_y_Fw_filtered_ampl_81
+  target_kind: amplitude
+  harmonic_order: 81
+  direction_label: forward
+  benchmark_mae: 0.0017969897974847537
+  benchmark_rmse: 0.0021672506728810537
+  source_run_instance_id: 2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_forward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_ampl81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl81.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/amplitude/Pipeline_ampl81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 79fbc6e057603e6cc560373c9938f3ebfe3f3bfd3301dbf73605453d7ade15c4
+  archived_model_sha256: c53e52300a3335ac4730f6304047e99f59fff52516640823bcc77db9fcf91103
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0017969897974847537
+  training_metric_rmse: 0.0021672506728810537
+  training_metric_mse: 4.696975479103379e-06
+  training_metric_mape_percent: 620.9965962752294
 - target_name: fft_y_Fw_filtered_phase_1
   target_kind: phase
   harmonic_order: 1
-  benchmark_mae: 0.009957517290708984
-  benchmark_rmse: 0.015508199834207962
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase1.onnx
+  direction_label: forward
+  benchmark_mae: 0.0031745173849484706
+  benchmark_rmse: 0.00387036957580313
+  source_run_instance_id: 2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/008_track1_original_dataset_forward_mlp_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/onnx_export/MLP/MLPRegressor_phase1.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase1.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-36-28__track1_original_dataset_forward_mlp_attempt_08_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase1.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase1.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: dd860ea951ed2ea0389e75c6f775eee4931a4698f8ceeb7e5fec07d84f1ed07c
-  archived_model_sha256: 7ac7cf6ed9a22cace3b91884bb07b0ed06e839f0c3e5cffd2a2df3832b84a865
+  python_estimator_class_name: Pipeline
+  python_model_sha256: e8d1eed4ff8206b13752caaa97f36ff204d7abfb95504a2236f97de4b44da1c4
+  archived_model_sha256: 834f9fc0c37d2ce0b2ee3281e7af97fd417268a102c74daddf80b3e4edac0a9e
   feature_name_list:
   - rpm
   - deg
@@ -939,521 +1185,113 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 17
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.009957517290708984
-  training_metric_rmse: 0.015508199834207962
-  training_metric_mse: 0.00024050426209772783
-  training_metric_mape_percent: 146.30429096743302
-- target_name: fft_y_Fw_filtered_phase_3
-  target_kind: phase
-  harmonic_order: 3
-  benchmark_mae: 0.080160198648021
-  benchmark_rmse: 0.10221086418816225
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase3.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 83655ddeb17cfe26c8fbbbc73ce07c6b0b2c55ff8949a538e7f88d89298d439e
-  archived_model_sha256: d8f3abadb4d136ea10f7fe0565d3134326dc967386dd0d624af283e9c0b9ab32
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
     - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.080160198648021
-  training_metric_rmse: 0.10221086418816225
-  training_metric_mse: 0.010447060758090947
-  training_metric_mape_percent: 4.517104982037979
-- target_name: fft_y_Fw_filtered_phase_39
-  target_kind: phase
-  harmonic_order: 39
-  benchmark_mae: 0.06912000071654568
-  benchmark_rmse: 0.08988401970561916
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase39.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase39.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 72e7fcf563941bba4ebcadb03e92190934be1694a3e5344cb170ad889268d541
-  archived_model_sha256: 8238ea74db84f813979ce0c8954afd8960226996a6d4a0c509215b380411871d
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.06912000071654568
-  training_metric_rmse: 0.08988401970561916
-  training_metric_mse: 0.008079136998440133
-  training_metric_mape_percent: 5.751733001123534
-- target_name: fft_y_Fw_filtered_phase_40
-  target_kind: phase
-  harmonic_order: 40
-  benchmark_mae: 0.07877762217638663
-  benchmark_rmse: 0.11189931086148207
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase40.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: f5378e3c36db11c484535b1bcfae02f21ea57a3b65459a4ee5130dfc77b6a1c3
-  archived_model_sha256: 939e5fb3cce9fb393d8509f0a39455cfc1a53a52098a8f78dba90befec4ec1b0
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.07877762217638663
-  training_metric_rmse: 0.11189931086148207
-  training_metric_mse: 0.012521455771274599
-  training_metric_mape_percent: 192.94893101150018
-- target_name: fft_y_Fw_filtered_phase_78
-  target_kind: phase
-  harmonic_order: 78
-  benchmark_mae: 0.173425999861939
-  benchmark_rmse: 0.2579862886874299
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase78.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 5dab79ece954269fdf0876011deb8764981ac6705dbad3579d77a7331bf3de75
-  archived_model_sha256: f8db5c31b0d3f23455788f0fda0abf27431ad00832c5273dbb6052ec0df6a9da
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.173425999861939
-  training_metric_rmse: 0.2579862886874299
-  training_metric_mse: 0.06655692515071393
-  training_metric_mape_percent: 1072.9890619905407
-- target_name: fft_y_Fw_filtered_phase_81
-  target_kind: phase
-  harmonic_order: 81
-  benchmark_mae: 0.16549808986087014
-  benchmark_rmse: 0.2296316100066597
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase81.onnx
-  export_estimator_name: MLPRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: fd9c97dd327ebbb0b401c846f3ff7be1def28dbd1e9055ed8f87ab4f1d9ae816
-  archived_model_sha256: 1282ebc301157ac80d5d651b096495f41e3babbb181904c1bf97090c42264c68
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
-  exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
-    verbose: false
-    warm_start: false
-  training_metric_mae: 0.16549808986087014
-  training_metric_rmse: 0.2296316100066597
-  training_metric_mse: 0.052730676314250643
-  training_metric_mape_percent: 15.755013141525115
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.0031745173849484706
+  training_metric_rmse: 0.00387036957580313
+  training_metric_mse: 1.4979760653302498e-05
+  training_metric_mape_percent: 45.96030568630902
 - target_name: fft_y_Fw_filtered_phase_156
   target_kind: phase
   harmonic_order: 156
-  benchmark_mae: 1.5616960124376646
-  benchmark_rmse: 1.9118845831335556
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase156.onnx
+  direction_label: forward
+  benchmark_mae: 0.6581222968720791
+  benchmark_rmse: 1.0084251086008122
+  source_run_instance_id: 2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/004_track1_original_dataset_forward_mlp_attempt_04.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation/onnx_export/MLP/MLPRegressor_phase156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase156.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-28-07__track1_original_dataset_forward_mlp_attempt_04_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase156.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase156.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: 62a8d4bd1a6ccaa1107a787343b9639fbd9b36d6c96026ff1ca2d9b0a840b683
-  archived_model_sha256: 613cd098caabef50678cb26f24bb9ed068a2833735b70f672dd1ff44b88a6257
+  python_estimator_class_name: Pipeline
+  python_model_sha256: fa57c069beb742f5c7396b3c3ce673ea54a7526753727f0d4344749f3ac4dff2
+  archived_model_sha256: a3bc345a30dfaee4b705bd78d80d20257cef7f6a44c3dbcd757747de1113bc7e
   feature_name_list:
   - rpm
   - deg
@@ -1461,86 +1299,113 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 9
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 1.5616960124376646
-  training_metric_rmse: 1.9118845831335556
-  training_metric_mse: 3.6553026592237696
-  training_metric_mape_percent: 112.9615638135511
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.6581222968720791
+  training_metric_rmse: 1.0084251086008122
+  training_metric_mse: 1.01692119965656
+  training_metric_mape_percent: 47.87629350152214
 - target_name: fft_y_Fw_filtered_phase_162
   target_kind: phase
   harmonic_order: 162
-  benchmark_mae: 0.924807413103507
-  benchmark_rmse: 1.484005198965608
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase162.onnx
+  direction_label: forward
+  benchmark_mae: 0.35433962493088034
+  benchmark_rmse: 0.6870192899995743
+  source_run_instance_id: 2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/001_track1_original_dataset_forward_mlp_attempt_01.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation/onnx_export/MLP/MLPRegressor_phase162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase162.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-14-47__track1_original_dataset_forward_mlp_attempt_01_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase162.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase162.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: cd4a3f32faed5a5b86fd30e687f569a732f012c13ecc9f87f8d3da57f3fe8c3d
-  archived_model_sha256: 05525fd6e3f93f2306448551fd8b9cf9a09904bdc38482f957bb5a884c8c6d93
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 877d05604a92be4c92dd886965dfc43ca74a4cb4906e7dc233fce3d0bb82be74
+  archived_model_sha256: b64fbc1e3623cb12bdd05dad03dcd27a2582d4ceb93f48ad9dd352b93807e80f
   feature_name_list:
   - rpm
   - deg
@@ -1548,86 +1413,113 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
   random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.924807413103507
-  training_metric_rmse: 1.484005198965608
-  training_metric_mse: 2.2022714305569537
-  training_metric_mape_percent: 46.059028362728895
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.35433962493088034
+  training_metric_rmse: 0.6870192899995743
+  training_metric_mse: 0.4719955048315192
+  training_metric_mape_percent: 17.001691466794227
 - target_name: fft_y_Fw_filtered_phase_240
   target_kind: phase
   harmonic_order: 240
-  benchmark_mae: 0.7559229382385926
-  benchmark_rmse: 1.2516190036068646
-  source_run_instance_id: 2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/01_exact_full_bank_diagnostic_continue.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/onnx_export/MLP/MLPRegressor_phase240.onnx
+  direction_label: forward
+  benchmark_mae: 0.4635993578369958
+  benchmark_rmse: 0.7397073632318044
+  source_run_instance_id: 2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/003_track1_original_dataset_forward_mlp_attempt_03.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation/onnx_export/MLP/MLPRegressor_phase240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase240.onnx
-  export_estimator_name: MLPRegressor
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/baseline_reproduction/shared/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-10-17-15-30__exact_full_bank_diagnostic_continue_smoke_full_continue_after_fix/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-26-02__track1_original_dataset_forward_mlp_attempt_03_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: 36b3a3e0792cd3f4b96eee397100cd4361ae8740f1a078a1336a01f697733875
-  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/MLPRegressor_phase240.pkl
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase240.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: MLPRegressor
-  python_model_sha256: d32a97249245df1fe7753b620e3ae1e2f1c45363f0c99bb92b091797e4262737
-  archived_model_sha256: acb2920400b5fb7f29d43550125df192d12c3a3134e081901808ee97c2863cbe
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 877ad63ce6ea73cb41e5568b2f101a5e48ddc64b4df1b840b480e2c63321b02e
+  archived_model_sha256: ec270906ef044ab38c7ae82e5a227acdb382d9962ed46d451fd5eadb383a566c
   feature_name_list:
   - rpm
   - deg
@@ -1635,64 +1527,656 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_0
   - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
   - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
   - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
   - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
   - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
   - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
   - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
   - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
   - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 775
-  test_row_count: 194
-  test_size: 0.2
-  random_seed: 0
-  maximum_deg: 35.0
-  target_scope_mode: all
-  harmonic_order_filter: []
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 7
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
   exact_estimator_params:
-    activation: tanh
-    alpha: 0.0001
-    batch_size: auto
-    beta_1: 0.9
-    beta_2: 0.999
-    early_stopping: true
-    epsilon: 1.0e-08
-    hidden_layer_sizes:
-    - 200
-    - 50
-    learning_rate: adaptive
-    learning_rate_init: 0.001
-    loss: squared_error
-    max_fun: 15000
-    max_iter: 200
-    momentum: 0.9
-    n_iter_no_change: 10
-    nesterovs_momentum: true
-    power_t: 0.5
-    random_state: 0
-    shuffle: true
-    solver: adam
-    tol: 0.0001
-    validation_fraction: 0.1
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
     verbose: false
-    warm_start: false
-  training_metric_mae: 0.7559229382385926
-  training_metric_rmse: 1.2516190036068646
-  training_metric_mse: 1.5665501301898404
-  training_metric_mape_percent: 65.19028438317926
-python_archive_format: pickle_protocol_5_single_target_estimators
-dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
-dataset_snapshot_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/dataset_snapshot_manifest.yaml
-source_run_count: 1
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.4635993578369958
+  training_metric_rmse: 0.7397073632318044
+  training_metric_mse: 0.5471669832193486
+  training_metric_mape_percent: 52.17342673524777
+- target_name: fft_y_Fw_filtered_phase_3
+  target_kind: phase
+  harmonic_order: 3
+  direction_label: forward
+  benchmark_mae: 0.023392948849348387
+  benchmark_rmse: 0.03209671705635885
+  source_run_instance_id: 2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/011_track1_original_dataset_forward_mlp_attempt_11.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation/onnx_export/MLP/MLPRegressor_phase3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase3.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-42-44__track1_original_dataset_forward_mlp_attempt_11_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 453188aae58994de44f861d83006bf64c88212c9dc80f4f1cdcd8f743685d490
+  archived_model_sha256: 9b7bcdf6b0b2e408b71edfb951a3031807ba6969caa6366a7624fd9305c4ca2f
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 23
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.023392948849348387
+  training_metric_rmse: 0.03209671705635885
+  training_metric_mse: 0.0010301992457959572
+  training_metric_mape_percent: 1.315154681326888
+- target_name: fft_y_Fw_filtered_phase_39
+  target_kind: phase
+  harmonic_order: 39
+  direction_label: forward
+  benchmark_mae: 0.02163311584441973
+  benchmark_rmse: 0.031366895529892524
+  source_run_instance_id: 2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/020_track1_original_dataset_forward_mlp_attempt_20.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation/onnx_export/MLP/MLPRegressor_phase39.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase39.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-02-01-39__track1_original_dataset_forward_mlp_attempt_20_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: a26586d3a1e7ea2bb6b1f826fa4a6ae1fe0526501945642c5811aff3e992cb6b
+  archived_model_sha256: f1b29a34e1b783de0479fabfffb1962bd9ec435a0e92fc171a95b258b5877dbe
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 61
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.02163311584441973
+  training_metric_rmse: 0.031366895529892524
+  training_metric_mse: 0.0009838821351831918
+  training_metric_mape_percent: 1.7987139659274378
+- target_name: fft_y_Fw_filtered_phase_40
+  target_kind: phase
+  harmonic_order: 40
+  direction_label: forward
+  benchmark_mae: 0.03761093853570169
+  benchmark_rmse: 0.054860823040188064
+  source_run_instance_id: 2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/006_track1_original_dataset_forward_mlp_attempt_06.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/onnx_export/MLP/MLPRegressor_phase40.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase40.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-32-15__track1_original_dataset_forward_mlp_attempt_06_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: fee3bdff267efcd6a070fc5dfffeada3918730189a476929f1598af296154caf
+  archived_model_sha256: ac8b1e070327e998ae884213bd28456d3997b4e13f608a99f4c0f9e3167904ad
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 13
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+        \             random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, max_fun=20000, max_iter=2000,\n\
+      \             random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 100
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.03761093853570169
+  training_metric_rmse: 0.054860823040188064
+  training_metric_mse: 0.0030097099046468294
+  training_metric_mape_percent: 47.998147435134705
+- target_name: fft_y_Fw_filtered_phase_78
+  target_kind: phase
+  harmonic_order: 78
+  direction_label: forward
+  benchmark_mae: 0.07437483230644172
+  benchmark_rmse: 0.1065446428811727
+  source_run_instance_id: 2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/012_track1_original_dataset_forward_mlp_attempt_12.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/onnx_export/MLP/MLPRegressor_phase78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase78.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-44-42__track1_original_dataset_forward_mlp_attempt_12_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: e58f8948e1bd16be246ce3dd17d01fbd0946b452528b7de9ae5b08fe541351e6
+  archived_model_sha256: 1fe734b5b64f95a6400592eaba1fd5a90cf1dbcbd41bc669dd35f5d005ff97f7
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 27
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.07437483230644172
+  training_metric_rmse: 0.1065446428811727
+  training_metric_mse: 0.011351760926676625
+  training_metric_mape_percent: 601.3827793836115
+- target_name: fft_y_Fw_filtered_phase_81
+  target_kind: phase
+  harmonic_order: 81
+  direction_label: forward
+  benchmark_mae: 0.05166974927068505
+  benchmark_rmse: 0.07483983051719251
+  source_run_instance_id: 2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/mlp/2026-04-26_track1_forward_mlp_original_dataset_mega_campaign/016_track1_original_dataset_forward_mlp_attempt_16.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation/onnx_export/MLP/MLPRegressor_phase81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase81.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/source_runs/2026-04-26-01-53-15__track1_original_dataset_forward_mlp_attempt_16_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  python_model_path: models/paper_reference/rcim_track1/forward/mlp_reference_models/python/phase/Pipeline_phase81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: bb70aafb9e9eb458cb16ddeee92c059d5746330c17e4066ac1ff84ae1262ddd2
+  archived_model_sha256: 3ed4c6d116a130a94c5314f9b5fbf65bb333729eab00421b8419e30dae7fd056
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 42
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - feature_scaler
+      - StandardScaler()
+    - - mlp
+      - "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n \
+        \            max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    transform_input: null
+    verbose: false
+    feature_scaler: StandardScaler()
+    mlp: "MLPRegressor(activation='tanh', alpha=0.01, hidden_layer_sizes=(50,),\n\
+      \             max_fun=20000, max_iter=2000, random_state=0, solver='lbfgs')"
+    feature_scaler__copy: true
+    feature_scaler__with_mean: true
+    feature_scaler__with_std: true
+    mlp__activation: tanh
+    mlp__alpha: 0.01
+    mlp__batch_size: auto
+    mlp__beta_1: 0.9
+    mlp__beta_2: 0.999
+    mlp__early_stopping: false
+    mlp__epsilon: 1.0e-08
+    mlp__hidden_layer_sizes:
+    - 50
+    mlp__learning_rate: constant
+    mlp__learning_rate_init: 0.001
+    mlp__loss: squared_error
+    mlp__max_fun: 20000
+    mlp__max_iter: 2000
+    mlp__momentum: 0.9
+    mlp__n_iter_no_change: 10
+    mlp__nesterovs_momentum: true
+    mlp__power_t: 0.5
+    mlp__random_state: 0
+    mlp__shuffle: true
+    mlp__solver: lbfgs
+    mlp__tol: 0.0001
+    mlp__validation_fraction: 0.1
+    mlp__verbose: false
+    mlp__warm_start: false
+  training_metric_mae: 0.05166974927068505
+  training_metric_rmse: 0.07483983051719251
+  training_metric_mse: 0.005601000231842099
+  training_metric_mape_percent: 5.00725151022716

@@ -2296,6 +2296,25 @@ Final campaign-results deliverables must include:
 - the styled PDF export;
 - a real PDF validation pass before the task is closed.
 
+For the bidirectional original-dataset `Track 1` exact-paper mega wave, the
+repo-owned closeout entry point is:
+
+```powershell
+conda run -n standard_ml_codex_env python -B scripts\reports\closeout_track1_bidirectional_original_dataset_mega_campaign.py
+```
+
+That closeout utility is responsible for:
+
+- reconciling the finished queue against the canonical `400` config list in
+  `doc/running/active_training_campaign.yaml`;
+- materializing `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and
+  `campaign_best_run.md` inside the campaign output directory;
+- refreshing the `forward` and `backward` restart matrices in
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+- rebuilding the canonical `Track 1` paper-reference archives under
+  `models/paper_reference/rcim_track1/`;
+- patching the final campaign state and writing the campaign-results report.
+
 ## Active Campaign State
 
 The currently prepared or active campaign is tracked in:

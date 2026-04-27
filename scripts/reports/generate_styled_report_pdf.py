@@ -83,6 +83,8 @@ TRACK1_MLP_CLOSEOUT_TARGETED_PAIR_TABLE_CLASS_NAME = "report-table report-table-
 TRACK1_INTERRUPTED_SVM_CANDIDATE_GAINS_TABLE_CLASS_NAME = "report-table report-table-track1-interrupted-svm-candidate-gains"
 TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-ranking"
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
+TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-benchmark-surface"
+TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-reference-archive"
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
 SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-export-surface"
 SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-gap-vs-paper"
@@ -849,6 +851,52 @@ REPORT_STYLESHEET = """
     .report-table-track1-svm-repair-before-after th:nth-child(1), .report-table-track1-svm-repair-before-after td:nth-child(1) { width: 38%; }
     .report-table-track1-svm-repair-before-after th:nth-child(2), .report-table-track1-svm-repair-before-after td:nth-child(2) { width: 31%; }
     .report-table-track1-svm-repair-before-after th:nth-child(3), .report-table-track1-svm-repair-before-after td:nth-child(3) { width: 31%; }
+
+    .report-table-track1-bidirectional-mega-benchmark-surface,
+    .report-table-track1-bidirectional-mega-reference-archive {
+      font-size: 6.9pt;
+      line-height: 1.17;
+    }
+
+    .report-table-track1-bidirectional-mega-benchmark-surface th,
+    .report-table-track1-bidirectional-mega-benchmark-surface td,
+    .report-table-track1-bidirectional-mega-reference-archive th,
+    .report-table-track1-bidirectional-mega-reference-archive td {
+      padding: 4px 4px;
+    }
+
+    .report-table-track1-bidirectional-mega-benchmark-surface th,
+    .report-table-track1-bidirectional-mega-reference-archive th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-bidirectional-mega-benchmark-surface th:nth-child(1), .report-table-track1-bidirectional-mega-benchmark-surface td:nth-child(1) { width: 42%; }
+    .report-table-track1-bidirectional-mega-benchmark-surface th:nth-child(2), .report-table-track1-bidirectional-mega-benchmark-surface td:nth-child(2) { width: 14%; }
+    .report-table-track1-bidirectional-mega-benchmark-surface th:nth-child(3), .report-table-track1-bidirectional-mega-benchmark-surface td:nth-child(3) { width: 11%; }
+    .report-table-track1-bidirectional-mega-benchmark-surface th:nth-child(4), .report-table-track1-bidirectional-mega-benchmark-surface td:nth-child(4) { width: 11%; }
+    .report-table-track1-bidirectional-mega-benchmark-surface th:nth-child(5), .report-table-track1-bidirectional-mega-benchmark-surface td:nth-child(5) { width: 11%; }
+    .report-table-track1-bidirectional-mega-benchmark-surface th:nth-child(6), .report-table-track1-bidirectional-mega-benchmark-surface td:nth-child(6) { width: 11%; }
+
+    .report-table-track1-bidirectional-mega-reference-archive {
+      font-size: 6.45pt;
+      line-height: 1.14;
+    }
+
+    .report-table-track1-bidirectional-mega-reference-archive th,
+    .report-table-track1-bidirectional-mega-reference-archive td {
+      padding: 3px 4px;
+    }
+
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(1), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(1) { width: 10%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(2), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(2) { width: 8%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(3), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(3) { width: 12%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(4), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(4) { width: 12%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(5), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(5) { width: 12%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(6), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(6) { width: 46%; }
 
     .report-table-svr-reference-grid-ranking,
     .report-table-svr-reference-grid-export-surface,
@@ -2448,6 +2496,20 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Candidate", "Run Instance", "MAE", "RMSE", "Notes")
         ):
             return TRACK1_INTERRUPTED_SVM_CANDIDATE_GAINS_TABLE_CLASS_NAME
+
+    if report_stem == "2026-04-27-12-06-34_track1_bidirectional_original_dataset_mega_campaign_results_report":
+
+        if (
+            current_section_slug == "benchmark-restart-surface"
+            and normalized_header_cells == ("Table", "Direction", "Green", "Yellow", "Red", "Total")
+        ):
+            return TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "reference-archive-refresh"
+            and normalized_header_cells == ("Direction", "Family", "Archived Targets", "Unique Source Runs", "Unique Source Configs", "Archive Root")
+        ):
+            return TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
