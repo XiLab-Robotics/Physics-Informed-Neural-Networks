@@ -1,0 +1,33 @@
+entry_origin: campaign
+run_name: track1_forward_lgbm_phase_h81_final_open_cells_attempt_05
+paper_family_code: LGBM
+scope_key: phase
+harmonic_order: 81
+winning_mean_component_mae: 0.05377627951080581
+winning_mean_component_rmse: 0.08194915369782822
+winning_mean_component_mape_percent: 5.6795673862499045
+paper_mae: 0.055
+paper_rmse: 0.082
+met_paper_cell_count: 2
+near_paper_cell_count: 0
+open_paper_cell_count: 0
+closure_score: 1.0
+mean_normalized_gap_ratio: 0.0
+max_normalized_gap_ratio: 0.0
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells/2026-04-28-02-11-37__track1_forward_lgbm_phase_h81_final_open_cells_attempt_05_campaign_run/validation_summary.yaml
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_final_open_cells/lgbm/2026-04-28_track1_forward_lgbm_phase_h81_final_open_cells/005_track1_forward_lgbm_phase_h81_final_open_cells_attempt_05.yaml
+experiment_output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells/2026-04-28-02-11-37__track1_forward_lgbm_phase_h81_final_open_cells_attempt_05_campaign_run
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: winning_mean_component_mae_asc
+  seventh_tie_breaker: winning_mean_component_rmse_asc
+  eighth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 forward
+    open-cell repair campaign.
+selected_at: '2026-04-28T11:01:15+02:00'

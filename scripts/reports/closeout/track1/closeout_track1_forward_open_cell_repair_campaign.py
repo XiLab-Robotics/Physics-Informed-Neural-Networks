@@ -1,4 +1,4 @@
-"""Close out the Track 1 forward open-cell repair campaign.
+"""Close out one Track 1 forward residual-repair campaign.
 
 This utility promotes only the real pair-level improvements from the completed
 forward-only original-dataset repair wave, refreshes the canonical benchmark
@@ -52,19 +52,8 @@ BENCHMARK_REPORT_PATH = (
 MASTER_SUMMARY_PATH = (
     PROJECT_PATH / "doc" / "reports" / "analysis" / "Training Results Master Summary.md"
 )
-VALIDATION_ROOT = (
-    PROJECT_PATH
-    / "output"
-    / "validation_checks"
-    / "paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_open_cell_repair"
-)
 REPORT_OUTPUT_ROOT = (
     PROJECT_PATH / "doc" / "reports" / "campaign_results" / "track1" / "exact_paper"
-)
-
-RUN_PATTERN = re.compile(
-    r"^track1_forward_(?P<family>[a-z0-9]+)_(?P<scope>ampl|phase)_h(?P<harmonic>\d+)"
-    r"_open_cell_repair_attempt_(?P<attempt>\d+)$"
 )
 TRACK1_COMPARISON_ROW_PATTERN = re.compile(
     r"(\| Track 1 canonical closure rule \| Four full-matrix replication tables plus `10 x 19` accepted family-bank models \| )(.*?)( \| not_yet_met \|)"
@@ -121,13 +110,68 @@ FAMILY_SLUG_TO_PAPER_CODE = {
     "lgbm": "LGBM",
 }
 
+CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
+    "track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10": {
+        "validation_root_relative_path": (
+            "output/validation_checks/"
+            "paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_open_cell_repair"
+        ),
+        "run_pattern": (
+            r"^track1_forward_(?P<family>[a-z0-9]+)_(?P<scope>ampl|phase)_h(?P<harmonic>\d+)"
+            r"_open_cell_repair_attempt_(?P<attempt>\d+)$"
+        ),
+        "report_filename_suffix": "track1_forward_open_cell_repair_campaign_results_report.md",
+        "report_heading": "# Track 1 Forward Open-Cell Repair Campaign Results",
+        "closeout_label": "forward open-cell repair closeout",
+        "evidence_campaign_label": "latest exact-paper forward open-cell repair campaign:",
+        "wave_completion_line": "- The forward-only repair wave completed the full `300/300` queue successfully.",
+        "master_summary_impact_line": (
+            "Forward-only original-dataset open-cell repair wave completed `300/300`, "
+            "promoted only real pair-level improvements, and refreshed the canonical "
+            "forward restart surface |"
+        ),
+        "archive_note_line": (
+            "This archive was refreshed during the forward open-cell repair closeout. "
+            "Improved accepted targets were replaced and retained targets preserved "
+            "their previous canonical source runs."
+        ),
+        "report_written_label": "Forward open-cell repair closeout written",
+    },
+    "track1_forward_final_open_cells_campaign_2026-04-28_00_30_09": {
+        "validation_root_relative_path": (
+            "output/validation_checks/"
+            "paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells"
+        ),
+        "run_pattern": (
+            r"^track1_forward_(?P<family>[a-z0-9]+)_(?P<scope>ampl|phase)_h(?P<harmonic>\d+)"
+            r"_final_open_cells_attempt_(?P<attempt>\d+)$"
+        ),
+        "report_filename_suffix": "track1_forward_final_open_cells_campaign_results_report.md",
+        "report_heading": "# Track 1 Forward Final Open-Cells Campaign Results",
+        "closeout_label": "forward final open-cells closeout",
+        "evidence_campaign_label": "latest exact-paper forward final open-cells campaign:",
+        "wave_completion_line": "- The final forward-only residual wave completed the full `76/76` queue successfully.",
+        "master_summary_impact_line": (
+            "Forward-only original-dataset final residual wave completed `76/76`, "
+            "promoted only real pair-level improvements, and refreshed the canonical "
+            "forward restart surface |"
+        ),
+        "archive_note_line": (
+            "This archive was refreshed during the forward final open-cells closeout. "
+            "Improved accepted targets were replaced and retained targets preserved "
+            "their previous canonical source runs."
+        ),
+        "report_written_label": "Forward final open-cells closeout written",
+    },
+}
+
 
 def parse_command_line_arguments() -> argparse.Namespace:
 
     """Parse the CLI arguments for the closeout utility."""
 
     argument_parser = argparse.ArgumentParser(
-        description="Close out the Track 1 forward open-cell repair campaign."
+        description="Close out one Track 1 forward residual-repair campaign."
     )
     argument_parser.add_argument(
         "--report-timestamp",
@@ -171,6 +215,57 @@ def normalize_config_path(path_text: str | Path) -> str:
     """Normalize one config path to slash-separated relative form."""
 
     return str(path_text).replace("\\", "/").strip()
+
+
+def resolve_campaign_profile(active_campaign_dictionary: dict[str, Any]) -> dict[str, str]:
+
+    """Resolve the closeout profile for the active forward campaign."""
+
+    campaign_name = str(active_campaign_dictionary["campaign_name"])
+    assert campaign_name in CAMPAIGN_PROFILE_BY_NAME, (
+        "Unexpected active campaign for this closeout script | "
+        f"campaign_name={campaign_name}"
+    )
+    return CAMPAIGN_PROFILE_BY_NAME[campaign_name]
+
+
+def resolve_validation_root(campaign_profile: dict[str, str]) -> Path:
+
+    """Resolve the validation root for one supported campaign profile."""
+
+    return PROJECT_PATH / str(campaign_profile["validation_root_relative_path"])
+
+
+def resolve_campaign_finished_at_text(
+    active_campaign_dictionary: dict[str, Any],
+    validation_root: Path,
+) -> str:
+
+    """Resolve one durable finished-at timestamp from the local campaign artifacts."""
+
+    existing_finished_at = active_campaign_dictionary.get("finished_at")
+    if existing_finished_at:
+        return str(existing_finished_at)
+
+    candidate_datetime_list: list[datetime] = []
+    for summary_path in validation_root.rglob("validation_summary.yaml"):
+        candidate_datetime_list.append(
+            datetime.fromtimestamp(summary_path.stat().st_mtime).astimezone()
+        )
+
+    campaign_output_directory = PROJECT_PATH / str(active_campaign_dictionary["campaign_output_directory"])
+    log_directory = campaign_output_directory / "logs"
+    if log_directory.exists():
+        for log_path in log_directory.rglob("*.log"):
+            candidate_datetime_list.append(
+                datetime.fromtimestamp(log_path.stat().st_mtime).astimezone()
+            )
+
+    assert candidate_datetime_list, (
+        "Unable to derive one campaign finished timestamp from the local artifacts | "
+        f"validation_root={validation_root}"
+    )
+    return max(candidate_datetime_list).isoformat(timespec="seconds")
 
 
 def parse_markdown_row(markdown_line: str) -> list[str]:
@@ -311,12 +406,13 @@ def build_paper_target_dictionary(
 def build_campaign_entry_from_summary(
     summary_dictionary: dict[str, Any],
     paper_target_dictionary: dict[str, dict[str, dict[str, float]]],
+    run_pattern: re.Pattern[str],
 ) -> dict[str, Any]:
 
     """Build one promotion candidate entry from one validation summary."""
 
     run_name = str(summary_dictionary["experiment"]["run_name"])
-    matched_run = RUN_PATTERN.match(run_name)
+    matched_run = run_pattern.match(run_name)
     assert matched_run is not None, f"Unsupported campaign run format | run_name={run_name}"
 
     family_slug = str(matched_run.group("family"))
@@ -427,6 +523,8 @@ def build_baseline_entry(
 def collect_campaign_summary_bundle(
     active_campaign_dictionary: dict[str, Any],
     paper_target_dictionary: dict[str, dict[str, dict[str, float]]],
+    validation_root: Path,
+    run_pattern: re.Pattern[str],
 ) -> tuple[list[dict[str, Any]], dict[tuple[str, str, int], dict[str, Any]], dict[str, list[dict[str, Any]]]]:
 
     """Collect all campaign entries and the best retry per targeted pair."""
@@ -438,12 +536,16 @@ def collect_campaign_summary_bundle(
     collected_entry_list: list[dict[str, Any]] = []
     pair_entry_list_dictionary: dict[tuple[str, str, int], list[dict[str, Any]]] = defaultdict(list)
 
-    for summary_path in sorted(VALIDATION_ROOT.rglob("validation_summary.yaml")):
+    for summary_path in sorted(validation_root.rglob("validation_summary.yaml")):
         summary_dictionary = load_yaml_dictionary(summary_path)
         config_path = normalize_config_path(summary_dictionary.get("config_path", ""))
         if config_path not in queue_config_path_set:
             continue
-        campaign_entry = build_campaign_entry_from_summary(summary_dictionary, paper_target_dictionary)
+        campaign_entry = build_campaign_entry_from_summary(
+            summary_dictionary,
+            paper_target_dictionary,
+            run_pattern,
+        )
         pair_identifier = (
             campaign_entry["paper_family_code"],
             campaign_entry["scope_key"],
@@ -558,6 +660,7 @@ def update_benchmark_report(
     promoted_entry_dictionary: dict[tuple[str, str, int], dict[str, Any]],
     report_relative_path: str,
     active_campaign_dictionary: dict[str, Any],
+    campaign_profile: dict[str, str],
 ) -> dict[str, dict[str, dict[str, int]]]:
 
     """Apply the promoted forward entries to the canonical benchmark report."""
@@ -615,7 +718,7 @@ def update_benchmark_report(
         [
             "Current repository evidence source for the full matrices:",
             "",
-            "- latest exact-paper forward open-cell repair campaign:",
+            f"- {campaign_profile['evidence_campaign_label']}",
             f"  `{active_campaign_dictionary['campaign_name']}`",
             "- execution window:",
             f"  `{active_campaign_dictionary['started_at']}` to `{active_campaign_dictionary['finished_at']}`",
@@ -690,6 +793,8 @@ def write_campaign_bookkeeping(
 def build_results_report_markdown(
     report_timestamp: str,
     active_campaign_dictionary: dict[str, Any],
+    campaign_profile: dict[str, str],
+    validation_root: Path,
     family_best_dictionary: dict[str, dict[str, Any]],
     best_run_dictionary: dict[str, Any],
     improvement_summary_dictionary: dict[str, int],
@@ -749,7 +854,7 @@ def build_results_report_markdown(
     )
 
     report_line_list = [
-        "# Track 1 Forward Open-Cell Repair Campaign Results",
+        str(campaign_profile["report_heading"]),
         "",
         "## Overview",
         "",
@@ -758,12 +863,12 @@ def build_results_report_markdown(
         f"- queue size: `{len(active_campaign_dictionary['queue_config_path_list'])}`",
         f"- execution window: `{active_campaign_dictionary['started_at']}` to `{active_campaign_dictionary['finished_at']}`",
         f"- campaign output directory: `{format_project_relative_path(active_campaign_dictionary['campaign_output_directory'])}`",
-        f"- validation root: `{format_project_relative_path(VALIDATION_ROOT)}`",
+        f"- validation root: `{format_project_relative_path(validation_root)}`",
         f"- report timestamp: `{report_timestamp}`",
         "",
         "## Executive Summary",
         "",
-        "- The forward-only repair wave completed the full `300/300` queue successfully.",
+        str(campaign_profile["wave_completion_line"]),
         f"- Targeted family-target pairs: `{improvement_summary_dictionary['targeted_pair_count']}`.",
         f"- Promoted pair winners: `{improvement_summary_dictionary['promoted_pair_count']}`.",
         f"- Retained baseline pair winners: `{improvement_summary_dictionary['retained_baseline_pair_count']}`.",
@@ -825,6 +930,7 @@ def build_results_report_markdown(
 def patch_master_summary(
     report_relative_path: str,
     active_campaign_dictionary: dict[str, Any],
+    campaign_profile: dict[str, str],
     updated_status_dictionary: dict[str, dict[str, dict[str, int]]],
     best_run_dictionary: dict[str, Any],
 ) -> None:
@@ -847,7 +953,7 @@ def patch_master_summary(
         (
             r"\1"
             f"Canonical benchmark now has `{total_non_green_count}` non-green cells across Tables `2-5` "
-            f"after the forward open-cell repair closeout (`forward`: `{forward_non_green_count}`, "
+            f"after the {campaign_profile['closeout_label']} (`forward`: `{forward_non_green_count}`, "
             f"`backward`: `{backward_non_green_count}`)"
             r"\3"
         ),
@@ -897,7 +1003,7 @@ def patch_master_summary(
             f"`{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}` | "
             f"{len(active_campaign_dictionary['queue_config_path_list'])} | 0 | "
             f"`{best_run_dictionary['run_name']}` | "
-            "Forward-only original-dataset open-cell repair wave completed `300/300`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |"
+            f"{campaign_profile['master_summary_impact_line']}"
         )
         line_list.insert(row_index, new_row)
         master_summary_text = "\n".join(line_list) + "\n"
@@ -914,24 +1020,38 @@ def patch_master_summary(
 def update_active_campaign_state(
     active_campaign_dictionary: dict[str, Any],
     report_relative_path: str,
+    finished_at_text: str,
 ) -> None:
 
     """Persist the final report backlink inside the campaign state."""
 
+    active_campaign_dictionary["status"] = "completed"
+    active_campaign_dictionary["finished_at"] = finished_at_text
+    active_campaign_dictionary["completion_recorded_at"] = (
+        datetime.now().astimezone().isoformat(timespec="seconds")
+    )
     active_campaign_dictionary["results_report_path"] = report_relative_path.replace("/", "\\")
+    active_campaign_dictionary["completed_family_list"] = sorted({
+        str(Path(config_path).parts[-3]).upper()
+        for config_path in active_campaign_dictionary["queue_config_path_list"]
+    })
+    active_campaign_dictionary["pending_family_list"] = []
     save_yaml_dictionary(ACTIVE_CAMPAIGN_PATH, active_campaign_dictionary)
 
 
 def main() -> None:
 
-    """Run the forward open-cell repair closeout workflow."""
+    """Run one supported Track 1 forward residual-repair closeout workflow."""
 
     command_line_arguments = parse_command_line_arguments()
     report_timestamp = str(command_line_arguments.report_timestamp)
     active_campaign_dictionary = load_yaml_dictionary(ACTIVE_CAMPAIGN_PATH)
-    assert str(active_campaign_dictionary["campaign_name"]) == "track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10", (
-        "Unexpected active campaign for this closeout script | "
-        f"campaign_name={active_campaign_dictionary['campaign_name']}"
+    campaign_profile = resolve_campaign_profile(active_campaign_dictionary)
+    validation_root = resolve_validation_root(campaign_profile)
+    run_pattern = re.compile(str(campaign_profile["run_pattern"]))
+    active_campaign_dictionary["finished_at"] = resolve_campaign_finished_at_text(
+        active_campaign_dictionary,
+        validation_root,
     )
 
     benchmark_line_list = BENCHMARK_REPORT_PATH.read_text(encoding="utf-8").splitlines()
@@ -962,6 +1082,8 @@ def main() -> None:
     entry_list, _, pair_entry_list_dictionary = collect_campaign_summary_bundle(
         active_campaign_dictionary,
         paper_target_dictionary,
+        validation_root,
+        run_pattern,
     )
     promoted_entry_dictionary, improvement_summary_dictionary = build_promotion_bundle(
         benchmark_section_dictionary,
@@ -981,7 +1103,7 @@ def main() -> None:
 
     report_output_path = (
         REPORT_OUTPUT_ROOT
-        / f"{report_timestamp}_track1_forward_open_cell_repair_campaign_results_report.md"
+        / f"{report_timestamp}_{campaign_profile['report_filename_suffix']}"
     )
     report_relative_path = format_project_relative_path(report_output_path)
     updated_status_dictionary = update_benchmark_report(
@@ -989,21 +1111,20 @@ def main() -> None:
         promoted_entry_dictionary,
         report_relative_path,
         active_campaign_dictionary,
+        campaign_profile,
     )
     archive_summary_list = refresh_directional_reference_archives_from_selection(
         direction_label="forward",
         selected_entry_dictionary=promoted_entry_dictionary,
-        archive_note_line=(
-            "This archive was refreshed during the forward open-cell repair closeout. "
-            "Improved accepted targets were replaced and retained targets preserved "
-            "their previous canonical source runs."
-        ),
+        archive_note_line=str(campaign_profile["archive_note_line"]),
     )
     report_output_path.parent.mkdir(parents=True, exist_ok=True)
     report_output_path.write_text(
         build_results_report_markdown(
             report_timestamp,
             active_campaign_dictionary,
+            campaign_profile,
+            validation_root,
             family_best_dictionary,
             best_run_dictionary,
             improvement_summary_dictionary,
@@ -1014,14 +1135,19 @@ def main() -> None:
         encoding="utf-8",
         newline="\n",
     )
-    update_active_campaign_state(active_campaign_dictionary, report_relative_path)
+    update_active_campaign_state(
+        active_campaign_dictionary,
+        report_relative_path,
+        str(active_campaign_dictionary["finished_at"]),
+    )
     patch_master_summary(
         report_relative_path,
         active_campaign_dictionary,
+        campaign_profile,
         updated_status_dictionary,
         best_run_dictionary,
     )
-    print(f"[DONE] Forward open-cell repair closeout written | report={report_relative_path}")
+    print(f"[DONE] {campaign_profile['report_written_label']} | report={report_relative_path}")
 
 
 if __name__ == "__main__":

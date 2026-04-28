@@ -97,6 +97,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-28
+
+- [technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md)
+  Plan the formal closeout of the completed final forward-only Track 1 residual-cell campaign, including benchmark refresh, archive refresh, and persistent state completion.
+- [technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md](./technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md)
+  Plan the final forward-only Track 1 residual-cell campaign that targets only the last non-green canonical forward pairs in Tables 2-5.
+
 #### 2026-04-27
 
 - [technical/2026-04/2026-04-27/2026-04-27-23-29-14_scripts_reports_reorganization_and_pipeline_path_formalization.md](./technical/2026-04/2026-04-27/2026-04-27-23-29-14_scripts_reports_reorganization_and_pipeline_path_formalization.md)

@@ -403,6 +403,22 @@ This repair campaign is intentionally target-level instead of full-bank:
 - `10` retries per repair item;
 - `300` total runs.
 
+Final forward residual package for the last canonical non-green `Table 2-5`
+cells:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
+.\scripts\campaigns\track1\exact_paper\run_track1_forward_final_open_cells_campaign.ps1 -Remote
+```
+
+This final repair campaign is intentionally narrower again:
+
+- `forward` only;
+- `8` grouped repair items;
+- `8` base retries for every pair;
+- `4` extra retries only for the `3` currently red amplitude pairs;
+- `76` total runs.
+
 Key differences against the recovered exact-paper branch:
 
 - it reads from `data/datasets` through the dataset-processing config;

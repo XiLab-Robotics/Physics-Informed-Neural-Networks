@@ -31,7 +31,7 @@ Accepted amplitude targets:
 | `fft_y_Fw_filtered_ampl_1` | `1` | `4.56825e-05` | `5.79546e-05` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl1.onnx` |
 | `fft_y_Fw_filtered_ampl_156` | `156` | `0.000180962` | `0.00038103` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl156.onnx` |
 | `fft_y_Fw_filtered_ampl_162` | `162` | `0.000130144` | `0.000196509` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `0.00013604` | `0.000217637` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `0.000142201` | `0.000204229` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl240.onnx` |
 | `fft_y_Fw_filtered_ampl_3` | `3` | `7.00635e-05` | `9.14248e-05` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl3.onnx` |
 | `fft_y_Fw_filtered_ampl_39` | `39` | `8.81748e-05` | `0.000115491` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl39.onnx` |
 | `fft_y_Fw_filtered_ampl_40` | `40` | `5.75063e-05` | `7.78107e-05` | `models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl40.onnx` |
@@ -58,7 +58,7 @@ Provenance summary:
 - paper family: `XGBM`
 - implementation family: `XGBM`
 - archived target count: `19`
-- unique source runs: `11`
-- unique source configs: `11`
+- unique source runs: `12`
+- unique source configs: `12`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/xgbm_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/xgbm_reference_models/reference_inventory.yaml`

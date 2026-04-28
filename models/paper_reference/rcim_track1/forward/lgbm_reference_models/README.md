@@ -50,7 +50,7 @@ Accepted phase targets:
 | `fft_y_Fw_filtered_phase_39` | `39` | `0.0722734` | `0.0940117` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase39.onnx` |
 | `fft_y_Fw_filtered_phase_40` | `40` | `0.0379708` | `0.0598769` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase40.onnx` |
 | `fft_y_Fw_filtered_phase_78` | `78` | `0.136832` | `0.206742` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.130158` | `0.177617` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase81.onnx` |
+| `fft_y_Fw_filtered_phase_81` | `81` | `0.0537763` | `0.0819492` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase81.onnx` |
 
 Provenance summary:
 

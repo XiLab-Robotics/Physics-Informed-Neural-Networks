@@ -9,7 +9,7 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward open-cell repair closeout. Improved
+- This archive was refreshed during the forward final open-cells closeout. Improved
   accepted targets were replaced and retained targets preserved their previous canonical
   source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
@@ -475,59 +475,41 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 240
   direction_label: forward
-  benchmark_mae: 0.00013604030187525378
-  benchmark_rmse: 0.00021763664201993567
-  source_run_instance_id: 2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/xgbm/2026-04-26_track1_forward_xgbm_original_dataset_mega_campaign/016_track1_original_dataset_forward_xgbm_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/onnx_export/XGBM/XGBRegressor_ampl240.onnx
+  benchmark_mae: 0.00014220139812317565
+  benchmark_rmse: 0.00020422870257347505
+  source_run_instance_id: 2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_final_open_cells/xgbm/2026-04-28_track1_forward_xgbm_ampl_h240_final_open_cells/008_track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells/2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run/onnx_export/XGBM/XGBRegressor_ampl240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/onnx/amplitude/XGBRegressor_ampl240.onnx
   export_estimator_name: XGBRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-26-06-22-03__track1_original_dataset_forward_xgbm_attempt_16_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells/2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_final_open_cells/2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/source_runs/2026-04-28-02-02-10__track1_forward_xgbm_ampl_h240_final_open_cells_attempt_08_campaign_run/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
   dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/xgbm_reference_models/python/amplitude/XGBRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: XGBRegressor
-  python_model_sha256: 1fbe0a562facc9a3661e37e0458dcb1d55bd8b80c62b29ce1076d82190b01ccb
-  archived_model_sha256: 0bfd95129e2247f4ae83cae9ab02a610ec9f735189a62f46066ef637f07ddd7b
+  python_model_sha256: 63071f2e15163e88ff50ba8c7454d544268e75ee6f8ba32b74a54fcaf144a977
+  archived_model_sha256: e2239a1b42af37d8e34ce92b83b43ad5242426c7d25cc540117f93e150178bf7
   feature_name_list:
   - rpm
   - deg
   - tor
   source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
   - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 42
+  train_row_count: 679
+  validation_row_count: 145
+  test_row_count: 145
+  train_file_count: 679
+  validation_file_count: 145
+  test_file_count: 145
+  test_size: 0.15
+  random_seed: 37
   selected_harmonic_list:
   - 0
   - 1
@@ -558,12 +540,12 @@ reference_models:
     grow_policy: null
     importance_type: null
     interaction_constraints: null
-    learning_rate: 0.2
+    learning_rate: 0.5
     max_bin: null
     max_cat_threshold: null
     max_cat_to_onehot: null
     max_delta_step: null
-    max_depth: 16
+    max_depth: 14
     max_leaves: null
     min_child_weight: null
     missing: .nan
@@ -581,10 +563,10 @@ reference_models:
     tree_method: null
     validate_parameters: null
     verbosity: null
-  training_metric_mae: 0.00013604030187525378
-  training_metric_rmse: 0.00021763664201993567
-  training_metric_mse: 4.7365707949713634e-08
-  training_metric_mape_percent: 40.305520078285625
+  training_metric_mae: 0.00014220139812317565
+  training_metric_rmse: 0.00020422870257347505
+  training_metric_mse: 4.170936295484493e-08
+  training_metric_mape_percent: 63.0287378066242
 - target_name: fft_y_Fw_filtered_ampl_3
   target_kind: amplitude
   harmonic_order: 3
