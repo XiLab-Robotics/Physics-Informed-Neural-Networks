@@ -111,7 +111,7 @@ Current next step:
   campaign results as the current paper-faithful offline baseline
 - treat the exact recovered RCIM family-bank branch as implemented at script
   level under
-  `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+  `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 - treat the exact-paper branch as the immediate active `Track 1` execution path,
   with the first prepared batch campaign now staged under
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`
@@ -331,7 +331,7 @@ Entry rule:
   - define comparable offline validation scenarios and TE-curve error metrics
   - close `Target A`
 - initial repository-owned offline pipeline script should live under
-  `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
+  `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py`
 - validation artifacts for this branch should live under
   `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
 

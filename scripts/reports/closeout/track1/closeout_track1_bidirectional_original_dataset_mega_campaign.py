@@ -1131,7 +1131,7 @@ def build_directional_family_archive(
             "improves the accepted target winner, replace the archive entry; "
             "otherwise retain the stored entry unchanged."
         ),
-        "source_code": "scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py",
+        "source_code": "scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py",
         "source_data": str(dataset_manifest_dictionary["source_dataset_config_path"]),
         "notes": [
             archive_note_line,

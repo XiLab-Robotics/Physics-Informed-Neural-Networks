@@ -134,7 +134,7 @@ Repository consequence:
 
 The main runner is:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 
 Its responsibility is to:
 
@@ -151,7 +151,7 @@ Its responsibility is to:
 
 The exact workflow logic lives in:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py`
 
 The key responsibilities are:
 

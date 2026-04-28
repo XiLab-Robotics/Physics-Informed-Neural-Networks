@@ -28,7 +28,7 @@ The package is organized as one umbrella campaign with `20` explicit runs:
 
 These configs all target:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 
 Package rules:
 

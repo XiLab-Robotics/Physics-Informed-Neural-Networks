@@ -14,7 +14,7 @@ The campaign launcher should run these files in order:
 
 These configs all target:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 
 The purpose of the package is to close still-open exact-paper cells in Tables
 `3-6`, especially around harmonics `0`, `1`, `3`, `81`, `162`, and `240`.

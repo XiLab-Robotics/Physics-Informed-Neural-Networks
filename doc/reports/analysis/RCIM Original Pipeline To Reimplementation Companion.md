@@ -14,8 +14,8 @@ Primary original files:
 
 Primary repository reimplementation files:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
-- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py`
 
 This document does not try to prove that the repository reimplementation is a
 literal line-by-line port. The goal is to explain:

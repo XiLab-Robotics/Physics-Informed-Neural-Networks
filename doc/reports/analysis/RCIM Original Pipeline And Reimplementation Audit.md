@@ -9,11 +9,11 @@ This report audits the code-level differences between:
 - the current repository reimplementation under
   `scripts/paper_reimplementation/rcim_ml_compensation/`.
 
-The goal is not to claim that the recovered workflow is fully executable end to
-end. The goal is to state precisely:
+The goal is to state precisely:
 
 1. which parts of the recovered workflow are directly runnable;
-2. which parts are blocked by missing archived dependencies;
+2. which parts still depend on external original-style inputs even though the
+   missing code dependencies have now been restored;
 3. where the repository reimplementation intentionally diverges from the
    recovered code.
 
@@ -21,9 +21,9 @@ end. The goal is to state precisely:
 
 | Stage | Recovered Source | Directly Runnable Now | Main Reason |
 | --- | --- | --- | --- |
-| Dataframe creation | `original_pipeline/0-dfCreation/` | No | `0-statistic.py` imports `instance_v5.py`, which is not present in the recovered trees. |
-| Prediction and export | `original_pipeline/1-prediction/` and `latest_snapshot/` | Yes | The shipped recovered dataframe is sufficient to run the copied `predictorML_v7.py` logic through the repository wrapper. |
-| Evaluation | `original_pipeline/2-evaluation/` | No | The copied evaluation scripts import `instance_v4.py` and `instance_v5.py`, which are not present in the recovered trees. |
+| Dataframe creation | `original_pipeline/0-dfCreation/` | Yes | The restored `instance_v5.py` dependency now allows the copied statistic-driven dataframe stage to run when an original-style instance directory is supplied. |
+| Prediction and export | `latest_snapshot/` training branch | Yes | The repository wrapper now treats `main_prediction_v17.py` plus `predictorML_v7.py` as the canonical recovered-original training stage. |
+| Evaluation | `original_pipeline/2-evaluation/` | Yes | The restored `instance_v4.py` and `instance_v5.py` dependencies now allow the copied evaluation logic to run when an original-style instance directory and prediction CSVs are supplied. |
 
 ## Material Code Differences
 

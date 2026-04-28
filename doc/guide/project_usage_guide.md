@@ -318,7 +318,7 @@ the curated `LGBM-19` exact-paper reference bank and the canonical best
 direct-TE `feedforward` baseline:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_reference_family_vs_feedforward_comparison.py `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/baseline.yaml `
   --output-suffix baseline_validation
 ```
@@ -350,7 +350,7 @@ The repository also exposes a separate original-dataset exact-model-bank branch
 for the bidirectional `Track 1` rebuild:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
   --output-suffix forward_validation
 ```
@@ -418,6 +418,23 @@ This final repair campaign is intentionally narrower again:
 - `8` base retries for every pair;
 - `4` extra retries only for the `3` currently red amplitude pairs;
 - `76` total runs.
+
+Aggressive final forward residual package for the last canonical non-green
+`forward` amplitude cells:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
+.\scripts\campaigns\track1\exact_paper\run_track1_forward_last_non_green_cells_campaign.ps1 -Remote
+```
+
+This final escalation package is intentionally narrower but more aggressive:
+
+- `forward` only;
+- amplitude only;
+- `7` grouped repair items;
+- `12` base retries for every pair;
+- `8` extra retries only for the `3` currently red `h162` amplitude pairs;
+- `108` total runs.
 
 Key differences against the recovered exact-paper branch:
 
@@ -2513,7 +2530,7 @@ Its role is to create a paper-comparable baseline before opening the later
 
 Canonical script:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py`
 
 Canonical config:
 
@@ -2528,7 +2545,7 @@ Canonical config:
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_harmonic_wise_comparison_pipeline.py `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml `
   --output-suffix baseline_validation
 ```
@@ -2580,7 +2597,7 @@ only through the repository-owned harmonic-wise approximation branch.
 
 Canonical script:
 
-- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 
 Canonical config:
 
@@ -2589,12 +2606,12 @@ Canonical config:
 Main supporting report:
 
 - `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.md`
+- `doc/scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.md`
 
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml `
   --output-suffix exact_paper_validation
 ```
@@ -2602,7 +2619,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Original-dataset bidirectional usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
   --output-suffix forward_validation
 ```

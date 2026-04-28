@@ -1042,7 +1042,7 @@ def build_family_archive(
             "only when they introduce the accepted improvement."
         ),
         "source_code": {
-            "validation_script": "scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py",
+            "validation_script": "scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py",
             "support_module": "scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py",
         },
         "source_data": {
@@ -1169,7 +1169,7 @@ def build_family_archive_readme(
             "",
             "Canonical training and validation code:",
             "",
-            "- `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`",
+            "- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`",
             "- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`",
             "",
             "Canonical reconstruction inputs:",
