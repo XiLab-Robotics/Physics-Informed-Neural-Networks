@@ -33,6 +33,9 @@ Recovered original workflow:
 
 - dataframe creation is raw-instance driven through `instances_v3/`;
 - prediction consumes `dataFrame_prediction_Fw_v14_newFreq.csv`;
+- in the recovered prediction CSVs, `deg` represents oil temperature;
+- the recovered original runners apply `deg <= 35`, so the prediction branch
+  keeps only rows whose oil temperature is at or below `35` degrees;
 - the shipped recovered code and CSV are forward-specific.
 
 Repository reimplementation:
@@ -46,6 +49,8 @@ Repository reimplementation:
 Why it matters:
 
 - the recovered workflow is tied to one shipped forward dataframe snapshot;
+- that shipped snapshot is further narrowed by the original thermal cutoff
+  `deg <= 35`;
 - the repository workflow is designed to regenerate the dataset surface rather
   than treat the CSV as the only canonical source.
 

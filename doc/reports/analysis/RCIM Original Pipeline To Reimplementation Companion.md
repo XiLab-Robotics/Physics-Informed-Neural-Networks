@@ -88,12 +88,16 @@ Inside `main()`, the script:
 - keeps only rows with `deg <= 35`;
 - resets the dataframe index.
 
+In these recovered prediction CSVs, `deg` is the oil-temperature column. So
+`deg <= 35` is an explicit thermal filter that keeps only rows whose oil
+temperature is at or below `35` degrees.
+
 Repository consequence:
 
 - the script assumes a paper-era forward-only dataframe already exists;
 - no raw-instance reconstruction happens here;
 - the `deg <= 35` filter is a real part of the original prediction workflow,
-  not just a comment.
+  not just a comment or a generic operating-variable cut.
 
 #### Target Discovery
 
@@ -309,7 +313,8 @@ This is best read as a local comparison baseline, not the main paper workflow.
 If you strip away the extra branches, the active original `v18` workflow is:
 
 1. start from a prepared forward dataframe;
-2. keep only `deg <= 35`;
+2. keep only `deg <= 35`, meaning only rows with oil temperature up to
+   `35` degrees;
 3. use inputs `rpm`, `deg`, `tor`;
 4. use all harmonic amplitude and phase targets;
 5. for each family in the selected final list:

@@ -31,6 +31,7 @@ Important scope clarification:
 The exact branch mirrors the recovered paper methodology:
 
 - input features are exactly `rpm`, `deg`, and `tor`;
+  In the recovered prediction CSVs, `deg` is the oil-temperature column;
 - targets are harmonic-wise `ampl_k` and `phase_k`;
 - the currently recovered dataframe source is `Fw` forward-only;
 - the target set is the recovered RCIM harmonic bank:
@@ -75,15 +76,17 @@ The workflow is not a direct TE-curve predictor.
 Instead it does this:
 
 1. load the recovered dataframe generated for paper-era prediction;
-2. keep only the exact operating-condition inputs `rpm`, `deg`, `tor`;
-3. select the `20` harmonic targets made of amplitudes and phases;
-4. split the dataframe with `test_size = 0.20` and `random_state = 0`;
-5. wrap each family estimator with `MultiOutputRegressor`;
-6. apply the recovered paper-reference `GridSearchCV` path to that wrapper;
-7. keep the best recovered search result per family;
-8. evaluate each family on the held-out split;
-9. export one ONNX model per fitted target estimator;
-10. build a target-wise winner registry.
+2. keep only rows whose `deg` value is at or below `35`, meaning oil
+   temperature up to `35` degrees in the recovered original workflow;
+3. keep only the exact operating-condition inputs `rpm`, `deg`, `tor`;
+4. select the `20` harmonic targets made of amplitudes and phases;
+5. split the dataframe with `test_size = 0.20` and `random_state = 0`;
+6. wrap each family estimator with `MultiOutputRegressor`;
+7. apply the recovered paper-reference `GridSearchCV` path to that wrapper;
+8. keep the best recovered search result per family;
+9. evaluate each family on the held-out split;
+10. export one ONNX model per fitted target estimator;
+11. build a target-wise winner registry.
 
 This means one family launch is operationally simple, but internally still
 produces one fitted estimator per harmonic target.

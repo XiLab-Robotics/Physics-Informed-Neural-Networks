@@ -99,6 +99,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-28
 
+- [technical/2026-04/2026-04-28/2026-04-28-12-07-42_rcim_deg_temperature_documentation_clarification.md](./technical/2026-04/2026-04-28/2026-04-28-12-07-42_rcim_deg_temperature_documentation_clarification.md)
+  Plan a documentation clarification that states explicitly that `deg` in the
+  recovered RCIM prediction CSVs is oil temperature and that `deg <= 35` is a
+  thermal filter in the original workflow.
+
 - [technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md)
   Plan the formal closeout of the completed final forward-only Track 1 residual-cell campaign, including benchmark refresh, archive refresh, and persistent state completion.
 - [technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md](./technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md)
