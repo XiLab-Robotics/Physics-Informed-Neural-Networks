@@ -78,11 +78,25 @@ silently removed:
 - `RF/ampl/RandomForestRegressor_ampl240.onnx`
 - `RF/ampl/RandomForestRegressor_ampl240 (1).onnx`
 
-### Original Recovered Paper Pipeline
+### Canonical Original Repository Target
 
 - [code/original_pipeline/](./code/original_pipeline/)
 
-This subtree contains the recovered staged workflow:
+This folder is now intentionally reserved for the full recovered original RCIM
+repository.
+
+The previously stored split surfaces were moved out of this path so the full
+original repository can be installed here cleanly without mixing it with later
+or earlier fragments.
+
+### Split Late Pipeline Fragment
+
+- [code/backup_split_original_pipeline_fragment/](./code/backup_split_original_pipeline_fragment/)
+
+This subtree preserves the split recovered staged workflow that previously
+lived under the misleading `code/original_pipeline/` name.
+
+It contains the recovered staged workflow fragments for:
 
 - dataframe creation;
 - prediction;
@@ -97,7 +111,7 @@ Key files:
 - `2-evaluation/2-main_evaluateSignals.py`
 - `0-requirements.txt`
 
-Main implementation facts extracted from this snapshot:
+Main implementation facts extracted from this fragment:
 
 - the learning targets are harmonic-wise `ampl` and `phase` outputs;
 - the working input columns are `rpm`, `deg`, and `tor`;
@@ -108,26 +122,23 @@ Main implementation facts extracted from this snapshot:
   family set and also includes an `ELMRegressor` dependency that is not part
   of the exact ONNX paper release.
 
-### Latest Recovered Code Snapshot
+### Latest Snapshot Fragment
 
-- [code/latest_snapshot/](./code/latest_snapshot/)
+- [code/backup_latest_snapshot_fragment/](./code/backup_latest_snapshot_fragment/)
 
-This subtree appears to be a later working snapshot, not the exact paper
-release. It contains:
+This subtree preserves the later working snapshot that previously lived under
+the old `code/latest_snapshot/` name. It contains:
 
 - `main_prediction_v17.py`
 - `predictorML_v7.py`
 - `dataFrame_prediction_Fw_v14_newFreq.csv`
+- `dataFrame_prediction_Bw_v14_newFreq.csv`
 - `requirements.txt`
-- `output_prediction/`
 
-The shipped CSV and training entrypoints in this snapshot are also
-forward-specific:
+The shipped CSVs and training entrypoints in this snapshot fragment are
+direction-specific recovered artifacts.
 
-- `dataFrame_prediction_Fw_v14_newFreq.csv`
-- `main_prediction_v17.py`
-
-Compared with the original recovered pipeline, this snapshot is narrower and
+Compared with the split late pipeline fragment, this snapshot is narrower and
 appears focused on export and prediction runs for:
 
 - `DecisionTreeRegressor`
@@ -140,12 +151,12 @@ appears focused on export and prediction runs for:
 - `LGBMRegressor`
 - `MLPRegressor`
 
-This latest snapshot does not include the same explicit `SVR` and `ELM`
-coverage seen in `1-main_prediction_v18.py`.
+This latest snapshot fragment does not include the same explicit `SVR` and
+`ELM` coverage seen in `1-main_prediction_v18.py`.
 
-### Backup Legacy Code
+### Early Legacy Backup Code
 
-- [code/backup_legacy/](./code/backup_legacy/)
+- [code/backup_legacy_early_snapshot/](./code/backup_legacy_early_snapshot/)
 
 This subtree preserves older backup material:
 
@@ -166,8 +177,8 @@ One important difference from the exact-paper ONNX release is visible here:
 - exact recovered paper ONNX models use the later harmonic set
   `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`
 
-This confirms that the backup subtree contains meaningful historical evolution,
-not just redundant copies.
+This confirms that the early backup subtree contains meaningful historical
+evolution, not just redundant copies.
 
 ### Backup ONNX Variants
 

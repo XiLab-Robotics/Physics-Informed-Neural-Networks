@@ -147,8 +147,9 @@ opaque monolith.
 
 ### Original Pipeline Reconstruction
 
-The original pipeline is stored under
-[`code/original_pipeline`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline).
+The split late pipeline fragment currently available for inspection is stored
+under
+[`code/backup_split_original_pipeline_fragment`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment).
 
 Its recovered structure is:
 
@@ -175,8 +176,8 @@ This reconstructs a clear staged pipeline:
 
 The dataframe creation stage is centered on:
 
-- [`0-main_createDFforPrediction.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/0-dfCreation/0-main_createDFforPrediction.py)
-- [`0-statistic.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/0-dfCreation/0-statistic.py)
+- [`0-main_createDFforPrediction.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/0-dfCreation/0-main_createDFforPrediction.py)
+- [`0-statistic.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/0-dfCreation/0-statistic.py)
 
 Observed facts:
 
@@ -215,8 +216,8 @@ Important implementation-facing interpretation:
 
 The prediction stage is centered on:
 
-- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-prediction/1-main_prediction_v18.py)
-- [`1-predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-prediction/1-predictorML_v7.py)
+- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-main_prediction_v18.py)
+- [`1-predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-predictorML_v7.py)
 
 Recovered facts from `1-main_prediction_v18.py`:
 
@@ -263,7 +264,7 @@ Important consequences:
 ### Actual Training Formulation
 
 The most important recovered implementation detail is inside
-[`1-predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-prediction/1-predictorML_v7.py).
+[`1-predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-predictorML_v7.py).
 
 The file shows that the paper code did not rely on a custom monolithic
 multi-target network. Instead it used scikit-learn wrappers:
@@ -314,7 +315,7 @@ That aligns exactly with the recovered ONNX bank.
 ### Evaluation Stage
 
 The evaluation stage is centered on
-[`2-main_evaluatePrediction_v4.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/2-evaluation/2-main_evaluatePrediction_v4.py).
+[`2-main_evaluatePrediction_v4.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/2-evaluation/2-main_evaluatePrediction_v4.py).
 
 Recovered facts:
 
@@ -342,8 +343,8 @@ bank make this inference very strong.
 
 ### Latest Snapshot Meaning
 
-The later snapshot under
-[`code/latest_snapshot`](../../../reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot)
+The later snapshot fragment under
+[`code/backup_latest_snapshot_fragment`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_latest_snapshot_fragment)
 is not the same codebase as the original pipeline.
 
 Recovered facts:
@@ -371,12 +372,12 @@ Meaning:
 
 ### Backup Legacy Evolution
 
-The backup legacy code under
-[`code/backup_legacy`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_legacy)
+The early backup code under
+[`code/backup_legacy_early_snapshot`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_legacy_early_snapshot)
 is extremely useful for understanding workflow evolution.
 
 The strongest evidence is
-[`instance_v2.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_legacy/instance_v2.py).
+[`instance_v2.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_legacy_early_snapshot/instance_v2.py).
 
 Recovered facts:
 
@@ -404,8 +405,8 @@ The backup ONNX variants confirm this evolution:
 
 The correct repository consequence is:
 
-- do not mix `backup_legacy` or `backup/onnx_variants` with the exact paper
-  bank when building the paper-faithful baseline;
+- do not mix `backup_legacy_early_snapshot` or `backup/onnx_variants` with
+  the exact paper bank when building the paper-faithful baseline;
 - use them only to understand how the workflow evolved and what old branches to
   avoid resurrecting accidentally.
 

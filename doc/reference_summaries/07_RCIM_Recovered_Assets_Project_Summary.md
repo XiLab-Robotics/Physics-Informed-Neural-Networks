@@ -7,9 +7,11 @@
 - Recovered original code:
   `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`
 - Recovered later code snapshot:
-  `reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/`
+  `reference/rcim_ml_compensation_recovered_assets/code/backup_latest_snapshot_fragment/`
 - Recovered backup assets:
-  `reference/rcim_ml_compensation_recovered_assets/code/backup_legacy/`
+  `reference/rcim_ml_compensation_recovered_assets/code/backup_legacy_early_snapshot/`
+  and
+  `reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/`
   and `reference/rcim_ml_compensation_recovered_assets/backup/onnx_variants/`
 - Recovered TwinCAT XML exports:
   `reference/rcim_ml_compensation_recovered_assets/deployment/twincat_xml/`
@@ -31,7 +33,10 @@ Important clarification:
 - The exact recovered harmonic set is:
   `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`.
 - The recovered original code is staged as:
-  dataframe creation, prediction/export, and evaluation.
+  dataframe creation, prediction/export, and evaluation, but the currently
+  installed split staged fragment now lives under
+  `code/backup_split_original_pipeline_fragment/` until the full recovered
+  original repository is copied into `code/original_pipeline/`.
 - The main recovered input columns are `rpm`, `deg`, and `tor`.
 - The recovered dataframe and prediction entrypoints are explicitly `Fw`
   forward-side artifacts.
@@ -66,8 +71,8 @@ Important clarification:
 
 - The heavy `instance_v1` pickle archive is preserved, but not yet fully
   runnable because the recovered class environment is incomplete.
-- The recovered later code snapshot and the exact paper release are related,
-  but not identical, so they must not be merged conceptually.
+- The recovered later code snapshot fragment and the exact paper release are
+  related, but not identical, so they must not be merged conceptually.
 - The recovered package does not currently contain the backward-side model bank
   implied by the generalized paper notation.
 - The backup ONNX bundles contain historical variants and experimental branches,

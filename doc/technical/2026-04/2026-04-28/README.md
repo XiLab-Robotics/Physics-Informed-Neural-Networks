@@ -1,5 +1,7 @@
 # 2026-04-28 Technical Documents
 
+- [2026-04-28-19-57-56_rcim_reference_code_root_reorganization.md](./2026-04-28-19-57-56_rcim_reference_code_root_reorganization.md)
+  Plan the reorganization of the recovered RCIM reference-code root so the full original repository lands under original_pipeline and the current split snapshots move into clearly named backup surfaces.
 - [2026-04-28-17-09-01_rewrite_recent_commits_and_separate_paper_reimplementation_from_campaign_artifacts.md](./2026-04-28-17-09-01_rewrite_recent_commits_and_separate_paper_reimplementation_from_campaign_artifacts.md)
   Plan the local-history rewrite needed to separate the recent Track 1 campaign artifact package from unrelated RCIM paper-reimplementation changes.
 - [2026-04-28-16-06-05_track1_forward_last_non_green_cells_campaign_closeout.md](./2026-04-28-16-06-05_track1_forward_last_non_green_cells_campaign_closeout.md)

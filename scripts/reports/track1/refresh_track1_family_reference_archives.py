@@ -44,7 +44,7 @@ VALIDATION_ROOT = (
     / "forward"
 )
 SOURCE_DATAFRAME_PATH = (
-    "reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/"
+    "reference/rcim_ml_compensation_recovered_assets/code/backup_latest_snapshot_fragment/"
     "dataFrame_prediction_Fw_v14_newFreq.csv"
 )
 CANONICAL_DATASET_SNAPSHOT_FILENAME = "filtered_dataframe_deg_le_35.csv"
@@ -1177,7 +1177,7 @@ def build_family_archive_readme(
             "Canonical reconstruction inputs:",
             "",
             "- dataframe source:",
-            "  `reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/dataFrame_prediction_Fw_v14_newFreq.csv`",
+            "  `reference/rcim_ml_compensation_recovered_assets/code/backup_latest_snapshot_fragment/dataFrame_prediction_Fw_v14_newFreq.csv`",
             "- recovered reference ONNX root:",
             "  `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`",
             "",
