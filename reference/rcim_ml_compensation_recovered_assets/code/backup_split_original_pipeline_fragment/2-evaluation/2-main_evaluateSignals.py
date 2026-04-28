@@ -1,4 +1,4 @@
-# This is a sample Python script.ù
+# This is a sample Python script.
 import os
 import re
 from instance_v5 import Instance
