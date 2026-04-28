@@ -1,0 +1,42 @@
+{
+  "stage": "training",
+  "direction_label": "forward",
+  "output_directory": "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-13-22-19_training_forward_smoke_dt_reorg",
+  "stage_status": {
+    "dataframe_creation": {
+      "copied": true,
+      "primary_code": "dataframe_creation/0-main_createDFforPrediction.py",
+      "primary_support": "dataframe_creation/0-statistic.py",
+      "dependency_note": "Requires an external original-style instance CSV directory."
+    },
+    "training": {
+      "copied": true,
+      "primary_code": "training/main_prediction_v17.py",
+      "primary_support": "training/predictorML_v7.py",
+      "scope_note": "This is the canonical recovered-original paper training surface used by the repository wrapper."
+    },
+    "evaluation": {
+      "copied": true,
+      "primary_codes": [
+        "evaluation/2-main_evaluatePrediction_v4.py",
+        "evaluation/2-main_evaluateSignals.py"
+      ],
+      "dependency_note": "Requires an external original-style instance CSV directory and prediction CSV outputs from the training stage."
+    }
+  },
+  "training": {
+    "stage_name": "training",
+    "direction_label": "forward",
+    "dataframe_path": "scripts\\paper_reimplementation\\rcim_ml_compensation\\recovered_original_workflow\\training\\dataFrame_prediction_Fw_v14_newFreq.csv",
+    "filtered_row_count": 969,
+    "target_column_count": 20,
+    "selected_family_code_list": [
+      "DT"
+    ],
+    "generated_prediction_files": [
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-13-22-19_training_forward_smoke_dt_reorg\\training\\output_prediction\\instV3.2_Fw\\dfOutTot_prediction_DecisionTreeRegressor_.csv"
+    ],
+    "generated_onnx_files": [],
+    "artifact_prediction_directory": "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-13-22-19_training_forward_smoke_dt_reorg\\training\\output_prediction\\instV3.2_Fw"
+  }
+}

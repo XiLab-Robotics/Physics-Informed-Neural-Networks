@@ -1,0 +1,63 @@
+{
+  "stage": "training",
+  "direction_label": "forward",
+  "output_directory": "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt",
+  "stage_status": {
+    "dataframe_creation": {
+      "copied": true,
+      "primary_code": "dataframe_creation/create_dataframe.py",
+      "primary_support": "dataframe_creation/statistics.py",
+      "dependency_note": "Requires an external original-style instance CSV directory."
+    },
+    "training": {
+      "copied": true,
+      "primary_code": "training/train_and_export_models.py",
+      "primary_support": "training/predictor_multioutput.py",
+      "scope_note": "This is the canonical recovered-original paper training surface used by the repository wrapper."
+    },
+    "evaluation": {
+      "copied": true,
+      "primary_codes": [
+        "evaluation/evaluate_predictions.py",
+        "evaluation/evaluate_signals.py"
+      ],
+      "dependency_note": "Requires an external original-style instance CSV directory and prediction CSV outputs from the training stage."
+    }
+  },
+  "training": {
+    "stage_name": "training",
+    "direction_label": "forward",
+    "dataframe_path": "scripts\\paper_reimplementation\\rcim_ml_compensation\\recovered_original_workflow\\training\\dataFrame_prediction_Fw_v14_newFreq.csv",
+    "filtered_row_count": 969,
+    "target_column_count": 20,
+    "selected_family_code_list": [
+      "DT"
+    ],
+    "generated_prediction_files": [
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\output_prediction\\instV3.2_Fw\\dfOutTot_prediction_DecisionTreeRegressor_.csv"
+    ],
+    "generated_onnx_files": [
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_0.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_1.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_156.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_162.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_240.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_3.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_39.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_40.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_78.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_ampl_81.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_0.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_1.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_156.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_162.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_240.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_3.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_39.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_40.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_78.onnx",
+      "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\model_output_dir\\DecisionTreeRegressor__MultiOutput_tot_fft_y_Fw_filtered_phase_81.onnx"
+    ],
+    "artifact_prediction_directory": "output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-28-14-25-14_training_forward_rename_smoke_dt\\training\\output_prediction\\instV3.2_Fw"
+  }
+}
