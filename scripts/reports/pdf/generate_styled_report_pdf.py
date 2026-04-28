@@ -911,8 +911,8 @@ REPORT_STYLESHEET = """
       padding: 3px 4px;
     }
 
-    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(1), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(1) { width: 10%; }
-    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(2), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(2) { width: 8%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(1), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(1) { width: 9%; }
+    .report-table-track1-bidirectional-mega-reference-archive th:nth-child(2), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(2) { width: 9%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(3), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(3) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(4), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(4) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(5), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(5) { width: 12%; }
@@ -2571,19 +2571,17 @@ def resolve_standard_table_class_name(
         ):
             return TRACK1_INTERRUPTED_SVM_CANDIDATE_GAINS_TABLE_CLASS_NAME
 
-    if report_stem == "2026-04-27-12-06-34_track1_bidirectional_original_dataset_mega_campaign_results_report":
+    if (
+        current_section_slug == "benchmark-restart-surface"
+        and normalized_header_cells == ("Table", "Direction", "Green", "Yellow", "Red", "Total")
+    ):
+        return TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME
 
-        if (
-            current_section_slug == "benchmark-restart-surface"
-            and normalized_header_cells == ("Table", "Direction", "Green", "Yellow", "Red", "Total")
-        ):
-            return TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME
-
-        if (
-            current_section_slug == "reference-archive-refresh"
-            and normalized_header_cells == ("Direction", "Family", "Archived Targets", "Unique Source Runs", "Unique Source Configs", "Archive Root")
-        ):
-            return TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME
+    if (
+        current_section_slug == "reference-archive-refresh"
+        and normalized_header_cells == ("Direction", "Family", "Archived Targets", "Unique Source Runs", "Unique Source Configs", "Archive Root")
+    ):
+        return TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 
