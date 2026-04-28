@@ -99,6 +99,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-28
 
+- [technical/2026-04/2026-04-28/2026-04-28-16-06-05_track1_forward_last_non_green_cells_campaign_closeout.md](./technical/2026-04/2026-04-28/2026-04-28-16-06-05_track1_forward_last_non_green_cells_campaign_closeout.md)
+  Plan the formal closeout of the completed final forward-only Track 1 last-non-green-cells campaign, including benchmark refresh, archive refresh, and persistent state completion.
 - [technical/2026-04/2026-04-28/2026-04-28-13-45-35_rcim_recovered_workflow_script_renaming_and_export_alignment.md](./technical/2026-04/2026-04-28/2026-04-28-13-45-35_rcim_recovered_workflow_script_renaming_and_export_alignment.md)
   Plan the next RCIM recovered-workflow reorganization pass focused on
   repository-consistent script renaming and export-path alignment after the
@@ -113,6 +115,8 @@ This folder contains the internal project documents derived from the reference P
   recovered RCIM prediction CSVs is oil temperature and that `deg <= 35` is a
   thermal filter in the original workflow.
 
+- [technical/2026-04/2026-04-28/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign.md](./technical/2026-04/2026-04-28/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign.md)
+  Plan the next forward-only Track 1 residual campaign that targets only the last `7` amplitude target pairs still carrying non-green benchmark status.
 - [technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-28/2026-04-28-10-52-54_track1_forward_final_open_cells_campaign_closeout.md)
   Plan the formal closeout of the completed final forward-only Track 1 residual-cell campaign, including benchmark refresh, archive refresh, and persistent state completion.
 - [technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md](./technical/2026-04/2026-04-28/2026-04-28-00-15-20_track1_forward_final_open_cells_campaign.md)

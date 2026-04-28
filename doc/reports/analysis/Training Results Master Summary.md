@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_forward_last_non_green_cells_campaign_2026-04-28_11_36_05` | `2026-04-28-16-46-14` | 108 | 0 | `track1_forward_xgbm_ampl_h240_last_non_green_cells_attempt_08` | Forward-only original-dataset last non-green wave completed `108/108`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
 | `track1_forward_final_open_cells_campaign_2026-04-28_00_30_09` | `2026-04-28-11-02-27` | 76 | 0 | `track1_forward_lgbm_phase_h81_final_open_cells_attempt_05` | Forward-only original-dataset final residual wave completed `76/76`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
 | `track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10` | `2026-04-27-23-54-30` | 300 | 0 | `track1_forward_lgbm_ampl_h81_open_cell_repair_attempt_08` | Forward-only original-dataset open-cell repair wave completed `300/300`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
 | `track1_forward_open_cell_repair_campaign_2026-04-27_13_08_10` | `2026-04-27-22-33-00` | 300 | 0 | `track1_forward_lgbm_ampl_h81_open_cell_repair_attempt_08` | Forward-only original-dataset open-cell repair wave completed `300/300`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
@@ -168,7 +169,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Four full-matrix replication tables plus `10 x 19` accepted family-bank models | Canonical benchmark now has `109` non-green cells across Tables `2-5` after the forward final open-cells closeout (`forward`: `10`, `backward`: `99`) | not_yet_met |
+| Track 1 canonical closure rule | Four full-matrix replication tables plus `10 x 19` accepted family-bank models | Canonical benchmark now has `108` non-green cells across Tables `2-5` after the forward last non-green cells closeout (`forward`: `9`, `backward`: `99`) | not_yet_met |
 | Track 1.5 harmonic-wise support metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -176,22 +177,22 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-28-11-00-53_track1_forward_final_open_cells_campaign_results_report.md`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-28-16-12-00_track1_forward_last_non_green_cells_campaign_results_report.md`
 - Canonical progress surface:
   - `Table 2 - Amplitude MAE Full-Matrix Replication`
   - `Table 3 - Amplitude RMSE Full-Matrix Replication`
   - `Table 4 - Phase MAE Full-Matrix Replication`
   - `Table 5 - Phase RMSE Full-Matrix Replication`
 - Completion rule: `19` accepted models for each of the `10` algorithm families in both `forward` and `backward` directions
-- Table `2` `forward` status: `93` green, `4` yellow, `3` red
+- Table `2` `forward` status: `93` green, `5` yellow, `2` red
 - Table `2` `backward` status: `76` green, `7` yellow, `17` red
-- Table `3` `forward` status: `97` green, `2` yellow, `1` red
+- Table `3` `forward` status: `98` green, `1` yellow, `1` red
 - Table `3` `backward` status: `81` green, `6` yellow, `13` red
 - Table `4` `forward` status: `90` green, `0` yellow, `0` red
 - Table `4` `backward` status: `61` green, `5` yellow, `24` red
 - Table `5` `forward` status: `90` green, `0` yellow, `0` red
 - Table `5` `backward` status: `63` green, `5` yellow, `22` red
-- Remaining non-green cells across both directional restart surfaces: `109`
+- Remaining non-green cells across both directional restart surfaces: `108`
 - Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.
 
 ### Track 1.5 Harmonic-Wise Validation Support
@@ -209,7 +210,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` still has `109` non-green cells across the bidirectional original-dataset restart benchmark surface.
+- `Track 1` still has `108` non-green cells across the bidirectional original-dataset restart benchmark surface.
 - Harmonic-wise alignment is no longer treated as the primary `Track 1` gate and has been postponed into `Track 1.5`.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Partially aligned: the current repository winner is tree-based (`hist_gradient_boosting` / family `tree`), which is consistent with the paper's boosting/tree-heavy deployed predictors.

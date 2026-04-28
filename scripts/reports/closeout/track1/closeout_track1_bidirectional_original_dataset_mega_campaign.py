@@ -30,8 +30,12 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
-from scripts.paper_reimplementation.rcim_ml_compensation import exact_paper_model_bank_support
-from scripts.paper_reimplementation.rcim_ml_compensation import original_dataset_exact_model_bank_support
+from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
+    exact_paper_model_bank_support,
+)
+from scripts.paper_reimplementation.rcim_ml_compensation.original_dataset_exact_model_bank import (
+    original_dataset_exact_model_bank_support,
+)
 from scripts.training import shared_training_infrastructure
 
 ACTIVE_CAMPAIGN_PATH = PROJECT_PATH / "doc" / "running" / "active_training_campaign.yaml"

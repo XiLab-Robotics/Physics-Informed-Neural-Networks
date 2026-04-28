@@ -23,7 +23,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
-from scripts.paper_reimplementation.rcim_ml_compensation import exact_paper_model_bank_support
+from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
+    exact_paper_model_bank_support,
+)
 from scripts.training import shared_training_infrastructure
 
 TRACK1_REFERENCE_ROOT = PROJECT_PATH / "models" / "paper_reference" / "rcim_track1"

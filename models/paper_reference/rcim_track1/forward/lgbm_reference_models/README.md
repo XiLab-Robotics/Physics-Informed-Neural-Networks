@@ -27,10 +27,10 @@ Accepted amplitude targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.00599484` | `0.00703257` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl0.onnx` |
+| `fft_y_Fw_filtered_ampl_0` | `0` | `0.00255461` | `0.00302561` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl0.onnx` |
 | `fft_y_Fw_filtered_ampl_1` | `1` | `2.38161e-05` | `3.13631e-05` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl1.onnx` |
 | `fft_y_Fw_filtered_ampl_156` | `156` | `8.16133e-05` | `0.000207545` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `0.000294093` | `0.000563996` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `0.000264542` | `0.000414093` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl162.onnx` |
 | `fft_y_Fw_filtered_ampl_240` | `240` | `0.000113644` | `0.000202821` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl240.onnx` |
 | `fft_y_Fw_filtered_ampl_3` | `3` | `5.04073e-05` | `6.24599e-05` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl3.onnx` |
 | `fft_y_Fw_filtered_ampl_39` | `39` | `2.17697e-05` | `2.82859e-05` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl39.onnx` |

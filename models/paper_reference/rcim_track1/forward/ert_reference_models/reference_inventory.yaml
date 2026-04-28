@@ -6,10 +6,10 @@ archive_scope: track1_original_dataset_forward
 canonical_selection_rule: Per direction and target, store the accepted canonical benchmark
   winner currently visible in Tables 2-5. When a later closeout improves the accepted
   target winner, replace the archive entry; otherwise retain the stored entry unchanged.
-source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward final open-cells closeout. Improved
+- This archive was refreshed during the forward last non-green cells closeout. Improved
   accepted targets were replaced and retained targets preserved their previous canonical
   source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
@@ -295,59 +295,41 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 162
   direction_label: forward
-  benchmark_mae: 3.389982962492139e-05
-  benchmark_rmse: 0.000114712335523152
-  source_run_instance_id: 2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/ert/2026-04-26_track1_forward_ert_original_dataset_mega_campaign/012_track1_original_dataset_forward_ert_attempt_12.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl162.onnx
+  benchmark_mae: 2.4932578303138075e-05
+  benchmark_rmse: 5.3295890046725887e-05
+  source_run_instance_id: 2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_last_non_green_cells/ert/2026-04-28_track1_forward_ert_ampl_h162_last_non_green_cells/015_track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run/onnx_export/ERT/ExtraTreesRegressor_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-26-04-23-45__track1_original_dataset_forward_ert_attempt_12_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/ert_reference_models/source_runs/2026-04-28-12-12-38__track1_forward_ert_ampl_h162_last_non_green_cells_attempt_15_campaign_run/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
   dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 7273aadcf6445f87b240b9485c13d140c8572370799f03a531d4f10cc6bf1d59
-  archived_model_sha256: 298e9244eeb838b40350ba5fad5c6ff5ccabd779410825708ade525a0684dda3
+  python_model_sha256: e5584b2f45e6342c6cc1a2d288934dd21cf5c750380104e355d0075caa1df1d1
+  archived_model_sha256: 252e9c1dce908d52a016bfc78c94d603aa3c3505b0346c14b12216251e5fa5c0
   feature_name_list:
   - rpm
   - deg
   - tor
   source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
   - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 27
+  train_row_count: 679
+  validation_row_count: 174
+  test_row_count: 116
+  train_file_count: 679
+  validation_file_count: 174
+  test_file_count: 116
+  test_size: 0.12
+  random_seed: 67
   selected_harmonic_list:
   - 0
   - 1
@@ -364,13 +346,13 @@ reference_models:
     bootstrap: false
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 14
+    max_depth: 17
     max_features: 1.0
     max_leaf_nodes: null
     max_samples: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 3
+    min_samples_split: 2
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     n_estimators: 40
@@ -379,10 +361,10 @@ reference_models:
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 3.389982962492139e-05
-  training_metric_rmse: 0.000114712335523152
-  training_metric_mse: 1.3158919921176199e-08
-  training_metric_mape_percent: 6.897669139665401
+  training_metric_mae: 2.4932578303138075e-05
+  training_metric_rmse: 5.3295890046725887e-05
+  training_metric_mse: 2.8404518958726957e-09
+  training_metric_mape_percent: 6.962854545491895
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240

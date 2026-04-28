@@ -1,0 +1,33 @@
+entry_origin: campaign
+run_name: track1_forward_xgbm_ampl_h240_last_non_green_cells_attempt_08
+paper_family_code: XGBM
+scope_key: amplitude
+harmonic_order: 240
+winning_mean_component_mae: 0.00014220139812317565
+winning_mean_component_rmse: 0.00020422870257347505
+winning_mean_component_mape_percent: 63.0287378066242
+paper_mae: 0.00014
+paper_rmse: 0.00021
+met_paper_cell_count: 1
+near_paper_cell_count: 1
+open_paper_cell_count: 0
+closure_score: 0.75
+mean_normalized_gap_ratio: 0.007862136154198798
+max_normalized_gap_ratio: 0.015724272308397597
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-14-03-42__track1_forward_xgbm_ampl_h240_last_non_green_cells_attempt_08_campaign_run/validation_summary.yaml
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_last_non_green_cells/xgbm/2026-04-28_track1_forward_xgbm_ampl_h240_last_non_green_cells/008_track1_forward_xgbm_ampl_h240_last_non_green_cells_attempt_08.yaml
+experiment_output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-14-03-42__track1_forward_xgbm_ampl_h240_last_non_green_cells_attempt_08_campaign_run
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: winning_mean_component_mae_asc
+  seventh_tie_breaker: winning_mean_component_rmse_asc
+  eighth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 forward
+    open-cell repair campaign.
+selected_at: '2026-04-28T16:45:01+02:00'
