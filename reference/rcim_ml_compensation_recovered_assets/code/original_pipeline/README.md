@@ -1,13 +1,33 @@
-# Original Pipeline Placeholder
+- **Dist - Training modelli**
 
-This folder is intentionally reserved for the full recovered original RCIM
-repository.
+Questo folder contiene gli script usati per preparare i dataset, allenare i modelli e generare le tabelle di valutazione usate nel paper.
 
-The previous split recovered surfaces were moved to:
+Requisiti
+- Python 3.8+ (si consiglia un virtual environment)
+- Installare le dipendenze del progetto (se presente `requirements.txt`):
 
-- [../backup_split_original_pipeline_fragment/](../backup_split_original_pipeline_fragment/)
-- [../backup_latest_snapshot_fragment/](../backup_latest_snapshot_fragment/)
-- [../backup_legacy_early_snapshot/](../backup_legacy_early_snapshot/)
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
 
-The full original repository can now be copied here manually without mixing it
-with the older split backup surfaces.
+Script principali
+- `0-main_createDFforPrediction.py`
+    - Legge tutto il contenuto della cartella di input (`inputPath`). Se trova file `.pickle` li carica; altrimenti processa i `.csv` disponibili per costruire il dataframe di input per le predizioni.
+
+- `1-main_prediction_v17.py`
+    - Struttura usata per l'export dei modelli finali (allenati su tutto il dataset) destinati al test sul robot.
+
+- `1-main_prediction_v18.py`
+    - Struttura usata per il training dei modelli con i parametri già ottimizzati (come usato nelle sperimentazioni riportate nel paper).
+    - Note:
+        - Se si vuole ripetere l'ottimizzazione degli iperparametri per un nuovo dataset, usare la funzione `predictorMLCrossValidationWithHyperparameter` contenuta nella classe `MLModelMultipleOutput`. In tal caso partire dalla struttura di `1-main_prediction_v17.py` sostituire la funzione `predictorML_allForExport` con `predictorMLCrossValidationWithHyperparameter` per abilitare la ricerca degli iperparametri.
+        - Per riprodurre i risultati del paper: eseguire il training con i parametri trovati su 80% del dataset e validare su 20% (flusso previsto in `1-main_prediction_v18.py`).
+
+- `2-main_evaluatePrediction_v4.py`
+    - Genera le tabelle di valutazione (MAE, RMSE, MAPE, MSE) utilizzate nel paper.
+
+Consigli pratici
+- Verificare i percorsi di input/output e i nomi dei file nel relativo script prima di eseguirlo.
+- Se si modifica il dataset è buona pratica rieseguire l'ottimizzazione degli iperparametri.
