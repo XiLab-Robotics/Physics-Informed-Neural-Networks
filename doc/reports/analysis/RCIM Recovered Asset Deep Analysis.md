@@ -72,18 +72,21 @@ The third major conclusion is this:
 
 ### Asset Surface
 
-The recovered package contains five materially different evidence classes:
+The recovered package now contains six materially different evidence classes:
 
 - exact paper-era ONNX deployables;
-- original pipeline code for dataframe creation, prediction, and evaluation;
+- full author-supplied original pipeline root with scripts, caches, and
+  execution artifacts;
+- older split reconstruction of the original pipeline;
 - a later export-oriented snapshot;
 - older backup code from a previous harmonic generation;
 - TwinCAT XML exports and large archived instance pickles.
 
 The exact ONNX bank is the strongest evidence of the final deployment-facing
-model surface. The original pipeline code is the strongest evidence of the
-training and evaluation flow. The latest snapshot and backup legacy code are
-best treated as version-history evidence, not as the canonical paper release.
+model surface. The full author-supplied original pipeline root is now the
+strongest evidence of the training and evaluation flow. The split fragment,
+latest snapshot, and backup legacy code are best treated as version-history
+evidence rather than as the canonical original root.
 
 ### Exact ONNX Model Bank
 
@@ -145,52 +148,63 @@ This matters because it confirms that the paper-facing deployable strategy was
 made of many small, inspectable single-target artifacts rather than a single
 opaque monolith.
 
-### Original Pipeline Reconstruction
+### Full Original Pipeline Root
 
-The split late pipeline fragment currently available for inspection is stored
-under
-[`code/backup_split_original_pipeline_fragment`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment).
+The full author-supplied original root is now stored under
+[`code/original_pipeline`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline).
 
-Its recovered structure is:
+Its observed top-level structure is flat rather than stage-folder based:
 
-- `0-dfCreation/0-main_createDFforPrediction.py`
-- `0-dfCreation/0-statistic.py`
-- `1-prediction/1-main_prediction_v18.py`
-- `1-prediction/1-predictorML_v7.py`
-- `2-evaluation/0-statistic.py`
-- `2-evaluation/2-main_evaluatePrediction_v4.py`
-- `2-evaluation/2-main_evaluateSignals.py`
-- `0-requirements.txt`
+- `0-main_createDFforPrediction.py`
+- `1-main_prediction_v18.py`
+- `1.1-main_prediction_v17.py`
+- `2-main_evaluatePrediction_v4.py`
+- `predictorML_v7.py`
+- `statistic.py`
+- `instance_v4.py`
+- `instance_v5.py`
+- `instances_V3/`
+- `dataFrame_prediction_Fw_v14_newFreq.csv`
+- `dataFrame_prediction_Bw_v14_newFreq.csv`
+- `output_prediction/`
+- `evaluation/`
+- author `README.md`
 
-This reconstructs a clear staged pipeline:
+This changes the evidence quality significantly:
 
-1. read raw instance archives;
-2. compute or load selected FFT components;
-3. build a dataframe with operating variables plus `ampl/phase` targets;
-4. train multiple model families on those targets;
-5. export ONNX per target;
-6. evaluate both total reconstruction quality and per-target errors;
-7. derive paper-style comparison tables.
+- the repository now has the scripts and the supporting class files in one
+  operational folder;
+- the repository now also has the `.pickle` caches the authors actually used
+  for faster dataframe creation;
+- the repository now has shipped outputs from training and evaluation runs.
+
+The older split reconstruction remains stored under
+[`code/backup_split_original_pipeline_fragment`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment)
+as historical evidence of the earlier recovery phase.
 
 ### Dataframe Creation Stage
 
-The dataframe creation stage is centered on:
+The dataframe creation stage in the full original root is centered on:
 
-- [`0-main_createDFforPrediction.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/0-dfCreation/0-main_createDFforPrediction.py)
-- [`0-statistic.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/0-dfCreation/0-statistic.py)
+- [`0-main_createDFforPrediction.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/0-main_createDFforPrediction.py)
+- [`statistic.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/statistic.py)
+- [`instance_v5.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/instance_v5.py)
 
 Observed facts:
 
-- the script reads `instances_v3/`;
+- the script reads `instances_V3/`;
 - it calls `read_all_fft(inputPath)`;
-- it generates the dataframe through `genDfWithAmplEPhase('Fw')`;
-- it writes `dataFrame_prediction_Fw_v14_newFreq.csv`.
+- in the shipped file, it is currently set to generate
+  `genDfWithAmplEPhase('Bw')`;
+- it writes `dataFrame_prediction_Bw_v14_newFreq.csv`;
+- the author states the same script is used to generate both `Fw` and `Bw`
+  CSVs by changing the mode;
+- if a `.pickle` cache is present, the workflow reuses it;
+- if the cache is missing, the workflow reads the CSVs and creates the pickle
+  automatically.
 
-This is one of the clearest recovered proofs that the currently stored
-training/evaluation branch is forward-side only.
-
-The recovered dataframe header from the later snapshot matches the exact
-10-harmonic RCIM set and contains:
+The shipped dataframe headers in the full original root match the exact
+10-harmonic RCIM set and contain:
 
 - `rpm`
 - `deg`
@@ -198,17 +212,16 @@ The recovered dataframe header from the later snapshot matches the exact
 - `10 amplitude targets`
 - `10 phase targets`
 
-Recovered dataset facts from the shipped CSV snapshot:
+Recovered dataset facts from the shipped CSVs:
 
-- row count: `969`
+- row count: `969` for both `Fw` and `Bw`
 - target columns: `20`
-- temperature values present after filtering: `25`, `30`, `35`
+- temperature values present directly in the shipped files: `25`, `30`, `35`
 
 Important implementation-facing interpretation:
 
-- `deg` is almost certainly temperature in degrees Celsius, not angular
-  position, because the filenames and the paper operating variables align to
-  `rpm / torque / oil temperature`;
+- the author confirmed that `deg` is the oil-temperature column in this
+  workflow context;
 - the training problem is therefore not angle-conditioned TE prediction;
   it is operating-condition-conditioned harmonic-target prediction.
 
@@ -216,8 +229,9 @@ Important implementation-facing interpretation:
 
 The prediction stage is centered on:
 
-- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-main_prediction_v18.py)
-- [`1-predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-predictorML_v7.py)
+- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-main_prediction_v18.py)
+- [`1.1-main_prediction_v17.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1.1-main_prediction_v17.py)
+- [`predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/predictorML_v7.py)
 
 Recovered facts from `1-main_prediction_v18.py`:
 
@@ -228,8 +242,14 @@ Recovered facts from `1-main_prediction_v18.py`:
 - it calls `predictorMLEvalutationOnTrain(dfInput, 0.20)`;
 - it writes outputs to `output_prediction/instV3.8_Fw_allFreq_def/`.
 
-These recovered names are internally consistent with a forward-only branch and
-should not be read as direction-agnostic assets.
+The author conversation adds an important clarification:
+
+- the `deg <= 35` filter is likely a leftover from older dataframe versions;
+- in the later shipped CSVs, temperatures above `35` should already be absent.
+
+The shipped `Fw` and `Bw` CSVs confirm this author statement empirically:
+
+- both files already contain only `deg = 25, 30, 35`.
 
 Recovered final tuned model list in `v18`:
 
@@ -264,7 +284,7 @@ Important consequences:
 ### Actual Training Formulation
 
 The most important recovered implementation detail is inside
-[`1-predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-predictorML_v7.py).
+[`predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/predictorML_v7.py).
 
 The file shows that the paper code did not rely on a custom monolithic
 multi-target network. Instead it used scikit-learn wrappers:
@@ -293,6 +313,39 @@ This is a crucial clarification for `Track 1`:
 This is almost certainly why the recovered release surface is a bank of
 single-target ONNX files even though the training code looks "multi-output".
 
+### `v17` Versus `v18`
+
+The full original root and the author conversation clarify that the recovered
+training surface is not a single script with one purpose.
+
+Observed file roles:
+
+- [`1.1-main_prediction_v17.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1.1-main_prediction_v17.py)
+  is the whole-dataset export-oriented branch;
+- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-main_prediction_v18.py)
+  is the paper-side training branch with already optimized hyperparameters;
+- `predictorMLCrossValidationWithHyperparameter(...)` inside
+  [`predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/predictorML_v7.py)
+  is the retuning path the authors recommend when the dataset changes.
+
+This also exposes one mild inconsistency that should be preserved honestly:
+
+- in the author email, `v18` is described as a branch that trains on the whole
+  dataset and exports models;
+- in the shipped `v18` file now stored under `original_pipeline/`, the active
+  call is `predictorMLEvalutationOnTrain(dfInput, 0.20)`, which is a held-out
+  evaluation path, not an export-only whole-dataset path.
+
+The most plausible explanation is that multiple nearby `v18` variants existed
+in the authors' working area. For repository purposes, the safest reading is:
+
+- `v17` is the clearly export-oriented shipped branch;
+- the shipped `v18` file is the clearly evaluation-oriented tuned-family
+  branch;
+- the author guidance about retuning through
+  `predictorMLCrossValidationWithHyperparameter(...)` remains authoritative for
+  rerunning the workflow on a changed dataset.
+
 ### Export Logic
 
 The export logic in `MLModelMultipleOutput.exportModel(...)` iterates through
@@ -315,7 +368,7 @@ That aligns exactly with the recovered ONNX bank.
 ### Evaluation Stage
 
 The evaluation stage is centered on
-[`2-main_evaluatePrediction_v4.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/2-evaluation/2-main_evaluatePrediction_v4.py).
+[`2-main_evaluatePrediction_v4.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/2-main_evaluatePrediction_v4.py).
 
 Recovered facts:
 
@@ -328,6 +381,20 @@ Recovered facts:
 - it exports paper-ready tables split by:
   - error type;
   - `ampl` versus `phase`.
+
+The author conversation adds a direct intent clarification:
+
+- this stage is used to rework `output_prediction` into the paper tables.
+
+The shipped full root also reveals one practical limitation that should remain
+explicit:
+
+- the evaluator currently points to the forward output directory
+  `output_prediction/instV3.8_Fw_allFreq_def/`;
+- `instance_v4.py` and `instance_v5.py` expose forward reconstruction methods
+  in the searched surface;
+- the full original root does not currently ship `2-main_evaluateSignals.py`,
+  even though the older split fragment did.
 
 This is one of the most valuable recovered pieces because it clarifies how the
 paper likely chose the final target-wise winners:
@@ -505,18 +572,30 @@ alone. We can now pivot from "paper-aligned approximation" toward
 
 ## What Remains Missing, Risky, Or Uncertain
 
-### Incomplete Original Runtime Environment
+### Incomplete Original Runtime Semantics
 
-The original pipeline is not fully runnable as recovered.
+The original pipeline is now materially more complete than in the first
+recovery phase because the full author-supplied root ships:
 
-Missing or unresolved dependencies include:
+- `instance_v4.py`;
+- `instance_v5.py`;
+- the dataframe CSVs;
+- the instance caches;
+- training outputs;
+- evaluation artifacts.
 
-- `instance_v5` in dataframe creation and signal evaluation;
-- `instance_v4` in prediction evaluation.
+This removes the earlier blocker about obviously missing class files.
 
-This means we can reconstruct the workflow very accurately, but we cannot
-simply rerun the original codebase as-is and treat the output as the ground
-truth reference.
+The remaining uncertainty is different:
+
+- some workflow semantics are still underdocumented;
+- the shipped evaluation script is still forward-coded in practice;
+- the author email and the shipped `v18` file are not perfectly aligned about
+  the whole-dataset export versus held-out evaluation role.
+
+So the project can now inspect and likely rerun most of the paper-era
+workspace, but should still treat some branch roles as historically mixed
+rather than perfectly frozen.
 
 ### Mixed-Version Evidence
 
@@ -524,12 +603,14 @@ The recovered package is not a single frozen release tag.
 
 Signs of version mixing:
 
-- training stage references `instances_v3`;
-- evaluation stage references `instances_v2`;
-- dataframe creation imports `instance_v5`;
-- evaluation imports `instance_v4`;
-- latest snapshot differs from original predictor code;
-- backup code uses an older harmonic set.
+- the author-supplied full root is flat and operational, but older split and
+  snapshot fragments still differ from it;
+- `v17` and `v18` expose different operational intentions;
+- the author email and the shipped `v18` file are not perfectly identical in
+  described role;
+- the evaluator remains forward-coded even though the root now ships both `Fw`
+  and `Bw` dataframes;
+- backup code still uses an older harmonic set.
 
 Repository consequence:
 

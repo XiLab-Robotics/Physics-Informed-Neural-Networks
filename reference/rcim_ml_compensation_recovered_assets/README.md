@@ -78,16 +78,36 @@ silently removed:
 - `RF/ampl/RandomForestRegressor_ampl240.onnx`
 - `RF/ampl/RandomForestRegressor_ampl240 (1).onnx`
 
-### Canonical Original Repository Target
+### Canonical Original Repository Root
 
 - [code/original_pipeline/](./code/original_pipeline/)
 
-This folder is now intentionally reserved for the full recovered original RCIM
-repository.
+This folder now contains the full recovered original RCIM workflow root sent by
+the authors.
 
-The previously stored split surfaces were moved out of this path so the full
-original repository can be installed here cleanly without mixing it with later
-or earlier fragments.
+Observed top-level contents include:
+
+- `0-main_createDFforPrediction.py`
+- `1-main_prediction_v18.py`
+- `1.1-main_prediction_v17.py`
+- `2-main_evaluatePrediction_v4.py`
+- `predictorML_v7.py`
+- `statistic.py`
+- `instance_v4.py`
+- `instance_v5.py`
+- `instances_V3/`
+- `dataFrame_prediction_Fw_v14_newFreq.csv`
+- `dataFrame_prediction_Bw_v14_newFreq.csv`
+- `output_prediction/`
+- `evaluation/`
+- author `README.md`
+
+This root is now the strongest recovered code evidence because it includes:
+
+- executable scripts;
+- cached `.pickle` inputs;
+- generated model and evaluation artifacts;
+- direct author guidance on the intended usage split between `v17` and `v18`.
 
 ### Split Late Pipeline Fragment
 
@@ -153,6 +173,14 @@ appears focused on export and prediction runs for:
 
 This latest snapshot fragment does not include the same explicit `SVR` and
 `ELM` coverage seen in `1-main_prediction_v18.py`.
+
+Author clarification now captured in the repository:
+
+- this `v17` branch is the structure used to export final models trained on
+  the whole dataset;
+- to retune hyperparameters on a new dataset, the intended branch is to start
+  from the `v17` structure and replace `predictorML_allForExport` with
+  `predictorMLCrossValidationWithHyperparameter`.
 
 ### Early Legacy Backup Code
 
@@ -234,6 +262,9 @@ The recovered assets support these repository-relevant conclusions:
 6. The recovered codebase evolved over multiple internal generations, so the
    repository must keep a clear distinction between:
    exact paper assets, later snapshots, and historical backups.
+7. The full author-supplied original root confirms that the workflow relied on
+   cached `instances_V3` `.pickle` files for faster reuse, while still being
+   designed to create those caches from CSV inputs when absent.
 
 ## Relationship To This Repository
 

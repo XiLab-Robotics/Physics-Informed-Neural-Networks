@@ -97,6 +97,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-29
+
+- [technical/2026-04/2026-04-29/2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md](./technical/2026-04/2026-04-29/2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md)
+  Plan the formalization of the newly recovered full RCIM original pipeline root, the author clarifications, and the resulting updates to the canonical recovered-asset documentation.
+
 #### 2026-04-28
 
 - [technical/2026-04/2026-04-28/2026-04-28-19-57-56_rcim_reference_code_root_reorganization.md](./technical/2026-04/2026-04-28/2026-04-28-19-57-56_rcim_reference_code_root_reorganization.md)

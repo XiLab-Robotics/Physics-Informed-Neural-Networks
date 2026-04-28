@@ -33,15 +33,24 @@ Important clarification:
 - The exact recovered harmonic set is:
   `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`.
 - The recovered original code is staged as:
-  dataframe creation, prediction/export, and evaluation, but the currently
-  installed split staged fragment now lives under
-  `code/backup_split_original_pipeline_fragment/` until the full recovered
-  original repository is copied into `code/original_pipeline/`.
+  dataframe creation, prediction/export, and evaluation.
+- The full author-supplied original root now lives under
+  `code/original_pipeline/`, while the older split staged reconstruction
+  remains archived under `code/backup_split_original_pipeline_fragment/`.
 - The main recovered input columns are `rpm`, `deg`, and `tor`.
-- The recovered dataframe and prediction entrypoints are explicitly `Fw`
-  forward-side artifacts.
+- The shipped original root now includes both `Fw` and `Bw` dataframe CSVs,
+  both with `969` rows and `20` harmonic targets.
+- Both shipped CSVs already contain only `deg = 25, 30, 35`, which supports
+  the author statement that the later dataset versions already excluded
+  temperatures above `35` degrees.
 - The TwinCAT XML exports confirm that a PLC-facing export path existed in the
   paper ecosystem.
+- The author guidance distinguishes:
+  - `1.1-main_prediction_v17.py` for whole-dataset export;
+  - `1-main_prediction_v18.py` for paper-side training with already optimized
+    parameters;
+  - `predictorMLCrossValidationWithHyperparameter` as the method to reuse when
+    retuning hyperparameters on a new dataset.
 
 ## Why It Matters For This Repository
 
@@ -73,8 +82,14 @@ Important clarification:
   runnable because the recovered class environment is incomplete.
 - The recovered later code snapshot fragment and the exact paper release are
   related, but not identical, so they must not be merged conceptually.
+- The author README text refers to `1-main_prediction_v17.py`, but the shipped
+  file is named `1.1-main_prediction_v17.py`; this appears to be a naming
+  mismatch in the note, not a second missing file.
 - The recovered package does not currently contain the backward-side model bank
   implied by the generalized paper notation.
+- The shipped evaluation entrypoint `2-main_evaluatePrediction_v4.py` is still
+  forward-coded in practice because it calls `predicted_TE_Fw_*` methods and
+  points to `output_prediction/instV3.8_Fw_allFreq_def/`.
 - The backup ONNX bundles contain historical variants and experimental branches,
   so they should not be mistaken for the exact paper benchmark without explicit
   mapping.

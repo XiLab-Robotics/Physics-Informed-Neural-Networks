@@ -2,14 +2,27 @@
 
 This folder stores the recovered RCIM code surfaces grouped by historical role.
 
-## Canonical Target Root
+## Canonical Full Original Root
 
 - [original_pipeline/](./original_pipeline/)
 
-This folder is now intentionally reserved for the full recovered original RCIM
-repository that will be installed manually after the archival reorganization.
+This is now the canonical author-supplied full original RCIM workflow root.
 
-At the moment it is only a placeholder root.
+Observed contents include:
+
+- flat top-level execution scripts rather than the older split folder layout;
+- `instances_V3/` with `969` `.pickle` caches;
+- shipped forward and backward dataframe CSVs;
+- `output_prediction/` artifacts;
+- `evaluation/` artifacts;
+- the author-provided executable `README.md`.
+
+This root is now the main reference surface for:
+
+- dataframe generation;
+- paper-side training and export usage;
+- evaluation-table generation;
+- understanding how the original team actually ran the workflow.
 
 ## Historical Backup Roots
 
@@ -24,8 +37,13 @@ At the moment it is only a placeholder root.
 
 ## Interpretation
 
-- `backup_legacy_early_snapshot/` is the oldest recovered branch here.
-- `backup_latest_snapshot_fragment/` and
-  `backup_split_original_pipeline_fragment/` are later recovered fragments.
-- `original_pipeline/` is reserved for the full recovered original repository
-  and should become the canonical code root after the manual copy step.
+- `original_pipeline/` is now the strongest recovered code evidence because it
+  comes directly from the authors and includes scripts, caches, and generated
+  artifacts in one operational folder.
+- `backup_split_original_pipeline_fragment/` remains useful as a previous
+  reconstruction of the staged workflow, but it is no longer the canonical
+  original root.
+- `backup_latest_snapshot_fragment/` remains useful as a narrower export
+  snapshot centered on the `v17` branch.
+- `backup_legacy_early_snapshot/` remains the oldest recovered branch and is
+  still useful for tracking the earlier harmonic-set evolution.

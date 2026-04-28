@@ -9,8 +9,8 @@ It is meant to be read while keeping the code open side by side.
 
 Primary original files:
 
-- `reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-main_prediction_v18.py`
-- `reference/rcim_ml_compensation_recovered_assets/code/backup_split_original_pipeline_fragment/1-prediction/1-predictorML_v7.py`
+- `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-main_prediction_v18.py`
+- `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/predictorML_v7.py`
 
 Primary repository reimplementation files:
 
@@ -25,6 +25,19 @@ literal line-by-line port. The goal is to explain:
 3. how the same workflow was redistributed across the repository
    reimplementation;
 4. what stayed conceptually faithful and what changed in engineering shape.
+
+Important clarification from the newly recovered full original root plus the
+author conversation:
+
+- `1.1-main_prediction_v17.py` is the shipped whole-dataset export-oriented
+  branch;
+- `1-main_prediction_v18.py` is the shipped tuned-family paper-side branch;
+- `predictorMLCrossValidationWithHyperparameter(...)` in
+  `predictorML_v7.py` is the retuning path the authors recommend when the
+  dataset changes.
+
+This also means the older split fragment remains useful as recovery history,
+but it is no longer the primary source of truth for the original code surface.
 
 ## How To Read The Original Code
 
@@ -92,12 +105,19 @@ In these recovered prediction CSVs, `deg` is the oil-temperature column. So
 `deg <= 35` is an explicit thermal filter that keeps only rows whose oil
 temperature is at or below `35` degrees.
 
+The newly recovered full original root adds one important empirical nuance:
+
+- the shipped `Fw` and `Bw` CSVs already contain only `deg = 25, 30, 35`;
+- so, for this author-supplied release, the `deg <= 35` line is redundant in
+  practice even though it remains visible in the runner.
+
 Repository consequence:
 
 - the script assumes a paper-era forward-only dataframe already exists;
 - no raw-instance reconstruction happens here;
-- the `deg <= 35` filter is a real part of the original prediction workflow,
-  not just a comment or a generic operating-variable cut.
+- the `deg <= 35` filter should be read as a legacy thermal safeguard from
+  older dataframe versions, not as an active row-reduction step in the shipped
+  author release.
 
 #### Target Discovery
 
@@ -249,6 +269,24 @@ The same class also contains alternative methods:
 
 So `predictorML_v7.py` is not just the `v18` branch. It is a wider
 experiment-and-export surface, and `v18` selects only one route through it.
+
+The author conversation sharpens the interpretation of those branches:
+
+- `predictorML_allForExport(...)` is the whole-dataset export route associated
+  with the `v17` structure;
+- `predictorMLCrossValidationWithHyperparameter(...)` is the retuning route to
+  use on a new dataset, with test-set fraction `0.20`;
+- the shipped `v18` branch uses `predictorMLEvalutationOnTrain(...)`, which is
+  a held-out evaluation route with already chosen hyperparameters.
+
+One ambiguity must stay explicit:
+
+- the author email described `v18` as a whole-dataset export branch;
+- the shipped `v18` file now in `original_pipeline/` is evaluation-on-train
+  split based.
+
+For repository comparison purposes, the safest rule is to trust the shipped
+code for exact execution behavior and the author email for workflow intent.
 
 ## The Rest Of `predictorML_v7.py`
 
