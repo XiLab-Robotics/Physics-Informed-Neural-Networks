@@ -99,12 +99,15 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-28
 
+- [technical/2026-04/2026-04-28/2026-04-28-13-45-35_rcim_recovered_workflow_script_renaming_and_export_alignment.md](./technical/2026-04/2026-04-28/2026-04-28-13-45-35_rcim_recovered_workflow_script_renaming_and_export_alignment.md)
+  Plan the next RCIM recovered-workflow reorganization pass focused on
+  repository-consistent script renaming and export-path alignment after the
+  first subtree taxonomy cleanup.
 - [technical/2026-04/2026-04-28/2026-04-28-13-00-21_rcim_recovered_original_workflow_reorganization_and_scripts_subtree_taxonomy.md](./technical/2026-04/2026-04-28/2026-04-28-13-00-21_rcim_recovered_original_workflow_reorganization_and_scripts_subtree_taxonomy.md)
   Plan the reorganization of the recovered RCIM original workflow copy into
   three stage folders based on the `latest_snapshot` training branch and the
   broader taxonomy cleanup of the `scripts/paper_reimplementation/rcim_ml_compensation/`
   subtree.
-
 - [technical/2026-04/2026-04-28/2026-04-28-12-07-42_rcim_deg_temperature_documentation_clarification.md](./technical/2026-04/2026-04-28/2026-04-28-12-07-42_rcim_deg_temperature_documentation_clarification.md)
   Plan a documentation clarification that states explicitly that `deg` in the
   recovered RCIM prediction CSVs is oil temperature and that `deg <= 35` is a

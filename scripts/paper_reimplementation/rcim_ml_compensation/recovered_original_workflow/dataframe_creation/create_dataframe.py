@@ -1,5 +1,5 @@
 # This is a sample Python script.
-from statistic import Statistics
+from statistics import Statistics
 
 
 def main():

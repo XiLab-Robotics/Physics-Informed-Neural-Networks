@@ -10,8 +10,9 @@ It no longer keeps two competing copied roots such as `latest_snapshot/` and
 - `training/`
 - `evaluation/`
 
-The canonical recovered-original training branch used here is
-`latest_snapshot/main_prediction_v17.py`.
+The canonical recovered-original training branch used here comes from the
+recovered `latest_snapshot/main_prediction_v17.py` source, but the copied file
+inside this repository is now named `training/train_and_export_models.py`.
 
 The recovered `1-main_prediction_v18.py` branch is intentionally not used as
 the canonical paper training stage because the repository interpretation is
@@ -24,16 +25,16 @@ attempt rather than to the paper-faithful workflow surface.
 
 Copied original dataframe-building stage:
 
-- `0-main_createDFforPrediction.py`
-- `0-statistic.py`
+- `create_dataframe.py`
+- `statistics.py`
 - `instance_v5.py`
 
 Code role:
 
-- `0-main_createDFforPrediction.py`
+- `create_dataframe.py`
   original stage runner that reads original-style instance CSVs and generates a
   harmonic dataframe.
-- `0-statistic.py`
+- `statistics.py`
   main helper used by the original stage to load `Instance` objects and expand
   harmonic amplitude/phase columns into a dataframe.
 - `instance_v5.py`
@@ -50,8 +51,8 @@ depending on the direction selected by the repository-owned wrapper.
 
 Copied original training/export stage:
 
-- `main_prediction_v17.py`
-- `predictorML_v7.py`
+- `train_and_export_models.py`
+- `predictor_multioutput.py`
 - `requirements.txt`
 - shipped recovered dataframe fixtures:
   - `dataFrame_prediction_Fw_v14_newFreq.csv`
@@ -59,10 +60,10 @@ Copied original training/export stage:
 
 Code role:
 
-- `main_prediction_v17.py`
+- `train_and_export_models.py`
   narrow family-bank runner that loads one dataframe, filters `deg <= 35`,
   trains the recovered family list, exports ONNX, and writes prediction CSVs.
-- `predictorML_v7.py`
+- `predictor_multioutput.py`
   original monolithic helper that contains the real multioutput training,
   export, and alternative-evaluation logic.
 - the shipped CSVs
@@ -89,19 +90,19 @@ Important detail:
 
 Copied original offline-evaluation stage:
 
-- `0-statistic.py`
-- `2-main_evaluatePrediction_v4.py`
-- `2-main_evaluateSignals.py`
+- `statistics.py`
+- `evaluate_predictions.py`
+- `evaluate_signals.py`
 - `instance_v4.py`
 - `instance_v5.py`
 
 Code role:
 
-- `2-main_evaluatePrediction_v4.py`
+- `evaluate_predictions.py`
   computes per-file evaluation tables and per-component paper-style exports.
-- `2-main_evaluateSignals.py`
+- `evaluate_signals.py`
   computes signal-level aggregate errors from prediction CSVs.
-- `0-statistic.py`
+- `statistics.py`
   original helper reused by the evaluation stage.
 - `instance_v4.py` and `instance_v5.py`
   restored reference dependencies required by the copied evaluation logic.
@@ -173,7 +174,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 
 What the wrapper does in code terms:
 
-- loads `dataframe_creation/0-statistic.py`;
+- loads `dataframe_creation/statistics.py`;
 - instantiates `Statistics`;
 - calls `read_all_fft(instances_path)`;
 - calls `genDfWithAmplEPhase('Fw')` or `genDfWithAmplEPhase('Bw')`;
@@ -221,7 +222,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 
 What the wrapper does in code terms:
 
-- loads `training/predictorML_v7.py`;
+- loads `training/predictor_multioutput.py`;
 - loads the selected CSV with `sep=';'` and `decimal=','`;
 - applies the original `deg <= 35` filter;
 - resolves all `ampl` and `phase` targets from the dataframe header;
@@ -255,11 +256,11 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 
 What the wrapper does in code terms:
 
-- loads `evaluation/0-statistic.py` as the original `statistic` helper;
+- loads `evaluation/statistics.py` as the original copied statistics helper;
 - builds a `Statistics` object from the supplied instance directory;
 - calls the copied `evaluatePredictionFile(...)` functions from:
-  - `2-main_evaluatePrediction_v4.py`
-  - `2-main_evaluateSignals.py`
+  - `evaluate_predictions.py`
+  - `evaluate_signals.py`
 - materializes their original-style output files under one immutable runtime
   artifact root.
 

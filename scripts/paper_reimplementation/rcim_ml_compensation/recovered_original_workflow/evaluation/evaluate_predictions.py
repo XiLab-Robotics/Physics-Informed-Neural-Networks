@@ -2,9 +2,8 @@ import os
 
 import numpy as np
 import pandas as pd
-from instance_v4 import Instance
 import re
-from statistic import Statistics
+from statistics import Statistics
 from tqdm import tqdm
 
 acronims = {

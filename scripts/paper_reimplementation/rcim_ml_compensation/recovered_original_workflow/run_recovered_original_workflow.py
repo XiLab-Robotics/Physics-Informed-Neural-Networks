@@ -216,7 +216,7 @@ def resolve_target_column_name_list(dataframe: pd.DataFrame) -> list[str]:
 
 def build_latest_snapshot_v17_family_builder_map() -> dict[str, Any]:
 
-    """Build the family registry used by the recovered ``main_prediction_v17.py``."""
+    """Build the family registry used by the recovered ``train_and_export_models.py``."""
 
     assert XGBRegressor is not None, "xgboost is required for the recovered-original training stage"
     assert LGBMRegressor is not None, "lightgbm is required for the recovered-original training stage"
@@ -293,8 +293,8 @@ def run_dataframe_creation_stage(
         f"instances={instances_path}"
     )
     statistic_module = load_stage_module(
-        "recovered_original_dataframe_creation_statistic",
-        DATAFRAME_CREATION_ROOT / "0-statistic.py",
+        "recovered_original_dataframe_creation_statistics",
+        DATAFRAME_CREATION_ROOT / "statistics.py",
     )
     with temporary_working_directory(DATAFRAME_CREATION_ROOT):
         statistics_object = statistic_module.Statistics()
@@ -331,8 +331,8 @@ def run_training_stage(
     direction_prefix = DIRECTION_PREFIX_MAP[normalized_direction_label]
     family_builder_map = build_latest_snapshot_v17_family_builder_map()
     predictor_module = load_stage_module(
-        "recovered_original_training_predictor",
-        TRAINING_ROOT / "predictorML_v7.py",
+        "recovered_original_training_predictor_multioutput",
+        TRAINING_ROOT / "predictor_multioutput.py",
     )
     dataframe = load_prediction_dataframe(dataframe_path)
     target_column_name_list = resolve_target_column_name_list(dataframe)
@@ -431,7 +431,7 @@ def run_evaluation_stage(
     )
     statistic_module = load_stage_module(
         "statistic",
-        EVALUATION_ROOT / "0-statistic.py",
+        EVALUATION_ROOT / "statistics.py",
     )
     with temporary_working_directory(runtime_root):
         statistics_object = statistic_module.Statistics()
@@ -439,10 +439,10 @@ def run_evaluation_stage(
 
         if run_prediction_v4:
             evaluation_prediction_module = load_stage_module(
-                "recovered_original_evaluate_prediction_v4",
-                EVALUATION_ROOT / "2-main_evaluatePrediction_v4.py",
+        "recovered_original_evaluate_predictions",
+        EVALUATION_ROOT / "evaluate_predictions.py",
                 dependency_alias_path_map={
-                    "statistic": EVALUATION_ROOT / "0-statistic.py",
+                    "statistics": EVALUATION_ROOT / "statistics.py",
                 },
             )
             for prediction_file_path in prediction_file_path_list:
@@ -453,10 +453,10 @@ def run_evaluation_stage(
 
         if run_signals:
             evaluation_signal_module = load_stage_module(
-                "recovered_original_evaluate_signals",
-                EVALUATION_ROOT / "2-main_evaluateSignals.py",
+        "recovered_original_evaluate_signals",
+        EVALUATION_ROOT / "evaluate_signals.py",
                 dependency_alias_path_map={
-                    "statistic": EVALUATION_ROOT / "0-statistic.py",
+                    "statistics": EVALUATION_ROOT / "statistics.py",
                 },
             )
             for prediction_file_path in prediction_file_path_list:
@@ -488,21 +488,21 @@ def build_stage_status_dictionary() -> dict[str, Any]:
     return {
         "dataframe_creation": {
             "copied": True,
-            "primary_code": "dataframe_creation/0-main_createDFforPrediction.py",
-            "primary_support": "dataframe_creation/0-statistic.py",
+            "primary_code": "dataframe_creation/create_dataframe.py",
+            "primary_support": "dataframe_creation/statistics.py",
             "dependency_note": "Requires an external original-style instance CSV directory.",
         },
         "training": {
             "copied": True,
-            "primary_code": "training/main_prediction_v17.py",
-            "primary_support": "training/predictorML_v7.py",
+            "primary_code": "training/train_and_export_models.py",
+            "primary_support": "training/predictor_multioutput.py",
             "scope_note": "This is the canonical recovered-original paper training surface used by the repository wrapper.",
         },
         "evaluation": {
             "copied": True,
             "primary_codes": [
-                "evaluation/2-main_evaluatePrediction_v4.py",
-                "evaluation/2-main_evaluateSignals.py",
+                "evaluation/evaluate_predictions.py",
+                "evaluation/evaluate_signals.py",
             ],
             "dependency_note": "Requires an external original-style instance CSV directory and prediction CSV outputs from the training stage.",
         },
@@ -566,12 +566,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--skip-evaluate-prediction-v4",
         action="store_true",
-        help="Skip the copied `2-main_evaluatePrediction_v4.py` pass.",
+        help="Skip the copied `evaluate_predictions.py` pass.",
     )
     parser.add_argument(
         "--skip-evaluate-signals",
         action="store_true",
-        help="Skip the copied `2-main_evaluateSignals.py` pass.",
+        help="Skip the copied `evaluate_signals.py` pass.",
     )
     parser.add_argument(
         "--print-stage-status",

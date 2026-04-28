@@ -1,6 +1,6 @@
 import pandas as pd
 
-from predictorML_v7 import MLModelMultipleOutput
+from predictor_multioutput import MLModelMultipleOutput
 
 
 from sklearn.ensemble import RandomForestRegressor
@@ -50,4 +50,3 @@ def main():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
-

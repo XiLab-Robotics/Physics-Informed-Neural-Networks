@@ -2,12 +2,12 @@
 import os
 import re
 from instance_v5 import Instance
-from statistic import Statistics
+from statistics import Statistics
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
-import statistic
+import statistics
 
 def extract_values(input_string):
     rpm_match = re.search(r'(\d*\.\d+)rpm', input_string)
