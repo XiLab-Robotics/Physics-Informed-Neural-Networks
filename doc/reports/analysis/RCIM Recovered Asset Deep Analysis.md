@@ -315,36 +315,27 @@ single-target ONNX files even though the training code looks "multi-output".
 
 ### `v17` Versus `v18`
 
-The full original root and the author conversation clarify that the recovered
-training surface is not a single script with one purpose.
+The author-supplied `README.md` in the full original root is the canonical
+operator-facing usage note and should be followed directly.
 
-Observed file roles:
+Canonical file roles:
 
 - [`1.1-main_prediction_v17.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1.1-main_prediction_v17.py)
-  is the whole-dataset export-oriented branch;
-- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-main_prediction_v18.py)
-  is the paper-side training branch with already optimized hyperparameters;
+  is the structure used for full-dataset model export;
 - `predictorMLCrossValidationWithHyperparameter(...)` inside
   [`predictorML_v7.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/predictorML_v7.py)
-  is the retuning path the authors recommend when the dataset changes.
+  is the path to enable when starting from the `v17` structure on a changed or
+  reduced dataset and new hyperparameter search is needed;
+- [`1-main_prediction_v18.py`](../../../reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-main_prediction_v18.py)
+  is the structure used to reproduce the paper-style `80/20` training and
+  validation flow with already optimized hyperparameters.
 
-This also exposes one mild inconsistency that should be preserved honestly:
+This is also the most useful practical rule for future repository work:
 
-- in the author email, `v18` is described as a branch that trains on the whole
-  dataset and exports models;
-- in the shipped `v18` file now stored under `original_pipeline/`, the active
-  call is `predictorMLEvalutationOnTrain(dfInput, 0.20)`, which is a held-out
-  evaluation path, not an export-only whole-dataset path.
-
-The most plausible explanation is that multiple nearby `v18` variants existed
-in the authors' working area. For repository purposes, the safest reading is:
-
-- `v17` is the clearly export-oriented shipped branch;
-- the shipped `v18` file is the clearly evaluation-oriented tuned-family
-  branch;
-- the author guidance about retuning through
-  `predictorMLCrossValidationWithHyperparameter(...)` remains authoritative for
-  rerunning the workflow on a changed dataset.
+- use `v17` for export;
+- use `v17` plus `predictorMLCrossValidationWithHyperparameter(...)` for new
+  tuning;
+- use `v18` for replaying the tuned paper-style evaluation flow.
 
 ### Export Logic
 
@@ -590,8 +581,8 @@ The remaining uncertainty is different:
 
 - some workflow semantics are still underdocumented;
 - the shipped evaluation script is still forward-coded in practice;
-- the author email and the shipped `v18` file are not perfectly aligned about
-  the whole-dataset export versus held-out evaluation role.
+- the future backward branch is not yet materialized in shipped evaluation
+  artifacts even though the dataframe-generation surface already supports `Bw`.
 
 So the project can now inspect and likely rerun most of the paper-era
 workspace, but should still treat some branch roles as historically mixed
@@ -605,9 +596,7 @@ Signs of version mixing:
 
 - the author-supplied full root is flat and operational, but older split and
   snapshot fragments still differ from it;
-- `v17` and `v18` expose different operational intentions;
-- the author email and the shipped `v18` file are not perfectly identical in
-  described role;
+- `v17` and `v18` expose different operational intentions by design;
 - the evaluator remains forward-coded even though the root now ships both `Fw`
   and `Bw` dataframes;
 - backup code still uses an older harmonic set.

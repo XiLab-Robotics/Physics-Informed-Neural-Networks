@@ -22,7 +22,7 @@ The goal is to state precisely:
 | Stage | Recovered Source | Directly Runnable Now | Main Reason |
 | --- | --- | --- | --- |
 | Dataframe creation | `original_pipeline/0-main_createDFforPrediction.py` | Yes | The full author-supplied root now ships `statistic.py`, `instance_v5.py`, `instances_V3/`, and the shipped caches needed by the dataframe-generation stage. |
-| Prediction and export | `original_pipeline/1.1-main_prediction_v17.py` and `original_pipeline/1-main_prediction_v18.py` | Yes | The full author-supplied root now ships both the export-oriented `v17` branch and the tuned-family `v18` branch together with `predictorML_v7.py`. |
+| Prediction and export | `original_pipeline/1.1-main_prediction_v17.py` and `original_pipeline/1-main_prediction_v18.py` | Yes | The full author-supplied root now ships both the full-dataset export `v17` branch and the paper-style tuned `v18` branch together with `predictorML_v7.py`. |
 | Evaluation | `original_pipeline/2-main_evaluatePrediction_v4.py` | Yes | The full author-supplied root now ships `instance_v4.py`, `instance_v5.py`, prediction outputs, and evaluation artifacts in one operational folder. |
 
 ## Material Code Differences
@@ -111,7 +111,11 @@ Recovered original `v18`:
 Recovered author-shipped `v17`:
 
 - uses mostly default constructors for the narrowed family list;
-- per author guidance, this is the whole-dataset export route.
+- per author guidance, this is the whole-dataset export route;
+- when a new dataset or a restricted dataset slice is used, the intended next
+  step is to start from the `v17` structure and replace
+  `predictorML_allForExport(...)` with
+  `predictorMLCrossValidationWithHyperparameter(...)`.
 
 Repository reimplementation:
 
@@ -195,6 +199,11 @@ Why it matters:
 - this is one of the clearest places where the repository went beyond merely
   replaying the recovered files and formalized the paper's direction split into
   a stable program structure.
+- the future `Bw` branch should mirror the original usage sequence explicitly:
+  generate the backward dataframe, run tuning from the `v17` structure through
+  `predictorMLCrossValidationWithHyperparameter(...)`, then replay the tuned
+  backward paper-style path through the `v18` structure with repository-owned
+  runner-managed output roots.
 
 ## New Repository-Owned Reconstruction Surface
 

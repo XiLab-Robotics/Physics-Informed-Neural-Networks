@@ -1,5 +1,7 @@
 # 2026-04-29 Technical Documents
 
+- [2026-04-29-16-56-16_rcim_v17_v18_canonical_usage_alignment_and_backward_backlog.md](./2026-04-29-16-56-16_rcim_v17_v18_canonical_usage_alignment_and_backward_backlog.md)
+  Plan the RCIM documentation alignment that treats the author README as the canonical usage rule for `v17`, `v18`, and tuning, and records the future backward branch explicitly in the live backlog.
 - [2026-04-29-16-33-05_track1_forward_last_three_open_cells_campaign_closeout.md](./2026-04-29-16-33-05_track1_forward_last_three_open_cells_campaign_closeout.md)
   Plan the formal closeout of the completed final forward-only last-three-open-cells campaign, including profile registration, benchmark refresh, archive refresh, and persistent state completion.
 - [2026-04-29-14-27-58_track1_forward_last_three_open_cells_campaign.md](./2026-04-29-14-27-58_track1_forward_last_three_open_cells_campaign.md)

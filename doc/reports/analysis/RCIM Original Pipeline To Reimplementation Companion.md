@@ -39,6 +39,15 @@ author conversation:
 This also means the older split fragment remains useful as recovery history,
 but it is no longer the primary source of truth for the original code surface.
 
+For practical repository use, the canonical rule is:
+
+- use `v17` for full-dataset export;
+- start from the `v17` structure and replace `predictorML_allForExport(...)`
+  with `predictorMLCrossValidationWithHyperparameter(...)` when new tuning is
+  needed on a changed or reduced dataset;
+- use `v18` to replay the paper-style `80/20` training and validation flow
+  with already optimized hyperparameters.
+
 ## How To Read The Original Code
 
 The original `v18` branch is not a large framework spread across many files.
@@ -270,7 +279,8 @@ The same class also contains alternative methods:
 So `predictorML_v7.py` is not just the `v18` branch. It is a wider
 experiment-and-export surface, and `v18` selects only one route through it.
 
-The author conversation sharpens the interpretation of those branches:
+The author conversation and the author-supplied `README.md` sharpen the
+interpretation of those branches:
 
 - `predictorML_allForExport(...)` is the whole-dataset export route associated
   with the `v17` structure;
@@ -278,15 +288,6 @@ The author conversation sharpens the interpretation of those branches:
   use on a new dataset, with test-set fraction `0.20`;
 - the shipped `v18` branch uses `predictorMLEvalutationOnTrain(...)`, which is
   a held-out evaluation route with already chosen hyperparameters.
-
-One ambiguity must stay explicit:
-
-- the author email described `v18` as a whole-dataset export branch;
-- the shipped `v18` file now in `original_pipeline/` is evaluation-on-train
-  split based.
-
-For repository comparison purposes, the safest rule is to trust the shipped
-code for exact execution behavior and the author email for workflow intent.
 
 ## The Rest Of `predictorML_v7.py`
 

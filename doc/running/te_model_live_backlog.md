@@ -118,6 +118,13 @@ Current next step:
 - use the exact recovered branch to recreate paper-family and per-target
   baselines before promoting any third harmonic-wise optimization pass as the
   canonical exact-paper reference
+- treat the current author-supplied original-pipeline workspace as
+  operationally `Fw`-centered for shipped training, evaluation, and artifacts,
+  even though the dataframe-creation surface already supports `Bw`
+- plan the future `Bw` implementation to mirror the author workflow exactly:
+  generate the backward dataframe, start from the `v17` structure with
+  `predictorMLCrossValidationWithHyperparameter(...)` when new tuning is
+  needed, then replay the tuned backward paper-style branch through `v18`
 - use the completed campaign to lock three decisions:
   - keep the full RCIM set as the mainline `Target A` branch;
   - do not promote the reduced harmonic subsets as the main optimization path;
@@ -190,6 +197,9 @@ Current next step:
 - keep the current recovered-paper branch documented as the forward-only
   recovered baseline, not as the final shape of the new bidirectional
   repository-owned rebuild
+- when the backward recovered branch is implemented, keep its filesystem
+  behavior runner-managed in the repository rather than reusing mutable local
+  original output-folder conventions directly
 - for `SVR`, temporarily disable the current grid-search path and use direct
   training during the rebuild branch and the mega-campaign
 - backlog note:
