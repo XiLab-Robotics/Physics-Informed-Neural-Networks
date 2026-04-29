@@ -9,9 +9,9 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward maxi last non-green cells closeout.
-  Improved accepted targets were replaced and retained targets preserved their previous
-  canonical source runs.
+- This archive was refreshed during the forward last four open cells closeout. Improved
+  accepted targets were replaced and retained targets preserved their previous canonical
+  source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:

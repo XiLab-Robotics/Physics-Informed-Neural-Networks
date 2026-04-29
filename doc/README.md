@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-29
 
+- [technical/2026-04/2026-04-29/2026-04-29-13-42-13_track1_forward_last_four_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-29/2026-04-29-13-42-13_track1_forward_last_four_open_cells_campaign_closeout.md)
+  Plan the formal closeout of the completed final forward-only last-four-open-cells campaign, including profile registration, benchmark refresh, archive refresh, and persistent state completion.
+- [technical/2026-04/2026-04-29/2026-04-29-11-55-47_track1_forward_last_four_open_cells_campaign.md](./technical/2026-04/2026-04-29/2026-04-29-11-55-47_track1_forward_last_four_open_cells_campaign.md)
+  Planning gate for one final targeted forward exact-paper campaign to repair the last four open forward cells after the maxi wave closeout.
 - [technical/2026-04/2026-04-29/2026-04-29-11-28-31_track1_forward_maxi_remote_artifact_recovery_and_closeout.md](./technical/2026-04/2026-04-29/2026-04-29-11-28-31_track1_forward_maxi_remote_artifact_recovery_and_closeout.md)
   Plan the full manual recovery of the remote artifact set for the interrupted
   forward maxi campaign and the formal closeout that follows from the recovered
