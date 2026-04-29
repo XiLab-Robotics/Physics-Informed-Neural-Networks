@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import hashlib
 import os
 from copy import deepcopy
 from dataclasses import asdict
@@ -53,6 +54,10 @@ COMMON_RUN_REPORT_FILENAME = "training_test_report.md"
 FAMILY_LEADERBOARD_FILENAME = "leaderboard.yaml"
 FAMILY_BEST_FILENAME = "latest_family_best.yaml"
 PROGRAM_BEST_FILENAME = "current_best_solution.yaml"
+SAFE_REPORT_MAX_PATH_LENGTH = 220
+SAFE_REPORT_MAX_FILENAME_LENGTH = 120
+SAFE_REPORT_HASH_HEX_LENGTH = 8
+SAFE_REPORT_COMPACT_RUN_TOKEN_MAX_LENGTH = 48
 SELECTION_POLICY_DICTIONARY = {
     "primary_metric": "test_mae",
     "first_tie_breaker": "test_rmse",
@@ -162,6 +167,105 @@ def sanitize_name(name: str) -> str:
     sanitized_name = "".join(character.lower() if character.isalnum() else "_" for character in name.strip())
     sanitized_name = sanitized_name.strip("_")
     return sanitized_name or "run"
+
+def build_compact_hashed_name_token(
+    raw_name: str,
+    maximum_token_length: int = SAFE_REPORT_COMPACT_RUN_TOKEN_MAX_LENGTH,
+) -> str:
+
+    """Build a compact deterministic token from a potentially long raw name."""
+
+    sanitized_name = sanitize_name(raw_name)
+    if len(sanitized_name) <= maximum_token_length:
+        return sanitized_name
+
+    name_hash = hashlib.sha1(sanitized_name.encode("utf-8")).hexdigest()[:SAFE_REPORT_HASH_HEX_LENGTH]
+    minimum_prefix_length = 4
+    reserved_separator_count = 1
+    prefix_budget = max(
+        minimum_prefix_length,
+        maximum_token_length - len(name_hash) - reserved_separator_count,
+    )
+    compact_prefix = sanitized_name[:prefix_budget].rstrip("_")
+    if not compact_prefix:
+        compact_prefix = sanitized_name[:minimum_prefix_length]
+    return f"{compact_prefix}_{name_hash}"
+
+def build_safe_validation_report_filename(
+    report_root: Path,
+    timestamp_string: str,
+    model_family: str,
+    output_run_name: str,
+    report_suffix: str,
+) -> str:
+
+    """Build a deterministic validation-report filename within safe limits."""
+
+    sanitized_model_family = sanitize_name(model_family)
+    sanitized_output_run_name = sanitize_name(output_run_name)
+    maximum_filename_length = min(
+        SAFE_REPORT_MAX_FILENAME_LENGTH,
+        SAFE_REPORT_MAX_PATH_LENGTH - len(str(report_root)) - 1,
+    )
+    verbose_filename = (
+        f"{timestamp_string}_{sanitized_model_family}_{sanitized_output_run_name}_{report_suffix}"
+    )
+    verbose_report_path = report_root / verbose_filename
+    if (
+        len(verbose_filename) <= maximum_filename_length
+        and len(str(verbose_report_path)) <= SAFE_REPORT_MAX_PATH_LENGTH
+    ):
+        return verbose_filename
+
+    fixed_character_count = len(timestamp_string) + len(report_suffix) + 3
+    combined_token_budget = maximum_filename_length - fixed_character_count
+    minimum_family_token_budget = 12
+    minimum_run_token_budget = 16
+    preferred_family_token_budget = min(24, max(minimum_family_token_budget, combined_token_budget // 3))
+    preferred_run_token_budget = max(
+        minimum_run_token_budget,
+        combined_token_budget - preferred_family_token_budget,
+    )
+    compact_model_family_token = build_compact_hashed_name_token(
+        sanitized_model_family,
+        maximum_token_length=preferred_family_token_budget,
+    )
+    compact_run_token = build_compact_hashed_name_token(
+        sanitized_output_run_name,
+        maximum_token_length=preferred_run_token_budget,
+    )
+    compact_filename = (
+        f"{timestamp_string}_{compact_model_family_token}_{compact_run_token}_{report_suffix}"
+    )
+    compact_report_path = report_root / compact_filename
+
+    if len(compact_filename) > maximum_filename_length or len(str(compact_report_path)) > SAFE_REPORT_MAX_PATH_LENGTH:
+        fallback_family_token = build_compact_hashed_name_token(
+            sanitized_model_family,
+            maximum_token_length=minimum_family_token_budget,
+        )
+        fallback_run_token_budget = max(
+            minimum_run_token_budget,
+            combined_token_budget - len(fallback_family_token),
+        )
+        fallback_run_token = build_compact_hashed_name_token(
+            sanitized_output_run_name,
+            maximum_token_length=fallback_run_token_budget,
+        )
+        compact_filename = (
+            f"{timestamp_string}_{fallback_family_token}_{fallback_run_token}_{report_suffix}"
+        )
+        compact_report_path = report_root / compact_filename
+
+    assert len(compact_filename) <= maximum_filename_length, (
+        "Safe validation report filename remains too long | "
+        f"{compact_filename}"
+    )
+    assert len(str(compact_report_path)) <= SAFE_REPORT_MAX_PATH_LENGTH, (
+        "Safe validation report path remains too long | "
+        f"{compact_report_path}"
+    )
+    return compact_filename
 
 def resolve_experiment_identity(training_config: dict[str, Any]) -> ExperimentIdentity:
 

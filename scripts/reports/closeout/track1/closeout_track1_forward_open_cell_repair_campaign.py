@@ -267,6 +267,32 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
         ),
         "report_written_label": "Forward last three open cells closeout written",
     },
+    "track1_forward_last_three_open_cells_overnight_mega_campaign_2026-04-29_18_09_41": {
+        "validation_root_relative_path": (
+            "output/validation_checks/"
+            "paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_three_open_cells_overnight_mega"
+        ),
+        "run_pattern": (
+            r"^track1_forward_(?P<family>[a-z0-9]+)_(?P<scope>ampl|phase)_h(?P<harmonic>\d+)"
+            r"_last_three_open_cells_overnight_mega_attempt_(?P<attempt>\d+)$"
+        ),
+        "report_filename_suffix": "track1_forward_last_three_open_cells_overnight_mega_campaign_results_report.md",
+        "report_heading": "# Track 1 Forward Last Three Open Cells Overnight Mega Campaign Results",
+        "closeout_label": "forward last three open cells overnight mega closeout",
+        "evidence_campaign_label": "latest exact-paper forward last three open cells overnight mega campaign:",
+        "wave_completion_line": "- The forward-only overnight mega residual wave completed the full `240/240` queue successfully.",
+        "master_summary_impact_line": (
+            "Forward-only original-dataset last three open cells overnight mega wave completed `240/240`, "
+            "promoted only real pair-level improvements, and refreshed the canonical "
+            "forward restart surface |"
+        ),
+        "archive_note_line": (
+            "This archive was refreshed during the forward last three open cells overnight mega closeout. "
+            "Improved accepted targets were replaced and retained targets preserved "
+            "their previous canonical source runs."
+        ),
+        "report_written_label": "Forward last three open cells overnight mega closeout written",
+    },
 }
 
 
@@ -370,6 +396,38 @@ def resolve_campaign_finished_at_text(
         f"validation_root={validation_root}"
     )
     return max(candidate_datetime_list).isoformat(timespec="seconds")
+
+
+def resolve_campaign_started_at_text(
+    active_campaign_dictionary: dict[str, Any],
+    validation_root: Path,
+) -> str:
+
+    """Resolve one durable started-at timestamp from the local campaign artifacts."""
+
+    existing_started_at = active_campaign_dictionary.get("started_at")
+    if existing_started_at:
+        return str(existing_started_at)
+
+    candidate_datetime_list: list[datetime] = []
+    for summary_path in validation_root.rglob("validation_summary.yaml"):
+        candidate_datetime_list.append(
+            datetime.fromtimestamp(summary_path.stat().st_mtime).astimezone()
+        )
+
+    campaign_output_directory = PROJECT_PATH / str(active_campaign_dictionary["campaign_output_directory"])
+    log_directory = campaign_output_directory / "logs"
+    if log_directory.exists():
+        for log_path in log_directory.rglob("*.log"):
+            candidate_datetime_list.append(
+                datetime.fromtimestamp(log_path.stat().st_mtime).astimezone()
+            )
+
+    assert candidate_datetime_list, (
+        "Unable to derive one campaign started timestamp from the local artifacts | "
+        f"validation_root={validation_root}"
+    )
+    return min(candidate_datetime_list).isoformat(timespec="seconds")
 
 
 def parse_markdown_row(markdown_line: str) -> list[str]:
@@ -1130,6 +1188,11 @@ def update_active_campaign_state(
     """Persist the final report backlink inside the campaign state."""
 
     active_campaign_dictionary["status"] = "completed"
+    if not active_campaign_dictionary.get("started_at"):
+        active_campaign_dictionary["started_at"] = resolve_campaign_started_at_text(
+            active_campaign_dictionary,
+            resolve_validation_root(resolve_campaign_profile(active_campaign_dictionary)),
+        )
     active_campaign_dictionary["finished_at"] = finished_at_text
     active_campaign_dictionary["completion_recorded_at"] = (
         datetime.now().astimezone().isoformat(timespec="seconds")
@@ -1153,6 +1216,10 @@ def main() -> None:
     campaign_profile = resolve_campaign_profile(active_campaign_dictionary)
     validation_root = resolve_validation_root(campaign_profile)
     run_pattern = re.compile(str(campaign_profile["run_pattern"]))
+    active_campaign_dictionary["started_at"] = resolve_campaign_started_at_text(
+        active_campaign_dictionary,
+        validation_root,
+    )
     active_campaign_dictionary["finished_at"] = resolve_campaign_finished_at_text(
         active_campaign_dictionary,
         validation_root,

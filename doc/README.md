@@ -97,8 +97,17 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-04-30
+
+- [technical/2026-04/2026-04-30/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_closeout.md](./technical/2026-04/2026-04-30/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_closeout.md)
+  Plan the formal closeout of the completed forward-only overnight mega campaign that targeted the last three non-green forward cells, including artifact audit, profile registration, benchmark refresh, archive refresh, and persistent state reconciliation.
+
 #### 2026-04-29
 
+- [technical/2026-04/2026-04-29/2026-04-29-18-22-46_original_dataset_exact_model_bank_validation_report_path_length_hardening.md](./technical/2026-04/2026-04-29/2026-04-29-18-22-46_original_dataset_exact_model_bank_validation_report_path_length_hardening.md)
+  Plan the shared original-dataset exact-model-bank validation-report path hardening that repairs the failed overnight mega campaign and prevents future Windows path-length failures for the same validation-report surface.
+- [technical/2026-04/2026-04-29/2026-04-29-17-59-02_track1_forward_last_three_open_cells_overnight_mega_campaign.md](./technical/2026-04/2026-04-29/2026-04-29-17-59-02_track1_forward_last_three_open_cells_overnight_mega_campaign.md)
+  Planning gate for one overnight forward-only mega campaign that pushes a few hundred exact-paper retries against the last three non-green forward cells after the failed last-three-open-cells wave.
 - [technical/2026-04/2026-04-29/2026-04-29-17-10-49_rcim_recovered_original_workflow_reset_and_direct_three_script_layout.md](./technical/2026-04/2026-04-29/2026-04-29-17-10-49_rcim_recovered_original_workflow_reset_and_direct_three_script_layout.md)
   Plan the reset of the repository-owned recovered RCIM workflow so it is rebuilt directly from the newly recovered original scripts into three direct entrypoints plus a `utilities/` module folder, without an external runner.
 - [technical/2026-04/2026-04-29/2026-04-29-16-56-16_rcim_v17_v18_canonical_usage_alignment_and_backward_backlog.md](./technical/2026-04/2026-04-29/2026-04-29-16-56-16_rcim_v17_v18_canonical_usage_alignment_and_backward_backlog.md)

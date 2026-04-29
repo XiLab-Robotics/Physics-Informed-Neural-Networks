@@ -1,5 +1,9 @@
 # 2026-04-29 Technical Documents
 
+- [2026-04-29-18-22-46_original_dataset_exact_model_bank_validation_report_path_length_hardening.md](./2026-04-29-18-22-46_original_dataset_exact_model_bank_validation_report_path_length_hardening.md)
+  Plan the shared original-dataset exact-model-bank validation-report path hardening that repairs the failed overnight mega campaign and prevents future Windows path-length failures for the same validation-report surface.
+- [2026-04-29-17-59-02_track1_forward_last_three_open_cells_overnight_mega_campaign.md](./2026-04-29-17-59-02_track1_forward_last_three_open_cells_overnight_mega_campaign.md)
+  Planning gate for one overnight forward-only mega campaign that pushes a few hundred exact-paper retries against the last three non-green forward cells after the failed last-three-open-cells wave.
 - [2026-04-29-17-10-49_rcim_recovered_original_workflow_reset_and_direct_three_script_layout.md](./2026-04-29-17-10-49_rcim_recovered_original_workflow_reset_and_direct_three_script_layout.md)
   Plan the reset of the repository-owned recovered RCIM workflow so it is rebuilt directly from the newly recovered original scripts into three direct entrypoints plus a `utilities/` module folder, without an external runner.
 - [2026-04-29-16-56-16_rcim_v17_v18_canonical_usage_alignment_and_backward_backlog.md](./2026-04-29-16-56-16_rcim_v17_v18_canonical_usage_alignment_and_backward_backlog.md)

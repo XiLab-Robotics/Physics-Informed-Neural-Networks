@@ -106,6 +106,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_forward_last_three_open_cells_overnight_mega_campaign_2026-04-29_18_09_41` | `2026-04-30-01-30-29` | 240 | 0 | `track1_forward_gbm_ampl_h162_last_three_open_cells_overnight_mega_attempt_28` | Forward-only original-dataset last three open cells overnight mega wave completed `240/240`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
 | `track1_forward_last_three_open_cells_campaign_2026-04-29_14_37_21` | `2026-04-29-16-44-43` | 84 | 0 | `track1_forward_ert_ampl_h240_last_three_open_cells_attempt_15` | Forward-only original-dataset last three open cells wave completed `84/84`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
 | `track1_forward_last_four_open_cells_campaign_2026-04-29_12_01_54` | `2026-04-29-14-06-22` | 84 | 0 | `track1_forward_ert_ampl_h240_last_four_open_cells_attempt_15` | Forward-only original-dataset last four open cells wave completed `84/84`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
 | `track1_forward_maxi_last_non_green_cells_campaign_2026-04-29_01_44_22` | `2026-04-29-11-41-43` | 270 | 0 | `track1_forward_ert_ampl_h162_maxi_last_non_green_cells_attempt_21` | Forward-only original-dataset maxi last non-green wave completed `270/270`, promoted only real pair-level improvements, and refreshed the canonical forward restart surface |
@@ -172,7 +173,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular` from family `tree` with model type `hist_gradient_boosting` | aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Four full-matrix replication tables plus `10 x 19` accepted family-bank models | Canonical benchmark now has `102` non-green cells across Tables `2-5` after the forward last three open cells closeout (`forward`: `3`, `backward`: `99`) | not_yet_met |
+| Track 1 canonical closure rule | Four full-matrix replication tables plus `10 x 19` accepted family-bank models | Canonical benchmark now has `102` non-green cells across Tables `2-5` after the forward last three open cells overnight mega closeout (`forward`: `3`, `backward`: `99`) | not_yet_met |
 | Track 1.5 harmonic-wise support metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `8.707%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -180,7 +181,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-29-16-35-31_track1_forward_last_three_open_cells_campaign_results_report.md`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_results_report.md`
 - Canonical progress surface:
   - `Table 2 - Amplitude MAE Full-Matrix Replication`
   - `Table 3 - Amplitude RMSE Full-Matrix Replication`

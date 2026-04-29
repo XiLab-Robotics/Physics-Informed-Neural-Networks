@@ -10,7 +10,7 @@ param(
 $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $ActiveCampaignPath = Join-Path $ProjectRoot "doc\running\active_training_campaign.yaml"
-$RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\run_original_dataset_exact_model_bank_validation.py"
+$RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\run_original_dataset_exact_model_bank_validation.py"
 Set-Location $ProjectRoot
 
 function Get-CampaignQueueBundle {

@@ -131,8 +131,12 @@ def build_validation_report_path(training_config: dict[str, object]) -> Path:
     sanitized_output_run_name = shared_training_infrastructure.sanitize_name(output_run_name)
 
     # Build Canonical Validation Report Path
-    validation_report_filename = (
-        f"{timestamp_string}_{sanitized_model_family}_{sanitized_output_run_name}_validation_setup_report.md"
+    validation_report_filename = shared_training_infrastructure.build_safe_validation_report_filename(
+        report_root=VALIDATION_REPORT_ROOT,
+        timestamp_string=timestamp_string,
+        model_family=sanitized_model_family,
+        output_run_name=sanitized_output_run_name,
+        report_suffix="validation_setup_report.md",
     )
     validation_report_path = VALIDATION_REPORT_ROOT / validation_report_filename
     validation_report_path.parent.mkdir(parents=True, exist_ok=True)

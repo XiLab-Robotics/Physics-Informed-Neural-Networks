@@ -403,9 +403,18 @@ def build_original_dataset_validation_report_path(training_config: dict[str, Any
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     output_run_name = shared_training_infrastructure.resolve_output_run_name(training_config)
     timestamp_string = datetime.now().strftime(ORIGINAL_DATASET_EXACT_MODEL_REPORT_TIMESTAMP_FORMAT)
-    report_filename = (
-        f"{timestamp_string}_{shared_training_infrastructure.sanitize_name(experiment_identity.model_family)}_"
-        f"{shared_training_infrastructure.sanitize_name(output_run_name)}_original_dataset_exact_model_bank_report.md"
+    report_filename = shared_training_infrastructure.build_safe_validation_report_filename(
+        report_root=(
+            shared_training_infrastructure.resolve_runtime_project_path()
+            / "doc"
+            / "reports"
+            / "analysis"
+            / "validation_checks"
+        ),
+        timestamp_string=timestamp_string,
+        model_family=experiment_identity.model_family,
+        output_run_name=output_run_name,
+        report_suffix="original_dataset_exact_model_bank_report.md",
     )
     report_root = (
         shared_training_infrastructure.resolve_runtime_project_path()

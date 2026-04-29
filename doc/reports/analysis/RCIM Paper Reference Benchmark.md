@@ -685,12 +685,12 @@ first objective of `Track 1`:
 
 Current repository evidence source for the full matrices:
 
-- latest exact-paper forward last three open cells campaign:
-  `track1_forward_last_three_open_cells_campaign_2026-04-29_14_37_21`
+- latest exact-paper forward last three open cells overnight mega campaign:
+  `track1_forward_last_three_open_cells_overnight_mega_campaign_2026-04-29_18_09_41`
 - execution window:
-  `2026-04-29T14:58:21.9115993+02:00` to `2026-04-29T16:15:38+02:00`
+  `2026-04-29T18:50:00+02:00` to `2026-04-29T22:44:24+02:00`
 - supporting campaign report:
-  `doc/reports/campaign_results/track1/exact_paper/2026-04-29-16-35-31_track1_forward_last_three_open_cells_campaign_results_report.md`
+  `doc/reports/campaign_results/track1/exact_paper/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_results_report.md`
 
 Status legend used in the repository matrices:
 

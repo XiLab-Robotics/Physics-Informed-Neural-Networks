@@ -1943,16 +1943,19 @@ def build_validation_report_path(training_config: dict[str, Any]) -> Path:
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     output_run_name = shared_training_infrastructure.resolve_output_run_name(training_config)
     timestamp_string = datetime.now().strftime(EXACT_MODEL_REPORT_TIMESTAMP_FORMAT)
-    validation_report_filename = (
-        f"{timestamp_string}_{shared_training_infrastructure.sanitize_name(experiment_identity.model_family)}_"
-        f"{shared_training_infrastructure.sanitize_name(output_run_name)}_exact_paper_model_bank_report.md"
-    )
     validation_report_root = (
         shared_training_infrastructure.resolve_runtime_project_path()
         / "doc"
         / "reports"
         / "analysis"
         / "validation_checks"
+    )
+    validation_report_filename = shared_training_infrastructure.build_safe_validation_report_filename(
+        report_root=validation_report_root,
+        timestamp_string=timestamp_string,
+        model_family=experiment_identity.model_family,
+        output_run_name=output_run_name,
+        report_suffix="exact_paper_model_bank_report.md",
     )
     validation_report_path = validation_report_root / validation_report_filename
     validation_report_path.parent.mkdir(parents=True, exist_ok=True)

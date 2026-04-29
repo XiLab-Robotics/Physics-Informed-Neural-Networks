@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $ConfigRoot = Join-Path $ProjectRoot "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\smoke"
-$RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\run_original_dataset_exact_model_bank_validation.py"
+$RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\run_original_dataset_exact_model_bank_validation.py"
 
 $ConfigPathList = Get-ChildItem -Path $ConfigRoot -Filter *.yaml -Recurse | Sort-Object FullName
 if ($ConfigPathList.Count -eq 0) {

@@ -997,7 +997,7 @@ foreach (`$runName in `$runNameList) {
             continue
         }
 
-        `$validationReportPattern = '*_' + `$runName + '_*_exact_model_bank_report.md'
+        `$validationReportPattern = '*_exact_model_bank_report.md'
         `$candidateReportFileList += Get-ChildItem -LiteralPath `$validationReportRoot -Recurse -File |
             Where-Object { `$_.Name -like `$validationReportPattern }
     }

@@ -1,0 +1,33 @@
+entry_origin: campaign
+run_name: track1_forward_gbm_ampl_h162_last_three_open_cells_overnight_mega_attempt_28
+paper_family_code: GBM
+scope_key: amplitude
+harmonic_order: 162
+winning_mean_component_mae: 8.20686870698807e-05
+winning_mean_component_rmse: 9.666257937934659e-05
+winning_mean_component_mape_percent: 58.814585562140444
+paper_mae: 7.1e-05
+paper_rmse: 0.00022
+met_paper_cell_count: 1
+near_paper_cell_count: 1
+open_paper_cell_count: 0
+closure_score: 0.75
+mean_normalized_gap_ratio: 0.07794850049211756
+max_normalized_gap_ratio: 0.15589700098423512
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_three_open_cells_overnight_mega/2026-04-29-22-02-02__track1_forward_gbm_ampl_h162_last_three_open_cells_overnight_mega_attempt_28_campaign_run/validation_summary.yaml
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_last_three_open_cells_overnight_mega/gbm/2026-04-29_track1_forward_gbm_ampl_h162_last_three_open_cells_overnight_mega/028_track1_forward_gbm_ampl_h162_last_three_open_cells_overnight_mega_attempt_28.yaml
+experiment_output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_three_open_cells_overnight_mega/2026-04-29-22-02-02__track1_forward_gbm_ampl_h162_last_three_open_cells_overnight_mega_attempt_28_campaign_run
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: winning_mean_component_mae_asc
+  seventh_tie_breaker: winning_mean_component_rmse_asc
+  eighth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 forward
+    open-cell repair campaign.
+selected_at: '2026-04-30T01:29:14+02:00'
