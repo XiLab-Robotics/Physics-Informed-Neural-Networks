@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-29
 
+- [technical/2026-04/2026-04-29/2026-04-29-16-33-05_track1_forward_last_three_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-29/2026-04-29-16-33-05_track1_forward_last_three_open_cells_campaign_closeout.md)
+  Plan the formal closeout of the completed final forward-only last-three-open-cells campaign, including profile registration, benchmark refresh, archive refresh, and persistent state completion.
+- [technical/2026-04/2026-04-29/2026-04-29-14-27-58_track1_forward_last_three_open_cells_campaign.md](./technical/2026-04/2026-04-29/2026-04-29-14-27-58_track1_forward_last_three_open_cells_campaign.md)
+  Planning gate for the next forward-only exact-paper micro-campaign that targets the last three non-green forward cells remaining after the last-four-open-cells closeout.
 - [technical/2026-04/2026-04-29/2026-04-29-13-42-13_track1_forward_last_four_open_cells_campaign_closeout.md](./technical/2026-04/2026-04-29/2026-04-29-13-42-13_track1_forward_last_four_open_cells_campaign_closeout.md)
   Plan the formal closeout of the completed final forward-only last-four-open-cells campaign, including profile registration, benchmark refresh, archive refresh, and persistent state completion.
 - [technical/2026-04/2026-04-29/2026-04-29-11-55-47_track1_forward_last_four_open_cells_campaign.md](./technical/2026-04/2026-04-29/2026-04-29-11-55-47_track1_forward_last_four_open_cells_campaign.md)

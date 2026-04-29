@@ -241,6 +241,32 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
         ),
         "report_written_label": "Forward last four open cells closeout written",
     },
+    "track1_forward_last_three_open_cells_campaign_2026-04-29_14_37_21": {
+        "validation_root_relative_path": (
+            "output/validation_checks/"
+            "paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_three_open_cells"
+        ),
+        "run_pattern": (
+            r"^track1_forward_(?P<family>[a-z0-9]+)_(?P<scope>ampl|phase)_h(?P<harmonic>\d+)"
+            r"_last_three_open_cells_attempt_(?P<attempt>\d+)$"
+        ),
+        "report_filename_suffix": "track1_forward_last_three_open_cells_campaign_results_report.md",
+        "report_heading": "# Track 1 Forward Last Three Open Cells Campaign Results",
+        "closeout_label": "forward last three open cells closeout",
+        "evidence_campaign_label": "latest exact-paper forward last three open cells campaign:",
+        "wave_completion_line": "- The final forward-only last-three-open-cells wave completed the full `84/84` queue successfully.",
+        "master_summary_impact_line": (
+            "Forward-only original-dataset last three open cells wave completed `84/84`, "
+            "promoted only real pair-level improvements, and refreshed the canonical "
+            "forward restart surface |"
+        ),
+        "archive_note_line": (
+            "This archive was refreshed during the forward last three open cells closeout. "
+            "Improved accepted targets were replaced and retained targets preserved "
+            "their previous canonical source runs."
+        ),
+        "report_written_label": "Forward last three open cells closeout written",
+    },
 }
 
 

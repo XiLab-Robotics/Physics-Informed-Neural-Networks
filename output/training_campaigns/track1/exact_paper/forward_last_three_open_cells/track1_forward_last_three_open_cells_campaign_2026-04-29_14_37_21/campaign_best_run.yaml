@@ -1,0 +1,33 @@
+entry_origin: campaign
+run_name: track1_forward_ert_ampl_h240_last_three_open_cells_attempt_15
+paper_family_code: ERT
+scope_key: amplitude
+harmonic_order: 240
+winning_mean_component_mae: 2.8738017807568694e-05
+winning_mean_component_rmse: 4.0380316456665813e-05
+winning_mean_component_mape_percent: 7.414830030208429
+paper_mae: 2.4e-05
+paper_rmse: 4.2e-05
+met_paper_cell_count: 1
+near_paper_cell_count: 1
+open_paper_cell_count: 0
+closure_score: 0.75
+mean_normalized_gap_ratio: 0.09870870432434778
+max_normalized_gap_ratio: 0.19741740864869556
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_three_open_cells/2026-04-29-15-31-04__track1_forward_ert_ampl_h240_last_three_open_cells_attempt_15_campaign_run/validation_summary.yaml
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_last_three_open_cells/ert/2026-04-29_track1_forward_ert_ampl_h240_last_three_open_cells/015_track1_forward_ert_ampl_h240_last_three_open_cells_attempt_15.yaml
+experiment_output_directory: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_three_open_cells/2026-04-29-15-31-04__track1_forward_ert_ampl_h240_last_three_open_cells_attempt_15_campaign_run
+selection_policy:
+  primary_metric: closure_score_desc
+  first_tie_breaker: met_paper_cell_count_desc
+  second_tie_breaker: near_paper_cell_count_desc
+  third_tie_breaker: open_paper_cell_count_asc
+  fourth_tie_breaker: mean_normalized_gap_ratio_asc
+  fifth_tie_breaker: max_normalized_gap_ratio_asc
+  sixth_tie_breaker: winning_mean_component_mae_asc
+  seventh_tie_breaker: winning_mean_component_rmse_asc
+  eighth_tie_breaker: run_name
+  direction: maximize_then_minimize
+  note: This winner is the bookkeeping representative of the completed Track 1 forward
+    open-cell repair campaign.
+selected_at: '2026-04-29T16:43:38+02:00'
