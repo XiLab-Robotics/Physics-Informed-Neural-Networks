@@ -99,6 +99,13 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-29
 
+- [technical/2026-04/2026-04-29/2026-04-29-11-28-31_track1_forward_maxi_remote_artifact_recovery_and_closeout.md](./technical/2026-04/2026-04-29/2026-04-29-11-28-31_track1_forward_maxi_remote_artifact_recovery_and_closeout.md)
+  Plan the full manual recovery of the remote artifact set for the interrupted
+  forward maxi campaign and the formal closeout that follows from the recovered
+  local copy.
+- [technical/2026-04/2026-04-29/2026-04-29-01-37-16_track1_forward_maxi_last_non_green_cells_campaign.md](./technical/2026-04/2026-04-29/2026-04-29-01-37-16_track1_forward_maxi_last_non_green_cells_campaign.md)
+  Plan the next forward-only Track 1 maxi campaign that targets the final `7`
+  amplitude repair pairs with a few hundred exact-paper-safe retries.
 - [technical/2026-04/2026-04-29/2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md](./technical/2026-04/2026-04-29/2026-04-29-00-45-52_rcim_original_pipeline_author_conversation_formalization.md)
   Plan the formalization of the newly recovered full RCIM original pipeline root, the author clarifications, and the resulting updates to the canonical recovered-asset documentation.
 

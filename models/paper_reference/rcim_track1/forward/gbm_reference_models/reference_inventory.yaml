@@ -9,9 +9,9 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward last non-green cells closeout. Improved
-  accepted targets were replaced and retained targets preserved their previous canonical
-  source runs.
+- This archive was refreshed during the forward maxi last non-green cells closeout.
+  Improved accepted targets were replaced and retained targets preserved their previous
+  canonical source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -304,59 +304,41 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 162
   direction_label: forward
-  benchmark_mae: 0.00011852517378905912
-  benchmark_rmse: 0.0003520589742697979
-  source_run_instance_id: 2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/gbm/2026-04-26_track1_forward_gbm_original_dataset_mega_campaign/015_track1_original_dataset_forward_gbm_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/onnx_export/GBM/GradientBoostingRegressor_ampl162.onnx
+  benchmark_mae: 8.20686870698807e-05
+  benchmark_rmse: 9.666257937934659e-05
+  source_run_instance_id: 2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_maxi_last_non_green_cells/gbm/2026-04-29_track1_forward_gbm_ampl_h162_maxi_last_non_green_cells/016_track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run/onnx_export/GBM/GradientBoostingRegressor_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx
   export_estimator_name: GradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/source_runs/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/source_runs/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/source_runs/2026-04-26-05-22-06__track1_original_dataset_forward_gbm_attempt_15_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/source_runs/2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/source_runs/2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/source_runs/2026-04-29-03-38-38__track1_forward_gbm_ampl_h162_maxi_last_non_green_cells_attempt_16_campaign_run/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/data/filtered_dataframe_deg_le_35.csv
   dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: GradientBoostingRegressor
-  python_model_sha256: 38ab809415e11ac140c78961e9b383d3f9a4d5f5d1fd27ca67c835e462a43148
-  archived_model_sha256: b2ba8773207e694cb213d011a2d1d2a9c8704529a5154aa6ee5a423e7c2e7e50
+  python_model_sha256: e38ab69abd07fe70bdfa5bfced5cfec176d7dd6507630832d5ddc84e8d943ab2
+  archived_model_sha256: 2b101202176f98a2a9fe95ab05e61fda0f2a3adf638cf57d7db21d8552860fe9
   feature_name_list:
   - rpm
   - deg
   - tor
   source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
   - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
   filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 37
+  train_row_count: 639
+  validation_row_count: 252
+  test_row_count: 78
+  train_file_count: 639
+  validation_file_count: 252
+  test_file_count: 78
+  test_size: 0.08
+  random_seed: 131
   selected_harmonic_list:
   - 0
   - 1
@@ -376,12 +358,12 @@ reference_models:
     init: null
     learning_rate: 0.1
     loss: squared_error
-    max_depth: 15
+    max_depth: 14
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 18
+    min_samples_split: 10
     min_weight_fraction_leaf: 0.0
     n_estimators: 20
     n_iter_no_change: null
@@ -391,10 +373,10 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.00011852517378905912
-  training_metric_rmse: 0.0003520589742697979
-  training_metric_mse: 1.2394552136390222e-07
-  training_metric_mape_percent: 49.71145072178339
+  training_metric_mae: 8.20686870698807e-05
+  training_metric_rmse: 9.666257937934659e-05
+  training_metric_mse: 9.343654252268479e-09
+  training_metric_mape_percent: 58.814585562140444
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240

@@ -9,9 +9,9 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward last non-green cells closeout. Improved
-  accepted targets were replaced and retained targets preserved their previous canonical
-  source runs.
+- This archive was refreshed during the forward maxi last non-green cells closeout.
+  Improved accepted targets were replaced and retained targets preserved their previous
+  canonical source runs.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -19,26 +19,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 0
   direction_label: forward
-  benchmark_mae: 0.0025546137814194316
-  benchmark_rmse: 0.003025608192143968
-  source_run_instance_id: 2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_last_non_green_cells/lgbm/2026-04-28_track1_forward_lgbm_ampl_h0_last_non_green_cells/009_track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run/onnx_export/LGBM/LGBMRegressor_ampl0.onnx
+  benchmark_mae: 0.002428549926547773
+  benchmark_rmse: 0.0028708470372780914
+  source_run_instance_id: 2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_maxi_last_non_green_cells/lgbm/2026-04-29_track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells/015_track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run/onnx_export/LGBM/LGBMRegressor_ampl0.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl0.onnx
   export_estimator_name: LGBMRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-28-13-06-47__track1_forward_lgbm_ampl_h0_last_non_green_cells_attempt_09_campaign_run/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-29-05-16-36__track1_forward_lgbm_ampl_h0_maxi_last_non_green_cells_attempt_15_campaign_run/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
   dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl0.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: LGBMRegressor
-  python_model_sha256: fb74033dd1f02d31bfa7a10b2aa5ccc4018ad12fe0f18789570959a2331dd13d
-  archived_model_sha256: 09b0c8d8cf7767a4592d9f059dfa19f48e13726b003f25766e229e6747058140
+  python_model_sha256: 20a9328b905e58802804ce04eeaa9a306119d2cff6cc5cb32d9b1de6dc306fed
+  archived_model_sha256: c4a1832c10694c1af2d559ab45f3ebfdca1592feb8420aa180fdc00d1b633772
   feature_name_list:
   - rpm
   - deg
@@ -46,14 +46,14 @@ reference_models:
   source_run_target_name_list:
   - fft_y_Fw_filtered_ampl_0
   filtered_row_count: 969
-  train_row_count: 630
-  validation_row_count: 242
-  test_row_count: 97
-  train_file_count: 630
-  validation_file_count: 242
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 41
+  train_row_count: 678
+  validation_row_count: 213
+  test_row_count: 78
+  train_file_count: 678
+  validation_file_count: 213
+  test_file_count: 78
+  test_size: 0.08
+  random_seed: 67
   selected_harmonic_list:
   - 0
   - 1
@@ -87,10 +87,10 @@ reference_models:
     subsample_for_bin: 200000
     subsample_freq: 0
     verbosity: -1
-  training_metric_mae: 0.0025546137814194316
-  training_metric_rmse: 0.003025608192143968
-  training_metric_mse: 9.154304932368692e-06
-  training_metric_mape_percent: 5.378580301739691
+  training_metric_mae: 0.002428549926547773
+  training_metric_rmse: 0.0028708470372780914
+  training_metric_mse: 8.241762711448396e-06
+  training_metric_mape_percent: 4.895825076011973
 - target_name: fft_y_Fw_filtered_ampl_1
   target_kind: amplitude
   harmonic_order: 1
@@ -265,26 +265,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 162
   direction_label: forward
-  benchmark_mae: 0.0002645424651066649
-  benchmark_rmse: 0.0004140929942564601
-  source_run_instance_id: 2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_last_non_green_cells/lgbm/2026-04-28_track1_forward_lgbm_ampl_h162_last_non_green_cells/018_track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run/onnx_export/LGBM/LGBMRegressor_ampl162.onnx
+  benchmark_mae: 0.0001285010560287849
+  benchmark_rmse: 0.000335258130104003
+  source_run_instance_id: 2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/forward_maxi_last_non_green_cells/lgbm/2026-04-29_track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells/018_track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run/onnx_export/LGBM/LGBMRegressor_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl162.onnx
   export_estimator_name: LGBMRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_last_non_green_cells/2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-28-13-50-54__track1_forward_lgbm_ampl_h162_last_non_green_cells_attempt_18_campaign_run/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/source_runs/2026-04-29-06-13-22__track1_forward_lgbm_ampl_h162_maxi_last_non_green_cells_attempt_18_campaign_run/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
   dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
   python_model_path: models/paper_reference/rcim_track1/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: LGBMRegressor
-  python_model_sha256: 801909d4d99177614dd3b1f7275ae58a2b27544749aa52fdf5305515f8473450
-  archived_model_sha256: db7fc5ae8aea52384dd57a3f1c4f821564c97919f2a5b8d16b3b2ba3634f8907
+  python_model_sha256: 457793e3f1a536cc85a7b7cd5be519dca7eb63773573ab181497d43b56d6963f
+  archived_model_sha256: 5fe9cf69fc479c51132308b3c32e38f7b94c22b4ab51cd585a2a5809bef0a9c8
   feature_name_list:
   - rpm
   - deg
@@ -293,13 +293,13 @@ reference_models:
   - fft_y_Fw_filtered_ampl_162
   filtered_row_count: 969
   train_row_count: 678
-  validation_row_count: 213
-  test_row_count: 78
+  validation_row_count: 78
+  test_row_count: 213
   train_file_count: 678
-  validation_file_count: 213
-  test_file_count: 78
-  test_size: 0.08
-  random_seed: 79
+  validation_file_count: 78
+  test_file_count: 213
+  test_size: 0.22
+  random_seed: 139
   selected_harmonic_list:
   - 0
   - 1
@@ -317,14 +317,14 @@ reference_models:
     class_weight: null
     colsample_bytree: 1.0
     importance_type: split
-    learning_rate: 0.01
-    max_depth: 10
+    learning_rate: 0.77
+    max_depth: 13
     min_child_samples: 20
     min_child_weight: 0.001
     min_split_gain: 0.0
     n_estimators: 100
     n_jobs: null
-    num_leaves: 10
+    num_leaves: 31
     objective: regression
     random_state: 0
     reg_alpha: 0.0
@@ -333,10 +333,10 @@ reference_models:
     subsample_for_bin: 200000
     subsample_freq: 0
     verbosity: -1
-  training_metric_mae: 0.0002645424651066649
-  training_metric_rmse: 0.0004140929942564601
-  training_metric_mse: 1.7147300789228072e-07
-  training_metric_mape_percent: 140.93564022869992
+  training_metric_mae: 0.0001285010560287849
+  training_metric_rmse: 0.000335258130104003
+  training_metric_mse: 1.1239801380083259e-07
+  training_metric_mape_percent: 27.69404984131641
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240

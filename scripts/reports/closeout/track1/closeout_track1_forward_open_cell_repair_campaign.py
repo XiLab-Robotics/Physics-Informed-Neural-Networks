@@ -189,6 +189,32 @@ CAMPAIGN_PROFILE_BY_NAME: dict[str, dict[str, str]] = {
         ),
         "report_written_label": "Forward last non-green cells closeout written",
     },
+    "track1_forward_maxi_last_non_green_cells_campaign_2026-04-29_01_44_22": {
+        "validation_root_relative_path": (
+            "output/validation_checks/"
+            "paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells"
+        ),
+        "run_pattern": (
+            r"^track1_forward_(?P<family>[a-z0-9]+)_(?P<scope>ampl|phase)_h(?P<harmonic>\d+)"
+            r"_maxi_last_non_green_cells_attempt_(?P<attempt>\d+)$"
+        ),
+        "report_filename_suffix": "track1_forward_maxi_last_non_green_cells_campaign_results_report.md",
+        "report_heading": "# Track 1 Forward Maxi Last Non-Green Cells Campaign Results",
+        "closeout_label": "forward maxi last non-green cells closeout",
+        "evidence_campaign_label": "latest exact-paper forward maxi last non-green cells campaign:",
+        "wave_completion_line": "- The forward-only maxi residual wave completed the full `270/270` queue successfully.",
+        "master_summary_impact_line": (
+            "Forward-only original-dataset maxi last non-green wave completed `270/270`, "
+            "promoted only real pair-level improvements, and refreshed the canonical "
+            "forward restart surface |"
+        ),
+        "archive_note_line": (
+            "This archive was refreshed during the forward maxi last non-green cells closeout. "
+            "Improved accepted targets were replaced and retained targets preserved "
+            "their previous canonical source runs."
+        ),
+        "report_written_label": "Forward maxi last non-green cells closeout written",
+    },
 }
 
 

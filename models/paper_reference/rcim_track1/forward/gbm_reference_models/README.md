@@ -30,7 +30,7 @@ Accepted amplitude targets:
 | `fft_y_Fw_filtered_ampl_0` | `0` | `0.00306606` | `0.0035555` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl0.onnx` |
 | `fft_y_Fw_filtered_ampl_1` | `1` | `2.24145e-05` | `2.91983e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl1.onnx` |
 | `fft_y_Fw_filtered_ampl_156` | `156` | `0.000108567` | `0.000163884` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `0.000118525` | `0.000352059` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `8.20687e-05` | `9.66626e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx` |
 | `fft_y_Fw_filtered_ampl_240` | `240` | `2.06143e-05` | `3.64241e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx` |
 | `fft_y_Fw_filtered_ampl_3` | `3` | `1.62835e-05` | `2.24733e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx` |
 | `fft_y_Fw_filtered_ampl_39` | `39` | `4.08111e-05` | `5.06426e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl39.onnx` |
@@ -58,7 +58,7 @@ Provenance summary:
 - paper family: `GBM`
 - implementation family: `GBM`
 - archived target count: `19`
-- unique source runs: `11`
-- unique source configs: `11`
+- unique source runs: `12`
+- unique source configs: `12`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/gbm_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/gbm_reference_models/reference_inventory.yaml`

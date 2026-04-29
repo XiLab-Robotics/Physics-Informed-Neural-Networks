@@ -30,8 +30,8 @@ Accepted amplitude targets:
 | `fft_y_Fw_filtered_ampl_0` | `0` | `0.0026374` | `0.00317175` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx` |
 | `fft_y_Fw_filtered_ampl_1` | `1` | `2.07938e-05` | `2.82282e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx` |
 | `fft_y_Fw_filtered_ampl_156` | `156` | `2.60746e-05` | `5.90567e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `2.49326e-05` | `5.32959e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `2.93168e-05` | `4.63842e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `2.20824e-05` | `5.12809e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `2.72175e-05` | `4.32455e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx` |
 | `fft_y_Fw_filtered_ampl_3` | `3` | `1.88926e-05` | `2.50886e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx` |
 | `fft_y_Fw_filtered_ampl_39` | `39` | `2.58271e-05` | `3.32522e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl39.onnx` |
 | `fft_y_Fw_filtered_ampl_40` | `40` | `2.06984e-05` | `2.74003e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl40.onnx` |
@@ -58,7 +58,7 @@ Provenance summary:
 - paper family: `ERT`
 - implementation family: `ERT`
 - archived target count: `19`
-- unique source runs: `11`
-- unique source configs: `11`
+- unique source runs: `12`
+- unique source configs: `12`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/ert_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/ert_reference_models/reference_inventory.yaml`
