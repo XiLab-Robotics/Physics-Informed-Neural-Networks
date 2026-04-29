@@ -1,0 +1,17 @@
+{
+  "stage": "training_models",
+  "mode": "export",
+  "direction": "forward",
+  "input_dataframe_path": "C:\\Users\\XiLabTRig\\AppData\\Local\\Temp\\rcim-recovered-smoke-07aa035b-fa77-4d22-bc2d-a389bd37085d\\subset_fw.csv",
+  "runtime_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-31-29__training_export_forward_smoke_v17_export_dt\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "deg_filter_enabled": true,
+  "test_size": 0.2,
+  "selected_families": [
+    "DT"
+  ],
+  "prediction_output_folder": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-31-29__training_export_forward_smoke_v17_export_dt\\output_prediction",
+  "model_output_dir": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-31-29__training_export_forward_smoke_v17_export_dt\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-31-29__training_export_forward_smoke_v17_export_dt\\output_prediction\\dfOutTot_prediction_DecisionTreeRegressor_.csv"
+  ]
+}

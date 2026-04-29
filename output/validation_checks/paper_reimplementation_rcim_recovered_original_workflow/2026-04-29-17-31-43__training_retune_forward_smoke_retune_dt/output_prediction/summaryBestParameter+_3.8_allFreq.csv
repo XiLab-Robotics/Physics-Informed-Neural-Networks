@@ -1,0 +1,2 @@
+0_method;best_parameters
+DT;{'estimator__criterion': 'absolute_error', 'estimator__max_depth': np.int64(18), 'estimator__max_leaf_nodes': np.int64(24), 'estimator__min_samples_split': np.int64(6)}

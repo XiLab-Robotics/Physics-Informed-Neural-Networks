@@ -1,0 +1,10 @@
+{
+  "stage": "create_dataframe",
+  "direction": "backward",
+  "instances_path": "C:\\Users\\XiLabTRig\\AppData\\Local\\Temp\\rcim-recovered-smoke-07aa035b-fa77-4d22-bc2d-a389bd37085d\\instances",
+  "runtime_instances_input_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-29-43__create_dataframe_backward_smoke_bw\\instances_V3",
+  "runtime_cache_directory_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-29-43__create_dataframe_backward_smoke_bw\\instances_V3",
+  "output_csv_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-29-43__create_dataframe_backward_smoke_bw\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "row_count": 1,
+  "column_count": 23
+}
