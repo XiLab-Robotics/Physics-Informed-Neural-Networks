@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import seaborn as sns
 from matplotlib import pyplot as plt
 from instance_v5 import Instance
 import re
@@ -68,7 +67,7 @@ class Statistics:
         return df
 
     def _generateInstance(self, filename):
-        pikName = 'pik/' + filename.split('/')[-1].split('.csv')[0] + '.pickle'
+        pikName =  'instances_V3/' + filename.split('/')[-1].split('.csv')[0] #+ '.pickle'
         if os.path.exists(pikName):
             with open(pikName,'rb') as f:
                 ist = pickle.load(f)
@@ -92,6 +91,7 @@ class Statistics:
             return
 
         for f in files:
+            print(f)
             num_regex = r'-?\d+(?:\.\d+)?'
             matches = re.findall(num_regex, f)
             rpm_f, deg_f, tor_f = float(matches[0]), float(matches[1]), float(matches[2])

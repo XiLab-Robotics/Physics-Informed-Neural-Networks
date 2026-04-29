@@ -1,1 +1,1 @@
-"""Recovered original RCIM workflow copies and wrappers."""
+"""Recovered original RCIM direct workflow entrypoints and copied utilities."""

@@ -2658,6 +2658,53 @@ Current scope:
 - prepared launcher note:
   `doc/scripts/campaigns/run_exact_paper_model_bank_campaign.md`
 
+## Recovered Original RCIM Workflow
+
+The repository also exposes a direct rebuilt execution surface for the
+recovered original RCIM scripts.
+
+Canonical folder:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+
+Canonical entrypoints:
+
+- `create_dataframe.py`
+- `training_models.py`
+- `evaluate_models.py`
+
+Canonical detailed guide:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/README.md`
+- `doc/scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/recovered_original_workflow.md`
+
+Typical usage:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+  --direction backward `
+  --output-suffix bw_dataframe
+```
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode paper_eval `
+  --direction forward `
+  --test-size 0.20 `
+  --output-suffix v18_fw
+```
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
+  --direction forward `
+  --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `
+  --output-suffix eval_fw
+```
+
+Use this surface when the goal is to stay close to the original RCIM scripts
+while still keeping paths and runtime artifacts under repository-owned output
+roots.
+
 Current non-scope:
 
 - final target-wise deployed winner assembly;

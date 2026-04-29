@@ -17,8 +17,9 @@ one flat folder.
   Track 2 comparison between one archived reference bank and the feedforward
   best model.
 - `recovered_original_workflow/`
-  Copied recovered-original code surface reorganized into the three original
-  stages: dataframe creation, training, and evaluation.
+  Direct recovered-original code surface rebuilt from the newly recovered full
+  original root, with three top-level entrypoints plus a copied `utilities/`
+  module folder.
 
 ## Entry Points
 
@@ -27,11 +28,13 @@ one flat folder.
 - `original_dataset_exact_model_bank/generate_original_dataset_exact_smoke_configs.py`
 - `harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py`
 - `reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py`
-- `recovered_original_workflow/run_recovered_original_workflow.py`
+- `recovered_original_workflow/create_dataframe.py`
+- `recovered_original_workflow/training_models.py`
+- `recovered_original_workflow/evaluate_models.py`
 
 ## Notes
 
-- Support modules now live beside the runner that owns them.
+- Support modules now live beside the direct entrypoint that owns them.
 - The recovered-original workflow is intentionally separated from the
   repository-designed workflows because it preserves copied paper-era code and
   original-style runtime assumptions.

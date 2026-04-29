@@ -824,7 +824,7 @@ class MLModelMultipleOutput:
         dfOut = pd.DataFrame(out).T
         return dfOut
 
-    def predictorML_allForExport(self, dfInput):
+    def predictorML_allForExport(self, dfInput, testSetDimension=None):
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
@@ -1486,5 +1486,4 @@ class MinimumDistanceRegressor:
 
         dfOut = pd.DataFrame(out).T
         return dfOut
-
 

@@ -1,310 +1,281 @@
 # Recovered Original RCIM Workflow
 
-This folder contains the repository-owned copy of the recovered original RCIM
-workflow reorganized into one single three-stage surface.
+This folder is the repository-owned direct execution surface for the recovered
+original RCIM workflow rebuilt from the newly recovered full original root
+under:
 
-It no longer keeps two competing copied roots such as `latest_snapshot/` and
-`original_pipeline/`. Instead it is split by stage:
+- `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`
 
-- `dataframe_creation/`
-- `training/`
-- `evaluation/`
+The goal here is not to redesign the original logic. The goal is to keep the
+original code modules almost unchanged and only modernize:
 
-The canonical recovered-original training branch used here comes from the
-recovered `latest_snapshot/main_prediction_v17.py` source, but the copied file
-inside this repository is now named `training/train_and_export_models.py`.
-
-The recovered `1-main_prediction_v18.py` branch is intentionally not used as
-the canonical paper training stage because the repository interpretation is
-that the `ELMRegressor`-bearing `v18` script belongs to a later experimental
-attempt rather than to the paper-faithful workflow surface.
+- entrypoint names;
+- folder layout;
+- path handling;
+- repository-owned output roots.
 
 ## Folder Structure
 
-### `dataframe_creation/`
-
-Copied original dataframe-building stage:
-
 - `create_dataframe.py`
-- `statistics.py`
+  direct entrypoint for the original dataframe-creation stage.
+- `training_models.py`
+  direct entrypoint that unifies the original `v17`, `v17+tuning`, and `v18`
+  training flows behind CLI arguments.
+- `evaluate_models.py`
+  direct entrypoint for the original paper-table evaluation stage.
+- `utilities/`
+  copied original support modules kept as close as possible to the recovered
+  source.
+
+Utility modules:
+
+- `utilities/statistics.py`
+  copied from original `statistic.py`.
+- `utilities/instance_v4.py`
+  copied original signal-reconstruction dependency for evaluation.
+- `utilities/instance_v5.py`
+  copied original instance/FFT dependency for dataframe creation.
+- `utilities/predictorML.py`
+  copied original `predictorML_v7.py` with only one minimal compatibility
+  adjustment so the shipped `v17` call signature remains runnable.
+
+## Original-To-New Mapping
+
+- `0-main_createDFforPrediction.py`
+  -> `create_dataframe.py`
+- `1.1-main_prediction_v17.py`
+  -> `training_models.py --mode export`
+- `1.1-main_prediction_v17.py` plus
+  `predictorMLCrossValidationWithHyperparameter(...)`
+  -> `training_models.py --mode retune`
+- `1-main_prediction_v18.py`
+  -> `training_models.py --mode paper_eval`
+- `2-main_evaluatePrediction_v4.py`
+  -> `evaluate_models.py`
+- `statistic.py`
+  -> `utilities/statistics.py`
+- `predictorML_v7.py`
+  -> `utilities/predictorML.py`
+- `instance_v4.py`
+  -> `utilities/instance_v4.py`
 - `instance_v5.py`
+  -> `utilities/instance_v5.py`
 
-Code role:
+## Execution Order
 
-- `create_dataframe.py`
-  original stage runner that reads original-style instance CSVs and generates a
-  harmonic dataframe.
-- `statistics.py`
-  main helper used by the original stage to load `Instance` objects and expand
-  harmonic amplitude/phase columns into a dataframe.
-- `instance_v5.py`
-  restored reference dependency required by the copied statistic helper.
+The intended operator order is:
 
-Primary output:
+1. `create_dataframe.py`
+2. `training_models.py`
+3. `evaluate_models.py`
+
+That matches the canonical author workflow:
+
+- build dataframe;
+- train/export/tune models;
+- generate paper tables from prediction outputs.
+
+## Path Policy
+
+The original scripts wrote into mutable local folders such as:
+
+- `instances_V3/`
+- `output_prediction/`
+- `model_output_dir/`
+- `evaluation/`
+
+The rebuilt repository surface still creates those original-style folders when
+needed, but only inside one repository-owned runtime root under:
+
+- `output/validation_checks/paper_reimplementation_rcim_recovered_original_workflow/`
+
+Each direct script creates its own timestamped runtime folder there unless
+`--output-root` is provided explicitly.
+
+This keeps the original relative-path logic working while avoiding scattered
+mutable outputs inside the script folder itself.
+
+## 1. Dataframe Creation
+
+Entrypoint:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py`
+
+What it does in code terms:
+
+- prepends `utilities/` to `sys.path`;
+- loads `Statistics` from `utilities/statistics.py`;
+- prepares a runtime-local `instances_V3/` cache folder;
+- reuses `.pickle` files if the input directory already contains them;
+- otherwise lets the original logic read CSVs and create the cache;
+- calls `genDfWithAmplEPhase('Fw')` or `genDfWithAmplEPhase('Bw')`;
+- writes the original-style dataframe CSV into the runtime root.
+
+Default input:
+
+- `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/instances_V3/`
+
+Example:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+  --direction backward `
+  --output-suffix bw_dataframe
+```
+
+Example with raw CSV directory:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+  --instances-path "C:\path\to\raw_instance_csv_dir" `
+  --direction forward `
+  --output-suffix fw_from_raw
+```
+
+Primary outputs:
 
 - `dataFrame_prediction_Fw_v14_newFreq.csv`
 - or `dataFrame_prediction_Bw_v14_newFreq.csv`
+- plus `run_summary.json`
 
-depending on the direction selected by the repository-owned wrapper.
+## 2. Training And Export
 
-### `training/`
+Entrypoint:
 
-Copied original training/export stage:
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py`
 
-- `train_and_export_models.py`
-- `predictor_multioutput.py`
-- `requirements.txt`
-- shipped recovered dataframe fixtures:
-  - `dataFrame_prediction_Fw_v14_newFreq.csv`
-  - `dataFrame_prediction_Bw_v14_newFreq.csv`
+This script intentionally unifies three original behaviors.
 
-Code role:
+### Mode `export`
 
-- `train_and_export_models.py`
-  narrow family-bank runner that loads one dataframe, filters `deg <= 35`,
-  trains the recovered family list, exports ONNX, and writes prediction CSVs.
-- `predictor_multioutput.py`
-  original monolithic helper that contains the real multioutput training,
-  export, and alternative-evaluation logic.
-- the shipped CSVs
-  are recovered snapshot inputs kept here for direct side-by-side inspection.
+This mirrors the role of `1.1-main_prediction_v17.py`:
 
-Canonical family set in this stage:
+- full-dataset training/export;
+- default family surface from the shipped `v17` file;
+- ONNX export through the copied original predictor helper.
 
-- `DT`
-- `ET`
-- `ERT`
-- `RF`
-- `GBM`
-- `HGBM`
-- `XGBM`
-- `LGBM`
-- `MLP`
-
-Important detail:
-
-- the wrapper preserves the recovered `deg <= 35` thermal filter, where `deg`
-  is the oil-temperature column in the recovered CSVs.
-
-### `evaluation/`
-
-Copied original offline-evaluation stage:
-
-- `statistics.py`
-- `evaluate_predictions.py`
-- `evaluate_signals.py`
-- `instance_v4.py`
-- `instance_v5.py`
-
-Code role:
-
-- `evaluate_predictions.py`
-  computes per-file evaluation tables and per-component paper-style exports.
-- `evaluate_signals.py`
-  computes signal-level aggregate errors from prediction CSVs.
-- `statistics.py`
-  original helper reused by the evaluation stage.
-- `instance_v4.py` and `instance_v5.py`
-  restored reference dependencies required by the copied evaluation logic.
-
-Important limitation:
-
-- the copied evaluation scripts are forward-specific in practice because they
-  call forward-oriented prediction helpers and original naming conventions.
-- the repository wrapper therefore allows evaluation only for the `forward`
-  direction unless the code is manually widened later.
-
-## Canonical Runner
-
-Use the repository-owned wrapper:
-
-`scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py`
-
-This wrapper exists so the copied original code can be run in the new stage
-layout without editing the recovered source files themselves into a completely
-different architecture.
-
-The wrapper does three things:
-
-1. runs the copied original logic stage by stage;
-2. supplies the minimum compatibility glue needed by the copied files;
-3. writes immutable validation artifacts under
-   `output/validation_checks/paper_reimplementation_rcim_recovered_original_workflow/`.
-
-## Stage Order
-
-The intended execution order is:
-
-1. dataframe creation
-2. training
-3. evaluation
-
-That sequence corresponds directly to the original recovered pipeline shape.
-
-## Commands
-
-### 1. Print Stage Status
+Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --print-stage-status
-```
-
-### 2. Dataframe Creation Only
-
-Forward:
-
-```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage dataframe_creation `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode export `
   --direction forward `
-  --instances-path "C:\path\to\original_instance_csv_dir" `
-  --output-suffix forward_dataframe_rebuild
+  --output-suffix v17_export_fw
 ```
 
-Backward:
+### Mode `retune`
+
+This mirrors the author guidance:
+
+- start from the `v17` structure;
+- replace `predictorML_allForExport(...)` with
+  `predictorMLCrossValidationWithHyperparameter(...)`;
+- use this when the dataset changes or is intentionally restricted.
+
+Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage dataframe_creation `
-  --direction backward `
-  --instances-path "C:\path\to\original_instance_csv_dir" `
-  --output-suffix backward_dataframe_rebuild
-```
-
-What the wrapper does in code terms:
-
-- loads `dataframe_creation/statistics.py`;
-- instantiates `Statistics`;
-- calls `read_all_fft(instances_path)`;
-- calls `genDfWithAmplEPhase('Fw')` or `genDfWithAmplEPhase('Bw')`;
-- saves the resulting dataframe into the immutable artifact folder.
-
-### 3. Training Only Using The Shipped Recovered CSV
-
-Forward default:
-
-```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage training `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode retune `
   --direction forward `
-  --output-suffix training_forward_default
-```
-
-Backward shipped CSV:
-
-```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage training `
-  --direction backward `
-  --output-suffix training_backward_default
-```
-
-Specific family subset:
-
-```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage training `
-  --direction forward `
+  --test-size 0.20 `
   --families DT,RF,HGBM `
-  --output-suffix training_forward_subset
+  --output-suffix retune_fw_subset
 ```
 
-Training on a dataframe rebuilt by stage 1:
+### Mode `paper_eval`
+
+This mirrors `1-main_prediction_v18.py`:
+
+- load the selected dataframe;
+- apply the original `deg <= 35` filter unless disabled explicitly;
+- use the tuned family list from the recovered `v18` file;
+- run the original held-out `80/20` evaluation path.
+
+Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage training `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode paper_eval `
   --direction forward `
-  --dataframe-path "C:\path\to\dataFrame_prediction_Fw_v14_newFreq.csv" `
-  --output-suffix training_from_rebuilt_dataframe
+  --test-size 0.20 `
+  --output-suffix v18_fw
 ```
 
-What the wrapper does in code terms:
-
-- loads `training/predictor_multioutput.py`;
-- loads the selected CSV with `sep=';'` and `decimal=','`;
-- applies the original `deg <= 35` filter;
-- resolves all `ampl` and `phase` targets from the dataframe header;
-- instantiates the recovered `v17` family bank;
-- runs `MLModelMultipleOutput(...).predictorML_allForExport(...)`;
-- writes original-style prediction CSVs;
-- exports per-target ONNX files unless `--skip-onnx-export` is used.
-
-### 4. Evaluation Only
+Example for future `Bw` replay:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage evaluation `
-  --direction forward `
-  --instances-path "C:\path\to\original_instance_csv_dir" `
-  --prediction-directory "C:\path\to\output_prediction\instV3.2_Fw" `
-  --output-suffix evaluation_forward_manual
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode paper_eval `
+  --direction backward `
+  --dataframe-path "C:\path\to\dataFrame_prediction_Bw_v14_newFreq.csv" `
+  --output-suffix v18_bw
 ```
 
-Skip one of the copied evaluation passes if needed:
+Shared notes:
+
+- default dataframe inputs come from the shipped recovered `Fw`/`Bw` CSVs;
+- the script copies the selected dataframe into the runtime root under the
+  original filename;
+- original-style folders such as `output_prediction/` and `model_output_dir/`
+  are created inside the runtime root;
+- `run_summary.json` records the selected mode, dataframe, families, and
+  artifact locations.
+
+## 3. Evaluation
+
+Entrypoint:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py`
+
+What it does in code terms:
+
+- prepends `utilities/` to `sys.path`;
+- loads `Statistics` from `utilities/statistics.py`;
+- prepares a runtime-local `instances_V3/` cache folder;
+- copies the selected prediction directory into:
+  `output_prediction/instV3.8_Fw_allFreq_def/` inside the runtime root;
+- runs the recovered `2-main_evaluatePrediction_v4.py` logic against that
+  copied prediction set;
+- writes the original-style evaluation CSVs into `evaluation/V3.9/`.
+
+Important current limitation:
+
+- the shipped original evaluation code is still forward-shaped in practice;
+- this direct script therefore supports only `forward`/`Fw` for now.
+
+Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage evaluation `
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
   --direction forward `
-  --instances-path "C:\path\to\original_instance_csv_dir" `
-  --prediction-directory "C:\path\to\output_prediction\instV3.2_Fw" `
-  --skip-evaluate-signals `
-  --output-suffix evaluation_prediction_only
+  --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `
+  --output-suffix eval_fw
 ```
 
-What the wrapper does in code terms:
+## Runtime Output Layout
 
-- loads `evaluation/statistics.py` as the original copied statistics helper;
-- builds a `Statistics` object from the supplied instance directory;
-- calls the copied `evaluatePredictionFile(...)` functions from:
-  - `evaluate_predictions.py`
-  - `evaluate_signals.py`
-- materializes their original-style output files under one immutable runtime
-  artifact root.
+Typical runtime root:
 
-### 5. End-To-End Forward Run
-
-```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/run_recovered_original_workflow.py `
-  --stage all `
-  --direction forward `
-  --instances-path "C:\path\to\original_instance_csv_dir" `
-  --output-suffix full_forward_rebuild
-```
-
-What happens:
-
-1. dataframe creation writes a fresh recovered-style `Fw` dataframe;
-2. training consumes that dataframe through the `v17` family bank;
-3. evaluation consumes the generated prediction CSVs with the copied
-   forward-specific evaluation stage.
-
-## Artifact Layout
-
-Each run writes into:
-
-`output/validation_checks/paper_reimplementation_rcim_recovered_original_workflow/<timestamp>_<stage>_<direction>_<suffix>/`
+`output/validation_checks/paper_reimplementation_rcim_recovered_original_workflow/<timestamp>__<stage>_<mode_or_direction>_<suffix>/`
 
 Typical contents:
 
 - `run_summary.json`
-- `dataframe_creation/...`
-- `training/output_prediction/...`
-- `training/model_output_dir/...`
-- `evaluation/original_style_runtime/...`
+- `instances_V3/`
+- `dataFrame_prediction_*.csv`
+- `output_prediction/`
+- `model_output_dir/`
+- `evaluation/`
 
 ## Practical Interpretation
 
-This folder is not a clean-room rewrite of the paper pipeline.
+This surface is not a clean-room rewrite of the original RCIM workflow.
 
-It is a repository-owned execution surface built around copied recovered code,
-with just enough wrapper logic to make the three original stages inspectable
-and runnable in sequence:
+It is a direct repository-owned execution layout built from the recovered
+original scripts, with only these deliberate changes:
 
-- the copied original stage files remain visible as copied code;
-- the wrapper avoids mixing the recovered-original surface with the newer
-  repository-designed workflows;
-- the training stage is anchored to the recovered `v17` branch, not to the
-  later `v18` ELM-bearing branch.
+- the three main stages are direct top-level entrypoints;
+- support code is grouped under `utilities/`;
+- path handling is repository-owned and artifact-root aware;
+- `v17`, `v17+tuning`, and `v18` are unified under one training entrypoint.

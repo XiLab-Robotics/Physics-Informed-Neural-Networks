@@ -302,6 +302,8 @@ class Instance:
         else:
             data = data
         # dataRow = data.loc[(data['rpm'] ==self.rpm)]
+        #print('data columns: ', data.columns)
+        #print('SEARCHING FOR: rpm:', self.rpm, ' deg:', self.deg, ' tor:', self.tor)
         dataRow = data.loc[(data['rpm'] == self.rpm) & (data['deg'] == self.deg) & (data['tor'] == self.tor)]
         if dataRow.empty:
             return 0, 0, 0, 0, data, True
