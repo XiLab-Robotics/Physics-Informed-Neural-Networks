@@ -29,8 +29,6 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.neural_network import MLPRegressor
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeRegressor
@@ -852,30 +850,20 @@ def resolve_exact_paper_hyperparameter_search_settings(
 
 def create_exact_paper_base_estimator(family_name: str) -> object:
 
-    """Create one exact paper base estimator with recovered hyperparameters."""
+    """Create one exact-paper base estimator matching the recovered workflow."""
 
-    # Create Recovered Family Estimators
+    # Create Recovered Original Family Estimators
     if family_name == "SVR":
         return SVR(C=1, epsilon=0.0001, gamma=1.1e-06, kernel="rbf")
 
     if family_name == "MLP":
-        return Pipeline(
-            steps=[
-                ("feature_scaler", StandardScaler()),
-                (
-                    "mlp",
-                    MLPRegressor(
-                        activation="tanh",
-                        alpha=1e-2,
-                        early_stopping=False,
-                        hidden_layer_sizes=(100, 50),
-                        max_fun=20000,
-                        max_iter=2000,
-                        solver="lbfgs",
-                        random_state=0,
-                    ),
-                ),
-            ]
+        return MLPRegressor(
+            activation="tanh",
+            early_stopping=True,
+            hidden_layer_sizes=(200, 50),
+            learning_rate="adaptive",
+            solver="adam",
+            random_state=0,
         )
 
     if family_name == "RF":
@@ -934,11 +922,10 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
         _assert_optional_dependency(XGBRegressor, "xgboost")
         return XGBRegressor(
             reg_lambda=20,
-            reg_alpha=0.01,
+            alpha=0.01,
             max_depth=16,
             colsample_bytree=0.8,
             random_state=0,
-            objective="reg:squarederror",
         )
 
     if family_name == "LGBM":
@@ -948,8 +935,6 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
             max_depth=12,
             subsample=0.1,
             random_state=0,
-            objective="regression",
-            verbosity=-1,
         )
 
     raise ValueError(f"Unsupported exact paper family | {family_name}")
@@ -960,7 +945,7 @@ def build_exact_paper_reference_parameter_grid(
     base_estimator: object,
 ) -> dict[str, list[Any]]:
 
-    """Build the recovered paper-reference parameter grid for one family."""
+    """Build the recovered original `predictorML.py` grid for one family."""
 
     estimator_parameters = base_estimator.get_params()
 
@@ -968,13 +953,15 @@ def build_exact_paper_reference_parameter_grid(
         return {
             "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
             "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
-            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 4, 12) + [int(base_estimator.get_params()["min_samples_split"])])),
+            "estimator__max_leaf_nodes": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 23, 28) + [base_estimator.get_params()["max_leaf_nodes"]])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
         }
 
     if family_name == "ET":
         return {
             "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
             "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__max_leaf_nodes": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 27, 35) + [base_estimator.get_params()["max_leaf_nodes"]])),
             "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
         }
 
@@ -983,27 +970,35 @@ def build_exact_paper_reference_parameter_grid(
             "estimator__n_estimators": list(dict.fromkeys([20, 40, 60, 80, 100, int(base_estimator.get_params()["n_estimators"])])),
             "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
             "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__max_leaf_nodes": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 27, 35) + [base_estimator.get_params()["max_leaf_nodes"]])),
             "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
         }
 
     if family_name == "RF":
         return {
-            "estimator__n_estimators": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 50, 100) + [int(base_estimator.get_params()["n_estimators"])])),
+            "estimator__n_estimators": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 20, 100) + [int(base_estimator.get_params()["n_estimators"])])),
             "estimator__criterion": list(dict.fromkeys(["squared_error", "absolute_error", base_estimator.get_params()["criterion"]])),
-            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 12, 18) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__max_features": list(dict.fromkeys(["log2", "sqrt", base_estimator.get_params()["max_features"]])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
             "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
         }
 
     if family_name == "GBM":
+        # Keep the recovered search surface, but constrain criterion to the
+        # modern scikit-learn value that still executes on current versions.
         return {
             "estimator__n_estimators": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 20, 100) + [int(base_estimator.get_params()["n_estimators"])])),
             "estimator__criterion": ["squared_error"],
+            "estimator__max_features": list(dict.fromkeys(["log2", "sqrt", base_estimator.get_params()["max_features"]])),
             "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
-            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 10, 20) + [int(base_estimator.get_params()["min_samples_split"])])),
-            "estimator__learning_rate": list(dict.fromkeys([0.001, 0.01, 0.1, 1.0, float(base_estimator.get_params()["learning_rate"])])),
+            "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
+            "estimator__learning_rate": list(dict.fromkeys([0.0001, 0.001, 0.01, 0.1, 1.0, base_estimator.get_params()["min_samples_split"]])),
         }
 
     if family_name == "XGBM":
+        # The recovered workflow uses the intended n_estimators candidate list,
+        # but the historical parameter key is misspelled. Normalize the key to
+        # the executable current XGBoost API while keeping the same values.
         return {
             "estimator__learning_rate": list(
                 dict.fromkeys(
@@ -1015,9 +1010,15 @@ def build_exact_paper_reference_parameter_grid(
                     ]
                 )
             ),
+            "estimator__n_estimators": list(
+                dict.fromkeys(
+                    _generate_uniform_integer_sequence(5, 20, 100)
+                    + [_resolve_int_grid_value(estimator_parameters, "n_estimators", 100)]
+                )
+            ),
             "estimator__max_depth": list(
                 dict.fromkeys(
-                    _generate_uniform_integer_sequence(3, 14, 21)
+                    _generate_uniform_integer_sequence(5, 14, 21)
                     + [_resolve_int_grid_value(estimator_parameters, "max_depth", 16)]
                 )
             ),
@@ -1034,10 +1035,10 @@ def build_exact_paper_reference_parameter_grid(
 
     if family_name == "HGBM":
         return {
-            "estimator__max_iter": [int(base_estimator.get_params()["max_iter"])],
-            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 9, 14) + [int(base_estimator.get_params()["max_depth"])])),
-            "estimator__learning_rate": list(dict.fromkeys(([value / 100 for value in _generate_uniform_integer_sequence(5, 18, 23)] + [float(base_estimator.get_params()["learning_rate"])]))),
-            "estimator__max_leaf_nodes": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 24, 29) + [int(base_estimator.get_params()["max_leaf_nodes"])])),
+            "estimator__max_iter": list(dict.fromkeys([10, 100, 1000, int(base_estimator.get_params()["max_iter"])])),
+            "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
+            "estimator__learning_rate": list(dict.fromkeys(([value / 100 for value in _generate_uniform_integer_sequence(5, 1, 100)] + [float(base_estimator.get_params()["learning_rate"])]))),
+            "estimator__max_leaf_nodes": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 27, 35) + [int(base_estimator.get_params()["max_leaf_nodes"])])),
         }
 
     if family_name == "LGBM":
@@ -1050,55 +1051,67 @@ def build_exact_paper_reference_parameter_grid(
             ),
             "estimator__max_depth": list(
                 dict.fromkeys(
-                    _generate_uniform_integer_sequence(5, 10, 16)
+                    _generate_uniform_integer_sequence(5, 14, 21)
                     + [_resolve_int_grid_value(estimator_parameters, "max_depth", 12)]
                 )
             ),
             "estimator__num_leaves": list(
                 dict.fromkeys(
-                    _generate_uniform_integer_sequence(5, 2, 15)
+                    _generate_uniform_integer_sequence(5, 10, 100)
                     + [_resolve_int_grid_value(estimator_parameters, "num_leaves", 31)]
                 )
             ),
             "estimator__subsample": list(
                 dict.fromkeys(
-                    [0.001, 0.01, 0.1, 0.2, _resolve_float_grid_value(estimator_parameters, "subsample", 0.1)]
+                    [0.1, 0.3, 0.5, 0.8, _resolve_float_grid_value(estimator_parameters, "subsample", 0.1)]
                 )
             ),
         }
 
     if family_name == "MLP":
-        mlp_estimator = base_estimator.named_steps["mlp"]
-        mlp_parameter_dictionary = mlp_estimator.get_params()
+        mlp_parameter_dictionary = base_estimator.get_params()
         return {
-            "estimator__mlp__hidden_layer_sizes": list(
+            "estimator__hidden_layer_sizes": list(
                 dict.fromkeys(
                     [
-                        (50,),
                         (100,),
+                        (50,),
                         (100, 50),
+                        (200,),
+                        (200, 50),
                         tuple(mlp_parameter_dictionary["hidden_layer_sizes"]),
                     ]
                 )
             ),
-            "estimator__mlp__activation": list(
-                dict.fromkeys(["tanh", str(mlp_parameter_dictionary["activation"])])
+            "estimator__activation": list(
+                dict.fromkeys(["tanh", "relu", str(mlp_parameter_dictionary["activation"])])
             ),
-            "estimator__mlp__solver": list(
-                dict.fromkeys(["lbfgs", str(mlp_parameter_dictionary["solver"])])
+            "estimator__solver": list(
+                dict.fromkeys(["sgd", "adam", str(mlp_parameter_dictionary["solver"])])
             ),
-            "estimator__mlp__alpha": list(
-                dict.fromkeys([1e-4, 1e-3, 1e-2, float(mlp_parameter_dictionary["alpha"])])
+            "estimator__alpha": list(
+                dict.fromkeys([1e-4, float(mlp_parameter_dictionary["alpha"])])
             ),
-            "estimator__mlp__max_iter": [int(mlp_parameter_dictionary["max_iter"])],
+            "estimator__learning_rate": list(
+                dict.fromkeys(["adaptive", str(mlp_parameter_dictionary["learning_rate"])])
+            ),
+            "estimator__early_stopping": list(
+                dict.fromkeys([True, bool(mlp_parameter_dictionary["early_stopping"])])
+            ),
+            "estimator__tol": list(
+                dict.fromkeys([1e-4, float(mlp_parameter_dictionary["tol"])])
+            ),
+            "estimator__max_iter": list(
+                dict.fromkeys([600, int(mlp_parameter_dictionary["max_iter"])])
+            ),
         }
 
     if family_name == "SVR":
         return {
             "estimator__kernel": list(dict.fromkeys(["rbf", "linear", str(base_estimator.get_params()["kernel"])])),
-            "estimator__C": list(dict.fromkeys([0.001, 0.01, 0.1, 0.3, 1.0, float(base_estimator.get_params()["C"])])),
-            "estimator__epsilon": list(dict.fromkeys([0.001, 0.0001, 0.00001, 0.000001])),
-            "estimator__gamma": list(dict.fromkeys([0.0000011, float(base_estimator.get_params()["gamma"])])),
+            "estimator__C": list(dict.fromkeys([1, 2, 3, 5, 6, 7, float(base_estimator.get_params()["C"])])),
+            "estimator__epsilon": list(dict.fromkeys([0.0001, 0.00001, 0.000001, 0.0000001])),
+            "estimator__gamma": list(dict.fromkeys([0.0000011])),
         }
 
     raise ValueError(f"Unsupported exact paper family grid search | {family_name}")
@@ -1128,7 +1141,7 @@ def fit_exact_family_model_bank(
         base_estimator = create_exact_paper_base_estimator(family_name)
         if family_name == "MLP" and smoke_enabled:
             base_estimator.set_params(
-                mlp__max_iter=min(int(base_estimator.named_steps["mlp"].get_params()["max_iter"]), 50),
+                max_iter=min(int(base_estimator.get_params()["max_iter"]), 50),
             )
         train_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.train_feature_matrix
         if family_name == "XGBM":
