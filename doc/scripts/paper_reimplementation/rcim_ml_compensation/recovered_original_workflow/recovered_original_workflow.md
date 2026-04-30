@@ -57,3 +57,4 @@ mapping, runtime-output policy, and the detailed explanation of:
 - `v17` plus retuning
 - `v18` paper-style replay
 - current `Fw` versus `Bw` coverage across dataframe, training, and evaluation
+- tracked repository-owned cleanup differences versus the original reference root

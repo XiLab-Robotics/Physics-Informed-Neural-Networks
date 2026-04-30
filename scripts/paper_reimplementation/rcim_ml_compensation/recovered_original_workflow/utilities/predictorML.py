@@ -1,29 +1,35 @@
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import cross_validate
+"""Recovered original RCIM predictor helpers used by training and export."""
+
 import copy
-import pandas as pd
-import os
-from skl2onnx import convert_sklearn
-from skl2onnx.common.data_types import FloatTensorType
-from sklearn.multioutput import MultiOutputRegressor
-from sklearn.multioutput import RegressorChain
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, mean_absolute_error, mean_absolute_percentage_error
-from scipy.spatial import distance_matrix
-import random
-import numpy as np
-import datetime
 import datetime
 import math
-from onnxmltools import convert_xgboost, convert_lightgbm
-from onnxmltools.convert.common.data_types import FloatTensorType as OXFloatTensorType
-from xgboost.sklearn import  XGBRegressor
+import os
+import random
+
+import numpy as np
+import pandas as pd
 from lightgbm import LGBMRegressor
+from onnxmltools import convert_lightgbm
+from onnxmltools import convert_xgboost
+from onnxmltools.convert.common.data_types import FloatTensorType as OXFloatTensorType
+from scipy.spatial import distance_matrix
+from skl2onnx import convert_sklearn
+from skl2onnx.common.data_types import FloatTensorType
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_absolute_percentage_error
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import cross_validate
+from sklearn.model_selection import train_test_split
+from sklearn.multioutput import MultiOutputRegressor
+from sklearn.multioutput import RegressorChain
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from xgboost.sklearn import XGBRegressor
 
 
 class MLModel:
+    """Original single-estimator wrapper retained for completeness."""
 
     def __init__(self, model, name, method=''):
         self.model = model
@@ -44,29 +50,6 @@ class MLModel:
 
     def gridSearch(self,params):
         self.model = GridSearchCV(self.model, params, n_jobs=-1)
-
-    # OLD DA AGGIORNARE
-    # def predictorML_leaveOneOut(self, dfInput,files):
-    #     dfInputOrig = copy.deepcopy(dfInput)
-    #     out = {}
-    #     for i in range(len(dfInput)):
-    #         elem = dfInputOrig.iloc[i]
-    #         dfInput = dfInputOrig.drop(i)
-    #         X = dfInput[dfInput.columns[:2]]
-    #         Y = dfInput[self.columnToPredict]
-    #         X_test = pd.DataFrame(elem).T[pd.DataFrame(elem).T.columns[:2]]
-    #         X_train = X
-    #         #Y_test = pd.DataFrame(elem).T[self.columnToPredict]
-    #         Y_train = Y
-    #
-    #         self._train(X_train,Y_train)
-    #         pred = self._predict(X_test)
-    #
-    #         map = [x.startswith(str(elem['rpm'])+'rpm'+str(elem['deg'])+'deg') for x in files]
-    #         instanceName = [x for x, y in zip(files, map) if y == True]
-    #         out[i] = {'name':instanceName[0],'prev_'+self.columnToPredict:pred[0]}
-    #     dfOut = pd.DataFrame(out).T
-    #     return dfOut
 
     def getAcronimMethod(self, fileName):
 
@@ -91,6 +74,7 @@ class MLModel:
                 method = acronims[elem]
 
         return method
+
     def predictorMLCrossValidation(self, dfInput,testSetDimension):
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
@@ -106,12 +90,6 @@ class MLModel:
             Y = dfInput[cols]
 
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
-        # # X_test = pd.DataFrame(elem).T[pd.DataFrame(elem).T.columns[['rpm','tor']]]
-        # X_train = X
-        # # Y_test = pd.DataFrame(elem).T[self.columnToPredict]
-        # Y_train = Y
-
-
         self._train(X_train, Y_train)
 
         errorsAcronims = {
@@ -178,6 +156,7 @@ class MLModel:
         return dfOut
 
 class MLModelChainedMultipleOutput:
+    """Original chained multi-output wrapper retained for completeness."""
 
     def __init__(self, model, name, method=''):
         self.model = RegressorChain(model)
@@ -190,8 +169,6 @@ class MLModelChainedMultipleOutput:
     def _predict(self, X_test):
         return self.model.predict(X_test)
 
-
-    #Export del singolo modello da multiOutput
     def exportModel(self,modelName):
         initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
         for i in range(len(self.model.estimators_)):
@@ -219,7 +196,6 @@ class MLModelChainedMultipleOutput:
 
             X_test = pd.DataFrame(elem).T[pd.DataFrame(elem).T.columns[:2]]
             X_train = X
-            #Y_test = pd.DataFrame(elem).T[self.columnToPredict]
             Y_train = Y
 
             self._train(X_train,Y_train)
@@ -233,6 +209,7 @@ class MLModelChainedMultipleOutput:
         dfOut = pd.DataFrame(out).T
         return dfOut
 class MLModelMultipleOutput:
+    """Original multi-output wrapper used by the recovered training flows."""
 
     def __init__(self, model, name, method=''):
         self.model = MultiOutputRegressor(model)
@@ -245,14 +222,6 @@ class MLModelMultipleOutput:
     def _predict(self, X_test):
         return self.model.predict(X_test)
 
-    #Export del singolo modello da multiOutput
-    # def exportModel(self,modelName,colsToPredict):
-    #     initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
-    #     for i in range(len(self.model.estimators_)):
-    #         est = self.model.estimators_[i]
-    #         onx = convert_sklearn(est, initial_types=initial_type)
-    #         with open("model_output_dir/"+modelName+'_'+colsToPredict[i]+".onnx", "wb") as f:
-    #             f.write(onx.SerializeToString())
     def exportModel(self, modelName, colsToPredict):
         for i in range(len(self.model.estimators_)):
             est = self.model.estimators_[i]
@@ -280,7 +249,6 @@ class MLModelMultipleOutput:
         for i in range(len(dfInput)):
             elem = dfInputOrig.iloc[i]
             dfInput = dfInputOrig.drop(i)
-            #X = dfInput[dfInput.columns[:2]]
             X = dfInput[['rpm','deg','tor']]
             if self.method == 'phase':
                 cols = [x for x in dfInput.columns if 'phase' in x]
@@ -289,22 +257,17 @@ class MLModelMultipleOutput:
                 cols = [x for x in dfInput.columns if 'ampl' in x]
                 Y = dfInput[cols]
             else:
-                cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]#dfInput.columns[3:]
+                cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
                 Y = dfInput[cols]
 
             X_test = pd.DataFrame(elem).T[['rpm','deg','tor']]
-            #X_test = pd.DataFrame(elem).T[pd.DataFrame(elem).T.columns[['rpm','tor']]]
             X_train = X
-            #Y_test = pd.DataFrame(elem).T[self.columnToPredict]
             Y_train = Y
 
             self._train(X_train,Y_train)
             pred = self._predict(X_test)
 
             namesParam = {'rpm':elem['rpm'],'deg':elem['deg'],"tor":elem['tor']}
-            # map = [x.startswith(str(elem['rpm']) + 'rpm' + str(elem['tor']) + 'Torque') for x in files]
-            # #map = [x.startswith(str(elem['rpm'])+'rpm'+str(elem['deg'])+'deg') for x in files]
-            # instanceName = [x for x, y in zip(files, map) if y == True]
             out[i] = namesParam
             for j in range(len(cols)):
                 out[i]['prev_'+cols[j]] = pred[0][j]
@@ -925,6 +888,7 @@ class MLModelMultipleOutput:
 
 
 class MLModelMultiOutputCombined:
+    """Original mixed multi-output wrapper retained for completeness."""
 
     def __init__(self, modelsList, name, method=''):
         self.model = MultiOutputRegressor(model)
@@ -1214,6 +1178,7 @@ class MLModelMultiOutputCombined:
         return dfOut
 
 class MLPipeline:
+    """Original pipeline-based wrapper retained for completeness."""
 
     def __init__(self, model, name, columnToPredict):
         self.columnToPredict = columnToPredict
@@ -1410,6 +1375,7 @@ class MLPipeline:
 
 
 class MinimumDistanceRegressor:
+    """Original minimum-distance baseline retained for completeness."""
     def _calculateDistanceMatrix(self,X_train,X_test):
         return distance_matrix(X_train,X_test)
     def _getMinimum(self,distMatrix):
@@ -1486,4 +1452,3 @@ class MinimumDistanceRegressor:
 
         dfOut = pd.DataFrame(out).T
         return dfOut
-

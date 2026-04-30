@@ -6,12 +6,20 @@ from pathlib import Path
 
 import pandas as pd
 
-from workflow_runtime import REFERENCE_ROOT
-from workflow_runtime import build_default_output_root
-from workflow_runtime import ensure_utilities_on_path
-from workflow_runtime import normalize_direction
-from workflow_runtime import pushd
-from workflow_runtime import write_summary
+try:
+    from workflow_runtime import REFERENCE_ROOT
+    from workflow_runtime import build_default_output_root
+    from workflow_runtime import ensure_utilities_on_path
+    from workflow_runtime import normalize_direction
+    from workflow_runtime import pushd
+    from workflow_runtime import write_summary
+except ModuleNotFoundError:  # pragma: no cover - import compatibility for Sphinx
+    from .workflow_runtime import REFERENCE_ROOT
+    from .workflow_runtime import build_default_output_root
+    from .workflow_runtime import ensure_utilities_on_path
+    from .workflow_runtime import normalize_direction
+    from .workflow_runtime import pushd
+    from .workflow_runtime import write_summary
 
 
 def _normalize_mode(mode):
@@ -66,11 +74,6 @@ def _build_argument_parser():
         type=float,
         default=0.20,
         help="Held-out test fraction for v18 and retuning flows.",
-    )
-    parser.add_argument(
-        "--disable-deg-filter",
-        action="store_true",
-        help="Disable the original deg <= 35 oil-temperature filter.",
     )
     return parser
 
@@ -216,10 +219,21 @@ def main():
 
     direction_code, direction_label = normalize_direction(args.direction)
     mode_name = _normalize_mode(args.mode)
-    dataframe_path = (args.dataframe_path or (REFERENCE_ROOT / f"dataFrame_prediction_{direction_code}_v14_newFreq.csv")).resolve()
-    output_root = args.output_root or build_default_output_root("training", direction_label, args.output_suffix, mode_name)
+    dataframe_path = (
+        args.dataframe_path
+        or (REFERENCE_ROOT / f"dataFrame_prediction_{direction_code}_v14_newFreq.csv")
+    ).resolve()
+    output_root = args.output_root or build_default_output_root(
+        "training",
+        direction_label,
+        args.output_suffix,
+        mode_name,
+    )
     output_root = output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
+
+    # Preserve the original relative output layout inside the runtime root so
+    # copied original helpers can run unchanged.
     (output_root / "output_prediction").mkdir(exist_ok=True)
     (output_root / "model_output_dir").mkdir(exist_ok=True)
 
@@ -230,8 +244,6 @@ def main():
 
     with pushd(output_root):
         df_input = pd.read_csv(runtime_dataframe_name, sep=";", decimal=",", index_col=[0])
-        if not args.disable_deg_filter:
-            df_input = df_input[df_input["deg"] <= 35]
         df_input.reset_index(inplace=True)
         cols_to_predict = [column_name for column_name in df_input.columns if "ampl" in column_name or "phase" in column_name]
 
@@ -239,13 +251,19 @@ def main():
         for model in model_list:
             df_output_total = pd.DataFrame()
             if mode_name == "export":
+                # Mirror the shipped v17 export-oriented path on the runtime
+                # dataframe copy.
                 ml_model = MLModelMultipleOutput(model, "", "tot")
                 df_output = ml_model.predictorML_allForExport(df_input, args.test_size)
                 ml_model.exportModel(ml_model.name + "_MultiOutput_" + "tot", cols_to_predict)
             elif mode_name == "retune":
+                # Mirror the author-guided retuning path that starts from the
+                # v17 structure and re-enables hyperparameter search.
                 ml_model = MLModelMultipleOutput(model, "crossValidationWithHyperparameter_3.8_allFreq", "tot")
                 df_output = ml_model.predictorMLCrossValidationWithHyperparameter(df_input, args.test_size)
             else:
+                # Mirror the paper-style v18 held-out evaluation path with the
+                # recovered tuned hyperparameters.
                 ml_model = MLModelMultipleOutput(model, "multipleOutputEvaluationOnTrain_3.8_allFreq", "tot")
                 df_output = ml_model.predictorMLEvalutationOnTrain(df_input, args.test_size)
 
@@ -266,7 +284,6 @@ def main():
             "direction": direction_label,
             "input_dataframe_path": str(dataframe_path),
             "runtime_dataframe_path": str(runtime_dataframe_path),
-            "deg_filter_enabled": not args.disable_deg_filter,
             "test_size": args.test_size,
             "selected_families": selected_family_code_list,
             "prediction_output_folder": str(output_root / output_folder_name),

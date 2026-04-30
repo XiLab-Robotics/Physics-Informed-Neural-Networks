@@ -3,13 +3,22 @@
 import argparse
 from pathlib import Path
 
-from workflow_runtime import REFERENCE_ROOT
-from workflow_runtime import build_default_output_root
-from workflow_runtime import ensure_utilities_on_path
-from workflow_runtime import normalize_direction
-from workflow_runtime import prepare_runtime_instances_input
-from workflow_runtime import pushd
-from workflow_runtime import write_summary
+try:
+    from workflow_runtime import REFERENCE_ROOT
+    from workflow_runtime import build_default_output_root
+    from workflow_runtime import ensure_utilities_on_path
+    from workflow_runtime import normalize_direction
+    from workflow_runtime import prepare_runtime_instances_input
+    from workflow_runtime import pushd
+    from workflow_runtime import write_summary
+except ModuleNotFoundError:  # pragma: no cover - import compatibility for Sphinx
+    from .workflow_runtime import REFERENCE_ROOT
+    from .workflow_runtime import build_default_output_root
+    from .workflow_runtime import ensure_utilities_on_path
+    from .workflow_runtime import normalize_direction
+    from .workflow_runtime import prepare_runtime_instances_input
+    from .workflow_runtime import pushd
+    from .workflow_runtime import write_summary
 
 
 DEFAULT_INSTANCES_PATH = REFERENCE_ROOT / "instances_V3"
@@ -52,8 +61,15 @@ def main():
     from statistics import Statistics  # pylint: disable=import-outside-toplevel
 
     direction_code, direction_label = normalize_direction(args.direction)
-    output_root = args.output_root or build_default_output_root("create_dataframe", direction_label, args.output_suffix)
+    output_root = args.output_root or build_default_output_root(
+        "create_dataframe",
+        direction_label,
+        args.output_suffix,
+    )
     output_root = output_root.resolve()
+
+    # Keep the legacy local cache layout, but only inside the immutable
+    # repository-owned runtime root.
     runtime_cache_directory_path = output_root / "instances_V3"
     runtime_cache_directory_path.mkdir(parents=True, exist_ok=True)
 
@@ -63,6 +79,8 @@ def main():
     output_csv_path = output_root / output_csv_name
 
     with pushd(output_root):
+        # Call the copied original dataframe-generation logic without changing
+        # its numerical behavior.
         statistics = Statistics()
         statistics.read_all_fft(str(runtime_instances_input_path))
         dataframe = statistics.genDfWithAmplEPhase(direction_code)

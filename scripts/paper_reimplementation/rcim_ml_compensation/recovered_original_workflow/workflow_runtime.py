@@ -59,6 +59,8 @@ def write_summary(summary_path, payload):
 
 def copy_directory_contents(source_directory_path, destination_directory_path):
     """Copy the source directory contents into the destination directory."""
+    # Mirror the original folder-local runtime expectation inside one
+    # repository-owned artifact root.
     destination_directory_path.mkdir(parents=True, exist_ok=True)
     for child_path in source_directory_path.iterdir():
         target_path = destination_directory_path / child_path.name
@@ -70,6 +72,7 @@ def copy_directory_contents(source_directory_path, destination_directory_path):
 
 def prepare_runtime_instances_input(source_directory_path, runtime_cache_directory_path):
     """Prepare the instance directory expected by the original Statistics helper."""
+    # The recovered original code prefers local pickle caches when available.
     source_file_list = list(source_directory_path.iterdir())
     if any(file_path.suffix.lower() == ".pickle" for file_path in source_file_list):
         copy_directory_contents(source_directory_path, runtime_cache_directory_path)

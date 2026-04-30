@@ -1,5 +1,7 @@
 # 2026-04-30 Technical Documents
 
+- [2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md](./2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md)
+  Plan a repository-style cleanup pass over the recovered-original RCIM workflow, focused on docstrings, comments, spacing, and removal of obsolete local residue while preserving numerical behavior.
 - [2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md](./2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md)
   Plan the next stabilization pass for the rebuilt recovered-original RCIM workflow, focused on repository-owned path handling, clearer `Fw`/`Bw` semantics, and campaign-safe operational cleanup.
 - [2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md](./2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md)

@@ -1,17 +1,22 @@
+"""Recovered original RCIM instance helper used by dataframe creation and evaluation."""
+
 import csv
+import os
 import re
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error,mean_absolute_error
-import os
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_absolute_percentage_error
+from sklearn.metrics import mean_squared_error
 
 
 class Instance:
-    #fft_listFreq = [0, 1, 40, 80, 120, 160, 240]
+    """Original RCIM instance container for the v5 helper path."""
+
     fft_listFreq = [0, 1, 3, 39, 40, 78, 81, 156, 162, 240]
-    fft_listFreqNotFiltered = list(range(0,300))
+    fft_listFreqNotFiltered = list(range(0, 300))
 
     def __init__(self, x_Fw, y_Fw, x_Bw, y_Bw, max_TE_Fw, max_TE_Bw, position_Max_TE_Fw, position_Max_TE_Bw, rpm,
                  deg, tor, fft_x_Fw, fft_y_Fw, fft_x_Bw, fft_y_Bw, fft_y_Fw_filtered, y_Fw_filtered, fft_y_Fw_ampl,
@@ -53,7 +58,7 @@ class Instance:
 
     @classmethod
     def read(self, filename):
-        print(filename)
+        """Load one original RCIM instance from one exported CSV file."""
         with open(filename, 'r') as csvfile:
             data = list(csv.reader(csvfile))
             data=data[1:]
@@ -72,9 +77,6 @@ class Instance:
             rpm = float(re.search(r'(\d+\.\d+)rpm', filename).group(1))
             deg = float(re.search(r'(\d+\.\d+)deg', filename).group(1))
 
-            #num_regex = r'-?\d+(?:\.\d+)?'
-            #matches = re.findall(num_regex, filename)
-            #rpm, tor, deg  = float(matches[0]), float(matches[1]), float(matches[2])
             N= len(x_Fw)
             T = 1.0 /4000.0
 
@@ -116,72 +118,64 @@ class Instance:
 
 
 
-            #CALCULATE filtered Fw
+            # Calculate the filtered forward harmonic representation.
             for i,k in enumerate(self.fft_listFreq):
                 Xk = fft_y_Fw_filtered[k]
                 if k==0:
-                    # fft_y_Fw_filtered_ampl[i] = 1.0 / len(y_Fw) * np.abs(Xk) #calc ampl per == 0
-                    fft_y_Fw_filtered_ampl[i] = (1.0 / len(y_Fw) * np.abs(Xk)) * np.cos(np.angle(Xk))  # calc ampl per == 0
+                    fft_y_Fw_filtered_ampl[i] = (1.0 / len(y_Fw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Fw_filtered_phase[i] = 0
                 else:
-                    fft_y_Fw_filtered_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk) #calc ampl per != 0
-                    fft_y_Fw_filtered_phase[i] = np.angle(Xk)  # calc phase
+                    fft_y_Fw_filtered_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk)
+                    fft_y_Fw_filtered_phase[i] = np.angle(Xk)
 
-                fft_y_Fw_filtered_freq[i] = 2 * np.pi * k / len(y_Fw) #calc freq
+                fft_y_Fw_filtered_freq[i] = 2 * np.pi * k / len(y_Fw)
                 n = np.arange(len(y_Fw))
                 y_Fw_filtered = y_Fw_filtered + (fft_y_Fw_filtered_ampl[i] * np.cos(fft_y_Fw_filtered_freq[i] * n + fft_y_Fw_filtered_phase[i]))
 
-            #CALCULATE NOT filtered Fw
+            # Calculate the dense forward harmonic representation.
             for i in range(0,300):
                 Xk = fft_y_Fw[i]
-                fft_y_Fw_freq[i] = 2 * np.pi * i / len(y_Fw)  # calc freq
+                fft_y_Fw_freq[i] = 2 * np.pi * i / len(y_Fw)
                 if i==0:
-                    # fft_y_Fw_filtered_ampl[i] = 1.0 / len(y_Fw) * np.abs(Xk) #calc ampl per == 0
-                    fft_y_Fw_ampl[i] = (1.0 / len(y_Fw) * np.abs(Xk)) * np.cos(np.angle(Xk))  # calc ampl per == 0
+                    fft_y_Fw_ampl[i] = (1.0 / len(y_Fw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Fw_phase[i] = 0
                 else:
-                    fft_y_Fw_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk) #calc ampl per != 0
-                    fft_y_Fw_phase[i] = np.angle(Xk)  # calc phase
+                    fft_y_Fw_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk)
+                    fft_y_Fw_phase[i] = np.angle(Xk)
 
 
                 n = np.arange(len(y_Fw))
                 y_Fw_Notfiltered = y_Fw_Notfiltered + (fft_y_Fw_ampl[i] * np.cos(fft_y_Fw_freq[i] * n + fft_y_Fw_phase[i]))
 
 
-            #CALCULATE filtered Bw
+            # Calculate the filtered backward harmonic representation.
             for i,k in enumerate(self.fft_listFreq):
                 Xk = fft_y_Bw_filtered[k]
                 if k==0:
-                    # fft_y_Fw_filtered_ampl[i] = 1.0 / len(y_Fw) * np.abs(Xk) #calc ampl per == 0
-                    fft_y_Bw_filtered_ampl[i] = (1.0 / len(y_Bw) * np.abs(Xk)) * np.cos(np.angle(Xk))  # calc ampl per == 0
+                    fft_y_Bw_filtered_ampl[i] = (1.0 / len(y_Bw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Bw_filtered_phase[i] = 0
                 else:
-                    fft_y_Bw_filtered_ampl[i] = 2.0 / len(y_Bw) * np.abs(Xk) #calc ampl per != 0
-                    fft_y_Bw_filtered_phase[i] = np.angle(Xk)  # calc phase
+                    fft_y_Bw_filtered_ampl[i] = 2.0 / len(y_Bw) * np.abs(Xk)
+                    fft_y_Bw_filtered_phase[i] = np.angle(Xk)
 
-                fft_y_Bw_filtered_freq[i] = 2 * np.pi * k / len(y_Bw) #calc freq
+                fft_y_Bw_filtered_freq[i] = 2 * np.pi * k / len(y_Bw)
                 n = np.arange(len(y_Bw))
                 y_Bw_filtered = y_Bw_filtered + (fft_y_Bw_filtered_ampl[i] * np.cos(fft_y_Bw_filtered_freq[i] * n + fft_y_Bw_filtered_phase[i]))
 
-            #CALCULATE NOT filtered Bw
+            # Calculate the dense backward harmonic representation.
             for i in range(0,300):
                 Xk = fft_y_Bw[i]
 
                 if i==0:
-                    # fft_y_Fw_filtered_ampl[i] = 1.0 / len(y_Fw) * np.abs(Xk) #calc ampl per == 0
-                    fft_y_Bw_ampl[i] = (1.0 / len(y_Bw) * np.abs(Xk)) * np.cos(np.angle(Xk))  # calc ampl per == 0
+                    fft_y_Bw_ampl[i] = (1.0 / len(y_Bw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Bw_phase[i] = 0
                 else:
-                    fft_y_Bw_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk) #calc ampl per != 0
-                    fft_y_Bw_phase[i] = np.angle(Xk)  # calc phase
+                    fft_y_Bw_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk)
+                    fft_y_Bw_phase[i] = np.angle(Xk)
 
-                fft_y_Bw_freq[i] = 2 * np.pi * i / len(y_Bw) #calc freq
+                fft_y_Bw_freq[i] = 2 * np.pi * i / len(y_Bw)
                 n = np.arange(len(y_Bw))
                 y_Bw_Notfiltered = y_Bw_Notfiltered + (fft_y_Bw_ampl[i] * np.cos(fft_y_Bw_freq[i] * n + fft_y_Bw_phase[i]))
-
-
-
-            #print(fft_y_Fw_filtered_phase)
             name = [x for x in filename.split('/') if '.csv' in x][0]
 
 
@@ -193,19 +187,19 @@ class Instance:
 
 
     def max_error(self, y, y_rec):
+        """Compute the original normalized maximum pointwise error."""
         errors = [abs((y[i] - y_rec[i]) / y[i]) for i in range(len(y))]
-        #errors = [abs((y[i] - y_rec[i])) for i in range(len(y))]
         return max(errors)
 
     def max_error_2(self,y, y_rec):
+        """Compute the original normalized maximum error against the max magnitude."""
         v = max([abs(y[i]) for i in range(len(y))])
         errors = [abs((y[i] - y_rec[i])) / v for i in range(len(y))]
-        max_index = errors.index(max(errors))
-        print("CAZZZO: ", y[max_index], y_rec[max_index])
         return max(errors) * 100
 
 
     def predicted_TE_Fw_noShow_component(self, filename, mode, data, component):
+        """Evaluate one reconstructed forward component without plotting."""
         ampl = []
         phase = []
         if data.empty:
@@ -214,7 +208,6 @@ class Instance:
                 data[col] = pd.to_numeric(data[col])
         else:
             data = data
-        # dataRow = data.loc[(data['rpm'] ==self.rpm)]
         dataRow = data.loc[(data['rpm'] == self.rpm) & (data['deg'] == self.deg) & (data['tor'] == self.tor)]
         if dataRow.empty:
             return 0, 0, 0, 0, data, True
@@ -235,64 +228,31 @@ class Instance:
                 freq =  self.fft_listFreq.index(int(j.split('_')[-1]))
                 phase[freq] = self.fft_y_Fw_filtered_phase[freq]
 
-
-        # ampl[0] = self.fft_y_Fw_filtered_ampl[0]
-        # ampl[1] = self.fft_y_Fw_filtered_ampl[1]
-        # ampl[2] = self.fft_y_Fw_filtered_ampl[2]
-        # ampl[3] = self.fft_y_Fw_filtered_ampl[3]
-        # ampl[4] = self.fft_y_Fw_filtered_ampl[4]
-        # ampl[5] = self.fft_y_Fw_filtered_ampl[5]
-        # ampl[6] = self.fft_y_Fw_filtered_ampl[6]
-        #
-        # phase[0] = self.fft_y_Fw_filtered_phase[0]
-        # phase[1] = self.fft_y_Fw_filtered_phase[1]
-        # phase[2] = self.fft_y_Fw_filtered_phase[2]
-        # phase[3] = self.fft_y_Fw_filtered_phase[3]
-        # phase[4] = self.fft_y_Fw_filtered_phase[4]
-        # phase[5] = self.fft_y_Fw_filtered_phase[5]
-        #phase[6] = self.fft_y_Fw_filtered_phase[6]
-
-
-        # assuming there's only one row with the given name, exit loop
         n = np.arange(len(self.x_Fw))
-        # Calculate the harmonics of the selected frequencies using cosine
         harmonics = [ampl[i] * np.cos(2 * n * np.pi * k / len(self.x_Fw) + phase[i]) for i, k in
                      enumerate(self.fft_listFreq)]
-        # Sum the harmonics together to get the reconstructed signal
         reconstructed_signal_previsto = np.sum(harmonics, axis=0)
         harmonics_fft_filterd = [self.fft_y_Fw_filtered_ampl[i] * np.cos(
             2 * n * np.pi * k / len(self.x_Fw) + self.fft_y_Fw_filtered_phase[i]) for i, k in
                                  enumerate(self.fft_listFreq)]
         reconstructed_signal_fft_filtered = np.sum(harmonics_fft_filterd, axis=0)
-
-        #plt.plot(reconstructed_signal_fft_filtered, color='red', label='orginal_fft')
-        # plt.plot(self.y_Fw,color='green', label='orginal')
-        #labelName = filename.split('dfOutTot_')[1]
-        #plt.plot(reconstructed_signal_previsto, label=labelName)
-       # print('reale vs fft, MAPE:', mean_absolute_percentage_error(self.y_Fw, reconstructed_signal_fft_filtered))
         if mode == 'fft':
             mse = mean_squared_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
-            rmse = np.sqrt(mse) ##occhio che sta roba non ha senso!!!
+            rmse = np.sqrt(mse)
             mae = mean_absolute_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
             mape = mean_absolute_percentage_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
-            # msle = mean_squared_log_error(reconstructed_signal_fft_filtered,reconstructed_signal_previsto)
         elif mode == 'orig':
             mse = mean_squared_error(self.y_Fw, reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(self.y_Fw, reconstructed_signal_previsto)
             mape = mean_absolute_percentage_error(self.y_Fw, reconstructed_signal_previsto)
-            # msle = mean_squared_log_error(self.y_Fw,reconstructed_signal_previsto)
         else:
             print('ERROR: mode must be \'fft\'or \'orig\'')
             return 0.0, 0.0, 0.0, 0.0
-        #plt.xlabel(labelName + '_MSE:' + str(round(mse, 10)) + '_MAPE:' + str(round(mape, 4)))
-        #plt.title(self.name)
-        #plt.legend()
-        #if show:
-        #    plt.show()
         return mse, rmse, mae, mape, data, False
 
     def predicted_TE_Fw_noShow(self, filename, mode, data):
+        """Evaluate the reconstructed forward signal without plotting."""
         ampl = []
         phase = []
         if data.empty:
@@ -301,71 +261,34 @@ class Instance:
                 data[col] = pd.to_numeric(data[col])
         else:
             data = data
-        # dataRow = data.loc[(data['rpm'] ==self.rpm)]
-        #print('data columns: ', data.columns)
-        #print('SEARCHING FOR: rpm:', self.rpm, ' deg:', self.deg, ' tor:', self.tor)
         dataRow = data.loc[(data['rpm'] == self.rpm) & (data['deg'] == self.deg) & (data['tor'] == self.tor)]
         if dataRow.empty:
             return 0, 0, 0, 0, data, True
 
         ampl = [float(dataRow[f"prev_fft_y_Fw_filtered_ampl_{i}"]) for i in self.fft_listFreq]
         phase = [float(dataRow[f"prev_fft_y_Fw_filtered_phase_{i}"]) for i in self.fft_listFreq]
-
-
-        # ampl[0] = self.fft_y_Fw_filtered_ampl[0]
-        # ampl[1] = self.fft_y_Fw_filtered_ampl[1]
-        # ampl[2] = self.fft_y_Fw_filtered_ampl[2]
-        # ampl[3] = self.fft_y_Fw_filtered_ampl[3]
-        # ampl[4] = self.fft_y_Fw_filtered_ampl[4]
-        # ampl[5] = self.fft_y_Fw_filtered_ampl[5]
-        # ampl[6] = self.fft_y_Fw_filtered_ampl[6]
-        #
-        # phase[0] = self.fft_y_Fw_filtered_phase[0]
-        # phase[1] = self.fft_y_Fw_filtered_phase[1]
-        # phase[2] = self.fft_y_Fw_filtered_phase[2]
-        # phase[3] = self.fft_y_Fw_filtered_phase[3]
-        # phase[4] = self.fft_y_Fw_filtered_phase[4]
-        # phase[5] = self.fft_y_Fw_filtered_phase[5]
-        #phase[6] = self.fft_y_Fw_filtered_phase[6]
-
-
-        # assuming there's only one row with the given name, exit loop
         n = np.arange(len(self.x_Fw))
-        # Calculate the harmonics of the selected frequencies using cosine
         harmonics = [ampl[i] * np.cos(2 * n * np.pi * k / len(self.x_Fw) + phase[i]) for i, k in
                      enumerate(self.fft_listFreq)]
-        # Sum the harmonics together to get the reconstructed signal
         reconstructed_signal_previsto = np.sum(harmonics, axis=0)
         harmonics_fft_filterd = [self.fft_y_Fw_filtered_ampl[i] * np.cos(
             2 * n * np.pi * k / len(self.x_Fw) + self.fft_y_Fw_filtered_phase[i]) for i, k in
                                  enumerate(self.fft_listFreq)]
         reconstructed_signal_fft_filtered = np.sum(harmonics_fft_filterd, axis=0)
 
-        #plt.plot(reconstructed_signal_fft_filtered, color='red', label='orginal_fft')
-        # plt.plot(self.y_Fw,color='green', label='orginal')
-        #labelName = filename.split('dfOutTot_')[1]
-        #plt.plot(reconstructed_signal_previsto, label=labelName)
-       # print('reale vs fft, MAPE:', mean_absolute_percentage_error(self.y_Fw, reconstructed_signal_fft_filtered))
         if mode == 'fft':
             mse = mean_squared_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
-            rmse = np.sqrt(mse) ##occhio che sta roba non ha senso!!!
+            rmse = np.sqrt(mse)
             mae = mean_absolute_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
             mape = mean_absolute_percentage_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
-            # msle = mean_squared_log_error(reconstructed_signal_fft_filtered,reconstructed_signal_previsto)
         elif mode == 'orig':
             mse = mean_squared_error(self.y_Fw, reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(self.y_Fw, reconstructed_signal_previsto)
             mape = mean_absolute_percentage_error(self.y_Fw, reconstructed_signal_previsto)
-            # msle = mean_squared_log_error(self.y_Fw,reconstructed_signal_previsto)
         else:
             print('ERROR: mode must be \'fft\'or \'orig\'')
             return 0.0, 0.0, 0.0, 0.0
-        #plt.xlabel(labelName + '_MSE:' + str(round(mse, 10)) + '_MAPE:' + str(round(mape, 4)))
-        #plt.title(self.name)
-        #plt.legend()
-        #if show:
-        #    plt.show()
         return mse, rmse, mae, mape, data, False
 
     def predicted_TE(self, filename, mode, show, data, FwBw):

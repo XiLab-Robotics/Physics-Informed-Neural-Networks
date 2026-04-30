@@ -99,6 +99,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-30
 
+- [technical/2026-04/2026-04-30/2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md](./technical/2026-04/2026-04-30/2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md)
+  Plan a repository-style cleanup pass over the recovered-original RCIM workflow, focused on docstrings, comments, spacing, and removal of obsolete local residue while preserving numerical behavior.
 - [technical/2026-04/2026-04-30/2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md](./technical/2026-04/2026-04-30/2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md)
   Plan the next stabilization pass for the rebuilt recovered-original RCIM workflow, focused on repository-owned path handling, clearer `Fw`/`Bw` semantics, and campaign-safe operational cleanup.
 - [technical/2026-04/2026-04-30/2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md](./technical/2026-04/2026-04-30/2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md)

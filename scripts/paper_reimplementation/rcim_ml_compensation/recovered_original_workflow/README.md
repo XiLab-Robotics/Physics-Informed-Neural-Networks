@@ -12,7 +12,8 @@ original code modules almost unchanged and only modernize:
 - entrypoint names;
 - folder layout;
 - path handling;
-- repository-owned output roots.
+- repository-owned output roots;
+- code readability and repository-style documentation.
 
 ## Folder Structure
 
@@ -204,7 +205,6 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 This mirrors `1-main_prediction_v18.py`:
 
 - load the selected dataframe;
-- apply the original `deg <= 35` filter unless disabled explicitly;
 - use the tuned family list from the recovered `v18` file;
 - run the original held-out `80/20` evaluation path.
 
@@ -274,6 +274,30 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Typical runtime root:
 
 `output/validation_checks/paper_reimplementation_rcim_recovered_original_workflow/<timestamp>__<stage>_<mode_or_direction>_<suffix>/`
+
+## Repository Cleanup Notes
+
+This repository-owned copy intentionally differs from
+`reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/` in a
+few non-numerical ways so the workflow remains maintainable inside this
+repository.
+
+Tracked cleanup and maintenance choices:
+
+- the legacy `deg <= 35` filter was removed from the repository-owned training
+  entrypoint because the shipped recovered CSVs already carry the canonical
+  temperature support and the filter is treated as obsolete legacy residue;
+- obsolete commented-out code blocks were trimmed where they no longer added
+  operational value to the repo-owned copy;
+- local generated residue such as `__pycache__/` directories is not part of
+  the maintained workflow surface;
+- docstrings, section comments, and spacing were aligned to the repository
+  conventions without changing the numerical behavior of the copied original
+  helper logic.
+
+For any historical comparison, the canonical untouched source remains:
+
+- `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`
 
 Typical contents:
 

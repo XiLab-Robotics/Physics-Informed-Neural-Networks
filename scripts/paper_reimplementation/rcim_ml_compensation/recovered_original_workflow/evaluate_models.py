@@ -8,14 +8,24 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from workflow_runtime import REFERENCE_ROOT
-from workflow_runtime import build_default_output_root
-from workflow_runtime import copy_directory_contents
-from workflow_runtime import ensure_utilities_on_path
-from workflow_runtime import normalize_direction
-from workflow_runtime import prepare_runtime_instances_input
-from workflow_runtime import pushd
-from workflow_runtime import write_summary
+try:
+    from workflow_runtime import REFERENCE_ROOT
+    from workflow_runtime import build_default_output_root
+    from workflow_runtime import copy_directory_contents
+    from workflow_runtime import ensure_utilities_on_path
+    from workflow_runtime import normalize_direction
+    from workflow_runtime import prepare_runtime_instances_input
+    from workflow_runtime import pushd
+    from workflow_runtime import write_summary
+except ModuleNotFoundError:  # pragma: no cover - import compatibility for Sphinx
+    from .workflow_runtime import REFERENCE_ROOT
+    from .workflow_runtime import build_default_output_root
+    from .workflow_runtime import copy_directory_contents
+    from .workflow_runtime import ensure_utilities_on_path
+    from .workflow_runtime import normalize_direction
+    from .workflow_runtime import prepare_runtime_instances_input
+    from .workflow_runtime import pushd
+    from .workflow_runtime import write_summary
 
 
 def _build_argument_parser():
@@ -122,10 +132,15 @@ def main():
     if direction_code != "Fw":
         raise ValueError("The shipped recovered evaluation script is forward-shaped only at the moment.")
 
-    output_root = args.output_root or build_default_output_root("evaluate", direction_label, args.output_suffix)
+    output_root = args.output_root or build_default_output_root(
+        "evaluate",
+        direction_label,
+        args.output_suffix,
+    )
     output_root = output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
 
+    # Recreate the original local folder expectations inside the runtime root.
     runtime_instances_directory_path = output_root / "instances_V3"
     runtime_instances_directory_path.mkdir(exist_ok=True)
     runtime_instances_input_path = prepare_runtime_instances_input(args.instances_path.resolve(), runtime_instances_directory_path)
@@ -137,6 +152,8 @@ def main():
     evaluation_details_directory_path.mkdir(parents=True, exist_ok=True)
 
     with pushd(output_root):
+        # Execute the copied original evaluation path against the runtime copy
+        # of the prediction directory.
         statistics = Statistics()
         input_path = "output_prediction/instV3.8_Fw_allFreq_def/"
         file_list = os.listdir(input_path)
