@@ -287,13 +287,21 @@ Tracked cleanup and maintenance choices:
 - the legacy `deg <= 35` filter was removed from the repository-owned training
   entrypoint because the shipped recovered CSVs already carry the canonical
   temperature support and the filter is treated as obsolete legacy residue;
-- obsolete commented-out code blocks were trimmed where they no longer added
-  operational value to the repo-owned copy;
+- selected obsolete commented-out code blocks were trimmed where they no
+  longer added operational value to the repo-owned copy, but manual local
+  comments and local formatting choices were otherwise restored and preserved;
+- `utilities/predictorML.py` was cleaned of stale commented branches, dead
+  local variables, and one fully commented legacy AutoML block, while keeping
+  the callable model helpers and their numerical logic intact;
 - local generated residue such as `__pycache__/` directories is not part of
   the maintained workflow surface;
 - docstrings, section comments, and spacing were aligned to the repository
   conventions without changing the numerical behavior of the copied original
   helper logic.
+- `utilities/statistics.py` now declares its plotting dependency explicitly via
+  `requirements.txt` through a repository-owned `seaborn` pin, but imports it
+  lazily inside plotting helpers so the local module name `statistics.py` does
+  not shadow Python's standard-library `statistics` module during runtime.
 
 For any historical comparison, the canonical untouched source remains:
 

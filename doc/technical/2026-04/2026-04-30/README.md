@@ -1,5 +1,7 @@
 # 2026-04-30 Technical Documents
 
+- [2026-04-30-17-02-45_rcim_recovered_original_workflow_comment_style_and_full_surface_cleanup.md](./2026-04-30-17-02-45_rcim_recovered_original_workflow_comment_style_and_full_surface_cleanup.md)
+  Plan a second repository-style cleanup pass over the recovered-original RCIM workflow, focused on comment capitalization, comment accuracy, full-surface stale-residue removal, and alignment of touched dependencies and documentation.
 - [2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md](./2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md)
   Plan a repository-style cleanup pass over the recovered-original RCIM workflow, focused on docstrings, comments, spacing, and removal of obsolete local residue while preserving numerical behavior.
 - [2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md](./2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md)

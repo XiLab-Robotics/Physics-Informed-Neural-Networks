@@ -2707,6 +2707,11 @@ roots.
 
 Current non-scope:
 
+- the repository-owned copy removes the obsolete legacy `deg <= 35` training
+  filter from the direct entrypoint surface;
+- `evaluate_models.py` remains effectively `forward`-only because the shipped
+  original evaluation path is still forward-shaped.
+
 - final target-wise deployed winner assembly;
 - online compensation loop;
 - TwinCAT/TestRig execution;

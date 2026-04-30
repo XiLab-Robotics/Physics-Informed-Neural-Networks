@@ -97,6 +97,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-01
+
+- [technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md](./technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md)
+  Plan a conservative restoration of the recovered-original RCIM workflow so the user-authored inline comments and local formatting are recovered from the `_old` backup copies and only minimal repository-style normalization is applied afterward.
+
 #### 2026-04-30
 
 - [technical/2026-04/2026-04-30/2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md](./technical/2026-04/2026-04-30/2026-04-30-10-33-46_rcim_recovered_original_workflow_style_cleanup_and_legacy_trim.md)
@@ -1318,6 +1323,8 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for slightly widening the `Rank` column and correspondingly shrinking `Test MAE` in the Track 1 second-iteration campaign PDF table.
 - [technical/2026-04/2026-04-09/2026-04-09-22-10-21_track1_campaign_random_forest_bundle_git_lfs_tracking.md](./technical/2026-04/2026-04-09/2026-04-09-22-10-21_track1_campaign_random_forest_bundle_git_lfs_tracking.md)
   Technical plan for tracking the oversized RandomForest harmonic-wise campaign bundle through Git LFS so the pending commit remains GitHub-safe.
+- [technical/2026-04/2026-04-30/2026-04-30-17-02-45_rcim_recovered_original_workflow_comment_style_and_full_surface_cleanup.md](./technical/2026-04/2026-04-30/2026-04-30-17-02-45_rcim_recovered_original_workflow_comment_style_and_full_surface_cleanup.md)
+  Technical plan for the second recovered-original RCIM workflow cleanup pass, focused on comment style, comment accuracy, full-surface stale-residue removal, and dependency-aligned readability normalization.
 
 ## Usage
 
