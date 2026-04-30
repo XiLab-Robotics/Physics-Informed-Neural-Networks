@@ -1,38 +1,17 @@
 """Direct entrypoint for the recovered original RCIM training and export stage."""
 
 import argparse
-import json
-import os
 import shutil
-import sys
-from contextlib import contextmanager
-from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
 
-
-SCRIPT_ROOT = Path(__file__).resolve().parent
-REPOSITORY_ROOT = SCRIPT_ROOT.parents[3]
-UTILITIES_ROOT = SCRIPT_ROOT / "utilities"
-REFERENCE_ROOT = REPOSITORY_ROOT / "reference" / "rcim_ml_compensation_recovered_assets" / "code" / "original_pipeline"
-DEFAULT_VALIDATION_ROOT = REPOSITORY_ROOT / "output" / "validation_checks" / "paper_reimplementation_rcim_recovered_original_workflow"
-
-
-def _ensure_utilities_on_path():
-    """Expose the copied original utility modules to Python imports."""
-    if str(UTILITIES_ROOT) not in sys.path:
-        sys.path.insert(0, str(UTILITIES_ROOT))
-
-
-def _normalize_direction(direction):
-    """Map CLI direction aliases to the original RCIM suffixes."""
-    normalized_direction = direction.strip().lower()
-    if normalized_direction in {"fw", "forward"}:
-        return "Fw", "forward"
-    if normalized_direction in {"bw", "backward"}:
-        return "Bw", "backward"
-    raise ValueError(f"Unsupported direction: {direction}")
+from workflow_runtime import REFERENCE_ROOT
+from workflow_runtime import build_default_output_root
+from workflow_runtime import ensure_utilities_on_path
+from workflow_runtime import normalize_direction
+from workflow_runtime import pushd
+from workflow_runtime import write_summary
 
 
 def _normalize_mode(mode):
@@ -45,30 +24,6 @@ def _normalize_mode(mode):
     if normalized_mode in {"paper_eval", "v18", "paper"}:
         return "paper_eval"
     raise ValueError(f"Unsupported training mode: {mode}")
-
-
-def _build_default_output_root(mode_name, direction_label, output_suffix):
-    """Create the default repository-owned runtime root for this stage."""
-    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    suffix = f"_{output_suffix}" if output_suffix else ""
-    return DEFAULT_VALIDATION_ROOT / f"{timestamp}__training_{mode_name}_{direction_label}{suffix}"
-
-
-def _write_summary(summary_path, payload):
-    """Persist a minimal JSON summary for reproducibility."""
-    with open(summary_path, "w", encoding="utf-8") as handle:
-        json.dump(payload, handle, indent=2)
-
-
-@contextmanager
-def _pushd(target_directory_path):
-    """Temporarily change the working directory."""
-    original_directory = Path.cwd()
-    os.chdir(target_directory_path)
-    try:
-        yield
-    finally:
-        os.chdir(original_directory)
 
 
 def _build_argument_parser():
@@ -256,13 +211,13 @@ def main():
     parser = _build_argument_parser()
     args = parser.parse_args()
 
-    _ensure_utilities_on_path()
+    ensure_utilities_on_path()
     from predictorML import MLModelMultipleOutput  # pylint: disable=import-outside-toplevel
 
-    direction_code, direction_label = _normalize_direction(args.direction)
+    direction_code, direction_label = normalize_direction(args.direction)
     mode_name = _normalize_mode(args.mode)
     dataframe_path = (args.dataframe_path or (REFERENCE_ROOT / f"dataFrame_prediction_{direction_code}_v14_newFreq.csv")).resolve()
-    output_root = args.output_root or _build_default_output_root(mode_name, direction_label, args.output_suffix)
+    output_root = args.output_root or build_default_output_root("training", direction_label, args.output_suffix, mode_name)
     output_root = output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
     (output_root / "output_prediction").mkdir(exist_ok=True)
@@ -273,7 +228,7 @@ def main():
     (output_root / output_folder_name).mkdir(parents=True, exist_ok=True)
     selected_family_code_list, model_list = _select_family_list(mode_name, args.families)
 
-    with _pushd(output_root):
+    with pushd(output_root):
         df_input = pd.read_csv(runtime_dataframe_name, sep=";", decimal=",", index_col=[0])
         if not args.disable_deg_filter:
             df_input = df_input[df_input["deg"] <= 35]
@@ -303,7 +258,7 @@ def main():
             df_output_total.to_csv(prediction_output_path, sep=";", decimal=",")
             generated_prediction_path_list.append(str(prediction_output_path))
 
-    _write_summary(
+    write_summary(
         output_root / "run_summary.json",
         {
             "stage": "training_models",

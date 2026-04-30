@@ -1,84 +1,21 @@
 """Direct entrypoint for the recovered original RCIM evaluation stage."""
 
 import argparse
-import json
 import os
-import shutil
-import sys
-from contextlib import contextmanager
-from datetime import datetime
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-
-SCRIPT_ROOT = Path(__file__).resolve().parent
-REPOSITORY_ROOT = SCRIPT_ROOT.parents[3]
-UTILITIES_ROOT = SCRIPT_ROOT / "utilities"
-REFERENCE_ROOT = REPOSITORY_ROOT / "reference" / "rcim_ml_compensation_recovered_assets" / "code" / "original_pipeline"
-DEFAULT_VALIDATION_ROOT = REPOSITORY_ROOT / "output" / "validation_checks" / "paper_reimplementation_rcim_recovered_original_workflow"
-
-
-def _ensure_utilities_on_path():
-    """Expose the copied original utility modules to Python imports."""
-    if str(UTILITIES_ROOT) not in sys.path:
-        sys.path.insert(0, str(UTILITIES_ROOT))
-
-
-def _normalize_direction(direction):
-    """Map CLI direction aliases to the original RCIM suffixes."""
-    normalized_direction = direction.strip().lower()
-    if normalized_direction in {"fw", "forward"}:
-        return "Fw", "forward"
-    if normalized_direction in {"bw", "backward"}:
-        return "Bw", "backward"
-    raise ValueError(f"Unsupported direction: {direction}")
-
-
-def _build_default_output_root(direction_label, output_suffix):
-    """Create the default repository-owned runtime root for this stage."""
-    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    suffix = f"_{output_suffix}" if output_suffix else ""
-    return DEFAULT_VALIDATION_ROOT / f"{timestamp}__evaluate_{direction_label}{suffix}"
-
-
-def _write_summary(summary_path, payload):
-    """Persist a minimal JSON summary for reproducibility."""
-    with open(summary_path, "w", encoding="utf-8") as handle:
-        json.dump(payload, handle, indent=2)
-
-
-@contextmanager
-def _pushd(target_directory_path):
-    """Temporarily change the working directory."""
-    original_directory = Path.cwd()
-    os.chdir(target_directory_path)
-    try:
-        yield
-    finally:
-        os.chdir(original_directory)
-
-
-def _copy_directory_contents(source_directory_path, destination_directory_path):
-    """Copy the source directory contents into the destination directory."""
-    destination_directory_path.mkdir(parents=True, exist_ok=True)
-    for child_path in source_directory_path.iterdir():
-        target_path = destination_directory_path / child_path.name
-        if child_path.is_dir():
-            shutil.copytree(child_path, target_path, dirs_exist_ok=True)
-        else:
-            shutil.copy2(child_path, target_path)
-
-
-def _prepare_runtime_instances_input(source_directory_path, runtime_cache_directory_path):
-    """Prepare the instance directory expected by the original Statistics helper."""
-    source_file_list = list(source_directory_path.iterdir())
-    if any(file_path.suffix.lower() == ".pickle" for file_path in source_file_list):
-        _copy_directory_contents(source_directory_path, runtime_cache_directory_path)
-        return runtime_cache_directory_path
-    return source_directory_path
+from workflow_runtime import REFERENCE_ROOT
+from workflow_runtime import build_default_output_root
+from workflow_runtime import copy_directory_contents
+from workflow_runtime import ensure_utilities_on_path
+from workflow_runtime import normalize_direction
+from workflow_runtime import prepare_runtime_instances_input
+from workflow_runtime import pushd
+from workflow_runtime import write_summary
 
 
 def _build_argument_parser():
@@ -178,28 +115,28 @@ def main():
     parser = _build_argument_parser()
     args = parser.parse_args()
 
-    _ensure_utilities_on_path()
+    ensure_utilities_on_path()
     from statistics import Statistics  # pylint: disable=import-outside-toplevel
 
-    direction_code, direction_label = _normalize_direction(args.direction)
+    direction_code, direction_label = normalize_direction(args.direction)
     if direction_code != "Fw":
         raise ValueError("The shipped recovered evaluation script is forward-shaped only at the moment.")
 
-    output_root = args.output_root or _build_default_output_root(direction_label, args.output_suffix)
+    output_root = args.output_root or build_default_output_root("evaluate", direction_label, args.output_suffix)
     output_root = output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
 
     runtime_instances_directory_path = output_root / "instances_V3"
     runtime_instances_directory_path.mkdir(exist_ok=True)
-    runtime_instances_input_path = _prepare_runtime_instances_input(args.instances_path.resolve(), runtime_instances_directory_path)
+    runtime_instances_input_path = prepare_runtime_instances_input(args.instances_path.resolve(), runtime_instances_directory_path)
 
     runtime_prediction_directory_path = output_root / "output_prediction" / "instV3.8_Fw_allFreq_def"
-    _copy_directory_contents(args.prediction_directory.resolve(), runtime_prediction_directory_path)
+    copy_directory_contents(args.prediction_directory.resolve(), runtime_prediction_directory_path)
 
     evaluation_details_directory_path = output_root / "evaluation" / "V3.9" / "details"
     evaluation_details_directory_path.mkdir(parents=True, exist_ok=True)
 
-    with _pushd(output_root):
+    with pushd(output_root):
         statistics = Statistics()
         input_path = "output_prediction/instV3.8_Fw_allFreq_def/"
         file_list = os.listdir(input_path)
@@ -309,7 +246,7 @@ def main():
         if output_summary_file_path is None:
             raise ValueError("No evaluation rows were produced. Check that the prediction CSVs match the supplied instances.")
 
-    _write_summary(
+    write_summary(
         output_root / "run_summary.json",
         {
             "stage": "evaluate_models",

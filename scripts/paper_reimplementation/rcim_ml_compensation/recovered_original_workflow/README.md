@@ -26,6 +26,9 @@ original code modules almost unchanged and only modernize:
 - `utilities/`
   copied original support modules kept as close as possible to the recovered
   source.
+- `workflow_runtime.py`
+  repository-owned operational helper for shared path handling, runtime-root
+  construction, directory copying, and JSON summary writing.
 
 Utility modules:
 
@@ -38,6 +41,13 @@ Utility modules:
 - `utilities/predictorML.py`
   copied original `predictorML_v7.py` with only one minimal compatibility
   adjustment so the shipped `v17` call signature remains runnable.
+
+Operational support:
+
+- `workflow_runtime.py`
+  shared repo-owned infrastructure used by the three direct entrypoints so the
+  runtime-root contract and direction handling stay aligned without rewriting
+  the original numerical logic.
 
 ## Original-To-New Mapping
 
@@ -74,6 +84,12 @@ That matches the canonical author workflow:
 - build dataframe;
 - train/export/tune models;
 - generate paper tables from prediction outputs.
+
+Direction support in the current rebuilt surface:
+
+- `create_dataframe.py`: `Fw` and `Bw`
+- `training_models.py`: `Fw` and `Bw`
+- `evaluate_models.py`: currently `Fw` only
 
 ## Path Policy
 

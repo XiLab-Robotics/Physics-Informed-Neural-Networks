@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-04-30
 
+- [technical/2026-04/2026-04-30/2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md](./technical/2026-04/2026-04-30/2026-04-30-10-10-06_rcim_recovered_original_workflow_stabilization_pass.md)
+  Plan the next stabilization pass for the rebuilt recovered-original RCIM workflow, focused on repository-owned path handling, clearer `Fw`/`Bw` semantics, and campaign-safe operational cleanup.
+- [technical/2026-04/2026-04-30/2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md](./technical/2026-04/2026-04-30/2026-04-30-02-06-47_track1_bidirectional_literal_workflow_refresh_mega_campaign.md)
+  Plan the full Track 1 bidirectional mega-campaign refresh after the exact-paper family bank was realigned to the recovered original workflow.
 - [technical/2026-04/2026-04-30/2026-04-30-01-48-18_track1_literal_alignment_to_recovered_original_workflow.md](./technical/2026-04/2026-04-30/2026-04-30-01-48-18_track1_literal_alignment_to_recovered_original_workflow.md)
   Plan the literal alignment of the Track 1 exact-paper reimplementation to the recovered original RCIM workflow across all ten model families.
 - [technical/2026-04/2026-04-30/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_closeout.md](./technical/2026-04/2026-04-30/2026-04-30-01-25-40_track1_forward_last_three_open_cells_overnight_mega_campaign_closeout.md)

@@ -17,6 +17,10 @@ The canonical direct entrypoints are:
 - `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py`
 
+The shared repo-owned operational helper is:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/workflow_runtime.py`
+
 ## Short Usage
 
 Create a backward dataframe:
@@ -52,3 +56,4 @@ mapping, runtime-output policy, and the detailed explanation of:
 - `v17` export
 - `v17` plus retuning
 - `v18` paper-style replay
+- current `Fw` versus `Bw` coverage across dataframe, training, and evaluation
