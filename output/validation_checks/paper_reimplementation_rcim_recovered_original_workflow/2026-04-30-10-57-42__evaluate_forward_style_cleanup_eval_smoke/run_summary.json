@@ -1,0 +1,10 @@
+{
+  "stage": "evaluate_models",
+  "direction": "forward",
+  "instances_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-31-29__evaluate_forward_smoke_eval_fw\\instances_V3",
+  "runtime_instances_input_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-30-10-57-42__evaluate_forward_style_cleanup_eval_smoke\\instances_V3",
+  "prediction_directory": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-29-17-31-29__evaluate_forward_smoke_eval_fw\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "runtime_prediction_directory_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-30-10-57-42__evaluate_forward_style_cleanup_eval_smoke\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "evaluation_root": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-04-30-10-57-42__evaluate_forward_style_cleanup_eval_smoke\\evaluation",
+  "output_summary_file_path": "evaluation/V3.9/dfOutTot_evaluation_V12dfOutTot_prediction_DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv.csv"
+}
