@@ -1,5 +1,9 @@
 # 2026-05-01 Technical Documents
 
+- [2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md](./2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md)
+  Plan the narrow follow-up pass that fills the standalone `#` comment
+  placeholders in the recovered RCIM instance helpers and normalizes the
+  capitalization of their inline comments.
 - [2026-05-01-11-01-49_rcim_recovered_original_workflow_utility_visual_style_normalization.md](./2026-05-01-11-01-49_rcim_recovered_original_workflow_utility_visual_style_normalization.md)
   Plan the follow-up visual style-normalization pass over the recovered-original
   RCIM utility files so they match the repository-authored spacing, comment

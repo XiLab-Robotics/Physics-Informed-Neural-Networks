@@ -105,40 +105,40 @@ class Instance:
             x_Bw = [float(row[2]) for row in data]
             y_Bw = [float(row[3]) for row in data]
 
-            # Recover the original scalar metadata from the waveform.
+            # Recover the Original Scalar Metadata from the Waveform.
             max_TE_Fw = min(y_Fw)
             max_TE_Bw = min(y_Bw)
             position_Max_TE_Fw = float(x_Fw[y_Fw.index(max_TE_Fw)])
             position_Max_TE_Bw = float(x_Bw[y_Bw.index(max_TE_Bw)])
 
-            # Parse the operating condition encoded in the filename.
+            # Parse the Operating Condition Encoded in the Filename.
             tor = float(re.search(r'(\d+(\.\d+)?|0)Torque', filename).group(1))
             rpm = float(re.search(r'(\d+\.\d+)rpm', filename).group(1))
             deg = float(re.search(r'(\d+\.\d+)deg', filename).group(1))
 
-            # Build the FFT support used by the original harmonic reconstruction.
+            # Build the FFT Support Used by the Original Harmonic Reconstruction.
             N = len(x_Fw)
             T = 1.0 / 4000.0
 
-            #
+            # Build the Forward and Backward FFT Support Arrays.
             fft_y_Fw = np.fft.fft(y_Fw)
             fft_x_Fw = np.linspace(0.0, 1.0 / (2.0 * T), N // 2)
             fft_y_Bw = np.fft.fft(y_Bw)
             fft_x_Bw = np.linspace(0.0, 1.0 / (2.0 * T), N // 2)
 
-            # Keep only the harmonics selected by the original filtered branch.
+            # Keep Only the Harmonics Selected by the Original Filtered Branch.
             fft_y_Fw_filtered = np.zeros_like(fft_y_Fw)
             fft_y_Bw_filtered = np.zeros_like(fft_y_Bw)
             fft_y_Fw_filtered[self.fft_listFreq] = fft_y_Fw[self.fft_listFreq]
             fft_y_Bw_filtered[self.fft_listFreq] = fft_y_Bw[self.fft_listFreq]
 
-            # Prepare the reconstructed waveform buffers.
+            # Prepare the Reconstructed Waveform Buffers.
             y_Fw_Notfiltered = np.zeros_like(y_Fw)
             y_Bw_Notfiltered = np.zeros_like(y_Bw)
             y_Fw_filtered = np.zeros_like(y_Fw)
             y_Bw_filtered = np.zeros_like(y_Bw)
 
-            # Allocate the dense harmonic descriptors.
+            # Allocate the Dense Harmonic Descriptors.
             fft_y_Fw_ampl  = [0] * len(self.fft_listFreqNotFiltered)
             fft_y_Fw_freq  = [0] * len(self.fft_listFreqNotFiltered)
             fft_y_Fw_phase = [0] * len(self.fft_listFreqNotFiltered)
@@ -146,7 +146,7 @@ class Instance:
             fft_y_Bw_freq  = [0] * len(self.fft_listFreqNotFiltered)
             fft_y_Bw_phase = [0] * len(self.fft_listFreqNotFiltered)
 
-            # Allocate the filtered harmonic descriptors.
+            # Allocate the Filtered Harmonic Descriptors.
             fft_y_Fw_filtered_ampl  = [0] * len(self.fft_listFreq)
             fft_y_Fw_filtered_freq  = [0] * len(self.fft_listFreq)
             fft_y_Fw_filtered_phase = [0] * len(self.fft_listFreq)
@@ -161,17 +161,17 @@ class Instance:
 
                 if k == 0:
 
-                    #
+                    # Keep the DC Component in Its Scalar Form.
                     fft_y_Fw_filtered_ampl[i] = (1.0 / len(y_Fw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Fw_filtered_phase[i] = 0
 
                 else:
 
-                    #
+                    # Convert the Non-DC Harmonic into Amplitude and Phase.
                     fft_y_Fw_filtered_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk)
                     fft_y_Fw_filtered_phase[i] = np.angle(Xk)
 
-                #
+                # Reconstruct the Current Filtered Forward Harmonic in Time Domain.
                 fft_y_Fw_filtered_freq[i] = 2 * np.pi * k / len(y_Fw)
                 n = np.arange(len(y_Fw))
                 y_Fw_filtered = y_Fw_filtered + (fft_y_Fw_filtered_ampl[i] * np.cos(fft_y_Fw_filtered_freq[i] * n + fft_y_Fw_filtered_phase[i]))
@@ -179,45 +179,45 @@ class Instance:
             # Calculate the Dense Forward Harmonic Representation.
             for i in range(0, 300):
 
-                #
+                # Read the Current Dense Forward Harmonic Coefficient.
                 Xk = fft_y_Fw[i]
                 fft_y_Fw_freq[i] = 2 * np.pi * i / len(y_Fw)
 
                 if i == 0:
 
-                    #
+                    # Keep the Dense Forward DC Component in Scalar Form.
                     fft_y_Fw_ampl[i] = (1.0 / len(y_Fw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Fw_phase[i] = 0
 
                 else:
 
-                    #
+                    # Convert the Non-DC Dense Forward Harmonic into Amplitude and Phase.
                     fft_y_Fw_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk)
                     fft_y_Fw_phase[i] = np.angle(Xk)
 
-                #
+                # Reconstruct the Current Dense Forward Harmonic in Time Domain.
                 n = np.arange(len(y_Fw))
                 y_Fw_Notfiltered = y_Fw_Notfiltered + (fft_y_Fw_ampl[i] * np.cos(fft_y_Fw_freq[i] * n + fft_y_Fw_phase[i]))
 
             # Calculate the Filtered Backward Harmonic Representation.
             for i, k in enumerate(self.fft_listFreq):
 
-                #
+                # Read the Current Filtered Backward Harmonic Coefficient.
                 Xk = fft_y_Bw_filtered[k]
 
                 if k == 0:
 
-                    #
+                    # Keep the Backward DC Component in Its Scalar Form.
                     fft_y_Bw_filtered_ampl[i] = (1.0 / len(y_Bw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Bw_filtered_phase[i] = 0
 
                 else:
 
-                    #
+                    # Convert the Non-DC Backward Harmonic into Amplitude and Phase.
                     fft_y_Bw_filtered_ampl[i] = 2.0 / len(y_Bw) * np.abs(Xk)
                     fft_y_Bw_filtered_phase[i] = np.angle(Xk)
 
-                #
+                # Reconstruct the Current Filtered Backward Harmonic in Time Domain.
                 fft_y_Bw_filtered_freq[i] = 2 * np.pi * k / len(y_Bw)
                 n = np.arange(len(y_Bw))
                 y_Bw_filtered = y_Bw_filtered + (fft_y_Bw_filtered_ampl[i] * np.cos(fft_y_Bw_filtered_freq[i] * n + fft_y_Bw_filtered_phase[i]))
@@ -225,27 +225,27 @@ class Instance:
             # Calculate the Dense Backward Harmonic Representation.
             for i in range(0, 300):
 
-                #
+                # Read the Current Dense Backward Harmonic Coefficient.
                 Xk = fft_y_Bw[i]
 
                 if i == 0:
 
-                    #
+                    # Keep the Dense Backward DC Component in Scalar Form.
                     fft_y_Bw_ampl[i] = (1.0 / len(y_Bw) * np.abs(Xk)) * np.cos(np.angle(Xk))
                     fft_y_Bw_phase[i] = 0
 
                 else:
 
-                    #
+                    # Convert the Non-DC Dense Backward Harmonic into Amplitude and Phase.
                     fft_y_Bw_ampl[i] = 2.0 / len(y_Fw) * np.abs(Xk)
                     fft_y_Bw_phase[i] = np.angle(Xk)
 
-                #
+                # Reconstruct the Current Dense Backward Harmonic in Time Domain.
                 fft_y_Bw_freq[i] = 2 * np.pi * i / len(y_Bw)
                 n = np.arange(len(y_Bw))
                 y_Bw_Notfiltered = y_Bw_Notfiltered + (fft_y_Bw_ampl[i] * np.cos(fft_y_Bw_freq[i] * n + fft_y_Bw_phase[i]))
 
-            # Keep the original filename-based instance naming contract.
+            # Keep the Original Filename-Based Instance Naming Contract.
             name = [x for x in filename.split('/') if '.csv' in x][0]
 
             return self(
@@ -287,7 +287,7 @@ class Instance:
 
         """ Compute the original normalized maximum pointwise error. """
 
-        #
+        # Compute the Pointwise Relative Error Across the Signal.
         errors = [abs((y[i] - y_rec[i]) / y[i]) for i in range(len(y))]
         return max(errors)
 
@@ -295,7 +295,7 @@ class Instance:
 
         """ Compute the original normalized maximum error against the max magnitude. """
 
-        #
+        # Normalize the Error Against the Largest Absolute Reference Value.
         v = max([abs(y[i]) for i in range(len(y))])
         errors = [abs((y[i] - y_rec[i])) / v for i in range(len(y))]
         return max(errors) * 100
@@ -304,17 +304,17 @@ class Instance:
 
         """ Evaluate one reconstructed forward component without plotting. """
 
-        #
+        # Initialize the Predicted Harmonic Containers.
         ampl, phase = [], []
 
         # Load the Cached Prediction Table Only Once.
         if data.empty:
 
-            #
+            # Parse the Prediction Table the First Time This Helper Is Called.
             data = pd.read_csv(filename, sep=';', decimal=',', index_col=[0])
             for col in data.columns[1:]: data[col] = pd.to_numeric(data[col])
 
-        #
+        # Reuse the Already-Parsed Prediction Table When Available.
         else: data = data
 
         # Select the Row That Matches the Current Operating Condition.
@@ -333,7 +333,7 @@ class Instance:
         for j in columnToPredict_ampl:
             if j != component:
 
-                #
+                # Map the Column Suffix Back to the Filtered Frequency Index.
                 freq = self.fft_listFreq.index(int(j.split('_')[-1]))
                 ampl[freq] = self.fft_y_Fw_filtered_ampl[freq]
 
@@ -341,7 +341,7 @@ class Instance:
         for j in columnToPredict_phase:
             if j != component:
 
-                #
+                # Map the Column Suffix Back to the Filtered Frequency Index.
                 freq = self.fft_listFreq.index(int(j.split('_')[-1]))
                 phase[freq] = self.fft_y_Fw_filtered_phase[freq]
 
@@ -354,7 +354,7 @@ class Instance:
 
         if mode == 'fft':
 
-            #
+            # Compare the Predicted Signal Against the Reference FFT Reconstruction.
             mse = mean_squared_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
@@ -362,7 +362,7 @@ class Instance:
 
         elif mode == 'orig':
 
-            #
+            # Compare the Predicted Signal Against the Original Forward Trace.
             mse = mean_squared_error(self.y_Fw, reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(self.y_Fw, reconstructed_signal_previsto)
@@ -370,7 +370,7 @@ class Instance:
 
         else:
 
-            #
+            # Keep the Legacy Error Message Contract Intact.
             print('ERROR: mode must be \'fft\'or \'orig\'')
             return 0.0, 0.0, 0.0, 0.0
 
@@ -384,18 +384,18 @@ class Instance:
 
         if data.empty:
 
-            #
+            # Load the Cached Prediction Table Only Once When Needed.
             data = pd.read_csv(filename, sep=';', decimal=',', index_col=[0])
             for col in data.columns[1:]: data[col] = pd.to_numeric(data[col])
 
-        #
+        # Reuse the Already-Parsed Prediction Table When Available.
         else: data = data
 
-        #
+        # Select the Row That Matches the Current Operating Condition.
         dataRow = data.loc[(data['rpm'] == self.rpm) & (data['deg'] == self.deg) & (data['tor'] == self.tor)]
         if dataRow.empty: return 0, 0, 0, 0, data, True
 
-        #
+        # Rebuild the Predicted Harmonic Vectors from the Stored Prediction Row.
         ampl = [float(dataRow[f"prev_fft_y_Fw_filtered_ampl_{i}"]) for i in self.fft_listFreq]
         phase = [float(dataRow[f"prev_fft_y_Fw_filtered_phase_{i}"]) for i in self.fft_listFreq]
         n = np.arange(len(self.x_Fw))
@@ -406,7 +406,7 @@ class Instance:
 
         if mode == 'fft':
 
-            #
+            # Compare the Predicted Signal Against the Reference FFT Reconstruction.
             mse = mean_squared_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(reconstructed_signal_fft_filtered, reconstructed_signal_previsto)
@@ -414,7 +414,7 @@ class Instance:
 
         elif mode == 'orig':
 
-            #
+            # Compare the Predicted Signal Against the Original Forward Trace.
             mse = mean_squared_error(self.y_Fw, reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(self.y_Fw, reconstructed_signal_previsto)
@@ -422,7 +422,7 @@ class Instance:
 
         else:
 
-            #
+            # Keep the Legacy Error Message Contract Intact.
             print('ERROR: mode must be \'fft\'or \'orig\'')
             return 0.0, 0.0, 0.0, 0.0
 
@@ -434,14 +434,14 @@ class Instance:
 
         if data.empty:
 
-            # Load the cached prediction table only once when needed.
+            # Load the Cached Prediction Table Only Once When Needed.
             data = pd.read_csv(filename,sep=';',decimal=',', index_col=[0])
             for col in data.columns[1:]: data[col] = pd.to_numeric(data[col])
 
-        #
+        # Reuse the Already-Parsed Prediction Table When Available.
         else: data = data
 
-        # Select the row that matches the current operating condition.
+        # Select the Row That Matches the Current Operating Condition.
         dataRow = data.loc[(data['rpm'] ==self.rpm)&(data['deg'] ==self.deg)&(data['tor'] ==self.tor)]
         if dataRow.empty: return 0, 0, 0, 0, data, True
 
@@ -451,7 +451,7 @@ class Instance:
             ampl = [float(dataRow[f"prev_fft_y_Fw_filtered_ampl_{i}"]) for i in self.fft_listFreq]
             phase= [float(dataRow[f"prev_fft_y_Fw_filtered_phase_{i}"]) for i in self.fft_listFreq]
 
-            #
+            # Reconstruct the Forward Branch on the Original Position Grid.
             n = np.arange( len(self.x_Fw))
             harmonics = [ampl[i]* np.cos(2 *n* np.pi * k / len(self.x_Fw)+phase[i]) for i,k in enumerate(self.fft_listFreq)]
             reconstructed_signal_previsto = np.sum(harmonics, axis=0)
@@ -464,7 +464,7 @@ class Instance:
             ampl = [float(dataRow[f"prev_fft_y_Bw_filtered_ampl_{i}"]) for i in self.fft_listFreq]
             phase = [float(dataRow[f"prev_fft_y_Bw_filtered_phase_{i}"]) for i in self.fft_listFreq]
 
-            #
+            # Reconstruct the Backward Branch on the Original Position Grid.
             n = np.arange(len(self.x_Bw))
             harmonics = [ampl[i] * np.cos(2 * n * np.pi * k / len(self.x_Bw) + phase[i]) for i, k in enumerate(self.fft_listFreq)]
             reconstructed_signal_previsto = np.sum(harmonics, axis=0)
@@ -473,18 +473,18 @@ class Instance:
 
         else:
 
-            #
+            # Keep the Legacy Direction Error Message Contract Intact.
             print('ERROR: FwBw must be Fw o Bw')
             return 0, 0, 0, 0, data, True
 
-        # Plot the legacy comparison view before computing the metric payload.
+        # Plot the Legacy Comparison View Before Computing the Metric Payload.
         plt.plot(reconstructed_signal_fft_filtered, color='red', label='orginal_fft')
         labelName = filename.split('dfOutTot_')[1]
         plt.plot(reconstructed_signal_previsto, label=labelName, alpha=0.7)
 
         if mode == 'fft':
 
-            #
+            # Compare the Predicted Signal Against the Reference FFT Reconstruction.
             pd.DataFrame(reconstructed_signal_fft_filtered).to_csv('controllo_segnaleOrig_x1000.csv',sep=';',decimal=',')
             pd.DataFrame(reconstructed_signal_previsto).to_csv('controllo_segnalePrev_x1000.csv',sep=';', decimal=',')
             mse = mean_squared_error(reconstructed_signal_fft_filtered,reconstructed_signal_previsto)
@@ -496,7 +496,7 @@ class Instance:
 
             if FwBw == 'Fw':
 
-                #
+                # Compare the Predicted Forward Signal Against the Original Forward Trace.
                 mse = mean_squared_error(self.y_Fw,reconstructed_signal_previsto)
                 rmse = np.sqrt(mse)
                 mae = mean_absolute_error(self.y_Fw,reconstructed_signal_previsto)
@@ -504,7 +504,7 @@ class Instance:
 
             elif FwBw == 'Bw':
 
-                #
+                # Compare the Predicted Backward Signal Against the Original Backward Trace.
                 mse = mean_squared_error(self.y_Bw, reconstructed_signal_previsto)
                 rmse = np.sqrt(mse)
                 mae = mean_absolute_error(self.y_Bw, reconstructed_signal_previsto)
@@ -512,21 +512,21 @@ class Instance:
 
         else:
 
-            #
+            # Keep the Legacy Error Message Contract Intact.
             print('ERROR: mode must be \'fft\'or \'orig\'')
             return 0.0,0.0,0.0,0.0
 
-        # Encode the metrics into the x-axis label exactly like the original workflow.
+        # Encode the Metrics into the X-Axis Label Exactly Like the Original Workflow.
         plt.xlabel(labelName+'_MSE:'+ str(round(mse,10))+'_MAPE:'+str(round(mape,4)))
         plt.title(self.name)
         plt.legend()
 
-        #
+        # Show the Plot Only When the Caller Explicitly Requests It.
         if show: plt.show()
 
         else:
 
-            # Preserve the original evaluation export folder contract.
+            # Preserve the Original Evaluation Export Folder Contract.
             if not os.path.exists('20231120_evalutationSignal/'+filename.split('/')[-1]):
                 os.makedirs('20231120_evalutationSignal/'+filename.split('/')[-1])
             plt.savefig('20231120_evalutationSignal/'+filename.split('/')[-1]+'/'+self.name+'.png')
@@ -541,36 +541,36 @@ class Instance:
 
         if data.empty:
 
-            # Load the cached prediction table only once when needed.
+            # Load the Cached Prediction Table Only Once When Needed.
             data = pd.read_csv(filename,sep=';',decimal=',', index_col=[0])
             for col in data.columns[1:]: data[col] = pd.to_numeric(data[col])
 
-        #
+        # Reuse the Already-Parsed Prediction Table When Available.
         else: data = data
 
-        # Select the row that matches the current operating condition.
+        # Select the Row That Matches the Current Operating Condition.
         dataRow = data.loc[(data['rpm'] ==self.rpm)&(data['deg'] ==self.deg)&(data['tor'] ==self.tor)]
         if dataRow.empty: return 0, 0, 0, 0, data, True
 
-        # Rebuild the predicted harmonic vectors from the stored prediction row.
+        # Rebuild the Predicted Harmonic Vectors from the Stored Prediction Row.
         ampl = [float(dataRow[f"prev_fft_y_Fw_filtered_ampl_{i}"]) for i in self.fft_listFreq]
         phase= [float(dataRow[f"prev_fft_y_Fw_filtered_phase_{i}"]) for i in self.fft_listFreq]
 
-        # Reconstruct both the predicted signal and the reference filtered one.
+        # Reconstruct Both the Predicted Signal and the Reference Filtered One.
         n = np.arange( len(self.x_Fw))
         harmonics = [ampl[i]* np.cos(2 *n* np.pi * k / len(self.x_Fw)+phase[i]) for i,k in enumerate(self.fft_listFreq)]
         reconstructed_signal_previsto = np.sum(harmonics, axis=0)
         harmonics_fft_filterd = [self.fft_y_Fw_filtered_ampl[i]* np.cos(2 *n* np.pi * k / len(self.x_Fw)+self.fft_y_Fw_filtered_phase[i]) for i,k in enumerate(self.fft_listFreq)]
         reconstructed_signal_fft_filtered = np.sum(harmonics_fft_filterd, axis=0)
 
-        # Plot the legacy comparison view before computing the metric payload.
+        # Plot the Legacy Comparison View Before Computing the Metric Payload.
         plt.plot(reconstructed_signal_fft_filtered, color='red', label='orginal_fft')
         labelName = filename.split('dfOutTot_')[1]
         plt.plot(reconstructed_signal_previsto, label=labelName, alpha=0.7)
 
         if mode == 'fft':
 
-            #
+            # Compare the Predicted Signal Against the Reference FFT Reconstruction.
             pd.DataFrame(reconstructed_signal_fft_filtered).to_csv('controllo_segnaleOrig_x1000.csv',sep=';',decimal=',')
             pd.DataFrame(reconstructed_signal_previsto).to_csv('controllo_segnalePrev_x1000.csv',sep=';', decimal=',')
             mse = mean_squared_error(reconstructed_signal_fft_filtered,reconstructed_signal_previsto)
@@ -580,7 +580,7 @@ class Instance:
 
         elif mode == 'orig':
 
-            #
+            # Compare the Predicted Signal Against the Original Forward Trace.
             mse = mean_squared_error(self.y_Fw,reconstructed_signal_previsto)
             rmse = np.sqrt(mse)
             mae = mean_absolute_error(self.y_Fw,reconstructed_signal_previsto)
@@ -588,21 +588,21 @@ class Instance:
 
         else:
 
-            #
+            # Keep the Legacy Error Message Contract Intact.
             print('ERROR: mode must be \'fft\'or \'orig\'')
             return 0.0,0.0,0.0,0.0
 
-        # Encode the metrics into the x-axis label exactly like the original workflow.
+        # Encode the Metrics into the X-Axis Label Exactly Like the Original Workflow.
         plt.xlabel(labelName+'_MSE:'+ str(round(mse,10))+'_MAPE:'+str(round(mape,4)))
         plt.title(self.name)
         plt.legend()
 
-        #
+        # Show the Plot Only When the Caller Explicitly Requests It.
         if show: plt.show()
 
         else:
 
-            # Preserve the original evaluation export folder contract.
+            # Preserve the Original Evaluation Export Folder Contract.
             if not os.path.exists('20231120_evalutationSignal/'+filename.split('/')[-1]):
                 os.makedirs('20231120_evalutationSignal/'+filename.split('/')[-1])
             plt.savefig('20231120_evalutationSignal/'+filename.split('/')[-1]+'/'+self.name+'.png')
@@ -614,7 +614,7 @@ class Instance:
 
         """ Keep the filtered harmonic vectors sorted by frequency. """
 
-        #
+        # Zip the Harmonic Vectors Before Sorting Them by Frequency.
         all_vectors = list(zip(self.fft_y_Fw_filtered_freq, self.fft_y_Fw_filtered_ampl, self.fft_y_Fw_filtered_phase))
         ordered = sorted(all_vectors, key=lambda x: x[0])
         self.fft_y_Fw_filtered_freq, self.fft_y_Fw_filtered_ampl, self.fft_y_Fw_filtered_phase = zip(*ordered)
