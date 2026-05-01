@@ -101,7 +101,7 @@ this repository-owned copy also carries a controlled readability pass:
 - removed variant-named files:
   `utilities/instance_v4.py`, `utilities/instance_v5.py`
 - migration commit:
-  `TBD_AFTER_COMMIT`
+  `85bc7db2074c2d933416b8d17b6f60e29877f4cf`
 
 ## Execution Order
 
