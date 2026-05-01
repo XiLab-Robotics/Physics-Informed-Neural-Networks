@@ -1,7 +1,6 @@
 """ Direct entrypoint for the recovered original RCIM training and export stage. """
 
-import argparse
-import shutil
+import argparse, shutil
 from pathlib import Path
 
 import pandas as pd

@@ -1,6 +1,6 @@
 """ Recovered original RCIM instance helper used by dataframe creation and evaluation. """
 
-import os, csv, re
+import os, sys, re, csv
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -618,3 +618,7 @@ class Instance:
         all_vectors = list(zip(self.fft_y_Fw_filtered_freq, self.fft_y_Fw_filtered_ampl, self.fft_y_Fw_filtered_phase))
         ordered = sorted(all_vectors, key=lambda x: x[0])
         self.fft_y_Fw_filtered_freq, self.fft_y_Fw_filtered_ampl, self.fft_y_Fw_filtered_phase = zip(*ordered)
+
+
+# Keep the Historical Pickle Module Name Resolvable After the File Cleanup.
+sys.modules.setdefault("instance_v5", sys.modules[__name__])

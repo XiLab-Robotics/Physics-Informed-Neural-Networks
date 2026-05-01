@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-01
 
+- [technical/2026-05/2026-05-01/2026-05-01-22-36-34_rcim_instance_variant_file_removal.md](./technical/2026-05/2026-05-01/2026-05-01-22-36-34_rcim_instance_variant_file_removal.md)
+  Plan the final recovered RCIM instance-helper cleanup that removes `instance_v4.py` and `instance_v5.py` from the repository-owned workflow subtree and leaves `instance.py` as the sole active runtime helper.
+- [technical/2026-05/2026-05-01/2026-05-01-22-22-33_rcim_instance_unification_and_v4_deactivation.md](./technical/2026-05/2026-05-01/2026-05-01-22-22-33_rcim_instance_unification_and_v4_deactivation.md)
+  Plan the recovered RCIM instance-helper cleanup that promotes the active `instance_v5.py` runtime surface to `instance.py`, removes `instance_v4.py` from the active path, and records the migration plus future commit hash in the workflow README.
 - [technical/2026-05/2026-05-01/2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md](./technical/2026-05/2026-05-01/2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md)
   Plan the narrow follow-up pass that fills standalone `#` comment placeholders and normalizes inline-comment capitalization inside the recovered RCIM `predictorML.py` helper without changing its logic.
 - [technical/2026-05/2026-05-01/2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md](./technical/2026-05/2026-05-01/2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md)

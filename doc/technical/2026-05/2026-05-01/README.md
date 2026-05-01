@@ -1,5 +1,14 @@
 # 2026-05-01 Technical Documents
 
+- [2026-05-01-22-36-34_rcim_instance_variant_file_removal.md](./2026-05-01-22-36-34_rcim_instance_variant_file_removal.md)
+  Plan the final recovered RCIM instance-helper cleanup that removes
+  `instance_v4.py` and `instance_v5.py` from the repository-owned workflow
+  subtree and leaves `instance.py` as the sole active runtime helper.
+- [2026-05-01-22-22-33_rcim_instance_unification_and_v4_deactivation.md](./2026-05-01-22-22-33_rcim_instance_unification_and_v4_deactivation.md)
+  Plan the recovered RCIM instance-helper cleanup that promotes the active
+  `instance_v5.py` runtime surface to `instance.py`, removes `instance_v4.py`
+  from the active path, and records the migration plus future commit hash in
+  the workflow README.
 - [2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md](./2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md)
   Plan the narrow follow-up pass that fills standalone `#` comment placeholders
   and normalizes inline-comment capitalization inside the recovered RCIM

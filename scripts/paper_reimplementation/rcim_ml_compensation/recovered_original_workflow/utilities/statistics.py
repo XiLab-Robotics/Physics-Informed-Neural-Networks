@@ -1,11 +1,9 @@
 """ Statistics helpers copied from the recovered original RCIM workflow. """
 
-import os
-import pickle
-import re
+import os, re, pickle
 
 import pandas as pd
-from instance_v5 import Instance
+from instance import Instance
 from matplotlib import pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from tqdm import tqdm

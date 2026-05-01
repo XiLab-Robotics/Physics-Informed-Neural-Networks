@@ -1,7 +1,6 @@
 """ Direct entrypoint for the recovered original RCIM evaluation stage. """
 
-import argparse
-import os
+import argparse, os
 from pathlib import Path
 
 import numpy as np

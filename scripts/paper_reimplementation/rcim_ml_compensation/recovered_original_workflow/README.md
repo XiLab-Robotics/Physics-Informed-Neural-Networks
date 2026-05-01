@@ -35,10 +35,10 @@ Utility modules:
 
 - `utilities/statistics.py`
   copied from original `statistic.py`.
-- `utilities/instance_v4.py`
-  copied original signal-reconstruction dependency for evaluation.
-- `utilities/instance_v5.py`
-  copied original instance/FFT dependency for dataframe creation.
+- `utilities/instance.py`
+  active repository-owned runtime instance helper, promoted from the old
+  `instance_v5.py` surface and now the only runtime instance-helper file kept
+  in this workflow subtree.
 - `utilities/predictorML.py`
   copied original `predictorML_v7.py` with only one minimal compatibility
   adjustment so the shipped `v17` call signature remains runnable.
@@ -65,9 +65,12 @@ this repository-owned copy also carries a controlled readability pass:
 - utility files keep the original numerical branches, but now expose more
   inline `#` comments around feature selection, prediction-row export,
   harmonic reconstruction, and runtime artifact writing;
-- legacy manual behaviors that are still part of the recovered original logic,
-  such as the explicit override path inside `utilities/instance_v4.py`,
-  were preserved and only documented more clearly.
+- the old variant-named helpers `instance_v4.py` and `instance_v5.py` were
+  removed from the repository-owned workflow copy after confirming that the
+  active runtime already flowed through the `instance_v5` logic only;
+- the active runtime instance helper was promoted from `instance_v5.py` to
+  `instance.py`, which is now the sole runtime instance-helper module kept in
+  this subtree.
 
 ## Original-To-New Mapping
 
@@ -86,10 +89,19 @@ this repository-owned copy also carries a controlled readability pass:
   -> `utilities/statistics.py`
 - `predictorML_v7.py`
   -> `utilities/predictorML.py`
-- `instance_v4.py`
-  -> `utilities/instance_v4.py`
-- `instance_v5.py`
-  -> `utilities/instance_v5.py`
+- active repository-owned runtime helper
+  -> `utilities/instance.py`
+
+## Instance Helper Migration Traceability
+
+- active runtime before cleanup:
+  `utilities/instance_v5.py`
+- active runtime after cleanup:
+  `utilities/instance.py`
+- removed variant-named files:
+  `utilities/instance_v4.py`, `utilities/instance_v5.py`
+- migration commit:
+  `TBD_AFTER_COMMIT`
 
 ## Execution Order
 
