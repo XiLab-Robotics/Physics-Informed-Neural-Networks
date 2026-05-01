@@ -57,6 +57,9 @@ Compared with
 this repository-owned copy also carries a controlled readability pass:
 
 - section comments and docstrings were aligned to the repository style;
+- utility files also received a repository-style visual normalization pass with
+  wider vertical spacing and Title-Case inline comments in the active logic
+  blocks;
 - stale commented-out snippets were removed from the active execution paths
   where they only added noise;
 - utility files keep the original numerical branches, but now expose more

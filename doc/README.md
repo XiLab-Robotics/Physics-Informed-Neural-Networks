@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-01
 
+- [technical/2026-05/2026-05-01/2026-05-01-11-01-49_rcim_recovered_original_workflow_utility_visual_style_normalization.md](./technical/2026-05/2026-05-01/2026-05-01-11-01-49_rcim_recovered_original_workflow_utility_visual_style_normalization.md)
+  Plan the follow-up visual style-normalization pass over the recovered-original RCIM utility files so they match the repository-authored spacing, comment capitalization, and inline-comment density already established in the main workflow entrypoints.
+- [technical/2026-05/2026-05-01/2026-05-01-01-38-44_rcim_recovered_original_workflow_utility_cleanup_and_style_alignment.md](./technical/2026-05/2026-05-01/2026-05-01-01-38-44_rcim_recovered_original_workflow_utility_cleanup_and_style_alignment.md)
+  Plan the final utility-focused cleanup and style-alignment pass over the recovered-original RCIM workflow, limited to `instance_v4.py`, `instance_v5.py`, `predictorML.py`, and the adjacent workflow README.
 - [technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md](./technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md)
   Plan a conservative restoration of the recovered-original RCIM workflow so the user-authored inline comments and local formatting are recovered from the `_old` backup copies and only minimal repository-style normalization is applied afterward.
 
