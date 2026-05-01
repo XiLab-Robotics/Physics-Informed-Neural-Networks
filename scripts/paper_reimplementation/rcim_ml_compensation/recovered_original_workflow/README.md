@@ -50,6 +50,22 @@ Operational support:
   runtime-root contract and direction handling stay aligned without rewriting
   the original numerical logic.
 
+## Repository-Owned Cleanup Notes
+
+Compared with
+`reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`,
+this repository-owned copy also carries a controlled readability pass:
+
+- section comments and docstrings were aligned to the repository style;
+- stale commented-out snippets were removed from the active execution paths
+  where they only added noise;
+- utility files keep the original numerical branches, but now expose more
+  inline `#` comments around feature selection, prediction-row export,
+  harmonic reconstruction, and runtime artifact writing;
+- legacy manual behaviors that are still part of the recovered original logic,
+  such as the explicit override path inside `utilities/instance_v4.py`,
+  were preserved and only documented more clearly.
+
 ## Original-To-New Mapping
 
 - `0-main_createDFforPrediction.py`
