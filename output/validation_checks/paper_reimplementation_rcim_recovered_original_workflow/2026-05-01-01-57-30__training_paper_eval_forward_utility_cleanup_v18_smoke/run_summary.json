@@ -1,0 +1,16 @@
+{
+  "stage": "training_models",
+  "mode": "paper_eval",
+  "direction": "forward",
+  "input_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-01-01-57-30__training_paper_eval_forward_utility_cleanup_v18_smoke\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "DT"
+  ],
+  "prediction_output_folder": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-01-01-57-30__training_paper_eval_forward_utility_cleanup_v18_smoke\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "model_output_dir": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-01-01-57-30__training_paper_eval_forward_utility_cleanup_v18_smoke\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-01-01-57-30__training_paper_eval_forward_utility_cleanup_v18_smoke\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv"
+  ]
+}
