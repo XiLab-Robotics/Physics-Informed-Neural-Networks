@@ -99,6 +99,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-01
 
+- [technical/2026-05/2026-05-01/2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md](./technical/2026-05/2026-05-01/2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md)
+  Plan the narrow follow-up pass that fills standalone `#` comment placeholders and normalizes inline-comment capitalization inside the recovered RCIM `predictorML.py` helper without changing its logic.
 - [technical/2026-05/2026-05-01/2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md](./technical/2026-05/2026-05-01/2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md)
   Plan the narrow follow-up pass that fills the standalone `#` comment placeholders in the recovered RCIM instance helpers and normalizes the capitalization of their inline comments.
 - [technical/2026-05/2026-05-01/2026-05-01-11-01-49_rcim_recovered_original_workflow_utility_visual_style_normalization.md](./technical/2026-05/2026-05-01/2026-05-01-11-01-49_rcim_recovered_original_workflow_utility_visual_style_normalization.md)

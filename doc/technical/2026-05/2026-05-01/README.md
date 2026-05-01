@@ -1,5 +1,9 @@
 # 2026-05-01 Technical Documents
 
+- [2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md](./2026-05-01-19-02-56_rcim_predictorml_comment_fill_and_capitalization_normalization.md)
+  Plan the narrow follow-up pass that fills standalone `#` comment placeholders
+  and normalizes inline-comment capitalization inside the recovered RCIM
+  `predictorML.py` helper without changing its logic.
 - [2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md](./2026-05-01-12-06-00_rcim_instance_comment_fill_and_capitalization_normalization.md)
   Plan the narrow follow-up pass that fills the standalone `#` comment
   placeholders in the recovered RCIM instance helpers and normalizes the

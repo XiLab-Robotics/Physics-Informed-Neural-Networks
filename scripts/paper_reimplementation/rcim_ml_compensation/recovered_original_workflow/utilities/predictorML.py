@@ -83,7 +83,7 @@ class MLModel:
 
         """ Run the original single-estimator cross-validation path. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
@@ -99,7 +99,7 @@ class MLModel:
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
         self._train(X_train, Y_train)
 
-        #
+        # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
         errorsAcronims = {
             'test_neg_mean_squared_error' : 'MSE',
             'test_neg_root_mean_squared_error': 'RMSE',
@@ -107,7 +107,7 @@ class MLModel:
             'test_neg_mean_absolute_percentage_error':'MAPE'
         }
 
-        #
+        # Run the Historical Cross-Validation Metric Sweep.
         scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
                                                                   'neg_root_mean_squared_error',
                                                                   'neg_mean_absolute_error',
@@ -117,13 +117,13 @@ class MLModel:
         errorKeys = list(errorsAcronims.keys())
         crossValOut = {}
 
-        #
+        # Store the Estimator Acronym in the Legacy Summary Format.
         crossValOut['0_method'] = self.getAcronimMethod(self.name)
 
         # Collapse the Cross-Validation Means Into the Original Flat Summary Shape.
         for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
 
-        #
+        # Predict the Held-Out Split With the Trained Estimator.
         pred = self._predict(X_test)
 
         # Persist the Summary Exactly Where the Original Workflow Expects It.
@@ -136,18 +136,18 @@ class MLModel:
             existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
             finalOut = pd.concat([existing_df,finalOut])
 
-        #
+        # Write the Summary Back to the Historical Output Path.
         finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
 
         # Export the Held-Out Prediction Rows in the Paper-Era Table Shape.
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
         dfOut = pd.DataFrame(out).T
@@ -174,12 +174,12 @@ class MLModelChainedMultipleOutput:
 
         """ Export Each Estimator in the Regressor Chain to ONNX Format. """
 
-        #
+        # Build the ONNX Input Contract for the Chained Estimators.
         initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
 
         for i in range(len(self.model.estimators_)):
 
-            #
+            # Export the Current Chained Estimator Separately.
             est = self.model.estimators_[i]
             onx = convert_sklearn(est, initial_types=initial_type)
             with open(modelName+'_'+str(i)+".onnx", "wb") as f: f.write(onx.SerializeToString())
@@ -188,36 +188,36 @@ class MLModelChainedMultipleOutput:
 
         """ Leave-One-Out Cross-Validation for the Chained Multi-Output Wrapper. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Leave-One-Out Iterations.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
 
         for i in range(len(dfInput)):
 
-            #
+            # Hold Out the Current Sample and Rebuild the Reduced Training Table.
             elem = dfInputOrig.iloc[i]
             dfInput = dfInputOrig.drop(i)
             X = dfInput[dfInput.columns[:2]]
 
             if self.method == 'phase':
 
-                #
+                # Select Only the Phase Targets for the Chained Wrapper.
                 cols = [x for x in dfInput.columns if 'phase' in x]
                 Y = dfInput[cols]
 
             elif self.method == 'ampl':
 
-                #
+                # Select Only the Amplitude Targets for the Chained Wrapper.
                 cols = [x for x in dfInput.columns if 'ampl' in x]
                 Y = dfInput[cols]
 
             else:
 
-                #
+                # Keep the Original Full Target Surface for the Chained Wrapper.
                 cols = dfInput.columns[3:]
                 Y = dfInput[cols]
 
-            #
+            # Materialize the Held-Out Feature Row for Prediction.
             X_test = pd.DataFrame(elem).T[pd.DataFrame(elem).T.columns[:2]]
             X_train, Y_train = X, Y
 
@@ -230,10 +230,10 @@ class MLModelChainedMultipleOutput:
             instanceName = [x for x, y in zip(files, map) if y == True]
             out[i] = {'name':instanceName[0]}
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_'+cols[j]] = pred[0][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -261,29 +261,29 @@ class MLModelMultipleOutput:
         # Export Each Wrapped Estimator Separately to Match the Original Surface.
         for i in range(len(self.model.estimators_)):
 
-            #
+            # Retrieve the Current Wrapped Estimator for ONNX Export.
             est = self.model.estimators_[i]
 
             # Use the Original Family-Specific ONNX Conversion Branches.
             if isinstance(est, XGBRegressor):
 
-                #
+                # Recover the XGBoost Booster Before ONNX Conversion.
                 booster = est.get_booster()
                 booster.feature_names = [f"f{i}" for i in range(est.n_features_in_)]
 
-                #
+                # Define the XGBoost ONNX Input Contract.
                 initial_type = [('float_input', OXFloatTensorType([None, est.n_features_in_]))]
                 onx = convert_xgboost(est, initial_types=initial_type, target_opset=12)
             
             elif isinstance(est, LGBMRegressor):
 
-                #
+                # Define the LightGBM ONNX Input Contract.
                 initial_type = [("float_input", OXFloatTensorType([None, est.n_features_in_]))]
                 onx = convert_lightgbm(est, initial_types=initial_type, target_opset=12)
 
             else:
 
-                #
+                # Define the Generic scikit-learn ONNX Input Contract.
                 initial_type = [('float_input', FloatTensorType([None, est.n_features_in_]))]
                 onx = convert_sklearn(est, initial_types=initial_type)
 
@@ -295,7 +295,7 @@ class MLModelMultipleOutput:
 
         """ Leave-One-Out Cross-Validation for the Multi-Output Wrapper. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Leave-One-Out Iterations.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
         for i in range(len(dfInput)):
@@ -307,23 +307,23 @@ class MLModelMultipleOutput:
 
             if self.method == 'phase':
 
-                #
+                # Select Only the Phase Targets for the Multi-Output Wrapper.
                 cols = [x for x in dfInput.columns if 'phase' in x]
                 Y = dfInput[cols]
 
             elif self.method == 'ampl':
 
-                #
+                # Select Only the Amplitude Targets for the Multi-Output Wrapper.
                 cols = [x for x in dfInput.columns if 'ampl' in x]
                 Y = dfInput[cols]
 
             else:
 
-                #
+                # Keep the Original Full Target Surface for the Multi-Output Wrapper.
                 cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
                 Y = dfInput[cols]
 
-            #
+            # Materialize the Held-Out Feature Row for Prediction.
             X_test = pd.DataFrame(elem).T[['rpm','deg','tor']]
             X_train, Y_train = X, Y
 
@@ -335,10 +335,10 @@ class MLModelMultipleOutput:
             namesParam = {'rpm':elem['rpm'],'deg':elem['deg'],"tor":elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_'+cols[j]] = pred[0][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -346,7 +346,7 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
 
         # Build the Original Three-Input Feature Matrix.
@@ -354,41 +354,41 @@ class MLModelMultipleOutput:
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Multi-Output Wrapper.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Multi-Output Wrapper.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Multi-Output Wrapper.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
         # Keep the Original Held-Out Split Configuration.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
 
-        #
+        # Train the Wrapped Estimator on the Historical Held-Out Split.
         self._train(X_train, Y_train)
         pred = self._predict(X_test)
 
         # Export the Held-Out Prediction Rows in the Paper-Era Table Shape.
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -409,7 +409,7 @@ class MLModelMultipleOutput:
 
         if acronim == 'DT':
 
-            #
+            # Build the Decision-Tree Hyperparameter Grid.
             parameters['DT'] = {
                    'estimator__criterion': list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
                    'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
@@ -419,7 +419,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'ET':
 
-            #
+            # Build the Extra-Tree Hyperparameter Grid.
             parameters['ET']={'estimator__criterion' : list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
                    'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
                    'estimator__max_leaf_nodes': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
@@ -428,7 +428,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'ERT':
 
-            #
+            # Build the Extra-Trees Hyperparameter Grid.
             parameters['ERT'] = {
                    'estimator__n_estimators':list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                    'estimator__criterion' : list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
@@ -439,7 +439,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'RF':
 
-            #
+            # Build the Random-Forest Hyperparameter Grid.
             parameters['RF'] = {
                    'estimator__n_estimators': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                    'estimator__criterion': list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
@@ -450,7 +450,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'GBM':
 
-            #
+            # Build the Gradient-Boosting Hyperparameter Grid.
             parameters['GBM'] = {
                 'estimator__n_estimators': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                 'estimator__criterion': list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
@@ -462,7 +462,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'XGBM':
 
-            #
+            # Build the XGBoost Hyperparameter Grid.
             parameters['XGBM'] = {
                 'estimator__learning_rate': list(dict.fromkeys(list([0.01,0.2,0.5]) + [self.model.estimator.get_params()['learning_rate']])),
                 'estimator__n_estimator': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
@@ -472,7 +472,7 @@ class MLModelMultipleOutput:
 
         elif acronim ==  'HGBM':
 
-            #
+            # Build the Histogram-Gradient-Boosting Hyperparameter Grid.
             parameters['HGBM'] = {
                 'estimator__max_iter': list(dict.fromkeys(list([10,100,1000]) + [self.model.estimator.get_params()['max_iter']])),
                 'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
@@ -482,7 +482,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'LGBM':
 
-            #
+            # Build the LightGBM Hyperparameter Grid.
             parameters['LGBM'] = {
                 'estimator__learning_rate': list(dict.fromkeys(list([x / 100 for x in self.genera_numeri_uniformi_interi(5, 1, 100)]) + [self.model.estimator.get_params()['learning_rate']])),
                  'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5, 14, 21)) + [self.model.estimator.get_params()['max_depth']])),
@@ -492,7 +492,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'MLP':
 
-            #
+            # Build the MLP Hyperparameter Grid.
             parameters['MLP'] = {
                     'estimator__hidden_layer_sizes': list(dict.fromkeys(list([(100,), (100, 50), (200,), (200, 50)]) + [self.model.estimator.get_params()['hidden_layer_sizes']])),
                     'estimator__activation': list(dict.fromkeys(list(['tanh', 'relu']) + [self.model.estimator.get_params()['activation']])),
@@ -506,7 +506,7 @@ class MLModelMultipleOutput:
 
         elif acronim == 'SVM':
 
-            #
+            # Build the SVM Hyperparameter Grid.
             parameters['SVM'] = {
                      'estimator__kernel':  list(dict.fromkeys(list(['rbf','linear']) + [self.model.estimator.get_params()['kernel']])),
                      'estimator__C':  list(dict.fromkeys(list([1,2,3,5,6,7]) + [self.model.estimator.get_params()['C']])),
@@ -520,7 +520,7 @@ class MLModelMultipleOutput:
 
         """ Map the estimator name to the original report acronym. """
 
-        #
+        # Preserve the Original Family-Acronym Mapping Used by the Reports.
         acronims = {
             'DecisionTreeRegressor': 'DT',
             'ExtraTreeRegressor': 'ET',
@@ -537,7 +537,7 @@ class MLModelMultipleOutput:
 
         method = ''
 
-        #
+        # Resolve the Acronym From the Class Name Fragment.
         for elem in acronims.keys():
             if elem in fileName: method = acronims[elem]
 
@@ -547,38 +547,38 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Evaluation Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Evaluation Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Evaluation Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Paper Evaluation Path.
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=testSetDimension, random_state=0)
         print("MODEL:", self.name)
         print("TRAINING START:", datetime.datetime.now())
 
-        #
+        # Train the Wrapped Estimator Before Scoring the Held-Out Split.
         self._train(X_train, Y_train)
         print("TRAINING END:", datetime.datetime.now())
 
-        #
+        # Predict the Held-Out Split With the Trained Estimator.
         pred = self._predict(X_test)
 
         errorsAcronims = {
@@ -588,17 +588,17 @@ class MLModelMultipleOutput:
             'test_neg_mean_absolute_percentage_error': 'MAPE'
         }
 
-        #
+        # Prepare the Historical Metric Key Order for Per-Target Evaluation.
         errorKeys = list(errorsAcronims.keys())
         crossValOut = {}
         crossValOut['0_method'] = self.getAcronimMethod(self.name)
 
         for i in range(len(self.model.estimators_)):
 
-            #
+            # Iterate Over the Historical Metric Set for the Current Target.
             for method in errorKeys:
 
-                #
+                # Recover the Harmonic Component Suffix Used by the Summary CSV.
                 component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
                 if errorsAcronims[method] == 'MSE':  crossValOut[str(component[0]) + '_' + str(component[1]) + '_' + errorsAcronims[method]] = mean_squared_error(Y_test[Y_test.columns[i]],pred[:,i:i+1])
                 if errorsAcronims[method] == 'RMSE': crossValOut[str(component[0]) + '_' + str(component[1]) + '_' + errorsAcronims[method]] = math.sqrt(mean_squared_error(Y_test[Y_test.columns[i]],pred[:,i:i+1]))
@@ -611,21 +611,21 @@ class MLModelMultipleOutput:
 
         if os.path.isfile(outputFileSummary):
 
-            #
+            # Append to the Existing Evaluation Summary File Instead of Overwriting It.
             existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
             finalOut = pd.concat([existing_df, finalOut])
 
-        #
+        # Write the Evaluation Summary Back to the Historical Output Path.
         finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
 
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
         dfOut = pd.DataFrame(out).T
@@ -635,43 +635,43 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Hyperparameter Search Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Hyperparameter Search Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Hyperparameter Search Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Search Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
 
         # Wrap the original multi-output estimator in the historical grid-search path.
         self.model = GridSearchCV(self.model, self.getParameterGridSearchCV(self.getAcronimMethod(self.name)),n_jobs=-1)
 
-        #
+        # Print the Historical Training Banner Before the Grid Search.
         print("MODEL:",self.name)
         print("TRAINING START:",datetime.datetime.now())
         print(self.model.param_grid)
 
-        #
+        # Train the Historical Grid-Search Wrapper on the Training Split.
         self._train(X_train, Y_train)
 
-        #
+        # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
         errorsAcronims = {
             'test_neg_mean_squared_error' : 'MSE',
             'test_neg_root_mean_squared_error': 'RMSE',
@@ -679,40 +679,40 @@ class MLModelMultipleOutput:
             'test_neg_mean_absolute_percentage_error':'MAPE'
         }
 
-        #
+        # Run the Historical Cross-Validation Metric Sweep on the Grid-Search Wrapper.
         scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
                                                                   'neg_root_mean_squared_error',
                                                                   'neg_mean_absolute_error',
                                                                   'neg_mean_absolute_percentage_error'])
 
-        #
+        # Prepare the Flat Summary Container Used by the Historical CSV Export.
         errorKeys = list(errorsAcronims.keys())
         crossValOut = {}
         crossValOut['0_method'] = self.getAcronimMethod(self.name)
 
-        #
+        # Store the Global Cross-Validation Means for the Best-Search Wrapper.
         for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
 
-        #
+        # Iterate Over the Best Wrapped Estimators Target by Target.
         for i in range(len(self.model.best_estimator_.estimators_)):
 
-            #
+            # Re-Score the Current Best Wrapped Estimator Target by Target.
             scores = cross_validate(self.model.best_estimator_.estimators_[i], X, Y[Y.columns[i:i + 1]], cv=10,
                                     scoring=['neg_mean_squared_error',
                                              'neg_root_mean_squared_error',
                                              'neg_mean_absolute_error',
                                              'neg_mean_absolute_percentage_error'])
 
-            #
+            # Reuse the Historical Error-Key Ordering for the Current Target.
             errorKeys = list(errorsAcronims.keys())
 
             for el in errorKeys:
 
-                #
+                # Recover the Harmonic Component Suffix Used by the Summary CSV.
                 component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
                 crossValOut[str(component[0])+'_'+str(component[1])+'_'+errorsAcronims[el]] = abs(scores[el].mean())
 
-        #
+        # Print the Historical Training Footer and Best Parameters.
         print("TRAINING END:",datetime.datetime.now())
         print(self.model.best_params_)
         pred = self._predict(X_test)
@@ -721,14 +721,14 @@ class MLModelMultipleOutput:
         outputFileSummary = 'output_prediction/summaryCrossValidation+_' + self.name.split('_')[-2:][0] + '_' + self.name.split('_')[-2:][1] + '.csv'
         finalOut = pd.DataFrame(crossValOut,index=[0])
 
-        #
+        # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
         if os.path.isfile(outputFileSummary):
 
-            #
+            # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
             existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
             finalOut = pd.concat([existing_df,finalOut])
 
-        #
+        # Write the Cross-Validation Summary Back to the Historical Output Path.
         finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
 
         # Persist the best-parameter summary exactly where the original workflow expects it.
@@ -736,28 +736,28 @@ class MLModelMultipleOutput:
         paramOut = {'0_method':self.getAcronimMethod(self.name), 'best_parameters':str(self.model.best_params_)}
         paramOut = pd.DataFrame(paramOut,index=[0])
 
-        #
+        # Append to the Existing Best-Parameter Summary File Instead of Overwriting It.
         if os.path.isfile(outputFileParameter):
 
-            #
+            # Append to the Existing Best-Parameter Summary File Instead of Overwriting It.
             existing_df = pd.read_csv(outputFileParameter, sep=';', decimal=',')
             paramOut = pd.concat([existing_df,paramOut])
 
-        #
+        # Write the Best-Parameter Summary Back to the Historical Output Path.
         paramOut.to_csv(outputFileParameter, sep=';', decimal=',', index=False)
 
         # Export the held-out prediction rows in the paper-era table shape.
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Write the Legacy Prediction Export Buffer as a Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -765,35 +765,35 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        # Build the original three-input feature matrix.
+        # Build the Original Three-Input Feature Matrix.
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Cross-Validation Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Cross-Validation Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Cross-Validation Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Cross-Validation Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
 
-        #
+        # Train the Wrapped Estimator Before Running Cross-Validation Reporting.
         self._train(X_train, Y_train)
 
-        #
+        # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
         errorsAcronims = {
             'test_neg_mean_squared_error' : 'MSE',
             'test_neg_root_mean_squared_error': 'RMSE',
@@ -801,67 +801,67 @@ class MLModelMultipleOutput:
             'test_neg_mean_absolute_percentage_error':'MAPE'
         }
 
-        #
+        # Run the Historical Cross-Validation Metric Sweep.
         scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
                                                                   'neg_root_mean_squared_error',
                                                                   'neg_mean_absolute_error',
                                                                   'neg_mean_absolute_percentage_error'])
 
-        #
+        # Prepare the Flat Summary Container Used by the Historical CSV Export.
         errorKeys = list(errorsAcronims.keys())#[x for x in list(scores.keys()) if 'test' in x]
         crossValOut = {}
         crossValOut['0_method'] = self.getAcronimMethod(self.name)
 
-        #
+        # Store the Global Cross-Validation Means for the Wrapped Estimator.
         for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
 
         for i in range(len(self.model.estimators_)):
 
-            #
+            # Re-Score the Current Wrapped Estimator Target by Target.
             scores = cross_validate(self.model.estimators_[i], X, Y[Y.columns[i:i + 1]], cv=10,
                                     scoring=['neg_mean_squared_error',
                                              'neg_root_mean_squared_error',
                                              'neg_mean_absolute_error',
                                              'neg_mean_absolute_percentage_error'])
 
-            #
+            # Reuse the Historical Error-Key Ordering for the Current Target.
             errorKeys = list(errorsAcronims.keys())
 
             for el in errorKeys:
 
-                #
+                # Recover the Harmonic Component Suffix Used by the Summary CSV.
                 component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
                 crossValOut[str(component[0])+'_'+str(component[1])+'_'+errorsAcronims[el]] = abs(scores[el].mean())
 
-        #
+        # Predict the Held-Out Split With the Trained Estimator.
         pred = self._predict(X_test)
 
         # Persist the summary exactly where the original workflow expects it.
         outputFileSummary = 'output_prediction/summaryCrossValidation+_' + self.name.split('_')[-2:][0] + '_' + self.name.split('_')[-2:][1] + '.csv'
         finalOut = pd.DataFrame(crossValOut,index=[0])
 
-        #
+        # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
         if os.path.isfile(outputFileSummary):
 
-            #
+            # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
             existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
             finalOut = pd.concat([existing_df,finalOut])
 
-        #
+        # Write the Cross-Validation Summary Back to the Historical Output Path.
         finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
 
         # Export the held-out prediction rows in the paper-era table shape.
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -869,32 +869,32 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Export Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Export Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Export Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Train on the Entire Original Dataset Before Exporting the Bank.
         X_train, Y_train = X, Y
 
-        #
+        # Print the Historical Training Banner Before the Full-Dataset Export Fit.
         print("MODEL:", self.name)
         print("TRAINING START:", datetime.datetime.now())
         self._train(X_train, Y_train)
@@ -906,23 +906,23 @@ class MLModelMultipleOutput:
 
         """ Run one already-trained export bank on one explicit test table. """
 
-        #
+        # Extract the Input Columns From the Explicit Export Test Table.
         xCols = [x for x in dfTest.columns if 'input' in x]
         x_test = dfTest[xCols]
         x_test.columns = ['tor','rpm','deg']
         cl_ok = ['rpm','deg','tor']
         x_test = x_test[cl_ok]
 
-        #
+        # Initialize the Concatenated Prediction Table for the Explicit Export Path.
         dfOut = pd.DataFrame()
 
         for md in self.model.estimators_:
 
-            #
+            # Predict the Current Wrapped Output Column on the Export Test Table.
             pred_col = md.predict(x_test)
             dfOut = pd.concat([dfOut,pd.DataFrame(pred_col)],axis=1)
 
-        #
+        # Persist the Explicit Export Prediction Table Using the Historical Filename Contract.
         pd.concat([pd.DataFrame(dfOut),x_test],axis=1).to_csv('outputCOMB_SVR_GBR_T27_'+str(datetime.datetime.now().date())+'.csv',sep=';',decimal=',')
         return dfOut
 
@@ -930,70 +930,70 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
 
-        # Build the original three-input feature matrix.
+        # Build the Original Three-Input Feature Matrix.
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Variable-Train Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Variable-Train Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Variable-Train Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Default the Requested Train Fraction to the Complement of the Test Split.
         if trainSetDimansion == None: trainSetDimansion = 1 - testSetDimension
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Variable-Train Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=testSetDimension, random_state=0)
 
-        #
+        # Reset the Indices Before Applying the Historical Random Subsampling Step.
         X_train.reset_index(inplace=True,drop=True)
         X_test.reset_index(inplace=True,drop=True)
         Y_train.reset_index(inplace=True,drop=True)
         Y_test.reset_index(inplace=True,drop=True)
 
-        #
+        # Seed the Python RNG Exactly Like the Original Workflow.
         random.seed(0)
 
-        #
+        # Drop Random Training Rows Until the Requested Effective Train Size Is Reached.
         itemToDrop = random.sample(X_train.index.to_list(),len(X_train) - round(len(X)*trainSetDimansion))
 
-        #
+        # Remove the Sampled Rows From Both Features and Targets.
         X_train = X_train.drop(itemToDrop)
         Y_train = Y_train.drop(itemToDrop)
 
-        #
+        # Train the Wrapped Estimator on the Reduced Training Split.
         self._train(X_train,Y_train)
 
-        #
+        # Predict the Held-Out Split With the Reduced-Train Estimator.
         pred = self._predict(X_test.reset_index(drop=True))
 
         # Export the held-out prediction rows in the paper-era table shape.
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1003,8 +1003,8 @@ class MLModelMultiOutputCombined:
 
     def __init__(self, modelsList, name, method=''):
 
-        #
-        self.model = MultiOutputRegressor(model)
+        # Keep the Historical Mixed-Wrapper Construction Intact.
+        self.model = MultiOutputRegressor(modelsList)
         self.method = method
         self.name = name
 
@@ -1018,67 +1018,67 @@ class MLModelMultiOutputCombined:
 
         """ Export The Single Model From The Wrapped Multi-Output Estimator. """
 
-        #
+        # Build the ONNX Input Contract for the Mixed Wrapper.
         initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
 
         for i in range(len(self.model.estimators_)):
 
-            #
+            # Retrieve the Current Wrapped Estimator for ONNX Export.
             est = self.model.estimators_[i]
             onx = convert_sklearn(est, initial_types=initial_type)
 
-            #
+            # Persist the Exported Estimator Using the Historical Naming Contract.
             with open(modelName+'_'+colsToPredict[i]+".onnx", "wb") as f: f.write(onx.SerializeToString())
 
     def predictorML_leaveOneOut(self, dfInput,files):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Leave-One-Out Iterations.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
 
         for i in range(len(dfInput)):
 
-            #
+            # Hold Out the Current Sample and Rebuild the Reduced Training Table.
             elem = dfInputOrig.iloc[i]
             dfInput = dfInputOrig.drop(i)
             X = dfInput[['rpm','deg','tor']]
 
             if self.method == 'phase':
 
-                #
+                # Select Only the Phase Targets for the Mixed Wrapper.
                 cols = [x for x in dfInput.columns if 'phase' in x]
                 Y = dfInput[cols]
 
             elif self.method == 'ampl':
 
-                #
+                # Select Only the Amplitude Targets for the Mixed Wrapper.
                 cols = [x for x in dfInput.columns if 'ampl' in x]
                 Y = dfInput[cols]
 
             else:
 
-                #
+                # Keep the Original Full Target Surface for the Mixed Wrapper.
                 cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]#dfInput.columns[3:]
                 Y = dfInput[cols]
 
-            #
+            # Materialize the Held-Out Feature Row for Prediction.
             X_test = pd.DataFrame(elem).T[['rpm','deg','tor']]
             X_train, Y_train = X, Y
 
-            #
+            # Train on the Reduced Table and Predict the Held-Out Row.
             self._train(X_train,Y_train)
             pred = self._predict(X_test)
 
-            #
+            # Export the Held-Out Operating Condition in the Legacy Table Shape.
             namesParam = {'rpm':elem['rpm'],'deg':elem['deg'],"tor":elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[0][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1092,40 +1092,40 @@ class MLModelMultiOutputCombined:
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Mixed Wrapper.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Mixed Wrapper.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Mixed Wrapper.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Mixed Wrapper.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
         self._train(X_train, Y_train)
 
-        #
+        # Predict the Held-Out Split With the Trained Mixed Wrapper.
         pred = self._predict(X_test)
 
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1133,7 +1133,7 @@ class MLModelMultiOutputCombined:
 
         """ Map the estimator name to the original report acronym. """
 
-        #
+        # Preserve the Original Family-Acronym Mapping Used by the Reports.
         acronims = {
             'DecisionTreeRegressor': 'DT',
             'ExtraTreeRegressor': 'ET',
@@ -1148,10 +1148,10 @@ class MLModelMultiOutputCombined:
             'MinimumDistance': 'MinDist'
         }
 
-        #
+        # Start With an Empty Fallback Acronym.
         method = ''
 
-        #
+        # Resolve the Acronym From the Class Name Fragment.
         for elem in acronims.keys():
             if elem in fileName: method = acronims[elem]
 
@@ -1161,34 +1161,34 @@ class MLModelMultiOutputCombined:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Cross-Validation Bookkeeping.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Mixed Wrapper.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Mixed Wrapper.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Mixed Wrapper.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Mixed Wrapper.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
         self._train(X_train, Y_train)
 
-        #
+        # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
         errorsAcronims = {
             'test_neg_mean_squared_error' : 'MSE',
             'test_neg_root_mean_squared_error': 'RMSE',
@@ -1196,39 +1196,39 @@ class MLModelMultiOutputCombined:
             'test_neg_mean_absolute_percentage_error':'MAPE'
         }
 
-        #
+        # Run the Historical Cross-Validation Metric Sweep.
         scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
                                                                   'neg_root_mean_squared_error',
                                                                   'neg_mean_absolute_error',
                                                                   'neg_mean_absolute_percentage_error'])
 
-        #
+        # Prepare the Flat Summary Container Used by the Historical CSV Export.
         errorKeys = list(errorsAcronims.keys())
         crossValOut = {}
         crossValOut['0_method'] = self.getAcronimMethod(self.name)
 
-        #
+        # Store the Global Cross-Validation Means for the Mixed Wrapper.
         for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
 
         for i in range(len(self.model.estimators_)):
 
-            #
+            # Re-Score the Current Wrapped Estimator Target by Target.
             scores = cross_validate(self.model.estimators_[i], X, Y[Y.columns[i:i + 1]], cv=10,
                                     scoring=['neg_mean_squared_error',
                                              'neg_root_mean_squared_error',
                                              'neg_mean_absolute_error',
                                              'neg_mean_absolute_percentage_error'])
 
-            #
+            # Reuse the Historical Error-Key Ordering for the Current Target.
             errorKeys = list(errorsAcronims.keys())
 
             for el in errorKeys:
 
-                #
+                # Recover the Harmonic Component Suffix Used by the Summary CSV.
                 component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
                 crossValOut[str(component[0])+'_'+str(component[1])+'_'+errorsAcronims[el]] = abs(scores[el].mean())
 
-        #
+        # Predict the Held-Out Split With the Trained Mixed Wrapper.
         pred = self._predict(X_test)
 
         # Persist the summary exactly where the original workflow expects it.
@@ -1237,24 +1237,24 @@ class MLModelMultiOutputCombined:
 
         if os.path.isfile(outputFileSummary):
 
-            #
+            # Append to the Existing Summary File Instead of Overwriting It.
             existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
             finalOut = pd.concat([existing_df,finalOut])
 
-        #
+        # Write the Summary Back to the Historical Output Path.
         finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
 
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1262,30 +1262,30 @@ class MLModelMultiOutputCombined:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Export-Only Bookkeeping.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Export Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Export Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Export Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Train on the Entire Original Dataset Before Exporting the Bank.
         X_train, Y_train = X, Y
         self._train(X_train, Y_train)
 
@@ -1295,68 +1295,68 @@ class MLModelMultiOutputCombined:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Variable-Train Bookkeeping.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Variable-Train Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Variable-Train Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Variable-Train Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Default the Requested Train Fraction to the Complement of the Test Split.
         if trainSetDimansion == None: trainSetDimansion = 1 - testSetDimension
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Variable-Train Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=testSetDimension, random_state=0)
 
-        #
+        # Reset the Indices Before Applying the Historical Random Subsampling Step.
         X_train.reset_index(inplace=True,drop=True)
         X_test.reset_index(inplace=True,drop=True)
         Y_train.reset_index(inplace=True,drop=True)
         Y_test.reset_index(inplace=True,drop=True)
 
-        #
+        # Seed the Python RNG Exactly Like the Original Workflow.
         random.seed(0)
 
-        #
+        # Drop Random Training Rows Until the Requested Effective Train Size Is Reached.
         itemToDrop = random.sample(X_train.index.to_list(),len(X_train) - round(len(X)*trainSetDimansion))
 
-        #
+        # Remove the Sampled Rows From Both Features and Targets.
         X_train = X_train.drop(itemToDrop)
         Y_train = Y_train.drop(itemToDrop)
 
-        #
+        # Train the Mixed Wrapper on the Reduced Training Split.
         self._train(X_train,Y_train)
 
-        #
+        # Predict the Held-Out Split With the Reduced-Train Estimator.
         pred = self._predict(X_test.reset_index(drop=True))
 
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1366,7 +1366,7 @@ class MLPipeline:
 
     def __init__(self, model, name, columnToPredict):
 
-        #
+        # Keep the Historical Pipeline Wrapper Contract Intact.
         self.columnToPredict = columnToPredict
         self.model = Pipeline(steps=[('preprocess',StandardScaler()),('model',model)])
         self.name = name
@@ -1379,16 +1379,16 @@ class MLPipeline:
 
     def gridSearch(self,params):
 
-        #
+        # Replace the Pipeline With the Historical Grid-Search Wrapper.
         self.model = GridSearchCV(self.model, params, n_jobs=-1)
 
     def exportModel(self,modelName):
 
-        #
+        # Build the ONNX Input Contract for the Pipeline Wrapper.
         initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
         onx = convert_sklearn(self.model, initial_types=initial_type, options={type(self.model): {'zipmap':False}}, target_opset=12)
 
-        #
+        # Persist the Exported Pipeline Model Using the Historical Naming Contract.
         with open(modelName+".onnx", "wb") as f: f.write(onx.SerializeToString())
         return
 
@@ -1396,13 +1396,13 @@ class MLPipeline:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Leave-One-Out Iterations.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
 
         for i in range(len(dfInput)):
 
-            #
+            # Hold Out the Current Sample and Rebuild the Reduced Training Table.
             elem = dfInputOrig.iloc[i]
             dfInput = dfInputOrig.drop(i)
             X = dfInput[dfInput.columns[:2]]
@@ -1414,12 +1414,12 @@ class MLPipeline:
             self._train(X_train,Y_train)
             pred = self._predict(X_test)
 
-            #
+            # Recover the Legacy Instance Name Match for the Exported Row.
             map = [x.startswith(str(elem['rpm'])+'rpm'+str(elem['deg'])+'deg') for x in files]
             instanceName = [x for x, y in zip(files, map) if y == True]
             out[i] = {'name':instanceName[0],'prev_'+self.columnToPredict:pred[0]}
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1427,13 +1427,13 @@ class MLPipeline:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Keep a Copy of the Original Dataframe for Leave-One-Out Iterations.
         dfInputOrig = copy.deepcopy(dfInput)
         out = {}
 
         for i in range(len(dfInput)):
 
-            #
+            # Hold Out the Current Sample and Rebuild the Reduced Training Table.
             elem = dfInputOrig.iloc[i]
             dfInput = dfInputOrig.drop(i)
             x_columns = list(dfInput.columns[:2]) + list(dfInput.columns[3:])
@@ -1447,12 +1447,12 @@ class MLPipeline:
             self._train(X_train,Y_train)
             pred = self._predict(X_test)
 
-            #
+            # Recover the Legacy Instance Name Match for the Exported Row.
             map = [x.startswith(str(elem['rpm'])+'rpm'+str(elem['deg'])+'deg') for x in files]
             instanceName = [x for x, y in zip(files, map) if y == True]
             out[i] = {'name':instanceName[0],'prev_'+self.columnToPredict:pred[0]}
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
 
@@ -1462,7 +1462,7 @@ class MinimumDistanceRegressor:
 
     def _calculateDistanceMatrix(self,X_train,X_test):
 
-        #
+        # Compute the Full Distance Matrix Between Train and Test Samples.
         return distance_matrix(X_train,X_test)
 
     def _getMinimum(self,distMatrix):
@@ -1473,20 +1473,20 @@ class MinimumDistanceRegressor:
         # Process the distance matrix one test-sample column at a time.
         for colonna in range(len(distMatrix[0])):
 
-            #
+            # Initialize the Running Minimum for the Current Test Column.
             minimo_colonna = float('inf')
             indice_minimo = None
 
             # Scan every training sample distance for the current test sample.
             for riga in range(len(distMatrix)):
 
-                #
+                # Read the Current Train-to-Test Distance Entry.
                 valore_attuale = distMatrix[riga][colonna]
 
                 # Keep the row index that minimizes the current column distance.
                 if valore_attuale < minimo_colonna: minimo_colonna, indice_minimo = valore_attuale, riga
 
-            #
+            # Store the Index of the Nearest Training Sample for This Test Column.
             risultati.append(indice_minimo)
 
         return risultati
@@ -1495,18 +1495,18 @@ class MinimumDistanceRegressor:
 
         """ Predict the output for each test sample as the output of the nearest training sample. """
 
-        #
+        # Compute the Distance Matrix and Resolve the Nearest Indices.
         distMatrix = self._calculateDistanceMatrix(X_train,X_test)
         mins = self._getMinimum(distMatrix)
         pred = []
 
-        #
+        # Gather the Target Rows Associated With the Nearest Training Samples.
         for i in mins: pred.append(Y_train.iloc[i])
         return pred
 
     def __init__(self, name, method=''):
 
-        #
+        # Keep the Historical Minimum-Distance Wrapper Contract Intact.
         self.name = name
         self.method = method
 
@@ -1514,42 +1514,42 @@ class MinimumDistanceRegressor:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        #
+        # Initialize the Legacy Prediction Export Buffer.
         out = {}
         X = dfInput[['rpm', 'deg', 'tor']]
 
         if self.method == 'phase':
 
-            #
+            # Select Only the Phase Targets for the Minimum-Distance Branch.
             cols = [x for x in dfInput.columns if 'phase' in x]
             Y = dfInput[cols]
 
         elif self.method == 'ampl':
 
-            #
+            # Select Only the Amplitude Targets for the Minimum-Distance Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x]
             Y = dfInput[cols]
 
         else:
 
-            #
+            # Keep the Original Full Target Surface for the Minimum-Distance Branch.
             cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
             Y = dfInput[cols]
 
-        #
+        # Materialize the Historical Held-Out Split Used by the Minimum-Distance Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=testSetDimension, random_state=0)
         pred = self._predict(X_train.reset_index(drop=True),X_test.reset_index(drop=True),Y_train.reset_index(drop=True))
 
         for i in range(len(X_test)):
 
-            #
+            # Read the Held-Out Operating Condition for This Exported Row.
             elem = X_test.iloc[i]
             namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
             out[i] = namesParam
 
-            #
+            # Append One Predicted Target Value to the Exported Row.
             for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
 
-        #
+        # Convert the Legacy Export Buffer Into the Expected Dataframe.
         dfOut = pd.DataFrame(out).T
         return dfOut
