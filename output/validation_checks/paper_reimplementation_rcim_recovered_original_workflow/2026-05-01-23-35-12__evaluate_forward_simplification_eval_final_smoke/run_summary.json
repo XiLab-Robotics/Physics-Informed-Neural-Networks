@@ -1,0 +1,10 @@
+{
+  "stage": "evaluate_models",
+  "direction": "forward",
+  "instances_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\instances_V3",
+  "instance_cache_directory_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\data\\paper_reimplementation_rcim_recovered_original_workflow\\instance_pickle_cache\\original_pipeline_instances_v3_42e08465c1e9",
+  "prediction_directory": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "runtime_prediction_directory_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-01-23-35-12__evaluate_forward_simplification_eval_final_smoke\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "evaluation_root": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-01-23-35-12__evaluate_forward_simplification_eval_final_smoke\\evaluation",
+  "output_summary_file_path": "evaluation/V3.9/dfOutTot_evaluation_V12dfOutTot_prediction_ELMRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv.csv"
+}
