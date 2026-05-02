@@ -37,6 +37,7 @@ def _build_argument_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--instances-path", type=Path, default=DEFAULT_INSTANCES_PATH, help="Directory containing the original RCIM instance CSVs or pickles.")
     parser.add_argument("--instance-cache-directory", type=Path, default=None, help=f"Shared pickle cache directory. Defaults under {DEFAULT_INSTANCE_CACHE_ROOT}.")
+    parser.add_argument("--rebuild-instance-cache", action="store_true", help="Rebuild the shared pickle cache from source CSV files when possible.")
     parser.add_argument("--direction", default="backward", help="Direction to generate: forward/Fw or backward/Bw.")
     parser.add_argument("--output-root", type=Path, default=None, help="Repository-owned runtime root. Defaults under output/validation_checks/.")
     parser.add_argument("--output-suffix", default="", help="Optional suffix appended to the default runtime root name.")
@@ -71,7 +72,10 @@ def main():
     with pushd(output_root):
 
         # Call The Copied Original Dataframe-Generation Logic Without Changing Its Numerical Behavior.
-        statistics = Statistics(instance_cache_directory_path=instance_cache_directory_path)
+        statistics = Statistics(
+            instance_cache_directory_path=instance_cache_directory_path,
+            force_rebuild_instance_cache=args.rebuild_instance_cache,
+        )
         statistics.read_all_fft_instances(str(instances_path))
         dataframe = statistics.build_prediction_dataframe_with_amplitude_and_phase(direction_code)
         dataframe.to_csv(output_csv_name, sep=";", decimal=",")
@@ -84,6 +88,7 @@ def main():
             "direction": direction_label,
             "instances_path": str(instances_path),
             "instance_cache_directory_path": str(instance_cache_directory_path),
+            "rebuild_instance_cache": bool(args.rebuild_instance_cache),
             "output_csv_path": str(output_csv_path),
             "row_count": int(len(dataframe)),
             "column_count": int(len(dataframe.columns)),

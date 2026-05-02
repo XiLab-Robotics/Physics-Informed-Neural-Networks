@@ -12,10 +12,11 @@ class Statistics:
 
     """ Container for the original RCIM dataframe and plotting helpers. """
 
-    def __init__(self, instances=None, instance_cache_directory_path=None):
+    def __init__(self, instances=None, instance_cache_directory_path=None, force_rebuild_instance_cache=False):
 
         # Keep The Recovered Workflow State Explicit.
         self.instances = instances
+        self.force_rebuild_instance_cache = force_rebuild_instance_cache
         self.instance_cache_directory_path = (
             Path(instance_cache_directory_path).resolve()
             if instance_cache_directory_path is not None
@@ -140,19 +141,24 @@ class Statistics:
 
         # Mirror Source Pickles Into The Shared Repository-Owned Cache When Available.
         if source_file_path.suffix.lower() == ".pickle":
-            if cache_file_path is not None and not cache_file_path.exists():
+
+            # Copy The Source Pickle To The Shared Cache When It Does Not Exist Or Is Outdated.
+            if cache_file_path is not None and (self.force_rebuild_instance_cache or not cache_file_path.exists()):
                 shutil.copy2(source_file_path, cache_file_path)
-            if cache_file_path is not None:
-                return self._load_cached_instance(cache_file_path)
+
+            # Otherwise Reuse The Source File-Owned Shared Cache File.
+            if cache_file_path is not None: return self._load_cached_instance(cache_file_path)
             return self._load_cached_instance(source_file_path)
 
         # Otherwise Reuse Or Create The Repository-Owned Shared Cache File.
-        if cache_file_path is not None and cache_file_path.exists():
+        if (cache_file_path is not None and cache_file_path.exists() and not self.force_rebuild_instance_cache):
             return self._load_cached_instance(cache_file_path)
 
+        # Read The Source CSV File And Create The Shared Cache Pickle For Faster Future Loads.
         instance = Instance.read(str(source_file_path))
-        if cache_file_path is not None:
-            self._write_cached_instance(cache_file_path, instance)
+
+        # Persist The Shared Cache File For Faster Future Loads.
+        if cache_file_path is not None: self._write_cached_instance(cache_file_path, instance)
         return instance
 
     def _iter_source_file_paths(self, input_path):
@@ -167,14 +173,28 @@ class Statistics:
             if file_path.is_file() and not file_path.name.startswith(".")
         )
 
-        # Prefer Serialized Pickles Over CSV Files When Both Exist For The Same Stem.
+        # Prefer CSV Sources During Forced Cache Rebuilds When Both File Types Exist.
         preferred_file_path_by_stem = {}
         for file_path in candidate_file_path_list:
+
+            # Keep The Original All-Instances Branch Available For Manual Exploration.
             existing_file_path = preferred_file_path_by_stem.get(file_path.stem)
+
             if existing_file_path is None:
+
+                # When No Preferred File For This Stem Exists Yet, Prefer The CSV Source
                 preferred_file_path_by_stem[file_path.stem] = file_path
                 continue
+
+            if self.force_rebuild_instance_cache:
+
+                # When Forcing Cache Rebuilds, Prefer The CSV Source
+                if file_path.suffix.lower() == ".csv": preferred_file_path_by_stem[file_path.stem] = file_path
+                continue
+
             if file_path.suffix.lower() == ".pickle":
+
+                # When Not Forcing Cache Rebuilds, Prefer The Pickle Cache
                 preferred_file_path_by_stem[file_path.stem] = file_path
 
         return list(preferred_file_path_by_stem.values())

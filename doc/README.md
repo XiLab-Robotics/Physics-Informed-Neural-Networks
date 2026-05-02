@@ -1339,6 +1339,11 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for tracking the oversized RandomForest harmonic-wise campaign bundle through Git LFS so the pending commit remains GitHub-safe.
 - [technical/2026-04/2026-04-30/2026-04-30-17-02-45_rcim_recovered_original_workflow_comment_style_and_full_surface_cleanup.md](./technical/2026-04/2026-04-30/2026-04-30-17-02-45_rcim_recovered_original_workflow_comment_style_and_full_surface_cleanup.md)
   Technical plan for the second recovered-original RCIM workflow cleanup pass, focused on comment style, comment accuracy, full-surface stale-residue removal, and dependency-aligned readability normalization.
+- [technical/2026-05/2026-05-02/2026-05-02-11-23-22_rcim_shared_pickle_cache_stabilization.md](./technical/2026-05/2026-05-02/2026-05-02-11-23-22_rcim_shared_pickle_cache_stabilization.md)
+  Technical plan for simplifying the recovered RCIM pickle-cache contract to a
+  shared `data/original_pipeline_instances/` directory, adding an explicit
+  cache-rebuild flag, and deferring dataset-shrinking-aware cache partitioning
+  to the backlog.
 
 ## Usage
 

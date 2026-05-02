@@ -1,0 +1,10 @@
+{
+  "stage": "create_dataframe",
+  "direction": "backward",
+  "instances_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\instances_V3",
+  "instance_cache_directory_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\data\\original_pipeline_instances",
+  "rebuild_instance_cache": true,
+  "output_csv_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\validation_checks\\paper_reimplementation_rcim_recovered_original_workflow\\2026-05-02-11-33-45__create_dataframe_backward_cache_rebuild_smoke\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "row_count": 969,
+  "column_count": 23
+}

@@ -42,6 +42,7 @@ def _build_argument_parser():
     parser.add_argument("--direction", default="forward", help="Direction to evaluate: forward/Fw or backward/Bw.")
     parser.add_argument("--instances-path", type=Path, default=REFERENCE_ROOT / "instances_V3", help="Directory containing original RCIM instance CSVs or pickles.")
     parser.add_argument("--instance-cache-directory", type=Path, default=None, help=f"Shared pickle cache directory. Defaults under {DEFAULT_INSTANCE_CACHE_ROOT}.")
+    parser.add_argument("--rebuild-instance-cache", action="store_true", help="Rebuild the shared pickle cache from source CSV files when possible.")
     parser.add_argument("--prediction-directory", type=Path, default=REFERENCE_ROOT / "output_prediction" / "instV3.8_Fw_allFreq_def", help="Directory containing prediction CSVs to evaluate.")
     parser.add_argument("--output-root", type=Path, default=None, help="Repository-owned runtime root. Defaults under output/validation_checks/.")
     parser.add_argument("--output-suffix", default="", help="Optional suffix appended to the default runtime root name.")
@@ -169,7 +170,10 @@ def main():
     with pushd(output_root):
 
         # Execute The Copied Original Evaluation Path Against The Runtime Copy Of The Prediction Directory.
-        statistics = Statistics(instance_cache_directory_path=instance_cache_directory_path)
+        statistics = Statistics(
+            instance_cache_directory_path=instance_cache_directory_path,
+            force_rebuild_instance_cache=args.rebuild_instance_cache,
+        )
         input_path = "output_prediction/instV3.8_Fw_allFreq_def/"
         file_list = _collect_prediction_file_list(input_path)
 
@@ -308,6 +312,7 @@ def main():
             "direction": direction_label,
             "instances_path": str(instances_path),
             "instance_cache_directory_path": str(instance_cache_directory_path),
+            "rebuild_instance_cache": bool(args.rebuild_instance_cache),
             "prediction_directory": str(args.prediction_directory.resolve()),
             "runtime_prediction_directory_path": str(runtime_prediction_directory_path),
             "evaluation_root": str(output_root / "evaluation"),

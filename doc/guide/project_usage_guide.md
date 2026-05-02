@@ -2709,8 +2709,13 @@ Shared cache note:
 
 - dataframe creation and evaluation now reuse a shared instance `.pickle`
   cache under
-  `data/paper_reimplementation_rcim_recovered_original_workflow/instance_pickle_cache/`
+  `data/original_pipeline_instances/`
   instead of recreating `instances_V3/` caches inside every validation run.
+- by default, that shared cache is reused when the pickles are already
+  present.
+- pass `--rebuild-instance-cache` to `create_dataframe.py` or
+  `evaluate_models.py` when the cache must be regenerated from source CSV files
+  and those CSV files are available.
 
 Current non-scope:
 

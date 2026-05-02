@@ -200,6 +200,11 @@ Current next step:
 - when the backward recovered branch is implemented, keep its filesystem
   behavior runner-managed in the repository rather than reusing mutable local
   original output-folder conventions directly
+- deferred cache note:
+  when a future original-dataset shrinking branch is opened, revisit the
+  current shared recovered-workflow pickle cache contract so restricted-dataset
+  experiments can use explicit cache partitioning instead of one global
+  `data/original_pipeline_instances/` cache root
 - for `SVR`, temporarily disable the current grid-search path and use direct
   training during the rebuild branch and the mega-campaign
 - backlog note:

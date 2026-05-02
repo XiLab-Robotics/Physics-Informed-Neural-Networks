@@ -139,7 +139,7 @@ folders when needed, but only inside one repository-owned runtime root under:
 
 The long-lived instance pickle cache is now shared under:
 
-- `data/paper_reimplementation_rcim_recovered_original_workflow/instance_pickle_cache/`
+- `data/original_pipeline_instances/`
 
 Each direct script creates its own timestamped runtime folder there unless
 `--output-root` is provided explicitly.
@@ -147,6 +147,17 @@ Each direct script creates its own timestamped runtime folder there unless
 This keeps the original relative-path logic working while avoiding scattered
 mutable outputs inside the script folder itself and prevents every validation
 check from duplicating hundreds of `.pkl` files.
+
+By default, the workflow reuses any shared `.pickle` cache files already
+present in that directory. When a rebuild is needed, the direct entrypoints
+now expose:
+
+- `--rebuild-instance-cache`
+
+That flag forces the cache-writing path to rebuild from source CSV files when
+the matching CSV files are available. If only source `.pickle` files exist,
+the workflow still falls back to them because no raw CSV rebuild source is
+available.
 
 ## 1. Dataframe Creation
 
@@ -175,6 +186,7 @@ Example:
 ```powershell
 conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
   --direction backward `
+  --rebuild-instance-cache `
   --output-suffix bw_dataframe
 ```
 
@@ -303,6 +315,7 @@ Example:
 ```powershell
 conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
   --direction forward `
+  --rebuild-instance-cache `
   --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `
   --output-suffix eval_fw
 ```
@@ -336,8 +349,9 @@ Tracked cleanup and maintenance choices:
   surface were translated to English while preserving the original numerical
   behavior;
 - the legacy runtime-local `instances_V3/` pickle cache contract was replaced
-  by a shared repository-owned cache under `data/`, so validation runs no
-  longer replicate the same instance `.pkl` files inside every runtime root;
+  by a shared repository-owned cache under `data/original_pipeline_instances/`,
+  so validation runs no longer replicate the same instance `.pkl` files inside
+  every runtime root;
 - local generated residue such as `__pycache__/` directories is not part of
   the maintained workflow surface;
 - docstrings, section comments, and spacing were aligned to the repository
