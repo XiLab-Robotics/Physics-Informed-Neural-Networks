@@ -10,24 +10,26 @@ from tqdm import tqdm
 try:
 
     # Import shared runtime helpers for the recovered original workflow.
+    from workflow_runtime import DEFAULT_INSTANCE_CACHE_ROOT
     from workflow_runtime import REFERENCE_ROOT
     from workflow_runtime import build_default_output_root
     from workflow_runtime import copy_directory_contents
     from workflow_runtime import ensure_utilities_on_path
     from workflow_runtime import normalize_direction
-    from workflow_runtime import prepare_runtime_instances_input
+    from workflow_runtime import resolve_instance_cache_directory
     from workflow_runtime import pushd
     from workflow_runtime import write_summary
 
 except ModuleNotFoundError:
 
     # Pragma: no cover - import compatibility for Sphinx
+    from .workflow_runtime import DEFAULT_INSTANCE_CACHE_ROOT
     from .workflow_runtime import REFERENCE_ROOT
     from .workflow_runtime import build_default_output_root
     from .workflow_runtime import copy_directory_contents
     from .workflow_runtime import ensure_utilities_on_path
     from .workflow_runtime import normalize_direction
-    from .workflow_runtime import prepare_runtime_instances_input
+    from .workflow_runtime import resolve_instance_cache_directory
     from .workflow_runtime import pushd
     from .workflow_runtime import write_summary
 
@@ -39,6 +41,7 @@ def _build_argument_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--direction", default="forward", help="Direction to evaluate: forward/Fw or backward/Bw.")
     parser.add_argument("--instances-path", type=Path, default=REFERENCE_ROOT / "instances_V3", help="Directory containing original RCIM instance CSVs or pickles.")
+    parser.add_argument("--instance-cache-directory", type=Path, default=None, help=f"Shared pickle cache directory. Defaults under {DEFAULT_INSTANCE_CACHE_ROOT}.")
     parser.add_argument("--prediction-directory", type=Path, default=REFERENCE_ROOT / "output_prediction" / "instV3.8_Fw_allFreq_def", help="Directory containing prediction CSVs to evaluate.")
     parser.add_argument("--output-root", type=Path, default=None, help="Repository-owned runtime root. Defaults under output/validation_checks/.")
     parser.add_argument("--output-suffix", default="", help="Optional suffix appended to the default runtime root name.")
@@ -108,11 +111,25 @@ def export_table_for_paper(dataframe, error, ampl_phase, output_file):
     # Export Table
     dataframe_columns = [column_name for column_name in dataframe.columns if (error in column_name) and (ampl_phase in column_name)]
     dataframe_data = dataframe[dataframe_columns]
-    dataframe_data = dataframe_data.applymap(convert_to_scientific_notation)
+    dataframe_data = dataframe_data.apply(lambda column: column.map(convert_to_scientific_notation))
     dataframe_data["method"] = dataframe["method"]
     new_order_columns = dataframe_data.columns[-1:].to_list() + dataframe_data.columns[:-2].to_list()
     dataframe_data = dataframe_data[new_order_columns]
     dataframe_data.to_csv(output_file + "_" + error + "_" + ampl_phase + ".csv", sep="\t", index=False)
+
+def _collect_prediction_file_list(prediction_directory_path):
+
+    """ Collect and sort the prediction CSV list using the original family order. """
+
+    # Preserve The Historical Ordering Before Running Evaluation.
+    file_list = os.listdir(prediction_directory_path)
+    file_list = [
+        str(Path(prediction_directory_path) / file_name)
+        for file_name in file_list
+        if os.path.isfile(Path(prediction_directory_path) / file_name) and file_name[0] != "."
+    ]
+    custom_sort(file_list, list(ACRONYMS.keys()))
+    return file_list
 
 def main():
 
@@ -137,10 +154,9 @@ def main():
     output_root = output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
 
-    # Recreate The Original Local Folder Expectations Inside The Runtime Root.
-    runtime_instances_directory_path = output_root / "instances_V3"
-    runtime_instances_directory_path.mkdir(exist_ok=True)
-    runtime_instances_input_path = prepare_runtime_instances_input(args.instances_path.resolve(), runtime_instances_directory_path)
+    # Resolve The Shared Repository-Owned Pickle Cache Under data/.
+    instances_path = args.instances_path.resolve()
+    instance_cache_directory_path = resolve_instance_cache_directory(instances_path, args.instance_cache_directory)
 
     # Copy The Prediction Directory To The Runtime Root
     runtime_prediction_directory_path = output_root / "output_prediction" / "instV3.8_Fw_allFreq_def"
@@ -153,14 +169,12 @@ def main():
     with pushd(output_root):
 
         # Execute The Copied Original Evaluation Path Against The Runtime Copy Of The Prediction Directory.
-        statistics = Statistics()
+        statistics = Statistics(instance_cache_directory_path=instance_cache_directory_path)
         input_path = "output_prediction/instV3.8_Fw_allFreq_def/"
-        file_list = os.listdir(input_path)
-        file_list = [input_path + file_name for file_name in file_list if os.path.isfile(input_path + file_name) and file_name[0] != "."]
-        custom_sort(file_list, list(ACRONYMS.keys()))
+        file_list = _collect_prediction_file_list(input_path)
 
         # Read All Instances
-        statistics.read_all_fft(str(runtime_instances_input_path))
+        statistics.read_all_fft_instances(str(instances_path))
         errors_summary = {"method": [], "mode": [], "MSE": [], "RMSE": [], "MAE": [], "MAPE": []}
         output_summary_file_path = None
 
@@ -292,8 +306,8 @@ def main():
         {
             "stage": "evaluate_models",
             "direction": direction_label,
-            "instances_path": str(args.instances_path.resolve()),
-            "runtime_instances_input_path": str(runtime_instances_input_path),
+            "instances_path": str(instances_path),
+            "instance_cache_directory_path": str(instance_cache_directory_path),
             "prediction_directory": str(args.prediction_directory.resolve()),
             "runtime_prediction_directory_path": str(runtime_prediction_directory_path),
             "evaluation_root": str(output_root / "evaluation"),

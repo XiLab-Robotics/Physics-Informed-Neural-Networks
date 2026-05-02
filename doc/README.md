@@ -99,6 +99,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-01
 
+- [technical/2026-05/2026-05-01/2026-05-01-22-56-02_rcim_recovered_original_workflow_simplification_and_pickle_cache_relocation.md](./technical/2026-05/2026-05-01/2026-05-01-22-56-02_rcim_recovered_original_workflow_simplification_and_pickle_cache_relocation.md)
+  Plan the next recovered RCIM workflow refactor that extracts repeated helper blocks, translates repository-owned Italian identifiers to English, and relocates the persistent pickle cache from per-run validation artifacts to a shared `data/` directory.
 - [technical/2026-05/2026-05-01/2026-05-01-22-36-34_rcim_instance_variant_file_removal.md](./technical/2026-05/2026-05-01/2026-05-01-22-36-34_rcim_instance_variant_file_removal.md)
   Plan the final recovered RCIM instance-helper cleanup that removes `instance_v4.py` and `instance_v5.py` from the repository-owned workflow subtree and leaves `instance.py` as the sole active runtime helper.
 - [technical/2026-05/2026-05-01/2026-05-01-22-22-33_rcim_instance_unification_and_v4_deactivation.md](./technical/2026-05/2026-05-01/2026-05-01-22-22-33_rcim_instance_unification_and_v4_deactivation.md)

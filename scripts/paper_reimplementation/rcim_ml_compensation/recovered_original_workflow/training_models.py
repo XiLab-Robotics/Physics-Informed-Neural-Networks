@@ -1,6 +1,6 @@
 """ Direct entrypoint for the recovered original RCIM training and export stage. """
 
-import argparse, shutil
+import argparse
 from pathlib import Path
 
 import pandas as pd
@@ -10,6 +10,8 @@ try:
     # Import shared runtime helpers for the recovered original workflow.
     from workflow_runtime import REFERENCE_ROOT
     from workflow_runtime import build_default_output_root
+    from workflow_runtime import build_prediction_output_folder_name
+    from workflow_runtime import copy_dataframe_to_runtime
     from workflow_runtime import ensure_utilities_on_path
     from workflow_runtime import normalize_direction
     from workflow_runtime import pushd
@@ -20,6 +22,8 @@ except ModuleNotFoundError:
     # Pragma: no cover - import compatibility for Sphinx
     from .workflow_runtime import REFERENCE_ROOT
     from .workflow_runtime import build_default_output_root
+    from .workflow_runtime import build_prediction_output_folder_name
+    from .workflow_runtime import copy_dataframe_to_runtime
     from .workflow_runtime import ensure_utilities_on_path
     from .workflow_runtime import normalize_direction
     from .workflow_runtime import pushd
@@ -190,24 +194,6 @@ def _select_family_list(mode_name, families_argument):
         resolved_family_code_list.append(family_code)
     return resolved_family_code_list, instantiated_family_list
 
-def _copy_dataframe_to_runtime(source_dataframe_path, runtime_root, direction_code):
-
-    """ Copy the selected dataframe into the runtime root using the original filename. """
-
-    # Copy The Dataframe
-    runtime_dataframe_name = f"dataFrame_prediction_{direction_code}_v14_newFreq.csv"
-    runtime_dataframe_path = runtime_root / runtime_dataframe_name
-    shutil.copy2(source_dataframe_path, runtime_dataframe_path)
-    return runtime_dataframe_name, runtime_dataframe_path
-
-def _build_prediction_output_folder_name(mode_name, direction_code):
-
-    """ Resolve the original-style output folder used by the selected training mode. """
-
-    # The Output Folder Can Be Customized With The CLI, But Defaults To The Original Layout For Each Mode.
-    if mode_name == "paper_eval": return f"output_prediction/instV3.8_{direction_code}_allFreq_def/"
-    return "output_prediction/"
-
 def main():
 
     """ Run the recovered original training stage with repository-owned path handling. """
@@ -235,8 +221,8 @@ def main():
     (output_root / "model_output_dir").mkdir(exist_ok=True)
 
     # Copy The Dataframe To The Runtime Root
-    runtime_dataframe_name, runtime_dataframe_path = _copy_dataframe_to_runtime(dataframe_path, output_root, direction_code)
-    output_folder_name = _build_prediction_output_folder_name(mode_name, direction_code)
+    runtime_dataframe_name, runtime_dataframe_path = copy_dataframe_to_runtime(dataframe_path, output_root, direction_code)
+    output_folder_name = build_prediction_output_folder_name(mode_name, direction_code)
     (output_root / output_folder_name).mkdir(parents=True, exist_ok=True)
     selected_family_code_list, model_list = _select_family_list(mode_name, args.families)
 

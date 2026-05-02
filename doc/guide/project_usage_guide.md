@@ -2705,6 +2705,13 @@ Use this surface when the goal is to stay close to the original RCIM scripts
 while still keeping paths and runtime artifacts under repository-owned output
 roots.
 
+Shared cache note:
+
+- dataframe creation and evaluation now reuse a shared instance `.pickle`
+  cache under
+  `data/paper_reimplementation_rcim_recovered_original_workflow/instance_pickle_cache/`
+  instead of recreating `instances_V3/` caches inside every validation run.
+
 Current non-scope:
 
 - the repository-owned copy removes the obsolete legacy `deg <= 35` training

@@ -18,6 +18,27 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from xgboost.sklearn import XGBRegressor
 
+METHOD_ACRONYMS = {
+    'DecisionTreeRegressor': 'DT',
+    'ExtraTreeRegressor': 'ET',
+    'ExtraTreesRegressor': 'ERT',
+    'RandomForestRegressor': 'RF',
+    'GradientBoostingRegressor': 'GBM',
+    'HistGradientBoostingRegressor': 'HGBM',
+    'XGBRegressor': 'XGBM',
+    'LGBMRegressor': 'LGBM',
+    'SVR': 'SVM',
+    'MLPRegressor': 'MLP',
+    'MinimumDistance': 'MinDist',
+}
+
+ERROR_ACRONYMS = {
+    'test_neg_mean_squared_error': 'MSE',
+    'test_neg_root_mean_squared_error': 'RMSE',
+    'test_neg_mean_absolute_error': 'MAE',
+    'test_neg_mean_absolute_percentage_error': 'MAPE',
+}
+
 class MLModel:
 
     """ Original single-estimator wrapper retained for completeness. """
@@ -51,31 +72,16 @@ class MLModel:
         # Replace the Estimator With the Historical Grid-Search Wrapper.
         self.model = GridSearchCV(self.model, params, n_jobs=-1)
 
-    def getAcronimMethod(self, fileName):
+    def get_method_acronym(self, fileName):
 
         """ Map the estimator name to the original report acronym. """
-
-        # Preserve the Original Family-Acronym Mapping Used by the Reports.
-        acronims = {
-            'DecisionTreeRegressor': 'DT',
-            'ExtraTreeRegressor': 'ET',
-            'ExtraTreesRegressor': 'ERT',
-            'RandomForestRegressor': 'RF',
-            'GradientBoostingRegressor': 'GBM',
-            'HistGradientBoostingRegressor': 'HGBM',
-            'XGBRegressor': 'XGBM',
-            'LGBMRegressor': 'LGBM',
-            'SVR': 'SVM',
-            'MLPRegressor': 'MLP',
-            'MinimumDistance': 'MinDist'
-        }
 
         # Start With an Empty Fallback Acronym.
         method = ''
 
         # Resolve the Acronym From the Class Name Fragment.
-        for elem in acronims.keys():
-            if elem in fileName: method = acronims[elem]
+        for elem in METHOD_ACRONYMS.keys():
+            if elem in fileName: method = METHOD_ACRONYMS[elem]
 
         return method
 
@@ -100,7 +106,7 @@ class MLModel:
         self._train(X_train, Y_train)
 
         # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
-        errorsAcronims = {
+        error_acronyms = {
             'test_neg_mean_squared_error' : 'MSE',
             'test_neg_root_mean_squared_error': 'RMSE',
             'test_neg_mean_absolute_error':'MAE',
@@ -114,14 +120,14 @@ class MLModel:
                                                                   'neg_mean_absolute_percentage_error'],)
 
         # Keep the Historical Metric Order Used by the CSV Summary.
-        errorKeys = list(errorsAcronims.keys())
+        errorKeys = list(error_acronyms.keys())
         crossValOut = {}
 
         # Store the Estimator Acronym in the Legacy Summary Format.
-        crossValOut['0_method'] = self.getAcronimMethod(self.name)
+        crossValOut['0_method'] = self.get_method_acronym(self.name)
 
         # Collapse the Cross-Validation Means Into the Original Flat Summary Shape.
-        for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
+        for el in errorKeys: crossValOut[error_acronyms[el]] = abs(scores[el].mean())
 
         # Predict the Held-Out Split With the Trained Estimator.
         pred = self._predict(X_test)
@@ -254,6 +260,118 @@ class MLModelMultipleOutput:
     def _predict(self, X_test):
         return self.model.predict(X_test)
 
+    def _select_target_columns(self, dfInput):
+
+        """ Select the historical target surface for the current branch. """
+
+        # Keep The Original Method-Driven Target Selection Contract Intact.
+        if self.method == 'phase': return [column_name for column_name in dfInput.columns if 'phase' in column_name]
+        if self.method == 'ampl':  return [column_name for column_name in dfInput.columns if 'ampl' in column_name]
+        return [column_name for column_name in dfInput.columns if 'ampl' in column_name or 'phase' in column_name]
+
+    def _build_feature_target_matrices(self, dfInput):
+
+        """ Build the historical feature and target matrices. """
+
+        # Keep The Original Three-Input Feature Matrix Unchanged.
+        feature_dataframe = dfInput[['rpm', 'deg', 'tor']]
+        target_column_list = self._select_target_columns(dfInput)
+        target_dataframe = dfInput[target_column_list]
+        return feature_dataframe, target_dataframe, target_column_list
+
+    def _build_prediction_output_dataframe(self, feature_test_dataframe, target_column_list, prediction_array):
+
+        """ Build the legacy paper-style prediction dataframe. """
+
+        # Create the Legacy Prediction Export Buffer.
+        row_payload = {}
+
+        for row_index in range(len(feature_test_dataframe)):
+
+            # Build the Legacy Prediction Export Row.
+            operating_condition_row = feature_test_dataframe.iloc[row_index]
+            exported_row = {
+                'rpm': operating_condition_row['rpm'],
+                'deg': operating_condition_row['deg'],
+                'tor': operating_condition_row['tor'],
+            }
+
+            # Append One Predicted Target Value to the Exported Row.
+            for target_index, target_column_name in enumerate(target_column_list):
+                exported_row['prev_' + target_column_name] = prediction_array[row_index][target_index]
+            row_payload[row_index] = exported_row
+
+        return pd.DataFrame(row_payload).T
+
+    def _build_summary_output_path(self, summary_prefix):
+
+        """ Build one historical summary CSV path. """
+
+        # Preserve The Legacy Summary Filename Contract.
+        return (
+            'output_prediction/'
+            + summary_prefix
+            + '_'
+            + self.name.split('_')[-2:][0]
+            + '_'
+            + self.name.split('_')[-2:][1]
+            + '.csv'
+        )
+
+    def _append_summary_dataframe(self, summary_output_path, summary_dataframe):
+
+        """ Append one summary dataframe to the historical CSV path. """
+
+        # Append To Existing Summary Files Instead Of Overwriting Them.
+        if os.path.isfile(summary_output_path):
+            existing_dataframe = pd.read_csv(summary_output_path, sep=';', decimal=',')
+            summary_dataframe = pd.concat([existing_dataframe, summary_dataframe])
+
+        # Write The New Summary File.
+        summary_dataframe.to_csv(summary_output_path, sep=';', decimal=',', index=False)
+
+    def _evaluate_component_metrics(self, target_dataframe, target_test_dataframe, prediction_array):
+
+        """ Evaluate per-target held-out metrics using the historical flat key shape. """
+
+        # Preserve The Historical Flat Metric Export Surface Used By The Paper Workflow.
+        component_metric_payload = {'0_method': self.get_method_acronym(self.name)}
+
+        for target_index in range(len(self.model.estimators_)):
+
+            # Build the Legacy Prediction Export Row.
+            component = list(target_dataframe.columns[target_index:target_index + 1])[-1].split('_')[-2:]
+            component_prefix = f"{component[0]}_{component[1]}"
+            target_truth = target_test_dataframe[target_test_dataframe.columns[target_index]]
+            target_prediction = prediction_array[:, target_index:target_index + 1]
+
+            # Append One Predicted Target Value to the Exported Row.
+            component_metric_payload[f"{component_prefix}_MSE"] = mean_squared_error(target_truth, target_prediction)
+            component_metric_payload[f"{component_prefix}_RMSE"] = math.sqrt(mean_squared_error(target_truth, target_prediction))
+            component_metric_payload[f"{component_prefix}_MAE"] = mean_absolute_error(target_truth, target_prediction)
+            component_metric_payload[f"{component_prefix}_MAPE"] = mean_absolute_percentage_error(target_truth, target_prediction)
+
+        return component_metric_payload
+
+    def get_method_acronym(self, fileName):
+
+        """ Map the estimator name to the original report acronym. """
+
+        method = ''
+
+        # Resolve The Acronym From The Class Name Fragment.
+        for element in METHOD_ACRONYMS.keys():
+            if element in fileName: method = METHOD_ACRONYMS[element]
+
+        return method
+
+    def getAcronimMethod(self, fileName):
+
+        """ Backward-compatible alias for the translated acronym helper. """
+
+        # Resolve The Acronym From The Class Name Fragment.
+        return self.get_method_acronym(fileName)
+
     def exportModel(self, modelName, colsToPredict):
 
         """ Export Each Estimator in the Multi-Output Wrapper to ONNX Format. """
@@ -303,25 +421,7 @@ class MLModelMultipleOutput:
             # Remove One Row and Train on the Remaining Samples.
             elem = dfInputOrig.iloc[i]
             dfInput = dfInputOrig.drop(i)
-            X = dfInput[['rpm','deg','tor']]
-
-            if self.method == 'phase':
-
-                # Select Only the Phase Targets for the Multi-Output Wrapper.
-                cols = [x for x in dfInput.columns if 'phase' in x]
-                Y = dfInput[cols]
-
-            elif self.method == 'ampl':
-
-                # Select Only the Amplitude Targets for the Multi-Output Wrapper.
-                cols = [x for x in dfInput.columns if 'ampl' in x]
-                Y = dfInput[cols]
-
-            else:
-
-                # Keep the Original Full Target Surface for the Multi-Output Wrapper.
-                cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
-                Y = dfInput[cols]
+            X, Y, cols = self._build_feature_target_matrices(dfInput)
 
             # Materialize the Held-Out Feature Row for Prediction.
             X_test = pd.DataFrame(elem).T[['rpm','deg','tor']]
@@ -346,29 +446,7 @@ class MLModelMultipleOutput:
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        # Initialize the Legacy Prediction Export Buffer.
-        out = {}
-
-        # Build the Original Three-Input Feature Matrix.
-        X = dfInput[['rpm', 'deg', 'tor']]
-
-        if self.method == 'phase':
-
-            # Select Only the Phase Targets for the Multi-Output Wrapper.
-            cols = [x for x in dfInput.columns if 'phase' in x]
-            Y = dfInput[cols]
-
-        elif self.method == 'ampl':
-
-            # Select Only the Amplitude Targets for the Multi-Output Wrapper.
-            cols = [x for x in dfInput.columns if 'ampl' in x]
-            Y = dfInput[cols]
-
-        else:
-
-            # Keep the Original Full Target Surface for the Multi-Output Wrapper.
-            cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
-            Y = dfInput[cols]
+        X, Y, cols = self._build_feature_target_matrices(dfInput)
 
         # Keep the Original Held-Out Split Configuration.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
@@ -377,120 +455,113 @@ class MLModelMultipleOutput:
         self._train(X_train, Y_train)
         pred = self._predict(X_test)
 
-        # Export the Held-Out Prediction Rows in the Paper-Era Table Shape.
-        for i in range(len(X_test)):
+        return self._build_prediction_output_dataframe(X_test, cols, pred)
 
-            # Read the Held-Out Operating Condition for This Exported Row.
-            elem = X_test.iloc[i]
-            namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
-            out[i] = namesParam
-
-            # Append One Predicted Target Value to the Exported Row.
-            for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
-
-        # Convert the Legacy Export Buffer Into the Expected Dataframe.
-        dfOut = pd.DataFrame(out).T
-        return dfOut
-
-    def genera_numeri_uniformi_interi(self, n, minimo, massimo):
+    def generate_uniform_integer_values(self, n, minimum_value, maximum_value):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
         # Generate the Historical Integer Grid Used by the Search Space Builder.
-        numeri_uniformi = np.arange(minimo, massimo + 1, (massimo - minimo) // n)
-        return numeri_uniformi[:n]
+        uniform_values = np.arange(minimum_value, maximum_value + 1, (maximum_value - minimum_value) // n)
+        return uniform_values[:n]
 
-    def getParameterGridSearchCV(self,acronim):
+    def genera_numeri_uniformi_interi(self, n, minimo, massimo):
+
+        """ Backward-compatible alias for the translated integer-grid helper. """
+
+        return self.generate_uniform_integer_values(n, minimo, massimo)
+
+    def getParameterGridSearchCV(self, acronym):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
         # Build the Family-Specific Hyperparameter Grid Exactly Like the Original Helper.
         parameters = {}
 
-        if acronim == 'DT':
+        if acronym == 'DT':
 
             # Build the Decision-Tree Hyperparameter Grid.
             parameters['DT'] = {
                    'estimator__criterion': list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
-                   'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
-                   'estimator__max_leaf_nodes': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,23,28)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
-                   'estimator__min_samples_split': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']]))
+                   'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                   'estimator__max_leaf_nodes': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,23,28)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
+                   'estimator__min_samples_split': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']]))
             }
 
-        elif acronim == 'ET':
+        elif acronym == 'ET':
 
             # Build the Extra-Tree Hyperparameter Grid.
             parameters['ET']={'estimator__criterion' : list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
-                   'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
-                   'estimator__max_leaf_nodes': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
-                   'estimator__min_samples_split': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']]))
+                   'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                   'estimator__max_leaf_nodes': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
+                   'estimator__min_samples_split': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']]))
             }
 
-        elif acronim == 'ERT':
+        elif acronym == 'ERT':
 
             # Build the Extra-Trees Hyperparameter Grid.
             parameters['ERT'] = {
-                   'estimator__n_estimators':list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
+                   'estimator__n_estimators':list(dict.fromkeys(list(self.generate_uniform_integer_values(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                    'estimator__criterion' : list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
-                   'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
-                   'estimator__max_leaf_nodes':  list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
-                   'estimator__min_samples_split': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']]))
+                   'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                   'estimator__max_leaf_nodes':  list(dict.fromkeys(list(self.generate_uniform_integer_values(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
+                   'estimator__min_samples_split': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']]))
             }
 
-        elif acronim == 'RF':
+        elif acronym == 'RF':
 
             # Build the Random-Forest Hyperparameter Grid.
             parameters['RF'] = {
-                   'estimator__n_estimators': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
+                   'estimator__n_estimators': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                    'estimator__criterion': list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
                    'estimator__max_features': list(dict.fromkeys(list(["log2","sqrt"]) + [self.model.estimator.get_params()['max_features']])),
-                   'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
-                   'estimator__min_samples_split': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']])),
+                   'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                   'estimator__min_samples_split': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']])),
             }
 
-        elif acronim == 'GBM':
+        elif acronym == 'GBM':
 
             # Build the Gradient-Boosting Hyperparameter Grid.
             parameters['GBM'] = {
-                'estimator__n_estimators': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
+                'estimator__n_estimators': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                 'estimator__criterion': list(dict.fromkeys(list(['squared_error', 'absolute_error']) + [self.model.estimator.get_params()['criterion']])),
                 'estimator__max_features': list(dict.fromkeys(list(["log2", "sqrt"]) + [self.model.estimator.get_params()['max_features']])),
-                'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
-                'estimator__min_samples_split': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']])),
+                'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                'estimator__min_samples_split': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']])),
                 'estimator__learning_rate':list(dict.fromkeys(list([0.0001, 0.001, 0.01, 0.1, 1.0]) + [self.model.estimator.get_params()['min_samples_split']])),
             }
 
-        elif acronim == 'XGBM':
+        elif acronym == 'XGBM':
 
             # Build the XGBoost Hyperparameter Grid.
             parameters['XGBM'] = {
                 'estimator__learning_rate': list(dict.fromkeys(list([0.01,0.2,0.5]) + [self.model.estimator.get_params()['learning_rate']])),
-                'estimator__n_estimator': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
-                'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                'estimator__n_estimator': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
+                'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
                 'estimator__colsample_bytree': list(dict.fromkeys(list([0.3,0.5]) + [self.model.estimator.get_params()['colsample_bytree']])),
             }
 
-        elif acronim ==  'HGBM':
+        elif acronym ==  'HGBM':
 
             # Build the Histogram-Gradient-Boosting Hyperparameter Grid.
             parameters['HGBM'] = {
                 'estimator__max_iter': list(dict.fromkeys(list([10,100,1000]) + [self.model.estimator.get_params()['max_iter']])),
-                'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
-                'estimator__learning_rate': list(dict.fromkeys(list([x/ 100 for x in self.genera_numeri_uniformi_interi(5,1,100)]) + [self.model.estimator.get_params()['learning_rate']])),
-                'estimator__max_leaf_nodes':list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
+                'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
+                'estimator__learning_rate': list(dict.fromkeys(list([x/ 100 for x in self.generate_uniform_integer_values(5,1,100)]) + [self.model.estimator.get_params()['learning_rate']])),
+                'estimator__max_leaf_nodes':list(dict.fromkeys(list(self.generate_uniform_integer_values(5,27,35)) + [self.model.estimator.get_params()['max_leaf_nodes']])),
             }
 
-        elif acronim == 'LGBM':
+        elif acronym == 'LGBM':
 
             # Build the LightGBM Hyperparameter Grid.
             parameters['LGBM'] = {
-                'estimator__learning_rate': list(dict.fromkeys(list([x / 100 for x in self.genera_numeri_uniformi_interi(5, 1, 100)]) + [self.model.estimator.get_params()['learning_rate']])),
-                 'estimator__max_depth': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5, 14, 21)) + [self.model.estimator.get_params()['max_depth']])),
-                 'estimator__num_leaves': list(dict.fromkeys(list(self.genera_numeri_uniformi_interi(5,10,100)) + [self.model.estimator.get_params()['num_leaves']])),
+                'estimator__learning_rate': list(dict.fromkeys(list([x / 100 for x in self.generate_uniform_integer_values(5, 1, 100)]) + [self.model.estimator.get_params()['learning_rate']])),
+                 'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5, 14, 21)) + [self.model.estimator.get_params()['max_depth']])),
+                 'estimator__num_leaves': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,10,100)) + [self.model.estimator.get_params()['num_leaves']])),
                  'estimator__subsample': list(dict.fromkeys(list([0.1,0.3,0.5,0.8]) + [self.model.estimator.get_params()['subsample']])),
             }
 
-        elif acronim == 'MLP':
+        elif acronym == 'MLP':
 
             # Build the MLP Hyperparameter Grid.
             parameters['MLP'] = {
@@ -504,7 +575,7 @@ class MLModelMultipleOutput:
                     'estimator__max_iter': list(dict.fromkeys(list([600]) + [self.model.estimator.get_params()['max_iter']]))
             }
 
-        elif acronim == 'SVM':
+        elif acronym == 'SVM':
 
             # Build the SVM Hyperparameter Grid.
             parameters['SVM'] = {
@@ -514,60 +585,19 @@ class MLModelMultipleOutput:
                      'estimator__gamma': list(dict.fromkeys(list([0.0000011]))),
             }
 
-        return parameters[acronim]
+        return parameters[acronym]
 
     def getAcronimMethod(self, fileName):
 
         """ Map the estimator name to the original report acronym. """
 
-        # Preserve the Original Family-Acronym Mapping Used by the Reports.
-        acronims = {
-            'DecisionTreeRegressor': 'DT',
-            'ExtraTreeRegressor': 'ET',
-            'ExtraTreesRegressor': 'ERT',
-            'RandomForestRegressor': 'RF',
-            'GradientBoostingRegressor': 'GBM',
-            'HistGradientBoostingRegressor': 'HGBM',
-            'XGBRegressor': 'XGBM',
-            'LGBMRegressor': 'LGBM',
-            'SVR': 'SVM',
-            'MLPRegressor': 'MLP',
-            'MinimumDistance': 'MinDist'
-        }
-
-        method = ''
-
-        # Resolve the Acronym From the Class Name Fragment.
-        for elem in acronims.keys():
-            if elem in fileName: method = acronims[elem]
-
-        return method
+        return self.get_method_acronym(fileName)
 
     def predictorMLEvalutationOnTrain(self, dfInput, testSetDimension):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        # Initialize the Legacy Prediction Export Buffer.
-        out = {}
-        X = dfInput[['rpm', 'deg', 'tor']]
-
-        if self.method == 'phase':
-
-            # Select Only the Phase Targets for the Evaluation Branch.
-            cols = [x for x in dfInput.columns if 'phase' in x]
-            Y = dfInput[cols]
-
-        elif self.method == 'ampl':
-
-            # Select Only the Amplitude Targets for the Evaluation Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x]
-            Y = dfInput[cols]
-
-        else:
-
-            # Keep the Original Full Target Surface for the Evaluation Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
-            Y = dfInput[cols]
+        X, Y, cols = self._build_feature_target_matrices(dfInput)
 
         # Materialize the Historical Held-Out Split Used by the Paper Evaluation Path.
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=testSetDimension, random_state=0)
@@ -581,87 +611,26 @@ class MLModelMultipleOutput:
         # Predict the Held-Out Split With the Trained Estimator.
         pred = self._predict(X_test)
 
-        errorsAcronims = {
-            'test_neg_mean_squared_error': 'MSE',
-            'test_neg_root_mean_squared_error': 'RMSE',
-            'test_neg_mean_absolute_error': 'MAE',
-            'test_neg_mean_absolute_percentage_error': 'MAPE'
-        }
-
-        # Prepare the Historical Metric Key Order for Per-Target Evaluation.
-        errorKeys = list(errorsAcronims.keys())
-        crossValOut = {}
-        crossValOut['0_method'] = self.getAcronimMethod(self.name)
-
-        for i in range(len(self.model.estimators_)):
-
-            # Iterate Over the Historical Metric Set for the Current Target.
-            for method in errorKeys:
-
-                # Recover the Harmonic Component Suffix Used by the Summary CSV.
-                component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
-                if errorsAcronims[method] == 'MSE':  crossValOut[str(component[0]) + '_' + str(component[1]) + '_' + errorsAcronims[method]] = mean_squared_error(Y_test[Y_test.columns[i]],pred[:,i:i+1])
-                if errorsAcronims[method] == 'RMSE': crossValOut[str(component[0]) + '_' + str(component[1]) + '_' + errorsAcronims[method]] = math.sqrt(mean_squared_error(Y_test[Y_test.columns[i]],pred[:,i:i+1]))
-                if errorsAcronims[method] == 'MAE':  crossValOut[str(component[0]) + '_' + str(component[1]) + '_' + errorsAcronims[method]] = mean_absolute_error(Y_test[Y_test.columns[i]], pred[:, i:i + 1])
-                if errorsAcronims[method] == 'MAPE': crossValOut[str(component[0]) + '_' + str(component[1]) + '_' + errorsAcronims[method]] = mean_absolute_percentage_error(Y_test[Y_test.columns[i]], pred[:, i:i + 1])
+        crossValOut = self._evaluate_component_metrics(Y, Y_test, pred)
 
         # Persist the summary exactly where the original workflow expects it.
-        outputFileSummary = 'output_prediction/summaryCrossValidation+_' + self.name.split('_')[-2:][0] + '_' + self.name.split('_')[-2:][1] + '.csv'
+        outputFileSummary = self._build_summary_output_path('summaryCrossValidation+')
         finalOut = pd.DataFrame(crossValOut, index=[0])
+        self._append_summary_dataframe(outputFileSummary, finalOut)
 
-        if os.path.isfile(outputFileSummary):
-
-            # Append to the Existing Evaluation Summary File Instead of Overwriting It.
-            existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
-            finalOut = pd.concat([existing_df, finalOut])
-
-        # Write the Evaluation Summary Back to the Historical Output Path.
-        finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
-
-        for i in range(len(X_test)):
-
-            # Read the Held-Out Operating Condition for This Exported Row.
-            elem = X_test.iloc[i]
-            namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
-            out[i] = namesParam
-
-            # Append One Predicted Target Value to the Exported Row.
-            for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
-
-        dfOut = pd.DataFrame(out).T
-        return dfOut
+        return self._build_prediction_output_dataframe(X_test, cols, pred)
 
     def predictorMLCrossValidationWithHyperparameter(self, dfInput,testSetDimension):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        # Initialize the Legacy Prediction Export Buffer.
-        out = {}
-        X = dfInput[['rpm', 'deg', 'tor']]
-
-        if self.method == 'phase':
-
-            # Select Only the Phase Targets for the Hyperparameter Search Branch.
-            cols = [x for x in dfInput.columns if 'phase' in x]
-            Y = dfInput[cols]
-
-        elif self.method == 'ampl':
-
-            # Select Only the Amplitude Targets for the Hyperparameter Search Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x]
-            Y = dfInput[cols]
-
-        else:
-
-            # Keep the Original Full Target Surface for the Hyperparameter Search Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
-            Y = dfInput[cols]
+        X, Y, cols = self._build_feature_target_matrices(dfInput)
 
         # Materialize the Historical Held-Out Split Used by the Search Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
 
         # Wrap the original multi-output estimator in the historical grid-search path.
-        self.model = GridSearchCV(self.model, self.getParameterGridSearchCV(self.getAcronimMethod(self.name)),n_jobs=-1)
+        self.model = GridSearchCV(self.model, self.getParameterGridSearchCV(self.get_method_acronym(self.name)),n_jobs=-1)
 
         # Print the Historical Training Banner Before the Grid Search.
         print("MODEL:",self.name)
@@ -671,14 +640,6 @@ class MLModelMultipleOutput:
         # Train the Historical Grid-Search Wrapper on the Training Split.
         self._train(X_train, Y_train)
 
-        # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
-        errorsAcronims = {
-            'test_neg_mean_squared_error' : 'MSE',
-            'test_neg_root_mean_squared_error': 'RMSE',
-            'test_neg_mean_absolute_error':'MAE',
-            'test_neg_mean_absolute_percentage_error':'MAPE'
-        }
-
         # Run the Historical Cross-Validation Metric Sweep on the Grid-Search Wrapper.
         scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
                                                                   'neg_root_mean_squared_error',
@@ -686,12 +647,12 @@ class MLModelMultipleOutput:
                                                                   'neg_mean_absolute_percentage_error'])
 
         # Prepare the Flat Summary Container Used by the Historical CSV Export.
-        errorKeys = list(errorsAcronims.keys())
+        errorKeys = list(ERROR_ACRONYMS.keys())
         crossValOut = {}
-        crossValOut['0_method'] = self.getAcronimMethod(self.name)
+        crossValOut['0_method'] = self.get_method_acronym(self.name)
 
         # Store the Global Cross-Validation Means for the Best-Search Wrapper.
-        for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
+        for el in errorKeys: crossValOut[ERROR_ACRONYMS[el]] = abs(scores[el].mean())
 
         # Iterate Over the Best Wrapped Estimators Target by Target.
         for i in range(len(self.model.best_estimator_.estimators_)):
@@ -704,13 +665,13 @@ class MLModelMultipleOutput:
                                              'neg_mean_absolute_percentage_error'])
 
             # Reuse the Historical Error-Key Ordering for the Current Target.
-            errorKeys = list(errorsAcronims.keys())
+            errorKeys = list(ERROR_ACRONYMS.keys())
 
             for el in errorKeys:
 
                 # Recover the Harmonic Component Suffix Used by the Summary CSV.
                 component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
-                crossValOut[str(component[0])+'_'+str(component[1])+'_'+errorsAcronims[el]] = abs(scores[el].mean())
+                crossValOut[str(component[0])+'_'+str(component[1])+'_'+ERROR_ACRONYMS[el]] = abs(scores[el].mean())
 
         # Print the Historical Training Footer and Best Parameters.
         print("TRAINING END:",datetime.datetime.now())
@@ -718,88 +679,29 @@ class MLModelMultipleOutput:
         pred = self._predict(X_test)
 
         # Persist the cross-validation summary exactly where the original workflow expects it.
-        outputFileSummary = 'output_prediction/summaryCrossValidation+_' + self.name.split('_')[-2:][0] + '_' + self.name.split('_')[-2:][1] + '.csv'
+        outputFileSummary = self._build_summary_output_path('summaryCrossValidation+')
         finalOut = pd.DataFrame(crossValOut,index=[0])
-
-        # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
-        if os.path.isfile(outputFileSummary):
-
-            # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
-            existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
-            finalOut = pd.concat([existing_df,finalOut])
-
-        # Write the Cross-Validation Summary Back to the Historical Output Path.
-        finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
+        self._append_summary_dataframe(outputFileSummary, finalOut)
 
         # Persist the best-parameter summary exactly where the original workflow expects it.
-        outputFileParameter = 'output_prediction/summaryBestParameter+_' + self.name.split('_')[-2:][0] + '_' + self.name.split('_')[-2:][1] + '.csv'
-        paramOut = {'0_method':self.getAcronimMethod(self.name), 'best_parameters':str(self.model.best_params_)}
+        outputFileParameter = self._build_summary_output_path('summaryBestParameter+')
+        paramOut = {'0_method':self.get_method_acronym(self.name), 'best_parameters':str(self.model.best_params_)}
         paramOut = pd.DataFrame(paramOut,index=[0])
+        self._append_summary_dataframe(outputFileParameter, paramOut)
 
-        # Append to the Existing Best-Parameter Summary File Instead of Overwriting It.
-        if os.path.isfile(outputFileParameter):
-
-            # Append to the Existing Best-Parameter Summary File Instead of Overwriting It.
-            existing_df = pd.read_csv(outputFileParameter, sep=';', decimal=',')
-            paramOut = pd.concat([existing_df,paramOut])
-
-        # Write the Best-Parameter Summary Back to the Historical Output Path.
-        paramOut.to_csv(outputFileParameter, sep=';', decimal=',', index=False)
-
-        # Export the held-out prediction rows in the paper-era table shape.
-        for i in range(len(X_test)):
-
-            # Read the Held-Out Operating Condition for This Exported Row.
-            elem = X_test.iloc[i]
-            namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
-            out[i] = namesParam
-
-            # Append One Predicted Target Value to the Exported Row.
-            for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
-
-        # Write the Legacy Prediction Export Buffer as a Dataframe.
-        dfOut = pd.DataFrame(out).T
-        return dfOut
+        return self._build_prediction_output_dataframe(X_test, cols, pred)
 
     def predictorMLCrossValidation(self, dfInput,testSetDimension):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        # Build the Original Three-Input Feature Matrix.
-        out = {}
-        X = dfInput[['rpm', 'deg', 'tor']]
-
-        if self.method == 'phase':
-
-            # Select Only the Phase Targets for the Cross-Validation Branch.
-            cols = [x for x in dfInput.columns if 'phase' in x]
-            Y = dfInput[cols]
-
-        elif self.method == 'ampl':
-
-            # Select Only the Amplitude Targets for the Cross-Validation Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x]
-            Y = dfInput[cols]
-
-        else:
-
-            # Keep the Original Full Target Surface for the Cross-Validation Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
-            Y = dfInput[cols]
+        X, Y, cols = self._build_feature_target_matrices(dfInput)
 
         # Materialize the Historical Held-Out Split Used by the Cross-Validation Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
 
         # Train the Wrapped Estimator Before Running Cross-Validation Reporting.
         self._train(X_train, Y_train)
-
-        # Define the Historical Error-Acronym Mapping Used by the Summary CSV.
-        errorsAcronims = {
-            'test_neg_mean_squared_error' : 'MSE',
-            'test_neg_root_mean_squared_error': 'RMSE',
-            'test_neg_mean_absolute_error':'MAE',
-            'test_neg_mean_absolute_percentage_error':'MAPE'
-        }
 
         # Run the Historical Cross-Validation Metric Sweep.
         scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
@@ -808,12 +710,12 @@ class MLModelMultipleOutput:
                                                                   'neg_mean_absolute_percentage_error'])
 
         # Prepare the Flat Summary Container Used by the Historical CSV Export.
-        errorKeys = list(errorsAcronims.keys())#[x for x in list(scores.keys()) if 'test' in x]
+        errorKeys = list(ERROR_ACRONYMS.keys())#[x for x in list(scores.keys()) if 'test' in x]
         crossValOut = {}
-        crossValOut['0_method'] = self.getAcronimMethod(self.name)
+        crossValOut['0_method'] = self.get_method_acronym(self.name)
 
         # Store the Global Cross-Validation Means for the Wrapped Estimator.
-        for el in errorKeys: crossValOut[errorsAcronims[el]] = abs(scores[el].mean())
+        for el in errorKeys: crossValOut[ERROR_ACRONYMS[el]] = abs(scores[el].mean())
 
         for i in range(len(self.model.estimators_)):
 
@@ -825,71 +727,29 @@ class MLModelMultipleOutput:
                                              'neg_mean_absolute_percentage_error'])
 
             # Reuse the Historical Error-Key Ordering for the Current Target.
-            errorKeys = list(errorsAcronims.keys())
+            errorKeys = list(ERROR_ACRONYMS.keys())
 
             for el in errorKeys:
 
                 # Recover the Harmonic Component Suffix Used by the Summary CSV.
                 component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
-                crossValOut[str(component[0])+'_'+str(component[1])+'_'+errorsAcronims[el]] = abs(scores[el].mean())
+                crossValOut[str(component[0])+'_'+str(component[1])+'_'+ERROR_ACRONYMS[el]] = abs(scores[el].mean())
 
         # Predict the Held-Out Split With the Trained Estimator.
         pred = self._predict(X_test)
 
         # Persist the summary exactly where the original workflow expects it.
-        outputFileSummary = 'output_prediction/summaryCrossValidation+_' + self.name.split('_')[-2:][0] + '_' + self.name.split('_')[-2:][1] + '.csv'
+        outputFileSummary = self._build_summary_output_path('summaryCrossValidation+')
         finalOut = pd.DataFrame(crossValOut,index=[0])
+        self._append_summary_dataframe(outputFileSummary, finalOut)
 
-        # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
-        if os.path.isfile(outputFileSummary):
-
-            # Append to the Existing Cross-Validation Summary File Instead of Overwriting It.
-            existing_df = pd.read_csv(outputFileSummary, sep=';', decimal=',')
-            finalOut = pd.concat([existing_df,finalOut])
-
-        # Write the Cross-Validation Summary Back to the Historical Output Path.
-        finalOut.to_csv(outputFileSummary, sep=';', decimal=',', index=False)
-
-        # Export the held-out prediction rows in the paper-era table shape.
-        for i in range(len(X_test)):
-
-            # Read the Held-Out Operating Condition for This Exported Row.
-            elem = X_test.iloc[i]
-            namesParam = {'rpm': elem['rpm'], 'deg': elem['deg'], "tor": elem['tor']}
-            out[i] = namesParam
-
-            # Append One Predicted Target Value to the Exported Row.
-            for j in range(len(cols)): out[i]['prev_' + cols[j]] = pred[i][j]
-
-        # Convert the Legacy Export Buffer Into the Expected Dataframe.
-        dfOut = pd.DataFrame(out).T
-        return dfOut
+        return self._build_prediction_output_dataframe(X_test, cols, pred)
 
     def predictorML_allForExport(self, dfInput, testSetDimension=None):
 
         """ Original multi-output wrapper used by the recovered training flows. """
 
-        # Initialize the Legacy Prediction Export Buffer.
-        out = {}
-        X = dfInput[['rpm', 'deg', 'tor']]
-
-        if self.method == 'phase':
-
-            # Select Only the Phase Targets for the Export Branch.
-            cols = [x for x in dfInput.columns if 'phase' in x]
-            Y = dfInput[cols]
-
-        elif self.method == 'ampl':
-
-            # Select Only the Amplitude Targets for the Export Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x]
-            Y = dfInput[cols]
-
-        else:
-
-            # Keep the Original Full Target Surface for the Export Branch.
-            cols = [x for x in dfInput.columns if 'ampl' in x or 'phase' in x]
-            Y = dfInput[cols]
+        X, Y, cols = self._build_feature_target_matrices(dfInput)
 
         # Train on the Entire Original Dataset Before Exporting the Bank.
         X_train, Y_train = X, Y

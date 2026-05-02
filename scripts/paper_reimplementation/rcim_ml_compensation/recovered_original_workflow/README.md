@@ -132,16 +132,21 @@ The original scripts wrote into mutable local folders such as:
 - `model_output_dir/`
 - `evaluation/`
 
-The rebuilt repository surface still creates those original-style folders when
-needed, but only inside one repository-owned runtime root under:
+The rebuilt repository surface still creates the prediction/export/evaluation
+folders when needed, but only inside one repository-owned runtime root under:
 
 - `output/validation_checks/paper_reimplementation_rcim_recovered_original_workflow/`
+
+The long-lived instance pickle cache is now shared under:
+
+- `data/paper_reimplementation_rcim_recovered_original_workflow/instance_pickle_cache/`
 
 Each direct script creates its own timestamped runtime folder there unless
 `--output-root` is provided explicitly.
 
 This keeps the original relative-path logic working while avoiding scattered
-mutable outputs inside the script folder itself.
+mutable outputs inside the script folder itself and prevents every validation
+check from duplicating hundreds of `.pkl` files.
 
 ## 1. Dataframe Creation
 
@@ -153,10 +158,12 @@ What it does in code terms:
 
 - prepends `utilities/` to `sys.path`;
 - loads `Statistics` from `utilities/statistics.py`;
-- prepares a runtime-local `instances_V3/` cache folder;
-- reuses `.pickle` files if the input directory already contains them;
-- otherwise lets the original logic read CSVs and create the cache;
-- calls `genDfWithAmplEPhase('Fw')` or `genDfWithAmplEPhase('Bw')`;
+- resolves a shared repository-owned pickle cache under `data/`;
+- reuses source `.pickle` files when the input directory already contains them;
+- otherwise lets the original logic read CSVs and populate the shared cache;
+- calls
+  `build_prediction_dataframe_with_amplitude_and_phase('Fw')` or
+  `build_prediction_dataframe_with_amplitude_and_phase('Bw')`;
 - writes the original-style dataframe CSV into the runtime root.
 
 Default input:
@@ -279,7 +286,7 @@ What it does in code terms:
 
 - prepends `utilities/` to `sys.path`;
 - loads `Statistics` from `utilities/statistics.py`;
-- prepares a runtime-local `instances_V3/` cache folder;
+- resolves the shared repository-owned pickle cache under `data/`;
 - copies the selected prediction directory into:
   `output_prediction/instV3.8_Fw_allFreq_def/` inside the runtime root;
 - runs the recovered `2-main_evaluatePrediction_v4.py` logic against that
@@ -324,6 +331,13 @@ Tracked cleanup and maintenance choices:
 - `utilities/predictorML.py` was cleaned of stale commented branches, dead
   local variables, and one fully commented legacy AutoML block, while keeping
   the callable model helpers and their numerical logic intact;
+- repeated repository-owned runtime/setup blocks were consolidated into shared
+  helpers, and repository-owned Italian identifiers in the active workflow
+  surface were translated to English while preserving the original numerical
+  behavior;
+- the legacy runtime-local `instances_V3/` pickle cache contract was replaced
+  by a shared repository-owned cache under `data/`, so validation runs no
+  longer replicate the same instance `.pkl` files inside every runtime root;
 - local generated residue such as `__pycache__/` directories is not part of
   the maintained workflow surface;
 - docstrings, section comments, and spacing were aligned to the repository
