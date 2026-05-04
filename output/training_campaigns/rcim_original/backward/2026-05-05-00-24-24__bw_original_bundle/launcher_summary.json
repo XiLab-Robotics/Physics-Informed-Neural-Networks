@@ -1,0 +1,22 @@
+﻿{
+    "branch":  "backward",
+    "requested_stage":  "Original",
+    "effective_stage":  "Original",
+    "run_instance_id":  "2026-05-05-00-24-24__bw_original_bundle",
+    "campaign_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-05-00-24-24__bw_original_bundle",
+    "logs_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-05-00-24-24__bw_original_bundle\\logs",
+    "dataframe_path":  null,
+    "best_parameter_summary_path":  null,
+    "best_parameter_source":  "none",
+    "best_parameter_registry_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+    "no_eval":  false,
+    "no_export":  false,
+    "performed_retune":  false,
+    "registry_update":  null,
+    "notes":  [
+                  "Backward Original stage is unsupported because no recovered paper backward tuned hyperparameter map exists."
+              ],
+    "stage_results":  [
+
+                      ]
+}
