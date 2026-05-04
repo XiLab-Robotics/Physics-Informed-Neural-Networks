@@ -1,0 +1,32 @@
+{
+  "stage": "training_models",
+  "mode": "retune",
+  "direction": "backward",
+  "input_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "DT",
+    "ET",
+    "ERT",
+    "RF",
+    "GBM",
+    "HGBM",
+    "XGBM",
+    "LGBM",
+    "MLP"
+  ],
+  "prediction_output_folder": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction",
+  "model_output_dir": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_DecisionTreeRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_ExtraTreeRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_ExtraTreesRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_RandomForestRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_GradientBoostingRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_HistGradientBoostingRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_XGBRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_LGBMRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\dfOutTot_prediction_MLPRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv"
+  ]
+}
