@@ -1,5 +1,9 @@
 # 2026-05-04 Technical Documents
 
+- [2026-05-04-23-14-36_rcim_recovered_workflow_readme_command_surface_completion.md](./2026-05-04-23-14-36_rcim_recovered_workflow_readme_command_surface_completion.md)
+  Plan the command-surface completion pass for the recovered-original RCIM
+  workflow README so it consolidates the unified launcher, compatibility
+  wrappers, and the main operator command examples in one practical location.
 - [2026-05-04-19-12-31_rcim_original_unified_launcher_and_best_parameter_flow.md](./2026-05-04-19-12-31_rcim_original_unified_launcher_and_best_parameter_flow.md)
   Plan the unification of the recovered-original RCIM paper-reference
   PowerShell launcher surface across `forward` and `backward`, including the

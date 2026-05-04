@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-04
 
+- [technical/2026-05/2026-05-04/2026-05-04-23-14-36_rcim_recovered_workflow_readme_command_surface_completion.md](./technical/2026-05/2026-05-04/2026-05-04-23-14-36_rcim_recovered_workflow_readme_command_surface_completion.md)
+  Plan the command-surface completion pass for the recovered-original RCIM
+  workflow README so it consolidates the unified launcher, compatibility
+  wrappers, and the main operator command examples in one practical location.
 - [technical/2026-05/2026-05-04/2026-05-04-19-12-31_rcim_original_unified_launcher_and_best_parameter_flow.md](./technical/2026-05/2026-05-04/2026-05-04-19-12-31_rcim_original_unified_launcher_and_best_parameter_flow.md)
   Plan the unification of the recovered-original RCIM paper-reference launcher
   surface across `forward` and `backward`, including the new branch/stage CLI

@@ -352,7 +352,23 @@ Launcher behavior:
 - the old forward and backward launcher files are now compatibility wrappers
   around the unified launcher.
 
-Examples:
+### Main Options
+
+Most-used unified-launcher options:
+
+- `-Branch Forward|Backward|Both`
+- `-Stage Original|Retune|Eval|Export|LoadBest`
+- `-Families "SVR,MLP,RF"`
+- `-BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"`
+- `-NoEval`
+- `-NoExport`
+- `-OutputSuffix your_suffix`
+- `-DataframePath "C:\path\to\dataFrame_prediction_Bw_v14_newFreq.csv"`
+- `-PrintOnly`
+
+### Canonical Unified Launcher Commands
+
+Run the original tuned `forward` branch with automatic `Eval` plus `Export`:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
@@ -360,16 +376,127 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   -Stage Original
 ```
 
+Run the `backward` original branch only to confirm that no original paper
+backward tuned map exists:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Original
+```
+
+Run a full `backward` retune with automatic downstream `Eval` plus `Export`:
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
   -Branch Backward `
   -Stage Retune
 ```
 
+Run retune on one family only:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Retune `
+  -Families "SVR"
+```
+
+Run retune without continuing to downstream stages:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Retune `
+  -NoEval `
+  -NoExport
+```
+
+Run `LoadBest` on `backward` using one explicit retune summary:
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
   -Branch Backward `
   -Stage LoadBest `
+  -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
+```
+
+Run `LoadBest` on `backward` from the stored registry:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage LoadBest
+```
+
+Run `LoadBest` on `forward` from the stored registry when coverage exists,
+otherwise fall back automatically to `Retune`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Forward `
+  -Stage LoadBest
+```
+
+Run only the tuned replay stage without export:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Eval `
+  -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv" `
+  -NoExport
+```
+
+Run only the export stage:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Export `
+  -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
+```
+
+Run both branches in one operator call:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Both `
+  -Stage LoadBest
+```
+
+Preview one command without writing files:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Forward `
+  -Stage Original `
+  -Families "DT" `
+  -PrintOnly
+```
+
+### Legacy Wrapper Commands
+
+The old wrapper launchers still work and now delegate into the unified
+launcher:
+
+Forward compatibility wrapper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_forward_reference_training.ps1"
+```
+
+Backward retune compatibility wrapper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_backward_reference_training.ps1" -Stage Retune
+```
+
+Backward `PaperEval` compatibility wrapper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_backward_reference_training.ps1" `
+  -Stage PaperEval `
   -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
 ```
 
