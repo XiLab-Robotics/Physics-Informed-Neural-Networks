@@ -25,6 +25,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import cross_validate
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputRegressor
@@ -70,6 +71,19 @@ except ImportError:  # pragma: no cover - runtime dependency check
 EXACT_MODEL_BANK_FILENAME = "paper_family_model_bank.pkl"
 EXACT_MODEL_REPORT_ROOT = shared_training_infrastructure.PROJECT_PATH / "doc" / "reports" / "analysis" / "validation_checks"
 EXACT_MODEL_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
+EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST = [
+    "neg_mean_squared_error",
+    "neg_root_mean_squared_error",
+    "neg_mean_absolute_error",
+    "neg_mean_absolute_percentage_error",
+]
+EXACT_PAPER_HISTORICAL_SCORE_OUTPUT_KEY_MAP = {
+    "neg_mean_squared_error": "mean_squared_error",
+    "neg_root_mean_squared_error": "root_mean_squared_error",
+    "neg_mean_absolute_error": "mean_absolute_error",
+    "neg_mean_absolute_percentage_error": "mean_absolute_percentage_error",
+}
+EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT = 10
 EXACT_FAMILY_ORDER = [
     "SVR",
     "MLP",
@@ -256,6 +270,75 @@ def count_exact_parameter_grid_candidates(parameter_grid: dict[str, list[Any]]) 
     for parameter_value_list in parameter_grid.values():
         candidate_count *= int(len(parameter_value_list))
     return int(candidate_count)
+
+
+def _build_historical_cross_validate_metric_dictionary(
+    score_dictionary: dict[str, np.ndarray],
+) -> dict[str, float]:
+
+    """Convert one sklearn `cross_validate` score dictionary into stable means."""
+
+    # Recover Mean Metrics Using The Historical Absolute-Value Convention
+    metric_dictionary: dict[str, float] = {}
+    for scoring_name in EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST:
+        score_key = f"test_{scoring_name}"
+        metric_name = EXACT_PAPER_HISTORICAL_SCORE_OUTPUT_KEY_MAP[scoring_name]
+        metric_dictionary[metric_name] = float(abs(np.asarray(score_dictionary[score_key], dtype=np.float64).mean()))
+    return metric_dictionary
+
+
+def _build_historical_search_protocol_summary(
+    family_name: str,
+    dataset_bundle: "ExactPaperDatasetBundle",
+    fitted_grid_search_estimator: GridSearchCV,
+    threadpool_limit: int,
+) -> dict[str, Any]:
+
+    """Replay the recovered historical search-plus-cross-validation protocol."""
+
+    # Resolve The Full Historical Validation Surface
+    full_feature_matrix: pd.DataFrame | np.ndarray = dataset_bundle.full_dataframe[
+        dataset_bundle.feature_name_list
+    ].copy()
+    full_target_matrix = dataset_bundle.full_dataframe[dataset_bundle.target_name_list].copy()
+    if family_name == "XGBM":
+        full_feature_matrix = full_feature_matrix.to_numpy(dtype=np.float32)
+
+    # Re-Run The Historical Global Cross-Validation On The Search Wrapper
+    with threadpool_limits(limits=threadpool_limit):
+        global_score_dictionary = cross_validate(
+            fitted_grid_search_estimator,
+            full_feature_matrix,
+            full_target_matrix,
+            cv=EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT,
+            scoring=EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST,
+        )
+    global_metric_dictionary = _build_historical_cross_validate_metric_dictionary(global_score_dictionary)
+
+    # Re-Run The Historical Per-Target Cross-Validation On The Best Estimators
+    per_target_metric_dictionary: dict[str, dict[str, float]] = {}
+    for target_index, target_name in enumerate(dataset_bundle.target_name_list):
+        per_target_estimator = fitted_grid_search_estimator.best_estimator_.estimators_[target_index]
+        target_score_input = full_target_matrix[full_target_matrix.columns[target_index:target_index + 1]]
+        with threadpool_limits(limits=threadpool_limit):
+            target_score_dictionary = cross_validate(
+                per_target_estimator,
+                full_feature_matrix,
+                target_score_input,
+                cv=EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT,
+                scoring=EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST,
+            )
+        per_target_metric_dictionary[target_name] = _build_historical_cross_validate_metric_dictionary(
+            target_score_dictionary
+        )
+
+    return {
+        "executed": True,
+        "cv_fold_count": EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT,
+        "scoring_name_list": list(EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST),
+        "global_wrapper_metric_mean_dictionary": global_metric_dictionary,
+        "per_target_best_estimator_metric_mean_dictionary": per_target_metric_dictionary,
+    }
 
 
 def parse_exact_target_name(target_name: str) -> tuple[str, int]:
@@ -1194,6 +1277,19 @@ def fit_exact_family_model_bank(
                     train_feature_matrix,
                     dataset_bundle.train_target_matrix,
                 )
+            emit_exact_paper_progress_log(
+                "INFO",
+                "Historical search protocol replay started | "
+                f"family={family_name} "
+                f"cv={EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT} "
+                f"targets={len(dataset_bundle.target_name_list)}",
+            )
+            historical_protocol_summary = _build_historical_search_protocol_summary(
+                family_name=family_name,
+                dataset_bundle=dataset_bundle,
+                fitted_grid_search_estimator=grid_search_estimator,
+                threadpool_limit=threadpool_limit,
+            )
             elapsed_seconds = time.perf_counter() - family_fit_start_time
             best_wrapped_estimator = grid_search_estimator.best_estimator_
             fitted_family_model_dictionary[family_name] = best_wrapped_estimator
@@ -1216,6 +1312,7 @@ def fit_exact_family_model_bank(
                     if getattr(grid_search_estimator, "best_score_", None) is not None
                     else None
                 ),
+                "historical_protocol_summary": historical_protocol_summary,
             }
             emit_exact_paper_progress_log(
                 "DONE",
@@ -1252,6 +1349,7 @@ def fit_exact_family_model_bank(
             "parameter_grid": None,
             "best_params": None,
             "best_score": None,
+            "historical_protocol_summary": None,
         }
         emit_exact_paper_progress_log(
             "DONE",
@@ -1994,6 +2092,9 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     paper_numeric_harmonic_summary = validation_summary["paper_numeric_harmonic_summary"]
     onnx_export_summary = validation_summary["onnx_export_summary"]
     family_search_summary_dictionary = training_strategy_dictionary["family_search_summary"]
+    winner_historical_protocol_summary = family_search_summary_dictionary[
+        winner_summary["winning_family"]
+    ].get("historical_protocol_summary")
 
     # Build Numeric Comparison Lookups
     numeric_target_lookup = {
@@ -2228,6 +2329,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         f"- hyperparameter search mode: `{training_strategy_dictionary['hyperparameter_search_mode']}`;",
         f"- grid-search `n_jobs`: `{training_strategy_dictionary['grid_search_n_jobs']}`;",
         f"- grid-search `pre_dispatch`: `{training_strategy_dictionary['grid_search_pre_dispatch']}`;",
+        f"- historical wrapper `cross_validate(...)` replay: `{bool(winner_historical_protocol_summary)}`;",
         "",
         "### Family Search Summary",
         "",

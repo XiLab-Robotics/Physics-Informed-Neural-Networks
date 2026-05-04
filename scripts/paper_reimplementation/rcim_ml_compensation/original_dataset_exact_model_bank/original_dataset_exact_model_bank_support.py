@@ -439,6 +439,9 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
     family_ranking = validation_summary["family_ranking"]
     target_winner_registry = validation_summary["target_winner_registry"]
     family_search_summary_dictionary = training_strategy_dictionary["family_search_summary"]
+    winner_historical_protocol_summary = family_search_summary_dictionary[
+        winner_summary["winning_family"]
+    ].get("historical_protocol_summary")
 
     family_row_list: list[str] = []
     for ranking_index, family_entry in enumerate(family_ranking, start=1):
@@ -492,6 +495,7 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
             f"- test split: `{dataset_dictionary['test_size']}`",
             f"- random seed: `{dataset_dictionary['random_seed']}`",
             f"- validation usage note: {training_strategy_dictionary['validation_usage_note']}",
+            f"- historical wrapper `cross_validate(...)` replay: `{bool(winner_historical_protocol_summary)}`",
             "",
             "## Winner Summary",
             "",

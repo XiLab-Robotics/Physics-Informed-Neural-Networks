@@ -97,6 +97,16 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-04
+
+- [technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md](./technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md)
+  Plan the missing exact-paper search-protocol alignment to the recovered original RCIM workflow, including the historical `cross_validate(...)` stage, and the replacement of the active `400`-run campaign with a paper-faithful `20`-run design.
+
+#### 2026-05-03
+
+- [technical/2026-05/2026-05-03/2026-05-03-13-23-46_track1_bidirectional_paper_faithful_grid_search_campaign_replacement.md](./technical/2026-05/2026-05-03/2026-05-03-13-23-46_track1_bidirectional_paper_faithful_grid_search_campaign_replacement.md)
+  Plan the replacement of the active Track 1 bidirectional `400`-run literal-refresh mega campaign with a paper-faithful `20`-run grid-search campaign that performs exactly one search pass per family-direction surface.
+
 #### 2026-05-01
 
 - [technical/2026-05/2026-05-01/2026-05-01-22-56-02_rcim_recovered_original_workflow_simplification_and_pickle_cache_relocation.md](./technical/2026-05/2026-05-01/2026-05-01-22-56-02_rcim_recovered_original_workflow_simplification_and_pickle_cache_relocation.md)
@@ -115,6 +125,11 @@ This folder contains the internal project documents derived from the reference P
   Plan the final utility-focused cleanup and style-alignment pass over the recovered-original RCIM workflow, limited to `instance_v4.py`, `instance_v5.py`, `predictorML.py`, and the adjacent workflow README.
 - [technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md](./technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md)
   Plan a conservative restoration of the recovered-original RCIM workflow so the user-authored inline comments and local formatting are recovered from the `_old` backup copies and only minimal repository-style normalization is applied afterward.
+
+#### 2026-05-02
+
+- [technical/2026-05/2026-05-02/2026-05-02-12-31-12_rcim_original_reference_training_and_archive_plan.md](./technical/2026-05/2026-05-02/2026-05-02-12-31-12_rcim_original_reference_training_and_archive_plan.md)
+  Plan the operator-run retraining of the recovered original RCIM workflow into `models/paper_reference/rcim_original/`, including the `forward` `v18` replay, the `backward` `v17` retuning step, and the current manual handoff gap before a valid `backward` tuned replay.
 
 #### 2026-04-30
 
