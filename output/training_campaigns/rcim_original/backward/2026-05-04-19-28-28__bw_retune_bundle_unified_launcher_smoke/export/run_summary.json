@@ -1,0 +1,18 @@
+{
+  "stage": "training_models",
+  "mode": "paper_export",
+  "direction": "backward",
+  "input_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\\export\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "DT"
+  ],
+  "selected_family_count": 1,
+  "best_parameter_summary_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+  "prediction_output_folder": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\\export\\output_prediction",
+  "model_output_dir": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\\export\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\\export\\output_prediction\\dfOutTot_prediction_DecisionTreeRegressor_paperReferenceExport_3.8_allFreq.csv"
+  ]
+}

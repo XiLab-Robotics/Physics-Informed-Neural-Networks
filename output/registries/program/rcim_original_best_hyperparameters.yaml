@@ -1,0 +1,17 @@
+version: 1
+updated_at: '2026-05-04T17:30:52+00:00'
+branches:
+  backward:
+    DT:
+      family_code: DT
+      summary_family_code: DT
+      best_parameters: '{''estimator__criterion'': ''absolute_error'', ''estimator__max_depth'':
+        np.int64(16), ''estimator__max_leaf_nodes'': np.int64(27), ''estimator__min_samples_split'':
+        np.int64(2)}'
+      aggregate_mae_mean: 0.06759052585091256
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
+        Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
+        Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-28-28__bw_retune_bundle_unified_launcher_smoke\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-04T17:30:52+00:00'
