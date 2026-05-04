@@ -73,5 +73,6 @@ mapping, runtime-output policy, and the detailed explanation of:
 - the paper-reference launchers under
   `scripts/campaigns/paper_reference/rcim_original/`, including the
   `output/training_campaigns/rcim_original/` artifact roots and persistent
-  stage logs
+  stage logs plus the unified `Forward|Backward|Both` and
+  `Original|Retune|Eval|Export|LoadBest` operator surface
 - tracked repository-owned cleanup differences versus the original reference root

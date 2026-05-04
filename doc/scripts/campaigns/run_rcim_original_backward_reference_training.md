@@ -2,12 +2,14 @@
 
 ## Overview
 
-This launcher runs the repository-owned backward paper-reference workflow for
-the recovered original RCIM training surface.
+This launcher is now a compatibility wrapper around the unified RCIM original
+reference launcher.
 
 Script:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1`
+- canonical unified launcher:
+  `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
 
 Underlying training entrypoint:
 
@@ -15,19 +17,24 @@ Underlying training entrypoint:
 
 ## Behavior
 
-The launcher supports two operator stages:
+The wrapper preserves the historical operator surface:
 
 1. `Retune`
 2. `PaperEval`
 
-`Retune` writes the hyperparameter-search artifacts under:
+Internally it delegates to the unified launcher as:
+
+- `Retune` -> `-Branch Backward -Stage Retune`
+- `PaperEval` -> `-Branch Backward -Stage LoadBest`
+
+`Retune` still writes the hyperparameter-search artifacts under:
 
 - `output/training_campaigns/rcim_original/backward/<run_instance_id>/retune/`
 
-`PaperEval` orchestrates:
+The legacy `PaperEval` wrapper path now orchestrates:
 
-1. `paper_eval`
-2. `paper_export`
+1. `Eval`
+2. `Export`
 
 under:
 
@@ -59,6 +66,15 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
 ```
 
+Canonical unified equivalent:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage LoadBest `
+  -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
+```
+
 Preview only:
 
 ```powershell
@@ -71,7 +87,10 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 ## Notes
 
 - When `-BestParameterSummaryPath` is provided, `PaperEval` and
-  `paper_export` load tuned family parameters from the retune summary CSV.
+  the downstream export stage load tuned family parameters from the retune
+  summary CSV.
+- The unified launcher also exposes the new direct stages:
+  `Original`, `Retune`, `Eval`, `Export`, and `LoadBest`.
 - Curated final model archives under
   `models/paper_reference/rcim_original/backward/`
   are a later closeout step, not the live runtime root.

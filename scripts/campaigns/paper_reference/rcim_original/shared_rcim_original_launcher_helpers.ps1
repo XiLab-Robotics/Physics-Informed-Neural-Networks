@@ -202,3 +202,195 @@ function Invoke-RcimOriginalPythonStage {
         SuppressedStderrLineCount = $counterState.SuppressedStderrLineCount
     }
 }
+
+function Get-RcimOriginalBestParameterRegistryPath {
+    param(
+        [string]$ProjectRoot
+    )
+
+    return (Join-Path $ProjectRoot "output\registries\program\rcim_original_best_hyperparameters.yaml")
+}
+
+function Get-RcimOriginalRetuneBestParameterSummaryPath {
+    param(
+        [string]$RetuneRoot
+    )
+
+    return (Join-Path $RetuneRoot "output_prediction\summaryBestParameter+_3.8_allFreq.csv")
+}
+
+function Get-RcimOriginalRetuneCrossValidationSummaryPath {
+    param(
+        [string]$RetuneRoot
+    )
+
+    return (Join-Path $RetuneRoot "output_prediction\summaryCrossValidation+_3.8_allFreq.csv")
+}
+
+function Get-RcimOriginalEnvironmentPythonPath {
+    param(
+        [string]$CondaEnvironmentName
+    )
+
+    $condaExecutablePath = (where.exe conda.exe | Select-Object -First 1)
+    if ([string]::IsNullOrWhiteSpace($condaExecutablePath)) {
+        throw "Unable to resolve conda.exe on PATH."
+    }
+
+    $condaBasePath = (& $condaExecutablePath info --base 2>$null | Select-Object -Last 1).Trim()
+    if (-not [string]::IsNullOrWhiteSpace($condaBasePath)) {
+        $environmentPythonPath = Join-Path $condaBasePath ("envs\" + $CondaEnvironmentName + "\python.exe")
+        if (Test-Path $environmentPythonPath) {
+            return $environmentPythonPath
+        }
+    }
+
+    return $null
+}
+
+function Invoke-RcimOriginalRegistryHelper {
+    param(
+        [string]$ProjectRoot,
+        [string]$CondaEnvironmentName,
+        [string]$PythonExecutable,
+        [string[]]$ArgumentList
+    )
+
+    $environmentPythonPath = Get-RcimOriginalEnvironmentPythonPath -CondaEnvironmentName $CondaEnvironmentName
+    $useDirectEnvironmentPython = -not [string]::IsNullOrWhiteSpace($environmentPythonPath)
+    if ($useDirectEnvironmentPython) {
+        $commandExecutablePath = $environmentPythonPath
+        $fullArgumentList = @(
+            "-B",
+            "scripts\campaigns\paper_reference\rcim_original\rcim_original_best_parameter_registry.py"
+        ) + $ArgumentList
+    }
+    else {
+        $condaExecutablePath = (where.exe conda.exe | Select-Object -First 1)
+        if ([string]::IsNullOrWhiteSpace($condaExecutablePath)) {
+            throw "Unable to resolve conda.exe on PATH."
+        }
+
+        $commandExecutablePath = $condaExecutablePath
+        $fullArgumentList = @(
+            "run", "-n", $CondaEnvironmentName,
+            $PythonExecutable,
+            "-B",
+            "scripts\campaigns\paper_reference\rcim_original\rcim_original_best_parameter_registry.py"
+        ) + $ArgumentList
+    }
+
+    $outputLineList = @()
+    Push-Location $ProjectRoot
+    try {
+        $previousErrorActionPreference = $ErrorActionPreference
+        $previousNativePreference = $PSNativeCommandUseErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        $PSNativeCommandUseErrorActionPreference = $false
+
+        & $commandExecutablePath @fullArgumentList 2>&1 | ForEach-Object {
+            $line = $_.ToString()
+            $outputLineList += $line
+            Write-Host $line -ForegroundColor DarkCyan
+        }
+        $exitCode = $LASTEXITCODE
+    }
+    finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+        $PSNativeCommandUseErrorActionPreference = $previousNativePreference
+        Pop-Location
+    }
+
+    return [pscustomobject]@{
+        ExitCode = $exitCode
+        OutputLines = $outputLineList
+    }
+}
+
+function Resolve-RcimOriginalStoredBestSummary {
+    param(
+        [string]$ProjectRoot,
+        [string]$CondaEnvironmentName,
+        [string]$PythonExecutable,
+        [string]$BranchName,
+        [string]$Families,
+        [string]$OutputSummaryPath
+    )
+
+    $registryPath = Get-RcimOriginalBestParameterRegistryPath -ProjectRoot $ProjectRoot
+    $argumentList = @(
+        "--registry-path", $registryPath,
+        "materialize-summary",
+        "--branch", $BranchName,
+        "--output-summary-path", $OutputSummaryPath
+    )
+    if (-not [string]::IsNullOrWhiteSpace($Families)) {
+        $argumentList += @("--families", $Families)
+    }
+
+    $helperResult = Invoke-RcimOriginalRegistryHelper `
+        -ProjectRoot $ProjectRoot `
+        -CondaEnvironmentName $CondaEnvironmentName `
+        -PythonExecutable $PythonExecutable `
+        -ArgumentList $argumentList
+
+    if ($helperResult.ExitCode -eq 0) {
+        return [pscustomobject]@{
+            HasCoverage = $true
+            SummaryPath = $OutputSummaryPath
+            RegistryPath = $registryPath
+        }
+    }
+    if ($helperResult.ExitCode -eq 2) {
+        return [pscustomobject]@{
+            HasCoverage = $false
+            SummaryPath = $null
+            RegistryPath = $registryPath
+        }
+    }
+
+    throw "Failed to materialize the stored best-parameter summary for branch $BranchName."
+}
+
+function Update-RcimOriginalStoredBestRegistry {
+    param(
+        [string]$ProjectRoot,
+        [string]$CondaEnvironmentName,
+        [string]$PythonExecutable,
+        [string]$BranchName,
+        [string]$BestParameterSummaryPath,
+        [string]$CrossValidationSummaryPath,
+        [switch]$PrintOnly
+    )
+
+    $registryPath = Get-RcimOriginalBestParameterRegistryPath -ProjectRoot $ProjectRoot
+    if ($PrintOnly) {
+        return [pscustomobject]@{
+            RegistryPath = $registryPath
+            Updated = $false
+            PrintOnly = $true
+        }
+    }
+
+    $helperResult = Invoke-RcimOriginalRegistryHelper `
+        -ProjectRoot $ProjectRoot `
+        -CondaEnvironmentName $CondaEnvironmentName `
+        -PythonExecutable $PythonExecutable `
+        -ArgumentList @(
+            "--registry-path", $registryPath,
+            "update-from-retune",
+            "--branch", $BranchName,
+            "--best-parameter-summary-path", $BestParameterSummaryPath,
+            "--cross-validation-summary-path", $CrossValidationSummaryPath
+        )
+
+    if ($helperResult.ExitCode -ne 0) {
+        throw "Failed to update the stored best-parameter registry for branch $BranchName."
+    }
+
+    return [pscustomobject]@{
+        RegistryPath = $registryPath
+        Updated = $true
+        PrintOnly = $false
+    }
+}

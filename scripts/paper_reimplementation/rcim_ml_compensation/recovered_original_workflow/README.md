@@ -319,14 +319,19 @@ Shared notes:
 The repository-owned paper-reference launchers for the recovered original
 surface live under:
 
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1`
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py`
 
 Launcher behavior:
 
 - raw runtime artifacts now go under
   `output/training_campaigns/rcim_original/forward/` or
   `output/training_campaigns/rcim_original/backward/`;
+- the canonical operator surface is now:
+  - `-Branch Forward|Backward|Both`
+  - `-Stage Original|Retune|Eval|Export|LoadBest`
 - each launcher stage writes:
   - `<stage>.stdout.log`
   - `<stage>.stderr.log`
@@ -334,26 +339,37 @@ Launcher behavior:
 - the terminal prints only progress-oriented lines such as `[INFO]`,
   `[PROGRESS]`, `[DONE]`, and `[ERROR]`;
 - the full warning flood is still preserved in the log files for diagnosis;
-- the forward launcher orchestrates `paper_eval` plus `paper_export`;
-- the backward launcher supports:
-  - `-Stage Retune`
-  - `-Stage PaperEval`
-- backward `PaperEval` can ingest the retune summary through
-  `-BestParameterSummaryPath`.
+- `Original` on `forward` runs the recovered original tuned replay and then
+  chains `Eval` plus `Export` unless suppressed;
+- `Original` on `backward` prints that no original paper backward tuned
+  hyperparameter map is available;
+- `Retune` can now auto-chain into `Eval` and `Export` unless `-NoEval` and/or
+  `-NoExport` are set;
+- `LoadBest` uses one stored best-parameter registry when coverage exists and
+  falls back to `Retune` when coverage is missing;
+- the persistent best-parameter registry now lives under:
+  `output/registries/program/rcim_original_best_hyperparameters.yaml`;
+- the old forward and backward launcher files are now compatibility wrappers
+  around the unified launcher.
 
 Examples:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_forward_reference_training.ps1"
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Forward `
+  -Stage Original
 ```
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_backward_reference_training.ps1" -Stage Retune
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Retune
 ```
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_backward_reference_training.ps1" `
-  -Stage PaperEval `
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage LoadBest `
   -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
 ```
 

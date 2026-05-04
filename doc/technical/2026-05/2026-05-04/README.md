@@ -1,5 +1,10 @@
 # 2026-05-04 Technical Documents
 
+- [2026-05-04-19-12-31_rcim_original_unified_launcher_and_best_parameter_flow.md](./2026-05-04-19-12-31_rcim_original_unified_launcher_and_best_parameter_flow.md)
+  Plan the unification of the recovered-original RCIM paper-reference
+  PowerShell launcher surface across `forward` and `backward`, including the
+  new branch/stage CLI model, automatic retune-to-eval-to-export chaining, and
+  a repository-owned stored best-hyperparameter registry.
 - [2026-05-04-17-45-11_rcim_original_launcher_process_capture_fix.md](./2026-05-04-17-45-11_rcim_original_launcher_process_capture_fix.md)
   Plan the fix for the shared recovered-original RCIM PowerShell launcher
   process-capture layer so the stage logs are populated, successful stages no

@@ -2,12 +2,14 @@
 
 ## Overview
 
-This launcher runs the repository-owned forward paper-reference workflow for
-the recovered original RCIM training surface.
+This launcher is now a compatibility wrapper around the unified RCIM original
+reference launcher.
 
 Script:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1`
+- canonical unified launcher:
+  `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
 
 Underlying training entrypoint:
 
@@ -15,16 +17,21 @@ Underlying training entrypoint:
 
 ## Behavior
 
-The launcher orchestrates two stages under one campaign root:
+The wrapper delegates to the unified launcher with:
 
-1. `paper_eval`
-2. `paper_export`
+- `-Branch Forward`
+- `-Stage Original`
 
-Raw runtime artifacts are written under:
+That means it still runs the original tuned forward replay and then chains:
+
+1. `Eval`
+2. `Export`
+
+Raw runtime artifacts are still written under:
 
 - `output/training_campaigns/rcim_original/forward/<run_instance_id>/`
 
-Each stage also writes:
+Each stage writes:
 
 - `logs/<stage>.stdout.log`
 - `logs/<stage>.stderr.log`
@@ -38,6 +45,14 @@ The launcher summary is written to:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_forward_reference_training.ps1"
+```
+
+Canonical unified equivalent:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Forward `
+  -Stage Original
 ```
 
 Preview only:
@@ -57,6 +72,8 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 
 - The launcher keeps the full warning surface in log files even when the live
   terminal shows only progress-oriented lines.
+- New operator-facing stage names now live in the unified launcher:
+  `Original`, `Retune`, `Eval`, `Export`, and `LoadBest`.
 - Curated final model archives under
   `models/paper_reference/rcim_original/forward/`
   are a later closeout step, not the live runtime root.

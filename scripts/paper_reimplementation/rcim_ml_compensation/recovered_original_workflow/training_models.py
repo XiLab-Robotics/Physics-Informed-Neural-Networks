@@ -37,8 +37,8 @@ def _normalize_mode(mode):
     normalized_mode = mode.strip().lower()
     if normalized_mode in {"export", "v17_export"}: return "export"
     if normalized_mode in {"retune", "v17_retune", "crossval"}: return "retune"
-    if normalized_mode in {"paper_export", "v18_export", "paperexport"}: return "paper_export"
-    if normalized_mode in {"paper_eval", "v18", "paper"}: return "paper_eval"
+    if normalized_mode in {"paper_export", "v18_export", "paperexport", "export_tuned"}: return "paper_export"
+    if normalized_mode in {"paper_eval", "v18", "paper", "eval", "original"}: return "paper_eval"
     raise ValueError(f"Unsupported training mode: {mode}")
 
 PAPER_REFERENCE_FAMILY_CODE_LIST = ["SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "LGBM", "XGBM", "ELM"]

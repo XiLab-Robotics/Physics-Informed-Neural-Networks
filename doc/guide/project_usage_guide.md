@@ -2714,14 +2714,29 @@ roots.
 
 Paper-reference launcher surface:
 
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1`
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py`
+- `doc/scripts/campaigns/run_rcim_original_reference_training.md`
 - `doc/scripts/campaigns/run_rcim_original_forward_reference_training.md`
 - `doc/scripts/campaigns/run_rcim_original_backward_reference_training.md`
 - raw run artifacts now go under `output/training_campaigns/rcim_original/`
   instead of `models/paper_reference/rcim_original/.../source_runs/`
-- the forward launcher runs both `paper_eval` and `paper_export`
-- the backward launcher supports `Retune` and `PaperEval` stages
+- the canonical operator surface is now:
+  - `-Branch Forward|Backward|Both`
+  - `-Stage Original|Retune|Eval|Export|LoadBest`
+- `Original` on `forward` runs the recovered original tuned replay and then
+  chains `Eval` plus `Export`
+- `Original` on `backward` prints that no recovered original paper backward
+  tuned hyperparameter map exists
+- `Retune` can chain automatically into `Eval` and `Export`
+- `LoadBest` uses the stored best-parameter registry when coverage exists and
+  otherwise falls back automatically to `Retune`
+- the old forward and backward launcher files are compatibility wrappers around
+  the unified launcher
+- persistent best hyperparameters are now tracked in:
+  `output/registries/program/rcim_original_best_hyperparameters.yaml`
 - each launcher stage persists:
   - stdout log
   - stderr log
