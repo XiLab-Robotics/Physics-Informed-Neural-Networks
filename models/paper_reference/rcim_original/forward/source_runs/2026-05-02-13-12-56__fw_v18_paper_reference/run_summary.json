@@ -1,0 +1,36 @@
+{
+  "stage": "training_models",
+  "mode": "paper_eval",
+  "direction": "forward",
+  "input_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "SVR",
+    "MLP",
+    "RF",
+    "DT",
+    "ET",
+    "ERT",
+    "GBM",
+    "HGBM",
+    "LGBM",
+    "XGBM",
+    "ELM"
+  ],
+  "prediction_output_folder": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "model_output_dir": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_SVR_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_MLPRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_RandomForestRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_ExtraTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_ExtraTreesRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_GradientBoostingRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_HistGradientBoostingRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_LGBMRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_XGBRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\models\\paper_reference\\rcim_original\\forward\\source_runs\\2026-05-02-13-12-56__fw_v18_paper_reference\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_ELMRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv"
+  ]
+}
