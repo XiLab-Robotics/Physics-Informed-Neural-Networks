@@ -1,0 +1,26 @@
+# Core Data Stack
+numpy
+pandas
+scipy
+
+# Plotting And Progress Utilities
+matplotlib
+seaborn
+tqdm
+
+# Scikit-Learn Workflow
+scikit-learn
+
+# Tree / Boosting Backends
+xgboost
+lightgbm
+
+# Original Recovered ELM Dependency
+dask
+dask[distributed]
+pyarrow
+scikit-elm
+
+# ONNX Export Stack
+skl2onnx
+onnxmltools
