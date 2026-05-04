@@ -74,9 +74,9 @@ function Invoke-RcimOriginalPythonStage {
         [switch]$PrintOnly
     )
 
-    $condaBatchPath = (where.exe conda.bat | Select-Object -First 1)
-    if ([string]::IsNullOrWhiteSpace($condaBatchPath)) {
-        throw "Unable to resolve conda.bat on PATH."
+    $condaExecutablePath = (where.exe conda.exe | Select-Object -First 1)
+    if ([string]::IsNullOrWhiteSpace($condaExecutablePath)) {
+        throw "Unable to resolve conda.exe on PATH."
     }
 
     $argumentList = @(
@@ -102,7 +102,7 @@ function Invoke-RcimOriginalPythonStage {
         $argumentList += @("--best-parameter-summary-path", $BestParameterSummaryPath)
     }
 
-    $commandPreview = Format-RcimOriginalCommandPreview -CondaBatchPath $condaBatchPath -ArgumentList $argumentList
+    $commandPreview = Format-RcimOriginalCommandPreview -CondaBatchPath $condaExecutablePath -ArgumentList $argumentList
     $stdoutLogPath = Join-Path $LogsRoot ($StageName + ".stdout.log")
     $stderrLogPath = Join-Path $LogsRoot ($StageName + ".stderr.log")
     $combinedLogPath = Join-Path $LogsRoot ($StageName + ".combined.log")
@@ -127,94 +127,74 @@ function Invoke-RcimOriginalPythonStage {
         }
     }
 
-    $startInfo = New-Object System.Diagnostics.ProcessStartInfo
-    $startInfo.FileName = $env:ComSpec
-    $startInfo.WorkingDirectory = $ProjectRoot
-    $startInfo.UseShellExecute = $false
-    $startInfo.CreateNoWindow = $true
-    $startInfo.RedirectStandardOutput = $true
-    $startInfo.RedirectStandardError = $true
-    $startInfo.Arguments = "/d /c " + '"' + $commandPreview + '"'
-
-    $process = New-Object System.Diagnostics.Process
-    $process.StartInfo = $startInfo
-
     $stdoutWriter = New-Object System.IO.StreamWriter($stdoutLogPath, $false, [System.Text.Encoding]::UTF8)
     $stderrWriter = New-Object System.IO.StreamWriter($stderrLogPath, $false, [System.Text.Encoding]::UTF8)
     $combinedWriter = New-Object System.IO.StreamWriter($combinedLogPath, $false, [System.Text.Encoding]::UTF8)
-    $stdoutDrainCompleted = New-Object System.Threading.AutoResetEvent($false)
-    $stderrDrainCompleted = New-Object System.Threading.AutoResetEvent($false)
     $counterState = [pscustomobject]@{
         SuppressedStdoutLineCount = 0
         SuppressedStderrLineCount = 0
     }
-
-    $stdoutHandler = [System.Diagnostics.DataReceivedEventHandler]{
-        param($sender, $eventArgs)
-        if ($null -eq $eventArgs.Data) {
-            $stdoutDrainCompleted.Set() | Out-Null
-            return
-        }
-        $stdoutWriter.WriteLine($eventArgs.Data)
-        $stdoutWriter.Flush()
-        $combinedWriter.WriteLine("[STDOUT] " + $eventArgs.Data)
-        $combinedWriter.Flush()
-        if (Test-RcimOriginalProgressLine -Line $eventArgs.Data) {
-            Write-Host $eventArgs.Data -ForegroundColor Cyan
-        }
-        else {
-            $counterState.SuppressedStdoutLineCount++
-        }
-    }
-
-    $stderrHandler = [System.Diagnostics.DataReceivedEventHandler]{
-        param($sender, $eventArgs)
-        if ($null -eq $eventArgs.Data) {
-            $stderrDrainCompleted.Set() | Out-Null
-            return
-        }
-        $stderrWriter.WriteLine($eventArgs.Data)
-        $stderrWriter.Flush()
-        $combinedWriter.WriteLine("[STDERR] " + $eventArgs.Data)
-        $combinedWriter.Flush()
-        if (Test-RcimOriginalProgressLine -Line $eventArgs.Data) {
-            Write-Host $eventArgs.Data -ForegroundColor Yellow
-        }
-        else {
-            $counterState.SuppressedStderrLineCount++
-        }
-    }
+    $exitCode = 0
 
     try {
-        [void]$process.Start()
-        $process.add_OutputDataReceived($stdoutHandler)
-        $process.add_ErrorDataReceived($stderrHandler)
-        $process.BeginOutputReadLine()
-        $process.BeginErrorReadLine()
-        $process.WaitForExit()
-        $stdoutDrainCompleted.WaitOne() | Out-Null
-        $stderrDrainCompleted.WaitOne() | Out-Null
+        Push-Location $ProjectRoot
+        $previousErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+
+        # Run the training stage through PowerShell native process handling so the wrapper can
+        # stream output reliably without the fragile .NET async event plumbing used before.
+        & $condaExecutablePath @argumentList 2>&1 | ForEach-Object {
+            $record = $_
+            $line = $record.ToString()
+            $isErrorRecord = $record -is [System.Management.Automation.ErrorRecord]
+
+            if ($isErrorRecord) {
+                $stderrWriter.WriteLine($line)
+                $stderrWriter.Flush()
+                $combinedWriter.WriteLine("[STDERR] " + $line)
+                $combinedWriter.Flush()
+
+                if (Test-RcimOriginalProgressLine -Line $line) {
+                    Write-Host $line -ForegroundColor Yellow
+                }
+                else {
+                    $counterState.SuppressedStderrLineCount++
+                }
+            }
+            else {
+                $stdoutWriter.WriteLine($line)
+                $stdoutWriter.Flush()
+                $combinedWriter.WriteLine("[STDOUT] " + $line)
+                $combinedWriter.Flush()
+
+                if (Test-RcimOriginalProgressLine -Line $line) {
+                    Write-Host $line -ForegroundColor Cyan
+                }
+                else {
+                    $counterState.SuppressedStdoutLineCount++
+                }
+            }
+        }
+
+        $exitCode = $LASTEXITCODE
     }
     finally {
-        $process.remove_OutputDataReceived($stdoutHandler)
-        $process.remove_ErrorDataReceived($stderrHandler)
+        $ErrorActionPreference = $previousErrorActionPreference
+        Pop-Location
         $stdoutWriter.Flush()
         $stderrWriter.Flush()
         $combinedWriter.Flush()
         $stdoutWriter.Close()
         $stderrWriter.Close()
         $combinedWriter.Close()
-        $stdoutDrainCompleted.Dispose()
-        $stderrDrainCompleted.Dispose()
-        $process.Dispose()
     }
 
     Write-Host "[INFO] Suppressed Stdout Lines | $($counterState.SuppressedStdoutLineCount)" -ForegroundColor DarkGray
     Write-Host "[INFO] Suppressed Stderr Lines | $($counterState.SuppressedStderrLineCount)" -ForegroundColor DarkGray
-    Write-Host "[INFO] Stage Exit Code | $($process.ExitCode)" -ForegroundColor DarkGray
+    Write-Host "[INFO] Stage Exit Code | $exitCode" -ForegroundColor DarkGray
 
     return [pscustomobject]@{
-        ExitCode = $process.ExitCode
+        ExitCode = $exitCode
         StdoutLogPath = $stdoutLogPath
         StderrLogPath = $stderrLogPath
         CombinedLogPath = $combinedLogPath

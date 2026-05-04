@@ -1,0 +1,20 @@
+﻿{
+    "direction":  "backward",
+    "stage":  "Retune",
+    "run_instance_id":  "2026-05-04-17-51-56__bw_v17_retune_bundle",
+    "campaign_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-17-51-56__bw_v17_retune_bundle",
+    "logs_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-17-51-56__bw_v17_retune_bundle\\logs",
+    "best_parameter_summary_path":  null,
+    "skipped_paper_eval":  false,
+    "skipped_paper_export":  false,
+    "stage_results":  [
+                          {
+                              "Stage":  "retune",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-17-51-56__bw_v17_retune_bundle\\logs\\retune.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-17-51-56__bw_v17_retune_bundle\\logs\\retune.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-17-51-56__bw_v17_retune_bundle\\logs\\retune.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-04-17-51-56__bw_v17_retune_bundle\\retune"
+                          }
+                      ]
+}

@@ -99,6 +99,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-04
 
+- [technical/2026-05/2026-05-04/2026-05-04-17-45-11_rcim_original_launcher_process_capture_fix.md](./technical/2026-05/2026-05-04/2026-05-04-17-45-11_rcim_original_launcher_process_capture_fix.md)
+  Plan the fix for the shared recovered-original RCIM PowerShell launcher
+  process-capture layer so stage logs are written correctly, successful
+  stages stop exiting non-zero, and the automatic transition from
+  `paper_eval` to `paper_export` becomes reliable.
 - [technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md](./technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md)
   Plan the missing exact-paper search-protocol alignment to the recovered original RCIM workflow, including the historical `cross_validate(...)` stage, and the replacement of the active `400`-run campaign with a paper-faithful `20`-run design.
 - [technical/2026-05/2026-05-04/2026-05-04-15-36-05_rcim_original_training_surface_completion_and_launcher_hardening.md](./technical/2026-05/2026-05-04/2026-05-04-15-36-05_rcim_original_training_surface_completion_and_launcher_hardening.md)
