@@ -237,7 +237,9 @@ This mirrors the author guidance:
 - start from the `v17` structure;
 - replace `predictorML_allForExport(...)` with
   `predictorMLCrossValidationWithHyperparameter(...)`;
-- use this when the dataset changes or is intentionally restricted.
+- use this when the dataset changes or is intentionally restricted;
+- default family coverage now matches the paper-reference launcher surface:
+  `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`.
 
 Example:
 
@@ -256,7 +258,9 @@ This mirrors `1-main_prediction_v18.py`:
 
 - load the selected dataframe;
 - use the tuned family list from the recovered `v18` file;
-- run the original held-out `80/20` evaluation path.
+- run the original held-out `80/20` evaluation path;
+- default family coverage now matches the paper-reference launcher surface:
+  `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`.
 
 Example:
 
@@ -278,6 +282,25 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
   --output-suffix v18_bw
 ```
 
+### Mode `paper_export`
+
+This is the repository-owned paper-reference export companion mode:
+
+- it uses the same tuned family surface as `paper_eval`;
+- it trains the selected families on the full dataframe;
+- it exports Python model artifacts under `model_output_dir/`;
+- it attempts ONNX export for every target-wise estimator and persists any
+  export failure as `*.onnx.export_error.txt` instead of crashing the full run.
+
+Example:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode paper_export `
+  --direction forward `
+  --output-suffix v18_export_fw
+```
+
 Shared notes:
 
 - default dataframe inputs come from the shipped recovered `Fw`/`Bw` CSVs;
@@ -285,8 +308,54 @@ Shared notes:
   original filename;
 - original-style folders such as `output_prediction/` and `model_output_dir/`
   are created inside the runtime root;
-- `run_summary.json` records the selected mode, dataframe, families, and
-  artifact locations.
+- `run_summary.json` records the selected mode, dataframe, resolved family
+  list, family count, and artifact locations;
+- when `--best-parameter-summary-path` is provided, `paper_eval` and
+  `paper_export` load tuned family parameters from the retune summary CSV
+  instead of using only the built-in recovered `v18` parameter map.
+
+## Paper-Reference Launchers
+
+The repository-owned paper-reference launchers for the recovered original
+surface live under:
+
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1`
+
+Launcher behavior:
+
+- raw runtime artifacts now go under
+  `output/training_campaigns/rcim_original/forward/` or
+  `output/training_campaigns/rcim_original/backward/`;
+- each launcher stage writes:
+  - `<stage>.stdout.log`
+  - `<stage>.stderr.log`
+  - `<stage>.combined.log`
+- the terminal prints only progress-oriented lines such as `[INFO]`,
+  `[PROGRESS]`, `[DONE]`, and `[ERROR]`;
+- the full warning flood is still preserved in the log files for diagnosis;
+- the forward launcher orchestrates `paper_eval` plus `paper_export`;
+- the backward launcher supports:
+  - `-Stage Retune`
+  - `-Stage PaperEval`
+- backward `PaperEval` can ingest the retune summary through
+  `-BestParameterSummaryPath`.
+
+Examples:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_forward_reference_training.ps1"
+```
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_backward_reference_training.ps1" -Stage Retune
+```
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_backward_reference_training.ps1" `
+  -Stage PaperEval `
+  -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"
+```
 
 ## 3. Evaluation
 
@@ -348,6 +417,12 @@ Tracked cleanup and maintenance choices:
   helpers, and repository-owned Italian identifiers in the active workflow
   surface were translated to English while preserving the original numerical
   behavior;
+- the paper-reference launcher surface now persists full stdout/stderr logs
+  beside the campaign artifacts and uses `output/training_campaigns/rcim_original/`
+  instead of writing live run roots under `models/paper_reference/rcim_original/`;
+- the repository-owned paper-reference export flow now persists Python model
+  artifacts for all exported estimators and degrades ONNX export to
+  per-artifact error notes instead of failing the whole stage.
 - the legacy runtime-local `instances_V3/` pickle cache contract was replaced
   by a shared repository-owned cache under `data/original_pipeline_instances/`,
   so validation runs no longer replicate the same instance `.pkl` files inside

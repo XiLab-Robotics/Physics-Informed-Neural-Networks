@@ -1,6 +1,6 @@
 """ Direct entrypoint for the recovered original RCIM training and export stage. """
 
-import argparse
+import argparse, ast, re
 from pathlib import Path
 
 import pandas as pd
@@ -37,8 +37,11 @@ def _normalize_mode(mode):
     normalized_mode = mode.strip().lower()
     if normalized_mode in {"export", "v17_export"}: return "export"
     if normalized_mode in {"retune", "v17_retune", "crossval"}: return "retune"
+    if normalized_mode in {"paper_export", "v18_export", "paperexport"}: return "paper_export"
     if normalized_mode in {"paper_eval", "v18", "paper"}: return "paper_eval"
     raise ValueError(f"Unsupported training mode: {mode}")
+
+PAPER_REFERENCE_FAMILY_CODE_LIST = ["SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "LGBM", "XGBM", "ELM"]
 
 def _build_argument_parser():
 
@@ -46,13 +49,14 @@ def _build_argument_parser():
 
     # Argument Parser
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", default="paper_eval", help="Training mode: export, retune, or paper_eval.")
+    parser.add_argument("--mode", default="paper_eval", help="Training mode: export, retune, paper_eval, or paper_export.")
     parser.add_argument("--direction", default="forward", help="Direction to train: forward/Fw or backward/Bw.")
     parser.add_argument("--dataframe-path", type=Path, default=None, help="Optional dataframe CSV path. Defaults to the shipped recovered CSV for the selected direction.")
     parser.add_argument("--output-root", type=Path, default=None, help="Repository-owned runtime root. Defaults under output/validation_checks/.")
     parser.add_argument("--output-suffix", default="", help="Optional suffix appended to the default runtime root name.")
     parser.add_argument("--families", default="", help="Comma-separated family subset. Supports acronyms such as DT, RF, SVR, XGBM, ELM.")
     parser.add_argument("--test-size", type=float, default=0.20, help="Held-out test fraction for v18 and retuning flows.")
+    parser.add_argument("--best-parameter-summary-path", type=Path, default=None, help="Optional semicolon-delimited summaryBestParameter CSV exported by the retune path.")
     return parser
 
 def _build_family_factory_map():
@@ -172,10 +176,49 @@ def _resolve_family_code_list(mode_name, families_argument):
 
     # The Family List Can Be Customized With The CLI, But Defaults To The Original Order And Composition For Each Mode.
     if families_argument: return [family_code.strip().upper() for family_code in families_argument.split(",") if family_code.strip()]
-    if mode_name == "paper_eval": return ["SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "LGBM", "XGBM", "ELM"]
-    return ["DT", "ET", "ERT", "RF", "GBM", "HGBM", "XGBM", "LGBM", "MLP"]
+    return list(PAPER_REFERENCE_FAMILY_CODE_LIST)
 
-def _select_family_list(mode_name, families_argument):
+def _normalize_summary_family_code(summary_family_code):
+
+    """ Normalize the historical summary family acronym to the runtime family code. """
+
+    normalized_family_code = summary_family_code.strip().upper()
+    if normalized_family_code == "SVM": return "SVR"
+    return normalized_family_code
+
+def _sanitize_best_parameter_payload(best_parameter_payload):
+
+    """ Parse the historical best-parameter string into one Python dictionary. """
+
+    sanitized_payload = best_parameter_payload.strip()
+    sanitized_payload = re.sub(r"np\.int64\(([^)]+)\)", r"\1", sanitized_payload)
+    sanitized_payload = re.sub(r"np\.float64\(([^)]+)\)", r"\1", sanitized_payload)
+    sanitized_payload = sanitized_payload.replace("estimator__n_estimator", "estimator__n_estimators")
+    parsed_payload = ast.literal_eval(sanitized_payload)
+    return {parameter_name.replace("estimator__", ""): parameter_value for parameter_name, parameter_value in parsed_payload.items()}
+
+def _load_best_parameter_map(best_parameter_summary_path):
+
+    """ Load one family-to-parameter map from the retune summary CSV. """
+
+    summary_dataframe = pd.read_csv(best_parameter_summary_path, sep=";", decimal=",")
+    best_parameter_map = {}
+    for _, summary_row in summary_dataframe.iterrows():
+        family_code = _normalize_summary_family_code(str(summary_row["0_method"]))
+        best_parameter_map[family_code] = _sanitize_best_parameter_payload(str(summary_row["best_parameters"]))
+    return best_parameter_map
+
+def _instantiate_family_model(factory_map, family_code, best_parameter_map):
+
+    """ Instantiate one family model, optionally overriding it with tuned parameters. """
+
+    family_model = factory_map[family_code]()
+    if best_parameter_map is None: return family_model
+    if family_code not in best_parameter_map: raise ValueError(f"Missing tuned parameter entry for family {family_code}")
+    family_model.set_params(**best_parameter_map[family_code])
+    return family_model
+
+def _select_family_list(mode_name, families_argument, best_parameter_summary_path=None):
 
     """ Instantiate the selected family list for the chosen mode. """
 
@@ -183,14 +226,17 @@ def _select_family_list(mode_name, families_argument):
     default_factory_map = _build_family_factory_map()
     paper_factory_map = _build_paper_tuned_family_factory_map()
     family_code_list = _resolve_family_code_list(mode_name, families_argument)
+    best_parameter_map = None
+    if best_parameter_summary_path is not None:
+        best_parameter_map = _load_best_parameter_map(best_parameter_summary_path)
 
     instantiated_family_list = []
     resolved_family_code_list = []
     for family_code in family_code_list:
-        if mode_name == "paper_eval": factory = paper_factory_map.get(family_code)
-        else: factory = default_factory_map.get(family_code)
-        if factory is None: raise ValueError(f"Unsupported family code for mode {mode_name}: {family_code}")
-        instantiated_family_list.append(factory())
+        if mode_name in {"paper_eval", "paper_export"} and best_parameter_map is None: factory_map = paper_factory_map
+        else: factory_map = default_factory_map
+        if family_code not in factory_map: raise ValueError(f"Unsupported family code for mode {mode_name}: {family_code}")
+        instantiated_family_list.append(_instantiate_family_model(factory_map, family_code, best_parameter_map))
         resolved_family_code_list.append(family_code)
     return resolved_family_code_list, instantiated_family_list
 
@@ -224,11 +270,19 @@ def main():
     runtime_dataframe_name, runtime_dataframe_path = copy_dataframe_to_runtime(dataframe_path, output_root, direction_code)
     output_folder_name = build_prediction_output_folder_name(mode_name, direction_code)
     (output_root / output_folder_name).mkdir(parents=True, exist_ok=True)
-    selected_family_code_list, model_list = _select_family_list(mode_name, args.families)
+    selected_family_code_list, model_list = _select_family_list(mode_name, args.families, args.best_parameter_summary_path)
 
     with pushd(output_root):
 
         # Call The Copied Original Training Logic
+        print(f"[INFO] Training Output Root | {output_root}", flush=True)
+        print(f"[INFO] Runtime Dataframe Path | {runtime_dataframe_path}", flush=True)
+        print(f"[INFO] Mode | {mode_name}", flush=True)
+        print(f"[INFO] Direction | {direction_label}", flush=True)
+        print(f"[INFO] Families | {','.join(selected_family_code_list)}", flush=True)
+        if args.best_parameter_summary_path is not None:
+            print(f"[INFO] Best-Parameter Summary | {args.best_parameter_summary_path.resolve()}", flush=True)
+
         df_input = pd.read_csv(runtime_dataframe_name, sep=";", decimal=",", index_col=[0])
         df_input.reset_index(inplace=True)
         cols_to_predict = [column_name for column_name in df_input.columns if "ampl" in column_name or "phase" in column_name]
@@ -236,7 +290,15 @@ def main():
         # Initialize The Output List
         generated_prediction_path_list = []
 
-        for model in model_list:
+        total_family_count = len(model_list)
+
+        for family_index, (family_code, model) in enumerate(zip(selected_family_code_list, model_list), start=1):
+
+            print(
+                f"[PROGRESS] Family {family_index}/{total_family_count} | {family_code} | "
+                f"Mode {mode_name} | Start",
+                flush=True,
+            )
 
             # Initialize The Output Dataframe
             df_output_total = pd.DataFrame()
@@ -255,6 +317,13 @@ def main():
                 ml_model = MLModelMultipleOutput(model, "crossValidationWithHyperparameter_3.8_allFreq", "tot")
                 df_output = ml_model.predictorMLCrossValidationWithHyperparameter(df_input, args.test_size)
 
+            elif mode_name == "paper_export":
+
+                # Train the full-dataset export bank with the tuned paper-reference family parameters.
+                ml_model = MLModelMultipleOutput(model, "paperReferenceExport_3.8_allFreq", "tot")
+                df_output = ml_model.predictorML_allForExport(df_input, args.test_size)
+                ml_model.exportModel(ml_model.name + "_MultiOutput_" + "tot", cols_to_predict)
+
             else:
 
                 # Mirror the paper-style v18 held-out evaluation path with the recovered tuned hyperparameters.
@@ -270,6 +339,12 @@ def main():
             df_output_total.to_csv(prediction_output_path, sep=";", decimal=",")
             generated_prediction_path_list.append(str(prediction_output_path))
 
+            print(
+                f"[PROGRESS] Family {family_index}/{total_family_count} | {family_code} | "
+                f"Mode {mode_name} | Done | {prediction_output_path.name}",
+                flush=True,
+            )
+
     # Write A Summary Of The Run For Reproducibility
     write_summary(
         output_root / "run_summary.json",
@@ -281,11 +356,14 @@ def main():
             "runtime_dataframe_path": str(runtime_dataframe_path),
             "test_size": args.test_size,
             "selected_families": selected_family_code_list,
+            "selected_family_count": len(selected_family_code_list),
+            "best_parameter_summary_path": str(args.best_parameter_summary_path.resolve()) if args.best_parameter_summary_path else None,
             "prediction_output_folder": str(output_root / output_folder_name),
             "model_output_dir": str(output_root / "model_output_dir"),
             "generated_prediction_paths": generated_prediction_path_list,
         },
     )
+    print(f"[DONE] Training Summary | {output_root / 'run_summary.json'}", flush=True)
     print(output_root)
 
 if __name__ == "__main__":

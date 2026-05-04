@@ -7,6 +7,9 @@ param(
     [double]$TestSize = 0.20,
     [string]$OutputSuffix = "",
     [string]$DataframePath = "",
+    [string]$BestParameterSummaryPath = "",
+    [switch]$SkipPaperEval,
+    [switch]$SkipPaperExport,
     [switch]$PrintOnly
 )
 
@@ -16,94 +19,164 @@ $ErrorActionPreference = "Stop"
 $scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
 $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..\..")).Path
 Set-Location $projectRoot
+. (Join-Path $scriptDirectory "shared_rcim_original_launcher_helpers.ps1")
 
-# Map The Requested Backward Stage To The Recovered Training Mode.
-$normalizedStage = $Stage.Trim()
-switch ($normalizedStage) {
-    "Retune" {
-        $modeName = "retune"
-        $runLabel = "bw_v17_retune"
-    }
-    "PaperEval" {
-        $modeName = "paper_eval"
-        $runLabel = "bw_v18_paper_reference"
-    }
-    default {
-        throw "Unsupported backward stage: $Stage"
-    }
-}
-
-# Build The Direction-Specific Archive Root And Run Instance Identifier.
-$runTimestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
-$runInstanceId = $runTimestamp + "__" + $runLabel
-if (-not [string]::IsNullOrWhiteSpace($OutputSuffix)) {
-    $runInstanceId = $runInstanceId + "_" + $OutputSuffix
-}
-
-$outputRoot = Join-Path $projectRoot ("models\paper_reference\rcim_original\backward\source_runs\" + $runInstanceId)
-New-Item -ItemType Directory -Force -Path $outputRoot | Out-Null
-
-# Build The Recovered-Workflow Training Command.
-$argumentList = @(
-    "run", "-n", $CondaEnvironmentName,
-    $PythonExecutable,
-    "-B",
-    "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
-    "--mode", $modeName,
-    "--direction", "backward",
-    "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
-    "--output-root", $outputRoot
-)
-
-if (-not [string]::IsNullOrWhiteSpace($Families)) {
-    $argumentList += @("--families", $Families)
-}
-
-if (-not [string]::IsNullOrWhiteSpace($DataframePath)) {
-    $argumentList += @("--dataframe-path", $DataframePath)
-}
+# Build The Campaign Root Under output/training_campaigns Instead Of models/paper_reference.
+$runLabel = if ($Stage -eq "Retune") { "bw_v17_retune_bundle" } else { "bw_paper_reference_bundle" }
+$runContext = New-RcimOriginalRunRoot `
+    -ProjectRoot $projectRoot `
+    -DirectionLabel "backward" `
+    -RunLabel $runLabel `
+    -OutputSuffix $OutputSuffix `
+    -CreateDirectories:(-not $PrintOnly)
 
 Write-Host "[INFO] RCIM Original Backward Reference Training" -ForegroundColor Cyan
-Write-Host "[INFO] Stage | $normalizedStage" -ForegroundColor Cyan
-Write-Host "[INFO] Mode | $modeName" -ForegroundColor Cyan
-Write-Host "[INFO] Direction | backward" -ForegroundColor Cyan
-Write-Host "[INFO] Output Root | $outputRoot" -ForegroundColor Cyan
-if (-not [string]::IsNullOrWhiteSpace($Families)) {
-    Write-Host "[INFO] Families | $Families" -ForegroundColor Cyan
-}
-if (-not [string]::IsNullOrWhiteSpace($DataframePath)) {
-    Write-Host "[INFO] Dataframe Override | $DataframePath" -ForegroundColor Cyan
-}
-if ($normalizedStage -eq "PaperEval") {
-    Write-Host "[WARNING] This Stage Assumes The Backward Tuned Parameters Have Already Been Transferred Into The Paper-Eval Family Map." -ForegroundColor Yellow
-}
+Write-Host "[INFO] Stage | $Stage" -ForegroundColor Cyan
+Write-Host "[INFO] Campaign Root | $($runContext.CampaignRoot)" -ForegroundColor Cyan
+Write-Host "[INFO] Logs Root | $($runContext.LogsRoot)" -ForegroundColor Cyan
 
-$commandPreview = "conda " + (($argumentList | ForEach-Object {
-    if ($_ -match '\s') { '"' + $_ + '"' } else { $_ }
-}) -join " ")
-Write-Host "[INFO] Command | $commandPreview" -ForegroundColor DarkCyan
+$stageResultList = @()
 
-if ($PrintOnly) {
-    Write-Host "[DONE] Print-Only Mode Enabled. No Training Was Launched." -ForegroundColor Green
-    exit 0
-}
+if ($Stage -eq "Retune") {
+    $retuneRoot = Join-Path $runContext.CampaignRoot "retune"
+    if (-not $PrintOnly) {
+        New-Item -ItemType Directory -Force -Path $retuneRoot | Out-Null
+    }
 
-# Launch The Requested Backward Stage.
-& conda @argumentList
-$nativeExitCode = $LASTEXITCODE
+    $retuneResult = Invoke-RcimOriginalPythonStage `
+        -ProjectRoot $projectRoot `
+        -CondaEnvironmentName $CondaEnvironmentName `
+        -PythonExecutable $PythonExecutable `
+        -StageName "retune" `
+        -StageRoot $retuneRoot `
+        -LogsRoot $runContext.LogsRoot `
+        -ModeName "retune" `
+        -DirectionName "backward" `
+        -Families $Families `
+        -TestSize $TestSize `
+        -DataframePath $DataframePath `
+        -BestParameterSummaryPath "" `
+        -PrintOnly:$PrintOnly
 
-if ($nativeExitCode -ne 0) {
-    Write-Host "[ERROR] RCIM Original Backward Reference Training Failed." -ForegroundColor Red
-    exit $nativeExitCode
-}
+    $stageResultList += [pscustomobject]@{
+        Stage = "retune"
+        ExitCode = $retuneResult.ExitCode
+        StdoutLogPath = $retuneResult.StdoutLogPath
+        StderrLogPath = $retuneResult.StderrLogPath
+        CombinedLogPath = $retuneResult.CombinedLogPath
+        StageRoot = $retuneRoot
+    }
 
-if ($normalizedStage -eq "Retune") {
+    if ($retuneResult.ExitCode -ne 0) {
+        Write-Host "[ERROR] Backward Retune Stage Failed." -ForegroundColor Red
+        exit $retuneResult.ExitCode
+    }
+
     Write-Host "[DONE] Backward Retune Completed." -ForegroundColor Green
-    Write-Host "[DONE] Inspect output_prediction\\summaryBestParameter+*.csv Under | $outputRoot" -ForegroundColor Green
+    Write-Host "[DONE] Inspect summaryBestParameter+*.csv Under | $retuneRoot\output_prediction" -ForegroundColor Green
 }
 else {
-    Write-Host "[DONE] Backward Paper-Eval Replay Completed." -ForegroundColor Green
+    if ([string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) {
+        Write-Host "[WARNING] No Best-Parameter Summary Path Was Provided. The Built-In Tuned Family Map Will Be Used." -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "[INFO] Best-Parameter Summary Path | $BestParameterSummaryPath" -ForegroundColor Cyan
+    }
+
+    if (-not $SkipPaperEval) {
+        $paperEvalRoot = Join-Path $runContext.CampaignRoot "paper_eval"
+        if (-not $PrintOnly) {
+            New-Item -ItemType Directory -Force -Path $paperEvalRoot | Out-Null
+        }
+
+        $paperEvalResult = Invoke-RcimOriginalPythonStage `
+            -ProjectRoot $projectRoot `
+            -CondaEnvironmentName $CondaEnvironmentName `
+            -PythonExecutable $PythonExecutable `
+            -StageName "paper_eval" `
+            -StageRoot $paperEvalRoot `
+            -LogsRoot $runContext.LogsRoot `
+            -ModeName "paper_eval" `
+            -DirectionName "backward" `
+            -Families $Families `
+            -TestSize $TestSize `
+            -DataframePath $DataframePath `
+            -BestParameterSummaryPath $BestParameterSummaryPath `
+            -PrintOnly:$PrintOnly
+
+        $stageResultList += [pscustomobject]@{
+            Stage = "paper_eval"
+            ExitCode = $paperEvalResult.ExitCode
+            StdoutLogPath = $paperEvalResult.StdoutLogPath
+            StderrLogPath = $paperEvalResult.StderrLogPath
+            CombinedLogPath = $paperEvalResult.CombinedLogPath
+            StageRoot = $paperEvalRoot
+        }
+
+        if ($paperEvalResult.ExitCode -ne 0) {
+            Write-Host "[ERROR] Backward Paper-Eval Stage Failed." -ForegroundColor Red
+            exit $paperEvalResult.ExitCode
+        }
+    }
+
+    if (-not $SkipPaperExport) {
+        $paperExportRoot = Join-Path $runContext.CampaignRoot "paper_export"
+        if (-not $PrintOnly) {
+            New-Item -ItemType Directory -Force -Path $paperExportRoot | Out-Null
+        }
+
+        $paperExportResult = Invoke-RcimOriginalPythonStage `
+            -ProjectRoot $projectRoot `
+            -CondaEnvironmentName $CondaEnvironmentName `
+            -PythonExecutable $PythonExecutable `
+            -StageName "paper_export" `
+            -StageRoot $paperExportRoot `
+            -LogsRoot $runContext.LogsRoot `
+            -ModeName "paper_export" `
+            -DirectionName "backward" `
+            -Families $Families `
+            -TestSize $TestSize `
+            -DataframePath $DataframePath `
+            -BestParameterSummaryPath $BestParameterSummaryPath `
+            -PrintOnly:$PrintOnly
+
+        $stageResultList += [pscustomobject]@{
+            Stage = "paper_export"
+            ExitCode = $paperExportResult.ExitCode
+            StdoutLogPath = $paperExportResult.StdoutLogPath
+            StderrLogPath = $paperExportResult.StderrLogPath
+            CombinedLogPath = $paperExportResult.CombinedLogPath
+            StageRoot = $paperExportRoot
+        }
+
+        if ($paperExportResult.ExitCode -ne 0) {
+            Write-Host "[ERROR] Backward Paper-Export Stage Failed." -ForegroundColor Red
+            exit $paperExportResult.ExitCode
+        }
+    }
 }
 
-Write-Host "[DONE] Output Root | $outputRoot" -ForegroundColor Green
+if (-not $PrintOnly) {
+    $launcherSummaryPath = Join-Path $runContext.CampaignRoot "launcher_summary.json"
+    [pscustomobject]@{
+        direction = "backward"
+        stage = $Stage
+        run_instance_id = $runContext.RunInstanceId
+        campaign_root = $runContext.CampaignRoot
+        logs_root = $runContext.LogsRoot
+        best_parameter_summary_path = $(if ([string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) { $null } else { $BestParameterSummaryPath })
+        skipped_paper_eval = [bool]$SkipPaperEval
+        skipped_paper_export = [bool]$SkipPaperExport
+        stage_results = $stageResultList
+    } | ConvertTo-Json -Depth 6 | Set-Content -Path $launcherSummaryPath -Encoding UTF8
+
+    Write-Host "[DONE] RCIM Original Backward Reference Training Completed." -ForegroundColor Green
+    Write-Host "[DONE] Launcher Summary | $launcherSummaryPath" -ForegroundColor Green
+}
+else {
+    Write-Host "[DONE] RCIM Original Backward Reference Training Preview Completed." -ForegroundColor Green
+    Write-Host "[DONE] No Files Were Written Because -PrintOnly Was Used." -ForegroundColor Green
+}
+
+Write-Host "[DONE] Campaign Root | $($runContext.CampaignRoot)" -ForegroundColor Green
 exit 0

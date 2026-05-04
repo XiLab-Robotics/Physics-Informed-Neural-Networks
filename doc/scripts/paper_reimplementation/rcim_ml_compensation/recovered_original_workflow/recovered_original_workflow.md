@@ -41,6 +41,15 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
   --output-suffix v18_fw
 ```
 
+Run the paper-reference export companion mode:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode paper_export `
+  --direction forward `
+  --output-suffix v18_export_fw
+```
+
 Run forward evaluation on a prepared prediction directory:
 
 ```powershell
@@ -56,8 +65,13 @@ mapping, runtime-output policy, and the detailed explanation of:
 - `v17` export
 - `v17` plus retuning
 - `v18` paper-style replay
+- `paper_export` for full-dataset artifact generation with tuned family parameters
 - current `Fw` versus `Bw` coverage across dataframe, training, and evaluation
 - the shared `data/original_pipeline_instances/` pickle-cache contract used by
   dataframe creation and evaluation, including the `--rebuild-instance-cache`
   override
+- the paper-reference launchers under
+  `scripts/campaigns/paper_reference/rcim_original/`, including the
+  `output/training_campaigns/rcim_original/` artifact roots and persistent
+  stage logs
 - tracked repository-owned cleanup differences versus the original reference root

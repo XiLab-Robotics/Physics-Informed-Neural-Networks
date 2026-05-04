@@ -101,6 +101,8 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md](./technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md)
   Plan the missing exact-paper search-protocol alignment to the recovered original RCIM workflow, including the historical `cross_validate(...)` stage, and the replacement of the active `400`-run campaign with a paper-faithful `20`-run design.
+- [technical/2026-05/2026-05-04/2026-05-04-15-36-05_rcim_original_training_surface_completion_and_launcher_hardening.md](./technical/2026-05/2026-05-04/2026-05-04-15-36-05_rcim_original_training_surface_completion_and_launcher_hardening.md)
+  Plan the completion and hardening pass for the recovered original RCIM paper-reference workflow, including missing-family coverage, persistent launcher logging, progress reporting, output-root relocation, and ONNX/Python export alignment.
 
 #### 2026-05-03
 

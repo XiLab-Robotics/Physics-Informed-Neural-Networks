@@ -2695,6 +2695,13 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 ```
 
 ```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode paper_export `
+  --direction forward `
+  --output-suffix v18_export_fw
+```
+
+```powershell
 conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
   --direction forward `
   --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `
@@ -2704,6 +2711,23 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Use this surface when the goal is to stay close to the original RCIM scripts
 while still keeping paths and runtime artifacts under repository-owned output
 roots.
+
+Paper-reference launcher surface:
+
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1`
+- `doc/scripts/campaigns/run_rcim_original_forward_reference_training.md`
+- `doc/scripts/campaigns/run_rcim_original_backward_reference_training.md`
+- raw run artifacts now go under `output/training_campaigns/rcim_original/`
+  instead of `models/paper_reference/rcim_original/.../source_runs/`
+- the forward launcher runs both `paper_eval` and `paper_export`
+- the backward launcher supports `Retune` and `PaperEval` stages
+- each launcher stage persists:
+  - stdout log
+  - stderr log
+  - combined log
+- final curated model archives under `models/paper_reference/rcim_original/`
+  remain a later closeout step, not the live runtime root
 
 Shared cache note:
 

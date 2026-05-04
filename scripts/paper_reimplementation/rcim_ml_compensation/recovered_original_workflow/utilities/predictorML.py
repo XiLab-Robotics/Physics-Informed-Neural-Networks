@@ -1,6 +1,6 @@
 """ Recovered original RCIM predictor helpers used by training and export. """
 
-import os, copy, datetime
+import os, copy, datetime, pickle, traceback
 import math, random
 
 import numpy as np
@@ -29,6 +29,7 @@ METHOD_ACRONYMS = {
     'LGBMRegressor': 'LGBM',
     'SVR': 'SVM',
     'MLPRegressor': 'MLP',
+    'ELMRegressor': 'ELM',
     'MinimumDistance': 'MinDist',
 }
 
@@ -381,33 +382,52 @@ class MLModelMultipleOutput:
 
             # Retrieve the Current Wrapped Estimator for ONNX Export.
             est = self.model.estimators_[i]
+            onnx_output_path = "model_output_dir/" + modelName + "_" + colsToPredict[i] + ".onnx"
+            python_output_path = "model_output_dir/" + modelName + "_" + colsToPredict[i] + ".pkl"
+            onnx_error_output_path = onnx_output_path + ".export_error.txt"
 
-            # Use the Original Family-Specific ONNX Conversion Branches.
-            if isinstance(est, XGBRegressor):
+            # Always Persist the Python Estimator Artifact for Future Closeout-Time Archiving.
+            with open(python_output_path, "wb") as python_output_handle:
+                pickle.dump(est, python_output_handle)
 
-                # Recover the XGBoost Booster Before ONNX Conversion.
-                booster = est.get_booster()
-                booster.feature_names = [f"f{i}" for i in range(est.n_features_in_)]
+            try:
 
-                # Define the XGBoost ONNX Input Contract.
-                initial_type = [('float_input', OXFloatTensorType([None, est.n_features_in_]))]
-                onx = convert_xgboost(est, initial_types=initial_type, target_opset=12)
-            
-            elif isinstance(est, LGBMRegressor):
+                # Use the Original Family-Specific ONNX Conversion Branches.
+                if isinstance(est, XGBRegressor):
 
-                # Define the LightGBM ONNX Input Contract.
-                initial_type = [("float_input", OXFloatTensorType([None, est.n_features_in_]))]
-                onx = convert_lightgbm(est, initial_types=initial_type, target_opset=12)
+                    # Recover the XGBoost Booster Before ONNX Conversion.
+                    booster = est.get_booster()
+                    booster.feature_names = [f"f{i}" for i in range(est.n_features_in_)]
 
-            else:
+                    # Define the XGBoost ONNX Input Contract.
+                    initial_type = [('float_input', OXFloatTensorType([None, est.n_features_in_]))]
+                    onx = convert_xgboost(est, initial_types=initial_type, target_opset=12)
+                
+                elif isinstance(est, LGBMRegressor):
 
-                # Define the Generic scikit-learn ONNX Input Contract.
-                initial_type = [('float_input', FloatTensorType([None, est.n_features_in_]))]
-                onx = convert_sklearn(est, initial_types=initial_type)
+                    # Define the LightGBM ONNX Input Contract.
+                    initial_type = [("float_input", OXFloatTensorType([None, est.n_features_in_]))]
+                    onx = convert_lightgbm(est, initial_types=initial_type, target_opset=12)
 
-            # Write Each Exported Model Into the Legacy Output Folder Contract.
-            with open("model_output_dir/" + modelName + "_" + colsToPredict[i] + ".onnx", "wb") as f:
-                f.write(onx.SerializeToString())
+                else:
+
+                    # Define the Generic scikit-learn ONNX Input Contract.
+                    initial_type = [('float_input', FloatTensorType([None, est.n_features_in_]))]
+                    onx = convert_sklearn(est, initial_types=initial_type)
+
+                # Write Each Exported Model Into the Legacy Output Folder Contract.
+                with open(onnx_output_path, "wb") as onnx_output_handle:
+                    onnx_output_handle.write(onx.SerializeToString())
+
+            except Exception as export_error:
+
+                # Persist the ONNX Export Failure Beside the Python Artifact Instead of Crashing the Full Run.
+                with open(onnx_error_output_path, "w", encoding="utf-8") as error_handle:
+                    error_handle.write(traceback.format_exc())
+                print(
+                    f"[WARNING] ONNX Export Failed | {modelName} | {colsToPredict[i]} | "
+                    f"{type(export_error).__name__}: {export_error}"
+                )
 
     def predictorML_leaveOneOut(self, dfInput,files):
 
@@ -528,7 +548,7 @@ class MLModelMultipleOutput:
                 'estimator__max_features': list(dict.fromkeys(list(["log2", "sqrt"]) + [self.model.estimator.get_params()['max_features']])),
                 'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
                 'estimator__min_samples_split': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,2,10)) + [self.model.estimator.get_params()['min_samples_split']])),
-                'estimator__learning_rate':list(dict.fromkeys(list([0.0001, 0.001, 0.01, 0.1, 1.0]) + [self.model.estimator.get_params()['min_samples_split']])),
+                'estimator__learning_rate':list(dict.fromkeys(list([0.0001, 0.001, 0.01, 0.1, 1.0]) + [self.model.estimator.get_params()['learning_rate']])),
             }
 
         elif acronym == 'XGBM':
@@ -536,7 +556,7 @@ class MLModelMultipleOutput:
             # Build the XGBoost Hyperparameter Grid.
             parameters['XGBM'] = {
                 'estimator__learning_rate': list(dict.fromkeys(list([0.01,0.2,0.5]) + [self.model.estimator.get_params()['learning_rate']])),
-                'estimator__n_estimator': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
+                'estimator__n_estimators': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,20,100)) + [self.model.estimator.get_params()['n_estimators']])),
                 'estimator__max_depth': list(dict.fromkeys(list(self.generate_uniform_integer_values(5,14,21)) + [self.model.estimator.get_params()['max_depth']])),
                 'estimator__colsample_bytree': list(dict.fromkeys(list([0.3,0.5]) + [self.model.estimator.get_params()['colsample_bytree']])),
             }
@@ -573,6 +593,15 @@ class MLModelMultipleOutput:
                     'estimator__early_stopping': list(dict.fromkeys(list([True]) + [self.model.estimator.get_params()['early_stopping']])),
                     'estimator__tol': list(dict.fromkeys(list([1e-4]) + [self.model.estimator.get_params()['tol']])),
                     'estimator__max_iter': list(dict.fromkeys(list([600]) + [self.model.estimator.get_params()['max_iter']]))
+            }
+
+        elif acronym == 'ELM':
+
+            # Build the ELM Hyperparameter Grid.
+            parameters['ELM'] = {
+                    'estimator__n_neurons': list(dict.fromkeys(list([100, 250, 500]) + ([self.model.estimator.get_params()['n_neurons']] if self.model.estimator.get_params()['n_neurons'] is not None else []))),
+                    'estimator__alpha': list(dict.fromkeys(list([1e-7, 1e-5, 1e-3]) + [self.model.estimator.get_params()['alpha']])),
+                    'estimator__ufunc': list(dict.fromkeys(list(['tanh']) + [self.model.estimator.get_params()['ufunc']]))
             }
 
         elif acronym == 'SVM':
