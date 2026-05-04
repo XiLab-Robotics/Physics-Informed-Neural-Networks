@@ -97,6 +97,14 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-05
+
+- [technical/2026-05/2026-05-05/2026-05-05-00-08-16_rcim_original_forward_reference_closeout.md](./technical/2026-05/2026-05-05/2026-05-05-00-08-16_rcim_original_forward_reference_closeout.md)
+  Plan the closeout of the completed RCIM original forward reference bundle by
+  promoting the exported family artifacts into the curated
+  `models/paper_reference/rcim_original/forward` archive with the same
+  family-level structure already used by `rcim_track1`.
+
 #### 2026-05-04
 
 - [technical/2026-05/2026-05-04/2026-05-04-23-14-36_rcim_recovered_workflow_readme_command_surface_completion.md](./technical/2026-05/2026-05-04/2026-05-04-23-14-36_rcim_recovered_workflow_readme_command_surface_completion.md)

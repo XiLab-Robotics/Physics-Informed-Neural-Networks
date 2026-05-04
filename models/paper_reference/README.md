@@ -11,6 +11,7 @@ the repository-owned reference surface for paper replication.
 Current topic roots:
 
 - `rcim_track1/`
+- `rcim_original/`
 
 For `Track 1` paper-reimplementation families, the canonical family package
 contract is:
@@ -39,3 +40,7 @@ Every fully curated family archive is expected to preserve:
 
 The bidirectional original-dataset Track 1 mega-campaign closeout is the first
 wave that fully populates both `forward` and `backward` archive branches.
+
+The recovered-original RCIM paper-reference branch now also exposes a curated
+family archive surface under `rcim_original/`, starting from the completed
+`forward` Original-stage closeout bundle.

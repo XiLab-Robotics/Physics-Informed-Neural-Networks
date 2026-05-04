@@ -36,3 +36,17 @@ Current curated Track 1 paper-reference archives:
 - `paper_reference/rcim_track1/backward/hgbm_reference_models/`
 - `paper_reference/rcim_track1/backward/xgbm_reference_models/`
 - `paper_reference/rcim_track1/backward/lgbm_reference_models/`
+
+Current curated RCIM original paper-reference archives:
+
+- `paper_reference/rcim_original/forward/svm_reference_models/`
+- `paper_reference/rcim_original/forward/mlp_reference_models/`
+- `paper_reference/rcim_original/forward/rf_reference_models/`
+- `paper_reference/rcim_original/forward/dt_reference_models/`
+- `paper_reference/rcim_original/forward/et_reference_models/`
+- `paper_reference/rcim_original/forward/ert_reference_models/`
+- `paper_reference/rcim_original/forward/gbm_reference_models/`
+- `paper_reference/rcim_original/forward/hgbm_reference_models/`
+- `paper_reference/rcim_original/forward/lgbm_reference_models/`
+- `paper_reference/rcim_original/forward/xgbm_reference_models/`
+- `paper_reference/rcim_original/forward/elm_reference_models/`

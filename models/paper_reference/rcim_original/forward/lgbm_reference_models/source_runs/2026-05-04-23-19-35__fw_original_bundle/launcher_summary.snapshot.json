@@ -1,0 +1,37 @@
+﻿{
+    "branch":  "forward",
+    "requested_stage":  "Original",
+    "effective_stage":  "Original",
+    "run_instance_id":  "2026-05-04-23-19-35__fw_original_bundle",
+    "campaign_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle",
+    "logs_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs",
+    "dataframe_path":  null,
+    "best_parameter_summary_path":  null,
+    "best_parameter_source":  "built_in_original",
+    "best_parameter_registry_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+    "no_eval":  false,
+    "no_export":  false,
+    "performed_retune":  false,
+    "registry_update":  null,
+    "notes":  [
+
+              ],
+    "stage_results":  [
+                          {
+                              "Stage":  "eval",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs\\eval.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs\\eval.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs\\eval.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\eval"
+                          },
+                          {
+                              "Stage":  "export",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs\\export.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs\\export.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\logs\\export.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-04-23-19-35__fw_original_bundle\\export"
+                          }
+                      ]
+}
