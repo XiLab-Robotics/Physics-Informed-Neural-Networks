@@ -651,7 +651,10 @@ def collect_training_run_records(run_metadata_dictionary: dict[str, dict[str, An
 
         record_dictionary = {
             "model_family": model_family,
+            "base_model_family": str(experiment_dictionary.get("base_model_family", model_family)),
             "model_type": str(experiment_dictionary.get("model_type", "unknown")),
+            "training_variant": str(experiment_dictionary.get("training_variant", "global")),
+            "direction_scope_label": str(experiment_dictionary.get("direction_scope_label", "bidirectional")),
             "run_name": str(experiment_dictionary.get("run_name", run_directory.name)),
             "run_instance_id": run_instance_id,
             "run_directory": run_directory,

@@ -58,6 +58,9 @@ SAFE_REPORT_MAX_PATH_LENGTH = 220
 SAFE_REPORT_MAX_FILENAME_LENGTH = 120
 SAFE_REPORT_HASH_HEX_LENGTH = 8
 SAFE_REPORT_COMPACT_RUN_TOKEN_MAX_LENGTH = 48
+GLOBAL_TRAINING_VARIANT = "global"
+FORWARD_ONLY_TRAINING_VARIANT = "Fw"
+BACKWARD_ONLY_TRAINING_VARIANT = "Bw"
 SELECTION_POLICY_DICTIONARY = {
     "primary_metric": "test_mae",
     "first_tie_breaker": "test_rmse",
@@ -460,6 +463,76 @@ def resolve_run_artifact_identity(training_config: dict[str, Any]) -> RunArtifac
         output_directory=output_directory,
     )
 
+def resolve_training_variant_details(training_config: dict[str, Any]) -> dict[str, Any]:
+
+    """Resolve directional-variant metadata for one training configuration."""
+
+    metadata_dictionary = training_config.get("metadata", {})
+    experiment_identity = resolve_experiment_identity(training_config)
+
+    explicit_base_model_family = ""
+    explicit_training_variant = ""
+    explicit_use_forward_direction = None
+    explicit_use_backward_direction = None
+
+    if isinstance(metadata_dictionary, dict):
+        explicit_base_model_family = str(metadata_dictionary.get("base_model_family", "")).strip().lower()
+        explicit_training_variant = str(metadata_dictionary.get("training_variant", "")).strip()
+        if metadata_dictionary.get("use_forward_direction") not in [None, ""]:
+            explicit_use_forward_direction = bool(metadata_dictionary.get("use_forward_direction"))
+        if metadata_dictionary.get("use_backward_direction") not in [None, ""]:
+            explicit_use_backward_direction = bool(metadata_dictionary.get("use_backward_direction"))
+
+    use_forward_direction = explicit_use_forward_direction
+    use_backward_direction = explicit_use_backward_direction
+
+    # Fall Back to the Dataset Config When Direction Flags Were Not Written Explicitly
+    if use_forward_direction is None or use_backward_direction is None:
+        dataset_config_path = resolve_runtime_project_relative_path(
+            training_config["paths"]["dataset_config_path"]
+        )
+        with dataset_config_path.open("r", encoding="utf-8") as dataset_config_file:
+            dataset_config_dictionary = yaml.safe_load(dataset_config_file)
+        assert isinstance(dataset_config_dictionary, dict), (
+            f"Dataset config must contain a dictionary | {dataset_config_path}"
+        )
+        direction_dictionary = dataset_config_dictionary.get("directions", {})
+        assert isinstance(direction_dictionary, dict), (
+            f"Dataset config directions must contain a dictionary | {dataset_config_path}"
+        )
+        if use_forward_direction is None:
+            use_forward_direction = bool(direction_dictionary.get("use_forward_direction", True))
+        if use_backward_direction is None:
+            use_backward_direction = bool(direction_dictionary.get("use_backward_direction", True))
+
+    training_variant = explicit_training_variant
+    if training_variant == "":
+        if use_forward_direction and use_backward_direction:
+            training_variant = GLOBAL_TRAINING_VARIANT
+        elif use_forward_direction and not use_backward_direction:
+            training_variant = FORWARD_ONLY_TRAINING_VARIANT
+        elif use_backward_direction and not use_forward_direction:
+            training_variant = BACKWARD_ONLY_TRAINING_VARIANT
+        else:
+            training_variant = "custom"
+
+    if use_forward_direction and use_backward_direction:
+        direction_scope_label = "bidirectional"
+    elif use_forward_direction and not use_backward_direction:
+        direction_scope_label = "forward_only"
+    elif use_backward_direction and not use_forward_direction:
+        direction_scope_label = "backward_only"
+    else:
+        direction_scope_label = "custom"
+
+    return {
+        "base_model_family": explicit_base_model_family or experiment_identity.model_family,
+        "training_variant": training_variant,
+        "direction_scope_label": direction_scope_label,
+        "use_forward_direction": bool(use_forward_direction),
+        "use_backward_direction": bool(use_backward_direction),
+    }
+
 def load_run_metadata_snapshot(output_directory: Path) -> dict[str, Any] | None:
 
     """Load one run-metadata snapshot when it exists.
@@ -769,6 +842,7 @@ def build_common_metrics_snapshot(
     # Resolve Experiment Identity and Dataset Split Summary for Snapshot
     experiment_identity = resolve_experiment_identity(training_config)
     run_artifact_identity = resolve_run_artifact_identity(training_config)
+    training_variant_details = resolve_training_variant_details(training_config)
     dataset_split_summary = datamodule.get_dataset_split_summary()
     normalization_statistics = datamodule.get_normalization_statistics()
 
@@ -784,6 +858,7 @@ def build_common_metrics_snapshot(
             "output_run_name": run_artifact_identity.run_name,
             "run_instance_id": run_artifact_identity.run_instance_id,
             "output_artifact_kind": run_artifact_identity.artifact_kind,
+            **training_variant_details,
         },
         "artifacts": {
             "output_directory": str(output_directory),
@@ -884,7 +959,12 @@ def build_registry_entry(metrics_snapshot_dictionary: dict[str, Any]) -> dict[st
         "output_run_name": experiment_dictionary["output_run_name"],
         "output_artifact_kind": experiment_dictionary["output_artifact_kind"],
         "model_family": comparison_payload["model_family"],
+        "base_model_family": experiment_dictionary.get("base_model_family", comparison_payload["model_family"]),
         "model_type": comparison_payload["model_type"],
+        "training_variant": experiment_dictionary.get("training_variant", GLOBAL_TRAINING_VARIANT),
+        "direction_scope_label": experiment_dictionary.get("direction_scope_label", "bidirectional"),
+        "use_forward_direction": bool(experiment_dictionary.get("use_forward_direction", True)),
+        "use_backward_direction": bool(experiment_dictionary.get("use_backward_direction", True)),
         "trainable_parameter_count": model_summary_dictionary["trainable_parameter_count"],
         "total_parameter_count": model_summary_dictionary["total_parameter_count"],
         "val_mae": comparison_payload.get("val_mae"),
@@ -1048,11 +1128,13 @@ def save_run_metadata_snapshot(training_config: dict[str, Any], output_directory
 
     # Resolve Run Artifact Identity and Save it as a YAML Snapshot in the Output Directory for Reference and Traceability
     run_artifact_identity = resolve_run_artifact_identity(training_config)
+    training_variant_details = resolve_training_variant_details(training_config)
     save_yaml_snapshot(
         {
             "schema_version": 1,
             "artifact_kind": run_artifact_identity.artifact_kind,
             "model_family": run_artifact_identity.model_family,
+            **training_variant_details,
             "run_name": run_artifact_identity.run_name,
             "run_instance_id": run_artifact_identity.run_instance_id,
             "output_directory": format_project_relative_path(run_artifact_identity.output_directory),

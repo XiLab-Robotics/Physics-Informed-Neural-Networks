@@ -97,6 +97,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-06
+
+- [technical/2026-05/2026-05-06/2026-05-06-15-53-01_wave1_directional_retraining_and_future_wave_extension.md](./technical/2026-05/2026-05-06/2026-05-06-15-53-01_wave1_directional_retraining_and_future_wave_extension.md)
+  Plan the formal directional retraining of all implemented `Wave 1`
+  families into `global`, `Fw`, and `Bw` variants, and promote the same
+  three-surface rule into future `Wave 2+` family-preparation pipelines.
+
 #### 2026-05-05
 
 - [technical/2026-05/2026-05-05/2026-05-05-00-08-16_rcim_original_forward_reference_closeout.md](./technical/2026-05/2026-05-05/2026-05-05-00-08-16_rcim_original_forward_reference_closeout.md)
