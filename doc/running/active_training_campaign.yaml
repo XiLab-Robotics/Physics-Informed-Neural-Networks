@@ -1,5 +1,5 @@
 campaign_name: track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30
-status: prepared
+status: running
 planning_report_path: doc\reports\campaign_plans\track1\exact_paper\2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement_plan_report.md
 campaign_config_directory: config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_paper_faithful_grid_search
 queue_root: null
@@ -8,7 +8,7 @@ campaign_output_directory: output\training_campaigns\track1\exact_paper\bidirect
 launch_mode: remote_operator_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-05-04T12:26:31.081329+02:00'
-started_at: null
+started_at: '2026-05-04T15:05:35+02:00'
 finished_at: null
 completion_recorded_at: null
 results_report_path: null
