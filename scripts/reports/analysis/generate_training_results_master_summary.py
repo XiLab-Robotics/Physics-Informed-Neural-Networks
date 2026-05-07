@@ -49,6 +49,12 @@ PAPER_REFERENCE_DATA = {
         },
     },
 }
+REPORTING_SCOPE_ORDER = ["global", "Fw", "Bw"]
+REPORTING_SCOPE_TITLE_DICTIONARY = {
+    "global": "Global Models",
+    "Fw": "Forward Models",
+    "Bw": "Backward Models",
+}
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -318,6 +324,113 @@ def resolve_model_family(model_type: str | None, family_hint: str | None = None)
     if normalized_model_type in TREE_MODEL_TYPE_SET:
         return "tree"
     return normalized_model_type
+
+
+def normalize_reporting_scope(training_variant: str | None, model_family: str | None = None) -> str:
+
+    """Normalize one reporting scope label.
+
+    Args:
+        training_variant: Stored training-variant value when available.
+        model_family: Canonical family name, used as a fallback suffix signal.
+
+    Returns:
+        Canonical reporting scope label.
+    """
+
+    normalized_training_variant = str(training_variant or "").strip()
+    if normalized_training_variant in REPORTING_SCOPE_ORDER:
+        return normalized_training_variant
+
+    lowered_training_variant = normalized_training_variant.lower()
+    if lowered_training_variant in {"fw", "forward"}:
+        return "Fw"
+    if lowered_training_variant in {"bw", "backward"}:
+        return "Bw"
+    if lowered_training_variant in {"global", "bidirectional", "all"}:
+        return "global"
+
+    normalized_model_family = str(model_family or "").strip()
+    lowered_model_family = normalized_model_family.lower()
+    if lowered_model_family.endswith("_fw"):
+        return "Fw"
+    if lowered_model_family.endswith("_bw"):
+        return "Bw"
+
+    return "global"
+
+
+def build_reporting_scope_sequence(reporting_scope_list: list[str]) -> list[str]:
+
+    """Build the canonical reporting-scope order for one report surface.
+
+    Args:
+        reporting_scope_list: Raw reporting-scope values collected from records.
+
+    Returns:
+        Ordered unique scope list with canonical known scopes first.
+    """
+
+    unique_scope_list = sorted(
+        {
+            normalize_reporting_scope(reporting_scope)
+            for reporting_scope in reporting_scope_list
+            if reporting_scope not in [None, ""]
+        }
+    )
+    prioritized_scope_list = [
+        scope_name
+        for scope_name in REPORTING_SCOPE_ORDER
+        if scope_name in unique_scope_list
+    ]
+    remaining_scope_list = [
+        scope_name
+        for scope_name in unique_scope_list
+        if scope_name not in REPORTING_SCOPE_ORDER
+    ]
+    return prioritized_scope_list + remaining_scope_list
+
+
+def build_reporting_scope_heading(reporting_scope: str) -> str:
+
+    """Build one human-readable reporting-scope heading."""
+
+    return REPORTING_SCOPE_TITLE_DICTIONARY.get(reporting_scope, f"{reporting_scope} Models")
+
+
+def group_family_best_records_by_scope(family_best_record_list: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+
+    """Group family-best records by canonical reporting scope."""
+
+    grouped_dictionary: dict[str, list[dict[str, Any]]] = {}
+    for family_best_record in family_best_record_list:
+        best_entry_dictionary = family_best_record.get("best_entry", {})
+        reporting_scope = normalize_reporting_scope(
+            best_entry_dictionary.get("training_variant") if isinstance(best_entry_dictionary, dict) else None,
+            family_best_record.get("model_family"),
+        )
+        grouped_dictionary.setdefault(reporting_scope, []).append(family_best_record)
+    return grouped_dictionary
+
+
+def group_run_records_by_scope(run_records_by_family: dict[str, list[dict[str, Any]]]) -> dict[str, list[tuple[str, list[dict[str, Any]]]]]:
+
+    """Group family run-record bundles by canonical reporting scope."""
+
+    grouped_dictionary: dict[str, list[tuple[str, list[dict[str, Any]]]]] = {}
+    for model_family, family_run_record_list in run_records_by_family.items():
+        reporting_scope = "global"
+        if family_run_record_list:
+            reporting_scope = normalize_reporting_scope(
+                family_run_record_list[0].get("training_variant"),
+                model_family,
+            )
+        grouped_dictionary.setdefault(reporting_scope, []).append((model_family, family_run_record_list))
+
+    for grouped_family_list in grouped_dictionary.values():
+        grouped_family_list.sort(key=lambda item: item[0])
+
+    return grouped_dictionary
 
 
 def classify_model_complexity(trainable_parameter_count: int | None, artifact_size_megabytes: float | None, model_family: str) -> str:
@@ -1228,6 +1341,17 @@ def build_master_summary_markdown() -> str:
         for model_family, best_entry_dictionary in family_best_entry_dictionary.items()
         if best_entry_dictionary.get("run_instance_id") not in [None, ""]
     }
+    family_best_records_by_scope = group_family_best_records_by_scope(family_best_record_list)
+    reporting_scope_sequence = build_reporting_scope_sequence(
+        [
+            normalize_reporting_scope(
+                family_best_record.get("best_entry", {}).get("training_variant") if isinstance(family_best_record.get("best_entry", {}), dict) else None,
+                family_best_record.get("model_family"),
+            )
+            for family_best_record in family_best_record_list
+        ]
+    )
+    has_multiple_reporting_scopes = len(reporting_scope_sequence) > 1
 
     neural_family_best_record_list = [
         family_best_record
@@ -1245,6 +1369,7 @@ def build_master_summary_markdown() -> str:
     run_records_by_family: dict[str, list[dict[str, Any]]] = {}
     for training_run_record in training_run_record_list:
         run_records_by_family.setdefault(training_run_record["model_family"], []).append(training_run_record)
+    run_record_bundles_by_scope = group_run_records_by_scope(run_records_by_family)
 
     active_family_set = set(active_campaign_snapshot["family_set"]) if active_campaign_snapshot["status"] in {"prepared", "running"} else set()
     implemented_family_list = sorted(family_best_entry_dictionary.keys())
@@ -1279,24 +1404,48 @@ def build_master_summary_markdown() -> str:
         "",
         "### Implemented And Benchmarked Families",
         "",
-        "| Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |",
-        "| --- | --- | --- | --- | ---: | ---: | --- |",
     ]
 
-    for family_best_record in sorted(family_best_record_list, key=lambda record: build_sort_key(record["best_entry"], selection_policy)):
-        best_entry_dictionary = family_best_record["best_entry"]
-        report_line_list.append(
-            f"| `{family_best_record['model_family']}` | "
-            f"{build_family_role(family_best_record['model_family'], best_entry_dictionary, program_best_entry, strongest_neural_family, active_family_set)} | "
-            f"`{best_entry_dictionary.get('run_name', 'N/A')}` | "
-            f"`{best_entry_dictionary.get('model_type', 'N/A')}` | "
-            f"{format_float(best_entry_dictionary.get('test_mae'))} | "
-            f"{format_parameter_count(best_entry_dictionary.get('trainable_parameter_count'))} | "
-            f"`{format_timestamp(family_best_record['updated_at'])}` |"
+    if has_multiple_reporting_scopes:
+        report_line_list.extend([
+            "- Multi-scope waves must keep `global`, `Fw`, and `Bw` reporting surfaces separated in this canonical summary.",
+            "",
+        ])
+
+    for reporting_scope in reporting_scope_sequence:
+        scoped_family_best_record_list = sorted(
+            family_best_records_by_scope.get(reporting_scope, []),
+            key=lambda record: build_sort_key(record["best_entry"], selection_policy),
         )
+        if not scoped_family_best_record_list:
+            continue
+
+        if has_multiple_reporting_scopes:
+            report_line_list.extend([
+                f"#### {build_reporting_scope_heading(reporting_scope)}",
+                "",
+            ])
+
+        report_line_list.extend([
+            "| Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |",
+            "| --- | --- | --- | --- | ---: | ---: | --- |",
+        ])
+
+        for family_best_record in scoped_family_best_record_list:
+            best_entry_dictionary = family_best_record["best_entry"]
+            report_line_list.append(
+                f"| `{family_best_record['model_family']}` | "
+                f"{build_family_role(family_best_record['model_family'], best_entry_dictionary, program_best_entry, strongest_neural_family, active_family_set)} | "
+                f"`{best_entry_dictionary.get('run_name', 'N/A')}` | "
+                f"`{best_entry_dictionary.get('model_type', 'N/A')}` | "
+                f"{format_float(best_entry_dictionary.get('test_mae'))} | "
+                f"{format_parameter_count(best_entry_dictionary.get('trainable_parameter_count'))} | "
+                f"`{format_timestamp(family_best_record['updated_at'])}` |"
+            )
+
+        report_line_list.append("")
 
     report_line_list.extend([
-        "",
         "### Active Training Or Improvement Branches",
         "",
     ])
@@ -1375,38 +1524,62 @@ def build_master_summary_markdown() -> str:
         "",
         "## Best Result Per Family",
         "",
-        "| Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |",
-        "| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |",
     ])
 
-    for family_best_record in sorted(family_best_record_list, key=lambda record: build_sort_key(record["best_entry"], selection_policy)):
-        best_entry_dictionary = family_best_record["best_entry"]
-        matching_run_record = next(
-            (
-                run_record
-                for run_record in run_records_by_family.get(family_best_record["model_family"], [])
-                if run_record["run_instance_id"] == best_entry_dictionary.get("run_instance_id")
-            ),
-            None,
-        )
-        artifact_size_text = format_size_megabytes(matching_run_record["artifact_size_megabytes"]) if matching_run_record is not None else "N/A"
-        training_cost_text = matching_run_record["training_heaviness_label"] if matching_run_record is not None else "Unknown"
+    if has_multiple_reporting_scopes:
+        report_line_list.extend([
+            "- Scope-separated family ranking is mandatory for every future wave that introduces more than one canonical training surface.",
+            "",
+        ])
 
-        report_line_list.append(
-            f"| `{family_best_record['model_family']}` | "
-            f"`{best_entry_dictionary.get('run_name', 'N/A')}` | "
-            f"`{best_entry_dictionary.get('model_type', 'N/A')}` | "
-            f"{format_float(best_entry_dictionary.get('val_mae'))} | "
-            f"{format_float(best_entry_dictionary.get('test_mae'))} | "
-            f"{format_float(best_entry_dictionary.get('test_rmse'))} | "
-            f"{format_parameter_count(best_entry_dictionary.get('trainable_parameter_count'))} | "
-            f"{artifact_size_text} | "
-            f"{training_cost_text} | "
-            f"{build_family_role(family_best_record['model_family'], best_entry_dictionary, program_best_entry, strongest_neural_family, active_family_set)} |"
+    for reporting_scope in reporting_scope_sequence:
+        scoped_family_best_record_list = sorted(
+            family_best_records_by_scope.get(reporting_scope, []),
+            key=lambda record: build_sort_key(record["best_entry"], selection_policy),
         )
+        if not scoped_family_best_record_list:
+            continue
+
+        if has_multiple_reporting_scopes:
+            report_line_list.extend([
+                f"### {build_reporting_scope_heading(reporting_scope)}",
+                "",
+            ])
+
+        report_line_list.extend([
+            "| Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |",
+            "| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |",
+        ])
+
+        for family_best_record in scoped_family_best_record_list:
+            best_entry_dictionary = family_best_record["best_entry"]
+            matching_run_record = next(
+                (
+                    run_record
+                    for run_record in run_records_by_family.get(family_best_record["model_family"], [])
+                    if run_record["run_instance_id"] == best_entry_dictionary.get("run_instance_id")
+                ),
+                None,
+            )
+            artifact_size_text = format_size_megabytes(matching_run_record["artifact_size_megabytes"]) if matching_run_record is not None else "N/A"
+            training_cost_text = matching_run_record["training_heaviness_label"] if matching_run_record is not None else "Unknown"
+
+            report_line_list.append(
+                f"| `{family_best_record['model_family']}` | "
+                f"`{best_entry_dictionary.get('run_name', 'N/A')}` | "
+                f"`{best_entry_dictionary.get('model_type', 'N/A')}` | "
+                f"{format_float(best_entry_dictionary.get('val_mae'))} | "
+                f"{format_float(best_entry_dictionary.get('test_mae'))} | "
+                f"{format_float(best_entry_dictionary.get('test_rmse'))} | "
+                f"{format_parameter_count(best_entry_dictionary.get('trainable_parameter_count'))} | "
+                f"{artifact_size_text} | "
+                f"{training_cost_text} | "
+                f"{build_family_role(family_best_record['model_family'], best_entry_dictionary, program_best_entry, strongest_neural_family, active_family_set)} |"
+            )
+
+        report_line_list.append("")
 
     report_line_list.extend([
-        "",
         "## Cross-Family Interpretation",
         "",
         f"- Current global reference winner: `{program_best_entry.get('run_name', 'N/A')}` from family `{program_best_entry.get('model_family', 'N/A')}`.",
@@ -1431,51 +1604,69 @@ def build_master_summary_markdown() -> str:
         "",
     ])
 
-    for model_family in sorted(run_records_by_family.keys()):
-        family_run_record_list = sorted(run_records_by_family[model_family], key=lambda record: build_sort_key(record, selection_policy))
-        family_best_entry = family_best_entry_dictionary.get(model_family, {})
-        family_failure_record_list = family_failure_dictionary.get(model_family, [])
-
+    if has_multiple_reporting_scopes:
         report_line_list.extend([
-            f"### {model_family}",
+            "- For multi-scope waves, family breakdowns are grouped by canonical reporting scope before the per-family ranking tables.",
             "",
-            f"- Best run: `{family_best_entry.get('run_name', 'N/A')}`",
-            f"- Best test MAE: `{format_float(family_best_entry.get('test_mae'))}`",
-            f"- Completed tracked runs: `{len(family_run_record_list)}`",
-            f"- Known failed campaign attempts: `{len(family_failure_record_list)}`",
-            "",
-            "| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |",
-            "| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |",
         ])
 
-        for rank_index, family_run_record in enumerate(family_run_record_list, start=1):
-            report_line_list.append(
-                f"| {rank_index} | "
-                f"`{family_run_record['run_name']}` | "
-                f"`{family_run_record['model_type']}` | "
-                f"{format_float(family_run_record.get('test_mae'))} | "
-                f"{format_float(family_run_record.get('test_rmse'))} | "
-                f"{format_float(family_run_record.get('val_mae'))} | "
-                f"{format_parameter_count(family_run_record.get('trainable_parameter_count'))} | "
-                f"{format_duration_seconds(family_run_record.get('duration_seconds'))} | "
-                f"{format_size_megabytes(family_run_record.get('artifact_size_megabytes'))} | "
-                f"{family_run_record['complexity_label']} | "
-                f"{family_run_record['training_heaviness_label']} | "
-                f"`{family_run_record.get('campaign_name') or 'standalone_or_unknown'}` |"
-            )
+    for reporting_scope in reporting_scope_sequence:
+        scoped_run_record_bundle_list = run_record_bundles_by_scope.get(reporting_scope, [])
+        if not scoped_run_record_bundle_list:
+            continue
 
-        if family_failure_record_list:
+        if has_multiple_reporting_scopes:
             report_line_list.extend([
-                "",
-                "Known failed campaign attempts for this family:",
+                f"### {build_reporting_scope_heading(reporting_scope)}",
                 "",
             ])
-            for failure_record in family_failure_record_list:
+
+        for model_family, unsorted_family_run_record_list in scoped_run_record_bundle_list:
+            family_run_record_list = sorted(unsorted_family_run_record_list, key=lambda record: build_sort_key(record, selection_policy))
+            family_best_entry = family_best_entry_dictionary.get(model_family, {})
+            family_failure_record_list = family_failure_dictionary.get(model_family, [])
+            family_heading_level = "####" if has_multiple_reporting_scopes else "###"
+
+            report_line_list.extend([
+                f"{family_heading_level} {model_family}",
+                "",
+                f"- Best run: `{family_best_entry.get('run_name', 'N/A')}`",
+                f"- Best test MAE: `{format_float(family_best_entry.get('test_mae'))}`",
+                f"- Completed tracked runs: `{len(family_run_record_list)}`",
+                f"- Known failed campaign attempts: `{len(family_failure_record_list)}`",
+                "",
+                "| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |",
+                "| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |",
+            ])
+
+            for rank_index, family_run_record in enumerate(family_run_record_list, start=1):
                 report_line_list.append(
-                    f"- `{failure_record['run_name']}` | campaign `{failure_record['campaign_name']}` | model type `{failure_record['model_type']}` | error `{failure_record['error_message']}`"
+                    f"| {rank_index} | "
+                    f"`{family_run_record['run_name']}` | "
+                    f"`{family_run_record['model_type']}` | "
+                    f"{format_float(family_run_record.get('test_mae'))} | "
+                    f"{format_float(family_run_record.get('test_rmse'))} | "
+                    f"{format_float(family_run_record.get('val_mae'))} | "
+                    f"{format_parameter_count(family_run_record.get('trainable_parameter_count'))} | "
+                    f"{format_duration_seconds(family_run_record.get('duration_seconds'))} | "
+                    f"{format_size_megabytes(family_run_record.get('artifact_size_megabytes'))} | "
+                    f"{family_run_record['complexity_label']} | "
+                    f"{family_run_record['training_heaviness_label']} | "
+                    f"`{family_run_record.get('campaign_name') or 'standalone_or_unknown'}` |"
                 )
 
-        report_line_list.append("")
+            if family_failure_record_list:
+                report_line_list.extend([
+                    "",
+                    "Known failed campaign attempts for this family:",
+                    "",
+                ])
+                for failure_record in family_failure_record_list:
+                    report_line_list.append(
+                        f"- `{failure_record['run_name']}` | campaign `{failure_record['campaign_name']}` | model type `{failure_record['model_type']}` | error `{failure_record['error_message']}`"
+                    )
+
+            report_line_list.append("")
 
     report_line_list.extend([
         "## Source Of Truth",

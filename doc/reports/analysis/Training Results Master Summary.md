@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-05-07T13:48:51`
+- Generated At: `2026-05-07T14:18:31`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
@@ -21,23 +21,37 @@
 
 ### Implemented And Benchmarked Families
 
+- Multi-scope waves must keep `global`, `Fw`, and `Bw` reporting surfaces separated in this canonical summary.
+
+#### Global Models
+
+| Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
+| --- | --- | --- | --- | ---: | ---: | --- |
+| `tree` | Implemented Benchmark | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002885 | 5 | `2026-05-07 13:44:29` |
+| `feedforward` | Strongest Neural Family | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 109,953 | `2026-05-07 13:44:29` |
+| `residual_harmonic_mlp` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003152 | 26,266 | `2026-05-07 13:44:29` |
+| `periodic_mlp` | Implemented Benchmark | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003317 | 27,265 | `2026-05-07 13:44:29` |
+| `harmonic_regression` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_global` | `harmonic_regression` | 0.020779 | 150 | `2026-05-07 13:44:29` |
+
+#### Forward Models
+
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `tree_fw` | Current Global Winner | `te_hist_gbr_tabular_Fw` | `hist_gradient_boosting` | 0.002845 | 5 | `2026-05-07 13:44:29` |
-| `tree` | Implemented Benchmark | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002885 | 5 | `2026-05-07 13:44:29` |
-| `tree_bw` | Implemented Benchmark | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.003087 | 5 | `2026-05-07 13:44:29` |
 | `harmonic_regression_fw` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_Fw` | `harmonic_regression` | 0.003129 | 150 | `2026-05-07 13:44:29` |
-| `feedforward` | Strongest Neural Family | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 109,953 | `2026-05-07 13:44:29` |
-| `residual_harmonic_mlp` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003152 | 26,266 | `2026-05-07 13:44:29` |
-| `feedforward_bw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003262 | 109,953 | `2026-05-07 13:44:29` |
-| `periodic_mlp` | Implemented Benchmark | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003317 | 27,265 | `2026-05-07 13:44:29` |
 | `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Fw` | `periodic_mlp` | 0.003432 | 27,265 | `2026-05-07 13:44:29` |
+| `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.003530 | 26,266 | `2026-05-07 13:44:29` |
+| `feedforward_fw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.003563 | 109,953 | `2026-05-07 13:44:29` |
+
+#### Backward Models
+
+| Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
+| --- | --- | --- | --- | ---: | ---: | --- |
+| `tree_bw` | Implemented Benchmark | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.003087 | 5 | `2026-05-07 13:44:29` |
+| `feedforward_bw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003262 | 109,953 | `2026-05-07 13:44:29` |
 | `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Bw` | `residual_harmonic_mlp` | 0.003493 | 26,266 | `2026-05-07 13:44:29` |
 | `harmonic_regression_bw` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_Bw` | `harmonic_regression` | 0.003524 | 150 | `2026-05-07 13:44:29` |
 | `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Bw` | `periodic_mlp` | 0.003525 | 27,265 | `2026-05-07 13:44:29` |
-| `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.003530 | 26,266 | `2026-05-07 13:44:29` |
-| `feedforward_fw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.003563 | 109,953 | `2026-05-07 13:44:29` |
-| `harmonic_regression` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_global` | `harmonic_regression` | 0.020779 | 150 | `2026-05-07 13:44:29` |
 
 ### Active Training Or Improvement Branches
 
@@ -128,23 +142,37 @@ Low-priority exploratory families currently listed in the backlog:
 
 ## Best Result Per Family
 
+- Scope-separated family ranking is mandatory for every future wave that introduces more than one canonical training surface.
+
+### Global Models
+
+| Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
+| `tree` | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002719 | 0.002885 | 0.003607 | 5 | 0.62 MB | Unknown | Implemented Benchmark |
+| `feedforward` | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003056 | 0.003150 | 0.003603 | 109,953 | 1.28 MB | Very High | Strongest Neural Family |
+| `residual_harmonic_mlp` | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003024 | 0.003152 | 0.003640 | 26,266 | 0.32 MB | Unknown | Implemented Benchmark |
+| `periodic_mlp` | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003097 | 0.003317 | 0.003793 | 27,265 | 0.33 MB | Unknown | Implemented Benchmark |
+| `harmonic_regression` | `te_harmonic_order12_linear_conditioned_recovery_global` | `harmonic_regression` | 0.017017 | 0.020779 | 0.022403 | 150 | 0.01 MB | Low | Implemented Benchmark |
+
+### Forward Models
+
 | Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | `tree_fw` | `te_hist_gbr_tabular_Fw` | `hist_gradient_boosting` | 0.002666 | 0.002845 | 0.003476 | 5 | 0.50 MB | Very Low | Current Global Winner |
-| `tree` | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002719 | 0.002885 | 0.003607 | 5 | 0.62 MB | Unknown | Implemented Benchmark |
-| `tree_bw` | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.002698 | 0.003087 | 0.003850 | 5 | 0.50 MB | Very Low | Implemented Benchmark |
 | `harmonic_regression_fw` | `te_harmonic_order12_linear_conditioned_recovery_Fw` | `harmonic_regression` | 0.002811 | 0.003129 | 0.003567 | 150 | 0.01 MB | Low | Implemented Benchmark |
-| `feedforward` | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003056 | 0.003150 | 0.003603 | 109,953 | 1.28 MB | Very High | Strongest Neural Family |
-| `residual_harmonic_mlp` | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003024 | 0.003152 | 0.003640 | 26,266 | 0.32 MB | Unknown | Implemented Benchmark |
-| `feedforward_bw` | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003049 | 0.003262 | 0.003749 | 109,953 | 1.28 MB | High | Implemented Benchmark |
-| `periodic_mlp` | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003097 | 0.003317 | 0.003793 | 27,265 | 0.33 MB | Unknown | Implemented Benchmark |
 | `periodic_mlp_fw` | `te_periodic_mlp_h04_standard_Fw` | `periodic_mlp` | 0.002848 | 0.003432 | 0.004023 | 27,265 | 0.33 MB | Low | Implemented Benchmark |
+| `residual_harmonic_mlp_fw` | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.002852 | 0.003530 | 0.004145 | 26,266 | 0.32 MB | Low | Implemented Benchmark |
+| `feedforward_fw` | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.002915 | 0.003563 | 0.004009 | 109,953 | 1.28 MB | Medium | Implemented Benchmark |
+
+### Backward Models
+
+| Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
+| `tree_bw` | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.002698 | 0.003087 | 0.003850 | 5 | 0.50 MB | Very Low | Implemented Benchmark |
+| `feedforward_bw` | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003049 | 0.003262 | 0.003749 | 109,953 | 1.28 MB | High | Implemented Benchmark |
 | `residual_harmonic_mlp_bw` | `te_residual_h12_deep_joint_wave1_Bw` | `residual_harmonic_mlp` | 0.003110 | 0.003493 | 0.004108 | 26,266 | 0.32 MB | Medium | Implemented Benchmark |
 | `harmonic_regression_bw` | `te_harmonic_order12_linear_conditioned_recovery_Bw` | `harmonic_regression` | 0.003701 | 0.003524 | 0.004080 | 150 | 0.01 MB | Low | Implemented Benchmark |
 | `periodic_mlp_bw` | `te_periodic_mlp_h04_standard_Bw` | `periodic_mlp` | 0.003154 | 0.003525 | 0.004132 | 27,265 | 0.33 MB | Medium | Implemented Benchmark |
-| `residual_harmonic_mlp_fw` | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.002852 | 0.003530 | 0.004145 | 26,266 | 0.32 MB | Low | Implemented Benchmark |
-| `feedforward_fw` | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.002915 | 0.003563 | 0.004009 | 109,953 | 1.28 MB | Medium | Implemented Benchmark |
-| `harmonic_regression` | `te_harmonic_order12_linear_conditioned_recovery_global` | `harmonic_regression` | 0.017017 | 0.020779 | 0.022403 | 150 | 0.01 MB | Low | Implemented Benchmark |
 
 ## Cross-Family Interpretation
 
@@ -212,7 +240,11 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ## Family-By-Family Result Breakdowns
 
-### feedforward
+- For multi-scope waves, family breakdowns are grouped by canonical reporting scope before the per-family ranking tables.
+
+### Global Models
+
+#### feedforward
 
 - Best run: `te_feedforward_stride1_high_compute_long_remote_global`
 - Best test MAE: `0.003150`
@@ -243,29 +275,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 20 | `te_feedforward_stride1_long` | `feedforward` | 0.003646 | 0.003990 | 0.003126 | 26,241 | N/A | 0.32 MB | Medium | Unknown | `standalone_or_unknown` |
 | 21 | `te_feedforward_trial` | `feedforward` | 0.003671 | 0.004418 | 0.003706 | 26,241 | N/A | 0.32 MB | Medium | Unknown | `standalone_or_unknown` |
 
-### feedforward_bw
-
-- Best run: `te_feedforward_stride1_high_compute_long_remote_Bw`
-- Best test MAE: `0.003262`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003262 | 0.003749 | 0.003049 | 109,953 | 1h 08m 06s | 1.28 MB | High | High | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### feedforward_fw
-
-- Best run: `te_feedforward_stride1_high_compute_long_remote_Fw`
-- Best test MAE: `0.003563`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.003563 | 0.004009 | 0.002915 | 109,953 | 25m 08s | 1.28 MB | High | Medium | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### harmonic_regression
+#### harmonic_regression
 
 - Best run: `te_harmonic_order12_linear_conditioned_recovery_global`
 - Best test MAE: `0.020779`
@@ -279,29 +289,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 3 | `te_harmonic_order12_static_recovery` | `harmonic_regression` | 0.039404 | 0.042797 | 0.040524 | 25 | N/A | 0.01 MB | Very Low | Unknown | `standalone_or_unknown` |
 | 4 | `te_harmonic_order06_static_recovery` | `harmonic_regression` | 0.039406 | 0.042796 | 0.040529 | 13 | N/A | 0.01 MB | Very Low | Unknown | `standalone_or_unknown` |
 
-### harmonic_regression_bw
-
-- Best run: `te_harmonic_order12_linear_conditioned_recovery_Bw`
-- Best test MAE: `0.003524`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_harmonic_order12_linear_conditioned_recovery_Bw` | `harmonic_regression` | 0.003524 | 0.004080 | 0.003701 | 150 | 8m 57s | 0.01 MB | Very Low | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### harmonic_regression_fw
-
-- Best run: `te_harmonic_order12_linear_conditioned_recovery_Fw`
-- Best test MAE: `0.003129`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_harmonic_order12_linear_conditioned_recovery_Fw` | `harmonic_regression` | 0.003129 | 0.003567 | 0.002811 | 150 | 10m 50s | 0.01 MB | Very Low | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### periodic_mlp
+#### periodic_mlp
 
 - Best run: `te_periodic_mlp_h04_standard`
 - Best test MAE: `0.003317`
@@ -315,29 +303,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 3 | `te_periodic_mlp_h08_standard` | `periodic_mlp` | 0.003395 | 0.003951 | 0.003086 | 28,289 | N/A | 0.35 MB | Medium | Unknown | `standalone_or_unknown` |
 | 4 | `te_periodic_mlp_h08_wide` | `periodic_mlp` | 0.003590 | 0.004143 | 0.003089 | 47,745 | N/A | 0.57 MB | Medium | Unknown | `standalone_or_unknown` |
 
-### periodic_mlp_bw
-
-- Best run: `te_periodic_mlp_h04_standard_Bw`
-- Best test MAE: `0.003525`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_periodic_mlp_h04_standard_Bw` | `periodic_mlp` | 0.003525 | 0.004132 | 0.003154 | 27,265 | 15m 06s | 0.33 MB | Medium | Medium | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### periodic_mlp_fw
-
-- Best run: `te_periodic_mlp_h04_standard_Fw`
-- Best test MAE: `0.003432`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_periodic_mlp_h04_standard_Fw` | `periodic_mlp` | 0.003432 | 0.004023 | 0.002848 | 27,265 | 11m 04s | 0.33 MB | Medium | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### residual_harmonic_mlp
+#### residual_harmonic_mlp
 
 - Best run: `te_residual_h12_deep_joint_wave1`
 - Best test MAE: `0.003152`
@@ -367,29 +333,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 19 | `te_residual_h12_small_frozen_recovery` | `residual_harmonic_mlp` | 0.003554 | 0.004061 | 0.003030 | 4,865 | N/A | 0.07 MB | Low | Unknown | `standalone_or_unknown` |
 | 20 | `te_residual_h12_small_joint_anchor_wave1` | `residual_harmonic_mlp` | 0.003557 | 0.004064 | 0.003090 | 4,890 | N/A | 0.07 MB | Low | Unknown | `standalone_or_unknown` |
 
-### residual_harmonic_mlp_bw
-
-- Best run: `te_residual_h12_deep_joint_wave1_Bw`
-- Best test MAE: `0.003493`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_residual_h12_deep_joint_wave1_Bw` | `residual_harmonic_mlp` | 0.003493 | 0.004108 | 0.003110 | 26,266 | 15m 03s | 0.32 MB | Medium | Medium | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### residual_harmonic_mlp_fw
-
-- Best run: `te_residual_h12_deep_joint_wave1_Fw`
-- Best test MAE: `0.003530`
-- Completed tracked runs: `1`
-- Known failed campaign attempts: `0`
-
-| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.003530 | 0.004145 | 0.002852 | 26,266 | 10m 41s | 0.32 MB | Medium | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
-
-### tree
+#### tree
 
 - Best run: `te_hist_gbr_tabular`
 - Best test MAE: `0.002885`
@@ -405,18 +349,53 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | 5 | `te_random_forest_tabular_recovery` | `random_forest` | 0.003833 | 0.004809 | 0.003792 | 5 | N/A | 7.09 GB | Extreme Artifact | Unknown | `standalone_or_unknown` |
 | 6 | `te_random_forest_remote_medium` | `random_forest` | 0.003865 | 0.004861 | 0.003808 | 5 | N/A | 85.40 GB | Extreme Artifact | Unknown | `standalone_or_unknown` |
 
-### tree_bw
+### Forward Models
 
-- Best run: `te_hist_gbr_tabular_Bw`
-- Best test MAE: `0.003087`
+#### feedforward_fw
+
+- Best run: `te_feedforward_stride1_high_compute_long_remote_Fw`
+- Best test MAE: `0.003563`
 - Completed tracked runs: `1`
 - Known failed campaign attempts: `0`
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
-| 1 | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.003087 | 0.003850 | 0.002698 | 5 | 1m 12s | 0.50 MB | Very Low | Very Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+| 1 | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.003563 | 0.004009 | 0.002915 | 109,953 | 25m 08s | 1.28 MB | High | Medium | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
 
-### tree_fw
+#### harmonic_regression_fw
+
+- Best run: `te_harmonic_order12_linear_conditioned_recovery_Fw`
+- Best test MAE: `0.003129`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_harmonic_order12_linear_conditioned_recovery_Fw` | `harmonic_regression` | 0.003129 | 0.003567 | 0.002811 | 150 | 10m 50s | 0.01 MB | Very Low | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### periodic_mlp_fw
+
+- Best run: `te_periodic_mlp_h04_standard_Fw`
+- Best test MAE: `0.003432`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_periodic_mlp_h04_standard_Fw` | `periodic_mlp` | 0.003432 | 0.004023 | 0.002848 | 27,265 | 11m 04s | 0.33 MB | Medium | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### residual_harmonic_mlp_fw
+
+- Best run: `te_residual_h12_deep_joint_wave1_Fw`
+- Best test MAE: `0.003530`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.003530 | 0.004145 | 0.002852 | 26,266 | 10m 41s | 0.32 MB | Medium | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### tree_fw
 
 - Best run: `te_hist_gbr_tabular_Fw`
 - Best test MAE: `0.002845`
@@ -426,6 +405,63 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_hist_gbr_tabular_Fw` | `hist_gradient_boosting` | 0.002845 | 0.003476 | 0.002666 | 5 | 1m 10s | 0.50 MB | Very Low | Very Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+### Backward Models
+
+#### feedforward_bw
+
+- Best run: `te_feedforward_stride1_high_compute_long_remote_Bw`
+- Best test MAE: `0.003262`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003262 | 0.003749 | 0.003049 | 109,953 | 1h 08m 06s | 1.28 MB | High | High | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### harmonic_regression_bw
+
+- Best run: `te_harmonic_order12_linear_conditioned_recovery_Bw`
+- Best test MAE: `0.003524`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_harmonic_order12_linear_conditioned_recovery_Bw` | `harmonic_regression` | 0.003524 | 0.004080 | 0.003701 | 150 | 8m 57s | 0.01 MB | Very Low | Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### periodic_mlp_bw
+
+- Best run: `te_periodic_mlp_h04_standard_Bw`
+- Best test MAE: `0.003525`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_periodic_mlp_h04_standard_Bw` | `periodic_mlp` | 0.003525 | 0.004132 | 0.003154 | 27,265 | 15m 06s | 0.33 MB | Medium | Medium | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### residual_harmonic_mlp_bw
+
+- Best run: `te_residual_h12_deep_joint_wave1_Bw`
+- Best test MAE: `0.003493`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_residual_h12_deep_joint_wave1_Bw` | `residual_harmonic_mlp` | 0.003493 | 0.004108 | 0.003110 | 26,266 | 15m 03s | 0.32 MB | Medium | Medium | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
+
+#### tree_bw
+
+- Best run: `te_hist_gbr_tabular_Bw`
+- Best test MAE: `0.003087`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.003087 | 0.003850 | 0.002698 | 5 | 1m 12s | 0.50 MB | Very Low | Very Low | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` |
 
 ## Source Of Truth
 
