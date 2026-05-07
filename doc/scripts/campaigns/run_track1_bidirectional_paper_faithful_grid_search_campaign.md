@@ -56,3 +56,35 @@ The remote operator console remains compact:
 - the active run log remains visible under `output/training_campaigns/.../logs/`;
 - the queue is intentionally small because the paper-faithful design uses one
   search pass per family-direction surface instead of a seed-sweep campaign.
+
+The launcher now also exposes the exact-paper stage-control and verbosity
+surface inherited from the shared runner:
+
+- `-Stage Search|Eval|Export|LoadBest`
+- `-BestParameterSummaryPath <path>`
+- `-NoEval`
+- `-NoExport`
+- `-GridSearchVerboseOverride <int>`
+- `-HistoricalCrossValidateVerboseOverride <int>`
+
+Examples:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Stage Search `
+  -GridSearchVerboseOverride 3 `
+  -HistoricalCrossValidateVerboseOverride 10 `
+  -Remote
+```
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Stage LoadBest `
+  -NoExport `
+  -Remote
+```
+
+`Search` keeps the current default behavior and can still chain evaluation and
+export automatically. `LoadBest` reuses the repository-owned exact-paper
+best-parameter registry when coverage exists, or one explicit
+`-BestParameterSummaryPath` when the operator wants a specific saved run.

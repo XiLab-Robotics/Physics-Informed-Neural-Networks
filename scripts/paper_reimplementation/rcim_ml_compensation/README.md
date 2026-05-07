@@ -1,10 +1,23 @@
-# RCIM ML Compensation Script Surface
+# RCIM Exact-Paper Reimplementation Workflow
 
-This subtree groups the repository-owned RCIM paper-reimplementation workflows
-by dedicated branch instead of leaving unrelated runners and support modules in
-one flat folder.
+This subtree is the repository-owned execution surface for the RCIM
+paper-reimplementation workflows.
 
-## Dedicated Workflow Folders
+Unlike `recovered_original_workflow/`, this surface does not preserve the
+paper-era scripts as copied runtime artifacts. Its role is to expose the
+repository-designed reimplementation branches that:
+
+- keep the recovered original family inventory and hyperparameter grids;
+- keep the restored historical search protocol required by the paper-faithful
+  Track 1 workflow;
+- use repository-owned output roots, campaign tooling, and registries;
+- support both direct single-run execution and campaign-driven execution.
+
+The recovered-original branch remains documented separately in:
+
+- `recovered_original_workflow/README.md`
+
+## Folder Structure
 
 - `exact_paper_model_bank/`
   Strict recovered-CSV exact-paper family-bank validation.
@@ -18,25 +31,265 @@ one flat folder.
   best model.
 - `recovered_original_workflow/`
   Direct recovered-original code surface rebuilt from the newly recovered full
-  original root, with three top-level entrypoints plus a copied `utilities/`
-  module folder.
+  original root, with its own dedicated README and historical launcher model.
 
-## Entry Points
+## Practical Workflow Split
+
+The main distinction inside this subtree is between two exact-paper execution
+branches.
+
+### `exact_paper_model_bank/`
+
+Use this branch when the operator wants the strict recovered-data exact-paper
+surface:
+
+- target schema anchored to the recovered paper-era CSV assets;
+- exact-paper family inventory;
+- exact-paper shared training support;
+- repository-owned evaluation and export outputs.
+
+Main entrypoint:
 
 - `exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
+
+### `original_dataset_exact_model_bank/`
+
+Use this branch when the operator wants the same exact-paper model-family
+surface, but rebuilt from the canonical repository dataset:
+
+- repository canonical dataset root;
+- explicit `forward` or `backward` direction support;
+- same exact-paper family inventory and grid-search surface;
+- same shared best-parameter registry and stage-aware operator flow.
+
+Main entrypoint:
+
 - `original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
+
+Auxiliary entrypoint:
+
 - `original_dataset_exact_model_bank/generate_original_dataset_exact_smoke_configs.py`
-- `harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py`
-- `reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py`
-- `recovered_original_workflow/create_dataframe.py`
-- `recovered_original_workflow/training_models.py`
-- `recovered_original_workflow/evaluate_models.py`
 
-## Notes
+## Shared Exact-Paper Pipeline
 
-- Support modules now live beside the direct entrypoint that owns them.
-- The recovered-original workflow is intentionally separated from the
-  repository-designed workflows because it preserves copied paper-era code and
-  original-style runtime assumptions.
-- The detailed recovered-original usage guide lives in
-  `recovered_original_workflow/README.md`.
+Both exact-paper branches now flow through the same shared exact-paper training
+surface.
+
+The canonical shared implementation lives in:
+
+- `exact_paper_model_bank/exact_paper_model_bank_support.py`
+- `original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py`
+
+In practical operator terms, the shared exact-paper flow is:
+
+1. Load one YAML config.
+2. Build the exact-paper dataset bundle for the selected scope.
+3. Resolve the exact-paper family registry and hyperparameter search settings.
+4. Run the paper-faithful search stage:
+   - `train_test_split(..., random_state=0)`
+   - `GridSearchCV(...)`
+   - historical `cross_validate(...)` replay on the search wrapper
+   - target-wise historical `cross_validate(...)` replay on the best wrapped
+     estimators
+5. Evaluate the trained family bank unless disabled.
+6. Export ONNX artifacts unless disabled.
+7. Persist the repository-owned best-parameter summary and update the shared
+   best-parameter registry.
+
+## Stage Model
+
+The two exact-paper Python runners now expose the same operator stage model:
+
+- `search`
+  Run the search protocol, then optionally chain evaluation and export.
+- `eval`
+  Rebuild the selected family bank from stored best parameters and run only
+  evaluation.
+- `export`
+  Rebuild the selected family bank from stored best parameters and run only
+  export.
+- `loadbest`
+  Load one stored exact-paper best-parameter summary or the shared registry,
+  then rebuild the family bank without repeating search.
+
+Common optional controls:
+
+- `--best-parameter-summary-path`
+- `--best-parameter-registry-path`
+- `--no-eval`
+- `--no-export`
+- `--grid-search-verbose-override`
+- `--historical-cross-validate-verbose-override`
+
+## Best-Parameter Flow
+
+The exact-paper reimplementation now keeps a repository-owned best-parameter
+surface so the operator can separate expensive search from later replay
+stages.
+
+Per-run summary:
+
+- `best_parameter_summary.yaml`
+  written inside the run output directory when best parameters are available.
+
+Shared registry:
+
+- `output/registries/program/track1_exact_paper_best_hyperparameters.yaml`
+
+The intended operator flow is:
+
+1. Run `search` once for the desired scope.
+2. Reuse the generated `best_parameter_summary.yaml`, or rely on the shared
+   registry if coverage already exists.
+3. Run `loadbest`, `eval`, or `export` without repeating the full search.
+
+## Canonical Python Commands
+
+The examples below use the direct Python runners. Replace config paths with the
+prepared YAML for the desired scope.
+
+### Strict Recovered-CSV Exact-Paper Surface
+
+Search with live verbosity and keep downstream evaluation plus export enabled:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+  --config-path "config\paper_reimplementation\rcim_ml_compensation\exact_paper_model_bank\your_config.yaml" `
+  --output-suffix exact_paper_search `
+  --stage search `
+  --grid-search-verbose-override 3 `
+  --historical-cross-validate-verbose-override 10
+```
+
+Replay one stored best-parameter summary without repeating search:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+  --config-path "config\paper_reimplementation\rcim_ml_compensation\exact_paper_model_bank\your_config.yaml" `
+  --output-suffix exact_paper_loadbest `
+  --stage loadbest `
+  --best-parameter-summary-path "output\validation_checks\...\best_parameter_summary.yaml"
+```
+
+Run only export from stored best parameters:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+  --config-path "config\paper_reimplementation\rcim_ml_compensation\exact_paper_model_bank\your_config.yaml" `
+  --output-suffix exact_paper_export_only `
+  --stage export `
+  --best-parameter-summary-path "output\validation_checks\...\best_parameter_summary.yaml"
+```
+
+### Original-Dataset Exact-Paper Surface
+
+Search on one prepared original-dataset config:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+  --config-path "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\your_config.yaml" `
+  --output-suffix original_dataset_search `
+  --stage search `
+  --grid-search-verbose-override 3 `
+  --historical-cross-validate-verbose-override 10
+```
+
+Reuse registry-backed best parameters and skip export:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+  --config-path "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\your_config.yaml" `
+  --output-suffix original_dataset_loadbest `
+  --stage loadbest `
+  --no-export
+```
+
+Run only evaluation from one explicit saved summary:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+  --config-path "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\your_config.yaml" `
+  --output-suffix original_dataset_eval_only `
+  --stage eval `
+  --best-parameter-summary-path "output\validation_checks\...\best_parameter_summary.yaml"
+```
+
+## Campaign Surface
+
+The exact-paper reimplementation also exposes campaign preparation plus launch
+tooling. For the current Track 1 paper-faithful branch, the canonical launcher
+note lives in:
+
+- `doc/scripts/campaigns/run_track1_bidirectional_paper_faithful_grid_search_campaign.md`
+
+The main PowerShell launcher is:
+
+- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+
+Preparation command:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
+```
+
+Canonical remote launch:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
+```
+
+Observed launch with verbose search monitoring:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Stage Search `
+  -GridSearchVerboseOverride 3 `
+  -HistoricalCrossValidateVerboseOverride 10 `
+  -Remote
+```
+
+Registry-backed replay without repeating search:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Stage LoadBest `
+  -NoExport `
+  -Remote
+```
+
+## Output Layout
+
+Typical exact-paper outputs are written under:
+
+- `output/validation_checks/`
+- `output/training_campaigns/track1/exact_paper/`
+- `output/registries/program/`
+- `doc/reports/analysis/validation_checks/`
+
+Operator-relevant artifacts include:
+
+- `validation_summary.yaml`
+- `paper_family_model_bank.pkl`
+- `best_parameter_summary.yaml`
+- Markdown validation report under `doc/reports/analysis/validation_checks/`
+- campaign logs under the selected campaign output root
+
+Persistent campaign state lives in:
+
+- `doc/running/active_training_campaign.yaml`
+
+## Relationship With The Recovered-Original Branch
+
+The recovered-original branch and the exact-paper reimplementation are related
+but intentionally distinct.
+
+- `recovered_original_workflow/`
+  preserves the copied original runtime logic plus the repository-owned
+  launcher modernization around it.
+- the exact-paper reimplementation branches
+  keep the recovered original family inventory, grid definitions, and restored
+  historical search protocol, but run inside a repository-owned validation and
+  campaign framework.
+
+When the goal is paper-faithful Track 1 execution inside the repository-owned
+campaign system, this README is the operational surface to follow.

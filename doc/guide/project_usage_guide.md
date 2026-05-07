@@ -2609,6 +2609,28 @@ Canonical config:
 Main supporting report:
 
 - `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+
+The exact-paper runner now also supports a stage-aware operator surface closer
+to the recovered-original RCIM launcher. In addition to the default search
+flow, the validation runners under:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/`
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+accept:
+
+- `--stage search|eval|export|loadbest`
+- `--best-parameter-summary-path <path>`
+- `--best-parameter-registry-path <path>`
+- `--no-eval`
+- `--no-export`
+- `--grid-search-verbose-override <int>`
+- `--historical-cross-validate-verbose-override <int>`
+
+This makes it possible to rerun the exact-paper branch with detailed live
+logging, reuse one stored best-parameter summary, or consume the repository
+best-parameter registry without rebuilding the full search surface every time.
+
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.md`
 
 Typical usage:

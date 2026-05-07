@@ -20,7 +20,8 @@ function Invoke-ExactPaperCampaignLocal {
         [string]$RunnerScriptPath = "scripts\paper_reimplementation\rcim_ml_compensation\run_exact_paper_model_bank_validation.py",
         [string]$OutputSuffix = "campaign_run",
         [string]$CondaEnvironmentName = "standard_ml_codex_env",
-        [string]$PythonExecutable = "python"
+        [string]$PythonExecutable = "python",
+        [string[]]$RunnerArgumentList = @()
     )
 
     . (Join-Path $script:invoke_exact_paper_campaign_local_project_root "scripts\campaigns\infrastructure\shared_streaming_campaign_launcher.ps1")
@@ -66,6 +67,7 @@ function Invoke-ExactPaperCampaignLocal {
             -ConfigPath $configPath `
             -OutputSuffix $OutputSuffix `
             -LogPath $runLogPath `
+            -AdditionalArgumentList $RunnerArgumentList `
             -SuppressGridSearchConsoleNoise `
             -GridSearchHeartbeatSeconds 20 `
             -EmitRemoteStageMarkers

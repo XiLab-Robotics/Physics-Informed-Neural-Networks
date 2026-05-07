@@ -8,6 +8,8 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$LauncherRelativePath,
 
+    [string[]]$LauncherArgumentList = @(),
+
     [Parameter(Mandatory = $true)]
     [string[]]$CampaignConfigPathList,
 
@@ -798,6 +800,7 @@ $optionalDependencySpecificationList = Get-OptionalExactPaperDependencySpecifica
     -CampaignConfigPathList $resolvedCampaignConfigPathList `
     -LauncherRelativePath $resolvedLauncherRelativePath
 $remoteRunNameLiteralListText = ($RunNameList | ForEach-Object { "'$_'" }) -join ",`n    "
+$remoteLauncherArgumentLiteralListText = ($LauncherArgumentList | ForEach-Object { "'$_'" }) -join ",`n    "
 $optionalDependencyLabelText = if ($optionalDependencySpecificationList.Count -gt 0) {
     ($optionalDependencySpecificationList | ForEach-Object { "$($_.family_name):$($_.dependency_name)" } | Select-Object -Unique) -join ", "
 }
@@ -931,7 +934,12 @@ if (-not (Test-Path -LiteralPath `$launcherPath)) {
 }
 
 Emit-RemoteStatusLine ('REMOTE_ACTIVE_STAGE::{0}' -f 'Launching canonical exact-paper campaign launcher')
-& powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File `$launcherPath -CondaEnvironmentName '$RemoteCondaEnvironmentName'
+`$launcherArgumentList = @(
+    '-CondaEnvironmentName'
+    '$RemoteCondaEnvironmentName'
+    $remoteLauncherArgumentLiteralListText
+)
+& powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File `$launcherPath @launcherArgumentList
 `$nativeExitCode = if (`$LASTEXITCODE -eq `$null) { 0 } else { [int]`$LASTEXITCODE }
 
 if (`$nativeExitCode -ne 0) {

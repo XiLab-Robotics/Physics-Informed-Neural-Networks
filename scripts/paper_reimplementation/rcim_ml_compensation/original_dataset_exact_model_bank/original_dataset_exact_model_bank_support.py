@@ -442,6 +442,12 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
     winner_historical_protocol_summary = family_search_summary_dictionary[
         winner_summary["winning_family"]
     ].get("historical_protocol_summary")
+    winner_best_parameter_source = family_search_summary_dictionary[
+        winner_summary["winning_family"]
+    ].get("best_parameter_source")
+    winner_workflow_stage = family_search_summary_dictionary[
+        winner_summary["winning_family"]
+    ].get("workflow_stage")
 
     family_row_list: list[str] = []
     for ranking_index, family_entry in enumerate(family_ranking, start=1):
@@ -495,6 +501,8 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
             f"- test split: `{dataset_dictionary['test_size']}`",
             f"- random seed: `{dataset_dictionary['random_seed']}`",
             f"- validation usage note: {training_strategy_dictionary['validation_usage_note']}",
+            f"- workflow stage: `{winner_workflow_stage}`",
+            f"- best-parameter source: `{winner_best_parameter_source}`",
             f"- historical wrapper `cross_validate(...)` replay: `{bool(winner_historical_protocol_summary)}`",
             "",
             "## Winner Summary",
@@ -523,6 +531,11 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
             f"- output directory: `{experiment_dictionary['output_directory']}`",
             f"- model bundle: `{validation_summary['artifacts']['model_bundle_path']}`",
             f"- validation summary: `{validation_summary['artifacts']['validation_summary_path']}`",
+            (
+                f"- best-parameter summary: `{validation_summary['artifacts']['best_parameter_summary_path']}`"
+                if validation_summary["artifacts"].get("best_parameter_summary_path")
+                else "- best-parameter summary: `not_written`"
+            ),
             "",
         ]
     )

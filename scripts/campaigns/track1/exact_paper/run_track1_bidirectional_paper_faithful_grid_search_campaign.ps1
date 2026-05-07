@@ -1,5 +1,12 @@
 param(
     [switch]$Remote,
+    [ValidateSet("Search", "Eval", "Export", "LoadBest")]
+    [string]$Stage = "Search",
+    [string]$BestParameterSummaryPath = "",
+    [int]$GridSearchVerboseOverride = -1,
+    [int]$HistoricalCrossValidateVerboseOverride = -1,
+    [switch]$NoEval,
+    [switch]$NoExport,
     [string]$CondaEnvironmentName = "standard_ml_codex_env",
     [string]$PythonExecutable = "python",
     [string]$RemoteHostAlias = "xilab-remote",
@@ -71,11 +78,29 @@ $CampaignQueueBundle = Get-CampaignQueueBundle `
     -EnvironmentName $CondaEnvironmentName `
     -PythonCommand $PythonExecutable
 
+$RunnerArgumentList = @("--stage", $Stage.ToLowerInvariant())
+if (-not [string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) {
+    $RunnerArgumentList += @("--best-parameter-summary-path", $BestParameterSummaryPath)
+}
+if ($GridSearchVerboseOverride -ge 0) {
+    $RunnerArgumentList += @("--grid-search-verbose-override", $GridSearchVerboseOverride.ToString())
+}
+if ($HistoricalCrossValidateVerboseOverride -ge 0) {
+    $RunnerArgumentList += @("--historical-cross-validate-verbose-override", $HistoricalCrossValidateVerboseOverride.ToString())
+}
+if ($NoEval) {
+    $RunnerArgumentList += "--no-eval"
+}
+if ($NoExport) {
+    $RunnerArgumentList += "--no-export"
+}
+
 if ($Remote) {
     & ".\scripts\campaigns\track1\exact_paper\run_exact_paper_campaign_remote.ps1" `
         -CampaignName $CampaignQueueBundle.campaign_name `
         -PlanningReportPath $CampaignQueueBundle.planning_report_path `
         -LauncherRelativePath "scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1" `
+        -LauncherArgumentList $RunnerArgumentList `
         -CampaignOutputRootOverride $CampaignQueueBundle.campaign_output_directory `
         -CampaignConfigPathList @($CampaignQueueBundle.queue_config_path_list) `
         -RunNameList @($CampaignQueueBundle.run_name_list) `
@@ -126,6 +151,7 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
         -ConfigPath $ConfigPath `
         -OutputSuffix "campaign_validation" `
         -LogPath $RunLogPath `
+        -AdditionalArgumentList $RunnerArgumentList `
         -SuppressGridSearchConsoleNoise `
         -GridSearchHeartbeatSeconds 20 `
         -EmitRemoteStageMarkers

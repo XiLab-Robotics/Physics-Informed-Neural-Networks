@@ -69,8 +69,16 @@ except ImportError:  # pragma: no cover - runtime dependency check
     XGBRegressor = None
 
 EXACT_MODEL_BANK_FILENAME = "paper_family_model_bank.pkl"
+EXACT_PAPER_BEST_PARAMETER_SUMMARY_FILENAME = "best_parameter_summary.yaml"
 EXACT_MODEL_REPORT_ROOT = shared_training_infrastructure.PROJECT_PATH / "doc" / "reports" / "analysis" / "validation_checks"
 EXACT_MODEL_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
+EXACT_PAPER_BEST_PARAMETER_REGISTRY_PATH = (
+    shared_training_infrastructure.PROJECT_PATH
+    / "output"
+    / "registries"
+    / "program"
+    / "track1_exact_paper_best_hyperparameters.yaml"
+)
 EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST = [
     "neg_mean_squared_error",
     "neg_root_mean_squared_error",
@@ -199,6 +207,12 @@ EXACT_PAPER_HYPERPARAMETER_SEARCH_MODE_LIST = [
     "disabled",
     "paper_reference_grid_search",
 ]
+EXACT_PAPER_WORKFLOW_STAGE_LIST = [
+    "search",
+    "eval",
+    "export",
+    "loadbest",
+]
 
 
 @dataclass
@@ -272,6 +286,18 @@ def count_exact_parameter_grid_candidates(parameter_grid: dict[str, list[Any]]) 
     return int(candidate_count)
 
 
+def resolve_exact_paper_workflow_stage(stage_name: str | None) -> str:
+
+    """Normalize one exact-paper operator stage."""
+
+    normalized_stage_name = str(stage_name or "search").strip().lower()
+    assert normalized_stage_name in EXACT_PAPER_WORKFLOW_STAGE_LIST, (
+        "Unsupported exact-paper workflow stage | "
+        f"{normalized_stage_name}"
+    )
+    return normalized_stage_name
+
+
 def _build_historical_cross_validate_metric_dictionary(
     score_dictionary: dict[str, np.ndarray],
 ) -> dict[str, float]:
@@ -292,6 +318,7 @@ def _build_historical_search_protocol_summary(
     dataset_bundle: "ExactPaperDatasetBundle",
     fitted_grid_search_estimator: GridSearchCV,
     threadpool_limit: int,
+    cross_validate_verbose: int,
 ) -> dict[str, Any]:
 
     """Replay the recovered historical search-plus-cross-validation protocol."""
@@ -305,6 +332,15 @@ def _build_historical_search_protocol_summary(
         full_feature_matrix = full_feature_matrix.to_numpy(dtype=np.float32)
 
     # Re-Run The Historical Global Cross-Validation On The Search Wrapper
+    wrapper_cross_validate_start_time = time.perf_counter()
+    emit_exact_paper_progress_log(
+        "INFO",
+        "Historical wrapper cross-validate started | "
+        f"family={family_name} "
+        f"cv={EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT} "
+        f"targets={len(dataset_bundle.target_name_list)} "
+        f"verbose={cross_validate_verbose}",
+    )
     with threadpool_limits(limits=threadpool_limit):
         global_score_dictionary = cross_validate(
             fitted_grid_search_estimator,
@@ -312,14 +348,36 @@ def _build_historical_search_protocol_summary(
             full_target_matrix,
             cv=EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT,
             scoring=EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST,
+            verbose=cross_validate_verbose,
         )
     global_metric_dictionary = _build_historical_cross_validate_metric_dictionary(global_score_dictionary)
+    emit_exact_paper_progress_log(
+        "DONE",
+        "Historical wrapper cross-validate complete | "
+        f"family={family_name} "
+        f"elapsed={format_exact_elapsed_seconds(time.perf_counter() - wrapper_cross_validate_start_time)} "
+        f"mean_mae={global_metric_dictionary['mean_absolute_error']:.6f} "
+        f"mean_rmse={global_metric_dictionary['root_mean_squared_error']:.6f}",
+    )
 
     # Re-Run The Historical Per-Target Cross-Validation On The Best Estimators
     per_target_metric_dictionary: dict[str, dict[str, float]] = {}
     for target_index, target_name in enumerate(dataset_bundle.target_name_list):
         per_target_estimator = fitted_grid_search_estimator.best_estimator_.estimators_[target_index]
         target_score_input = full_target_matrix[full_target_matrix.columns[target_index:target_index + 1]]
+        target_kind, harmonic_order = parse_exact_target_name(target_name)
+        target_cross_validate_start_time = time.perf_counter()
+        emit_exact_paper_progress_log(
+            "INFO",
+            "Historical target cross-validate started | "
+            f"family={family_name} "
+            f"target={target_index + 1}/{len(dataset_bundle.target_name_list)} "
+            f"name={target_name} "
+            f"kind={target_kind} "
+            f"harmonic={harmonic_order} "
+            f"cv={EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT} "
+            f"verbose={cross_validate_verbose}",
+        )
         with threadpool_limits(limits=threadpool_limit):
             target_score_dictionary = cross_validate(
                 per_target_estimator,
@@ -327,9 +385,20 @@ def _build_historical_search_protocol_summary(
                 target_score_input,
                 cv=EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT,
                 scoring=EXACT_PAPER_HISTORICAL_SCORING_NAME_LIST,
+                verbose=cross_validate_verbose,
             )
         per_target_metric_dictionary[target_name] = _build_historical_cross_validate_metric_dictionary(
             target_score_dictionary
+        )
+        emit_exact_paper_progress_log(
+            "DONE",
+            "Historical target cross-validate complete | "
+            f"family={family_name} "
+            f"target={target_index + 1}/{len(dataset_bundle.target_name_list)} "
+            f"name={target_name} "
+            f"elapsed={format_exact_elapsed_seconds(time.perf_counter() - target_cross_validate_start_time)} "
+            f"mean_mae={per_target_metric_dictionary[target_name]['mean_absolute_error']:.6f} "
+            f"mean_rmse={per_target_metric_dictionary[target_name]['root_mean_squared_error']:.6f}",
         )
 
     return {
@@ -921,11 +990,13 @@ def resolve_exact_paper_hyperparameter_search_settings(
     )
     grid_search_n_jobs = int(search_config.get("grid_search_n_jobs", -1))
     grid_search_verbose = int(search_config.get("grid_search_verbose", 2))
+    historical_cross_validate_verbose = int(search_config.get("historical_cross_validate_verbose", 1))
     grid_search_pre_dispatch = str(search_config.get("grid_search_pre_dispatch", "2*n_jobs")).strip()
     return {
         "mode": search_mode,
         "grid_search_n_jobs": grid_search_n_jobs,
         "grid_search_verbose": grid_search_verbose,
+        "historical_cross_validate_verbose": historical_cross_validate_verbose,
         "grid_search_pre_dispatch": grid_search_pre_dispatch,
         "grid_search_disabled_families": normalized_disabled_family_list,
     }
@@ -1021,6 +1092,301 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
         )
 
     raise ValueError(f"Unsupported exact paper family | {family_name}")
+
+
+def build_exact_paper_scope_descriptor(
+    training_config: dict[str, Any],
+    dataset_bundle: ExactPaperDatasetBundle,
+    workflow_variant: str,
+) -> dict[str, Any]:
+
+    """Build one stable scope descriptor for best-parameter reuse."""
+
+    direction_label = str(
+        ((training_config or {}).get("data", {}) or {}).get("direction_label", "forward")
+    ).strip().lower()
+    target_scope_dictionary = resolve_exact_target_scope(training_config)
+    selected_harmonic_list = list(((training_config or {}).get("evaluation", {}) or {}).get("selected_harmonics", []))
+    enabled_family_list = resolve_enabled_family_list(training_config)
+    return {
+        "workflow_variant": str(workflow_variant),
+        "direction_label": direction_label,
+        "target_scope_mode": str(target_scope_dictionary["mode"]),
+        "include_phase_zero": bool(target_scope_dictionary["include_phase_zero"]),
+        "selected_harmonic_list": [int(harmonic_order) for harmonic_order in selected_harmonic_list],
+        "feature_name_list": list(dataset_bundle.feature_name_list),
+        "target_name_list": list(dataset_bundle.target_name_list),
+        "enabled_family_list": list(enabled_family_list),
+    }
+
+
+def build_exact_paper_best_parameter_summary(
+    workflow_variant: str,
+    training_config: dict[str, Any],
+    dataset_bundle: ExactPaperDatasetBundle,
+    family_summary_list: list[dict[str, Any]],
+    family_search_summary_dictionary: dict[str, dict[str, Any]],
+    validation_summary_path: Path | None = None,
+    output_directory: Path | None = None,
+) -> dict[str, Any]:
+
+    """Build one run-local exact-paper best-parameter summary payload."""
+
+    scope_descriptor = build_exact_paper_scope_descriptor(
+        training_config=training_config,
+        dataset_bundle=dataset_bundle,
+        workflow_variant=workflow_variant,
+    )
+    family_metric_map = {
+        family_entry["family_name"]: family_entry
+        for family_entry in family_summary_list
+    }
+    family_entry_list: list[dict[str, Any]] = []
+    for family_name, family_search_entry in family_search_summary_dictionary.items():
+        best_params_dictionary = family_search_entry.get("best_params")
+        if best_params_dictionary is None:
+            continue
+        family_metric_entry = family_metric_map.get(family_name, {})
+        family_entry_list.append(
+            {
+                "family_name": family_name,
+                "best_params": dict(best_params_dictionary),
+                "best_score": family_search_entry.get("best_score"),
+                "search_mode": family_search_entry.get("search_mode"),
+                "used_grid_search": bool(family_search_entry.get("used_grid_search", False)),
+                "best_parameter_source": str(family_search_entry.get("best_parameter_source", "grid_search")),
+                "mean_component_mape_percent": (
+                    float(family_metric_entry["mean_component_mape_percent"])
+                    if "mean_component_mape_percent" in family_metric_entry
+                    else None
+                ),
+                "mean_component_mae": (
+                    float(family_metric_entry["mean_component_mae"])
+                    if "mean_component_mae" in family_metric_entry
+                    else None
+                ),
+                "mean_component_rmse": (
+                    float(family_metric_entry["mean_component_rmse"])
+                    if "mean_component_rmse" in family_metric_entry
+                    else None
+                ),
+            }
+        )
+
+    family_entry_list.sort(key=lambda entry: str(entry["family_name"]))
+    return {
+        "schema_version": 1,
+        "generated_at": datetime.now().isoformat(),
+        "scope_descriptor": scope_descriptor,
+        "validation_summary_path": shared_training_infrastructure.format_project_relative_path(validation_summary_path),
+        "output_directory": shared_training_infrastructure.format_project_relative_path(output_directory),
+        "family_entries": family_entry_list,
+    }
+
+
+def save_exact_paper_best_parameter_summary(
+    best_parameter_summary: dict[str, Any],
+    output_directory: Path,
+) -> Path:
+
+    """Persist one exact-paper best-parameter summary into the run artifact root."""
+
+    best_parameter_summary_path = output_directory / EXACT_PAPER_BEST_PARAMETER_SUMMARY_FILENAME
+    shared_training_infrastructure.save_yaml_snapshot(best_parameter_summary, best_parameter_summary_path)
+    return best_parameter_summary_path
+
+
+def load_exact_paper_best_parameter_summary(
+    best_parameter_summary_path: str | Path,
+) -> dict[str, Any]:
+
+    """Load one exact-paper best-parameter summary payload."""
+
+    return shared_training_infrastructure.load_training_config(best_parameter_summary_path)
+
+
+def build_exact_paper_best_parameter_override_map(
+    best_parameter_summary: dict[str, Any],
+    enabled_family_list: list[str],
+) -> dict[str, dict[str, Any]]:
+
+    """Extract one family-name to best-parameter map from a saved summary."""
+
+    family_entry_map = {
+        str(family_entry["family_name"]).strip().upper(): dict(family_entry["best_params"])
+        for family_entry in list(best_parameter_summary.get("family_entries", []))
+        if family_entry.get("best_params") is not None
+    }
+    missing_family_list = [
+        family_name for family_name in enabled_family_list
+        if family_name not in family_entry_map
+    ]
+    assert not missing_family_list, (
+        "Best-parameter summary does not cover the requested exact-paper families | "
+        f"{','.join(missing_family_list)}"
+    )
+    return {
+        family_name: family_entry_map[family_name]
+        for family_name in enabled_family_list
+    }
+
+
+def _exact_paper_registry_entries_match_scope(
+    registry_entry: dict[str, Any],
+    scope_descriptor: dict[str, Any],
+    family_name: str,
+) -> bool:
+
+    """Return whether one registry entry matches the requested workflow scope."""
+
+    return (
+        str(registry_entry.get("workflow_variant", "")).strip() == str(scope_descriptor["workflow_variant"])
+        and str(registry_entry.get("direction_label", "")).strip().lower() == str(scope_descriptor["direction_label"])
+        and str(registry_entry.get("target_scope_mode", "")).strip() == str(scope_descriptor["target_scope_mode"])
+        and bool(registry_entry.get("include_phase_zero", False)) == bool(scope_descriptor["include_phase_zero"])
+        and list(registry_entry.get("selected_harmonic_list", [])) == list(scope_descriptor["selected_harmonic_list"])
+        and list(registry_entry.get("target_name_list", [])) == list(scope_descriptor["target_name_list"])
+        and str(registry_entry.get("family_name", "")).strip().upper() == str(family_name).strip().upper()
+    )
+
+
+def load_exact_paper_best_parameter_registry(
+    registry_path: str | Path | None = None,
+) -> dict[str, Any]:
+
+    """Load the repo-owned exact-paper best-parameter registry."""
+
+    resolved_registry_path = Path(registry_path or EXACT_PAPER_BEST_PARAMETER_REGISTRY_PATH)
+    if not resolved_registry_path.exists():
+        return {
+            "schema_version": 1,
+            "updated_at": None,
+            "entries": [],
+        }
+    return shared_training_infrastructure.load_training_config(resolved_registry_path)
+
+
+def update_exact_paper_best_parameter_registry(
+    best_parameter_summary: dict[str, Any],
+    registry_path: str | Path | None = None,
+) -> Path:
+
+    """Update the repo-owned exact-paper best-parameter registry."""
+
+    resolved_registry_path = Path(registry_path or EXACT_PAPER_BEST_PARAMETER_REGISTRY_PATH)
+    registry_payload = load_exact_paper_best_parameter_registry(resolved_registry_path)
+    existing_entry_list = list(registry_payload.get("entries", []))
+    scope_descriptor = dict(best_parameter_summary["scope_descriptor"])
+
+    for family_entry in list(best_parameter_summary.get("family_entries", [])):
+        family_name = str(family_entry["family_name"]).strip().upper()
+        replacement_entry = {
+            "workflow_variant": scope_descriptor["workflow_variant"],
+            "direction_label": scope_descriptor["direction_label"],
+            "target_scope_mode": scope_descriptor["target_scope_mode"],
+            "include_phase_zero": scope_descriptor["include_phase_zero"],
+            "selected_harmonic_list": list(scope_descriptor["selected_harmonic_list"]),
+            "target_name_list": list(scope_descriptor["target_name_list"]),
+            "family_name": family_name,
+            "best_params": dict(family_entry["best_params"]),
+            "best_score": family_entry.get("best_score"),
+            "search_mode": family_entry.get("search_mode"),
+            "best_parameter_source": family_entry.get("best_parameter_source"),
+            "mean_component_mape_percent": family_entry.get("mean_component_mape_percent"),
+            "mean_component_mae": family_entry.get("mean_component_mae"),
+            "mean_component_rmse": family_entry.get("mean_component_rmse"),
+            "source_validation_summary_path": best_parameter_summary.get("validation_summary_path"),
+            "source_best_parameter_summary_path": best_parameter_summary.get("best_parameter_summary_path"),
+            "updated_at": datetime.now().isoformat(),
+        }
+
+        replacement_index = None
+        for existing_index, existing_entry in enumerate(existing_entry_list):
+            if _exact_paper_registry_entries_match_scope(existing_entry, scope_descriptor, family_name):
+                replacement_index = existing_index
+                break
+
+        if replacement_index is None:
+            existing_entry_list.append(replacement_entry)
+            continue
+
+        existing_entry = existing_entry_list[replacement_index]
+        replacement_key = (
+            float(replacement_entry["mean_component_mape_percent"]) if replacement_entry["mean_component_mape_percent"] is not None else float("inf"),
+            float(replacement_entry["mean_component_mae"]) if replacement_entry["mean_component_mae"] is not None else float("inf"),
+            float(replacement_entry["mean_component_rmse"]) if replacement_entry["mean_component_rmse"] is not None else float("inf"),
+            str(replacement_entry["family_name"]),
+        )
+        existing_key = (
+            float(existing_entry.get("mean_component_mape_percent", float("inf"))) if existing_entry.get("mean_component_mape_percent") is not None else float("inf"),
+            float(existing_entry.get("mean_component_mae", float("inf"))) if existing_entry.get("mean_component_mae") is not None else float("inf"),
+            float(existing_entry.get("mean_component_rmse", float("inf"))) if existing_entry.get("mean_component_rmse") is not None else float("inf"),
+            str(existing_entry.get("family_name", "")),
+        )
+        if replacement_key <= existing_key:
+            existing_entry_list[replacement_index] = replacement_entry
+
+    resolved_registry_path.parent.mkdir(parents=True, exist_ok=True)
+    shared_training_infrastructure.save_yaml_snapshot(
+        {
+            "schema_version": 1,
+            "updated_at": datetime.now().isoformat(),
+            "entries": existing_entry_list,
+        },
+        resolved_registry_path,
+    )
+    return resolved_registry_path
+
+
+def resolve_exact_paper_best_parameter_summary_from_registry(
+    training_config: dict[str, Any],
+    dataset_bundle: ExactPaperDatasetBundle,
+    workflow_variant: str,
+    enabled_family_list: list[str],
+    registry_path: str | Path | None = None,
+) -> dict[str, Any]:
+
+    """Materialize one summary-like payload from the repo-owned registry."""
+
+    scope_descriptor = build_exact_paper_scope_descriptor(
+        training_config=training_config,
+        dataset_bundle=dataset_bundle,
+        workflow_variant=workflow_variant,
+    )
+    registry_payload = load_exact_paper_best_parameter_registry(registry_path)
+    matched_family_entry_list: list[dict[str, Any]] = []
+    for family_name in enabled_family_list:
+        matching_entry = None
+        for registry_entry in list(registry_payload.get("entries", [])):
+            if _exact_paper_registry_entries_match_scope(registry_entry, scope_descriptor, family_name):
+                matching_entry = registry_entry
+                break
+        assert matching_entry is not None, (
+            "Exact-paper best-parameter registry does not cover the requested family scope | "
+            f"family={family_name} workflow_variant={workflow_variant} direction={scope_descriptor['direction_label']}"
+        )
+        matched_family_entry_list.append(
+            {
+                "family_name": family_name,
+                "best_params": dict(matching_entry["best_params"]),
+                "best_score": matching_entry.get("best_score"),
+                "search_mode": matching_entry.get("search_mode"),
+                "used_grid_search": False,
+                "best_parameter_source": "stored_registry",
+                "mean_component_mape_percent": matching_entry.get("mean_component_mape_percent"),
+                "mean_component_mae": matching_entry.get("mean_component_mae"),
+                "mean_component_rmse": matching_entry.get("mean_component_rmse"),
+            }
+        )
+
+    return {
+        "schema_version": 1,
+        "generated_at": datetime.now().isoformat(),
+        "scope_descriptor": scope_descriptor,
+        "validation_summary_path": None,
+        "output_directory": None,
+        "family_entries": matched_family_entry_list,
+    }
 
 
 def build_exact_paper_reference_parameter_grid(
@@ -1204,6 +1570,8 @@ def fit_exact_family_model_bank(
     dataset_bundle: ExactPaperDatasetBundle,
     enabled_family_list: list[str],
     training_config: dict[str, Any] | None = None,
+    best_parameter_override_map: dict[str, dict[str, Any]] | None = None,
+    workflow_stage: str = "search",
 ) -> tuple[dict[str, MultiOutputRegressor], dict[str, dict[str, Any]]]:
 
     """Fit the recovered family bank using the configured paper-side strategy."""
@@ -1215,6 +1583,7 @@ def fit_exact_family_model_bank(
     joblib_cpu_limit = int((training_config or {}).get("training", {}).get("joblib_cpu_limit", 0))
     smoke_enabled = bool((training_config or {}).get("smoke", {}).get("enabled", False))
     search_settings = resolve_exact_paper_hyperparameter_search_settings(training_config)
+    resolved_workflow_stage = resolve_exact_paper_workflow_stage(workflow_stage)
     if joblib_cpu_limit > 0:
         os.environ["LOKY_MAX_CPU_COUNT"] = str(joblib_cpu_limit)
     elif "LOKY_MAX_CPU_COUNT" in os.environ:
@@ -1222,6 +1591,10 @@ def fit_exact_family_model_bank(
     for family_name in enabled_family_list:
         family_fit_start_time = time.perf_counter()
         base_estimator = create_exact_paper_base_estimator(family_name)
+        loaded_best_parameter_dictionary = None
+        if best_parameter_override_map is not None and family_name in best_parameter_override_map:
+            loaded_best_parameter_dictionary = dict(best_parameter_override_map[family_name])
+            base_estimator.set_params(**loaded_best_parameter_dictionary)
         if family_name == "MLP" and smoke_enabled:
             base_estimator.set_params(
                 max_iter=min(int(base_estimator.get_params()["max_iter"]), 50),
@@ -1235,6 +1608,7 @@ def fit_exact_family_model_bank(
             "INFO",
             "Family fit started | "
             f"family={family_name} "
+            f"stage={resolved_workflow_stage} "
             f"estimator={type(base_estimator).__name__} "
             f"targets={len(dataset_bundle.target_name_list)} "
             f"threadpool_limit={threadpool_limit} "
@@ -1251,7 +1625,16 @@ def fit_exact_family_model_bank(
         use_grid_search = (
             search_settings["mode"] == "paper_reference_grid_search"
             and not grid_search_disabled_for_family
+            and loaded_best_parameter_dictionary is None
         )
+        if loaded_best_parameter_dictionary is not None:
+            emit_exact_paper_progress_log(
+                "INFO",
+                "Loaded stored best parameters | "
+                f"family={family_name} "
+                f"parameter_source=loaded_summary_or_registry "
+                f"best_params={loaded_best_parameter_dictionary}",
+            )
         if use_grid_search:
             parameter_grid = build_exact_paper_reference_parameter_grid(family_name, base_estimator)
             parameter_grid_candidate_count = count_exact_parameter_grid_candidates(parameter_grid)
@@ -1259,10 +1642,12 @@ def fit_exact_family_model_bank(
                 "INFO",
                 "Grid search configured | "
                 f"family={family_name} "
+                f"stage={resolved_workflow_stage} "
                 f"candidates={parameter_grid_candidate_count} "
                 f"parameter_count={len(parameter_grid)} "
                 f"n_jobs={int(search_settings['grid_search_n_jobs'])} "
                 f"verbose={int(search_settings['grid_search_verbose'])} "
+                f"historical_cross_validate_verbose={int(search_settings['historical_cross_validate_verbose'])} "
                 f"pre_dispatch={search_settings['grid_search_pre_dispatch']}",
             )
             grid_search_estimator = GridSearchCV(
@@ -1289,6 +1674,7 @@ def fit_exact_family_model_bank(
                 dataset_bundle=dataset_bundle,
                 fitted_grid_search_estimator=grid_search_estimator,
                 threadpool_limit=threadpool_limit,
+                cross_validate_verbose=int(search_settings["historical_cross_validate_verbose"]),
             )
             elapsed_seconds = time.perf_counter() - family_fit_start_time
             best_wrapped_estimator = grid_search_estimator.best_estimator_
@@ -1297,8 +1683,10 @@ def fit_exact_family_model_bank(
                 "search_mode": search_settings["mode"],
                 "used_grid_search": True,
                 "grid_search_disabled_for_family": False,
+                "workflow_stage": resolved_workflow_stage,
                 "grid_search_n_jobs": int(search_settings["grid_search_n_jobs"]),
                 "grid_search_verbose": int(search_settings["grid_search_verbose"]),
+                "historical_cross_validate_verbose": int(search_settings["historical_cross_validate_verbose"]),
                 "grid_search_pre_dispatch": search_settings["grid_search_pre_dispatch"],
                 "grid_search_cv": (
                     int(grid_search_estimator.n_splits_)
@@ -1307,6 +1695,7 @@ def fit_exact_family_model_bank(
                 ),
                 "parameter_grid": parameter_grid,
                 "best_params": dict(grid_search_estimator.best_params_),
+                "best_parameter_source": "grid_search",
                 "best_score": (
                     float(grid_search_estimator.best_score_)
                     if getattr(grid_search_estimator, "best_score_", None) is not None
@@ -1326,11 +1715,12 @@ def fit_exact_family_model_bank(
 
         if grid_search_disabled_for_family:
             emit_exact_paper_progress_log(
-                "INFO",
-                "Grid search bypassed for family | "
-                f"family={family_name} "
-                f"configured_disabled_families={','.join(search_settings['grid_search_disabled_families'])}",
-            )
+            "INFO",
+            "Grid search bypassed for family | "
+            f"family={family_name} "
+            f"stage={resolved_workflow_stage} "
+            f"configured_disabled_families={','.join(search_settings['grid_search_disabled_families'])}",
+        )
         with threadpool_limits(limits=threadpool_limit):
             wrapped_estimator.fit(
                 train_feature_matrix,
@@ -1342,12 +1732,23 @@ def fit_exact_family_model_bank(
             "search_mode": search_settings["mode"],
             "used_grid_search": False,
             "grid_search_disabled_for_family": bool(grid_search_disabled_for_family),
+            "workflow_stage": resolved_workflow_stage,
             "grid_search_n_jobs": None,
             "grid_search_verbose": None,
+            "historical_cross_validate_verbose": None,
             "grid_search_pre_dispatch": None,
             "grid_search_cv": None,
             "parameter_grid": None,
-            "best_params": None,
+            "best_params": (
+                dict(loaded_best_parameter_dictionary)
+                if loaded_best_parameter_dictionary is not None
+                else None
+            ),
+            "best_parameter_source": (
+                "loaded_summary_or_registry"
+                if loaded_best_parameter_dictionary is not None
+                else "direct_fit"
+            ),
             "best_score": None,
             "historical_protocol_summary": None,
         }
@@ -1357,7 +1758,8 @@ def fit_exact_family_model_bank(
             f"family={family_name} "
             f"elapsed={format_exact_elapsed_seconds(elapsed_seconds)} "
             f"search_mode={search_settings['mode']} "
-            f"grid_search_disabled_for_family={grid_search_disabled_for_family}",
+            f"grid_search_disabled_for_family={grid_search_disabled_for_family} "
+            f"best_parameter_source={family_search_summary_dictionary[family_name]['best_parameter_source']}",
         )
 
     return fitted_family_model_dictionary, family_search_summary_dictionary
@@ -2095,6 +2497,12 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     winner_historical_protocol_summary = family_search_summary_dictionary[
         winner_summary["winning_family"]
     ].get("historical_protocol_summary")
+    winner_best_parameter_source = family_search_summary_dictionary[
+        winner_summary["winning_family"]
+    ].get("best_parameter_source")
+    winner_workflow_stage = family_search_summary_dictionary[
+        winner_summary["winning_family"]
+    ].get("workflow_stage")
 
     # Build Numeric Comparison Lookups
     numeric_target_lookup = {
@@ -2329,6 +2737,8 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         f"- hyperparameter search mode: `{training_strategy_dictionary['hyperparameter_search_mode']}`;",
         f"- grid-search `n_jobs`: `{training_strategy_dictionary['grid_search_n_jobs']}`;",
         f"- grid-search `pre_dispatch`: `{training_strategy_dictionary['grid_search_pre_dispatch']}`;",
+        f"- workflow stage: `{winner_workflow_stage}`;",
+        f"- best-parameter source: `{winner_best_parameter_source}`;",
         f"- historical wrapper `cross_validate(...)` replay: `{bool(winner_historical_protocol_summary)}`;",
         "",
         "### Family Search Summary",

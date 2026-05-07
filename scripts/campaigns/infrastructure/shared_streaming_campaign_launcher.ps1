@@ -6,6 +6,7 @@ function Invoke-CondaRunWithStreamingLog {
         [string]$ConfigPath,
         [string]$OutputSuffix,
         [string]$LogPath,
+        [string[]]$AdditionalArgumentList = @(),
         [switch]$SuppressGridSearchConsoleNoise,
         [int]$GridSearchHeartbeatSeconds = 15,
         [switch]$EmitRemoteStageMarkers
@@ -68,7 +69,7 @@ function Invoke-CondaRunWithStreamingLog {
 
     try {
         $ErrorActionPreference = "Continue"
-        & $condaExecutablePath run --no-capture-output -n $EnvironmentName $PythonExecutablePath $RunnerScriptPath --config-path $ConfigPath --output-suffix $OutputSuffix 2>&1 | ForEach-Object {
+        & $condaExecutablePath run --no-capture-output -n $EnvironmentName $PythonExecutablePath $RunnerScriptPath --config-path $ConfigPath --output-suffix $OutputSuffix @AdditionalArgumentList 2>&1 | ForEach-Object {
             if ($null -eq $_) {
                 return
             }
@@ -163,7 +164,8 @@ function Invoke-CondaRunWithLoggedOutput {
         [string]$RunnerScriptPath,
         [string]$ConfigPath,
         [string]$OutputSuffix,
-        [string]$LogPath
+        [string]$LogPath,
+        [string[]]$AdditionalArgumentList = @()
     )
 
     return Invoke-CondaRunWithStreamingLog `
@@ -172,7 +174,8 @@ function Invoke-CondaRunWithLoggedOutput {
         -RunnerScriptPath $RunnerScriptPath `
         -ConfigPath $ConfigPath `
         -OutputSuffix $OutputSuffix `
-        -LogPath $LogPath
+        -LogPath $LogPath `
+        -AdditionalArgumentList $AdditionalArgumentList
 }
 
 
@@ -183,7 +186,8 @@ function Invoke-CondaRun {
         [string]$RunnerScriptPath,
         [string]$ConfigPath,
         [string]$OutputSuffix,
-        [string]$LogPath
+        [string]$LogPath,
+        [string[]]$AdditionalArgumentList = @()
     )
 
     return Invoke-CondaRunWithStreamingLog `
@@ -192,5 +196,6 @@ function Invoke-CondaRun {
         -RunnerScriptPath $RunnerScriptPath `
         -ConfigPath $ConfigPath `
         -OutputSuffix $OutputSuffix `
-        -LogPath $LogPath
+        -LogPath $LogPath `
+        -AdditionalArgumentList $AdditionalArgumentList
 }

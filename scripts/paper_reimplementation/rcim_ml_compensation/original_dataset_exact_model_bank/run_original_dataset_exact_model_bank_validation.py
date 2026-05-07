@@ -29,26 +29,121 @@ DEFAULT_CONFIG_PATH = (
 )
 
 
+def resolve_stage_execution_flags(
+    workflow_stage: str,
+    no_eval: bool,
+    no_export: bool,
+) -> tuple[bool, bool]:
+
+    """Resolve whether evaluation and export stages should run."""
+
+    normalized_stage = exact_paper_model_bank_support.resolve_exact_paper_workflow_stage(workflow_stage)
+    if normalized_stage == "search":
+        return (not no_eval), (not no_export)
+    if normalized_stage == "loadbest":
+        return (not no_eval), (not no_export)
+    if normalized_stage == "eval":
+        return True, False
+    if normalized_stage == "export":
+        return False, True
+    raise AssertionError(f"Unsupported exact-paper workflow stage | {normalized_stage}")
+
+
+def resolve_best_parameter_summary_payload(
+    workflow_stage: str,
+    training_config: dict[str, object],
+    dataset_bundle: exact_paper_model_bank_support.ExactPaperDatasetBundle,
+    enabled_family_list: list[str],
+    workflow_variant: str,
+    best_parameter_summary_path: Path | None,
+    best_parameter_registry_path: Path | None,
+) -> tuple[dict[str, object], str]:
+
+    """Resolve the summary payload used for original-dataset exact `LoadBest` runs."""
+
+    normalized_stage = exact_paper_model_bank_support.resolve_exact_paper_workflow_stage(workflow_stage)
+    if normalized_stage == "search":
+        return {}, "grid_search"
+
+    if best_parameter_summary_path is not None:
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "INFO",
+            "Loading explicit best-parameter summary | "
+            f"path={best_parameter_summary_path.resolve()}",
+        )
+        return (
+            exact_paper_model_bank_support.load_exact_paper_best_parameter_summary(best_parameter_summary_path),
+            "explicit_summary",
+        )
+
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Resolving stored best-parameter summary from registry | "
+        f"workflow_variant={workflow_variant} "
+        f"registry={Path(best_parameter_registry_path or exact_paper_model_bank_support.EXACT_PAPER_BEST_PARAMETER_REGISTRY_PATH).resolve()}",
+    )
+    return (
+        exact_paper_model_bank_support.resolve_exact_paper_best_parameter_summary_from_registry(
+            training_config=training_config,
+            dataset_bundle=dataset_bundle,
+            workflow_variant=workflow_variant,
+            enabled_family_list=enabled_family_list,
+            registry_path=best_parameter_registry_path,
+        ),
+        "stored_registry",
+    )
+
+
 def run_original_dataset_exact_model_bank_validation(
     config_path: Path,
     output_suffix: str = "original_dataset_exact_validation",
-) -> tuple[Path, Path]:
+    workflow_stage: str = "search",
+    best_parameter_summary_path: Path | None = None,
+    best_parameter_registry_path: Path | None = None,
+    no_eval: bool = False,
+    no_export: bool = False,
+    grid_search_verbose_override: int | None = None,
+    historical_cross_validate_verbose_override: int | None = None,
+) -> tuple[Path | None, Path | None]:
 
     """Run the direction-specific original-dataset exact-model workflow."""
 
     # Load And Prepare Configuration
+    normalized_stage = exact_paper_model_bank_support.resolve_exact_paper_workflow_stage(workflow_stage)
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
-        f"Loading original-dataset exact config | {config_path}",
+        "Loading original-dataset exact config | "
+        f"config={config_path} "
+        f"stage={normalized_stage}",
     )
     training_config = shared_training_infrastructure.prepare_output_artifact_training_config(
         original_dataset_exact_model_bank_support.load_original_dataset_exact_model_bank_config(config_path),
         artifact_kind=shared_training_infrastructure.VALIDATION_OUTPUT_ARTIFACT_KIND,
         run_name_suffix=output_suffix,
     )
+    training_config.setdefault("training", {})
+    training_config["training"].setdefault("hyperparameter_search", {})
+    if grid_search_verbose_override is not None and int(grid_search_verbose_override) >= 0:
+        training_config["training"]["hyperparameter_search"]["grid_search_verbose"] = int(grid_search_verbose_override)
+    if historical_cross_validate_verbose_override is not None and int(historical_cross_validate_verbose_override) >= 0:
+        training_config["training"]["hyperparameter_search"]["historical_cross_validate_verbose"] = int(
+            historical_cross_validate_verbose_override
+        )
     resolved_config_path = shared_training_infrastructure.resolve_project_relative_path(config_path)
     output_directory = shared_training_infrastructure.resolve_output_directory(training_config)
     output_directory.mkdir(parents=True, exist_ok=True)
+    should_run_evaluation, should_run_export = resolve_stage_execution_flags(
+        workflow_stage=normalized_stage,
+        no_eval=no_eval,
+        no_export=no_export,
+    )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Original-dataset exact stage execution plan | "
+        f"stage={normalized_stage} "
+        f"run_evaluation={should_run_evaluation} "
+        f"run_export={should_run_export}",
+    )
     shared_training_infrastructure.save_training_config_snapshot(training_config, output_directory)
     shared_training_infrastructure.save_run_metadata_snapshot(training_config, output_directory)
 
@@ -65,6 +160,7 @@ def run_original_dataset_exact_model_bank_validation(
     exact_dataset_bundle = original_dataset_bundle.exact_dataset_bundle
     enabled_family_list = exact_paper_model_bank_support.resolve_enabled_family_list(training_config)
     direction_label = original_dataset_bundle.direction_label
+    search_settings = exact_paper_model_bank_support.resolve_exact_paper_hyperparameter_search_settings(training_config)
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "INFO",
         "Original-dataset exact bundle ready | "
@@ -73,6 +169,40 @@ def run_original_dataset_exact_model_bank_validation(
         f"targets={len(exact_dataset_bundle.target_name_list)} "
         f"families={len(enabled_family_list)}",
     )
+    exact_paper_model_bank_support.emit_exact_paper_progress_log(
+        "INFO",
+        "Original-dataset exact search settings | "
+        f"mode={search_settings['mode']} "
+        f"grid_search_n_jobs={search_settings['grid_search_n_jobs']} "
+        f"grid_search_verbose={search_settings['grid_search_verbose']} "
+        f"historical_cross_validate_verbose={search_settings['historical_cross_validate_verbose']} "
+        f"grid_search_pre_dispatch={search_settings['grid_search_pre_dispatch']}",
+    )
+
+    # Resolve Optional Stored Best Parameters
+    best_parameter_override_map = None
+    best_parameter_source_name = "grid_search"
+    if normalized_stage != "search":
+        best_parameter_summary_payload, best_parameter_source_name = resolve_best_parameter_summary_payload(
+            workflow_stage=normalized_stage,
+            training_config=training_config,
+            dataset_bundle=exact_dataset_bundle,
+            enabled_family_list=enabled_family_list,
+            workflow_variant="original_dataset_exact_model_bank",
+            best_parameter_summary_path=best_parameter_summary_path,
+            best_parameter_registry_path=best_parameter_registry_path,
+        )
+        best_parameter_override_map = exact_paper_model_bank_support.build_exact_paper_best_parameter_override_map(
+            best_parameter_summary_payload,
+            enabled_family_list,
+        )
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "INFO",
+            "Original-dataset exact stored best-parameter source resolved | "
+            f"stage={normalized_stage} "
+            f"source={best_parameter_source_name} "
+            f"families={','.join(enabled_family_list)}",
+        )
 
     # Fit And Persist The Family Bank
     fitted_family_model_dictionary, family_search_summary_dictionary = (
@@ -80,61 +210,139 @@ def run_original_dataset_exact_model_bank_validation(
             exact_dataset_bundle,
             enabled_family_list,
             training_config,
+            best_parameter_override_map=best_parameter_override_map,
+            workflow_stage=normalized_stage,
         )
     )
     model_bundle_path = exact_paper_model_bank_support.save_exact_family_model_bundle(
         fitted_family_model_dictionary,
         output_directory,
     )
-
-    # Evaluate And Export ONNX Artifacts
-    family_summary_list, per_target_ranking_dictionary = (
-        exact_paper_model_bank_support.evaluate_exact_family_model_bank(
-            exact_dataset_bundle,
-            fitted_family_model_dictionary,
-        )
-    )
-    onnx_export_summary = exact_paper_model_bank_support.export_exact_family_onnx_bank(
-        exact_dataset_bundle,
-        fitted_family_model_dictionary,
-        training_config,
-        output_directory,
-    )
-
-    # Persist Validation Summary And Markdown Report
-    validation_summary = (
-        original_dataset_exact_model_bank_support.build_original_dataset_validation_summary(
-            resolved_config_path,
-            output_directory,
-            training_config,
-            original_dataset_bundle,
-            family_summary_list,
-            family_search_summary_dictionary,
-            per_target_ranking_dictionary,
-            onnx_export_summary,
-            model_bundle_path,
-        )
-    )
-    validation_summary_path = output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME
-    shared_training_infrastructure.save_yaml_snapshot(validation_summary, validation_summary_path)
-
-    validation_report_path = (
-        original_dataset_exact_model_bank_support.build_original_dataset_validation_report_path(
-            training_config
-        )
-    )
-    validation_report_path.write_text(
-        original_dataset_exact_model_bank_support.build_original_dataset_validation_report_markdown(
-            validation_summary
-        ),
-        encoding="utf-8",
-    )
     exact_paper_model_bank_support.emit_exact_paper_progress_log(
         "DONE",
-        "Original-dataset exact validation complete | "
-        f"summary={shared_training_infrastructure.format_project_relative_path(validation_summary_path)} "
-        f"report={shared_training_infrastructure.format_project_relative_path(validation_report_path)}",
+        "Original-dataset exact model bundle written | "
+        f"{shared_training_infrastructure.format_project_relative_path(model_bundle_path)}",
     )
+
+    # Optionally Evaluate The Family Bank
+    family_summary_list: list[dict[str, object]] = []
+    per_target_ranking_dictionary: dict[str, list[dict[str, object]]] = {}
+    if should_run_evaluation:
+        family_summary_list, per_target_ranking_dictionary = (
+            exact_paper_model_bank_support.evaluate_exact_family_model_bank(
+                exact_dataset_bundle,
+                fitted_family_model_dictionary,
+            )
+        )
+    else:
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "INFO",
+            "Original-dataset exact evaluation stage skipped by operator stage selection",
+        )
+
+    # Persist Search-Time Best Parameters When Available
+    best_parameter_summary_path_written: Path | None = None
+    if any(
+        family_search_entry.get("best_params") is not None
+        for family_search_entry in family_search_summary_dictionary.values()
+    ):
+        best_parameter_summary = exact_paper_model_bank_support.build_exact_paper_best_parameter_summary(
+            workflow_variant="original_dataset_exact_model_bank",
+            training_config=training_config,
+            dataset_bundle=exact_dataset_bundle,
+            family_summary_list=family_summary_list,
+            family_search_summary_dictionary=family_search_summary_dictionary,
+            validation_summary_path=None,
+            output_directory=output_directory,
+        )
+        best_parameter_summary_path_written = exact_paper_model_bank_support.save_exact_paper_best_parameter_summary(
+            best_parameter_summary,
+            output_directory,
+        )
+        best_parameter_summary["best_parameter_summary_path"] = shared_training_infrastructure.format_project_relative_path(
+            best_parameter_summary_path_written
+        )
+        exact_paper_model_bank_support.update_exact_paper_best_parameter_registry(best_parameter_summary)
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "DONE",
+            "Original-dataset exact best-parameter summary written | "
+            f"{shared_training_infrastructure.format_project_relative_path(best_parameter_summary_path_written)}",
+        )
+
+    # Optionally Export ONNX Artifacts
+    if should_run_export:
+        onnx_export_summary = exact_paper_model_bank_support.export_exact_family_onnx_bank(
+            exact_dataset_bundle,
+            fitted_family_model_dictionary,
+            training_config,
+            output_directory,
+        )
+    else:
+        onnx_export_summary = {
+            "enabled": False,
+            "target_opset": int(training_config["export"]["target_opset"]),
+            "export_failure_mode": str(training_config["export"].get("export_failure_mode", "continue")),
+            "enable_empty_svr_constant_surrogate": bool(training_config["export"].get("enable_empty_svr_constant_surrogate", True)),
+            "export_root": shared_training_infrastructure.format_project_relative_path(output_directory / "onnx_export"),
+            "exported_file_count": 0,
+            "recovered_reference_root": None,
+            "recovered_reference_file_count": 0,
+            "matched_reference_relative_paths": [],
+            "missing_against_reference_relative_paths": [],
+            "extra_export_relative_paths": [],
+            "family_exports": [],
+        }
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "INFO",
+            "Original-dataset exact export stage skipped by operator stage selection",
+        )
+
+    # Persist Validation Summary And Markdown Report
+    validation_summary_path: Path | None = None
+    validation_report_path: Path | None = None
+    if should_run_evaluation:
+        validation_summary = (
+            original_dataset_exact_model_bank_support.build_original_dataset_validation_summary(
+                resolved_config_path,
+                output_directory,
+                training_config,
+                original_dataset_bundle,
+                family_summary_list,
+                family_search_summary_dictionary,
+                per_target_ranking_dictionary,
+                onnx_export_summary,
+                model_bundle_path,
+            )
+        )
+        if best_parameter_summary_path_written is not None:
+            validation_summary["artifacts"]["best_parameter_summary_path"] = (
+                shared_training_infrastructure.format_project_relative_path(best_parameter_summary_path_written)
+            )
+        validation_summary_path = output_directory / shared_training_infrastructure.COMMON_VALIDATION_FILENAME
+        shared_training_infrastructure.save_yaml_snapshot(validation_summary, validation_summary_path)
+
+        validation_report_path = (
+            original_dataset_exact_model_bank_support.build_original_dataset_validation_report_path(
+                training_config
+            )
+        )
+        validation_report_path.write_text(
+            original_dataset_exact_model_bank_support.build_original_dataset_validation_report_markdown(
+                validation_summary
+            ),
+            encoding="utf-8",
+        )
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "DONE",
+            "Original-dataset exact validation complete | "
+            f"summary={shared_training_infrastructure.format_project_relative_path(validation_summary_path)} "
+            f"report={shared_training_infrastructure.format_project_relative_path(validation_report_path)}",
+        )
+    else:
+        exact_paper_model_bank_support.emit_exact_paper_progress_log(
+            "INFO",
+            "Original-dataset exact validation summary and Markdown report skipped because evaluation was not requested",
+        )
     return validation_summary_path, validation_report_path
 
 
@@ -157,6 +365,46 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default="original_dataset_exact_validation",
         help="Suffix appended to the immutable validation-check artifact.",
     )
+    argument_parser.add_argument(
+        "--stage",
+        type=str,
+        default="search",
+        help="Operator stage: search, eval, export, or loadbest.",
+    )
+    argument_parser.add_argument(
+        "--best-parameter-summary-path",
+        type=Path,
+        default=None,
+        help="Optional exact-paper best-parameter summary used by eval/export/loadbest.",
+    )
+    argument_parser.add_argument(
+        "--best-parameter-registry-path",
+        type=Path,
+        default=None,
+        help="Optional registry override for exact-paper stored best parameters.",
+    )
+    argument_parser.add_argument(
+        "--no-eval",
+        action="store_true",
+        help="Skip evaluation after search or loadbest.",
+    )
+    argument_parser.add_argument(
+        "--no-export",
+        action="store_true",
+        help="Skip ONNX export after search or loadbest.",
+    )
+    argument_parser.add_argument(
+        "--grid-search-verbose-override",
+        type=int,
+        default=-1,
+        help="Optional runtime override for GridSearchCV verbose.",
+    )
+    argument_parser.add_argument(
+        "--historical-cross-validate-verbose-override",
+        type=int,
+        default=-1,
+        help="Optional runtime override for historical cross_validate verbose.",
+    )
     return argument_parser.parse_args()
 
 
@@ -168,6 +416,21 @@ def main() -> None:
     run_original_dataset_exact_model_bank_validation(
         command_line_arguments.config_path,
         command_line_arguments.output_suffix,
+        workflow_stage=command_line_arguments.stage,
+        best_parameter_summary_path=command_line_arguments.best_parameter_summary_path,
+        best_parameter_registry_path=command_line_arguments.best_parameter_registry_path,
+        no_eval=bool(command_line_arguments.no_eval),
+        no_export=bool(command_line_arguments.no_export),
+        grid_search_verbose_override=(
+            command_line_arguments.grid_search_verbose_override
+            if command_line_arguments.grid_search_verbose_override >= 0
+            else None
+        ),
+        historical_cross_validate_verbose_override=(
+            command_line_arguments.historical_cross_validate_verbose_override
+            if command_line_arguments.historical_cross_validate_verbose_override >= 0
+            else None
+        ),
     )
 
 

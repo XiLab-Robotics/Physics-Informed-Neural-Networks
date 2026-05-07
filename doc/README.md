@@ -99,6 +99,15 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-07
 
+- [technical/2026-05/2026-05-07/2026-05-07-15-58-15_rcim_exact_paper_workflow_readme_expansion.md](./technical/2026-05/2026-05-07/2026-05-07-15-58-15_rcim_exact_paper_workflow_readme_expansion.md)
+  Plan the expansion of the root `rcim_ml_compensation` README into an
+  operator-facing exact-paper workflow guide with commands, stage control, and
+  pipeline structure comparable in depth to the recovered-original README.
+- [technical/2026-05/2026-05-07/2026-05-07-15-18-56_track1_exact_paper_detailed_progress_logging_and_stage_control_alignment.md](./technical/2026-05/2026-05-07/2026-05-07-15-18-56_track1_exact_paper_detailed_progress_logging_and_stage_control_alignment.md)
+  Plan the observability and launcher-control alignment that makes the
+  exact-paper Track 1 reimplementation expose frequent live progress and a
+  stage-aware operator flow analogous to the unified recovered-original RCIM
+  launcher.
 - [technical/2026-05/2026-05-07/2026-05-07-15-00-31_rcim_original_retune_progress_logging_and_monitoring.md](./technical/2026-05/2026-05-07/2026-05-07-15-00-31_rcim_original_retune_progress_logging_and_monitoring.md)
   Plan the observability pass that makes the recovered-original RCIM retune
   stage emit readable live progress and incremental log updates without
