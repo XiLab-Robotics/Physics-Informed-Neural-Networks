@@ -1,5 +1,9 @@
 # 2026-05-07 Technical Documents
 
+- [2026-05-07-16-39-56_rcim_recovered_workflow_readme_retune_verbose_command_completion.md](./2026-05-07-16-39-56_rcim_recovered_workflow_readme_retune_verbose_command_completion.md)
+  Plan the narrow documentation-only follow-up that adds the missing unified
+  launcher retune-verbosity command example to the recovered-original RCIM
+  workflow README.
 - [2026-05-07-15-58-15_rcim_exact_paper_workflow_readme_expansion.md](./2026-05-07-15-58-15_rcim_exact_paper_workflow_readme_expansion.md)
   Plan the expansion of the root `rcim_ml_compensation` README into an
   operator-facing exact-paper workflow guide with commands, stage control, and

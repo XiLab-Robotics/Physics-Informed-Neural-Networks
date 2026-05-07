@@ -440,6 +440,17 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   -Families "SVR"
 ```
 
+Run retune on one family only with quieter live progress output:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Retune `
+  -Families "SVR" `
+  -RetuneGridSearchVerbose 1 `
+  -RetuneCrossValidateVerbose 0
+```
+
 Run retune without continuing to downstream stages:
 
 ```powershell
