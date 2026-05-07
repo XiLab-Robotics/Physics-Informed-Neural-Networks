@@ -263,16 +263,42 @@ function Get-RcimOriginalEnvironmentPythonPath {
         [string]$CondaEnvironmentName
     )
 
-    $condaExecutablePath = (where.exe conda.exe | Select-Object -First 1)
+    if ([string]::IsNullOrWhiteSpace($CondaEnvironmentName)) {
+        return $null
+    }
+
+    $condaExecutablePath = (where.exe conda.exe 2>$null | Select-Object -First 1)
     if ([string]::IsNullOrWhiteSpace($condaExecutablePath)) {
         throw "Unable to resolve conda.exe on PATH."
     }
 
-    $condaBasePath = (& $condaExecutablePath info --base 2>$null | Select-Object -Last 1).Trim()
+    # Resolve The Environment Python Path From Conda's Registered Environment List.
+    try {
+        $environmentListJson = (& $condaExecutablePath env list --json 2>$null | Out-String)
+        if (-not [string]::IsNullOrWhiteSpace($environmentListJson)) {
+            $environmentList = $environmentListJson | ConvertFrom-Json
+
+            foreach ($environmentPath in $environmentList.envs) {
+                if ((Split-Path -Leaf $environmentPath) -eq $CondaEnvironmentName) {
+                    $candidatePythonPath = Join-Path $environmentPath "python.exe"
+                    if (Test-Path $candidatePythonPath) {
+                        return (Resolve-Path $candidatePythonPath).Path
+                    }
+                }
+            }
+        }
+    }
+    catch {
+        # Fall Back To Conda Base Resolution If The Environment Registry Cannot Be Parsed.
+    }
+
+    # Fall Back To The Standard Conda Base Environment Layout.
+    $condaBasePath = (& $condaExecutablePath info --base 2>$null | Select-Object -Last 1)
     if (-not [string]::IsNullOrWhiteSpace($condaBasePath)) {
+        $condaBasePath = $condaBasePath.Trim()
         $environmentPythonPath = Join-Path $condaBasePath ("envs\" + $CondaEnvironmentName + "\python.exe")
         if (Test-Path $environmentPythonPath) {
-            return $environmentPythonPath
+            return (Resolve-Path $environmentPythonPath).Path
         }
     }
 
