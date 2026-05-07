@@ -158,70 +158,59 @@ function Invoke-RcimOriginalPythonStage {
         }
     }
 
-    $stdoutWriter = New-Object System.IO.StreamWriter($stdoutLogPath, $false, [System.Text.Encoding]::UTF8)
-    $stderrWriter = New-Object System.IO.StreamWriter($stderrLogPath, $false, [System.Text.Encoding]::UTF8)
-    $combinedWriter = New-Object System.IO.StreamWriter($combinedLogPath, $false, [System.Text.Encoding]::UTF8)
-    $counterState = [pscustomobject]@{
-        SuppressedStdoutLineCount = 0
-        SuppressedStderrLineCount = 0
-    }
+    $compatibilityLogLines = @(
+        "[INFO] RCIM Original Launcher Direct Console Mode",
+        "[INFO] Stage | $StageName",
+        "[INFO] Mode | $ModeName",
+        "[INFO] Direction | $DirectionName",
+        "[INFO] Stage Root | $StageRoot",
+        "[INFO] Command | $commandPreview",
+        "[INFO] Native Python output is emitted directly to the terminal to preserve GridSearchCV worker progress and clean Ctrl+C behavior.",
+        "[INFO] This compatibility log is metadata-only and does not mirror the full child-process console stream line-by-line."
+    )
+    Set-Content -LiteralPath $stdoutLogPath -Value $compatibilityLogLines -Encoding UTF8
+    Set-Content -LiteralPath $combinedLogPath -Value $compatibilityLogLines -Encoding UTF8
+    Set-Content -LiteralPath $stderrLogPath -Value @(
+        "[INFO] RCIM Original Launcher Direct Console Mode",
+        "[INFO] Stage | $StageName",
+        "[INFO] Stderr is not captured separately in direct console mode.",
+        "[INFO] Use the live terminal session as the authoritative progress surface for this stage."
+    ) -Encoding UTF8
+
     $exitCode = 0
+    $stageInterrupted = $false
 
     try {
         Push-Location $ProjectRoot
         $previousErrorActionPreference = $ErrorActionPreference
+        $previousNativePreference = $PSNativeCommandUseErrorActionPreference
         $ErrorActionPreference = "Continue"
+        $PSNativeCommandUseErrorActionPreference = $false
 
-        # Run the training stage through PowerShell native process handling so the wrapper can
-        # stream output reliably without the fragile .NET async event plumbing used before.
-        & $commandExecutablePath @argumentList 2>&1 | ForEach-Object {
-            $record = $_
-            $line = $record.ToString()
-            $isErrorRecord = $record -is [System.Management.Automation.ErrorRecord]
-
-            if ($isErrorRecord) {
-                $stderrWriter.WriteLine($line)
-                $stderrWriter.Flush()
-                $combinedWriter.WriteLine("[STDERR] " + $line)
-                $combinedWriter.Flush()
-
-                if (Test-RcimOriginalProgressLine -Line $line) {
-                    Write-Host $line -ForegroundColor Yellow
-                }
-                else {
-                    $counterState.SuppressedStderrLineCount++
-                }
-            }
-            else {
-                $stdoutWriter.WriteLine($line)
-                $stdoutWriter.Flush()
-                $combinedWriter.WriteLine("[STDOUT] " + $line)
-                $combinedWriter.Flush()
-
-                if (Test-RcimOriginalProgressLine -Line $line) {
-                    Write-Host $line -ForegroundColor Cyan
-                }
-                else {
-                    $counterState.SuppressedStdoutLineCount++
-                }
-            }
-        }
-
+        # Run the training stage in direct foreground mode so joblib and scikit-learn
+        # worker progress lines remain visible and Ctrl+C reaches the real child process.
+        & $commandExecutablePath @argumentList
         $exitCode = $LASTEXITCODE
+    }
+    catch [System.Management.Automation.PipelineStoppedException] {
+        $stageInterrupted = $true
+        $exitCode = 130
+        throw
     }
     finally {
         $ErrorActionPreference = $previousErrorActionPreference
+        $PSNativeCommandUseErrorActionPreference = $previousNativePreference
         Pop-Location
-        $stdoutWriter.Flush()
-        $stderrWriter.Flush()
-        $combinedWriter.Flush()
-        $stdoutWriter.Close()
-        $stderrWriter.Close()
-        $combinedWriter.Close()
+
+        $completionLogLines = @(
+            "[INFO] Direct Console Mode Completed | $(-not $stageInterrupted)",
+            "[INFO] Stage Exit Code | $exitCode"
+        )
+        Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
+        Add-Content -LiteralPath $stderrLogPath -Value $completionLogLines -Encoding UTF8
+        Add-Content -LiteralPath $combinedLogPath -Value $completionLogLines -Encoding UTF8
     }
 
-    Write-Host "[INFO] Suppressed Stdout Lines | $($counterState.SuppressedStdoutLineCount)" -ForegroundColor DarkGray
-    Write-Host "[INFO] Suppressed Stderr Lines | $($counterState.SuppressedStderrLineCount)" -ForegroundColor DarkGray
     Write-Host "[INFO] Stage Exit Code | $exitCode" -ForegroundColor DarkGray
 
     return [pscustomobject]@{
@@ -229,8 +218,8 @@ function Invoke-RcimOriginalPythonStage {
         StdoutLogPath = $stdoutLogPath
         StderrLogPath = $stderrLogPath
         CombinedLogPath = $combinedLogPath
-        SuppressedStdoutLineCount = $counterState.SuppressedStdoutLineCount
-        SuppressedStderrLineCount = $counterState.SuppressedStderrLineCount
+        SuppressedStdoutLineCount = 0
+        SuppressedStderrLineCount = 0
     }
 }
 

@@ -97,6 +97,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-08
+
+- [technical/2026-05/2026-05-08/2026-05-08-00-39-20_rcim_original_launcher_live_output_and_ctrl_c_fix.md](./technical/2026-05/2026-05-08/2026-05-08-00-39-20_rcim_original_launcher_live_output_and_ctrl_c_fix.md)
+  Plan the shared recovered-original RCIM launcher fix that restores the full
+  high-verbosity live retune output and clean `Ctrl+C` interruption behavior
+  that the direct Python command already exposes.
+
 #### 2026-05-07
 
 - [technical/2026-05/2026-05-07/2026-05-07-22-58-44_rcim_original_launcher_direct_env_python_preference.md](./technical/2026-05/2026-05-07/2026-05-07-22-58-44_rcim_original_launcher_direct_env_python_preference.md)

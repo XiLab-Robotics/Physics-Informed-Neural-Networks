@@ -44,12 +44,12 @@ Each executed stage also writes:
 - `logs/<stage>.stderr.log`
 - `logs/<stage>.combined.log`
 
-The launcher now runs the Python stage in unbuffered mode so these log files
-are updated while the stage is still running instead of only after process
-exit.
 The shared launcher now prefers the resolved Conda environment-local
 `python.exe` for training stages and falls back to `conda run` only when the
 direct interpreter cannot be resolved.
+The shared launcher now runs the Python stage in direct foreground console mode
+so the native scikit-learn and joblib progress lines remain visible and
+`Ctrl+C` reaches the real training process cleanly.
 
 Each campaign root writes:
 
@@ -157,8 +157,11 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 - The terminal keeps showing `[INFO]`, `[PROGRESS]`, `MODEL:`,
   `TRAINING START:`, `TRAINING END:`, and the scikit-learn `GridSearchCV`
   `Fitting ...` / `[CV] ...` progress lines.
-- The combined log is the safest file to monitor during long retune runs
-  because it preserves both stdout and stderr in arrival order.
+- The live terminal session is the authoritative progress surface for long
+  retune runs.
+- The stage log files remain present for compatibility and stage metadata, but
+  the direct-console launcher mode does not mirror the full child-process
+  output line-by-line into those files.
 - The default retune verbosity is now intentionally high so the slowest family
   searches expose frequent `GridSearchCV` and `[CV]` progress lines.
 - Final curated model archives under
