@@ -1,0 +1,58 @@
+paths:
+  dataset_config_path: config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/dataset_variants/transmission_error_dataset_global.yaml
+  output_root: output/training_runs/periodic_mlp
+experiment:
+  run_name: te_periodic_mlp_h04_standard_global
+  model_family: periodic_mlp
+  model_type: periodic_mlp
+metadata:
+  campaign_name: wave1_directional_retraining_campaign_2026_05_06_16_07_16
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md
+  phase_name: wave1_directional_retraining
+  campaign_config_id: periodic_mlp_global
+  notes: Periodic MLP with moderate harmonic feature expansion. Directional Wave 1
+    retraining variant prepared from the current `periodic_mlp` family-best source
+    config with `global` data scope.
+  random_seed: 42
+  base_model_family: periodic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  output_artifact_kind: training_run
+  output_run_name: te_periodic_mlp_h04_standard_global
+  run_instance_id: 2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global
+dataset:
+  curve_batch_size: 4
+  point_stride: 5
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 128
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+  harmonic_order: 4
+  include_raw_angle_feature: true
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

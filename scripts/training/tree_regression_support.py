@@ -204,6 +204,7 @@ def build_tree_metrics_snapshot(
     # Resolve Experiment Identity and Dataset Split Summary for Snapshot
     experiment_identity = shared_training_infrastructure.resolve_experiment_identity(training_config)
     run_artifact_identity = shared_training_infrastructure.resolve_run_artifact_identity(training_config)
+    training_variant_details = shared_training_infrastructure.resolve_training_variant_details(training_config)
     dataset_split_summary = datamodule.get_dataset_split_summary()
     normalization_statistics = datamodule.get_normalization_statistics()
 
@@ -229,6 +230,7 @@ def build_tree_metrics_snapshot(
             "output_run_name": run_artifact_identity.run_name,
             "run_instance_id": run_artifact_identity.run_instance_id,
             "output_artifact_kind": run_artifact_identity.artifact_kind,
+            **training_variant_details,
         },
         "artifacts": {
             "output_directory": str(output_directory),

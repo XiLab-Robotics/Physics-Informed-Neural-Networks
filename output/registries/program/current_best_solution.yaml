@@ -5,28 +5,33 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-04-04T13:03:55'
+updated_at: '2026-05-07T13:24:58'
 best_entry:
-  run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
-  run_name: te_hist_gbr_tabular
-  output_run_name: te_hist_gbr_tabular
+  run_instance_id: 2026-05-06-17-00-56__te_hist_gbr_tabular_fw
+  run_name: te_hist_gbr_tabular_Fw
+  output_run_name: te_hist_gbr_tabular_Fw
   output_artifact_kind: training_run
-  model_family: tree
+  model_family: tree_fw
+  base_model_family: tree_fw
   model_type: hist_gradient_boosting
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
   trainable_parameter_count: 5
   total_parameter_count: 5
-  val_mae: 0.0027194633401988267
-  val_rmse: 0.003652226995708031
-  test_mae: 0.0028851175665997324
-  test_rmse: 0.00360686466478114
-  output_directory: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular
-  best_checkpoint_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/tree_model.pkl
-  metrics_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/metrics_summary.yaml
-  report_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/training_test_report.md
+  val_mae: 0.0026658739712788334
+  val_rmse: 0.0034410643658647926
+  test_mae: 0.0028447329827252245
+  test_rmse: 0.0034762901949771867
+  output_directory: output/training_runs/tree_fw/2026-05-06-17-00-56__te_hist_gbr_tabular_fw
+  best_checkpoint_path: output/training_runs/tree_fw/2026-05-06-17-00-56__te_hist_gbr_tabular_fw/tree_model.pkl
+  metrics_path: output/training_runs/tree_fw/2026-05-06-17-00-56__te_hist_gbr_tabular_fw/metrics_summary.yaml
+  report_path: output/training_runs/tree_fw/2026-05-06-17-00-56__te_hist_gbr_tabular_fw/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-03-20T15:20:03'
+  selected_at: '2026-05-06T17:02:06'

@@ -6,28 +6,33 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-03-20T16:41:05'
+updated_at: '2026-05-07T13:24:58'
 best_entry:
-  run_instance_id: 2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
-  run_name: te_harmonic_order12_linear_conditioned_recovery
-  output_run_name: te_harmonic_order12_linear_conditioned_recovery
+  run_instance_id: 2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global
+  run_name: te_harmonic_order12_linear_conditioned_recovery_global
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery_global
   output_artifact_kind: training_run
   model_family: harmonic_regression
+  base_model_family: harmonic_regression
   model_type: harmonic_regression
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
   trainable_parameter_count: 150
   total_parameter_count: 150
-  val_mae: 0.01700371317565441
-  val_rmse: 0.01854725554585457
-  test_mae: 0.02078191749751568
-  test_rmse: 0.02240518294274807
-  output_directory: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery
-  best_checkpoint_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/checkpoints/harmonic_regression-epoch=026-val_mae=0.01700371.ckpt
-  metrics_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/metrics_summary.yaml
-  report_path: output/training_runs/harmonic_regression/2026-03-20-16-31-19__te_harmonic_order12_linear_conditioned_recovery/training_test_report.md
+  val_mae: 0.017017025500535965
+  val_rmse: 0.01857159659266472
+  test_mae: 0.020779360085725784
+  test_rmse: 0.02240304835140705
+  output_directory: output/training_runs/harmonic_regression/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global
+  best_checkpoint_path: output/training_runs/harmonic_regression/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global/checkpoints/harmonic_regression-epoch=018-val_mae=0.01701703.ckpt
+  metrics_path: output/training_runs/harmonic_regression/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global/metrics_summary.yaml
+  report_path: output/training_runs/harmonic_regression/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-03-20T16:41:05'
+  selected_at: '2026-05-07T13:24:58'

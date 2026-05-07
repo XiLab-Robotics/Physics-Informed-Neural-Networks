@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: harmonic_regression_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-07T13:24:58'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw
+  run_name: te_harmonic_order12_linear_conditioned_recovery_Fw
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery_Fw
+  output_artifact_kind: training_run
+  model_family: harmonic_regression_fw
+  base_model_family: harmonic_regression
+  model_type: harmonic_regression
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 150
+  total_parameter_count: 150
+  val_mae: 0.00281060254201293
+  val_rmse: 0.0033549272920936346
+  test_mae: 0.003129353281110525
+  test_rmse: 0.003566604107618332
+  output_directory: output/training_runs/harmonic_regression_fw/2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw
+  best_checkpoint_path: output/training_runs/harmonic_regression_fw/2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw/checkpoints/harmonic_regression-epoch=068-val_mae=0.00281060.ckpt
+  metrics_path: output/training_runs/harmonic_regression_fw/2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw/metrics_summary.yaml
+  report_path: output/training_runs/harmonic_regression_fw/2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-07T13:24:58'

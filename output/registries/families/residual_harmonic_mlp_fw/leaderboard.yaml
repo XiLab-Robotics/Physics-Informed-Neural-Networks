@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: residual_harmonic_mlp_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-07T13:24:58'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw
+  run_name: te_residual_h12_deep_joint_wave1_Fw
+  output_run_name: te_residual_h12_deep_joint_wave1_Fw
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp_fw
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0028519073966890574
+  val_rmse: 0.003463651519268751
+  test_mae: 0.003530435962602496
+  test_rmse: 0.004144967533648014
+  output_directory: output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/checkpoints/residual_harmonic_mlp-epoch=018-val_mae=0.00285191.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-07T13:24:58'

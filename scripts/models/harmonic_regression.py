@@ -72,7 +72,7 @@ class HarmonicRegression(nn.Module):
         """
 
         # Convert Angular Position To Radians
-        angular_position_rad = torch.deg2rad(angular_position_deg)
+        angular_position_rad = angular_position_deg * (torch.pi / 180.0)
         harmonic_feature_tensor_list = [torch.ones_like(angular_position_rad)]
 
         # Append Sine And Cosine Features For Each Harmonic Order

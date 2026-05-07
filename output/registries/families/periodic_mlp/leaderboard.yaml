@@ -6,8 +6,8 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-03-20T15:10:02'
-entry_count: 3
+updated_at: '2026-05-07T13:24:58'
+entry_count: 4
 entry_list:
 - run_instance_id: 2026-03-20-14-19-32__te_periodic_mlp_h04_standard
   run_name: te_periodic_mlp_h04_standard
@@ -32,6 +32,34 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-20T14:35:54'
+- run_instance_id: 2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global
+  run_name: te_periodic_mlp_h04_standard_global
+  output_run_name: te_periodic_mlp_h04_standard_global
+  output_artifact_kind: training_run
+  model_family: periodic_mlp
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.002984607359394431
+  val_rmse: 0.0035214240197092295
+  test_mae: 0.003348673926666379
+  test_rmse: 0.003915570676326752
+  output_directory: output/training_runs/periodic_mlp/2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global
+  best_checkpoint_path: output/training_runs/periodic_mlp/2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global/checkpoints/periodic_mlp-epoch=041-val_mae=0.00298461.ckpt
+  metrics_path: output/training_runs/periodic_mlp/2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global/metrics_summary.yaml
+  report_path: output/training_runs/periodic_mlp/2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-07T13:24:58'
 - run_instance_id: 2026-03-20-14-35-54__te_periodic_mlp_h08_standard
   run_name: te_periodic_mlp_h08_standard
   output_run_name: te_periodic_mlp_h08_standard
