@@ -8,8 +8,8 @@ param(
     [string]$OutputSuffix = "",
     [string]$DataframePath = "",
     [string]$BestParameterSummaryPath = "",
-    [int]$RetuneGridSearchVerbose = 2,
-    [int]$RetuneCrossValidateVerbose = 1,
+    [int]$RetuneGridSearchVerbose = 10,
+    [int]$RetuneCrossValidateVerbose = 10,
     [switch]$SkipPaperEval,
     [switch]$SkipPaperExport,
     [switch]$PrintOnly

@@ -73,8 +73,8 @@ def _build_argument_parser():
     parser.add_argument("--families", default="", help="Comma-separated family subset. Supports acronyms such as DT, RF, SVR, XGBM, ELM.")
     parser.add_argument("--test-size", type=float, default=0.20, help="Held-out test fraction for v18 and retuning flows.")
     parser.add_argument("--best-parameter-summary-path", type=Path, default=None, help="Optional semicolon-delimited summaryBestParameter CSV exported by the retune path.")
-    parser.add_argument("--retune-grid-search-verbose", type=int, default=2, help="GridSearchCV verbosity used by the retune path.")
-    parser.add_argument("--retune-cross-validate-verbose", type=int, default=1, help="cross_validate verbosity used by the retune path.")
+    parser.add_argument("--retune-grid-search-verbose", type=int, default=10, help="GridSearchCV verbosity used by the retune path.")
+    parser.add_argument("--retune-cross-validate-verbose", type=int, default=10, help="cross_validate verbosity used by the retune path.")
     return parser
 
 def _build_family_factory_map():

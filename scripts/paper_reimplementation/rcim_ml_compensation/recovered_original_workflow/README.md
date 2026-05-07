@@ -254,8 +254,8 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 
 Optional retune-monitoring controls:
 
-- `--retune-grid-search-verbose 2`
-- `--retune-cross-validate-verbose 1`
+- `--retune-grid-search-verbose 10`
+- `--retune-cross-validate-verbose 10`
 
 Quieter example:
 
@@ -375,6 +375,9 @@ Launcher behavior:
 - the full warning flood is still preserved in the log files for diagnosis;
 - Python is launched in unbuffered mode so the three stage logs are updated in
   real time during long retune runs;
+- the shared launcher now prefers the resolved Conda environment-local
+  `python.exe` for training stages and falls back to `conda run` only when the
+  direct interpreter cannot be resolved;
 - `Original` on `forward` runs the recovered original tuned replay and then
   chains `Eval` plus `Export` unless suppressed;
 - `Original` on `backward` prints that no original paper backward tuned
@@ -396,8 +399,8 @@ Most-used unified-launcher options:
 - `-Stage Original|Retune|Eval|Export|LoadBest`
 - `-Families "SVR,MLP,RF"`
 - `-BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"`
-- `-RetuneGridSearchVerbose 2`
-- `-RetuneCrossValidateVerbose 1`
+- `-RetuneGridSearchVerbose 10`
+- `-RetuneCrossValidateVerbose 10`
 - `-NoEval`
 - `-NoExport`
 - `-OutputSuffix your_suffix`

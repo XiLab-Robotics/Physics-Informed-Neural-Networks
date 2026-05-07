@@ -47,6 +47,9 @@ Each executed stage also writes:
 The launcher now runs the Python stage in unbuffered mode so these log files
 are updated while the stage is still running instead of only after process
 exit.
+The shared launcher now prefers the resolved Conda environment-local
+`python.exe` for training stages and falls back to `conda run` only when the
+direct interpreter cannot be resolved.
 
 Each campaign root writes:
 
@@ -156,6 +159,8 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   `Fitting ...` / `[CV] ...` progress lines.
 - The combined log is the safest file to monitor during long retune runs
   because it preserves both stdout and stderr in arrival order.
+- The default retune verbosity is now intentionally high so the slowest family
+  searches expose frequent `GridSearchCV` and `[CV]` progress lines.
 - Final curated model archives under
   `models/paper_reference/rcim_original/forward/` and
   `models/paper_reference/rcim_original/backward/`

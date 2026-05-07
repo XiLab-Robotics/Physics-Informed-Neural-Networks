@@ -26,7 +26,8 @@ At the moment, the implemented workflows are:
   repository-owned tooling entry point;
 - live progress logging for the recovered-original RCIM paper-reference
   retune/eval/export launcher surface, including incremental stdout/stderr log
-  files during execution;
+  files during execution, with the shared launcher preferring the direct
+  environment-local Python interpreter when available;
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;

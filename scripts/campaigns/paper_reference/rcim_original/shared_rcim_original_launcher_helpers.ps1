@@ -1,6 +1,6 @@
 function Format-RcimOriginalCommandPreview {
     param(
-        [string]$CondaBatchPath,
+        [string]$ExecutablePath,
         [string[]]$ArgumentList
     )
 
@@ -8,7 +8,7 @@ function Format-RcimOriginalCommandPreview {
         if ($_ -match '\s') { '"' + $_ + '"' }
         else { $_ }
     }
-    return '"' + $CondaBatchPath + '" ' + ($quotedArgumentList -join " ")
+    return '"' + $ExecutablePath + '" ' + ($quotedArgumentList -join " ")
 }
 
 function Test-RcimOriginalProgressLine {
@@ -77,8 +77,8 @@ function Invoke-RcimOriginalPythonStage {
         [double]$TestSize,
         [string]$DataframePath,
         [string]$BestParameterSummaryPath,
-        [int]$RetuneGridSearchVerbose = 2,
-        [int]$RetuneCrossValidateVerbose = 1,
+        [int]$RetuneGridSearchVerbose = 10,
+        [int]$RetuneCrossValidateVerbose = 10,
         [switch]$PrintOnly
     )
 
@@ -87,17 +87,34 @@ function Invoke-RcimOriginalPythonStage {
         throw "Unable to resolve conda.exe on PATH."
     }
 
-    $argumentList = @(
-        "run", "-n", $CondaEnvironmentName,
-        $PythonExecutable,
-        "-u",
-        "-B",
-        "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
-        "--mode", $ModeName,
-        "--direction", $DirectionName,
-        "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
-        "--output-root", $StageRoot
-    )
+    $environmentPythonPath = Get-RcimOriginalEnvironmentPythonPath -CondaEnvironmentName $CondaEnvironmentName
+    $useDirectEnvironmentPython = -not [string]::IsNullOrWhiteSpace($environmentPythonPath)
+    if ($useDirectEnvironmentPython) {
+        $commandExecutablePath = $environmentPythonPath
+        $argumentList = @(
+            "-u",
+            "-B",
+            "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
+            "--mode", $ModeName,
+            "--direction", $DirectionName,
+            "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
+            "--output-root", $StageRoot
+        )
+    }
+    else {
+        $commandExecutablePath = $condaExecutablePath
+        $argumentList = @(
+            "run", "-n", $CondaEnvironmentName,
+            $PythonExecutable,
+            "-u",
+            "-B",
+            "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
+            "--mode", $ModeName,
+            "--direction", $DirectionName,
+            "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
+            "--output-root", $StageRoot
+        )
+    }
 
     if (-not [string]::IsNullOrWhiteSpace($Families)) {
         $argumentList += @("--families", $Families)
@@ -116,7 +133,7 @@ function Invoke-RcimOriginalPythonStage {
         $argumentList += @("--retune-cross-validate-verbose", $RetuneCrossValidateVerbose)
     }
 
-    $commandPreview = Format-RcimOriginalCommandPreview -CondaBatchPath $condaExecutablePath -ArgumentList $argumentList
+    $commandPreview = Format-RcimOriginalCommandPreview -ExecutablePath $commandExecutablePath -ArgumentList $argumentList
     $stdoutLogPath = Join-Path $LogsRoot ($StageName + ".stdout.log")
     $stderrLogPath = Join-Path $LogsRoot ($StageName + ".stderr.log")
     $combinedLogPath = Join-Path $LogsRoot ($StageName + ".combined.log")
@@ -157,7 +174,7 @@ function Invoke-RcimOriginalPythonStage {
 
         # Run the training stage through PowerShell native process handling so the wrapper can
         # stream output reliably without the fragile .NET async event plumbing used before.
-        & $condaExecutablePath @argumentList 2>&1 | ForEach-Object {
+        & $commandExecutablePath @argumentList 2>&1 | ForEach-Object {
             $record = $_
             $line = $record.ToString()
             $isErrorRecord = $record -is [System.Management.Automation.ErrorRecord]

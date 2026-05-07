@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-07
 
+- [technical/2026-05/2026-05-07/2026-05-07-22-58-44_rcim_original_launcher_direct_env_python_preference.md](./technical/2026-05/2026-05-07/2026-05-07-22-58-44_rcim_original_launcher_direct_env_python_preference.md)
+  Plan the narrow launcher hardening that makes the shared recovered-original
+  RCIM training stages prefer the Conda environment-local `python.exe` over
+  `conda run` when live progress streaming reliability matters.
 - [technical/2026-05/2026-05-07/2026-05-07-16-39-56_rcim_recovered_workflow_readme_retune_verbose_command_completion.md](./technical/2026-05/2026-05-07/2026-05-07-16-39-56_rcim_recovered_workflow_readme_retune_verbose_command_completion.md)
   Plan the narrow documentation-only follow-up that adds the missing unified
   launcher retune-verbosity command example to the recovered-original RCIM
