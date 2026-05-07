@@ -8,6 +8,8 @@ param(
     [string]$OutputSuffix = "",
     [string]$DataframePath = "",
     [string]$BestParameterSummaryPath = "",
+    [int]$RetuneGridSearchVerbose = 2,
+    [int]$RetuneCrossValidateVerbose = 1,
     [switch]$SkipPaperEval,
     [switch]$SkipPaperExport,
     [switch]$PrintOnly
@@ -33,6 +35,8 @@ $mappedStage = if ($Stage -eq "Retune") { "Retune" } else { "LoadBest" }
     -OutputSuffix $OutputSuffix `
     -DataframePath $DataframePath `
     -BestParameterSummaryPath $BestParameterSummaryPath `
+    -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+    -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
     -NoEval:$SkipPaperEval `
     -NoExport:$SkipPaperExport `
     -PrintOnly:$PrintOnly

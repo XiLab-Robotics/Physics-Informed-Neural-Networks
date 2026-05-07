@@ -252,6 +252,23 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
   --output-suffix retune_fw_subset
 ```
 
+Optional retune-monitoring controls:
+
+- `--retune-grid-search-verbose 2`
+- `--retune-cross-validate-verbose 1`
+
+Quieter example:
+
+```powershell
+conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+  --mode retune `
+  --direction backward `
+  --families SVR `
+  --retune-grid-search-verbose 1 `
+  --retune-cross-validate-verbose 0 `
+  --output-suffix retune_bw_quiet_monitoring
+```
+
 ### Mode `paper_eval`
 
 This mirrors `1-main_prediction_v18.py`:
@@ -310,9 +327,24 @@ Shared notes:
   are created inside the runtime root;
 - `run_summary.json` records the selected mode, dataframe, resolved family
   list, family count, and artifact locations;
+- the Python stage now forces line-buffered stdout/stderr so long-running
+  retune bundles remain observable while they are still running;
 - when `--best-parameter-summary-path` is provided, `paper_eval` and
   `paper_export` load tuned family parameters from the retune summary CSV
   instead of using only the built-in recovered `v18` parameter map.
+
+Retune observability notes:
+
+- `retune` now emits live progress around:
+  - split preparation;
+  - `GridSearchCV` setup and start;
+  - wrapper-level `cross_validate(...)`;
+  - target-by-target post-search `cross_validate(...)`;
+  - summary writing;
+- the retune branch keeps the historical nested protocol unchanged, so the
+  long runtime of heavy families such as `SVR` is still expected;
+- the launcher log files are now updated during execution rather than only at
+  process end.
 
 ## Paper-Reference Launchers
 
@@ -337,8 +369,12 @@ Launcher behavior:
   - `<stage>.stderr.log`
   - `<stage>.combined.log`
 - the terminal prints only progress-oriented lines such as `[INFO]`,
-  `[PROGRESS]`, `[DONE]`, and `[ERROR]`;
+  `[PROGRESS]`, `[DONE]`, and `[ERROR]`, plus `MODEL:`, `TRAINING START:`,
+  `TRAINING END:`, and the scikit-learn `Fitting ...` / `[CV] ...` lines used
+  by verbose retune search stages;
 - the full warning flood is still preserved in the log files for diagnosis;
+- Python is launched in unbuffered mode so the three stage logs are updated in
+  real time during long retune runs;
 - `Original` on `forward` runs the recovered original tuned replay and then
   chains `Eval` plus `Export` unless suppressed;
 - `Original` on `backward` prints that no original paper backward tuned
@@ -360,6 +396,8 @@ Most-used unified-launcher options:
 - `-Stage Original|Retune|Eval|Export|LoadBest`
 - `-Families "SVR,MLP,RF"`
 - `-BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv"`
+- `-RetuneGridSearchVerbose 2`
+- `-RetuneCrossValidateVerbose 1`
 - `-NoEval`
 - `-NoExport`
 - `-OutputSuffix your_suffix`

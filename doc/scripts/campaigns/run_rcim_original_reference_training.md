@@ -26,6 +26,8 @@ The launcher exposes one branch-aware and stage-aware operator surface:
 - `-NoEval`
 - `-NoExport`
 - `-BestParameterSummaryPath`
+- `-RetuneGridSearchVerbose`
+- `-RetuneCrossValidateVerbose`
 
 Raw runtime artifacts are written under:
 
@@ -41,6 +43,10 @@ Each executed stage also writes:
 - `logs/<stage>.stdout.log`
 - `logs/<stage>.stderr.log`
 - `logs/<stage>.combined.log`
+
+The launcher now runs the Python stage in unbuffered mode so these log files
+are updated while the stage is still running instead of only after process
+exit.
 
 Each campaign root writes:
 
@@ -98,6 +104,17 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   -Families "SVR"
 ```
 
+Run one backward family through retune with quieter progress output:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1" `
+  -Branch Backward `
+  -Stage Retune `
+  -Families "SVR" `
+  -RetuneGridSearchVerbose 1 `
+  -RetuneCrossValidateVerbose 0
+```
+
 Run one forward tuned replay from the stored best-parameter registry:
 
 ```powershell
@@ -128,6 +145,17 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 - The old forward and backward launcher files are still present as
   compatibility wrappers, but this unified launcher is now the canonical
   operator surface.
+- Long `Retune` stages now emit live progress for:
+  - split preparation;
+  - `GridSearchCV` setup and start;
+  - wrapper-level `cross_validate(...)`;
+  - target-by-target post-search `cross_validate(...)`;
+  - summary writing.
+- The terminal keeps showing `[INFO]`, `[PROGRESS]`, `MODEL:`,
+  `TRAINING START:`, `TRAINING END:`, and the scikit-learn `GridSearchCV`
+  `Fitting ...` / `[CV] ...` progress lines.
+- The combined log is the safest file to monitor during long retune runs
+  because it preserves both stdout and stderr in arrival order.
 - Final curated model archives under
   `models/paper_reference/rcim_original/forward/` and
   `models/paper_reference/rcim_original/backward/`

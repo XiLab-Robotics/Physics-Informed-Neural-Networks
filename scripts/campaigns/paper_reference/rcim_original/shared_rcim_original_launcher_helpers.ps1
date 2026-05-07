@@ -19,9 +19,15 @@ function Test-RcimOriginalProgressLine {
     if ([string]::IsNullOrWhiteSpace($Line)) { return $false }
     return (
         $Line.StartsWith("[PROGRESS]") -or
+        $Line.StartsWith("[RETUNE]") -or
+        $Line.StartsWith("[GRID]") -or
+        $Line.StartsWith("[SUMMARY]") -or
+        $Line.StartsWith("[TARGET]") -or
         $Line.StartsWith("[INFO]") -or
         $Line.StartsWith("[DONE]") -or
         $Line.StartsWith("[ERROR]") -or
+        $Line.StartsWith("Fitting ") -or
+        $Line.StartsWith("[CV") -or
         $Line.StartsWith("MODEL:") -or
         $Line.StartsWith("TRAINING START:") -or
         $Line.StartsWith("TRAINING END:")
@@ -71,6 +77,8 @@ function Invoke-RcimOriginalPythonStage {
         [double]$TestSize,
         [string]$DataframePath,
         [string]$BestParameterSummaryPath,
+        [int]$RetuneGridSearchVerbose = 2,
+        [int]$RetuneCrossValidateVerbose = 1,
         [switch]$PrintOnly
     )
 
@@ -82,6 +90,7 @@ function Invoke-RcimOriginalPythonStage {
     $argumentList = @(
         "run", "-n", $CondaEnvironmentName,
         $PythonExecutable,
+        "-u",
         "-B",
         "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
         "--mode", $ModeName,
@@ -100,6 +109,11 @@ function Invoke-RcimOriginalPythonStage {
 
     if (-not [string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) {
         $argumentList += @("--best-parameter-summary-path", $BestParameterSummaryPath)
+    }
+
+    if ($ModeName -eq "retune") {
+        $argumentList += @("--retune-grid-search-verbose", $RetuneGridSearchVerbose)
+        $argumentList += @("--retune-cross-validate-verbose", $RetuneCrossValidateVerbose)
     }
 
     $commandPreview = Format-RcimOriginalCommandPreview -CondaBatchPath $condaExecutablePath -ArgumentList $argumentList

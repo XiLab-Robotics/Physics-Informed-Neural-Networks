@@ -10,6 +10,8 @@ param(
     [string]$OutputSuffix = "",
     [string]$DataframePath = "",
     [string]$BestParameterSummaryPath = "",
+    [int]$RetuneGridSearchVerbose = 2,
+    [int]$RetuneCrossValidateVerbose = 1,
     [switch]$NoEval,
     [switch]$NoExport,
     [switch]$PrintOnly
@@ -29,6 +31,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
         [string]$OutputSuffix,
         [string]$DataframePath,
         [string]$BestParameterSummaryPath,
+        [int]$RetuneGridSearchVerbose,
+        [int]$RetuneCrossValidateVerbose,
         [switch]$NoEval,
         [switch]$NoExport,
         [switch]$PrintOnly
@@ -111,6 +115,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath $(if ($UseBuiltInTunedMap) { "" } else { $BestSummaryPath }) `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "eval" -StageResult $evalResult -StageRoot $evalRoot
@@ -139,6 +145,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath $(if ($UseBuiltInTunedMap) { "" } else { $BestSummaryPath }) `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "export" -StageResult $exportResult -StageRoot $exportRoot
@@ -235,6 +243,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
             -TestSize $TestSize `
             -DataframePath $DataframePath `
             -BestParameterSummaryPath "" `
+            -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+            -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
             -PrintOnly:$PrintOnly
 
         Add-StageResult -StageLabel "retune" -StageResult $retuneResult -StageRoot $retuneRoot
@@ -280,6 +290,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath "" `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "retune" -StageResult $retuneResult -StageRoot $retuneRoot
@@ -335,6 +347,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath "" `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "eval" -StageResult $evalResult -StageRoot $evalRoot
@@ -364,6 +378,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath $resolvedBestParameterSummaryPath `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "eval" -StageResult $evalResult -StageRoot $evalRoot
@@ -395,6 +411,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath "" `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "export" -StageResult $exportResult -StageRoot $exportRoot
@@ -424,6 +442,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -TestSize $TestSize `
                 -DataframePath $DataframePath `
                 -BestParameterSummaryPath $resolvedBestParameterSummaryPath `
+                -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+                -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "export" -StageResult $exportResult -StageRoot $exportRoot
@@ -491,6 +511,8 @@ foreach ($branchName in $branchNameList) {
         -OutputSuffix $OutputSuffix `
         -DataframePath $DataframePath `
         -BestParameterSummaryPath $BestParameterSummaryPath `
+        -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+        -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
         -NoEval:$NoEval `
         -NoExport:$NoExport `
         -PrintOnly:$PrintOnly

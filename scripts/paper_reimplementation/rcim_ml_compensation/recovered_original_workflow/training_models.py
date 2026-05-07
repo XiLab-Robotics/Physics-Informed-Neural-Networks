@@ -1,6 +1,6 @@
 """ Direct entrypoint for the recovered original RCIM training and export stage. """
 
-import argparse, ast, re
+import argparse, ast, re, sys
 from pathlib import Path
 
 import pandas as pd
@@ -43,6 +43,22 @@ def _normalize_mode(mode):
 
 PAPER_REFERENCE_FAMILY_CODE_LIST = ["SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "LGBM", "XGBM", "ELM"]
 
+def _configure_stream_buffering():
+
+    """ Force line-buffered output for long-running redirected training stages. """
+
+    # Keep the Stage Observable Even When the Launcher Redirects Output to Log Files.
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name, None)
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is None:
+            continue
+        try:
+            reconfigure(line_buffering=True, write_through=True)
+        except Exception:
+            # Best-effort Only; Older Python Surfaces May Reject Runtime Reconfiguration.
+            pass
+
 def _build_argument_parser():
 
     """ Build the CLI argument parser. """
@@ -57,6 +73,8 @@ def _build_argument_parser():
     parser.add_argument("--families", default="", help="Comma-separated family subset. Supports acronyms such as DT, RF, SVR, XGBM, ELM.")
     parser.add_argument("--test-size", type=float, default=0.20, help="Held-out test fraction for v18 and retuning flows.")
     parser.add_argument("--best-parameter-summary-path", type=Path, default=None, help="Optional semicolon-delimited summaryBestParameter CSV exported by the retune path.")
+    parser.add_argument("--retune-grid-search-verbose", type=int, default=2, help="GridSearchCV verbosity used by the retune path.")
+    parser.add_argument("--retune-cross-validate-verbose", type=int, default=1, help="cross_validate verbosity used by the retune path.")
     return parser
 
 def _build_family_factory_map():
@@ -244,6 +262,8 @@ def main():
 
     """ Run the recovered original training stage with repository-owned path handling. """
 
+    _configure_stream_buffering()
+
     # Parse The CLI
     parser = _build_argument_parser()
     args = parser.parse_args()
@@ -280,6 +300,8 @@ def main():
         print(f"[INFO] Mode | {mode_name}", flush=True)
         print(f"[INFO] Direction | {direction_label}", flush=True)
         print(f"[INFO] Families | {','.join(selected_family_code_list)}", flush=True)
+        print(f"[INFO] Retune GridSearch Verbose | {args.retune_grid_search_verbose}", flush=True)
+        print(f"[INFO] Retune CrossValidate Verbose | {args.retune_cross_validate_verbose}", flush=True)
         if args.best_parameter_summary_path is not None:
             print(f"[INFO] Best-Parameter Summary | {args.best_parameter_summary_path.resolve()}", flush=True)
 
@@ -314,7 +336,13 @@ def main():
             elif mode_name == "retune":
 
                 # Mirror the author-guided retuning path that starts from the v17 structure and re-enables hyperparameter search.
-                ml_model = MLModelMultipleOutput(model, "crossValidationWithHyperparameter_3.8_allFreq", "tot")
+                ml_model = MLModelMultipleOutput(
+                    model,
+                    "crossValidationWithHyperparameter_3.8_allFreq",
+                    "tot",
+                    retune_grid_search_verbose=args.retune_grid_search_verbose,
+                    retune_cross_validate_verbose=args.retune_cross_validate_verbose,
+                )
                 df_output = ml_model.predictorMLCrossValidationWithHyperparameter(df_input, args.test_size)
 
             elif mode_name == "paper_export":

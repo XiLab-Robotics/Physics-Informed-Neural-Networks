@@ -12,7 +12,7 @@ from scipy.spatial import distance_matrix
 from skl2onnx import convert_sklearn
 from skl2onnx.common.data_types import FloatTensorType
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error
-from sklearn.model_selection import GridSearchCV, cross_validate, train_test_split
+from sklearn.model_selection import GridSearchCV, ParameterGrid, cross_validate, train_test_split
 from sklearn.multioutput import MultiOutputRegressor, RegressorChain
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -248,12 +248,14 @@ class MLModelMultipleOutput:
 
     """ Original multi-output wrapper used by the recovered training flows. """
 
-    def __init__(self, model, name, method=''):
-        
+    def __init__(self, model, name, method='', retune_grid_search_verbose=2, retune_cross_validate_verbose=1):
+
         # Keep the Wrapped Multi-Output Estimator Contract Intact.
         self.model = MultiOutputRegressor(model)
         self.method = method
         self.name = type(model).__name__ + '_' + name
+        self.retune_grid_search_verbose = retune_grid_search_verbose
+        self.retune_cross_validate_verbose = retune_cross_validate_verbose
 
     def _train(self, X_train, Y_train):
         self.model.fit(X_train, Y_train)
@@ -330,6 +332,38 @@ class MLModelMultipleOutput:
 
         # Write The New Summary File.
         summary_dataframe.to_csv(summary_output_path, sep=';', decimal=',', index=False)
+
+    def _emit_progress(self, message):
+
+        """ Emit one flush-safe progress line for long-running launcher stages. """
+
+        print(message, flush=True)
+
+    def _resolve_search_cv_fold_count(self, grid_search_wrapper):
+
+        """ Resolve the effective fold count used by GridSearchCV. """
+
+        # Match the Historical scikit-learn Default When cv Was Not Set Explicitly.
+        if grid_search_wrapper.cv is None:
+            return 5
+        if isinstance(grid_search_wrapper.cv, int):
+            return grid_search_wrapper.cv
+        return 5
+
+    def _build_cross_validate_kwargs(self, verbose_level):
+
+        """ Build one explicit cross_validate keyword dictionary. """
+
+        return {
+            'cv': 10,
+            'verbose': verbose_level,
+            'scoring': [
+                'neg_mean_squared_error',
+                'neg_root_mean_squared_error',
+                'neg_mean_absolute_error',
+                'neg_mean_absolute_percentage_error',
+            ],
+        }
 
     def _evaluate_component_metrics(self, target_dataframe, target_test_dataframe, prediction_array):
 
@@ -654,26 +688,54 @@ class MLModelMultipleOutput:
         """ Original multi-output wrapper used by the recovered training flows. """
 
         X, Y, cols = self._build_feature_target_matrices(dfInput)
+        target_count = len(cols)
 
         # Materialize the Historical Held-Out Split Used by the Search Branch.
         X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=testSetDimension,random_state=0)
 
         # Wrap the original multi-output estimator in the historical grid-search path.
-        self.model = GridSearchCV(self.model, self.getParameterGridSearchCV(self.get_method_acronym(self.name)),n_jobs=-1)
+        parameter_grid = self.getParameterGridSearchCV(self.get_method_acronym(self.name))
+        self.model = GridSearchCV(
+            self.model,
+            parameter_grid,
+            n_jobs=-1,
+            verbose=self.retune_grid_search_verbose,
+        )
+        search_cv_fold_count = self._resolve_search_cv_fold_count(self.model)
+        candidate_count = len(ParameterGrid(parameter_grid))
 
         # Print the Historical Training Banner Before the Grid Search.
-        print("MODEL:",self.name)
-        print("TRAINING START:",datetime.datetime.now())
-        print(self.model.param_grid)
+        self._emit_progress("MODEL: " + self.name)
+        self._emit_progress("TRAINING START: " + str(datetime.datetime.now()))
+        self._emit_progress(
+            f"[PROGRESS] Retune | Split Ready | Samples {len(X)} | Train {len(X_train)} | "
+            f"Test {len(X_test)} | Targets {target_count}"
+        )
+        self._emit_progress(
+            f"[PROGRESS] Retune | GridSearchCV Setup | Candidates {candidate_count} | "
+            f"SearchCV {search_cv_fold_count} | TargetCount {target_count} | "
+            f"Wrapper MultiOutputRegressor"
+        )
+        self._emit_progress(
+            f"[PROGRESS] Retune | GridSearchCV Start | Verbose {self.retune_grid_search_verbose}"
+        )
+        print(self.model.param_grid, flush=True)
 
         # Train the Historical Grid-Search Wrapper on the Training Split.
         self._train(X_train, Y_train)
+        self._emit_progress("[PROGRESS] Retune | GridSearchCV Done")
 
         # Run the Historical Cross-Validation Metric Sweep on the Grid-Search Wrapper.
-        scores = cross_validate(self.model, X, Y, cv=10,scoring=['neg_mean_squared_error',
-                                                                  'neg_root_mean_squared_error',
-                                                                  'neg_mean_absolute_error',
-                                                                  'neg_mean_absolute_percentage_error'])
+        self._emit_progress(
+            f"[PROGRESS] Retune | Wrapper CrossValidate Start | cv 10 | Verbose {self.retune_cross_validate_verbose}"
+        )
+        scores = cross_validate(
+            self.model,
+            X,
+            Y,
+            **self._build_cross_validate_kwargs(self.retune_cross_validate_verbose),
+        )
+        self._emit_progress("[PROGRESS] Retune | Wrapper CrossValidate Done")
 
         # Prepare the Flat Summary Container Used by the Historical CSV Export.
         errorKeys = list(ERROR_ACRONYMS.keys())
@@ -685,13 +747,23 @@ class MLModelMultipleOutput:
 
         # Iterate Over the Best Wrapped Estimators Target by Target.
         for i in range(len(self.model.best_estimator_.estimators_)):
+            component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
+            self._emit_progress(
+                f"[PROGRESS] Retune | Target CrossValidate Start | {i + 1}/{target_count} | "
+                f"{component[0]}_{component[1]} | cv 10"
+            )
 
             # Re-Score the Current Best Wrapped Estimator Target by Target.
-            scores = cross_validate(self.model.best_estimator_.estimators_[i], X, Y[Y.columns[i:i + 1]], cv=10,
-                                    scoring=['neg_mean_squared_error',
-                                             'neg_root_mean_squared_error',
-                                             'neg_mean_absolute_error',
-                                             'neg_mean_absolute_percentage_error'])
+            scores = cross_validate(
+                self.model.best_estimator_.estimators_[i],
+                X,
+                Y[Y.columns[i:i + 1]],
+                **self._build_cross_validate_kwargs(self.retune_cross_validate_verbose),
+            )
+            self._emit_progress(
+                f"[PROGRESS] Retune | Target CrossValidate Done | {i + 1}/{target_count} | "
+                f"{component[0]}_{component[1]}"
+            )
 
             # Reuse the Historical Error-Key Ordering for the Current Target.
             errorKeys = list(ERROR_ACRONYMS.keys())
@@ -699,24 +771,27 @@ class MLModelMultipleOutput:
             for el in errorKeys:
 
                 # Recover the Harmonic Component Suffix Used by the Summary CSV.
-                component = list(Y.columns[i:i + 1])[-1].split('_')[-2:]
                 crossValOut[str(component[0])+'_'+str(component[1])+'_'+ERROR_ACRONYMS[el]] = abs(scores[el].mean())
 
         # Print the Historical Training Footer and Best Parameters.
-        print("TRAINING END:",datetime.datetime.now())
-        print(self.model.best_params_)
+        self._emit_progress("TRAINING END: " + str(datetime.datetime.now()))
+        self._emit_progress("[PROGRESS] Retune | Best Parameters")
+        print(self.model.best_params_, flush=True)
         pred = self._predict(X_test)
 
         # Persist the cross-validation summary exactly where the original workflow expects it.
+        self._emit_progress("[PROGRESS] Retune | Write CrossValidation Summary")
         outputFileSummary = self._build_summary_output_path('summaryCrossValidation+')
         finalOut = pd.DataFrame(crossValOut,index=[0])
         self._append_summary_dataframe(outputFileSummary, finalOut)
 
         # Persist the best-parameter summary exactly where the original workflow expects it.
+        self._emit_progress("[PROGRESS] Retune | Write BestParameter Summary")
         outputFileParameter = self._build_summary_output_path('summaryBestParameter+')
         paramOut = {'0_method':self.get_method_acronym(self.name), 'best_parameters':str(self.model.best_params_)}
         paramOut = pd.DataFrame(paramOut,index=[0])
         self._append_summary_dataframe(outputFileParameter, paramOut)
+        self._emit_progress("[PROGRESS] Retune | Prediction Dataframe Build")
 
         return self._build_prediction_output_dataframe(X_test, cols, pred)
 

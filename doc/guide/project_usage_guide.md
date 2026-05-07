@@ -24,6 +24,9 @@ At the moment, the implemented workflows are:
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
+- live progress logging for the recovered-original RCIM paper-reference
+  retune/eval/export launcher surface, including incremental stdout/stderr log
+  files during execution;
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;

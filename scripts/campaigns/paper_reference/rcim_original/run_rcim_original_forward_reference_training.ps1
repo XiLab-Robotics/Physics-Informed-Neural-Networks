@@ -5,6 +5,8 @@ param(
     [double]$TestSize = 0.20,
     [string]$OutputSuffix = "",
     [string]$DataframePath = "",
+    [int]$RetuneGridSearchVerbose = 2,
+    [int]$RetuneCrossValidateVerbose = 1,
     [switch]$SkipPaperEval,
     [switch]$SkipPaperExport,
     [switch]$PrintOnly
@@ -27,6 +29,8 @@ Set-Location $projectRoot
     -TestSize $TestSize `
     -OutputSuffix $OutputSuffix `
     -DataframePath $DataframePath `
+    -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
+    -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
     -NoEval:$SkipPaperEval `
     -NoExport:$SkipPaperExport `
     -PrintOnly:$PrintOnly

@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-07
 
+- [technical/2026-05/2026-05-07/2026-05-07-15-00-31_rcim_original_retune_progress_logging_and_monitoring.md](./technical/2026-05/2026-05-07/2026-05-07-15-00-31_rcim_original_retune_progress_logging_and_monitoring.md)
+  Plan the observability pass that makes the recovered-original RCIM retune
+  stage emit readable live progress and incremental log updates without
+  changing the historical nested search protocol.
 - [technical/2026-05/2026-05-07/2026-05-07-14-14-12_training_results_master_summary_directional_sectioning_and_future_wave_policy.md](./technical/2026-05/2026-05-07/2026-05-07-14-14-12_training_results_master_summary_directional_sectioning_and_future_wave_policy.md)
   Plan the formal promotion of `global` / `Fw` / `Bw` scope-separated tables
   and grids inside the canonical training-results master summary for `Wave 1`,
