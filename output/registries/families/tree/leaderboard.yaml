@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:24:57'
+updated_at: '2026-05-07T13:44:29'
 entry_count: 6
 entry_list:
 - run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
@@ -59,7 +59,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:57'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-04-03-21-48-11__te_hist_gbr_remote_deep
   run_name: te_hist_gbr_remote_deep
   output_run_name: te_hist_gbr_remote_deep

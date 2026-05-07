@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:24:57'
+updated_at: '2026-05-07T13:44:29'
 best_entry:
   run_instance_id: 2026-05-06-17-00-56__te_hist_gbr_tabular_fw
   run_name: te_hist_gbr_tabular_Fw
@@ -35,4 +35,4 @@ best_entry:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:57'
+  selected_at: '2026-05-07T13:44:29'

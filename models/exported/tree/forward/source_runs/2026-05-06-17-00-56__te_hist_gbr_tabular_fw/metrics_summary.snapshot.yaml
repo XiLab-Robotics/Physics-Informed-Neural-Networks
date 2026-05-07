@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-05-06-16-58-54_002_02_tree_fw.yaml
+experiment:
+  model_family: tree_fw
+  model_type: hist_gradient_boosting
+  run_name: te_hist_gbr_tabular_Fw
+  output_run_name: te_hist_gbr_tabular_Fw
+  run_instance_id: 2026-05-06-17-00-56__te_hist_gbr_tabular_fw
+  output_artifact_kind: training_run
+  base_model_family: tree
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\tree_fw\2026-05-06-17-00-56__te_hist_gbr_tabular_fw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\tree_fw\2026-05-06-17-00-56__te_hist_gbr_tabular_fw\tree_model.pkl
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  frozen_parameter_count: 0
+  total_parameter_count: 5
+runtime_config:
+  accelerator: cpu
+  devices: 1
+  precision: n/a
+  benchmark: false
+  use_non_blocking_transfer: false
+  estimator_backend: scikit-learn
+normalization_statistics:
+  input_feature_mean:
+  - 179.9654083251953
+  - 497.8670959472656
+  - 896.0154418945312
+  - 30.364086151123047
+  - 1.0
+  input_feature_std:
+  - 103.92489624023438
+  - 466.8084411621094
+  - 543.8319702148438
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.056905604898929596
+  target_std:
+  - 0.023635772988200188
+validation_metrics:
+  val_loss: 1.1840923970024467e-05
+  val_mae: 0.0026658739712788334
+  val_rmse: 0.0034410643658647926
+test_metrics:
+  test_loss: 1.2084593519694526e-05
+  test_mae: 0.0028447329827252245
+  test_rmse: 0.0034762901949771867
+comparison_payload:
+  model_family: tree_fw
+  model_type: hist_gradient_boosting
+  run_name: te_hist_gbr_tabular_Fw
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0026658739712788334
+  val_rmse: 0.0034410643658647926
+  test_mae: 0.0028447329827252245
+  test_rmse: 0.0034762901949771867
+  deployment_notes: ''
+  interpretability_notes: ''

@@ -3,7 +3,7 @@
 ## Overview
 
 - Campaign Name: `wave1_directional_retraining_campaign_2026_05_06_16_07_16`
-- Closeout Timestamp: `2026-05-07-13-29-12`
+- Closeout Timestamp: `2026-05-07-13-48-50`
 - Campaign Output Directory: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16`
 - Completed Runs: `15`
 - Failed Runs: `0`
@@ -14,7 +14,7 @@
 
 - Repaired directional metadata in `0` tree metrics snapshots so registry-facing artifacts now preserve `base_model_family`, `training_variant`, and direction flags consistently.
 - Rebuilt the affected family registries, the campaign leaderboard, the campaign best-run snapshots, and the program best registry from the repaired metrics.
-- Archived one ONNX export plus one Python artifact for every `Wave 1` family/scope winner under `models/exported/`.
+- Archived one ONNX export plus one Python artifact for every `Wave 1` family/scope winner under `models/exported/`, together with scope-local inventories, dataset provenance, and source-run snapshots.
 - Refreshed the canonical `Wave 1` closeout report and regenerated the training-results master summary from the updated registries.
 
 ## Campaign Ranking
@@ -53,25 +53,25 @@
 
 - Export root: `models/exported`
 - Root inventory: `models/exported/wave1_directional_retraining_export_inventory.yaml`
-- Each family now exposes `global/`, `forward/`, and `backward/` subfolders, each containing both `python/` and `onnx/` model copies.
+- Each family now exposes `global/`, `forward/`, and `backward/` subfolders, each containing `python/`, `onnx/`, `reference_inventory.yaml`, `dataset_snapshot_manifest.yaml`, and `source_runs/<run_instance_id>/` provenance snapshots.
 
-| Family | Scope | Python Artifact | ONNX Artifact |
-| --- | --- | --- | --- |
-| `tree` | `global` | `models/exported/tree/global/python/tree_model.pkl` | `models/exported/tree/global/onnx/model.onnx` |
-| `tree` | `forward` | `models/exported/tree/forward/python/tree_model.pkl` | `models/exported/tree/forward/onnx/model.onnx` |
-| `tree` | `backward` | `models/exported/tree/backward/python/tree_model.pkl` | `models/exported/tree/backward/onnx/model.onnx` |
-| `residual_harmonic_mlp` | `global` | `models/exported/residual_harmonic_mlp/global/python/residual_harmonic_mlp-epoch=077-val_mae=0.00302384.ckpt` | `models/exported/residual_harmonic_mlp/global/onnx/model.onnx` |
-| `residual_harmonic_mlp` | `forward` | `models/exported/residual_harmonic_mlp/forward/python/residual_harmonic_mlp-epoch=018-val_mae=0.00285191.ckpt` | `models/exported/residual_harmonic_mlp/forward/onnx/model.onnx` |
-| `residual_harmonic_mlp` | `backward` | `models/exported/residual_harmonic_mlp/backward/python/residual_harmonic_mlp-epoch=037-val_mae=0.00310962.ckpt` | `models/exported/residual_harmonic_mlp/backward/onnx/model.onnx` |
-| `feedforward` | `global` | `models/exported/feedforward/global/python/feedforward-epoch=180-val_mae=0.00305586.ckpt` | `models/exported/feedforward/global/onnx/model.onnx` |
-| `feedforward` | `forward` | `models/exported/feedforward/forward/python/feedforward-epoch=033-val_mae=0.00291539.ckpt` | `models/exported/feedforward/forward/onnx/model.onnx` |
-| `feedforward` | `backward` | `models/exported/feedforward/backward/python/feedforward-epoch=093-val_mae=0.00304864.ckpt` | `models/exported/feedforward/backward/onnx/model.onnx` |
-| `periodic_mlp` | `global` | `models/exported/periodic_mlp/global/python/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt` | `models/exported/periodic_mlp/global/onnx/model.onnx` |
-| `periodic_mlp` | `forward` | `models/exported/periodic_mlp/forward/python/periodic_mlp-epoch=022-val_mae=0.00284801.ckpt` | `models/exported/periodic_mlp/forward/onnx/model.onnx` |
-| `periodic_mlp` | `backward` | `models/exported/periodic_mlp/backward/python/periodic_mlp-epoch=049-val_mae=0.00315372.ckpt` | `models/exported/periodic_mlp/backward/onnx/model.onnx` |
-| `harmonic_regression` | `global` | `models/exported/harmonic_regression/global/python/harmonic_regression-epoch=018-val_mae=0.01701703.ckpt` | `models/exported/harmonic_regression/global/onnx/model.onnx` |
-| `harmonic_regression` | `forward` | `models/exported/harmonic_regression/forward/python/harmonic_regression-epoch=068-val_mae=0.00281060.ckpt` | `models/exported/harmonic_regression/forward/onnx/model.onnx` |
-| `harmonic_regression` | `backward` | `models/exported/harmonic_regression/backward/python/harmonic_regression-epoch=019-val_mae=0.00370070.ckpt` | `models/exported/harmonic_regression/backward/onnx/model.onnx` |
+| Family | Scope | Python Artifact | ONNX Artifact | Provenance Bundle |
+| --- | --- | --- | --- | --- |
+| `tree` | `global` | `models/exported/tree/global/python/tree_model.pkl` | `models/exported/tree/global/onnx/model.onnx` | `models/exported/tree/global/reference_inventory.yaml` |
+| `tree` | `forward` | `models/exported/tree/forward/python/tree_model.pkl` | `models/exported/tree/forward/onnx/model.onnx` | `models/exported/tree/forward/reference_inventory.yaml` |
+| `tree` | `backward` | `models/exported/tree/backward/python/tree_model.pkl` | `models/exported/tree/backward/onnx/model.onnx` | `models/exported/tree/backward/reference_inventory.yaml` |
+| `residual_harmonic_mlp` | `global` | `models/exported/residual_harmonic_mlp/global/python/residual_harmonic_mlp-epoch=077-val_mae=0.00302384.ckpt` | `models/exported/residual_harmonic_mlp/global/onnx/model.onnx` | `models/exported/residual_harmonic_mlp/global/reference_inventory.yaml` |
+| `residual_harmonic_mlp` | `forward` | `models/exported/residual_harmonic_mlp/forward/python/residual_harmonic_mlp-epoch=018-val_mae=0.00285191.ckpt` | `models/exported/residual_harmonic_mlp/forward/onnx/model.onnx` | `models/exported/residual_harmonic_mlp/forward/reference_inventory.yaml` |
+| `residual_harmonic_mlp` | `backward` | `models/exported/residual_harmonic_mlp/backward/python/residual_harmonic_mlp-epoch=037-val_mae=0.00310962.ckpt` | `models/exported/residual_harmonic_mlp/backward/onnx/model.onnx` | `models/exported/residual_harmonic_mlp/backward/reference_inventory.yaml` |
+| `feedforward` | `global` | `models/exported/feedforward/global/python/feedforward-epoch=180-val_mae=0.00305586.ckpt` | `models/exported/feedforward/global/onnx/model.onnx` | `models/exported/feedforward/global/reference_inventory.yaml` |
+| `feedforward` | `forward` | `models/exported/feedforward/forward/python/feedforward-epoch=033-val_mae=0.00291539.ckpt` | `models/exported/feedforward/forward/onnx/model.onnx` | `models/exported/feedforward/forward/reference_inventory.yaml` |
+| `feedforward` | `backward` | `models/exported/feedforward/backward/python/feedforward-epoch=093-val_mae=0.00304864.ckpt` | `models/exported/feedforward/backward/onnx/model.onnx` | `models/exported/feedforward/backward/reference_inventory.yaml` |
+| `periodic_mlp` | `global` | `models/exported/periodic_mlp/global/python/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt` | `models/exported/periodic_mlp/global/onnx/model.onnx` | `models/exported/periodic_mlp/global/reference_inventory.yaml` |
+| `periodic_mlp` | `forward` | `models/exported/periodic_mlp/forward/python/periodic_mlp-epoch=022-val_mae=0.00284801.ckpt` | `models/exported/periodic_mlp/forward/onnx/model.onnx` | `models/exported/periodic_mlp/forward/reference_inventory.yaml` |
+| `periodic_mlp` | `backward` | `models/exported/periodic_mlp/backward/python/periodic_mlp-epoch=049-val_mae=0.00315372.ckpt` | `models/exported/periodic_mlp/backward/onnx/model.onnx` | `models/exported/periodic_mlp/backward/reference_inventory.yaml` |
+| `harmonic_regression` | `global` | `models/exported/harmonic_regression/global/python/harmonic_regression-epoch=018-val_mae=0.01701703.ckpt` | `models/exported/harmonic_regression/global/onnx/model.onnx` | `models/exported/harmonic_regression/global/reference_inventory.yaml` |
+| `harmonic_regression` | `forward` | `models/exported/harmonic_regression/forward/python/harmonic_regression-epoch=068-val_mae=0.00281060.ckpt` | `models/exported/harmonic_regression/forward/onnx/model.onnx` | `models/exported/harmonic_regression/forward/reference_inventory.yaml` |
+| `harmonic_regression` | `backward` | `models/exported/harmonic_regression/backward/python/harmonic_regression-epoch=019-val_mae=0.00370070.ckpt` | `models/exported/harmonic_regression/backward/onnx/model.onnx` | `models/exported/harmonic_regression/backward/reference_inventory.yaml` |
 
 ## Canonical Follow-Through
 

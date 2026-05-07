@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:24:58'
+updated_at: '2026-05-07T13:44:29'
 entry_count: 15
 entry_list:
 - run_instance_id: 2026-05-06-17-00-56__te_hist_gbr_tabular_fw
@@ -36,7 +36,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:57'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-16-58-54__te_hist_gbr_tabular_global
   run_name: te_hist_gbr_tabular_global
   output_run_name: te_hist_gbr_tabular_global
@@ -64,7 +64,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:57'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-17-02-06__te_hist_gbr_tabular_bw
   run_name: te_hist_gbr_tabular_Bw
   output_run_name: te_hist_gbr_tabular_Bw
@@ -92,7 +92,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:57'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw
   run_name: te_harmonic_order12_linear_conditioned_recovery_Fw
   output_run_name: te_harmonic_order12_linear_conditioned_recovery_Fw
@@ -120,7 +120,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-17-49-37__te_feedforward_stride1_high_compute_long_remote_global
   run_name: te_feedforward_stride1_high_compute_long_remote_global
   output_run_name: te_feedforward_stride1_high_compute_long_remote_global
@@ -148,7 +148,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw
   run_name: te_feedforward_stride1_high_compute_long_remote_Bw
   output_run_name: te_feedforward_stride1_high_compute_long_remote_Bw
@@ -176,7 +176,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global
   run_name: te_periodic_mlp_h04_standard_global
   output_run_name: te_periodic_mlp_h04_standard_global
@@ -204,7 +204,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-17-03-18__te_residual_h12_deep_joint_wave1_global
   run_name: te_residual_h12_deep_joint_wave1_global
   output_run_name: te_residual_h12_deep_joint_wave1_global
@@ -232,7 +232,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
   run_name: te_periodic_mlp_h04_standard_Fw
   output_run_name: te_periodic_mlp_h04_standard_Fw
@@ -260,7 +260,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-17-34-34__te_residual_h12_deep_joint_wave1_bw
   run_name: te_residual_h12_deep_joint_wave1_Bw
   output_run_name: te_residual_h12_deep_joint_wave1_Bw
@@ -288,7 +288,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw
   run_name: te_harmonic_order12_linear_conditioned_recovery_Bw
   output_run_name: te_harmonic_order12_linear_conditioned_recovery_Bw
@@ -316,7 +316,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-22-25-13__te_periodic_mlp_h04_standard_bw
   run_name: te_periodic_mlp_h04_standard_Bw
   output_run_name: te_periodic_mlp_h04_standard_Bw
@@ -344,7 +344,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw
   run_name: te_residual_h12_deep_joint_wave1_Fw
   output_run_name: te_residual_h12_deep_joint_wave1_Fw
@@ -372,7 +372,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw
   run_name: te_feedforward_stride1_high_compute_long_remote_Fw
   output_run_name: te_feedforward_stride1_high_compute_long_remote_Fw
@@ -400,7 +400,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global
   run_name: te_harmonic_order12_linear_conditioned_recovery_global
   output_run_name: te_harmonic_order12_linear_conditioned_recovery_global
@@ -428,4 +428,4 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'

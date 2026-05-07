@@ -1,0 +1,73 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-05-06-16-58-54_011_11_periodic_mlp_fw.yaml
+experiment:
+  model_family: periodic_mlp_fw
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_h04_standard_Fw
+  output_run_name: te_periodic_mlp_h04_standard_Fw
+  run_instance_id: 2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
+  output_artifact_kind: training_run
+  base_model_family: periodic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_mlp_fw\2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_mlp_fw\2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw\checkpoints\periodic_mlp-epoch=022-val_mae=0.00284801.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 27265
+  frozen_parameter_count: 0
+  total_parameter_count: 27265
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9654083251953
+  - 497.8670959472656
+  - 896.0154418945312
+  - 30.364086151123047
+  - 1.0
+  input_feature_std:
+  - 103.92489624023438
+  - 466.8084411621094
+  - 543.8319702148438
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.056905604898929596
+  target_std:
+  - 0.023635772988200188
+validation_metrics:
+  val_loss: 0.024587374180555344
+  val_mae: 0.002848006784915924
+  val_rmse: 0.003428702475503087
+test_metrics:
+  test_loss: 0.030515961349010468
+  test_mae: 0.0034319949336349964
+  test_rmse: 0.004022682085633278
+comparison_payload:
+  model_family: periodic_mlp_fw
+  model_type: periodic_mlp
+  run_name: te_periodic_mlp_h04_standard_Fw
+  backbone_name: PeriodicFeatureNetwork
+  trainable_parameter_count: 27265
+  total_parameter_count: 27265
+  val_mae: 0.002848006784915924
+  val_rmse: 0.003428702475503087
+  test_mae: 0.0034319949336349964
+  test_rmse: 0.004022682085633278
+  deployment_notes: ''
+  interpretability_notes: ''

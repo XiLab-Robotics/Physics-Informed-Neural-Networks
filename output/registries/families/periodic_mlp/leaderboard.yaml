@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:24:58'
+updated_at: '2026-05-07T13:44:29'
 entry_count: 4
 entry_list:
 - run_instance_id: 2026-03-20-14-19-32__te_periodic_mlp_h04_standard
@@ -59,7 +59,7 @@ entry_list:
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:24:58'
+  selected_at: '2026-05-07T13:44:29'
 - run_instance_id: 2026-03-20-14-35-54__te_periodic_mlp_h08_standard
   run_name: te_periodic_mlp_h08_standard
   output_run_name: te_periodic_mlp_h08_standard

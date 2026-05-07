@@ -1,0 +1,26 @@
+schema_version: 1
+topic: wave1_directional_retraining_export_reference_inventory
+base_family: periodic_mlp
+family_key: periodic_mlp_fw
+scope_name: forward
+training_variant: Fw
+entry_count: 1
+reference_models:
+- run_name: te_periodic_mlp_h04_standard_Fw
+  run_instance_id: 2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
+  model_type: periodic_mlp
+  val_mae: 0.002848006784915924
+  test_mae: 0.0034319949336349964
+  test_rmse: 0.004022682085633278
+  python_model_path: models/exported/periodic_mlp/forward/python/periodic_mlp-epoch=022-val_mae=0.00284801.ckpt
+  onnx_model_path: models/exported/periodic_mlp/forward/onnx/model.onnx
+  source_output_directory: output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
+  source_best_checkpoint_path: output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/checkpoints/periodic_mlp-epoch=022-val_mae=0.00284801.ckpt
+  dataset_snapshot_manifest_path: models/exported/periodic_mlp/forward/dataset_snapshot_manifest.yaml
+  copied_dataset_config_path: models/exported/periodic_mlp/forward/data/dataset_config.snapshot.yaml
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/exported/periodic_mlp/forward/source_runs/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/exported/periodic_mlp/forward/source_runs/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/exported/periodic_mlp/forward/source_runs/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/exported/periodic_mlp/forward/source_runs/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/exported/periodic_mlp/forward/source_runs/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/best_checkpoint_path.snapshot.txt

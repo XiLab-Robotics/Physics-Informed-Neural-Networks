@@ -1,0 +1,26 @@
+schema_version: 1
+topic: wave1_directional_retraining_export_reference_inventory
+base_family: feedforward
+family_key: feedforward_fw
+scope_name: forward
+training_variant: Fw
+entry_count: 1
+reference_models:
+- run_name: te_feedforward_stride1_high_compute_long_remote_Fw
+  run_instance_id: 2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw
+  model_type: feedforward
+  val_mae: 0.002915391931310296
+  test_mae: 0.003563092788681388
+  test_rmse: 0.00400878768414259
+  python_model_path: models/exported/feedforward/forward/python/feedforward-epoch=033-val_mae=0.00291539.ckpt
+  onnx_model_path: models/exported/feedforward/forward/onnx/model.onnx
+  source_output_directory: output/training_runs/feedforward_fw/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw
+  source_best_checkpoint_path: output/training_runs/feedforward_fw/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/checkpoints/feedforward-epoch=033-val_mae=0.00291539.ckpt
+  dataset_snapshot_manifest_path: models/exported/feedforward/forward/dataset_snapshot_manifest.yaml
+  copied_dataset_config_path: models/exported/feedforward/forward/data/dataset_config.snapshot.yaml
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/exported/feedforward/forward/source_runs/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/exported/feedforward/forward/source_runs/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/exported/feedforward/forward/source_runs/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/exported/feedforward/forward/source_runs/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/exported/feedforward/forward/source_runs/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/best_checkpoint_path.snapshot.txt

@@ -1,0 +1,26 @@
+schema_version: 1
+topic: wave1_directional_retraining_export_reference_inventory
+base_family: residual_harmonic_mlp
+family_key: residual_harmonic_mlp_fw
+scope_name: forward
+training_variant: Fw
+entry_count: 1
+reference_models:
+- run_name: te_residual_h12_deep_joint_wave1_Fw
+  run_instance_id: 2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw
+  model_type: residual_harmonic_mlp
+  val_mae: 0.0028519073966890574
+  test_mae: 0.003530435962602496
+  test_rmse: 0.004144967533648014
+  python_model_path: models/exported/residual_harmonic_mlp/forward/python/residual_harmonic_mlp-epoch=018-val_mae=0.00285191.ckpt
+  onnx_model_path: models/exported/residual_harmonic_mlp/forward/onnx/model.onnx
+  source_output_directory: output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw
+  source_best_checkpoint_path: output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/checkpoints/residual_harmonic_mlp-epoch=018-val_mae=0.00285191.ckpt
+  dataset_snapshot_manifest_path: models/exported/residual_harmonic_mlp/forward/dataset_snapshot_manifest.yaml
+  copied_dataset_config_path: models/exported/residual_harmonic_mlp/forward/data/dataset_config.snapshot.yaml
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/exported/residual_harmonic_mlp/forward/source_runs/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/exported/residual_harmonic_mlp/forward/source_runs/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/exported/residual_harmonic_mlp/forward/source_runs/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/exported/residual_harmonic_mlp/forward/source_runs/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/exported/residual_harmonic_mlp/forward/source_runs/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/best_checkpoint_path.snapshot.txt

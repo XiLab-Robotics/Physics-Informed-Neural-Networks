@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-05-07T13:29:13`
+- Generated At: `2026-05-07T13:48:51`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
@@ -23,21 +23,21 @@
 
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
-| `tree_fw` | Current Global Winner | `te_hist_gbr_tabular_Fw` | `hist_gradient_boosting` | 0.002845 | 5 | `2026-05-07 13:24:57` |
-| `tree` | Implemented Benchmark | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002885 | 5 | `2026-05-07 13:24:57` |
-| `tree_bw` | Implemented Benchmark | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.003087 | 5 | `2026-05-07 13:24:57` |
-| `harmonic_regression_fw` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_Fw` | `harmonic_regression` | 0.003129 | 150 | `2026-05-07 13:24:58` |
-| `feedforward` | Strongest Neural Family | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 109,953 | `2026-05-07 13:24:58` |
-| `residual_harmonic_mlp` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003152 | 26,266 | `2026-05-07 13:24:58` |
-| `feedforward_bw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003262 | 109,953 | `2026-05-07 13:24:58` |
-| `periodic_mlp` | Implemented Benchmark | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003317 | 27,265 | `2026-05-07 13:24:58` |
-| `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Fw` | `periodic_mlp` | 0.003432 | 27,265 | `2026-05-07 13:24:58` |
-| `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Bw` | `residual_harmonic_mlp` | 0.003493 | 26,266 | `2026-05-07 13:24:58` |
-| `harmonic_regression_bw` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_Bw` | `harmonic_regression` | 0.003524 | 150 | `2026-05-07 13:24:58` |
-| `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Bw` | `periodic_mlp` | 0.003525 | 27,265 | `2026-05-07 13:24:58` |
-| `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.003530 | 26,266 | `2026-05-07 13:24:58` |
-| `feedforward_fw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.003563 | 109,953 | `2026-05-07 13:24:58` |
-| `harmonic_regression` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_global` | `harmonic_regression` | 0.020779 | 150 | `2026-05-07 13:24:58` |
+| `tree_fw` | Current Global Winner | `te_hist_gbr_tabular_Fw` | `hist_gradient_boosting` | 0.002845 | 5 | `2026-05-07 13:44:29` |
+| `tree` | Implemented Benchmark | `te_hist_gbr_tabular` | `hist_gradient_boosting` | 0.002885 | 5 | `2026-05-07 13:44:29` |
+| `tree_bw` | Implemented Benchmark | `te_hist_gbr_tabular_Bw` | `hist_gradient_boosting` | 0.003087 | 5 | `2026-05-07 13:44:29` |
+| `harmonic_regression_fw` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_Fw` | `harmonic_regression` | 0.003129 | 150 | `2026-05-07 13:44:29` |
+| `feedforward` | Strongest Neural Family | `te_feedforward_stride1_high_compute_long_remote_global` | `feedforward` | 0.003150 | 109,953 | `2026-05-07 13:44:29` |
+| `residual_harmonic_mlp` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1` | `residual_harmonic_mlp` | 0.003152 | 26,266 | `2026-05-07 13:44:29` |
+| `feedforward_bw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Bw` | `feedforward` | 0.003262 | 109,953 | `2026-05-07 13:44:29` |
+| `periodic_mlp` | Implemented Benchmark | `te_periodic_mlp_h04_standard` | `periodic_mlp` | 0.003317 | 27,265 | `2026-05-07 13:44:29` |
+| `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Fw` | `periodic_mlp` | 0.003432 | 27,265 | `2026-05-07 13:44:29` |
+| `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Bw` | `residual_harmonic_mlp` | 0.003493 | 26,266 | `2026-05-07 13:44:29` |
+| `harmonic_regression_bw` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_Bw` | `harmonic_regression` | 0.003524 | 150 | `2026-05-07 13:44:29` |
+| `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Bw` | `periodic_mlp` | 0.003525 | 27,265 | `2026-05-07 13:44:29` |
+| `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_h12_deep_joint_wave1_Fw` | `residual_harmonic_mlp` | 0.003530 | 26,266 | `2026-05-07 13:44:29` |
+| `feedforward_fw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Fw` | `feedforward` | 0.003563 | 109,953 | `2026-05-07 13:44:29` |
+| `harmonic_regression` | Implemented Benchmark | `te_harmonic_order12_linear_conditioned_recovery_global` | `harmonic_regression` | 0.020779 | 150 | `2026-05-07 13:44:29` |
 
 ### Active Training Or Improvement Branches
 

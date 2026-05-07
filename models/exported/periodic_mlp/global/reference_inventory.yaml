@@ -1,0 +1,26 @@
+schema_version: 1
+topic: wave1_directional_retraining_export_reference_inventory
+base_family: periodic_mlp
+family_key: periodic_mlp
+scope_name: global
+training_variant: global
+entry_count: 1
+reference_models:
+- run_name: te_periodic_mlp_h04_standard
+  run_instance_id: 2026-03-20-14-19-32__te_periodic_mlp_h04_standard
+  model_type: periodic_mlp
+  val_mae: 0.0030973549000918865
+  test_mae: 0.003317474853247404
+  test_rmse: 0.003792748088017106
+  python_model_path: models/exported/periodic_mlp/global/python/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt
+  onnx_model_path: models/exported/periodic_mlp/global/onnx/model.onnx
+  source_output_directory: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard
+  source_best_checkpoint_path: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/checkpoints/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt
+  dataset_snapshot_manifest_path: models/exported/periodic_mlp/global/dataset_snapshot_manifest.yaml
+  copied_dataset_config_path: models/exported/periodic_mlp/global/data/dataset_config.snapshot.yaml
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/exported/periodic_mlp/global/source_runs/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/exported/periodic_mlp/global/source_runs/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/exported/periodic_mlp/global/source_runs/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/exported/periodic_mlp/global/source_runs/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/training_test_report.snapshot.md
+    best_checkpoint_path.snapshot.txt: models/exported/periodic_mlp/global/source_runs/2026-03-20-14-19-32__te_periodic_mlp_h04_standard/best_checkpoint_path.snapshot.txt

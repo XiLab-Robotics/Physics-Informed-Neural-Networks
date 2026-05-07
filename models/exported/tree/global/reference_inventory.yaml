@@ -1,0 +1,25 @@
+schema_version: 1
+topic: wave1_directional_retraining_export_reference_inventory
+base_family: tree
+family_key: tree
+scope_name: global
+training_variant: global
+entry_count: 1
+reference_models:
+- run_name: te_hist_gbr_tabular
+  run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
+  model_type: hist_gradient_boosting
+  val_mae: 0.0027194633401988267
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.00360686466478114
+  python_model_path: models/exported/tree/global/python/tree_model.pkl
+  onnx_model_path: models/exported/tree/global/onnx/model.onnx
+  source_output_directory: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular
+  source_best_checkpoint_path: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular/tree_model.pkl
+  dataset_snapshot_manifest_path: models/exported/tree/global/dataset_snapshot_manifest.yaml
+  copied_dataset_config_path: models/exported/tree/global/data/dataset_config.snapshot.yaml
+  source_run_snapshot_path_map:
+    training_config.snapshot.yaml: models/exported/tree/global/source_runs/2026-03-20-15-17-30__te_hist_gbr_tabular/training_config.snapshot.yaml
+    metrics_summary.snapshot.yaml: models/exported/tree/global/source_runs/2026-03-20-15-17-30__te_hist_gbr_tabular/metrics_summary.snapshot.yaml
+    run_metadata.snapshot.yaml: models/exported/tree/global/source_runs/2026-03-20-15-17-30__te_hist_gbr_tabular/run_metadata.snapshot.yaml
+    training_test_report.snapshot.md: models/exported/tree/global/source_runs/2026-03-20-15-17-30__te_hist_gbr_tabular/training_test_report.snapshot.md

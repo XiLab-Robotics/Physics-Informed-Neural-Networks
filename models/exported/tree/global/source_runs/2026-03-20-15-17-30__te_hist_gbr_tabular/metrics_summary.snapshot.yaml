@@ -1,0 +1,69 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-03-20-14-18-30_010_10_hist_gbr_tabular.yaml
+experiment:
+  model_family: tree
+  model_type: hist_gradient_boosting
+  run_name: te_hist_gbr_tabular
+  output_run_name: te_hist_gbr_tabular
+  run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
+  output_artifact_kind: training_run
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\tree\2026-03-20-15-17-30__te_hist_gbr_tabular
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\tree\2026-03-20-15-17-30__te_hist_gbr_tabular\tree_model.pkl
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  frozen_parameter_count: 0
+  total_parameter_count: 5
+runtime_config:
+  accelerator: cpu
+  devices: 1
+  precision: n/a
+  benchmark: false
+  use_non_blocking_transfer: false
+  estimator_backend: scikit-learn
+normalization_statistics:
+  input_feature_mean:
+  - 179.96580505371094
+  - 497.86761474609375
+  - 896.015625
+  - 30.364084243774414
+  - -1.3220243317846325e-06
+  input_feature_std:
+  - 103.92515563964844
+  - 466.80902099609375
+  - 543.8320922851562
+  - 4.080519199371338
+  - 1.0
+  target_mean:
+  - -0.01723981276154518
+  target_std:
+  - 0.04652021452784538
+validation_metrics:
+  val_loss: 1.3338762028178509e-05
+  val_mae: 0.0027194633401988267
+  val_rmse: 0.003652226995708031
+test_metrics:
+  test_loss: 1.3009472710046764e-05
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.00360686466478114
+comparison_payload:
+  model_family: tree
+  model_type: hist_gradient_boosting
+  run_name: te_hist_gbr_tabular
+  backbone_name: HistGradientBoostingRegressor
+  trainable_parameter_count: 5
+  total_parameter_count: 5
+  val_mae: 0.0027194633401988267
+  val_rmse: 0.003652226995708031
+  test_mae: 0.0028851175665997324
+  test_rmse: 0.00360686466478114
+  deployment_notes: ''
+  interpretability_notes: ''

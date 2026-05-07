@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-07
 
+- [technical/2026-05/2026-05-07/2026-05-07-13-40-00_wave1_exported_archive_provenance_alignment.md](./technical/2026-05/2026-05-07/2026-05-07-13-40-00_wave1_exported_archive_provenance_alignment.md)
+  Plan the follow-up alignment that upgrades `models/exported/` from a
+  binary-only Wave 1 delivery surface to a provenance-rich archive with local
+  inventories, source-run snapshots, and scope-level reconstruction metadata.
 - [technical/2026-05/2026-05-07/2026-05-07-13-10-14_wave1_directional_retraining_closeout_and_exported_model_archive.md](./technical/2026-05/2026-05-07/2026-05-07-13-10-14_wave1_directional_retraining_closeout_and_exported_model_archive.md)
   Plan the closeout of the completed Wave 1 directional retraining campaign,
   including canonical summary updates, directional metadata repair, PDF-backed
@@ -1329,8 +1333,8 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed mixed feedforward campaign, including the recommended best-training preset selection.
 - [reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./reports/campaign_results/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
   Final results report for the completed Wave 1 recovery campaign, including campaign ranking, family-level outcomes, and program-level context.
-- [doc/reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md](./doc/reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md)
-  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the exported Python plus ONNX archive under `models/exported/`.
+- [reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md)
+  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the provenance-rich Python plus ONNX archive under `models/exported/`.
 - [reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md](./reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md)
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 

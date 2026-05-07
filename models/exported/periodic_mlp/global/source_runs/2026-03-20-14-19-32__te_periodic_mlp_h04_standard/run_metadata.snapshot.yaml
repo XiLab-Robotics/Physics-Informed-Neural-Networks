@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_mlp
+run_name: te_periodic_mlp_h04_standard
+run_instance_id: 2026-03-20-14-19-32__te_periodic_mlp_h04_standard
+output_directory: output/training_runs/periodic_mlp/2026-03-20-14-19-32__te_periodic_mlp_h04_standard

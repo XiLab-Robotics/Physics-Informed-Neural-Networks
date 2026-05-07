@@ -1,0 +1,6 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: tree
+run_name: te_hist_gbr_tabular
+run_instance_id: 2026-03-20-15-17-30__te_hist_gbr_tabular
+output_directory: output/training_runs/tree/2026-03-20-15-17-30__te_hist_gbr_tabular

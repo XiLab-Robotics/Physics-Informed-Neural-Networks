@@ -4,6 +4,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import argparse
+import re
 import shutil
 import sys
 from collections import defaultdict
@@ -67,6 +68,7 @@ SCOPE_CONFIGURATION_LIST = [
     },
 ]
 TARGET_ONNX_OPSET = 17
+WAVE1_DIRECTIONAL_REPORT_SUFFIX = "_wave1_directional_retraining_campaign_results_report.md"
 
 
 class RawInputPredictionExportWrapper(nn.Module):
@@ -166,6 +168,34 @@ def normalize_scope_name(training_variant: str) -> str:
     if training_variant == "Bw":
         return "backward"
     return "global"
+
+
+def resolve_source_output_directory(registry_entry: dict[str, Any]) -> Path:
+
+    """Resolve the immutable training-run output directory for one registry entry."""
+
+    return shared_training_infrastructure.resolve_runtime_project_relative_path(
+        str(registry_entry["output_directory"])
+    )
+
+
+def load_metrics_snapshot_from_registry_entry(registry_entry: dict[str, Any]) -> dict[str, Any]:
+
+    """Load the canonical metrics snapshot for one registry entry."""
+
+    metrics_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        str(registry_entry["metrics_path"])
+    )
+    return load_yaml_dictionary(metrics_path)
+
+
+def resolve_dataset_config_path(training_config: dict[str, Any]) -> Path:
+
+    """Resolve the dataset configuration used by one archived winner."""
+
+    return shared_training_infrastructure.resolve_runtime_project_relative_path(
+        str(training_config["paths"]["dataset_config_path"])
+    )
 
 
 def build_scope_record_list() -> list[dict[str, str]]:
@@ -418,6 +448,202 @@ def export_neural_model_to_onnx(
             )
 
 
+def copy_scope_source_run_bundle(
+    scope_root: Path,
+    registry_entry: dict[str, Any],
+) -> dict[str, str]:
+
+    """Copy the canonical source-run provenance bundle into one scope archive."""
+
+    source_output_directory = resolve_source_output_directory(registry_entry)
+    run_instance_id = str(registry_entry["run_instance_id"])
+    source_run_root = scope_root / "source_runs" / run_instance_id
+    source_run_root.mkdir(parents=True, exist_ok=True)
+
+    copied_snapshot_path_map: dict[str, str] = {}
+    source_target_map = {
+        "training_config.snapshot.yaml": source_output_directory / "training_config.yaml",
+        "metrics_summary.snapshot.yaml": source_output_directory / "metrics_summary.yaml",
+        "run_metadata.snapshot.yaml": source_output_directory / "run_metadata.yaml",
+        "training_test_report.snapshot.md": source_output_directory / "training_test_report.md",
+    }
+    optional_best_checkpoint_pointer_path = source_output_directory / "best_checkpoint_path.txt"
+    if optional_best_checkpoint_pointer_path.exists():
+        source_target_map["best_checkpoint_path.snapshot.txt"] = optional_best_checkpoint_pointer_path
+
+    for target_filename, source_path in source_target_map.items():
+        assert source_path.exists(), f"Expected source-run snapshot input | {source_path}"
+        target_path = source_run_root / target_filename
+        if target_path.suffix.lower() == ".md":
+            markdown_text = source_path.read_text(encoding="utf-8")
+            markdown_text = re.sub(r"\n{3,}", "\n\n", markdown_text)
+            write_text_file(target_path, markdown_text)
+        elif target_path.suffix.lower() == ".txt":
+            write_text_file(target_path, source_path.read_text(encoding="utf-8"))
+        else:
+            shutil.copy2(source_path, target_path)
+        copied_snapshot_path_map[target_filename] = format_relative_path(target_path)
+
+    return copied_snapshot_path_map
+
+
+def build_scope_dataset_snapshot_manifest(
+    scope_root: Path,
+    scope_record: dict[str, str],
+    registry_entry: dict[str, Any],
+    training_config: dict[str, Any],
+    metrics_snapshot_dictionary: dict[str, Any],
+) -> dict[str, Any]:
+
+    """Materialize one scope-local dataset provenance bundle."""
+
+    data_root = scope_root / "data"
+    data_root.mkdir(parents=True, exist_ok=True)
+    source_dataset_config_path = resolve_dataset_config_path(training_config)
+    copied_dataset_config_path = data_root / "dataset_config.snapshot.yaml"
+    shutil.copy2(source_dataset_config_path, copied_dataset_config_path)
+
+    source_dataset_config_dictionary = load_yaml_dictionary(source_dataset_config_path)
+    experiment_dictionary = metrics_snapshot_dictionary.get("experiment", {})
+    dataset_snapshot_manifest_dictionary = {
+        "schema_version": 1,
+        "topic": "wave1_directional_retraining_scope_dataset_snapshot",
+        "base_family": scope_record["base_family"],
+        "family_key": scope_record["family_key"],
+        "scope_name": scope_record["scope_name"],
+        "training_variant": scope_record["training_variant"],
+        "run_name": str(registry_entry["run_name"]),
+        "run_instance_id": str(registry_entry["run_instance_id"]),
+        "source_dataset_config_path": format_relative_path(source_dataset_config_path),
+        "copied_dataset_config_path": format_relative_path(copied_dataset_config_path),
+        "direction_scope_label": str(
+            experiment_dictionary.get("direction_scope_label", scope_record["scope_name"])
+        ),
+        "use_forward_direction": bool(
+            experiment_dictionary.get("use_forward_direction", scope_record["scope_name"] in ["global", "forward"])
+        ),
+        "use_backward_direction": bool(
+            experiment_dictionary.get("use_backward_direction", scope_record["scope_name"] in ["global", "backward"])
+        ),
+        "dataset_split_summary": dict(metrics_snapshot_dictionary["dataset_split"]),
+        "dataset_configuration_snapshot": source_dataset_config_dictionary,
+    }
+    dataset_snapshot_manifest_path = scope_root / "dataset_snapshot_manifest.yaml"
+    save_yaml_dictionary(dataset_snapshot_manifest_path, dataset_snapshot_manifest_dictionary)
+    return {
+        "dataset_snapshot_manifest_path": format_relative_path(dataset_snapshot_manifest_path),
+        "copied_dataset_config_path": format_relative_path(copied_dataset_config_path),
+    }
+
+
+def write_scope_archive_readme(
+    scope_root: Path,
+    scope_record: dict[str, str],
+    registry_entry: dict[str, Any],
+    copied_python_model_path: Path,
+    onnx_output_path: Path,
+    scope_reference_inventory_path: Path,
+    dataset_snapshot_manifest_path: Path,
+) -> None:
+
+    """Write one scope-local README for the exported archive bundle."""
+
+    readme_line_list = [
+        f"# {scope_record['base_family']} {scope_record['scope_name'].capitalize()} Export Archive",
+        "",
+        "This folder stores the curated winner selected for one `Wave 1` family",
+        "and one directional training scope.",
+        "",
+        "## Winner Summary",
+        "",
+        f"- Base Family: `{scope_record['base_family']}`",
+        f"- Family Key: `{scope_record['family_key']}`",
+        f"- Scope: `{scope_record['scope_name']}`",
+        f"- Training Variant: `{scope_record['training_variant']}`",
+        f"- Run Name: `{registry_entry['run_name']}`",
+        f"- Run Instance Id: `{registry_entry['run_instance_id']}`",
+        f"- Model Type: `{registry_entry['model_type']}`",
+        f"- Validation MAE: `{float(registry_entry['val_mae']):.6f} deg`",
+        f"- Test MAE: `{float(registry_entry['test_mae']):.6f} deg`",
+        f"- Test RMSE: `{float(registry_entry['test_rmse']):.6f} deg`",
+        "",
+        "## Archive Contents",
+        "",
+        f"- `python/` winner artifact: `{format_relative_path(copied_python_model_path)}`",
+        f"- `onnx/` winner artifact: `{format_relative_path(onnx_output_path)}`",
+        f"- scope inventory: `{format_relative_path(scope_reference_inventory_path)}`",
+        f"- dataset provenance: `{format_relative_path(dataset_snapshot_manifest_path)}`",
+        f"- source-run snapshots: `{format_relative_path(scope_root / 'source_runs' / str(registry_entry['run_instance_id']))}`",
+        "",
+        "The Python artifact keeps the model family's canonical reusable format:",
+        "",
+        "- tree families remain `.pkl` estimators;",
+        "- PyTorch families remain `.ckpt` checkpoints;",
+        "- all families also expose an ONNX export for deployment-facing use.",
+    ]
+    write_text_file(scope_root / "README.md", "\n".join(readme_line_list))
+
+
+def write_scope_reference_inventory(
+    scope_root: Path,
+    scope_record: dict[str, str],
+    registry_entry: dict[str, Any],
+    copied_python_model_path: Path,
+    onnx_output_path: Path,
+    dataset_snapshot_bundle: dict[str, str],
+    source_run_snapshot_path_map: dict[str, str],
+) -> Path:
+
+    """Write one scope-local inventory file with traceable archive metadata."""
+
+    inventory_path = scope_root / "reference_inventory.yaml"
+    save_yaml_dictionary(
+        inventory_path,
+        {
+            "schema_version": 1,
+            "topic": "wave1_directional_retraining_export_reference_inventory",
+            "base_family": scope_record["base_family"],
+            "family_key": scope_record["family_key"],
+            "scope_name": scope_record["scope_name"],
+            "training_variant": scope_record["training_variant"],
+            "entry_count": 1,
+            "reference_models": [
+                {
+                    "run_name": str(registry_entry["run_name"]),
+                    "run_instance_id": str(registry_entry["run_instance_id"]),
+                    "model_type": str(registry_entry["model_type"]),
+                    "val_mae": float(registry_entry["val_mae"]),
+                    "test_mae": float(registry_entry["test_mae"]),
+                    "test_rmse": float(registry_entry["test_rmse"]),
+                    "python_model_path": format_relative_path(copied_python_model_path),
+                    "onnx_model_path": format_relative_path(onnx_output_path),
+                    "source_output_directory": str(registry_entry["output_directory"]),
+                    "source_best_checkpoint_path": str(registry_entry["best_checkpoint_path"]),
+                    "dataset_snapshot_manifest_path": dataset_snapshot_bundle["dataset_snapshot_manifest_path"],
+                    "copied_dataset_config_path": dataset_snapshot_bundle["copied_dataset_config_path"],
+                    "source_run_snapshot_path_map": source_run_snapshot_path_map,
+                }
+            ],
+        },
+    )
+    return inventory_path
+
+
+def resolve_wave1_campaign_results_report_path() -> Path:
+
+    """Resolve a stable path for the Wave 1 directional closeout report."""
+
+    existing_report_path_list = sorted(CAMPAIGN_RESULTS_ROOT.glob(f"*{WAVE1_DIRECTIONAL_REPORT_SUFFIX}"))
+    if len(existing_report_path_list) > 0:
+        return existing_report_path_list[-1].resolve()
+
+    report_timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    return (
+        CAMPAIGN_RESULTS_ROOT
+        / f"{report_timestamp}{WAVE1_DIRECTIONAL_REPORT_SUFFIX}"
+    ).resolve()
+
+
 def refresh_export_archive(scope_record_list: list[dict[str, str]]) -> list[dict[str, Any]]:
 
     """Rebuild the `models/exported` Wave 1 directional archive surface."""
@@ -429,6 +655,7 @@ def refresh_export_archive(scope_record_list: list[dict[str, str]]) -> list[dict
         family_key = scope_record["family_key"]
         registry_entry = load_family_best_entry(family_key)
         training_config = load_training_config_from_registry_entry(registry_entry)
+        metrics_snapshot_dictionary = load_metrics_snapshot_from_registry_entry(registry_entry)
 
         scope_root = EXPORTED_MODELS_ROOT / base_family / scope_name
         onnx_root = scope_root / "onnx"
@@ -451,6 +678,33 @@ def refresh_export_archive(scope_record_list: list[dict[str, str]]) -> list[dict
         else:
             export_neural_model_to_onnx(registry_entry, training_config, onnx_output_path)
 
+        source_run_snapshot_path_map = copy_scope_source_run_bundle(scope_root, registry_entry)
+        dataset_snapshot_bundle = build_scope_dataset_snapshot_manifest(
+            scope_root=scope_root,
+            scope_record=scope_record,
+            registry_entry=registry_entry,
+            training_config=training_config,
+            metrics_snapshot_dictionary=metrics_snapshot_dictionary,
+        )
+        scope_reference_inventory_path = write_scope_reference_inventory(
+            scope_root=scope_root,
+            scope_record=scope_record,
+            registry_entry=registry_entry,
+            copied_python_model_path=copied_python_model_path,
+            onnx_output_path=onnx_output_path,
+            dataset_snapshot_bundle=dataset_snapshot_bundle,
+            source_run_snapshot_path_map=source_run_snapshot_path_map,
+        )
+        write_scope_archive_readme(
+            scope_root=scope_root,
+            scope_record=scope_record,
+            registry_entry=registry_entry,
+            copied_python_model_path=copied_python_model_path,
+            onnx_output_path=onnx_output_path,
+            scope_reference_inventory_path=scope_reference_inventory_path,
+            dataset_snapshot_manifest_path=Path(dataset_snapshot_bundle["dataset_snapshot_manifest_path"]),
+        )
+
         archive_entry_list.append(
             {
                 "base_family": base_family,
@@ -465,6 +719,10 @@ def refresh_export_archive(scope_record_list: list[dict[str, str]]) -> list[dict
                 "val_mae": float(registry_entry["val_mae"]),
                 "python_model_path": format_relative_path(copied_python_model_path),
                 "onnx_model_path": format_relative_path(onnx_output_path),
+                "scope_reference_inventory_path": format_relative_path(scope_reference_inventory_path),
+                "scope_readme_path": format_relative_path(scope_root / "README.md"),
+                "dataset_snapshot_manifest_path": dataset_snapshot_bundle["dataset_snapshot_manifest_path"],
+                "source_run_root": format_relative_path(scope_root / "source_runs" / str(registry_entry["run_instance_id"])),
                 "source_output_directory": str(registry_entry["output_directory"]),
                 "source_best_checkpoint_path": str(registry_entry["best_checkpoint_path"]),
             }
@@ -496,7 +754,8 @@ def write_export_archive_metadata(
         "# Exported Model Archive",
         "",
         "This folder stores curated deployment-facing exports copied from completed",
-        "training artifacts.",
+        "training artifacts together with the provenance needed to trace and",
+        "reconstruct each promoted winner.",
         "",
         "## Wave 1 Directional Retraining Archive",
         "",
@@ -504,6 +763,7 @@ def write_export_archive_metadata(
         f"- Source campaign output directory: `{format_relative_path(campaign_output_directory)}`",
         "- Surface contract: one family folder, then `global/`, `forward/`, and `backward/`.",
         "- Each scope folder exposes both `python/` and `onnx/` copies of the selected winner.",
+        "- Each scope folder also carries `README.md`, `reference_inventory.yaml`, `dataset_snapshot_manifest.yaml`, and `source_runs/<run_instance_id>/` snapshots.",
         f"- Machine-readable inventory: `{format_relative_path(EXPORTED_MODELS_INVENTORY_PATH)}`",
         "",
         "## Family Folders",
@@ -574,15 +834,16 @@ def build_export_archive_table(archive_entry_list: list[dict[str, Any]]) -> list
     """Build the exported-model archive inventory table."""
 
     line_list = [
-        "| Family | Scope | Python Artifact | ONNX Artifact |",
-        "| --- | --- | --- | --- |",
+        "| Family | Scope | Python Artifact | ONNX Artifact | Provenance Bundle |",
+        "| --- | --- | --- | --- | --- |",
     ]
     for archive_entry in archive_entry_list:
         line_list.append(
             f"| `{archive_entry['base_family']}` | "
             f"`{archive_entry['scope_name']}` | "
             f"`{archive_entry['python_model_path']}` | "
-            f"`{archive_entry['onnx_model_path']}` |"
+            f"`{archive_entry['onnx_model_path']}` | "
+            f"`{archive_entry['scope_reference_inventory_path']}` |"
         )
     return line_list
 
@@ -624,7 +885,7 @@ def build_campaign_results_report_markdown(
         "",
         f"- Repaired directional metadata in `{tree_repair_count}` tree metrics snapshots so registry-facing artifacts now preserve `base_model_family`, `training_variant`, and direction flags consistently.",
         "- Rebuilt the affected family registries, the campaign leaderboard, the campaign best-run snapshots, and the program best registry from the repaired metrics.",
-        "- Archived one ONNX export plus one Python artifact for every `Wave 1` family/scope winner under `models/exported/`.",
+        "- Archived one ONNX export plus one Python artifact for every `Wave 1` family/scope winner under `models/exported/`, together with scope-local inventories, dataset provenance, and source-run snapshots.",
         "- Refreshed the canonical `Wave 1` closeout report and regenerated the training-results master summary from the updated registries.",
         "",
         "## Campaign Ranking",
@@ -648,7 +909,7 @@ def build_campaign_results_report_markdown(
             "",
             f"- Export root: `{format_relative_path(EXPORTED_MODELS_ROOT)}`",
             f"- Root inventory: `{format_relative_path(EXPORTED_MODELS_INVENTORY_PATH)}`",
-            "- Each family now exposes `global/`, `forward/`, and `backward/` subfolders, each containing both `python/` and `onnx/` model copies.",
+            "- Each family now exposes `global/`, `forward/`, and `backward/` subfolders, each containing `python/`, `onnx/`, `reference_inventory.yaml`, `dataset_snapshot_manifest.yaml`, and `source_runs/<run_instance_id>/` provenance snapshots.",
             "",
         ]
     )
@@ -712,17 +973,33 @@ def update_doc_index_with_campaign_report(campaign_results_report_path: Path) ->
 
     """Register the new campaign-results report from the canonical doc index."""
 
+    doc_index_text = DOC_INDEX_PATH.read_text(encoding="utf-8")
+    doc_index_text = doc_index_text.replace(
+        "- [doc/reports/campaign_results/wave1/",
+        "- [reports/campaign_results/wave1/",
+    )
+    doc_index_text = doc_index_text.replace(
+        "(./doc/reports/campaign_results/wave1/",
+        "(./reports/campaign_results/wave1/",
+    )
+    doc_index_text = re.sub(
+        r"- \[(?:doc/)?reports/campaign_results/wave1/.*?_wave1_directional_retraining_campaign_results_report\.md\]\(\./(?:doc/)?reports/campaign_results/wave1/.*?_wave1_directional_retraining_campaign_results_report\.md\)\n  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the exported Python plus ONNX archive under `models/exported/`\.\n",
+        "",
+        doc_index_text,
+    )
     report_relative_path = format_relative_path(campaign_results_report_path)
+    if report_relative_path.startswith("doc/"):
+        report_relative_path = report_relative_path[4:]
     report_link_line = f"- [{report_relative_path}](./{report_relative_path.replace(' ', '%20')})"
-    if report_link_line in DOC_INDEX_PATH.read_text(encoding="utf-8"):
+    if report_link_line in doc_index_text:
+        write_text_file(DOC_INDEX_PATH, doc_index_text)
         return
 
-    doc_index_text = DOC_INDEX_PATH.read_text(encoding="utf-8")
     insertion_anchor = "- [reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md](./reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md)"
     assert insertion_anchor in doc_index_text, "Failed to locate the Wave 1 campaign-results insertion anchor in doc/README.md"
     insertion_block = (
         f"{report_link_line}\n"
-        "  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the exported Python plus ONNX archive under `models/exported/`.\n"
+        "  Final results report for the completed Wave 1 directional retraining campaign, including repaired directional registry metadata, the consolidated 15-run ranking, and the provenance-rich Python plus ONNX archive under `models/exported/`.\n"
         f"{insertion_anchor}"
     )
     doc_index_text = doc_index_text.replace(insertion_anchor, insertion_block)
@@ -734,7 +1011,7 @@ def update_models_root_readme() -> None:
     """Register the new exported-model archive contract in `models/README.md`."""
 
     models_readme_text = MODELS_ROOT_README_PATH.read_text(encoding="utf-8")
-    archive_line = "- `exported/<family>/<scope>/` for curated deployment-facing Wave 1 winner copies in both `python/` and `onnx/` form"
+    archive_line = "- `exported/<family>/<scope>/` for curated Wave 1 winner archives with `python/`, `onnx/`, local inventories, and source-run provenance bundles"
     if archive_line in models_readme_text:
         return
     anchor_line = "- `exported/` for ONNX, Structured Text, or other deployment-ready exports"
@@ -782,10 +1059,7 @@ def main() -> None:
     write_export_archive_metadata(campaign_output_directory, archive_entry_list)
 
     report_timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    campaign_results_report_path = (
-        CAMPAIGN_RESULTS_ROOT
-        / f"{report_timestamp}_wave1_directional_retraining_campaign_results_report.md"
-    )
+    campaign_results_report_path = resolve_wave1_campaign_results_report_path()
     campaign_results_report_markdown = build_campaign_results_report_markdown(
         report_timestamp=report_timestamp,
         campaign_output_directory=campaign_output_directory,
