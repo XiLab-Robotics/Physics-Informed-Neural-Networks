@@ -1,5 +1,5 @@
 campaign_name: track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30
-status: running
+status: cancelled
 planning_report_path: doc\reports\campaign_plans\track1\exact_paper\2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement_plan_report.md
 campaign_config_directory: config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_paper_faithful_grid_search
 queue_root: null
@@ -9,7 +9,7 @@ launch_mode: remote_operator_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-05-04T12:26:31.081329+02:00'
 started_at: '2026-05-04T15:05:35+02:00'
-finished_at: null
+finished_at: '2026-05-08T15:15:48+02:00'
 completion_recorded_at: null
 results_report_path: null
 remote_host_alias: xilab-remote
@@ -91,6 +91,8 @@ pending_family_list:
 - HGBM
 - XGBM
 - LGBM
-interruption_note: Prepared as the paper-faithful replacement for the superseded 400-run
-  literal-refresh campaign after restoring the historical GridSearchCV plus cross_validate
-  protocol.
+interruption_note: Operator interrupted the paper-faithful 20-run campaign after the full
+  remote launch remained stuck too long on the first `SVR` search run with poor live progress
+  visibility. Follow-up work will replace the monolithic launcher experience with a
+  stage-and-family-oriented exact-paper wrapper plus much richer live logging for grid
+  search and historical cross-validation without changing the mathematical search protocol.

@@ -1,5 +1,9 @@
 param(
     [switch]$Remote,
+    [ValidateSet("Forward", "Backward", "Both")]
+    [string]$Direction = "Both",
+    [string]$Family = "All",
+    [string]$Families = "",
     [ValidateSet("Search", "Eval", "Export", "LoadBest")]
     [string]$Stage = "Search",
     [string]$BestParameterSummaryPath = "",
@@ -18,6 +22,7 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $ActiveCampaignPath = Join-Path $ProjectRoot "doc\running\active_training_campaign.yaml"
 $RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\run_original_dataset_exact_model_bank_validation.py"
+$ExactPaperFamilyOrder = @("SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "XGBM", "LGBM")
 . (Join-Path $ProjectRoot "scripts\campaigns\infrastructure\shared_streaming_campaign_launcher.ps1")
 Set-Location $ProjectRoot
 
@@ -72,11 +77,160 @@ print(json.dumps(payload))
     }
 }
 
+function Get-CampaignConfigDirectionLabel {
+
+    param(
+        [string]$ConfigRelativePath
+    )
+
+    $normalizedPath = $ConfigRelativePath.Replace("/", "\").ToLowerInvariant()
+    if ($normalizedPath.Contains("\forward\")) {
+        return "Forward"
+    }
+    if ($normalizedPath.Contains("\backward\")) {
+        return "Backward"
+    }
+    throw "Unable to resolve direction from config path | $ConfigRelativePath"
+}
+
+function Get-CampaignConfigFamilyName {
+
+    param(
+        [string]$ConfigRelativePath
+    )
+
+    $normalizedPath = $ConfigRelativePath.Replace("/", "\").ToLowerInvariant()
+    foreach ($familyName in $ExactPaperFamilyOrder) {
+        $familySlug = $familyName.ToLowerInvariant()
+        if ($normalizedPath.Contains("\$familySlug\")) {
+            return $familyName
+        }
+    }
+    throw "Unable to resolve family from config path | $ConfigRelativePath"
+}
+
+function Select-CampaignQueueEntries {
+
+    param(
+        [object]$CampaignBundle,
+        [string]$DirectionName,
+        [string[]]$RequestedFamilyList
+    )
+
+    $selectedConfigPathList = New-Object System.Collections.ArrayList
+    $selectedRunNameList = New-Object System.Collections.ArrayList
+
+    for ($queueIndex = 0; $queueIndex -lt @($CampaignBundle.queue_config_path_list).Count; $queueIndex++) {
+        $configRelativePath = @($CampaignBundle.queue_config_path_list)[$queueIndex]
+        $runName = @($CampaignBundle.run_name_list)[$queueIndex]
+        $configDirectionName = Get-CampaignConfigDirectionLabel -ConfigRelativePath $configRelativePath
+        $configFamilyName = Get-CampaignConfigFamilyName -ConfigRelativePath $configRelativePath
+        $directionMatches = ($DirectionName -eq "Both") -or ($configDirectionName -eq $DirectionName)
+        $familyMatches = ($RequestedFamilyList -contains "All") -or ($RequestedFamilyList -contains $configFamilyName)
+
+        if ($directionMatches -and $familyMatches) {
+            [void]$selectedConfigPathList.Add($configRelativePath)
+            [void]$selectedRunNameList.Add($runName)
+        }
+    }
+
+    return @{
+        queue_config_path_list = @($selectedConfigPathList)
+        run_name_list = @($selectedRunNameList)
+    }
+}
+
+function Build-SubsetCampaignIdentity {
+
+    param(
+        [string]$BaseCampaignName,
+        [string]$BaseCampaignOutputDirectory,
+        [string]$DirectionName,
+        [string[]]$RequestedFamilyList,
+        [string]$StageName
+    )
+
+    $directionSlug = $DirectionName.ToLowerInvariant()
+    $familySlug = if ($RequestedFamilyList -contains "All") {
+        "all"
+    }
+    else {
+        (($RequestedFamilyList | ForEach-Object { $_.ToLowerInvariant() }) -join "_")
+    }
+    $stageSlug = $StageName.ToLowerInvariant()
+    $scopeSlug = "{0}_{1}_{2}" -f $directionSlug, $familySlug, $stageSlug
+    return @{
+        campaign_name = "{0}__{1}" -f $BaseCampaignName, $scopeSlug
+        campaign_output_directory = "{0}__{1}" -f $BaseCampaignOutputDirectory, $scopeSlug
+    }
+}
+
+function Resolve-RequestedFamilyList {
+
+    param(
+        [string]$FamilyName,
+        [string]$FamiliesText
+    )
+
+    $requestedTokenList = New-Object System.Collections.ArrayList
+
+    if (-not [string]::IsNullOrWhiteSpace($FamiliesText)) {
+        foreach ($familyToken in ($FamiliesText -split ",")) {
+            $normalizedToken = $familyToken.Trim().ToUpperInvariant()
+            if (-not [string]::IsNullOrWhiteSpace($normalizedToken)) {
+                [void]$requestedTokenList.Add($normalizedToken)
+            }
+        }
+    }
+    elseif (-not [string]::IsNullOrWhiteSpace($FamilyName)) {
+        [void]$requestedTokenList.Add($FamilyName.Trim().ToUpperInvariant())
+    }
+
+    if ($requestedTokenList.Count -eq 0) {
+        [void]$requestedTokenList.Add("ALL")
+    }
+
+    $resolvedFamilyList = New-Object System.Collections.ArrayList
+    foreach ($requestedToken in @($requestedTokenList | Select-Object -Unique)) {
+        if ($requestedToken -eq "ALL") {
+            return @("All")
+        }
+
+        if ($ExactPaperFamilyOrder -notcontains $requestedToken) {
+            throw "Unsupported exact-paper family selector | $requestedToken"
+        }
+
+        [void]$resolvedFamilyList.Add($requestedToken)
+    }
+
+    return @($resolvedFamilyList | Select-Object -Unique)
+}
+
 $CampaignQueueBundle = Get-CampaignQueueBundle `
     -CampaignYamlPath $ActiveCampaignPath `
     -ProjectRootPath $ProjectRoot `
     -EnvironmentName $CondaEnvironmentName `
     -PythonCommand $PythonExecutable
+
+$RequestedFamilyList = Resolve-RequestedFamilyList `
+    -FamilyName $Family `
+    -FamiliesText $Families
+
+$SelectedQueueBundle = Select-CampaignQueueEntries `
+    -CampaignBundle $CampaignQueueBundle `
+    -DirectionName $Direction `
+    -RequestedFamilyList $RequestedFamilyList
+
+if (@($SelectedQueueBundle.queue_config_path_list).Count -le 0) {
+    throw "No prepared exact-paper configs matched the requested launcher scope | direction=$Direction | families=$($RequestedFamilyList -join ',')"
+}
+
+$InvocationCampaignIdentity = Build-SubsetCampaignIdentity `
+    -BaseCampaignName $CampaignQueueBundle.campaign_name `
+    -BaseCampaignOutputDirectory $CampaignQueueBundle.campaign_output_directory `
+    -DirectionName $Direction `
+    -RequestedFamilyList $RequestedFamilyList `
+    -StageName $Stage
 
 $RunnerArgumentList = @("--stage", $Stage.ToLowerInvariant())
 if (-not [string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) {
@@ -97,13 +251,13 @@ if ($NoExport) {
 
 if ($Remote) {
     & ".\scripts\campaigns\track1\exact_paper\run_exact_paper_campaign_remote.ps1" `
-        -CampaignName $CampaignQueueBundle.campaign_name `
+        -CampaignName $InvocationCampaignIdentity.campaign_name `
         -PlanningReportPath $CampaignQueueBundle.planning_report_path `
         -LauncherRelativePath "scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1" `
-        -LauncherArgumentList $RunnerArgumentList `
-        -CampaignOutputRootOverride $CampaignQueueBundle.campaign_output_directory `
-        -CampaignConfigPathList @($CampaignQueueBundle.queue_config_path_list) `
-        -RunNameList @($CampaignQueueBundle.run_name_list) `
+        -LauncherArgumentList (@("-Direction", $Direction, "-Families", ($RequestedFamilyList -join ",")) + $RunnerArgumentList) `
+        -CampaignOutputRootOverride $InvocationCampaignIdentity.campaign_output_directory `
+        -CampaignConfigPathList @($SelectedQueueBundle.queue_config_path_list) `
+        -RunNameList @($SelectedQueueBundle.run_name_list) `
         -ValidationOutputRoot "output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank" `
         -ValidationReportRoot "doc\reports\analysis\validation_checks" `
         -RemoteHostAlias $RemoteHostAlias `
@@ -112,16 +266,19 @@ if ($Remote) {
     exit $LASTEXITCODE
 }
 
-$CampaignOutputDirectory = $CampaignQueueBundle.campaign_output_directory
+$CampaignOutputDirectory = $InvocationCampaignIdentity.campaign_output_directory
 $CampaignLogRoot = Join-Path $ProjectRoot (Join-Path $CampaignOutputDirectory "logs")
 New-Item -ItemType Directory -Force -Path $CampaignLogRoot | Out-Null
 
-$QueueConfigPathList = @($CampaignQueueBundle.queue_config_path_list)
+$QueueConfigPathList = @($SelectedQueueBundle.queue_config_path_list)
 $QueueConfigCount = $QueueConfigPathList.Count
 
-Write-Host "[INFO] Campaign Name | $($CampaignQueueBundle.campaign_name)" -ForegroundColor Cyan
+Write-Host "[INFO] Campaign Name | $($InvocationCampaignIdentity.campaign_name)" -ForegroundColor Cyan
 Write-Host "[INFO] Planning Report | $($CampaignQueueBundle.planning_report_path)" -ForegroundColor Cyan
 Write-Host "[INFO] Campaign Output Root | $CampaignOutputDirectory" -ForegroundColor Cyan
+Write-Host "[INFO] Requested Direction | $Direction" -ForegroundColor Cyan
+Write-Host "[INFO] Requested Families | $($RequestedFamilyList -join ',')" -ForegroundColor Cyan
+Write-Host "[INFO] Requested Stage | $Stage" -ForegroundColor Cyan
 Write-Host "[INFO] Exact-Paper Run Count | $QueueConfigCount" -ForegroundColor Cyan
 
 for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
@@ -143,6 +300,7 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
     Write-Host ("REMOTE_ACTIVE_STAGE::{0}" -f "Preparing exact-paper validation subprocess")
     Write-Host ("[INFO] Campaign progress | completed={0}/{1} | remaining={2} | percent={3:N1}% | active_run={4}" -f $CompletedCount, $QueueConfigCount, $RemainingCount, $PercentComplete, $ConfigFileStem) -ForegroundColor Cyan
     Write-Host ("[INFO] Running paper-faithful grid-search validation | {0}" -f $ConfigPath) -ForegroundColor Cyan
+    Write-Progress -Id 2000 -Activity "Exact-paper family-stage launcher" -Status ("Completed {0}/{1} | Remaining {2}" -f $CompletedCount, $QueueConfigCount, $RemainingCount) -CurrentOperation $ConfigFileStem -PercentComplete ([Math]::Min(99, [int]$PercentComplete))
 
     $NativeExitCode = Invoke-CondaRunWithLoggedOutput `
         -EnvironmentName $CondaEnvironmentName `
@@ -153,7 +311,7 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
         -LogPath $RunLogPath `
         -AdditionalArgumentList $RunnerArgumentList `
         -SuppressGridSearchConsoleNoise `
-        -GridSearchHeartbeatSeconds 20 `
+        -GridSearchHeartbeatSeconds 10 `
         -EmitRemoteStageMarkers
 
     if ($NativeExitCode -ne 0) {
@@ -165,4 +323,5 @@ for ($ConfigIndex = 0; $ConfigIndex -lt $QueueConfigCount; $ConfigIndex++) {
     Write-Host ("[DONE] Exact-paper config complete | {0}" -f $ConfigRelativePath) -ForegroundColor Green
 }
 
+Write-Progress -Id 2000 -Activity "Exact-paper family-stage launcher" -Completed
 Write-Host "[DONE] Track 1 bidirectional paper-faithful grid-search campaign completed" -ForegroundColor Green

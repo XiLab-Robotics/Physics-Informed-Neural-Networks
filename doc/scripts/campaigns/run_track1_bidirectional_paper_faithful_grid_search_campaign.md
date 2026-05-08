@@ -60,6 +60,9 @@ The remote operator console remains compact:
 The launcher now also exposes the exact-paper stage-control and verbosity
 surface inherited from the shared runner:
 
+- `-Direction Forward|Backward|Both`
+- `-Family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM`
+- `-Families "MLP"` or `-Families "MLP,RF,GBM"`
 - `-Stage Search|Eval|Export|LoadBest`
 - `-BestParameterSummaryPath <path>`
 - `-NoEval`
@@ -71,6 +74,8 @@ Examples:
 
 ```powershell
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "MLP" `
   -Stage Search `
   -GridSearchVerboseOverride 3 `
   -HistoricalCrossValidateVerboseOverride 10 `
@@ -79,8 +84,20 @@ Examples:
 
 ```powershell
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "RF" `
   -Stage LoadBest `
   -NoExport `
+  -Remote
+```
+
+Multiple families in one sliced invocation:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "MLP,RF,GBM" `
+  -Stage Search `
   -Remote
 ```
 
@@ -88,3 +105,17 @@ Examples:
 export automatically. `LoadBest` reuses the repository-owned exact-paper
 best-parameter registry when coverage exists, or one explicit
 `-BestParameterSummaryPath` when the operator wants a specific saved run.
+
+`Direction` plus `Family` or `Families` now let the operator slice the
+prepared `20`-run package into one branch, one family, or one small
+family subset without changing the paper-faithful search protocol itself.
+
+The launcher and remote wrapper now also keep the operator surface much more
+alive during long-running searches:
+
+- frequent Python-side stage markers;
+- summarized grid-search heartbeat lines with completed versus expected CV-fit
+  counts;
+- target-wise historical cross-validation progress markers;
+- a second remote progress bar for substage counters when the runner emits
+  them.

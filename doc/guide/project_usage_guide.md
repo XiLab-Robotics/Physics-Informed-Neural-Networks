@@ -2633,6 +2633,23 @@ This makes it possible to rerun the exact-paper branch with detailed live
 logging, reuse one stored best-parameter summary, or consume the repository
 best-parameter registry without rebuilding the full search surface every time.
 
+For the current paper-faithful bidirectional Track 1 package, the canonical
+PowerShell launcher also now exposes a family-and-stage operator surface closer
+to the recovered-original RCIM launcher:
+
+- `-Direction Forward|Backward|Both`
+- `-Family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM`
+- `-Families "MLP"` or `-Families "MLP,RF,GBM"`
+- `-Stage Search|Eval|Export|LoadBest`
+- `-Remote`
+- `-NoEval`
+- `-NoExport`
+- `-GridSearchVerboseOverride <int>`
+- `-HistoricalCrossValidateVerboseOverride <int>`
+
+This allows the operator to run one branch or one family at a time from the
+prepared `20`-run package instead of relaunching the full queue every time.
+
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.md`
 
 Typical usage:
@@ -2649,6 +2666,18 @@ Original-dataset bidirectional usage:
 conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
   --output-suffix forward_validation
+```
+
+One family-at-a-time paper-faithful launcher example:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "MLP" `
+  -Stage Search `
+  -GridSearchVerboseOverride 3 `
+  -HistoricalCrossValidateVerboseOverride 10 `
+  -Remote
 ```
 
 Prepared batch launcher:

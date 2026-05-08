@@ -238,10 +238,23 @@ Canonical remote launch:
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
 ```
 
+One family at a time, with the exact-paper equivalent of the original
+`Retune` stage:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "MLP" `
+  -Stage Search `
+  -Remote
+```
+
 Observed launch with verbose search monitoring:
 
 ```powershell
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "RF" `
   -Stage Search `
   -GridSearchVerboseOverride 3 `
   -HistoricalCrossValidateVerboseOverride 10 `
@@ -252,8 +265,20 @@ Registry-backed replay without repeating search:
 
 ```powershell
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Backward `
+  -Families "RF" `
   -Stage LoadBest `
   -NoExport `
+  -Remote
+```
+
+Multiple families in one invocation:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "MLP,RF,GBM" `
+  -Stage Search `
   -Remote
 ```
 

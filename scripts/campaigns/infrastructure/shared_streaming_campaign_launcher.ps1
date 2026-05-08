@@ -54,6 +54,8 @@ function Invoke-CondaRunWithStreamingLog {
     $lastSuppressedGridSearchLine = ""
     $lastGridSearchHeartbeatTime = Get-Date
     $suppressedTorchNoiseLineCount = 0
+    $expectedGridSearchCvLineCount = 0
+    $lastReportedGridSearchCvLineCount = -1
 
     function Write-ConsoleHeartbeatLine {
         param(
@@ -87,6 +89,24 @@ function Invoke-CondaRunWithStreamingLog {
                 return
             }
 
+            if ($outputLine -match '^Fitting (\d+) folds for each of (\d+) candidates, totalling (\d+) fits$') {
+                $expectedGridSearchCvLineCount = [int]$Matches[3]
+                if ($EmitRemoteStageMarkers) {
+                    Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_SUBPROGRESS::{0}::{1}::{2}" -f 0, $expectedGridSearchCvLineCount, "grid_search_cv_fits")
+                    Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_STAGE::{0}" -f ("Grid-search fit loop started | total_cv_fits={0}" -f $expectedGridSearchCvLineCount))
+                }
+                Write-Host $outputLine
+                return
+            }
+
+            if ($EmitRemoteStageMarkers -and $outputLine -match '^\[(INFO|DONE|WARN|ERROR)\] ') {
+                Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_STAGE::{0}" -f $outputLine)
+            }
+
+            if ($EmitRemoteStageMarkers -and $outputLine -match 'Historical target cross-validate complete \| .* target=(\d+)/(\d+) ') {
+                Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_SUBPROGRESS::{0}::{1}::{2}" -f [int]$Matches[1], [int]$Matches[2], "historical_target_cross_validate")
+            }
+
             if ($SuppressGridSearchConsoleNoise -and $outputLine -match '^\[CV\] END ') {
                 $suppressedGridSearchLineCount += 1
                 $lastSuppressedGridSearchLine = $outputLine
@@ -94,6 +114,10 @@ function Invoke-CondaRunWithStreamingLog {
 
                 if (($heartbeatNow - $lastGridSearchHeartbeatTime).TotalSeconds -ge $GridSearchHeartbeatSeconds) {
                     $heartbeatLine = "[INFO] Grid-search progress | suppressed_cv_lines=$suppressedGridSearchLineCount"
+                    if ($expectedGridSearchCvLineCount -gt 0) {
+                        $gridSearchPercent = [Math]::Round((100.0 * $suppressedGridSearchLineCount) / $expectedGridSearchCvLineCount, 1)
+                        $heartbeatLine += " | expected_cv_lines=$expectedGridSearchCvLineCount | percent=$gridSearchPercent%"
+                    }
                     if (-not [string]::IsNullOrWhiteSpace($lastSuppressedGridSearchLine)) {
                         $lastCandidateSummary = $lastSuppressedGridSearchLine `
                             -replace '^\[CV\] END ', '' `
@@ -105,6 +129,10 @@ function Invoke-CondaRunWithStreamingLog {
                     }
 
                     if ($EmitRemoteStageMarkers) {
+                        if (($expectedGridSearchCvLineCount -gt 0) -and ($suppressedGridSearchLineCount -ne $lastReportedGridSearchCvLineCount)) {
+                            Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_SUBPROGRESS::{0}::{1}::{2}" -f $suppressedGridSearchLineCount, $expectedGridSearchCvLineCount, "grid_search_cv_fits")
+                            $lastReportedGridSearchCvLineCount = $suppressedGridSearchLineCount
+                        }
                         Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_STAGE::{0}" -f $heartbeatLine)
                     }
 
@@ -121,6 +149,9 @@ function Invoke-CondaRunWithStreamingLog {
         if ($SuppressGridSearchConsoleNoise -and $suppressedGridSearchLineCount -gt 0) {
             $summaryLine = "[INFO] Grid-search console noise suppressed | total_cv_lines=$suppressedGridSearchLineCount | full_detail_log=$resolvedLogPath"
             if ($EmitRemoteStageMarkers) {
+                if ($expectedGridSearchCvLineCount -gt 0) {
+                    Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_SUBPROGRESS::{0}::{1}::{2}" -f $suppressedGridSearchLineCount, $expectedGridSearchCvLineCount, "grid_search_cv_fits")
+                }
                 Write-ConsoleHeartbeatLine -LineText ("REMOTE_ACTIVE_STAGE::{0}" -f $summaryLine)
             }
 

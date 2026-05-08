@@ -331,6 +331,15 @@ def _build_historical_search_protocol_summary(
     if family_name == "XGBM":
         full_feature_matrix = full_feature_matrix.to_numpy(dtype=np.float32)
 
+    emit_exact_paper_progress_log(
+        "INFO",
+        "Historical search protocol plan | "
+        f"family={family_name} "
+        f"wrapper_cv_folds={EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT} "
+        f"target_count={len(dataset_bundle.target_name_list)} "
+        f"target_cv_folds_total={EXACT_PAPER_HISTORICAL_CROSS_VALIDATE_FOLD_COUNT * len(dataset_bundle.target_name_list)}",
+    )
+
     # Re-Run The Historical Global Cross-Validation On The Search Wrapper
     wrapper_cross_validate_start_time = time.perf_counter()
     emit_exact_paper_progress_log(
@@ -1638,12 +1647,14 @@ def fit_exact_family_model_bank(
         if use_grid_search:
             parameter_grid = build_exact_paper_reference_parameter_grid(family_name, base_estimator)
             parameter_grid_candidate_count = count_exact_parameter_grid_candidates(parameter_grid)
+            estimated_grid_search_cv_fit_count = int(parameter_grid_candidate_count * 5)
             emit_exact_paper_progress_log(
                 "INFO",
                 "Grid search configured | "
                 f"family={family_name} "
                 f"stage={resolved_workflow_stage} "
                 f"candidates={parameter_grid_candidate_count} "
+                f"estimated_cv_fits={estimated_grid_search_cv_fit_count} "
                 f"parameter_count={len(parameter_grid)} "
                 f"n_jobs={int(search_settings['grid_search_n_jobs'])} "
                 f"verbose={int(search_settings['grid_search_verbose'])} "
