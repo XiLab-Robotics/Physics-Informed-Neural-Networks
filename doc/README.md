@@ -99,6 +99,19 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-08
 
+- [technical/2026-05/2026-05-08/2026-05-08-16-58-27_track1_exact_paper_write_progress_completed_activity_fix.md](./technical/2026-05/2026-05-08/2026-05-08-16-58-27_track1_exact_paper_write_progress_completed_activity_fix.md)
+  Plan the narrow exact-paper wrapper fix that adds the missing `-Activity`
+  argument to sub-progress `Write-Progress -Completed` calls so remote
+  launchers stop prompting interactively.
+- [technical/2026-05/2026-05-08/2026-05-08-15-40-54_track1_exact_paper_families_alias_and_csv_support.md](./technical/2026-05/2026-05-08/2026-05-08-15-40-54_track1_exact_paper_families_alias_and_csv_support.md)
+  Plan the narrow follow-up that keeps the new exact-paper `-Family` launcher
+  surface but also adds a recovered-original-style `-Families` alias that
+  accepts either one value or a CSV family list.
+- [technical/2026-05/2026-05-08/2026-05-08-15-16-17_track1_exact_paper_family_stage_launcher_and_live_progress_rework.md](./technical/2026-05/2026-05-08/2026-05-08-15-16-17_track1_exact_paper_family_stage_launcher_and_live_progress_rework.md)
+  Plan the exact-paper launcher rework that records the interrupted
+  paper-faithful campaign, adds a family-and-stage operator surface analogous
+  to the recovered-original launcher, and greatly improves live progress
+  visibility during search and historical cross-validation.
 - [technical/2026-05/2026-05-08/2026-05-08-11-49-11_rcim_original_launcher_foreground_console_and_transcript_fix.md](./technical/2026-05/2026-05-08/2026-05-08-11-49-11_rcim_original_launcher_foreground_console_and_transcript_fix.md)
   Plan the next recovered-original RCIM launcher repair that removes the
   still-interfering relay layer, restores native foreground-console

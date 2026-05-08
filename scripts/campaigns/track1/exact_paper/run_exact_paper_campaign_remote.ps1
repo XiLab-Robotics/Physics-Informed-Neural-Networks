@@ -405,6 +405,9 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
     $completedConfigCount = 0
     $currentOperation = if ($currentConfigIndex -gt 0) { "Waiting for first remote line from exact-paper runner" } else { "Waiting for remote output" }
     $lastProgressUpdateTime = Get-Date
+    $subprogressCurrent = 0
+    $subprogressTotal = 0
+    $subprogressLabel = ""
     $script:remoteCancelRequested = $false
     $cancelHandler = $null
     $previousErrorActionPreference = $ErrorActionPreference
@@ -475,6 +478,11 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
             elseif ($outputLine -match "^REMOTE_ACTIVE_STAGE::(.+)$") {
                 $currentOperation = $Matches[1].Trim()
             }
+            elseif ($outputLine -match "^REMOTE_ACTIVE_SUBPROGRESS::(\d+)::(\d+)::(.+)$") {
+                $subprogressCurrent = [int]$Matches[1]
+                $subprogressTotal = [int]$Matches[2]
+                $subprogressLabel = $Matches[3].Trim()
+            }
             elseif ($outputLine -match "^\[INFO\] Grid search configured \| (.+)$") {
                 $currentOperation = "Grid search configured | $($Matches[1].Trim())"
             }
@@ -516,6 +524,14 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
                 }
 
                 Write-Progress -Id $progressId -Activity $ProgressActivity -Status $statusText -CurrentOperation $operationText -PercentComplete $percentComplete
+                if ($subprogressTotal -gt 0) {
+                    $subprogressPercent = [Math]::Max(0, [Math]::Min(100, [int]((100.0 * $subprogressCurrent) / $subprogressTotal)))
+                    $subprogressStatusText = "{0}/{1}" -f $subprogressCurrent, $subprogressTotal
+                    Write-Progress -Id ($progressId + 1) -ParentId $progressId -Activity "Active exact-paper substage" -Status $subprogressStatusText -CurrentOperation $subprogressLabel -PercentComplete $subprogressPercent
+                }
+                else {
+                    Write-Progress -Id ($progressId + 1) -ParentId $progressId -Activity "Active exact-paper substage" -Completed
+                }
                 $lastProgressUpdateTime = $now
             }
         }
@@ -523,6 +539,7 @@ function Invoke-RemotePowerShellScriptWithStreamingLog {
         if ($configCount -gt 0) {
             Write-Progress -Id $progressId -Activity $ProgressActivity -Status "Completed $configCount/$configCount | Remaining 0 | Campaign finalizing" -CurrentOperation "Remote exact-paper campaign completed" -PercentComplete 100
         }
+        Write-Progress -Id ($progressId + 1) -ParentId $progressId -Activity "Active exact-paper substage" -Completed
         Write-Progress -Id $progressId -Activity $ProgressActivity -Completed
         return @{
             exit_code = [int]$LASTEXITCODE
@@ -580,6 +597,7 @@ exit 0
         throw "Remote command interrupted by operator"
     }
     finally {
+        Write-Progress -Id ($progressId + 1) -ParentId $progressId -Activity "Active exact-paper substage" -Completed
         Write-Progress -Id $progressId -Activity $ProgressActivity -Completed
         $ErrorActionPreference = $previousErrorActionPreference
         if ($null -ne $cancelHandler) {
