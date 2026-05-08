@@ -26,9 +26,9 @@ At the moment, the implemented workflows are:
   repository-owned tooling entry point;
   - live console-first progress for the recovered-original RCIM paper-reference
     retune/eval/export launcher surface, with direct environment-local Python
-    execution, visible native `GridSearchCV` / `[CV]` worker lines, relayed
-    stage log files beside the campaign artifacts, and `Ctrl+C` forwarding to
-    the active training child process;
+    execution, visible native `GridSearchCV` / `[CV]` worker lines, a live
+    combined stage transcript beside the campaign artifacts, and `Ctrl+C`
+    behavior aligned as closely as possible with the direct training command;
 - repository-owned Markdown warning checks for heading spacing, repeated blank lines, and single-title violations in source `.md` files;
 - broader Markdownlint validation for canonical repository Markdown outside `reference/` through a tracked rule profile and terminal runner;
 - styled PDF regeneration for the training-configuration analysis report through a dedicated report-export utility;

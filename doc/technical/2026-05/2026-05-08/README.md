@@ -1,5 +1,10 @@
 # 2026-05-08 Technical Notes
 
+- [2026-05-08-11-49-11_rcim_original_launcher_foreground_console_and_transcript_fix.md](./2026-05-08-11-49-11_rcim_original_launcher_foreground_console_and_transcript_fix.md)
+  Plan the next recovered-original RCIM launcher repair that removes the
+  still-interfering relay layer, restores native foreground-console
+  `GridSearchCV` verbosity, and re-establishes a clean `Ctrl+C` contract while
+  keeping persistent stage logs.
 - [2026-05-08-00-57-25_rcim_original_launcher_process_relay_and_console_attachment_fix.md](./2026-05-08-00-57-25_rcim_original_launcher_process_relay_and_console_attachment_fix.md)
   Plan the second recovered-original RCIM launcher fix that keeps the
   PowerShell wrapper attached to the real training process and preserves the

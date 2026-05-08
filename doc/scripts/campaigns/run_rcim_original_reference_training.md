@@ -44,13 +44,16 @@ Each executed stage also writes:
 - `logs/<stage>.stderr.log`
 - `logs/<stage>.combined.log`
 
+The combined transcript is the authoritative live log surface during
+execution. When the filesystem supports the compatibility link path, the
+`stdout` and `stderr` files update as aliases to that same live transcript.
+
 The shared launcher now prefers the resolved Conda environment-local
 `python.exe` for training stages and falls back to `conda run` only when the
 direct interpreter cannot be resolved.
-The shared launcher runs training stages through a foreground console relay so
-the native scikit-learn and joblib progress lines remain visible, the same
-output is mirrored into the stage log files, and `Ctrl+C` can be forwarded to
-the real training child process.
+The shared launcher runs training stages in true foreground-console mode so the
+native scikit-learn and joblib progress lines remain visible and `Ctrl+C`
+behaves as closely as possible to the direct Python command.
 
 Each campaign root writes:
 
@@ -160,9 +163,10 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   `Fitting ...` / `[CV] ...` progress lines.
 - The live terminal session remains the fastest progress surface for long
   retune runs.
-- The stage log files now mirror the relayed child-process console output as
-  it is emitted, so `stdout`, `stderr`, and `combined` logs can be tailed
-  while the run is in progress.
+- The `combined` stage log is the authoritative live transcript while the run
+  is active. When the compatibility link path is available, `stdout` and
+  `stderr` expose the same live transcript content through their own stable
+  paths.
 - The default retune verbosity is now intentionally high so the slowest family
   searches expose frequent `GridSearchCV` and `[CV]` progress lines.
 - Final curated model archives under

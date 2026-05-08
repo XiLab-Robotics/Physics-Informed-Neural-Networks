@@ -27,29 +27,6 @@ function ConvertTo-RcimOriginalArgumentString {
     return ($quotedArgumentList -join " ")
 }
 
-function Test-RcimOriginalProgressLine {
-    param(
-        [string]$Line
-    )
-
-    if ([string]::IsNullOrWhiteSpace($Line)) { return $false }
-    return (
-        $Line.StartsWith("[PROGRESS]") -or
-        $Line.StartsWith("[RETUNE]") -or
-        $Line.StartsWith("[GRID]") -or
-        $Line.StartsWith("[SUMMARY]") -or
-        $Line.StartsWith("[TARGET]") -or
-        $Line.StartsWith("[INFO]") -or
-        $Line.StartsWith("[DONE]") -or
-        $Line.StartsWith("[ERROR]") -or
-        $Line.StartsWith("Fitting ") -or
-        $Line.StartsWith("[CV") -or
-        $Line.StartsWith("MODEL:") -or
-        $Line.StartsWith("TRAINING START:") -or
-        $Line.StartsWith("TRAINING END:")
-    )
-}
-
 function New-RcimOriginalRunRoot {
     param(
         [string]$ProjectRoot,
@@ -77,6 +54,43 @@ function New-RcimOriginalRunRoot {
         CampaignRoot = $campaignRoot
         LogsRoot = $logsRoot
     }
+}
+
+function Initialize-RcimOriginalStageLogSurface {
+    param(
+        [string]$StdoutLogPath,
+        [string]$StderrLogPath,
+        [string]$CombinedLogPath,
+        [string[]]$MetadataLineList
+    )
+
+    foreach ($path in @($StdoutLogPath, $StderrLogPath, $CombinedLogPath)) {
+        if (Test-Path $path) {
+            Remove-Item -LiteralPath $path -Force
+        }
+    }
+
+    New-Item -ItemType File -Path $CombinedLogPath -Force | Out-Null
+    Set-Content -LiteralPath $CombinedLogPath -Value $MetadataLineList -Encoding UTF8
+
+    $hardLinkEnabled = $false
+    try {
+        New-Item -ItemType HardLink -Path $StdoutLogPath -Target $CombinedLogPath -Force | Out-Null
+        New-Item -ItemType HardLink -Path $StderrLogPath -Target $CombinedLogPath -Force | Out-Null
+        $hardLinkEnabled = $true
+    }
+    catch {
+        Set-Content -LiteralPath $StdoutLogPath -Value @(
+            "[INFO] Combined Transcript Path | $CombinedLogPath",
+            "[INFO] This stage is running in foreground-console mode. Tail the combined transcript for live progress."
+        ) -Encoding UTF8
+        Set-Content -LiteralPath $StderrLogPath -Value @(
+            "[INFO] Combined Transcript Path | $CombinedLogPath",
+            "[INFO] This stage is running in foreground-console mode. Tail the combined transcript for live progress."
+        ) -Encoding UTF8
+    }
+
+    return $hardLinkEnabled
 }
 
 function Invoke-RcimOriginalPythonStage {
@@ -138,13 +152,8 @@ function Invoke-RcimOriginalPythonStage {
         $argumentList = @(
             "-u",
             "-B",
-            "scripts\campaigns\paper_reference\rcim_original\rcim_original_console_relay.py",
-            "--working-directory", $ProjectRoot,
-            "--stdout-log-path", $stdoutLogPath,
-            "--stderr-log-path", $stderrLogPath,
-            "--combined-log-path", $combinedLogPath,
-            "--"
-        )
+            "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py"
+        ) + $trainingArgumentList
     }
     else {
         $commandExecutablePath = $condaExecutablePath
@@ -153,20 +162,13 @@ function Invoke-RcimOriginalPythonStage {
             $PythonExecutable,
             "-u",
             "-B",
-            "scripts\campaigns\paper_reference\rcim_original\rcim_original_console_relay.py",
-            "--working-directory", $ProjectRoot,
-            "--stdout-log-path", $stdoutLogPath,
-            "--stderr-log-path", $stderrLogPath,
-            "--combined-log-path", $combinedLogPath,
-            "--"
-        )
+            "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py"
+        ) + $trainingArgumentList
     }
-    $argumentList += $trainingArgumentList
 
     $commandPreview = Format-RcimOriginalCommandPreview `
-        -ExecutablePath $(if ($useDirectEnvironmentPython) { $environmentPythonPath } else { $condaExecutablePath }) `
-        -ArgumentList $(if ($useDirectEnvironmentPython) { @("-u", "-B", "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py") + $trainingArgumentList } else { @("run", "-n", $CondaEnvironmentName, $PythonExecutable, "-u", "-B", "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py") + $trainingArgumentList })
-    $relayCommandPreview = Format-RcimOriginalCommandPreview -ExecutablePath $commandExecutablePath -ArgumentList $argumentList
+        -ExecutablePath $commandExecutablePath `
+        -ArgumentList $argumentList
 
     Write-Host "[INFO] Stage | $StageName" -ForegroundColor Cyan
     Write-Host "[INFO] Mode | $ModeName" -ForegroundColor Cyan
@@ -176,7 +178,6 @@ function Invoke-RcimOriginalPythonStage {
     Write-Host "[INFO] Stderr Log | $stderrLogPath" -ForegroundColor Cyan
     Write-Host "[INFO] Combined Log | $combinedLogPath" -ForegroundColor Cyan
     Write-Host "[INFO] Command | $commandPreview" -ForegroundColor DarkCyan
-    Write-Host "[INFO] Relay Command | $relayCommandPreview" -ForegroundColor DarkGray
 
     if ($PrintOnly) {
         $resultObject = [pscustomobject]@{
@@ -195,22 +196,26 @@ function Invoke-RcimOriginalPythonStage {
     }
 
     $compatibilityLogLines = @(
-        "[INFO] RCIM Original Launcher Console Relay Mode",
+        "[INFO] RCIM Original Launcher Foreground Console Mode",
         "[INFO] Stage | $StageName",
         "[INFO] Mode | $ModeName",
         "[INFO] Direction | $DirectionName",
         "[INFO] Stage Root | $StageRoot",
         "[INFO] Command | $commandPreview",
-        "[INFO] Relay Command | $relayCommandPreview",
-        "[INFO] Child Python output is relayed live to the terminal and mirrored into these stage log files.",
-        "[INFO] Ctrl+C is handled by the relay and forwarded to the active training child process."
+        "[INFO] Combined Transcript Path | $combinedLogPath",
+        "[INFO] The child training process runs in true foreground-console mode.",
+        "[INFO] Ctrl+C should behave like the direct python command.",
+        "[INFO] The combined transcript is the authoritative live log surface."
     )
-    Set-Content -LiteralPath $stdoutLogPath -Value $compatibilityLogLines -Encoding UTF8
-    Set-Content -LiteralPath $combinedLogPath -Value $compatibilityLogLines -Encoding UTF8
-    Set-Content -LiteralPath $stderrLogPath -Value $compatibilityLogLines -Encoding UTF8
+    $hardLinkEnabled = Initialize-RcimOriginalStageLogSurface `
+        -StdoutLogPath $stdoutLogPath `
+        -StderrLogPath $stderrLogPath `
+        -CombinedLogPath $combinedLogPath `
+        -MetadataLineList $compatibilityLogLines
 
     $exitCode = 0
     $stageInterrupted = $false
+    $transcriptStarted = $false
 
     try {
         Push-Location $ProjectRoot
@@ -219,27 +224,38 @@ function Invoke-RcimOriginalPythonStage {
         $ErrorActionPreference = "Continue"
         $PSNativeCommandUseErrorActionPreference = $false
 
+        Start-Transcript -Path $combinedLogPath -Append -Force | Out-Null
+        $transcriptStarted = $true
         & $commandExecutablePath @argumentList
         $exitCode = $LASTEXITCODE
     }
     catch [System.Management.Automation.PipelineStoppedException] {
         $stageInterrupted = $true
         $exitCode = 130
-        throw
     }
     finally {
+        if ($transcriptStarted) {
+            try {
+                Stop-Transcript | Out-Null
+            }
+            catch {
+            }
+        }
+
         $ErrorActionPreference = $previousErrorActionPreference
         $PSNativeCommandUseErrorActionPreference = $previousNativePreference
 
         Pop-Location
 
         $completionLogLines = @(
-            "[INFO] Console Relay Completed | $(-not $stageInterrupted)",
+            "[INFO] Foreground Console Stage Completed | $(-not $stageInterrupted)",
             "[INFO] Stage Exit Code | $exitCode"
         )
-        Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
-        Add-Content -LiteralPath $stderrLogPath -Value $completionLogLines -Encoding UTF8
         Add-Content -LiteralPath $combinedLogPath -Value $completionLogLines -Encoding UTF8
+        if (-not $hardLinkEnabled) {
+            Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
+            Add-Content -LiteralPath $stderrLogPath -Value $completionLogLines -Encoding UTF8
+        }
     }
 
     Write-Host "[INFO] Stage Exit Code | $exitCode" -ForegroundColor DarkGray
