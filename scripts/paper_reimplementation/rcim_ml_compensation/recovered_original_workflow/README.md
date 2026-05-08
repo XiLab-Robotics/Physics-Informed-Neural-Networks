@@ -612,12 +612,11 @@ Tracked cleanup and maintenance choices:
   helpers, and repository-owned Italian identifiers in the active workflow
   surface were translated to English while preserving the original numerical
   behavior;
-- the paper-reference launcher surface now runs the training stage in direct
-  foreground console mode so the operator sees the native scikit-learn
-  `Fitting ...` and `[CV] ...` progress lines and can interrupt the stage with
-  `Ctrl+C` cleanly; compatibility log files are still created beside the
-  campaign artifacts, but they are metadata-oriented and not a perfect
-  line-by-line mirror of the child-process console output;
+- the paper-reference launcher surface now runs the training stage through a
+  foreground console relay so the operator sees the native scikit-learn
+  `Fitting ...` and `[CV] ...` progress lines, the stage log files mirror the
+  relayed child-process output while the run is in progress, and `Ctrl+C` is
+  forwarded to the active training child process;
 - the live paper-reference runtime roots now live under
   `output/training_campaigns/rcim_original/` instead of
   `models/paper_reference/rcim_original/.../source_runs/`;

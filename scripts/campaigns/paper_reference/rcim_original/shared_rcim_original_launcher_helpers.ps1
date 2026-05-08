@@ -11,6 +11,22 @@ function Format-RcimOriginalCommandPreview {
     return '"' + $ExecutablePath + '" ' + ($quotedArgumentList -join " ")
 }
 
+function ConvertTo-RcimOriginalArgumentString {
+    param(
+        [string[]]$ArgumentList
+    )
+
+    $quotedArgumentList = $ArgumentList | ForEach-Object {
+        if ($_ -match '[\s"]') {
+            '"' + ($_.Replace('"', '\"')) + '"'
+        }
+        else {
+            $_
+        }
+    }
+    return ($quotedArgumentList -join " ")
+}
+
 function Test-RcimOriginalProgressLine {
     param(
         [string]$Line
@@ -79,6 +95,7 @@ function Invoke-RcimOriginalPythonStage {
         [string]$BestParameterSummaryPath,
         [int]$RetuneGridSearchVerbose = 10,
         [int]$RetuneCrossValidateVerbose = 10,
+        [ref]$StageResult,
         [switch]$PrintOnly
     )
 
@@ -89,16 +106,44 @@ function Invoke-RcimOriginalPythonStage {
 
     $environmentPythonPath = Get-RcimOriginalEnvironmentPythonPath -CondaEnvironmentName $CondaEnvironmentName
     $useDirectEnvironmentPython = -not [string]::IsNullOrWhiteSpace($environmentPythonPath)
+    $trainingArgumentList = @(
+        "--mode", $ModeName,
+        "--direction", $DirectionName,
+        "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
+        "--output-root", $StageRoot
+    )
+    if (-not [string]::IsNullOrWhiteSpace($Families)) {
+        $trainingArgumentList += @("--families", $Families)
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($DataframePath)) {
+        $trainingArgumentList += @("--dataframe-path", $DataframePath)
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) {
+        $trainingArgumentList += @("--best-parameter-summary-path", $BestParameterSummaryPath)
+    }
+
+    if ($ModeName -eq "retune") {
+        $trainingArgumentList += @("--retune-grid-search-verbose", $RetuneGridSearchVerbose)
+        $trainingArgumentList += @("--retune-cross-validate-verbose", $RetuneCrossValidateVerbose)
+    }
+
+    $stdoutLogPath = Join-Path $LogsRoot ($StageName + ".stdout.log")
+    $stderrLogPath = Join-Path $LogsRoot ($StageName + ".stderr.log")
+    $combinedLogPath = Join-Path $LogsRoot ($StageName + ".combined.log")
+
     if ($useDirectEnvironmentPython) {
         $commandExecutablePath = $environmentPythonPath
         $argumentList = @(
             "-u",
             "-B",
-            "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
-            "--mode", $ModeName,
-            "--direction", $DirectionName,
-            "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
-            "--output-root", $StageRoot
+            "scripts\campaigns\paper_reference\rcim_original\rcim_original_console_relay.py",
+            "--working-directory", $ProjectRoot,
+            "--stdout-log-path", $stdoutLogPath,
+            "--stderr-log-path", $stderrLogPath,
+            "--combined-log-path", $combinedLogPath,
+            "--"
         )
     }
     else {
@@ -108,35 +153,20 @@ function Invoke-RcimOriginalPythonStage {
             $PythonExecutable,
             "-u",
             "-B",
-            "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py",
-            "--mode", $ModeName,
-            "--direction", $DirectionName,
-            "--test-size", $TestSize.ToString([System.Globalization.CultureInfo]::InvariantCulture),
-            "--output-root", $StageRoot
+            "scripts\campaigns\paper_reference\rcim_original\rcim_original_console_relay.py",
+            "--working-directory", $ProjectRoot,
+            "--stdout-log-path", $stdoutLogPath,
+            "--stderr-log-path", $stderrLogPath,
+            "--combined-log-path", $combinedLogPath,
+            "--"
         )
     }
+    $argumentList += $trainingArgumentList
 
-    if (-not [string]::IsNullOrWhiteSpace($Families)) {
-        $argumentList += @("--families", $Families)
-    }
-
-    if (-not [string]::IsNullOrWhiteSpace($DataframePath)) {
-        $argumentList += @("--dataframe-path", $DataframePath)
-    }
-
-    if (-not [string]::IsNullOrWhiteSpace($BestParameterSummaryPath)) {
-        $argumentList += @("--best-parameter-summary-path", $BestParameterSummaryPath)
-    }
-
-    if ($ModeName -eq "retune") {
-        $argumentList += @("--retune-grid-search-verbose", $RetuneGridSearchVerbose)
-        $argumentList += @("--retune-cross-validate-verbose", $RetuneCrossValidateVerbose)
-    }
-
-    $commandPreview = Format-RcimOriginalCommandPreview -ExecutablePath $commandExecutablePath -ArgumentList $argumentList
-    $stdoutLogPath = Join-Path $LogsRoot ($StageName + ".stdout.log")
-    $stderrLogPath = Join-Path $LogsRoot ($StageName + ".stderr.log")
-    $combinedLogPath = Join-Path $LogsRoot ($StageName + ".combined.log")
+    $commandPreview = Format-RcimOriginalCommandPreview `
+        -ExecutablePath $(if ($useDirectEnvironmentPython) { $environmentPythonPath } else { $condaExecutablePath }) `
+        -ArgumentList $(if ($useDirectEnvironmentPython) { @("-u", "-B", "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py") + $trainingArgumentList } else { @("run", "-n", $CondaEnvironmentName, $PythonExecutable, "-u", "-B", "scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py") + $trainingArgumentList })
+    $relayCommandPreview = Format-RcimOriginalCommandPreview -ExecutablePath $commandExecutablePath -ArgumentList $argumentList
 
     Write-Host "[INFO] Stage | $StageName" -ForegroundColor Cyan
     Write-Host "[INFO] Mode | $ModeName" -ForegroundColor Cyan
@@ -146,9 +176,10 @@ function Invoke-RcimOriginalPythonStage {
     Write-Host "[INFO] Stderr Log | $stderrLogPath" -ForegroundColor Cyan
     Write-Host "[INFO] Combined Log | $combinedLogPath" -ForegroundColor Cyan
     Write-Host "[INFO] Command | $commandPreview" -ForegroundColor DarkCyan
+    Write-Host "[INFO] Relay Command | $relayCommandPreview" -ForegroundColor DarkGray
 
     if ($PrintOnly) {
-        return [pscustomobject]@{
+        $resultObject = [pscustomobject]@{
             ExitCode = 0
             StdoutLogPath = $stdoutLogPath
             StderrLogPath = $stderrLogPath
@@ -156,26 +187,27 @@ function Invoke-RcimOriginalPythonStage {
             SuppressedStdoutLineCount = 0
             SuppressedStderrLineCount = 0
         }
+        if ($null -ne $StageResult) {
+            $StageResult.Value = $resultObject
+            return
+        }
+        return $resultObject
     }
 
     $compatibilityLogLines = @(
-        "[INFO] RCIM Original Launcher Direct Console Mode",
+        "[INFO] RCIM Original Launcher Console Relay Mode",
         "[INFO] Stage | $StageName",
         "[INFO] Mode | $ModeName",
         "[INFO] Direction | $DirectionName",
         "[INFO] Stage Root | $StageRoot",
         "[INFO] Command | $commandPreview",
-        "[INFO] Native Python output is emitted directly to the terminal to preserve GridSearchCV worker progress and clean Ctrl+C behavior.",
-        "[INFO] This compatibility log is metadata-only and does not mirror the full child-process console stream line-by-line."
+        "[INFO] Relay Command | $relayCommandPreview",
+        "[INFO] Child Python output is relayed live to the terminal and mirrored into these stage log files.",
+        "[INFO] Ctrl+C is handled by the relay and forwarded to the active training child process."
     )
     Set-Content -LiteralPath $stdoutLogPath -Value $compatibilityLogLines -Encoding UTF8
     Set-Content -LiteralPath $combinedLogPath -Value $compatibilityLogLines -Encoding UTF8
-    Set-Content -LiteralPath $stderrLogPath -Value @(
-        "[INFO] RCIM Original Launcher Direct Console Mode",
-        "[INFO] Stage | $StageName",
-        "[INFO] Stderr is not captured separately in direct console mode.",
-        "[INFO] Use the live terminal session as the authoritative progress surface for this stage."
-    ) -Encoding UTF8
+    Set-Content -LiteralPath $stderrLogPath -Value $compatibilityLogLines -Encoding UTF8
 
     $exitCode = 0
     $stageInterrupted = $false
@@ -187,8 +219,6 @@ function Invoke-RcimOriginalPythonStage {
         $ErrorActionPreference = "Continue"
         $PSNativeCommandUseErrorActionPreference = $false
 
-        # Run the training stage in direct foreground mode so joblib and scikit-learn
-        # worker progress lines remain visible and Ctrl+C reaches the real child process.
         & $commandExecutablePath @argumentList
         $exitCode = $LASTEXITCODE
     }
@@ -200,10 +230,11 @@ function Invoke-RcimOriginalPythonStage {
     finally {
         $ErrorActionPreference = $previousErrorActionPreference
         $PSNativeCommandUseErrorActionPreference = $previousNativePreference
+
         Pop-Location
 
         $completionLogLines = @(
-            "[INFO] Direct Console Mode Completed | $(-not $stageInterrupted)",
+            "[INFO] Console Relay Completed | $(-not $stageInterrupted)",
             "[INFO] Stage Exit Code | $exitCode"
         )
         Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
@@ -213,7 +244,7 @@ function Invoke-RcimOriginalPythonStage {
 
     Write-Host "[INFO] Stage Exit Code | $exitCode" -ForegroundColor DarkGray
 
-    return [pscustomobject]@{
+    $resultObject = [pscustomobject]@{
         ExitCode = $exitCode
         StdoutLogPath = $stdoutLogPath
         StderrLogPath = $stderrLogPath
@@ -221,6 +252,11 @@ function Invoke-RcimOriginalPythonStage {
         SuppressedStdoutLineCount = 0
         SuppressedStderrLineCount = 0
     }
+    if ($null -ne $StageResult) {
+        $StageResult.Value = $resultObject
+        return
+    }
+    return $resultObject
 }
 
 function Get-RcimOriginalBestParameterRegistryPath {

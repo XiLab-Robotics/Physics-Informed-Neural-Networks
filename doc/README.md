@@ -99,6 +99,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-08
 
+- [technical/2026-05/2026-05-08/2026-05-08-00-57-25_rcim_original_launcher_process_relay_and_console_attachment_fix.md](./technical/2026-05/2026-05-08/2026-05-08-00-57-25_rcim_original_launcher_process_relay_and_console_attachment_fix.md)
+  Plan the second recovered-original RCIM launcher repair that fixes the
+  process relay so the PowerShell wrapper stays attached to the real training
+  stage and preserves the same live console contract as the direct Python
+  command.
 - [technical/2026-05/2026-05-08/2026-05-08-00-39-20_rcim_original_launcher_live_output_and_ctrl_c_fix.md](./technical/2026-05/2026-05-08/2026-05-08-00-39-20_rcim_original_launcher_live_output_and_ctrl_c_fix.md)
   Plan the shared recovered-original RCIM launcher fix that restores the full
   high-verbosity live retune output and clean `Ctrl+C` interruption behavior

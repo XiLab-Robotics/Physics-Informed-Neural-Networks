@@ -47,9 +47,10 @@ Each executed stage also writes:
 The shared launcher now prefers the resolved Conda environment-local
 `python.exe` for training stages and falls back to `conda run` only when the
 direct interpreter cannot be resolved.
-The shared launcher now runs the Python stage in direct foreground console mode
-so the native scikit-learn and joblib progress lines remain visible and
-`Ctrl+C` reaches the real training process cleanly.
+The shared launcher runs training stages through a foreground console relay so
+the native scikit-learn and joblib progress lines remain visible, the same
+output is mirrored into the stage log files, and `Ctrl+C` can be forwarded to
+the real training child process.
 
 Each campaign root writes:
 
@@ -157,11 +158,11 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 - The terminal keeps showing `[INFO]`, `[PROGRESS]`, `MODEL:`,
   `TRAINING START:`, `TRAINING END:`, and the scikit-learn `GridSearchCV`
   `Fitting ...` / `[CV] ...` progress lines.
-- The live terminal session is the authoritative progress surface for long
+- The live terminal session remains the fastest progress surface for long
   retune runs.
-- The stage log files remain present for compatibility and stage metadata, but
-  the direct-console launcher mode does not mirror the full child-process
-  output line-by-line into those files.
+- The stage log files now mirror the relayed child-process console output as
+  it is emitted, so `stdout`, `stderr`, and `combined` logs can be tailed
+  while the run is in progress.
 - The default retune verbosity is now intentionally high so the slowest family
   searches expose frequent `GridSearchCV` and `[CV]` progress lines.
 - Final curated model archives under

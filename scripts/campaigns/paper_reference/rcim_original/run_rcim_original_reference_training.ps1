@@ -102,7 +102,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $evalRoot | Out-Null
             }
 
-            $evalResult = Invoke-RcimOriginalPythonStage `
+            $evalResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -117,6 +118,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath $(if ($UseBuiltInTunedMap) { "" } else { $BestSummaryPath }) `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$evalResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "eval" -StageResult $evalResult -StageRoot $evalRoot
@@ -132,7 +134,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $exportRoot | Out-Null
             }
 
-            $exportResult = Invoke-RcimOriginalPythonStage `
+            $exportResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -147,6 +150,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath $(if ($UseBuiltInTunedMap) { "" } else { $BestSummaryPath }) `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$exportResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "export" -StageResult $exportResult -StageRoot $exportRoot
@@ -230,7 +234,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
             New-Item -ItemType Directory -Force -Path $retuneRoot | Out-Null
         }
 
-        $retuneResult = Invoke-RcimOriginalPythonStage `
+        $retuneResult = $null
+        Invoke-RcimOriginalPythonStage `
             -ProjectRoot $ProjectRoot `
             -CondaEnvironmentName $CondaEnvironmentName `
             -PythonExecutable $PythonExecutable `
@@ -245,6 +250,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
             -BestParameterSummaryPath "" `
             -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
             -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+            -StageResult ([ref]$retuneResult) `
             -PrintOnly:$PrintOnly
 
         Add-StageResult -StageLabel "retune" -StageResult $retuneResult -StageRoot $retuneRoot
@@ -277,7 +283,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $retuneRoot | Out-Null
             }
 
-            $retuneResult = Invoke-RcimOriginalPythonStage `
+            $retuneResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -292,6 +299,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath "" `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$retuneResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "retune" -StageResult $retuneResult -StageRoot $retuneRoot
@@ -334,7 +342,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $evalRoot | Out-Null
             }
 
-            $evalResult = Invoke-RcimOriginalPythonStage `
+            $evalResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -349,6 +358,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath "" `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$evalResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "eval" -StageResult $evalResult -StageRoot $evalRoot
@@ -365,7 +375,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $evalRoot | Out-Null
             }
 
-            $evalResult = Invoke-RcimOriginalPythonStage `
+            $evalResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -380,6 +391,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath $resolvedBestParameterSummaryPath `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$evalResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "eval" -StageResult $evalResult -StageRoot $evalRoot
@@ -398,7 +410,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $exportRoot | Out-Null
             }
 
-            $exportResult = Invoke-RcimOriginalPythonStage `
+            $exportResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -413,6 +426,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath "" `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$exportResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "export" -StageResult $exportResult -StageRoot $exportRoot
@@ -429,7 +443,8 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 New-Item -ItemType Directory -Force -Path $exportRoot | Out-Null
             }
 
-            $exportResult = Invoke-RcimOriginalPythonStage `
+            $exportResult = $null
+            Invoke-RcimOriginalPythonStage `
                 -ProjectRoot $ProjectRoot `
                 -CondaEnvironmentName $CondaEnvironmentName `
                 -PythonExecutable $PythonExecutable `
@@ -444,6 +459,7 @@ function Invoke-RcimOriginalReferenceBranchRun {
                 -BestParameterSummaryPath $resolvedBestParameterSummaryPath `
                 -RetuneGridSearchVerbose $RetuneGridSearchVerbose `
                 -RetuneCrossValidateVerbose $RetuneCrossValidateVerbose `
+                -StageResult ([ref]$exportResult) `
                 -PrintOnly:$PrintOnly
 
             Add-StageResult -StageLabel "export" -StageResult $exportResult -StageRoot $exportRoot
