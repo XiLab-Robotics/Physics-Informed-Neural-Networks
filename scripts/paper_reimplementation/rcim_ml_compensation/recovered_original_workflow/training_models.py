@@ -211,9 +211,19 @@ def _sanitize_best_parameter_payload(best_parameter_payload):
     sanitized_payload = best_parameter_payload.strip()
     sanitized_payload = re.sub(r"np\.int64\(([^)]+)\)", r"\1", sanitized_payload)
     sanitized_payload = re.sub(r"np\.float64\(([^)]+)\)", r"\1", sanitized_payload)
-    sanitized_payload = sanitized_payload.replace("estimator__n_estimator", "estimator__n_estimators")
     parsed_payload = ast.literal_eval(sanitized_payload)
-    return {parameter_name.replace("estimator__", ""): parameter_value for parameter_name, parameter_value in parsed_payload.items()}
+    normalized_payload = {}
+
+    for parameter_name, parameter_value in parsed_payload.items():
+
+        # Normalize The Known Historical Random-Forest Typo Without Corrupting Already-Correct Keys.
+        normalized_parameter_name = parameter_name
+        if normalized_parameter_name == "estimator__n_estimator":
+            normalized_parameter_name = "estimator__n_estimators"
+
+        normalized_payload[normalized_parameter_name.replace("estimator__", "")] = parameter_value
+
+    return normalized_payload
 
 def _load_best_parameter_map(best_parameter_summary_path):
 

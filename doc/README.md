@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-09
 
+- [technical/2026-05/2026-05-09/2026-05-09-12-10-13_rcim_original_best_parameter_parser_rf_recovery_fix.md](./technical/2026-05/2026-05-09/2026-05-09-12-10-13_rcim_original_best_parameter_parser_rf_recovery_fix.md)
+  Plan the narrow recovered-original RCIM parser fix that preserves completed
+  `RF` retune artifacts and restores the downstream `Eval` and `Export`
+  recovery path without re-running the expensive retune stage.
 - [technical/2026-05/2026-05-09/2026-05-09-08-54-10_track1_forward_dt_historical_replay_outcome_table_width_rebalance.md](./technical/2026-05/2026-05-09/2026-05-09-08-54-10_track1_forward_dt_historical_replay_outcome_table_width_rebalance.md)
   Plan the narrow styled-PDF refinement that equalizes the three metric
   columns and widens `Scope` in the `Historical Replay Outcome` table of the
