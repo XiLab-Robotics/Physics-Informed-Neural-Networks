@@ -1,0 +1,228 @@
+W0419 07:08:03.083000 19952 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Loading exact-paper config | config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-19_track1_xgbm_residual_cellwise_closure_campaign\004_track1_xgbm_amplitude_0_closure_attempt_04.yaml
+[INFO] Exact-paper output directory | output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-07-08-03__track1_xgbm_amplitude_0_closure_attempt_04_campaign_run
+[INFO] Building exact-paper dataset bundle
+[INFO] Exact-paper dataset ready | rows=969 targets=1 families=1 scope_mode=amplitudes_only
+[INFO] Exact-paper target scope | kinds=ampl harmonics=0 preview=fft_y_Fw_filtered_ampl_0
+[INFO] Exact-paper search settings | mode=paper_reference_grid_search grid_search_n_jobs=24 grid_search_verbose=2 grid_search_pre_dispatch=24 families=XGBM
+[INFO] Fitting family bank | XGBM
+[INFO] Family fit started | family=XGBM estimator=XGBRegressor targets=1 threadpool_limit=1 joblib_cpu_limit=system_default os_cpu_count=32
+[INFO] Family target scope | family=XGBM kinds=ampl harmonics=0 preview=fft_y_Fw_filtered_ampl_0
+[INFO] Grid search configured | family=XGBM candidates=36 parameter_count=3 n_jobs=24 verbose=2 pre_dispatch=24
+W0419 07:08:09.904000 23836 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:09.975000 33008 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.005000 34124 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.096000 38660 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.098000 3244 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.129000 3780 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.325000 12336 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.379000 2032 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.566000 14684 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.739000 37508 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.778000 18900 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.798000 27904 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.805000 12168 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.813000 38296 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.858000 37456 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.866000 11112 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.873000 35108 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.873000 17120 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.876000 37960 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.881000 27720 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.881000 20432 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.892000 23312 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.892000 22616 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 07:08:10.897000 25728 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Fitting 5 folds for each of 36 candidates, totalling 180 fits
+[DONE] Family fit complete | family=XGBM elapsed=8.21s best_score=0.9712583065032959 best_params={'estimator__colsample_bytree': 0.8, 'estimator__learning_rate': 0.2, 'estimator__max_depth': 14}
+[INFO] Evaluating family bank
+[INFO] Family evaluation started | family=XGBM targets=1
+[DONE] Family evaluation complete | family=XGBM elapsed=0.00s mean_component_mape=5.336% mean_component_mae=0.002503
+[INFO] Evaluation complete | winner=XGBM mean_component_mape=5.336%
+[INFO] Exporting ONNX family bank
+[INFO] Family ONNX export started | family=XGBM targets=1 estimator=XGBRegressor
+[WARN] Target ONNX export failed | family=XGBM target=fft_y_Fw_filtered_ampl_0 error='NoneType' object is not callable
+[DONE] Family ONNX export complete | family=XGBM elapsed=0.00s exported=0 failed=1
+[INFO] ONNX export complete | exported=0 failed=1
+[DONE] Exact paper validation summary written | output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-07-08-03__track1_xgbm_amplitude_0_closure_attempt_04_campaign_run/validation_summary.yaml
+[DONE] Exact paper Markdown report written | doc/reports/analysis/validation_checks/2026-04-19-07-08-11_paper_reimplementation_rcim_exact_model_bank_track1_xgbm_amplitude_0_closure_attempt_04_campaign_run_exact_paper_model_bank_report.md
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.5, estimator__learning_rate=0.3, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.2, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.5, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.8, estimator__learning_rate=0.3, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.0s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.1s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.1s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=18; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=16; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.2, estimator__max_depth=14; total time=   0.2s
+[CV] END estimator__colsample_bytree=0.3, estimator__learning_rate=0.01, estimator__max_depth=16; total time=   0.2s

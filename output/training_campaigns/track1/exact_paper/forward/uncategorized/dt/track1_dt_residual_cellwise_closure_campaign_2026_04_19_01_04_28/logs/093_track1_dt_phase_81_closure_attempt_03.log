@@ -1,0 +1,297 @@
+W0419 03:38:12.733000 11084 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Loading exact-paper config | config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-19_track1_dt_residual_cellwise_closure_campaign\093_track1_dt_phase_81_closure_attempt_03.yaml
+[INFO] Exact-paper output directory | output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-03-38-12__track1_dt_phase_81_closure_attempt_03_campaign_run
+[INFO] Building exact-paper dataset bundle
+[INFO] Exact-paper dataset ready | rows=969 targets=1 families=1 scope_mode=phases_only
+[INFO] Exact-paper target scope | kinds=phase harmonics=81 preview=fft_y_Fw_filtered_phase_81
+[INFO] Exact-paper search settings | mode=paper_reference_grid_search grid_search_n_jobs=24 grid_search_verbose=2 grid_search_pre_dispatch=24 families=DT
+[INFO] Fitting family bank | DT
+[INFO] Family fit started | family=DT estimator=DecisionTreeRegressor targets=1 threadpool_limit=1 joblib_cpu_limit=system_default os_cpu_count=32
+[INFO] Family target scope | family=DT kinds=phase harmonics=81 preview=fft_y_Fw_filtered_phase_81
+[INFO] Grid search configured | family=DT candidates=50 parameter_count=3 n_jobs=24 verbose=2 pre_dispatch=24
+W0419 03:38:19.397000 35004 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.762000 29384 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.805000 38524 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.808000 9240 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.808000 30852 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.856000 30268 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.903000 12908 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:19.919000 22704 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.132000 33708 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+W0419 03:38:20.252000 19328 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.281000 34120 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.362000 5604 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.411000 34408 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.411000 34284 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.431000 38612 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.431000 17840 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.441000 37848 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.473000 34996 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.473000 14756 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.473000 36956 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.482000 22860 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.489000 33024 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.492000 36800 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 03:38:20.502000 16628 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0sFitting 5 folds for each of 50 candidates, totalling 250 fits
+[DONE] Family fit complete | family=DT elapsed=7.78s best_score=0.9405361048190783 best_params={'estimator__criterion': 'squared_error', 'estimator__max_depth': 14, 'estimator__min_samples_split': 4}
+[INFO] Evaluating family bank
+[INFO] Family evaluation started | family=DT targets=1
+[DONE] Family evaluation complete | family=DT elapsed=0.00s mean_component_mape=5.704% mean_component_mae=0.058548
+[INFO] Evaluation complete | winner=DT mean_component_mape=5.704%
+[INFO] Exporting ONNX family bank
+[INFO] Family ONNX export started | family=DT targets=1 estimator=DecisionTreeRegressor
+[WARN] Target ONNX export failed | family=DT target=fft_y_Fw_filtered_phase_81 error='NoneType' object is not callable
+[DONE] Family ONNX export complete | family=DT elapsed=0.00s exported=0 failed=1
+[INFO] ONNX export complete | exported=0 failed=1
+[DONE] Exact paper validation summary written | output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-03-38-12__track1_dt_phase_81_closure_attempt_03_campaign_run/validation_summary.yaml
+[DONE] Exact paper Markdown report written | doc/reports/analysis/validation_checks/2026-04-19-03-38-20_paper_reimplementation_rcim_exact_model_bank_track1_dt_phase_81_closure_attempt_03_campaign_run_exact_paper_model_bank_report.md
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=4; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=15, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=16, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=17, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=absolute_error, estimator__max_depth=18, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=6; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=5; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=8; total time=   0.0s
+[CV] END estimator__criterion=squared_error, estimator__max_depth=14, estimator__min_samples_split=7; total time=   0.0s

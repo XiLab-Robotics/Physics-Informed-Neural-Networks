@@ -1,0 +1,245 @@
+W0427 18:40:24.767000 30248 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Loading original-dataset exact config | R:\config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\forward_open_cell_repair\svm\2026-04-27_track1_forward_svm_ampl_h40_open_cell_repair\005_track1_forward_svm_ampl_h40_open_cell_repair_attempt_05.yaml
+[INFO] Building original-dataset exact bundle
+[INFO] Original-dataset exact bundle ready | direction=forward rows=969 targets=1 families=1
+[INFO] Family fit started | family=SVR estimator=SVR targets=1 threadpool_limit=1 joblib_cpu_limit=system_default os_cpu_count=32
+[INFO] Family target scope | family=SVR kinds=ampl harmonics=40 preview=fft_y_Fw_filtered_ampl_40
+[INFO] Grid search configured | family=SVR candidates=40 parameter_count=4 n_jobs=-1 verbose=2 pre_dispatch=2*n_jobs
+W0427 18:41:11.740000 37660 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:11.792000 35772 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:11.792000 35592 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.049000 13740 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.111000 14168 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.125000 39296 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.174000 20840 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.200000 5760 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.200000 41224 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.406000 44424 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+W0427 18:41:12.500000 43936 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.540000 33864 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.544000 41844 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.554000 27104 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.573000 6116 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.573000 42208 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.747000 37928 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.853000 39336 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.892000 45796 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.929000 22784 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.931000 40696 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.947000 27892 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.954000 31332 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.954000 16680 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.954000 41376 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.954000 41244 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.964000 42780 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.964000 36184 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.964000 44284 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.975000 44844 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.975000 29524 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0427 18:41:12.979000 11052 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0sFitting 5 folds for each of 40 candidates, totalling 200 fits
+[DONE] Family fit complete | family=SVR elapsed=9.30s best_score=-0.5411718377643913 best_params={'estimator__C': 0.001, 'estimator__epsilon': 1e-06, 'estimator__gamma': 1.1e-06, 'estimator__kernel': 'rbf'}
+[INFO] Family evaluation started | family=SVR targets=1
+[DONE] Family evaluation complete | family=SVR elapsed=0.00s mean_component_mape=10.247% mean_component_mae=0.000088
+[INFO] Family ONNX export started | family=SVR targets=1 estimator=SVR
+[DONE] Family ONNX export complete | family=SVR elapsed=0.02s exported=1 failed=0
+[DONE] Original-dataset exact validation complete | summary=output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_open_cell_repair/2026-04-27-18-40-25__track1_forward_svm_ampl_h40_open_cell_repair_attempt_05_campaign_run/validation_summary.yaml report=doc/reports/analysis/validation_checks/2026-04-27-18-41-13_paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_open_cell_repair_track1_forward_svm_ampl_h40_open_cell_repair_attempt_05_campaign_run_original_dataset_exact_model_bank_report.md
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.01, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.1, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.3, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=1.0, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-06, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
+[CV] END estimator__C=0.001, estimator__epsilon=1e-05, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s

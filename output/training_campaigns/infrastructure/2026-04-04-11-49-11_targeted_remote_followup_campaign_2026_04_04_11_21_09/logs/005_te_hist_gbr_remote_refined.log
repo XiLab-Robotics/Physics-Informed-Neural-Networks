@@ -1,0 +1,12 @@
+Command: C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\python.exe C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\scripts\training\train_tree_regressor.py --config-path C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-04-04-11-49-11_005_05_hist_gbr_remote_refined.yaml
+Working Directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
+
+
+================================================================================================
+Campaign Progress 5/5 [###################-----]
+================================================================================================
+[INFO] Campaign Name | targeted_remote_followup_campaign_2026_04_04_11_21_09
+[INFO] Run Name | te_hist_gbr_remote_refined
+[INFO] Queue Config | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-04-04-11-49-11_005_05_hist_gbr_remote_refined.yaml
+[INFO] Source Config | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\remote_followup\campaigns\2026-04-04_targeted_remote_followup_campaign\05_hist_gbr_remote_refined.yaml
+[DONE] Tree regression training workflow completed | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\tree\2026-04-04-13-02-09__te_hist_gbr_remote_refined

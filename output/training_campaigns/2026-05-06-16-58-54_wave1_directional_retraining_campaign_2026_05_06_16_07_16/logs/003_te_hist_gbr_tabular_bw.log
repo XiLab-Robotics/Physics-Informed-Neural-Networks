@@ -1,0 +1,12 @@
+Command: C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_tree_regressor.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-06-16-58-54_003_03_tree_bw.yaml
+Working Directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex
+
+
+================================================================================================
+Campaign Progress 3/15 [###---------------------]
+================================================================================================
+[INFO] Campaign Name | wave1_directional_retraining_campaign_2026_05_06_16_07_16
+[INFO] Run Name | te_hist_gbr_tabular_Bw
+[INFO] Queue Config | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-06-16-58-54_003_03_tree_bw.yaml
+[INFO] Source Config | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\wave1_directional_retraining\campaigns\2026-05-06_wave1_directional_retraining_campaign\queue\03_tree_bw.yaml
+[DONE] Tree regression training workflow completed | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\tree_bw\2026-05-06-17-02-06__te_hist_gbr_tabular_bw

@@ -1,0 +1,13 @@
+﻿[INFO] Training Output Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-04-19-28-28__fw_original_bundle_unified_launcher_smoke\eval
+[INFO] Runtime Dataframe Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-04-19-28-28__fw_original_bundle_unified_launcher_smoke\eval\dataFrame_prediction_Fw_v14_newFreq.csv
+[INFO] Mode | paper_eval
+[INFO] Direction | forward
+[INFO] Families | DT
+[PROGRESS] Family 1/1 | DT | Mode paper_eval | Start
+MODEL: DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq
+TRAINING START: 2026-05-04 19:28:34.289858
+TRAINING END: 2026-05-04 19:28:34.323775
+[PROGRESS] Family 1/1 | DT | Mode paper_eval | Done | dfOutTot_prediction_DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv
+[DONE] Training Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-04-19-28-28__fw_original_bundle_unified_launcher_smoke\eval\run_summary.json
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-04-19-28-28__fw_original_bundle_unified_launcher_smoke\eval
+

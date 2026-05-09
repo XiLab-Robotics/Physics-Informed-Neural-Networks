@@ -1,0 +1,6 @@
+﻿[INFO] RCIM Original Launcher Direct Console Mode
+[INFO] Stage | retune
+[INFO] Stderr is not captured separately in direct console mode.
+[INFO] Use the live terminal session as the authoritative progress surface for this stage.
+[INFO] Direct Console Mode Completed | True
+[INFO] Stage Exit Code | 1

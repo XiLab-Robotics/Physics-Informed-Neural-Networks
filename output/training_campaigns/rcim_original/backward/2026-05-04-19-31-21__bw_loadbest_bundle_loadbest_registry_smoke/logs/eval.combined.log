@@ -1,0 +1,14 @@
+﻿[STDOUT] [INFO] Training Output Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-31-21__bw_loadbest_bundle_loadbest_registry_smoke\eval
+[STDOUT] [INFO] Runtime Dataframe Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-31-21__bw_loadbest_bundle_loadbest_registry_smoke\eval\dataFrame_prediction_Bw_v14_newFreq.csv
+[STDOUT] [INFO] Mode | paper_eval
+[STDOUT] [INFO] Direction | backward
+[STDOUT] [INFO] Families | DT
+[STDOUT] [INFO] Best-Parameter Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-31-21__bw_loadbest_bundle_loadbest_registry_smoke\resolved_best_parameter_summary.csv
+[STDOUT] [PROGRESS] Family 1/1 | DT | Mode paper_eval | Start
+[STDOUT] MODEL: DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq
+[STDOUT] TRAINING START: 2026-05-04 19:31:29.477619
+[STDOUT] TRAINING END: 2026-05-04 19:31:29.552676
+[STDOUT] [PROGRESS] Family 1/1 | DT | Mode paper_eval | Done | dfOutTot_prediction_DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv
+[STDOUT] [DONE] Training Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-31-21__bw_loadbest_bundle_loadbest_registry_smoke\eval\run_summary.json
+[STDOUT] C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-04-19-31-21__bw_loadbest_bundle_loadbest_registry_smoke\eval
+[STDOUT] 

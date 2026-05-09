@@ -1,0 +1,10 @@
+﻿[INFO] RCIM Original Launcher Direct Console Mode
+[INFO] Stage | retune
+[INFO] Mode | retune
+[INFO] Direction | backward
+[INFO] Stage Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-08-00-46-03__bw_retune_bundle_launcher_direct_console_smoke\retune
+[INFO] Command | "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode retune --direction backward --test-size 0.2 --output-root "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-08-00-46-03__bw_retune_bundle_launcher_direct_console_smoke\retune" --families DT --retune-grid-search-verbose 10 --retune-cross-validate-verbose 10
+[INFO] Native Python output is emitted directly to the terminal to preserve GridSearchCV worker progress and clean Ctrl+C behavior.
+[INFO] This compatibility log is metadata-only and does not mirror the full child-process console stream line-by-line.
+[INFO] Direct Console Mode Completed | True
+[INFO] Stage Exit Code | 1

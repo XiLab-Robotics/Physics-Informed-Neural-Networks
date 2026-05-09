@@ -1,0 +1,1236 @@
+W0419 01:59:12.527000 3204 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Loading exact-paper config | config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\campaigns\2026-04-19_track1_mlp_residual_cellwise_closure_campaign\088_track1_mlp_phase_78_closure_attempt_04.yaml
+[INFO] Exact-paper output directory | output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-01-59-12__track1_mlp_phase_78_closure_attempt_04_campaign_run
+[INFO] Building exact-paper dataset bundle
+[INFO] Exact-paper dataset ready | rows=969 targets=1 families=1 scope_mode=phases_only
+[INFO] Exact-paper target scope | kinds=phase harmonics=78 preview=fft_y_Fw_filtered_phase_78
+[INFO] Exact-paper search settings | mode=paper_reference_grid_search grid_search_n_jobs=24 grid_search_verbose=2 grid_search_pre_dispatch=24 families=MLP
+[INFO] Fitting family bank | MLP
+[INFO] Family fit started | family=MLP estimator=MLPRegressor targets=1 threadpool_limit=1 joblib_cpu_limit=system_default os_cpu_count=32
+[INFO] Family target scope | family=MLP kinds=phase harmonics=78 preview=fft_y_Fw_filtered_phase_78
+[INFO] Grid search configured | family=MLP candidates=16 parameter_count=5 n_jobs=24 verbose=2 pre_dispatch=24
+W0419 01:59:19.260000 16284 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.380000 16004 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.488000 38284 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.566000 35928 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.632000 38264 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.649000 17848 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.696000 24756 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.783000 11496 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.837000 22312 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:19.945000 9840 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.040000 37320 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.092000 22280 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.154000 37704 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.226000 10744 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.251000 12672 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.253000 35100 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.253000 38244 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.253000 3300 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.256000 17808 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.267000 8440 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.277000 36116 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.289000 11636 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.293000 17076 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0419 01:59:20.302000 5548 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_base.py:188: RuntimeWarning: overflow encountered in square
+  0.5 * np.average((y_true - y_pred) ** 2, weights=sample_weight, axis=0).mean()
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: invalid value encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_base.py:188: RuntimeWarning: overflow encountered in square
+  0.5 * np.average((y_true - y_pred) ** 2, weights=sample_weight, axis=0).mean()
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: invalid value encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:356: RuntimeWarning: overflow encountered in dot
+  values += np.dot(s, s)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\utils\extmath.py:227: RuntimeWarning: overflow encountered in matmul
+  ret = a @ b
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\sklearn\model_selection\_search.py:1148: RuntimeWarning: overflow encountered in square
+  (array - array_means[:, np.newaxis]) ** 2, axis=1, weights=weights
+Fitting 5 folds for each of 16 candidates, totalling 80 fits
+[DONE] Family fit complete | family=MLP elapsed=9.50s best_score=0.684572584758594 best_params={'estimator__activation': 'tanh', 'estimator__early_stopping': True, 'estimator__hidden_layer_sizes': (200, 50), 'estimator__learning_rate': 'adaptive', 'estimator__solver': 'adam'}
+[INFO] Evaluating family bank
+[INFO] Family evaluation started | family=MLP targets=1
+[DONE] Family evaluation complete | family=MLP elapsed=0.00s mean_component_mape=844.078% mean_component_mae=0.200309
+[INFO] Evaluation complete | winner=MLP mean_component_mape=844.078%
+[INFO] Exporting ONNX family bank
+[INFO] Family ONNX export started | family=MLP targets=1 estimator=MLPRegressor
+[WARN] Target ONNX export failed | family=MLP target=fft_y_Fw_filtered_phase_78 error='NoneType' object is not callable
+[DONE] Family ONNX export complete | family=MLP elapsed=0.00s exported=0 failed=1
+[INFO] ONNX export complete | exported=0 failed=1
+[DONE] Exact paper validation summary written | output/validation_checks/paper_reimplementation_rcim_exact_model_bank/2026-04-19-01-59-12__track1_mlp_phase_78_closure_attempt_04_campaign_run/validation_summary.yaml
+[DONE] Exact paper Markdown report written | doc/reports/analysis/validation_checks/2026-04-19-01-59-22_paper_reimplementation_rcim_exact_model_bank_track1_mlp_phase_78_closure_attempt_04_campaign_run_exact_paper_model_bank_report.md
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.9s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.0s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.0s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.9s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.2s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.4s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.2s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.8s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.6s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.5s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.4s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.0s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.4s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.5s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.8s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.5s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.6s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.5s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.6s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.6s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.4s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.8s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.1s
+[CV] END estimator__activation=tanh, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.3s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=sgd; total time=   0.0s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(100,), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.2s
+[CV] END estimator__activation=relu, estimator__early_stopping=True, estimator__hidden_layer_sizes=(200, 50), estimator__learning_rate=adaptive, estimator__solver=adam; total time=   0.8s
