@@ -1,5 +1,5 @@
 version: 1
-updated_at: '2026-05-09T08:54:29+00:00'
+updated_at: '2026-05-09T21:47:16+00:00'
 branches:
   backward:
     DT:
@@ -26,6 +26,19 @@ branches:
       source_best_parameter_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-09-09-23-24__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
       source_cross_validation_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-09-09-23-24__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
       updated_at: '2026-05-09T08:54:29+00:00'
+    SVR:
+      family_code: SVR
+      summary_family_code: SVM
+      best_parameters: '{''__rcim_svr_variant__'': ''pragmatic_linear_fallback'',
+        ''__rcim_svr_parameters__'': {''C'': 1, ''epsilon'': 0.0001, ''tol'': 0.0001,
+        ''max_iter'': 5000}}'
+      aggregate_mae_mean: 0.21652018629386194
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
+        Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-09-23-42-54__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
+        Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-09-23-42-54__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-09T21:47:16+00:00'
   forward:
     DT:
       family_code: DT
