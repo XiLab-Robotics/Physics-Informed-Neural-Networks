@@ -87,6 +87,7 @@ TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME = "report-table rep
 TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-reference-archive"
 TRACK1_FORWARD_OPEN_CELL_REPAIR_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-forward-open-cell-repair-family"
 TRACK1_FORWARD_OPEN_CELL_REPAIR_DELTA_TABLE_CLASS_NAME = "report-table report-table-track1-forward-open-cell-repair-delta"
+TRACK1_FORWARD_DT_HISTORICAL_REPLAY_OUTCOME_TABLE_CLASS_NAME = "report-table report-table-track1-forward-dt-historical-replay-outcome"
 FAMILY_BEST_RETRY_OUTCOME_TABLE_CLASS_NAME = TRACK1_FORWARD_OPEN_CELL_REPAIR_FAMILY_TABLE_CLASS_NAME
 SURFACE_DELTA_SUMMARY_TABLE_CLASS_NAME = TRACK1_FORWARD_OPEN_CELL_REPAIR_DELTA_TABLE_CLASS_NAME
 SVR_REFERENCE_GRID_RANKING_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-ranking"
@@ -818,6 +819,25 @@ REPORT_STYLESHEET = """
     .report-table-track1-interrupted-svm-candidate-gains th:nth-child(3), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(3) { width: 14%; }
     .report-table-track1-interrupted-svm-candidate-gains th:nth-child(4), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(4) { width: 14%; }
     .report-table-track1-interrupted-svm-candidate-gains th:nth-child(5), .report-table-track1-interrupted-svm-candidate-gains td:nth-child(5) { width: 23%; }
+
+    .report-table-track1-forward-dt-historical-replay-outcome {
+      font-size: 10.4px;
+    }
+
+    .report-table-track1-forward-dt-historical-replay-outcome th,
+    .report-table-track1-forward-dt-historical-replay-outcome td {
+      font-size: 10.4px;
+      line-height: 1.3;
+    }
+
+    .report-table-track1-forward-dt-historical-replay-outcome th {
+      white-space: nowrap;
+    }
+
+    .report-table-track1-forward-dt-historical-replay-outcome th:nth-child(1), .report-table-track1-forward-dt-historical-replay-outcome td:nth-child(1) { width: 43%; }
+    .report-table-track1-forward-dt-historical-replay-outcome th:nth-child(2), .report-table-track1-forward-dt-historical-replay-outcome td:nth-child(2) { width: 19%; }
+    .report-table-track1-forward-dt-historical-replay-outcome th:nth-child(3), .report-table-track1-forward-dt-historical-replay-outcome td:nth-child(3) { width: 19%; }
+    .report-table-track1-forward-dt-historical-replay-outcome th:nth-child(4), .report-table-track1-forward-dt-historical-replay-outcome td:nth-child(4) { width: 19%; }
 
     /* Reusable Cell-Repair Ranking Table Profile */
     .report-table-track1-svm-repair-ranking {
@@ -2570,6 +2590,14 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Candidate", "Run Instance", "MAE", "RMSE", "Notes")
         ):
             return TRACK1_INTERRUPTED_SVM_CANDIDATE_GAINS_TABLE_CLASS_NAME
+
+    if report_stem == "2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report":
+
+        if (
+            current_section_slug == "historical-replay-outcome"
+            and normalized_header_cells == ("Scope", "Mean MAE", "Mean RMSE", "Mean MAPE %")
+        ):
+            return TRACK1_FORWARD_DT_HISTORICAL_REPLAY_OUTCOME_TABLE_CLASS_NAME
 
     if (
         current_section_slug == "benchmark-restart-surface"

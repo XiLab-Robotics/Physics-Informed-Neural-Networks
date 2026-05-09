@@ -1,0 +1,24 @@
+schema_version: 1
+campaign_name: track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__forward_dt_search
+selection_policy:
+  primary_metric: winning_mean_component_mae_asc
+  first_tie_breaker: winning_mean_component_rmse_asc
+  second_tie_breaker: winning_mean_component_mape_percent_asc
+  third_tie_breaker: run_name
+  direction: minimize_then_lexicographic
+  note: This subset campaign-best representative is a bookkeeping convenience for the
+    completed single-family exact-paper search closeout. The parent `20`-run paper-faithful
+    campaign remains interrupted and is not reopened by this subset closeout.
+generated_at: '2026-05-08T19:53:19+02:00'
+entry_count: 1
+leaderboard:
+- run_instance_id: 2026-05-08-17-08-23__track1_paper_faithful_grid_search_forward_dt_campaign_validation
+  run_name: track1_paper_faithful_grid_search_forward_dt
+  direction_label: forward
+  winning_family: DT
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mae: 0.09549259135683207
+  winning_mean_component_rmse: 0.18607563191869084
+  winning_mean_component_mape_percent: 40.55908413166194
+  validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-08-17-08-23__track1_paper_faithful_grid_search_forward_dt_campaign_validation/validation_summary.yaml
+  config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/dt/2026-05-04_track1_forward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_dt.yaml

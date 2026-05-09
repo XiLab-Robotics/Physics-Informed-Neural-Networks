@@ -97,8 +97,19 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-09
+
+- [technical/2026-05/2026-05-09/2026-05-09-08-54-10_track1_forward_dt_historical_replay_outcome_table_width_rebalance.md](./technical/2026-05/2026-05-09/2026-05-09-08-54-10_track1_forward_dt_historical_replay_outcome_table_width_rebalance.md)
+  Plan the narrow styled-PDF refinement that equalizes the three metric
+  columns and widens `Scope` in the `Historical Replay Outcome` table of the
+  `forward + DT` paper-faithful subset closeout report.
+
 #### 2026-05-08
 
+- [technical/2026-05/2026-05-08/2026-05-08-19-50-40_track1_forward_dt_paper_faithful_search_closeout.md](./technical/2026-05/2026-05-08/2026-05-08-19-50-40_track1_forward_dt_paper_faithful_search_closeout.md)
+  Plan the closeout for the successful single-run `forward + DT + search`
+  exact-paper subset bundle without mutating the canonical interrupted state of
+  the parent `20`-run paper-faithful campaign.
 - [technical/2026-05/2026-05-08/2026-05-08-16-58-27_track1_exact_paper_write_progress_completed_activity_fix.md](./technical/2026-05/2026-05-08/2026-05-08-16-58-27_track1_exact_paper_write_progress_completed_activity_fix.md)
   Plan the narrow exact-paper wrapper fix that adds the missing `-Activity`
   argument to sub-progress `Write-Progress -Completed` calls so remote
@@ -1371,6 +1382,10 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed strict paper-faithful `SVR` final
   attempt on the residual `SVM` yellow cells, including the repeated plateau
   confirmation and the validated PDF closeout.
+- [reports/campaign_results/track1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md](./reports/campaign_results/track1/exact_paper/2026-05-08-19-53-19_track1_forward_dt_paper_faithful_search_campaign_results_report.md)
+  Final results report for the completed single-run `forward + DT + search`
+  exact-paper subset closeout, including the paper-faithful search replay
+  outcome, validated PDF export, and subset bookkeeping artifacts.
 - [reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md](./reports/campaign_results/2026-04-10-19-54-02_exact_paper_model_bank_campaign_results_report.md)
   Final results report for the completed exact-paper RCIM family-bank campaign,
   including strict-reference promotion, `SVR` surrogate diagnostics, and the

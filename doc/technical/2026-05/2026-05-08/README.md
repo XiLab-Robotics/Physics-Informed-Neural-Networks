@@ -1,5 +1,9 @@
 # 2026-05-08 Technical Notes
 
+- [2026-05-08-19-50-40_track1_forward_dt_paper_faithful_search_closeout.md](./2026-05-08-19-50-40_track1_forward_dt_paper_faithful_search_closeout.md)
+  Plan the closeout for the successful single-run `forward + DT + search`
+  exact-paper subset bundle without mutating the canonical interrupted state of
+  the parent `20`-run paper-faithful campaign.
 - [2026-05-08-16-58-27_track1_exact_paper_write_progress_completed_activity_fix.md](./2026-05-08-16-58-27_track1_exact_paper_write_progress_completed_activity_fix.md)
   Plan the narrow exact-paper wrapper fix that adds the missing `-Activity`
   argument to sub-progress `Write-Progress -Completed` calls so remote
