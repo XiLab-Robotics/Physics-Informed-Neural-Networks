@@ -1,0 +1,2 @@
+0_method;best_parameters
+RF;{'estimator__criterion': 'absolute_error', 'estimator__max_depth': np.int64(16), 'estimator__max_features': 1.0, 'estimator__min_samples_split': np.int64(6), 'estimator__n_estimators': np.int64(20)}
