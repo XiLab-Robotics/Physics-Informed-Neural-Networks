@@ -16,6 +16,7 @@ from sklearn.model_selection import GridSearchCV, ParameterGrid, cross_validate,
 from sklearn.multioutput import MultiOutputRegressor, RegressorChain
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+from sklearn.svm import LinearSVR
 from xgboost.sklearn import XGBRegressor
 
 METHOD_ACRONYMS = {
@@ -39,6 +40,17 @@ ERROR_ACRONYMS = {
     'test_neg_mean_absolute_error': 'MAE',
     'test_neg_mean_absolute_percentage_error': 'MAPE',
 }
+SVR_VARIANT_KEY = "__rcim_svr_variant__"
+SVR_VARIANT_PARAMETERS_KEY = "__rcim_svr_parameters__"
+SVR_VARIANT_RBF = "paper_faithful_rbf"
+SVR_VARIANT_LINEAR_FALLBACK = "pragmatic_linear_fallback"
+
+def _resolve_model_display_name(model):
+
+    """ Resolve one legacy wrapper display name with optional repository override. """
+
+    # Resolve the Legacy Wrapper Display Name.
+    return getattr(model, "_rcim_display_name", type(model).__name__)
 
 class MLModel:
 
@@ -49,7 +61,7 @@ class MLModel:
         # Keep the Original Wrapper Contract Intact.
         self.model = model
         self.method = method
-        self.name = type(model).__name__ + '_' + name
+        self.name = _resolve_model_display_name(model) + '_' + name
 
     def _train(self, X_train, Y_train):
         self.model.fit(X_train, Y_train)
@@ -169,7 +181,7 @@ class MLModelChainedMultipleOutput:
         # Keep the Chained Multi-Output Wrapper Contract Intact.
         self.model = RegressorChain(model)
         self.method = method
-        self.name = type(model).__name__ + '_' + name
+        self.name = _resolve_model_display_name(model) + '_' + name
 
     def _train(self, X_train, Y_train):
         self.model.fit(X_train, Y_train)
@@ -253,7 +265,7 @@ class MLModelMultipleOutput:
         # Keep the Wrapped Multi-Output Estimator Contract Intact.
         self.model = MultiOutputRegressor(model)
         self.method = method
-        self.name = type(model).__name__ + '_' + name
+        self.name = _resolve_model_display_name(model) + '_' + name
         self.retune_grid_search_verbose = retune_grid_search_verbose
         self.retune_cross_validate_verbose = retune_cross_validate_verbose
 
@@ -640,20 +652,79 @@ class MLModelMultipleOutput:
 
         elif acronym == 'SVM':
 
-            # Build the SVM Hyperparameter Grid.
-            parameters['SVM'] = {
-                     'estimator__kernel':  list(dict.fromkeys(list(['rbf','linear']) + [self.model.estimator.get_params()['kernel']])),
-                     'estimator__C':  list(dict.fromkeys(list([1,2,3,5,6,7]) + [self.model.estimator.get_params()['C']])),
-                     'estimator__epsilon': list(dict.fromkeys(list([0.0001,0.00001,0.000001,0.0000001]))),
-                     'estimator__gamma': list(dict.fromkeys(list([0.0000011]))),
-            }
+            # Preserve The Paper-Faithful RBF Branch And Replace The Historical Linear Branch With One Pragmatic LinearSVR Fallback.
+            rbf_estimator = copy.deepcopy(self.model.estimator)
+            rbf_estimator.set_params(kernel='rbf')
+            linear_fallback_estimator = Pipeline(
+                steps=[
+                    ('scaler', StandardScaler()),
+                    (
+                        'model',
+                        LinearSVR(
+                            random_state=0,
+                        ),
+                    ),
+                ]
+            )
+
+            # Build The SVM Hyperparameter Grid With the Original RBF and Linear Branches.
+            parameters['SVM'] = [
+                {
+                    'estimator': [rbf_estimator],
+                    'estimator__C':  list(dict.fromkeys(list([1,2,3,5,6,7]) + [self.model.estimator.get_params()['C']])),
+                    'estimator__epsilon': list(dict.fromkeys(list([0.0001,0.00001,0.000001,0.0000001]))),
+                    'estimator__gamma': list(dict.fromkeys(list([0.0000011]))),
+                },
+                {
+                    'estimator': [linear_fallback_estimator],
+                    'estimator__model__C':  list(dict.fromkeys(list([1,2,3,5,6,7]) + [self.model.estimator.get_params()['C']])),
+                    'estimator__model__epsilon': list(dict.fromkeys(list([0.0001,0.00001,0.000001,0.0000001]))),
+                    'estimator__model__tol': [1e-4],
+                    'estimator__model__max_iter': [5000],
+                },
+            ]
 
         return parameters[acronym]
+
+    def _serialize_best_parameter_payload(self):
+
+        """ Serialize the best-parameter payload into one literal reloadable shape. """
+
+        # Extract the Best Parameter Payload.
+        best_parameter_payload = self.model.best_params_
+
+        # Serialize the Best Parameter Payload.
+        if self.get_method_acronym(self.name) != 'SVM':
+            return best_parameter_payload
+
+        # Preserve The Paper-Faithful RBF Branch And Replace The Historical Linear Branch With One Pragmatic LinearSVR Fallback.
+        selected_estimator = best_parameter_payload.get('estimator')
+        if isinstance(selected_estimator, Pipeline):
+            return {
+                SVR_VARIANT_KEY: SVR_VARIANT_LINEAR_FALLBACK,
+                SVR_VARIANT_PARAMETERS_KEY: {
+                    'C': best_parameter_payload['estimator__model__C'],
+                    'epsilon': best_parameter_payload['estimator__model__epsilon'],
+                    'tol': best_parameter_payload['estimator__model__tol'],
+                    'max_iter': best_parameter_payload['estimator__model__max_iter'],
+                },
+            }
+
+        return {
+            SVR_VARIANT_KEY: SVR_VARIANT_RBF,
+            SVR_VARIANT_PARAMETERS_KEY: {
+                'C': best_parameter_payload['estimator__C'],
+                'epsilon': best_parameter_payload['estimator__epsilon'],
+                'gamma': best_parameter_payload['estimator__gamma'],
+                'kernel': 'rbf',
+            },
+        }
 
     def getAcronimMethod(self, fileName):
 
         """ Map the estimator name to the original report acronym. """
 
+        # Resolve The Acronym From The Class Name Fragment.
         return self.get_method_acronym(fileName)
 
     def predictorMLEvalutationOnTrain(self, dfInput, testSetDimension):
@@ -776,7 +847,8 @@ class MLModelMultipleOutput:
         # Print the Historical Training Footer and Best Parameters.
         self._emit_progress("TRAINING END: " + str(datetime.datetime.now()))
         self._emit_progress("[PROGRESS] Retune | Best Parameters")
-        print(self.model.best_params_, flush=True)
+        serialized_best_parameter_payload = self._serialize_best_parameter_payload()
+        print(serialized_best_parameter_payload, flush=True)
         pred = self._predict(X_test)
 
         # Persist the cross-validation summary exactly where the original workflow expects it.
@@ -788,7 +860,7 @@ class MLModelMultipleOutput:
         # Persist the best-parameter summary exactly where the original workflow expects it.
         self._emit_progress("[PROGRESS] Retune | Write BestParameter Summary")
         outputFileParameter = self._build_summary_output_path('summaryBestParameter+')
-        paramOut = {'0_method':self.get_method_acronym(self.name), 'best_parameters':str(self.model.best_params_)}
+        paramOut = {'0_method':self.get_method_acronym(self.name), 'best_parameters':str(serialized_best_parameter_payload)}
         paramOut = pd.DataFrame(paramOut,index=[0])
         self._append_summary_dataframe(outputFileParameter, paramOut)
         self._emit_progress("[PROGRESS] Retune | Prediction Dataframe Build")

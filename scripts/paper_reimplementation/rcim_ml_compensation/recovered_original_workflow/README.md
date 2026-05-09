@@ -240,6 +240,11 @@ This mirrors the author guidance:
 - use this when the dataset changes or is intentionally restricted;
 - default family coverage now matches the paper-reference launcher surface:
   `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`.
+- for the `SVR` family only, the repository-owned retune path now preserves the
+  paper-faithful `SVR(rbf)` branch but replaces the historical
+  `SVR(kernel="linear")` branch with `Pipeline(StandardScaler(), LinearSVR)`;
+- that `SVR` linear replacement is an explicit pragmatic fallback and not an
+  exact-paper replication.
 
 Example:
 
@@ -332,6 +337,10 @@ Shared notes:
 - when `--best-parameter-summary-path` is provided, `paper_eval` and
   `paper_export` load tuned family parameters from the retune summary CSV
   instead of using only the built-in recovered `v18` parameter map.
+- when such a retune summary selects the repository-owned `SVR` linear
+  fallback, `paper_eval`, `paper_export`, and `LoadBest` rebuild
+  `Pipeline(StandardScaler(), LinearSVR)` explicitly instead of attempting to
+  replay the historical `SVR(kernel="linear")` branch.
 
 Retune observability notes:
 
@@ -343,6 +352,9 @@ Retune observability notes:
   - summary writing;
 - the retune branch keeps the historical nested protocol unchanged, so the
   long runtime of heavy families such as `SVR` is still expected;
+- the only intentional search-protocol deviation currently in this workflow is
+  the `SVR` linear branch replacement described above; the `SVR(rbf)` branch
+  remains aligned with the recovered original surface;
 - the launcher log files are now updated during execution rather than only at
   process end.
 

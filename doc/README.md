@@ -99,6 +99,13 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-09
 
+- [technical/2026-05/2026-05-09/2026-05-09-21-15-08_rcim_original_svr_pragmatic_linear_fallback.md](./technical/2026-05/2026-05-09/2026-05-09-21-15-08_rcim_original_svr_pragmatic_linear_fallback.md)
+  Plan one explicit recovered-original workflow deviation that preserves the paper-faithful SVR RBF branch while replacing the impractical SVR linear branch with a pragmatic StandardScaler plus LinearSVR fallback for retune and best-parameter reload flows.
+- [technical/2026-05/2026-05-09/2026-05-09-13-13-36_rcim_original_svr_linear_retune_temp_diagnostics.md](./technical/2026-05/2026-05-09/2026-05-09-13-13-36_rcim_original_svr_linear_retune_temp_diagnostics.md)
+  Plan the temporary `temp/`-only diagnostic pass for the recovered-original
+  RCIM `SVR` backward retune path to test a tiny mixed `rbf` plus `linear`
+  search, estimate the runtime of the full original search, and evaluate a
+  regression-appropriate fallback such as `LinearSVR`.
 - [technical/2026-05/2026-05-09/2026-05-09-12-10-13_rcim_original_best_parameter_parser_rf_recovery_fix.md](./technical/2026-05/2026-05-09/2026-05-09-12-10-13_rcim_original_best_parameter_parser_rf_recovery_fix.md)
   Plan the narrow recovered-original RCIM parser fix that preserves completed
   `RF` retune artifacts and restores the downstream `Eval` and `Export`

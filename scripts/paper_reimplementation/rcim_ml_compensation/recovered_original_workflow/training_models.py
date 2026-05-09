@@ -4,6 +4,10 @@ import argparse, ast, re, sys
 from pathlib import Path
 
 import pandas as pd
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import LinearSVR
+from sklearn.svm import SVR
 
 try:
 
@@ -42,6 +46,55 @@ def _normalize_mode(mode):
     raise ValueError(f"Unsupported training mode: {mode}")
 
 PAPER_REFERENCE_FAMILY_CODE_LIST = ["SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "LGBM", "XGBM", "ELM"]
+SVR_VARIANT_KEY = "__rcim_svr_variant__"
+SVR_VARIANT_PARAMETERS_KEY = "__rcim_svr_parameters__"
+SVR_VARIANT_RBF = "paper_faithful_rbf"
+SVR_VARIANT_LINEAR_FALLBACK = "pragmatic_linear_fallback"
+
+def _tag_family_display_name(estimator, family_display_name):
+
+    """ Tag one estimator so the legacy wrappers keep the family-facing name. """
+
+    # Tag the Estimator so the Legacy Wrappers Keep the Family-Facing Name.
+    setattr(estimator, "_rcim_display_name", family_display_name)
+    return estimator
+
+def _build_pragmatic_linear_svr_pipeline(C=1.0, epsilon=0.0001, tol=1e-4, max_iter=5000):
+
+    """ Build the repository-owned pragmatic linear fallback for the SVR family. """
+
+    # Pragmatic Linear SVR Pipeline
+    linear_pipeline = Pipeline(
+        steps=[
+            ("scaler", StandardScaler()),
+            (
+                "model",
+                LinearSVR(
+                    C=C,
+                    epsilon=epsilon,
+                    tol=tol,
+                    max_iter=max_iter,
+                    random_state=0,
+                ),
+            ),
+        ]
+    )
+    return _tag_family_display_name(linear_pipeline, "SVR")
+
+def _build_paper_faithful_rbf_svr(C=1.0, epsilon=0.0001, gamma=1.1e-06, kernel="rbf"):
+
+    """ Build the paper-faithful tuned SVR RBF estimator. """
+
+    # Paper-Faithful SVR RBF Estimator
+    return _tag_family_display_name(
+        SVR(
+            C=C,
+            epsilon=epsilon,
+            gamma=gamma,
+            kernel=kernel,
+        ),
+        "SVR",
+    )
 
 def _configure_stream_buffering():
 
@@ -91,8 +144,8 @@ def _build_family_factory_map():
         "XGBM": lambda: __import__("xgboost.sklearn", fromlist=["XGBRegressor"]).XGBRegressor(),
         "LGBM": lambda: __import__("lightgbm", fromlist=["LGBMRegressor"]).LGBMRegressor(),
         "MLP": lambda: __import__("sklearn.neural_network", fromlist=["MLPRegressor"]).MLPRegressor(),
-        "SVR": lambda: __import__("sklearn.svm", fromlist=["SVR"]).SVR(),
-        "SVM": lambda: __import__("sklearn.svm", fromlist=["SVR"]).SVR(),
+        "SVR": lambda: _tag_family_display_name(SVR(), "SVR"),
+        "SVM": lambda: _tag_family_display_name(SVR(), "SVR"),
         "ELM": lambda: __import__("skelm", fromlist=["ELMRegressor"]).ELMRegressor(),
     }
 
@@ -103,7 +156,7 @@ def _build_paper_tuned_family_factory_map():
     return {
 
         # Support Vector Machine / Support Vector Regressor
-        "SVR": lambda: __import__("sklearn.svm", fromlist=["SVR"]).SVR(C=1, epsilon=0.0001, gamma=1.1e-06, kernel="rbf"),
+        "SVR": lambda: _build_paper_faithful_rbf_svr(C=1, epsilon=0.0001, gamma=1.1e-06, kernel="rbf"),
 
         # Artificial Neural Network
         "MLP": lambda: __import__("sklearn.neural_network", fromlist=["MLPRegressor"]).MLPRegressor(
@@ -208,10 +261,20 @@ def _sanitize_best_parameter_payload(best_parameter_payload):
 
     """ Parse the historical best-parameter string into one Python dictionary. """
 
+    # The Historical Best-Parameter Payload Is Not Always Well-Formed, So We Need To Sanitize It.
     sanitized_payload = best_parameter_payload.strip()
     sanitized_payload = re.sub(r"np\.int64\(([^)]+)\)", r"\1", sanitized_payload)
     sanitized_payload = re.sub(r"np\.float64\(([^)]+)\)", r"\1", sanitized_payload)
     parsed_payload = ast.literal_eval(sanitized_payload)
+
+    # The Payload Contains The SVR Variant Keys, We Assume It's Already Parsed.
+    if (
+        isinstance(parsed_payload, dict)
+        and SVR_VARIANT_KEY in parsed_payload
+        and SVR_VARIANT_PARAMETERS_KEY in parsed_payload
+    ):
+        return parsed_payload
+
     normalized_payload = {}
 
     for parameter_name, parameter_value in parsed_payload.items():
@@ -225,12 +288,33 @@ def _sanitize_best_parameter_payload(best_parameter_payload):
 
     return normalized_payload
 
+def _build_svr_model_from_serialized_payload(best_parameter_payload):
+
+    """ Rebuild one tuned SVR-family estimator from the retune summary payload. """
+
+    # The Payload Contains The SVR Variant Keys, We Assume It's Already Parsed.
+    svr_variant = best_parameter_payload[SVR_VARIANT_KEY]
+    svr_parameter_map = best_parameter_payload[SVR_VARIANT_PARAMETERS_KEY]
+
+    # SVR Variant Paper-Faithful RBF
+    if svr_variant == SVR_VARIANT_RBF:
+        return _build_paper_faithful_rbf_svr(**svr_parameter_map)
+
+    # SVR Variant Pragmatic Linear Fallback
+    if svr_variant == SVR_VARIANT_LINEAR_FALLBACK:
+        return _build_pragmatic_linear_svr_pipeline(**svr_parameter_map)
+
+    raise ValueError(f"Unsupported serialized SVR variant: {svr_variant}")
+
 def _load_best_parameter_map(best_parameter_summary_path):
 
     """ Load one family-to-parameter map from the retune summary CSV. """
 
+    # Read The Historical RCIM Summaries
     summary_dataframe = pd.read_csv(best_parameter_summary_path, sep=";", decimal=",")
     best_parameter_map = {}
+
+    # Load The Best-Parameter Map For Each Family
     for _, summary_row in summary_dataframe.iterrows():
         family_code = _normalize_summary_family_code(str(summary_row["0_method"]))
         best_parameter_map[family_code] = _sanitize_best_parameter_payload(str(summary_row["best_parameters"]))
@@ -240,9 +324,16 @@ def _instantiate_family_model(factory_map, family_code, best_parameter_map):
 
     """ Instantiate one family model, optionally overriding it with tuned parameters. """
 
+    # Instantiate The Family Model
     family_model = factory_map[family_code]()
     if best_parameter_map is None: return family_model
     if family_code not in best_parameter_map: raise ValueError(f"Missing tuned parameter entry for family {family_code}")
+
+    # Special Case For SVR
+    if (family_code == "SVR" and isinstance(best_parameter_map[family_code], dict) and SVR_VARIANT_KEY in best_parameter_map[family_code]):
+        return _build_svr_model_from_serialized_payload(best_parameter_map[family_code])
+
+    # Apply The Tuned Parameters
     family_model.set_params(**best_parameter_map[family_code])
     return family_model
 
@@ -258,6 +349,7 @@ def _select_family_list(mode_name, families_argument, best_parameter_summary_pat
     if best_parameter_summary_path is not None:
         best_parameter_map = _load_best_parameter_map(best_parameter_summary_path)
 
+    # Instantiate The Family Models
     instantiated_family_list = []
     resolved_family_code_list = []
     for family_code in family_code_list:
