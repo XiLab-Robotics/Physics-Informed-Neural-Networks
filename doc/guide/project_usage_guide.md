@@ -2707,7 +2707,7 @@ Current scope:
 - exact recovered family bank:
   `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`;
 - family-wise `MultiOutputRegressor` fitting;
-- one ONNX export per family and target;
+- one Python plus ONNX export per family and target;
 - target-wise winner registry for later paper-style tabulation.
 - prepared exact-paper campaign package under
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`;

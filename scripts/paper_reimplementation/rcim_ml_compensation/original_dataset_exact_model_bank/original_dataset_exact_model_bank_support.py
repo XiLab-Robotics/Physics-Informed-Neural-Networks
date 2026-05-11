@@ -530,6 +530,8 @@ def build_original_dataset_validation_report_markdown(validation_summary: dict[s
             f"- config path: `{validation_summary['config_path']}`",
             f"- output directory: `{experiment_dictionary['output_directory']}`",
             f"- model bundle: `{validation_summary['artifacts']['model_bundle_path']}`",
+            f"- python export root: `{validation_summary['onnx_export_summary']['python_export_root']}`",
+            f"- ONNX export root: `{validation_summary['onnx_export_summary']['onnx_export_root']}`",
             f"- validation summary: `{validation_summary['artifacts']['validation_summary_path']}`",
             (
                 f"- best-parameter summary: `{validation_summary['artifacts']['best_parameter_summary_path']}`"

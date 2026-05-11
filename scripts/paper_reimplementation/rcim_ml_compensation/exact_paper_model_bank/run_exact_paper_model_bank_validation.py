@@ -299,13 +299,13 @@ def run_exact_paper_model_bank_validation(
             f"{shared_training_infrastructure.format_project_relative_path(best_parameter_summary_path_written)}",
         )
 
-    # Optionally Export ONNX Artifacts
+    # Optionally Export Python And ONNX Artifacts
     if should_run_export:
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "Exporting ONNX family bank",
+            "Exporting Python+ONNX family bank",
         )
-        onnx_export_summary = exact_paper_model_bank_support.export_exact_family_onnx_bank(
+        onnx_export_summary = exact_paper_model_bank_support.export_exact_family_python_and_onnx_bank(
             dataset_bundle,
             fitted_family_model_dictionary,
             training_config,
@@ -313,15 +313,16 @@ def run_exact_paper_model_bank_validation(
         )
         failed_export_count = int(
             sum(
-                family_entry["failed_target_count"]
+                family_entry["failed_onnx_target_count"]
                 for family_entry in onnx_export_summary["family_exports"]
             )
         )
         exact_paper_model_bank_support.emit_exact_paper_progress_log(
             "INFO",
-            "ONNX export complete | "
-            f"exported={onnx_export_summary['exported_file_count']} "
-            f"failed={failed_export_count}",
+            "Python+ONNX export complete | "
+            f"python_exported={onnx_export_summary['python_exported_file_count']} "
+            f"onnx_exported={onnx_export_summary['onnx_exported_file_count']} "
+            f"onnx_failed={failed_export_count}",
         )
     else:
         onnx_export_summary = {
@@ -329,8 +330,10 @@ def run_exact_paper_model_bank_validation(
             "target_opset": int(training_config["export"]["target_opset"]),
             "export_failure_mode": str(training_config["export"].get("export_failure_mode", "continue")),
             "enable_empty_svr_constant_surrogate": bool(training_config["export"].get("enable_empty_svr_constant_surrogate", True)),
-            "export_root": shared_training_infrastructure.format_project_relative_path(output_directory / "onnx_export"),
-            "exported_file_count": 0,
+            "python_export_root": shared_training_infrastructure.format_project_relative_path(output_directory / exact_paper_model_bank_support.EXACT_PYTHON_EXPORT_ROOTNAME),
+            "python_exported_file_count": 0,
+            "onnx_export_root": shared_training_infrastructure.format_project_relative_path(output_directory / exact_paper_model_bank_support.EXACT_ONNX_EXPORT_ROOTNAME),
+            "onnx_exported_file_count": 0,
             "recovered_reference_root": None,
             "recovered_reference_file_count": 0,
             "matched_reference_relative_paths": [],

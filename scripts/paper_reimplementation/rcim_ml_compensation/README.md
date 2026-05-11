@@ -92,7 +92,7 @@ In practical operator terms, the shared exact-paper flow is:
    - target-wise historical `cross_validate(...)` replay on the best wrapped
      estimators
 5. Evaluate the trained family bank unless disabled.
-6. Export ONNX artifacts unless disabled.
+6. Export per-target Python plus ONNX artifacts unless disabled.
 7. Persist the repository-owned best-parameter summary and update the shared
    best-parameter registry.
 
@@ -142,6 +142,24 @@ The intended operator flow is:
 2. Reuse the generated `best_parameter_summary.yaml`, or rely on the shared
    registry if coverage already exists.
 3. Run `loadbest`, `eval`, or `export` without repeating the full search.
+
+## Export Artifact Contract
+
+The exact-paper export surface now mirrors the recovered original workflow more
+closely.
+
+Every exact-paper export stage materializes:
+
+- one run-level family-bank bundle:
+  `paper_family_model_bank.pkl`;
+- one per-target Python estimator artifact under `python_export/`; and
+- one per-target ONNX artifact under `onnx_export/`.
+
+This means the operator can compare the repository reimplementation against the
+recovered original workflow both through:
+
+- the repository-owned full family bundle; and
+- the original-style per-target `Python + ONNX` export surface.
 
 ## Canonical Python Commands
 

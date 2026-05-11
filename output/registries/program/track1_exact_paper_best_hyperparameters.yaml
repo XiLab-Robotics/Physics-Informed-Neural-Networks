@@ -1,0 +1,53 @@
+schema_version: 1
+updated_at: '2026-05-11T09:54:48.817237'
+entries:
+- workflow_variant: original_dataset_exact_model_bank
+  direction_label: forward
+  target_scope_mode: all
+  include_phase_zero: false
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  family_name: DT
+  best_params:
+    criterion: squared_error
+    max_depth: 14
+    max_leaf_nodes: 23
+    min_samples_split: 5
+  best_score: null
+  search_mode: paper_reference_grid_search
+  best_parameter_source: loaded_summary_or_registry
+  mean_component_mape_percent: null
+  mean_component_mae: null
+  mean_component_rmse: null
+  source_validation_summary_path: N/A
+  source_best_parameter_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-11-09-54-09__track1_paper_faithful_grid_search_forward_dt_python_onnx_alignment_check/best_parameter_summary.yaml
+  updated_at: '2026-05-11T09:54:48.816727'

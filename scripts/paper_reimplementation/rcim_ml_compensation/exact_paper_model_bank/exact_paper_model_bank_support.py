@@ -70,6 +70,8 @@ except ImportError:  # pragma: no cover - runtime dependency check
 
 EXACT_MODEL_BANK_FILENAME = "paper_family_model_bank.pkl"
 EXACT_PAPER_BEST_PARAMETER_SUMMARY_FILENAME = "best_parameter_summary.yaml"
+EXACT_PYTHON_EXPORT_ROOTNAME = "python_export"
+EXACT_ONNX_EXPORT_ROOTNAME = "onnx_export"
 EXACT_MODEL_REPORT_ROOT = shared_training_infrastructure.PROJECT_PATH / "doc" / "reports" / "analysis" / "validation_checks"
 EXACT_MODEL_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
 EXACT_PAPER_BEST_PARAMETER_REGISTRY_PATH = (
@@ -1602,7 +1604,9 @@ def fit_exact_family_model_bank(
         base_estimator = create_exact_paper_base_estimator(family_name)
         loaded_best_parameter_dictionary = None
         if best_parameter_override_map is not None and family_name in best_parameter_override_map:
-            loaded_best_parameter_dictionary = dict(best_parameter_override_map[family_name])
+            loaded_best_parameter_dictionary = normalize_loaded_exact_best_parameter_dictionary(
+                dict(best_parameter_override_map[family_name])
+            )
             base_estimator.set_params(**loaded_best_parameter_dictionary)
         if family_name == "MLP" and smoke_enabled:
             base_estimator.set_params(
@@ -1907,6 +1911,22 @@ def build_exact_target_export_name(target_name: str) -> str:
     return f"{target_kind}{harmonic_order}"
 
 
+def normalize_loaded_exact_best_parameter_dictionary(
+    loaded_best_parameter_dictionary: dict[str, Any],
+) -> dict[str, Any]:
+
+    """Normalize one stored exact-paper best-parameter dictionary for replay."""
+
+    # Strip The GridSearchCV `estimator__` Prefix Before Rebuilding The Base Estimator
+    normalized_best_parameter_dictionary: dict[str, Any] = {}
+    for parameter_name, parameter_value in loaded_best_parameter_dictionary.items():
+        normalized_parameter_name = str(parameter_name)
+        if normalized_parameter_name.startswith("estimator__"):
+            normalized_parameter_name = normalized_parameter_name.split("estimator__", 1)[1]
+        normalized_best_parameter_dictionary[normalized_parameter_name] = parameter_value
+    return normalized_best_parameter_dictionary
+
+
 def _convert_estimator_to_onnx(
     estimator: object,
     feature_count: int,
@@ -2102,14 +2122,14 @@ def _build_constant_linear_regression_export_surrogate(
     return surrogate_estimator
 
 
-def export_exact_family_onnx_bank(
+def export_exact_family_python_and_onnx_bank(
     dataset_bundle: ExactPaperDatasetBundle,
     fitted_family_model_dictionary: dict[str, MultiOutputRegressor],
     training_config: dict[str, Any],
     output_directory: Path,
 ) -> dict[str, Any]:
 
-    """Export one ONNX model per family and target when enabled.
+    """Export one Python plus ONNX model bank per family and target when enabled.
 
     Args:
         dataset_bundle: Prepared paper-faithful train/test bundle.
@@ -2119,8 +2139,8 @@ def export_exact_family_onnx_bank(
         output_directory: Immutable validation artifact directory.
 
     Returns:
-        Dictionary summarizing export status, generated files, and comparison
-        against the recovered ONNX release when configured.
+        Dictionary summarizing Python and ONNX export status, generated files,
+        and comparison against the recovered ONNX release when configured.
     """
 
     # Resolve Export Configuration
@@ -2135,8 +2155,10 @@ def export_exact_family_onnx_bank(
     enable_empty_svr_constant_surrogate = bool(
         export_config.get("enable_empty_svr_constant_surrogate", True)
     )
-    export_root = output_directory / "onnx_export"
-    export_root.mkdir(parents=True, exist_ok=True)
+    python_export_root = output_directory / EXACT_PYTHON_EXPORT_ROOTNAME
+    onnx_export_root = output_directory / EXACT_ONNX_EXPORT_ROOTNAME
+    python_export_root.mkdir(parents=True, exist_ok=True)
+    onnx_export_root.mkdir(parents=True, exist_ok=True)
 
     # Build Optional Recovered Reference File Index
     recovered_reference_root_value = str(training_config["paths"].get("exact_onnx_reference_root", "")).strip()
@@ -2159,8 +2181,10 @@ def export_exact_family_onnx_bank(
             "target_opset": target_opset,
             "export_failure_mode": export_failure_mode,
             "enable_empty_svr_constant_surrogate": enable_empty_svr_constant_surrogate,
-            "export_root": shared_training_infrastructure.format_project_relative_path(export_root),
-            "exported_file_count": 0,
+            "python_export_root": shared_training_infrastructure.format_project_relative_path(python_export_root),
+            "python_exported_file_count": 0,
+            "onnx_export_root": shared_training_infrastructure.format_project_relative_path(onnx_export_root),
+            "onnx_exported_file_count": 0,
             "recovered_reference_root": shared_training_infrastructure.format_project_relative_path(recovered_reference_root),
             "recovered_reference_file_count": len(recovered_relative_path_set),
             "matched_reference_relative_paths": [],
@@ -2171,7 +2195,8 @@ def export_exact_family_onnx_bank(
 
     # Export Each Family Target Estimator
     family_export_list: list[dict[str, Any]] = []
-    exported_relative_path_set: set[str] = set()
+    exported_onnx_relative_path_set: set[str] = set()
+    exported_python_relative_path_set: set[str] = set()
     for family_name in EXACT_FAMILY_ORDER:
         if family_name not in fitted_family_model_dictionary:
             continue
@@ -2179,13 +2204,15 @@ def export_exact_family_onnx_bank(
         # Resolve Output Family Folder
         family_export_start_time = time.perf_counter()
         wrapped_estimator = fitted_family_model_dictionary[family_name]
-        family_directory = export_root / family_name
-        family_directory.mkdir(parents=True, exist_ok=True)
+        family_python_directory = python_export_root / family_name
+        family_onnx_directory = onnx_export_root / family_name
+        family_python_directory.mkdir(parents=True, exist_ok=True)
+        family_onnx_directory.mkdir(parents=True, exist_ok=True)
         estimator_name = EXACT_FAMILY_ESTIMATOR_NAME_MAP[family_name]
         exported_target_list: list[dict[str, Any]] = []
         emit_exact_paper_progress_log(
             "INFO",
-            "Family ONNX export started | "
+            "Family Python+ONNX export started | "
             f"family={family_name} "
             f"targets={len(dataset_bundle.target_name_list)} "
             f"estimator={estimator_name}",
@@ -2195,8 +2222,16 @@ def export_exact_family_onnx_bank(
         for target_index, target_name in enumerate(dataset_bundle.target_name_list):
             per_target_estimator = wrapped_estimator.estimators_[target_index]
             export_target_name = build_exact_target_export_name(target_name)
-            export_filename = f"{estimator_name}_{export_target_name}.onnx"
-            export_path = family_directory / export_filename
+            python_export_filename = f"{estimator_name}_{export_target_name}.pkl"
+            python_export_path = family_python_directory / python_export_filename
+            onnx_export_filename = f"{estimator_name}_{export_target_name}.onnx"
+            onnx_export_path = family_onnx_directory / onnx_export_filename
+
+            # Mirror The Recovered Original Workflow By Persisting The Python Artifact First
+            with python_export_path.open("wb") as output_file:
+                pickle.dump(per_target_estimator, output_file)
+            exported_python_relative_path = python_export_path.relative_to(python_export_root).as_posix()
+            exported_python_relative_path_set.add(exported_python_relative_path)
             try:
                 # Build An Export-Safe Estimator Representation
                 export_estimator = per_target_estimator
@@ -2220,18 +2255,21 @@ def export_exact_family_onnx_bank(
                     estimator_name=export_estimator_name,
                     target_opset=target_opset,
                 )
-                with export_path.open("wb") as output_file:
+                with onnx_export_path.open("wb") as output_file:
                     output_file.write(onnx_model.SerializeToString())
 
-                exported_relative_path = export_path.relative_to(export_root).as_posix()
-                exported_relative_path_set.add(exported_relative_path)
+                exported_onnx_relative_path = onnx_export_path.relative_to(onnx_export_root).as_posix()
+                exported_onnx_relative_path_set.add(exported_onnx_relative_path)
                 exported_target_list.append(
                     {
                         "target_name": target_name,
                         "export_target_name": export_target_name,
-                        "export_path": shared_training_infrastructure.format_project_relative_path(export_path),
-                        "file_size_bytes": int(export_path.stat().st_size),
-                        "export_status": "exported",
+                        "python_export_path": shared_training_infrastructure.format_project_relative_path(python_export_path),
+                        "python_file_size_bytes": int(python_export_path.stat().st_size),
+                        "python_export_status": "exported",
+                        "onnx_export_path": shared_training_infrastructure.format_project_relative_path(onnx_export_path),
+                        "onnx_file_size_bytes": int(onnx_export_path.stat().st_size),
+                        "onnx_export_status": "exported",
                         "surrogate_strategy": surrogate_strategy,
                         "export_estimator_name": export_estimator_name,
                     }
@@ -2241,9 +2279,12 @@ def export_exact_family_onnx_bank(
                     {
                         "target_name": target_name,
                         "export_target_name": export_target_name,
-                        "export_path": shared_training_infrastructure.format_project_relative_path(export_path),
-                        "file_size_bytes": 0,
-                        "export_status": "failed",
+                        "python_export_path": shared_training_infrastructure.format_project_relative_path(python_export_path),
+                        "python_file_size_bytes": int(python_export_path.stat().st_size),
+                        "python_export_status": "exported",
+                        "onnx_export_path": shared_training_infrastructure.format_project_relative_path(onnx_export_path),
+                        "onnx_file_size_bytes": 0,
+                        "onnx_export_status": "failed",
                         "surrogate_strategy": "none",
                         "export_estimator_name": estimator_name,
                         "error_message": _build_compact_export_error_message(export_error),
@@ -2251,7 +2292,7 @@ def export_exact_family_onnx_bank(
                 )
                 emit_exact_paper_progress_log(
                     "WARN",
-                    "Target ONNX export failed | "
+                    "Target ONNX export failed after Python export succeeded | "
                     f"family={family_name} "
                     f"target={target_name} "
                     f"error={_build_compact_export_error_message(export_error)}",
@@ -2262,44 +2303,52 @@ def export_exact_family_onnx_bank(
                         f"family={family_name} target={target_name}"
                     ) from export_error
 
-        exported_target_count = int(
-            sum(1 for entry in exported_target_list if entry["export_status"] == "exported")
+        python_exported_target_count = int(
+            sum(1 for entry in exported_target_list if entry["python_export_status"] == "exported")
         )
-        failed_target_count = int(
-            sum(1 for entry in exported_target_list if entry["export_status"] == "failed")
+        onnx_exported_target_count = int(
+            sum(1 for entry in exported_target_list if entry["onnx_export_status"] == "exported")
+        )
+        failed_onnx_target_count = int(
+            sum(1 for entry in exported_target_list if entry["onnx_export_status"] == "failed")
         )
         family_export_list.append(
             {
                 "family_name": family_name,
                 "display_name": EXACT_FAMILY_DISPLAY_NAME_MAP[family_name],
                 "estimator_name": estimator_name,
-                "export_directory": shared_training_infrastructure.format_project_relative_path(family_directory),
-                "exported_target_count": exported_target_count,
-                "failed_target_count": failed_target_count,
+                "python_export_directory": shared_training_infrastructure.format_project_relative_path(family_python_directory),
+                "onnx_export_directory": shared_training_infrastructure.format_project_relative_path(family_onnx_directory),
+                "python_exported_target_count": python_exported_target_count,
+                "onnx_exported_target_count": onnx_exported_target_count,
+                "failed_onnx_target_count": failed_onnx_target_count,
                 "exported_targets": exported_target_list,
             }
         )
         emit_exact_paper_progress_log(
             "DONE",
-            "Family ONNX export complete | "
+            "Family Python+ONNX export complete | "
             f"family={family_name} "
             f"elapsed={format_exact_elapsed_seconds(time.perf_counter() - family_export_start_time)} "
-            f"exported={exported_target_count} "
-            f"failed={failed_target_count}",
+            f"python_exported={python_exported_target_count} "
+            f"onnx_exported={onnx_exported_target_count} "
+            f"onnx_failed={failed_onnx_target_count}",
         )
 
     # Compare Export Surface Against The Recovered ONNX Release
-    matched_reference_relative_path_list = sorted(exported_relative_path_set.intersection(recovered_relative_path_set))
-    missing_against_reference_relative_path_list = sorted(recovered_relative_path_set.difference(exported_relative_path_set))
-    extra_export_relative_path_list = sorted(exported_relative_path_set.difference(recovered_relative_path_set))
+    matched_reference_relative_path_list = sorted(exported_onnx_relative_path_set.intersection(recovered_relative_path_set))
+    missing_against_reference_relative_path_list = sorted(recovered_relative_path_set.difference(exported_onnx_relative_path_set))
+    extra_export_relative_path_list = sorted(exported_onnx_relative_path_set.difference(recovered_relative_path_set))
 
     return {
         "enabled": True,
         "target_opset": target_opset,
         "export_failure_mode": export_failure_mode,
         "enable_empty_svr_constant_surrogate": enable_empty_svr_constant_surrogate,
-        "export_root": shared_training_infrastructure.format_project_relative_path(export_root),
-        "exported_file_count": len(exported_relative_path_set),
+        "python_export_root": shared_training_infrastructure.format_project_relative_path(python_export_root),
+        "python_exported_file_count": len(exported_python_relative_path_set),
+        "onnx_export_root": shared_training_infrastructure.format_project_relative_path(onnx_export_root),
+        "onnx_exported_file_count": len(exported_onnx_relative_path_set),
         "recovered_reference_root": shared_training_infrastructure.format_project_relative_path(recovered_reference_root),
         "recovered_reference_file_count": len(recovered_relative_path_set),
         "matched_reference_relative_paths": matched_reference_relative_path_list,
@@ -2691,7 +2740,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
     extra_export_count = len(onnx_export_summary["extra_export_relative_paths"])
     failed_export_count = int(
         sum(
-            family_entry["failed_target_count"]
+            family_entry["failed_onnx_target_count"]
             for family_entry in onnx_export_summary["family_exports"]
         )
     )
@@ -2849,18 +2898,20 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
         "| ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
         *table6_row_list,
         "",
-        "## ONNX Export Surface",
+        "## Python And ONNX Export Surface",
         "",
         f"- export enabled: `{onnx_export_summary['enabled']}`;",
-        f"- export root: `{onnx_export_summary['export_root']}`;",
-        f"- exported file count: `{onnx_export_summary['exported_file_count']}`;",
+        f"- python export root: `{onnx_export_summary['python_export_root']}`;",
+        f"- python exported file count: `{onnx_export_summary['python_exported_file_count']}`;",
+        f"- ONNX export root: `{onnx_export_summary['onnx_export_root']}`;",
+        f"- ONNX exported file count: `{onnx_export_summary['onnx_exported_file_count']}`;",
         f"- export failure mode: `{onnx_export_summary['export_failure_mode']}`;",
         f"- recovered reference file count: `{onnx_export_summary['recovered_reference_file_count']}`;",
         f"- matched relative paths: `{matched_reference_count}`;",
-        f"- missing against recovered reference: `{missing_reference_count}`;",
-        f"- extra exported relative paths: `{extra_export_count}`;",
-        f"- failed exports: `{failed_export_count}`;",
-        f"- surrogate exports: `{surrogate_export_count}`;",
+        f"- missing against recovered ONNX reference: `{missing_reference_count}`;",
+        f"- extra exported ONNX relative paths: `{extra_export_count}`;",
+        f"- failed ONNX exports: `{failed_export_count}`;",
+        f"- surrogate ONNX exports: `{surrogate_export_count}`;",
         "",
         "## Runtime Dependencies",
         "",

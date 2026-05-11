@@ -97,6 +97,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-11
+
+- [technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md)
+  Plan the exact-paper export alignment that restores recovered-original-style
+  per-target Python plus ONNX export artifacts instead of ONNX-only per-target
+  exports.
+
 #### 2026-05-09
 
 - [technical/2026-05/2026-05-09/2026-05-09-21-15-08_rcim_original_svr_pragmatic_linear_fallback.md](./technical/2026-05/2026-05-09/2026-05-09-21-15-08_rcim_original_svr_pragmatic_linear_fallback.md)
