@@ -47,6 +47,13 @@ except ImportError:  # pragma: no cover - runtime dependency check
     LGBMRegressor = None
 
 try:
+    from skelm import ELMRegressor
+    from skelm.utils import HiddenLayerType
+except ImportError:  # pragma: no cover - runtime dependency check
+    ELMRegressor = None
+    HiddenLayerType = None
+
+try:
     from onnxconverter_common.data_types import FloatTensorType as ONNX_FLOAT_TENSOR_TYPE
     from onnxmltools.convert import convert_lightgbm
     from onnxmltools.convert import convert_xgboost
@@ -57,14 +64,34 @@ except ImportError:  # pragma: no cover - runtime dependency check
 
 try:
     from skl2onnx import convert_sklearn
+    from skl2onnx import update_registered_converter
+    from skl2onnx.algebra.onnx_ops import OnnxConcat
+    from skl2onnx.algebra.onnx_ops import OnnxGemm
+    from skl2onnx.algebra.onnx_ops import OnnxIdentity
+    from skl2onnx.algebra.onnx_ops import OnnxMatMul
+    from skl2onnx.algebra.onnx_ops import OnnxRelu
+    from skl2onnx.algebra.onnx_ops import OnnxSigmoid
+    from skl2onnx.algebra.onnx_ops import OnnxTanh
     from skl2onnx.common.data_types import FloatTensorType
     from skl2onnx.common import tree_ensemble as skl2onnx_tree_ensemble
+    from skl2onnx.common.data_types import guess_numpy_type
+    from skl2onnx.common.shape_calculator import calculate_linear_regressor_output_shapes
     from skl2onnx.operator_converters import random_forest as skl2onnx_random_forest_converter
 except ImportError:  # pragma: no cover - runtime dependency check
     FloatTensorType = None
     convert_sklearn = None
+    update_registered_converter = None
+    OnnxConcat = None
+    OnnxGemm = None
+    OnnxIdentity = None
+    OnnxMatMul = None
+    OnnxRelu = None
+    OnnxSigmoid = None
+    OnnxTanh = None
     skl2onnx_tree_ensemble = None
     skl2onnx_random_forest_converter = None
+    guess_numpy_type = None
+    calculate_linear_regressor_output_shapes = None
 
 try:
     from xgboost import XGBRegressor
@@ -108,6 +135,19 @@ EXACT_FAMILY_ORDER = [
     "HGBM",
     "XGBM",
     "LGBM",
+    "ELM",
+]
+EXACT_PAPER_REFERENCE_FAMILY_ORDER = [
+    "SVR",
+    "MLP",
+    "RF",
+    "DT",
+    "ET",
+    "ERT",
+    "GBM",
+    "HGBM",
+    "XGBM",
+    "LGBM",
 ]
 EXACT_FAMILY_DISPLAY_NAME_MAP = {
     "SVR": "Support Vector Regressor",
@@ -120,6 +160,7 @@ EXACT_FAMILY_DISPLAY_NAME_MAP = {
     "HGBM": "HistGradientBoosting",
     "XGBM": "XGBoost",
     "LGBM": "LightGBM",
+    "ELM": "Extreme Learning Machine",
 }
 EXACT_FAMILY_ESTIMATOR_NAME_MAP = {
     "SVR": "SVR",
@@ -132,6 +173,7 @@ EXACT_FAMILY_ESTIMATOR_NAME_MAP = {
     "HGBM": "HistGradientBoostingRegressor",
     "XGBM": "XGBRegressor",
     "LGBM": "LGBMRegressor",
+    "ELM": "ELMRegressor",
 }
 EXACT_SVR_VARIANT_KEY = "__rcim_svr_variant__"
 EXACT_SVR_VARIANT_PARAMETERS_KEY = "__rcim_svr_parameters__"
@@ -161,7 +203,9 @@ EXACT_PAPER_FAMILY_NAME_ALIAS_MAP = {
     "HGBM": "HGBM",
     "XGBM": "XGBM",
     "LGBM": "LGBM",
+    "ELM": "ELM",
 }
+ELM_ONNX_CONVERTER_REGISTERED = False
 EXACT_PAPER_TABLE3_HARMONIC_ORDER_LIST = [0, 1, 3, 39, 40, 78, 81, 156, 162, 240]
 EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST = [1, 3, 39, 40, 78, 81, 156, 162, 240]
 EXACT_PAPER_TABLE3_RMSE_AMPLITUDE_MAP = {
@@ -344,6 +388,19 @@ def build_exact_pragmatic_linear_svr_pipeline(
     )
 
 
+def build_repo_quiet_lgbm_regressor(**parameter_payload: Any) -> LGBMRegressor:
+
+    """Build one repo-owned quiet `LGBMRegressor` for exact-paper training."""
+
+    _assert_optional_dependency(LGBMRegressor, "lightgbm")
+    base_parameter_payload = {
+        "verbosity": -1,
+        "force_col_wise": True,
+    }
+    base_parameter_payload.update(parameter_payload)
+    return LGBMRegressor(**base_parameter_payload)
+
+
 def is_exact_svr_variant_payload(best_parameter_dictionary: dict[str, Any]) -> bool:
 
     """Return whether one exact-paper best-parameter dictionary encodes an SVR variant."""
@@ -404,6 +461,128 @@ def serialize_exact_best_parameter_payload(
             "kernel": "rbf",
         },
     }
+
+
+def resolve_exact_export_feature_count(
+    estimator: object,
+    fallback_feature_count: int | None = None,
+) -> int:
+
+    """Resolve one fitted estimator feature-count for exact-paper ONNX export."""
+
+    if hasattr(estimator, "n_features_in_"):
+        return int(getattr(estimator, "n_features_in_"))
+
+    if hasattr(estimator, "n_features_"):
+        return int(getattr(estimator, "n_features_"))
+
+    assert fallback_feature_count is not None, (
+        f"{type(estimator).__name__} does not expose one fitted feature-count attribute "
+        "and no fallback feature count was provided."
+    )
+    return int(fallback_feature_count)
+
+
+def build_exact_elm_hidden_layer_node(
+    input_node: Any,
+    hidden_layer: Any,
+    dtype: Any,
+    op_version: int,
+) -> Any:
+
+    """Build one ONNX hidden-layer node for the supported fitted ELM surface."""
+
+    if HiddenLayerType is not None and hidden_layer.hidden_layer_ == HiddenLayerType.PAIRWISE:
+        raise NotImplementedError(
+            "Pairwise ELM hidden layers are not supported by the repo-owned exact-paper ONNX converter."
+        )
+
+    projection_components = hidden_layer.projection_.components_
+    if hasattr(projection_components, "toarray"):
+        projection_components = projection_components.toarray()
+    projection_components = np.asarray(projection_components, dtype=dtype)
+
+    projected_node = OnnxMatMul(
+        input_node,
+        projection_components.T,
+        op_version=op_version,
+    )
+
+    hidden_ufunc = getattr(hidden_layer, "ufunc", None)
+    if hidden_ufunc == "tanh":
+        return OnnxTanh(projected_node, op_version=op_version)
+    if hidden_ufunc == "sigm":
+        return OnnxSigmoid(projected_node, op_version=op_version)
+    if hidden_ufunc == "relu":
+        return OnnxRelu(projected_node, op_version=op_version)
+    if hidden_ufunc in ("lin", None):
+        return OnnxIdentity(projected_node, op_version=op_version)
+
+    raise NotImplementedError(f"Unsupported ELM activation for exact-paper ONNX export | {hidden_ufunc}")
+
+
+def convert_exact_elm_regressor_to_onnx(
+    scope: Any,
+    operator: Any,
+    container: Any,
+) -> None:
+
+    """Convert one fitted `ELMRegressor` into the repo-owned exact-paper ONNX graph."""
+
+    fitted_estimator = operator.raw_operator
+    input_node = operator.inputs[0]
+    op_version = container.target_opset
+    dtype = guess_numpy_type(input_node.type)
+
+    hidden_layer_node_list = [
+        build_exact_elm_hidden_layer_node(input_node, hidden_layer, dtype, op_version)
+        for hidden_layer in fitted_estimator.hidden_layers_
+    ]
+
+    if fitted_estimator.include_original_features:
+        hidden_layer_node_list = [input_node] + hidden_layer_node_list
+
+    if len(hidden_layer_node_list) == 1:
+        hidden_representation_node = hidden_layer_node_list[0]
+    else:
+        hidden_representation_node = OnnxConcat(*hidden_layer_node_list, axis=1, op_version=op_version)
+
+    coefficient_matrix = np.asarray(fitted_estimator.solver_.coef_, dtype=dtype)
+    if coefficient_matrix.ndim == 1:
+        coefficient_matrix = coefficient_matrix.reshape((-1, 1))
+    intercept_vector = np.asarray(fitted_estimator.solver_.intercept_, dtype=dtype)
+
+    output_node = OnnxGemm(
+        hidden_representation_node,
+        coefficient_matrix,
+        intercept_vector,
+        alpha=1.0,
+        beta=1.0,
+        transB=0,
+        op_version=op_version,
+        output_names=operator.outputs[:1],
+    )
+    output_node.add_to(scope, container)
+
+
+def register_exact_elm_onnx_converter_if_needed() -> None:
+
+    """Register the repo-owned exact-paper `ELMRegressor` ONNX converter once."""
+
+    global ELM_ONNX_CONVERTER_REGISTERED
+
+    if ELMRegressor is None or ELM_ONNX_CONVERTER_REGISTERED:
+        return
+
+    _assert_optional_dependency(update_registered_converter, "skl2onnx")
+    _assert_optional_dependency(calculate_linear_regressor_output_shapes, "skl2onnx")
+    update_registered_converter(
+        ELMRegressor,
+        "RCIMELMRegressor",
+        calculate_linear_regressor_output_shapes,
+        convert_exact_elm_regressor_to_onnx,
+    )
+    ELM_ONNX_CONVERTER_REGISTERED = True
 
 
 def resolve_exact_paper_workflow_stage(stage_name: str | None) -> str:
@@ -1212,11 +1391,17 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
         )
 
     if family_name == "LGBM":
-        _assert_optional_dependency(LGBMRegressor, "lightgbm")
-        return LGBMRegressor(
+        return build_repo_quiet_lgbm_regressor(
             learning_rate=0.39,
             max_depth=12,
             subsample=0.1,
+            random_state=0,
+        )
+
+    if family_name == "ELM":
+        _assert_optional_dependency(ELMRegressor, "skelm")
+        return ELMRegressor(
+            n_neurons=250,
             random_state=0,
         )
 
@@ -1643,6 +1828,26 @@ def build_exact_paper_reference_parameter_grid(
                 dict.fromkeys(
                     [0.1, 0.3, 0.5, 0.8, _resolve_float_grid_value(estimator_parameters, "subsample", 0.1)]
                 )
+            ),
+        }
+
+    if family_name == "ELM":
+        return {
+            "estimator__n_neurons": list(
+                dict.fromkeys(
+                    [100, 250, 500]
+                    + (
+                        [int(estimator_parameters["n_neurons"])]
+                        if estimator_parameters.get("n_neurons") is not None
+                        else []
+                    )
+                )
+            ),
+            "estimator__alpha": list(
+                dict.fromkeys([1e-7, 1e-5, 1e-3, float(estimator_parameters["alpha"])])
+            ),
+            "estimator__ufunc": list(
+                dict.fromkeys(["tanh", str(estimator_parameters["ufunc"])])
             ),
         }
 
@@ -2089,6 +2294,8 @@ def _convert_estimator_to_onnx(
     if estimator_name not in ["XGBRegressor", "LGBMRegressor"]:
         _assert_optional_dependency(convert_sklearn, "skl2onnx")
         _assert_optional_dependency(FloatTensorType, "skl2onnx")
+        if ELMRegressor is not None and isinstance(estimator, ELMRegressor):
+            register_exact_elm_onnx_converter_if_needed()
         initial_types = [("float_input", FloatTensorType([None, feature_count]))]
         return convert_sklearn(estimator, initial_types=initial_types, target_opset=target_opset)
 
@@ -2390,9 +2597,13 @@ def export_exact_family_python_and_onnx_bank(
 
                 # Convert And Persist One ONNX Target Artifact
                 export_estimator_name = type(export_estimator).__name__
+                export_feature_count = resolve_exact_export_feature_count(
+                    export_estimator,
+                    fallback_feature_count=len(dataset_bundle.feature_name_list),
+                )
                 onnx_model = _convert_estimator_to_onnx(
                     export_estimator,
-                    feature_count=len(dataset_bundle.feature_name_list),
+                    feature_count=export_feature_count,
                     estimator_name=export_estimator_name,
                     target_opset=target_opset,
                 )
@@ -2786,7 +2997,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
 
     # Build Canonical Table 3 Comparison Rows
     table3_row_list: list[str] = []
-    for paper_family_name in EXACT_FAMILY_ORDER:
+    for paper_family_name in EXACT_PAPER_REFERENCE_FAMILY_ORDER:
         paper_display_family_name = "SVM" if paper_family_name == "SVR" else paper_family_name
         paper_metric_dictionary = EXACT_PAPER_TABLE3_RMSE_AMPLITUDE_MAP[paper_display_family_name]
         metric_cell_list = [format_exact_paper_metric_value(paper_metric_dictionary[harmonic_order]) for harmonic_order in EXACT_PAPER_TABLE3_HARMONIC_ORDER_LIST]
@@ -2809,7 +3020,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
 
     # Build Canonical Table 4 Comparison Rows
     table4_row_list: list[str] = []
-    for paper_family_name in EXACT_FAMILY_ORDER:
+    for paper_family_name in EXACT_PAPER_REFERENCE_FAMILY_ORDER:
         paper_display_family_name = "SVM" if paper_family_name == "SVR" else paper_family_name
         paper_metric_dictionary = EXACT_PAPER_TABLE4_MAE_PHASE_MAP[paper_display_family_name]
         metric_cell_list = [format_exact_paper_metric_value(paper_metric_dictionary[harmonic_order]) for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST]
@@ -2832,7 +3043,7 @@ def build_exact_model_report_markdown(validation_summary: dict[str, Any]) -> str
 
     # Build Canonical Table 5 Comparison Rows
     table5_row_list: list[str] = []
-    for paper_family_name in EXACT_FAMILY_ORDER:
+    for paper_family_name in EXACT_PAPER_REFERENCE_FAMILY_ORDER:
         paper_display_family_name = "SVM" if paper_family_name == "SVR" else paper_family_name
         paper_metric_dictionary = EXACT_PAPER_TABLE5_RMSE_PHASE_MAP[paper_display_family_name]
         metric_cell_list = [format_exact_paper_metric_value(paper_metric_dictionary[harmonic_order]) for harmonic_order in EXACT_PAPER_TABLE45_HARMONIC_ORDER_LIST]

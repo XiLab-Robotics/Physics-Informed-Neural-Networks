@@ -22,7 +22,7 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $ActiveCampaignPath = Join-Path $ProjectRoot "doc\running\active_training_campaign.yaml"
 $RunnerPath = Join-Path $ProjectRoot "scripts\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\run_original_dataset_exact_model_bank_validation.py"
-$ExactPaperFamilyOrder = @("SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "XGBM", "LGBM")
+$ExactPaperFamilyOrder = @("SVR", "MLP", "RF", "DT", "ET", "ERT", "GBM", "HGBM", "XGBM", "LGBM", "ELM")
 . (Join-Path $ProjectRoot "scripts\campaigns\infrastructure\shared_streaming_campaign_launcher.ps1")
 Set-Location $ProjectRoot
 

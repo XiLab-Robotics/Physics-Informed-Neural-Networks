@@ -17,3 +17,12 @@
   Plan the narrow recovered-original RCIM `LGBM` retune fix that suppresses
   unusable LightGBM log flooding while preserving repository-owned progress
   lines and persistent failure capture.
+- [2026-05-11-16-26-01_track1_exact_paper_elm_export_hardening_and_quiet_lgbm.md](./2026-05-11-16-26-01_track1_exact_paper_elm_export_hardening_and_quiet_lgbm.md)
+  Plan the Track 1 exact-paper alignment that ports the recovered-original
+  export hardening for ELM-like estimators into the shared exporter and adopts
+  the quieter repository-owned `LGBMRegressor` factory for the active Track 1
+  `LGBM` family.
+- [2026-05-11-16-28-59_track1_exact_paper_add_elm_and_quiet_lgbm.md](./2026-05-11-16-28-59_track1_exact_paper_add_elm_and_quiet_lgbm.md)
+  Superseding plan for promoting `ELM` into the canonical Track 1 exact-paper
+  family bank while also adopting the quieter repository-owned
+  `LGBMRegressor` factory.

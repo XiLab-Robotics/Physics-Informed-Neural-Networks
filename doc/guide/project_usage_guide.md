@@ -2647,7 +2647,7 @@ PowerShell launcher also now exposes a family-and-stage operator surface closer
 to the recovered-original RCIM launcher:
 
 - `-Direction Forward|Backward|Both`
-- `-Family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM`
+- `-Family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM|ELM`
 - `-Families "MLP"` or `-Families "MLP,RF,GBM"`
 - `-Stage Search|Eval|Export|LoadBest`
 - `-Remote`
@@ -2714,7 +2714,7 @@ Current scope:
 - exact recovered input schema `rpm`, `deg`, `tor`;
 - exact recovered target schema over `ampl_k` and `phase_k`;
 - exact recovered family bank:
-  `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`;
+  `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, `ELM`;
 - family-wise `MultiOutputRegressor` fitting;
 - one Python plus ONNX export per family and target;
 - target-wise winner registry for later paper-style tabulation.

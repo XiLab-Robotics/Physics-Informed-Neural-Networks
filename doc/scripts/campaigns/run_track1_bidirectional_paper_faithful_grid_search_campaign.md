@@ -61,7 +61,7 @@ The launcher now also exposes the exact-paper stage-control and verbosity
 surface inherited from the shared runner:
 
 - `-Direction Forward|Backward|Both`
-- `-Family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM`
+- `-Family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM|ELM`
 - `-Families "MLP"` or `-Families "MLP,RF,GBM"`
 - `-Stage Search|Eval|Export|LoadBest`
 - `-BestParameterSummaryPath <path>`

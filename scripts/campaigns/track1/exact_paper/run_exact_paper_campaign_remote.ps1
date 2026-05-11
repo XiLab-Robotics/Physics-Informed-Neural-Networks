@@ -161,7 +161,17 @@ function Get-OptionalExactPaperDependencySpecificationList {
         }
     }
 
-    if ($inspectionText -match "svr|mlp|rf|dt|et|ert|gbm|hgbm|xgbm|lgbm") {
+    if ($inspectionText.Contains("elm")) {
+        $dependencySpecificationList += [PSCustomObject]@{
+            family_name     = "ELM"
+            package_name    = "scikit-elm"
+            module_name     = "skelm"
+            attribute_name  = "ELMRegressor"
+            dependency_name = "scikit-elm"
+        }
+    }
+
+    if ($inspectionText -match "svr|mlp|rf|dt|et|ert|gbm|hgbm|xgbm|lgbm|elm") {
         $dependencySpecificationList += [PSCustomObject]@{
             family_name     = "CORE_ONNX"
             package_name    = "skl2onnx"

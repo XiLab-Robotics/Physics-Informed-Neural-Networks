@@ -1508,6 +1508,15 @@ This folder contains the internal project documents derived from the reference P
   Technical plan for aligning the Track 1 exact-paper `SVR` family with the
   recovered-original pragmatic `LinearSVR` fallback used in place of the
   historical `SVR(kernel="linear")` branch.
+- [technical/2026-05/2026-05-11/2026-05-11-16-26-01_track1_exact_paper_elm_export_hardening_and_quiet_lgbm.md](./technical/2026-05/2026-05-11/2026-05-11-16-26-01_track1_exact_paper_elm_export_hardening_and_quiet_lgbm.md)
+  Technical plan for porting the recovered-original ELM export hardening into
+  the Track 1 exact-paper shared exporter and for adopting the quieter
+  repository-owned `LGBMRegressor` factory in the active Track 1 exact-paper
+  family bank.
+- [technical/2026-05/2026-05-11/2026-05-11-16-28-59_track1_exact_paper_add_elm_and_quiet_lgbm.md](./technical/2026-05/2026-05-11/2026-05-11-16-28-59_track1_exact_paper_add_elm_and_quiet_lgbm.md)
+  Superseding technical plan for adding `ELM` to the canonical Track 1
+  exact-paper family bank and for adopting the quieter repository-owned
+  `LGBMRegressor` factory.
 
 ## Usage
 

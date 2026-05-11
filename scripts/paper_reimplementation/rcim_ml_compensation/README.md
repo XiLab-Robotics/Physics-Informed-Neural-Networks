@@ -100,6 +100,20 @@ In practical operator terms, the shared exact-paper flow is:
 7. Persist the repository-owned best-parameter summary and update the shared
    best-parameter registry.
 
+The exact-paper canonical family surface now includes `11` families:
+
+- `SVR`
+- `MLP`
+- `RF`
+- `DT`
+- `ET`
+- `ERT`
+- `GBM`
+- `HGBM`
+- `XGBM`
+- `LGBM`
+- `ELM`
+
 ## Stage Model
 
 The two exact-paper Python runners now expose the same operator stage model:
@@ -152,6 +166,18 @@ variant explicitly so replay can rebuild either:
 
 - the paper-faithful `SVR(kernel="rbf")` branch; or
 - the pragmatic `Pipeline(StandardScaler(), LinearSVR(...))` fallback branch.
+
+For `LGBM`, the exact-paper shared family factory now also forces:
+
+- `verbosity=-1`
+- `force_col_wise=True`
+
+so long-running Track 1 search runs keep repository-owned progress lines
+readable instead of flooding the console with native LightGBM chatter.
+
+For `ELM`, the exact-paper shared export helper now mirrors the
+recovered-original repo-owned ONNX converter registration so the Track 1
+`ELMRegressor` family can emit per-target `Python + ONNX` artifacts.
 
 ## Export Artifact Contract
 
