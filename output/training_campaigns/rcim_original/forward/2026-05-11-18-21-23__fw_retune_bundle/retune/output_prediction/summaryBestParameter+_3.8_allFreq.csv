@@ -1,0 +1,2 @@
+0_method;best_parameters
+ELM;{'estimator__alpha': 0.001, 'estimator__n_neurons': 100, 'estimator__ufunc': 'tanh'}

@@ -1,5 +1,5 @@
 version: 1
-updated_at: '2026-05-11T15:49:07+00:00'
+updated_at: '2026-05-11T16:21:55+00:00'
 branches:
   backward:
     DT:
@@ -129,3 +129,13 @@ branches:
       source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-15-33-43__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
       source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-15-33-43__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
       updated_at: '2026-05-11T14:28:06+00:00'
+    ELM:
+      family_code: ELM
+      summary_family_code: ELM
+      best_parameters: '{''estimator__alpha'': 0.001, ''estimator__n_neurons'': 100,
+        ''estimator__ufunc'': ''tanh''}'
+      aggregate_mae_mean: 0.2013352769812083
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-18-21-23__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-18-21-23__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-11T16:21:55+00:00'
