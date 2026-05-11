@@ -1,0 +1,22 @@
+{
+  "stage": "training_models",
+  "mode": "paper_eval",
+  "direction": "backward",
+  "input_dataframe_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\eval\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "MLP",
+    "XGBM",
+    "ELM"
+  ],
+  "selected_family_count": 3,
+  "best_parameter_summary_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+  "prediction_output_folder": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\eval\\output_prediction\\instV3.8_Bw_allFreq_def",
+  "model_output_dir": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\eval\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\eval\\output_prediction\\instV3.8_Bw_allFreq_def\\dfOutTot_prediction_MLPRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\eval\\output_prediction\\instV3.8_Bw_allFreq_def\\dfOutTot_prediction_XGBRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv",
+    "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-19-07__bw_retune_bundle\\eval\\output_prediction\\instV3.8_Bw_allFreq_def\\dfOutTot_prediction_ELMRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv"
+  ]
+}

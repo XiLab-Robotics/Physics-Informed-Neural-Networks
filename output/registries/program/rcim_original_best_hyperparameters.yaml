@@ -1,5 +1,5 @@
 version: 1
-updated_at: '2026-05-09T21:56:35+00:00'
+updated_at: '2026-05-11T07:52:40+00:00'
 branches:
   backward:
     DT:
@@ -39,6 +39,38 @@ branches:
       source_cross_validation_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
         Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\backward\2026-05-09-23-42-54__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
       updated_at: '2026-05-09T21:47:16+00:00'
+    MLP:
+      family_code: MLP
+      summary_family_code: MLP
+      best_parameters: '{''estimator__activation'': ''tanh'', ''estimator__alpha'':
+        0.0001, ''estimator__early_stopping'': True, ''estimator__hidden_layer_sizes'':
+        (200, 50), ''estimator__learning_rate'': ''adaptive'', ''estimator__max_iter'':
+        600, ''estimator__solver'': ''adam'', ''estimator__tol'': 0.0001}'
+      aggregate_mae_mean: 0.20266008769108135
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-11T07:52:40+00:00'
+    XGBM:
+      family_code: XGBM
+      summary_family_code: XGBM
+      best_parameters: '{''estimator__colsample_bytree'': 0.3, ''estimator__learning_rate'':
+        0.2, ''estimator__max_depth'': None, ''estimator__n_estimators'': np.int64(20)}'
+      aggregate_mae_mean: 0.17830206213777272
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-11T07:52:40+00:00'
+    ELM:
+      family_code: ELM
+      summary_family_code: ELM
+      best_parameters: '{''estimator__alpha'': 1e-05, ''estimator__n_neurons'': 100,
+        ''estimator__ufunc'': ''tanh''}'
+      aggregate_mae_mean: 0.22991322766543698
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-11T07:52:40+00:00'
   forward:
     DT:
       family_code: DT
