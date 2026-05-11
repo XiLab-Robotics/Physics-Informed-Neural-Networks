@@ -1,5 +1,5 @@
 version: 1
-updated_at: '2026-05-11T07:52:40+00:00'
+updated_at: '2026-05-11T15:49:07+00:00'
 branches:
   backward:
     DT:
@@ -107,3 +107,25 @@ branches:
       source_cross_validation_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
         Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-09-23-52-16__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
       updated_at: '2026-05-09T21:56:35+00:00'
+    MLP:
+      family_code: MLP
+      summary_family_code: MLP
+      best_parameters: '{''estimator__activation'': ''tanh'', ''estimator__alpha'':
+        0.0001, ''estimator__early_stopping'': True, ''estimator__hidden_layer_sizes'':
+        (200, 50), ''estimator__learning_rate'': ''constant'', ''estimator__max_iter'':
+        200, ''estimator__solver'': ''adam'', ''estimator__tol'': 0.0001}'
+      aggregate_mae_mean: 0.20343757983316274
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-15-33-43__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-15-33-43__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-11T14:28:06+00:00'
+    XGBM:
+      family_code: XGBM
+      summary_family_code: XGBM
+      best_parameters: '{''estimator__colsample_bytree'': None, ''estimator__learning_rate'':
+        None, ''estimator__max_depth'': None, ''estimator__n_estimators'': np.int64(20)}'
+      aggregate_mae_mean: 0.060211325571799514
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-15-33-43__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-15-33-43__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-11T14:28:06+00:00'
