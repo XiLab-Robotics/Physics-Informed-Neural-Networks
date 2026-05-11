@@ -9,8 +9,10 @@ from lightgbm import LGBMRegressor
 from onnxmltools import convert_lightgbm, convert_xgboost
 from onnxmltools.convert.common.data_types import FloatTensorType as OXFloatTensorType
 from scipy.spatial import distance_matrix
-from skl2onnx import convert_sklearn
-from skl2onnx.common.data_types import FloatTensorType
+from skl2onnx import convert_sklearn, update_registered_converter
+from skl2onnx.algebra.onnx_ops import OnnxConcat, OnnxGemm, OnnxIdentity, OnnxMatMul, OnnxRelu, OnnxSigmoid, OnnxTanh
+from skl2onnx.common.data_types import FloatTensorType, guess_numpy_type
+from skl2onnx.common.shape_calculator import calculate_linear_regressor_output_shapes
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error
 from sklearn.model_selection import GridSearchCV, ParameterGrid, cross_validate, train_test_split
 from sklearn.multioutput import MultiOutputRegressor, RegressorChain
@@ -18,6 +20,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVR
 from xgboost.sklearn import XGBRegressor
+
+try:
+    from skelm import ELMRegressor
+    from skelm.utils import HiddenLayerType
+except ImportError:
+    ELMRegressor = None
+    HiddenLayerType = None
 
 METHOD_ACRONYMS = {
     'DecisionTreeRegressor': 'DT',
@@ -44,6 +53,119 @@ SVR_VARIANT_KEY = "__rcim_svr_variant__"
 SVR_VARIANT_PARAMETERS_KEY = "__rcim_svr_parameters__"
 SVR_VARIANT_RBF = "paper_faithful_rbf"
 SVR_VARIANT_LINEAR_FALLBACK = "pragmatic_linear_fallback"
+ELM_ONNX_CONVERTER_REGISTERED = False
+
+def _resolve_estimator_feature_count(estimator):
+
+    """Resolve one fitted estimator input-feature count for ONNX export."""
+
+    # Prefer the Common scikit-learn Fitted Surface When It Exists.
+    if hasattr(estimator, "n_features_in_"):
+        return int(estimator.n_features_in_)
+
+    # Fall Back to the Fitted skelm Surface Used by ELMRegressor.
+    if hasattr(estimator, "n_features_"):
+        return int(estimator.n_features_)
+
+    raise AttributeError(
+        f"{type(estimator).__name__} does not expose one fitted input-feature-count attribute."
+    )
+
+def _build_elm_hidden_layer_node(input_node, hidden_layer, dtype, op_version):
+
+    """Build one ONNX hidden-layer node for the supported fitted ELM surface."""
+
+    # Reject Pairwise Hidden Layers Until an Explicit Distance-Based Converter Is Added.
+    if HiddenLayerType is not None and hidden_layer.hidden_layer_ == HiddenLayerType.PAIRWISE:
+        raise NotImplementedError("Pairwise ELM hidden layers are not supported by the repo-owned ONNX converter.")
+
+    # Materialize the Projection Matrix in the Dense Numerical Shape Used by the Hidden Layer.
+    projection_components = hidden_layer.projection_.components_
+    if hasattr(projection_components, "toarray"):
+        projection_components = projection_components.toarray()
+    projection_components = np.asarray(projection_components, dtype=dtype)
+
+    # Rebuild the Hidden-Layer Projection Exactly Like skelm HiddenLayer.transform(...).
+    projected_node = OnnxMatMul(
+        input_node,
+        projection_components.T,
+        op_version=op_version,
+    )
+
+    # Preserve the Fitted Hidden-Layer Activation.
+    hidden_ufunc = getattr(hidden_layer, "ufunc", None)
+    if hidden_ufunc == "tanh":
+        return OnnxTanh(projected_node, op_version=op_version)
+    if hidden_ufunc == "sigm":
+        return OnnxSigmoid(projected_node, op_version=op_version)
+    if hidden_ufunc == "relu":
+        return OnnxRelu(projected_node, op_version=op_version)
+    if hidden_ufunc in ("lin", None):
+        return OnnxIdentity(projected_node, op_version=op_version)
+
+    raise NotImplementedError(f"Unsupported ELM activation for ONNX export: {hidden_ufunc}")
+
+def _convert_elm_regressor(scope, operator, container):
+
+    """Convert one fitted skelm ELMRegressor into a repo-owned ONNX graph."""
+
+    # Read the Fitted ELM Estimator and the ONNX Input Surface.
+    fitted_estimator = operator.raw_operator
+    input_node = operator.inputs[0]
+    op_version = container.target_opset
+    dtype = guess_numpy_type(input_node.type)
+
+    # Rebuild Every Hidden Layer in the Same Order Used by skelm.predict(...).
+    hidden_layer_node_list = [
+        _build_elm_hidden_layer_node(input_node, hidden_layer, dtype, op_version)
+        for hidden_layer in fitted_estimator.hidden_layers_
+    ]
+
+    # Preserve the Optional Original-Feature Concat Surface.
+    if fitted_estimator.include_original_features:
+        hidden_layer_node_list = [input_node] + hidden_layer_node_list
+
+    if len(hidden_layer_node_list) == 1:
+        hidden_representation_node = hidden_layer_node_list[0]
+    else:
+        hidden_representation_node = OnnxConcat(*hidden_layer_node_list, axis=1, op_version=op_version)
+
+    # Rebuild the Final Linear Solver Head Used by the Fitted skelm Regressor.
+    coefficient_matrix = np.asarray(fitted_estimator.solver_.coef_, dtype=dtype)
+    if coefficient_matrix.ndim == 1:
+        coefficient_matrix = coefficient_matrix.reshape((-1, 1))
+    intercept_vector = np.asarray(fitted_estimator.solver_.intercept_, dtype=dtype)
+
+    # Emit the Final Dense Regression Output.
+    output_node = OnnxGemm(
+        hidden_representation_node,
+        coefficient_matrix,
+        intercept_vector,
+        alpha=1.0,
+        beta=1.0,
+        transB=0,
+        op_version=op_version,
+        output_names=operator.outputs[:1],
+    )
+    output_node.add_to(scope, container)
+
+def _register_elm_onnx_converter_if_needed():
+
+    """Register the repo-owned skelm ELMRegressor ONNX converter once."""
+
+    global ELM_ONNX_CONVERTER_REGISTERED
+
+    # Skip Registration When skelm Is Not Installed in the Active Environment.
+    if ELMRegressor is None or ELM_ONNX_CONVERTER_REGISTERED:
+        return
+
+    update_registered_converter(
+        ELMRegressor,
+        "RCIMELMRegressor",
+        calculate_linear_regressor_output_shapes,
+        _convert_elm_regressor,
+    )
+    ELM_ONNX_CONVERTER_REGISTERED = True
 
 def _resolve_model_display_name(model):
 
@@ -74,7 +196,7 @@ class MLModel:
         """ Export the original single estimator to ONNX format. """
 
         # Convert the Wrapped Estimator to ONNX With the Original Input Contract.
-        initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
+        initial_type = [('float_input', FloatTensorType([None, _resolve_estimator_feature_count(self.model)]))]
         onx = convert_sklearn(self.model, initial_types=initial_type)
         with open(modelName+".onnx", "wb") as f: f.write(onx.SerializeToString())
 
@@ -194,7 +316,7 @@ class MLModelChainedMultipleOutput:
         """ Export Each Estimator in the Regressor Chain to ONNX Format. """
 
         # Build the ONNX Input Contract for the Chained Estimators.
-        initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
+        initial_type = [('float_input', FloatTensorType([None, _resolve_estimator_feature_count(self.model.estimators_[0])]))]
 
         for i in range(len(self.model.estimators_)):
 
@@ -442,23 +564,28 @@ class MLModelMultipleOutput:
                 if isinstance(est, XGBRegressor):
 
                     # Recover the XGBoost Booster Before ONNX Conversion.
+                    feature_count = _resolve_estimator_feature_count(est)
                     booster = est.get_booster()
-                    booster.feature_names = [f"f{i}" for i in range(est.n_features_in_)]
+                    booster.feature_names = [f"f{i}" for i in range(feature_count)]
 
                     # Define the XGBoost ONNX Input Contract.
-                    initial_type = [('float_input', OXFloatTensorType([None, est.n_features_in_]))]
+                    initial_type = [('float_input', OXFloatTensorType([None, feature_count]))]
                     onx = convert_xgboost(est, initial_types=initial_type, target_opset=12)
                 
                 elif isinstance(est, LGBMRegressor):
 
                     # Define the LightGBM ONNX Input Contract.
-                    initial_type = [("float_input", OXFloatTensorType([None, est.n_features_in_]))]
+                    initial_type = [("float_input", OXFloatTensorType([None, _resolve_estimator_feature_count(est)]))]
                     onx = convert_lightgbm(est, initial_types=initial_type, target_opset=12)
 
                 else:
 
+                    # Register the Repo-Owned ELM Converter Before Generic sklearn Export When Needed.
+                    if ELMRegressor is not None and isinstance(est, ELMRegressor):
+                        _register_elm_onnx_converter_if_needed()
+
                     # Define the Generic scikit-learn ONNX Input Contract.
-                    initial_type = [('float_input', FloatTensorType([None, est.n_features_in_]))]
+                    initial_type = [('float_input', FloatTensorType([None, _resolve_estimator_feature_count(est)]))]
                     onx = convert_sklearn(est, initial_types=initial_type)
 
                 # Write Each Exported Model Into the Legacy Output Folder Contract.
@@ -1055,12 +1182,16 @@ class MLModelMultiOutputCombined:
         """ Export The Single Model From The Wrapped Multi-Output Estimator. """
 
         # Build the ONNX Input Contract for the Mixed Wrapper.
-        initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
+        initial_type = [('float_input', FloatTensorType([None, _resolve_estimator_feature_count(self.model.estimators_[0])]))]
 
         for i in range(len(self.model.estimators_)):
 
             # Retrieve the Current Wrapped Estimator for ONNX Export.
             est = self.model.estimators_[i]
+
+            # Register the Repo-Owned ELM Converter Before Generic sklearn Export When Needed.
+            if ELMRegressor is not None and isinstance(est, ELMRegressor):
+                _register_elm_onnx_converter_if_needed()
             onx = convert_sklearn(est, initial_types=initial_type)
 
             # Persist the Exported Estimator Using the Historical Naming Contract.
@@ -1421,7 +1552,7 @@ class MLPipeline:
     def exportModel(self,modelName):
 
         # Build the ONNX Input Contract for the Pipeline Wrapper.
-        initial_type = [('float_input', FloatTensorType([None, self.model.n_features_in_]))]
+        initial_type = [('float_input', FloatTensorType([None, _resolve_estimator_feature_count(self.model)]))]
         onx = convert_sklearn(self.model, initial_types=initial_type, options={type(self.model): {'zipmap':False}}, target_opset=12)
 
         # Persist the Exported Pipeline Model Using the Historical Naming Contract.

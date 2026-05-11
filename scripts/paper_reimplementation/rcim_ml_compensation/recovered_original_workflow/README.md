@@ -311,6 +311,8 @@ This is the repository-owned paper-reference export companion mode:
 - it uses the same tuned family surface as `paper_eval`;
 - it trains the selected families on the full dataframe;
 - it exports Python model artifacts under `model_output_dir/`;
+- it now includes a repo-owned ONNX converter for fitted `skelm`
+  `ELMRegressor` targets on the supported recovered-original surface;
 - it attempts ONNX export for every target-wise estimator and persists any
   export failure as `*.onnx.export_error.txt` instead of crashing the full run.
 

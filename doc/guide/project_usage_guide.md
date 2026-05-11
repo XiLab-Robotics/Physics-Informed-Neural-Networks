@@ -2777,6 +2777,11 @@ Use this surface when the goal is to stay close to the original RCIM scripts
 while still keeping paths and runtime artifacts under repository-owned output
 roots.
 
+The recovered-original `paper_export` path now also carries a repo-owned ONNX
+converter for fitted `ELMRegressor` targets, so the `ELM` family can emit the
+same Python plus ONNX artifact surface expected from the paper-reference
+launcher workflow.
+
 Paper-reference launcher surface:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
