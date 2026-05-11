@@ -1,0 +1,29 @@
+﻿{
+    "branch":  "backward",
+    "requested_stage":  "Export",
+    "effective_stage":  "Export",
+    "run_instance_id":  "2026-05-11-09-10-24__bw_export_bundle",
+    "campaign_root":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-10-24__bw_export_bundle",
+    "logs_root":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-10-24__bw_export_bundle\\logs",
+    "dataframe_path":  null,
+    "best_parameter_summary_path":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-13-07-27__bw_retune_bundle\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+    "best_parameter_source":  "explicit_summary",
+    "best_parameter_registry_path":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+    "no_eval":  false,
+    "no_export":  false,
+    "performed_retune":  false,
+    "registry_update":  null,
+    "notes":  [
+
+              ],
+    "stage_results":  [
+                          {
+                              "Stage":  "export",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-10-24__bw_export_bundle\\logs\\export.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-10-24__bw_export_bundle\\logs\\export.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-10-24__bw_export_bundle\\logs\\export.combined.log",
+                              "StageRoot":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-09-10-24__bw_export_bundle\\export"
+                          }
+                      ]
+}
