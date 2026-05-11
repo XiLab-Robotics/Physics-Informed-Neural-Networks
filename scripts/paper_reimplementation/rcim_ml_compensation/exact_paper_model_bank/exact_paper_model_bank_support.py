@@ -23,6 +23,8 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_validate
@@ -30,6 +32,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.neural_network import MLPRegressor
+from sklearn.svm import LinearSVR
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeRegressor
@@ -130,6 +133,10 @@ EXACT_FAMILY_ESTIMATOR_NAME_MAP = {
     "XGBM": "XGBRegressor",
     "LGBM": "LGBMRegressor",
 }
+EXACT_SVR_VARIANT_KEY = "__rcim_svr_variant__"
+EXACT_SVR_VARIANT_PARAMETERS_KEY = "__rcim_svr_parameters__"
+EXACT_SVR_VARIANT_RBF = "paper_faithful_rbf"
+EXACT_SVR_VARIANT_LINEAR_FALLBACK = "pragmatic_linear_fallback"
 EXACT_PAPER_HARMONIC_EXPECTED_FAMILY_MAP = {
     0: ["SVR"],
     1: ["RF", "LGBM"],
@@ -278,14 +285,125 @@ def build_exact_target_scope_log_summary(target_name_list: list[str]) -> str:
     )
 
 
-def count_exact_parameter_grid_candidates(parameter_grid: dict[str, list[Any]]) -> int:
+def count_exact_parameter_grid_candidates(
+    parameter_grid: dict[str, list[Any]] | list[dict[str, list[Any]]],
+) -> int:
 
     """Count one full Cartesian parameter-grid candidate surface."""
+
+    if isinstance(parameter_grid, list):
+        return int(sum(count_exact_parameter_grid_candidates(grid_entry) for grid_entry in parameter_grid))
 
     candidate_count = 1
     for parameter_value_list in parameter_grid.values():
         candidate_count *= int(len(parameter_value_list))
     return int(candidate_count)
+
+
+def count_exact_parameter_grid_dimensions(
+    parameter_grid: dict[str, list[Any]] | list[dict[str, list[Any]]],
+) -> int:
+
+    """Count one readable parameter-dimension summary for progress logs."""
+
+    if isinstance(parameter_grid, list):
+        return int(sum(len(grid_entry) for grid_entry in parameter_grid))
+    return int(len(parameter_grid))
+
+
+def build_exact_paper_faithful_rbf_svr() -> SVR:
+
+    """Build the paper-faithful exact-paper SVR RBF estimator."""
+
+    return SVR(C=1, epsilon=0.0001, gamma=1.1e-06, kernel="rbf")
+
+
+def build_exact_pragmatic_linear_svr_pipeline(
+    C: float = 1.0,
+    epsilon: float = 0.0001,
+    tol: float = 1e-4,
+    max_iter: int = 5000,
+) -> Pipeline:
+
+    """Build the exact-paper pragmatic linear fallback for the SVR family."""
+
+    return Pipeline(
+        steps=[
+            ("scaler", StandardScaler()),
+            (
+                "model",
+                LinearSVR(
+                    C=C,
+                    epsilon=epsilon,
+                    tol=tol,
+                    max_iter=max_iter,
+                    random_state=0,
+                ),
+            ),
+        ]
+    )
+
+
+def is_exact_svr_variant_payload(best_parameter_dictionary: dict[str, Any]) -> bool:
+
+    """Return whether one exact-paper best-parameter dictionary encodes an SVR variant."""
+
+    return (
+        isinstance(best_parameter_dictionary, dict)
+        and EXACT_SVR_VARIANT_KEY in best_parameter_dictionary
+        and EXACT_SVR_VARIANT_PARAMETERS_KEY in best_parameter_dictionary
+    )
+
+
+def build_exact_svr_estimator_from_serialized_payload(
+    best_parameter_dictionary: dict[str, Any],
+) -> object:
+
+    """Rebuild one exact-paper SVR-family estimator from serialized variant metadata."""
+
+    svr_variant = str(best_parameter_dictionary[EXACT_SVR_VARIANT_KEY]).strip()
+    svr_parameter_dictionary = dict(best_parameter_dictionary[EXACT_SVR_VARIANT_PARAMETERS_KEY])
+
+    if svr_variant == EXACT_SVR_VARIANT_RBF:
+        return build_exact_paper_faithful_rbf_svr().set_params(**svr_parameter_dictionary)
+
+    if svr_variant == EXACT_SVR_VARIANT_LINEAR_FALLBACK:
+        return build_exact_pragmatic_linear_svr_pipeline(**svr_parameter_dictionary)
+
+    raise ValueError(f"Unsupported exact-paper SVR variant payload | {svr_variant}")
+
+
+def serialize_exact_best_parameter_payload(
+    family_name: str,
+    best_parameter_dictionary: dict[str, Any],
+) -> dict[str, Any]:
+
+    """Serialize one exact-paper best-parameter payload into a YAML-safe shape."""
+
+    if family_name != "SVR":
+        return dict(best_parameter_dictionary)
+
+    selected_estimator = best_parameter_dictionary.get("estimator")
+    if isinstance(selected_estimator, Pipeline):
+        return {
+            EXACT_SVR_VARIANT_KEY: EXACT_SVR_VARIANT_LINEAR_FALLBACK,
+            EXACT_SVR_VARIANT_PARAMETERS_KEY: {
+                "C": float(best_parameter_dictionary["estimator__model__C"]),
+                "epsilon": float(best_parameter_dictionary["estimator__model__epsilon"]),
+                "tol": float(best_parameter_dictionary["estimator__model__tol"]),
+                "max_iter": int(best_parameter_dictionary["estimator__model__max_iter"]),
+            },
+        }
+
+    return {
+        EXACT_SVR_VARIANT_KEY: EXACT_SVR_VARIANT_RBF,
+        EXACT_SVR_VARIANT_PARAMETERS_KEY: {
+            "C": float(best_parameter_dictionary["estimator__C"]),
+            "epsilon": float(best_parameter_dictionary["estimator__epsilon"]),
+            "gamma": float(best_parameter_dictionary["estimator__gamma"]),
+            "kernel": "rbf",
+        },
+    }
 
 
 def resolve_exact_paper_workflow_stage(stage_name: str | None) -> str:
@@ -1019,7 +1137,7 @@ def create_exact_paper_base_estimator(family_name: str) -> object:
 
     # Create Recovered Original Family Estimators
     if family_name == "SVR":
-        return SVR(C=1, epsilon=0.0001, gamma=1.1e-06, kernel="rbf")
+        return build_exact_paper_faithful_rbf_svr()
 
     if family_name == "MLP":
         return MLPRegressor(
@@ -1403,7 +1521,7 @@ def resolve_exact_paper_best_parameter_summary_from_registry(
 def build_exact_paper_reference_parameter_grid(
     family_name: str,
     base_estimator: object,
-) -> dict[str, list[Any]]:
+) -> dict[str, list[Any]] | list[dict[str, list[Any]]]:
 
     """Build the recovered original `predictorML.py` grid for one family."""
 
@@ -1567,12 +1685,21 @@ def build_exact_paper_reference_parameter_grid(
         }
 
     if family_name == "SVR":
-        return {
-            "estimator__kernel": list(dict.fromkeys(["rbf", "linear", str(base_estimator.get_params()["kernel"])])),
-            "estimator__C": list(dict.fromkeys([1, 2, 3, 5, 6, 7, float(base_estimator.get_params()["C"])])),
-            "estimator__epsilon": list(dict.fromkeys([0.0001, 0.00001, 0.000001, 0.0000001])),
-            "estimator__gamma": list(dict.fromkeys([0.0000011])),
-        }
+        return [
+            {
+                "estimator": [build_exact_paper_faithful_rbf_svr()],
+                "estimator__C": list(dict.fromkeys([1, 2, 3, 5, 6, 7, float(base_estimator.get_params()["C"])])),
+                "estimator__epsilon": list(dict.fromkeys([0.0001, 0.00001, 0.000001, 0.0000001])),
+                "estimator__gamma": list(dict.fromkeys([0.0000011])),
+            },
+            {
+                "estimator": [build_exact_pragmatic_linear_svr_pipeline()],
+                "estimator__model__C": list(dict.fromkeys([1, 2, 3, 5, 6, 7, float(base_estimator.get_params()["C"])])),
+                "estimator__model__epsilon": list(dict.fromkeys([0.0001, 0.00001, 0.000001, 0.0000001])),
+                "estimator__model__tol": [1e-4],
+                "estimator__model__max_iter": [5000],
+            },
+        ]
 
     raise ValueError(f"Unsupported exact paper family grid search | {family_name}")
 
@@ -1601,13 +1728,20 @@ def fit_exact_family_model_bank(
         del os.environ["LOKY_MAX_CPU_COUNT"]
     for family_name in enabled_family_list:
         family_fit_start_time = time.perf_counter()
-        base_estimator = create_exact_paper_base_estimator(family_name)
         loaded_best_parameter_dictionary = None
+        base_estimator = create_exact_paper_base_estimator(family_name)
         if best_parameter_override_map is not None and family_name in best_parameter_override_map:
-            loaded_best_parameter_dictionary = normalize_loaded_exact_best_parameter_dictionary(
-                dict(best_parameter_override_map[family_name])
-            )
-            base_estimator.set_params(**loaded_best_parameter_dictionary)
+            stored_best_parameter_dictionary = dict(best_parameter_override_map[family_name])
+            if family_name == "SVR" and is_exact_svr_variant_payload(stored_best_parameter_dictionary):
+                loaded_best_parameter_dictionary = stored_best_parameter_dictionary
+                base_estimator = build_exact_svr_estimator_from_serialized_payload(
+                    loaded_best_parameter_dictionary
+                )
+            else:
+                loaded_best_parameter_dictionary = normalize_loaded_exact_best_parameter_dictionary(
+                    stored_best_parameter_dictionary
+                )
+                base_estimator.set_params(**loaded_best_parameter_dictionary)
         if family_name == "MLP" and smoke_enabled:
             base_estimator.set_params(
                 max_iter=min(int(base_estimator.get_params()["max_iter"]), 50),
@@ -1659,7 +1793,7 @@ def fit_exact_family_model_bank(
                 f"stage={resolved_workflow_stage} "
                 f"candidates={parameter_grid_candidate_count} "
                 f"estimated_cv_fits={estimated_grid_search_cv_fit_count} "
-                f"parameter_count={len(parameter_grid)} "
+                f"parameter_count={count_exact_parameter_grid_dimensions(parameter_grid)} "
                 f"n_jobs={int(search_settings['grid_search_n_jobs'])} "
                 f"verbose={int(search_settings['grid_search_verbose'])} "
                 f"historical_cross_validate_verbose={int(search_settings['historical_cross_validate_verbose'])} "
@@ -1691,6 +1825,10 @@ def fit_exact_family_model_bank(
                 threadpool_limit=threadpool_limit,
                 cross_validate_verbose=int(search_settings["historical_cross_validate_verbose"]),
             )
+            serialized_best_parameter_dictionary = serialize_exact_best_parameter_payload(
+                family_name=family_name,
+                best_parameter_dictionary=dict(grid_search_estimator.best_params_),
+            )
             elapsed_seconds = time.perf_counter() - family_fit_start_time
             best_wrapped_estimator = grid_search_estimator.best_estimator_
             fitted_family_model_dictionary[family_name] = best_wrapped_estimator
@@ -1709,7 +1847,7 @@ def fit_exact_family_model_bank(
                     else None
                 ),
                 "parameter_grid": parameter_grid,
-                "best_params": dict(grid_search_estimator.best_params_),
+                "best_params": serialized_best_parameter_dictionary,
                 "best_parameter_source": "grid_search",
                 "best_score": (
                     float(grid_search_estimator.best_score_)
@@ -1916,6 +2054,9 @@ def normalize_loaded_exact_best_parameter_dictionary(
 ) -> dict[str, Any]:
 
     """Normalize one stored exact-paper best-parameter dictionary for replay."""
+
+    if is_exact_svr_variant_payload(loaded_best_parameter_dictionary):
+        return dict(loaded_best_parameter_dictionary)
 
     # Strip The GridSearchCV `estimator__` Prefix Before Rebuilding The Base Estimator
     normalized_best_parameter_dictionary: dict[str, Any] = {}

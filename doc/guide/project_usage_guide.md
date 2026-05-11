@@ -2633,6 +2633,15 @@ This makes it possible to rerun the exact-paper branch with detailed live
 logging, reuse one stored best-parameter summary, or consume the repository
 best-parameter registry without rebuilding the full search surface every time.
 
+For the `SVR` family, the exact-paper shared search surface now mirrors the
+recovered-original pragmatic fallback:
+
+- the paper-faithful `rbf` branch stays on `SVR`;
+- the historical `SVR(kernel="linear")` branch is replaced by
+  `Pipeline(StandardScaler(), LinearSVR(...))`; and
+- the chosen branch is serialized in the stored best-parameter payload so
+  `LoadBest`, `Eval`, and `Export` can replay it deterministically.
+
 For the current paper-faithful bidirectional Track 1 package, the canonical
 PowerShell launcher also now exposes a family-and-stage operator surface closer
 to the recovered-original RCIM launcher:

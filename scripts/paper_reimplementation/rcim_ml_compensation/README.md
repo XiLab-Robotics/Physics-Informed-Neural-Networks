@@ -91,6 +91,10 @@ In practical operator terms, the shared exact-paper flow is:
    - historical `cross_validate(...)` replay on the search wrapper
    - target-wise historical `cross_validate(...)` replay on the best wrapped
      estimators
+   - for `SVR`, keep the paper-faithful `rbf` branch and replace the
+     historical `SVR(kernel="linear")` branch with the same pragmatic
+     `StandardScaler + LinearSVR` fallback already adopted in the
+     recovered-original workflow
 5. Evaluate the trained family bank unless disabled.
 6. Export per-target Python plus ONNX artifacts unless disabled.
 7. Persist the repository-owned best-parameter summary and update the shared
@@ -142,6 +146,12 @@ The intended operator flow is:
 2. Reuse the generated `best_parameter_summary.yaml`, or rely on the shared
    registry if coverage already exists.
 3. Run `loadbest`, `eval`, or `export` without repeating the full search.
+
+For `SVR`, the stored best-parameter payload now serializes the selected exact
+variant explicitly so replay can rebuild either:
+
+- the paper-faithful `SVR(kernel="rbf")` branch; or
+- the pragmatic `Pipeline(StandardScaler(), LinearSVR(...))` fallback branch.
 
 ## Export Artifact Contract
 

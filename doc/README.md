@@ -103,6 +103,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the exact-paper export alignment that restores recovered-original-style
   per-target Python plus ONNX export artifacts instead of ONNX-only per-target
   exports.
+- [technical/2026-05/2026-05-11/2026-05-11-10-05-21_rcim_original_elm_onnx_export_feature_shape_fix.md](./technical/2026-05/2026-05-11/2026-05-11-10-05-21_rcim_original_elm_onnx_export_feature_shape_fix.md)
+  Plan the narrow recovered-original RCIM exporter fix that restores ONNX
+  export for fitted `ELMRegressor` targets without changing the training or
+  stage semantics.
 
 #### 2026-05-09
 
@@ -1492,6 +1496,14 @@ This folder contains the internal project documents derived from the reference P
   shared `data/original_pipeline_instances/` directory, adding an explicit
   cache-rebuild flag, and deferring dataset-shrinking-aware cache partitioning
   to the backlog.
+- [technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md)
+  Technical plan for restoring recovered-original-style per-target `Python +
+  ONNX` export artifacts in the exact-paper workflow instead of `ONNX` only
+  per-target exports.
+- [technical/2026-05/2026-05-11/2026-05-11-09-59-51_track1_exact_paper_linear_svr_fallback_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-59-51_track1_exact_paper_linear_svr_fallback_alignment.md)
+  Technical plan for aligning the Track 1 exact-paper `SVR` family with the
+  recovered-original pragmatic `LinearSVR` fallback used in place of the
+  historical `SVR(kernel="linear")` branch.
 
 ## Usage
 

@@ -17,4 +17,4 @@ RCIM exact model-bank validation branch.
 
 .. autofunction:: scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank.exact_paper_model_bank_support.evaluate_exact_family_model_bank
 
-.. autofunction:: scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank.exact_paper_model_bank_support.export_exact_family_onnx_bank
+.. autofunction:: scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank.exact_paper_model_bank_support.export_exact_family_python_and_onnx_bank
