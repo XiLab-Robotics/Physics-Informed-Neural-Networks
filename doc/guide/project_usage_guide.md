@@ -17,6 +17,9 @@ At the moment, the implemented workflows are:
 - minimal neural or tree smoke-test execution for the shared training infrastructure;
 - persistent batch training campaigns through a queue-based runner;
 - a short PowerShell launcher for the Wave 1 recovery campaign that keeps the same live terminal logging and per-run artifact behavior;
+- a mixed Wave 1 directional best-hyperparameter search workflow that combines
+  bounded CPU grids for `tree` and `harmonic_regression` with persisted
+  GPU-preferred `Optuna` studies for the directional neural winners;
 - a coordinated short PowerShell launcher for the paper-faithful `Track 1`
   reproduction campaign that chains exact-paper family-bank and harmonic-wise
   offline benchmark runs through the currently available repository-owned
@@ -129,6 +132,14 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1`
   Canonical short PowerShell launcher for the Wave 1 residual-harmonic family campaign.
+
+- `scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py`
+  Campaign-package generator for the mixed directional Wave 1 best-hyperparameter
+  search workflow.
+
+- `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
+  Canonical mixed launcher for the directional Wave 1 best-hyperparameter search
+  campaign.
 
 - `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
   Canonical coordinated launcher for the current paper-faithful `Track 1`
@@ -286,6 +297,21 @@ The Wave 1 residual-family follow-up also has a dedicated launcher:
 ```powershell
 .\scripts\\campaigns\\wave1\\run_wave1_residual_harmonic_family_campaign.ps1
 ```
+
+The directional Wave 1 best-hyperparameter follow-up also has a dedicated mixed
+launcher:
+
+```powershell
+.\scripts\\campaigns\\wave1\\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -GpuIdList 0,1
+```
+
+This workflow intentionally mixes:
+
+- bounded explicit grid configs for `tree` and `harmonic_regression`;
+- persisted `Optuna` studies for `feedforward`, `periodic_mlp`, and
+  `residual_harmonic_mlp`;
+- one GPU-visible worker process per neural study slot, so the launcher can use
+  multiple GPUs without pushing the host into a CPU-only saturation pattern.
 
 For approved campaigns, the repository workflow should now treat the launcher as
 part of the mandatory preparation bundle, not as an optional convenience.

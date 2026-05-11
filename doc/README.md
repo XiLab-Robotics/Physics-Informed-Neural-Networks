@@ -113,6 +113,15 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-11
 
+- [technical/2026-05/2026-05-11/2026-05-11-19-35-52_optuna_hpo_integration_for_wave1_and_future_waves.md](./technical/2026-05/2026-05-11/2026-05-11-19-35-52_optuna_hpo_integration_for_wave1_and_future_waves.md)
+  Plan the promotion of `Optuna` into the canonical neural-family
+  hyperparameter-optimization layer for `Wave 1` directional retuning and
+  future `Wave 2+` model families.
+- [technical/2026-05/2026-05-11/2026-05-11-19-20-20_wave1_directional_best_hyperparameter_grid_search_campaign.md](./technical/2026-05/2026-05-11/2026-05-11-19-20-20_wave1_directional_best_hyperparameter_grid_search_campaign.md)
+  Plan the bounded best-hyperparameter grid-search campaign for the `15`
+  directional `Wave 1` winner surfaces, including explicit GPU-preferred
+  execution for neural families and CPU-throttled handling for non-neural
+  families.
 - [technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md)
   Plan the exact-paper export alignment that restores recovered-original-style
   per-target Python plus ONNX export artifacts instead of ONNX-only per-target
@@ -1200,6 +1209,8 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the short Wave 1 recovery campaign launcher.
 - [scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md](./scripts/campaigns/run_wave1_residual_harmonic_family_campaign.md)
   Script-level documentation for the canonical Wave 1 residual-harmonic family launcher.
+- [scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md](./scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md)
+  Script-level documentation for the mixed bounded-grid plus Optuna Wave 1 directional best-hyperparameter search launcher.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -1328,6 +1339,8 @@ This folder contains the internal project documents derived from the reference P
   Planning report for the Wave 1 recovery campaign that reruns the failed harmonic, residual, and random forest branches after the model-aware summary fix.
 - [reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md](./reports/campaign_plans/2026-03-26-13-52-00_wave1_residual_harmonic_family_campaign_plan_report.md)
   Historical-filename planning report for the Wave 1 residual-harmonic familywise follow-up campaign, focused on a broad hyperparameter search inside the residual harmonic MLP family.
+- [reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md)
+  Campaign-planning report for the mixed bounded-grid plus Optuna refinement pass across all `15` directional `Wave 1` winner surfaces.
 - [technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
   Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
 - [technical/2026-03/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)

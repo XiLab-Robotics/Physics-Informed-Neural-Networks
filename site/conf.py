@@ -34,6 +34,7 @@ autodoc_member_order = "bysource"
 autodoc_typehints = "description"
 autodoc_class_signature = "mixed"
 autodoc_preserve_defaults = True
+autodoc_mock_imports = ["optuna"]
 
 napoleon_google_docstring = True
 napoleon_numpy_docstring = False
