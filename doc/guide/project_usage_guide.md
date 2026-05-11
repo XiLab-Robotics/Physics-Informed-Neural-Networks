@@ -2782,6 +2782,11 @@ converter for fitted `ELMRegressor` targets, so the `ELM` family can emit the
 same Python plus ONNX artifact surface expected from the paper-reference
 launcher workflow.
 
+The recovered-original `LGBM` family also uses a repo-owned quiet-LightGBM
+instantiation with `verbosity=-1` and `force_col_wise=true` so long `retune`
+runs remain readable and the repository-owned progress lines are not buried
+under repeated native LightGBM warning and auto-threading chatter.
+
 Paper-reference launcher surface:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`

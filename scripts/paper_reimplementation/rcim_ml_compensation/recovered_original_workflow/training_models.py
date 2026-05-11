@@ -96,6 +96,18 @@ def _build_paper_faithful_rbf_svr(C=1.0, epsilon=0.0001, gamma=1.1e-06, kernel="
         "SVR",
     )
 
+def _build_repo_quiet_lgbm_regressor(**parameter_payload):
+
+    """Build one repo-owned LGBMRegressor with suppressed native log flooding."""
+
+    # Keep the Native LightGBM Console Chatter Under Control During Long Retune Runs.
+    base_parameter_payload = {
+        "verbosity": -1,
+        "force_col_wise": True,
+    }
+    base_parameter_payload.update(parameter_payload)
+    return __import__("lightgbm", fromlist=["LGBMRegressor"]).LGBMRegressor(**base_parameter_payload)
+
 def _configure_stream_buffering():
 
     """ Force line-buffered output for long-running redirected training stages. """
@@ -142,7 +154,7 @@ def _build_family_factory_map():
         "GBM": lambda: __import__("sklearn.ensemble", fromlist=["GradientBoostingRegressor"]).GradientBoostingRegressor(),
         "HGBM": lambda: __import__("sklearn.ensemble", fromlist=["HistGradientBoostingRegressor"]).HistGradientBoostingRegressor(),
         "XGBM": lambda: __import__("xgboost.sklearn", fromlist=["XGBRegressor"]).XGBRegressor(),
-        "LGBM": lambda: __import__("lightgbm", fromlist=["LGBMRegressor"]).LGBMRegressor(),
+        "LGBM": lambda: _build_repo_quiet_lgbm_regressor(),
         "MLP": lambda: __import__("sklearn.neural_network", fromlist=["MLPRegressor"]).MLPRegressor(),
         "SVR": lambda: _tag_family_display_name(SVR(), "SVR"),
         "SVM": lambda: _tag_family_display_name(SVR(), "SVR"),
@@ -221,7 +233,7 @@ def _build_paper_tuned_family_factory_map():
         ),
 
         # Light Gradient Boosted Machine
-        "LGBM": lambda: __import__("lightgbm", fromlist=["LGBMRegressor"]).LGBMRegressor(
+        "LGBM": lambda: _build_repo_quiet_lgbm_regressor(
             learning_rate=0.39,
             max_depth=12,
             subsample=0.1,

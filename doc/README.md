@@ -107,6 +107,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the narrow recovered-original RCIM exporter fix that restores ONNX
   export for fitted `ELMRegressor` targets without changing the training or
   stage semantics.
+- [technical/2026-05/2026-05-11/2026-05-11-15-39-02_rcim_original_lgbm_retune_log_flood_and_failure_capture_fix.md](./technical/2026-05/2026-05-11/2026-05-11-15-39-02_rcim_original_lgbm_retune_log_flood_and_failure_capture_fix.md)
+  Plan the narrow recovered-original RCIM `LGBM` retune fix that suppresses
+  unusable LightGBM log flooding while preserving repository-owned progress
+  lines and persistent failure capture.
 
 #### 2026-05-09
 

@@ -359,6 +359,10 @@ Retune observability notes:
   remains aligned with the recovered original surface;
 - the launcher log files are now updated during execution rather than only at
   process end.
+- the repository-owned `LGBM` family now forces LightGBM `verbosity=-1` and
+  `force_col_wise=true` so long retune runs do not flood the console with
+  repeated native warning and auto-threading lines that would hide the
+  repository-owned progress surface.
 
 ## Paper-Reference Launchers
 
