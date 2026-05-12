@@ -3,6 +3,7 @@ lightning>=2.5,<3.0
 numpy>=2.2,<3.0
 pandas>=2.2,<3.0
 scikit-learn>=1.6,<2.0
+threadpoolctl>=3.6,<4.0
 scikit-elm>=0.21a0
 dask>=2026.3.0
 dask[distributed]

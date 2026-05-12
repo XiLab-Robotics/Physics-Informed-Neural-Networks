@@ -99,6 +99,9 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-12
 
+- [technical/2026-05/2026-05-12/2026-05-12-18-24-51_requirements_dependency_cleanup.md](./technical/2026-05/2026-05-12/2026-05-12-18-24-51_requirements_dependency_cleanup.md)
+  Plan the cleanup of the root, documentation, LAN-node, and recovered-original
+  Python requirement surfaces after a repository-wide import and workflow audit.
 - [technical/2026-05/2026-05-12/2026-05-12-18-00-33_rcim_original_hgbm_onnx_export_scalar_sanitization.md](./technical/2026-05/2026-05-12/2026-05-12-18-00-33_rcim_original_hgbm_onnx_export_scalar_sanitization.md)
   Plan the narrow recovered-original RCIM `HGBM` ONNX export fix that
   sanitizes histogram-tree scalar types during `skl2onnx` conversion without
