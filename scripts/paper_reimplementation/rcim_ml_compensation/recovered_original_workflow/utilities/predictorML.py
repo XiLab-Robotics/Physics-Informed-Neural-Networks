@@ -1,7 +1,9 @@
 """ Recovered original RCIM predictor helpers used by training and export. """
 
+import contextlib
 import os, copy, datetime, pickle, traceback
 import math, random
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -11,8 +13,11 @@ from onnxmltools.convert.common.data_types import FloatTensorType as OXFloatTens
 from scipy.spatial import distance_matrix
 from skl2onnx import convert_sklearn, update_registered_converter
 from skl2onnx.algebra.onnx_ops import OnnxConcat, OnnxGemm, OnnxIdentity, OnnxMatMul, OnnxRelu, OnnxSigmoid, OnnxTanh
+from skl2onnx.common import tree_ensemble as skl2onnx_tree_ensemble
 from skl2onnx.common.data_types import FloatTensorType, guess_numpy_type
 from skl2onnx.common.shape_calculator import calculate_linear_regressor_output_shapes
+from skl2onnx.operator_converters import random_forest as skl2onnx_random_forest_converter
+from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error
 from sklearn.model_selection import GridSearchCV, ParameterGrid, cross_validate, train_test_split
 from sklearn.multioutput import MultiOutputRegressor, RegressorChain
@@ -70,6 +75,81 @@ def _resolve_estimator_feature_count(estimator):
     raise AttributeError(
         f"{type(estimator).__name__} does not expose one fitted input-feature-count attribute."
     )
+
+@contextlib.contextmanager
+def _patched_hist_gradient_boosting_onnx_converter():
+
+    """ Temporarily sanitize the local skl2onnx HGBM converter. """
+
+    # Capture Original Converter Functions So The Patch Stays Local To One Export Call.
+    original_hist_converter = (skl2onnx_tree_ensemble.add_tree_to_attribute_pairs_hist_gradient_boosting)
+    original_random_forest_hist_converter = (skl2onnx_random_forest_converter.add_tree_to_attribute_pairs_hist_gradient_boosting)
+
+    def _sanitized_hist_gradient_boosting_converter(
+        attr_pairs: dict[str, Any],
+        is_classifier: bool,
+        tree: Any,
+        tree_id: int,
+        tree_weight: float,
+        weight_id_bias: int,
+        leaf_weights_are_counts: bool,
+        adjust_threshold_for_sklearn: bool = False,
+        dtype: Any = None,
+    ) -> None:
+
+        """ Add one HGBM tree to ONNX attributes with plain Python integers. """
+
+        # Serialize Every HGBM Node Through Stable Python Scalar Types.
+        for node_index, node in enumerate(tree.nodes):
+            node_id = int(node_index)
+            weight = node["value"]
+
+            if bool(node["is_leaf"]):
+                mode = "LEAF"
+                feature_id = 0
+                threshold = 0.0
+                left_child_id = 0
+                right_child_id = 0
+                missing_tracks_true = 0
+            else:
+                mode = "BRANCH_LEQ"
+                feature_id = int(node["feature_idx"])
+                try: threshold = node["threshold"]
+                except ValueError: threshold = node["num_threshold"]
+                left_child_id = int(node["left"])
+                right_child_id = int(node["right"])
+                missing_tracks_true = int(node["missing_go_to_left"])
+
+            # Use the Original Converter Logic With the Sanitized Node Values.
+            skl2onnx_tree_ensemble.add_node(
+                attr_pairs,
+                is_classifier,
+                tree_id,
+                tree_weight,
+                node_id,
+                feature_id,
+                mode,
+                threshold,
+                left_child_id,
+                right_child_id,
+                weight,
+                weight_id_bias,
+                leaf_weights_are_counts,
+                adjust_threshold_for_sklearn=adjust_threshold_for_sklearn,
+                dtype=dtype,
+                nodes_missing_value_tracks_true=missing_tracks_true,
+            )
+
+    # Install Temporary Converter Patch.
+    skl2onnx_tree_ensemble.add_tree_to_attribute_pairs_hist_gradient_boosting = (_sanitized_hist_gradient_boosting_converter)
+    skl2onnx_random_forest_converter.add_tree_to_attribute_pairs_hist_gradient_boosting = (_sanitized_hist_gradient_boosting_converter)
+
+    try: yield
+    finally:
+
+        # Restore Original skl2onnx Converter Functions.
+        skl2onnx_tree_ensemble.add_tree_to_attribute_pairs_hist_gradient_boosting = (original_hist_converter)
+        skl2onnx_random_forest_converter.add_tree_to_attribute_pairs_hist_gradient_boosting = (original_random_forest_hist_converter)
 
 def _build_elm_hidden_layer_node(input_node, hidden_layer, dtype, op_version):
 
@@ -586,7 +666,10 @@ class MLModelMultipleOutput:
 
                     # Define the Generic scikit-learn ONNX Input Contract.
                     initial_type = [('float_input', FloatTensorType([None, _resolve_estimator_feature_count(est)]))]
-                    onx = convert_sklearn(est, initial_types=initial_type)
+                    if isinstance(est, HistGradientBoostingRegressor):
+                        with _patched_hist_gradient_boosting_onnx_converter():
+                            onx = convert_sklearn(est, initial_types=initial_type)
+                    else: onx = convert_sklearn(est, initial_types=initial_type)
 
                 # Write Each Exported Model Into the Legacy Output Folder Contract.
                 with open(onnx_output_path, "wb") as onnx_output_handle:

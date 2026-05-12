@@ -97,6 +97,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-12
+
+- [technical/2026-05/2026-05-12/2026-05-12-18-00-33_rcim_original_hgbm_onnx_export_scalar_sanitization.md](./technical/2026-05/2026-05-12/2026-05-12-18-00-33_rcim_original_hgbm_onnx_export_scalar_sanitization.md)
+  Plan the narrow recovered-original RCIM `HGBM` ONNX export fix that
+  sanitizes histogram-tree scalar types during `skl2onnx` conversion without
+  changing training or evaluation behavior.
+
 #### 2026-05-11
 
 - [technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md)
