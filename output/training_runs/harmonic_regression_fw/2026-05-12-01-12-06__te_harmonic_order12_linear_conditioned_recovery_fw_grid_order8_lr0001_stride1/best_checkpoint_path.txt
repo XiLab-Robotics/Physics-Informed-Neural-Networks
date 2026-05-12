@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-12-06__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride1\checkpoints\harmonic_regression-epoch=046-val_mae=0.00282731.ckpt

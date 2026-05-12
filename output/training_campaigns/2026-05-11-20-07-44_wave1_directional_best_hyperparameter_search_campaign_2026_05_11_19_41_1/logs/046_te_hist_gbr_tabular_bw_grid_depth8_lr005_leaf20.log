@@ -1,0 +1,12 @@
+Command: C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_tree_regressor.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-11-20-07-44_046_046_tree_bw_depth8_lr005_leaf20.yaml
+Working Directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex
+
+
+================================================================================================
+Campaign Progress 46/90 [############------------]
+================================================================================================
+[INFO] Campaign Name | wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11
+[INFO] Run Name | te_hist_gbr_tabular_Bw_grid_depth8_lr005_leaf20
+[INFO] Queue Config | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-11-20-07-44_046_046_tree_bw_depth8_lr005_leaf20.yaml
+[INFO] Source Config | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\wave1_directional_best_hyperparameter_search\campaigns\2026-05-11_wave1_directional_best_hyperparameter_search_campaign\grid_queue\046_tree_bw_depth8_lr005_leaf20.yaml
+[DONE] Tree regression training workflow completed | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\tree_bw\2026-05-11-21-08-37__te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf20

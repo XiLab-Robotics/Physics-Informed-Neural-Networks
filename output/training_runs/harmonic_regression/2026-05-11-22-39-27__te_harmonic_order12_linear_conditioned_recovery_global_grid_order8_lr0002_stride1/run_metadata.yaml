@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: harmonic_regression
+base_model_family: harmonic_regression
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1
+run_instance_id: 2026-05-11-22-39-27__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1
+output_directory: output/training_runs/harmonic_regression/2026-05-11-22-39-27__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1

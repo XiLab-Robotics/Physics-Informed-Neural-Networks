@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: harmonic_regression_bw
+base_model_family: harmonic_regression
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr00005_stride1
+run_instance_id: 2026-05-12-04-17-32__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride1
+output_directory: output/training_runs/harmonic_regression_bw/2026-05-12-04-17-32__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride1

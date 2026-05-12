@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: tree_bw
+base_model_family: tree
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_hist_gbr_tabular_Bw_grid_depth10_lr003_leaf20
+run_instance_id: 2026-05-11-21-12-59__te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf20
+output_directory: output/training_runs/tree_bw/2026-05-11-21-12-59__te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf20

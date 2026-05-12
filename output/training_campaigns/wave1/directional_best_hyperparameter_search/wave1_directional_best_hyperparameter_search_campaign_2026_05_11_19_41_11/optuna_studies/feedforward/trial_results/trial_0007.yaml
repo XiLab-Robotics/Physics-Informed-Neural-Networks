@@ -1,0 +1,18 @@
+study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_feedforward_optuna
+trial_number: 7
+completed_at: '2026-05-13T01:13:11'
+objective_metric_name: val_mae
+objective_value: 0.002962465863674879
+run_instance_id: 2026-05-12-22-55-44__te_feedforward_stride1_high_compute_long_remote_global_optuna_t0007
+run_name: te_feedforward_stride1_high_compute_long_remote_global_optuna_t0007
+trial_config_path: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/feedforward/trial_configs/trial_0007.yaml
+output_directory: output/training_runs/feedforward/2026-05-12-22-55-44__te_feedforward_stride1_high_compute_long_remote_global_optuna_t0007
+sampled_parameters:
+  training.learning_rate: 0.0004891706203866443
+  training.weight_decay: 3.0955664602423687e-06
+  dataset.curve_batch_size: 8
+  model.dropout_probability: 0.1
+  model.hidden_size:
+  - 256
+  - 128
+  - 64

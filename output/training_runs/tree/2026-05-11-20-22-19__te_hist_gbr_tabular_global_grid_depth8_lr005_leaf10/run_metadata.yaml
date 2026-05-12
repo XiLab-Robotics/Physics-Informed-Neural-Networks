@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: tree
+base_model_family: tree
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_hist_gbr_tabular_global_grid_depth8_lr005_leaf10
+run_instance_id: 2026-05-11-20-22-19__te_hist_gbr_tabular_global_grid_depth8_lr005_leaf10
+output_directory: output/training_runs/tree/2026-05-11-20-22-19__te_hist_gbr_tabular_global_grid_depth8_lr005_leaf10

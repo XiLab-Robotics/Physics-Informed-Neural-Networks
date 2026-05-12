@@ -1,0 +1,55 @@
+paths:
+  dataset_config_path: config/training/wave1_directional_best_hyperparameter_search/campaigns/2026-05-11_wave1_directional_best_hyperparameter_search_campaign/dataset_variants/transmission_error_dataset_fw.yaml
+  output_root: output/training_runs/harmonic_regression_fw
+experiment:
+  run_name: te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr00005_stride1
+  model_family: harmonic_regression_fw
+  model_type: harmonic_regression
+metadata:
+  campaign_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md
+  phase_name: wave1_directional_best_hyperparameter_search
+  campaign_config_id: harmonic_regression_fw_grid_007
+  notes: Recovery rerun for the linearly conditioned harmonic baseline after the schema-aware
+    training summary fix. Directional Wave 1 retraining variant prepared from the
+    current `harmonic_regression` family-best source config with `Fw` data scope.
+    Bounded hyperparameter-grid candidate 7/12.
+  random_seed: 42
+  base_model_family: harmonic_regression
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  hpo_engine: bounded_grid
+  hpo_candidate_index: 7
+  hpo_candidate_total: 12
+  output_artifact_kind: training_run
+  output_run_name: te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr00005_stride1
+  run_instance_id: 2026-05-12-01-53-37__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride1
+dataset:
+  curve_batch_size: 4
+  point_stride: 1
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 12
+  coefficient_mode: linear_conditioned
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 250
+  patience: 35
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: cpu
+  devices: 1
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: false
