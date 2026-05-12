@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: feedforward_recovery_micro
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-12T11:12:51'
+best_entry:
+  run_instance_id: 2026-05-12-11-10-14__te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  run_name: te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  output_run_name: te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  output_artifact_kind: training_run
+  model_family: feedforward_recovery_micro
+  base_model_family: feedforward
+  model_type: feedforward
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 109953
+  total_parameter_count: 109953
+  val_mae: 0.004265883006155491
+  val_rmse: 0.005200705025345087
+  test_mae: 0.0041640871204435825
+  test_rmse: 0.005109183490276337
+  output_directory: output/training_runs/feedforward_recovery_micro/2026-05-12-11-10-14__te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  best_checkpoint_path: output/training_runs/feedforward_recovery_micro/2026-05-12-11-10-14__te_feedforward_optuna_recovery_micro_global_optuna_t0000/checkpoints/feedforward-epoch=000-val_mae=0.00426588.ckpt
+  metrics_path: output/training_runs/feedforward_recovery_micro/2026-05-12-11-10-14__te_feedforward_optuna_recovery_micro_global_optuna_t0000/metrics_summary.yaml
+  report_path: output/training_runs/feedforward_recovery_micro/2026-05-12-11-10-14__te_feedforward_optuna_recovery_micro_global_optuna_t0000/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-12T11:12:51'

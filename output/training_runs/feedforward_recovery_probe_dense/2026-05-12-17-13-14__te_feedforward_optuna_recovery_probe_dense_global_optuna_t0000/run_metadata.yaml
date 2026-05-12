@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward_recovery_probe_dense
+base_model_family: feedforward
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000
+run_instance_id: 2026-05-12-17-13-14__te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000
+output_directory: output/training_runs/feedforward_recovery_probe_dense/2026-05-12-17-13-14__te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000

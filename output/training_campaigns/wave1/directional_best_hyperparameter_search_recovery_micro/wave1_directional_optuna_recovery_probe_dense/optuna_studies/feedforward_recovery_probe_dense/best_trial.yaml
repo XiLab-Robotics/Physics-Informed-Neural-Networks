@@ -1,0 +1,24 @@
+study_name: wave1_directional_optuna_recovery_probe_dense_global_optuna
+storage_relative_path: output/training_campaigns/wave1/directional_best_hyperparameter_search_recovery_micro/wave1_directional_optuna_recovery_probe_dense/optuna_studies/feedforward_recovery_probe_dense/study.sqlite3
+direction: minimize
+trial_budget: 1
+completed_trials: 1
+successful_trials: 1
+best_trial_number: 0
+best_value: 0.0042568170465528965
+objective_metric_name: val_mae
+best_parameters:
+  training.learning_rate: 0.0007
+  training.weight_decay: 0.0001
+  model.dropout_probability: 0.1
+best_user_attributes:
+  output_directory: output/training_runs/feedforward_recovery_probe_dense/2026-05-12-17-13-14__te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000
+  run_instance_id: 2026-05-12-17-13-14__te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000
+  run_name: te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000
+  sampled_parameters:
+    training.learning_rate: 0.0007
+    training.weight_decay: 0.0001
+    model.dropout_probability: 0.1
+  test_mae: 0.004601581953465939
+  trial_config_path: output/training_campaigns/wave1/directional_best_hyperparameter_search_recovery_micro/wave1_directional_optuna_recovery_probe_dense/optuna_studies/feedforward_recovery_probe_dense/trial_configs/trial_0000.yaml
+  val_mae: 0.0042568170465528965

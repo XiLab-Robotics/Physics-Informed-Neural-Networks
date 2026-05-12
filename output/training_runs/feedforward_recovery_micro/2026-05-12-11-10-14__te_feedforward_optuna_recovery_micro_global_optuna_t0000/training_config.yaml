@@ -1,0 +1,63 @@
+paths:
+  dataset_config_path: config/training/wave1_directional_best_hyperparameter_search/campaigns/2026-05-11_wave1_directional_best_hyperparameter_search_campaign/dataset_variants/transmission_error_dataset_global.yaml
+  output_root: output/training_runs/feedforward_recovery_micro
+experiment:
+  run_name: te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  model_family: feedforward_recovery_micro
+  model_type: feedforward
+metadata:
+  campaign_name: wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md
+  phase_name: wave1_directional_optuna_recovery_micro
+  campaign_config_id: feedforward_recovery_micro_global
+  notes: Full-density longer-budget remote feedforward follow-up on the stronger GPU
+    path. Directional Wave 1 retraining variant prepared from the current `feedforward`
+    family-best source config with `global` data scope. Recovery micro-campaign source
+    config for validating the Wave 1 neural Optuna launcher path. Optuna trial 0 under
+    study `wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02_feedforward_recovery_micro_optuna`.
+  random_seed: 42
+  base_model_family: feedforward
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  output_artifact_kind: training_run
+  output_run_name: te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  run_instance_id: 2026-05-12-11-10-14__te_feedforward_optuna_recovery_micro_global_optuna_t0000
+  hpo_engine: optuna
+  hpo_study_name: wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02_feedforward_recovery_micro_optuna
+  hpo_trial_number: 0
+  hpo_objective_metric: val_mae
+dataset:
+  curve_batch_size: 8
+  point_stride: 20
+  maximum_points_per_curve: null
+  num_workers: 2
+  pin_memory: false
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 256
+  - 256
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.05
+  use_layer_norm: true
+training:
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  min_epochs: 1
+  max_epochs: 2
+  patience: 1
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: 1
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: false

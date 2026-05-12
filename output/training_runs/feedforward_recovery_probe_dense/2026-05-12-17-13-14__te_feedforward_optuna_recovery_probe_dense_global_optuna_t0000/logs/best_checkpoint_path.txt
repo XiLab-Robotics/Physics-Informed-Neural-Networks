@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\feedforward_recovery_probe_dense\2026-05-12-17-13-14__te_feedforward_optuna_recovery_probe_dense_global_optuna_t0000\checkpoints\feedforward-epoch=001-val_mae=0.00425682.ckpt
