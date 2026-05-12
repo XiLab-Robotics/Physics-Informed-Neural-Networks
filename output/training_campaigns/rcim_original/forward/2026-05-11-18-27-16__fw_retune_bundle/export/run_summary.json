@@ -1,0 +1,24 @@
+{
+  "stage": "training_models",
+  "mode": "paper_export",
+  "direction": "forward",
+  "input_dataframe_path": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "ET",
+    "ERT",
+    "GBM",
+    "HGBM"
+  ],
+  "selected_family_count": 4,
+  "best_parameter_summary_path": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+  "prediction_output_folder": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\output_prediction",
+  "model_output_dir": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\output_prediction\\dfOutTot_prediction_ExtraTreeRegressor_paperReferenceExport_3.8_allFreq.csv",
+    "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\output_prediction\\dfOutTot_prediction_ExtraTreesRegressor_paperReferenceExport_3.8_allFreq.csv",
+    "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\output_prediction\\dfOutTot_prediction_GradientBoostingRegressor_paperReferenceExport_3.8_allFreq.csv",
+    "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-27-16__fw_retune_bundle\\export\\output_prediction\\dfOutTot_prediction_HistGradientBoostingRegressor_paperReferenceExport_3.8_allFreq.csv"
+  ]
+}
