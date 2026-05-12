@@ -103,6 +103,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the recovered-original RCIM launcher fix that replaces unreliable
   PowerShell transcript capture with explicit live stdout/stderr mirroring into
   persistent stage logs.
+- [technical/2026-05/2026-05-12/2026-05-12-20-20-40_wave1_optuna_launcher_native_terminal_streaming_restore.md](./technical/2026-05/2026-05-12/2026-05-12-20-20-40_wave1_optuna_launcher_native_terminal_streaming_restore.md)
+  Restore native terminal-visible `PyTorch Lightning` progress streaming for
+  the `Wave 1` neural `Optuna` launcher while keeping the interpreter and
+  persisted-study recovery hardening already added.
 - [technical/2026-05/2026-05-12/2026-05-12-18-24-51_requirements_dependency_cleanup.md](./technical/2026-05/2026-05-12/2026-05-12-18-24-51_requirements_dependency_cleanup.md)
   Plan the cleanup of the root, documentation, LAN-node, and recovered-original
   Python requirement surfaces after a repository-wide import and workflow audit.

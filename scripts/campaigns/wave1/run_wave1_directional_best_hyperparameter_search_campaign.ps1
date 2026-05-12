@@ -118,6 +118,79 @@ function Format-ProcessArgumentToken {
     return ('"{0}"' -f $escapedArgumentToken)
 }
 
+function Invoke-InteractiveOptunaStudy {
+    param(
+        [string]$ResolvedPythonExecutablePath,
+        [string]$StudyConfigPath,
+        [string]$GpuId,
+        [string]$ProjectRoot,
+        [string]$LauncherLogRoot
+    )
+
+    $studyStem = [System.IO.Path]::GetFileNameWithoutExtension($StudyConfigPath)
+    $stdoutPath = Join-Path $LauncherLogRoot "$studyStem.stdout.log"
+    $stderrPath = Join-Path $LauncherLogRoot "$studyStem.stderr.log"
+    $transcriptPath = Join-Path $LauncherLogRoot "$studyStem.console.log"
+    $previousCudaVisibleDevices = $env:CUDA_VISIBLE_DEVICES
+
+    New-Item -ItemType File -Path $stdoutPath -Force | Out-Null
+    New-Item -ItemType File -Path $stderrPath -Force | Out-Null
+    Remove-Item $transcriptPath -Force -ErrorAction SilentlyContinue
+
+    Write-Host (
+        "[INFO] Interactive Optuna study | gpu={0} | config={1}" -f `
+        $GpuId, `
+        $StudyConfigPath
+    ) -ForegroundColor Cyan
+
+    try {
+        $env:CUDA_VISIBLE_DEVICES = [string]$GpuId
+        Start-Transcript -Path $transcriptPath -Force | Out-Null
+
+        & $ResolvedPythonExecutablePath `
+            "scripts\training\run_optuna_neural_hpo_study.py" `
+            "--study-config-path" $StudyConfigPath `
+            "--gpu-id" $GpuId
+
+        $exitCode = $LASTEXITCODE
+        if ($exitCode -ne 0) {
+            Add-Content -Path $stderrPath -Value (
+                "Optuna study failed | gpu={0} | config={1} | exit_code={2}" -f `
+                $GpuId, `
+                $StudyConfigPath, `
+                $exitCode
+            )
+            throw (
+                "Optuna study failed | gpu={0} | config={1} | stdout={2} | stderr={3} | exit_code={4}" -f `
+                $GpuId, `
+                $StudyConfigPath, `
+                $transcriptPath, `
+                $stderrPath, `
+                $exitCode
+            )
+        }
+    }
+    finally {
+        try {
+            Stop-Transcript | Out-Null
+        }
+        catch {
+            # Ignore transcript shutdown noise when no transcript is active.
+        }
+
+        if (Test-Path $transcriptPath) {
+            Copy-Item -Path $transcriptPath -Destination $stdoutPath -Force
+        }
+
+        if ($null -eq $previousCudaVisibleDevices) {
+            Remove-Item Env:CUDA_VISIBLE_DEVICES -ErrorAction SilentlyContinue
+        }
+        else {
+            $env:CUDA_VISIBLE_DEVICES = $previousCudaVisibleDevices
+        }
+    }
+}
+
 Set-Location $projectRoot
 
 $campaignRoot = "config\training\wave1_directional_best_hyperparameter_search\campaigns\2026-05-11_wave1_directional_best_hyperparameter_search_campaign"
@@ -162,6 +235,29 @@ if ($GpuIdList.Count -le 0) {
 }
 
 Test-OptunaAvailability -ResolvedPythonExecutablePath $resolvedPythonExecutablePath
+
+if ($GpuIdList.Count -eq 1) {
+    Write-Host (
+        "[INFO] Interactive terminal streaming enabled | gpu={0} | native Lightning progress visible | CTRL+C supported" -f `
+        $GpuIdList[0]
+    ) -ForegroundColor Cyan
+
+    foreach ($studyConfigPath in $optunaStudyConfigPathList) {
+        Invoke-InteractiveOptunaStudy `
+            -ResolvedPythonExecutablePath $resolvedPythonExecutablePath `
+            -StudyConfigPath $studyConfigPath `
+            -GpuId $GpuIdList[0] `
+            -ProjectRoot $projectRoot `
+            -LauncherLogRoot $launcherLogRoot
+    }
+
+    Write-Host "[DONE] Wave 1 directional best-hyperparameter search launcher completed" -ForegroundColor Green
+    exit 0
+}
+
+Write-Host (
+    "[WARNING] Multiple GPU ids requested. Falling back to detached parallel launcher mode; native terminal progress bars and CTRL+C propagation are only guaranteed in single-GPU interactive mode."
+) -ForegroundColor Yellow
 
 for ($batchStartIndex = 0; $batchStartIndex -lt $optunaStudyConfigPathList.Count; $batchStartIndex += $GpuIdList.Count) {
     $processRecordList = @()
