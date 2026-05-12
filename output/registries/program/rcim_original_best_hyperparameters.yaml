@@ -83,28 +83,6 @@ branches:
       source_cross_validation_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-11-09-19-07__bw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
       updated_at: '2026-05-11T07:52:40+00:00'
   forward:
-    DT:
-      family_code: DT
-      summary_family_code: DT
-      best_parameters: '{''estimator__criterion'': ''squared_error'', ''estimator__max_depth'':
-        np.int64(15), ''estimator__max_leaf_nodes'': None, ''estimator__min_samples_split'':
-        np.int64(6)}'
-      aggregate_mae_mean: 0.05966021512661408
-      metric_name: aggregate_mae_mean
-      source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-10-02-19__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
-      source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-10-02-19__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
-      updated_at: '2026-05-09T10:18:51+00:00'
-    RF:
-      family_code: RF
-      summary_family_code: RF
-      best_parameters: '{''estimator__criterion'': ''squared_error'', ''estimator__max_depth'':
-        np.int64(15), ''estimator__max_features'': 1.0, ''estimator__min_samples_split'':
-        np.int64(2), ''estimator__n_estimators'': 100}'
-      aggregate_mae_mean: 0.05455369632274955
-      metric_name: aggregate_mae_mean
-      source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-10-02-19__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
-      source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-10-02-19__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
-      updated_at: '2026-05-09T10:18:51+00:00'
     SVR:
       family_code: SVR
       summary_family_code: SVM
