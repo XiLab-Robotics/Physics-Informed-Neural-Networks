@@ -1,0 +1,35 @@
+﻿[INFO] RCIM Original Launcher Foreground Console Mode
+[INFO] Stage | export
+[INFO] Mode | paper_export
+[INFO] Direction | forward
+[INFO] Stage Root | C:\Users\Davide\Documents\Python Scripts\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-18-20-41__fw_export_bundle\export
+[INFO] Command | "C:\Users\Davide\.conda\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_export --direction forward --test-size 0.2 --output-root "C:\Users\Davide\Documents\Python Scripts\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-18-20-41__fw_export_bundle\export" --families HGBM --best-parameter-summary-path "C:\Users\Davide\Documents\Python Scripts\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-13-04-25__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv"
+[INFO] Combined Transcript Path | C:\Users\Davide\Documents\Python Scripts\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-18-20-41__fw_export_bundle\logs\export.combined.log
+[INFO] The child training process runs in true foreground-console mode.
+[INFO] Ctrl+C should behave like the direct python command.
+[INFO] The combined transcript is the authoritative live log surface.
+**********************
+Inizio trascrizione Windows PowerShell
+Ora di inizio: 20260512182042
+Nome utente: XILAB-DAVIDE\Davide
+Esegui come utente: XILAB-DAVIDE\Davide
+Nome configurazione: 
+Computer XILAB-DAVIDE (Microsoft Windows NT 10.0.26200.0)
+Applicazione host: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File scripts\campaigns\paper_reference\rcim_original\run_rcim_original_reference_training.ps1 -Branch Forward -Stage Export -Families HGBM -BestParameterSummaryPath output\training_campaigns\rcim_original\forward\2026-05-09-13-04-25__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+ID processo: 4628
+PSVersion: 5.1.26100.8328
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8328
+BuildVersion: 10.0.26100.8328
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+**********************
+Fine trascrizione Windows PowerShell
+Ora di fine: 20260512182055
+**********************
+[INFO] Foreground Console Stage Completed | True
+[INFO] Stage Exit Code | 0
