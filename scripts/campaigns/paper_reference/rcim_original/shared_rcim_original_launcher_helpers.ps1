@@ -70,27 +70,10 @@ function Initialize-RcimOriginalStageLogSurface {
         }
     }
 
-    New-Item -ItemType File -Path $CombinedLogPath -Force | Out-Null
-    Set-Content -LiteralPath $CombinedLogPath -Value $MetadataLineList -Encoding UTF8
-
-    $hardLinkEnabled = $false
-    try {
-        New-Item -ItemType HardLink -Path $StdoutLogPath -Target $CombinedLogPath -Force | Out-Null
-        New-Item -ItemType HardLink -Path $StderrLogPath -Target $CombinedLogPath -Force | Out-Null
-        $hardLinkEnabled = $true
+    foreach ($path in @($StdoutLogPath, $StderrLogPath, $CombinedLogPath)) {
+        New-Item -ItemType File -Path $path -Force | Out-Null
+        Set-Content -LiteralPath $path -Value $MetadataLineList -Encoding UTF8
     }
-    catch {
-        Set-Content -LiteralPath $StdoutLogPath -Value @(
-            "[INFO] Combined Transcript Path | $CombinedLogPath",
-            "[INFO] This stage is running in foreground-console mode. Tail the combined transcript for live progress."
-        ) -Encoding UTF8
-        Set-Content -LiteralPath $StderrLogPath -Value @(
-            "[INFO] Combined Transcript Path | $CombinedLogPath",
-            "[INFO] This stage is running in foreground-console mode. Tail the combined transcript for live progress."
-        ) -Encoding UTF8
-    }
-
-    return $hardLinkEnabled
 }
 
 function Invoke-RcimOriginalPythonStage {
@@ -196,18 +179,19 @@ function Invoke-RcimOriginalPythonStage {
     }
 
     $compatibilityLogLines = @(
-        "[INFO] RCIM Original Launcher Foreground Console Mode",
+        "[INFO] RCIM Original Launcher Mirrored Live Log Mode",
         "[INFO] Stage | $StageName",
         "[INFO] Mode | $ModeName",
         "[INFO] Direction | $DirectionName",
         "[INFO] Stage Root | $StageRoot",
         "[INFO] Command | $commandPreview",
-        "[INFO] Combined Transcript Path | $combinedLogPath",
-        "[INFO] The child training process runs in true foreground-console mode.",
-        "[INFO] Ctrl+C should behave like the direct python command.",
-        "[INFO] The combined transcript is the authoritative live log surface."
+        "[INFO] Stdout Compatibility Log Path | $stdoutLogPath",
+        "[INFO] Stderr Compatibility Log Path | $stderrLogPath",
+        "[INFO] Combined Log Path | $combinedLogPath",
+        "[INFO] The child training process output is mirrored to console, stdout compatibility log, and combined log.",
+        "[INFO] The combined log is the authoritative persistent live log surface."
     )
-    $hardLinkEnabled = Initialize-RcimOriginalStageLogSurface `
+    Initialize-RcimOriginalStageLogSurface `
         -StdoutLogPath $stdoutLogPath `
         -StderrLogPath $stderrLogPath `
         -CombinedLogPath $combinedLogPath `
@@ -215,18 +199,19 @@ function Invoke-RcimOriginalPythonStage {
 
     $exitCode = 0
     $stageInterrupted = $false
-    $transcriptStarted = $false
 
     try {
         Push-Location $ProjectRoot
-        $previousErrorActionPreference = $ErrorActionPreference
-        $previousNativePreference = $PSNativeCommandUseErrorActionPreference
-        $ErrorActionPreference = "Continue"
-        $PSNativeCommandUseErrorActionPreference = $false
 
-        Start-Transcript -Path $combinedLogPath -Append -Force | Out-Null
-        $transcriptStarted = $true
-        & $commandExecutablePath @argumentList
+        # Start-Transcript Does Not Reliably Capture Native Python Output On Windows
+        # PowerShell 5. Mirror The Merged Native Output Explicitly As UTF-8 Text.
+        & $commandExecutablePath @argumentList 2>&1 |
+            ForEach-Object {
+                $outputLine = $_.ToString()
+                [Console]::Out.WriteLine($outputLine)
+                Add-Content -LiteralPath $combinedLogPath -Value $outputLine -Encoding UTF8
+                Add-Content -LiteralPath $stdoutLogPath -Value $outputLine -Encoding UTF8
+            }
         $exitCode = $LASTEXITCODE
     }
     catch [System.Management.Automation.PipelineStoppedException] {
@@ -242,20 +227,15 @@ function Invoke-RcimOriginalPythonStage {
             }
         }
 
-        $ErrorActionPreference = $previousErrorActionPreference
-        $PSNativeCommandUseErrorActionPreference = $previousNativePreference
-
         Pop-Location
 
         $completionLogLines = @(
-            "[INFO] Foreground Console Stage Completed | $(-not $stageInterrupted)",
+            "[INFO] Mirrored Live Log Stage Completed | $(-not $stageInterrupted)",
             "[INFO] Stage Exit Code | $exitCode"
         )
         Add-Content -LiteralPath $combinedLogPath -Value $completionLogLines -Encoding UTF8
-        if (-not $hardLinkEnabled) {
-            Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
-            Add-Content -LiteralPath $stderrLogPath -Value $completionLogLines -Encoding UTF8
-        }
+        Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
+        Add-Content -LiteralPath $stderrLogPath -Value $completionLogLines -Encoding UTF8
     }
 
     Write-Host "[INFO] Stage Exit Code | $exitCode" -ForegroundColor DarkGray

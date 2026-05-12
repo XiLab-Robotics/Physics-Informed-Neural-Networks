@@ -37,6 +37,10 @@ Each stage writes:
 - `logs/<stage>.stderr.log`
 - `logs/<stage>.combined.log`
 
+`combined.log` is the main persistent live-log surface and mirrors the terminal
+output. `stdout.log` is kept as a compatibility mirror of the same live stream;
+`stderr.log` is retained for launcher metadata and completion compatibility.
+
 The launcher summary is written to:
 
 - `launcher_summary.json`
@@ -70,8 +74,8 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 
 ## Notes
 
-- The launcher keeps the full warning surface in log files even when the live
-  terminal shows only progress-oriented lines.
+- The launcher mirrors the Python stage output to the terminal and to the stage
+  log files so live progress and later diagnostics use the same stream content.
 - New operator-facing stage names now live in the unified launcher:
   `Original`, `Retune`, `Eval`, `Export`, and `LoadBest`.
 - Curated final model archives under

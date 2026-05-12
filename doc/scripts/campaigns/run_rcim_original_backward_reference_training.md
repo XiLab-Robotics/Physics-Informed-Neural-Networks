@@ -46,6 +46,10 @@ Each stage also writes:
 - `logs/<stage>.stderr.log`
 - `logs/<stage>.combined.log`
 
+`combined.log` is the main persistent live-log surface and mirrors the terminal
+output. `stdout.log` is kept as a compatibility mirror of the same live stream;
+`stderr.log` is retained for launcher metadata and completion compatibility.
+
 The launcher summary is written to:
 
 - `launcher_summary.json`

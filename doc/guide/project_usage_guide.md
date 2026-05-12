@@ -2816,6 +2816,11 @@ Paper-reference launcher surface:
   - stdout log
   - stderr log
   - combined log
+- `combined.log` is the authoritative persistent live-log surface and mirrors
+  the terminal output
+- `stdout.log` is retained as a compatibility mirror of the same live stream
+- `stderr.log` is retained for launcher metadata and completion compatibility,
+  but is not a reliable split native-stderr stream in this launcher mode
 - final curated model archives under `models/paper_reference/rcim_original/`
   remain a later closeout step, not the live runtime root
 

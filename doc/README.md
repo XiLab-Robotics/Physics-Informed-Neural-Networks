@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-12
 
+- [technical/2026-05/2026-05-12/2026-05-12-20-31-03_rcim_original_launcher_live_log_capture_fix.md](./technical/2026-05/2026-05-12/2026-05-12-20-31-03_rcim_original_launcher_live_log_capture_fix.md)
+  Plan the recovered-original RCIM launcher fix that replaces unreliable
+  PowerShell transcript capture with explicit live stdout/stderr mirroring into
+  persistent stage logs.
 - [technical/2026-05/2026-05-12/2026-05-12-18-24-51_requirements_dependency_cleanup.md](./technical/2026-05/2026-05-12/2026-05-12-18-24-51_requirements_dependency_cleanup.md)
   Plan the cleanup of the root, documentation, LAN-node, and recovered-original
   Python requirement surfaces after a repository-wide import and workflow audit.
