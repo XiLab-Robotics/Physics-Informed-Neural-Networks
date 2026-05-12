@@ -1,0 +1,41 @@
+study:
+  study_name: wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02_feedforward_recovery_micro_optuna
+  campaign_name: wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md
+  phase_name: wave1_directional_optuna_recovery_micro
+  source_training_config_path: config/training/wave1_directional_optuna_recovery_micro/campaigns/2026-05-12_wave1_directional_optuna_recovery_micro_campaign/source_training_configs/feedforward_recovery_micro.yaml
+  study_output_root: output/training_campaigns/wave1/directional_best_hyperparameter_search_recovery_micro/wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02/optuna_studies/feedforward_recovery_micro
+  storage_relative_path: output/training_campaigns/wave1/directional_best_hyperparameter_search_recovery_micro/wave1_directional_optuna_recovery_micro_campaign_2026_05_12_10_49_02/optuna_studies/feedforward_recovery_micro/study.sqlite3
+  model_family: feedforward_recovery_micro
+  base_model_family: feedforward
+  model_type: feedforward
+  training_variant: global
+  direction_scope_label: bidirectional
+  objective_metric_name: val_mae
+  direction: minimize
+  trial_budget: 1
+  sampler:
+    type: TPESampler
+    seed: 42
+    n_startup_trials: 1
+execution:
+  accelerator: auto
+  devices: 1
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: false
+search_space:
+  training.learning_rate:
+    type: categorical
+    choices:
+    - 0.0007
+    - 0.001
+  training.weight_decay:
+    type: categorical
+    choices:
+    - 0.0001
+  model.dropout_probability:
+    type: categorical
+    choices:
+    - 0.05
+    - 0.1

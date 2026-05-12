@@ -116,6 +116,12 @@ def build_trial_training_config(
     if "use_non_blocking_transfer" in execution_dictionary:
         runtime_dictionary["use_non_blocking_transfer"] = execution_dictionary["use_non_blocking_transfer"]
 
+    dataset_dictionary = trial_training_config.setdefault("dataset", {})
+    if "dataset_num_workers" in execution_dictionary:
+        dataset_dictionary["num_workers"] = int(execution_dictionary["dataset_num_workers"])
+    if "dataset_pin_memory" in execution_dictionary:
+        dataset_dictionary["pin_memory"] = bool(execution_dictionary["dataset_pin_memory"])
+
     # Attach Study Metadata Before Preparing Immutable Artifact Identity
     trial_metadata_dictionary = trial_training_config.setdefault("metadata", {})
     trial_metadata_dictionary["campaign_name"] = study_dictionary["campaign_name"]
@@ -180,6 +186,8 @@ def main() -> None:
 
     objective_metric_name = str(study_dictionary["objective_metric_name"])
     trial_budget = int(study_dictionary["trial_budget"])
+    completed_or_failed_trial_count = len(study.trials)
+    remaining_trial_budget = max(trial_budget - completed_or_failed_trial_count, 0)
 
     def objective(trial: optuna.trial.Trial) -> float:
 
@@ -241,12 +249,20 @@ def main() -> None:
         gc.collect()
         return float(objective_value)
 
-    study.optimize(
-        objective,
-        n_trials=trial_budget,
-        gc_after_trial=True,
-        show_progress_bar=False,
-    )
+    if remaining_trial_budget > 0:
+        study.optimize(
+            objective,
+            n_trials=remaining_trial_budget,
+            gc_after_trial=True,
+            show_progress_bar=False,
+            catch=(Exception,),
+        )
+
+    completed_trial_list = [trial for trial in study.trials if trial.state == optuna.trial.TrialState.COMPLETE]
+    if len(completed_trial_list) == 0:
+        raise RuntimeError(
+            f"Optuna study finished without any completed trials | {study.study_name}"
+        )
 
     best_trial = study.best_trial
     optuna_hpo_support.save_yaml_dictionary(
@@ -256,6 +272,7 @@ def main() -> None:
             "direction": study.direction.name.lower(),
             "trial_budget": trial_budget,
             "completed_trials": len(study.trials),
+            "successful_trials": len(completed_trial_list),
             "best_trial_number": int(best_trial.number),
             "best_value": float(best_trial.value),
             "objective_metric_name": objective_metric_name,
@@ -270,6 +287,7 @@ def main() -> None:
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "trial_budget": trial_budget,
             "completed_trials": len(study.trials),
+            "successful_trials": len(completed_trial_list),
             "best_trial_number": int(best_trial.number),
             "best_value": float(best_trial.value),
             "objective_metric_name": objective_metric_name,

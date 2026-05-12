@@ -1,11 +1,122 @@
 param(
+    [string]$CondaEnvironmentName = "standard_ml_codex_env",
     [string]$PythonExecutable = "python",
-    [string[]]$GpuIdList = @("0")
+    [string[]]$GpuIdList = @("0"),
+    [switch]$SkipGridPhase
 )
 
 $ErrorActionPreference = "Stop"
 $scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
 $projectRoot = (Resolve-Path (Join-Path $scriptDirectory "..\..\..")).Path
+
+function Get-EnvironmentPythonPath {
+    param(
+        [string]$RequestedCondaEnvironmentName
+    )
+
+    if ([string]::IsNullOrWhiteSpace($RequestedCondaEnvironmentName)) {
+        return $null
+    }
+
+    $condaExecutablePath = (where.exe conda.exe 2>$null | Select-Object -First 1)
+    if ([string]::IsNullOrWhiteSpace($condaExecutablePath)) {
+        return $null
+    }
+
+    try {
+        $environmentListJson = (& $condaExecutablePath env list --json 2>$null | Out-String)
+        if (-not [string]::IsNullOrWhiteSpace($environmentListJson)) {
+            $environmentList = $environmentListJson | ConvertFrom-Json
+            foreach ($environmentPath in $environmentList.envs) {
+                if ((Split-Path -Leaf $environmentPath) -eq $RequestedCondaEnvironmentName) {
+                    $candidatePythonPath = Join-Path $environmentPath "python.exe"
+                    if (Test-Path $candidatePythonPath) {
+                        return (Resolve-Path $candidatePythonPath).Path
+                    }
+                }
+            }
+        }
+    }
+    catch {
+        # Fall back to the standard Conda base layout.
+    }
+
+    $condaBasePath = (& $condaExecutablePath info --base 2>$null | Select-Object -Last 1)
+    if (-not [string]::IsNullOrWhiteSpace($condaBasePath)) {
+        $environmentPythonPath = Join-Path $condaBasePath.Trim() ("envs\" + $RequestedCondaEnvironmentName + "\python.exe")
+        if (Test-Path $environmentPythonPath) {
+            return (Resolve-Path $environmentPythonPath).Path
+        }
+    }
+
+    return $null
+}
+
+function Resolve-PythonExecutablePath {
+    param(
+        [string]$RequestedPythonExecutable,
+        [string]$RequestedCondaEnvironmentName
+    )
+
+    if (-not [string]::IsNullOrWhiteSpace($env:CONDA_PREFIX)) {
+        $activeEnvironmentPythonPath = Join-Path $env:CONDA_PREFIX "python.exe"
+        if (
+            (Test-Path $activeEnvironmentPythonPath) -and
+            ((Split-Path -Leaf $env:CONDA_PREFIX) -eq $RequestedCondaEnvironmentName) -and
+            [string]::Equals($RequestedPythonExecutable, "python", [System.StringComparison]::OrdinalIgnoreCase)
+        ) {
+            return (Resolve-Path $activeEnvironmentPythonPath).Path
+        }
+    }
+
+    $environmentPythonPath = Get-EnvironmentPythonPath -RequestedCondaEnvironmentName $RequestedCondaEnvironmentName
+    if (
+        -not [string]::IsNullOrWhiteSpace($environmentPythonPath) -and
+        [string]::Equals($RequestedPythonExecutable, "python", [System.StringComparison]::OrdinalIgnoreCase)
+    ) {
+        return $environmentPythonPath
+    }
+
+    if (Test-Path $RequestedPythonExecutable) {
+        return (Resolve-Path $RequestedPythonExecutable).Path
+    }
+
+    $resolvedCommand = Get-Command $RequestedPythonExecutable -ErrorAction SilentlyContinue
+    if ($null -ne $resolvedCommand) {
+        return $resolvedCommand.Source
+    }
+
+    throw "Unable to resolve Python executable | requested=$RequestedPythonExecutable"
+}
+
+function Test-OptunaAvailability {
+    param(
+        [string]$ResolvedPythonExecutablePath
+    )
+
+    & $ResolvedPythonExecutablePath -c "import optuna, sys; print(sys.executable)"
+    if ($LASTEXITCODE -ne 0) {
+        throw "Optuna import preflight failed for Python executable | $ResolvedPythonExecutablePath"
+    }
+}
+
+function Format-ProcessArgumentToken {
+    param(
+        [string]$ArgumentToken
+    )
+
+    if ($null -eq $ArgumentToken) {
+        return '""'
+    }
+
+    $normalizedArgumentToken = [string]$ArgumentToken
+    if ($normalizedArgumentToken -notmatch '[\s"]') {
+        return $normalizedArgumentToken
+    }
+
+    $escapedArgumentToken = $normalizedArgumentToken.Replace('"', '\"')
+    return ('"{0}"' -f $escapedArgumentToken)
+}
 
 Set-Location $projectRoot
 
@@ -16,21 +127,29 @@ $planningReportPath = "doc\reports\campaign_plans\wave1\2026-05-11-19-41-11_wave
 $campaignName = "wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11"
 $campaignOutputRoot = "output\training_campaigns\wave1\directional_best_hyperparameter_search\$campaignName"
 $launcherLogRoot = Join-Path $campaignOutputRoot "launcher_logs"
+$resolvedPythonExecutablePath = Resolve-PythonExecutablePath `
+    -RequestedPythonExecutable $PythonExecutable `
+    -RequestedCondaEnvironmentName $CondaEnvironmentName
+
 New-Item -ItemType Directory -Path $launcherLogRoot -Force | Out-Null
+Write-Host "[INFO] Resolved Python executable | $resolvedPythonExecutablePath" -ForegroundColor Cyan
 
 $gridQueueConfigPathList = Get-ChildItem -Path $gridQueueRoot -Filter *.yaml -File | Sort-Object Name | ForEach-Object { $_.FullName }
 $optunaStudyConfigPathList = Get-ChildItem -Path $optunaStudyRoot -Filter *.yaml -File | Sort-Object Name | ForEach-Object { $_.FullName }
 
-if ($gridQueueConfigPathList.Count -gt 0) {
+if ((-not $SkipGridPhase) -and $gridQueueConfigPathList.Count -gt 0) {
     Write-Host "[INFO] Running bounded CPU grid phase | $($gridQueueConfigPathList.Count) configs" -ForegroundColor Cyan
     $gridArgumentList = @("scripts\training\run_training_campaign.py") + $gridQueueConfigPathList + @(
         "--campaign-name", $campaignName,
         "--planning-report-path", $planningReportPath
     )
-    & $PythonExecutable @gridArgumentList
+    & $resolvedPythonExecutablePath @gridArgumentList
     if ($LASTEXITCODE -ne 0) {
         throw "Bounded grid phase failed | exit_code=$LASTEXITCODE"
     }
+}
+elseif ($SkipGridPhase) {
+    Write-Host "[INFO] Grid phase skipped on request" -ForegroundColor Yellow
 }
 
 if ($optunaStudyConfigPathList.Count -eq 0) {
@@ -41,6 +160,8 @@ if ($optunaStudyConfigPathList.Count -eq 0) {
 if ($GpuIdList.Count -le 0) {
     throw "GpuIdList must contain at least one GPU id."
 }
+
+Test-OptunaAvailability -ResolvedPythonExecutablePath $resolvedPythonExecutablePath
 
 for ($batchStartIndex = 0; $batchStartIndex -lt $optunaStudyConfigPathList.Count; $batchStartIndex += $GpuIdList.Count) {
     $processRecordList = @()
@@ -61,10 +182,13 @@ for ($batchStartIndex = 0; $batchStartIndex -lt $optunaStudyConfigPathList.Count
             "--study-config-path", $studyConfigPath,
             "--gpu-id", $gpuId
         )
+        $argumentLine = ($argumentList | ForEach-Object {
+            Format-ProcessArgumentToken -ArgumentToken ([string]$_)
+        }) -join " "
 
         $process = Start-Process `
-            -FilePath $PythonExecutable `
-            -ArgumentList $argumentList `
+            -FilePath $resolvedPythonExecutablePath `
+            -ArgumentList $argumentLine `
             -WorkingDirectory $projectRoot `
             -RedirectStandardOutput $stdoutPath `
             -RedirectStandardError $stderrPath `
@@ -82,13 +206,15 @@ for ($batchStartIndex = 0; $batchStartIndex -lt $optunaStudyConfigPathList.Count
 
     foreach ($processRecord in $processRecordList) {
         $processRecord.Process.WaitForExit()
-        if ($processRecord.Process.ExitCode -ne 0) {
+        $processRecord.Process.Refresh()
+        $exitCode = $processRecord.Process.ExitCode
+        if ($exitCode -ne 0) {
             throw ("Optuna study failed | gpu={0} | config={1} | stdout={2} | stderr={3} | exit_code={4}" -f `
                 $processRecord.GpuId, `
                 $processRecord.StudyConfigPath, `
                 $processRecord.StdoutPath, `
                 $processRecord.StderrPath, `
-                $processRecord.Process.ExitCode)
+                $exitCode)
         }
     }
 }

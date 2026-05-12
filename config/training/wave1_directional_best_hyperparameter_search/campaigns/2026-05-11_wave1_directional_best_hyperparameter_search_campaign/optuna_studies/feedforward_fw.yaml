@@ -24,6 +24,8 @@ execution:
   precision: '32'
   benchmark: true
   use_non_blocking_transfer: true
+  dataset_num_workers: 2
+  dataset_pin_memory: true
 search_space:
   training.learning_rate:
     type: float

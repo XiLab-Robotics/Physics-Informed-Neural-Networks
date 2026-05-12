@@ -296,6 +296,8 @@ def build_optuna_study_config(
             "precision": "32",
             "benchmark": True,
             "use_non_blocking_transfer": True,
+            "dataset_num_workers": 2,
+            "dataset_pin_memory": True,
         },
         "search_space": OPTUNA_SEARCH_SPACE_BY_MODEL_TYPE[model_type],
     }

@@ -110,6 +110,11 @@ This folder contains the internal project documents derived from the reference P
   Plan the narrow recovered-original RCIM `HGBM` ONNX export fix that
   sanitizes histogram-tree scalar types during `skl2onnx` conversion without
   changing training or evaluation behavior.
+- [technical/2026-05/2026-05-12/2026-05-12-10-49-02_wave1_directional_hpo_optuna_launcher_recovery_and_micro_validation.md](./technical/2026-05/2026-05-12/2026-05-12-10-49-02_wave1_directional_hpo_optuna_launcher_recovery_and_micro_validation.md)
+  Diagnose the failed Wave 1 directional HPO launcher, recover the blocked
+  neural `Optuna` study phase, validate the launcher fix through a lightweight
+  micro-campaign, and define the closeout conditions for the full directional
+  best-hyperparameter campaign.
 
 #### 2026-05-11
 
@@ -1341,6 +1346,10 @@ This folder contains the internal project documents derived from the reference P
   Historical-filename planning report for the Wave 1 residual-harmonic familywise follow-up campaign, focused on a broad hyperparameter search inside the residual harmonic MLP family.
 - [reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md)
   Campaign-planning report for the mixed bounded-grid plus Optuna refinement pass across all `15` directional `Wave 1` winner surfaces.
+- [reports/campaign_plans/wave1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-12-10-49-02_wave1_directional_optuna_recovery_micro_campaign_plan_report.md)
+  Lightweight recovery-campaign plan for reproducing and validating the blocked
+  neural `Optuna` launcher path before resuming the full directional HPO
+  campaign.
 - [technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
   Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
 - [technical/2026-03/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
