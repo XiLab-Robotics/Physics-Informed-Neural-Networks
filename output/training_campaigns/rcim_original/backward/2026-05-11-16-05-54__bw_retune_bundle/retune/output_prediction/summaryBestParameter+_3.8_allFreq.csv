@@ -1,0 +1,2 @@
+0_method;best_parameters
+LGBM;{'estimator__learning_rate': np.float64(0.01), 'estimator__max_depth': np.int64(14), 'estimator__num_leaves': np.int64(28), 'estimator__subsample': 0.1}
