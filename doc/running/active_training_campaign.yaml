@@ -1,5 +1,5 @@
 campaign_name: track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30
-status: running
+status: cancelled
 planning_report_path: doc\reports\campaign_plans\track1\exact_paper\2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md
 campaign_config_directory: config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_paper_faithful_grid_search
 queue_root: null
@@ -8,8 +8,8 @@ campaign_output_directory: output\training_campaigns\track1\exact_paper\bidirect
 launch_mode: remote_operator_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-05-13T17:47:50+02:00'
-started_at: '2026-05-13T18:01:19+02:00'
-finished_at: null
+started_at: '2026-05-13T18:24:53+02:00'
+finished_at: '2026-05-14T00:04:01+02:00'
 completion_recorded_at: null
 results_report_path: null
 remote_host_alias: xilab-remote
@@ -103,8 +103,9 @@ pending_family_list:
 - XGBM
 - LGBM
 - ELM
-interruption_note: Operator interrupted the paper-faithful 20-run campaign after the full
-  remote launch remained stuck too long on the first `SVR` search run with poor live progress
-  visibility. Follow-up work will replace the monolithic launcher experience with a
-  stage-and-family-oriented exact-paper wrapper plus much richer live logging for grid
-  search and historical cross-validation without changing the mathematical search protocol.
+interruption_note: Remote campaign attempt started on 2026-05-13T18:24:53+02:00
+  and stopped after the forward SVR family completed fit, evaluation, and Python+ONNX
+  export. The validation-summary YAML write failed at 2026-05-14T00:04:01+02:00
+  because `family_search_summary.parameter_grid` still contained live scikit-learn
+  estimator objects such as `SVR(...)`; the exact-paper summary path now serializes
+  search metadata before YAML output.

@@ -463,6 +463,52 @@ def serialize_exact_best_parameter_payload(
     }
 
 
+def serialize_exact_search_summary_payload(search_summary_payload: Any) -> Any:
+
+    """Convert exact-paper search-summary metadata into a YAML-safe payload."""
+
+    if search_summary_payload is None or isinstance(search_summary_payload, (str, int, float, bool)):
+        return search_summary_payload
+
+    if isinstance(search_summary_payload, np.generic):
+        return search_summary_payload.item()
+
+    if isinstance(search_summary_payload, np.ndarray):
+        return [
+            serialize_exact_search_summary_payload(search_summary_entry)
+            for search_summary_entry in search_summary_payload.tolist()
+        ]
+
+    if isinstance(search_summary_payload, Path):
+        return str(search_summary_payload)
+
+    if isinstance(search_summary_payload, tuple):
+        return [
+            serialize_exact_search_summary_payload(search_summary_entry)
+            for search_summary_entry in search_summary_payload
+        ]
+
+    if isinstance(search_summary_payload, list):
+        return [
+            serialize_exact_search_summary_payload(search_summary_entry)
+            for search_summary_entry in search_summary_payload
+        ]
+
+    if isinstance(search_summary_payload, dict):
+        return {
+            str(search_summary_key): serialize_exact_search_summary_payload(search_summary_value)
+            for search_summary_key, search_summary_value in search_summary_payload.items()
+        }
+
+    if callable(getattr(search_summary_payload, "get_params", None)):
+        return {
+            "estimator_class": search_summary_payload.__class__.__name__,
+            "estimator_repr": repr(search_summary_payload),
+        }
+
+    return repr(search_summary_payload)
+
+
 def resolve_exact_export_feature_count(
     estimator: object,
     fallback_feature_count: int | None = None,
@@ -2051,7 +2097,7 @@ def fit_exact_family_model_bank(
                     if hasattr(grid_search_estimator, "n_splits_")
                     else None
                 ),
-                "parameter_grid": parameter_grid,
+                "parameter_grid": serialize_exact_search_summary_payload(parameter_grid),
                 "best_params": serialized_best_parameter_dictionary,
                 "best_parameter_source": "grid_search",
                 "best_score": (

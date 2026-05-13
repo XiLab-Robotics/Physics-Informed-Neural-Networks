@@ -101,6 +101,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-14
+
+- [technical/2026-05/2026-05-14/2026-05-14-00-07-31_track1_svr_parameter_grid_yaml_serialization_fix.md](./technical/2026-05/2026-05-14/2026-05-14-00-07-31_track1_svr_parameter_grid_yaml_serialization_fix.md)
+  Plan the Track 1 exact-paper validation-summary fix that serializes search
+  `parameter_grid` metadata before YAML output so estimator objects from the
+  `SVR` branch cannot crash post-export campaign bookkeeping.
+
 #### 2026-05-13
 
 - [technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md](./technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md)
@@ -116,6 +123,9 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md](./technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md)
   Plan the protected Track 1 paper-faithful queue update that adds forward and
   backward `ELM` YAML entries for the `11`-family launcher command.
+- [technical/2026-05/2026-05-13/2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md](./technical/2026-05/2026-05-13/2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md)
+  Plan the protected remote launcher fix that creates the remote `.temp`
+  directory before uploading the source-sync archive with `scp`.
 
 #### 2026-05-12
 

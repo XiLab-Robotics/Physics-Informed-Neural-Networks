@@ -646,6 +646,14 @@ function Invoke-RemoteTarExtract {
         throw "Local source archive build failed | archive=$localArchivePath"
     }
 
+    $remoteUploadDirectoryScript = @"
+New-Item -ItemType Directory -Force -Path '$remoteStagingRootPath' | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path '$RemoteRepositoryPath' '.temp') | Out-Null
+"@
+    Invoke-RemotePowerShellEncodedCommand `
+        -RemoteScriptText (New-RemoteMappedRepositoryScriptText -ScriptText $remoteUploadDirectoryScript) `
+        | Out-Null
+
     & scp $localArchivePath "${RemoteHostAlias}:${remoteScpArchivePath}"
     if ($LASTEXITCODE -ne 0) {
         throw "Remote source archive upload failed | host=$RemoteHostAlias | archive=$remoteArchivePath"

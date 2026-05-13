@@ -16,3 +16,6 @@
   Plan the protected Track 1 paper-faithful queue update that adds forward and
   backward `ELM` YAML entries so the existing `11`-family launcher command can
   run.
+- [2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md](./2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md)
+  Plan the protected remote launcher fix that creates the remote `.temp`
+  directory before uploading the source-sync archive with `scp`.
