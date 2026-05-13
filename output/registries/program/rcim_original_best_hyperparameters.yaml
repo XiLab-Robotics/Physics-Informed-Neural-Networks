@@ -1,5 +1,5 @@
 version: 1
-updated_at: '2026-05-12T21:50:28+00:00'
+updated_at: '2026-05-13T00:19:27+00:00'
 branches:
   backward:
     SVR:
@@ -240,3 +240,14 @@ branches:
       source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-18-21-23__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
       source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-11-18-21-23__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
       updated_at: '2026-05-11T16:21:55+00:00'
+    LGBM:
+      family_code: LGBM
+      summary_family_code: LGBM
+      best_parameters: '{''estimator__learning_rate'': np.float64(0.39), ''estimator__max_depth'':
+        np.int64(17), ''estimator__num_leaves'': np.int64(28), ''estimator__subsample'':
+        0.1}'
+      aggregate_mae_mean: 0.07386198312202705
+      metric_name: aggregate_mae_mean
+      source_best_parameter_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-13T00:19:27+00:00'
