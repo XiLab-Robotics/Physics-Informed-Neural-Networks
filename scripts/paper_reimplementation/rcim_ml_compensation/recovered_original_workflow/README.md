@@ -387,15 +387,19 @@ Launcher behavior:
   - `<stage>.stderr.log`
   - `<stage>.combined.log`
 - `combined.log` is the main persistent live-log surface and mirrors the
-  terminal output; `stdout.log` is kept as a compatibility mirror of the same
-  live stream, while `stderr.log` is retained for launcher metadata and
-  completion compatibility;
-- the terminal mirrors the Python process output in real time, including
+  terminal output; `stdout.log` is refreshed as a compatibility mirror at stage
+  completion instead of being written again on every live output line, while
+  `stderr.log` is retained for launcher metadata and completion compatibility;
+- the terminal mirrors operator-relevant Python process output in real time,
+  including
   `[INFO]`, `[PROGRESS]`, `[DONE]`, `[ERROR]`, `MODEL:`, `TRAINING START:`,
   `TRAINING END:`, and the scikit-learn `Fitting ...` / `[CV] ...` lines used
   by verbose retune search stages;
 - warning output that reaches the terminal is preserved in the combined log for
   diagnosis;
+- the launcher now avoids the earlier live-log backpressure failure mode where
+  a verbose retune could stall if the integrated terminal or an open VS Code
+  log viewer became the bottleneck;
 - Python is launched in unbuffered mode so the three stage logs are updated in
   real time during long retune runs;
 - the shared launcher now prefers the resolved Conda environment-local

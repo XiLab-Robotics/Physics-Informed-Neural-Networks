@@ -97,6 +97,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-13
+
+- [technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md](./technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md)
+  Plan the recovered-original RCIM launcher follow-up fix that keeps complete
+  persisted stage logs while eliminating the new live-log backpressure path
+  that can stall verbose retune runs.
+
 #### 2026-05-12
 
 - [technical/2026-05/2026-05-12/2026-05-12-20-31-03_rcim_original_launcher_live_log_capture_fix.md](./technical/2026-05/2026-05-12/2026-05-12-20-31-03_rcim_original_launcher_live_log_capture_fix.md)

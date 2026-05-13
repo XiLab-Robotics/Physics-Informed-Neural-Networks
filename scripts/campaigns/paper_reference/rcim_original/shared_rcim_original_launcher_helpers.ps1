@@ -76,6 +76,80 @@ function Initialize-RcimOriginalStageLogSurface {
     }
 }
 
+function Test-RcimOriginalLiveConsoleLineVisibility {
+    param(
+        [string]$LineText
+    )
+
+    if ([string]::IsNullOrWhiteSpace($LineText)) {
+        return $false
+    }
+
+    return (
+        $LineText.StartsWith("[INFO]") -or
+        $LineText.StartsWith("[PROGRESS]") -or
+        $LineText.StartsWith("[WARNING]") -or
+        $LineText.StartsWith("[ERROR]") -or
+        $LineText.StartsWith("[CV") -or
+        $LineText.StartsWith("MODEL:") -or
+        $LineText.StartsWith("TRAINING START:") -or
+        $LineText.StartsWith("TRAINING END:") -or
+        $LineText.StartsWith("Fitting ")
+    )
+}
+
+function Write-RcimOriginalLiveConsoleTail {
+    param(
+        [string]$CombinedLogPath,
+        [ref]$ByteOffset
+    )
+
+    if (-not (Test-Path $CombinedLogPath)) {
+        return
+    }
+
+    $fileStream = $null
+    $streamReader = $null
+    try {
+        $fileStream = [System.IO.File]::Open(
+            $CombinedLogPath,
+            [System.IO.FileMode]::Open,
+            [System.IO.FileAccess]::Read,
+            [System.IO.FileShare]::ReadWrite
+        )
+
+        if ($ByteOffset.Value -gt $fileStream.Length) {
+            $ByteOffset.Value = 0
+        }
+
+        $fileStream.Seek($ByteOffset.Value, [System.IO.SeekOrigin]::Begin) | Out-Null
+        $streamReader = New-Object System.IO.StreamReader(
+            $fileStream,
+            [System.Text.Encoding]::UTF8,
+            $true,
+            4096,
+            $true
+        )
+
+        while (-not $streamReader.EndOfStream) {
+            $outputLine = $streamReader.ReadLine()
+            if (Test-RcimOriginalLiveConsoleLineVisibility -LineText $outputLine) {
+                [Console]::Out.WriteLine($outputLine)
+            }
+        }
+
+        $ByteOffset.Value = $fileStream.Position
+    }
+    finally {
+        if ($null -ne $streamReader) {
+            $streamReader.Dispose()
+        }
+        if ($null -ne $fileStream) {
+            $fileStream.Dispose()
+        }
+    }
+}
+
 function Invoke-RcimOriginalPythonStage {
     param(
         [string]$ProjectRoot,
@@ -199,34 +273,43 @@ function Invoke-RcimOriginalPythonStage {
 
     $exitCode = 0
     $stageInterrupted = $false
+    $liveTailOffset = 0L
+    $childProcess = $null
+    $nativeCommandString = ""
 
     try {
         Push-Location $ProjectRoot
 
-        # Start-Transcript Does Not Reliably Capture Native Python Output On Windows
-        # PowerShell 5. Mirror The Merged Native Output Explicitly As UTF-8 Text.
-        & $commandExecutablePath @argumentList 2>&1 |
-            ForEach-Object {
-                $outputLine = $_.ToString()
-                [Console]::Out.WriteLine($outputLine)
-                Add-Content -LiteralPath $combinedLogPath -Value $outputLine -Encoding UTF8
-                Add-Content -LiteralPath $stdoutLogPath -Value $outputLine -Encoding UTF8
-            }
-        $exitCode = $LASTEXITCODE
+        $argumentString = ConvertTo-RcimOriginalArgumentString -ArgumentList $argumentList
+        $nativeCommandString = '""' + $commandExecutablePath + '" ' + $argumentString + ' 1>> "' + $combinedLogPath + '" 2>&1"'
+
+        # Let The Native Child Process Write Directly To The Authoritative Log File.
+        # Then Tail That File Back To The Operator Console. This Avoids Per-Line
+        # PowerShell Hot-Path Writes That Can Stall Verbose Retune Runs.
+        $childProcess = Start-Process `
+            -FilePath $env:ComSpec `
+            -ArgumentList @("/d", "/c", $nativeCommandString) `
+            -WorkingDirectory $ProjectRoot `
+            -PassThru `
+            -WindowStyle Hidden
+
+        while (-not $childProcess.HasExited) {
+            Write-RcimOriginalLiveConsoleTail -CombinedLogPath $combinedLogPath -ByteOffset ([ref]$liveTailOffset)
+            Start-Sleep -Milliseconds 200
+            $childProcess.Refresh()
+        }
+
+        Write-RcimOriginalLiveConsoleTail -CombinedLogPath $combinedLogPath -ByteOffset ([ref]$liveTailOffset)
+        $exitCode = $childProcess.ExitCode
     }
     catch [System.Management.Automation.PipelineStoppedException] {
         $stageInterrupted = $true
         $exitCode = 130
+        if ($null -ne $childProcess -and -not $childProcess.HasExited) {
+            & taskkill.exe /PID $childProcess.Id /T /F | Out-Null
+        }
     }
     finally {
-        if ($transcriptStarted) {
-            try {
-                Stop-Transcript | Out-Null
-            }
-            catch {
-            }
-        }
-
         Pop-Location
 
         $completionLogLines = @(
@@ -234,8 +317,8 @@ function Invoke-RcimOriginalPythonStage {
             "[INFO] Stage Exit Code | $exitCode"
         )
         Add-Content -LiteralPath $combinedLogPath -Value $completionLogLines -Encoding UTF8
-        Add-Content -LiteralPath $stdoutLogPath -Value $completionLogLines -Encoding UTF8
         Add-Content -LiteralPath $stderrLogPath -Value $completionLogLines -Encoding UTF8
+        Copy-Item -LiteralPath $combinedLogPath -Destination $stdoutLogPath -Force
     }
 
     Write-Host "[INFO] Stage Exit Code | $exitCode" -ForegroundColor DarkGray

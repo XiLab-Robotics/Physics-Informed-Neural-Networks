@@ -45,8 +45,11 @@ Each executed stage also writes:
 - `logs/<stage>.combined.log`
 
 The combined transcript is the authoritative live log surface during
-execution. When the filesystem supports the compatibility link path, the
-`stdout` and `stderr` files update as aliases to that same live transcript.
+execution. The launcher writes the child process directly into `combined.log`,
+mirrors operator-relevant progress lines back to the terminal, and refreshes
+`stdout.log` as a compatibility copy when the stage completes. `stderr.log`
+remains a launcher-oriented compatibility file and not a reliable split native
+stderr stream.
 
 The shared launcher now prefers the resolved Conda environment-local
 `python.exe` for training stages and falls back to `conda run` only when the
@@ -164,9 +167,14 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
 - The live terminal session remains the fastest progress surface for long
   retune runs.
 - The `combined` stage log is the authoritative live transcript while the run
-  is active. When the compatibility link path is available, `stdout` and
-  `stderr` expose the same live transcript content through their own stable
-  paths.
+  is active.
+- `stdout.log` is a compatibility mirror refreshed at stage completion instead
+  of a second live append target.
+- `stderr.log` remains useful for launcher metadata and completion markers, but
+  it is not a reliable split native stderr transcript.
+- Opening the growing log file in VS Code should no longer stall the retune
+  stage because the child process no longer depends on a heavy per-line
+  PowerShell tee path.
 - The default retune verbosity is now intentionally high so the slowest family
   searches expose frequent `GridSearchCV` and `[CV]` progress lines.
 - Final curated model archives under
