@@ -1,5 +1,5 @@
 version: 1
-updated_at: '2026-05-13T00:19:27+00:00'
+updated_at: '2026-05-13T13:42:57+00:00'
 branches:
   backward:
     SVR:
@@ -168,13 +168,15 @@ branches:
       family_code: DT
       summary_family_code: DT
       best_parameters: '{''estimator__criterion'': ''squared_error'', ''estimator__max_depth'':
-        np.int64(15), ''estimator__max_leaf_nodes'': None, ''estimator__min_samples_split'':
+        np.int64(17), ''estimator__max_leaf_nodes'': None, ''estimator__min_samples_split'':
         np.int64(6)}'
-      aggregate_mae_mean: 0.05966021512661408
+      aggregate_mae_mean: 0.05963469875824027
       metric_name: aggregate_mae_mean
-      source_best_parameter_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-10-02-19__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
-      source_cross_validation_summary_path: C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-09-10-02-19__fw_retune_bundle\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
-      updated_at: '2026-05-09T10:18:51+00:00'
+      source_best_parameter_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
+        Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+      source_cross_validation_summary_path: C:\Users\XiLabTRig\Documents\Physics-Informed
+        Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\retune\output_prediction\summaryCrossValidation+_3.8_allFreq.csv
+      updated_at: '2026-05-13T12:30:57+00:00'
     ET:
       family_code: ET
       summary_family_code: ET

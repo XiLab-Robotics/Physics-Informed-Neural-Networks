@@ -1,0 +1,28 @@
+﻿[INFO] RCIM Original Launcher Mirrored Live Log Mode
+[INFO] Stage | eval
+[INFO] Mode | paper_eval
+[INFO] Direction | forward
+[INFO] Stage Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\eval
+[INFO] Command | "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_eval --direction forward --test-size 0.2 --output-root "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\eval" --families DT --best-parameter-summary-path "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv"
+[INFO] Stdout Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\logs\eval.stdout.log
+[INFO] Stderr Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\logs\eval.stderr.log
+[INFO] Combined Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\logs\eval.combined.log
+[INFO] The child training process output is mirrored to console, stdout compatibility log, and combined log.
+[INFO] The combined log is the authoritative persistent live log surface.
+[INFO] Training Output Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\eval
+[INFO] Runtime Dataframe Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\eval\dataFrame_prediction_Fw_v14_newFreq.csv
+[INFO] Mode | paper_eval
+[INFO] Direction | forward
+[INFO] Families | DT
+[INFO] Retune GridSearch Verbose | 10
+[INFO] Retune CrossValidate Verbose | 10
+[INFO] Best-Parameter Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+[PROGRESS] Family 1/1 | DT | Mode paper_eval | Start
+MODEL: DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq
+TRAINING START: 2026-05-13 14:31:03.282779
+TRAINING END: 2026-05-13 14:31:03.311769
+[PROGRESS] Family 1/1 | DT | Mode paper_eval | Done | dfOutTot_prediction_DecisionTreeRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv
+[DONE] Training Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\eval\run_summary.json
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\eval
+[INFO] Mirrored Live Log Stage Completed | True
+[INFO] Stage Exit Code | 0

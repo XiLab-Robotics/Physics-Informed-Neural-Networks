@@ -1,0 +1,13 @@
+﻿[INFO] RCIM Original Launcher Mirrored Live Log Mode
+[INFO] Stage | retune
+[INFO] Mode | retune
+[INFO] Direction | forward
+[INFO] Stage Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\retune
+[INFO] Command | "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode retune --direction forward --test-size 0.2 --output-root "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\retune" --families DT --retune-grid-search-verbose 10 --retune-cross-validate-verbose 10
+[INFO] Stdout Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\logs\retune.stdout.log
+[INFO] Stderr Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\logs\retune.stderr.log
+[INFO] Combined Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\logs\retune.combined.log
+[INFO] The child training process output is mirrored to console, stdout compatibility log, and combined log.
+[INFO] The combined log is the authoritative persistent live log surface.
+[INFO] Mirrored Live Log Stage Completed | True
+[INFO] Stage Exit Code | 0

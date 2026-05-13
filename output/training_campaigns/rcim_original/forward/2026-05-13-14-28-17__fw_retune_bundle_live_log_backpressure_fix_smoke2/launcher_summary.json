@@ -1,0 +1,49 @@
+﻿{
+    "branch":  "forward",
+    "requested_stage":  "Retune",
+    "effective_stage":  "Retune",
+    "run_instance_id":  "2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2",
+    "campaign_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2",
+    "logs_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs",
+    "dataframe_path":  null,
+    "best_parameter_summary_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+    "best_parameter_source":  "retune_summary",
+    "best_parameter_registry_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+    "no_eval":  false,
+    "no_export":  false,
+    "performed_retune":  true,
+    "registry_update":  {
+                            "RegistryPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+                            "Updated":  true,
+                            "PrintOnly":  false
+                        },
+    "notes":  [
+
+              ],
+    "stage_results":  [
+                          {
+                              "Stage":  "retune",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\retune.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\retune.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\retune.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\retune"
+                          },
+                          {
+                              "Stage":  "eval",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\eval.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\eval.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\eval.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\eval"
+                          },
+                          {
+                              "Stage":  "export",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\export.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\export.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\logs\\export.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-14-28-17__fw_retune_bundle_live_log_backpressure_fix_smoke2\\export"
+                          }
+                      ]
+}
