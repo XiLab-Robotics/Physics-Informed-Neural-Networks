@@ -1,0 +1,4 @@
+0_method;best_parameters
+MLP;{'estimator__activation': 'tanh', 'estimator__alpha': 0.0001, 'estimator__early_stopping': True, 'estimator__hidden_layer_sizes': (200, 50), 'estimator__learning_rate': 'adaptive', 'estimator__max_iter': 600, 'estimator__solver': 'adam', 'estimator__tol': 0.0001}
+XGBM;{'estimator__colsample_bytree': 0.3, 'estimator__learning_rate': 0.2, 'estimator__max_depth': None, 'estimator__n_estimators': np.int64(20)}
+ELM;{'estimator__alpha': 1e-05, 'estimator__n_neurons': 100, 'estimator__ufunc': 'tanh'}

@@ -1,0 +1,486 @@
+schema_version: 1
+topic: rcim_retuned_backward_svr_reference_models
+paper_family_name: SVM
+implementation_family_name: SVR
+archive_scope:
+  direction_label: backward
+  source_stage: RetuneEvalExport
+  retune_bundle_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+  eval_bundle_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+  export_bundle_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+  retune_bundle_root: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+  eval_bundle_root: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+  export_bundle_root: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+  amplitude_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  phase_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  archived_target_count: 20
+  onnx_success_count: 20
+  onnx_failure_count: 0
+  python_pickle_count: 20
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py
+source_launcher: scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1
+source_data: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/dataFrame_prediction_Bw_v14_newFreq.csv
+notes:
+  - "This archive stores accepted retuned recovered-original RCIM models."
+  - "Every target has both an ONNX export and a Python pickle artifact."
+reference_models:
+  -
+    target_name: fft_y_Bw_filtered_ampl_0
+    target_kind: amplitude
+    harmonic_order: 0
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl0.onnx
+    archived_onnx_sha256: 92d8b1b763a75272857df5fd38343af6ebfa13a65f15836331864e9b3e920929
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl0.pkl
+    python_model_sha256: f528e20ce9c09aee42124e23b5c0325b936f2c8c031ea12a059591338ecf17ce
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_1
+    target_kind: amplitude
+    harmonic_order: 1
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl1.onnx
+    archived_onnx_sha256: f35c56213a353714e30d3234d7e05e15d1b2adef77f9d137ee5c67fb001eb1a0
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl1.pkl
+    python_model_sha256: da300ca770bd1e644621386e4f2cea3c10492bd380a13348f28beca623576485
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_3
+    target_kind: amplitude
+    harmonic_order: 3
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl3.onnx
+    archived_onnx_sha256: 5c32d714eea98c3474aa939fdadb4d10107ce850c4995d57f5bc472834505f41
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl3.pkl
+    python_model_sha256: b9646c9d251951ee48a5c56199773b98f4781c84046c7c52155f2942dd56e08f
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_39
+    target_kind: amplitude
+    harmonic_order: 39
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl39.onnx
+    archived_onnx_sha256: cd7e5f2972b1e400a485f488fa5887d500d2cdcc679164cb1a75615df6d0176a
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl39.pkl
+    python_model_sha256: d231421a12221bdf0cb8c6c93aa6955ae623aa25f1b426a0cdf7feb2a372ab09
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_40
+    target_kind: amplitude
+    harmonic_order: 40
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl40.onnx
+    archived_onnx_sha256: 09fcf5ef72723b40346191ff9c5d25134061ab6265b44883185053b718403fc4
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl40.pkl
+    python_model_sha256: 751adaa40eaa81d107e815a17ab9ddac9f2336498ab98ee19c98afd44448067a
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_78
+    target_kind: amplitude
+    harmonic_order: 78
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl78.onnx
+    archived_onnx_sha256: 8d7811bf002d70ade7f88b39aa685b95d4e189182401a6ca779c8d0e844538c3
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl78.pkl
+    python_model_sha256: 0f18f77eb0d6930eb0b06a96fee0d1a83356968a295570390cc7a2c808e67814
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_81
+    target_kind: amplitude
+    harmonic_order: 81
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl81.onnx
+    archived_onnx_sha256: 646d1736b9aa467b7f3b12bc0bcef0be3788cea9a97fc468166cad6555d41c32
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl81.pkl
+    python_model_sha256: 9c01e3293124667d676c7c27d6b5d8e77c18438cd4a247162e277f16a1c17a1d
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_156
+    target_kind: amplitude
+    harmonic_order: 156
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl156.onnx
+    archived_onnx_sha256: 78c21b8c6469d17084131dac08e18a999e12ec814c848fb362a4bf5aae26ca7b
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl156.pkl
+    python_model_sha256: 27b01203c62f6626623daa37c2f362ac907f3934832a8367089ecee87d35d85d
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_162
+    target_kind: amplitude
+    harmonic_order: 162
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl162.onnx
+    archived_onnx_sha256: bef64adb2231f0f0559755be66ecff6cbae708e20084afe51f6f02d2ed89894c
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl162.pkl
+    python_model_sha256: a3cca1dd7b96427ba2e9b43bbb0a8893f6d1cce4f1a1b1d20169a58231fc4521
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_ampl_240
+    target_kind: amplitude
+    harmonic_order: 240
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/amplitude/SVR_ampl240.onnx
+    archived_onnx_sha256: d5e744e10c2359079b76891125d65d3aa6a6ca49949d7f70d8fe86c8140c69c1
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/amplitude/SVR_ampl240.pkl
+    python_model_sha256: 512d3db81e83a153409a25b203d91489e441269f7c6e85f1014e6e96438ac4ad
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_0
+    target_kind: phase
+    harmonic_order: 0
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase0.onnx
+    archived_onnx_sha256: b8d8eebf103283a442170f4e776a21510d03ec157164fa6556d3bcc31cbedcf4
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase0.pkl
+    python_model_sha256: 93ad46fafbc5340f834ed44cecd65248f06f5bf26e0f8379fdf20e70ef7f75be
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_1
+    target_kind: phase
+    harmonic_order: 1
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase1.onnx
+    archived_onnx_sha256: 2c15ca7c03034e2e3821188e13d969413b334db4c012eda728bf19ddbf3773e1
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase1.pkl
+    python_model_sha256: c8d6475d373858e3422adf3d982be558b003f721eaaa8d52d702a3ca54747b94
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_3
+    target_kind: phase
+    harmonic_order: 3
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase3.onnx
+    archived_onnx_sha256: 5f220432f56d639e0ec4a2334a5e5320766179c03a647aad3f85ca92cb2f18af
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase3.pkl
+    python_model_sha256: 09e1bdb59615a131c1f6fe3b79cd96399616ff7e04801ec25138597b5fb5d3da
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_39
+    target_kind: phase
+    harmonic_order: 39
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase39.onnx
+    archived_onnx_sha256: 6f7cc28240a3e06b98ababeeca2735dcbeafe2de129e107ac02dd975bcf83635
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase39.pkl
+    python_model_sha256: 6876c2c8dee14fe0ebe1a8ab47fbbf64816b588d09ee2f1635895f4755af9cf7
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_40
+    target_kind: phase
+    harmonic_order: 40
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase40.onnx
+    archived_onnx_sha256: 2ddcea447751b70d77ed95d425d7486c7e4acf58b0e29dc34c282b2578060635
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase40.pkl
+    python_model_sha256: 3dc992173fb1bda2a2b7cd78a0ef5523e9365ad86e41cac0fcf023f88420941a
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_78
+    target_kind: phase
+    harmonic_order: 78
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase78.onnx
+    archived_onnx_sha256: 4ac753341c98f831c979a0c1c8c55c89cfe7c7e17805845cb2f75204a9122b15
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase78.pkl
+    python_model_sha256: c27b1e647ff87dcc726420ddbef558f1295158ff47a86479a503b63e988525e2
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_81
+    target_kind: phase
+    harmonic_order: 81
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase81.onnx
+    archived_onnx_sha256: 1832fc9bb72372c0aec7a3dbb7ca9624812d1bf2688f4c2e0e9e01fac0be2185
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase81.pkl
+    python_model_sha256: e535eadefd14837e69cce3c094f504eb641d2ce13c725ea0a1b6cbca0ed1930f
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_156
+    target_kind: phase
+    harmonic_order: 156
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase156.onnx
+    archived_onnx_sha256: d11dcb3d974a43238dd596e82a455ed0902253544f7fe82757377fa0c01f3611
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase156.pkl
+    python_model_sha256: bae691e1dfeb138811a187dff591c82bcefd3d3876005fb430339de95e384410
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_162
+    target_kind: phase
+    harmonic_order: 162
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase162.onnx
+    archived_onnx_sha256: c612045c2f126031af18bd4b9e060bf02a2a1e262d52d47dd2a8b854f08589e3
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase162.pkl
+    python_model_sha256: cc1d3cdb8f2557e1588c43b2685ba3931edb486f06ca9b0adef8a2e075fab712
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success
+  -
+    target_name: fft_y_Bw_filtered_phase_240
+    target_kind: phase
+    harmonic_order: 240
+    direction_label: backward
+    source_run_instance_id: 2026-05-09-23-42-54__bw_retune_bundle
+    export_estimator_name: SVR
+    source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-09-23-42-54__bw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+    dataset_snapshot_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/onnx/phase/SVR_phase240.onnx
+    archived_onnx_sha256: dc2d1962046e9a6da33c25cfa8b527463079705526db40e3cce4c6a4633e17c0
+    python_model_path: models/paper_reference/rcim_retuned/backward/svm_reference_models/python/phase/SVR_phase240.pkl
+    python_model_sha256: 229079fcebfcad3f0373064556194a782d89d8069e106f3d358d49f2a5b26606
+    python_model_serialization: pickle
+    python_estimator_class_name: SVR
+    onnx_export_status: success

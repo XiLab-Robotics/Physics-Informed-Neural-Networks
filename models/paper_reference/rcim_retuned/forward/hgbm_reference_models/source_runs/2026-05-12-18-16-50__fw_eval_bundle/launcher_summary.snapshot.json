@@ -1,0 +1,29 @@
+﻿{
+    "branch":  "forward",
+    "requested_stage":  "Eval",
+    "effective_stage":  "Eval",
+    "run_instance_id":  "2026-05-12-18-16-50__fw_eval_bundle",
+    "campaign_root":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-12-18-16-50__fw_eval_bundle",
+    "logs_root":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-12-18-16-50__fw_eval_bundle\\logs",
+    "dataframe_path":  null,
+    "best_parameter_summary_path":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-09-13-04-25__fw_retune_bundle\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+    "best_parameter_source":  "explicit_summary",
+    "best_parameter_registry_path":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+    "no_eval":  false,
+    "no_export":  false,
+    "performed_retune":  false,
+    "registry_update":  null,
+    "notes":  [
+
+              ],
+    "stage_results":  [
+                          {
+                              "Stage":  "eval",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-12-18-16-50__fw_eval_bundle\\logs\\eval.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-12-18-16-50__fw_eval_bundle\\logs\\eval.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-12-18-16-50__fw_eval_bundle\\logs\\eval.combined.log",
+                              "StageRoot":  "C:\\Users\\Davide\\Documents\\Python Scripts\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-12-18-16-50__fw_eval_bundle\\eval"
+                          }
+                      ]
+}

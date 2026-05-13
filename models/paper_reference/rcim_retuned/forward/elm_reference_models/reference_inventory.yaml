@@ -1,0 +1,486 @@
+schema_version: 1
+topic: rcim_retuned_forward_elm_reference_models
+paper_family_name: ELM
+implementation_family_name: ELM
+archive_scope:
+  direction_label: forward
+  source_stage: RetuneEvalExport
+  retune_bundle_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+  eval_bundle_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+  export_bundle_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+  retune_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+  eval_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+  export_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+  amplitude_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  phase_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  archived_target_count: 20
+  onnx_success_count: 20
+  onnx_failure_count: 0
+  python_pickle_count: 20
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py
+source_launcher: scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1
+source_data: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/dataFrame_prediction_Fw_v14_newFreq.csv
+notes:
+  - "This archive stores accepted retuned recovered-original RCIM models."
+  - "Every target has both an ONNX export and a Python pickle artifact."
+reference_models:
+  -
+    target_name: fft_y_Fw_filtered_ampl_0
+    target_kind: amplitude
+    harmonic_order: 0
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl0.onnx
+    archived_onnx_sha256: afaf3fad9075fbad5e61f04e77050a308719115d644f0204bc37b124c6959d25
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl0.pkl
+    python_model_sha256: 629418abc13a898f8b651081bb81bdd38a3df4482aa336baf822f54e16a184d7
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_1
+    target_kind: amplitude
+    harmonic_order: 1
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl1.onnx
+    archived_onnx_sha256: b0cc59b35cb4613c11797c5ec7f5622e9ef9db8f1f96e27751fa46f57bb536e0
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl1.pkl
+    python_model_sha256: e31e1d174347e1c2ee694ea33d9daabe5ccabcb0298c5d238f21177f4bc098b5
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_3
+    target_kind: amplitude
+    harmonic_order: 3
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl3.onnx
+    archived_onnx_sha256: 3812cdb066fb4a6e885f18aff80e58b3dfec47dded5d052b34af7609eaa73c37
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl3.pkl
+    python_model_sha256: c721f7480957bcfec97c7cff132760c665de0dcc00b7a76820c9acaac251a08c
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_39
+    target_kind: amplitude
+    harmonic_order: 39
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl39.onnx
+    archived_onnx_sha256: 5fe4cd32c1a12dff947f3bd4fcc55faa8e2a74e088199304d08ddf9a0c7eaea5
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl39.pkl
+    python_model_sha256: 058e5f77261494b3e4d3ec3b54485bb1d0faac818e21e005e81bb792d2c8c67d
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_40
+    target_kind: amplitude
+    harmonic_order: 40
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl40.onnx
+    archived_onnx_sha256: 3ed2c1eb472286c01c81f2961fb0fa463210bec1f7d7fff65cdf23b1933b7170
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl40.pkl
+    python_model_sha256: a31a2486d26d1dbedef2ecb02d240ea2ca4dc9298a6e342440c49090260b19a2
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_78
+    target_kind: amplitude
+    harmonic_order: 78
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl78.onnx
+    archived_onnx_sha256: 4a91fed52117713706387e165240d2a2ffd489adf2d5cb3a75df0ff8a063d7c5
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl78.pkl
+    python_model_sha256: 1f9f6a9c4e0dff567aeb1df52b35a65255df9a1f6bc9f494ed584965f7979858
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_81
+    target_kind: amplitude
+    harmonic_order: 81
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl81.onnx
+    archived_onnx_sha256: ab95859dd4d46471c556c9005f8c478db39d3da621cace47a0b8ba2d9240eccf
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl81.pkl
+    python_model_sha256: fe86e7f7ae3b6e11cc00cdfbb3b9fccb6c49740c1c95f5ee69dbc6a78bbe1bce
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_156
+    target_kind: amplitude
+    harmonic_order: 156
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl156.onnx
+    archived_onnx_sha256: 17b90691b1bb6600f6ac0037901581195f1accba7f25702019b159f0aa50551a
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl156.pkl
+    python_model_sha256: a926ab211685fcb219d26af965cc682c76bcfb8be436cf6e48144364e7ea59cd
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_162
+    target_kind: amplitude
+    harmonic_order: 162
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl162.onnx
+    archived_onnx_sha256: 036277232b5217a6f984f2bb06139314ad382e99ce91a8a4adfb05d41a9f8e9d
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl162.pkl
+    python_model_sha256: d845a1460c9e57c99c04304083fafb4339b1ab48beb5819975669d165b593dd1
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_240
+    target_kind: amplitude
+    harmonic_order: 240
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/amplitude/ELMRegressor_ampl240.onnx
+    archived_onnx_sha256: 75a2af24ae35745b35677a495ee8b473d977c452be4a54e904e840214c3f07fd
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/amplitude/ELMRegressor_ampl240.pkl
+    python_model_sha256: f970d23c693dc348308d6cfc9994aef36056700a387ae81c116a1fb05c85ee37
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_0
+    target_kind: phase
+    harmonic_order: 0
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase0.onnx
+    archived_onnx_sha256: 0095879e8c62659bb8b8b28fbeb842481d6c064901ea19b6d56f50c3904d08e5
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase0.pkl
+    python_model_sha256: 9f2b16c27aa1e9b500db403910769b813b3fdb9d40604cf5897594ffdbd8f38f
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_1
+    target_kind: phase
+    harmonic_order: 1
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase1.onnx
+    archived_onnx_sha256: 3044e5f4e07a3db82a7cb90d0ff06687b2599b6fe8ae6bfc74006a704e61eace
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase1.pkl
+    python_model_sha256: ab9eb2385c02b7a976ecf743f5e2d00771fbc2a9f39a074a726ffbcd8ebc52c2
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_3
+    target_kind: phase
+    harmonic_order: 3
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase3.onnx
+    archived_onnx_sha256: 7c083f778b64ec615e0a1d92f00c04fd7652916bf6d75f91ebad7adc09a038a6
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase3.pkl
+    python_model_sha256: c042a3dc04320f2a574d6922c5633c8a4434f4214546f2d5dca4a38434e24048
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_39
+    target_kind: phase
+    harmonic_order: 39
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase39.onnx
+    archived_onnx_sha256: ee1edadea774e6f7d4e0493b3c2d26b0d3da8b588cca5b906f4649216eb35c2e
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase39.pkl
+    python_model_sha256: fe34f7396aa50f3e525eb03ae381e07059de752989817775e54a6fbd838e65e7
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_40
+    target_kind: phase
+    harmonic_order: 40
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase40.onnx
+    archived_onnx_sha256: eb3ba9bfdb7b3e9f7ce9d2eda1ab4db8bcaaf46eee4fa514f4b4ffc6f06eec2e
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase40.pkl
+    python_model_sha256: c8f7a5a43a4610bdf543594dfa72ad0f86869370125a56665fe6cb6beceafbb1
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_78
+    target_kind: phase
+    harmonic_order: 78
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase78.onnx
+    archived_onnx_sha256: 655866e1f0265b717e43d1dfbfc6e213b0968029f93d9df184bafc3134753256
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase78.pkl
+    python_model_sha256: b8a1377fd59ed4889279bb7bac4d445d0e998d2a955f4d5372c8ad99a6491970
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_81
+    target_kind: phase
+    harmonic_order: 81
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase81.onnx
+    archived_onnx_sha256: bb72eda8e2893026837c23154eb999c913de268873cee733016d2e51ef2948c9
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase81.pkl
+    python_model_sha256: 8ac5844ee33bbcce23d64f086eb53fb8080436326823dbae322c67a9385ea6e6
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_156
+    target_kind: phase
+    harmonic_order: 156
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase156.onnx
+    archived_onnx_sha256: 67efeea48d8db3b75767f0c1622ea085fadde557b1ade925e199bd0c7c33f472
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase156.pkl
+    python_model_sha256: 47f8d22aad728c90ca7b84c3adb6516510bf71ff868b9c07cce55b5dc47c018f
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_162
+    target_kind: phase
+    harmonic_order: 162
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase162.onnx
+    archived_onnx_sha256: 9730e932013ef5a7eecc081d4d3df9933242988c89f18d990ed97ddc184c8faf
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase162.pkl
+    python_model_sha256: 5cfe145134f92fc023eee6a08bd839d9924c28c2a72370d3de417402718fd5f8
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_240
+    target_kind: phase
+    harmonic_order: 240
+    direction_label: forward
+    source_run_instance_id: 2026-05-11-18-21-23__fw_retune_bundle
+    export_estimator_name: ELMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-21-23__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/onnx/phase/ELMRegressor_phase240.onnx
+    archived_onnx_sha256: 49e732ee55d3a62c6e9ac165f1d25b46bb144328d84d9ab484edc22e9e0f987b
+    python_model_path: models/paper_reference/rcim_retuned/forward/elm_reference_models/python/phase/ELMRegressor_phase240.pkl
+    python_model_sha256: ef3e0fdcfd770240f34b43d3b726798df2d0653e5487ff7e2e27c0f567cd6e46
+    python_model_serialization: pickle
+    python_estimator_class_name: ELMRegressor
+    onnx_export_status: success

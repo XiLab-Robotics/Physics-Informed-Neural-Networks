@@ -12,6 +12,7 @@ Current topic roots:
 
 - `rcim_track1/`
 - `rcim_original/`
+- `rcim_retuned/`
 
 For `Track 1` paper-reimplementation families, the canonical family package
 contract is:
@@ -44,3 +45,8 @@ wave that fully populates both `forward` and `backward` archive branches.
 The recovered-original RCIM paper-reference branch now also exposes a curated
 family archive surface under `rcim_original/`, starting from the completed
 `forward` Original-stage closeout bundle.
+
+The recovered-original RCIM retuned branch exposes the bidirectional retuned
+archive surface under `rcim_retuned/`. Each promoted family-direction archive
+requires complete target-level ONNX and Python pickle export coverage before it
+is accepted into the curated model tree.

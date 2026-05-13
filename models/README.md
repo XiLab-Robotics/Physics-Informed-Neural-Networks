@@ -51,3 +51,13 @@ Current curated RCIM original paper-reference archives:
 - `paper_reference/rcim_original/forward/lgbm_reference_models/`
 - `paper_reference/rcim_original/forward/xgbm_reference_models/`
 - `paper_reference/rcim_original/forward/elm_reference_models/`
+
+Current curated RCIM retuned paper-reference archives:
+
+- `paper_reference/rcim_retuned/forward/`
+- `paper_reference/rcim_retuned/backward/`
+
+The retuned archive contains `11` family folders per direction. Each promoted
+family-direction archive preserves `20` ONNX exports, `20` Python pickle
+exports, source-run provenance, dataset snapshots, and machine-readable
+inventories.

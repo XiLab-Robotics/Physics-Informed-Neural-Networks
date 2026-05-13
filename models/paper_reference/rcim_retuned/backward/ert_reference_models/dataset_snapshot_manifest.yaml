@@ -1,0 +1,34 @@
+schema_version: 1
+archive_scope: rcim_retuned_backward_reference_models
+direction_label: backward
+source_bundle_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
+source_dataset_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/dataFrame_prediction_Bw_v14_newFreq.csv
+archived_dataset_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
+dataset_sha256: 991e4213364ad953c5b0f4611a48de475860209d40d0a77f079a9bea354cccd1
+row_count: 969
+column_count: 24
+column_name_list:
+  - ''
+  - rpm
+  - deg
+  - tor
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_0
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_phase_240

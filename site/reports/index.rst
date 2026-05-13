@@ -8,4 +8,5 @@ This section exposes selected reports that directly informed the canonical docum
 
    code_documentation_platform_comparison
    rcim_paper_reference_benchmark
+   rcim_retuned_reference_closeout
    training_results_master_summary

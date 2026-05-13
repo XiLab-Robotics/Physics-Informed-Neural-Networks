@@ -1,0 +1,18 @@
+{
+  "stage": "training_models",
+  "mode": "paper_eval",
+  "direction": "forward",
+  "input_dataframe_path": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-21-23__fw_retune_bundle\\eval\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "ELM"
+  ],
+  "selected_family_count": 1,
+  "best_parameter_summary_path": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-21-23__fw_retune_bundle\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+  "prediction_output_folder": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-21-23__fw_retune_bundle\\eval\\output_prediction\\instV3.8_Fw_allFreq_def",
+  "model_output_dir": "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-21-23__fw_retune_bundle\\eval\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\Davide\\Desktop\\PINNs\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\forward\\2026-05-11-18-21-23__fw_retune_bundle\\eval\\output_prediction\\instV3.8_Fw_allFreq_def\\dfOutTot_prediction_ELMRegressor_multipleOutputEvaluationOnTrain_3.8_allFreq.csv"
+  ]
+}

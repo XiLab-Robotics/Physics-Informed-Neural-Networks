@@ -1,0 +1,28 @@
+﻿[INFO] RCIM Original Launcher Mirrored Live Log Mode
+[INFO] Stage | export
+[INFO] Mode | paper_export
+[INFO] Direction | forward
+[INFO] Stage Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\export
+[INFO] Command | "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_export --direction forward --test-size 0.2 --output-root "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\export" --families DT --best-parameter-summary-path "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv"
+[INFO] Stdout Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\logs\export.stdout.log
+[INFO] Stderr Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\logs\export.stderr.log
+[INFO] Combined Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\logs\export.combined.log
+[INFO] The child training process output is mirrored to console, stdout compatibility log, and combined log.
+[INFO] The combined log is the authoritative persistent live log surface.
+[INFO] Training Output Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\export
+[INFO] Runtime Dataframe Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\export\dataFrame_prediction_Fw_v14_newFreq.csv
+[INFO] Mode | paper_export
+[INFO] Direction | forward
+[INFO] Families | DT
+[INFO] Retune GridSearch Verbose | 10
+[INFO] Retune CrossValidate Verbose | 10
+[INFO] Best-Parameter Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+[PROGRESS] Family 1/1 | DT | Mode paper_export | Start
+MODEL: DecisionTreeRegressor_paperReferenceExport_3.8_allFreq
+TRAINING START: 2026-05-13 15:43:09.187514
+TRAINING END: 2026-05-13 15:43:09.221683
+[PROGRESS] Family 1/1 | DT | Mode paper_export | Done | dfOutTot_prediction_DecisionTreeRegressor_paperReferenceExport_3.8_allFreq.csv
+[DONE] Training Summary | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\export\run_summary.json
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-15-40-16__fw_retune_bundle\export
+[INFO] Mirrored Live Log Stage Completed | True
+[INFO] Stage Exit Code | 0

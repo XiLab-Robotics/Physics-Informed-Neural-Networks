@@ -1,0 +1,18 @@
+{
+  "stage": "training_models",
+  "mode": "retune",
+  "direction": "backward",
+  "input_dataframe_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-16-05-54__bw_retune_bundle\\retune\\dataFrame_prediction_Bw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "LGBM"
+  ],
+  "selected_family_count": 1,
+  "best_parameter_summary_path": null,
+  "prediction_output_folder": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-16-05-54__bw_retune_bundle\\retune\\output_prediction",
+  "model_output_dir": "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-16-05-54__bw_retune_bundle\\retune\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks\\output\\training_campaigns\\rcim_original\\backward\\2026-05-11-16-05-54__bw_retune_bundle\\retune\\output_prediction\\dfOutTot_prediction_LGBMRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv"
+  ]
+}

@@ -1,0 +1,486 @@
+schema_version: 1
+topic: rcim_retuned_forward_lgbm_reference_models
+paper_family_name: LGBM
+implementation_family_name: LGBM
+archive_scope:
+  direction_label: forward
+  source_stage: RetuneEvalExport
+  retune_bundle_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+  eval_bundle_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+  export_bundle_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+  retune_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+  eval_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+  export_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+  amplitude_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  phase_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  archived_target_count: 20
+  onnx_success_count: 20
+  onnx_failure_count: 0
+  python_pickle_count: 20
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py
+source_launcher: scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1
+source_data: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/dataFrame_prediction_Fw_v14_newFreq.csv
+notes:
+  - "This archive stores accepted retuned recovered-original RCIM models."
+  - "Every target has both an ONNX export and a Python pickle artifact."
+reference_models:
+  -
+    target_name: fft_y_Fw_filtered_ampl_0
+    target_kind: amplitude
+    harmonic_order: 0
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl0.onnx
+    archived_onnx_sha256: 2cd8ac38ca448f02fd569f3981eaf097bab8c6c7ae2461aa50ce1272aa8eade9
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl0.pkl
+    python_model_sha256: a31da8ad816ae7b8941999466ba214122d8d8131bbccc4c8d6a1e01a9590d1f8
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_1
+    target_kind: amplitude
+    harmonic_order: 1
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl1.onnx
+    archived_onnx_sha256: 51ce327615905de8d31d57b3c8f67e997864db6506730c67eafc074135db3029
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl1.pkl
+    python_model_sha256: bffe415a614a202ec65732250a909fc6db41601ceadbbebdb94ab4865f01b8d8
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_3
+    target_kind: amplitude
+    harmonic_order: 3
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl3.onnx
+    archived_onnx_sha256: c9788a3d6bb9ebe191c76978c9dc71d736f5c94259e4b2145779d6a4cd6b87b6
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl3.pkl
+    python_model_sha256: 68d6d810cf2a5d0c2b2f7ac288e44ddd062957f27620f4d27444b0f1d401d838
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_39
+    target_kind: amplitude
+    harmonic_order: 39
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl39.onnx
+    archived_onnx_sha256: 87597e4362db0fd74b68c6a7e55d0b992e0d96071f03cc280bcd31cbbdb6c85d
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl39.pkl
+    python_model_sha256: e3d311894c10c14ad4fb9c6c8de13115f62bfd9d10bd91d7d66ee7fddfa08526
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_40
+    target_kind: amplitude
+    harmonic_order: 40
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl40.onnx
+    archived_onnx_sha256: a5dba77cb1e8b2260131c727271664640bdf2e79e1cdf816830b5b0299432069
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl40.pkl
+    python_model_sha256: cf4bf156bf85401c23b539d6a2551c01966c18e19fdc551b4d5b05578fcae4a1
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_78
+    target_kind: amplitude
+    harmonic_order: 78
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl78.onnx
+    archived_onnx_sha256: f390d2eec84922f466954c6b77d9626dcf033fcf3d40b897eb7e202a64d025e4
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl78.pkl
+    python_model_sha256: 398c39fc7dbfa2f13cdce12d929c63fdaaa79453f7fe6f060181b6318521b4a2
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_81
+    target_kind: amplitude
+    harmonic_order: 81
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl81.onnx
+    archived_onnx_sha256: f1e73d1a7ada5423ce11b83bbc0cdfbdb8503859adfe69c0d8e49c8ad88cc887
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl81.pkl
+    python_model_sha256: 6dede6429b38d9fd492a76971a210886acfac610856cdea8f0f4b490d31193d7
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_156
+    target_kind: amplitude
+    harmonic_order: 156
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl156.onnx
+    archived_onnx_sha256: 28dfd252c8545b97ea57c581cd30d41ef828f7a5fd6effa5c379da03b1964a01
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl156.pkl
+    python_model_sha256: 934de9f42c0af546739a62c13b771d0244ea296b66c101c8ba46f0eeb234ab31
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_162
+    target_kind: amplitude
+    harmonic_order: 162
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl162.onnx
+    archived_onnx_sha256: 72e6cbf1283c1af85990d2768c5862df9709e94c28a1b496946e1582c2c8e390
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl162.pkl
+    python_model_sha256: 5bf1491dbdb47f4e09619e7fe1477b0c0a1ba40d787488e537b92d15be9169a8
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_240
+    target_kind: amplitude
+    harmonic_order: 240
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/amplitude/LGBMRegressor_ampl240.onnx
+    archived_onnx_sha256: 69ed4ff0a11f9d24a21a3611c4032ae4c2fdb9652b46f78409c79fc794f5a19d
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/amplitude/LGBMRegressor_ampl240.pkl
+    python_model_sha256: a815f6d9142f09d6a64883e60463ab7ba91305c387e0b3759bf783cb087c7d33
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_0
+    target_kind: phase
+    harmonic_order: 0
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase0.onnx
+    archived_onnx_sha256: b0b555947bad0421673064016cd983c319db5a35d84882aa846eaa3497489970
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase0.pkl
+    python_model_sha256: 5aacbdd3be36c7548b3669f5ed235a13510e89e5f86378d65101d6bc30acb676
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_1
+    target_kind: phase
+    harmonic_order: 1
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase1.onnx
+    archived_onnx_sha256: 06a99682e3a9d5e07b585f2055f560cc557bcbe02ab7d5cb18608da618ef9a68
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase1.pkl
+    python_model_sha256: c300113261c530d2563a374205ece1f53fe7d18b01cf39d4f93a74fc391d8cbc
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_3
+    target_kind: phase
+    harmonic_order: 3
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase3.onnx
+    archived_onnx_sha256: a0bc3cafbe281f9224b8f16c72ff9051cc9a413331a5006a2e3d730f0b69794c
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase3.pkl
+    python_model_sha256: f33695631a2a309d8ddb7fa85608be46fb4fd1cf6fde9e09782222214ba30d33
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_39
+    target_kind: phase
+    harmonic_order: 39
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase39.onnx
+    archived_onnx_sha256: cfb6e9cec41083332aa2764a1418f4bc774ab23bbeb7b34de32fa23c9e9f6276
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase39.pkl
+    python_model_sha256: 385486ace548bf27abdc48aab5e38958380534beea0485d9373c550c869c92bd
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_40
+    target_kind: phase
+    harmonic_order: 40
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase40.onnx
+    archived_onnx_sha256: 8938cc00a7e0e65fbf9dcc5c567dc8b729bed1b03dbf4f585ad7383330677bfe
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase40.pkl
+    python_model_sha256: 2c36e082bee51618d8b1cc02458717f61bf259be80683019d9a58baeef85d841
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_78
+    target_kind: phase
+    harmonic_order: 78
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase78.onnx
+    archived_onnx_sha256: d6e33ac546ba8dd630f9284a5fe93de6846f2a8c23a4da9dcced2c5ee11333c6
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase78.pkl
+    python_model_sha256: 01852e60d146af0422d9e9f8e9932830f78c50299a2214ed1a306a0058692641
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_81
+    target_kind: phase
+    harmonic_order: 81
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase81.onnx
+    archived_onnx_sha256: 505950bdd5f054002e3af39ac87069501947831ed300b1f2ac9acd8526327927
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase81.pkl
+    python_model_sha256: 5b544d359df9ee9e31ac9dd3776a5f62fbc81852f166cd6d2d4bbf0295141c07
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_156
+    target_kind: phase
+    harmonic_order: 156
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase156.onnx
+    archived_onnx_sha256: a7c61a50620a43e86b9f8a21baa794259cbe1b5fd4d39919e4921110ad35d803
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase156.pkl
+    python_model_sha256: 0f611748974745fec26fac68189887f512d2f18984ee533b32db7f55a8cf947b
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_162
+    target_kind: phase
+    harmonic_order: 162
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase162.onnx
+    archived_onnx_sha256: edc65e1f241867d5f24ece79c9f8a4040b064187df841f5b2ddde5b454d8ab79
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase162.pkl
+    python_model_sha256: 752542bf9a7c6214d9fe26a0ca6c3ee370abae909a0f0d04d4d2cb498db7792a
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_240
+    target_kind: phase
+    harmonic_order: 240
+    direction_label: forward
+    source_run_instance_id: 2026-05-12-11-20-54__fw_retune_bundle
+    export_estimator_name: LGBMRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-11-20-54__fw_retune_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/onnx/phase/LGBMRegressor_phase240.onnx
+    archived_onnx_sha256: 9d3040984e5b4041e929da73ee55dc4f66663989a517d8192473a76d77ec8342
+    python_model_path: models/paper_reference/rcim_retuned/forward/lgbm_reference_models/python/phase/LGBMRegressor_phase240.pkl
+    python_model_sha256: 67524957c048e256c4fa95abdeb811eb42bb1e56c4d5c005a093e58a21613b5e
+    python_model_serialization: pickle
+    python_estimator_class_name: LGBMRegressor
+    onnx_export_status: success

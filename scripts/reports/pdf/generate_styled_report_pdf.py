@@ -85,6 +85,9 @@ TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-s
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-benchmark-surface"
 TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-reference-archive"
+RCIM_RETUNED_ARCHIVE_COMPLETENESS_TABLE_CLASS_NAME = "report-table report-table-rcim-retuned-archive-completeness"
+RCIM_RETUNED_MEAN_EVALUATION_METRICS_TABLE_CLASS_NAME = "report-table report-table-rcim-retuned-mean-evaluation-metrics"
+RCIM_RETUNED_HARMONIC_METRIC_TABLE_CLASS_NAME = "report-table report-table-rcim-retuned-harmonic-metric"
 TRACK1_FORWARD_OPEN_CELL_REPAIR_FAMILY_TABLE_CLASS_NAME = "report-table report-table-track1-forward-open-cell-repair-family"
 TRACK1_FORWARD_OPEN_CELL_REPAIR_DELTA_TABLE_CLASS_NAME = "report-table report-table-track1-forward-open-cell-repair-delta"
 TRACK1_FORWARD_DT_HISTORICAL_REPLAY_OUTCOME_TABLE_CLASS_NAME = "report-table report-table-track1-forward-dt-historical-replay-outcome"
@@ -937,6 +940,63 @@ REPORT_STYLESHEET = """
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(4), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(4) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(5), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(5) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(6), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(6) { width: 46%; }
+
+    .report-table-rcim-retuned-archive-completeness,
+    .report-table-rcim-retuned-mean-evaluation-metrics,
+    .report-table-rcim-retuned-harmonic-metric {
+      font-size: 6.55pt;
+      line-height: 1.14;
+    }
+
+    .report-table-rcim-retuned-archive-completeness th,
+    .report-table-rcim-retuned-archive-completeness td,
+    .report-table-rcim-retuned-mean-evaluation-metrics th,
+    .report-table-rcim-retuned-mean-evaluation-metrics td,
+    .report-table-rcim-retuned-harmonic-metric th,
+    .report-table-rcim-retuned-harmonic-metric td {
+      padding: 3px 4px;
+    }
+
+    .report-table-rcim-retuned-archive-completeness th,
+    .report-table-rcim-retuned-mean-evaluation-metrics th,
+    .report-table-rcim-retuned-harmonic-metric th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-rcim-retuned-archive-completeness th:nth-child(1), .report-table-rcim-retuned-archive-completeness td:nth-child(1) { width: 10%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(2), .report-table-rcim-retuned-archive-completeness td:nth-child(2) { width: 7%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(3), .report-table-rcim-retuned-archive-completeness td:nth-child(3) { width: 20.33%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(4), .report-table-rcim-retuned-archive-completeness td:nth-child(4) { width: 20.33%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(5), .report-table-rcim-retuned-archive-completeness td:nth-child(5) { width: 20.33%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(6), .report-table-rcim-retuned-archive-completeness td:nth-child(6) { width: 7.33%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(7), .report-table-rcim-retuned-archive-completeness td:nth-child(7) { width: 7.33%; }
+    .report-table-rcim-retuned-archive-completeness th:nth-child(8), .report-table-rcim-retuned-archive-completeness td:nth-child(8) { width: 7.33%; }
+
+    .report-table-rcim-retuned-archive-completeness td:nth-child(1) code,
+    .report-table-rcim-retuned-archive-completeness td:nth-child(2) code {
+      white-space: nowrap;
+    }
+
+    .report-table-rcim-retuned-mean-evaluation-metrics th:nth-child(1), .report-table-rcim-retuned-mean-evaluation-metrics td:nth-child(1) { width: 12%; }
+    .report-table-rcim-retuned-mean-evaluation-metrics th:nth-child(2), .report-table-rcim-retuned-mean-evaluation-metrics td:nth-child(2) { width: 12%; }
+    .report-table-rcim-retuned-mean-evaluation-metrics th:nth-child(3), .report-table-rcim-retuned-mean-evaluation-metrics td:nth-child(3) { width: 19%; }
+    .report-table-rcim-retuned-mean-evaluation-metrics th:nth-child(4), .report-table-rcim-retuned-mean-evaluation-metrics td:nth-child(4) { width: 19%; }
+    .report-table-rcim-retuned-mean-evaluation-metrics th:nth-child(5), .report-table-rcim-retuned-mean-evaluation-metrics td:nth-child(5) { width: 19%; }
+    .report-table-rcim-retuned-mean-evaluation-metrics th:nth-child(6), .report-table-rcim-retuned-mean-evaluation-metrics td:nth-child(6) { width: 19%; }
+
+    .report-table-rcim-retuned-harmonic-metric th:first-child,
+    .report-table-rcim-retuned-harmonic-metric td:first-child {
+      width: 10%;
+    }
+
+    .report-table-rcim-retuned-harmonic-metric thead code {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.14);
+    }
 
     .report-table-track1-forward-open-cell-repair-family,
     .report-table-track1-forward-open-cell-repair-delta {
@@ -2049,6 +2109,10 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         if header_cell == "Closure Score":
             return "Closure<br><span class=\"metric-unit\">Score</span>"
 
+    if table_class_name == RCIM_RETUNED_ARCHIVE_COMPLETENESS_TABLE_CLASS_NAME:
+        if header_cell == "Exported Errors":
+            return "Exported<br>Errors"
+
     if header_cell == "Paper Cell":
         return "Paper<span class=\"metric-unit\">Cell</span>"
     if header_cell == "Amplitude Run":
@@ -2610,6 +2674,31 @@ def resolve_standard_table_class_name(
         and normalized_header_cells == ("Direction", "Family", "Archived Targets", "Unique Source Runs", "Unique Source Configs", "Archive Root")
     ):
         return TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME
+
+    if (
+        current_section_slug == "archive-completeness"
+        and normalized_header_cells == ("Direction", "Family", "Retune Bundle", "Eval Bundle", "Export Bundle", "ONNX", "PKL", "Exported Errors")
+    ):
+        return RCIM_RETUNED_ARCHIVE_COMPLETENESS_TABLE_CLASS_NAME
+
+    if (
+        current_section_slug == "mean-evaluation-metrics"
+        and normalized_header_cells == ("Direction", "Family", "MSE", "RMSE", "MAE", "MAPE")
+    ):
+        return RCIM_RETUNED_MEAN_EVALUATION_METRICS_TABLE_CLASS_NAME
+
+    if (
+        current_section_slug in {"forward-retuned-tables", "backward-retuned-tables"}
+        and current_subsection_slug in {
+            "table-2-amplitude-mae",
+            "table-3-amplitude-rmse",
+            "table-4-phase-mae",
+            "table-5-phase-rmse",
+        }
+        and normalized_header_cells
+        and normalized_header_cells[0] == "Model"
+    ):
+        return RCIM_RETUNED_HARMONIC_METRIC_TABLE_CLASS_NAME
 
     return GENERIC_TABLE_CLASS_NAME
 

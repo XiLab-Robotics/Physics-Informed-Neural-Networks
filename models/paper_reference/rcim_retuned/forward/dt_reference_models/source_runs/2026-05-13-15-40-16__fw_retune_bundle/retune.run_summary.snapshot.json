@@ -1,0 +1,18 @@
+{
+  "stage": "training_models",
+  "mode": "retune",
+  "direction": "forward",
+  "input_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\reference\\rcim_ml_compensation_recovered_assets\\code\\original_pipeline\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "runtime_dataframe_path": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-15-40-16__fw_retune_bundle\\retune\\dataFrame_prediction_Fw_v14_newFreq.csv",
+  "test_size": 0.2,
+  "selected_families": [
+    "DT"
+  ],
+  "selected_family_count": 1,
+  "best_parameter_summary_path": null,
+  "prediction_output_folder": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-15-40-16__fw_retune_bundle\\retune\\output_prediction",
+  "model_output_dir": "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-15-40-16__fw_retune_bundle\\retune\\model_output_dir",
+  "generated_prediction_paths": [
+    "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\forward\\2026-05-13-15-40-16__fw_retune_bundle\\retune\\output_prediction\\dfOutTot_prediction_DecisionTreeRegressor_crossValidationWithHyperparameter_3.8_allFreq.csv"
+  ]
+}

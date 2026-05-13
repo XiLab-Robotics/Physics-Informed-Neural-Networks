@@ -1,0 +1,29 @@
+﻿{
+    "branch":  "backward",
+    "requested_stage":  "Eval",
+    "effective_stage":  "Eval",
+    "run_instance_id":  "2026-05-09-12-31-49__bw_eval_bundle",
+    "campaign_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-12-31-49__bw_eval_bundle",
+    "logs_root":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-12-31-49__bw_eval_bundle\\logs",
+    "dataframe_path":  null,
+    "best_parameter_summary_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-09-23-24__bw_retune_bundle\\retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv",
+    "best_parameter_source":  "explicit_summary",
+    "best_parameter_registry_path":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\registries\\program\\rcim_original_best_hyperparameters.yaml",
+    "no_eval":  false,
+    "no_export":  false,
+    "performed_retune":  false,
+    "registry_update":  null,
+    "notes":  [
+
+              ],
+    "stage_results":  [
+                          {
+                              "Stage":  "eval",
+                              "ExitCode":  0,
+                              "StdoutLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-12-31-49__bw_eval_bundle\\logs\\eval.stdout.log",
+                              "StderrLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-12-31-49__bw_eval_bundle\\logs\\eval.stderr.log",
+                              "CombinedLogPath":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-12-31-49__bw_eval_bundle\\logs\\eval.combined.log",
+                              "StageRoot":  "C:\\Users\\XiLabTRig\\Documents\\Physics-Informed Machine Learning\\StandardML - Codex\\output\\training_campaigns\\rcim_original\\backward\\2026-05-09-12-31-49__bw_eval_bundle\\eval"
+                          }
+                      ]
+}

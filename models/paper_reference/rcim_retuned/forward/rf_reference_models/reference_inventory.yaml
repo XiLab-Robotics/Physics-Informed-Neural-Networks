@@ -1,0 +1,486 @@
+schema_version: 1
+topic: rcim_retuned_forward_rf_reference_models
+paper_family_name: RF
+implementation_family_name: RF
+archive_scope:
+  direction_label: forward
+  source_stage: RetuneEvalExport
+  retune_bundle_run_instance_id: 2026-05-09-10-02-19__fw_retune_bundle
+  eval_bundle_run_instance_id: 2026-05-09-13-01-21__fw_eval_bundle
+  export_bundle_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+  retune_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-09-10-02-19__fw_retune_bundle
+  eval_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-21__fw_eval_bundle
+  export_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+  amplitude_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  phase_harmonic_order_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  archived_target_count: 20
+  onnx_success_count: 20
+  onnx_failure_count: 0
+  python_pickle_count: 20
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py
+source_launcher: scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1
+source_data: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/dataFrame_prediction_Fw_v14_newFreq.csv
+notes:
+  - "This archive stores accepted retuned recovered-original RCIM models."
+  - "Every target has both an ONNX export and a Python pickle artifact."
+reference_models:
+  -
+    target_name: fft_y_Fw_filtered_ampl_0
+    target_kind: amplitude
+    harmonic_order: 0
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl0.onnx
+    archived_onnx_sha256: f5b1fa9eac20e5f593df18657cfed756d2258229f43e94c76e9d1a1e6fd18403
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl0.pkl
+    python_model_sha256: 31207400961761cbcbe65c3547ab1bb70dc2f6d12e5d79e2aaebb0844bc4d996
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_1
+    target_kind: amplitude
+    harmonic_order: 1
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl1.onnx
+    archived_onnx_sha256: d57a7b4d65f1953effaf73f047c7b82d620b49635eda67c362a7e43ca2f99d71
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl1.pkl
+    python_model_sha256: ba84f9000bee4925089f321619e4721025975f139f2f7905262b3af4e7df9407
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_3
+    target_kind: amplitude
+    harmonic_order: 3
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl3.onnx
+    archived_onnx_sha256: 31b35ce48f02b9ddf301ad97b9f2bc10b81010d36e694e24970a566c290ab9eb
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl3.pkl
+    python_model_sha256: 098e06557f961d9b7949f00c1834f0bd256dd06587530332689a04e4ec7e9941
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_39
+    target_kind: amplitude
+    harmonic_order: 39
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl39.onnx
+    archived_onnx_sha256: 1fa8a21e0966b76ecfb1fbeaa4d04c737030710ddffcd413dfee4ee5afc4c50b
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl39.pkl
+    python_model_sha256: a5941ae93548e704f5681c8b1a1194f5dd85440f7407530e8aaad3aee65f8e5e
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_40
+    target_kind: amplitude
+    harmonic_order: 40
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl40.onnx
+    archived_onnx_sha256: e0e63ec77cc36a0b01da85650a704d8f1b167405e0133e1c5a91ccef8a923c65
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl40.pkl
+    python_model_sha256: 27b069056c2413333971d2c6bd01e3f392b0cf6c8d0561f8cf68cfe6779ac002
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_78
+    target_kind: amplitude
+    harmonic_order: 78
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl78.onnx
+    archived_onnx_sha256: 17d9fe209429348f71a4e047d6c0354d793941df69fe4704e338169620cc48dd
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl78.pkl
+    python_model_sha256: 9fd34475390c01124ab78db6f57673398329b5235a9268fc803d07f0edc2183f
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_81
+    target_kind: amplitude
+    harmonic_order: 81
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl81.onnx
+    archived_onnx_sha256: 523e41bc34efd30900d21c1e396d1b4d8ec3f642dad23779c1aba8033c7ff87d
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl81.pkl
+    python_model_sha256: d1236ef23a7fb8db710acecd3b39b2ce00f33ac45762f3fa47b436e8f1544fc3
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_156
+    target_kind: amplitude
+    harmonic_order: 156
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl156.onnx
+    archived_onnx_sha256: 238f63f8efd9ebc98e386e58b4ab2f140c15b3e4092ee5fbeef9523866a11170
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl156.pkl
+    python_model_sha256: 315d6e24552cc5717a298ff94411b1c2cebea205a3e00ce5676d3c9e7d0421db
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_162
+    target_kind: amplitude
+    harmonic_order: 162
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl162.onnx
+    archived_onnx_sha256: 39046a799802fec5480b8ab53300565c1dc3cd2db05c751b9e02c552d3ab754d
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl162.pkl
+    python_model_sha256: 31fb05d136b171ca7ba6ee4aab0d8ee23f0ee6590da4d716bcae18bc35a8dd83
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_ampl_240
+    target_kind: amplitude
+    harmonic_order: 240
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/amplitude/RandomForestRegressor_ampl240.onnx
+    archived_onnx_sha256: e2213b60133859802a3e2d776ed30b686850d083c062a8c522f6b1bc19c75a0e
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/amplitude/RandomForestRegressor_ampl240.pkl
+    python_model_sha256: 923666cb748348a9f1f79431aee8cde5062d9223a8acccb94dfc3484a95e6019
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_0
+    target_kind: phase
+    harmonic_order: 0
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase0.onnx
+    archived_onnx_sha256: 2981cd89628d89e7366126ddd251d51eabc78f356733a209b019b5add467b3de
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase0.pkl
+    python_model_sha256: f08364ffdb5441f4c6f2128a11458c43014fb496252d91f0104e386f4a8d995c
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_1
+    target_kind: phase
+    harmonic_order: 1
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase1.onnx
+    archived_onnx_sha256: 753980f0063c4baa07261fa20767e909f43a13a80ac5772ac68d9290d5d8c5f8
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase1.pkl
+    python_model_sha256: 6ceeb228f2637f3c96a0f779069b80c5a30c557b77078442946fb2d612d372bf
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_3
+    target_kind: phase
+    harmonic_order: 3
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase3.onnx
+    archived_onnx_sha256: 59df7106cccf37e91dcf4049efbb8c09419416a50a7ec3229e803172f0004ae2
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase3.pkl
+    python_model_sha256: db2f52f955c4420117bd68dcb1443858b36f5d79eee8581e6b024b9bfcf2a154
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_39
+    target_kind: phase
+    harmonic_order: 39
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase39.onnx
+    archived_onnx_sha256: 33344ff4f2d7934c9a9d01cb85d31e4c0ad18fb209a6fac3ca972cb64b56d211
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase39.pkl
+    python_model_sha256: 4a60ff7ade2b94cae6b0e07a73a564fa5dc2db1df90d1034e9e8a100d28e098c
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_40
+    target_kind: phase
+    harmonic_order: 40
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase40.onnx
+    archived_onnx_sha256: fc4ef7491e398880abf5221fda4386580018c130bd143e003a7a91cd1083f12b
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase40.pkl
+    python_model_sha256: ed5ac06e505a13d3f904bb6db671af45e8ab69ee823cdd533b7e0cdb4d4ab90c
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_78
+    target_kind: phase
+    harmonic_order: 78
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase78.onnx
+    archived_onnx_sha256: 066cfa0cb0ff65106f37dc9cc96b20dc4c8e7343fdf0e4595ab327c4760fdfda
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase78.pkl
+    python_model_sha256: e73ddb58e12b20517022abac38e9af46f9f2fc625dbf61d8aa6ac9b5184d508c
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_81
+    target_kind: phase
+    harmonic_order: 81
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase81.onnx
+    archived_onnx_sha256: bbe01655b36386c3b30f56c79d2bb609c3d0a92cde6d9b4e616c41e66862efd4
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase81.pkl
+    python_model_sha256: aca9ac117fed18bc671e193d6e404a25e8eec8923c56e321bb8fbf3d96f23bf2
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_156
+    target_kind: phase
+    harmonic_order: 156
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase156.onnx
+    archived_onnx_sha256: 2df4ea06a962ed38e062305885b1d4d570918361bcbca8df7ae13c1a198397ed
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase156.pkl
+    python_model_sha256: 2c826190b5a5c8ccdd58e8f0f7020a19c079357d2a69e08236232e8d417c52e4
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_162
+    target_kind: phase
+    harmonic_order: 162
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase162.onnx
+    archived_onnx_sha256: 794dcc863a32df986c82c99e74120c88b846b74459bfede050abf6758f811b9a
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase162.pkl
+    python_model_sha256: ff3636f1bb14f910df605c5ed837308e043f7f7cc4f0fbdee17ccbcd727cd9d9
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success
+  -
+    target_name: fft_y_Fw_filtered_phase_240
+    target_kind: phase
+    harmonic_order: 240
+    direction_label: forward
+    source_run_instance_id: 2026-05-09-13-01-34__fw_export_bundle
+    export_estimator_name: RandomForestRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-09-13-01-34__fw_export_bundle/export/model_output_dir
+    dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
+    dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
+    feature_name_list:
+      - rpm
+      - deg
+      - tor
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/onnx/phase/RandomForestRegressor_phase240.onnx
+    archived_onnx_sha256: 7ba351080026f70b1fef882bf2d7b030dbbb25bb25a6e21644ab263e1d451268
+    python_model_path: models/paper_reference/rcim_retuned/forward/rf_reference_models/python/phase/RandomForestRegressor_phase240.pkl
+    python_model_sha256: df71fd8597500e20897f3b481e30fbf36e56635643636ce840fc1d58506beadb
+    python_model_serialization: pickle
+    python_estimator_class_name: RandomForestRegressor
+    onnx_export_status: success

@@ -80,6 +80,10 @@ This folder contains the internal project documents derived from the reference P
   exact consequences for faithful `Track 1` reimplementation.
 - [reports/analysis/RCIM Paper Reference Benchmark.md](./reports/analysis/RCIM%20Paper%20Reference%20Benchmark.md)
   Canonical repository-owned extraction of the RCIM ML-compensation paper baseline, including minimum targets, paper-vs-repository status, and the missing pipeline for a true Table 9 comparison.
+- [reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
+  Detailed closeout report for the recovered-original RCIM retuned reference
+  archive, including source bundles, export completeness, and retuned Tables
+  `2`-`5` for both directions.
 - [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
   Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
 - [reports/analysis/Wave 1 - Closeout Status.md](./reports/analysis/Wave%201%20-%20Closeout%20Status.md)
@@ -103,6 +107,12 @@ This folder contains the internal project documents derived from the reference P
   Plan the recovered-original RCIM launcher follow-up fix that keeps complete
   persisted stage logs while eliminating the new live-log backpressure path
   that can stall verbose retune runs.
+- [technical/2026-05/2026-05-13/2026-05-13-16-10-09_rcim_retuned_archive_closeout_and_benchmark_reset.md](./technical/2026-05/2026-05-13/2026-05-13-16-10-09_rcim_retuned_archive_closeout_and_benchmark_reset.md)
+  Plan the recovered-original RCIM retuned-model closeout, archive promotion,
+  detailed PDF reporting, and canonical paper-reference benchmark reset.
+- [technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md)
+  Plan the narrow styled-PDF table layout refinement for the recovered-original
+  RCIM retuned closeout report.
 
 #### 2026-05-12
 
