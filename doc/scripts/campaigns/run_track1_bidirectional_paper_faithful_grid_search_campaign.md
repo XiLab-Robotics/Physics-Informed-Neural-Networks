@@ -18,9 +18,9 @@ through the canonical remote wrapper when `-Remote` is used.
 The prepared package covers:
 
 - `forward` and `backward`;
-- all `10` exact-paper families;
+- all `11` operational exact-paper families, including `ELM`;
 - exactly `1` grid-search run per family-direction surface;
-- total queue size `20`.
+- total queue size `22`.
 
 This campaign also depends on the restored historical search protocol in the
 shared exact-paper training path:
@@ -101,13 +101,25 @@ Multiple families in one sliced invocation:
   -Remote
 ```
 
+Full forward operational family queue, including `ELM`:
+
+```powershell
+.\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 `
+  -Direction Forward `
+  -Families "SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM" `
+  -Stage Search `
+  -GridSearchVerboseOverride 3 `
+  -HistoricalCrossValidateVerboseOverride 10 `
+  -Remote
+```
+
 `Search` keeps the current default behavior and can still chain evaluation and
 export automatically. `LoadBest` reuses the repository-owned exact-paper
 best-parameter registry when coverage exists, or one explicit
 `-BestParameterSummaryPath` when the operator wants a specific saved run.
 
 `Direction` plus `Family` or `Families` now let the operator slice the
-prepared `20`-run package into one branch, one family, or one small
+prepared `22`-run package into one branch, one family, or one small
 family subset without changing the paper-faithful search protocol itself.
 
 The launcher and remote wrapper now also keep the operator surface much more

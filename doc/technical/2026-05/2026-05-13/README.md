@@ -12,3 +12,7 @@
 - [2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md](./2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md)
   Plan the narrow styled-PDF table layout refinement for the recovered-original
   RCIM retuned closeout report.
+- [2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md](./2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md)
+  Plan the protected Track 1 paper-faithful queue update that adds forward and
+  backward `ELM` YAML entries so the existing `11`-family launcher command can
+  run.

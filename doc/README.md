@@ -113,6 +113,9 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md)
   Plan the narrow styled-PDF table layout refinement for the recovered-original
   RCIM retuned closeout report.
+- [technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md](./technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md)
+  Plan the protected Track 1 paper-faithful queue update that adds forward and
+  backward `ELM` YAML entries for the `11`-family launcher command.
 
 #### 2026-05-12
 
@@ -1371,6 +1374,9 @@ This folder contains the internal project documents derived from the reference P
   Lightweight recovery-campaign plan for reproducing and validating the blocked
   neural `Optuna` launcher path before resuming the full directional HPO
   campaign.
+- [reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md](./reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md)
+  Addendum for extending the Track 1 paper-faithful campaign queue with one
+  `ELM` search run per direction.
 - [technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md](./technical/2026-03/2026-03-20/2026-03-20-15-55-21_campaign_launcher_short_command.md)
   Technical document for a short launcher wrapper that keeps the existing training logs and terminal behavior intact.
 - [technical/2026-03/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md](./technical/2026-03/2026-03-24/2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report.md)
