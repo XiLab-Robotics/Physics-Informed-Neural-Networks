@@ -13,6 +13,7 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
@@ -82,11 +83,11 @@ class PromotedFamilyArchive:
 
 FAMILY_DEFINITION_LIST = [
     FamilyDefinition("SVR", "SVM", "svm_reference_models", "SVR"),
-    FamilyDefinition("MLP", "MLP", "mlp_reference_models", "MLP"),
+    FamilyDefinition("MLP", "MLP", "mlp_reference_models", "MLPRegressor"),
     FamilyDefinition("RF", "RF", "rf_reference_models", "RandomForestRegressor"),
     FamilyDefinition("DT", "DT", "dt_reference_models", "DecisionTreeRegressor"),
-    FamilyDefinition("ET", "ET", "et_reference_models", "ExtraTreesRegressor"),
-    FamilyDefinition("ERT", "ERT", "ert_reference_models", "ExtraTreeRegressor"),
+    FamilyDefinition("ET", "ET", "et_reference_models", "ExtraTreeRegressor"),
+    FamilyDefinition("ERT", "ERT", "ert_reference_models", "ExtraTreesRegressor"),
     FamilyDefinition("GBM", "GBM", "gbm_reference_models", "GradientBoostingRegressor"),
     FamilyDefinition("HGBM", "HGBM", "hgbm_reference_models", "HistGradientBoostingRegressor"),
     FamilyDefinition("XGBM", "XGBM", "xgbm_reference_models", "XGBRegressor"),
@@ -102,7 +103,7 @@ SOURCE_SELECTION_LIST = [
     SourceSelection("forward", "DT", "2026-05-13-15-40-16__fw_retune_bundle", "2026-05-13-15-40-16__fw_retune_bundle", "2026-05-13-15-40-16__fw_retune_bundle"),
     SourceSelection("forward", "ET", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-11-18-27-16__fw_retune_bundle"),
     SourceSelection("forward", "ERT", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-11-18-27-16__fw_retune_bundle"),
-    SourceSelection("forward", "GBM", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-12-18-16-50__fw_eval_bundle", "2026-05-12-18-20-41__fw_export_bundle"),
+    SourceSelection("forward", "GBM", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-11-18-27-16__fw_retune_bundle"),
     SourceSelection("forward", "HGBM", "2026-05-11-18-27-16__fw_retune_bundle", "2026-05-12-18-16-50__fw_eval_bundle", "2026-05-12-18-20-41__fw_export_bundle"),
     SourceSelection("forward", "XGBM", "2026-05-11-16-55-11__fw_retune_bundle", "2026-05-11-16-55-11__fw_retune_bundle", "2026-05-11-16-55-11__fw_retune_bundle"),
     SourceSelection("forward", "LGBM", "2026-05-12-11-20-54__fw_retune_bundle", "2026-05-12-11-20-54__fw_retune_bundle", "2026-05-12-11-20-54__fw_retune_bundle"),
@@ -113,7 +114,7 @@ SOURCE_SELECTION_LIST = [
     SourceSelection("backward", "DT", "2026-05-09-09-21-57__bw_retune_bundle", "2026-05-09-09-21-57__bw_retune_bundle", "2026-05-09-09-21-57__bw_retune_bundle"),
     SourceSelection("backward", "ET", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-11-08-07__bw_retune_bundle"),
     SourceSelection("backward", "ERT", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-11-08-07__bw_retune_bundle"),
-    SourceSelection("backward", "GBM", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-18-22-07__bw_eval_bundle", "2026-05-12-18-22-27__bw_export_bundle"),
+    SourceSelection("backward", "GBM", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-11-08-07__bw_retune_bundle"),
     SourceSelection("backward", "HGBM", "2026-05-12-11-08-07__bw_retune_bundle", "2026-05-12-18-22-07__bw_eval_bundle", "2026-05-12-18-22-27__bw_export_bundle"),
     SourceSelection("backward", "XGBM", "2026-05-11-09-19-07__bw_retune_bundle", "2026-05-11-09-19-07__bw_retune_bundle", "2026-05-11-09-19-07__bw_retune_bundle"),
     SourceSelection("backward", "LGBM", "2026-05-11-16-05-54__bw_retune_bundle", "2026-05-11-16-05-54__bw_retune_bundle", "2026-05-11-16-05-54__bw_retune_bundle"),
@@ -214,7 +215,7 @@ def promote_family_archive(source_selection: SourceSelection) -> PromotedFamilyA
     export_file_list = [
         path
         for path in export_model_dir.iterdir()
-        if path.is_file() and family_definition.estimator_name in path.name
+        if path.is_file() and is_family_export_file(path, family_definition)
     ]
     onnx_file_list = sorted(path for path in export_file_list if path.suffix == ".onnx")
     pkl_file_list = sorted(path for path in export_file_list if path.suffix == ".pkl")
@@ -267,6 +268,12 @@ def promote_family_archive(source_selection: SourceSelection) -> PromotedFamilyA
         mean_mae=metric_row.get("MAE"),
         mean_mape=metric_row.get("MAPE"),
     )
+
+
+def is_family_export_file(path: Path, family_definition: FamilyDefinition) -> bool:
+    """Return whether one export file belongs to the requested family."""
+
+    return path.name.startswith(f"{family_definition.estimator_name}_paperReferenceExport")
 
 
 def create_archive_directories(family_archive_root: Path) -> None:
@@ -633,7 +640,8 @@ def write_closeout_report(
             "",
             "- `RF` uses separate backward `Eval` and `Export` recovery bundles after the parser fix.",
             "- `ELM` uses later recovery export bundles where the custom ONNX exporter is active.",
-            "- `GBM` and `HGBM` use later recovery export bundles that removed earlier ONNX export errors.",
+            "- `GBM` uses the original multi-family retune bundle because that bundle contains the accepted `GBM` eval row and complete exports.",
+            "- `HGBM` uses later recovery export bundles that removed earlier ONNX export errors.",
             "- `LGBM` uses the quieter retune factory surface so native LightGBM chatter does not bury failure evidence.",
         ]
     )
@@ -794,31 +802,75 @@ def append_raw_markdown_table(lines: list[str], table_lines: list[list[str]]) ->
 def parse_paper_original_tables(benchmark_path: Path) -> dict[str, list[list[str]]]:
     """Extract existing paper-original Tables 2-5 before the benchmark rewrite."""
 
-    text = benchmark_path.read_text(encoding="utf-8")
     table_map: dict[str, list[list[str]]] = {}
-    for table_name, _, _, _, _ in TABLE_DEFINITION_LIST:
-        table_marker = f"#### {table_name} -"
-        marker_index = text.find(table_marker)
-        if marker_index < 0:
-            continue
-        paper_index = text.find("Paper-side repository-owned reconstruction:", marker_index)
-        if paper_index < 0:
-            continue
-        table_start = text.find("| Model |", paper_index)
-        if table_start < 0:
-            continue
-        table_lines: list[list[str]] = []
-        for raw_line in text[table_start:].splitlines():
-            stripped_line = raw_line.strip()
-            if not stripped_line.startswith("|"):
-                if table_lines:
-                    break
+
+    for text in read_paper_original_source_texts(benchmark_path):
+        for table_name, _, _, _, _ in TABLE_DEFINITION_LIST:
+            if table_name in table_map:
                 continue
-            cells = [cell.strip() for cell in stripped_line.strip("|").split("|")]
-            table_lines.append(cells)
-        if table_lines:
-            table_map[table_name] = table_lines
+            table_lines = parse_one_forward_paper_original_table(text, table_name)
+            if table_lines:
+                table_map[table_name] = table_lines
+
     return table_map
+
+
+def read_paper_original_source_texts(benchmark_path: Path) -> list[str]:
+    """Read current and Git-tracked benchmark text candidates for paper tables."""
+
+    text_candidate_list = [benchmark_path.read_text(encoding="utf-8")]
+
+    try:
+        git_head_result = subprocess.run(
+            [
+                "git",
+                "show",
+                "HEAD:doc/reports/analysis/RCIM Paper Reference Benchmark.md",
+            ],
+            cwd=PROJECT_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return text_candidate_list
+
+    text_candidate_list.append(git_head_result.stdout)
+    return text_candidate_list
+
+
+def parse_one_forward_paper_original_table(text: str, table_name: str) -> list[list[str]]:
+    """Parse one forward paper-original Markdown table from benchmark text."""
+
+    table_marker = f"### Forward {table_name} -"
+    marker_index = text.find(table_marker)
+    if marker_index < 0:
+        return []
+
+    paper_index = text.find("#### Paper Original", marker_index)
+    if paper_index < 0:
+        return []
+
+    next_section_index = text.find("#### Paper Retuned", paper_index)
+    if next_section_index < 0:
+        next_section_index = len(text)
+
+    table_text = text[paper_index:next_section_index]
+    table_start = table_text.find("| Model |")
+    if table_start < 0:
+        return []
+
+    table_lines: list[list[str]] = []
+    for raw_line in table_text[table_start:].splitlines():
+        stripped_line = raw_line.strip()
+        if not stripped_line.startswith("|"):
+            if table_lines:
+                break
+            continue
+        cells = [cell.strip() for cell in stripped_line.strip("|").split("|")]
+        table_lines.append(cells)
+    return table_lines
 
 
 def read_eval_metrics(source_selection: SourceSelection) -> dict[str, float]:
@@ -828,9 +880,31 @@ def read_eval_metrics(source_selection: SourceSelection) -> dict[str, float]:
     summary_path_list = sorted(eval_output_root.rglob("summaryCrossValidation+_3.8_allFreq.csv"))
     if not summary_path_list:
         raise FileNotFoundError(f"No eval summary found under {eval_output_root}")
+
+    expected_method_code = resolve_summary_method_code(source_selection.family_code)
     with summary_path_list[0].open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle, delimiter=";")
-        row = next(reader)
+        row_list = list(reader)
+
+    row = None
+    available_method_code_list: list[str] = []
+    for candidate_row in row_list:
+        candidate_method_code = candidate_row.get("0_method", "").strip().upper()
+        if candidate_method_code:
+            available_method_code_list.append(candidate_method_code)
+        if candidate_method_code == expected_method_code:
+            row = candidate_row
+            break
+
+    if row is None:
+        raise RuntimeError(
+            "Missing eval metric row for "
+            f"{source_selection.direction}/{source_selection.family_code} in "
+            f"{summary_path_list[0].relative_to(PROJECT_ROOT)}. "
+            f"Expected {expected_method_code}; available rows: "
+            f"{', '.join(available_method_code_list) or 'none'}"
+        )
+
     metric_map = {
         key: parse_metric_value(value)
         for key, value in row.items()
@@ -846,6 +920,14 @@ def read_eval_metrics(source_selection: SourceSelection) -> dict[str, float]:
             if metric_value_list:
                 metric_map[metric_name] = sum(metric_value_list) / len(metric_value_list)
     return metric_map
+
+
+def resolve_summary_method_code(family_code: str) -> str:
+    """Resolve the historical summary method code for one family."""
+
+    if family_code == "SVR":
+        return "SVM"
+    return family_code
 
 
 def read_semicolon_csv_shape(csv_path: Path) -> tuple[int, list[str]]:

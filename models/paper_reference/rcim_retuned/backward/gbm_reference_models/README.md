@@ -27,8 +27,8 @@ Provenance summary:
 - paper family: `GBM`
 - implementation family: `GBM`
 - retune source bundle: `2026-05-12-11-08-07__bw_retune_bundle`
-- eval source bundle: `2026-05-12-18-22-07__bw_eval_bundle`
-- export source bundle: `2026-05-12-18-22-27__bw_export_bundle`
+- eval source bundle: `2026-05-12-11-08-07__bw_retune_bundle`
+- export source bundle: `2026-05-12-11-08-07__bw_retune_bundle`
 - archived target count: `20`
 - ONNX exported target count: `20`
 - Python pickle target count: `20`

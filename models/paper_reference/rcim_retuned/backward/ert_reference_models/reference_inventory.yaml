@@ -50,7 +50,7 @@ reference_models:
     harmonic_order: 0
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -59,12 +59,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl0.onnx
-    archived_onnx_sha256: 7565854351b2a6f1cd8b71aefae22eebde37a7d2999960ee7fe43bbf1bf1fa5a
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl0.pkl
-    python_model_sha256: 2ab9aa4c282434e4f329f3e7d99bf585a3dbb798b4301856bd37d0de4180e27c
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx
+    archived_onnx_sha256: ba1825f7aec1664c94bcbf6578df4c1563c186723fdd37ad091f16edafff108c
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl0.pkl
+    python_model_sha256: 8da27901b513fabe725e669f12a447106d948082aea3ff1b7116f5ce45ca5950
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_1
@@ -72,7 +72,7 @@ reference_models:
     harmonic_order: 1
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -81,12 +81,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl1.onnx
-    archived_onnx_sha256: d72bdac268326e220d6fdf469ccd3d24a9dac9764ee0047caa9df73523ba7a3f
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl1.pkl
-    python_model_sha256: efc0b499da7f9ec0de210df627b5821e144818e4b585ce62148b54e7da5f3e29
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx
+    archived_onnx_sha256: db96b333b0be26f7b3ed32659ad6e323de373d396b4c4317376ab2b4d79e108b
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl1.pkl
+    python_model_sha256: e339a4015250c0e682ba0ec1ba6c4b34ea5713e0ac8e542a18861771ed7c5e67
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_3
@@ -94,7 +94,7 @@ reference_models:
     harmonic_order: 3
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -103,12 +103,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl3.onnx
-    archived_onnx_sha256: 806292f8e006b1ddcacd2f77a1154af16ad5e406e9496bc8b26de5e0af5cb827
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl3.pkl
-    python_model_sha256: 3f0e59b562c615d133d2c8ba938ec7ec5db4cabf1536f8483e515c8e3b1edb55
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx
+    archived_onnx_sha256: 157c8b514c3ae88f1c8cfcdd725d8efa3477a7d423143e1ecdb1430a341f77d1
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl3.pkl
+    python_model_sha256: 4c6e83841b3e101a7d33e56f5720da85f3162250df6da40290ea4f04cfb5ecda
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_39
@@ -116,7 +116,7 @@ reference_models:
     harmonic_order: 39
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -125,12 +125,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl39.onnx
-    archived_onnx_sha256: ed2f9be127b98aae0071450738b97603d29c346a83a4891173efdd7b85fe8631
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl39.pkl
-    python_model_sha256: 72974650e55cc9a982cecb411a0cbc31c95cb06d07dcf0c696d0def4784c8c10
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl39.onnx
+    archived_onnx_sha256: ecccf17a238dc560d86394ac056d4ed77688503852d32da76b9afdc9f92040a3
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl39.pkl
+    python_model_sha256: e5599813b0c1f4aa03ab2099ab431296fae2968df1e3420d8d5870f46ffaa411
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_40
@@ -138,7 +138,7 @@ reference_models:
     harmonic_order: 40
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -147,12 +147,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl40.onnx
-    archived_onnx_sha256: c7549c06c567cee963538859fee7ba654aecdbf5d1c8e13a2be091eb2f4e9e44
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl40.pkl
-    python_model_sha256: 0b16e078e03fec073f2964d9bd4635668bf192260cbc6c897fd90ef3806e0392
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl40.onnx
+    archived_onnx_sha256: a33ab2f473fd18ef0e193e18f3980ae65314ef1aa852b8271b5ca4b155365be5
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl40.pkl
+    python_model_sha256: 627ff6f959a676fac5241198a304b917742ddf39e5a961ff255c076791d8caea
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_78
@@ -160,7 +160,7 @@ reference_models:
     harmonic_order: 78
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -169,12 +169,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl78.onnx
-    archived_onnx_sha256: e4f87c3b2b593c56b72ecf75bae865582a3c35003e744e72c5ae551053d079aa
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl78.pkl
-    python_model_sha256: 1a14362e8a9e96f1a6382e6b97f3b1cddb5681b347aa0fee23089a4b8f644158
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl78.onnx
+    archived_onnx_sha256: a7c8b410d13c35d363005ceb26abb0e2e672a037f26441014febc0057b68d347
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl78.pkl
+    python_model_sha256: a4ce6de094956449383a7b7215708e5b7927238ae1999059fc779f0953d7a58b
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_81
@@ -182,7 +182,7 @@ reference_models:
     harmonic_order: 81
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -191,12 +191,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl81.onnx
-    archived_onnx_sha256: 7556fd5a9d96ebabd387be092beeb218d0027036c31a385c8256d3ca06babc47
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl81.pkl
-    python_model_sha256: d6cbbf23e8a5c46ada3893eae06a88ce1572fe3cd1b267da17055af080dc8229
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl81.onnx
+    archived_onnx_sha256: 5964c752920a3fb2cbf40bbb6044b610d82f4239084a46be0809c54eaf4c3948
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl81.pkl
+    python_model_sha256: a93c49328824e27c646d15d13ef49eeaf67053969cd39c64cf3f12ff9fc875f3
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_156
@@ -204,7 +204,7 @@ reference_models:
     harmonic_order: 156
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -213,12 +213,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl156.onnx
-    archived_onnx_sha256: c3d64fe17b69c21458b05ca1162caefcc06f150d291b41d323cc76930ab14508
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl156.pkl
-    python_model_sha256: 194e07323a44030a7f86f16f74c387d7d393776f0ace4314bf0db84b26e4a9fb
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx
+    archived_onnx_sha256: bca40015a2d8b74287701943c41982ac1f3d5ac99a4d15ffa32a4e1d8f51d785
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl156.pkl
+    python_model_sha256: 0a7202ba9231215334893248a990a479dfaf76f87782278034f38457d00cee11
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_162
@@ -226,7 +226,7 @@ reference_models:
     harmonic_order: 162
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -235,12 +235,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl162.onnx
-    archived_onnx_sha256: 65f68c182b1c1b2cdf88e68100b09f9ea0300ba9cafa2e356421ebaf53eb341f
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl162.pkl
-    python_model_sha256: 8591f85ff57703785d731cd3951e11fae7178df3a511a58ce7838e0daf8db1c7
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx
+    archived_onnx_sha256: 3fb0a66ab0188049058bc8d499b98ee04a9c0b8b1970fd15ddec66565a04a50d
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl162.pkl
+    python_model_sha256: 3a15d3f04a781b3961e7fa99ebf74633b674cdb74c59ecbf6dd7fbb6a1c72b90
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_ampl_240
@@ -248,7 +248,7 @@ reference_models:
     harmonic_order: 240
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -257,12 +257,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreeRegressor_ampl240.onnx
-    archived_onnx_sha256: db63612fed8bf878e571b9f49c7bc2ca47b872eb59f3787831737f32782f576d
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreeRegressor_ampl240.pkl
-    python_model_sha256: ae958421e6f0a52a65a282832f369d7f929404f0c5ad7095333393d27b31c9ea
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx
+    archived_onnx_sha256: 4edc93e74f2e8becfd688f3bd7b7faac13fbd1e39b34fb4c111d8fbe4f66556d
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl240.pkl
+    python_model_sha256: a33d678dfdc4e71149bd0bec0fa14fa14968a951453ac0ddb20a4f08a235ac29
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_0
@@ -270,7 +270,7 @@ reference_models:
     harmonic_order: 0
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -279,12 +279,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase0.onnx
-    archived_onnx_sha256: ba7a2f90e5e5d28c8388c25d74d0bf8a9ea3268727b63282d479ba5c63a42f83
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase0.pkl
-    python_model_sha256: 42d7b4c5eb6c54f7f6870b732072c793eb421fbbcea8900eca50e1eb5ee74a6f
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase0.onnx
+    archived_onnx_sha256: c37ce38c84a92dc95755732cea1f62ae82454d93588c4e4143271c7d83643e14
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase0.pkl
+    python_model_sha256: a7d07de3efa23865207fb765e91c01bf7293e8004a2a7c4f3a038b325ed3944a
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_1
@@ -292,7 +292,7 @@ reference_models:
     harmonic_order: 1
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -301,12 +301,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase1.onnx
-    archived_onnx_sha256: 2b6f01bef7448184611e05975a07cd82b4b11bf09ae388fc8c09b479b8e0682e
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase1.pkl
-    python_model_sha256: 1ca0523b6995e0e23573724fd949ae430784635b5a1c15c23ae3d6e880f4d380
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase1.onnx
+    archived_onnx_sha256: 41a670581bd5968866d3616e44b6bb50a8d6d646869bdd9b111f82c855a4a087
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase1.pkl
+    python_model_sha256: 817532846da9d530de93bbe9c84d651c7bdf467f2bd288fa7a1667953b27fa23
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_3
@@ -314,7 +314,7 @@ reference_models:
     harmonic_order: 3
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -323,12 +323,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase3.onnx
-    archived_onnx_sha256: 761df3b32dc1cece0fb79966bf7e067bcca0d7ceef017113a09e2cee7cf7cecf
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase3.pkl
-    python_model_sha256: 0460c7af8b93bd108d92f0202c757e4d3f6c3d79c6d2ece722834d5183db7276
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase3.onnx
+    archived_onnx_sha256: 2caa1b4a4c7e46631b8bd2d56786aeb88b22411400f8702189dcc24bb7a46d97
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase3.pkl
+    python_model_sha256: a1170ea09e075b3b08a4fe819ca8a2db51c9524c0848421f40db8f6fe2d5522b
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_39
@@ -336,7 +336,7 @@ reference_models:
     harmonic_order: 39
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -345,12 +345,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase39.onnx
-    archived_onnx_sha256: 47334521c9c3a2af27d25035466e3839e59471517d53f3bcd16ea66379a00333
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase39.pkl
-    python_model_sha256: d764d1f5d2228f431a617e49e2d99bc62835fabb7af3c34a1fc12999b2f4a413
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase39.onnx
+    archived_onnx_sha256: 6157fb64641b16f72d890b60f83ab54dcbcd20af00855f230c9a2cc343b20f64
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase39.pkl
+    python_model_sha256: b5bf1a25ed9c3ea450362b3af722edf25645dbff9301f969edfec10d598ac1e9
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_40
@@ -358,7 +358,7 @@ reference_models:
     harmonic_order: 40
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -367,12 +367,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase40.onnx
-    archived_onnx_sha256: 02965e85b977f04fbba6f3c075c998af5b2ad441af47cf1128debe6e8311dd49
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase40.pkl
-    python_model_sha256: c5daa0df10dfefa40f7919704d6ffd9e3016f0c0f420c69cfbe4cca7ed01bf0f
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase40.onnx
+    archived_onnx_sha256: 3cdd985c6d43e003b04c7d85a85297d463c3fd5da8d04dbbfbcdd87f9fa70907
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase40.pkl
+    python_model_sha256: 638d9ce2360f250affc3162e28e675e10e744c74de0d5428e8e60c1daeaf310b
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_78
@@ -380,7 +380,7 @@ reference_models:
     harmonic_order: 78
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -389,12 +389,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase78.onnx
-    archived_onnx_sha256: 27f6e7359a3fab5fc202daee68fe16536e9e3145ee305907d6fdcab29bc385d9
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase78.pkl
-    python_model_sha256: 4039fccdf897609d53d77a6f5a92b9a2d0740d654dc71c3a71aa504f4db49e62
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase78.onnx
+    archived_onnx_sha256: 121a89a44f455f0be119349ea8504a24ab5da51b28af8ed0ba25834e832f520f
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase78.pkl
+    python_model_sha256: 0d53cd818c7c845edd9006df74ce951ce5b5097c3e2613864737124011696f0d
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_81
@@ -402,7 +402,7 @@ reference_models:
     harmonic_order: 81
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -411,12 +411,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase81.onnx
-    archived_onnx_sha256: 226af130f9ea451a80bd61f4e848455f668dd5412ec830b0ce5e529195ff1294
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase81.pkl
-    python_model_sha256: ee93f1bf2243c1fd5084475ed50914731f4c4d9153fbf3d09200acca742e38d1
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase81.onnx
+    archived_onnx_sha256: c135a583e56be20e4b122ce2274a7277d78e8e1c1a32d42206b4592b835582d3
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase81.pkl
+    python_model_sha256: 9ac8f2ab17b80835b8aed19868e2755ac27a9df24e24cdd41501253998152c7b
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_156
@@ -424,7 +424,7 @@ reference_models:
     harmonic_order: 156
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -433,12 +433,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase156.onnx
-    archived_onnx_sha256: 4b3d7976ecf38032614f1e0930adff71d52983b4200345ff65287ce8c9538f17
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase156.pkl
-    python_model_sha256: 9f4721addf388042109f9eb2e409e7b5f99abe79ca218bc3c1fbe0d980d49eae
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase156.onnx
+    archived_onnx_sha256: 90764d942bf2e219202ad72445e27c970b5a37f04674d67a38ce39e317c4dc68
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase156.pkl
+    python_model_sha256: 9640c4987c647e2bb9f00fcbc879efbf06cb4dd669c3771b8e47e3e710e76c74
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_162
@@ -446,7 +446,7 @@ reference_models:
     harmonic_order: 162
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -455,12 +455,12 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase162.onnx
-    archived_onnx_sha256: b84a533099e1535366f03a143ede908940e6de8af2839eeb160d1abf26f17cdd
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase162.pkl
-    python_model_sha256: 35043a2c6355cb8e33d70a51a0531e305ef5960b780848da5ae9e8d98ef740b2
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase162.onnx
+    archived_onnx_sha256: 22bf18e323c0334c503c9a7ef4cab834b097aaa09422db5652ab2f9f2cc27b74
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase162.pkl
+    python_model_sha256: 70b116eb5caeb74e22aca8cb74bdab19fe937776f0051e4b68b3b91a023e22ae
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Bw_filtered_phase_240
@@ -468,7 +468,7 @@ reference_models:
     harmonic_order: 240
     direction_label: backward
     source_run_instance_id: 2026-05-12-11-08-07__bw_retune_bundle
-    export_estimator_name: ExtraTreeRegressor
+    export_estimator_name: ExtraTreesRegressor
     source_export_bundle_path: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle
     source_export_model_output_dir: output/training_campaigns/rcim_original/backward/2026-05-12-11-08-07__bw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/data/dataFrame_prediction_Bw_v14_newFreq.csv
@@ -477,10 +477,10 @@ reference_models:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreeRegressor_phase240.onnx
-    archived_onnx_sha256: eeb8c5c43d9920b997c3513db77e80ce0bdbf4e0492bbd9adb6108a02ce5cd04
-    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreeRegressor_phase240.pkl
-    python_model_sha256: 7aad2f0879d5c9103db9d731402889ddd17f08d33f03723d095c71d315d123aa
+    archived_onnx_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase240.onnx
+    archived_onnx_sha256: 0bcd6a30c53db683cfbc07ed2354cd1501ab1253305543dcf54241a450d10384
+    python_model_path: models/paper_reference/rcim_retuned/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase240.pkl
+    python_model_sha256: dc4ce63b4c608c98130a172227948382dedc8c96e4c67b0e965b16fad1893135
     python_model_serialization: pickle
-    python_estimator_class_name: ExtraTreeRegressor
+    python_estimator_class_name: ExtraTreesRegressor
     onnx_export_status: success

@@ -6,11 +6,11 @@ archive_scope:
   direction_label: forward
   source_stage: RetuneEvalExport
   retune_bundle_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
-  eval_bundle_run_instance_id: 2026-05-12-18-16-50__fw_eval_bundle
-  export_bundle_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
+  eval_bundle_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+  export_bundle_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
   retune_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
-  eval_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-12-18-16-50__fw_eval_bundle
-  export_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
+  eval_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+  export_bundle_root: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
   amplitude_harmonic_order_list:
     - 0
     - 1
@@ -39,7 +39,7 @@ archive_scope:
   python_pickle_count: 20
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py
 source_launcher: scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1
-source_data: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/dataFrame_prediction_Fw_v14_newFreq.csv
+source_data: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/dataFrame_prediction_Fw_v14_newFreq.csv
 notes:
   - "This archive stores accepted retuned recovered-original RCIM models."
   - "Every target has both an ONNX export and a Python pickle artifact."
@@ -49,438 +49,438 @@ reference_models:
     target_kind: amplitude
     harmonic_order: 0
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl0.onnx
-    archived_onnx_sha256: 0c2446d6563ec0df84c1d4182e1e40a7df8a7881e57f74dc32829bbaf5dafe30
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl0.pkl
-    python_model_sha256: f1c1461b3c9f98a03aa27b0e8fcc00c825ed46e9a177999a631d886e6e7a1c82
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl0.onnx
+    archived_onnx_sha256: 2e9c1e7c92dd5483d444060b07729218153bf7263d5b20042d1d337f5d79d7d6
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl0.pkl
+    python_model_sha256: 3383b48b7a30a2487562fa419b6f9b0f09273fae3d7e4f3f109f9dedc29e32b7
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_1
     target_kind: amplitude
     harmonic_order: 1
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl1.onnx
-    archived_onnx_sha256: 1169b5d712200d4cc8bf0b92511aa24add634be8cb9379b3826dbf1ed810a4ac
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl1.pkl
-    python_model_sha256: b66dc46f752cb36b4e2306940a1a14c440da11bd474a0b96cd58f26874f4129b
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl1.onnx
+    archived_onnx_sha256: b7e0e3dc56e86e31cc9989f416c0bfd8c454356f027345f94f6beba8a5ceaaa9
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl1.pkl
+    python_model_sha256: 24246bce2357a834e6ecbe597f7283e47ac722bcb4bd52c304f42283780d73ad
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_3
     target_kind: amplitude
     harmonic_order: 3
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl3.onnx
-    archived_onnx_sha256: 2e982490e0b0bf65b78d24f23e8f22b1c1e8d5ea87f1cef57bdbc5e4485d010b
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl3.pkl
-    python_model_sha256: 227369ced7229bb69df91563e6c33bdead3b3d1a4247655151e9713f8213bbd9
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx
+    archived_onnx_sha256: 8c3d87d29c49e810d29f9fe57e22a05fcf7a4a5536c3ca3d5c8684b6b5010e35
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl3.pkl
+    python_model_sha256: c18d701ea2c9bc8a72c14a5d2f3bc0201eff33f47f6866957ca051bd66089c29
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_39
     target_kind: amplitude
     harmonic_order: 39
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl39.onnx
-    archived_onnx_sha256: f7f5dd06ec05f3a5c3a703e142a5044706ec6a05c176d7a944886016c9f5cddc
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl39.pkl
-    python_model_sha256: 3862a80d2789a3691310c2087f1e6d53ca7670231a2a843daa42994ef906d7bf
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl39.onnx
+    archived_onnx_sha256: 54fa5e32c9ee79996f61964b634516b6533fc73d8f4fb71333c0e7e158bc1d8b
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl39.pkl
+    python_model_sha256: baf5addf6d144d8c1658eac35a5bcf0979851f002b1e471b7098aa9ca3dddc48
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_40
     target_kind: amplitude
     harmonic_order: 40
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl40.onnx
-    archived_onnx_sha256: 9d16417fec4c0f1676c8c3034bbee1fe7ef59fec8d2d0cadda2edbb4202f6cbe
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl40.pkl
-    python_model_sha256: b849f5dd65023d07bcc1542a6a7f6faeb56644e4a27f89ea51a88d1a9bfec7df
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl40.onnx
+    archived_onnx_sha256: adc8b6b25652ce8b2bd0d876147ed3206debb0a18fca326bf3520cc7be1b19b7
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl40.pkl
+    python_model_sha256: 3b819eb7321c1433eabc3a14f739c9266e44182262d19cfac9d4456b8375f57b
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_78
     target_kind: amplitude
     harmonic_order: 78
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl78.onnx
-    archived_onnx_sha256: 2cf7427e31e79e223b169f91ec4f5e7eeaf9654f84b7ae1da16555e0e4cb7d78
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl78.pkl
-    python_model_sha256: ca845c85779afbe3f113dd436b1c42cbe373179ebaf1c0a9a5ca9b6e6baf07c9
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl78.onnx
+    archived_onnx_sha256: 31c559758be58f52cbe94ebadc3848a7119a7bb99f2cd967bd07694780b5fc88
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl78.pkl
+    python_model_sha256: 4d96f3c4c4a9f4b781acf47eb99711577d99428783d0be491eeb476e80391195
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_81
     target_kind: amplitude
     harmonic_order: 81
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl81.onnx
-    archived_onnx_sha256: 31396f51dba86fd84cb98f3504f6c2f26903cb95354e1d39b9f8a63879534b6d
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl81.pkl
-    python_model_sha256: 476b27d6fed5a6cbb0a2e1a2192cc403ea3305d0fd2e4cd096456b1e27866075
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl81.onnx
+    archived_onnx_sha256: e610b9d85462c53193442cd2e05bc43a0e90bf189c996731267a891bcd6a33c5
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl81.pkl
+    python_model_sha256: dcb89498be924dfd53f69e7b885c8c925c9d659b585d9f700dffa608c598d0bd
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_156
     target_kind: amplitude
     harmonic_order: 156
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl156.onnx
-    archived_onnx_sha256: 61cded538291d5ee637e96a7f7176221a23d64761d0cea34ab7200cda75969a6
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl156.pkl
-    python_model_sha256: 039d12681886102c3903aab01f9a96497afe0c13dbdb17cda55b5ee89ce55071
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl156.onnx
+    archived_onnx_sha256: a55927eaf5e24ccfe4e0e04196d4af23c43c30599fa2329995386263436dadd4
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl156.pkl
+    python_model_sha256: d8a681b2694828085a40b3f352fb831d488ecc0067d0a4fe34b2c74f3cdd88dd
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_162
     target_kind: amplitude
     harmonic_order: 162
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl162.onnx
-    archived_onnx_sha256: a5fae33987c95760877a3e9ef419d18646149ce78503c5cf7a547946711a47b2
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl162.pkl
-    python_model_sha256: 1323a5786f873308c6c6f43d17a968f317e77cff3b707c6845ceb49a20a610e6
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx
+    archived_onnx_sha256: 10ba5c652e3a1935cb64e865f679318e9a655165f1c48e9297b4e2b7bb16da60
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl162.pkl
+    python_model_sha256: 81b11114ea8acd7e24ff9ac5602f37313f2bf1c575101d8c8d5d80a5978c91d8
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_ampl_240
     target_kind: amplitude
     harmonic_order: 240
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl240.onnx
-    archived_onnx_sha256: 77d4f72b8e001df3496b768eabee39a5800d72038439fcee084bae65f5ca4c5d
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl240.pkl
-    python_model_sha256: 7e0949e91a883b58e72e655f422d8bf363adb2f48d154837cc4f0d915f819508
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx
+    archived_onnx_sha256: 8875e8d5ea61e0ebf9c43ed3a87b3eb8161f6510a2bab82878b14c73f5974298
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/amplitude/GradientBoostingRegressor_ampl240.pkl
+    python_model_sha256: 524c1ec6b5754b673bf1725817aba47430874bd6aa0589ff038d4ef024ff1059
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_0
     target_kind: phase
     harmonic_order: 0
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase0.onnx
-    archived_onnx_sha256: cf485d641ce14e329084dcc89083d066fd03b71ead6b3c557b6b8b8bdb928351
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase0.pkl
-    python_model_sha256: cb87b232d7e845e6bd84bb06fc9457bcfdcfbea9388750f7813a941430179766
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase0.onnx
+    archived_onnx_sha256: 3157d69784fb5c5f20efc27d16728345d2a2eddfa801b786b7fa8413e986dc60
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase0.pkl
+    python_model_sha256: 81ec710c66e2f0491cf823afb81247e3086398ac78a3ebe9c7acff60e4c07120
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_1
     target_kind: phase
     harmonic_order: 1
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase1.onnx
-    archived_onnx_sha256: dadaeb6e1ff82aedae56667936bf1e84a6114cc395842e656be8451ff03a6de9
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase1.pkl
-    python_model_sha256: 144360dd1f7959dec65b567ddcb0027026ef3bb75c842f7bb27589bcddf5e7ba
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase1.onnx
+    archived_onnx_sha256: 85909a8c4d1d3dac63c66c2a218481e4870fa48745e7165758e2879c0b73c501
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase1.pkl
+    python_model_sha256: cc1eeb90e17c66f10614e1027aaa8e7f859a584c59853540ef34b4fb1a87496c
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_3
     target_kind: phase
     harmonic_order: 3
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase3.onnx
-    archived_onnx_sha256: 1c025cc325269d9f0599da0ff6cb9162d33166dde500b421d47f40061130ad03
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase3.pkl
-    python_model_sha256: 1a47f08ffe44c90e89bcd8bd799335f681a075885aa63bf0fde42ad3273e7492
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase3.onnx
+    archived_onnx_sha256: 74b3f3f00328a7ba6ef341e6cdb28d9a3f0082a1f9ced14682f39952963fb7f9
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase3.pkl
+    python_model_sha256: b8c1297020b50ac3f6b589654456fddee3c5852c32b21569cba45900c1a1288d
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_39
     target_kind: phase
     harmonic_order: 39
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase39.onnx
-    archived_onnx_sha256: 9139cfbc97a7d2033b0ab79d369d1099372d3bb94487b8adab5ed4eef81636a5
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase39.pkl
-    python_model_sha256: 1df4b99ee7a8b24b68a502e05ba36e40ea977d25399d4192ce9c3f37249e59d6
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase39.onnx
+    archived_onnx_sha256: 5d56d615ec09a74dd8e63ff62ef5cc32e71b1ef7ce710821cb2a529bb89cc429
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase39.pkl
+    python_model_sha256: 0a4308fdf1415a237ba1599343062a8c47ebe48a5dc87fee15c4efcd21160f83
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_40
     target_kind: phase
     harmonic_order: 40
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase40.onnx
-    archived_onnx_sha256: 5808dfbd8581880d53985a07512e2ab7b15db57e75a864b441df8341aff039e3
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase40.pkl
-    python_model_sha256: a1c8f6d62c775dc3dda24ce382bc652180de93cc6e10e3130352361efe6da2a2
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase40.onnx
+    archived_onnx_sha256: 271cb57efe31a46aa0c9a3d0626967f3c1b4a1ca09103d49e3ebbc169d57c8c0
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase40.pkl
+    python_model_sha256: efde36b19f56954c55143e2fa88ca3d181132c7c996bd9d4d18fe214ece39c7a
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_78
     target_kind: phase
     harmonic_order: 78
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase78.onnx
-    archived_onnx_sha256: a4e927760dd89ea6b26d134765377b68336e7d6519de392f4b6193ddfbcc4523
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase78.pkl
-    python_model_sha256: 21869a97a89b528960a9f84324c1a9d3c3d3830ebfdcac34e2b02a1b9b6a06d3
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase78.onnx
+    archived_onnx_sha256: b00fc6e5682fee67edae781e4ffa4b331ed4ac4cbe431f182eec09f1c4e85bd0
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase78.pkl
+    python_model_sha256: eccccd4fa5f058e4327eb2b5a378f7435cd37e11e635fb9f0f9cb783d8031d3c
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_81
     target_kind: phase
     harmonic_order: 81
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase81.onnx
-    archived_onnx_sha256: 97873ef9c83456e71637f55724380e9f76aa0da2c82c003a0c42ba3d76fd182b
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase81.pkl
-    python_model_sha256: 1b8b73f6ea1bff053b9c0861c538b9c00909243737ebd434055c62f7a96f39ff
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase81.onnx
+    archived_onnx_sha256: a1451a5e221e6164213d3fd60cfa7406ea7c7b21cfb319ab5f585d83d7c6f04d
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase81.pkl
+    python_model_sha256: 086234cd4d5b8c10fa8b81c86394a8f9c9970c04d31ee4796a0b5d6f50e04194
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_156
     target_kind: phase
     harmonic_order: 156
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase156.onnx
-    archived_onnx_sha256: ea17227a7fe6cb3dbc841bdc9f892bdd18091fae869e6091406d4a491087f684
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase156.pkl
-    python_model_sha256: 78914f3e09f569efde86f789695d1e2b7107b15bb61fb20cd81468e781b5611c
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase156.onnx
+    archived_onnx_sha256: d9a911fbb72d2c5e2df0096b909aecffc3ced5bb0119a9bc99b9e6200dcbe528
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase156.pkl
+    python_model_sha256: e1a0deacc79434a9e5503c8a640ebba547beb1a6c96f65ccb9c3f85c8d44786a
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_162
     target_kind: phase
     harmonic_order: 162
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase162.onnx
-    archived_onnx_sha256: 50741a2a3aa4a81eb9034e472eed426e294f34a65d18a026313aab5f67598b15
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase162.pkl
-    python_model_sha256: a0fa3f66718b9388691263b8265e9b3427fd35b79025ac749da0cd2b9669f407
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase162.onnx
+    archived_onnx_sha256: 0f7b6335399de13dffc0a49c8e216e363c637585ee0dbe237aa3628a75bf64d6
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase162.pkl
+    python_model_sha256: 81e8407a82661cdf548fb4c925bfd9bbce7dda3347b41ad80333f1b801ac622a
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success
   -
     target_name: fft_y_Fw_filtered_phase_240
     target_kind: phase
     harmonic_order: 240
     direction_label: forward
-    source_run_instance_id: 2026-05-12-18-20-41__fw_export_bundle
-    export_estimator_name: HistGradientBoostingRegressor
-    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle
-    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-12-18-20-41__fw_export_bundle/export/model_output_dir
+    source_run_instance_id: 2026-05-11-18-27-16__fw_retune_bundle
+    export_estimator_name: GradientBoostingRegressor
+    source_export_bundle_path: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle
+    source_export_model_output_dir: output/training_campaigns/rcim_original/forward/2026-05-11-18-27-16__fw_retune_bundle/export/model_output_dir
     dataset_snapshot_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/data/dataFrame_prediction_Fw_v14_newFreq.csv
     dataset_snapshot_sha256: a1bf4a519145848a45c82ab68cb1ab642e878b8b6e48dac7990d1472ecb7a994
     feature_name_list:
       - rpm
       - deg
       - tor
-    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase240.onnx
-    archived_onnx_sha256: 4c7762f4ce59e3e474e17821f1f972e70ddae53721ea8c176d2a154c92e37e59
-    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/HistGradientBoostingRegressor_phase240.pkl
-    python_model_sha256: b1ca2693fd531e92a65f9f90901f4a4791d2131d98ca4c414c9607964b0a4700
+    archived_onnx_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase240.onnx
+    archived_onnx_sha256: 6ecd23b78b370527d5749d153b2e9b6ff484d6c1584ddb6e25aff5105402844a
+    python_model_path: models/paper_reference/rcim_retuned/forward/gbm_reference_models/python/phase/GradientBoostingRegressor_phase240.pkl
+    python_model_sha256: 85484dd113572161223ab1c68665f1c2267b4b2faf67de487be7512fc68a14ed
     python_model_serialization: pickle
-    python_estimator_class_name: HistGradientBoostingRegressor
+    python_estimator_class_name: GradientBoostingRegressor
     onnx_export_status: success

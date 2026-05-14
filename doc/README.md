@@ -103,6 +103,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-14
 
+- [technical/2026-05/2026-05-14/2026-05-14-11-32-41_rcim_retuned_report_family_metric_row_selection_fix.md](./technical/2026-05/2026-05-14/2026-05-14-11-32-41_rcim_retuned_report_family_metric_row_selection_fix.md)
+  Plan the recovered-original RCIM retuned report fix that selects the matching
+  family row from multi-row eval summaries before regenerating retuned Tables
+  `2`-`5` and the styled closeout PDF.
 - [technical/2026-05/2026-05-14/2026-05-14-00-07-31_track1_svr_parameter_grid_yaml_serialization_fix.md](./technical/2026-05/2026-05-14/2026-05-14-00-07-31_track1_svr_parameter_grid_yaml_serialization_fix.md)
   Plan the Track 1 exact-paper validation-summary fix that serializes search
   `parameter_grid` metadata before YAML output so estimator objects from the
