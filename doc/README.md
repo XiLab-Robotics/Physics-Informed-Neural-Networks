@@ -55,6 +55,9 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.md](./reports/analysis/linux_script_portability/%5B2026-05-15%5D/script_portability_inventory.md)
+  Repository-wide script portability inventory for the Unimore Aries Linux
+  migration, including per-script platform-flag and Bash-equivalent status.
 - [reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md](./reports/analysis/RCIM%20Original%20Pipeline%20To%20Reimplementation%20Companion.md)
   Deep explanatory companion that walks through the recovered original RCIM
   prediction pipeline, maps the active `v18` path inside `predictorML_v7.py`,
@@ -114,6 +117,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the Linux portability pass for Unimore Aries, including platform-aware
   repository-relative paths and Bash equivalents for Track 1 campaign
   launchers.
+- [technical/2026-05/2026-05-15/2026-05-15-16-20-20_repository_wide_linux_script_portability_plan.md](./technical/2026-05/2026-05-15/2026-05-15-16-20-20_repository_wide_linux_script_portability_plan.md)
+  Plan the repository-wide Linux portability pass so every runnable script is
+  either Linux-runnable, has a Linux equivalent, or is explicitly classified as
+  Windows-only with a documented replacement.
 
 #### 2026-05-14
 

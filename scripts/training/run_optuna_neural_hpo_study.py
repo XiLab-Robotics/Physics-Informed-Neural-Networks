@@ -22,6 +22,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities That Do Not Pull Torch Before GPU Pinning
+from scripts.tooling import repository_path_support
 from scripts.training import optuna_hpo_support
 
 
@@ -43,6 +44,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default="",
         help="Optional single GPU id exposed through CUDA_VISIBLE_DEVICES.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -158,6 +160,9 @@ def main() -> None:
     """Run the Optuna study execution entry point."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     configure_gpu_visibility(command_line_arguments.gpu_id)
 
     # Import Torch-Dependent Repository Modules Only After GPU Pinning

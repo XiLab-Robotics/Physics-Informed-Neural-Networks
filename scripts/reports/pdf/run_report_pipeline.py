@@ -7,6 +7,11 @@ import argparse, shutil, subprocess, sys
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 # Report Pipeline Paths
 REPORT_PIPELINE_TEMP_ROOT = PROJECT_PATH / ".temp" / "report_pipeline"
@@ -96,6 +101,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Delete the generated validation PNG images after a successful validation pass.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
 
     return argument_parser
 
@@ -116,7 +122,11 @@ def resolve_markdown_path_list(input_markdown_paths: list[str], use_model_explan
 
     # Resolve Explicit Report Paths
     for input_markdown_path in input_markdown_paths:
-        resolved_markdown_path = Path(input_markdown_path).expanduser().resolve()
+        resolved_markdown_path = repository_path_support.resolve_repository_path(
+            input_markdown_path,
+            PROJECT_PATH,
+            allow_absolute=True,
+        )
         assert resolved_markdown_path.exists(), f"Markdown report path does not exist | {resolved_markdown_path}"
         assert resolved_markdown_path.is_file(), f"Markdown report path is not a file | {resolved_markdown_path}"
         markdown_path_list.append(resolved_markdown_path)
@@ -300,7 +310,12 @@ def regenerate_diagrams_if_requested(regenerate_diagrams: bool) -> None:
         "Regenerate explanatory diagrams",
     )
 
-def export_pdf_if_requested(markdown_path: Path, pdf_output_path: Path, skip_pdf_export: bool) -> Path | None:
+def export_pdf_if_requested(
+    markdown_path: Path,
+    pdf_output_path: Path,
+    skip_pdf_export: bool,
+    platform_name: str,
+) -> Path | None:
 
     """ Export PDF If Requested """
 
@@ -322,6 +337,7 @@ def export_pdf_if_requested(markdown_path: Path, pdf_output_path: Path, skip_pdf
             str(html_preview_path),
             "--output-pdf-path",
             str(pdf_output_path),
+            f"--{platform_name}",
         ],
         f"Export styled PDF | {pdf_output_path.name}",
     )
@@ -334,6 +350,7 @@ def validate_pdf_if_requested(
     validation_python_path: Path,
     skip_pdf_validation: bool,
     cleanup_validation_images: bool,
+    platform_name: str,
 ) -> None:
 
     """ Validate PDF If Requested """
@@ -352,6 +369,7 @@ def validate_pdf_if_requested(
             "--output-image-directory",
             str(validation_output_directory),
             "--clean-output-directory",
+            f"--{platform_name}",
         ],
         f"Validate exported PDF | {pdf_output_path.name}",
     )
@@ -391,6 +409,9 @@ def main() -> None:
 
     # Parse Pipeline Arguments
     parsed_arguments = parse_command_line_arguments()
+    platform_name = repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Resolve Selected Reports
     markdown_path_list = resolve_markdown_path_list(
@@ -439,6 +460,7 @@ def main() -> None:
                 markdown_path,
                 pdf_output_path,
                 parsed_arguments.skip_pdf_export,
+                platform_name,
             )
 
             # Validate Exported PDF
@@ -448,6 +470,7 @@ def main() -> None:
                 validation_python_path,
                 parsed_arguments.skip_pdf_validation,
                 parsed_arguments.cleanup_validation_images,
+                platform_name,
             )
 
         finally:

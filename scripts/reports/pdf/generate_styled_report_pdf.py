@@ -4,21 +4,35 @@ from __future__ import annotations
 
 # Import Python Utilities
 import argparse, html
-import re, shutil, subprocess, time
+import re, shutil, subprocess, sys, time
 from pathlib import Path
 from typing import Sequence
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 REPORT_PIPELINE_TEMP_ROOT = PROJECT_PATH / ".temp" / "report_pipeline"
 HTML_PREVIEW_TEMP_ROOT = REPORT_PIPELINE_TEMP_ROOT / "html_previews"
 BROWSER_PROFILE_TEMP_ROOT = REPORT_PIPELINE_TEMP_ROOT / "browser_profiles"
 
 # Browser And Report Constants
-CHROME_EXECUTABLE_CANDIDATE_PATHS = (
+WINDOWS_BROWSER_EXECUTABLE_CANDIDATE_PATHS = (
     Path("C:/Program Files/Google/Chrome/Application/chrome.exe"),
     Path("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"),
     Path("C:/Program Files/Microsoft/Edge/Application/msedge.exe"),
     Path("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
+)
+LINUX_BROWSER_EXECUTABLE_CANDIDATE_PATHS = (
+    Path("/usr/bin/google-chrome"),
+    Path("/usr/bin/google-chrome-stable"),
+    Path("/usr/bin/chromium"),
+    Path("/usr/bin/chromium-browser"),
+    Path("/snap/bin/chromium"),
+    Path("/opt/google/chrome/chrome"),
 )
 
 # Report Constants
@@ -1677,6 +1691,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     # Configure Export Environment
     argument_parser.add_argument("--chrome-executable-path", default="", help="Optional explicit Chrome or Edge executable path.")
     argument_parser.add_argument("--keep-html", action="store_true", help="Keep the generated HTML file after PDF export.")
+    repository_path_support.add_platform_arguments(argument_parser)
 
     return argument_parser
 
@@ -1729,19 +1744,30 @@ def create_workspace_temp_directory(parent_directory_path: Path, prefix: str) ->
     temporary_directory_path.mkdir(parents=True, exist_ok=True)
     return temporary_directory_path
 
+def resolve_report_path(path_value: str | Path, allow_absolute: bool = True) -> Path:
+
+    """Resolve a report path against the repository root."""
+
+    return repository_path_support.resolve_repository_path(
+        path_value,
+        PROJECT_PATH,
+        allow_absolute=allow_absolute,
+    )
+
+
 def resolve_output_html_path(output_html_path: str, output_pdf_path: Path, keep_html: bool) -> tuple[Path, bool]:
 
     """ Resolve Output HTML Path """
 
     # Use Explicit Preview Path
     if output_html_path:
-        return Path(output_html_path), False
+        return resolve_report_path(output_html_path), False
 
     # Always Use The Stable Sibling Preview Path
     persistent_output_html_path = output_pdf_path.with_name(f"{output_pdf_path.stem}_preview.html")
     return persistent_output_html_path, not keep_html
 
-def detect_browser_executable(explicit_path: str) -> Path:
+def detect_browser_executable(explicit_path: str, platform_name: str) -> Path:
 
     """Resolve the browser executable used for headless PDF export.
 
@@ -1759,7 +1785,7 @@ def detect_browser_executable(explicit_path: str) -> Path:
     # Resolve Explicit Browser Path
     if explicit_path:
 
-        explicit_browser_path = Path(explicit_path)
+        explicit_browser_path = Path(explicit_path).expanduser()
 
         if not explicit_browser_path.exists():
             raise FileNotFoundError(f"Browser executable not found: {explicit_browser_path}")
@@ -1767,10 +1793,19 @@ def detect_browser_executable(explicit_path: str) -> Path:
         return explicit_browser_path
 
     # Probe Known Browser Installations
-    for candidate_browser_path in CHROME_EXECUTABLE_CANDIDATE_PATHS:
-        if candidate_browser_path.exists(): return candidate_browser_path
+    if platform_name == repository_path_support.LINUX_PLATFORM_NAME:
+        candidate_browser_path_list = LINUX_BROWSER_EXECUTABLE_CANDIDATE_PATHS
+    else:
+        candidate_browser_path_list = WINDOWS_BROWSER_EXECUTABLE_CANDIDATE_PATHS
 
-    raise FileNotFoundError("Could not detect a local Chrome/Edge executable for headless PDF export.")
+    for candidate_browser_path in candidate_browser_path_list:
+        if candidate_browser_path.exists():
+            return candidate_browser_path
+
+    raise FileNotFoundError(
+        "Could not detect a local Chrome/Edge executable for headless PDF export. "
+        "Pass --chrome-executable-path explicitly for this host."
+    )
 
 def slugify(raw_text: str) -> str:
 
@@ -3269,10 +3304,13 @@ def main() -> None:
     # Parse Command-Line Arguments
     argument_parser = build_argument_parser()
     parsed_arguments = argument_parser.parse_args()
+    platform_name = repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Resolve Report Paths
-    input_markdown_path = Path(parsed_arguments.input_markdown_path)
-    output_pdf_path = Path(parsed_arguments.output_pdf_path)
+    input_markdown_path = resolve_report_path(parsed_arguments.input_markdown_path)
+    output_pdf_path = resolve_report_path(parsed_arguments.output_pdf_path)
     output_html_path, use_temporary_html_path = resolve_output_html_path(
         parsed_arguments.output_html_path,
         output_pdf_path,
@@ -3291,7 +3329,10 @@ def main() -> None:
     write_text_file(output_html_path, html_document)
 
     # Export Final PDF Report
-    browser_executable_path = detect_browser_executable(parsed_arguments.chrome_executable_path)
+    browser_executable_path = detect_browser_executable(
+        parsed_arguments.chrome_executable_path,
+        platform_name,
+    )
     convert_html_to_pdf(
         browser_executable_path,
         output_html_path,

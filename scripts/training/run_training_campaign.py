@@ -23,6 +23,7 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Dataset Utilities
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
+from scripts.tooling import repository_path_support
 
 # Import Report Utilities
 from scripts.reports.analysis.generate_training_results_master_summary import DEFAULT_OUTPUT_MARKDOWN_PATH, generate_training_results_master_summary
@@ -276,6 +277,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--planning-report-path", type=Path, default=None, help="Optional planning-report path recorded in the generated campaign report.")
     argument_parser.add_argument("--enqueue-only", action="store_true", help="Copy the provided YAML files into the pending queue without executing them.")
     argument_parser.add_argument("--stop-on-error", action="store_true", help="Stop the queue immediately after the first failed training run.")
+    repository_path_support.add_platform_arguments(argument_parser)
 
     return argument_parser.parse_args()
 
@@ -1068,6 +1070,9 @@ def main() -> None:
 
     # Parse Command Line Arguments and Ensure Queue Directories
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     queue_directories = ensure_queue_directories(command_line_arguments.queue_root)
 
     # Enqueue Configuration Files and Build Source Path Dictionary

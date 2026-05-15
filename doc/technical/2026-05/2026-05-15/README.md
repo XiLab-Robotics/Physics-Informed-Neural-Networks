@@ -11,3 +11,7 @@
   Plan the Linux portability pass for Unimore Aries, including platform-aware
   repository-relative paths and Bash equivalents for Track 1 campaign
   launchers.
+- [2026-05-15-16-20-20_repository_wide_linux_script_portability_plan.md](./2026-05-15-16-20-20_repository_wide_linux_script_portability_plan.md)
+  Plan the repository-wide Linux portability pass so every runnable script is
+  either Linux-runnable, has a Linux equivalent, or is explicitly classified as
+  Windows-only with a documented replacement.

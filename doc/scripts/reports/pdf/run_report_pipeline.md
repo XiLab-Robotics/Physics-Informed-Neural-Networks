@@ -42,7 +42,17 @@ Typical usage for the current explanatory model reports:
 conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
-  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe `
+  --windows
+```
+
+Linux usage on a host with Chrome or Chromium available:
+
+```bash
+conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py \
+  --use-model-explanatory-reports \
+  --regenerate-diagrams \
+  --linux
 ```
 
 If the local report tool environment does not exist yet, bootstrap it once:
@@ -76,11 +86,17 @@ python scripts/reports/pdf/run_report_pipeline.py `
   Remove `.temp/report_pipeline/` before running.
 - `--cleanup-validation-images`
   Remove validation PNG pages after successful validation.
+- `--windows` or `--linux`
+  Select repository-relative path formatting and pass the same platform to the
+  PDF exporter and validator.
 
 ## Notes
 
 - The runner does not replace the specialized report scripts; it orchestrates them.
-- PDF export still depends on a local Chrome or Edge installation.
+- PDF export still depends on a local Chrome, Chromium, or Edge installation.
 - PDF validation depends on a Python environment where `PyMuPDF` is available.
 - On Windows, `--validation-python-path` can be the simplest option when the main Conda environment already contains `PyMuPDF`.
+- On Linux, pass `--chrome-executable-path` to `generate_styled_report_pdf.py`
+  directly if the browser is not installed in one of the standard Chrome or
+  Chromium locations.
 - Validation page images use compact names such as `page_001.png`, which avoids deep-path failures during raster export.

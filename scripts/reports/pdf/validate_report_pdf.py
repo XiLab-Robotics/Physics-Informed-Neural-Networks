@@ -3,8 +3,15 @@
 from __future__ import annotations
 
 # Import Python Utilities
-import argparse, shutil
+import argparse, shutil, sys
 from pathlib import Path
+
+PROJECT_PATH = Path(__file__).resolve().parents[3]
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 # Import PDF Utilities
 try: import pymupdf
@@ -31,6 +38,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     # Configure Validation Rendering
     argument_parser.add_argument("--render-scale", type=float, default=DEFAULT_RENDER_SCALE, help="Zoom multiplier used during PDF rasterization.")
     argument_parser.add_argument("--clean-output-directory", action="store_true", help="Delete the output image directory before writing the new validation pages.")
+    repository_path_support.add_platform_arguments(argument_parser)
 
     return argument_parser
 
@@ -51,7 +59,11 @@ def resolve_input_pdf_path(input_pdf_path: str) -> Path:
     """ Resolve Input PDF Path """
 
     # Resolve Input PDF Path
-    resolved_input_pdf_path = Path(input_pdf_path).expanduser().resolve()
+    resolved_input_pdf_path = repository_path_support.resolve_repository_path(
+        input_pdf_path,
+        PROJECT_PATH,
+        allow_absolute=True,
+    )
 
     # Validate Input PDF Path
     assert resolved_input_pdf_path.exists(), f"Input PDF Path does not exist | {resolved_input_pdf_path}"
@@ -65,7 +77,11 @@ def prepare_output_image_directory(output_image_directory: str, clean_output_dir
     """ Prepare Output Image Directory """
 
     # Resolve Output Image Directory
-    resolved_output_image_directory = Path(output_image_directory).expanduser().resolve()
+    resolved_output_image_directory = repository_path_support.resolve_repository_path(
+        output_image_directory,
+        PROJECT_PATH,
+        allow_absolute=True,
+    )
 
     # Reset Output Image Directory
     if clean_output_directory and resolved_output_image_directory.exists():
@@ -186,6 +202,9 @@ def main() -> None:
 
     # Parse Command-Line Arguments
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Resolve Validation Inputs
     input_pdf_path = resolve_input_pdf_path(parsed_arguments.input_pdf_path)

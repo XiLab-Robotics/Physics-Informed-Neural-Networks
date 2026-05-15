@@ -1240,7 +1240,17 @@ For the current four structured-model explanatory reports:
 conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
-  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe `
+  --windows
+```
+
+On Linux, use the same orchestration entry point with `--linux`:
+
+```bash
+conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py \
+  --use-model-explanatory-reports \
+  --regenerate-diagrams \
+  --linux
 ```
 
 If the repository-local validation environment does not exist yet, bootstrap it once:
@@ -1260,6 +1270,9 @@ What this does:
 - avoids repeating the individual commands manually.
 
 On Windows, the explicit validation interpreter can be preferable when `PyMuPDF` is already installed in the main Conda environment and you want to avoid bootstrapping a separate tool environment.
+On Linux, the styled PDF exporter probes common Chrome and Chromium paths; pass
+`--chrome-executable-path` to `generate_styled_report_pdf.py` directly when the
+browser is installed in a non-standard location.
 
 Useful options:
 

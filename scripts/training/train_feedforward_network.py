@@ -58,6 +58,7 @@ except ImportError:
 
 # Import Project Models And Training Utilities
 from scripts.models.model_factory import create_model
+from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
@@ -706,6 +707,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=DEFAULT_CONFIG_PATH,
         help="Path to the YAML training configuration file.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
 
     return argument_parser.parse_args()
 
@@ -715,6 +717,9 @@ def main() -> None:
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
 
     # Train Static Neural Model
     train_feedforward_network(command_line_arguments.config_path)

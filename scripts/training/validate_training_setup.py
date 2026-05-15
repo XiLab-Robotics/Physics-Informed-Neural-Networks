@@ -18,6 +18,7 @@ import torch
 import numpy as np
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 from scripts.training import tree_regression_support
 
@@ -411,6 +412,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser = argparse.ArgumentParser(description="Run a one-batch validation check for the current TE training setup.")
     argument_parser.add_argument("--config-path", type=Path, default=shared_training_infrastructure.DEFAULT_CONFIG_PATH, help="Path to the YAML training configuration file.")
     argument_parser.add_argument("--output-suffix", type=str, default="validation_check", help="Suffix appended to the run directory for the validation summary.")
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 def main() -> None:
@@ -419,6 +421,9 @@ def main() -> None:
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
 
     # Run Validation Check For Training Setup
     validate_training_setup(

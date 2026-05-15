@@ -34,6 +34,13 @@ This folder groups the repository-owned operational notes for tooling under
 - [markdown/run_markdownlint.md](./markdown/run_markdownlint.md)
   Repository-owned Markdownlint runner and rule-profile usage notes.
 
+### Linux Portability
+
+- [linux_portability/build_script_portability_inventory.md](./linux_portability/build_script_portability_inventory.md)
+  Repository-wide script inventory builder for tracking Linux portability
+  coverage across Python, PowerShell, Bash, report, PDF, and campaign
+  workflows.
+
 ### Session Management
 
 - [session/isolated_mode.md](./session/isolated_mode.md)

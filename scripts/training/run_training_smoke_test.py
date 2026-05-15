@@ -20,6 +20,7 @@ import yaml
 import numpy as np
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 from scripts.training import tree_regression_support
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
@@ -180,6 +181,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--config-path", type=Path, default=shared_training_infrastructure.DEFAULT_CONFIG_PATH, help="Path to the YAML training configuration file.")
     argument_parser.add_argument("--output-suffix", type=str, default="smoke_test", help="Suffix appended to the run directory for the smoke-test artifacts.")
     argument_parser.add_argument("--fast-dev-run-batches", type=int, default=1, help="Number of fast_dev_run batches used by Lightning.")
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 def main() -> None:
@@ -188,6 +190,9 @@ def main() -> None:
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
 
     # Run Training Smoke Test
     run_training_smoke_test(

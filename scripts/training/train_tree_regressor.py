@@ -13,6 +13,7 @@ PROJECT_PATH = Path(__file__).resolve().parents[2]
 if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 from scripts.training import tree_regression_support
 
@@ -136,6 +137,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     # Initialize Argument Parser
     argument_parser = argparse.ArgumentParser(description="Train the configured TE tree-regression baseline.")
     argument_parser.add_argument("--config-path", type=Path, required=True, help="Path to the YAML training configuration file.")
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 def main() -> None:
@@ -144,6 +146,9 @@ def main() -> None:
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     train_tree_regressor(command_line_arguments.config_path)
 
 if __name__ == "__main__":
