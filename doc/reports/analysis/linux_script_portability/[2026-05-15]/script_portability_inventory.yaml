@@ -1,15 +1,15 @@
 schema_version: 1
-generated_at: '2026-05-15T22:46:44.015456+02:00'
+generated_at: '2026-05-15T22:52:46.681138+02:00'
 platform_format: linux
 summary:
-  script_count: 231
+  script_count: 234
   by_suffix:
     .py: 110
     .ps1: 98
-    .sh: 23
+    .sh: 26
   by_domain:
     __init__.py: 1
-    campaigns: 136
+    campaigns: 139
     datasets: 4
     models: 6
     paper_reimplementation: 24
@@ -18,17 +18,17 @@ summary:
     training: 14
   by_status:
     helper_no_cli: 47
-    missing_linux_equivalent: 76
-    linux_equivalent_present: 22
-    linux_launcher_present: 23
+    linux_equivalent_present: 25
+    linux_launcher_present: 26
     missing_platform_flags: 50
     needs_review: 3
+    missing_linux_equivalent: 73
     platform_flagged: 10
   python_cli_like_count: 63
   python_cli_with_platform_flags_count: 13
   powershell_count: 98
-  powershell_missing_linux_equivalent_count: 76
-  bash_count: 23
+  powershell_missing_linux_equivalent_count: 73
+  bash_count: 26
   report_script_count: 28
   report_script_with_platform_flags_count: 3
 scripts:
@@ -60,33 +60,66 @@ scripts:
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
-  has_linux_equivalent: false
-  linux_equivalent_path: null
+  has_linux_equivalent: true
+  linux_equivalent_path: scripts/campaigns/infrastructure/run_remote_training_campaign.sh
   has_windows_specific_markers: true
-  portability_status: missing_linux_equivalent
-  note: PowerShell launcher has no sibling Bash launcher.
+  portability_status: linux_equivalent_present
+  note: PowerShell launcher has a sibling Bash launcher.
+- relative_path: scripts/campaigns/infrastructure/run_remote_training_campaign.sh
+  suffix: .sh
+  script_domain: campaigns
+  script_kind: launcher
+  has_cli_surface: true
+  has_platform_flags: false
+  has_linux_equivalent: true
+  linux_equivalent_path: null
+  has_windows_specific_markers: false
+  portability_status: linux_launcher_present
+  note: Bash launcher is available.
 - relative_path: scripts/campaigns/infrastructure/run_remote_training_validation_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
-  has_linux_equivalent: false
-  linux_equivalent_path: null
+  has_linux_equivalent: true
+  linux_equivalent_path: scripts/campaigns/infrastructure/run_remote_training_validation_campaign.sh
   has_windows_specific_markers: true
-  portability_status: missing_linux_equivalent
-  note: PowerShell launcher has no sibling Bash launcher.
+  portability_status: linux_equivalent_present
+  note: PowerShell launcher has a sibling Bash launcher.
+- relative_path: scripts/campaigns/infrastructure/run_remote_training_validation_campaign.sh
+  suffix: .sh
+  script_domain: campaigns
+  script_kind: launcher
+  has_cli_surface: true
+  has_platform_flags: false
+  has_linux_equivalent: true
+  linux_equivalent_path: null
+  has_windows_specific_markers: false
+  portability_status: linux_launcher_present
+  note: Bash launcher is available.
 - relative_path: scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
-  has_linux_equivalent: false
-  linux_equivalent_path: null
+  has_linux_equivalent: true
+  linux_equivalent_path: scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.sh
   has_windows_specific_markers: true
-  portability_status: missing_linux_equivalent
-  note: PowerShell launcher has no sibling Bash launcher.
+  portability_status: linux_equivalent_present
+  note: PowerShell launcher has a sibling Bash launcher.
+- relative_path: scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.sh
+  suffix: .sh
+  script_domain: campaigns
+  script_kind: launcher
+  has_cli_surface: true
+  has_platform_flags: false
+  has_linux_equivalent: true
+  linux_equivalent_path: null
+  has_windows_specific_markers: false
+  portability_status: linux_launcher_present
+  note: Bash launcher is available.
 - relative_path: scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1
   suffix: .ps1
   script_domain: campaigns

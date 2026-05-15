@@ -2,12 +2,12 @@
 
 ## Summary
 
-- script count: `231`
+- script count: `234`
 - Python CLI-like scripts: `63`
 - Python CLI-like scripts with platform flags: `13`
 - PowerShell scripts: `98`
-- PowerShell scripts missing Linux equivalents: `76`
-- Bash scripts: `23`
+- PowerShell scripts missing Linux equivalents: `73`
+- Bash scripts: `26`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
@@ -17,9 +17,9 @@
 | Status | Count |
 | --- | ---: |
 | `helper_no_cli` | 47 |
-| `linux_equivalent_present` | 22 |
-| `linux_launcher_present` | 23 |
-| `missing_linux_equivalent` | 76 |
+| `linux_equivalent_present` | 25 |
+| `linux_launcher_present` | 26 |
+| `missing_linux_equivalent` | 73 |
 | `missing_platform_flags` | 50 |
 | `needs_review` | 3 |
 | `platform_flagged` | 10 |
@@ -30,9 +30,12 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | `scripts/__init__.py` | `__init__.py` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/campaigns/infrastructure/directional_training_variant_support.py` | `campaigns` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/infrastructure/run_remote_training_validation_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/infrastructure/run_remote_training_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/infrastructure/run_remote_training_validation_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/infrastructure/run_remote_training_validation_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
