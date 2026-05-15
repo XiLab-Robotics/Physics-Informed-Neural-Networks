@@ -2,12 +2,12 @@
 
 ## Summary
 
-- script count: `221`
+- script count: `231`
 - Python CLI-like scripts: `63`
 - Python CLI-like scripts with platform flags: `13`
 - PowerShell scripts: `98`
-- PowerShell scripts missing Linux equivalents: `85`
-- Bash scripts: `13`
+- PowerShell scripts missing Linux equivalents: `76`
+- Bash scripts: `23`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
@@ -17,9 +17,9 @@
 | Status | Count |
 | --- | ---: |
 | `helper_no_cli` | 47 |
-| `linux_equivalent_present` | 13 |
-| `linux_launcher_present` | 13 |
-| `missing_linux_equivalent` | 85 |
+| `linux_equivalent_present` | 22 |
+| `linux_launcher_present` | 23 |
+| `missing_linux_equivalent` | 76 |
 | `missing_platform_flags` | 50 |
 | `needs_review` | 3 |
 | `platform_flagged` | 10 |
@@ -133,15 +133,25 @@
 | `scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svm_final_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svm_micro_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svm_open_cell_repair_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svm_campaign_bundle.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign_remote.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svm_final_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svm_final_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svm_micro_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svm_micro_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svm_open_cell_repair_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svm_open_cell_repair_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_search_repair_campaign_remote.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/campaigns/wave1/prepare_wave1_directional_optuna_recovery_micro_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/campaigns/wave1/prepare_wave1_directional_retraining_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
