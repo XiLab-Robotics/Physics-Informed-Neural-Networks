@@ -106,6 +106,8 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-15
 
+- [technical/2026-05/2026-05-15/2026-05-15-21-12-21_aries_cluster_user_guide_plan.md](./technical/2026-05/2026-05-15/2026-05-15-21-12-21_aries_cluster_user_guide_plan.md)
+  Plan the Unimore Aries cluster user guide covering SSH access, GitHub SSH setup, repository clone, Conda environment setup, Slurm interactive tests, and first batch submission.
 - [technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md)
   Plan the Track 1 forward paper-faithful campaign closeout, paper-reference
   model archive replacement, linked report updates, and RCIM Tables `2`-`5`
@@ -1564,6 +1566,10 @@ This folder contains the internal project documents derived from the reference P
 
 ### Guides
 
+- [guide/aries_cluster_user_guide.md](./guide/aries_cluster_user_guide.md)
+  Practical user guide for first use of the Unimore Aries cluster with SSH,
+  GitHub SSH keys, repository setup, Conda, Slurm `srun`, and a first `sbatch`
+  smoke test.
 - [guide/project_usage_guide.md](./guide/project_usage_guide.md)
   Practical user guide for environment activation, dataset processing, and TE visualization.
 - [guide/Codex Repo-Local Workflow/Codex Repo-Local Workflow.md](./guide/Codex%20Repo-Local%20Workflow/Codex%20Repo-Local%20Workflow.md)
