@@ -2,12 +2,12 @@
 
 ## Summary
 
-- script count: `234`
+- script count: `238`
 - Python CLI-like scripts: `63`
 - Python CLI-like scripts with platform flags: `13`
 - PowerShell scripts: `98`
-- PowerShell scripts missing Linux equivalents: `73`
-- Bash scripts: `26`
+- PowerShell scripts missing Linux equivalents: `70`
+- Bash scripts: `30`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
@@ -17,9 +17,9 @@
 | Status | Count |
 | --- | ---: |
 | `helper_no_cli` | 47 |
-| `linux_equivalent_present` | 25 |
-| `linux_launcher_present` | 26 |
-| `missing_linux_equivalent` | 73 |
+| `linux_equivalent_present` | 28 |
+| `linux_launcher_present` | 30 |
+| `missing_linux_equivalent` | 70 |
 | `missing_platform_flags` | 50 |
 | `needs_review` | 3 |
 | `platform_flagged` | 10 |
@@ -133,9 +133,13 @@
 | `scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/watch_track1_remaining_yellow_cell_campaign_progress.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_harmonic_wise_campaign_bundle.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_overnight_gap_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/harmonic_wise/run_track1_second_iteration_harmonic_wise_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/svm/run_track1_svm_campaign_bundle.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/svm/run_track1_svm_exact_faithful_final_attempt_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
