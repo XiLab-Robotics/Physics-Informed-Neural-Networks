@@ -19,6 +19,9 @@ import yaml
 import torch
 from torch.utils.data import DataLoader, Dataset
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 PACKAGE_PATH = Path(os.path.abspath(__file__)).parent
 PROJECT_PATH = PACKAGE_PATH.parents[1]
 DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "datasets" / "transmission_error_dataset.yaml"
@@ -61,15 +64,11 @@ def resolve_project_relative_path(path_value: str | Path) -> Path:
 
     """ Resolve Project Relative Path """
 
-    # Convert To Path
-    resolved_path = Path(path_value)
-
-    # Preserve Absolute Paths As-Is -> Important For Remote Short-Path Aliases
-    if resolved_path.is_absolute():
-        return resolved_path
-
-    # Resolve Project Relative Path
-    return Path(os.path.abspath(str(PROJECT_PATH / resolved_path)))
+    return repository_path_support.resolve_repository_path(
+        path_value=path_value,
+        repository_root=PROJECT_PATH,
+        allow_absolute=True,
+    )
 
 def load_dataset_processing_config(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Any]:
 

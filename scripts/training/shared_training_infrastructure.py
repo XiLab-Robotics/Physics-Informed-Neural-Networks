@@ -22,6 +22,7 @@ import yaml
 # Import Project Utilities
 from scripts.datasets.transmission_error_dataset import resolve_project_relative_path
 from scripts.models.model_factory import create_model
+from scripts.tooling import repository_path_support
 from scripts.training.transmission_error_datamodule import NormalizationStatistics
 from scripts.training.transmission_error_datamodule import TransmissionErrorDataModule
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
@@ -86,11 +87,11 @@ def resolve_runtime_project_relative_path(path_value: str | Path) -> Path:
 
     """Resolve one repository-relative path against the active runtime root."""
 
-    resolved_path = Path(path_value)
-    if resolved_path.is_absolute():
-        return resolved_path
-
-    return Path(os.path.abspath(str(resolve_runtime_project_path() / resolved_path)))
+    return repository_path_support.resolve_repository_path(
+        path_value=path_value,
+        repository_root=resolve_runtime_project_path(),
+        allow_absolute=True,
+    )
 
 @dataclass
 class ExperimentIdentity:
@@ -899,7 +900,10 @@ def format_project_relative_path(path_value: str | Path | None) -> str:
     # Format Path as Project-Relative if Possible, Otherwise Return Absolute Path
     for candidate_project_root in [resolve_runtime_project_path(), PROJECT_PATH]:
         try:
-            return resolved_path.relative_to(candidate_project_root).as_posix()
+            return repository_path_support.format_repository_relative_path(
+                resolved_path,
+                candidate_project_root,
+            )
         except ValueError:
             continue
 

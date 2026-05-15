@@ -110,6 +110,10 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md)
   Plan the reusable styled-PDF table layout refinement for the Track 1 forward
   paper-faithful closeout report.
+- [technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md](./technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md)
+  Plan the Linux portability pass for Unimore Aries, including platform-aware
+  repository-relative paths and Bash equivalents for Track 1 campaign
+  launchers.
 
 #### 2026-05-14
 

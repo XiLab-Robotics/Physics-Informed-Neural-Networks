@@ -8,6 +8,7 @@ campaign that replaces the old `400`-run literal-refresh wave.
 The script is stored in:
 
 - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
+- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
 
 ## Main Role
 
@@ -42,10 +43,25 @@ Generate the package and update the active campaign state with:
 conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
 ```
 
+On Linux, prepare a new package with Linux-formatted repository-relative path
+surfaces:
+
+```bash
+conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py --linux
+```
+
 ## Launch Command
+
+Windows PowerShell:
 
 ```powershell
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1 -Remote
+```
+
+Linux Bash on the Unimore Aries clone:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
 ```
 
 ## Operator View
@@ -69,6 +85,23 @@ surface inherited from the shared runner:
 - `-NoExport`
 - `-GridSearchVerboseOverride <int>`
 - `-HistoricalCrossValidateVerboseOverride <int>`
+
+The Bash launcher exposes the same local execution surface with GNU-style
+arguments:
+
+- `--direction Forward|Backward|Both`
+- `--family All|SVR|MLP|RF|DT|ET|ERT|GBM|HGBM|XGBM|LGBM|ELM`
+- `--families "MLP,RF,GBM"`
+- `--stage Search|Eval|Export|LoadBest`
+- `--best-parameter-summary-path <path>`
+- `--no-eval`
+- `--no-export`
+- `--grid-search-verbose-override <int>`
+- `--historical-cross-validate-verbose-override <int>`
+- `--conda-environment-name <name>`
+- `--python-executable <command>`
+- `--linux` or `--windows`
+- `--dry-run`
 
 Examples:
 
@@ -101,6 +134,27 @@ Multiple families in one sliced invocation:
   -Remote
 ```
 
+Linux equivalent:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+  --direction Forward \
+  --families "MLP,RF,GBM" \
+  --stage Search \
+  --linux
+```
+
+Queue-selection dry run without launching training:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+  --direction Forward \
+  --families "MLP,RF" \
+  --stage Search \
+  --linux \
+  --dry-run
+```
+
 Full forward operational family queue, including `ELM`:
 
 ```powershell
@@ -111,6 +165,18 @@ Full forward operational family queue, including `ELM`:
   -GridSearchVerboseOverride 3 `
   -HistoricalCrossValidateVerboseOverride 10 `
   -Remote
+```
+
+Linux equivalent:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+  --direction Forward \
+  --families "SVR,MLP,RF,DT,ET,ERT,GBM,HGBM,LGBM,XGBM,ELM" \
+  --stage Search \
+  --grid-search-verbose-override 3 \
+  --historical-cross-validate-verbose-override 10 \
+  --linux
 ```
 
 `Search` keeps the current default behavior and can still chain evaluation and

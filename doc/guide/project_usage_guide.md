@@ -20,10 +20,9 @@ At the moment, the implemented workflows are:
 - a mixed Wave 1 directional best-hyperparameter search workflow that combines
   bounded CPU grids for `tree` and `harmonic_regression` with persisted
   GPU-preferred `Optuna` studies for the directional neural winners;
-- a coordinated short PowerShell launcher for the paper-faithful `Track 1`
-  reproduction campaign that chains exact-paper family-bank and harmonic-wise
-  offline benchmark runs through the currently available repository-owned
-  runners;
+- coordinated short PowerShell and Bash launchers for the paper-faithful
+  `Track 1` reproduction campaign, including a Linux surface for the Unimore
+  Aries clone;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
@@ -144,6 +143,10 @@ The current usage flow mainly relies on these folders:
 - `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
   Canonical coordinated launcher for the current paper-faithful `Track 1`
   reproduction campaign package.
+
+- `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
+  Linux Bash launcher for the prepared bidirectional paper-faithful `Track 1`
+  grid-search campaign on the Unimore Aries clone.
 
 - `scripts/models/`
   Neural-network backbones and the model factory.
@@ -313,6 +316,19 @@ This workflow intentionally mixes:
 - one GPU-visible worker process per neural study slot, so the launcher can use
   multiple GPUs without pushing the host into a CPU-only saturation pattern.
 
+The bidirectional paper-faithful `Track 1` grid-search campaign also has a
+Linux launcher for the Unimore Aries clone:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
+```
+
+The Bash launcher keeps the same campaign slicing concepts as the PowerShell
+launcher with `--direction`, `--family`, `--families`, and `--stage`, and passes
+`--linux` through to Python so repository-relative paths are interpreted with
+Linux-safe separators. Use `--dry-run` with the Bash launcher to verify queue
+selection without launching training subprocesses.
+
 For approved campaigns, the repository workflow should now treat the launcher as
 part of the mandatory preparation bundle, not as an optional convenience.
 Campaign preparation is considered complete only when all of the following
@@ -322,7 +338,8 @@ exist:
 - generated campaign YAML files;
 - persistent state in `doc/running/active_training_campaign.yaml`;
 - exact raw launch command;
-- dedicated PowerShell launcher under `scripts/campaigns/`;
+- dedicated PowerShell launcher under `scripts/campaigns/`, plus a Bash
+  equivalent when the campaign is intended for Linux execution;
 - launcher usage note under `doc/scripts/campaigns/`.
 
 The current paper-faithful `Track 1` preparation also has a dedicated
