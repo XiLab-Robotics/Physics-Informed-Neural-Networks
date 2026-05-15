@@ -1,15 +1,15 @@
 schema_version: 1
-generated_at: '2026-05-15T16:36:28.131549+02:00'
+generated_at: '2026-05-15T21:23:17.101288+02:00'
 platform_format: linux
 summary:
-  script_count: 209
+  script_count: 212
   by_suffix:
     .py: 110
     .ps1: 98
-    .sh: 1
+    .sh: 4
   by_domain:
     __init__.py: 1
-    campaigns: 114
+    campaigns: 117
     datasets: 4
     models: 6
     paper_reimplementation: 24
@@ -18,17 +18,17 @@ summary:
     training: 14
   by_status:
     helper_no_cli: 47
-    missing_linux_equivalent: 97
+    missing_linux_equivalent: 94
+    linux_equivalent_present: 4
+    linux_launcher_present: 4
     missing_platform_flags: 50
     needs_review: 3
-    linux_equivalent_present: 1
-    linux_launcher_present: 1
     platform_flagged: 10
   python_cli_like_count: 63
   python_cli_with_platform_flags_count: 13
   powershell_count: 98
-  powershell_missing_linux_equivalent_count: 97
-  bash_count: 1
+  powershell_missing_linux_equivalent_count: 94
+  bash_count: 4
   report_script_count: 28
   report_script_with_platform_flags_count: 3
 scripts:
@@ -93,11 +93,22 @@ scripts:
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
-  has_linux_equivalent: false
+  has_linux_equivalent: true
+  linux_equivalent_path: scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh
+  has_windows_specific_markers: true
+  portability_status: linux_equivalent_present
+  note: PowerShell launcher has a sibling Bash launcher.
+- relative_path: scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh
+  suffix: .sh
+  script_domain: campaigns
+  script_kind: launcher
+  has_cli_surface: true
+  has_platform_flags: false
+  has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_linux_equivalent
-  note: PowerShell launcher has no sibling Bash launcher.
+  portability_status: linux_launcher_present
+  note: Bash launcher is available.
 - relative_path: scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py
   suffix: .py
   script_domain: campaigns
@@ -159,11 +170,22 @@ scripts:
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
-  has_linux_equivalent: false
-  linux_equivalent_path: null
+  has_linux_equivalent: true
+  linux_equivalent_path: scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh
   has_windows_specific_markers: true
-  portability_status: missing_linux_equivalent
-  note: PowerShell launcher has no sibling Bash launcher.
+  portability_status: linux_equivalent_present
+  note: PowerShell launcher has a sibling Bash launcher.
+- relative_path: scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh
+  suffix: .sh
+  script_domain: campaigns
+  script_kind: launcher
+  has_cli_surface: true
+  has_platform_flags: false
+  has_linux_equivalent: true
+  linux_equivalent_path: null
+  has_windows_specific_markers: false
+  portability_status: linux_launcher_present
+  note: Bash launcher is available.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_literal_workflow_refresh_mega_campaign.py
   suffix: .py
   script_domain: campaigns
@@ -302,11 +324,22 @@ scripts:
   script_kind: launcher
   has_cli_surface: true
   has_platform_flags: false
-  has_linux_equivalent: false
-  linux_equivalent_path: null
+  has_linux_equivalent: true
+  linux_equivalent_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh
   has_windows_specific_markers: true
-  portability_status: missing_linux_equivalent
-  note: PowerShell launcher has no sibling Bash launcher.
+  portability_status: linux_equivalent_present
+  note: PowerShell launcher has a sibling Bash launcher.
+- relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh
+  suffix: .sh
+  script_domain: campaigns
+  script_kind: launcher
+  has_cli_surface: true
+  has_platform_flags: false
+  has_linux_equivalent: true
+  linux_equivalent_path: null
+  has_windows_specific_markers: false
+  portability_status: linux_launcher_present
+  note: Bash launcher is available.
 - relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
@@ -381,7 +414,7 @@ scripts:
   has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
-  has_windows_specific_markers: true
+  has_windows_specific_markers: false
   portability_status: linux_launcher_present
   note: Bash launcher is available.
 - relative_path: scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.ps1

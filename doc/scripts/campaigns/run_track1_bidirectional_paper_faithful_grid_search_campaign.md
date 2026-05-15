@@ -10,6 +10,15 @@ The script is stored in:
 - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
 - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh`
 
+The Linux launcher uses the shared Bash streaming helper:
+
+- `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh`
+
+The exact-paper local and remote helper equivalents are:
+
+- `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh`
+- `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh`
+
 ## Main Role
 
 The launcher reads the prepared queue from
@@ -64,6 +73,19 @@ Linux Bash on the Unimore Aries clone:
 bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh --linux
 ```
 
+Linux Bash remote dry run:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+  --direction Forward \
+  --families MLP \
+  --stage Search \
+  --linux \
+  --remote \
+  --remote-repository-path /path/to/remote/standardml \
+  --dry-run
+```
+
 ## Operator View
 
 The remote operator console remains compact:
@@ -102,6 +124,10 @@ arguments:
 - `--python-executable <command>`
 - `--linux` or `--windows`
 - `--dry-run`
+- `--remote`
+- `--remote-host-alias <host>`
+- `--remote-repository-path <path>`
+- `--remote-conda-environment-name <name>`
 
 Examples:
 
@@ -155,6 +181,21 @@ bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithfu
   --dry-run
 ```
 
+Remote command dry run without SSH, sync, or training:
+
+```bash
+bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh \
+  --direction Forward \
+  --families "MLP" \
+  --stage Search \
+  --linux \
+  --remote \
+  --remote-host-alias aries-login \
+  --remote-repository-path /home/<user>/StandardML-Codex \
+  --remote-conda-environment-name standard_ml_codex_env \
+  --dry-run
+```
+
 Full forward operational family queue, including `ELM`:
 
 ```powershell
@@ -197,3 +238,10 @@ alive during long-running searches:
 - target-wise historical cross-validation progress markers;
 - a second remote progress bar for substage counters when the runner emits
   them.
+
+The Bash path mirrors the same queue selection and command construction without
+requiring PowerShell. The remote Bash wrapper is Linux-to-Linux oriented: it
+uses `ssh` and `tar`, syncs the requested source roots, verifies the selected
+launcher and campaign configs, and then launches the canonical Bash campaign
+entry point on the remote repository clone. Use `--dry-run` first on Aries to
+inspect the resolved command before allowing any training process to start.

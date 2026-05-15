@@ -15,3 +15,6 @@
   Plan the repository-wide Linux portability pass so every runnable script is
   either Linux-runnable, has a Linux equivalent, or is explicitly classified as
   Windows-only with a documented replacement.
+- [2026-05-15-19-46-50_repository_wide_linux_portability_tranche2_campaign_launcher_plan.md](./2026-05-15-19-46-50_repository_wide_linux_portability_tranche2_campaign_launcher_plan.md)
+  Plan the second repository-wide Linux portability tranche, starting from
+  protected campaign launcher Bash equivalents and the shared launcher helper.
