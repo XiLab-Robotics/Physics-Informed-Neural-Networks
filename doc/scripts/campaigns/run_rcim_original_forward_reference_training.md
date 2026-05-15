@@ -8,6 +8,7 @@ reference launcher.
 Script:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.sh`
 - canonical unified launcher:
   `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
 
@@ -63,6 +64,20 @@ Preview only:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim_original\run_rcim_original_forward_reference_training.ps1" -PrintOnly
+```
+
+Linux Bash equivalent:
+
+```bash
+bash scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.sh
+```
+
+Linux dry run without launching training:
+
+```bash
+bash scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.sh \
+  --families SVR \
+  --print-only
 ```
 
 Limit the family subset:

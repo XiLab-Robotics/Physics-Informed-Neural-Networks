@@ -2,12 +2,12 @@
 
 ## Summary
 
-- script count: `217`
+- script count: `221`
 - Python CLI-like scripts: `63`
 - Python CLI-like scripts with platform flags: `13`
 - PowerShell scripts: `98`
-- PowerShell scripts missing Linux equivalents: `89`
-- Bash scripts: `9`
+- PowerShell scripts missing Linux equivalents: `85`
+- Bash scripts: `13`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
@@ -17,9 +17,9 @@
 | Status | Count |
 | --- | ---: |
 | `helper_no_cli` | 47 |
-| `linux_equivalent_present` | 9 |
-| `linux_launcher_present` | 9 |
-| `missing_linux_equivalent` | 89 |
+| `linux_equivalent_present` | 13 |
+| `linux_launcher_present` | 13 |
+| `missing_linux_equivalent` | 85 |
 | `missing_platform_flags` | 50 |
 | `needs_review` | 3 |
 | `platform_flagged` | 10 |
@@ -36,10 +36,14 @@
 | `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/paper_reference/rcim_original/shared_rcim_original_launcher_helpers.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/paper_reference/rcim_original/shared_rcim_original_launcher_helpers.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/paper_reference/rcim_original/shared_rcim_original_launcher_helpers.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_literal_workflow_refresh_mega_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |

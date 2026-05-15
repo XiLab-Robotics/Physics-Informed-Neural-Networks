@@ -8,6 +8,7 @@ paper-reference workflow.
 Script:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.sh`
 
 Underlying training entrypoint:
 
@@ -148,6 +149,24 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   -Branch Forward `
   -Stage Original `
   -PrintOnly
+```
+
+Linux Bash equivalent:
+
+```bash
+bash scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.sh \
+  --branch Forward \
+  --stage LoadBest
+```
+
+Linux dry run without launching training:
+
+```bash
+bash scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.sh \
+  --branch Forward \
+  --stage Original \
+  --families SVR \
+  --dry-run
 ```
 
 ## Notes

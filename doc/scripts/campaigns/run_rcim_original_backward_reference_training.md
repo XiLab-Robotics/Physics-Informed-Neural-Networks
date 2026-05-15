@@ -8,6 +8,7 @@ reference launcher.
 Script:
 
 - `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1`
+- `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.sh`
 - canonical unified launcher:
   `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_reference_training.ps1`
 
@@ -86,6 +87,22 @@ powershell -ExecutionPolicy Bypass -File "scripts\campaigns\paper_reference\rcim
   -Stage PaperEval `
   -BestParameterSummaryPath "C:\path\to\summaryBestParameter+_3.8_allFreq.csv" `
   -PrintOnly
+```
+
+Linux Bash equivalent:
+
+```bash
+bash scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.sh \
+  --stage Retune
+```
+
+Linux dry run without launching training:
+
+```bash
+bash scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.sh \
+  --stage PaperEval \
+  --families SVR \
+  --print-only
 ```
 
 ## Notes
