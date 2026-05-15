@@ -56,3 +56,15 @@ Optional PowerShell usage:
 ```powershell
 .\scripts\campaigns\wave1\run_wave1_directional_retraining_campaign.ps1 -PythonExecutable python
 ```
+
+Linux Bash equivalent:
+
+```bash
+bash scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh
+```
+
+Queue-resolution dry run without launching training or cleaning queue files:
+
+```bash
+bash scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh --dry-run
+```

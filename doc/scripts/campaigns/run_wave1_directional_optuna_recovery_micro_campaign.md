@@ -31,3 +31,17 @@ Run the isolated micro study with one visible GPU slot:
 ```powershell
 .\scripts\campaigns\wave1\run_wave1_directional_optuna_recovery_micro_campaign.ps1 -GpuId 0
 ```
+
+Linux Bash equivalent:
+
+```bash
+bash scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.sh --gpu-id 0
+```
+
+Command-resolution dry run without launching the Optuna study:
+
+```bash
+bash scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.sh \
+  --gpu-id 0 \
+  --dry-run
+```

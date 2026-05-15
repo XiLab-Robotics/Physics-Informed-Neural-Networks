@@ -2,12 +2,12 @@
 
 ## Summary
 
-- script count: `212`
+- script count: `217`
 - Python CLI-like scripts: `63`
 - Python CLI-like scripts with platform flags: `13`
 - PowerShell scripts: `98`
-- PowerShell scripts missing Linux equivalents: `94`
-- Bash scripts: `4`
+- PowerShell scripts missing Linux equivalents: `89`
+- Bash scripts: `9`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
@@ -17,9 +17,9 @@
 | Status | Count |
 | --- | ---: |
 | `helper_no_cli` | 47 |
-| `linux_equivalent_present` | 4 |
-| `linux_launcher_present` | 4 |
-| `missing_linux_equivalent` | 94 |
+| `linux_equivalent_present` | 9 |
+| `linux_launcher_present` | 9 |
+| `missing_linux_equivalent` | 89 |
 | `missing_platform_flags` | 50 |
 | `needs_review` | 3 |
 | `platform_flagged` | 10 |
@@ -141,11 +141,16 @@
 | `scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/campaigns/wave1/prepare_wave1_directional_optuna_recovery_micro_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/campaigns/wave1/prepare_wave1_directional_retraining_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
+| `scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
+| `scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/wave1/run_wave1_directional_retraining_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
+| `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/wave1/run_wave1_residual_harmonic_family_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
+| `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
 | `scripts/datasets/__init__.py` | `datasets` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/datasets/export_dataset_split.py` | `datasets` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/datasets/transmission_error_dataset.py` | `datasets` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |

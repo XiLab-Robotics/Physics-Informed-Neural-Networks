@@ -70,3 +70,19 @@ Explicit Python executable:
 ```powershell
 .\scripts\campaigns\wave1\run_wave1_directional_best_hyperparameter_search_campaign.ps1 -PythonExecutable python -GpuIdList 0,1
 ```
+
+Linux Bash equivalent:
+
+```bash
+bash scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh \
+  --gpu-id-list 0,1
+```
+
+Neural-phase dry run without launching grid or Optuna jobs:
+
+```bash
+bash scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh \
+  --skip-grid-phase \
+  --gpu-id-list 0 \
+  --dry-run
+```
