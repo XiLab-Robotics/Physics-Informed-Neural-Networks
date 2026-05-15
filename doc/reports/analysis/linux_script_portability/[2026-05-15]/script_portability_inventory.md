@@ -2,12 +2,12 @@
 
 ## Summary
 
-- script count: `238`
+- script count: `293`
 - Python CLI-like scripts: `63`
 - Python CLI-like scripts with platform flags: `13`
 - PowerShell scripts: `98`
-- PowerShell scripts missing Linux equivalents: `70`
-- Bash scripts: `30`
+- PowerShell scripts missing Linux equivalents: `16`
+- Bash scripts: `85`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
@@ -17,9 +17,9 @@
 | Status | Count |
 | --- | ---: |
 | `helper_no_cli` | 47 |
-| `linux_equivalent_present` | 28 |
-| `linux_launcher_present` | 30 |
-| `missing_linux_equivalent` | 70 |
+| `linux_equivalent_present` | 82 |
+| `linux_launcher_present` | 85 |
+| `missing_linux_equivalent` | 16 |
 | `missing_platform_flags` | 50 |
 | `needs_review` | 3 |
 | `platform_flagged` | 10 |
@@ -61,30 +61,48 @@
 | `scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
 | `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_from_powershell_metadata.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
-| `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_exact_paper_model_bank_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_literal_workflow_refresh_mega_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_smoke_validation.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
-| `scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_dt_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_ert_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_ert_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_et_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_dt_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_remaining_yellow_cell_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_ert_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_remaining_yellow_cell_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_et_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_exact_paper_open_cell_repair_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/run_track1_forward_final_open_cells_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_forward_last_four_open_cells_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_forward_last_non_green_cells_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
@@ -94,43 +112,80 @@
 | `scripts/campaigns/track1/exact_paper/run_track1_forward_open_cell_repair_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_forward_original_dataset_remote_diagnostic_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_track1_forward_original_dataset_remote_micro_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_gbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_gbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_remaining_yellow_cell_campaigns.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_rf_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_rf_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
-| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_full_matrix_family_reproduction_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_gbm_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_remaining_yellow_cell_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_hgbm_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_lgbm_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_family_full_matrix_repair_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_remaining_yellow_cell_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cell_final_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_mlp_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_open_cell_full_matrix_closure_campaigns_resume_after_mlp.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_cellwise_reference_campaigns.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_full_matrix_campaigns.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_family_residual_cellwise_closure_campaigns.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_yellow_cell_campaigns.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_remaining_yellow_cell_campaigns.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_rf_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_svm_remaining_yellow_cell_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_cellwise_reference_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_full_matrix_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_open_cell_full_matrix_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_remaining_yellow_cell_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
+| `scripts/campaigns/track1/exact_paper/run_track1_xgbm_residual_cellwise_closure_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/sync_track1_interrupted_remaining_yellow_cell_campaign_artifacts.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/watch_track1_remaining_yellow_cell_campaign_progress.ps1` | `campaigns` | `launcher` | `missing_linux_equivalent` | no | no | PowerShell launcher has no sibling Bash launcher. |
 | `scripts/campaigns/track1/harmonic_wise/run_track1_extended_overnight_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
