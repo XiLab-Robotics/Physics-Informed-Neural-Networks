@@ -130,6 +130,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__forward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` | `2026-05-15-07-07-30` | 11 | 0 | `forward` | Refreshed Track 1 forward paper-reference archives and RCIM Tables `2`-`5` |
 | `wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11` | `2026-05-12 05:44:32` | 90 | 0 | `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Updated global best |
 | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` | `2026-05-06 23:14:10` | 15 | 0 | `te_hist_gbr_tabular_Fw` | No family-best change |
 
@@ -211,13 +212,14 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper validation summary: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-24-05-06-01__track1_svm_amplitude_240_yellow_cell_attempt_19_campaign_run/validation_summary.yaml`
-- Table `3` amplitude `RMSE`: `0/1` harmonics at or below the paper target
-- Table `4` phase `MAE`: `0/0` harmonics at or below the paper target
-- Table `5` phase `RMSE`: `0/0` harmonics at or below the paper target
-- Target-level expected-family direction: `0/1`
-- Harmonic-level Table `6` closure: `0/1` fully matched, `0/1` partially matched, `1/1` still open
-- Highest-priority open harmonics: `240`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
+- Latest completed surface: `forward` paper-faithful grid search across `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`
+- Table `2` `forward` status: `19` green, `25` yellow, `66` red
+- Table `3` `forward` status: `21` green, `28` yellow, `61` red
+- Table `4` `forward` status: `23` green, `21` yellow, `55` red
+- Table `5` `forward` status: `23` green, `32` yellow, `44` red
+- Backward Track 1 Tables `2`-`5` remain pending until the matching backward paper-faithful campaign closes.
+- Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.
 
 ### Latest Harmonic-Wise Validation Support
 

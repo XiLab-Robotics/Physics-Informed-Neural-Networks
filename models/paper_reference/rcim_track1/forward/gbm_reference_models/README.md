@@ -27,30 +27,30 @@ Accepted amplitude targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.00306606` | `0.0035555` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.24145e-05` | `2.91983e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `0.000108567` | `0.000163884` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `8.20687e-05` | `9.66626e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `2.06143e-05` | `3.64241e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.62835e-05` | `2.24733e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `4.08111e-05` | `5.06426e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `2.38098e-05` | `3.18227e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `6.74426e-05` | `8.39781e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `1.08931e-05` | `1.49892e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl81.onnx` |
+| `fft_y_Fw_filtered_ampl_0` | `0` | `0.00342451` | `0.00429076` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl0.onnx` |
+| `fft_y_Fw_filtered_ampl_1` | `1` | `3.36664e-05` | `4.40207e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl1.onnx` |
+| `fft_y_Fw_filtered_ampl_156` | `156` | `0.000169589` | `0.00036332` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl156.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `0.000225139` | `0.0006087` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `8.29394e-05` | `0.000184329` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_3` | `3` | `2.68844e-05` | `3.51095e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl3.onnx` |
+| `fft_y_Fw_filtered_ampl_39` | `39` | `4.56841e-05` | `5.66209e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl39.onnx` |
+| `fft_y_Fw_filtered_ampl_40` | `40` | `2.48912e-05` | `3.373e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl40.onnx` |
+| `fft_y_Fw_filtered_ampl_78` | `78` | `7.29048e-05` | `9.95071e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl78.onnx` |
+| `fft_y_Fw_filtered_ampl_81` | `81` | `1.38016e-05` | `1.92187e-05` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/amplitude/GradientBoostingRegressor_ampl81.onnx` |
 
 Accepted phase targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.00167712` | `0.00243444` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.490354` | `0.850627` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.236174` | `0.485444` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.219106` | `0.440246` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase240.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0227536` | `0.0303319` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.029536` | `0.037133` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0346363` | `0.04588` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0636816` | `0.0988506` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0454351` | `0.0594284` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase81.onnx` |
+| `fft_y_Fw_filtered_phase_1` | `1` | `0.00193875` | `0.00273946` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase1.onnx` |
+| `fft_y_Fw_filtered_phase_156` | `156` | `0.680302` | `1.0587` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase156.onnx` |
+| `fft_y_Fw_filtered_phase_162` | `162` | `0.304907` | `0.757983` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase162.onnx` |
+| `fft_y_Fw_filtered_phase_240` | `240` | `0.374422` | `0.93035` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase240.onnx` |
+| `fft_y_Fw_filtered_phase_3` | `3` | `0.0208532` | `0.027172` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase3.onnx` |
+| `fft_y_Fw_filtered_phase_39` | `39` | `0.0338847` | `0.0482154` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase39.onnx` |
+| `fft_y_Fw_filtered_phase_40` | `40` | `0.0347052` | `0.048643` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase40.onnx` |
+| `fft_y_Fw_filtered_phase_78` | `78` | `0.0649534` | `0.146262` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase78.onnx` |
+| `fft_y_Fw_filtered_phase_81` | `81` | `0.0690813` | `0.0933574` | `models/paper_reference/rcim_track1/forward/gbm_reference_models/onnx/phase/GradientBoostingRegressor_phase81.onnx` |
 
 Provenance summary:
 
@@ -58,7 +58,7 @@ Provenance summary:
 - paper family: `GBM`
 - implementation family: `GBM`
 - archived target count: `19`
-- unique source runs: `12`
-- unique source configs: `12`
+- unique source runs: `1`
+- unique source configs: `1`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/gbm_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/gbm_reference_models/reference_inventory.yaml`

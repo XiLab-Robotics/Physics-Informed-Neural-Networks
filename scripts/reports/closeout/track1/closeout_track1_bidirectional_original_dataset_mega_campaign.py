@@ -1026,7 +1026,7 @@ def build_directional_family_archive(
             target_artifact.target_name,
         )
         source_export_path = shared_training_infrastructure.resolve_project_relative_path(
-            export_target_entry["export_path"]
+            export_target_entry.get("export_path", export_target_entry["onnx_export_path"])
         )
         archived_onnx_path = (
             archive_root

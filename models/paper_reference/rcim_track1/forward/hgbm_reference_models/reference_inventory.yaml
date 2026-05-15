@@ -9,9 +9,9 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward last three open cells overnight mega
-  closeout. Improved accepted targets were replaced and retained targets preserved
-  their previous canonical source runs.
+- This archive was replaced during the Track 1 forward paper-faithful grid-search
+  closeout after the exact-paper pipeline fixes for ELM, remote sync, and search-summary
+  serialization.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -19,26 +19,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 0
   direction_label: forward
-  benchmark_mae: 0.0023028570818722847
-  benchmark_rmse: 0.0035787415111701534
-  source_run_instance_id: 2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/002_track1_original_dataset_forward_hgbm_attempt_02.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl0.onnx
+  benchmark_mae: 0.0032847977620047005
+  benchmark_rmse: 0.003944341265143808
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl0.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl0.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-36-04__track1_original_dataset_forward_hgbm_attempt_02_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl0.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: a884e4eafef8e78869bbc86f8b4a706164b07f7b1f980ee99ef79751e4a3ed69
-  archived_model_sha256: 53cb70ae332cb6d9a6201f2d3a8070e19f9ed462a2551e93a36c71e743f48b98
+  python_model_sha256: 66829cc7f64949c09c0160ab145feb1cdf5471f01fd5d2f3119f4d01510ce7aa
+  archived_model_sha256: e5a7fea376c155a9ca67f57cb7bac19f5024fca679338a8107ec9254f6c71337
   feature_name_list:
   - rpm
   - deg
@@ -71,7 +71,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 5
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -92,10 +92,10 @@ reference_models:
     learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 10
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -106,34 +106,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.0023028570818722847
-  training_metric_rmse: 0.0035787415111701534
-  training_metric_mse: 1.2807390803772432e-05
-  training_metric_mape_percent: 14.336774677969943
+  training_metric_mae: 0.0032847977620047005
+  training_metric_rmse: 0.003944341265143808
+  training_metric_mse: 1.5557828015916256e-05
+  training_metric_mape_percent: 7.1038044848261315
 - target_name: fft_y_Fw_filtered_ampl_1
   target_kind: amplitude
   harmonic_order: 1
   direction_label: forward
-  benchmark_mae: 2.1553184651241327e-05
-  benchmark_rmse: 2.831060951430209e-05
-  source_run_instance_id: 2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/015_track1_original_dataset_forward_hgbm_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl1.onnx
+  benchmark_mae: 3.0198434105023515e-05
+  benchmark_rmse: 3.922111530943504e-05
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl1.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl1.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 065f209cb66666c434a7f5d733d75c8495742a0b9f03a8e74ac9a59f6f768ec9
-  archived_model_sha256: 9911cb8eaf1f0efe0d73e60a2fc11bdcd8ad2d2afd4f6edde215951c142e55b2
+  python_model_sha256: 0aaf21c4b4e3c8655d2b9ebe3808df62aa8a865d4d76c8c4fadfdeed167d551d
+  archived_model_sha256: f7d58655bf4e74b74d1c43bb5cac0d6f16ef5e09ada76cadbf5365b1b7195b1a
   feature_name_list:
   - rpm
   - deg
@@ -166,7 +166,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -187,10 +187,10 @@ reference_models:
     learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 12
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -201,34 +201,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 2.1553184651241327e-05
-  training_metric_rmse: 2.831060951430209e-05
-  training_metric_mse: 8.014906110712921e-10
-  training_metric_mape_percent: 0.12556252648257127
+  training_metric_mae: 3.0198434105023515e-05
+  training_metric_rmse: 3.922111530943504e-05
+  training_metric_mse: 1.5382958861159993e-09
+  training_metric_mape_percent: 0.17627053704938112
 - target_name: fft_y_Fw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
   direction_label: forward
-  benchmark_mae: 7.950965400549324e-05
-  benchmark_rmse: 0.00017431119947561242
-  source_run_instance_id: 2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/006_track1_original_dataset_forward_hgbm_attempt_06.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl156.onnx
+  benchmark_mae: 0.00019256469533402782
+  benchmark_rmse: 0.0004177584544899927
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl156.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: cf1ae7910777b0b06386f7b799b4c7a9e4e66df30c41b2c760ae2e2aebb027cf
-  archived_model_sha256: 8dacf01da17e4aa513b2b940c57642ce06aeb7cdbf339933cd3bc6c0d0caa872
+  python_model_sha256: 636da58479cf8b36a6a8a8f56c2a91c3cf4a37dd87dcdc88b3e27fcbb0c8148d
+  archived_model_sha256: 5903f5927251c2a1c367d13549da35b427dfffda530f89b2657f6aff586c5a1c
   feature_name_list:
   - rpm
   - deg
@@ -261,7 +261,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 13
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -279,13 +279,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.22
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 13
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -296,34 +296,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 7.950965400549324e-05
-  training_metric_rmse: 0.00017431119947561242
-  training_metric_mse: 3.0384394262626743e-08
-  training_metric_mape_percent: 26.69946542864335
+  training_metric_mae: 0.00019256469533402782
+  training_metric_rmse: 0.0004177584544899927
+  training_metric_mse: 1.745221262978673e-07
+  training_metric_mape_percent: 84.27165800103683
 - target_name: fft_y_Fw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
   direction_label: forward
-  benchmark_mae: 5.79552824715562e-05
-  benchmark_rmse: 0.00015834762168355287
-  source_run_instance_id: 2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/011_track1_original_dataset_forward_hgbm_attempt_11.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl162.onnx
+  benchmark_mae: 0.0003310034657511876
+  benchmark_rmse: 0.0008402890663479765
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl162.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 20db460154ecc47544c830e33a5669c6052e7382c3233ee25c21a6cd9c05f80a
-  archived_model_sha256: f3115a85774260a16c1ef593a67b5580c802c01c7b879ee719f205f295b06118
+  python_model_sha256: 09f379c9e0c198948f8fae2d9beb1ff1c0034660b3bb76cce72a433a755dbfd2
+  archived_model_sha256: 36d72f5b134370303d491fb01e89a63d0bc959bbc6296826dbfc797e39aa7bc9
   feature_name_list:
   - rpm
   - deg
@@ -356,7 +356,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 23
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -374,13 +374,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.18
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 10
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -391,34 +391,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 5.79552824715562e-05
-  training_metric_rmse: 0.00015834762168355287
-  training_metric_mse: 2.5073969292837584e-08
-  training_metric_mape_percent: 9.476467787961912
+  training_metric_mae: 0.0003310034657511876
+  training_metric_rmse: 0.0008402890663479765
+  training_metric_mse: 7.060857150239542e-07
+  training_metric_mape_percent: 58.66294638890056
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
   direction_label: forward
-  benchmark_mae: 2.82265034831237e-05
-  benchmark_rmse: 4.407807334925067e-05
-  source_run_instance_id: 2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/016_track1_original_dataset_forward_hgbm_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl240.onnx
+  benchmark_mae: 9.240109112766683e-05
+  benchmark_rmse: 0.00019004687955124467
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl240.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 5e1455a5d8db3fdec0220eb3856a260e80bf92410c9b11a7f428c0823c499dc2
-  archived_model_sha256: 16ffc530500a238027fda70d0ad167563827c0a5e08095e57b202ff439f4a5e9
+  python_model_sha256: 9f244b576a94143af59f15b7edb2cadf2ebe8ef7fc032d5ca05a87309ce7d558
+  archived_model_sha256: 175ebb7e41a54657e2a2dbdda60413295eab1598967117051209fde9e73fff8b
   feature_name_list:
   - rpm
   - deg
@@ -451,7 +451,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 42
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -469,13 +469,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.19
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -486,34 +486,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 2.82265034831237e-05
-  training_metric_rmse: 4.407807334925067e-05
-  training_metric_mse: 1.942876550181922e-09
-  training_metric_mape_percent: 7.088230002089098
+  training_metric_mae: 9.240109112766683e-05
+  training_metric_rmse: 0.00019004687955124467
+  training_metric_mse: 3.61178164271653e-08
+  training_metric_mape_percent: 26.103166683262597
 - target_name: fft_y_Fw_filtered_ampl_3
   target_kind: amplitude
   harmonic_order: 3
   direction_label: forward
-  benchmark_mae: 1.4031349535933189e-05
-  benchmark_rmse: 2.1126145952356247e-05
-  source_run_instance_id: 2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/001_track1_original_dataset_forward_hgbm_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl3.onnx
+  benchmark_mae: 2.7400128901110274e-05
+  benchmark_rmse: 3.571656575458489e-05
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl3.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl3.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 4023374b867d228dbccc0139842f31cf9d59f13c314a5a487c46d7a101de13d3
-  archived_model_sha256: 829e4b9d6af41822acc28080f1332e5ba8463b647dd49ada65ec958359e347fa
+  python_model_sha256: 0207b00e8b82f6b4aa66a354e8f9459bd85ca705f65e03c975c31567f7462419
+  archived_model_sha256: 7610efe6b77d68bec03b3715ac01546b6f8e1cd37cd5ea8955d1f4a10497e88a
   feature_name_list:
   - rpm
   - deg
@@ -569,8 +569,8 @@ reference_models:
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -581,34 +581,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 1.4031349535933189e-05
-  training_metric_rmse: 2.1126145952356247e-05
-  training_metric_mse: 4.463140428002583e-10
-  training_metric_mape_percent: 1.81886549902248
+  training_metric_mae: 2.7400128901110274e-05
+  training_metric_rmse: 3.571656575458489e-05
+  training_metric_mse: 1.2756730693015864e-09
+  training_metric_mape_percent: 3.584225960786854
 - target_name: fft_y_Fw_filtered_ampl_39
   target_kind: amplitude
   harmonic_order: 39
   direction_label: forward
-  benchmark_mae: 2.08159795614371e-05
-  benchmark_rmse: 2.8732496784087414e-05
-  source_run_instance_id: 2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/011_track1_original_dataset_forward_hgbm_attempt_11.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl39.onnx
+  benchmark_mae: 4.229009326977723e-05
+  benchmark_rmse: 5.29581204297412e-05
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl39.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl39.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-50-38__track1_original_dataset_forward_hgbm_attempt_11_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 702c0917d941addb9cedfee42260ad902d9825c94706d1a1fb7666ab986057f8
-  archived_model_sha256: bfd4f7508e4f2ea703497514ee9c86dd1991147944ce8def2fab75e72223f4b7
+  python_model_sha256: 712053c13790bdcd6cea3c54a3959176a0c207868b8a9f8200b65dc969842f68
+  archived_model_sha256: d8b0b7088390c2ae54956e26915a87e2d60ccb244cf26efd8b6f7085528518bf
   feature_name_list:
   - rpm
   - deg
@@ -641,7 +641,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 23
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -659,13 +659,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.18
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 10
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -676,34 +676,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 2.08159795614371e-05
-  training_metric_rmse: 2.8732496784087414e-05
-  training_metric_mse: 8.255563714475936e-10
-  training_metric_mape_percent: 1.8813124731199553
+  training_metric_mae: 4.229009326977723e-05
+  training_metric_rmse: 5.29581204297412e-05
+  training_metric_mse: 2.8045625194509727e-09
+  training_metric_mape_percent: 3.8770264360534714
 - target_name: fft_y_Fw_filtered_ampl_40
   target_kind: amplitude
   harmonic_order: 40
   direction_label: forward
-  benchmark_mae: 2.169542486777535e-05
-  benchmark_rmse: 2.9100123219433584e-05
-  source_run_instance_id: 2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/008_track1_original_dataset_forward_hgbm_attempt_08.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl40.onnx
+  benchmark_mae: 2.715295451679496e-05
+  benchmark_rmse: 4.0896856924903116e-05
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl40.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl40.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-45-40__track1_original_dataset_forward_hgbm_attempt_08_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 559b3a0bd1c67d69da3e2a423d1ce60a3967507c4ba8e767ee62a04046b2f4fb
-  archived_model_sha256: 13181a9401c86506caa9100a8d1812d77e32e4d9ec1c41b1b22ab84214b59660
+  python_model_sha256: 13bade586bbb38d2a5f097957ea9c8a389143b9cdfbdb7abfa88bbf56474aecd
+  archived_model_sha256: de4522b7a311b7a57adfe900f8ebe2aa75860818960f6ce3e2ea821c22fc35fb
   feature_name_list:
   - rpm
   - deg
@@ -736,7 +736,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 17
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -754,13 +754,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.18
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 12
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -771,34 +771,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 2.169542486777535e-05
-  training_metric_rmse: 2.9100123219433584e-05
-  training_metric_mse: 8.468171713862176e-10
-  training_metric_mape_percent: 2.6886472632110463
+  training_metric_mae: 2.715295451679496e-05
+  training_metric_rmse: 4.0896856924903116e-05
+  training_metric_mse: 1.6725529063359957e-09
+  training_metric_mape_percent: 3.681641531947153
 - target_name: fft_y_Fw_filtered_ampl_78
   target_kind: amplitude
   harmonic_order: 78
   direction_label: forward
-  benchmark_mae: 2.604908115307629e-05
-  benchmark_rmse: 3.7830028035609494e-05
-  source_run_instance_id: 2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/001_track1_original_dataset_forward_hgbm_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl78.onnx
+  benchmark_mae: 6.91679702148343e-05
+  benchmark_rmse: 9.338115837455721e-05
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl78.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl78.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 981ba3734c9b642371bc3211b87a375467eaa17df10431750e9e3a27b4e02eb0
-  archived_model_sha256: 0435006783f24c49012a82eff1fb510c606b281a8615c0eb5cd4cdc17911981a
+  python_model_sha256: a9b0d069a78f505e2ac462e64ee74f1b995c633fa66210eb4e04bb651eaf6292
+  archived_model_sha256: f00ed126baebf30f4083f18a81bef687c15cb4b3fe89c367f3468115ae72f7cc
   feature_name_list:
   - rpm
   - deg
@@ -854,8 +854,8 @@ reference_models:
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -866,34 +866,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 2.604908115307629e-05
-  training_metric_rmse: 3.7830028035609494e-05
-  training_metric_mse: 1.4311110211750002e-09
-  training_metric_mape_percent: 11.723200767485242
+  training_metric_mae: 6.91679702148343e-05
+  training_metric_rmse: 9.338115837455721e-05
+  training_metric_mse: 8.720040739374136e-09
+  training_metric_mape_percent: 44.441164068690284
 - target_name: fft_y_Fw_filtered_ampl_81
   target_kind: amplitude
   harmonic_order: 81
   direction_label: forward
-  benchmark_mae: 8.910122815461425e-06
-  benchmark_rmse: 1.2415716629221592e-05
-  source_run_instance_id: 2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/016_track1_original_dataset_forward_hgbm_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl81.onnx
+  benchmark_mae: 1.560388367465405e-05
+  benchmark_rmse: 2.0434557584002273e-05
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_ampl81.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/amplitude/HistGradientBoostingRegressor_ampl81.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/amplitude/HistGradientBoostingRegressor_ampl81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: e45e9e56a4c23de436b56828fc1038ef552ceb7dc2ecdd6cb66ffb3b92b00d38
-  archived_model_sha256: 4fe5437460f8a71cd0a852aa1e53405a050eebc0ebef271c82f52908cddbc331
+  python_model_sha256: 7b38288377aebdc47b194efd51e289bc78ca86c9c2c9ba992f1a8563e804ca27
+  archived_model_sha256: b668b3714ccf7dbe72a1043a577ed24212265961ca9020fe4167802fed0ecf77
   feature_name_list:
   - rpm
   - deg
@@ -926,7 +926,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 42
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -944,13 +944,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.19
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -961,34 +961,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 8.910122815461425e-06
-  training_metric_rmse: 1.2415716629221592e-05
-  training_metric_mse: 1.5415001941712958e-10
-  training_metric_mape_percent: 2.865042723494369
+  training_metric_mae: 1.560388367465405e-05
+  training_metric_rmse: 2.0434557584002273e-05
+  training_metric_mse: 4.1757114365390476e-10
+  training_metric_mape_percent: 5.31547069608358
 - target_name: fft_y_Fw_filtered_phase_1
   target_kind: phase
   harmonic_order: 1
   direction_label: forward
-  benchmark_mae: 0.0014787530071432567
-  benchmark_rmse: 0.0021153058792614705
-  source_run_instance_id: 2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/009_track1_original_dataset_forward_hgbm_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase1.onnx
+  benchmark_mae: 0.0021774660974839648
+  benchmark_rmse: 0.003070360263734604
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase1.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase1.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-47-19__track1_original_dataset_forward_hgbm_attempt_09_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: edaa0623a20e2969c3cb302964d936636bd302a92ba4c08bf6343f5caca08b02
-  archived_model_sha256: 16044a728dba3737a5cc075d038dba7979a138ea4e7d58b9c76ceb133861c4e5
+  python_model_sha256: ca0ab45e5732f1ddb62174365c04cec15ac73e92d8d65f8040c8cbfbcaefc4b7
+  archived_model_sha256: c1ebccb5aaefde43e84e86d15b201abaf6bf4f0e1b2417eeefc10ed9e34c53c7
   feature_name_list:
   - rpm
   - deg
@@ -1021,7 +1021,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 19
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1042,10 +1042,10 @@ reference_models:
     learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 13
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1056,34 +1056,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.0014787530071432567
-  training_metric_rmse: 0.0021153058792614705
-  training_metric_mse: 4.474518962838143e-06
-  training_metric_mape_percent: 109.11204264144656
+  training_metric_mae: 0.0021774660974839648
+  training_metric_rmse: 0.003070360263734604
+  training_metric_mse: 9.427112149120428e-06
+  training_metric_mape_percent: 86.52771470351033
 - target_name: fft_y_Fw_filtered_phase_156
   target_kind: phase
   harmonic_order: 156
   direction_label: forward
-  benchmark_mae: 0.47610950929299456
-  benchmark_rmse: 0.7487094940420861
-  source_run_instance_id: 2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/016_track1_original_dataset_forward_hgbm_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase156.onnx
+  benchmark_mae: 0.8848276453714266
+  benchmark_rmse: 1.3221895834921225
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase156.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-58-49__track1_original_dataset_forward_hgbm_attempt_16_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 11e26366f699f6bc869cf5dcaeccba5ff54a9ad3455b6a7dfcdd881b15f216a6
-  archived_model_sha256: 748df1e1d27aaaf56c087b58c9e4de2d184967207c78efdb982105301ae65cd3
+  python_model_sha256: cb56654163afe08ed658cf4eb623bf7bcacbd086ece956437c88c95feb287a83
+  archived_model_sha256: 2124fc48e0007df16d35a272852a3ad76ffa37e2dca400a2133bdbba346d62d9
   feature_name_list:
   - rpm
   - deg
@@ -1116,7 +1116,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 42
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1134,13 +1134,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.19
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1151,34 +1151,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.47610950929299456
-  training_metric_rmse: 0.7487094940420861
-  training_metric_mse: 0.5605659064687565
-  training_metric_mape_percent: 23.055347782722052
+  training_metric_mae: 0.8848276453714266
+  training_metric_rmse: 1.3221895834921225
+  training_metric_mse: 1.7481852946950722
+  training_metric_mape_percent: 117.51412044043606
 - target_name: fft_y_Fw_filtered_phase_162
   target_kind: phase
   harmonic_order: 162
   direction_label: forward
-  benchmark_mae: 0.27198464889276813
-  benchmark_rmse: 0.5605562866820682
-  source_run_instance_id: 2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/006_track1_original_dataset_forward_hgbm_attempt_06.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase162.onnx
+  benchmark_mae: 0.4411837571455764
+  benchmark_rmse: 0.9235358268822695
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase162.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-42-29__track1_original_dataset_forward_hgbm_attempt_06_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 4bc1c6efbc4cefedc41b4befba13485282bf59c63b868c79c86ff908c6c1a279
-  archived_model_sha256: ca9a6a32e94f45c909774bf0937efd3dcca1efc1724544b4a96a7a75b213676b
+  python_model_sha256: a25702233f6ea3ffd40f8930c98b227e0a8d3ddd2db8fdc5ce9021d69712b7a0
+  archived_model_sha256: 06425bf2310fc05af93c32415854cdbd3bfb106d89f433c88f40104315236dca
   feature_name_list:
   - rpm
   - deg
@@ -1211,7 +1211,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 13
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1229,13 +1229,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.22
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 13
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1246,34 +1246,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.27198464889276813
-  training_metric_rmse: 0.5605562866820682
-  training_metric_mse: 0.31422335053878914
-  training_metric_mape_percent: 15.565479171206345
+  training_metric_mae: 0.4411837571455764
+  training_metric_rmse: 0.9235358268822695
+  training_metric_mse: 0.8529184235351173
+  training_metric_mape_percent: 22.617005449924495
 - target_name: fft_y_Fw_filtered_phase_240
   target_kind: phase
   harmonic_order: 240
   direction_label: forward
-  benchmark_mae: 0.23417715031591765
-  benchmark_rmse: 0.4993486963093586
-  source_run_instance_id: 2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/012_track1_original_dataset_forward_hgbm_attempt_12.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase240.onnx
+  benchmark_mae: 0.414550059795906
+  benchmark_rmse: 0.8847155707594802
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase240.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-52-15__track1_original_dataset_forward_hgbm_attempt_12_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 631fb9716498537d86d4a10452167b9576719b8aba92aed433d5f108f0481774
-  archived_model_sha256: c56abf8c233631fde62294eb6a60c9eae553d2608d49d885c2a4643b4bae8c56
+  python_model_sha256: 39bd00472b37256bb165cdccf996b877e9eb7df7faaf1f4c36a8cf2032461a73
+  archived_model_sha256: 2bae3f189d967fe464b390532c3f6c1a808e4097e6a3526845b0ba20218db258
   feature_name_list:
   - rpm
   - deg
@@ -1306,7 +1306,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 27
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1324,13 +1324,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.19
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1341,34 +1341,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.23417715031591765
-  training_metric_rmse: 0.4993486963093586
-  training_metric_mse: 0.249349120505856
-  training_metric_mape_percent: 47.00756793145999
+  training_metric_mae: 0.414550059795906
+  training_metric_rmse: 0.8847155707594802
+  training_metric_mse: 0.7827216411442727
+  training_metric_mape_percent: 20.048132344047644
 - target_name: fft_y_Fw_filtered_phase_3
   target_kind: phase
   harmonic_order: 3
   direction_label: forward
-  benchmark_mae: 0.018612630465997534
-  benchmark_rmse: 0.024637791686611895
-  source_run_instance_id: 2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/020_track1_original_dataset_forward_hgbm_attempt_20.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase3.onnx
+  benchmark_mae: 0.0285097890172633
+  benchmark_rmse: 0.03733939288094996
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase3.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase3.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-06-05-15__track1_original_dataset_forward_hgbm_attempt_20_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 9e275c6768ba93fc018832b29a2a5b79f442ed1fdfa0bbe6b0c127d2075d5b98
-  archived_model_sha256: d307b06a6f1ba5ede4f1bf7d9088082ca13a14ccf3442f89be9b26edf1a06586
+  python_model_sha256: 55596be9be7342cc1fa707efd280d8b65e46177ffd1508de777d75f3a9d10968
+  archived_model_sha256: 310b01d9ff526a089c4cea5c572359a20ad669bbf78e26f2faf41307a97bd750
   feature_name_list:
   - rpm
   - deg
@@ -1401,7 +1401,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 61
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1419,13 +1419,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.22
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 9
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1436,34 +1436,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.018612630465997534
-  training_metric_rmse: 0.024637791686611895
-  training_metric_mse: 0.0006070207791928822
-  training_metric_mape_percent: 1.0477200335613421
+  training_metric_mae: 0.0285097890172633
+  training_metric_rmse: 0.03733939288094996
+  training_metric_mse: 0.0013942302607179366
+  training_metric_mape_percent: 1.5688836337148806
 - target_name: fft_y_Fw_filtered_phase_39
   target_kind: phase
   harmonic_order: 39
   direction_label: forward
-  benchmark_mae: 0.01679805003023814
-  benchmark_rmse: 0.0219907018140429
-  source_run_instance_id: 2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/015_track1_original_dataset_forward_hgbm_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase39.onnx
+  benchmark_mae: 0.03315503539041649
+  benchmark_rmse: 0.056933505113349096
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase39.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase39.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-57-10__track1_original_dataset_forward_hgbm_attempt_15_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: f99ff0530d68e2a40d936d095caa9ff5df4c9b95b70b7243e59a2744e74aa730
-  archived_model_sha256: 6ff26ac1286ca261cca3930453457000409c46a76c728dda6efb920bfa746841
+  python_model_sha256: 1e72d1574847414ed730ab27252c9dd034039b651ef770e268988232ca0a2e18
+  archived_model_sha256: e839df686148ebaa311f7349c1a620685db5430a1eebf66df34beea1319c3fe0
   feature_name_list:
   - rpm
   - deg
@@ -1496,7 +1496,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1517,10 +1517,10 @@ reference_models:
     learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 12
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1531,34 +1531,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.01679805003023814
-  training_metric_rmse: 0.0219907018140429
-  training_metric_mse: 0.0004835909662741498
-  training_metric_mape_percent: 1.3728243117485082
+  training_metric_mae: 0.03315503539041649
+  training_metric_rmse: 0.056933505113349096
+  training_metric_mse: 0.0032414240044917474
+  training_metric_mape_percent: 2.7272699830768725
 - target_name: fft_y_Fw_filtered_phase_40
   target_kind: phase
   harmonic_order: 40
   direction_label: forward
-  benchmark_mae: 0.03395876928515992
-  benchmark_rmse: 0.055146796616496595
-  source_run_instance_id: 2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/014_track1_original_dataset_forward_hgbm_attempt_14.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase40.onnx
+  benchmark_mae: 0.047039295998126694
+  benchmark_rmse: 0.07142172401944354
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase40.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase40.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-55-30__track1_original_dataset_forward_hgbm_attempt_14_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: a7751a4fbcabc20a89f8caa7a164304c6ae1c29c1946e2a79854574a768270ba
-  archived_model_sha256: a63d5908e57e5389b81fc06807833352d0e7047d5db1787302b16cbd05aa4a5e
+  python_model_sha256: 7a5d971641eca506acbc2457921a0f922e4205a15d4ba32f1f38b9829c329f20
+  archived_model_sha256: 265695e85e52bc13a74f04da003233aac72cb20352041713a3aacc8b974c2b6d
   feature_name_list:
   - rpm
   - deg
@@ -1591,7 +1591,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 31
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1609,13 +1609,13 @@ reference_models:
     early_stopping: auto
     interaction_cst: null
     l2_regularization: 0.0
-    learning_rate: 0.18
+    learning_rate: 0.2
     loss: squared_error
     max_bins: 255
-    max_depth: 9
+    max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1626,34 +1626,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.03395876928515992
-  training_metric_rmse: 0.055146796616496595
-  training_metric_mse: 0.00304116917706124
-  training_metric_mape_percent: 58.80445144372322
+  training_metric_mae: 0.047039295998126694
+  training_metric_rmse: 0.07142172401944354
+  training_metric_mse: 0.0051010626619095575
+  training_metric_mape_percent: 69.47830467541884
 - target_name: fft_y_Fw_filtered_phase_78
   target_kind: phase
   harmonic_order: 78
   direction_label: forward
-  benchmark_mae: 0.059008099786125305
-  benchmark_rmse: 0.09509651361965189
-  source_run_instance_id: 2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/001_track1_original_dataset_forward_hgbm_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase78.onnx
+  benchmark_mae: 0.09008689195286836
+  benchmark_rmse: 0.1858489158250432
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase78.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase78.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 86df84b0113b2f4469e71ebab3f8c7cf7b6aaad5fa3758ded6057860e2b4bd1b
-  archived_model_sha256: e261f2d57566f8c9988fe67688e48512485897916e114ee73f74475dc9d2069c
+  python_model_sha256: 724a2397cfd31fc905d7511da1f740dc997bfdca193a06ff240b32add1fa4076
+  archived_model_sha256: ed85633ce8bb0e579c9424bb142f205c49d7a40cd1ed4a852a77ef6fab4f7e7e
   feature_name_list:
   - rpm
   - deg
@@ -1709,8 +1709,8 @@ reference_models:
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1721,34 +1721,34 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.059008099786125305
-  training_metric_rmse: 0.09509651361965189
-  training_metric_mse: 0.009043346902612638
-  training_metric_mape_percent: 144.381279164631
+  training_metric_mae: 0.09008689195286836
+  training_metric_rmse: 0.1858489158250432
+  training_metric_mse: 0.034539819513344
+  training_metric_mape_percent: 158.4975876561975
 - target_name: fft_y_Fw_filtered_phase_81
   target_kind: phase
   harmonic_order: 81
   direction_label: forward
-  benchmark_mae: 0.04381798569877539
-  benchmark_rmse: 0.0618700605360271
-  source_run_instance_id: 2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/hgbm/2026-04-26_track1_forward_hgbm_original_dataset_mega_campaign/001_track1_original_dataset_forward_hgbm_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase81.onnx
+  benchmark_mae: 0.07797466108692323
+  benchmark_rmse: 0.11381201841266647
+  source_run_instance_id: 2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/hgbm/2026-05-04_track1_forward_hgbm_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_hgbm.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/onnx_export/HGBM/HistGradientBoostingRegressor_phase81.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/onnx/phase/HistGradientBoostingRegressor_phase81.onnx
   export_estimator_name: HistGradientBoostingRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-04-26-05-34-27__track1_original_dataset_forward_hgbm_attempt_01_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/source_runs/2026-05-14-17-04-55__track1_paper_faithful_grid_search_forward_hgbm_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
   python_model_path: models/paper_reference/rcim_track1/forward/hgbm_reference_models/python/phase/HistGradientBoostingRegressor_phase81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: HistGradientBoostingRegressor
-  python_model_sha256: 21287af3478c4e37149ba212af6cd3001b9bb847ca80a58d5604749eb3f99b31
-  archived_model_sha256: 78e4734711a1713c4827e7ca7a3b98cb59800d32a076e6acee4cd0dc47846b13
+  python_model_sha256: 58c4e131c9d5a013e014b9ad87a4b309ae68b840f0e9225656510c35987ac9c9
+  archived_model_sha256: c5397824030e87e5a908242418b5672119c31ef39149373e38fef259faafd17a
   feature_name_list:
   - rpm
   - deg
@@ -1804,8 +1804,8 @@ reference_models:
     max_bins: 255
     max_depth: 11
     max_features: 1.0
-    max_iter: 100
-    max_leaf_nodes: 24
+    max_iter: 10
+    max_leaf_nodes: 27
     min_samples_leaf: 20
     monotonic_cst: null
     n_iter_no_change: 10
@@ -1816,7 +1816,7 @@ reference_models:
     validation_fraction: 0.1
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.04381798569877539
-  training_metric_rmse: 0.0618700605360271
-  training_metric_mse: 0.0038279043907316584
-  training_metric_mape_percent: 3.782000059688225
+  training_metric_mae: 0.07797466108692323
+  training_metric_rmse: 0.11381201841266647
+  training_metric_mse: 0.012953175535165132
+  training_metric_mape_percent: 8.939569775689327

@@ -27,30 +27,30 @@ Accepted amplitude targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.00345704` | `0.00441997` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `0.00171012` | `0.0021178` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `0.00246043` | `0.00306965` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `0.00211723` | `0.00276464` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `0.00255737` | `0.00311164` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl240.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `0.00210367` | `0.00274825` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl3.onnx` |
-| `fft_y_Fw_filtered_ampl_39` | `39` | `0.00194599` | `0.00246956` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl39.onnx` |
-| `fft_y_Fw_filtered_ampl_40` | `40` | `0.00215552` | `0.00294075` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `0.00206027` | `0.00269949` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `0.00179699` | `0.00216725` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl81.onnx` |
+| `fft_y_Fw_filtered_ampl_0` | `0` | `0.0271161` | `0.0444009` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl0.onnx` |
+| `fft_y_Fw_filtered_ampl_1` | `1` | `0.0289634` | `0.0506314` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl1.onnx` |
+| `fft_y_Fw_filtered_ampl_156` | `156` | `0.0233848` | `0.0512525` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl156.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `0.0346719` | `0.0782889` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `0.0227904` | `0.0353102` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_3` | `3` | `0.013724` | `0.0280048` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl3.onnx` |
+| `fft_y_Fw_filtered_ampl_39` | `39` | `0.0150448` | `0.0312168` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl39.onnx` |
+| `fft_y_Fw_filtered_ampl_40` | `40` | `0.0229618` | `0.035164` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl40.onnx` |
+| `fft_y_Fw_filtered_ampl_78` | `78` | `0.0222392` | `0.0532152` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl78.onnx` |
+| `fft_y_Fw_filtered_ampl_81` | `81` | `0.0263144` | `0.0407882` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/amplitude/MLPRegressor_ampl81.onnx` |
 
 Accepted phase targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.00317452` | `0.00387037` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.658122` | `1.00843` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.35434` | `0.687019` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.463599` | `0.739707` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase240.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.0233929` | `0.0320967` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0216331` | `0.0313669` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0376109` | `0.0548608` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0743748` | `0.106545` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase78.onnx` |
-| `fft_y_Fw_filtered_phase_81` | `81` | `0.0516697` | `0.0748398` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase81.onnx` |
+| `fft_y_Fw_filtered_phase_1` | `1` | `0.0183255` | `0.0367435` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase1.onnx` |
+| `fft_y_Fw_filtered_phase_156` | `156` | `1.7145` | `2.0493` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase156.onnx` |
+| `fft_y_Fw_filtered_phase_162` | `162` | `1.01942` | `1.46987` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase162.onnx` |
+| `fft_y_Fw_filtered_phase_240` | `240` | `0.62369` | `1.01822` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase240.onnx` |
+| `fft_y_Fw_filtered_phase_3` | `3` | `0.0656061` | `0.0860856` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase3.onnx` |
+| `fft_y_Fw_filtered_phase_39` | `39` | `0.100654` | `0.127013` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase39.onnx` |
+| `fft_y_Fw_filtered_phase_40` | `40` | `0.0875861` | `0.127158` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase40.onnx` |
+| `fft_y_Fw_filtered_phase_78` | `78` | `0.127547` | `0.164189` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase78.onnx` |
+| `fft_y_Fw_filtered_phase_81` | `81` | `0.175523` | `0.225802` | `models/paper_reference/rcim_track1/forward/mlp_reference_models/onnx/phase/MLPRegressor_phase81.onnx` |
 
 Provenance summary:
 
@@ -58,7 +58,7 @@ Provenance summary:
 - paper family: `MLP`
 - implementation family: `MLP`
 - archived target count: `19`
-- unique source runs: `13`
-- unique source configs: `13`
+- unique source runs: `1`
+- unique source configs: `1`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/mlp_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/mlp_reference_models/reference_inventory.yaml`

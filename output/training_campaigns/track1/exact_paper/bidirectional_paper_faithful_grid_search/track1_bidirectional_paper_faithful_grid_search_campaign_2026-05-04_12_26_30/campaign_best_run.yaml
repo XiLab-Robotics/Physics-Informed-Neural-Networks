@@ -1,0 +1,16 @@
+paper_family: ERT
+implementation_family: ERT
+run_instance_id: 2026-05-14-13-06-36__track1_paper_faithful_grid_search_forward_ert_campaign_validation
+run_name: track1_paper_faithful_grid_search_forward_ert
+direction_label: forward
+winning_mean_component_mae: 0.06444127041376774
+winning_mean_component_rmse: 0.1519919221796813
+winning_mean_component_mape_percent: 18.270631921669292
+validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-13-06-36__track1_paper_faithful_grid_search_forward_ert_campaign_validation/validation_summary.yaml
+config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/ert/2026-05-04_track1_forward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_ert.yaml
+selected_at: '2026-05-15T07:07:30+02:00'
+selection_policy:
+  primary_metric: winning_mean_component_mae_asc
+  first_tie_breaker: winning_mean_component_rmse_asc
+  second_tie_breaker: winning_mean_component_mape_percent_asc
+  third_tie_breaker: run_name

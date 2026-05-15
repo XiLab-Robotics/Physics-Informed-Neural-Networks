@@ -85,6 +85,9 @@ TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME = "report-table report-table-track1-s
 TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME = "report-table report-table-track1-svm-repair-before-after"
 TRACK1_BIDIRECTIONAL_MEGA_BENCHMARK_SURFACE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-benchmark-surface"
 TRACK1_BIDIRECTIONAL_MEGA_REFERENCE_ARCHIVE_TABLE_CLASS_NAME = "report-table report-table-track1-bidirectional-mega-reference-archive"
+TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_CLASS_NAME = "report-table report-table-track1-forward-closeout-family-results"
+TRACK1_FORWARD_CLOSEOUT_BENCHMARK_STATUS_TABLE_CLASS_NAME = "report-table report-table-track1-forward-closeout-benchmark-status"
+TRACK1_FORWARD_CLOSEOUT_REFERENCE_ARCHIVE_TABLE_CLASS_NAME = "report-table report-table-track1-forward-closeout-reference-archive"
 RCIM_RETUNED_ARCHIVE_COMPLETENESS_TABLE_CLASS_NAME = "report-table report-table-rcim-retuned-archive-completeness"
 RCIM_RETUNED_MEAN_EVALUATION_METRICS_TABLE_CLASS_NAME = "report-table report-table-rcim-retuned-mean-evaluation-metrics"
 RCIM_RETUNED_HARMONIC_METRIC_TABLE_CLASS_NAME = "report-table report-table-rcim-retuned-harmonic-metric"
@@ -201,6 +204,28 @@ SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_HEADER_CELLS = (
     "Repository Result",
     "Gap",
     "Status",
+)
+TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_HEADER_CELLS = (
+    "Family",
+    "Run Instance",
+    "Mean MAE",
+    "Mean RMSE",
+    "Mean MAPE %",
+    "Exported ONNX",
+    "Exported PKL",
+)
+TRACK1_FORWARD_CLOSEOUT_BENCHMARK_STATUS_TABLE_HEADER_CELLS = (
+    "Table",
+    "Green",
+    "Yellow",
+    "Red",
+    "Total",
+)
+TRACK1_FORWARD_CLOSEOUT_REFERENCE_ARCHIVE_TABLE_HEADER_CELLS = (
+    "Family",
+    "Archived Targets",
+    "Source Runs",
+    "Archive Root",
 )
 
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
@@ -940,6 +965,51 @@ REPORT_STYLESHEET = """
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(4), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(4) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(5), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(5) { width: 12%; }
     .report-table-track1-bidirectional-mega-reference-archive th:nth-child(6), .report-table-track1-bidirectional-mega-reference-archive td:nth-child(6) { width: 46%; }
+
+    .report-table-track1-forward-closeout-family-results,
+    .report-table-track1-forward-closeout-benchmark-status,
+    .report-table-track1-forward-closeout-reference-archive {
+      font-size: 6.55pt;
+      line-height: 1.14;
+    }
+
+    .report-table-track1-forward-closeout-family-results th,
+    .report-table-track1-forward-closeout-family-results td,
+    .report-table-track1-forward-closeout-benchmark-status th,
+    .report-table-track1-forward-closeout-benchmark-status td,
+    .report-table-track1-forward-closeout-reference-archive th,
+    .report-table-track1-forward-closeout-reference-archive td {
+      padding: 3px 4px;
+    }
+
+    .report-table-track1-forward-closeout-family-results th,
+    .report-table-track1-forward-closeout-benchmark-status th,
+    .report-table-track1-forward-closeout-reference-archive th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track1-forward-closeout-family-results th:nth-child(1), .report-table-track1-forward-closeout-family-results td:nth-child(1) { width: 7%; }
+    .report-table-track1-forward-closeout-family-results th:nth-child(2), .report-table-track1-forward-closeout-family-results td:nth-child(2) { width: 37%; }
+    .report-table-track1-forward-closeout-family-results th:nth-child(3), .report-table-track1-forward-closeout-family-results td:nth-child(3) { width: 12%; }
+    .report-table-track1-forward-closeout-family-results th:nth-child(4), .report-table-track1-forward-closeout-family-results td:nth-child(4) { width: 12%; }
+    .report-table-track1-forward-closeout-family-results th:nth-child(5), .report-table-track1-forward-closeout-family-results td:nth-child(5) { width: 12%; }
+    .report-table-track1-forward-closeout-family-results th:nth-child(6), .report-table-track1-forward-closeout-family-results td:nth-child(6) { width: 10%; }
+    .report-table-track1-forward-closeout-family-results th:nth-child(7), .report-table-track1-forward-closeout-family-results td:nth-child(7) { width: 10%; }
+
+    .report-table-track1-forward-closeout-benchmark-status th:nth-child(1), .report-table-track1-forward-closeout-benchmark-status td:nth-child(1) { width: 52%; }
+    .report-table-track1-forward-closeout-benchmark-status th:nth-child(2), .report-table-track1-forward-closeout-benchmark-status td:nth-child(2) { width: 12%; }
+    .report-table-track1-forward-closeout-benchmark-status th:nth-child(3), .report-table-track1-forward-closeout-benchmark-status td:nth-child(3) { width: 12%; }
+    .report-table-track1-forward-closeout-benchmark-status th:nth-child(4), .report-table-track1-forward-closeout-benchmark-status td:nth-child(4) { width: 12%; }
+    .report-table-track1-forward-closeout-benchmark-status th:nth-child(5), .report-table-track1-forward-closeout-benchmark-status td:nth-child(5) { width: 12%; }
+
+    .report-table-track1-forward-closeout-reference-archive th:nth-child(1), .report-table-track1-forward-closeout-reference-archive td:nth-child(1) { width: 8%; }
+    .report-table-track1-forward-closeout-reference-archive th:nth-child(2), .report-table-track1-forward-closeout-reference-archive td:nth-child(2) { width: 12%; }
+    .report-table-track1-forward-closeout-reference-archive th:nth-child(3), .report-table-track1-forward-closeout-reference-archive td:nth-child(3) { width: 10%; }
+    .report-table-track1-forward-closeout-reference-archive th:nth-child(4), .report-table-track1-forward-closeout-reference-archive td:nth-child(4) { width: 70%; }
 
     .report-table-rcim-retuned-archive-completeness,
     .report-table-rcim-retuned-mean-evaluation-metrics,
@@ -2059,6 +2129,24 @@ def is_svr_reference_grid_gap_vs_paper_table(header_cells: Sequence[str]) -> boo
 
     return tuple(header_cells) == SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_HEADER_CELLS
 
+def is_track1_forward_closeout_family_results_table(header_cells: Sequence[str]) -> bool:
+
+    """Report whether the table matches the Track 1 forward closeout family result profile."""
+
+    return tuple(header_cells) == TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_HEADER_CELLS
+
+def is_track1_forward_closeout_benchmark_status_table(header_cells: Sequence[str]) -> bool:
+
+    """Report whether the table matches the Track 1 forward closeout benchmark status profile."""
+
+    return tuple(header_cells) == TRACK1_FORWARD_CLOSEOUT_BENCHMARK_STATUS_TABLE_HEADER_CELLS
+
+def is_track1_forward_closeout_reference_archive_table(header_cells: Sequence[str]) -> bool:
+
+    """Report whether the table matches the Track 1 forward closeout reference archive profile."""
+
+    return tuple(header_cells) == TRACK1_FORWARD_CLOSEOUT_REFERENCE_ARCHIVE_TABLE_HEADER_CELLS
+
 def normalize_report_specific_header_cell(header_cell: str, table_class_name: str) -> str:
 
     """ Normalize Report-Specific Header Cell Content """
@@ -2112,6 +2200,12 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
     if table_class_name == RCIM_RETUNED_ARCHIVE_COMPLETENESS_TABLE_CLASS_NAME:
         if header_cell == "Exported Errors":
             return "Exported<br>Errors"
+
+    if table_class_name == TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_CLASS_NAME:
+        if header_cell == "Exported ONNX":
+            return "Exported<br>ONNX"
+        if header_cell == "Exported PKL":
+            return "Exported<br>PKL"
 
     if header_cell == "Paper Cell":
         return "Paper<span class=\"metric-unit\">Cell</span>"
@@ -2361,6 +2455,25 @@ def resolve_standard_table_class_name(
 
     if is_svr_reference_grid_gap_vs_paper_table(normalized_header_cells):
         return SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME
+
+    # Resolve Track 1 Forward Closeout Table Profiles
+    if (
+        current_section_slug == "family-results"
+        and is_track1_forward_closeout_family_results_table(normalized_header_cells)
+    ):
+        return TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_CLASS_NAME
+
+    if (
+        current_section_slug == "benchmark-status"
+        and is_track1_forward_closeout_benchmark_status_table(normalized_header_cells)
+    ):
+        return TRACK1_FORWARD_CLOSEOUT_BENCHMARK_STATUS_TABLE_CLASS_NAME
+
+    if (
+        current_section_slug == "reference-archive-refresh"
+        and is_track1_forward_closeout_reference_archive_table(normalized_header_cells)
+    ):
+        return TRACK1_FORWARD_CLOSEOUT_REFERENCE_ARCHIVE_TABLE_CLASS_NAME
 
     # Resolve Decision Matrix Table
     if normalized_header_cells == DECISION_MATRIX_TABLE_HEADER_CELLS:

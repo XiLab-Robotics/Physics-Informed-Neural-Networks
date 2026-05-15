@@ -1,5 +1,5 @@
 campaign_name: track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30
-status: cancelled
+status: completed
 planning_report_path: doc\reports\campaign_plans\track1\exact_paper\2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md
 campaign_config_directory: config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_paper_faithful_grid_search
 queue_root: null
@@ -8,10 +8,10 @@ campaign_output_directory: output\training_campaigns\track1\exact_paper\bidirect
 launch_mode: remote_operator_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-05-13T17:47:50+02:00'
-started_at: '2026-05-13T18:24:53+02:00'
-finished_at: '2026-05-14T00:04:01+02:00'
-completion_recorded_at: null
-results_report_path: null
+started_at: '2026-05-14T00:44:05+02:00'
+finished_at: '2026-05-15T07:07:30+02:00'
+completion_recorded_at: '2026-05-15T11:57:54+02:00'
+results_report_path: doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md
 remote_host_alias: xilab-remote
 remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 remote_conda_environment_name: standard_ml_lan_node
@@ -72,11 +72,10 @@ protected_file_list:
 launch_command_list:
 - .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1
   -Remote
-- >-
-  .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1
-  -Direction Forward -Families "SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM,
-  XGBM, ELM" -Stage Search -GridSearchVerboseOverride 3
-  -HistoricalCrossValidateVerboseOverride 10 -Remote
+- .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1
+  -Direction Forward -Families "SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM,
+  ELM" -Stage Search -GridSearchVerboseOverride 3 -HistoricalCrossValidateVerboseOverride
+  10 -Remote
 remote_bootstrap_contract:
   queue_bundle_transport: temporary_python_script_with_json_safe_path_literals
   remote_preflight_transport: temporary_python_script_with_conda_run
@@ -90,8 +89,7 @@ remote_bootstrap_contract:
   forbidden_patterns:
   - python -c for queue bundle parsing
   - raw python path literals that terminate with a backslash
-completed_family_list: []
-pending_family_list:
+completed_family_list:
 - SVR
 - MLP
 - RF
@@ -103,9 +101,6 @@ pending_family_list:
 - XGBM
 - LGBM
 - ELM
-interruption_note: Remote campaign attempt started on 2026-05-13T18:24:53+02:00
-  and stopped after the forward SVR family completed fit, evaluation, and Python+ONNX
-  export. The validation-summary YAML write failed at 2026-05-14T00:04:01+02:00
-  because `family_search_summary.parameter_grid` still contained live scikit-learn
-  estimator objects such as `SVR(...)`; the exact-paper summary path now serializes
-  search metadata before YAML output.
+pending_family_list: []
+interruption_note: Forward paper-faithful grid-search slice completed and closed out.
+  Backward paper-faithful slice remains a future launch.

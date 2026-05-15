@@ -8,7 +8,7 @@ Direction branches:
 - `forward/`
 - `backward/`
 
-Current populated family archives under both directions:
+Current populated family archives:
 
 - `forward/svm_reference_models/`
 - `forward/mlp_reference_models/`
@@ -20,6 +20,7 @@ Current populated family archives under both directions:
 - `forward/hgbm_reference_models/`
 - `forward/xgbm_reference_models/`
 - `forward/lgbm_reference_models/`
+- `forward/elm_reference_models/`
 - `backward/svm_reference_models/`
 - `backward/mlp_reference_models/`
 - `backward/rf_reference_models/`
@@ -30,6 +31,10 @@ Current populated family archives under both directions:
 - `backward/hgbm_reference_models/`
 - `backward/xgbm_reference_models/`
 - `backward/lgbm_reference_models/`
+
+Paper-table families remain the original `10` families used by Tables `2`-`5`.
+`ELM` is an additional operational Track 1 family and is archived for the
+forward branch when the completed campaign provides it.
 
 Canonical family archive template:
 
@@ -47,6 +52,6 @@ Canonical family archive template:
 
 Closeout rule:
 
-- every future Track 1 closeout must compare newly accepted target winners against the archive entries already stored here;
-- when a newly accepted winner improves the stored archive entry, the archive must be replaced together with its provenance bundle and linked benchmark references;
-- when the accepted winner does not improve, the stored archive entry must remain unchanged.
+- every future Track 1 closeout must refresh the affected family-reference archive when accepted models change;
+- archive entries must preserve source validation summaries, training configs, run metadata, exported ONNX files, Python pickles, and dataset provenance;
+- backward archives are intentionally left untouched by forward-only closeouts.

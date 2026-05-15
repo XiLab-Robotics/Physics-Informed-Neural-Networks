@@ -9,9 +9,9 @@ canonical_selection_rule: Per direction and target, store the accepted canonical
 source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
 source_data: config/datasets/transmission_error_dataset.yaml
 notes:
-- This archive was refreshed during the forward last three open cells overnight mega
-  closeout. Improved accepted targets were replaced and retained targets preserved
-  their previous canonical source runs.
+- This archive was replaced during the Track 1 forward paper-faithful grid-search
+  closeout after the exact-paper pipeline fixes for ELM, remote sync, and search-summary
+  serialization.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -19,26 +19,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 0
   direction_label: forward
-  benchmark_mae: 0.0024023647155070743
-  benchmark_rmse: 0.002961389434310126
-  source_run_instance_id: 2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/003_track1_original_dataset_forward_svr_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/onnx_export/SVR/SVR_ampl0.onnx
+  benchmark_mae: 0.0030567671170213927
+  benchmark_rmse: 0.003387307535131999
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl0.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl0.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl0.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl0.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 931df1e36ec0df9d7b3173b9122ab2441b4322b342af6c4500ef37644d4f1499
-  archived_model_sha256: 89efc9c816ed249b44bd541b0b72ec6d6c6fa6870799033b34177ec7407f813f
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 1b01a5313c0b2ade1787d064974caa2fec6ab70cadf7078fd10473f9aa045dbf
+  archived_model_sha256: 050aafe795747d3d4cf7748e5139031892aeffed6b7611bb4cc1285d59b7b05f
   feature_name_list:
   - rpm
   - deg
@@ -71,7 +71,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 7
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -85,45 +85,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.0024023647155070743
-  training_metric_rmse: 0.002961389434310126
-  training_metric_mse: 8.769827381643648e-06
-  training_metric_mape_percent: 4.3765447096746355
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.0030567671170213927
+  training_metric_rmse: 0.003387307535131999
+  training_metric_mse: 1.1473852337562019e-05
+  training_metric_mape_percent: 6.230130805428707
 - target_name: fft_y_Fw_filtered_ampl_1
   target_kind: amplitude
   harmonic_order: 1
   direction_label: forward
-  benchmark_mae: 4.744673906248932e-05
-  benchmark_rmse: 6.037407934594156e-05
-  source_run_instance_id: 2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/015_track1_original_dataset_forward_svr_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/onnx_export/SVR/SVR_ampl1.onnx
+  benchmark_mae: 6.565731355888522e-05
+  benchmark_rmse: 8.192553709026125e-05
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl1.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl1.onnx
-  export_estimator_name: LinearRegression
-  surrogate_strategy: constant_linear_regression
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/split_manifest.yaml
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl1.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl1.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: b922f5734b6b7f36ca96838e096b2c2ace0c2e51706a907cd56ffe580ec64ea4
-  archived_model_sha256: e5115e570e103149bfc5e441049a8d239d94da2f08caf1e4226938a01fe3475a
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 9bee924c87d19104a4070f4c0e55fb252dd192638f9cfc004d03581327fdbf61
+  archived_model_sha256: f8d3db147577797d3c2ced99acc12dd9d3b369d1b7bab5a4861ed0e069571fa2
   feature_name_list:
   - rpm
   - deg
@@ -156,7 +168,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -170,45 +182,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 4.744673906248932e-05
-  training_metric_rmse: 6.037407934594156e-05
-  training_metric_mse: 3.6450294568700477e-09
-  training_metric_mape_percent: 0.27667821919295243
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 6.565731355888522e-05
+  training_metric_rmse: 8.192553709026125e-05
+  training_metric_mse: 6.711793627527772e-09
+  training_metric_mape_percent: 0.3831882729798318
 - target_name: fft_y_Fw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
   direction_label: forward
-  benchmark_mae: 0.000316538646644197
-  benchmark_rmse: 0.0005780797130551274
-  source_run_instance_id: 2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/014_track1_original_dataset_forward_svr_attempt_14.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation/onnx_export/SVR/SVR_ampl156.onnx
+  benchmark_mae: 0.0005199830635422126
+  benchmark_rmse: 0.001103123357878129
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl156.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl156.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-06-10__track1_original_dataset_forward_svr_attempt_14_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl156.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl156.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 57fcb4347bd5960fb1520a7c83dedf3d5b5022895b9d8de9c8148fc561d40a9e
-  archived_model_sha256: 94f4ae591a86143b51adbe0e9916152286a8eb41b60aeaaaa3d1dff6aae19e2c
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 7053f7fccefa50b0047ead59a4a36e2df6bf670a6a03535e47a96c30e2a03b70
+  archived_model_sha256: 76f20b59b96cfb5aa8cbbfc1e80b3df957899de1cf262ebe7fdb7d76270b0e2c
   feature_name_list:
   - rpm
   - deg
@@ -241,7 +265,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 31
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -255,45 +279,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.000316538646644197
-  training_metric_rmse: 0.0005780797130551274
-  training_metric_mse: 3.341761546458985e-07
-  training_metric_mape_percent: 221.5342245522134
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.0005199830635422126
+  training_metric_rmse: 0.001103123357878129
+  training_metric_mse: 1.2168811426963186e-06
+  training_metric_mape_percent: 159.74435718404675
 - target_name: fft_y_Fw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
   direction_label: forward
-  benchmark_mae: 0.0003714592467943943
-  benchmark_rmse: 0.0010277972899767618
-  source_run_instance_id: 2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/019_track1_original_dataset_forward_svr_attempt_19.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation/onnx_export/SVR/SVR_ampl162.onnx
+  benchmark_mae: 0.0006805430846961513
+  benchmark_rmse: 0.0022518944907941383
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl162.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl162.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-12-20__track1_original_dataset_forward_svr_attempt_19_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl162.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl162.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: df24f11302d5f54fe7d5fea234b993c217460c5a59008e63c22a743e0390badf
-  archived_model_sha256: 2a2bc3d864a374ad098d00b9ee9946276ac2f44b23b4510225dccb64947f65b2
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 5599c8cb1b2a0da79797d9f5094e358c07cce6372fdba6db0c8608862e7d7c11
+  archived_model_sha256: b0cf068df3a4f3e5bda5debe22de5456412dbac79e3139ef6ab596861fb0444b
   feature_name_list:
   - rpm
   - deg
@@ -326,7 +362,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 59
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -340,45 +376,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.0003714592467943943
-  training_metric_rmse: 0.0010277972899767618
-  training_metric_mse: 1.0563672692835757e-06
-  training_metric_mape_percent: 101.2517751117729
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.0006805430846961513
+  training_metric_rmse: 0.0022518944907941383
+  training_metric_mse: 5.071028797668992e-06
+  training_metric_mape_percent: 110.6819479741342
 - target_name: fft_y_Fw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
   direction_label: forward
-  benchmark_mae: 0.00024243940502168126
-  benchmark_rmse: 0.0004264066520089054
-  source_run_instance_id: 2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/009_track1_original_dataset_forward_svr_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_ampl240.onnx
+  benchmark_mae: 0.00024261617437510818
+  benchmark_rmse: 0.0006071108870632305
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl240.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl240.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl240.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl240.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 1fecd39fb4dace8b6f359c6a755316d01cca591404f4f61bd03ad98d829905cd
-  archived_model_sha256: dd3184442f144aad86b0b2b9813980d2a2c0f606be47c3019ac81139f8fd882d
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 58b06b910a47c6e12de4ea139f6e3f30d0434a3a7bb8233407793e990a42f9cf
+  archived_model_sha256: f44129a4601f8fa7c927306a230aacf0b804bf826b3b3ffe847724363ae89125
   feature_name_list:
   - rpm
   - deg
@@ -411,7 +459,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 19
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -425,45 +473,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.00024243940502168126
-  training_metric_rmse: 0.0004264066520089054
-  training_metric_mse: 1.8182263287744377e-07
-  training_metric_mape_percent: 78.71090518237929
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.00024261617437510818
+  training_metric_rmse: 0.0006071108870632305
+  training_metric_mse: 3.685836291907026e-07
+  training_metric_mape_percent: 43.38971636715067
 - target_name: fft_y_Fw_filtered_ampl_3
   target_kind: amplitude
   harmonic_order: 3
   direction_label: forward
-  benchmark_mae: 0.00013565460273154726
-  benchmark_rmse: 0.00016427202921905562
-  source_run_instance_id: 2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/007_track1_original_dataset_forward_svr_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/onnx_export/SVR/SVR_ampl3.onnx
+  benchmark_mae: 7.61142989579173e-05
+  benchmark_rmse: 8.953917754415497e-05
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl3.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl3.onnx
-  export_estimator_name: LinearRegression
-  surrogate_strategy: constant_linear_regression
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/split_manifest.yaml
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl3.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl3.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 4efc9c6731f183c350fa32be17a3ac9d5920f1419242f00bd71e52b94a461617
-  archived_model_sha256: 20f9c3ed67a15b4d594bbd528eff13dc4fb857d3da34e8bce29a1611f976db6a
+  python_estimator_class_name: Pipeline
+  python_model_sha256: e541e452d1397b171b638c3ceede86c815a8923885edf860e142eda1999152c3
+  archived_model_sha256: 2178b9b8a722e840b9a07c60f7b7c2106e6746bc45efc41c6fdfe447b5a9b489
   feature_name_list:
   - rpm
   - deg
@@ -496,7 +556,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -510,45 +570,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.00013565460273154726
-  training_metric_rmse: 0.00016427202921905562
-  training_metric_mse: 2.698529958374626e-08
-  training_metric_mape_percent: 19.330533947799015
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 7.61142989579173e-05
+  training_metric_rmse: 8.953917754415497e-05
+  training_metric_mse: 8.017264315283705e-09
+  training_metric_mape_percent: 10.427872378768232
 - target_name: fft_y_Fw_filtered_ampl_39
   target_kind: amplitude
   harmonic_order: 39
   direction_label: forward
-  benchmark_mae: 6.979810254635545e-05
-  benchmark_rmse: 8.96663532960607e-05
-  source_run_instance_id: 2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/001_track1_original_dataset_forward_svr_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/onnx_export/SVR/SVR_ampl39.onnx
+  benchmark_mae: 5.1279225332883735e-05
+  benchmark_rmse: 6.453510875201249e-05
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl39.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl39.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl39.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl39.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: f6ecf15753cff59be6547c3c58bcb943323eadf6b3e32c404d2317a8ac52f185
-  archived_model_sha256: 359cec1a17b394b00d0fa8e8a5c3024220dd9967c2049e9512c845063cf987c7
+  python_estimator_class_name: Pipeline
+  python_model_sha256: e72e7cdb4e5f313b223e7df5142f8b54a3c3e1a7ec683059e469e12bc2e2bf6b
+  archived_model_sha256: c83413b20bd80856757d25cd7c95f226f0f1d5ad6621464b3ed839d172c2dfa8
   feature_name_list:
   - rpm
   - deg
@@ -595,640 +667,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 6.979810254635545e-05
-  training_metric_rmse: 8.96663532960607e-05
-  training_metric_mse: 8.040054913413977e-09
-  training_metric_mape_percent: 6.784426251896091
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 5.1279225332883735e-05
+  training_metric_rmse: 6.453510875201249e-05
+  training_metric_mse: 4.164780261634079e-09
+  training_metric_mape_percent: 5.011862039614643
 - target_name: fft_y_Fw_filtered_ampl_40
   target_kind: amplitude
   harmonic_order: 40
   direction_label: forward
-  benchmark_mae: 7.728220319815968e-05
-  benchmark_rmse: 9.655132969618138e-05
-  source_run_instance_id: 2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/002_track1_original_dataset_forward_svr_attempt_02.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation/onnx_export/SVR/SVR_ampl40.onnx
+  benchmark_mae: 5.4267617952156155e-05
+  benchmark_rmse: 7.3470608070392e-05
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl40.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl40.onnx
-  export_estimator_name: LinearRegression
-  surrogate_strategy: constant_linear_regression
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-00-53-21__track1_original_dataset_forward_svr_attempt_02_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 4fbdd3253fb10bb6312d9f58d3588e8e3b497d45f0a86dab9c8e843db2841a3b
-  archived_model_sha256: e91ea27c89c34d13c6cd10abe2bdf9b8ec59aaf730018fcf767daa22c5087e03
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 5
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 7.728220319815968e-05
-  training_metric_rmse: 9.655132969618138e-05
-  training_metric_mse: 9.322159266100718e-09
-  training_metric_mape_percent: 9.429098187730135
-- target_name: fft_y_Fw_filtered_ampl_78
-  target_kind: amplitude
-  harmonic_order: 78
-  direction_label: forward
-  benchmark_mae: 0.00015191984205610858
-  benchmark_rmse: 0.00018397113980108955
-  source_run_instance_id: 2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/016_track1_original_dataset_forward_svr_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation/onnx_export/SVR/SVR_ampl78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl78.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-08-38__track1_original_dataset_forward_svr_attempt_16_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl78.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl40.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: ef56f8668a54db2432055bfbd5859dc5262a28ae1ba1fea30d2ec503dde6505f
-  archived_model_sha256: d1dabd7501a42b3b3368660134a61e05963a7ee585aa43edcadbb882640036c2
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 42
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 0.00015191984205610858
-  training_metric_rmse: 0.00018397113980108955
-  training_metric_mse: 3.3845380279712036e-08
-  training_metric_mape_percent: 52.58936947058368
-- target_name: fft_y_Fw_filtered_ampl_81
-  target_kind: amplitude
-  harmonic_order: 81
-  direction_label: forward
-  benchmark_mae: 6.984580786630241e-05
-  benchmark_rmse: 8.168554895629632e-05
-  source_run_instance_id: 2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/004_track1_original_dataset_forward_svr_attempt_04.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation/onnx_export/SVR/SVR_ampl81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl81.onnx
-  export_estimator_name: LinearRegression
-  surrogate_strategy: constant_linear_regression
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-35-22__track1_original_dataset_forward_svr_attempt_04_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/SVR_ampl81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 4ce4a99e1663c55fc7f9c16d27f7d6e6e9c4ce0493f3b9c5aa32005c9afe01f9
-  archived_model_sha256: 317ed15603c25737b97ec5b71e2db563ec7bc8ebb1531aacda527da7be051a50
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 9
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 6.984580786630241e-05
-  training_metric_rmse: 8.168554895629632e-05
-  training_metric_mse: 6.672528908291482e-09
-  training_metric_mape_percent: 24.663098182159285
-- target_name: fft_y_Fw_filtered_phase_1
-  target_kind: phase
-  harmonic_order: 1
-  direction_label: forward
-  benchmark_mae: 0.0020626368670840036
-  benchmark_rmse: 0.002885370211941047
-  source_run_instance_id: 2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/009_track1_original_dataset_forward_svr_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase1.onnx
-  export_estimator_name: SVR
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase1.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 48252b3ff7a69965fb440b1d3ef60387fbfa9e52bf7a7a7aef58e95c0d88002e
-  archived_model_sha256: 3747d3b4a4504cc44cb68822de32def52c0460fee0600500828b24db66c25964
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 19
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 0.0020626368670840036
-  training_metric_rmse: 0.002885370211941047
-  training_metric_mse: 8.325361259956722e-06
-  training_metric_mape_percent: 101.18799786427213
-- target_name: fft_y_Fw_filtered_phase_156
-  target_kind: phase
-  harmonic_order: 156
-  direction_label: forward
-  benchmark_mae: 1.0805263499779951
-  benchmark_rmse: 1.562469579458875
-  source_run_instance_id: 2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/015_track1_original_dataset_forward_svr_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/onnx_export/SVR/SVR_phase156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase156.onnx
-  export_estimator_name: SVR
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase156.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 9928c08d094e750b6d33952b4e79b1c72d4fe2c66782236301a7508ec88d7552
-  archived_model_sha256: 8a3571810121c1912f2aa50fb87df75fadb0a369b55deeab2dd92ff807d0f8a4
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 37
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 1.0805263499779951
-  training_metric_rmse: 1.562469579458875
-  training_metric_mse: 2.4413111867343935
-  training_metric_mape_percent: 72.46346154367284
-- target_name: fft_y_Fw_filtered_phase_162
-  target_kind: phase
-  harmonic_order: 162
-  direction_label: forward
-  benchmark_mae: 0.3877657663543326
-  benchmark_rmse: 0.9135073869139728
-  source_run_instance_id: 2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/007_track1_original_dataset_forward_svr_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/onnx_export/SVR/SVR_phase162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase162.onnx
-  export_estimator_name: SVR
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-37-47__track1_original_dataset_forward_svr_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase162.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 7fa40dd4709ff57c491d672f8a9d32a396b07476dccbe8abed911ef231892a18
-  archived_model_sha256: e469d3cc3ae20f3f0d30adb91cb164181d3942024633b3308ae1c1b64a3faf5a
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 15
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 0.3877657663543326
-  training_metric_rmse: 0.9135073869139728
-  training_metric_mse: 0.8344957459463948
-  training_metric_mape_percent: 24.595380893782764
-- target_name: fft_y_Fw_filtered_phase_240
-  target_kind: phase
-  harmonic_order: 240
-  direction_label: forward
-  benchmark_mae: 0.3221417611394245
-  benchmark_rmse: 0.5044780670483201
-  source_run_instance_id: 2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/003_track1_original_dataset_forward_svr_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/onnx_export/SVR/SVR_phase240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase240.onnx
-  export_estimator_name: SVR
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-34-31__track1_original_dataset_forward_svr_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase240.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 8c1157caddbdc0518fc50d3baec6d7d9cd638e5e3260fc9fd6226fd5f7de1019
-  archived_model_sha256: 02f79206918391e63c971b46430e5e49a1ab3580ec7d87c7267461a66ac6b1f8
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Fw_filtered_ampl_0
-  - fft_y_Fw_filtered_ampl_1
-  - fft_y_Fw_filtered_phase_1
-  - fft_y_Fw_filtered_ampl_3
-  - fft_y_Fw_filtered_phase_3
-  - fft_y_Fw_filtered_ampl_39
-  - fft_y_Fw_filtered_phase_39
-  - fft_y_Fw_filtered_ampl_40
-  - fft_y_Fw_filtered_phase_40
-  - fft_y_Fw_filtered_ampl_78
-  - fft_y_Fw_filtered_phase_78
-  - fft_y_Fw_filtered_ampl_81
-  - fft_y_Fw_filtered_phase_81
-  - fft_y_Fw_filtered_ampl_156
-  - fft_y_Fw_filtered_phase_156
-  - fft_y_Fw_filtered_ampl_162
-  - fft_y_Fw_filtered_phase_162
-  - fft_y_Fw_filtered_ampl_240
-  - fft_y_Fw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 7
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
-    verbose: false
-  training_metric_mae: 0.3221417611394245
-  training_metric_rmse: 0.5044780670483201
-  training_metric_mse: 0.2544981201328093
-  training_metric_mape_percent: 69.63087480611217
-- target_name: fft_y_Fw_filtered_phase_3
-  target_kind: phase
-  harmonic_order: 3
-  direction_label: forward
-  benchmark_mae: 0.027246166816830484
-  benchmark_rmse: 0.03621747287509081
-  source_run_instance_id: 2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/001_track1_original_dataset_forward_svr_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/onnx_export/SVR/SVR_phase3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase3.onnx
-  export_estimator_name: SVR
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-32-54__track1_original_dataset_forward_svr_attempt_01_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 909c08e691863d55847864ea16b5e2794fe74bf4ee460e728d64f90a9e607aa2
-  archived_model_sha256: 5651d20c09e04d77fa2ee71299a0196a95d1c21f0f72667c2343c058f73cffb7
+  python_estimator_class_name: Pipeline
+  python_model_sha256: adda267450b40532a9e7e1efef603cefedcfe2bc1d629b1b89e3bb1805454e39
+  archived_model_sha256: ab1ffea2722a176a3c8ab5e252d70fcd7eb3a62f00cb6560ed52eb6750a265fd
   feature_name_list:
   - rpm
   - deg
@@ -1275,45 +764,736 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.027246166816830484
-  training_metric_rmse: 0.03621747287509081
-  training_metric_mse: 0.0013117053414579388
-  training_metric_mape_percent: 1.4926504426848202
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 5.4267617952156155e-05
+  training_metric_rmse: 7.3470608070392e-05
+  training_metric_mse: 5.397930250233151e-09
+  training_metric_mape_percent: 7.119158415170992
+- target_name: fft_y_Fw_filtered_ampl_78
+  target_kind: amplitude
+  harmonic_order: 78
+  direction_label: forward
+  benchmark_mae: 0.00013048892507632837
+  benchmark_rmse: 0.00015987051585213637
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl78.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl78.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 3f801f169b9e036d602a47b35146851320a6f627bee4f66cae8d6807715ee401
+  archived_model_sha256: d05115b6242fbd22e15f620abf9213850be57f8b9c49bd3662e66020b710f661
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.00013048892507632837
+  training_metric_rmse: 0.00015987051585213637
+  training_metric_mse: 2.5558581838828185e-08
+  training_metric_mape_percent: 53.460780541962535
+- target_name: fft_y_Fw_filtered_ampl_81
+  target_kind: amplitude
+  harmonic_order: 81
+  direction_label: forward
+  benchmark_mae: 4.187926905938666e-05
+  benchmark_rmse: 5.338247461710984e-05
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_ampl81.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/amplitude/SVR_ampl81.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/amplitude/Pipeline_ampl81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 081875de146d78a04c592689e0161294a94d8227f3a7536b88aa52821091076b
+  archived_model_sha256: 04c1f54e297ce0b5dda8d8152eb462094f3bf53b55b7a216fb55cc8d87495211
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 4.187926905938666e-05
+  training_metric_rmse: 5.338247461710984e-05
+  training_metric_mse: 2.8496885962463763e-09
+  training_metric_mape_percent: 15.284020877623098
+- target_name: fft_y_Fw_filtered_phase_1
+  target_kind: phase
+  harmonic_order: 1
+  direction_label: forward
+  benchmark_mae: 0.0029321870323979135
+  benchmark_rmse: 0.0039746137902723555
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase1.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase1.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase1.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 215dc2798a0460108172f2c9a6bc205b75910591a12c1a17ed830d53db3a0736
+  archived_model_sha256: bc1dd7b84eba35f7fa313ceb5238b982607c39c865ea20a00aead0874d00e5e3
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.0029321870323979135
+  training_metric_rmse: 0.0039746137902723555
+  training_metric_mse: 1.579755478182318e-05
+  training_metric_mape_percent: 165.13517047220043
+- target_name: fft_y_Fw_filtered_phase_156
+  target_kind: phase
+  harmonic_order: 156
+  direction_label: forward
+  benchmark_mae: 2.0050010575243604
+  benchmark_rmse: 2.4128332814818396
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase156.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase156.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase156.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: bb54a92a45a3d36c3281f4df2e5f63b0a7e8f1f2d8257e7cee6619e29b366f72
+  archived_model_sha256: 7c55b5c1935241fcefcdafd3b0f45352b2546cf4d08a3292c6748da8308f87b5
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 2.0050010575243604
+  training_metric_rmse: 2.4128332814818396
+  training_metric_mse: 5.821764444226423
+  training_metric_mape_percent: 165.84060496837242
+- target_name: fft_y_Fw_filtered_phase_162
+  target_kind: phase
+  harmonic_order: 162
+  direction_label: forward
+  benchmark_mae: 0.7114876413249893
+  benchmark_rmse: 1.5398731146425377
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase162.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase162.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase162.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: ed3da6599a256955c80bdff4aa547878375380fdd36bbb0de9800830d0377150
+  archived_model_sha256: fcb9dd8b10438f1f5522b8b80af19f0c2878f96a3f22f82fb5fb7dd1d8845edd
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.7114876413249893
+  training_metric_rmse: 1.5398731146425377
+  training_metric_mse: 2.37120920919891
+  training_metric_mape_percent: 39.70755221865125
+- target_name: fft_y_Fw_filtered_phase_240
+  target_kind: phase
+  harmonic_order: 240
+  direction_label: forward
+  benchmark_mae: 0.5195356805188511
+  benchmark_rmse: 1.0073124508484483
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase240.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase240.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase240.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: d5ee8693bf2a9313922f2178a833aba2fbf66c13311b6391f551de8b118d5940
+  archived_model_sha256: 80923f6c728344214e2abb74199a4c0faf940e8ad1ad47a4aeb89ca3eb21562c
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.5195356805188511
+  training_metric_rmse: 1.0073124508484483
+  training_metric_mse: 1.0146783736343077
+  training_metric_mape_percent: 28.875753533306703
+- target_name: fft_y_Fw_filtered_phase_3
+  target_kind: phase
+  harmonic_order: 3
+  direction_label: forward
+  benchmark_mae: 0.03360042323470186
+  benchmark_rmse: 0.050601375368362254
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase3.onnx
+  archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase3.onnx
+  export_estimator_name: Pipeline
+  surrogate_strategy: none
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
+  dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 29c5a3b0944aca06129b92456702cc6c4f5c8397c74852ca92c4e5d561dd8391
+  archived_model_sha256: 400d3e9b7db07de294bf67c887e717a7ee605d49ce0cfaa2dd8f85d5e91dcdb2
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Fw_filtered_ampl_0
+  - fft_y_Fw_filtered_ampl_1
+  - fft_y_Fw_filtered_phase_1
+  - fft_y_Fw_filtered_ampl_3
+  - fft_y_Fw_filtered_phase_3
+  - fft_y_Fw_filtered_ampl_39
+  - fft_y_Fw_filtered_phase_39
+  - fft_y_Fw_filtered_ampl_40
+  - fft_y_Fw_filtered_phase_40
+  - fft_y_Fw_filtered_ampl_78
+  - fft_y_Fw_filtered_phase_78
+  - fft_y_Fw_filtered_ampl_81
+  - fft_y_Fw_filtered_phase_81
+  - fft_y_Fw_filtered_ampl_156
+  - fft_y_Fw_filtered_phase_156
+  - fft_y_Fw_filtered_ampl_162
+  - fft_y_Fw_filtered_phase_162
+  - fft_y_Fw_filtered_ampl_240
+  - fft_y_Fw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
+    verbose: false
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.03360042323470186
+  training_metric_rmse: 0.050601375368362254
+  training_metric_mse: 0.0025604991891698984
+  training_metric_mape_percent: 1.8457456108959571
 - target_name: fft_y_Fw_filtered_phase_39
   target_kind: phase
   harmonic_order: 39
   direction_label: forward
-  benchmark_mae: 0.019900007427344792
-  benchmark_rmse: 0.030717073127264443
-  source_run_instance_id: 2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/020_track1_original_dataset_forward_svr_attempt_20.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation/onnx_export/SVR/SVR_phase39.onnx
+  benchmark_mae: 0.03782755086808443
+  benchmark_rmse: 0.06147267507432673
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase39.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase39.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-13-33__track1_original_dataset_forward_svr_attempt_20_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase39.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase39.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 19dcf001af2201d1d2b735d764b150bcede2701fba24ea40975d7213d4fa598e
-  archived_model_sha256: 8b18510cd48ba4901c77e1154b603d0802cfd91a19376ca918d9807b7e2cb8ec
+  python_estimator_class_name: Pipeline
+  python_model_sha256: de39d5e6aea358d8b703d02631e80b5195ef08e942ed93dfb5b74a6752754015
+  archived_model_sha256: 7dbf0e187fbceb0740f73c2fe914aa7fa6b815d327255337abb45cf8b3f0436c
   feature_name_list:
   - rpm
   - deg
@@ -1346,7 +1526,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 61
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1360,45 +1540,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.019900007427344792
-  training_metric_rmse: 0.030717073127264443
-  training_metric_mse: 0.0009435385815057115
-  training_metric_mape_percent: 1.6856784781151597
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.03782755086808443
+  training_metric_rmse: 0.06147267507432673
+  training_metric_mse: 0.003778889780793751
+  training_metric_mape_percent: 3.115373547142148
 - target_name: fft_y_Fw_filtered_phase_40
   target_kind: phase
   harmonic_order: 40
   direction_label: forward
-  benchmark_mae: 0.047536700357117274
-  benchmark_rmse: 0.0686588055857884
-  source_run_instance_id: 2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-26_track1_forward_svr_original_dataset_mega_campaign/015_track1_original_dataset_forward_svr_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/onnx_export/SVR/SVR_phase40.onnx
+  benchmark_mae: 0.09921236847383326
+  benchmark_rmse: 0.13156852705850358
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase40.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase40.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-26-01-07-24__track1_original_dataset_forward_svr_attempt_15_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase40.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase40.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 1c6d3fd40e12e98694c41512104d202540b82f8e2cfde2a567fb6f7d9820582e
-  archived_model_sha256: 13c968762065c7528e9f04ba6d97cf27a45267d069b20d057b64cc4476cb47ef
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 5719fa07dd3db8a5a4be008f08ea848eb6cda60ccfac67728ec18a3b2cefcac8
+  archived_model_sha256: 7d6497dc49c8ba9edcaa68b4243536804591a5ed1bc53b950cdc4586a4a709c7
   feature_name_list:
   - rpm
   - deg
@@ -1431,7 +1623,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1445,45 +1637,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.047536700357117274
-  training_metric_rmse: 0.0686588055857884
-  training_metric_mse: 0.004714031584467087
-  training_metric_mape_percent: 74.59448801348282
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.09921236847383326
+  training_metric_rmse: 0.13156852705850358
+  training_metric_mse: 0.01731027731234419
+  training_metric_mape_percent: 227.5488177593029
 - target_name: fft_y_Fw_filtered_phase_78
   target_kind: phase
   harmonic_order: 78
   direction_label: forward
-  benchmark_mae: 0.13216644296105032
-  benchmark_rmse: 0.1899096030316423
-  source_run_instance_id: 2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/009_track1_original_dataset_forward_svr_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase78.onnx
+  benchmark_mae: 0.1636647242129365
+  benchmark_rmse: 0.33227078167367874
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase78.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase78.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase78.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase78.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 1e417b88f7bf64030485c2b48cd6f1a3fae5ee15dc2e888ae12ebcad40977794
-  archived_model_sha256: 75975a570d873b7fd0dab80f160c036b972fa3fe63438b561b3344fdc4fdf8a3
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 79a2a7a9b979523f146f61616fb607793114b17a76ca53fb8b6e92a687027f2d
+  archived_model_sha256: 48f1f89afc4a5c7d1158ea51f34c48a01e6900787186c79f241ae390d682367b
   feature_name_list:
   - rpm
   - deg
@@ -1516,7 +1720,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 19
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1530,45 +1734,57 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.13216644296105032
-  training_metric_rmse: 0.1899096030316423
-  training_metric_mse: 0.036065657323635966
-  training_metric_mape_percent: 433.1648295722643
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.1636647242129365
+  training_metric_rmse: 0.33227078167367874
+  training_metric_mse: 0.1104038723540375
+  training_metric_mape_percent: 360.83676760680163
 - target_name: fft_y_Fw_filtered_phase_81
   target_kind: phase
   harmonic_order: 81
   direction_label: forward
-  benchmark_mae: 0.09711956773480085
-  benchmark_rmse: 0.15721220039908254
-  source_run_instance_id: 2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/forward/svr/2026-04-25_track1_forward_svr_original_dataset_mega_campaign/009_track1_original_dataset_forward_svr_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/onnx_export/SVR/SVR_phase81.onnx
+  benchmark_mae: 0.13742243755947295
+  benchmark_rmse: 0.2184909544499627
+  source_run_instance_id: 2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/forward/svr/2026-05-04_track1_forward_svr_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_forward_svr.yaml
+  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/onnx_export/SVR/SVR_phase81.onnx
   archived_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/onnx/phase/SVR_phase81.onnx
-  export_estimator_name: SVR
+  export_estimator_name: Pipeline
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-04-25-12-39-23__track1_original_dataset_forward_svr_attempt_09_campaign_validation/split_manifest.yaml
+  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/validation_summary.yaml
+  source_training_config_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/run_metadata.snapshot.yaml
+  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/paper_family_model_bank.pkl
+  split_manifest_path: models/paper_reference/rcim_track1/forward/svm_reference_models/source_runs/2026-05-14-11-22-01__track1_paper_faithful_grid_search_forward_svr_campaign_validation/split_manifest.yaml
   dataset_snapshot_path: models/paper_reference/rcim_track1/forward/svm_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: e5a300ac3ba08985225583e704efb15db1072a0131529a807b44ae5ae2ab23fe
-  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/SVR_phase81.pkl
+  dataset_snapshot_sha256: c7a180e6371e6b974b04941b4f8dfaabf8f52dbaa428fdeaefc1fae9c09e8fd4
+  python_model_path: models/paper_reference/rcim_track1/forward/svm_reference_models/python/phase/Pipeline_phase81.pkl
   python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: SVR
-  python_model_sha256: 4ccdb9444a94404fd537591c3922ffb1322ea5440f6765e6b964bf0bb0460886
-  archived_model_sha256: 580f503a0bff052266076b7267ebc68c84f03454184af21626a8a1420c4102a5
+  python_estimator_class_name: Pipeline
+  python_model_sha256: 4bfb7f3fe4586acc44bef4d2ea90a58aab091a76dce4281c97abf009280bffaf
+  archived_model_sha256: 9c7dcd3f774761c4f520c75ee953c57e0cd7138425f7e39524099a00c39f3aaf
   feature_name_list:
   - rpm
   - deg
@@ -1601,7 +1817,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 19
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1615,18 +1831,30 @@ reference_models:
   - 240
   decomposition_point_stride: 1
   exact_estimator_params:
-    C: 1
-    cache_size: 200
-    coef0: 0.0
-    degree: 3
-    epsilon: 0.0001
-    gamma: 1.1e-06
-    kernel: rbf
-    max_iter: -1
-    shrinking: true
-    tol: 0.001
+    memory: null
+    steps:
+    - - scaler
+      - StandardScaler()
+    - - model
+      - LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    transform_input: null
     verbose: false
-  training_metric_mae: 0.09711956773480085
-  training_metric_rmse: 0.15721220039908254
-  training_metric_mse: 0.02471567595432129
-  training_metric_mape_percent: 11.002854819398475
+    scaler: StandardScaler()
+    model: LinearSVR(C=1, epsilon=0.0001, max_iter=5000, random_state=0)
+    scaler__copy: true
+    scaler__with_mean: true
+    scaler__with_std: true
+    model__C: 1
+    model__dual: auto
+    model__epsilon: 0.0001
+    model__fit_intercept: true
+    model__intercept_scaling: 1.0
+    model__loss: epsilon_insensitive
+    model__max_iter: 5000
+    model__random_state: 0
+    model__tol: 0.0001
+    model__verbose: 0
+  training_metric_mae: 0.13742243755947295
+  training_metric_rmse: 0.2184909544499627
+  training_metric_mse: 0.04773829717645567
+  training_metric_mape_percent: 20.721207085098605

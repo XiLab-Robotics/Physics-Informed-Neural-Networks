@@ -6,7 +6,6 @@ Suggested subfolders:
 
 - `checkpoints/` for copied or curated training checkpoints
 - `exported/` for ONNX, Structured Text, or other deployment-ready exports
-- `exported/<family>/<scope>/` for curated Wave 1 winner archives with `python/`, `onnx/`, local inventories, and source-run provenance bundles
 - `paper_reference/` for curated paper-baseline model archives with provenance
   and reconstruction notes
 
@@ -15,49 +14,26 @@ Project-authored Python source code no longer lives here. Source files are store
 - `scripts/models/`
 - `scripts/training/`
 
-Current curated Track 1 paper-reference archives:
+Current curated Track 1 paper-reference archives include:
 
-- `paper_reference/rcim_track1/forward/svm_reference_models/`
-- `paper_reference/rcim_track1/forward/mlp_reference_models/`
-- `paper_reference/rcim_track1/forward/rf_reference_models/`
-- `paper_reference/rcim_track1/forward/dt_reference_models/`
-- `paper_reference/rcim_track1/forward/et_reference_models/`
-- `paper_reference/rcim_track1/forward/ert_reference_models/`
-- `paper_reference/rcim_track1/forward/gbm_reference_models/`
-- `paper_reference/rcim_track1/forward/hgbm_reference_models/`
-- `paper_reference/rcim_track1/forward/xgbm_reference_models/`
-- `paper_reference/rcim_track1/forward/lgbm_reference_models/`
-- `paper_reference/rcim_track1/backward/svm_reference_models/`
-- `paper_reference/rcim_track1/backward/mlp_reference_models/`
-- `paper_reference/rcim_track1/backward/rf_reference_models/`
-- `paper_reference/rcim_track1/backward/dt_reference_models/`
-- `paper_reference/rcim_track1/backward/et_reference_models/`
-- `paper_reference/rcim_track1/backward/ert_reference_models/`
-- `paper_reference/rcim_track1/backward/gbm_reference_models/`
-- `paper_reference/rcim_track1/backward/hgbm_reference_models/`
-- `paper_reference/rcim_track1/backward/xgbm_reference_models/`
-- `paper_reference/rcim_track1/backward/lgbm_reference_models/`
-
-Current curated RCIM original paper-reference archives:
-
-- `paper_reference/rcim_original/forward/svm_reference_models/`
-- `paper_reference/rcim_original/forward/mlp_reference_models/`
-- `paper_reference/rcim_original/forward/rf_reference_models/`
-- `paper_reference/rcim_original/forward/dt_reference_models/`
-- `paper_reference/rcim_original/forward/et_reference_models/`
-- `paper_reference/rcim_original/forward/ert_reference_models/`
-- `paper_reference/rcim_original/forward/gbm_reference_models/`
-- `paper_reference/rcim_original/forward/hgbm_reference_models/`
-- `paper_reference/rcim_original/forward/lgbm_reference_models/`
-- `paper_reference/rcim_original/forward/xgbm_reference_models/`
-- `paper_reference/rcim_original/forward/elm_reference_models/`
-
-Current curated RCIM retuned paper-reference archives:
-
-- `paper_reference/rcim_retuned/forward/`
-- `paper_reference/rcim_retuned/backward/`
-
-The retuned archive contains `11` family folders per direction. Each promoted
-family-direction archive preserves `20` ONNX exports, `20` Python pickle
-exports, source-run provenance, dataset snapshots, and machine-readable
-inventories.
+- `forward/svm_reference_models/`
+- `forward/mlp_reference_models/`
+- `forward/rf_reference_models/`
+- `forward/dt_reference_models/`
+- `forward/et_reference_models/`
+- `forward/ert_reference_models/`
+- `forward/gbm_reference_models/`
+- `forward/hgbm_reference_models/`
+- `forward/xgbm_reference_models/`
+- `forward/lgbm_reference_models/`
+- `forward/elm_reference_models/`
+- `backward/svm_reference_models/`
+- `backward/mlp_reference_models/`
+- `backward/rf_reference_models/`
+- `backward/dt_reference_models/`
+- `backward/et_reference_models/`
+- `backward/ert_reference_models/`
+- `backward/gbm_reference_models/`
+- `backward/hgbm_reference_models/`
+- `backward/xgbm_reference_models/`
+- `backward/lgbm_reference_models/`

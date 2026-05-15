@@ -101,6 +101,16 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-15
+
+- [technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md)
+  Plan the Track 1 forward paper-faithful campaign closeout, paper-reference
+  model archive replacement, linked report updates, and RCIM Tables `2`-`5`
+  benchmark recompilation.
+- [technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md)
+  Plan the reusable styled-PDF table layout refinement for the Track 1 forward
+  paper-faithful closeout report.
+
 #### 2026-05-14
 
 - [technical/2026-05/2026-05-14/2026-05-14-11-32-41_rcim_retuned_report_family_metric_row_selection_fix.md](./technical/2026-05/2026-05-14/2026-05-14-11-32-41_rcim_retuned_report_family_metric_row_selection_fix.md)

@@ -27,29 +27,29 @@ Accepted amplitude targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_ampl_0` | `0` | `0.0026374` | `0.00317175` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx` |
-| `fft_y_Fw_filtered_ampl_1` | `1` | `2.07938e-05` | `2.82282e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx` |
-| `fft_y_Fw_filtered_ampl_156` | `156` | `2.60746e-05` | `5.90567e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx` |
-| `fft_y_Fw_filtered_ampl_162` | `162` | `2.20824e-05` | `5.12809e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx` |
-| `fft_y_Fw_filtered_ampl_240` | `240` | `2.8738e-05` | `4.03803e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx` |
-| `fft_y_Fw_filtered_ampl_3` | `3` | `1.88926e-05` | `2.50886e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx` |
+| `fft_y_Fw_filtered_ampl_0` | `0` | `0.0032981` | `0.00402504` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx` |
+| `fft_y_Fw_filtered_ampl_1` | `1` | `2.99936e-05` | `3.95159e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx` |
+| `fft_y_Fw_filtered_ampl_156` | `156` | `5.42847e-05` | `0.000226686` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx` |
+| `fft_y_Fw_filtered_ampl_162` | `162` | `8.02514e-05` | `0.000326493` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx` |
+| `fft_y_Fw_filtered_ampl_240` | `240` | `3.96275e-05` | `7.97047e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx` |
+| `fft_y_Fw_filtered_ampl_3` | `3` | `1.90726e-05` | `2.5487e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx` |
 | `fft_y_Fw_filtered_ampl_39` | `39` | `2.58271e-05` | `3.32522e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl39.onnx` |
 | `fft_y_Fw_filtered_ampl_40` | `40` | `2.06984e-05` | `2.74003e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl40.onnx` |
-| `fft_y_Fw_filtered_ampl_78` | `78` | `2.93542e-05` | `4.15779e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl78.onnx` |
-| `fft_y_Fw_filtered_ampl_81` | `81` | `8.76095e-06` | `1.17256e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl81.onnx` |
+| `fft_y_Fw_filtered_ampl_78` | `78` | `3.40623e-05` | `4.85815e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl78.onnx` |
+| `fft_y_Fw_filtered_ampl_81` | `81` | `1.13607e-05` | `1.56353e-05` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl81.onnx` |
 
 Accepted phase targets:
 
 | Target | Harmonic | MAE | RMSE | Archived ONNX |
 | --- | ---: | ---: | ---: | --- |
-| `fft_y_Fw_filtered_phase_1` | `1` | `0.00172458` | `0.00250188` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase1.onnx` |
-| `fft_y_Fw_filtered_phase_156` | `156` | `0.375921` | `0.824318` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase156.onnx` |
-| `fft_y_Fw_filtered_phase_162` | `162` | `0.13894` | `0.413294` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase162.onnx` |
-| `fft_y_Fw_filtered_phase_240` | `240` | `0.139049` | `0.349334` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase240.onnx` |
-| `fft_y_Fw_filtered_phase_3` | `3` | `0.020385` | `0.0275896` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase3.onnx` |
-| `fft_y_Fw_filtered_phase_39` | `39` | `0.0193248` | `0.0279451` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase39.onnx` |
-| `fft_y_Fw_filtered_phase_40` | `40` | `0.0298409` | `0.0466426` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase40.onnx` |
-| `fft_y_Fw_filtered_phase_78` | `78` | `0.0467775` | `0.0964938` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase78.onnx` |
+| `fft_y_Fw_filtered_phase_1` | `1` | `0.00213975` | `0.00307895` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase1.onnx` |
+| `fft_y_Fw_filtered_phase_156` | `156` | `0.505565` | `0.924908` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase156.onnx` |
+| `fft_y_Fw_filtered_phase_162` | `162` | `0.20839` | `0.708327` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase162.onnx` |
+| `fft_y_Fw_filtered_phase_240` | `240` | `0.311603` | `0.845185` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase240.onnx` |
+| `fft_y_Fw_filtered_phase_3` | `3` | `0.0211093` | `0.0289877` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase3.onnx` |
+| `fft_y_Fw_filtered_phase_39` | `39` | `0.0271126` | `0.0522371` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase39.onnx` |
+| `fft_y_Fw_filtered_phase_40` | `40` | `0.0327383` | `0.0507968` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase40.onnx` |
+| `fft_y_Fw_filtered_phase_78` | `78` | `0.0664968` | `0.207215` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase78.onnx` |
 | `fft_y_Fw_filtered_phase_81` | `81` | `0.0456165` | `0.0622622` | `models/paper_reference/rcim_track1/forward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase81.onnx` |
 
 Provenance summary:
@@ -58,7 +58,7 @@ Provenance summary:
 - paper family: `ERT`
 - implementation family: `ERT`
 - archived target count: `19`
-- unique source runs: `12`
-- unique source configs: `12`
+- unique source runs: `1`
+- unique source configs: `1`
 - dataset snapshot manifest: `models/paper_reference/rcim_track1/forward/ert_reference_models/dataset_snapshot_manifest.yaml`
 - machine-readable inventory: `models/paper_reference/rcim_track1/forward/ert_reference_models/reference_inventory.yaml`
