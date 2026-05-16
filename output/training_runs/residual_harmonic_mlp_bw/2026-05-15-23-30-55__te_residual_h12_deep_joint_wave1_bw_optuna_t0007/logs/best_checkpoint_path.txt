@@ -1,0 +1,1 @@
+C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_bw\2026-05-15-23-30-55__te_residual_h12_deep_joint_wave1_bw_optuna_t0007\checkpoints\residual_harmonic_mlp-epoch=092-val_mae=0.00294754.ckpt

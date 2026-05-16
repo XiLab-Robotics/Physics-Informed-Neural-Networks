@@ -1,0 +1,20 @@
+study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_residual_harmonic_mlp_optuna
+trial_number: 17
+completed_at: '2026-05-15T21:29:05'
+objective_metric_name: val_mae
+objective_value: 0.003095728810876608
+run_instance_id: 2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017
+run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0017
+trial_config_path: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/residual_harmonic_mlp/trial_configs/trial_0017.yaml
+output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017
+sampled_parameters:
+  training.learning_rate: 0.0005773321098300857
+  training.weight_decay: 6.34383371276861e-05
+  dataset.curve_batch_size: 4
+  model.residual_dropout_probability: 0.1
+  model.residual_hidden_size:
+  - 128
+  - 128
+  - 128
+  - 64
+  model.harmonic_order: 12

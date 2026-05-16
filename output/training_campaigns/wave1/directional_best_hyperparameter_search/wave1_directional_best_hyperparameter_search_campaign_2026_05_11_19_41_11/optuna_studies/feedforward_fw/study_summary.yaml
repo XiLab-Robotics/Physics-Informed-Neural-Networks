@@ -1,0 +1,10 @@
+study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_feedforward_fw_optuna
+generated_at: '2026-05-14T22:03:06'
+trial_budget: 18
+completed_trials: 18
+successful_trials: 18
+best_trial_number: 5
+best_value: 0.0027464041486382484
+objective_metric_name: val_mae
+study_output_root: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/feedforward_fw
+storage_relative_path: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/feedforward_fw/study.sqlite3

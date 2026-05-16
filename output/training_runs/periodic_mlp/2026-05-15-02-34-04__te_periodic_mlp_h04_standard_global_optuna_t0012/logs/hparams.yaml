@@ -1,0 +1,4 @@
+input_feature_dim: 5
+learning_rate: 0.00045365989866489773
+target_feature_dim: 1
+weight_decay: 8.08654594734735e-05

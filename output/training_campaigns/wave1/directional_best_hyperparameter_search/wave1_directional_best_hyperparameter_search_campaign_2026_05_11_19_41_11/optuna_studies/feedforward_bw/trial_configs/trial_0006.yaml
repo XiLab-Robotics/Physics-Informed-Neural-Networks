@@ -1,0 +1,61 @@
+paths:
+  dataset_config_path: config/training/wave1_directional_best_hyperparameter_search/campaigns/2026-05-11_wave1_directional_best_hyperparameter_search_campaign/dataset_variants/transmission_error_dataset_bw.yaml
+  output_root: output/training_runs/feedforward_bw
+experiment:
+  run_name: te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0006
+  model_family: feedforward_bw
+  model_type: feedforward
+metadata:
+  campaign_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md
+  phase_name: wave1_directional_best_hyperparameter_search
+  campaign_config_id: feedforward_bw
+  notes: Full-density longer-budget remote feedforward follow-up on the stronger GPU
+    path. Directional Wave 1 retraining variant prepared from the current `feedforward`
+    family-best source config with `Bw` data scope. Optuna trial 6 under study `wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_feedforward_bw_optuna`.
+  random_seed: 42
+  base_model_family: feedforward
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  output_artifact_kind: training_run
+  output_run_name: te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0006
+  run_instance_id: 2026-05-13-21-57-00__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0006
+  hpo_engine: optuna
+  hpo_study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_feedforward_bw_optuna
+  hpo_trial_number: 6
+  hpo_objective_metric: val_mae
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  num_workers: 2
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 256
+  - 256
+  - 256
+  - 128
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+training:
+  learning_rate: 0.0010424738336765917
+  weight_decay: 4.3597998747012376e-05
+  min_epochs: 20
+  max_epochs: 320
+  patience: 45
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: 1
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

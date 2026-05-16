@@ -1,0 +1,36 @@
+study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_residual_harmonic_mlp_bw_optuna
+storage_relative_path: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/residual_harmonic_mlp_bw/study.sqlite3
+direction: minimize
+trial_budget: 18
+completed_trials: 18
+successful_trials: 18
+best_trial_number: 5
+best_value: 0.0029296947177499533
+objective_metric_name: val_mae
+best_parameters:
+  training.learning_rate: 0.002643977767420395
+  training.weight_decay: 0.0003294325864613329
+  dataset.curve_batch_size: 2
+  model.residual_dropout_probability: 0.1
+  model.residual_hidden_size:
+  - 192
+  - 128
+  - 64
+  model.harmonic_order: 8
+best_user_attributes:
+  output_directory: output/training_runs/residual_harmonic_mlp_bw/2026-05-15-22-50-40__te_residual_h12_deep_joint_wave1_bw_optuna_t0005
+  run_instance_id: 2026-05-15-22-50-40__te_residual_h12_deep_joint_wave1_bw_optuna_t0005
+  run_name: te_residual_h12_deep_joint_wave1_Bw_optuna_t0005
+  sampled_parameters:
+    training.learning_rate: 0.002643977767420395
+    training.weight_decay: 0.0003294325864613329
+    dataset.curve_batch_size: 2
+    model.residual_dropout_probability: 0.1
+    model.residual_hidden_size:
+    - 192
+    - 128
+    - 64
+    model.harmonic_order: 8
+  test_mae: 0.0034537422470748425
+  trial_config_path: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/residual_harmonic_mlp_bw/trial_configs/trial_0005.yaml
+  val_mae: 0.0029296947177499533

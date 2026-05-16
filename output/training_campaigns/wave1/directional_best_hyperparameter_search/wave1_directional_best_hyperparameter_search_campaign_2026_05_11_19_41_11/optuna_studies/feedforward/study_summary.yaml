@@ -1,8 +1,8 @@
 study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_feedforward_optuna
-generated_at: '2026-05-12T19:35:44'
-trial_budget: 4
-completed_trials: 4
-successful_trials: 3
+generated_at: '2026-05-13T13:25:56'
+trial_budget: 18
+completed_trials: 18
+successful_trials: 12
 best_trial_number: 1
 best_value: 0.002957722870633006
 objective_metric_name: val_mae

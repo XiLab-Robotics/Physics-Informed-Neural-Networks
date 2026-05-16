@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_mlp
+base_model_family: periodic_mlp
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_periodic_mlp_h04_standard_global_optuna_t0014
+run_instance_id: 2026-05-15-03-18-41__te_periodic_mlp_h04_standard_global_optuna_t0014
+output_directory: output/training_runs/periodic_mlp/2026-05-15-03-18-41__te_periodic_mlp_h04_standard_global_optuna_t0014

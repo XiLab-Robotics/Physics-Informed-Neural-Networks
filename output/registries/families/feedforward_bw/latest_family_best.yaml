@@ -6,11 +6,11 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:44:29'
+updated_at: '2026-05-14T13:49:53'
 best_entry:
-  run_instance_id: 2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw
-  run_name: te_feedforward_stride1_high_compute_long_remote_Bw
-  output_run_name: te_feedforward_stride1_high_compute_long_remote_Bw
+  run_instance_id: 2026-05-13-21-30-23__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0005
+  run_name: te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0005
+  output_run_name: te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0005
   output_artifact_kind: training_run
   model_family: feedforward_bw
   base_model_family: feedforward
@@ -19,20 +19,20 @@ best_entry:
   direction_scope_label: backward_only
   use_forward_direction: false
   use_backward_direction: true
-  trainable_parameter_count: 109953
-  total_parameter_count: 109953
-  val_mae: 0.003048636019229889
-  val_rmse: 0.0035448165144771338
-  test_mae: 0.003262021578848362
-  test_rmse: 0.003749280935153365
-  output_directory: output/training_runs/feedforward_bw/2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw
-  best_checkpoint_path: output/training_runs/feedforward_bw/2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw/checkpoints/feedforward-epoch=093-val_mae=0.00304864.ckpt
-  metrics_path: output/training_runs/feedforward_bw/2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw/metrics_summary.yaml
-  report_path: output/training_runs/feedforward_bw/2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw/training_test_report.md
+  trainable_parameter_count: 167937
+  total_parameter_count: 167937
+  val_mae: 0.003017522394657135
+  val_rmse: 0.0035270194057375193
+  test_mae: 0.0030990808736532927
+  test_rmse: 0.003629937767982483
+  output_directory: output/training_runs/feedforward_bw/2026-05-13-21-30-23__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0005
+  best_checkpoint_path: output/training_runs/feedforward_bw/2026-05-13-21-30-23__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0005/checkpoints/feedforward-epoch=115-val_mae=0.00301752.ckpt
+  metrics_path: output/training_runs/feedforward_bw/2026-05-13-21-30-23__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0005/metrics_summary.yaml
+  report_path: output/training_runs/feedforward_bw/2026-05-13-21-30-23__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0005/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:44:29'
+  selected_at: '2026-05-13T21:56:59'

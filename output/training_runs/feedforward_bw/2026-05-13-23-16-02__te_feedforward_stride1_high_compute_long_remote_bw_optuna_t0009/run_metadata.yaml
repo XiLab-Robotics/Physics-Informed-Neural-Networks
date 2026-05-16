@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward_bw
+base_model_family: feedforward
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0009
+run_instance_id: 2026-05-13-23-16-02__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0009
+output_directory: output/training_runs/feedforward_bw/2026-05-13-23-16-02__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0009
