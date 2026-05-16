@@ -1,0 +1,61 @@
+schema_version: 1
+generated_at: '2026-05-16T03:41:56.292127'
+scope_descriptor:
+  workflow_variant: original_dataset_exact_model_bank
+  direction_label: backward
+  target_scope_mode: all
+  include_phase_zero: false
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  enabled_family_list:
+  - ERT
+validation_summary_path: N/A
+output_directory: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+family_entries:
+- family_name: ERT
+  best_params:
+    estimator__criterion: squared_error
+    estimator__max_depth: 14
+    estimator__max_leaf_nodes: null
+    estimator__min_samples_split: 5
+    estimator__n_estimators: 20
+  best_score: 0.29650718327791276
+  search_mode: paper_reference_grid_search
+  used_grid_search: true
+  best_parameter_source: grid_search
+  mean_component_mape_percent: 20.120031067609798
+  mean_component_mae: 0.04967131562471192
+  mean_component_rmse: 0.12955128413371175

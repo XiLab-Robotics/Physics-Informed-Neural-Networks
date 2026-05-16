@@ -1,0 +1,804 @@
+schema_version: 1
+workflow_name: rcim_original_dataset_exact_model_bank_validation
+reference_scope: original_dataset_directional_exact_model_bank
+config_path: config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_paper_faithful_grid_search\backward\dt\2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign\001_track1_paper_faithful_grid_search_backward_dt.yaml
+experiment:
+  model_family: paper_reimplementation_rcim_original_dataset_exact_model_bank
+  model_type: exact_model_bank_backward_dt_paper_faithful_grid_search_campaign
+  run_name: track1_paper_faithful_grid_search_backward_dt
+  output_run_name: track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  output_directory: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+dataset:
+  dataset_root: data\datasets
+  dataset_config_path: config\datasets\transmission_error_dataset.yaml
+  direction_label: backward
+  direction_prefix: Bw
+  filtered_row_count: 969
+  feature_count: 3
+  target_count: 19
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  validation_split: 0.2
+  test_size: 0.1
+  random_seed: 0
+  smoke_settings:
+    enabled: false
+    max_train_file_count: 0
+    max_validation_file_count: 0
+    max_test_file_count: 0
+training_strategy:
+  hyperparameter_search_mode: paper_reference_grid_search
+  family_search_summary:
+    DT:
+      search_mode: paper_reference_grid_search
+      used_grid_search: true
+      grid_search_disabled_for_family: false
+      workflow_stage: search
+      grid_search_n_jobs: -1
+      grid_search_verbose: 2
+      historical_cross_validate_verbose: 1
+      grid_search_pre_dispatch: 2*n_jobs
+      grid_search_cv: 5
+      parameter_grid:
+        estimator__criterion:
+        - squared_error
+        - absolute_error
+        estimator__max_depth:
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        estimator__max_leaf_nodes:
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - null
+        estimator__min_samples_split:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      best_params: &id001
+        estimator__criterion: squared_error
+        estimator__max_depth: 15
+        estimator__max_leaf_nodes: null
+        estimator__min_samples_split: 5
+      best_parameter_source: grid_search
+      best_score: 0.17598450826839107
+      historical_protocol_summary:
+        executed: true
+        cv_fold_count: 10
+        scoring_name_list:
+        - neg_mean_squared_error
+        - neg_root_mean_squared_error
+        - neg_mean_absolute_error
+        - neg_mean_absolute_percentage_error
+        global_wrapper_metric_mean_dictionary:
+          mean_squared_error: 0.11771262467006327
+          root_mean_squared_error: 0.1495459178167926
+          mean_absolute_error: 0.05447559273000555
+          mean_absolute_percentage_error: 0.2490125488673079
+        per_target_best_estimator_metric_mean_dictionary:
+          fft_y_Bw_filtered_ampl_0:
+            mean_squared_error: 2.0221745180284193e-05
+            root_mean_squared_error: 0.00445052745383986
+            mean_absolute_error: 0.0033724174169529426
+            mean_absolute_percentage_error: 0.4841373879606786
+          fft_y_Bw_filtered_ampl_1:
+            mean_squared_error: 1.8552650738147373e-09
+            root_mean_squared_error: 4.262349043842674e-05
+            mean_absolute_error: 3.00403838159766e-05
+            mean_absolute_percentage_error: 0.0017523080673703482
+          fft_y_Bw_filtered_phase_1:
+            mean_squared_error: 1.1117227143709155e-05
+            root_mean_squared_error: 0.0031100942181475485
+            mean_absolute_error: 0.0021403537028293488
+            mean_absolute_percentage_error: 0.7571385162008176
+          fft_y_Bw_filtered_ampl_3:
+            mean_squared_error: 2.0885757754500104e-09
+            root_mean_squared_error: 4.26584433734357e-05
+            mean_absolute_error: 2.8382452400160147e-05
+            mean_absolute_percentage_error: 0.02905570968888093
+          fft_y_Bw_filtered_phase_3:
+            mean_squared_error: 0.0019429143646609117
+            root_mean_squared_error: 0.040875693856386654
+            mean_absolute_error: 0.0274647535166972
+            mean_absolute_percentage_error: 0.020522512452024362
+          fft_y_Bw_filtered_ampl_39:
+            mean_squared_error: 1.2512479439572768e-09
+            root_mean_squared_error: 3.4684803458774625e-05
+            mean_absolute_error: 2.3782637170756803e-05
+            mean_absolute_percentage_error: 0.05388386729472007
+          fft_y_Bw_filtered_phase_39:
+            mean_squared_error: 0.8814289557129179
+            root_mean_squared_error: 0.8877817875393463
+            mean_absolute_error: 0.2270511597497587
+            mean_absolute_percentage_error: 0.07997171719631549
+          fft_y_Bw_filtered_ampl_40:
+            mean_squared_error: 2.256482665451844e-09
+            root_mean_squared_error: 4.6371155143781306e-05
+            mean_absolute_error: 3.2834312333754635e-05
+            mean_absolute_percentage_error: 0.10971989877778136
+          fft_y_Bw_filtered_phase_40:
+            mean_squared_error: 0.031900808812596326
+            root_mean_squared_error: 0.1714783472571586
+            mean_absolute_error: 0.11587440067333951
+            mean_absolute_percentage_error: 0.6335619645139572
+          fft_y_Bw_filtered_ampl_78:
+            mean_squared_error: 7.453530109014977e-09
+            root_mean_squared_error: 8.52927729986285e-05
+            mean_absolute_error: 6.25305168996764e-05
+            mean_absolute_percentage_error: 0.08848835352006815
+          fft_y_Bw_filtered_phase_78:
+            mean_squared_error: 0.02644014383306697
+            root_mean_squared_error: 0.1471914325474497
+            mean_absolute_error: 0.07764941727899637
+            mean_absolute_percentage_error: 0.5384175931223361
+          fft_y_Bw_filtered_ampl_81:
+            mean_squared_error: 3.55187684972075e-10
+            root_mean_squared_error: 1.854139127137311e-05
+            mean_absolute_error: 1.2725514938886261e-05
+            mean_absolute_percentage_error: 0.10356754737711762
+          fft_y_Bw_filtered_phase_81:
+            mean_squared_error: 0.03033160676814055
+            root_mean_squared_error: 0.17124879169775648
+            mean_absolute_error: 0.11912657131030915
+            mean_absolute_percentage_error: 1.207454594294642
+          fft_y_Bw_filtered_ampl_156:
+            mean_squared_error: 5.378969105642714e-07
+            root_mean_squared_error: 0.0004885211499076322
+            mean_absolute_error: 0.00017093957319979757
+            mean_absolute_percentage_error: 0.08678803148392433
+          fft_y_Bw_filtered_phase_156:
+            mean_squared_error: 0.19357425829711086
+            root_mean_squared_error: 0.29299171959875336
+            mean_absolute_error: 0.11153574807126412
+            mean_absolute_percentage_error: 0.11811367507096086
+          fft_y_Bw_filtered_ampl_162:
+            mean_squared_error: 4.051930636514145e-08
+            root_mean_squared_error: 0.00016101939843348747
+            mean_absolute_error: 6.911463656341109e-05
+            mean_absolute_percentage_error: 0.07235031979409495
+          fft_y_Bw_filtered_phase_162:
+            mean_squared_error: 0.044132976446913656
+            root_mean_squared_error: 0.15302040664457123
+            mean_absolute_error: 0.07447975654716119
+            mean_absolute_percentage_error: 0.03992130084870652
+          fft_y_Bw_filtered_ampl_240:
+            mean_squared_error: 6.31504780252661e-08
+            root_mean_squared_error: 0.00022057592604008373
+            mean_absolute_error: 9.906907604787367e-05
+            mean_absolute_percentage_error: 0.1242462662340452
+          fft_y_Bw_filtered_phase_240:
+            mean_squared_error: 0.7544740275436462
+            root_mean_squared_error: 0.7153539173213658
+            mean_absolute_error: 0.24908719732591225
+            mean_absolute_percentage_error: 0.14671235613680272
+  validation_usage_note: Validation split is reserved for future campaign-level tuning.
+    The current stabilization branch fits on the train split and reports held-out
+    test metrics.
+paper_alignment:
+  input_feature_schema:
+  - rpm
+  - deg
+  - tor
+  feature_origin_mapping:
+    rpm: speed_rpm
+    deg: oil_temperature_deg
+    tor: torque_nm
+  separate_direction_models: true
+  published_paper_tables_reference_scope: forward_only
+dependency_versions:
+  numpy: 2.4.3
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  skl2onnx: 1.20.0
+  onnxmltools: 1.16.0
+  xgboost: 3.2.0
+  lightgbm: 4.6.0
+winner_summary:
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mean_component_mape_percent: 24.108838892727796
+  winning_mean_component_mae: 0.04320926542119419
+  winning_mean_component_rmse: 0.13444711265785747
+  winning_best_params: *id001
+family_ranking:
+- family_name: DT
+  display_name: Decision Tree
+  estimator_name: DecisionTreeRegressor
+  component_count: 19
+  mean_component_mse: 0.07878905309812571
+  mean_component_rmse: 0.13444711265785747
+  mean_component_mae: 0.04320926542119419
+  mean_component_mape_percent: 24.108838892727796
+  target_metrics:
+  - &id002
+    target_name: fft_y_Bw_filtered_ampl_0
+    family_name: DT
+    mse: 2.8733153274144435e-05
+    rmse: 0.0053603314518921715
+    mae: 0.003622158139635915
+    mape_percent: 170.3166874678789
+  - &id003
+    target_name: fft_y_Bw_filtered_ampl_1
+    family_name: DT
+    mse: 1.61903152329635e-09
+    rmse: 4.023719079777253e-05
+    mae: 2.6570618896336664e-05
+    mape_percent: 0.15468993621940402
+  - &id004
+    target_name: fft_y_Bw_filtered_phase_1
+    family_name: DT
+    mse: 6.457423218437188e-06
+    rmse: 0.0025411460442952088
+    mae: 0.001840673037638419
+    mape_percent: 24.60851363176722
+  - &id005
+    target_name: fft_y_Bw_filtered_ampl_3
+    family_name: DT
+    mse: 1.3535488403401955e-09
+    rmse: 3.679060804526334e-05
+    mae: 2.4205270786238043e-05
+    mape_percent: 2.512188245087536
+  - &id006
+    target_name: fft_y_Bw_filtered_phase_3
+    family_name: DT
+    mse: 0.0011687566465146744
+    rmse: 0.03418708303606312
+    mae: 0.024765971250184104
+    mape_percent: 1.8772102971123528
+  - &id007
+    target_name: fft_y_Bw_filtered_ampl_39
+    family_name: DT
+    mse: 7.723849313090463e-10
+    rmse: 2.7791814106118482e-05
+    mae: 2.0163367893614627e-05
+    mape_percent: 4.708739215814319
+  - &id008
+    target_name: fft_y_Bw_filtered_phase_39
+    family_name: DT
+    mse: 0.6801471208031664
+    rmse: 0.8247103253889613
+    mae: 0.20310242849871304
+    mape_percent: 7.161801440607188
+  - &id009
+    target_name: fft_y_Bw_filtered_ampl_40
+    family_name: DT
+    mse: 1.3361728620233796e-09
+    rmse: 3.655369833578238e-05
+    mae: 2.5795811496285275e-05
+    mape_percent: 8.423164975411854
+  - &id010
+    target_name: fft_y_Bw_filtered_phase_40
+    family_name: DT
+    mse: 0.02224948667404175
+    rmse: 0.1491626182193171
+    mae: 0.10100679456210636
+    mape_percent: 63.00123765073683
+  - &id011
+    target_name: fft_y_Bw_filtered_ampl_78
+    family_name: DT
+    mse: 5.410654867081143e-09
+    rmse: 7.355715374510587e-05
+    mae: 5.253194291773853e-05
+    mape_percent: 5.42704359027248
+  - &id012
+    target_name: fft_y_Bw_filtered_phase_78
+    family_name: DT
+    mse: 0.007759510208197945
+    rmse: 0.08808808210080377
+    mae: 0.05238410788363173
+    mape_percent: 62.81896142902911
+  - &id013
+    target_name: fft_y_Bw_filtered_ampl_81
+    family_name: DT
+    mse: 2.7014938211870746e-10
+    rmse: 1.6436221649719483e-05
+    mae: 1.1488193560793296e-05
+    mape_percent: 9.716166179766045
+  - &id014
+    target_name: fft_y_Bw_filtered_phase_81
+    family_name: DT
+    mse: 0.018347962057537026
+    rmse: 0.1354546494496849
+    mae: 0.09122065402223556
+    mape_percent: 43.87714318688945
+  - &id015
+    target_name: fft_y_Bw_filtered_ampl_156
+    family_name: DT
+    mse: 2.1328198053691205e-07
+    rmse: 0.00046182462097306166
+    mae: 0.00013220173300258932
+    mape_percent: 9.702333454690415
+  - &id016
+    target_name: fft_y_Bw_filtered_phase_156
+    family_name: DT
+    mse: 0.41167427631188436
+    rmse: 0.6416184818970573
+    mae: 0.12079245891891854
+    mape_percent: 9.12682727212656
+  - &id017
+    target_name: fft_y_Bw_filtered_ampl_162
+    family_name: DT
+    mse: 3.2992079545780834e-07
+    rmse: 0.000574387321811518
+    mae: 0.0001093962331565551
+    mape_percent: 6.855015111504928
+  - &id018
+    target_name: fft_y_Bw_filtered_phase_162
+    family_name: DT
+    mse: 0.006550867877489628
+    rmse: 0.08093743186863311
+    mae: 0.0532045535827856
+    mape_percent: 2.9591751124549517
+  - &id019
+    target_name: fft_y_Bw_filtered_ampl_240
+    family_name: DT
+    mse: 1.2671672478113594e-07
+    rmse: 0.0003559729270339754
+    mae: 0.00012000498180836875
+    mape_percent: 11.474708286488216
+  - &id020
+    target_name: fft_y_Bw_filtered_phase_240
+    family_name: DT
+    mse: 0.3490581570276207
+    rmse: 0.5908114394860857
+    mae: 0.1685138849533217
+    mape_percent: 13.346332477970424
+target_winner_registry:
+- target_name: fft_y_Bw_filtered_ampl_0
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 170.3166874678789
+  winning_mae: 0.003622158139635915
+  winning_rmse: 0.0053603314518921715
+- target_name: fft_y_Bw_filtered_ampl_1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 0.15468993621940402
+  winning_mae: 2.6570618896336664e-05
+  winning_rmse: 4.023719079777253e-05
+- target_name: fft_y_Bw_filtered_phase_1
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 24.60851363176722
+  winning_mae: 0.001840673037638419
+  winning_rmse: 0.0025411460442952088
+- target_name: fft_y_Bw_filtered_ampl_3
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 2.512188245087536
+  winning_mae: 2.4205270786238043e-05
+  winning_rmse: 3.679060804526334e-05
+- target_name: fft_y_Bw_filtered_phase_3
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 1.8772102971123528
+  winning_mae: 0.024765971250184104
+  winning_rmse: 0.03418708303606312
+- target_name: fft_y_Bw_filtered_ampl_39
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 4.708739215814319
+  winning_mae: 2.0163367893614627e-05
+  winning_rmse: 2.7791814106118482e-05
+- target_name: fft_y_Bw_filtered_phase_39
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 7.161801440607188
+  winning_mae: 0.20310242849871304
+  winning_rmse: 0.8247103253889613
+- target_name: fft_y_Bw_filtered_ampl_40
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 8.423164975411854
+  winning_mae: 2.5795811496285275e-05
+  winning_rmse: 3.655369833578238e-05
+- target_name: fft_y_Bw_filtered_phase_40
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 63.00123765073683
+  winning_mae: 0.10100679456210636
+  winning_rmse: 0.1491626182193171
+- target_name: fft_y_Bw_filtered_ampl_78
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 5.42704359027248
+  winning_mae: 5.253194291773853e-05
+  winning_rmse: 7.355715374510587e-05
+- target_name: fft_y_Bw_filtered_phase_78
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 62.81896142902911
+  winning_mae: 0.05238410788363173
+  winning_rmse: 0.08808808210080377
+- target_name: fft_y_Bw_filtered_ampl_81
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 9.716166179766045
+  winning_mae: 1.1488193560793296e-05
+  winning_rmse: 1.6436221649719483e-05
+- target_name: fft_y_Bw_filtered_phase_81
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 43.87714318688945
+  winning_mae: 0.09122065402223556
+  winning_rmse: 0.1354546494496849
+- target_name: fft_y_Bw_filtered_ampl_156
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 9.702333454690415
+  winning_mae: 0.00013220173300258932
+  winning_rmse: 0.00046182462097306166
+- target_name: fft_y_Bw_filtered_phase_156
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 9.12682727212656
+  winning_mae: 0.12079245891891854
+  winning_rmse: 0.6416184818970573
+- target_name: fft_y_Bw_filtered_ampl_162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 6.855015111504928
+  winning_mae: 0.0001093962331565551
+  winning_rmse: 0.000574387321811518
+- target_name: fft_y_Bw_filtered_phase_162
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 2.9591751124549517
+  winning_mae: 0.0532045535827856
+  winning_rmse: 0.08093743186863311
+- target_name: fft_y_Bw_filtered_ampl_240
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 11.474708286488216
+  winning_mae: 0.00012000498180836875
+  winning_rmse: 0.0003559729270339754
+- target_name: fft_y_Bw_filtered_phase_240
+  winning_family: DT
+  winning_display_name: Decision Tree
+  winning_estimator_name: DecisionTreeRegressor
+  winning_mape_percent: 13.346332477970424
+  winning_mae: 0.1685138849533217
+  winning_rmse: 0.5908114394860857
+per_target_ranking:
+  fft_y_Bw_filtered_ampl_0:
+  - *id002
+  fft_y_Bw_filtered_ampl_1:
+  - *id003
+  fft_y_Bw_filtered_phase_1:
+  - *id004
+  fft_y_Bw_filtered_ampl_3:
+  - *id005
+  fft_y_Bw_filtered_phase_3:
+  - *id006
+  fft_y_Bw_filtered_ampl_39:
+  - *id007
+  fft_y_Bw_filtered_phase_39:
+  - *id008
+  fft_y_Bw_filtered_ampl_40:
+  - *id009
+  fft_y_Bw_filtered_phase_40:
+  - *id010
+  fft_y_Bw_filtered_ampl_78:
+  - *id011
+  fft_y_Bw_filtered_phase_78:
+  - *id012
+  fft_y_Bw_filtered_ampl_81:
+  - *id013
+  fft_y_Bw_filtered_phase_81:
+  - *id014
+  fft_y_Bw_filtered_ampl_156:
+  - *id015
+  fft_y_Bw_filtered_phase_156:
+  - *id016
+  fft_y_Bw_filtered_ampl_162:
+  - *id017
+  fft_y_Bw_filtered_phase_162:
+  - *id018
+  fft_y_Bw_filtered_ampl_240:
+  - *id019
+  fft_y_Bw_filtered_phase_240:
+  - *id020
+onnx_export_summary:
+  enabled: true
+  target_opset: 12
+  export_failure_mode: continue
+  enable_empty_svr_constant_surrogate: true
+  python_export_root: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export
+  python_exported_file_count: 19
+  onnx_export_root: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export
+  onnx_exported_file_count: 19
+  recovered_reference_root: N/A
+  recovered_reference_file_count: 0
+  matched_reference_relative_paths: []
+  missing_against_reference_relative_paths: []
+  extra_export_relative_paths:
+  - DT/DecisionTreeRegressor_ampl0.onnx
+  - DT/DecisionTreeRegressor_ampl1.onnx
+  - DT/DecisionTreeRegressor_ampl156.onnx
+  - DT/DecisionTreeRegressor_ampl162.onnx
+  - DT/DecisionTreeRegressor_ampl240.onnx
+  - DT/DecisionTreeRegressor_ampl3.onnx
+  - DT/DecisionTreeRegressor_ampl39.onnx
+  - DT/DecisionTreeRegressor_ampl40.onnx
+  - DT/DecisionTreeRegressor_ampl78.onnx
+  - DT/DecisionTreeRegressor_ampl81.onnx
+  - DT/DecisionTreeRegressor_phase1.onnx
+  - DT/DecisionTreeRegressor_phase156.onnx
+  - DT/DecisionTreeRegressor_phase162.onnx
+  - DT/DecisionTreeRegressor_phase240.onnx
+  - DT/DecisionTreeRegressor_phase3.onnx
+  - DT/DecisionTreeRegressor_phase39.onnx
+  - DT/DecisionTreeRegressor_phase40.onnx
+  - DT/DecisionTreeRegressor_phase78.onnx
+  - DT/DecisionTreeRegressor_phase81.onnx
+  family_exports:
+  - family_name: DT
+    display_name: Decision Tree
+    estimator_name: DecisionTreeRegressor
+    python_export_directory: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT
+    onnx_export_directory: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT
+    python_exported_target_count: 19
+    onnx_exported_target_count: 19
+    failed_onnx_target_count: 0
+    exported_targets:
+    - target_name: fft_y_Bw_filtered_ampl_0
+      export_target_name: ampl0
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl0.pkl
+      python_file_size_bytes: 37629
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl0.onnx
+      onnx_file_size_bytes: 20044
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_1
+      export_target_name: ampl1
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl1.pkl
+      python_file_size_bytes: 36045
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl1.onnx
+      onnx_file_size_bytes: 19185
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_1
+      export_target_name: phase1
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase1.pkl
+      python_file_size_bytes: 36333
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase1.onnx
+      onnx_file_size_bytes: 19342
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_3
+      export_target_name: ampl3
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl3.pkl
+      python_file_size_bytes: 36189
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl3.onnx
+      onnx_file_size_bytes: 19264
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_3
+      export_target_name: phase3
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase3.pkl
+      python_file_size_bytes: 40797
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase3.onnx
+      onnx_file_size_bytes: 21759
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_39
+      export_target_name: ampl39
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl39.pkl
+      python_file_size_bytes: 35613
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl39.onnx
+      onnx_file_size_bytes: 18951
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_39
+      export_target_name: phase39
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase39.pkl
+      python_file_size_bytes: 38781
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase39.onnx
+      onnx_file_size_bytes: 20668
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_40
+      export_target_name: ampl40
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl40.pkl
+      python_file_size_bytes: 36045
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl40.onnx
+      onnx_file_size_bytes: 19185
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_40
+      export_target_name: phase40
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase40.pkl
+      python_file_size_bytes: 35469
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase40.onnx
+      onnx_file_size_bytes: 18873
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_78
+      export_target_name: ampl78
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl78.pkl
+      python_file_size_bytes: 35325
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl78.onnx
+      onnx_file_size_bytes: 18795
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_78
+      export_target_name: phase78
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase78.pkl
+      python_file_size_bytes: 37197
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase78.onnx
+      onnx_file_size_bytes: 19809
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_81
+      export_target_name: ampl81
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl81.pkl
+      python_file_size_bytes: 36909
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl81.onnx
+      onnx_file_size_bytes: 19654
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_81
+      export_target_name: phase81
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase81.pkl
+      python_file_size_bytes: 37917
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase81.onnx
+      onnx_file_size_bytes: 20201
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_156
+      export_target_name: ampl156
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl156.pkl
+      python_file_size_bytes: 36621
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl156.onnx
+      onnx_file_size_bytes: 19498
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_156
+      export_target_name: phase156
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase156.pkl
+      python_file_size_bytes: 36621
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase156.onnx
+      onnx_file_size_bytes: 19496
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_162
+      export_target_name: ampl162
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl162.pkl
+      python_file_size_bytes: 36621
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl162.onnx
+      onnx_file_size_bytes: 19499
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_162
+      export_target_name: phase162
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase162.pkl
+      python_file_size_bytes: 39069
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase162.onnx
+      onnx_file_size_bytes: 20824
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_ampl_240
+      export_target_name: ampl240
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_ampl240.pkl
+      python_file_size_bytes: 35757
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl240.onnx
+      onnx_file_size_bytes: 19029
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+    - target_name: fft_y_Bw_filtered_phase_240
+      export_target_name: phase240
+      python_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\python_export\DT\DecisionTreeRegressor_phase240.pkl
+      python_file_size_bytes: 36477
+      python_export_status: exported
+      onnx_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase240.onnx
+      onnx_file_size_bytes: 19420
+      onnx_export_status: exported
+      surrogate_strategy: none
+      export_estimator_name: DecisionTreeRegressor
+artifacts:
+  model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  best_parameter_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\best_parameter_summary.yaml

@@ -1,0 +1,1378 @@
+W0516 19:03:17.520000 28800 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[INFO] Loading original-dataset exact config | config=R:\config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\campaigns\track1\exact_paper\bidirectional_paper_faithful_grid_search\backward\elm\2026-05-04_track1_backward_elm_paper_faithful_grid_search_campaign\001_track1_paper_faithful_grid_search_backward_elm.yaml stage=search
+[INFO] Original-dataset exact stage execution plan | stage=search run_evaluation=True run_export=True
+[INFO] Building original-dataset exact bundle
+[INFO] Original-dataset exact bundle ready | direction=backward rows=969 targets=19 families=1
+[INFO] Original-dataset exact search settings | mode=paper_reference_grid_search grid_search_n_jobs=-1 grid_search_verbose=2 historical_cross_validate_verbose=1 grid_search_pre_dispatch=2*n_jobs
+[INFO] Family fit started | family=ELM stage=search estimator=ELMRegressor targets=19 threadpool_limit=1 joblib_cpu_limit=system_default os_cpu_count=32
+[INFO] Family target scope | family=ELM kinds=ampl,phase harmonics=0,1,3,39,40,78,81,156,162,240 preview=fft_y_Bw_filtered_ampl_0, fft_y_Bw_filtered_ampl_1, fft_y_Bw_filtered_phase_1, ..., fft_y_Bw_filtered_ampl_240, fft_y_Bw_filtered_phase_240
+[INFO] Grid search configured | family=ELM stage=search candidates=9 estimated_cv_fits=45 parameter_count=3 n_jobs=-1 verbose=2 historical_cross_validate_verbose=1 pre_dispatch=2*n_jobs
+W0516 19:04:08.901000 29356 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:08.901000 26928 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.090000 25772 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.096000 30208 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.192000 3124 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.237000 12520 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.310000 26572 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.361000 18200 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.385000 26388 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.601000 25832 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.754000 25872 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.856000 13532 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.949000 16940 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:09.955000 17732 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.127000 4524 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.141000 14192 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.141000 22832 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.176000 4072 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.193000 7560 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.249000 32012 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.249000 19844 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.249000 28412 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.256000 13308 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.262000 24852 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.266000 21320 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.270000 27068 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.276000 648 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.283000 23184 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.285000 6184 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.294000 14808 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.304000 14180 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0516 19:04:10.310000 3988 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+[INFO] Historical search protocol replay started | family=ELM cv=10 targets=19
+[INFO] Historical search protocol plan | family=ELM wrapper_cv_folds=10 target_count=19 target_cv_folds_total=190
+[INFO] Historical wrapper cross-validate started | family=ELM cv=10 targets=19 verbose=1
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    9.8s finished
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+Fitting 5 folds for each of 9 candidates, totalling 45 fits
+[DONE] Historical wrapper cross-validate complete | family=ELM elapsed=9.93s mean_mae=0.237667 mean_rmse=0.332034
+[INFO] Historical target cross-validate started | family=ELM target=1/19 name=fft_y_Bw_filtered_ampl_0 kind=ampl harmonic=0 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=1/19 name=fft_y_Bw_filtered_ampl_0 elapsed=0.14s mean_mae=0.007167 mean_rmse=0.009274
+[INFO] Historical target cross-validate started | family=ELM target=2/19 name=fft_y_Bw_filtered_ampl_1 kind=ampl harmonic=1 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=2/19 name=fft_y_Bw_filtered_ampl_1 elapsed=0.11s mean_mae=0.000029 mean_rmse=0.000040
+[INFO] Historical target cross-validate started | family=ELM target=3/19 name=fft_y_Bw_filtered_phase_1 kind=phase harmonic=1 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=3/19 name=fft_y_Bw_filtered_phase_1 elapsed=0.11s mean_mae=0.003196 mean_rmse=0.004251
+[INFO] Historical target cross-validate started | family=ELM target=4/19 name=fft_y_Bw_filtered_ampl_3 kind=ampl harmonic=3 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=4/19 name=fft_y_Bw_filtered_ampl_3 elapsed=0.11s mean_mae=0.000069 mean_rmse=0.000091
+[INFO] Historical target cross-validate started | family=ELM target=5/19 name=fft_y_Bw_filtered_phase_3 kind=phase harmonic=3 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=5/19 name=fft_y_Bw_filtered_phase_3 elapsed=0.14s mean_mae=0.087110 mean_rmse=0.108048
+[INFO] Historical target cross-validate started | family=ELM target=6/19 name=fft_y_Bw_filtered_ampl_39 kind=ampl harmonic=39 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=6/19 name=fft_y_Bw_filtered_ampl_39 elapsed=0.13s mean_mae=0.000066 mean_rmse=0.000085
+[INFO] Historical target cross-validate started | family=ELM target=7/19 name=fft_y_Bw_filtered_phase_39 kind=phase harmonic=39 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=7/19 name=fft_y_Bw_filtered_phase_39 elapsed=0.13s mean_mae=1.513664 mean_rmse=2.004620
+[INFO] Historical target cross-validate started | family=ELM target=8/19 name=fft_y_Bw_filtered_ampl_40 kind=ampl harmonic=40 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=8/19 name=fft_y_Bw_filtered_ampl_40 elapsed=0.14s mean_mae=0.000039 mean_rmse=0.000050
+[INFO] Historical target cross-validate started | family=ELM target=9/19 name=fft_y_Bw_filtered_phase_40 kind=phase harmonic=40 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=9/19 name=fft_y_Bw_filtered_phase_40 elapsed=0.13s mean_mae=0.211462 mean_rmse=0.308752
+[INFO] Historical target cross-validate started | family=ELM target=10/19 name=fft_y_Bw_filtered_ampl_78 kind=ampl harmonic=78 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=10/19 name=fft_y_Bw_filtered_ampl_78 elapsed=0.12s mean_mae=0.000317 mean_rmse=0.000397
+[INFO] Historical target cross-validate started | family=ELM target=11/19 name=fft_y_Bw_filtered_phase_78 kind=phase harmonic=78 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=11/19 name=fft_y_Bw_filtered_phase_78 elapsed=0.10s mean_mae=0.141270 mean_rmse=0.195302
+[INFO] Historical target cross-validate started | family=ELM target=12/19 name=fft_y_Bw_filtered_ampl_81 kind=ampl harmonic=81 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=12/19 name=fft_y_Bw_filtered_ampl_81 elapsed=0.13s mean_mae=0.000021 mean_rmse=0.000028
+[INFO] Historical target cross-validate started | family=ELM target=13/19 name=fft_y_Bw_filtered_phase_81 kind=phase harmonic=81 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=13/19 name=fft_y_Bw_filtered_phase_81 elapsed=0.13s mean_mae=0.194034 mean_rmse=0.252001
+[INFO] Historical target cross-validate started | family=ELM target=14/19 name=fft_y_Bw_filtered_ampl_156 kind=ampl harmonic=156 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=14/19 name=fft_y_Bw_filtered_ampl_156 elapsed=0.10s mean_mae=0.001385 mean_rmse=0.002680
+[INFO] Historical target cross-validate started | family=ELM target=15/19 name=fft_y_Bw_filtered_phase_156 kind=phase harmonic=156 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=15/19 name=fft_y_Bw_filtered_phase_156 elapsed=0.11s mean_mae=0.623163 mean_rmse=0.931273
+[INFO] Historical target cross-validate started | family=ELM target=16/19 name=fft_y_Bw_filtered_ampl_162 kind=ampl harmonic=162 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=16/19 name=fft_y_Bw_filtered_ampl_162 elapsed=0.11s mean_mae=0.000987 mean_rmse=0.001917
+[INFO] Historical target cross-validate started | family=ELM target=17/19 name=fft_y_Bw_filtered_phase_162 kind=phase harmonic=162 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=17/19 name=fft_y_Bw_filtered_phase_162 elapsed=0.13s mean_mae=0.884967 mean_rmse=1.179644
+[INFO] Historical target cross-validate started | family=ELM target=18/19 name=fft_y_Bw_filtered_ampl_240 kind=ampl harmonic=240 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=18/19 name=fft_y_Bw_filtered_ampl_240 elapsed=0.13s mean_mae=0.000396 mean_rmse=0.000861
+[INFO] Historical target cross-validate started | family=ELM target=19/19 name=fft_y_Bw_filtered_phase_240 kind=phase harmonic=240 cv=10 verbose=1
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\elm.py:162: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\skelm\solver_batch.py:107: DataConversionWarning: A column-vector y was passed when a 1d array was expected.                   Please change the shape of y to (n_samples, ), for example using ravel().
+  warnings.warn(msg, DataConversionWarning)
+[Parallel(n_jobs=1)]: Done  10 out of  10 | elapsed:    0.0s finished
+[DONE] Historical target cross-validate complete | family=ELM target=19/19 name=fft_y_Bw_filtered_phase_240 elapsed=0.13s mean_mae=0.846324 mean_rmse=1.309327
+[DONE] Family fit complete | family=ELM elapsed=24.51s best_score=-1.3320874756584393 best_params={'estimator__alpha': 0.001, 'estimator__n_neurons': 100, 'estimator__ufunc': 'tanh'}
+[DONE] Original-dataset exact model bundle written | output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-19-03-18__track1_paper_faithful_grid_search_backward_elm_campaign_validation\paper_family_model_bank.pkl
+[INFO] Family evaluation started | family=ELM targets=19
+[DONE] Family evaluation complete | family=ELM elapsed=0.03s mean_component_mape=71.027% mean_component_mae=0.237422
+[DONE] Original-dataset exact best-parameter summary written | output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-19-03-18__track1_paper_faithful_grid_search_backward_elm_campaign_validation\best_parameter_summary.yaml
+[INFO] Family Python+ONNX export started | family=ELM targets=19 estimator=ELMRegressor
+[DONE] Family Python+ONNX export complete | family=ELM elapsed=0.06s python_exported=19 onnx_exported=19 onnx_failed=0
+[INFO] Original-dataset exact Python+ONNX export complete | python_exported=19 onnx_exported=19 onnx_failed=0
+[DONE] Original-dataset exact validation complete | summary=output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-19-03-18__track1_paper_faithful_grid_search_backward_elm_campaign_validation\validation_summary.yaml report=doc\reports\analysis\validation_checks\2026-05-16-19-04-24_paper_rei_57e160d8_track1_paper_faithful_grid_s_826613e7_original_dataset_exact_model_bank_report.md
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.7s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.4s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.3s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.5s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.0s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=250, estimator__ufunc=tanh; total time=   0.2s
+[CV] END estimator__alpha=1e-07, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=1e-05, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=100, estimator__ufunc=tanh; total time=   0.1s
+[CV] END estimator__alpha=0.001, estimator__n_neurons=500, estimator__ufunc=tanh; total time=   0.6s
