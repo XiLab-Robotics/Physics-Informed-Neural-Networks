@@ -55,6 +55,9 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/linux_script_portability/[2026-05-16]/script_portability_inventory.md](./reports/analysis/linux_script_portability/%5B2026-05-16%5D/script_portability_inventory.md)
+  Refreshed repository-wide script portability inventory after the final
+  Linux Bash-equivalent sweep for campaign, tooling, and report scripts.
 - [reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.md](./reports/analysis/linux_script_portability/%5B2026-05-15%5D/script_portability_inventory.md)
   Repository-wide script portability inventory for the Unimore Aries Linux
   migration, including per-script platform-flag and Bash-equivalent status.
