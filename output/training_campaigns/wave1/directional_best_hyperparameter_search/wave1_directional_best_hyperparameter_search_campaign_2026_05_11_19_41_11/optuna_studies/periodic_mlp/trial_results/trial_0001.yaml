@@ -1,0 +1,19 @@
+study_name: wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11_periodic_mlp_optuna
+trial_number: 1
+completed_at: '2026-05-14T22:47:54'
+objective_metric_name: val_mae
+objective_value: 0.003061909694224596
+run_instance_id: 2026-05-14-22-24-48__te_periodic_mlp_h04_standard_global_optuna_t0001
+run_name: te_periodic_mlp_h04_standard_global_optuna_t0001
+trial_config_path: output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/periodic_mlp/trial_configs/trial_0001.yaml
+output_directory: output/training_runs/periodic_mlp/2026-05-14-22-24-48__te_periodic_mlp_h04_standard_global_optuna_t0001
+sampled_parameters:
+  training.learning_rate: 0.0006044543365247595
+  training.weight_decay: 2.607965659809584e-05
+  dataset.curve_batch_size: 8
+  model.dropout_probability: 0.15
+  model.hidden_size:
+  - 128
+  - 128
+  - 64
+  model.harmonic_order: 6

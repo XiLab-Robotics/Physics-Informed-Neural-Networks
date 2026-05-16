@@ -6,11 +6,11 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:44:29'
+updated_at: '2026-05-15T12:47:24'
 best_entry:
-  run_instance_id: 2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
-  run_name: te_periodic_mlp_h04_standard_Fw
-  output_run_name: te_periodic_mlp_h04_standard_Fw
+  run_instance_id: 2026-05-15-11-07-39__te_periodic_mlp_h04_standard_fw_optuna_t0008
+  run_name: te_periodic_mlp_h04_standard_Fw_optuna_t0008
+  output_run_name: te_periodic_mlp_h04_standard_Fw_optuna_t0008
   output_artifact_kind: training_run
   model_family: periodic_mlp_fw
   base_model_family: periodic_mlp
@@ -19,20 +19,20 @@ best_entry:
   direction_scope_label: forward_only
   use_forward_direction: true
   use_backward_direction: false
-  trainable_parameter_count: 27265
-  total_parameter_count: 27265
-  val_mae: 0.002848006784915924
-  val_rmse: 0.003428702475503087
-  test_mae: 0.0034319949336349964
-  test_rmse: 0.004022682085633278
-  output_directory: output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw
-  best_checkpoint_path: output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/checkpoints/periodic_mlp-epoch=022-val_mae=0.00284801.ckpt
-  metrics_path: output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/metrics_summary.yaml
-  report_path: output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/training_test_report.md
+  trainable_parameter_count: 46721
+  total_parameter_count: 46721
+  val_mae: 0.002809134777635336
+  val_rmse: 0.0033721933141350746
+  test_mae: 0.0032870033755898476
+  test_rmse: 0.003833124181255698
+  output_directory: output/training_runs/periodic_mlp_fw/2026-05-15-11-07-39__te_periodic_mlp_h04_standard_fw_optuna_t0008
+  best_checkpoint_path: output/training_runs/periodic_mlp_fw/2026-05-15-11-07-39__te_periodic_mlp_h04_standard_fw_optuna_t0008/checkpoints/periodic_mlp-epoch=038-val_mae=0.00280913.ckpt
+  metrics_path: output/training_runs/periodic_mlp_fw/2026-05-15-11-07-39__te_periodic_mlp_h04_standard_fw_optuna_t0008/metrics_summary.yaml
+  report_path: output/training_runs/periodic_mlp_fw/2026-05-15-11-07-39__te_periodic_mlp_h04_standard_fw_optuna_t0008/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-07T13:44:29'
+  selected_at: '2026-05-15T11:19:04'

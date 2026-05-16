@@ -6,9 +6,65 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-07T13:44:29'
-entry_count: 20
+updated_at: '2026-05-15T21:29:05'
+entry_count: 38
 entry_list:
+- run_instance_id: 2026-05-15-15-14-32__te_residual_h12_deep_joint_wave1_global_optuna_t0006
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0006
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0006
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0028953731525689363
+  val_rmse: 0.0034323588479310274
+  test_mae: 0.0030339041259139776
+  test_rmse: 0.0035497681237757206
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-15-14-32__te_residual_h12_deep_joint_wave1_global_optuna_t0006
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-15-14-32__te_residual_h12_deep_joint_wave1_global_optuna_t0006/checkpoints/residual_harmonic_mlp-epoch=175-val_mae=0.00289537.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-15-14-32__te_residual_h12_deep_joint_wave1_global_optuna_t0006/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-15-14-32__te_residual_h12_deep_joint_wave1_global_optuna_t0006/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T16:02:29'
+- run_instance_id: 2026-05-15-17-41-55__te_residual_h12_deep_joint_wave1_global_optuna_t0010
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0010
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0010
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26258
+  total_parameter_count: 26258
+  val_mae: 0.002902654465287924
+  val_rmse: 0.0034265227150171995
+  test_mae: 0.0030667285900563
+  test_rmse: 0.003567691659554839
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-17-41-55__te_residual_h12_deep_joint_wave1_global_optuna_t0010
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-17-41-55__te_residual_h12_deep_joint_wave1_global_optuna_t0010/checkpoints/residual_harmonic_mlp-epoch=126-val_mae=0.00290265.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-17-41-55__te_residual_h12_deep_joint_wave1_global_optuna_t0010/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-17-41-55__te_residual_h12_deep_joint_wave1_global_optuna_t0010/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T18:18:22'
 - run_instance_id: 2026-03-26-17-19-48__te_residual_h12_deep_joint_wave1
   run_name: te_residual_h12_deep_joint_wave1
   output_run_name: te_residual_h12_deep_joint_wave1
@@ -32,6 +88,34 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T17:48:36'
+- run_instance_id: 2026-05-15-14-23-39__te_residual_h12_deep_joint_wave1_global_optuna_t0004
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0004
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0004
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0030103710014373064
+  val_rmse: 0.003538985038176179
+  test_mae: 0.0032264254987239838
+  test_rmse: 0.0037443088367581367
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-14-23-39__te_residual_h12_deep_joint_wave1_global_optuna_t0004
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-23-39__te_residual_h12_deep_joint_wave1_global_optuna_t0004/checkpoints/residual_harmonic_mlp-epoch=074-val_mae=0.00301037.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-23-39__te_residual_h12_deep_joint_wave1_global_optuna_t0004/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-23-39__te_residual_h12_deep_joint_wave1_global_optuna_t0004/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T14:52:31'
 - run_instance_id: 2026-03-26-18-09-40__te_residual_h12_small_joint_high_dropout_wave1
   run_name: te_residual_h12_small_joint_high_dropout_wave1
   output_run_name: te_residual_h12_small_joint_high_dropout_wave1
@@ -55,6 +139,118 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T18:31:09'
+- run_instance_id: 2026-05-15-13-23-16__te_residual_h12_deep_joint_wave1_global_optuna_t0002
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0002
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0002
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 43026
+  total_parameter_count: 43026
+  val_mae: 0.0030206807423382998
+  val_rmse: 0.0034394788090139627
+  test_mae: 0.003236427903175354
+  test_rmse: 0.0036254485603421926
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-13-23-16__te_residual_h12_deep_joint_wave1_global_optuna_t0002
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-13-23-16__te_residual_h12_deep_joint_wave1_global_optuna_t0002/checkpoints/residual_harmonic_mlp-epoch=113-val_mae=0.00302068.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-13-23-16__te_residual_h12_deep_joint_wave1_global_optuna_t0002/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-13-23-16__te_residual_h12_deep_joint_wave1_global_optuna_t0002/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T14:04:22'
+- run_instance_id: 2026-05-15-17-10-34__te_residual_h12_deep_joint_wave1_global_optuna_t0009
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0009
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0009
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 34970
+  total_parameter_count: 34970
+  val_mae: 0.0030185547657310963
+  val_rmse: 0.0035568641033023596
+  test_mae: 0.003252125810831785
+  test_rmse: 0.0037685728166252375
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-17-10-34__te_residual_h12_deep_joint_wave1_global_optuna_t0009
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-17-10-34__te_residual_h12_deep_joint_wave1_global_optuna_t0009/checkpoints/residual_harmonic_mlp-epoch=084-val_mae=0.00301855.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-17-10-34__te_residual_h12_deep_joint_wave1_global_optuna_t0009/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-17-10-34__te_residual_h12_deep_joint_wave1_global_optuna_t0009/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T17:41:54'
+- run_instance_id: 2026-05-15-14-52-31__te_residual_h12_deep_joint_wave1_global_optuna_t0005
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0005
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0005
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 34978
+  total_parameter_count: 34978
+  val_mae: 0.003075207117944956
+  val_rmse: 0.003630611812695861
+  test_mae: 0.0032569970935583115
+  test_rmse: 0.003790068905800581
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-14-52-31__te_residual_h12_deep_joint_wave1_global_optuna_t0005
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-52-31__te_residual_h12_deep_joint_wave1_global_optuna_t0005/checkpoints/residual_harmonic_mlp-epoch=067-val_mae=0.00307521.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-52-31__te_residual_h12_deep_joint_wave1_global_optuna_t0005/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-52-31__te_residual_h12_deep_joint_wave1_global_optuna_t0005/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T15:14:32'
+- run_instance_id: 2026-05-15-16-02-29__te_residual_h12_deep_joint_wave1_global_optuna_t0007
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0007
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0007
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26274
+  total_parameter_count: 26274
+  val_mae: 0.00293687148950994
+  val_rmse: 0.003480191808193922
+  test_mae: 0.003272539936006069
+  test_rmse: 0.003848591586574912
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-16-02-29__te_residual_h12_deep_joint_wave1_global_optuna_t0007
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-16-02-29__te_residual_h12_deep_joint_wave1_global_optuna_t0007/checkpoints/residual_harmonic_mlp-epoch=113-val_mae=0.00293687.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-16-02-29__te_residual_h12_deep_joint_wave1_global_optuna_t0007/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-16-02-29__te_residual_h12_deep_joint_wave1_global_optuna_t0007/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T16:41:15'
 - run_instance_id: 2026-03-26-16-06-02__te_residual_h16_small_joint_wave1
   run_name: te_residual_h16_small_joint_wave1
   output_run_name: te_residual_h16_small_joint_wave1
@@ -124,6 +320,34 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T20:19:32'
+- run_instance_id: 2026-05-15-13-00-52__te_residual_h12_deep_joint_wave1_global_optuna_t0001
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0001
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0001
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0030518793500959873
+  val_rmse: 0.0037433509714901447
+  test_mae: 0.00330546498298645
+  test_rmse: 0.003914230037480593
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-13-00-52__te_residual_h12_deep_joint_wave1_global_optuna_t0001
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-13-00-52__te_residual_h12_deep_joint_wave1_global_optuna_t0001/checkpoints/residual_harmonic_mlp-epoch=051-val_mae=0.00305188.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-13-00-52__te_residual_h12_deep_joint_wave1_global_optuna_t0001/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-13-00-52__te_residual_h12_deep_joint_wave1_global_optuna_t0001/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T13:23:16'
 - run_instance_id: 2026-03-26-17-48-36__te_residual_h12_small_joint_low_dropout_wave1
   run_name: te_residual_h12_small_joint_low_dropout_wave1
   output_run_name: te_residual_h12_small_joint_low_dropout_wave1
@@ -216,6 +440,34 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T15:54:41'
+- run_instance_id: 2026-05-15-14-04-22__te_residual_h12_deep_joint_wave1_global_optuna_t0003
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0003
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0003
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 43674
+  total_parameter_count: 43674
+  val_mae: 0.0030403330456465483
+  val_rmse: 0.0034432404208928347
+  test_mae: 0.0033711744472384453
+  test_rmse: 0.0037399884313344955
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-14-04-22__te_residual_h12_deep_joint_wave1_global_optuna_t0003
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-04-22__te_residual_h12_deep_joint_wave1_global_optuna_t0003/checkpoints/residual_harmonic_mlp-epoch=032-val_mae=0.00304033.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-04-22__te_residual_h12_deep_joint_wave1_global_optuna_t0003/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-14-04-22__te_residual_h12_deep_joint_wave1_global_optuna_t0003/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T14:23:39'
 - run_instance_id: 2026-03-26-16-48-24__te_residual_h12_wide_joint_wave1
   run_name: te_residual_h12_wide_joint_wave1
   output_run_name: te_residual_h12_wide_joint_wave1
@@ -239,6 +491,62 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T17:19:47'
+- run_instance_id: 2026-05-15-19-39-19__te_residual_h12_deep_joint_wave1_global_optuna_t0013
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0013
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0013
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26258
+  total_parameter_count: 26258
+  val_mae: 0.002978353062644601
+  val_rmse: 0.003516984172165394
+  test_mae: 0.0033767109271138906
+  test_rmse: 0.003932850901037455
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-19-39-19__te_residual_h12_deep_joint_wave1_global_optuna_t0013
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-19-39-19__te_residual_h12_deep_joint_wave1_global_optuna_t0013/checkpoints/residual_harmonic_mlp-epoch=050-val_mae=0.00297835.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-19-39-19__te_residual_h12_deep_joint_wave1_global_optuna_t0013/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-19-39-19__te_residual_h12_deep_joint_wave1_global_optuna_t0013/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T20:02:06'
+- run_instance_id: 2026-05-15-20-24-10__te_residual_h12_deep_joint_wave1_global_optuna_t0015
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0015
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0015
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26266
+  total_parameter_count: 26266
+  val_mae: 0.0029578497633337975
+  val_rmse: 0.0035906867124140263
+  test_mae: 0.0033823370467871428
+  test_rmse: 0.00398328248411417
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-20-24-10__te_residual_h12_deep_joint_wave1_global_optuna_t0015
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-24-10__te_residual_h12_deep_joint_wave1_global_optuna_t0015/checkpoints/residual_harmonic_mlp-epoch=094-val_mae=0.00295785.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-24-10__te_residual_h12_deep_joint_wave1_global_optuna_t0015/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-24-10__te_residual_h12_deep_joint_wave1_global_optuna_t0015/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T20:51:47'
 - run_instance_id: 2026-04-04-11-49-11__te_residual_h12_deep_long_remote
   run_name: te_residual_h12_deep_long_remote
   output_run_name: te_residual_h12_deep_long_remote
@@ -308,6 +616,62 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T15:31:20'
+- run_instance_id: 2026-05-15-19-19-04__te_residual_h12_deep_joint_wave1_global_optuna_t0012
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0012
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0012
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26258
+  total_parameter_count: 26258
+  val_mae: 0.0030021590646356344
+  val_rmse: 0.0035417901817709208
+  test_mae: 0.0033889487385749817
+  test_rmse: 0.0038696962874382734
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-19-19-04__te_residual_h12_deep_joint_wave1_global_optuna_t0012
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-19-19-04__te_residual_h12_deep_joint_wave1_global_optuna_t0012/checkpoints/residual_harmonic_mlp-epoch=040-val_mae=0.00300216.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-19-19-04__te_residual_h12_deep_joint_wave1_global_optuna_t0012/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-19-19-04__te_residual_h12_deep_joint_wave1_global_optuna_t0012/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T19:39:19'
+- run_instance_id: 2026-05-15-20-02-06__te_residual_h12_deep_joint_wave1_global_optuna_t0014
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0014
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0014
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26274
+  total_parameter_count: 26274
+  val_mae: 0.0029628907795995474
+  val_rmse: 0.0035032201558351517
+  test_mae: 0.0034026894718408585
+  test_rmse: 0.0039609805680811405
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-20-02-06__te_residual_h12_deep_joint_wave1_global_optuna_t0014
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-02-06__te_residual_h12_deep_joint_wave1_global_optuna_t0014/checkpoints/residual_harmonic_mlp-epoch=047-val_mae=0.00296289.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-02-06__te_residual_h12_deep_joint_wave1_global_optuna_t0014/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-02-06__te_residual_h12_deep_joint_wave1_global_optuna_t0014/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T20:24:09'
 - run_instance_id: 2026-03-26-16-26-11__te_residual_h12_medium_joint_wave1
   run_name: te_residual_h12_medium_joint_wave1
   output_run_name: te_residual_h12_medium_joint_wave1
@@ -382,6 +746,62 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-05-07T13:44:29'
+- run_instance_id: 2026-05-15-18-18-23__te_residual_h12_deep_joint_wave1_global_optuna_t0011
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0011
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0011
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 26258
+  total_parameter_count: 26258
+  val_mae: 0.002868345472961664
+  val_rmse: 0.00338205904699862
+  test_mae: 0.0034281271509826183
+  test_rmse: 0.003928134683519602
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-18-18-23__te_residual_h12_deep_joint_wave1_global_optuna_t0011
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-18-18-23__te_residual_h12_deep_joint_wave1_global_optuna_t0011/checkpoints/residual_harmonic_mlp-epoch=200-val_mae=0.00286835.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-18-18-23__te_residual_h12_deep_joint_wave1_global_optuna_t0011/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-18-18-23__te_residual_h12_deep_joint_wave1_global_optuna_t0011/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T19:19:04'
+- run_instance_id: 2026-05-15-16-41-15__te_residual_h12_deep_joint_wave1_global_optuna_t0008
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0008
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0008
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 43674
+  total_parameter_count: 43674
+  val_mae: 0.002962775994092226
+  val_rmse: 0.0036243258509784937
+  test_mae: 0.0034427978098392487
+  test_rmse: 0.004084582906216383
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-16-41-15__te_residual_h12_deep_joint_wave1_global_optuna_t0008
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-16-41-15__te_residual_h12_deep_joint_wave1_global_optuna_t0008/checkpoints/residual_harmonic_mlp-epoch=095-val_mae=0.00296278.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-16-41-15__te_residual_h12_deep_joint_wave1_global_optuna_t0008/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-16-41-15__te_residual_h12_deep_joint_wave1_global_optuna_t0008/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T17:10:34'
 - run_instance_id: 2026-03-26-18-43-58__te_residual_h12_small_joint_low_lr_long_wave1
   run_name: te_residual_h12_small_joint_low_lr_long_wave1
   output_run_name: te_residual_h12_small_joint_low_lr_long_wave1
@@ -428,6 +848,34 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-20T17:15:25'
+- run_instance_id: 2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0017
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0017
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 43034
+  total_parameter_count: 43034
+  val_mae: 0.003095728810876608
+  val_rmse: 0.0036388132721185684
+  test_mae: 0.003506091423332691
+  test_rmse: 0.0040313177742064
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017/checkpoints/residual_harmonic_mlp-epoch=032-val_mae=0.00309573.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-21-10-56__te_residual_h12_deep_joint_wave1_global_optuna_t0017/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T21:29:05'
 - run_instance_id: 2026-03-20-16-41-05__te_residual_h12_small_frozen_recovery
   run_name: te_residual_h12_small_frozen_recovery
   output_run_name: te_residual_h12_small_frozen_recovery
@@ -474,3 +922,59 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-03-26T16:06:01'
+- run_instance_id: 2026-05-15-20-51-47__te_residual_h12_deep_joint_wave1_global_optuna_t0016
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0016
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0016
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 43666
+  total_parameter_count: 43666
+  val_mae: 0.003074649954214692
+  val_rmse: 0.0036201737821102142
+  test_mae: 0.0035588548053056
+  test_rmse: 0.004077134188264608
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-20-51-47__te_residual_h12_deep_joint_wave1_global_optuna_t0016
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-51-47__te_residual_h12_deep_joint_wave1_global_optuna_t0016/checkpoints/residual_harmonic_mlp-epoch=036-val_mae=0.00307465.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-51-47__te_residual_h12_deep_joint_wave1_global_optuna_t0016/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-20-51-47__te_residual_h12_deep_joint_wave1_global_optuna_t0016/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T21:10:56'
+- run_instance_id: 2026-05-15-12-47-30__te_residual_h12_deep_joint_wave1_global_optuna_t0000
+  run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0000
+  output_run_name: te_residual_h12_deep_joint_wave1_global_optuna_t0000
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 43026
+  total_parameter_count: 43026
+  val_mae: 0.003179253078997135
+  val_rmse: 0.0036529251374304295
+  test_mae: 0.003568521700799465
+  test_rmse: 0.004018981941044331
+  output_directory: output/training_runs/residual_harmonic_mlp/2026-05-15-12-47-30__te_residual_h12_deep_joint_wave1_global_optuna_t0000
+  best_checkpoint_path: output/training_runs/residual_harmonic_mlp/2026-05-15-12-47-30__te_residual_h12_deep_joint_wave1_global_optuna_t0000/checkpoints/residual_harmonic_mlp-epoch=010-val_mae=0.00317925.ckpt
+  metrics_path: output/training_runs/residual_harmonic_mlp/2026-05-15-12-47-30__te_residual_h12_deep_joint_wave1_global_optuna_t0000/metrics_summary.yaml
+  report_path: output/training_runs/residual_harmonic_mlp/2026-05-15-12-47-30__te_residual_h12_deep_joint_wave1_global_optuna_t0000/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-15T13:00:51'

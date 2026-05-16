@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_mlp_fw
+base_model_family: residual_harmonic_mlp
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_residual_h12_deep_joint_wave1_Fw_optuna_t0006
+run_instance_id: 2026-05-16-03-59-21__te_residual_h12_deep_joint_wave1_fw_optuna_t0006
+output_directory: output/training_runs/residual_harmonic_mlp_fw/2026-05-16-03-59-21__te_residual_h12_deep_joint_wave1_fw_optuna_t0006

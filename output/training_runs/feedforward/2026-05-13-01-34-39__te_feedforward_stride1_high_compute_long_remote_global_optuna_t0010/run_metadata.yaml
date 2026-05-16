@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: feedforward
+base_model_family: feedforward
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_feedforward_stride1_high_compute_long_remote_global_optuna_t0010
+run_instance_id: 2026-05-13-01-34-39__te_feedforward_stride1_high_compute_long_remote_global_optuna_t0010
+output_directory: output/training_runs/feedforward/2026-05-13-01-34-39__te_feedforward_stride1_high_compute_long_remote_global_optuna_t0010

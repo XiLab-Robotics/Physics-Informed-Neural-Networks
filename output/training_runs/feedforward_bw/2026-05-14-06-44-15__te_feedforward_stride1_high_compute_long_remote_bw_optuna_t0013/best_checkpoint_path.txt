@@ -1,0 +1,1 @@
+C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_runs\feedforward_bw\2026-05-14-06-44-15__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0013\checkpoints\feedforward-epoch=121-val_mae=0.00298927.ckpt

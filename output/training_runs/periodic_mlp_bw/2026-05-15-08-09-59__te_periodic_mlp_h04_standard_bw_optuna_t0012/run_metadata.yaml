@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_mlp_bw
+base_model_family: periodic_mlp
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_periodic_mlp_h04_standard_Bw_optuna_t0012
+run_instance_id: 2026-05-15-08-09-59__te_periodic_mlp_h04_standard_bw_optuna_t0012
+output_directory: output/training_runs/periodic_mlp_bw/2026-05-15-08-09-59__te_periodic_mlp_h04_standard_bw_optuna_t0012
