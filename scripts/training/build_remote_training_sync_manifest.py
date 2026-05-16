@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import sys
 import argparse, json, sys
 from pathlib import Path
 
@@ -16,6 +17,7 @@ if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
 import yaml
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.training import shared_training_infrastructure
 
 
@@ -30,6 +32,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser = argparse.ArgumentParser(description="Build the relative-path sync list for a completed remote training campaign.")
     argument_parser.add_argument("--campaign-manifest-path", type=Path, required=True, help="Path to the local copy of the campaign manifest YAML file.")
     argument_parser.add_argument("--output-path", type=Path, default=None, help="Optional JSON output path. If omitted, the JSON is written to stdout.")
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -213,6 +216,9 @@ def main() -> int:
 
     # Parse Command-Line Arguments
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     campaign_manifest_path = command_line_arguments.campaign_manifest_path.resolve()
     assert campaign_manifest_path.exists(), f"Campaign Manifest Path does not exist | {campaign_manifest_path}"
 

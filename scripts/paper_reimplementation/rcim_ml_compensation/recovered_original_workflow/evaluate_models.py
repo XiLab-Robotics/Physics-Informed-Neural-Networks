@@ -1,7 +1,17 @@
 """ Direct entrypoint for the recovered original RCIM evaluation stage. """
 
-import argparse, os
+import argparse, os, sys
 from pathlib import Path
+
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[4]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 import numpy as np
 import pandas as pd
@@ -46,6 +56,7 @@ def _build_argument_parser():
     parser.add_argument("--prediction-directory", type=Path, default=REFERENCE_ROOT / "output_prediction" / "instV3.8_Fw_allFreq_def", help="Directory containing prediction CSVs to evaluate.")
     parser.add_argument("--output-root", type=Path, default=None, help="Repository-owned runtime root. Defaults under output/validation_checks/.")
     parser.add_argument("--output-suffix", default="", help="Optional suffix appended to the default runtime root name.")
+    repository_path_support.add_platform_arguments(parser)
     return parser
 
 ACRONYMS = {
@@ -139,6 +150,9 @@ def main():
     # Parse The CLI
     parser = _build_argument_parser()
     args = parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(args)
+    )
 
     # Ensure The Original Utility Modules Are On The Path For Imports, And Import The Original Statistics Helper.
     ensure_utilities_on_path()

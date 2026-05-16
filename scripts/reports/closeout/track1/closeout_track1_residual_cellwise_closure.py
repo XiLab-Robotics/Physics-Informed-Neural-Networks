@@ -10,6 +10,7 @@ from __future__ import annotations
 
 # Import Python Utilities
 import argparse
+import sys
 import math
 import re
 from collections import defaultdict
@@ -18,14 +19,20 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+PROJECT_PATH = Path(__file__).resolve().parents[4]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
 # Import Third-Party Utilities
 import yaml
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.reports.track1.refresh_track1_family_reference_archives import (
     refresh_track1_family_reference_archives,
 )
-
-PROJECT_PATH = Path(__file__).resolve().parents[4]
 
 BENCHMARK_REPORT_PATH = (
     PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
@@ -103,6 +110,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         required=True,
         help="Timestamp prefix used for the final campaign results report filename.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -1077,6 +1085,9 @@ def main() -> None:
     """Run the Track 1 residual closure closeout workflow."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     report_timestamp = str(command_line_arguments.report_timestamp)
 
     benchmark_text = BENCHMARK_REPORT_PATH.read_text(encoding="utf-8")

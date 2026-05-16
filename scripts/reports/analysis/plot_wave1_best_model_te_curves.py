@@ -27,6 +27,7 @@ import yaml
 import torch
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.models.model_factory import create_model
 from scripts.training import shared_training_infrastructure
 from scripts.training import tree_regression_support
@@ -120,6 +121,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Evaluate and export CSV/report data without writing PNG plots.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -778,6 +780,11 @@ def run_wave1_best_model_te_curve_prediction(arguments: argparse.Namespace) -> d
 def main() -> None:
 
     """Run the CLI entry point."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     validation_summary = run_wave1_best_model_te_curve_prediction(parse_command_line_arguments())
     print(f"[DONE] Wave 1 TE-curve prediction report: {validation_summary['report_path']}")

@@ -14,6 +14,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 DEFAULT_ANALYSIS_ROOT = PROJECT_PATH / ".temp" / "video_guides" / "_analysis"
 DEFAULT_REPORT_ROOT = PROJECT_PATH / "doc" / "reference_codes" / "video_guides"
 DEFAULT_MAX_IMAGES = 4
@@ -83,6 +90,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--limit-videos", type=int, default=0, help="Optional maximum number of report directories.")
     argument_parser.add_argument("--max-images", type=int, default=DEFAULT_MAX_IMAGES, help="Maximum reference images per report.")
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -599,6 +607,9 @@ def main() -> int:
     """
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     analysis_root = Path(parsed_arguments.analysis_root).resolve()
     report_root = Path(parsed_arguments.report_root).resolve()
     assert analysis_root.exists(), f"Analysis root does not exist | {analysis_root}"

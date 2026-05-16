@@ -13,6 +13,13 @@ from pathlib import Path
 
 # Repository Paths
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 DOCUMENTATION_ROOT = REPOSITORY_ROOT / "doc"
 TECHNICAL_ROOT = DOCUMENTATION_ROOT / "technical"
 DOC_INDEX_PATH = DOCUMENTATION_ROOT / "README.md"
@@ -43,6 +50,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Short summary sentence used in the technical-document index entries.",
     )
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -340,6 +348,9 @@ def main() -> None:
 
     # Parse Command-Line Arguments
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Resolve Timestamped Output Path
     normalized_slug = slugify_document_name(parsed_arguments.slug)

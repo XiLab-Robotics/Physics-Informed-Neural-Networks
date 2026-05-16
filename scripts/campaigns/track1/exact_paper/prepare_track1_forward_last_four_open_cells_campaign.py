@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
 import sys
 from dataclasses import dataclass
 from datetime import datetime
@@ -14,6 +15,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[4]
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 # Import YAML Utilities
 import yaml
@@ -259,9 +263,23 @@ def build_campaign_readme_markdown(
     )
 
 
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    return argument_parser.parse_args()
+
 def main() -> None:
 
     """Prepare the complete final targeted forward residual campaign package."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     timestamp_string = datetime.now().astimezone().strftime("%Y-%m-%d_%H_%M_%S")
     campaign_name = f"track1_forward_last_four_open_cells_campaign_{timestamp_string}"

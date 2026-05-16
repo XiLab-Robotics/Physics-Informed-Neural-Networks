@@ -26,6 +26,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.reports.closeout.track1.closeout_track1_bidirectional_original_dataset_mega_campaign import (
     AMPLITUDE_HARMONIC_LIST,
     FAMILY_ORDER,
@@ -308,6 +309,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         required=True,
         help="Timestamp prefix used for the final campaign results report filename.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -1211,6 +1213,9 @@ def main() -> None:
     """Run one supported Track 1 forward residual-repair closeout workflow."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     report_timestamp = str(command_line_arguments.report_timestamp)
     active_campaign_dictionary = load_yaml_dictionary(ACTIVE_CAMPAIGN_PATH)
     campaign_profile = resolve_campaign_profile(active_campaign_dictionary)

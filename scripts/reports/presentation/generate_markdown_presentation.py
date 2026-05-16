@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import sys
 import argparse, re
 from dataclasses import dataclass
 from pathlib import Path
@@ -14,6 +15,13 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 DEFAULT_TEMPLATE_PPTX_PATH = PROJECT_PATH / "reference" / "templates" / "Template_XiLab_Research.pptx"
 MARKDOWN_COMMENT_PATTERN = re.compile(r"<!--.*?-->", re.DOTALL)
 
@@ -72,6 +80,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--output-pptx-path", default="", help="Optional explicit PPTX output path.")
     argument_parser.add_argument("--template-pptx-path", default="", help="Optional explicit PPTX template path.")
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -507,6 +516,9 @@ def main() -> None:
     """ Run PPTX Generation Workflow """
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Resolve Generation Paths
     input_markdown_path = resolve_input_markdown_path(parsed_arguments.input_markdown_path)

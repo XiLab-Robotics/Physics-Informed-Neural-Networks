@@ -30,6 +30,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
     exact_paper_model_bank_support,
 )
@@ -155,6 +156,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
             "state is used."
         ),
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -1752,6 +1754,11 @@ def run_closeout() -> Path:
 def main() -> None:
 
     """Run the closeout entry point."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     parse_command_line_arguments()
     run_closeout()

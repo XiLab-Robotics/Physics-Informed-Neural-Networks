@@ -3,8 +3,19 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[4]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 from typing import Any
 
 import pandas as pd
@@ -315,6 +326,7 @@ def _build_argument_parser() -> argparse.ArgumentParser:
         required=True,
         help="Target CSV path to generate.",
     )
+    repository_path_support.add_platform_arguments(parser)
     return parser
 
 
@@ -325,6 +337,9 @@ def main() -> int:
     # Dispatch The Narrow Registry Commands.
     parser = _build_argument_parser()
     args = parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(args)
+    )
 
     if args.command_name == "update-from-retune":
         return update_from_retune(

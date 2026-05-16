@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -18,6 +19,7 @@ if str(PROJECT_PATH) not in sys.path:
 import yaml
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
     exact_paper_model_bank_support,
 )
@@ -154,9 +156,23 @@ def build_campaign_readme_markdown(
     )
 
 
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    return argument_parser.parse_args()
+
 def main() -> None:
 
     """Prepare the complete literal-workflow refresh mega campaign."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     timestamp_string = datetime.now().astimezone().strftime("%Y-%m-%d_%H_%M_%S")
     campaign_name = (

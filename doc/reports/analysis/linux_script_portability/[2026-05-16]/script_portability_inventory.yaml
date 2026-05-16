@@ -1,5 +1,5 @@
 schema_version: 1
-generated_at: '2026-05-16T11:55:33.107987+02:00'
+generated_at: '2026-05-16T13:10:35.711662+02:00'
 platform_format: linux
 summary:
   script_count: 310
@@ -20,16 +20,14 @@ summary:
     helper_no_cli: 47
     linux_equivalent_present: 98
     linux_launcher_present: 102
-    missing_platform_flags: 50
-    needs_review: 3
-    platform_flagged: 10
+    platform_flagged: 63
   python_cli_like_count: 63
-  python_cli_with_platform_flags_count: 13
+  python_cli_with_platform_flags_count: 63
   powershell_count: 98
   powershell_missing_linux_equivalent_count: 0
   bash_count: 102
   report_script_count: 28
-  report_script_with_platform_flags_count: 3
+  report_script_with_platform_flags_count: 19
 scripts:
 - relative_path: scripts/__init__.py
   suffix: .py
@@ -146,12 +144,13 @@ scripts:
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1
   suffix: .ps1
   script_domain: campaigns
@@ -267,23 +266,25 @@ scripts:
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
   suffix: .py
   script_domain: campaigns
@@ -293,107 +294,117 @@ scripts:
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: needs_review
-  note: Script contains Windows-specific markers.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_four_open_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_overnight_mega_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_maxi_last_non_green_cells_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_from_powershell_metadata.sh
   suffix: .sh
   script_domain: campaigns
@@ -2247,34 +2258,34 @@ scripts:
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/campaigns/wave1/prepare_wave1_directional_optuna_recovery_micro_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/campaigns/wave1/prepare_wave1_directional_retraining_campaign.py
   suffix: .py
   script_domain: campaigns
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1
   suffix: .ps1
   script_domain: campaigns
@@ -2401,12 +2412,12 @@ scripts:
   script_domain: datasets
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/datasets/transmission_error_dataset.py
   suffix: .py
   script_domain: datasets
@@ -2423,12 +2434,12 @@ scripts:
   script_domain: datasets
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/models/__init__.py
   suffix: .py
   script_domain: models
@@ -2544,12 +2555,12 @@ scripts:
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/__init__.py
   suffix: .py
   script_domain: paper_reimplementation
@@ -2577,12 +2588,12 @@ scripts:
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/__init__.py
   suffix: .py
   script_domain: paper_reimplementation
@@ -2599,12 +2610,12 @@ scripts:
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py
   suffix: .py
   script_domain: paper_reimplementation
@@ -2643,34 +2654,34 @@ scripts:
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py
   suffix: .py
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py
   suffix: .py
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/utilities/__init__.py
   suffix: .py
   script_domain: paper_reimplementation
@@ -2753,12 +2764,12 @@ scripts:
   script_domain: paper_reimplementation
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/__init__.py
   suffix: .py
   script_domain: reports
@@ -2786,34 +2797,34 @@ scripts:
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/analysis/generate_training_results_master_summary.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/analysis/plot_wave1_best_model_te_curves.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/__init__.py
   suffix: .py
   script_domain: reports
@@ -2830,12 +2841,13 @@ scripts:
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/reports/closeout/track1/__init__.py
   suffix: .py
   script_domain: reports
@@ -2852,78 +2864,78 @@ scripts:
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/closeout_track1_forward_open_cell_repair_campaign.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/closeout_track1_forward_paper_faithful_grid_search_campaign.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/closeout_track1_mlp_family_full_matrix_repair.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/closeout_track1_mlp_residual_cell_final_closure.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/closeout_track1_open_cell_full_matrix_closure.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/closeout_track1_residual_cellwise_closure.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/closeout/track1/track1_reference_archive_closeout_support.py
   suffix: .py
   script_domain: reports
@@ -2951,12 +2963,12 @@ scripts:
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/pdf/__init__.py
   suffix: .py
   script_domain: reports
@@ -2977,8 +2989,9 @@ scripts:
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: needs_review
-  note: Script contains Windows-specific markers.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/reports/pdf/run_report_pipeline.py
   suffix: .py
   script_domain: reports
@@ -3017,23 +3030,24 @@ scripts:
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/presentation/run_presentation_pipeline.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/reports/track1/__init__.py
   suffix: .py
   script_domain: reports
@@ -3050,23 +3064,23 @@ scripts:
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/reports/track1/refresh_track1_family_reference_archives.py
   suffix: .py
   script_domain: reports
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/__init__.py
   suffix: .py
   script_domain: tooling
@@ -3105,12 +3119,13 @@ scripts:
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/tooling/lan_ai/setup_lan_ai_node_cuda_path.ps1
   suffix: .ps1
   script_domain: tooling
@@ -3142,8 +3157,9 @@ scripts:
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: needs_review
-  note: Script contains Windows-specific markers.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/tooling/markdown/__init__.py
   suffix: .py
   script_domain: tooling
@@ -3160,23 +3176,23 @@ scripts:
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/markdown/run_markdownlint.py
   suffix: .py
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/repository_path_support.py
   suffix: .py
   script_domain: tooling
@@ -3204,23 +3220,23 @@ scripts:
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/technical_documents/create_technical_document.py
   suffix: .py
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/video_guides/__init__.py
   suffix: .py
   script_domain: tooling
@@ -3237,34 +3253,35 @@ scripts:
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/tooling/video_guides/extract_video_guide_knowledge.py
   suffix: .py
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/video_guides/generate_video_guide_reports.py
   suffix: .py
   script_domain: tooling
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/tooling/video_guides/run_remote_high_quality_video_rerun.ps1
   suffix: .ps1
   script_domain: tooling
@@ -3303,23 +3320,24 @@ scripts:
   script_domain: training
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: false
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags.
 - relative_path: scripts/training/build_track1_interrupted_remaining_yellow_cell_manual_sync_plan.py
   suffix: .py
   script_domain: training
   script_kind: python_entrypoint
   has_cli_surface: true
-  has_platform_flags: false
+  has_platform_flags: true
   has_linux_equivalent: true
   linux_equivalent_path: null
   has_windows_specific_markers: true
-  portability_status: missing_platform_flags
-  note: Python CLI entry point lacks --linux/--windows.
+  portability_status: platform_flagged
+  note: Python CLI entry point exposes platform flags and contains reviewed Windows
+    markers.
 - relative_path: scripts/training/optuna_hpo_support.py
   suffix: .py
   script_domain: training

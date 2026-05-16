@@ -19,6 +19,14 @@ except ImportError: yaml = None
 
 # Isolated Mode Constants
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 ISOLATED_ROOT = REPOSITORY_ROOT / "isolated"
 ACTIVE_SESSIONS_ROOT = ISOLATED_ROOT / "active"
 COMPLETED_SESSIONS_ROOT = ISOLATED_ROOT / "completed"
@@ -152,6 +160,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Block session closure when the locked-file validation is not clean.",
     )
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -913,6 +922,9 @@ def main() -> int:
 
     # Parse Command-Line Arguments
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Dispatch Commands
     if parsed_arguments.command == "start-session":

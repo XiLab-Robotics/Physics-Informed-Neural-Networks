@@ -107,6 +107,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-16
+
+- [technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md](./technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md)
+  Plan the Python-entrypoint Linux portability tranche that adds a uniform
+  `--linux` / `--windows` command-line contract to the remaining runnable
+  scripts.
+
 #### 2026-05-15
 
 - [technical/2026-05/2026-05-15/2026-05-15-21-12-21_aries_cluster_user_guide_plan.md](./technical/2026-05/2026-05-15/2026-05-15-21-12-21_aries_cluster_user_guide_plan.md)

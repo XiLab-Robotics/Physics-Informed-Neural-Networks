@@ -14,6 +14,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[2]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 # Import YAML Utilities
 import yaml
 
@@ -46,6 +49,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=DEFAULT_OUTPUT_PATH,
         help="Path to the Markdown checklist to generate.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -223,6 +227,9 @@ def main() -> int:
     """Run the manual sync checklist builder."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     active_campaign_path = (PROJECT_PATH / command_line_arguments.active_campaign_path).resolve()
     output_path = (PROJECT_PATH / command_line_arguments.output_path).resolve()
 

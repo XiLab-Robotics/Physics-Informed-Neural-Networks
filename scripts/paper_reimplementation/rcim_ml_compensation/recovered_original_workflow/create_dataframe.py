@@ -1,7 +1,18 @@
 """ Direct entrypoint for the recovered original RCIM dataframe-creation stage. """
 
 import argparse
+import sys
 from pathlib import Path
+
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[4]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 try:
 
@@ -41,6 +52,7 @@ def _build_argument_parser():
     parser.add_argument("--direction", default="backward", help="Direction to generate: forward/Fw or backward/Bw.")
     parser.add_argument("--output-root", type=Path, default=None, help="Repository-owned runtime root. Defaults under output/validation_checks/.")
     parser.add_argument("--output-suffix", default="", help="Optional suffix appended to the default runtime root name.")
+    repository_path_support.add_platform_arguments(parser)
     return parser
 
 def main():
@@ -50,6 +62,9 @@ def main():
     # Argument Parser
     parser = _build_argument_parser()
     args = parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(args)
+    )
 
     # Ensure The Original Utility Modules Are On The Path For Imports
     ensure_utilities_on_path()

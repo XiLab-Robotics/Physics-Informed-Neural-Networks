@@ -30,6 +30,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 from scripts.tooling.video_guides.analyze_video_guides import TERM_PATTERN_MAP
 from scripts.tooling.video_guides.analyze_video_guides import collapse_whitespace
 from scripts.tooling.video_guides.analyze_video_guides import ensure_directory
@@ -205,6 +208,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--lmstudio-max-report-chunk-characters", type=int, default=DEFAULT_LM_STUDIO_MAX_REPORT_CHUNK_CHARACTERS, help="Maximum number of characters retained per transcript chunk when building LM Studio report prompts.")
     argument_parser.add_argument("--force", action="store_true", help="Recompute intermediate artifacts.")
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -1551,6 +1555,9 @@ def main() -> int:
     """
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     workflow_start_time = time.time()
     input_root = Path(parsed_arguments.input_root).resolve()
     analysis_root = Path(parsed_arguments.analysis_root).resolve()

@@ -4,12 +4,12 @@
 
 - script count: `310`
 - Python CLI-like scripts: `63`
-- Python CLI-like scripts with platform flags: `13`
+- Python CLI-like scripts with platform flags: `63`
 - PowerShell scripts: `98`
 - PowerShell scripts missing Linux equivalents: `0`
 - Bash scripts: `102`
 - report-domain scripts: `28`
-- report-domain scripts with platform flags: `3`
+- report-domain scripts with platform flags: `19`
 - inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-16]/script_portability_inventory.yaml`
 
 ## Status Counts
@@ -19,9 +19,7 @@
 | `helper_no_cli` | 47 |
 | `linux_equivalent_present` | 98 |
 | `linux_launcher_present` | 102 |
-| `missing_platform_flags` | 50 |
-| `needs_review` | 3 |
-| `platform_flagged` | 10 |
+| `platform_flagged` | 63 |
 
 ## Script Inventory
 
@@ -37,7 +35,7 @@
 | `scripts/campaigns/infrastructure/run_targeted_remote_followup_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
-| `scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/campaigns/paper_reference/rcim_original/rcim_original_best_parameter_registry.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_backward_reference_training.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/paper_reference/rcim_original/run_rcim_original_forward_reference_training.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
@@ -48,18 +46,18 @@
 | `scripts/campaigns/paper_reference/rcim_original/shared_rcim_original_launcher_helpers.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/invoke_exact_paper_campaign_local.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_literal_workflow_refresh_mega_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py` | `campaigns` | `python_entrypoint` | `needs_review` | yes | yes | Script contains Windows-specific markers. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_four_open_cells_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_overnight_mega_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_maxi_last_non_green_cells_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_literal_workflow_refresh_mega_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_four_open_cells_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_three_open_cells_overnight_mega_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_maxi_last_non_green_cells_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_from_powershell_metadata.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
@@ -228,9 +226,9 @@
 | `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/track1/svm/run_track1_svr_reference_grid_smoke_campaign_remote.sh` | `campaigns` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
-| `scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/wave1/prepare_wave1_directional_optuna_recovery_micro_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/campaigns/wave1/prepare_wave1_directional_retraining_campaign.py` | `campaigns` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/campaigns/wave1/prepare_wave1_directional_best_hyperparameter_search_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/campaigns/wave1/prepare_wave1_directional_optuna_recovery_micro_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/campaigns/wave1/prepare_wave1_directional_retraining_campaign.py` | `campaigns` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
 | `scripts/campaigns/wave1/run_wave1_directional_optuna_recovery_micro_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
@@ -242,9 +240,9 @@
 | `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.ps1` | `campaigns` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/campaigns/wave1/run_wave1_structured_baseline_recovery_campaign.sh` | `campaigns` | `launcher` | `linux_launcher_present` | yes | yes | Bash launcher is available. |
 | `scripts/datasets/__init__.py` | `datasets` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/datasets/export_dataset_split.py` | `datasets` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/datasets/export_dataset_split.py` | `datasets` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/datasets/transmission_error_dataset.py` | `datasets` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/datasets/visualize_transmission_error.py` | `datasets` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/datasets/visualize_transmission_error.py` | `datasets` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/models/__init__.py` | `models` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/models/feedforward_network.py` | `models` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/models/harmonic_regression.py` | `models` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
@@ -255,18 +253,18 @@
 | `scripts/paper_reimplementation/rcim_ml_compensation/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/harmonic_wise_support.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/generate_original_dataset_exact_smoke_configs.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/generate_original_dataset_exact_smoke_configs.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/utilities/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/utilities/instance.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/utilities/predictorML.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
@@ -274,58 +272,58 @@
 | `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/workflow_runtime.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/__init__.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | `paper_reimplementation` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py` | `paper_reimplementation` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py` | `paper_reimplementation` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/reports/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/reports/analysis/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/analysis/generate_model_report_diagrams.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/analysis/generate_training_results_master_summary.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/analysis/plot_wave1_best_model_te_curves.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/reports/analysis/generate_model_report_diagrams.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/analysis/generate_training_results_master_summary.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/analysis/plot_wave1_best_model_te_curves.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/reports/closeout/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/closeout/closeout_rcim_retuned_reference_archive.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/reports/closeout/closeout_rcim_retuned_reference_archive.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/reports/closeout/track1/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/closeout/track1/closeout_track1_bidirectional_original_dataset_mega_campaign.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/closeout/track1/closeout_track1_forward_open_cell_repair_campaign.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/closeout/track1/closeout_track1_forward_paper_faithful_grid_search_campaign.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/closeout/track1/closeout_track1_mlp_family_full_matrix_repair.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/closeout/track1/closeout_track1_mlp_residual_cell_final_closure.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/closeout/track1/closeout_track1_open_cell_full_matrix_closure.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/closeout/track1/closeout_track1_residual_cellwise_closure.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/reports/closeout/track1/closeout_track1_bidirectional_original_dataset_mega_campaign.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/closeout/track1/closeout_track1_forward_open_cell_repair_campaign.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/closeout/track1/closeout_track1_forward_paper_faithful_grid_search_campaign.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/closeout/track1/closeout_track1_mlp_family_full_matrix_repair.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/closeout/track1/closeout_track1_mlp_residual_cell_final_closure.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/closeout/track1/closeout_track1_open_cell_full_matrix_closure.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/closeout/track1/closeout_track1_residual_cellwise_closure.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/reports/closeout/track1/track1_reference_archive_closeout_support.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/reports/closeout/wave1/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/closeout/wave1/closeout_wave1_directional_retraining_campaign.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/reports/closeout/wave1/closeout_wave1_directional_retraining_campaign.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/reports/pdf/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/pdf/generate_styled_report_pdf.py` | `reports` | `python_entrypoint` | `needs_review` | yes | yes | Script contains Windows-specific markers. |
+| `scripts/reports/pdf/generate_styled_report_pdf.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/reports/pdf/run_report_pipeline.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/reports/pdf/validate_report_pdf.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/reports/presentation/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/presentation/generate_markdown_presentation.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/presentation/run_presentation_pipeline.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/reports/presentation/generate_markdown_presentation.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/presentation/run_presentation_pipeline.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/reports/track1/__init__.py` | `reports` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/reports/track1/refresh_track1_benchmark_colored_markers.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/reports/track1/refresh_track1_family_reference_archives.py` | `reports` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/reports/track1/refresh_track1_benchmark_colored_markers.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/reports/track1/refresh_track1_family_reference_archives.py` | `reports` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/tooling/__init__.py` | `tooling` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/tooling/lan_ai/__init__.py` | `tooling` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/tooling/lan_ai/lan_ai_node_client.py` | `tooling` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/tooling/lan_ai/lan_ai_node_server.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/tooling/lan_ai/lan_ai_node_server.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/tooling/lan_ai/setup_lan_ai_node_cuda_path.ps1` | `tooling` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/tooling/lan_ai/setup_lan_ai_node_cuda_path.sh` | `tooling` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
-| `scripts/tooling/linux_portability/build_script_portability_inventory.py` | `tooling` | `python_entrypoint` | `needs_review` | yes | yes | Script contains Windows-specific markers. |
+| `scripts/tooling/linux_portability/build_script_portability_inventory.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/tooling/markdown/__init__.py` | `tooling` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/tooling/markdown/markdown_style_check.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/tooling/markdown/run_markdownlint.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/tooling/markdown/markdown_style_check.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/tooling/markdown/run_markdownlint.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/tooling/repository_path_support.py` | `tooling` | `python_cli_like` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/tooling/session/__init__.py` | `tooling` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/tooling/session/isolated_mode.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/tooling/technical_documents/create_technical_document.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/tooling/session/isolated_mode.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/tooling/technical_documents/create_technical_document.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/tooling/video_guides/__init__.py` | `tooling` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/tooling/video_guides/analyze_video_guides.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/tooling/video_guides/extract_video_guide_knowledge.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/tooling/video_guides/generate_video_guide_reports.py` | `tooling` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/tooling/video_guides/analyze_video_guides.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
+| `scripts/tooling/video_guides/extract_video_guide_knowledge.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/tooling/video_guides/generate_video_guide_reports.py` | `tooling` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/tooling/video_guides/run_remote_high_quality_video_rerun.ps1` | `tooling` | `launcher` | `linux_equivalent_present` | no | yes | PowerShell launcher has a sibling Bash launcher. |
 | `scripts/tooling/video_guides/run_remote_high_quality_video_rerun.sh` | `tooling` | `launcher` | `linux_launcher_present` | no | yes | Bash launcher is available. |
 | `scripts/training/__init__.py` | `training` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
-| `scripts/training/build_remote_training_sync_manifest.py` | `training` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
-| `scripts/training/build_track1_interrupted_remaining_yellow_cell_manual_sync_plan.py` | `training` | `python_entrypoint` | `missing_platform_flags` | no | yes | Python CLI entry point lacks --linux/--windows. |
+| `scripts/training/build_remote_training_sync_manifest.py` | `training` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
+| `scripts/training/build_track1_interrupted_remaining_yellow_cell_manual_sync_plan.py` | `training` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags and contains reviewed Windows markers. |
 | `scripts/training/optuna_hpo_support.py` | `training` | `python_helper` | `helper_no_cli` | no | yes | Python helper has no direct CLI surface. |
 | `scripts/training/run_optuna_neural_hpo_study.py` | `training` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |
 | `scripts/training/run_training_campaign.py` | `training` | `python_entrypoint` | `platform_flagged` | yes | yes | Python CLI entry point exposes platform flags. |

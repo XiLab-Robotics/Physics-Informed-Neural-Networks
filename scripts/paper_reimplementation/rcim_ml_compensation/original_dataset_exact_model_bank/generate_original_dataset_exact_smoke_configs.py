@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
 import sys
 from pathlib import Path
 
@@ -17,6 +18,7 @@ if str(PROJECT_PATH) not in sys.path:
 import yaml
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import exact_paper_model_bank_support
 from scripts.training import shared_training_infrastructure
 
@@ -83,9 +85,23 @@ def build_family_smoke_config(direction_label: str, family_name: str) -> dict:
     return baseline_payload
 
 
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    return argument_parser.parse_args()
+
 def main() -> None:
 
     """Generate the smoke-config tree."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     generated_file_count = 0
     for direction_label in ["forward", "backward"]:

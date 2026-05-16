@@ -26,6 +26,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[4]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 from scripts.reports.closeout.track1.closeout_track1_residual_cellwise_closure import (
     ACTIVE_CAMPAIGN_PATH,
     AMPLITUDE_HARMONIC_LIST,
@@ -132,6 +135,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         required=True,
         help="Timestamp prefix used for the final campaign results report filename.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -895,6 +899,9 @@ def main() -> None:
     """Run the Track 1 open-cell full-matrix closure workflow."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     report_timestamp = str(command_line_arguments.report_timestamp)
 
     benchmark_text = BENCHMARK_REPORT_PATH.read_text(encoding="utf-8")

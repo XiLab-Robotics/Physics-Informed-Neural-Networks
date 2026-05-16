@@ -3,11 +3,20 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
+import sys
 import math
 from dataclasses import dataclass
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 MODEL_EXPLANATORY_REPORT_ROOT = PROJECT_PATH / "doc" / "guide"
 FEEDFORWARD_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "FeedForward Network" / "assets"
 HARMONIC_ASSET_DIRECTORY = MODEL_EXPLANATORY_REPORT_ROOT / "Harmonic Regression" / "assets"
@@ -1577,9 +1586,23 @@ def generate_all_diagrams() -> None:
         build_residual_architecture_diagram(),
     )
 
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    return argument_parser.parse_args()
+
 def main() -> None:
 
     """ Main Function """
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Generate All Diagram Assets
     generate_all_diagrams()

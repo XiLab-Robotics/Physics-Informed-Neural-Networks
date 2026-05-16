@@ -34,6 +34,13 @@ except ImportError:
     pytesseract = None
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 DEFAULT_VIDEO_GUIDE_ROOT = PROJECT_PATH / "reference" / "video_guides" / "source_bundle"
 DEFAULT_ANALYSIS_ROOT = PROJECT_PATH / ".temp" / "video_guides" / "_analysis"
 DEFAULT_TRANSCRIPTION_MODEL = "medium"
@@ -216,6 +223,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--disable-ocr", action="store_true", help="Skip OCR.")
     argument_parser.add_argument("--force", action="store_true", help="Recompute artifacts.")
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -1240,6 +1248,9 @@ def main() -> int:
     """
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     input_root = Path(parsed_arguments.input_root).resolve()
     output_root = Path(parsed_arguments.output_root).resolve()
     assert input_root.exists(), f"Input root does not exist | {input_root}"

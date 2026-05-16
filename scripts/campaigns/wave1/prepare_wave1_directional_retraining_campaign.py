@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
 import sys
 from pathlib import Path
 
@@ -14,6 +15,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.campaigns.infrastructure.directional_training_variant_support import (
     BACKWARD_ONLY_TRAINING_VARIANT,
     FORWARD_ONLY_TRAINING_VARIANT,
@@ -150,9 +152,23 @@ def build_campaign_readme_markdown(generated_config_relative_path_list: list[str
     return "\n".join(markdown_line_list)
 
 
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    return argument_parser.parse_args()
+
 def main() -> None:
 
     """Prepare the directional Wave 1 retraining package on disk."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     base_dataset_config = load_yaml_file(CANONICAL_DATASET_CONFIG_PATH)
     generated_config_relative_path_list: list[str] = []

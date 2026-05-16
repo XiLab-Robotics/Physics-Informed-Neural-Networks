@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+# Import Python Utilities
+import argparse
+
 import itertools
 import sys
 from copy import deepcopy
@@ -12,6 +15,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 from scripts.campaigns.infrastructure.directional_training_variant_support import (
     BACKWARD_ONLY_TRAINING_VARIANT,
@@ -327,6 +333,19 @@ def build_campaign_readme_markdown(
     ]
     return "\n".join(markdown_line_list) + "\n"
 
+
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    parsed_arguments = argument_parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
+    return parsed_arguments
 
 def main() -> None:
     base_dataset_config = load_yaml_file(CANONICAL_DATASET_CONFIG_PATH)

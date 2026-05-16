@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import sys
 import argparse, shutil, subprocess, sys
 from pathlib import Path
 
@@ -15,6 +16,13 @@ except ImportError:
 else: PYMUPDF_IMPORT_ERROR = None
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 DEFAULT_TEMPLATE_PPTX_PATH = PROJECT_PATH / "reference" / "templates" / "Template_XiLab_Research.pptx"
 
 # Pipeline Paths
@@ -55,6 +63,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     argument_parser.add_argument("--clean-temp", action="store_true", help="Delete the standardized presentation-pipeline temp root before the run starts.")
     argument_parser.add_argument("--cleanup-validation-images", action="store_true", help="Delete the generated validation PNG images after a successful validation pass.")
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -278,6 +287,9 @@ def main() -> None:
     """ Run Presentation Pipeline """
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Resolve Pipeline Paths
     markdown_path = resolve_markdown_path(parsed_arguments.input_markdown_path)

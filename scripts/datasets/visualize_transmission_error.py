@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
 import sys, argparse, yaml
 from pathlib import Path
 
@@ -12,6 +13,9 @@ PROJECT_PATH = PACKAGE_PATH.parents[1]
 
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 # Import Plotting Utilities
 import matplotlib
@@ -84,6 +88,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         help="Optional path used to save the plot instead of opening it interactively.",
     )
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 def resolve_csv_file_path(dataset_root: Path, csv_path: Path | None, file_index: int) -> Path:
@@ -173,6 +178,9 @@ def main() -> None:
 
     # Parse Command Line Arguments
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
 
     # Load Configurations
     visualization_config = load_visualization_config(command_line_arguments.config_path)

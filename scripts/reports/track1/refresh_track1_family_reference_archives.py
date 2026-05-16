@@ -23,6 +23,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
     exact_paper_model_bank_support,
 )
@@ -255,6 +258,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
             "When omitted, refresh all Track 1 families."
         ),
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -1545,6 +1549,9 @@ def main() -> None:
     """Run the Track 1 family archive refresh CLI."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     selected_family_code_list = [
         family_code.upper() for family_code in command_line_arguments.family
     ]

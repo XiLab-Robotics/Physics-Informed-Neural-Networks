@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+# Import Python Utilities
+import argparse
+
 import sys
 from copy import deepcopy
 from pathlib import Path
@@ -11,6 +14,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 from scripts.campaigns.infrastructure.directional_training_variant_support import load_yaml_file, save_yaml_file
 
@@ -136,6 +142,19 @@ def build_study_config() -> dict[str, Any]:
         },
     }
 
+
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    parsed_arguments = argument_parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
+    return parsed_arguments
 
 def main() -> None:
     source_training_config = build_source_training_config()

@@ -3,11 +3,20 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import argparse
+import sys
 import re
 from pathlib import Path
 from typing import Sequence
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 BENCHMARK_REPORT_PATH = (
     PROJECT_PATH / "doc" / "reports" / "analysis" / "RCIM Paper Reference Benchmark.md"
 )
@@ -164,9 +173,23 @@ def refresh_track1_benchmark_colored_markers() -> Path:
     return BENCHMARK_REPORT_PATH
 
 
+
+def parse_command_line_arguments() -> argparse.Namespace:
+
+    """Parse command-line arguments."""
+
+    argument_parser = argparse.ArgumentParser(description=__doc__)
+    repository_path_support.add_platform_arguments(argument_parser)
+    return argument_parser.parse_args()
+
 def main() -> None:
 
     """Run the benchmark colored-marker refresh CLI."""
+
+    parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     refreshed_report_path = refresh_track1_benchmark_colored_markers()
     print(f"[DONE] Refreshed Track 1 benchmark colored markers | {refreshed_report_path}")

@@ -28,6 +28,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 from scripts.tooling.video_guides.analyze_video_guides import collapse_whitespace
 
 try:
@@ -70,6 +73,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
     argument_parser.add_argument("--whisper-device", default=DEFAULT_WHISPER_DEVICE, help="Faster-Whisper device, such as auto, cuda, or cpu.")
     argument_parser.add_argument("--whisper-compute-type", default=DEFAULT_WHISPER_COMPUTE_TYPE, help="Faster-Whisper compute type, such as auto, float16, int8, or int8_float16.")
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -502,6 +506,9 @@ def main() -> int:
 
     # Parse CLI Arguments
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     # Build Application
     application = build_application(parsed_arguments)
 

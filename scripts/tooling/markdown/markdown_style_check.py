@@ -13,6 +13,13 @@ from pathlib import Path
 
 # Markdown Check Constants
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 DEFAULT_INCLUDED_PATHS = [
     "README.md",
     "AGENTS.md",
@@ -79,6 +86,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Return a non-zero exit code when warnings are found.",
     )
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 def parse_command_line_arguments() -> argparse.Namespace:
@@ -338,6 +346,9 @@ def main() -> int:
     """ Run Markdown Style Check """
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     input_path_list = resolve_input_paths(parsed_arguments.paths)
     markdown_file_path_list = collect_markdown_file_path_list(input_path_list)
 

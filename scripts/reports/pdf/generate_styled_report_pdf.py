@@ -1691,8 +1691,8 @@ def build_argument_parser() -> argparse.ArgumentParser:
     # Configure Export Environment
     argument_parser.add_argument("--chrome-executable-path", default="", help="Optional explicit Chrome or Edge executable path.")
     argument_parser.add_argument("--keep-html", action="store_true", help="Keep the generated HTML file after PDF export.")
-    repository_path_support.add_platform_arguments(argument_parser)
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 def remove_temporary_directory(directory_path: Path) -> None:

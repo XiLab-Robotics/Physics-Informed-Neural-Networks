@@ -13,6 +13,13 @@ from pathlib import Path
 
 # Markdownlint Runner Constants
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 MARKDOWNLINT_CONFIG_PATH = REPOSITORY_ROOT / ".markdownlint-cli2.jsonc"
 MARKDOWNLINT_COMMAND = [
     "npx.cmd",
@@ -44,6 +51,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Apply fixable Markdownlint corrections in place.",
     )
 
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -83,6 +91,9 @@ def main() -> int:
 
     # Parse Command-Line Arguments
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
 
     # Build Markdownlint Command
     markdownlint_command = build_markdownlint_command(parsed_arguments)

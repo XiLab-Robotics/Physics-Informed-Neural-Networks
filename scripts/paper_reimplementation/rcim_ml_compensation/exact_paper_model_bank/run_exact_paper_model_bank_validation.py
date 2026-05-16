@@ -15,6 +15,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import exact_paper_model_bank_support
 from scripts.training import shared_training_infrastructure
 
@@ -451,6 +452,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=-1,
         help="Optional runtime override for historical cross_validate verbose.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -459,6 +461,9 @@ def main() -> None:
     """Run the exact-paper validation entry point."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     run_exact_paper_model_bank_validation(
         command_line_arguments.config_path,
         command_line_arguments.output_suffix,

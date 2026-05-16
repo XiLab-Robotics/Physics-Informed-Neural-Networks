@@ -15,6 +15,16 @@ import random
 import re
 import sys
 from pathlib import Path
+
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[2]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 from typing import Any
 
 # Import Scientific Python Utilities
@@ -253,7 +263,12 @@ def parse_cli_arguments() -> argparse.Namespace:
         help="Directory where the exported split manifests will be written.",
     )
 
-    return argument_parser.parse_args()
+    repository_path_support.add_platform_arguments(argument_parser)
+    parsed_arguments = argument_parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
+    return parsed_arguments
 
 
 def resolve_direction_flag(direction_label: str) -> float:

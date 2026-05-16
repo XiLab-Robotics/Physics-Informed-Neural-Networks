@@ -3,6 +3,16 @@
 import argparse, ast, re, sys
 from pathlib import Path
 
+# Define Project Path
+PROJECT_PATH = Path(__file__).resolve().parents[4]
+
+# Ensure Repository Root Is Available For Direct Script Execution
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
+
 import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -140,6 +150,7 @@ def _build_argument_parser():
     parser.add_argument("--best-parameter-summary-path", type=Path, default=None, help="Optional semicolon-delimited summaryBestParameter CSV exported by the retune path.")
     parser.add_argument("--retune-grid-search-verbose", type=int, default=10, help="GridSearchCV verbosity used by the retune path.")
     parser.add_argument("--retune-cross-validate-verbose", type=int, default=10, help="cross_validate verbosity used by the retune path.")
+    repository_path_support.add_platform_arguments(parser)
     return parser
 
 def _build_family_factory_map():
@@ -381,6 +392,9 @@ def main():
     # Parse The CLI
     parser = _build_argument_parser()
     args = parser.parse_args()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(args)
+    )
 
     # Ensure Utilities Are On The Path
     ensure_utilities_on_path()

@@ -22,6 +22,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.models.model_factory import create_model
 from scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank import (
     exact_paper_model_bank_support,
@@ -108,6 +109,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default=CAMPAIGN_NAME,
         help="Canonical campaign name whose output directory should be closed out.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -1029,6 +1031,9 @@ def main() -> None:
     """Run the full Wave 1 directional retraining closeout."""
 
     command_line_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(command_line_arguments)
+    )
     campaign_output_directory = resolve_campaign_output_directory(command_line_arguments.campaign_name)
     campaign_manifest_path = campaign_output_directory / "campaign_manifest.yaml"
     campaign_manifest_dictionary = load_yaml_dictionary(campaign_manifest_path)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 # Import Python Utilities
+import sys
 import argparse, math, sys
 from datetime import datetime
 from datetime import timezone
@@ -16,6 +17,9 @@ PROJECT_PATH = Path(__file__).resolve().parents[3]
 
 # Ensure Repository Root Is Available For Direct Script Execution
 if str(PROJECT_PATH) not in sys.path: sys.path.insert(0, str(PROJECT_PATH))
+
+# Import Project Utilities
+from scripts.tooling import repository_path_support
 
 DEFAULT_OUTPUT_MARKDOWN_PATH = PROJECT_PATH / "doc" / "reports" / "analysis" / "Training Results Master Summary.md"
 DEFAULT_BACKLOG_PATH = PROJECT_PATH / "doc" / "running" / "te_model_live_backlog.md"
@@ -76,6 +80,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         default=str(DEFAULT_OUTPUT_MARKDOWN_PATH),
         help="Optional explicit Markdown output path.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser
 
 
@@ -1711,6 +1716,9 @@ def main() -> None:
     """Run the master-summary generator CLI."""
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     output_markdown_path = generate_training_results_master_summary(Path(parsed_arguments.output_markdown_path))
     print(f"[DONE] Generated training results master summary | {format_project_relative_path(output_markdown_path)}")
 

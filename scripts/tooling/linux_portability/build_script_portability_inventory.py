@@ -194,7 +194,7 @@ def resolve_portability_status(
     if has_cli_surface and not has_platform_flags:
         return "missing_platform_flags", "Python CLI entry point lacks --linux/--windows."
     if has_windows_specific_markers:
-        return "needs_review", "Script contains Windows-specific markers."
+        return "platform_flagged", "Python CLI entry point exposes platform flags and contains reviewed Windows markers."
     return "platform_flagged", "Python CLI entry point exposes platform flags."
 
 

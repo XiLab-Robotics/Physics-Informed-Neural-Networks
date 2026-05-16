@@ -20,6 +20,7 @@ if str(PROJECT_PATH) not in sys.path:
     sys.path.insert(0, str(PROJECT_PATH))
 
 # Import Project Utilities
+from scripts.tooling import repository_path_support
 from scripts.reports.closeout.track1 import closeout_track1_bidirectional_original_dataset_mega_campaign as archive_support
 from scripts.training import shared_training_infrastructure
 
@@ -85,6 +86,7 @@ def parse_command_line_arguments() -> argparse.Namespace:
         default="2026-05-15T07:07:30+02:00",
         help="Finished timestamp to record in campaign state and reports.",
     )
+    repository_path_support.add_platform_arguments(argument_parser)
     return argument_parser.parse_args()
 
 
@@ -829,6 +831,9 @@ def main() -> None:
     """Run the Track 1 forward paper-faithful closeout."""
 
     parsed_arguments = parse_command_line_arguments()
+    repository_path_support.set_runtime_platform(
+        repository_path_support.resolve_argument_platform(parsed_arguments)
+    )
     finished_at = str(parsed_arguments.finished_at)
     active_campaign_dictionary = load_yaml_dictionary(ACTIVE_CAMPAIGN_PATH)
     summary_bundle_dictionary = resolve_latest_forward_summary_dictionary()
