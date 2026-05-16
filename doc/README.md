@@ -113,6 +113,9 @@ This folder contains the internal project documents derived from the reference P
   Plan the Git LFS threshold cleanup for exact-model-bank validation artifacts
   so only required oversized `paper_family_model_bank.pkl` files remain tracked
   through LFS.
+- [technical/2026-05/2026-05-16/2026-05-16-20-14-35_small_exact_model_bank_lfs_pointer_conversion.md](./technical/2026-05/2026-05-16/2026-05-16-20-14-35_small_exact_model_bank_lfs_pointer_conversion.md)
+  Plan the multi-commit conversion of small exact-model-bank
+  `paper_family_model_bank.pkl` LFS pointers into normal Git blobs.
 - [technical/2026-05/2026-05-16/2026-05-16-20-07-07_track1_backward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-16/2026-05-16-20-07-07_track1_backward_paper_faithful_closeout_and_reference_refresh.md)
   Plan the Track 1 backward paper-faithful campaign closeout, backward
   paper-reference model archive replacement, linked report updates, and RCIM
