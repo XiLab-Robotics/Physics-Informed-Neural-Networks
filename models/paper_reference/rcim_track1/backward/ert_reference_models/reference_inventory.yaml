@@ -3,14 +3,15 @@ topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: ERT
 implementation_family_name: ERT
 archive_scope: track1_original_dataset_backward
-canonical_selection_rule: Per direction and target, select the completed mega-campaign
-  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
-  then run name.
-source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
-source_data: config/datasets/transmission_error_dataset.yaml
+canonical_selection_rule: Per direction and target, store the accepted canonical benchmark
+  winner currently visible in Tables 2-5. When a later closeout improves the accepted
+  target winner, replace the archive entry; otherwise retain the stored entry unchanged.
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
+source_data: config\datasets\transmission_error_dataset.yaml
 notes:
-- This archive was rebuilt during the bidirectional original-dataset mega-campaign
-  closeout.
+- This archive was replaced during the Track 1 backward paper-faithful grid-search
+  closeout after the exact-paper pipeline fixes for ELM, remote sync, and search-summary
+  serialization.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -18,26 +19,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 0
   direction_label: backward
-  benchmark_mae: 0.0025957272286959753
-  benchmark_rmse: 0.0033383212504575726
-  source_run_instance_id: 2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/006_track1_original_dataset_backward_ert_attempt_06.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl0.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl0.onnx
+  benchmark_mae: 0.003469481916720749
+  benchmark_rmse: 0.004145772087200904
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl0.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl0.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl0.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl0.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 04b3495a4d9577a242836510b99e65c1bab2d8a7e3dd42855e293b691ac9122c
-  archived_model_sha256: 4d883a46388fc0810fcd967dda71ada9fede3bff4d0cef399de2e68ef56d1458
+  python_model_sha256: e36ee8d97d5c4e9c22fd16cdbcde98f2ee9f752b5cd4e42bce118531cec83028
+  archived_model_sha256: 77c37b5bc41b08224413bbc7fdcf9891e13b351b018bfd716c53dba40406b63e
   feature_name_list:
   - rpm
   - deg
@@ -70,7 +71,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 13
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -102,34 +103,34 @@ reference_models:
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.0025957272286959753
-  training_metric_rmse: 0.0033383212504575726
-  training_metric_mse: 1.114438877125661e-05
-  training_metric_mape_percent: 42.052057169584664
+  training_metric_mae: 0.003469481916720749
+  training_metric_rmse: 0.004145772087200904
+  training_metric_mse: 1.7187426199014144e-05
+  training_metric_mape_percent: 127.95538486471558
 - target_name: fft_y_Bw_filtered_ampl_1
   target_kind: amplitude
   harmonic_order: 1
   direction_label: backward
-  benchmark_mae: 1.7533220877640515e-05
-  benchmark_rmse: 2.5813004912943738e-05
-  source_run_instance_id: 2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/007_track1_original_dataset_backward_ert_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl1.onnx
+  benchmark_mae: 2.0627259403314595e-05
+  benchmark_rmse: 2.9223654602690712e-05
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl1.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl1.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl1.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 80cc8385e8a8065d044224240b63a1a2eb89dc7edf56b4930126566ab72f740b
-  archived_model_sha256: 4d09ef2053893ba2c55ce3160547a515ffcad4ab41532a0cd479bb90c42da333
+  python_model_sha256: 7c0db2a52a10ec4711e116b50c2caa6bf952487bab5cf0a232128bd5ef1a1c37
+  archived_model_sha256: 2d1f3e74ab7f27d6e5086c3a639b0c90e5a0091d47b78c62d2dcb873f45adc20
   feature_name_list:
   - rpm
   - deg
@@ -162,7 +163,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -179,49 +180,49 @@ reference_models:
     bootstrap: false
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 16
+    max_depth: 14
     max_features: 1.0
     max_leaf_nodes: null
     max_samples: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 3
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
-    n_estimators: 80
+    n_estimators: 20
     n_jobs: null
     oob_score: false
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 1.7533220877640515e-05
-  training_metric_rmse: 2.5813004912943738e-05
-  training_metric_mse: 6.663112226356576e-10
-  training_metric_mape_percent: 0.10219507578162791
+  training_metric_mae: 2.0627259403314595e-05
+  training_metric_rmse: 2.9223654602690712e-05
+  training_metric_mse: 8.54021988337366e-10
+  training_metric_mape_percent: 0.12026364283766902
 - target_name: fft_y_Bw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
   direction_label: backward
-  benchmark_mae: 5.3009007335346245e-05
-  benchmark_rmse: 0.00014123647006035773
-  source_run_instance_id: 2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/008_track1_original_dataset_backward_ert_attempt_08.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl156.onnx
+  benchmark_mae: 0.00010941614130560656
+  benchmark_rmse: 0.00043247571066247975
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl156.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl156.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl156.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 792bb70fefaaa02c294d90871b4b27f82d7ad8e6fefcf3cdeff67d7c6d0332a4
-  archived_model_sha256: 0ad249bbe68da7a086d2812e8a4da57046cc4a81c5b36e3ff73f390e58d09c79
+  python_model_sha256: 2afd5936b6ecd30a075a59666139853888d0fc423522fae6e0f63c92c460815f
+  archived_model_sha256: c4844934b8bf384af163add7a60846377a75d11fbf00108f78ebdde7aa6861f1
   feature_name_list:
   - rpm
   - deg
@@ -254,7 +255,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 17
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -271,49 +272,49 @@ reference_models:
     bootstrap: false
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 15
+    max_depth: 14
     max_features: 1.0
     max_leaf_nodes: null
     max_samples: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 2
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
-    n_estimators: 80
+    n_estimators: 20
     n_jobs: null
     oob_score: false
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 5.3009007335346245e-05
-  training_metric_rmse: 0.00014123647006035773
-  training_metric_mse: 1.9947740475110327e-08
-  training_metric_mape_percent: 4.963187914013852
+  training_metric_mae: 0.00010941614130560656
+  training_metric_rmse: 0.00043247571066247975
+  training_metric_mse: 1.870352403130169e-07
+  training_metric_mape_percent: 9.326027249304229
 - target_name: fft_y_Bw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
   direction_label: backward
-  benchmark_mae: 3.225377463245847e-05
-  benchmark_rmse: 8.910908112571452e-05
-  source_run_instance_id: 2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/016_track1_original_dataset_backward_ert_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl162.onnx
+  benchmark_mae: 8.522566422420866e-05
+  benchmark_rmse: 0.000370451894175226
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl162.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl162.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl162.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 6fa434fbd1dafe565c084cdce962c186dbc0429c1331e8d7499ebea2b180252f
-  archived_model_sha256: c490016a115ef856994c2c08e05aaf25c67af8ea5e80f14603edcc25d51d06f7
+  python_model_sha256: 4d0e71ce9429d55a01db231b7790297749a18f08c078c8011fa84026dde15193
+  archived_model_sha256: 52fb684572bf506cbb405b7314fd4c818f662de49fd0beb87392c346e7bf3731
   feature_name_list:
   - rpm
   - deg
@@ -346,7 +347,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 42
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -363,49 +364,49 @@ reference_models:
     bootstrap: false
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 15
+    max_depth: 14
     max_features: 1.0
     max_leaf_nodes: null
     max_samples: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 3
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
-    n_estimators: 40
+    n_estimators: 20
     n_jobs: null
     oob_score: false
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 3.225377463245847e-05
-  training_metric_rmse: 8.910908112571452e-05
-  training_metric_mse: 7.940428339069171e-09
-  training_metric_mape_percent: 5.546607464416558
+  training_metric_mae: 8.522566422420866e-05
+  training_metric_rmse: 0.000370451894175226
+  training_metric_mse: 1.3723460589801284e-07
+  training_metric_mape_percent: 7.047928905497732
 - target_name: fft_y_Bw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
   direction_label: backward
-  benchmark_mae: 5.6894621223603796e-05
-  benchmark_rmse: 0.00012124964834123492
-  source_run_instance_id: 2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/007_track1_original_dataset_backward_ert_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl240.onnx
+  benchmark_mae: 0.0001352072690176224
+  benchmark_rmse: 0.00048560763484933677
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl240.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl240.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-53-11__track1_original_dataset_backward_ert_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl240.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: a67206c4f5f95c5ab470d85c214f2894d7be47b584cb6e4c3de0a6a56a21c092
-  archived_model_sha256: 2000de9ae343aeda462bf835e3e012e63915951509123ef28d0dd957342ecceb
+  python_model_sha256: e15b1a8365cda046fd2cd52e65e1288778f880426cc5b8fd62b8882ce680f948
+  archived_model_sha256: 9751db6001efd8b2b54568321e8e4a0c0515e21c3f8be6f2117690b05c9f8625
   feature_name_list:
   - rpm
   - deg
@@ -438,7 +439,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -455,49 +456,49 @@ reference_models:
     bootstrap: false
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 16
+    max_depth: 14
     max_features: 1.0
     max_leaf_nodes: null
     max_samples: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 3
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
-    n_estimators: 80
+    n_estimators: 20
     n_jobs: null
     oob_score: false
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 5.6894621223603796e-05
-  training_metric_rmse: 0.00012124964834123492
-  training_metric_mse: 1.4701477222873134e-08
-  training_metric_mape_percent: 8.559629565676136
+  training_metric_mae: 0.0001352072690176224
+  training_metric_rmse: 0.00048560763484933677
+  training_metric_mse: 2.358147750239668e-07
+  training_metric_mape_percent: 15.76309217234938
 - target_name: fft_y_Bw_filtered_ampl_3
   target_kind: amplitude
   harmonic_order: 3
   direction_label: backward
-  benchmark_mae: 1.966485029430261e-05
-  benchmark_rmse: 2.8438174839958268e-05
-  source_run_instance_id: 2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/006_track1_original_dataset_backward_ert_attempt_06.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl3.onnx
+  benchmark_mae: 2.6265460990714646e-05
+  benchmark_rmse: 3.500084224384649e-05
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl3.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl3.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-50-03__track1_original_dataset_backward_ert_attempt_06_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl3.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: ddb986bc11bdd27ff6d1c77dc45a35d311342cae88b5a7579f06165f47987682
-  archived_model_sha256: cb16a41603b44a634c10684fc572c88f7b3a7491be41e1587986412b771f224f
+  python_model_sha256: 005a7e25364780f35fffd18efc4d94cb256ed9c603af4787e0d80a05bf1c95b4
+  archived_model_sha256: 96f3162b7c2f3d3f9831e8f53a6dcb2b683e10af5c1570754ce8d76e3ece4ff3
   feature_name_list:
   - rpm
   - deg
@@ -530,7 +531,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 13
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -562,34 +563,34 @@ reference_models:
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 1.966485029430261e-05
-  training_metric_rmse: 2.8438174839958268e-05
-  training_metric_mse: 8.087297882280354e-10
-  training_metric_mape_percent: 1.9753302401711323
+  training_metric_mae: 2.6265460990714646e-05
+  training_metric_rmse: 3.500084224384649e-05
+  training_metric_mse: 1.225058957778629e-09
+  training_metric_mape_percent: 2.7164885181901086
 - target_name: fft_y_Bw_filtered_ampl_39
   target_kind: amplitude
   harmonic_order: 39
   direction_label: backward
-  benchmark_mae: 1.5992971109399792e-05
-  benchmark_rmse: 2.2514158627253848e-05
-  source_run_instance_id: 2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/020_track1_original_dataset_backward_ert_attempt_20.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl39.onnx
+  benchmark_mae: 1.7607356932198488e-05
+  benchmark_rmse: 2.37344184032145e-05
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl39.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl39.onnx
   export_estimator_name: ExtraTreesRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl39.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: e9d92e16127ee3e7e0518d1e9f6e51785ebce077f55c39615c095153c84594d5
-  archived_model_sha256: b0c8cd721479203af6f717c7e48bd9d59cb58cb8b87944cb1ee4296bf113132f
+  python_model_sha256: 0c6f8d963a2e0ca9d7139b71b3ee70a370403a2ff13a9a99a33fc3a3a3fc889c
+  archived_model_sha256: 7a0d011070efae77d9ffc765e9d6b6b3ad15a9e863a1b92bf449b454d5e87b29
   feature_name_list:
   - rpm
   - deg
@@ -622,467 +623,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 61
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 1.5992971109399792e-05
-  training_metric_rmse: 2.2514158627253848e-05
-  training_metric_mse: 5.068873386931489e-10
-  training_metric_mape_percent: 3.4811697371050117
-- target_name: fft_y_Bw_filtered_ampl_40
-  target_kind: amplitude
-  harmonic_order: 40
-  direction_label: backward
-  benchmark_mae: 2.3188166176099633e-05
-  benchmark_rmse: 3.344791292837534e-05
-  source_run_instance_id: 2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/009_track1_original_dataset_backward_ert_attempt_09.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl40.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-59-47__track1_original_dataset_backward_ert_attempt_09_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 0ef97a1d119cacc40b3254b9340be4c4a52aa156c08c49b34fbc14147e400ada
-  archived_model_sha256: 8c32fd6f2d24ba843cc20d4e41bccf70c0d854d4c0dbbeb6a6b8cafa62867ac4
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 19
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 16
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 5
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 2.3188166176099633e-05
-  training_metric_rmse: 3.344791292837534e-05
-  training_metric_mse: 1.1187628792641782e-09
-  training_metric_mape_percent: 7.727083075240255
-- target_name: fft_y_Bw_filtered_ampl_78
-  target_kind: amplitude
-  harmonic_order: 78
-  direction_label: backward
-  benchmark_mae: 3.4887797157799385e-05
-  benchmark_rmse: 4.721191718300064e-05
-  source_run_instance_id: 2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/016_track1_original_dataset_backward_ert_attempt_16.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl78.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-21-42__track1_original_dataset_backward_ert_attempt_16_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 1eff2a2b0f599e360fc4ceb725dcb4d46172d66fe8bb3ba2bbcf7c9c55e9bd4c
-  archived_model_sha256: 7dff36b26ee76c307798a614e4ab84f5a3a28d77f23f4f73c480cf03445600c9
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 42
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 3
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 3.4887797157799385e-05
-  training_metric_rmse: 4.721191718300064e-05
-  training_metric_mse: 2.2289651240945115e-09
-  training_metric_mape_percent: 4.6747776163079005
-- target_name: fft_y_Bw_filtered_ampl_81
-  target_kind: amplitude
-  harmonic_order: 81
-  direction_label: backward
-  benchmark_mae: 6.9504658070230214e-06
-  benchmark_rmse: 1.0259313824148408e-05
-  source_run_instance_id: 2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/003_track1_original_dataset_backward_ert_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_ampl81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/amplitude/ExtraTreesRegressor_ampl81.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/amplitude/ExtraTreesRegressor_ampl81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 4c16a73d2d36bc4a9b12177f1b820a58fb280c3a1b08eb49c706181c738e78e4
-  archived_model_sha256: 3e0616c3d8cc8c9749816ea5325e388bb89aad67c0018150e6fe4a5e5f7d3b87
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 7
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 18
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 20
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 6.9504658070230214e-06
-  training_metric_rmse: 1.0259313824148408e-05
-  training_metric_mse: 1.0525352014236263e-10
-  training_metric_mape_percent: 5.614370247195884
-- target_name: fft_y_Bw_filtered_phase_1
-  target_kind: phase
-  harmonic_order: 1
-  direction_label: backward
-  benchmark_mae: 0.0014794883448569316
-  benchmark_rmse: 0.001953047835988027
-  source_run_instance_id: 2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/003_track1_original_dataset_backward_ert_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase1.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase1.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 68b95d48da50d57c15e378fa290cb8bb8a0bbc2166e6177f0780971ffa3019b2
-  archived_model_sha256: e23f920562c2dadcb2bd41562f3648b7953e31ac454e651cf5725412bd4492cc
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 7
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 18
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 20
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.0014794883448569316
-  training_metric_rmse: 0.001953047835988027
-  training_metric_mse: 3.8143958496575148e-06
-  training_metric_mape_percent: 32.56955573312621
-- target_name: fft_y_Bw_filtered_phase_156
-  target_kind: phase
-  harmonic_order: 156
-  direction_label: backward
-  benchmark_mae: 0.046163886435557445
-  benchmark_rmse: 0.09566028008894391
-  source_run_instance_id: 2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/012_track1_original_dataset_backward_ert_attempt_12.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase156.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-09-10__track1_original_dataset_backward_ert_attempt_12_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase156.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: cb42a13477b373b9dbd3f6b9f15afbdcd8cf1c45c8d45a6c916e3ca934fe5b80
-  archived_model_sha256: 3b29d61dc978fda531995948f00bdeb41d8a4c75c138c04bfd2d30df0dffad76
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 27
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1105,651 +646,7 @@ reference_models:
     max_samples: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.046163886435557445
-  training_metric_rmse: 0.09566028008894391
-  training_metric_mse: 0.009150889186695198
-  training_metric_mape_percent: 4.510286484330366
-- target_name: fft_y_Bw_filtered_phase_162
-  target_kind: phase
-  harmonic_order: 162
-  direction_label: backward
-  benchmark_mae: 0.04209949390395482
-  benchmark_rmse: 0.08097776617692659
-  source_run_instance_id: 2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/008_track1_original_dataset_backward_ert_attempt_08.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase162.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase162.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: e3476c0d4ca80de0602379f282bed675e44c6f706e702878a3c6537ea33aeb8d
-  archived_model_sha256: f8dfbdc18920388fcf4829353b42516f2be3fdf8790a0882ed1d4751fe58c247
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 17
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 80
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.04209949390395482
-  training_metric_rmse: 0.08097776617692659
-  training_metric_mse: 0.006557398615004996
-  training_metric_mape_percent: 2.4202164503621173
-- target_name: fft_y_Bw_filtered_phase_240
-  target_kind: phase
-  harmonic_order: 240
-  direction_label: backward
-  benchmark_mae: 0.14225973514821347
-  benchmark_rmse: 0.4970605786044824
-  source_run_instance_id: 2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/011_track1_original_dataset_backward_ert_attempt_11.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase240.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase240.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 9b585bdf7c4e73c9709b0a3ad4b6644e352d24a02b42af05f42a1bf96e066ecf
-  archived_model_sha256: 7e18d1c426cc5491d50a22392e561b263b7f4d807245ea79341a48c5dda2b6bc
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 23
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 16
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 3
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.14225973514821347
-  training_metric_rmse: 0.4970605786044824
-  training_metric_mse: 0.24706921880262284
-  training_metric_mape_percent: 9.27678995046519
-- target_name: fft_y_Bw_filtered_phase_3
-  target_kind: phase
-  harmonic_order: 3
-  direction_label: backward
-  benchmark_mae: 0.020339787682467827
-  benchmark_rmse: 0.0256952380272586
-  source_run_instance_id: 2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/008_track1_original_dataset_backward_ert_attempt_08.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase3.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 7bceb0748fbf624c0d751b0b79a63d02f9e7f9c8db9fd6dde91ce7e0ed5054c9
-  archived_model_sha256: ceb5c059f24187fb6d589b5ee3dfb8ae2d19d8c9e3f819d370f6d282d222e304
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 17
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 80
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.020339787682467827
-  training_metric_rmse: 0.0256952380272586
-  training_metric_mse: 0.0006602452572774765
-  training_metric_mape_percent: 1.5443382572316071
-- target_name: fft_y_Bw_filtered_phase_39
-  target_kind: phase
-  harmonic_order: 39
-  direction_label: backward
-  benchmark_mae: 0.13658359543474655
-  benchmark_rmse: 0.6177644372636207
-  source_run_instance_id: 2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/011_track1_original_dataset_backward_ert_attempt_11.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase39.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase39.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 9cbb8072d92b1f9ebe494f37f08efb792af7b99d27f075be64f37b2fa2c49db0
-  archived_model_sha256: 1f8dab9ca2b5131c356626c79d8e48a1ecfeebbbdad3dcf1efed405e2365b90e
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 23
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 16
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 3
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.13658359543474655
-  training_metric_rmse: 0.6177644372636207
-  training_metric_mse: 0.38163289994763805
-  training_metric_mape_percent: 5.014911791041552
-- target_name: fft_y_Bw_filtered_phase_40
-  target_kind: phase
-  harmonic_order: 40
-  direction_label: backward
-  benchmark_mae: 0.07435571094421366
-  benchmark_rmse: 0.10559544420327231
-  source_run_instance_id: 2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/011_track1_original_dataset_backward_ert_attempt_11.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase40.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-06-02__track1_original_dataset_backward_ert_attempt_11_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 3764e086d22cea34c1383524d54e79850c58b5c142e4312fadffad52245108eb
-  archived_model_sha256: c07b730e3e57f9410080e302390a2539a270d594c6da6cc1f27e320739237ccf
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 23
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 16
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 3
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.07435571094421366
-  training_metric_rmse: 0.10559544420327231
-  training_metric_mse: 0.011150397836486395
-  training_metric_mape_percent: 43.944685348064915
-- target_name: fft_y_Bw_filtered_phase_78
-  target_kind: phase
-  harmonic_order: 78
-  direction_label: backward
-  benchmark_mae: 0.038634492841131
-  benchmark_rmse: 0.08000899027122473
-  source_run_instance_id: 2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/020_track1_original_dataset_backward_ert_attempt_20.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase78.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-17-34-18__track1_original_dataset_backward_ert_attempt_20_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 86fb92ec25648d6eba53efe5b12701661d3c4751924a99944d3468a7874d3eee
-  archived_model_sha256: 4d7f554f343e43742e4505fcab2ab344901db91502555bcbbbc20cbc6586ed9f
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 61
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    n_estimators: 40
-    n_jobs: null
-    oob_score: false
-    random_state: 0
-    verbose: 0
-    warm_start: false
-  training_metric_mae: 0.038634492841131
-  training_metric_rmse: 0.08000899027122473
-  training_metric_mse: 0.006401438524220934
-  training_metric_mape_percent: 58.90787403541924
-- target_name: fft_y_Bw_filtered_phase_81
-  target_kind: phase
-  harmonic_order: 81
-  direction_label: backward
-  benchmark_mae: 0.07157673224662123
-  benchmark_rmse: 0.10205228640448345
-  source_run_instance_id: 2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/ert/2026-04-26_track1_backward_ert_original_dataset_mega_campaign/003_track1_original_dataset_backward_ert_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/onnx_export/ERT/ExtraTreesRegressor_phase81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/onnx/phase/ExtraTreesRegressor_phase81.onnx
-  export_estimator_name: ExtraTreesRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/ert_reference_models/source_runs/2026-04-26-16-40-39__track1_original_dataset_backward_ert_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/ert_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/ert_reference_models/python/phase/ExtraTreesRegressor_phase81.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: ExtraTreesRegressor
-  python_model_sha256: 555a7d3070d9f333f4f99a068a1ff53e8d27c80aeee12d4d398e5810427de732
-  archived_model_sha256: 2618db5c147b8de857679167dcaee849b872e12bc5df1b3c74c6a9f1878369ce
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 7
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    bootstrap: false
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 18
-    max_features: 1.0
-    max_leaf_nodes: null
-    max_samples: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 2
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     n_estimators: 20
@@ -1758,7 +655,1111 @@ reference_models:
     random_state: 0
     verbose: 0
     warm_start: false
-  training_metric_mae: 0.07157673224662123
-  training_metric_rmse: 0.10205228640448345
-  training_metric_mse: 0.010414669160382719
-  training_metric_mape_percent: 32.051793559843816
+  training_metric_mae: 1.7607356932198488e-05
+  training_metric_rmse: 2.37344184032145e-05
+  training_metric_mse: 5.633226169388471e-10
+  training_metric_mape_percent: 4.085927824690081
+- target_name: fft_y_Bw_filtered_ampl_40
+  target_kind: amplitude
+  harmonic_order: 40
+  direction_label: backward
+  benchmark_mae: 2.411998709695732e-05
+  benchmark_rmse: 3.241772375979356e-05
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl40.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl40.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: d941ae6118da57f020c8fbad1ad3f2a768e7242e49ebf8088d2a92c04438988c
+  archived_model_sha256: 77f8635c8c0d133108d122efdcb163906711af3a8467e917a4e2960e56578260
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 2.411998709695732e-05
+  training_metric_rmse: 3.241772375979356e-05
+  training_metric_mse: 1.0509088137662837e-09
+  training_metric_mape_percent: 8.161579273415184
+- target_name: fft_y_Bw_filtered_ampl_78
+  target_kind: amplitude
+  harmonic_order: 78
+  direction_label: backward
+  benchmark_mae: 3.642680513559799e-05
+  benchmark_rmse: 5.169595962390641e-05
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl78.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl78.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: 528e3dc63511fa4160a6ecf4b543bdb6a63bd4c3dac2f92e1fabdb4b1153b62a
+  archived_model_sha256: df361f015043901114790edb864668210380dd38c630e14ac4eba36a2f794e34
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 3.642680513559799e-05
+  training_metric_rmse: 5.169595962390641e-05
+  training_metric_mse: 2.6724722414365617e-09
+  training_metric_mape_percent: 3.580528383152538
+- target_name: fft_y_Bw_filtered_ampl_81
+  target_kind: amplitude
+  harmonic_order: 81
+  direction_label: backward
+  benchmark_mae: 8.76046186881291e-06
+  benchmark_rmse: 1.2610373310098792e-05
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_ampl81.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\amplitude\ExtraTreesRegressor_ampl81.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\amplitude\ExtraTreesRegressor_ampl81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: 4c9222d8810197c07ea0501df13f74b1e2eb8459cbd137489c384241c20277ce
+  archived_model_sha256: d9bd74bad15b09a1f9b466f108445863cf3d95e2194debac711b5e51cb6f4228
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 8.76046186881291e-06
+  training_metric_rmse: 1.2610373310098792e-05
+  training_metric_mse: 1.5902151502005198e-10
+  training_metric_mape_percent: 7.485791520133535
+- target_name: fft_y_Bw_filtered_phase_1
+  target_kind: phase
+  harmonic_order: 1
+  direction_label: backward
+  benchmark_mae: 0.0015801052182894107
+  benchmark_rmse: 0.002130168413735075
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase1.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase1.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase1.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: 8bf6072136e2389f7e9aec79c185cfb288a332246b91c90bf0f2d8caf13617c6
+  archived_model_sha256: a634cbb1343651bb023be27f534e43f85ba78410788e86895ea12299ecd265e3
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.0015801052182894107
+  training_metric_rmse: 0.002130168413735075
+  training_metric_mse: 4.537617470874604e-06
+  training_metric_mape_percent: 21.06392894028896
+- target_name: fft_y_Bw_filtered_phase_156
+  target_kind: phase
+  harmonic_order: 156
+  direction_label: backward
+  benchmark_mae: 0.10637317957578059
+  benchmark_rmse: 0.33474814894399213
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase156.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase156.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase156.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: 9e1d65744b5fce0e52149c5c395ec14fcf688fb4685c5cce98778ed6e369f3e0
+  archived_model_sha256: 718c34df224dfacda77190d97599c396bd4bcd51dcc4778c4b1ee7f85be5fa71
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.10637317957578059
+  training_metric_rmse: 0.33474814894399213
+  training_metric_mse: 0.11205632322142915
+  training_metric_mape_percent: 11.19064361212175
+- target_name: fft_y_Bw_filtered_phase_162
+  target_kind: phase
+  harmonic_order: 162
+  direction_label: backward
+  benchmark_mae: 0.06261155413819736
+  benchmark_rmse: 0.13329511169056926
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase162.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase162.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase162.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: d8fd005fff931a430e9a7365ec73f4d8ef3f2d9ba469f4c25707644fa80431ee
+  archived_model_sha256: 7f65c4622a4667b0610727b7569988647ca544daaea6322c2adcc635317e3de0
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.06261155413819736
+  training_metric_rmse: 0.13329511169056926
+  training_metric_mse: 0.017767586800601337
+  training_metric_mape_percent: 3.5386028974630985
+- target_name: fft_y_Bw_filtered_phase_240
+  target_kind: phase
+  harmonic_order: 240
+  direction_label: backward
+  benchmark_mae: 0.28691825447873986
+  benchmark_rmse: 0.7435238827250779
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase240.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase240.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase240.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: a75e2c7ac53239dcc897437a2c75ee2e6b8c610f7a68de8d1b40794716829cb0
+  archived_model_sha256: 2c58a4d5d7f91876968d6bd39336447e74c4be3f9f658df1cc7cc8a24382b5b8
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.28691825447873986
+  training_metric_rmse: 0.7435238827250779
+  training_metric_mse: 0.5528277641825754
+  training_metric_mape_percent: 15.48367056417271
+- target_name: fft_y_Bw_filtered_phase_3
+  target_kind: phase
+  harmonic_order: 3
+  direction_label: backward
+  benchmark_mae: 0.02364349740890346
+  benchmark_rmse: 0.03560006433475671
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase3.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase3.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase3.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: b1b67844b28bb587c95b96f278e37dd47e4ebd78d31d5b4474bba0d4a972aa96
+  archived_model_sha256: 2e2c7b83ea8a16b059309c6273f69c3a66aff39fc37c9dacf16c030f77b2d224
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.02364349740890346
+  training_metric_rmse: 0.03560006433475671
+  training_metric_mse: 0.0012673645806388165
+  training_metric_mape_percent: 1.7607890113237312
+- target_name: fft_y_Bw_filtered_phase_39
+  target_kind: phase
+  harmonic_order: 39
+  direction_label: backward
+  benchmark_mae: 0.24388174268317953
+  benchmark_rmse: 0.8492853982189774
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase39.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase39.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: a2a001190b4c4fd0a1bd3f4039477e482245cb4dba7aac7397ef978813929a26
+  archived_model_sha256: 6118c71f7b7f0a32504f814183d0f36961dc1a6283957a680b882d9045403131
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.24388174268317953
+  training_metric_rmse: 0.8492853982189774
+  training_metric_mse: 0.7212856876279671
+  training_metric_mape_percent: 8.386364739446995
+- target_name: fft_y_Bw_filtered_phase_40
+  target_kind: phase
+  harmonic_order: 40
+  direction_label: backward
+  benchmark_mae: 0.07901228650148837
+  benchmark_rmse: 0.10708281006832608
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase40.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase40.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: e0b036bf22ee484c5858b9337effc63d369248b90faff4aabf7ab026b28aa1a4
+  archived_model_sha256: 1124705fd3feb9b9a2a77dabb0e698bb2f8335c1e3b3b9b9de4fc3c1bf43fc1a
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.07901228650148837
+  training_metric_rmse: 0.10708281006832608
+  training_metric_mse: 0.011466728212129199
+  training_metric_mape_percent: 29.426563383016084
+- target_name: fft_y_Bw_filtered_phase_78
+  target_kind: phase
+  harmonic_order: 78
+  direction_label: backward
+  benchmark_mae: 0.05537772249826864
+  benchmark_rmse: 0.12482291959604436
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase78.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase78.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: 56d39f04e77f7eccb78ddf9b1cfaddda74211c512b4578ad3a11663ed218dd1f
+  archived_model_sha256: ad5aed041999e263eb663dc2fc6e26ba19eae0607dbd7270eca14353855b8d88
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.05537772249826864
+  training_metric_rmse: 0.12482291959604436
+  training_metric_mse: 0.015580761256480556
+  training_metric_mape_percent: 66.27018464313448
+- target_name: fft_y_Bw_filtered_phase_81
+  target_kind: phase
+  harmonic_order: 81
+  direction_label: backward
+  benchmark_mae: 0.08042351604398361
+  benchmark_rmse: 0.12536690425021269
+  source_run_instance_id: 2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/ert/2026-05-04_track1_backward_ert_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_ert.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\onnx_export\ERT\ExtraTreesRegressor_phase81.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\onnx\phase\ExtraTreesRegressor_phase81.onnx
+  export_estimator_name: ExtraTreesRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\ert_reference_models\source_runs\2026-05-16-01-14-27__track1_paper_faithful_grid_search_backward_ert_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\ert_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\ert_reference_models\python\phase\ExtraTreesRegressor_phase81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: ExtraTreesRegressor
+  python_model_sha256: 90c3b61aeddca4a7f15c7222d13521446dca961513716017ae131bea9f03701f
+  archived_model_sha256: 08f1a444a2838ae66e8b304f78134ea53aed2f83ff5aeab99e27cc3ec180a759
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    bootstrap: false
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 14
+    max_features: 1.0
+    max_leaf_nodes: null
+    max_samples: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    n_estimators: 20
+    n_jobs: null
+    oob_score: false
+    random_state: 0
+    verbose: 0
+    warm_start: false
+  training_metric_mae: 0.08042351604398361
+  training_metric_rmse: 0.12536690425021269
+  training_metric_mse: 0.015716860681281995
+  training_metric_mape_percent: 38.91683013933228

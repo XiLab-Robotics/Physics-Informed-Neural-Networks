@@ -1,7 +1,7 @@
 # RCIM Track 1 Backward Reference Branch
 
-This branch now stores the canonical backward-direction paper-reference
-archives rebuilt from the original dataset under `data/datasets/`.
+This branch stores the canonical backward-direction paper-reference archives
+rebuilt from the completed Track 1 backward paper-faithful grid-search campaign.
 
 Populated family archives:
 
@@ -15,3 +15,4 @@ Populated family archives:
 - `hgbm_reference_models/`
 - `xgbm_reference_models/`
 - `lgbm_reference_models/`
+- `elm_reference_models/`

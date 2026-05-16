@@ -9,9 +9,9 @@ launch_mode: remote_operator_launcher
 activation_pending_user_confirmation: false
 prepared_at: '2026-05-13T17:47:50+02:00'
 started_at: '2026-05-14T00:44:05+02:00'
-finished_at: '2026-05-15T07:07:30+02:00'
-completion_recorded_at: '2026-05-15T11:57:54+02:00'
-results_report_path: doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md
+finished_at: '2026-05-16T19:04:25+02:00'
+completion_recorded_at: '2026-05-16T20:20:45+02:00'
+results_report_path: doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md
 remote_host_alias: xilab-remote
 remote_repository_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
 remote_conda_environment_name: standard_ml_lan_node
@@ -102,5 +102,5 @@ completed_family_list:
 - LGBM
 - ELM
 pending_family_list: []
-interruption_note: Forward paper-faithful grid-search slice completed and closed out.
-  Backward paper-faithful slice remains a future launch.
+interruption_note: Forward and backward paper-faithful grid-search slices completed
+  and closed out.

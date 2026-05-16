@@ -21,9 +21,12 @@ backward original tables.
 
 - retuned family-direction archives promoted: `22`
 - Track 1 forward family archives refreshed: `11`
+- Track 1 backward family archives refreshed: `11`
 - Track 1 forward archive root: `models/paper_reference/rcim_track1/forward/`
+- Track 1 backward archive root: `models/paper_reference/rcim_track1/backward/`
 - Track 1 forward closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
-- Track 1 forward completion timestamp: `2026-05-15T07:07:30+02:00`
+- Track 1 backward closeout report: `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
+- Track 1 backward completion timestamp: `2026-05-16T19:04:25+02:00`
 - `ELM` is archived as an operational Track 1 family but remains outside the original paper-family order.
 
 ## Forward Tables
@@ -287,17 +290,17 @@ No backward paper-original table is available in the paper.
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `SVM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `MLP` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `RF` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `DT` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ET` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ERT` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `GBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `HGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `XGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `LGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ELM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| `SVM` | `🔴 0.00429719` | `🟡 7.21116e-05` | `🟢 6.26989e-05` | `🟢 0.000101174` | `🟡 4.02579e-05` | `🟢 0.00013487` | `🟢 2.13117e-05` | `🟢 0.000718831` | `🔴 0.000751263` | `🔴 0.0005152` |
+| `MLP` | `🟡 0.0187638` | `🔴 0.0180434` | `🟢 0.0142052` | `🔴 0.0222598` | `🔴 0.0259821` | `🔴 0.0175306` | `🔴 0.0223986` | `🔴 0.0350925` | `🔴 0.0281716` | `🔴 0.024987` |
+| `RF` | `🟡 0.00326128` | `🟢 2.12857e-05` | `🟡 2.36905e-05` | `🔴 2.28753e-05` | `🟢 2.18196e-05` | `🟡 5.50349e-05` | `🟡 1.07872e-05` | `🔴 0.000260409` | `🔴 0.00019246` | `🔴 0.000178183` |
+| `DT` | `🟡 0.00362216` | `🟢 2.65706e-05` | `🟢 2.42053e-05` | `🟢 2.01634e-05` | `🟢 2.57958e-05` | `🟢 5.25319e-05` | `🟢 1.14882e-05` | `🟢 0.000132202` | `🟢 0.000109396` | `🟢 0.000120005` |
+| `ET` | `🟢 0.00323091` | `🟡 2.79374e-05` | `🔴 3.6441e-05` | `🔴 2.89436e-05` | `🟢 3.0195e-05` | `🔴 0.000126116` | `🔴 1.9469e-05` | `🔴 0.000373914` | `🔴 0.000196806` | `🔴 0.000183825` |
+| `ERT` | `🟡 0.00346948` | `🟢 2.06273e-05` | `🔴 2.62655e-05` | `🟡 1.76074e-05` | `🟢 2.412e-05` | `🟢 3.64268e-05` | `🟢 8.76046e-06` | `🟡 0.000109416` | `🟢 8.52257e-05` | `🔴 0.000135207` |
+| `GBM` | `🟢 0.00302314` | `🟢 2.0832e-05` | `🟢 1.90749e-05` | `🟢 1.94171e-05` | `🟢 2.20437e-05` | `🟢 4.97133e-05` | `🟢 1.02443e-05` | `🟢 0.000274177` | `🟡 0.000153256` | `🟢 0.000174127` |
+| `HGBM` | `🟡 0.00378368` | `🟢 2.91305e-05` | `🟢 2.76483e-05` | `🟢 2.06079e-05` | `🟢 2.60511e-05` | `🟢 7.61737e-05` | `🟡 1.26117e-05` | `🟢 0.000284131` | `🟡 0.000338821` | `🔴 0.000269172` |
+| `XGBM` | `🟢 0.004586` | `🔴 6.52717e-05` | `🟡 7.24577e-05` | `🟡 7.90442e-05` | `🟢 3.96378e-05` | `🟢 0.000145479` | `🟡 2.76087e-05` | `🟢 0.000408884` | `🟢 0.00028056` | `🔴 0.0003725` |
+| `LGBM` | `🟢 0.00245033` | `🟢 2.25836e-05` | `🟢 2.0776e-05` | `🟢 1.6854e-05` | `🟢 2.48788e-05` | `🟢 2.6598e-05` | `🟢 9.64368e-06` | `🟢 0.000290743` | `🟢 9.43304e-05` | `🟢 0.000116581` |
+| `ELM` | `🟡 0.00739232` | `🟢 3.01773e-05` | `🟢 5.92126e-05` | `🟢 5.49178e-05` | `🟢 3.63881e-05` | `🟢 0.000280435` | `🟢 2.07512e-05` | `🟢 0.00104357` | `🟡 0.00104482` | `🟡 0.00044025` |
 <!-- markdownlint-enable MD013 -->
 
 ### Backward Table 3 - Amplitude RMSE
@@ -329,17 +332,17 @@ No backward paper-original table is available in the paper.
 <!-- markdownlint-disable MD013 -->
 | Model | `0` | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `SVM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `MLP` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `RF` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `DT` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ET` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ERT` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `GBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `HGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `XGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `LGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ELM` | pending | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| `SVM` | `🔴 0.00624162` | `🟡 0.000100359` | `🟡 8.0137e-05` | `🟢 0.000121816` | `🟢 5.14725e-05` | `🟢 0.000165646` | `🟢 2.79301e-05` | `🟢 0.00159816` | `🔴 0.00247527` | `🔴 0.00143899` |
+| `MLP` | `🔴 0.0329994` | `🔴 0.0290015` | `🟢 0.0267382` | `🔴 0.0368861` | `🔴 0.0464764` | `🔴 0.0387349` | `🔴 0.0349958` | `🔴 0.0685187` | `🔴 0.0433351` | `🔴 0.0376344` |
+| `RF` | `🟡 0.00388728` | `🟢 3.17179e-05` | `🟢 3.21038e-05` | `🟡 2.90596e-05` | `🟢 2.95874e-05` | `🟡 7.49419e-05` | `🟡 1.53213e-05` | `🔴 0.000994547` | `🔴 0.00054455` | `🔴 0.000523307` |
+| `DT` | `🟡 0.00536033` | `🟡 4.02372e-05` | `🟢 3.67906e-05` | `🟢 2.77918e-05` | `🟢 3.65537e-05` | `🟢 7.35572e-05` | `🟢 1.64362e-05` | `🟡 0.000461825` | `🟢 0.000574387` | `🔴 0.000355973` |
+| `ET` | `🟢 0.00396137` | `🟡 3.80118e-05` | `🟡 4.36729e-05` | `🔴 3.85289e-05` | `🟢 4.1416e-05` | `🔴 0.000157222` | `🔴 2.88975e-05` | `🔴 0.0010175` | `🟡 0.000604509` | `🟡 0.000388673` |
+| `ERT` | `🟡 0.00414577` | `🟢 2.92237e-05` | `🟡 3.50008e-05` | `🟢 2.37344e-05` | `🟢 3.24177e-05` | `🟢 5.1696e-05` | `🟢 1.26104e-05` | `🔴 0.000432476` | `🟡 0.000370452` | `🔴 0.000485608` |
+| `GBM` | `🟢 0.00368222` | `🟢 2.94098e-05` | `🟢 2.55762e-05` | `🟢 2.56806e-05` | `🟢 3.02315e-05` | `🟢 6.41438e-05` | `🟢 1.51924e-05` | `🟢 0.00120215` | `🟢 0.000406253` | `🟢 0.000532606` |
+| `HGBM` | `🟢 0.00429035` | `🟢 4.75846e-05` | `🟢 3.84266e-05` | `🟢 2.73323e-05` | `🟢 3.36259e-05` | `🟢 9.68442e-05` | `🟢 1.71525e-05` | `🟢 0.000819717` | `🟡 0.000840448` | `🔴 0.000875059` |
+| `XGBM` | `🟢 0.00542501` | `🔴 0.000108672` | `🟡 9.3682e-05` | `🟡 9.63518e-05` | `🟢 4.96259e-05` | `🟢 0.000194315` | `🟢 3.34652e-05` | `🟢 0.00104628` | `🟢 0.000698929` | `🔴 0.00103448` |
+| `LGBM` | `🟢 0.00322629` | `🟢 3.28906e-05` | `🟢 2.92663e-05` | `🟢 2.23516e-05` | `🟢 3.40799e-05` | `🟢 3.59238e-05` | `🟢 1.37455e-05` | `🟢 0.00099465` | `🟢 0.000232247` | `🟢 0.000225442` |
+| `ELM` | `🟡 0.00974713` | `🟢 4.4137e-05` | `🟢 7.84404e-05` | `🟢 7.36454e-05` | `🟢 4.71594e-05` | `🟢 0.000372533` | `🟢 2.70445e-05` | `🟢 0.00173176` | `🔴 0.00239836` | `🔴 0.00128115` |
 <!-- markdownlint-enable MD013 -->
 
 ### Backward Table 4 - Phase MAE
@@ -371,17 +374,17 @@ No backward paper-original table is available in the paper.
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `SVM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `MLP` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `RF` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `DT` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ET` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ERT` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `GBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `HGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `XGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `LGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ELM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| `SVM` | `🟢 0.00267961` | `🟢 0.0289354` | `🟡 1.73853` | `🟢 0.226484` | `🟢 0.153255` | `🟡 0.171261` | `🟡 0.572634` | `🟡 0.746112` | `🟢 0.715218` |
+| `MLP` | `🔴 0.0250021` | `🔴 0.085401` | `🔴 1.46551` | `🟢 0.19159` | `🔴 0.158349` | `🔴 0.221734` | `🟡 0.636549` | `🔴 0.94923` | `🟢 0.708315` |
+| `RF` | `🟢 0.00151443` | `🟡 0.0227093` | `🔴 0.36563` | `🟡 0.093876` | `🟢 0.0500226` | `🟢 0.0804635` | `🔴 0.180663` | `🟢 0.100225` | `🔴 0.322211` |
+| `DT` | `🟢 0.00184067` | `🟢 0.024766` | `🟢 0.203102` | `🟢 0.101007` | `🟢 0.0523841` | `🟢 0.0912207` | `🟢 0.120792` | `🟢 0.0532046` | `🟢 0.168514` |
+| `ET` | `🟡 0.00224629` | `🟡 0.0307531` | `🟡 0.293192` | `🟡 0.131714` | `🔴 0.0801005` | `🟡 0.12357` | `🔴 0.278798` | `🟡 0.166394` | `🔴 0.520119` |
+| `ERT` | `🟢 0.00158011` | `🟡 0.0236435` | `🟡 0.243882` | `🟢 0.0790123` | `🟡 0.0553777` | `🟢 0.0804235` | `🟢 0.106373` | `🟢 0.0626116` | `🔴 0.286918` |
+| `GBM` | `🟢 0.0015294` | `🟢 0.0226183` | `🟡 0.336998` | `🟢 0.0978393` | `🟢 0.0455842` | `🟢 0.0870526` | `🟢 0.163144` | `🟢 0.0940569` | `🟢 0.29418` |
+| `HGBM` | `🟢 0.00187119` | `🟢 0.0301106` | `🟡 0.500873` | `🟢 0.112472` | `🟢 0.0858941` | `🟢 0.110244` | `🟢 0.240075` | `🟢 0.173083` | `🟢 0.405538` |
+| `XGBM` | `🟢 0.00210362` | `🟢 0.0463593` | `🟢 0.822733` | `🟢 0.158859` | `🟢 0.104748` | `🟢 0.113511` | `🟢 0.26358` | `🟢 0.162021` | `🟢 0.482149` |
+| `LGBM` | `🟢 0.00174038` | `🟢 0.0180247` | `🟢 0.368428` | `🟢 0.0975133` | `🟢 0.0469313` | `🟢 0.0814266` | `🟢 0.179082` | `🟢 0.0927631` | `🟢 0.384359` |
+| `ELM` | `🟢 0.0029446` | `🟢 0.0801661` | `🟡 1.68169` | `🟢 0.176486` | `🟢 0.130431` | `🟢 0.179679` | `🟡 0.623933` | `🟡 0.874472` | `🟢 0.750818` |
 <!-- markdownlint-enable MD013 -->
 
 ### Backward Table 5 - Phase RMSE
@@ -413,17 +416,17 @@ No backward paper-original table is available in the paper.
 <!-- markdownlint-disable MD013 -->
 | Model | `1` | `3` | `39` | `40` | `78` | `81` | `156` | `162` | `240` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `SVM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `MLP` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `RF` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `DT` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ET` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ERT` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `GBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `HGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `XGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `LGBM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
-| `ELM` | pending | pending | pending | pending | pending | pending | pending | pending | pending |
+| `SVM` | `🟢 0.00384401` | `🟢 0.0411088` | `🟡 2.12783` | `🟢 0.3468` | `🟡 0.350233` | `🟡 0.2245` | `🟡 1.08322` | `🟡 1.44516` | `🟢 1.3595` |
+| `MLP` | `🔴 0.0377578` | `🔴 0.109135` | `🔴 1.8702` | `🟢 0.296805` | `🔴 0.213038` | `🔴 0.290191` | `🟡 0.96245` | `🔴 1.29006` | `🟢 1.17318` |
+| `RF` | `🟢 0.00206574` | `🟢 0.0314359` | `🟡 0.958068` | `🟢 0.128839` | `🟡 0.0953936` | `🟢 0.118077` | `🔴 0.441122` | `🟢 0.228194` | `🔴 0.740668` |
+| `DT` | `🟢 0.00254115` | `🟢 0.0341871` | `🟢 0.82471` | `🟢 0.149163` | `🟢 0.0880881` | `🟢 0.135455` | `🔴 0.641618` | `🟢 0.0809374` | `🟢 0.590811` |
+| `ET` | `🟢 0.00348736` | `🟡 0.0414338` | `🟡 1.21723` | `🟢 0.180527` | `🔴 0.138744` | `🟡 0.16677` | `🔴 0.651211` | `🟡 0.58247` | `🟡 1.12751` |
+| `ERT` | `🟢 0.00213017` | `🟡 0.0356001` | `🟡 0.849285` | `🟢 0.107083` | `🔴 0.124823` | `🟢 0.125367` | `🟢 0.334748` | `🟢 0.133295` | `🔴 0.743524` |
+| `GBM` | `🟢 0.00209734` | `🟢 0.0294579` | `🟢 0.94203` | `🟢 0.132488` | `🟢 0.0837849` | `🟢 0.126905` | `🟢 0.424279` | `🟢 0.213448` | `🟢 0.647993` |
+| `HGBM` | `🟢 0.00299787` | `🟢 0.0375849` | `🟢 0.954013` | `🟢 0.160093` | `🟡 0.182508` | `🟡 0.159944` | `🟢 0.538131` | `🟢 0.292846` | `🟡 0.901278` |
+| `XGBM` | `🟢 0.00314551` | `🟢 0.05994` | `🟢 1.18958` | `🟢 0.259128` | `🟢 0.224614` | `🟢 0.15135` | `🟢 0.559001` | `🟢 0.311383` | `🟢 0.863736` |
+| `LGBM` | `🟢 0.00233636` | `🟢 0.0272988` | `🟢 0.938005` | `🟢 0.12908` | `🟢 0.0716468` | `🟢 0.105663` | `🟢 0.458084` | `🟢 0.145162` | `🟢 0.772565` |
+| `ELM` | `🟢 0.00393481` | `🟢 0.104573` | `🟡 2.19552` | `🟢 0.276721` | `🟢 0.169502` | `🟢 0.236343` | `🟡 0.976768` | `🟡 1.24462` | `🟢 1.1873` |
 <!-- markdownlint-enable MD013 -->
 
 ## Reading Rules

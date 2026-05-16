@@ -31,10 +31,11 @@ Current populated family archives:
 - `backward/hgbm_reference_models/`
 - `backward/xgbm_reference_models/`
 - `backward/lgbm_reference_models/`
+- `backward/elm_reference_models/`
 
 Paper-table families remain the original `10` families used by Tables `2`-`5`.
-`ELM` is an additional operational Track 1 family and is archived for the
-forward branch when the completed campaign provides it.
+`ELM` is an additional operational Track 1 family and is archived for both
+directions after the completed paper-faithful campaigns provide it.
 
 Canonical family archive template:
 
@@ -54,4 +55,4 @@ Closeout rule:
 
 - every future Track 1 closeout must refresh the affected family-reference archive when accepted models change;
 - archive entries must preserve source validation summaries, training configs, run metadata, exported ONNX files, Python pickles, and dataset provenance;
-- backward archives are intentionally left untouched by forward-only closeouts.
+- direction-specific closeouts must only replace archives for the completed direction.

@@ -3,14 +3,15 @@ topic: track1_bidirectional_original_dataset_reference_archive
 paper_family_name: DT
 implementation_family_name: DT
 archive_scope: track1_original_dataset_backward
-canonical_selection_rule: Per direction and target, select the completed mega-campaign
-  attempt with the lowest target MAE; ties break on target RMSE, then target MAPE,
-  then run name.
-source_code: scripts/paper_reimplementation/rcim_ml_compensation/run_original_dataset_exact_model_bank_validation.py
-source_data: config/datasets/transmission_error_dataset.yaml
+canonical_selection_rule: Per direction and target, store the accepted canonical benchmark
+  winner currently visible in Tables 2-5. When a later closeout improves the accepted
+  target winner, replace the archive entry; otherwise retain the stored entry unchanged.
+source_code: scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py
+source_data: config\datasets\transmission_error_dataset.yaml
 notes:
-- This archive was rebuilt during the bidirectional original-dataset mega-campaign
-  closeout.
+- This archive was replaced during the Track 1 backward paper-faithful grid-search
+  closeout after the exact-paper pipeline fixes for ELM, remote sync, and search-summary
+  serialization.
 - Detailed per-target provenance remains machine-readable in the reference inventory
   entries.
 reference_models:
@@ -18,26 +19,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 0
   direction_label: backward
-  benchmark_mae: 0.002786260757349961
-  benchmark_rmse: 0.0038770630304865226
-  source_run_instance_id: 2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/002_track1_original_dataset_backward_dt_attempt_02.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl0.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl0.onnx
+  benchmark_mae: 0.003622158139635915
+  benchmark_rmse: 0.0053603314518921715
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl0.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl0.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-15-59-22__track1_original_dataset_backward_dt_attempt_02_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl0.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl0.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 20d27ab70227f3f3084b0158c9ea0a9d231dd81d91b8ba8228d405345d3ce416
-  archived_model_sha256: 27a739377f6a2e8e21e2b42bc9104582edeab11195c9ec558ef4427952513ce5
+  python_model_sha256: 40178233128066bd94e6628b130b1dbc53d5a19b90f2649f691baeaf7a87ae8c
+  archived_model_sha256: 9217a44bd0a7425802d6f06d617668aaf70f8382abb24669b133e68cfa5aa593
   feature_name_list:
   - rpm
   - deg
@@ -70,7 +71,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 5
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -85,45 +86,45 @@ reference_models:
   decomposition_point_stride: 1
   exact_estimator_params:
     ccp_alpha: 0.0
-    criterion: absolute_error
-    max_depth: 14
+    criterion: squared_error
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 4
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 0.002786260757349961
-  training_metric_rmse: 0.0038770630304865226
-  training_metric_mse: 1.503161774236534e-05
-  training_metric_mape_percent: 45.65778703551361
+  training_metric_mae: 0.003622158139635915
+  training_metric_rmse: 0.0053603314518921715
+  training_metric_mse: 2.8733153274144435e-05
+  training_metric_mape_percent: 170.3166874678789
 - target_name: fft_y_Bw_filtered_ampl_1
   target_kind: amplitude
   harmonic_order: 1
   direction_label: backward
-  benchmark_mae: 2.5677727923375258e-05
-  benchmark_rmse: 3.637989811333334e-05
-  source_run_instance_id: 2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/007_track1_original_dataset_backward_dt_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl1.onnx
+  benchmark_mae: 2.6570618896336664e-05
+  benchmark_rmse: 4.023719079777253e-05
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl1.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl1.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl1.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 31e984872caad82a6966c2898e802bfb9d5827f6e24476707a89ee8ecbede4b4
-  archived_model_sha256: 24335c688e00c6ab8472a0a7895600fc021a6946e763388939d978a137590cf3
+  python_model_sha256: b9d457fd4e56dcc51e0542bc1696f225e59e622df86b2f58afe1c74e16a245eb
+  archived_model_sha256: 9dfc3730d855e08b954b6be6ac842dda4ba335e6d68039c2f716c411e28e7616
   feature_name_list:
   - rpm
   - deg
@@ -156,7 +157,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -182,34 +183,34 @@ reference_models:
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 2.5677727923375258e-05
-  training_metric_rmse: 3.637989811333334e-05
-  training_metric_mse: 1.3234969867365149e-09
-  training_metric_mape_percent: 0.14970576480764902
+  training_metric_mae: 2.6570618896336664e-05
+  training_metric_rmse: 4.023719079777253e-05
+  training_metric_mse: 1.61903152329635e-09
+  training_metric_mape_percent: 0.15468993621940402
 - target_name: fft_y_Bw_filtered_ampl_156
   target_kind: amplitude
   harmonic_order: 156
   direction_label: backward
-  benchmark_mae: 6.618157247735374e-05
-  benchmark_rmse: 0.0001306245893839507
-  source_run_instance_id: 2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/007_track1_original_dataset_backward_dt_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl156.onnx
+  benchmark_mae: 0.00013220173300258932
+  benchmark_rmse: 0.00046182462097306166
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl156.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl156.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl156.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 4d87705167163e61fc6f8c1a5ae12703ff9229e7fb38a2f48340f72a4e824627
-  archived_model_sha256: f823bfa0ebbccf08f5e1891ab06f7b971f8b51a3e8ed866ca0386cbdaf97e763
+  python_model_sha256: b31fadb1682e447c8664db3362e03153785a54b4e66db0976284fc0c02151cbb
+  archived_model_sha256: 275a981e5144df54a5d54e093fc4013520673122319ec2415d272427f776483e
   feature_name_list:
   - rpm
   - deg
@@ -242,7 +243,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -268,34 +269,34 @@ reference_models:
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 6.618157247735374e-05
-  training_metric_rmse: 0.0001306245893839507
-  training_metric_mse: 1.7062783351725725e-08
-  training_metric_mape_percent: 7.0240198374156755
+  training_metric_mae: 0.00013220173300258932
+  training_metric_rmse: 0.00046182462097306166
+  training_metric_mse: 2.1328198053691205e-07
+  training_metric_mape_percent: 9.702333454690415
 - target_name: fft_y_Bw_filtered_ampl_162
   target_kind: amplitude
   harmonic_order: 162
   direction_label: backward
-  benchmark_mae: 4.610881554691795e-05
-  benchmark_rmse: 0.00011340636234676765
-  source_run_instance_id: 2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/007_track1_original_dataset_backward_dt_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl162.onnx
+  benchmark_mae: 0.0001093962331565551
+  benchmark_rmse: 0.000574387321811518
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl162.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl162.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl162.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: af2f2d9080fa535bfa6d3fe31f9294dd57a91acfc0c045543c2225bcedde4a3f
-  archived_model_sha256: 854316f93fb15a32d12945eba6db60392e64baf978e9b63a6b41be2b1d2d8ca3
+  python_model_sha256: 7891b3f1d3f9506e65471fcfcfa79abda670e60c3a6e5abf7ef9ea6ff047f04c
+  archived_model_sha256: 22e87b4f93a9e758f4c0bc212794ff0b7a5809d6c2723b8942942e8beedca521
   feature_name_list:
   - rpm
   - deg
@@ -328,7 +329,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -354,34 +355,34 @@ reference_models:
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 4.610881554691795e-05
-  training_metric_rmse: 0.00011340636234676765
-  training_metric_mse: 1.286100302072636e-08
-  training_metric_mape_percent: 6.640101529559082
+  training_metric_mae: 0.0001093962331565551
+  training_metric_rmse: 0.000574387321811518
+  training_metric_mse: 3.2992079545780834e-07
+  training_metric_mape_percent: 6.855015111504928
 - target_name: fft_y_Bw_filtered_ampl_240
   target_kind: amplitude
   harmonic_order: 240
   direction_label: backward
-  benchmark_mae: 7.03774858769643e-05
-  benchmark_rmse: 0.000127642861936345
-  source_run_instance_id: 2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/013_track1_original_dataset_backward_dt_attempt_13.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl240.onnx
+  benchmark_mae: 0.00012000498180836875
+  benchmark_rmse: 0.0003559729270339754
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl240.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl240.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl240.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: ff4665fdaf4a6c6a57a9107edc843d17e10099404f0d424bafc3ce432fd61a9f
-  archived_model_sha256: 4f8603842e5f8db22fbb2d9e6c569047a744d9136cd078d8b9ba7b4c87df9ecf
+  python_model_sha256: 2793e9f727bab701b8a84b7f0ca8c63e6571166bbfd0ab9b32322cfa619132c9
+  archived_model_sha256: e4c77f4e70af0dbf0de5f889d7061d68297fe39fcdb7c1d80b381e17dd29f90c
   feature_name_list:
   - rpm
   - deg
@@ -414,7 +415,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 29
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -430,44 +431,44 @@ reference_models:
   exact_estimator_params:
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 14
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 8
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 7.03774858769643e-05
-  training_metric_rmse: 0.000127642861936345
-  training_metric_mse: 1.6292700203300827e-08
-  training_metric_mape_percent: 14.279934850270449
+  training_metric_mae: 0.00012000498180836875
+  training_metric_rmse: 0.0003559729270339754
+  training_metric_mse: 1.2671672478113594e-07
+  training_metric_mape_percent: 11.474708286488216
 - target_name: fft_y_Bw_filtered_ampl_3
   target_kind: amplitude
   harmonic_order: 3
   direction_label: backward
-  benchmark_mae: 2.190253624721712e-05
-  benchmark_rmse: 3.627244823692287e-05
-  source_run_instance_id: 2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/015_track1_original_dataset_backward_dt_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl3.onnx
+  benchmark_mae: 2.4205270786238043e-05
+  benchmark_rmse: 3.679060804526334e-05
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl3.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl3.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl3.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: a749e21f3719e932f0905d1c68eaa54ea8f60508400746008ffcfacd26dbb2be
-  archived_model_sha256: db3f7ac852c3aac62978ea2e63d7b95caf7e287b40aad44df15ae8fdfcda8a70
+  python_model_sha256: 9c39166282cc184f10abdc124145d1377099f9af72f21c07b76e1bb3a87df24f
+  archived_model_sha256: ad9410061c636663271c9412e44ea2d6e22e8d0fa461d99e2881cddfd2b28446
   feature_name_list:
   - rpm
   - deg
@@ -500,7 +501,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -516,44 +517,44 @@ reference_models:
   exact_estimator_params:
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 14
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 7
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 2.190253624721712e-05
-  training_metric_rmse: 3.627244823692287e-05
-  training_metric_mse: 1.3156905011002486e-09
-  training_metric_mape_percent: 2.31830784946013
+  training_metric_mae: 2.4205270786238043e-05
+  training_metric_rmse: 3.679060804526334e-05
+  training_metric_mse: 1.3535488403401955e-09
+  training_metric_mape_percent: 2.512188245087536
 - target_name: fft_y_Bw_filtered_ampl_39
   target_kind: amplitude
   harmonic_order: 39
   direction_label: backward
-  benchmark_mae: 1.9737192671818676e-05
-  benchmark_rmse: 2.748145409871568e-05
-  source_run_instance_id: 2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/015_track1_original_dataset_backward_dt_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl39.onnx
+  benchmark_mae: 2.0163367893614627e-05
+  benchmark_rmse: 2.7791814106118482e-05
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl39.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl39.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl39.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl39.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 13fecb0f912474403fd86aef0534374fa31e485fcd7ddca6e92e3c15c262085e
-  archived_model_sha256: ae0a8085cbfe41da88668adbe0656ce2a61c9425e05f0506703b1679a7a8b2f7
+  python_model_sha256: 076d912ea5bb42445abf5824f8a7cacc8a58e288cf0f35208c553a9452cd0c04
+  archived_model_sha256: 67fbe161793173f866693c58bfc07a290071307faad0f52bb649e108827c437a
   feature_name_list:
   - rpm
   - deg
@@ -586,7 +587,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -602,44 +603,44 @@ reference_models:
   exact_estimator_params:
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 14
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 7
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 1.9737192671818676e-05
-  training_metric_rmse: 2.748145409871568e-05
-  training_metric_mse: 7.55230319379817e-10
-  training_metric_mape_percent: 4.40778785620469
+  training_metric_mae: 2.0163367893614627e-05
+  training_metric_rmse: 2.7791814106118482e-05
+  training_metric_mse: 7.723849313090463e-10
+  training_metric_mape_percent: 4.708739215814319
 - target_name: fft_y_Bw_filtered_ampl_40
   target_kind: amplitude
   harmonic_order: 40
   direction_label: backward
   benchmark_mae: 2.5795811496285275e-05
   benchmark_rmse: 3.655369833578238e-05
-  source_run_instance_id: 2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/001_track1_original_dataset_backward_dt_attempt_01.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl40.onnx
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl40.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl40.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-15-58-28__track1_original_dataset_backward_dt_attempt_01_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl40.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl40.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
   python_model_sha256: 00af1eb14735a11f8e89d4c826d709f9a1b85dc2b67487bf37e08cc60b882b8e
-  archived_model_sha256: 8d43bc8c4af70a80866ecab34dc53e8342de75f88357b25fd8df24bcfde596cd
+  archived_model_sha256: 56ee6211cd77e3fcb3bc14684fd8c2292216d6d7c0f3e667d692a1806b313cb8
   feature_name_list:
   - rpm
   - deg
@@ -706,26 +707,26 @@ reference_models:
   target_kind: amplitude
   harmonic_order: 78
   direction_label: backward
-  benchmark_mae: 5.068343380701482e-05
-  benchmark_rmse: 7.225807974476346e-05
-  source_run_instance_id: 2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/005_track1_original_dataset_backward_dt_attempt_05.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl78.onnx
+  benchmark_mae: 5.253194291773853e-05
+  benchmark_rmse: 7.355715374510587e-05
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl78.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl78.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl78.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl78.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: e75d92178573729cd98a5d51f73cbfc61cb2fd48a7f7331b659627938cdf78b1
-  archived_model_sha256: e34e735b32f24d279b251e7088d75705faa1db3b405ac91fcc78ce2b1b78fc40
+  python_model_sha256: 4ca1aa9452bb6adfcaebdd527b22c43510be04b07218659aeb4f84d2318dd04e
+  archived_model_sha256: 985d6ca45aff763502c55e131f121093d684100838635f7914c0ee8c6b0c8497
   feature_name_list:
   - rpm
   - deg
@@ -758,7 +759,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 11
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -773,8 +774,8 @@ reference_models:
   decomposition_point_stride: 1
   exact_estimator_params:
     ccp_alpha: 0.0
-    criterion: absolute_error
-    max_depth: 18
+    criterion: squared_error
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
@@ -784,34 +785,34 @@ reference_models:
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 5.068343380701482e-05
-  training_metric_rmse: 7.225807974476346e-05
-  training_metric_mse: 5.221230088400595e-09
-  training_metric_mape_percent: 5.124707975731411
+  training_metric_mae: 5.253194291773853e-05
+  training_metric_rmse: 7.355715374510587e-05
+  training_metric_mse: 5.410654867081143e-09
+  training_metric_mape_percent: 5.42704359027248
 - target_name: fft_y_Bw_filtered_ampl_81
   target_kind: amplitude
   harmonic_order: 81
   direction_label: backward
-  benchmark_mae: 8.541662445696574e-06
-  benchmark_rmse: 1.269561455550858e-05
-  source_run_instance_id: 2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/015_track1_original_dataset_backward_dt_attempt_15.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/onnx_export/DT/DecisionTreeRegressor_ampl81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/amplitude/DecisionTreeRegressor_ampl81.onnx
+  benchmark_mae: 1.1488193560793296e-05
+  benchmark_rmse: 1.6436221649719483e-05
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_ampl81.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\amplitude\DecisionTreeRegressor_ampl81.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-11-16__track1_original_dataset_backward_dt_attempt_15_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/amplitude/DecisionTreeRegressor_ampl81.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\amplitude\DecisionTreeRegressor_ampl81.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: fd05d6807f5b685affb3a7d2a0122c50de8aaac1788ef30dca5c7510c6ef19d7
-  archived_model_sha256: 9c001193e5e8f8747245bfcef1ea9dd8163f080145209dc7154c18be801854c9
+  python_model_sha256: 7517d384339a530eb1b167f509df68b5be5da184923ab4704e63cefef56fa228
+  archived_model_sha256: d22260a7bbb0b7a4b50c0ee9e420f58ac0f085c66254cde63f384f8a96abe799
   feature_name_list:
   - rpm
   - deg
@@ -844,7 +845,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 37
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -860,44 +861,44 @@ reference_models:
   exact_estimator_params:
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 14
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 7
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 8.541662445696574e-06
-  training_metric_rmse: 1.269561455550858e-05
-  training_metric_mse: 1.6117862894204132e-10
-  training_metric_mape_percent: 7.5122330799006365
+  training_metric_mae: 1.1488193560793296e-05
+  training_metric_rmse: 1.6436221649719483e-05
+  training_metric_mse: 2.7014938211870746e-10
+  training_metric_mape_percent: 9.716166179766045
 - target_name: fft_y_Bw_filtered_phase_1
   target_kind: phase
   harmonic_order: 1
   direction_label: backward
-  benchmark_mae: 0.001746649282960569
-  benchmark_rmse: 0.0023421420638204595
-  source_run_instance_id: 2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/013_track1_original_dataset_backward_dt_attempt_13.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase1.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase1.onnx
+  benchmark_mae: 0.001840673037638419
+  benchmark_rmse: 0.0025411460442952088
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase1.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase1.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-09-30__track1_original_dataset_backward_dt_attempt_13_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase1.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase1.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: b2268d99ee5a8778b2a908248d78deb69e43db3c0177c9b702e2098069035352
-  archived_model_sha256: b5e3c4839756d3c8c8ebd4282a1ce70a9a8f67114c407bc9a271f31d70c28f16
+  python_model_sha256: 2f4a7caaadb252683646cc999ad07e4ac8eecfb383bf89de647d12084a2a34d1
+  archived_model_sha256: 71ba94862b38a42b42c0c6755d832ed5f47d04361cb5777c47bfe3750a0af2c8
   feature_name_list:
   - rpm
   - deg
@@ -930,7 +931,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 29
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -946,44 +947,44 @@ reference_models:
   exact_estimator_params:
     ccp_alpha: 0.0
     criterion: squared_error
-    max_depth: 14
+    max_depth: 15
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 8
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 0.001746649282960569
-  training_metric_rmse: 0.0023421420638204595
-  training_metric_mse: 5.485629447117161e-06
-  training_metric_mape_percent: 132.72885567058975
+  training_metric_mae: 0.001840673037638419
+  training_metric_rmse: 0.0025411460442952088
+  training_metric_mse: 6.457423218437188e-06
+  training_metric_mape_percent: 24.60851363176722
 - target_name: fft_y_Bw_filtered_phase_156
   target_kind: phase
   harmonic_order: 156
   direction_label: backward
-  benchmark_mae: 0.049264544712843875
-  benchmark_rmse: 0.09257275530494753
-  source_run_instance_id: 2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/003_track1_original_dataset_backward_dt_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase156.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase156.onnx
+  benchmark_mae: 0.12079245891891854
+  benchmark_rmse: 0.6416184818970573
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase156.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase156.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase156.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase156.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: c7b95a245a777c769790feb00173e89d0a6f84e0e5c7673c22c3b4fdc80ffc7c
-  archived_model_sha256: 62909cbf62b7974de5010b5f5ed1b73b7b1d882d8726b259e9750bdedea44789
+  python_model_sha256: c07f2deb43df4403eed4ad48977d18e7e5f93413540429781ee4caf02604b23e
+  archived_model_sha256: d670767a6ed0ed39c44321700cbd1cee41ab84312a6c9cb186292800c4b5682f
   feature_name_list:
   - rpm
   - deg
@@ -1016,7 +1017,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 7
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1037,39 +1038,39 @@ reference_models:
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 4
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 0.049264544712843875
-  training_metric_rmse: 0.09257275530494753
-  training_metric_mse: 0.008569715024749692
-  training_metric_mape_percent: 5.0881622569604925
+  training_metric_mae: 0.12079245891891854
+  training_metric_rmse: 0.6416184818970573
+  training_metric_mse: 0.41167427631188436
+  training_metric_mape_percent: 9.12682727212656
 - target_name: fft_y_Bw_filtered_phase_162
   target_kind: phase
   harmonic_order: 162
   direction_label: backward
-  benchmark_mae: 0.051265516120192894
-  benchmark_rmse: 0.08015392003282036
-  source_run_instance_id: 2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/007_track1_original_dataset_backward_dt_attempt_07.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase162.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase162.onnx
+  benchmark_mae: 0.0532045535827856
+  benchmark_rmse: 0.08093743186863311
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase162.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase162.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-04-08__track1_original_dataset_backward_dt_attempt_07_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase162.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase162.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 95e27478e24569a20aec0d9a4544ac7c7d3bbeea80845d2c9bdfe129a1e0edeb
-  archived_model_sha256: 217708b646db609a2a0fc00d3ea3c9bfa888fe8852b02db1d95d38ade5cbf846
+  python_model_sha256: a8acb59ce903713afbf4e748148d8d28f16ef8d80a454f6653f13f3e2d5f520a
+  archived_model_sha256: 6ea083df29fcf4297741aa905ee304f5480e8591ec101c51123df6807e916bd1
   feature_name_list:
   - rpm
   - deg
@@ -1102,7 +1103,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 15
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1128,34 +1129,34 @@ reference_models:
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 0.051265516120192894
-  training_metric_rmse: 0.08015392003282036
-  training_metric_mse: 0.006424650896627762
-  training_metric_mape_percent: 3.054115983722863
+  training_metric_mae: 0.0532045535827856
+  training_metric_rmse: 0.08093743186863311
+  training_metric_mse: 0.006550867877489628
+  training_metric_mape_percent: 2.9591751124549517
 - target_name: fft_y_Bw_filtered_phase_240
   target_kind: phase
   harmonic_order: 240
   direction_label: backward
-  benchmark_mae: 0.08851009629799833
-  benchmark_rmse: 0.16566346462839973
-  source_run_instance_id: 2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/010_track1_original_dataset_backward_dt_attempt_10.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase240.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase240.onnx
+  benchmark_mae: 0.1685138849533217
+  benchmark_rmse: 0.5908114394860857
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase240.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase240.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-06-52__track1_original_dataset_backward_dt_attempt_10_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase240.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase240.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 385eeedf3b9854d36edb0c9fb78c3390b0de681ef07a21c1b643bda4d1aa1545
-  archived_model_sha256: 78653c0e2db38d3cedeb2f867ebf45fb834c2efa83d68cee7256ff78ef5d7b50
+  python_model_sha256: d7be62af04f6ee074466e7dfd83d6519793aa4961a2c019b15a50e76d7a7ab52
+  archived_model_sha256: 7962d09cd5e601db139248878021b2b3b3009fae318c0dc55f6ef7bf65c07b9f
   feature_name_list:
   - rpm
   - deg
@@ -1188,7 +1189,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 21
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1205,350 +1206,6 @@ reference_models:
     ccp_alpha: 0.0
     criterion: squared_error
     max_depth: 15
-    max_features: null
-    max_leaf_nodes: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 4
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    random_state: 0
-    splitter: best
-  training_metric_mae: 0.08851009629799833
-  training_metric_rmse: 0.16566346462839973
-  training_metric_mse: 0.027444383512685046
-  training_metric_mape_percent: 10.656315939619885
-- target_name: fft_y_Bw_filtered_phase_3
-  target_kind: phase
-  harmonic_order: 3
-  direction_label: backward
-  benchmark_mae: 0.022321691642002334
-  benchmark_rmse: 0.03118348678518781
-  source_run_instance_id: 2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/003_track1_original_dataset_backward_dt_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase3.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase3.onnx
-  export_estimator_name: DecisionTreeRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase3.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 8df0a6a9accc50c99151bd97c03e67727891ed95e508a8e66c0325373a129120
-  archived_model_sha256: 0fadd09260b059de8c053c82856dd9474d2a8a5de7c5f72077f6764e4818061a
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 7
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: null
-    max_leaf_nodes: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 4
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    random_state: 0
-    splitter: best
-  training_metric_mae: 0.022321691642002334
-  training_metric_rmse: 0.03118348678518781
-  training_metric_mse: 0.0009724098480819827
-  training_metric_mape_percent: 1.673374571338506
-- target_name: fft_y_Bw_filtered_phase_39
-  target_kind: phase
-  harmonic_order: 39
-  direction_label: backward
-  benchmark_mae: 0.1086303849519998
-  benchmark_rmse: 0.6218488179191597
-  source_run_instance_id: 2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/006_track1_original_dataset_backward_dt_attempt_06.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase39.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase39.onnx
-  export_estimator_name: DecisionTreeRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-03-01__track1_original_dataset_backward_dt_attempt_06_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase39.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: e68f17cd9c43ca97b05d42d6f421abe10f31813473424d7682d6539421cbf016
-  archived_model_sha256: 30b25302fbab233945b78ee6db8df39dc1fdb46e0753c218cd4c20b844b9e69a
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 13
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    ccp_alpha: 0.0
-    criterion: absolute_error
-    max_depth: 16
-    max_features: null
-    max_leaf_nodes: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 6
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    random_state: 0
-    splitter: best
-  training_metric_mae: 0.1086303849519998
-  training_metric_rmse: 0.6218488179191597
-  training_metric_mse: 0.3866959523474562
-  training_metric_mape_percent: 3.8951531912399027
-- target_name: fft_y_Bw_filtered_phase_40
-  target_kind: phase
-  harmonic_order: 40
-  direction_label: backward
-  benchmark_mae: 0.09459017800012734
-  benchmark_rmse: 0.14226351981259278
-  source_run_instance_id: 2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/003_track1_original_dataset_backward_dt_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase40.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase40.onnx
-  export_estimator_name: DecisionTreeRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase40.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 82279b0ddc80f951d100e3e806f0e5912b488489640ed30adb3afa4d09d4202c
-  archived_model_sha256: dbb1e4c9c8d604334532ec3044b9c2c41b1f77d5862635adc5f82e54f368ca92
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 7
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    ccp_alpha: 0.0
-    criterion: squared_error
-    max_depth: 15
-    max_features: null
-    max_leaf_nodes: null
-    min_impurity_decrease: 0.0
-    min_samples_leaf: 1
-    min_samples_split: 4
-    min_weight_fraction_leaf: 0.0
-    monotonic_cst: null
-    random_state: 0
-    splitter: best
-  training_metric_mae: 0.09459017800012734
-  training_metric_rmse: 0.14226351981259278
-  training_metric_mse: 0.020238909069467976
-  training_metric_mape_percent: 34.45221493044822
-- target_name: fft_y_Bw_filtered_phase_78
-  target_kind: phase
-  harmonic_order: 78
-  direction_label: backward
-  benchmark_mae: 0.04585031887311216
-  benchmark_rmse: 0.07858744457377341
-  source_run_instance_id: 2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/005_track1_original_dataset_backward_dt_attempt_05.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase78.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase78.onnx
-  export_estimator_name: DecisionTreeRegressor
-  surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-02-06__track1_original_dataset_backward_dt_attempt_05_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase78.pkl
-  python_model_serialization: pickle_protocol_5
-  python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 10c4bf96f3b93a9aa12f3496a6974796104612cd59c327b9e9c426d102076809
-  archived_model_sha256: 6f802f495fdfcc5447f2659cc50f44b97ef2d00ceb2c40681df74624f6084b2e
-  feature_name_list:
-  - rpm
-  - deg
-  - tor
-  source_run_target_name_list:
-  - fft_y_Bw_filtered_ampl_0
-  - fft_y_Bw_filtered_ampl_1
-  - fft_y_Bw_filtered_phase_1
-  - fft_y_Bw_filtered_ampl_3
-  - fft_y_Bw_filtered_phase_3
-  - fft_y_Bw_filtered_ampl_39
-  - fft_y_Bw_filtered_phase_39
-  - fft_y_Bw_filtered_ampl_40
-  - fft_y_Bw_filtered_phase_40
-  - fft_y_Bw_filtered_ampl_78
-  - fft_y_Bw_filtered_phase_78
-  - fft_y_Bw_filtered_ampl_81
-  - fft_y_Bw_filtered_phase_81
-  - fft_y_Bw_filtered_ampl_156
-  - fft_y_Bw_filtered_phase_156
-  - fft_y_Bw_filtered_ampl_162
-  - fft_y_Bw_filtered_phase_162
-  - fft_y_Bw_filtered_ampl_240
-  - fft_y_Bw_filtered_phase_240
-  filtered_row_count: 969
-  train_row_count: 678
-  validation_row_count: 194
-  test_row_count: 97
-  train_file_count: 678
-  validation_file_count: 194
-  test_file_count: 97
-  test_size: 0.1
-  random_seed: 11
-  selected_harmonic_list:
-  - 0
-  - 1
-  - 3
-  - 39
-  - 40
-  - 78
-  - 81
-  - 156
-  - 162
-  - 240
-  decomposition_point_stride: 1
-  exact_estimator_params:
-    ccp_alpha: 0.0
-    criterion: absolute_error
-    max_depth: 18
     max_features: null
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
@@ -1558,34 +1215,34 @@ reference_models:
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 0.04585031887311216
-  training_metric_rmse: 0.07858744457377341
-  training_metric_mse: 0.006175986444635907
-  training_metric_mape_percent: 19.413923891095415
-- target_name: fft_y_Bw_filtered_phase_81
+  training_metric_mae: 0.1685138849533217
+  training_metric_rmse: 0.5908114394860857
+  training_metric_mse: 0.3490581570276207
+  training_metric_mape_percent: 13.346332477970424
+- target_name: fft_y_Bw_filtered_phase_3
   target_kind: phase
-  harmonic_order: 81
+  harmonic_order: 3
   direction_label: backward
-  benchmark_mae: 0.08168035566887429
-  benchmark_rmse: 0.11115892076592641
-  source_run_instance_id: 2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation
-  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_original_dataset/backward/dt/2026-04-26_track1_backward_dt_original_dataset_mega_campaign/003_track1_original_dataset_backward_dt_attempt_03.yaml
-  source_export_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/onnx_export/DT/DecisionTreeRegressor_phase81.onnx
-  archived_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/onnx/phase/DecisionTreeRegressor_phase81.onnx
+  benchmark_mae: 0.024765971250184104
+  benchmark_rmse: 0.03418708303606312
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase3.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase3.onnx
   export_estimator_name: DecisionTreeRegressor
   surrogate_strategy: none
-  source_validation_summary_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/validation_summary.yaml
-  source_training_config_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/training_config.snapshot.yaml
-  source_run_metadata_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/run_metadata.snapshot.yaml
-  source_model_bundle_path: output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/paper_family_model_bank.pkl
-  split_manifest_path: models/paper_reference/rcim_track1/backward/dt_reference_models/source_runs/2026-04-26-16-00-16__track1_original_dataset_backward_dt_attempt_03_campaign_validation/split_manifest.yaml
-  dataset_snapshot_path: models/paper_reference/rcim_track1/backward/dt_reference_models/data/filtered_dataframe_deg_le_35.csv
-  dataset_snapshot_sha256: a7fb34a88fe56e83784ec4d90b095e0df1cce9f088b82347d46781c4ffeec988
-  python_model_path: models/paper_reference/rcim_track1/backward/dt_reference_models/python/phase/DecisionTreeRegressor_phase81.pkl
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase3.pkl
   python_model_serialization: pickle_protocol_5
   python_estimator_class_name: DecisionTreeRegressor
-  python_model_sha256: 2529ecc97523aa992126a2ea84f53e15d5c9a8e33f17b70885dbf73f6113029d
-  archived_model_sha256: dfb4290fb7a62ff27a1654dbf2fa14898fedeba545adeeddda6d584a550e241d
+  python_model_sha256: 612e11a14c97d6f1b869cf5472fcf8b7b6d61a336874486cdcc578cecb2fab2c
+  archived_model_sha256: 3acb0356f4f321f1faa949b552db0774c66f78c19b8242d011d1f8621fedb6de
   feature_name_list:
   - rpm
   - deg
@@ -1618,7 +1275,7 @@ reference_models:
   validation_file_count: 194
   test_file_count: 97
   test_size: 0.1
-  random_seed: 7
+  random_seed: 0
   selected_harmonic_list:
   - 0
   - 1
@@ -1639,12 +1296,356 @@ reference_models:
     max_leaf_nodes: null
     min_impurity_decrease: 0.0
     min_samples_leaf: 1
-    min_samples_split: 4
+    min_samples_split: 5
     min_weight_fraction_leaf: 0.0
     monotonic_cst: null
     random_state: 0
     splitter: best
-  training_metric_mae: 0.08168035566887429
-  training_metric_rmse: 0.11115892076592641
-  training_metric_mse: 0.012356305665845505
-  training_metric_mape_percent: 47.730134716370564
+  training_metric_mae: 0.024765971250184104
+  training_metric_rmse: 0.03418708303606312
+  training_metric_mse: 0.0011687566465146744
+  training_metric_mape_percent: 1.8772102971123528
+- target_name: fft_y_Bw_filtered_phase_39
+  target_kind: phase
+  harmonic_order: 39
+  direction_label: backward
+  benchmark_mae: 0.20310242849871304
+  benchmark_rmse: 0.8247103253889613
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase39.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase39.onnx
+  export_estimator_name: DecisionTreeRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase39.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: DecisionTreeRegressor
+  python_model_sha256: e953ba641589501f64adbbb37209fa0c4600d25de71e6c825159ca24bed1ccf8
+  archived_model_sha256: 2562bd2a8806980942d79e9ed9b79ebfafe3b193642d93efac2cd43f831fd015
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 15
+    max_features: null
+    max_leaf_nodes: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    random_state: 0
+    splitter: best
+  training_metric_mae: 0.20310242849871304
+  training_metric_rmse: 0.8247103253889613
+  training_metric_mse: 0.6801471208031664
+  training_metric_mape_percent: 7.161801440607188
+- target_name: fft_y_Bw_filtered_phase_40
+  target_kind: phase
+  harmonic_order: 40
+  direction_label: backward
+  benchmark_mae: 0.10100679456210636
+  benchmark_rmse: 0.1491626182193171
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase40.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase40.onnx
+  export_estimator_name: DecisionTreeRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase40.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: DecisionTreeRegressor
+  python_model_sha256: 97e8d7be9fb068219b754bdd1e89e3011c678f6cdae6b53ee99b0a307ed27795
+  archived_model_sha256: 18445692a05e8dd5d6534cd71d0b056f8fb10b145d448fd05caf178f309572bd
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 15
+    max_features: null
+    max_leaf_nodes: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    random_state: 0
+    splitter: best
+  training_metric_mae: 0.10100679456210636
+  training_metric_rmse: 0.1491626182193171
+  training_metric_mse: 0.02224948667404175
+  training_metric_mape_percent: 63.00123765073683
+- target_name: fft_y_Bw_filtered_phase_78
+  target_kind: phase
+  harmonic_order: 78
+  direction_label: backward
+  benchmark_mae: 0.05238410788363173
+  benchmark_rmse: 0.08808808210080377
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase78.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase78.onnx
+  export_estimator_name: DecisionTreeRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase78.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: DecisionTreeRegressor
+  python_model_sha256: c23bd1b71c2d4241d97a9cec7959c4d451cbee801b0f9579c40d548b603c3a9b
+  archived_model_sha256: a92a5c1f77761d02993242dfe40321aa58b0a23d6ff82ae5577a90ab45da068b
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 15
+    max_features: null
+    max_leaf_nodes: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    random_state: 0
+    splitter: best
+  training_metric_mae: 0.05238410788363173
+  training_metric_rmse: 0.08808808210080377
+  training_metric_mse: 0.007759510208197945
+  training_metric_mape_percent: 62.81896142902911
+- target_name: fft_y_Bw_filtered_phase_81
+  target_kind: phase
+  harmonic_order: 81
+  direction_label: backward
+  benchmark_mae: 0.09122065402223556
+  benchmark_rmse: 0.1354546494496849
+  source_run_instance_id: 2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation
+  source_config_path: config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/campaigns/track1/exact_paper/bidirectional_paper_faithful_grid_search/backward/dt/2026-05-04_track1_backward_dt_paper_faithful_grid_search_campaign/001_track1_paper_faithful_grid_search_backward_dt.yaml
+  source_export_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\onnx_export\DT\DecisionTreeRegressor_phase81.onnx
+  archived_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\onnx\phase\DecisionTreeRegressor_phase81.onnx
+  export_estimator_name: DecisionTreeRegressor
+  surrogate_strategy: none
+  source_validation_summary_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\validation_summary.yaml
+  source_training_config_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\training_config.snapshot.yaml
+  source_run_metadata_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\run_metadata.snapshot.yaml
+  source_model_bundle_path: output\validation_checks\paper_reimplementation_rcim_original_dataset_exact_model_bank\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\paper_family_model_bank.pkl
+  split_manifest_path: models\paper_reference\rcim_track1\backward\dt_reference_models\source_runs\2026-05-16-01-10-50__track1_paper_faithful_grid_search_backward_dt_campaign_validation\split_manifest.yaml
+  dataset_snapshot_path: models\paper_reference\rcim_track1\backward\dt_reference_models\data\filtered_dataframe_deg_le_35.csv
+  dataset_snapshot_sha256: d8aeb1cc38506e0850734ee5f9277bab5f040b59506b552958385a4bc5d26157
+  python_model_path: models\paper_reference\rcim_track1\backward\dt_reference_models\python\phase\DecisionTreeRegressor_phase81.pkl
+  python_model_serialization: pickle_protocol_5
+  python_estimator_class_name: DecisionTreeRegressor
+  python_model_sha256: 122a6ce205099deb6bc90d043b834e75ed275cf0bd6c69aa32070e8a5fff2f6c
+  archived_model_sha256: c4ca81009e93c0d7b8ece767adbafcb4c0dbaaebe24ae96d662ab01126f9b292
+  feature_name_list:
+  - rpm
+  - deg
+  - tor
+  source_run_target_name_list:
+  - fft_y_Bw_filtered_ampl_0
+  - fft_y_Bw_filtered_ampl_1
+  - fft_y_Bw_filtered_phase_1
+  - fft_y_Bw_filtered_ampl_3
+  - fft_y_Bw_filtered_phase_3
+  - fft_y_Bw_filtered_ampl_39
+  - fft_y_Bw_filtered_phase_39
+  - fft_y_Bw_filtered_ampl_40
+  - fft_y_Bw_filtered_phase_40
+  - fft_y_Bw_filtered_ampl_78
+  - fft_y_Bw_filtered_phase_78
+  - fft_y_Bw_filtered_ampl_81
+  - fft_y_Bw_filtered_phase_81
+  - fft_y_Bw_filtered_ampl_156
+  - fft_y_Bw_filtered_phase_156
+  - fft_y_Bw_filtered_ampl_162
+  - fft_y_Bw_filtered_phase_162
+  - fft_y_Bw_filtered_ampl_240
+  - fft_y_Bw_filtered_phase_240
+  filtered_row_count: 969
+  train_row_count: 678
+  validation_row_count: 194
+  test_row_count: 97
+  train_file_count: 678
+  validation_file_count: 194
+  test_file_count: 97
+  test_size: 0.1
+  random_seed: 0
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  decomposition_point_stride: 1
+  exact_estimator_params:
+    ccp_alpha: 0.0
+    criterion: squared_error
+    max_depth: 15
+    max_features: null
+    max_leaf_nodes: null
+    min_impurity_decrease: 0.0
+    min_samples_leaf: 1
+    min_samples_split: 5
+    min_weight_fraction_leaf: 0.0
+    monotonic_cst: null
+    random_state: 0
+    splitter: best
+  training_metric_mae: 0.09122065402223556
+  training_metric_rmse: 0.1354546494496849
+  training_metric_mse: 0.018347962057537026
+  training_metric_mape_percent: 43.87714318688945

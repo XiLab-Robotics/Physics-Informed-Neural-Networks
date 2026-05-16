@@ -130,6 +130,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__backward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` | `2026-05-16-19-04-25` | 11 | 0 | `backward` | Refreshed Track 1 backward paper-reference archives and RCIM Tables `2`-`5` |
 | `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__forward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` | `2026-05-15-07-07-30` | 11 | 0 | `forward` | Refreshed Track 1 forward paper-reference archives and RCIM Tables `2`-`5` |
 | `wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11` | `2026-05-12 05:44:32` | 90 | 0 | `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Updated global best |
 | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` | `2026-05-06 23:14:10` | 15 | 0 | `te_hist_gbr_tabular_Fw` | No family-best change |
@@ -212,13 +213,18 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
-- Latest completed surface: `forward` paper-faithful grid search across `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`
+- Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
+- Prior forward exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
+- Latest completed surface: `backward` paper-faithful grid search across `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`
 - Table `2` `forward` status: `19` green, `25` yellow, `66` red
 - Table `3` `forward` status: `21` green, `28` yellow, `61` red
 - Table `4` `forward` status: `23` green, `21` yellow, `55` red
 - Table `5` `forward` status: `23` green, `32` yellow, `44` red
-- Backward Track 1 Tables `2`-`5` remain pending until the matching backward paper-faithful campaign closes.
+- Table `2` `backward` status: `61` green, `22` yellow, `27` red
+- Table `3` `backward` status: `63` green, `20` yellow, `27` red
+- Table `4` `backward` status: `65` green, `21` yellow, `13` red
+- Table `5` `backward` status: `65` green, `21` yellow, `13` red
+- Forward and backward Track 1 Tables `2`-`5` are now populated for the completed paper-faithful campaigns.
 - Harmonic-wise Table `6` evidence remains postponed into `Track 1.5` and does not gate this closeout.
 
 ### Latest Harmonic-Wise Validation Support

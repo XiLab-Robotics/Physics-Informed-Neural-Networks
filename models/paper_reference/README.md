@@ -26,9 +26,8 @@ contract is:
 - `source_runs/<run_instance_id>/run_metadata.snapshot.yaml`
 - `source_runs/<run_instance_id>/split_manifest.yaml`
 
-The Track 1 forward branch now includes the operational `ELM` archive in
-addition to the original `10` paper-table families. Backward `ELM` will be
-added only after the matching backward campaign is closed.
+The Track 1 forward and backward branches now include the operational
+`ELM` archive in addition to the original `10` paper-table families.
 
 Every fully curated family archive is expected to preserve:
 

@@ -37,3 +37,4 @@ Current curated Track 1 paper-reference archives include:
 - `backward/hgbm_reference_models/`
 - `backward/xgbm_reference_models/`
 - `backward/lgbm_reference_models/`
+- `backward/elm_reference_models/`
