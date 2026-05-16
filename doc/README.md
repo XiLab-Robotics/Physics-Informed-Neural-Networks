@@ -109,6 +109,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-16
 
+- [technical/2026-05/2026-05-16/2026-05-16-20-04-43_git_lfs_exact_model_bank_threshold_cleanup.md](./technical/2026-05/2026-05-16/2026-05-16-20-04-43_git_lfs_exact_model_bank_threshold_cleanup.md)
+  Plan the Git LFS threshold cleanup for exact-model-bank validation artifacts
+  so only required oversized `paper_family_model_bank.pkl` files remain tracked
+  through LFS.
 - [technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md](./technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md)
   Plan the Python-entrypoint Linux portability tranche that adds a uniform
   `--linux` / `--windows` command-line contract to the remaining runnable
