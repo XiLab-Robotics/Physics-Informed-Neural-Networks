@@ -6,6 +6,7 @@ Suggested subfolders:
 
 - `checkpoints/` for copied or curated training checkpoints
 - `exported/` for ONNX, Structured Text, or other deployment-ready exports
+- `exported/<family>/<scope>/` for curated Wave 1 HPO winner archives with `python/`, `onnx/`, local inventories, and source-run provenance bundles
 - `paper_reference/` for curated paper-baseline model archives with provenance
   and reconstruction notes
 

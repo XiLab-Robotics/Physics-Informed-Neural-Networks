@@ -1,35 +1,14 @@
 schema_version: 1
-topic: wave1_directional_retraining_scope_dataset_snapshot
+topic: wave1_directional_hpo_scope_dataset_snapshot
 base_family: harmonic_regression
 family_key: harmonic_regression_bw
 scope_name: backward
 training_variant: Bw
-run_name: te_harmonic_order12_linear_conditioned_recovery_Bw
-run_instance_id: 2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw
-source_dataset_config_path: config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/dataset_variants/transmission_error_dataset_bw.yaml
-copied_dataset_config_path: models/exported/harmonic_regression/backward/data/dataset_config.snapshot.yaml
-direction_scope_label: backward_only
-use_forward_direction: false
-use_backward_direction: true
+run_name: te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0002_stride5
+run_instance_id: 2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5
+source_dataset_config_path: config\training\wave1_directional_best_hyperparameter_search\campaigns\2026-05-11_wave1_directional_best_hyperparameter_search_campaign\dataset_variants\transmission_error_dataset_bw.yaml
+copied_dataset_config_path: models\exported\harmonic_regression\backward\data\dataset_config.snapshot.yaml
 dataset_split_summary:
   train_curve_count: 678
   validation_curve_count: 194
   test_curve_count: 97
-dataset_configuration_snapshot:
-  paths:
-    dataset_root: data/datasets
-  dataset:
-    reduction_ratio: 81.0
-    angular_window_deg:
-      minimum: 0.0
-      maximum: 360.0
-  directions:
-    use_forward_direction: false
-    use_backward_direction: true
-  split:
-    validation_split: 0.2
-    test_split: 0.1
-    random_seed: 42
-  dataloader:
-    batch_size: 8
-    num_workers: 0

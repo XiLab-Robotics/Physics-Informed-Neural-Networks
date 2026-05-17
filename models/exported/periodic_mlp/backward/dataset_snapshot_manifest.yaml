@@ -1,35 +1,14 @@
 schema_version: 1
-topic: wave1_directional_retraining_scope_dataset_snapshot
+topic: wave1_directional_hpo_scope_dataset_snapshot
 base_family: periodic_mlp
 family_key: periodic_mlp_bw
 scope_name: backward
 training_variant: Bw
-run_name: te_periodic_mlp_h04_standard_Bw
-run_instance_id: 2026-05-06-22-25-13__te_periodic_mlp_h04_standard_bw
-source_dataset_config_path: config/training/wave1_directional_retraining/campaigns/2026-05-06_wave1_directional_retraining_campaign/dataset_variants/transmission_error_dataset_bw.yaml
-copied_dataset_config_path: models/exported/periodic_mlp/backward/data/dataset_config.snapshot.yaml
-direction_scope_label: backward_only
-use_forward_direction: false
-use_backward_direction: true
+run_name: te_periodic_mlp_h04_standard_Bw_optuna_t0006
+run_instance_id: 2026-05-15-06-09-21__te_periodic_mlp_h04_standard_bw_optuna_t0006
+source_dataset_config_path: config\training\wave1_directional_best_hyperparameter_search\campaigns\2026-05-11_wave1_directional_best_hyperparameter_search_campaign\dataset_variants\transmission_error_dataset_bw.yaml
+copied_dataset_config_path: models\exported\periodic_mlp\backward\data\dataset_config.snapshot.yaml
 dataset_split_summary:
   train_curve_count: 678
   validation_curve_count: 194
   test_curve_count: 97
-dataset_configuration_snapshot:
-  paths:
-    dataset_root: data/datasets
-  dataset:
-    reduction_ratio: 81.0
-    angular_window_deg:
-      minimum: 0.0
-      maximum: 360.0
-  directions:
-    use_forward_direction: false
-    use_backward_direction: true
-  split:
-    validation_split: 0.2
-    test_split: 0.1
-    random_seed: 42
-  dataloader:
-    batch_size: 8
-    num_workers: 0

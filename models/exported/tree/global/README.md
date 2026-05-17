@@ -1,31 +1,23 @@
-# tree Global Export Archive
+# tree Global HPO Export Archive
 
-This folder stores the curated winner selected for one `Wave 1` family
-and one directional training scope.
+This folder stores the curated `Wave 1` directional HPO winner for
+one family and one training scope.
 
 ## Winner Summary
 
 - Base Family: `tree`
 - Family Key: `tree`
 - Scope: `global`
-- Training Variant: `global`
-- Run Name: `te_hist_gbr_tabular`
-- Run Instance Id: `2026-03-20-15-17-30__te_hist_gbr_tabular`
+- Search Engine: `bounded_grid`
+- Run Name: `te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10`
+- Run Instance Id: `2026-05-11-20-36-03__te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10`
 - Model Type: `hist_gradient_boosting`
-- Validation MAE: `0.002719 deg`
-- Test MAE: `0.002885 deg`
-- Test RMSE: `0.003607 deg`
+- Validation MAE: `0.002655 deg`
+- Test MAE: `0.002782 deg`
 
 ## Archive Contents
 
-- `python/` winner artifact: `models/exported/tree/global/python/tree_model.pkl`
-- `onnx/` winner artifact: `models/exported/tree/global/onnx/model.onnx`
-- scope inventory: `models/exported/tree/global/reference_inventory.yaml`
-- dataset provenance: `models/exported/tree/global/dataset_snapshot_manifest.yaml`
-- source-run snapshots: `models/exported/tree/global/source_runs/2026-03-20-15-17-30__te_hist_gbr_tabular`
-
-The Python artifact keeps the model family's canonical reusable format:
-
-- tree families remain `.pkl` estimators;
-- PyTorch families remain `.ckpt` checkpoints;
-- all families also expose an ONNX export for deployment-facing use.
+- Python-native artifact: `models\exported\tree\global\python\tree_model.pkl`
+- ONNX artifact: `models\exported\tree\global\onnx\model.onnx`
+- Reference inventory: `models\exported\tree\global\reference_inventory.yaml`
+- Dataset provenance: `models\exported\tree\global\dataset_snapshot_manifest.yaml`

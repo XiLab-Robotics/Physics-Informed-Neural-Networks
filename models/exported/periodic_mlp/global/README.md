@@ -1,31 +1,23 @@
-# periodic_mlp Global Export Archive
+# periodic_mlp Global HPO Export Archive
 
-This folder stores the curated winner selected for one `Wave 1` family
-and one directional training scope.
+This folder stores the curated `Wave 1` directional HPO winner for
+one family and one training scope.
 
 ## Winner Summary
 
 - Base Family: `periodic_mlp`
 - Family Key: `periodic_mlp`
 - Scope: `global`
-- Training Variant: `global`
-- Run Name: `te_periodic_mlp_h04_standard`
-- Run Instance Id: `2026-03-20-14-19-32__te_periodic_mlp_h04_standard`
+- Search Engine: `optuna`
+- Run Name: `te_periodic_mlp_h04_standard_global_optuna_t0006`
+- Run Instance Id: `2026-05-15-00-16-09__te_periodic_mlp_h04_standard_global_optuna_t0006`
 - Model Type: `periodic_mlp`
-- Validation MAE: `0.003097 deg`
-- Test MAE: `0.003317 deg`
-- Test RMSE: `0.003793 deg`
+- Validation MAE: `0.002964 deg`
+- Test MAE: `0.003233 deg`
 
 ## Archive Contents
 
-- `python/` winner artifact: `models/exported/periodic_mlp/global/python/periodic_mlp-epoch=031-val_mae=0.00309735.ckpt`
-- `onnx/` winner artifact: `models/exported/periodic_mlp/global/onnx/model.onnx`
-- scope inventory: `models/exported/periodic_mlp/global/reference_inventory.yaml`
-- dataset provenance: `models/exported/periodic_mlp/global/dataset_snapshot_manifest.yaml`
-- source-run snapshots: `models/exported/periodic_mlp/global/source_runs/2026-03-20-14-19-32__te_periodic_mlp_h04_standard`
-
-The Python artifact keeps the model family's canonical reusable format:
-
-- tree families remain `.pkl` estimators;
-- PyTorch families remain `.ckpt` checkpoints;
-- all families also expose an ONNX export for deployment-facing use.
+- Python-native artifact: `models\exported\periodic_mlp\global\python\periodic_mlp-epoch=075-val_mae=0.00296443.ckpt`
+- ONNX artifact: `models\exported\periodic_mlp\global\onnx\model.onnx`
+- Reference inventory: `models\exported\periodic_mlp\global\reference_inventory.yaml`
+- Dataset provenance: `models\exported\periodic_mlp\global\dataset_snapshot_manifest.yaml`

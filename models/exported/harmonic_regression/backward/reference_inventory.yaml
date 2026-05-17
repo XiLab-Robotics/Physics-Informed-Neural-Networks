@@ -1,26 +1,24 @@
 schema_version: 1
-topic: wave1_directional_retraining_export_reference_inventory
+topic: wave1_directional_hpo_export_reference_inventory
 base_family: harmonic_regression
 family_key: harmonic_regression_bw
 scope_name: backward
 training_variant: Bw
-entry_count: 1
-reference_models:
-- run_name: te_harmonic_order12_linear_conditioned_recovery_Bw
-  run_instance_id: 2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw
-  model_type: harmonic_regression
-  val_mae: 0.0037007008213549852
-  test_mae: 0.0035243649035692215
-  test_rmse: 0.004080268554389477
-  python_model_path: models/exported/harmonic_regression/backward/python/harmonic_regression-epoch=019-val_mae=0.00370070.ckpt
-  onnx_model_path: models/exported/harmonic_regression/backward/onnx/model.onnx
-  source_output_directory: output/training_runs/harmonic_regression_bw/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw
-  source_best_checkpoint_path: output/training_runs/harmonic_regression_bw/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/checkpoints/harmonic_regression-epoch=019-val_mae=0.00370070.ckpt
-  dataset_snapshot_manifest_path: models/exported/harmonic_regression/backward/dataset_snapshot_manifest.yaml
-  copied_dataset_config_path: models/exported/harmonic_regression/backward/data/dataset_config.snapshot.yaml
-  source_run_snapshot_path_map:
-    training_config.snapshot.yaml: models/exported/harmonic_regression/backward/source_runs/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/training_config.snapshot.yaml
-    metrics_summary.snapshot.yaml: models/exported/harmonic_regression/backward/source_runs/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/metrics_summary.snapshot.yaml
-    run_metadata.snapshot.yaml: models/exported/harmonic_regression/backward/source_runs/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/run_metadata.snapshot.yaml
-    training_test_report.snapshot.md: models/exported/harmonic_regression/backward/source_runs/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/training_test_report.snapshot.md
-    best_checkpoint_path.snapshot.txt: models/exported/harmonic_regression/backward/source_runs/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/best_checkpoint_path.snapshot.txt
+search_engine: bounded_grid
+run_name: te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0002_stride5
+run_instance_id: 2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5
+model_type: harmonic_regression
+val_mae: 0.0036375659983605146
+test_mae: 0.0034936447627842426
+test_rmse: 0.0040808143094182014
+python_model_path: models\exported\harmonic_regression\backward\python\harmonic_regression-epoch=047-val_mae=0.00363757.ckpt
+onnx_model_path: models\exported\harmonic_regression\backward\onnx\model.onnx
+source_output_directory: output\training_runs\harmonic_regression_bw\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5
+source_best_checkpoint_path: output\training_runs\harmonic_regression_bw\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\checkpoints\harmonic_regression-epoch=047-val_mae=0.00363757.ckpt
+dataset_snapshot_manifest_path: models\exported\harmonic_regression\backward\dataset_snapshot_manifest.yaml
+source_run_snapshot_path_map:
+  training_config.snapshot.yaml: models\exported\harmonic_regression\backward\source_runs\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\training_config.snapshot.yaml
+  metrics_summary.snapshot.yaml: models\exported\harmonic_regression\backward\source_runs\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\metrics_summary.snapshot.yaml
+  run_metadata.snapshot.yaml: models\exported\harmonic_regression\backward\source_runs\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\run_metadata.snapshot.yaml
+  training_test_report.snapshot.md: models\exported\harmonic_regression\backward\source_runs\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\training_test_report.snapshot.md
+  best_checkpoint_path.snapshot.txt: models\exported\harmonic_regression\backward\source_runs\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\best_checkpoint_path.snapshot.txt

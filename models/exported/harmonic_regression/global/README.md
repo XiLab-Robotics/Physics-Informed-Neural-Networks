@@ -1,31 +1,23 @@
-# harmonic_regression Global Export Archive
+# harmonic_regression Global HPO Export Archive
 
-This folder stores the curated winner selected for one `Wave 1` family
-and one directional training scope.
+This folder stores the curated `Wave 1` directional HPO winner for
+one family and one training scope.
 
 ## Winner Summary
 
 - Base Family: `harmonic_regression`
 - Family Key: `harmonic_regression`
 - Scope: `global`
-- Training Variant: `global`
-- Run Name: `te_harmonic_order12_linear_conditioned_recovery_global`
-- Run Instance Id: `2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global`
+- Search Engine: `bounded_grid`
+- Run Name: `te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride5`
+- Run Instance Id: `2026-05-11-23-32-17__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride5`
 - Model Type: `harmonic_regression`
-- Validation MAE: `0.017017 deg`
-- Test MAE: `0.020779 deg`
-- Test RMSE: `0.022403 deg`
+- Validation MAE: `0.017025 deg`
+- Test MAE: `0.020774 deg`
 
 ## Archive Contents
 
-- `python/` winner artifact: `models/exported/harmonic_regression/global/python/harmonic_regression-epoch=018-val_mae=0.01701703.ckpt`
-- `onnx/` winner artifact: `models/exported/harmonic_regression/global/onnx/model.onnx`
-- scope inventory: `models/exported/harmonic_regression/global/reference_inventory.yaml`
-- dataset provenance: `models/exported/harmonic_regression/global/dataset_snapshot_manifest.yaml`
-- source-run snapshots: `models/exported/harmonic_regression/global/source_runs/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global`
-
-The Python artifact keeps the model family's canonical reusable format:
-
-- tree families remain `.pkl` estimators;
-- PyTorch families remain `.ckpt` checkpoints;
-- all families also expose an ONNX export for deployment-facing use.
+- Python-native artifact: `models\exported\harmonic_regression\global\python\harmonic_regression-epoch=040-val_mae=0.01702522.ckpt`
+- ONNX artifact: `models\exported\harmonic_regression\global\onnx\model.onnx`
+- Reference inventory: `models\exported\harmonic_regression\global\reference_inventory.yaml`
+- Dataset provenance: `models\exported\harmonic_regression\global\dataset_snapshot_manifest.yaml`

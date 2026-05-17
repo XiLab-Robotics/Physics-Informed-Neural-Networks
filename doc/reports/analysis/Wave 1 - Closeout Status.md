@@ -2,28 +2,32 @@
 
 ## Executive Summary
 
-`Wave 1` remains closed, but its canonical comparison surface is now directional.
+`Wave 1` remains closed with a directional `global` / `forward` /
+`backward` comparison surface. The latest completed optimization pass is
+the directional best-hyperparameter search campaign.
 
-The repository now treats each `Wave 1` family as a triad of winners:
+- Current HPO leader: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10`
+- Leader family: `tree_fw`
+- Leader scope: `forward`
+- Leader test MAE: `0.002743 deg`
+- Full HPO closeout report: `doc\reports\campaign_results\wave1\2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md`
 
-- one `global` model trained on the full directional dataset;
-- one `forward` model trained on the forward-only split;
-- one `backward` model trained on the backward-only split.
+## HPO Surface Ranking
 
-The current Wave 1 directional leader is `te_hist_gbr_tabular_Fw` from `tree_fw` with `test_mae = 0.002845 deg`.
-
-## Family Directional Summary
-
-| Family | Global Test MAE [deg] | Forward Test MAE [deg] | Backward Test MAE [deg] | Best Scope |
-| --- | ---: | ---: | ---: | --- |
-| `tree` | 0.002885 | 0.002845 | 0.003087 | `forward` |
-| `residual_harmonic_mlp` | 0.003152 | 0.003530 | 0.003493 | `global` |
-| `feedforward` | 0.003150 | 0.003563 | 0.003262 | `global` |
-| `periodic_mlp` | 0.003317 | 0.003432 | 0.003525 | `global` |
-| `harmonic_regression` | 0.020779 | 0.003129 | 0.003524 | `forward` |
-
-## Operational Consequences
-
-- Cross-family comparisons should now use like-for-like directional scopes instead of comparing a directional paper branch against an older all-directions repository baseline.
-- Future model-family waves should materialize the same `global` plus `forward` plus `backward` surface and refresh `models/exported/` during closeout.
-- The full closeout evidence bundle for this transition is the final campaign report `doc/reports/campaign_results/wave1/2026-05-07-13-29-12_wave1_directional_retraining_campaign_results_report.md`.
+| Rank | Family | Scope | Engine | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| `1` | `tree_fw` | `forward` | `bounded_grid` | 0.002677 | 0.002743 | 0.003409 |
+| `2` | `tree` | `global` | `bounded_grid` | 0.002655 | 0.002782 | 0.003520 |
+| `3` | `tree_bw` | `backward` | `bounded_grid` | 0.002681 | 0.002954 | 0.003749 |
+| `4` | `harmonic_regression_fw` | `forward` | `bounded_grid` | 0.002848 | 0.003101 | 0.003527 |
+| `5` | `periodic_mlp_bw` | `backward` | `optuna` | 0.002907 | 0.003233 | 0.003792 |
+| `6` | `periodic_mlp` | `global` | `optuna` | 0.002964 | 0.003233 | 0.003733 |
+| `7` | `feedforward_bw` | `backward` | `optuna` | 0.002875 | 0.003276 | 0.003767 |
+| `8` | `feedforward_fw` | `forward` | `optuna` | 0.002746 | 0.003287 | 0.003911 |
+| `9` | `periodic_mlp_fw` | `forward` | `optuna` | 0.002751 | 0.003294 | 0.003899 |
+| `10` | `residual_harmonic_mlp_fw` | `forward` | `optuna` | 0.002759 | 0.003354 | 0.003995 |
+| `11` | `residual_harmonic_mlp` | `global` | `optuna` | 0.002868 | 0.003428 | 0.003928 |
+| `12` | `feedforward` | `global` | `optuna` | 0.002958 | 0.003446 | 0.004158 |
+| `13` | `residual_harmonic_mlp_bw` | `backward` | `optuna` | 0.002930 | 0.003454 | 0.003918 |
+| `14` | `harmonic_regression_bw` | `backward` | `bounded_grid` | 0.003638 | 0.003494 | 0.004081 |
+| `15` | `harmonic_regression` | `global` | `bounded_grid` | 0.017025 | 0.020774 | 0.022412 |
