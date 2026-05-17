@@ -68,8 +68,15 @@ exports.
 - `harmonic_wise_comparison/`
   Repository-owned harmonic-wise comparison and playback workflow.
 - `reference_family_vs_feedforward/`
-  Track 2 comparison between one archived reference bank and the feedforward
-  best model.
+  Track 2 comparison between accepted Track 1 reference banks and repository
+  model-family winners. The current pipeline supports direction-aware candidate
+  matrices: `Fw` candidates are evaluated only on forward curves, `Bw`
+  candidates only on backward curves, and `global` candidates on both
+  directions with direction-separated metrics. The first direction-aware
+  configuration is
+  `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/directional_lgbm_feedforward.yaml`;
+  the generated full-matrix template is
+  `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
 - `recovered_original_workflow/`
   Direct recovered-original code surface rebuilt from the newly recovered full
   original root, with its own dedicated README and historical launcher model.

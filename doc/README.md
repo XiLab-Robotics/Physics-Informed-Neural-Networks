@@ -123,6 +123,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the filesystem and metadata repair that moves two completed `Wave 1`
   campaign bundles from the flat `output/training_campaigns/` root into the
   canonical `output/training_campaigns/wave1/` taxonomy.
+- [technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md)
+  Plan the direction-aware `Track 2` comparison pipeline, including `Track 1`
+  forward/backward family banks, `Wave 1` global and directional models, and
+  canonical `data/datasets` loading for future waves.
 
 #### 2026-05-16
 

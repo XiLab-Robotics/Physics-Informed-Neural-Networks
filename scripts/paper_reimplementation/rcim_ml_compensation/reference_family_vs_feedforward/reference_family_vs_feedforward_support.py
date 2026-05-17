@@ -22,6 +22,7 @@ import torch
 from scripts.models.model_factory import create_model
 from scripts.paper_reimplementation.rcim_ml_compensation.harmonic_wise_comparison import harmonic_wise_support
 from scripts.training import shared_training_infrastructure
+from scripts.training import tree_regression_support
 from scripts.training.transmission_error_regression_module import TransmissionErrorRegressionModule
 
 COMPARISON_REPORT_ROOT = (
@@ -45,6 +46,25 @@ class ReferenceModelEntry:
     harmonic_order: int
     python_model_path: Path
     feature_name_list: list[str]
+
+
+@dataclass(frozen=True)
+class Track2Candidate:
+
+    """One model candidate in the direction-aware Track 2 comparison matrix."""
+
+    candidate_id: str
+    candidate_family: str
+    candidate_kind: str
+    candidate_surface: str
+    allowed_direction_list: list[str]
+    source_path: Path
+    selected_harmonic_list: list[int]
+    model_entry_list: list[ReferenceModelEntry] | None
+    model_dictionary: dict[str, Any] | None
+    registry_entry: dict[str, Any] | None
+    training_config: dict[str, Any] | None
+    model_object: Any | None
 
 
 def load_reference_family_comparison_config(config_path: str | Path) -> dict[str, Any]:
@@ -89,8 +109,26 @@ def resolve_selected_harmonic_list(reference_inventory: dict[str, Any]) -> list[
     """Resolve the harmonic orders covered by the curated reference inventory."""
 
     archive_scope = reference_inventory["archive_scope"]
-    amplitude_harmonic_order_list = [int(harmonic_order) for harmonic_order in archive_scope["amplitude_harmonic_order_list"]]
-    phase_harmonic_order_list = [int(harmonic_order) for harmonic_order in archive_scope["phase_harmonic_order_list"]]
+    if isinstance(archive_scope, dict):
+        amplitude_harmonic_order_list = [
+            int(harmonic_order)
+            for harmonic_order in archive_scope["amplitude_harmonic_order_list"]
+        ]
+        phase_harmonic_order_list = [
+            int(harmonic_order)
+            for harmonic_order in archive_scope["phase_harmonic_order_list"]
+        ]
+    else:
+        amplitude_harmonic_order_list = [
+            int(reference_entry["harmonic_order"])
+            for reference_entry in reference_inventory["reference_models"]
+            if str(reference_entry["target_kind"]).strip().lower() == "amplitude"
+        ]
+        phase_harmonic_order_list = [
+            int(reference_entry["harmonic_order"])
+            for reference_entry in reference_inventory["reference_models"]
+            if str(reference_entry["target_kind"]).strip().lower() == "phase"
+        ]
     selected_harmonic_list = sorted(set(amplitude_harmonic_order_list) | set(phase_harmonic_order_list))
     assert selected_harmonic_list and selected_harmonic_list[0] == 0, "Reference bank must include harmonic 0"
     return selected_harmonic_list
@@ -144,6 +182,23 @@ def resolve_feedforward_best_entry(feedforward_leaderboard_path: str | Path) -> 
     return best_entry
 
 
+def resolve_family_best_entry(registry_path: str | Path) -> dict[str, Any]:
+
+    """Resolve one family-best registry entry from a registry YAML file."""
+
+    registry_dictionary = load_yaml_dictionary(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(registry_path)
+    )
+    if "best_entry" in registry_dictionary:
+        best_entry = registry_dictionary["best_entry"]
+    else:
+        entry_list = registry_dictionary["entry_list"]
+        assert isinstance(entry_list, list) and entry_list, f"Registry entry_list is empty | {registry_path}"
+        best_entry = entry_list[0]
+    assert isinstance(best_entry, dict), f"Registry best entry must be a dictionary | {registry_path}"
+    return best_entry
+
+
 def load_feedforward_regression_module(feedforward_best_entry: dict[str, Any]) -> tuple[TransmissionErrorRegressionModule, dict[str, Any]]:
 
     """Load the canonical best feedforward checkpoint plus its config snapshot."""
@@ -167,6 +222,45 @@ def load_feedforward_regression_module(feedforward_best_entry: dict[str, Any]) -
         input_feature_dim=datamodule.get_input_feature_dim(),
         target_feature_dim=datamodule.get_target_feature_dim(),
         normalization_statistics=normalization_statistics,
+    )
+    regression_module.to(torch.device("cpu"))
+    regression_module.eval()
+    return regression_module, training_config
+
+
+def load_wave1_registry_model(registry_entry: dict[str, Any]) -> tuple[Any, dict[str, Any]]:
+
+    """Load one Wave 1 registry-backed model artifact."""
+
+    output_directory = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        registry_entry["output_directory"]
+    )
+    training_config_path = output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME
+    training_config = shared_training_infrastructure.load_training_config(training_config_path)
+    model_type = str(registry_entry["model_type"]).strip().lower()
+    if model_type in {"hist_gradient_boosting", "random_forest"}:
+        model_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+            registry_entry["best_checkpoint_path"]
+        )
+        return tree_regression_support.load_tree_model(model_path), training_config
+
+    datamodule, _, _, normalization_statistics = shared_training_infrastructure.initialize_training_components(
+        training_config
+    )
+    datamodule.setup(stage="fit")
+    best_checkpoint_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        registry_entry["best_checkpoint_path"]
+    )
+    regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
+        checkpoint_path=best_checkpoint_path,
+        regression_model=create_model(
+            model_type=str(training_config["experiment"]["model_type"]),
+            model_configuration=training_config["model"],
+        ),
+        input_feature_dim=datamodule.get_input_feature_dim(),
+        target_feature_dim=datamodule.get_target_feature_dim(),
+        normalization_statistics=normalization_statistics,
+        map_location=torch.device("cpu"),
     )
     regression_module.to(torch.device("cpu"))
     regression_module.eval()
@@ -256,6 +350,53 @@ def build_reference_coefficient_dictionary(
     return coefficient_dictionary, amplitude_phase_dictionary
 
 
+def build_reference_prediction_lookup(
+    reference_model_entry_list: list[ReferenceModelEntry],
+    predicted_target_dictionary: dict[str, np.ndarray],
+) -> dict[tuple[str, int], np.ndarray]:
+
+    """Build a target lookup keyed by target kind and harmonic order."""
+
+    prediction_lookup: dict[tuple[str, int], np.ndarray] = {}
+    for reference_entry in reference_model_entry_list:
+        lookup_key = (reference_entry.target_kind, int(reference_entry.harmonic_order))
+        prediction_lookup[lookup_key] = predicted_target_dictionary[reference_entry.target_name]
+    return prediction_lookup
+
+
+def build_reference_coefficient_dictionary_from_entries(
+    prediction_lookup: dict[tuple[str, int], np.ndarray],
+    sample_index: int,
+    selected_harmonic_list: list[int],
+) -> tuple[dict[str, float], dict[str, float]]:
+
+    """Convert one generic Track 1 bank prediction into harmonic coefficients."""
+
+    coefficient_dictionary: dict[str, float] = {}
+    amplitude_phase_dictionary: dict[str, float] = {}
+
+    for harmonic_order in selected_harmonic_list:
+        predicted_amplitude = float(prediction_lookup[("amplitude", harmonic_order)][sample_index])
+
+        if harmonic_order == 0:
+            coefficient_dictionary["coefficient_cos_h0"] = predicted_amplitude
+            amplitude_phase_dictionary["amplitude_h0"] = abs(predicted_amplitude)
+            amplitude_phase_dictionary["phase_rad_h0"] = 0.0
+            continue
+
+        predicted_phase = float(prediction_lookup[("phase", harmonic_order)][sample_index])
+        coefficient_dictionary[f"coefficient_cos_h{harmonic_order}"] = float(
+            predicted_amplitude * np.cos(predicted_phase)
+        )
+        coefficient_dictionary[f"coefficient_sin_h{harmonic_order}"] = float(
+            -predicted_amplitude * np.sin(predicted_phase)
+        )
+        amplitude_phase_dictionary[f"amplitude_h{harmonic_order}"] = float(predicted_amplitude)
+        amplitude_phase_dictionary[f"phase_rad_h{harmonic_order}"] = float(predicted_phase)
+
+    return coefficient_dictionary, amplitude_phase_dictionary
+
+
 def build_reference_target_metric_dictionary(
     curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
     predicted_target_dictionary: dict[str, np.ndarray],
@@ -280,6 +421,41 @@ def build_reference_target_metric_dictionary(
             phase_target_name = f"fft_y_Fw_filtered_phase_{harmonic_order}"
             truth_phase = float(curve_record.amplitude_phase_dictionary[f"phase_rad_h{harmonic_order}"])
             predicted_phase = float(predicted_target_dictionary[phase_target_name][sample_index])
+            wrapped_phase_error = abs(harmonic_wise_support.wrap_phase_difference_radians(predicted_phase - truth_phase))
+            phase_error_list.append(float(wrapped_phase_error))
+
+    return {
+        "amplitude_mae": float(np.mean(amplitude_error_list)),
+        "amplitude_rmse": float(np.sqrt(np.mean(np.square(amplitude_error_list)))),
+        "phase_mae_rad": float(np.mean(phase_error_list)) if phase_error_list else 0.0,
+        "phase_rmse_rad": float(np.sqrt(np.mean(np.square(phase_error_list)))) if phase_error_list else 0.0,
+    }
+
+
+def build_reference_target_metric_dictionary_from_entries(
+    curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
+    reference_model_entry_list: list[ReferenceModelEntry],
+    predicted_target_dictionary: dict[str, np.ndarray],
+    selected_harmonic_list: list[int],
+) -> dict[str, float]:
+
+    """Build target diagnostics for a generic forward or backward reference bank."""
+
+    prediction_lookup = build_reference_prediction_lookup(reference_model_entry_list, predicted_target_dictionary)
+    amplitude_error_list: list[float] = []
+    phase_error_list: list[float] = []
+
+    for sample_index, curve_record in enumerate(curve_record_list):
+        for harmonic_order in selected_harmonic_list:
+            truth_amplitude = float(curve_record.amplitude_phase_dictionary[f"amplitude_h{harmonic_order}"])
+            predicted_amplitude = float(prediction_lookup[("amplitude", harmonic_order)][sample_index])
+            amplitude_error_list.append(abs(predicted_amplitude - truth_amplitude))
+
+            if harmonic_order == 0:
+                continue
+
+            truth_phase = float(curve_record.amplitude_phase_dictionary[f"phase_rad_h{harmonic_order}"])
+            predicted_phase = float(prediction_lookup[("phase", harmonic_order)][sample_index])
             wrapped_phase_error = abs(harmonic_wise_support.wrap_phase_difference_radians(predicted_phase - truth_phase))
             phase_error_list.append(float(wrapped_phase_error))
 
@@ -326,6 +502,336 @@ def predict_feedforward_curve(
     return predicted_curve_tensor.detach().cpu().numpy().reshape(-1).astype(np.float32)
 
 
+def predict_wave1_registry_curve(
+    model_object: Any,
+    training_config: dict[str, Any],
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+) -> np.ndarray:
+
+    """Predict one TE curve with a loaded Wave 1 registry-backed model."""
+
+    input_tensor = build_feedforward_input_tensor(curve_record).float()
+    model_type = str(training_config["experiment"]["model_type"]).strip().lower()
+    if model_type in {"hist_gradient_boosting", "random_forest"}:
+        input_feature_matrix = input_tensor.detach().cpu().numpy().astype(np.float32)
+        return np.asarray(model_object.predict(input_feature_matrix), dtype=np.float32).reshape(-1)
+
+    assert isinstance(model_object, TransmissionErrorRegressionModule), (
+        f"Expected TransmissionErrorRegressionModule | {model_type}"
+    )
+    with torch.no_grad():
+        normalized_input_tensor = model_object.normalize_input_tensor(input_tensor)
+        normalized_prediction_tensor, _ = model_object.forward_regression_model(
+            input_tensor,
+            normalized_input_tensor,
+        )
+        predicted_curve_tensor = model_object.denormalize_target_tensor(normalized_prediction_tensor)
+    return predicted_curve_tensor.detach().cpu().numpy().reshape(-1).astype(np.float32)
+
+
+def normalize_allowed_direction_list(candidate_configuration: dict[str, Any]) -> list[str]:
+
+    """Resolve allowed evaluation directions for one candidate configuration."""
+
+    if "allowed_direction_list" in candidate_configuration:
+        raw_direction_list = candidate_configuration["allowed_direction_list"]
+    elif "allowed_directions" in candidate_configuration:
+        raw_direction_list = candidate_configuration["allowed_directions"]
+    else:
+        candidate_surface = str(candidate_configuration["candidate_surface"]).strip()
+        if candidate_surface == "Fw":
+            raw_direction_list = ["forward"]
+        elif candidate_surface == "Bw":
+            raw_direction_list = ["backward"]
+        else:
+            raw_direction_list = ["forward", "backward"]
+
+    direction_list = [str(direction_label).strip().lower() for direction_label in raw_direction_list]
+    unsupported_direction_list = sorted(set(direction_list) - {"forward", "backward"})
+    assert not unsupported_direction_list, (
+        "Unsupported Track 2 candidate evaluation directions | "
+        f"{', '.join(unsupported_direction_list)}"
+    )
+    assert direction_list, "Track 2 candidate must have at least one allowed direction"
+    return direction_list
+
+
+def build_legacy_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
+
+    """Build candidate configurations for the historical single-bank config."""
+
+    return [
+        {
+            "candidate_id": "lgbm19_reference_bank",
+            "candidate_family": "LGBM",
+            "candidate_kind": "track1_reference_bank",
+            "candidate_surface": "global",
+            "reference_inventory_path": training_config["paths"]["reference_inventory_path"],
+            "allowed_direction_list": ["forward", "backward"],
+        },
+        {
+            "candidate_id": "feedforward_best",
+            "candidate_family": "feedforward",
+            "candidate_kind": "wave1_registry_model",
+            "candidate_surface": "global",
+            "family_registry_path": training_config["paths"]["feedforward_leaderboard_path"],
+            "allowed_direction_list": ["forward", "backward"],
+        },
+    ]
+
+
+def build_generated_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
+
+    """Generate a full Track 2 candidate matrix from compact config metadata."""
+
+    generation_configuration = training_config["comparison"]["candidate_generation"]
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    track1_configuration = generation_configuration.get("track1_reference_banks", {})
+    if track1_configuration:
+        forward_archive_root = str(track1_configuration["forward_archive_root"]).rstrip("/")
+        backward_archive_root = str(track1_configuration["backward_archive_root"]).rstrip("/")
+        for family_configuration in track1_configuration["family_list"]:
+            family_id = str(family_configuration["family_id"]).strip()
+            family_label = str(family_configuration["family_label"]).strip()
+            archive_folder = str(family_configuration["archive_folder"]).strip()
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{family_id}19_Fw",
+                    "candidate_family": family_label,
+                    "candidate_kind": "track1_reference_bank",
+                    "candidate_surface": "Fw",
+                    "reference_inventory_path": (
+                        f"{forward_archive_root}/{archive_folder}/reference_inventory.yaml"
+                    ),
+                    "allowed_direction_list": ["forward"],
+                }
+            )
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{family_id}19_Bw",
+                    "candidate_family": family_label,
+                    "candidate_kind": "track1_reference_bank",
+                    "candidate_surface": "Bw",
+                    "reference_inventory_path": (
+                        f"{backward_archive_root}/{archive_folder}/reference_inventory.yaml"
+                    ),
+                    "allowed_direction_list": ["backward"],
+                }
+            )
+
+    wave1_configuration = generation_configuration.get("wave1_registry_models", {})
+    if wave1_configuration:
+        family_registry_root = str(wave1_configuration["family_registry_root"]).rstrip("/")
+        for base_family in wave1_configuration["base_family_list"]:
+            base_family_name = str(base_family).strip()
+            candidate_configuration_list.extend(
+                [
+                    {
+                        "candidate_id": f"{base_family_name}_global",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_registry_model",
+                        "candidate_surface": "global",
+                        "family_registry_path": (
+                            f"{family_registry_root}/{base_family_name}/latest_family_best.yaml"
+                        ),
+                        "allowed_direction_list": ["forward", "backward"],
+                    },
+                    {
+                        "candidate_id": f"{base_family_name}_Fw",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_registry_model",
+                        "candidate_surface": "Fw",
+                        "family_registry_path": (
+                            f"{family_registry_root}/{base_family_name}_fw/latest_family_best.yaml"
+                        ),
+                        "allowed_direction_list": ["forward"],
+                    },
+                    {
+                        "candidate_id": f"{base_family_name}_Bw",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_registry_model",
+                        "candidate_surface": "Bw",
+                        "family_registry_path": (
+                            f"{family_registry_root}/{base_family_name}_bw/latest_family_best.yaml"
+                        ),
+                        "allowed_direction_list": ["backward"],
+                    },
+                ]
+            )
+
+    assert candidate_configuration_list, "Generated Track 2 candidate list is empty"
+    return candidate_configuration_list
+
+
+def resolve_track2_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
+
+    """Resolve the configured Track 2 candidate list."""
+
+    comparison_configuration = training_config.get("comparison", {})
+    if "candidate_list" in comparison_configuration:
+        candidate_configuration_list = comparison_configuration["candidate_list"]
+    elif "candidate_generation" in comparison_configuration:
+        candidate_configuration_list = build_generated_candidate_configuration_list(training_config)
+    else:
+        candidate_configuration_list = build_legacy_candidate_configuration_list(training_config)
+    assert isinstance(candidate_configuration_list, list) and candidate_configuration_list, (
+        "Track 2 comparison candidate_list must not be empty"
+    )
+    return candidate_configuration_list
+
+
+def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Candidate:
+
+    """Load one configured Track 2 candidate."""
+
+    candidate_id = str(candidate_configuration["candidate_id"]).strip()
+    candidate_family = str(candidate_configuration["candidate_family"]).strip()
+    candidate_kind = str(candidate_configuration["candidate_kind"]).strip()
+    candidate_surface = str(candidate_configuration["candidate_surface"]).strip()
+    allowed_direction_list = normalize_allowed_direction_list(candidate_configuration)
+
+    if candidate_kind == "track1_reference_bank":
+        reference_inventory_path = candidate_configuration["reference_inventory_path"]
+        reference_inventory = load_reference_inventory(reference_inventory_path)
+        selected_harmonic_list = resolve_selected_harmonic_list(reference_inventory)
+        model_entry_list = load_reference_model_entries(reference_inventory)
+        model_dictionary = load_reference_model_dictionary(model_entry_list)
+        return Track2Candidate(
+            candidate_id=candidate_id,
+            candidate_family=candidate_family,
+            candidate_kind=candidate_kind,
+            candidate_surface=candidate_surface,
+            allowed_direction_list=allowed_direction_list,
+            source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(reference_inventory_path),
+            selected_harmonic_list=selected_harmonic_list,
+            model_entry_list=model_entry_list,
+            model_dictionary=model_dictionary,
+            registry_entry=None,
+            training_config=None,
+            model_object=None,
+        )
+
+    if candidate_kind == "wave1_registry_model":
+        family_registry_path = candidate_configuration["family_registry_path"]
+        registry_entry = resolve_family_best_entry(family_registry_path)
+        model_object, training_config = load_wave1_registry_model(registry_entry)
+        return Track2Candidate(
+            candidate_id=candidate_id,
+            candidate_family=candidate_family,
+            candidate_kind=candidate_kind,
+            candidate_surface=candidate_surface,
+            allowed_direction_list=allowed_direction_list,
+            source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_path),
+            selected_harmonic_list=[],
+            model_entry_list=None,
+            model_dictionary=None,
+            registry_entry=registry_entry,
+            training_config=training_config,
+            model_object=model_object,
+        )
+
+    raise ValueError(f"Unsupported Track 2 candidate kind | {candidate_kind}")
+
+
+def filter_curve_records_for_candidate(
+    curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
+    candidate: Track2Candidate,
+) -> list[harmonic_wise_support.HarmonicCurveRecord]:
+
+    """Filter held-out curves to the directions valid for one candidate."""
+
+    filtered_curve_record_list = [
+        curve_record
+        for curve_record in curve_record_list
+        if str(curve_record.direction_label).strip().lower() in candidate.allowed_direction_list
+    ]
+    assert filtered_curve_record_list, f"No curves available for Track 2 candidate | {candidate.candidate_id}"
+    return filtered_curve_record_list
+
+
+def evaluate_track2_candidate(
+    candidate: Track2Candidate,
+    curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
+    percentage_error_denominator: str,
+) -> tuple[list[dict[str, Any]], dict[str, float] | None]:
+
+    """Evaluate one Track 2 candidate on its valid held-out curve records."""
+
+    candidate_curve_record_list = filter_curve_records_for_candidate(curve_record_list, candidate)
+    target_metric_dictionary: dict[str, float] | None = None
+
+    if candidate.candidate_kind == "track1_reference_bank":
+        assert candidate.model_entry_list is not None
+        assert candidate.model_dictionary is not None
+        predicted_target_dictionary = predict_reference_bank_target_dictionary(
+            candidate_curve_record_list,
+            candidate.model_entry_list,
+            candidate.model_dictionary,
+        )
+        target_metric_dictionary = build_reference_target_metric_dictionary_from_entries(
+            candidate_curve_record_list,
+            candidate.model_entry_list,
+            predicted_target_dictionary,
+            candidate.selected_harmonic_list,
+        )
+        prediction_lookup = build_reference_prediction_lookup(
+            candidate.model_entry_list,
+            predicted_target_dictionary,
+        )
+    else:
+        predicted_target_dictionary = {}
+        prediction_lookup = {}
+
+    per_candidate_entry_list: list[dict[str, Any]] = []
+    for sample_index, curve_record in enumerate(candidate_curve_record_list):
+        if candidate.candidate_kind == "track1_reference_bank":
+            coefficient_dictionary, _ = build_reference_coefficient_dictionary_from_entries(
+                prediction_lookup,
+                sample_index,
+                candidate.selected_harmonic_list,
+            )
+            predicted_curve_deg = harmonic_wise_support.reconstruct_curve_from_coefficients(
+                curve_record.angular_position_deg,
+                candidate.selected_harmonic_list,
+                coefficient_dictionary,
+            )
+        else:
+            assert candidate.training_config is not None
+            predicted_curve_deg = predict_wave1_registry_curve(
+                candidate.model_object,
+                candidate.training_config,
+                curve_record,
+            )
+
+        metric_dictionary = harmonic_wise_support.compute_curve_metric_dictionary(
+            curve_record.transmission_error_deg,
+            predicted_curve_deg,
+            percentage_error_denominator,
+        )
+        per_candidate_entry_list.append(
+            {
+                "candidate_id": candidate.candidate_id,
+                "candidate_family": candidate.candidate_family,
+                "candidate_kind": candidate.candidate_kind,
+                "candidate_surface": candidate.candidate_surface,
+                "allowed_direction_list": list(candidate.allowed_direction_list),
+                "source_path": shared_training_infrastructure.format_project_relative_path(candidate.source_path),
+                "source_file_path": shared_training_infrastructure.format_project_relative_path(curve_record.source_file_path),
+                "direction_label": curve_record.direction_label,
+                "speed_rpm": float(curve_record.speed_rpm),
+                "torque_nm": float(curve_record.torque_nm),
+                "oil_temperature_deg": float(curve_record.oil_temperature_deg),
+                "angular_position_deg": curve_record.angular_position_deg.astype(float).tolist(),
+                "truth_curve_deg": curve_record.transmission_error_deg.astype(float).tolist(),
+                "predicted_curve_deg": predicted_curve_deg.astype(float).tolist(),
+                "metrics": metric_dictionary,
+            }
+        )
+
+    return per_candidate_entry_list, target_metric_dictionary
+
+
 def summarize_metric_dictionary(metric_dictionary_list: list[dict[str, float]]) -> dict[str, float]:
 
     """Average one metric-dictionary list and add a `p95` percentage statistic."""
@@ -358,6 +864,90 @@ def build_group_metric_summary(
         }
         for group_key, model_metric_dictionary in grouped_metric_accumulator.items()
     }
+
+
+def build_candidate_metric_summary(per_candidate_entry_list: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
+
+    """Summarize metrics for every evaluated Track 2 candidate."""
+
+    candidate_metric_accumulator: dict[str, list[dict[str, float]]] = {}
+    for per_candidate_entry in per_candidate_entry_list:
+        candidate_id = str(per_candidate_entry["candidate_id"])
+        candidate_metric_accumulator.setdefault(candidate_id, []).append(per_candidate_entry["metrics"])
+    return {
+        candidate_id: summarize_metric_dictionary(metric_dictionary_list)
+        for candidate_id, metric_dictionary_list in candidate_metric_accumulator.items()
+    }
+
+
+def build_generic_group_metric_summary(
+    per_candidate_entry_list: list[dict[str, Any]],
+    group_key_name: str,
+) -> dict[str, dict[str, dict[str, float]]]:
+
+    """Summarize candidate metrics by one grouping key."""
+
+    grouped_metric_accumulator: dict[str, dict[str, list[dict[str, float]]]] = {}
+    for per_candidate_entry in per_candidate_entry_list:
+        group_key = str(per_candidate_entry[group_key_name])
+        candidate_id = str(per_candidate_entry["candidate_id"])
+        grouped_metric_accumulator.setdefault(group_key, {})
+        grouped_metric_accumulator[group_key].setdefault(candidate_id, []).append(per_candidate_entry["metrics"])
+
+    return {
+        group_key: {
+            candidate_id: summarize_metric_dictionary(metric_dictionary_list)
+            for candidate_id, metric_dictionary_list in candidate_metric_dictionary.items()
+        }
+        for group_key, candidate_metric_dictionary in grouped_metric_accumulator.items()
+    }
+
+
+def save_track2_per_condition_metrics_csv(
+    output_directory: Path,
+    per_candidate_entry_list: list[dict[str, Any]],
+) -> Path:
+
+    """Save the direction-aware Track 2 per-condition metric table."""
+
+    csv_path = output_directory / "per_condition_metrics.csv"
+    with csv_path.open("w", encoding="utf-8", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(
+            [
+                "source_file_path",
+                "direction_label",
+                "speed_rpm",
+                "torque_nm",
+                "oil_temperature_deg",
+                "candidate_id",
+                "candidate_family",
+                "candidate_kind",
+                "candidate_surface",
+                "curve_mae_deg",
+                "curve_rmse_deg",
+                "mean_percentage_error_pct",
+            ]
+        )
+        for per_candidate_entry in per_candidate_entry_list:
+            metric_dictionary = per_candidate_entry["metrics"]
+            writer.writerow(
+                [
+                    per_candidate_entry["source_file_path"],
+                    per_candidate_entry["direction_label"],
+                    per_candidate_entry["speed_rpm"],
+                    per_candidate_entry["torque_nm"],
+                    per_candidate_entry["oil_temperature_deg"],
+                    per_candidate_entry["candidate_id"],
+                    per_candidate_entry["candidate_family"],
+                    per_candidate_entry["candidate_kind"],
+                    per_candidate_entry["candidate_surface"],
+                    metric_dictionary["mae"],
+                    metric_dictionary["rmse"],
+                    metric_dictionary["mean_percentage_error_pct"],
+                ]
+            )
+    return csv_path
 
 
 def save_per_condition_metrics_csv(output_directory: Path, per_sample_entry_list: list[dict[str, Any]]) -> Path:
@@ -433,6 +1023,58 @@ def maybe_generate_preview_plots(
             f"{per_sample_entry['torque_nm']:.0f} Nm | "
             f"{per_sample_entry['oil_temperature_deg']:.0f} C | "
             f"{per_sample_entry['direction_label']}"
+        )
+        axis.grid(True, alpha=0.3)
+        axis.legend(loc="best")
+        plot_path = preview_directory / f"preview_{preview_index + 1:02d}.png"
+        figure.tight_layout()
+        figure.savefig(plot_path, dpi=180)
+        plt.close(figure)
+        preview_plot_path_list.append(shared_training_infrastructure.format_project_relative_path(plot_path))
+
+    return preview_plot_path_list
+
+
+def maybe_generate_track2_preview_plots(
+    output_directory: Path,
+    per_candidate_entry_list: list[dict[str, Any]],
+    preview_curve_count: int,
+) -> list[str]:
+
+    """Generate direction-aware Track 2 overlay plots."""
+
+    try:
+        import matplotlib
+
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except Exception:
+        return []
+
+    preview_directory = output_directory / "preview_curves"
+    preview_directory.mkdir(parents=True, exist_ok=True)
+    preview_plot_path_list: list[str] = []
+    selected_entry_list = per_candidate_entry_list[: max(int(preview_curve_count), 0)]
+
+    for preview_index, per_candidate_entry in enumerate(selected_entry_list):
+        figure, axis = plt.subplots(figsize=(8.0, 4.0))
+        angular_position_deg = np.asarray(per_candidate_entry["angular_position_deg"], dtype=np.float32)
+        axis.plot(angular_position_deg, per_candidate_entry["truth_curve_deg"], label="Truth", linewidth=1.5)
+        axis.plot(
+            angular_position_deg,
+            per_candidate_entry["predicted_curve_deg"],
+            label=str(per_candidate_entry["candidate_id"]),
+            linewidth=1.1,
+        )
+        axis.set_xlabel("Angular Position [deg]")
+        axis.set_ylabel("Transmission Error [deg]")
+        axis.set_title(
+            f"Preview {preview_index + 1} | "
+            f"{per_candidate_entry['candidate_id']} | "
+            f"{per_candidate_entry['direction_label']} | "
+            f"{per_candidate_entry['speed_rpm']:.0f} rpm | "
+            f"{per_candidate_entry['torque_nm']:.0f} Nm | "
+            f"{per_candidate_entry['oil_temperature_deg']:.0f} C"
         )
         axis.grid(True, alpha=0.3)
         axis.legend(loc="best")
@@ -627,6 +1269,199 @@ def build_reference_family_vs_feedforward_report_markdown(comparison_summary: di
                 f"`feedforward={preview_entry['feedforward_mean_percentage_error_pct']:.3f}%` | "
                 f"`oracle={preview_entry['oracle_mean_percentage_error_pct']:.3f}%`"
             )
+        )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Output Artifacts",
+            "",
+            f"- summary YAML: `{comparison_summary['output_directory']}/validation_summary.yaml`;",
+            f"- per-condition CSV: `{comparison_summary['per_condition_metrics_csv_path']}`;",
+        ]
+    )
+
+    for preview_plot_path in comparison_summary["preview_plot_path_list"]:
+        report_line_list.append(f"- preview plot: `{preview_plot_path}`;")
+
+    return "\n".join(report_line_list) + "\n"
+
+
+def build_track2_directional_comparison_summary(
+    resolved_config_path: Path,
+    output_directory: Path,
+    training_config: dict[str, Any],
+    curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
+    candidate_list: list[Track2Candidate],
+    target_metric_dictionary: dict[str, dict[str, float]],
+    per_candidate_entry_list: list[dict[str, Any]],
+    preview_plot_path_list: list[str],
+    per_condition_metrics_csv_path: Path,
+    dataset_root: Path,
+) -> dict[str, Any]:
+
+    """Build the direction-aware Track 2 comparison summary."""
+
+    comparison_configuration = training_config["comparison"]
+    candidate_metric_summary = build_candidate_metric_summary(per_candidate_entry_list)
+    direction_metric_summary = build_generic_group_metric_summary(per_candidate_entry_list, "direction_label")
+    temperature_metric_summary = build_generic_group_metric_summary(per_candidate_entry_list, "oil_temperature_deg")
+
+    return {
+        "config_path": shared_training_infrastructure.format_project_relative_path(resolved_config_path),
+        "output_directory": shared_training_infrastructure.format_project_relative_path(output_directory),
+        "dataset": {
+            "dataset_config_path": training_config["paths"]["dataset_config_path"],
+            "dataset_root": shared_training_infrastructure.format_project_relative_path(dataset_root),
+            "source_contract": "data/datasets",
+        },
+        "comparison_scope": {
+            "comparison_mode": str(comparison_configuration.get("comparison_mode", "directional_candidate_matrix")),
+            "percentage_error_denominator": str(comparison_configuration["percentage_error_denominator"]),
+            "curve_count": int(len(curve_record_list)),
+            "candidate_count": int(len(candidate_list)),
+            "directional_policy": {
+                "global": ["forward", "backward"],
+                "Fw": ["forward"],
+                "Bw": ["backward"],
+            },
+        },
+        "candidate_list": [
+            {
+                "candidate_id": candidate.candidate_id,
+                "candidate_family": candidate.candidate_family,
+                "candidate_kind": candidate.candidate_kind,
+                "candidate_surface": candidate.candidate_surface,
+                "allowed_direction_list": candidate.allowed_direction_list,
+                "source_path": shared_training_infrastructure.format_project_relative_path(candidate.source_path),
+                "selected_harmonic_list": candidate.selected_harmonic_list,
+                "registry_run_instance_id": (
+                    str(candidate.registry_entry["run_instance_id"])
+                    if candidate.registry_entry is not None and "run_instance_id" in candidate.registry_entry
+                    else None
+                ),
+            }
+            for candidate in candidate_list
+        ],
+        "candidate_target_metric_summary": target_metric_dictionary,
+        "candidate_metric_summary": candidate_metric_summary,
+        "direction_breakdown": direction_metric_summary,
+        "temperature_breakdown": temperature_metric_summary,
+        "preview_plot_path_list": preview_plot_path_list,
+        "per_condition_metrics_csv_path": shared_training_infrastructure.format_project_relative_path(
+            per_condition_metrics_csv_path
+        ),
+        "sample_preview_list": [
+            {
+                "source_file_path": per_candidate_entry["source_file_path"],
+                "direction_label": per_candidate_entry["direction_label"],
+                "candidate_id": per_candidate_entry["candidate_id"],
+                "speed_rpm": per_candidate_entry["speed_rpm"],
+                "torque_nm": per_candidate_entry["torque_nm"],
+                "oil_temperature_deg": per_candidate_entry["oil_temperature_deg"],
+                "mean_percentage_error_pct": per_candidate_entry["metrics"]["mean_percentage_error_pct"],
+            }
+            for per_candidate_entry in per_candidate_entry_list[:5]
+        ],
+    }
+
+
+def build_track2_directional_comparison_report_markdown(comparison_summary: dict[str, Any]) -> str:
+
+    """Build the direction-aware Track 2 Markdown report."""
+
+    comparison_scope = comparison_summary["comparison_scope"]
+    candidate_metric_summary = comparison_summary["candidate_metric_summary"]
+
+    report_line_list = [
+        "# Track 2 Directional Comparison Report",
+        "",
+        "## Overview",
+        "",
+        "This report evaluates `Track 1` paper-reference banks and `Wave 1`",
+        "repository models on direction-valid held-out TE curves. Directional",
+        "candidates are evaluated only on their matching direction, while global",
+        "candidates are evaluated on both directions and reported separately.",
+        "",
+        "## Scope",
+        "",
+        f"- dataset config: `{comparison_summary['dataset']['dataset_config_path']}`;",
+        f"- dataset root: `{comparison_summary['dataset']['dataset_root']}`;",
+        f"- comparison mode: `{comparison_scope['comparison_mode']}`;",
+        f"- candidate count: `{comparison_scope['candidate_count']}`;",
+        f"- held-out curve count before candidate filtering: `{comparison_scope['curve_count']}`;",
+        f"- percentage-error denominator: `{comparison_scope['percentage_error_denominator']}`;",
+        "",
+        "## Candidate Inventory",
+        "",
+        "| Candidate | Family | Kind | Surface | Valid Directions | Source |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+
+    for candidate_entry in comparison_summary["candidate_list"]:
+        report_line_list.append(
+            f"| `{candidate_entry['candidate_id']}` | "
+            f"`{candidate_entry['candidate_family']}` | "
+            f"`{candidate_entry['candidate_kind']}` | "
+            f"`{candidate_entry['candidate_surface']}` | "
+            f"`{', '.join(candidate_entry['allowed_direction_list'])}` | "
+            f"`{candidate_entry['source_path']}` |"
+        )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Aggregate Comparison",
+            "",
+            "| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+            "| --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+
+    for candidate_id, metric_dictionary in candidate_metric_summary.items():
+        report_line_list.append(
+            f"| `{candidate_id}` | "
+            f"{metric_dictionary['mae']:.6f} | "
+            f"{metric_dictionary['rmse']:.6f} | "
+            f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+            f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+        )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Direction Breakdown",
+            "",
+            "| Direction | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] |",
+            "| --- | --- | ---: | ---: | ---: |",
+        ]
+    )
+
+    for direction_label, direction_entry in comparison_summary["direction_breakdown"].items():
+        for candidate_id, metric_dictionary in direction_entry.items():
+            report_line_list.append(
+                f"| `{direction_label}` | `{candidate_id}` | "
+                f"{metric_dictionary['mae']:.6f} | "
+                f"{metric_dictionary['rmse']:.6f} | "
+                f"{metric_dictionary['mean_percentage_error_pct']:.3f} |"
+            )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Sample Preview",
+            "",
+        ]
+    )
+
+    for preview_entry in comparison_summary["sample_preview_list"]:
+        report_line_list.append(
+            f"- `{preview_entry['candidate_id']}` | `{preview_entry['direction_label']}` | "
+            f"`{preview_entry['source_file_path']}` | "
+            f"`{preview_entry['speed_rpm']:.0f} rpm` | "
+            f"`{preview_entry['torque_nm']:.0f} Nm` | "
+            f"`{preview_entry['oil_temperature_deg']:.0f} C` | "
+            f"`MPE={preview_entry['mean_percentage_error_pct']:.3f}%`"
         )
 
     report_line_list.extend(

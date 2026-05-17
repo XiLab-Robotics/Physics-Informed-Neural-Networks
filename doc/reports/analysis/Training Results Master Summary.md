@@ -216,6 +216,23 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
 
+### Directional Family Surface Rule
+
+Every model family in `Wave 1` and future waves must be prepared as three
+explicit surfaces when the model family is promoted into the comparable
+program-level workflow:
+
+- `global`: trained and evaluated on forward plus backward curves together;
+- `Fw`: trained and evaluated only on forward curves;
+- `Bw`: trained and evaluated only on backward curves.
+
+The same direction contract is now used by `Track 2`: directional candidates
+are scored only on their matching held-out curve direction, while global
+candidates are scored on both directions with direction-separated metrics.
+All new `Track 1`, `Track 2`, `Wave 1`, and future-wave training or comparison
+workflows must load TE curves directly from `data/datasets` through
+`config/datasets/transmission_error_dataset.yaml`.
+
 ### Track 1 Canonical Status
 
 - Status: `closed` as the faithful full-bank RCIM paper-pipeline

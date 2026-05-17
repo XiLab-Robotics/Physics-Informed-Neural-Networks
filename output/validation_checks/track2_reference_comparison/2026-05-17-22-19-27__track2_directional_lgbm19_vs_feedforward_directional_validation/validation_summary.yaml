@@ -1,0 +1,304 @@
+config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\directional_lgbm_feedforward.yaml
+output_directory: output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation
+dataset:
+  dataset_config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\datasets
+  source_contract: data/datasets
+comparison_scope:
+  comparison_mode: directional_candidate_matrix
+  percentage_error_denominator: peak_to_peak_truth
+  curve_count: 194
+  candidate_count: 5
+  directional_policy:
+    global:
+    - forward
+    - backward
+    Fw:
+    - forward
+    Bw:
+    - backward
+candidate_list:
+- candidate_id: LGBM19_Fw
+  candidate_family: LGBM
+  candidate_kind: track1_reference_bank
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: models\paper_reference\rcim_track1\forward\lgbm_reference_models\reference_inventory.yaml
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  registry_run_instance_id: null
+- candidate_id: LGBM19_Bw
+  candidate_family: LGBM
+  candidate_kind: track1_reference_bank
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: models\paper_reference\rcim_track1\backward\lgbm_reference_models\reference_inventory.yaml
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  registry_run_instance_id: null
+- candidate_id: feedforward_global
+  candidate_family: feedforward
+  candidate_kind: wave1_registry_model
+  candidate_surface: global
+  allowed_direction_list:
+  - forward
+  - backward
+  source_path: output\registries\families\feedforward\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-05-06-17-49-37__te_feedforward_stride1_high_compute_long_remote_global
+- candidate_id: feedforward_Fw
+  candidate_family: feedforward
+  candidate_kind: wave1_registry_model
+  candidate_surface: Fw
+  allowed_direction_list:
+  - forward
+  source_path: output\registries\families\feedforward_fw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-05-14-18-02-31__te_feedforward_stride1_high_compute_long_remote_fw_optuna_t0008
+- candidate_id: feedforward_Bw
+  candidate_family: feedforward
+  candidate_kind: wave1_registry_model
+  candidate_surface: Bw
+  allowed_direction_list:
+  - backward
+  source_path: output\registries\families\feedforward_bw\latest_family_best.yaml
+  selected_harmonic_list: []
+  registry_run_instance_id: 2026-05-13-21-30-23__te_feedforward_stride1_high_compute_long_remote_bw_optuna_t0005
+candidate_target_metric_summary:
+  LGBM19_Fw:
+    amplitude_mae: 0.0007988800142073776
+    amplitude_rmse: 0.0025211107799658376
+    phase_mae_rad: 0.3029953739178098
+    phase_rmse_rad: 0.6309579286826384
+  LGBM19_Bw:
+    amplitude_mae: 0.00023134652384373565
+    amplitude_rmse: 0.000804106268864237
+    phase_mae_rad: 0.09607981196705243
+    phase_rmse_rad: 0.24838270896460038
+candidate_metric_summary:
+  LGBM19_Fw:
+    mse: 0.014600681209885502
+    mae: 0.11616447283584408
+    rmse: 0.11617856533371008
+    mean_percentage_error_pct: 259.05096210658616
+    p95_mean_percentage_error_pct: 356.15406757755653
+  LGBM19_Bw:
+    mse: 8.181966432545678e-05
+    mae: 0.005036825663035697
+    rmse: 0.005230562965970579
+    mean_percentage_error_pct: 11.87994569966866
+    p95_mean_percentage_error_pct: 48.10572366391074
+  feedforward_global:
+    mse: 1.937315776802855e-05
+    mae: 0.0034647912890651425
+    rmse: 0.0038972243587741848
+    mean_percentage_error_pct: 7.635896886528184
+    p95_mean_percentage_error_pct: 14.202502512647882
+  feedforward_Fw:
+    mse: 1.7535421848447e-05
+    mae: 0.003404173300829067
+    rmse: 0.0038546707700961927
+    mean_percentage_error_pct: 7.551137683651992
+    p95_mean_percentage_error_pct: 13.028754872099102
+  feedforward_Bw:
+    mse: 2.191228400516988e-05
+    mae: 0.0035859347264675747
+    rmse: 0.004022767201103537
+    mean_percentage_error_pct: 7.831933909697458
+    p95_mean_percentage_error_pct: 14.855703491567436
+direction_breakdown:
+  forward:
+    LGBM19_Fw:
+      mse: 0.014600681209885502
+      mae: 0.11616447283584408
+      rmse: 0.11617856533371008
+      mean_percentage_error_pct: 259.05096210658616
+      p95_mean_percentage_error_pct: 356.15406757755653
+    feedforward_global:
+      mse: 1.6867502466075908e-05
+      mae: 0.0033164116025973744
+      rmse: 0.003746096954404088
+      mean_percentage_error_pct: 7.361320956894242
+      p95_mean_percentage_error_pct: 13.41812149305338
+    feedforward_Fw:
+      mse: 1.7535421848447e-05
+      mae: 0.003404173300829067
+      rmse: 0.0038546707700961927
+      mean_percentage_error_pct: 7.551137683651992
+      p95_mean_percentage_error_pct: 13.028754872099102
+  backward:
+    LGBM19_Bw:
+      mse: 8.181966432545678e-05
+      mae: 0.005036825663035697
+      rmse: 0.005230562965970579
+      mean_percentage_error_pct: 11.87994569966866
+      p95_mean_percentage_error_pct: 48.10572366391074
+    feedforward_global:
+      mse: 2.1878813069981188e-05
+      mae: 0.003613170975532912
+      rmse: 0.004048351763144282
+      mean_percentage_error_pct: 7.910472816162123
+      p95_mean_percentage_error_pct: 15.096291943251316
+    feedforward_Bw:
+      mse: 2.191228400516988e-05
+      mae: 0.0035859347264675747
+      rmse: 0.004022767201103537
+      mean_percentage_error_pct: 7.831933909697458
+      p95_mean_percentage_error_pct: 14.855703491567436
+temperature_breakdown:
+  '25.0':
+    LGBM19_Fw:
+      mse: 0.014465792114188384
+      mae: 0.11548618131718684
+      rmse: 0.11549174324981848
+      mean_percentage_error_pct: 265.46563635637006
+      p95_mean_percentage_error_pct: 359.9529470283894
+    LGBM19_Bw:
+      mse: 4.0260615721635506e-05
+      mae: 0.004065750165245995
+      rmse: 0.0041980167632507176
+      mean_percentage_error_pct: 10.133178591824608
+      p95_mean_percentage_error_pct: 38.06845952782472
+    feedforward_global:
+      mse: 1.4649079272155231e-05
+      mae: 0.003192913285772651
+      rmse: 0.003527058190470016
+      mean_percentage_error_pct: 7.561328245640506
+      p95_mean_percentage_error_pct: 14.969057313065028
+    feedforward_Fw:
+      mse: 1.3390394688160785e-05
+      mae: 0.003067827639478599
+      rmse: 0.0034396663820010945
+      mean_percentage_error_pct: 7.141087970759078
+      p95_mean_percentage_error_pct: 13.149748525776264
+    feedforward_Bw:
+      mse: 1.509799168143676e-05
+      mae: 0.003226928628032674
+      rmse: 0.0035490712781008626
+      mean_percentage_error_pct: 7.732632797490126
+      p95_mean_percentage_error_pct: 15.35419825378088
+  '30.0':
+    LGBM19_Fw:
+      mse: 0.014183495125637893
+      mae: 0.11477636874514664
+      rmse: 0.1147959986314717
+      mean_percentage_error_pct: 251.89019033352864
+      p95_mean_percentage_error_pct: 345.5163962066774
+    LGBM19_Bw:
+      mse: 9.978803725825747e-05
+      mae: 0.0054205934397099035
+      rmse: 0.0056496103706941865
+      mean_percentage_error_pct: 12.362420523530975
+      p95_mean_percentage_error_pct: 57.013051164488566
+    feedforward_global:
+      mse: 2.0344447923083837e-05
+      mae: 0.0035664667491034996
+      rmse: 0.004060103765669041
+      mean_percentage_error_pct: 7.62025563796907
+      p95_mean_percentage_error_pct: 11.950169602006897
+    feedforward_Fw:
+      mse: 1.8663342590331328e-05
+      mae: 0.0035110530149425594
+      rmse: 0.0040249671647302025
+      mean_percentage_error_pct: 7.590438107106134
+      p95_mean_percentage_error_pct: 11.35839262536162
+    feedforward_Bw:
+      mse: 2.3548038592790973e-05
+      mae: 0.003791915458238936
+      rmse: 0.004290421250932299
+      mean_percentage_error_pct: 8.024298402483264
+      p95_mean_percentage_error_pct: 12.930349951059583
+  '35.0':
+    LGBM19_Fw:
+      mse: 0.015339210071295803
+      mae: 0.11899811999890682
+      rmse: 0.11901933626206787
+      mean_percentage_error_pct: 257.4102533355321
+      p95_mean_percentage_error_pct: 352.3982887088624
+    LGBM19_Bw:
+      mse: 0.00012769572159905093
+      mae: 0.0061535174363347945
+      rmse: 0.0064043199565738795
+      mean_percentage_error_pct: 14.146374974943633
+      p95_mean_percentage_error_pct: 76.48659410256973
+    feedforward_global:
+      mse: 2.591624670899224e-05
+      mae: 0.0037845936440172668
+      rmse: 0.0043023264102434
+      mean_percentage_error_pct: 7.777584605797276
+      p95_mean_percentage_error_pct: 15.182775593278874
+    feedforward_Fw:
+      mse: 2.2934644671379835e-05
+      mae: 0.003823249339943104
+      rmse: 0.004324110437225979
+      mean_percentage_error_pct: 8.174886687713235
+      p95_mean_percentage_error_pct: 14.126407813439775
+    feedforward_Bw:
+      mse: 3.105938772744203e-05
+      mae: 0.003919288620504323
+      rmse: 0.004467737493040255
+      mean_percentage_error_pct: 7.756255762663085
+      p95_mean_percentage_error_pct: 14.678982043492145
+preview_plot_path_list:
+- output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation\preview_curves\preview_01.png
+- output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation\preview_curves\preview_02.png
+- output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation\preview_curves\preview_03.png
+- output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation\preview_curves\preview_04.png
+- output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation\preview_curves\preview_05.png
+per_condition_metrics_csv_path: output\validation_checks\track2_reference_comparison\2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation\per_condition_metrics.csv
+sample_preview_list:
+- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm1200.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: LGBM19_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1200.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 280.59068025024425
+- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm1300.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: LGBM19_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1300.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 296.08229337024153
+- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm1800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: LGBM19_Fw
+  speed_rpm: 1000.0
+  torque_nm: 1800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 342.37790039013004
+- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm400.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: LGBM19_Fw
+  speed_rpm: 1000.0
+  torque_nm: 400.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 190.60787336892645
+- source_file_path: data\datasets\Test_25degree\1000rpm\1000.0rpm800.0Nm25.0deg.csv
+  direction_label: forward
+  candidate_id: LGBM19_Fw
+  speed_rpm: 1000.0
+  torque_nm: 800.0
+  oil_temperature_deg: 25.0
+  mean_percentage_error_pct: 249.52996144151209

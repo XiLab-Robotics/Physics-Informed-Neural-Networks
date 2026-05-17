@@ -57,6 +57,85 @@ near-literal deviations rather than silent changes.
 - Closure does not require all-green status. Yellow and red cells document the
   remaining numerical gap under the faithful original-pipeline protocol.
 
+## Track 2 Directional Comparison Status
+
+`Track 2` is the repository-owned direct TE-curve comparison surface between
+the accepted `Track 1` paper-reference banks and the repository model families.
+It is still an offline comparison branch. It does not replace the future online
+`Table 9` compensation benchmark.
+
+### Candidate Surface Contract
+
+Every current and future model family must expose explicit direction surfaces:
+
+| Surface | Training Scope | Valid Track 2 Evaluation Curves |
+| --- | --- | --- |
+| `global` | forward and backward together | forward and backward, reported separately |
+| `Fw` | forward only | forward only |
+| `Bw` | backward only | backward only |
+
+This applies to `Track 1`, `Track 2`, `Wave 1`, and future waves. New
+pipelines must load the canonical TE curves directly from `data/datasets`
+through `config/datasets/transmission_error_dataset.yaml`, matching the
+repository-owned model workflow such as `feedforward`.
+
+### Current Historical Smoke Result
+
+The first `Track 2` smoke test compared one forward `LGBM-19` archive against
+the global `feedforward` baseline on both directions. It remains useful as
+historical evidence, but it is superseded by the direction-aware contract above.
+
+| Candidate | Scope In Historical Smoke Test | Mean Percentage Error [%] | Status |
+| --- | --- | ---: | --- |
+| `LGBM-19 reference bank` | mixed forward/backward | 93.133 | superseded |
+| `feedforward best` | mixed forward/backward | 7.718 | superseded |
+| `oracle harmonic truncation` | mixed forward/backward | 1.785 | diagnostic |
+
+Historical report:
+`doc/reports/analysis/validation_checks/track2/2026-04-23-19-13-11_track2_lgbm19_vs_feedforward_smoke_validation_report.md`.
+
+### Current Canonical Track 2 Directional Comparison
+
+The current canonical direction-aware comparison was generated from:
+`config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/directional_lgbm_feedforward.yaml`.
+
+Output artifacts:
+`output/validation_checks/track2_reference_comparison/2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation/`.
+
+Report:
+`doc/reports/analysis/validation_checks/track2/2026-05-17-22-22-12_track2_directional_lgbm19_vs_feedforward_directional_validation_report.md`.
+
+| Candidate | Source | Evaluation Rule |
+| --- | --- | --- |
+| `LGBM19_Fw` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/` | forward curves only |
+| `LGBM19_Bw` | `models/paper_reference/rcim_track1/backward/lgbm_reference_models/` | backward curves only |
+| `feedforward_global` | `output/registries/families/feedforward/` | forward and backward, reported separately |
+| `feedforward_Fw` | `output/registries/families/feedforward_fw/` | forward curves only |
+| `feedforward_Bw` | `output/registries/families/feedforward_bw/` | backward curves only |
+
+| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] |
+| --- | ---: | ---: | ---: |
+| `LGBM19_Fw` | 0.116164 | 0.116179 | 259.051 |
+| `LGBM19_Bw` | 0.005037 | 0.005231 | 11.880 |
+| `feedforward_global` | 0.003465 | 0.003897 | 7.636 |
+| `feedforward_Fw` | 0.003404 | 0.003855 | 7.551 |
+| `feedforward_Bw` | 0.003586 | 0.004023 | 7.832 |
+
+### Full Matrix Backlog
+
+The full `Track 2` matrix must extend the same rule to:
+
+- all `11` `Track 1` forward family banks, each with `19` target models;
+- all `11` `Track 1` backward family banks, each with `19` target models;
+- all `15` current `Wave 1` family-best surfaces:
+  `global`, `Fw`, and `Bw` for `feedforward`, `harmonic_regression`,
+  `periodic_mlp`, `residual_harmonic_mlp`, and `tree`;
+- future global family models evaluated against both forward and backward
+  curves with direction-separated metrics.
+
+Template config:
+`config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
+
 ## Forward Tables
 
 ### Forward Table 2 - Amplitude MAE
