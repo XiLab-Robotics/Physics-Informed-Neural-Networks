@@ -24,6 +24,11 @@ They replace older archives when a forward or backward paper-faithful campaign
 is closed out, and they are the model artifact backing for
 `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
+The current Track 1 full-dataset surface is closed: both directions have
+completed, accepted archives have been refreshed, and Tables `2`-`5` are
+populated. Later restricted-dataset reruns must use separate archive/report
+surfaces.
+
 - `forward/svm_reference_models/`
 - `forward/mlp_reference_models/`
 - `forward/rf_reference_models/`

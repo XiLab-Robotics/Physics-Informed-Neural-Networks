@@ -74,6 +74,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
 | Wave 1. Structured Static Baselines | planning report: completed; implementation: completed; smoke-tests: completed; validation checks: completed; campaign execution: completed; results report: completed |
+| Track 1. RCIM Paper-Faithful Model Bank | closed as faithful full-bank reproduction; forward and backward grid-search campaigns completed; Tables `2`-`5` repopulated; not all cells are green |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -132,6 +133,8 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
+| `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__backward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` | `2026-05-16-19-04-25` | 11 | 0 | `backward` | Closed the backward Track 1 full-bank surface, refreshed paper-reference archives, and repopulated RCIM Tables `2`-`5` |
+| `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__forward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` | `2026-05-15-07-07-30` | 11 | 0 | `forward` | Closed the forward Track 1 full-bank surface, refreshed paper-reference archives, and repopulated RCIM Tables `2`-`5` |
 | `wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11` | `2026-05-12 05:44:32` | 90 | 0 | `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Updated global best |
 | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` | `2026-05-06 23:14:10` | 15 | 0 | `te_hist_gbr_tabular_Fw` | No family-best change |
 
@@ -207,7 +210,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw` with model type `hist_gradient_boosting` | not_aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/1` harmonics fully closed, `0/1` partially closed, `1/1` still open | not_yet_met |
+| Track 1 canonical closure rule | Paper Tables `2`-`5` reproduced as a faithful model-bank comparison surface | Forward and backward Track 1 paper-faithful campaigns are completed, archived under `models/paper_reference/rcim_track1/`, and tabulated in `RCIM Paper Reference Benchmark.md` | closed_populated_not_cell_exact |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -215,13 +218,30 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper validation summary: `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/svm_targeted_closure/svm/2026-04-24-05-06-01__track1_svm_amplitude_240_yellow_cell_attempt_19_campaign_run/validation_summary.yaml`
-- Table `3` amplitude `RMSE`: `0/1` harmonics at or below the paper target
-- Table `4` phase `MAE`: `0/0` harmonics at or below the paper target
-- Table `5` phase `RMSE`: `0/0` harmonics at or below the paper target
-- Target-level expected-family direction: `0/1`
-- Harmonic-level Table `6` closure: `0/1` fully matched, `0/1` partially matched, `1/1` still open
-- Highest-priority open harmonics: `240`
+- Status: `closed` as the faithful full-bank RCIM paper-pipeline
+  reproduction surface.
+- Recovered original workflow root: `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+- Faithful original-dataset exact-model-bank root:
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+- Accepted paper-reference archive root: `models/paper_reference/rcim_track1/`
+- Canonical Tables `2`-`5` benchmark report:
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- Latest exact-paper closeout report:
+  `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
+- Prior forward exact-paper closeout report:
+  `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
+- Latest completed surface: `backward` paper-faithful grid search across
+  `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`.
+- Table `2` `forward` status: `19` green, `25` yellow, `66` red.
+- Table `3` `forward` status: `21` green, `28` yellow, `61` red.
+- Table `4` `forward` status: `23` green, `21` yellow, `55` red.
+- Table `5` `forward` status: `23` green, `32` yellow, `44` red.
+- Table `2` `backward` status: `61` green, `22` yellow, `27` red.
+- Table `3` `backward` status: `63` green, `20` yellow, `27` red.
+- Table `4` `backward` status: `65` green, `21` yellow, `13` red.
+- Table `5` `backward` status: `65` green, `21` yellow, `13` red.
+- Harmonic-wise Table `6` evidence remains postponed into the harmonic-wise
+  comparison branch and does not gate Track 1 closure.
 
 ### Latest Harmonic-Wise Validation Support
 
@@ -237,8 +257,14 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
+- `Track 1` Tables `2`-`5` are closed as populated forward/backward
+  faithful full-bank surfaces, but not every cell matches the paper or
+  retuned reference within the green threshold.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
+- A future restricted-dataset Track 1 rerun is deferred until after all planned
+  waves are implemented; it must create a new Markdown comparison report that
+  places full-dataset and reduced-dataset Tables `2`-`5` side by side for each
+  dataset-reduction level.
 - Not yet aligned: the current repository winner is not tree-based, while the paper deployment path is dominated by boosting/tree models.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
 - End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.

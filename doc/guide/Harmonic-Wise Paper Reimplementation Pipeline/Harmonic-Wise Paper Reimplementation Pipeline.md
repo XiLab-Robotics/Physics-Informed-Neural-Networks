@@ -85,17 +85,20 @@ This guide is only about `Track 1`.
 
 The canonical `Track 1` completion rule is not a single campaign winner.
 
-`Track 1` closes only when the repository reproduces the paper-facing cells in
-Tables `3`, `4`, `5`, and `6` with inspectable per-target and per-harmonic
-status.
+`Track 1` is now closed as the faithful full-dataset model-bank
+reproduction. Closure means the repository has run both forward and backward
+paper-faithful grid-search campaigns, refreshed accepted archives, and
+repopulated Tables `2`, `3`, `4`, and `5` with inspectable per-target and
+per-family status.
 
 That means:
 
 - the primary `Track 1` readout is the exact-paper table-replication report;
 - the harmonic-wise TE-curve evaluator is still useful, but only as support
   evidence;
-- a lower TE-level percentage error alone does not mean that `Track 1` is
-  closed.
+- all-green benchmark coloring is not required for the faithful Track 1
+  closure; yellow and red cells remain evidence of the numerical gap under the
+  recovered original protocol.
 
 ## End-To-End Flow
 
@@ -268,8 +271,9 @@ The current offline paper target is:
 
 So the comparison protocol now exists, but `Target A` is not closed yet.
 
-More importantly, `Track 1` itself is still open until the canonical
-exact-paper report closes the remaining cells in Tables `3-6`.
+Track 1 is closed separately from `Target A`: the model-bank reproduction
+surface has been populated and archived, while the later TE-curve and online
+compensation branches still need their own validation.
 
 ## Why The First Baseline Still Matters
 

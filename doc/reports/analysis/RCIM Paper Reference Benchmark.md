@@ -9,8 +9,8 @@ explicit surfaces:
 - `paper original`: values reconstructed from the original paper tables;
 - `paper retuned`: recovered-original RCIM models retuned through
   `run_rcim_original_reference_training.ps1`;
-- `Track 1`: repository-owned exact-paper model-bank results, reset to
-  empty pending cells until the next Track 1 pass repopulates them.
+- `Track 1`: repository-owned exact-paper model-bank results from the closed
+  forward and backward paper-faithful grid-search campaigns.
 
 Forward Track 1 cells must compare against the better value between
 `paper original` and `paper retuned`. Backward Track 1 cells must
@@ -42,6 +42,7 @@ near-literal deviations rather than silent changes.
 
 ## Current Archive Status
 
+- Track 1 status: `closed` as a faithful full-bank reproduction surface.
 - retuned family-direction archives promoted: `22`
 - Track 1 forward family archives refreshed: `11`
 - Track 1 backward family archives refreshed: `11`
@@ -51,6 +52,10 @@ near-literal deviations rather than silent changes.
 - Track 1 backward closeout report: `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
 - Track 1 backward completion timestamp: `2026-05-16T19:04:25+02:00`
 - `ELM` is archived as an operational Track 1 family but remains outside the original paper-family order.
+- Closure criterion: both directions were run, accepted model archives were
+  refreshed, and every Track 1 cell in Tables `2`-`5` was repopulated.
+- Closure does not require all-green status. Yellow and red cells document the
+  remaining numerical gap under the faithful original-pipeline protocol.
 
 ## Forward Tables
 
@@ -456,9 +461,14 @@ No backward paper-original table is available in the paper.
 
 - `paper original` is immutable paper-side evidence and exists only for forward.
 - `paper retuned` is the current recovered-original retuned baseline.
-- `Track 1` cells are intentionally empty after this reset.
-- Future Track 1 closeouts must fill cells only after accepted
-  family-target results are available in the repository.
-- Future Track 1 forward status colors compare against the best of
+- `Track 1` is closed as the populated repository-owned paper-faithful
+  full-bank reproduction surface for Tables `2`-`5`.
+- Track 1 forward status colors compare against the best of
   `paper original` and `paper retuned`.
-- Future Track 1 backward status colors compare against `paper retuned`.
+- Track 1 backward status colors compare against `paper retuned`.
+- Later attempts to force all cells green must be documented as separate
+  optimization branches, not as changes to the closed faithful Track 1
+  baseline.
+- A future restricted-dataset Track 1 rerun should create a new Markdown
+  comparison report that places full-dataset and reduced-dataset Tables `2`-`5`
+  side by side for every dataset-reduction level.

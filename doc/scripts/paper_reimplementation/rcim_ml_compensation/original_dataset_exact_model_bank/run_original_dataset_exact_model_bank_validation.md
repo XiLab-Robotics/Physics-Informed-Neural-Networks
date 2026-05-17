@@ -35,6 +35,12 @@ The canonical Tables `2`-`5` benchmark report is:
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
+Track 1 is closed for the current full-dataset faithful reproduction: both
+directions were searched, accepted archives were refreshed, and Tables `2`-`5`
+were repopulated. Future restricted-dataset comparison work should rerun this
+script through a new campaign namespace and publish a separate Markdown report
+instead of overwriting the closed full-dataset baseline.
+
 It performs these stages:
 
 1. load the dataset-processing config and resolve `data/datasets`;

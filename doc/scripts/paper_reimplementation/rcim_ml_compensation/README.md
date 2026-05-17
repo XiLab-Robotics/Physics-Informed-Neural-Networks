@@ -32,3 +32,10 @@ Current accepted model archives and benchmark tables:
 
 - `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
+Track 1 is closed for the current full-dataset paper-faithful surface. The
+closed status means both forward and backward grid-search campaigns completed,
+the accepted archives were refreshed, and Tables `2`-`5` were repopulated. It
+does not mean every benchmark cell is green, and future all-green or
+restricted-dataset studies should be documented as separate comparison
+branches.

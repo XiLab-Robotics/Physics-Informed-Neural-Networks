@@ -24,6 +24,15 @@ The benchmark tables backed by this archive root live in:
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
+Track 1 closure status:
+
+- `closed` as the faithful full-bank RCIM paper-pipeline reproduction surface;
+- forward grid-search campaign completed and archived;
+- backward grid-search campaign completed and archived;
+- Tables `2`-`5` repopulated from the accepted archives;
+- yellow and red cells remain benchmark evidence, not blockers for this
+  faithful-pipeline closure.
+
 Direction branches:
 
 - `forward/`
@@ -77,3 +86,6 @@ Closeout rule:
 - every future Track 1 closeout must refresh the affected family-reference archive when accepted models change;
 - archive entries must preserve source validation summaries, training configs, run metadata, exported ONNX files, Python pickles, and dataset provenance;
 - direction-specific closeouts must only replace archives for the completed direction.
+- future restricted-dataset reruns must not overwrite this full-dataset
+  closure archive unless a new approved archive namespace and comparison report
+  are created first.

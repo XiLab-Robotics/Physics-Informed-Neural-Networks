@@ -35,6 +35,12 @@ paper-faithful grid-search runs for the current `11`-family bank:
 
 - `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, `ELM`.
 
+Track 1 is closed at this layer as the repository-owned faithful full-bank
+reproduction of the recovered RCIM paper pipeline. Closure means the
+forward/backward searches were run, accepted archives were promoted, and
+Tables `2`-`5` were repopulated. It does not mean the benchmark is an
+all-green optimized clone.
+
 Accepted model archives from those campaigns are promoted to:
 
 - `models/paper_reference/rcim_track1/forward/`
@@ -406,4 +412,7 @@ but intentionally distinct.
   campaign framework.
 
 When the goal is paper-faithful Track 1 execution inside the repository-owned
-campaign system, this README is the operational surface to follow.
+campaign system, this README is the operational surface to follow. New
+restricted-dataset or all-green optimization studies should be added as
+separate branches so the closed full-dataset faithful baseline remains
+auditable.

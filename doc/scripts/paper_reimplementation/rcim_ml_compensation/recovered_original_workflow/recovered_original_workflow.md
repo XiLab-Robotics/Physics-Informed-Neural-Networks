@@ -42,6 +42,11 @@ surface are:
 - `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
+The current Track 1 full-dataset surface is closed as a faithful
+forward/backward reproduction. Future restricted-dataset reruns should use this
+recovered workflow as provenance, but must publish a separate comparison report
+instead of overwriting the closed baseline.
+
 ## Short Usage
 
 Create a backward dataframe:

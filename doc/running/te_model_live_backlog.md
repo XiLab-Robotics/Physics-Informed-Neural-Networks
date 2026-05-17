@@ -27,6 +27,9 @@ Historical rationale and approval history remain in:
   comparable harmonic baseline before `Wave 2` temporal models are opened
 - Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
 - Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
+- Track 1 RCIM paper-faithful model bank status: `closed` as a populated
+  forward/backward full-bank reproduction surface for Tables `2`-`5`; not an
+  all-green optimized benchmark.
 - Current Reference Feedforward Baseline Run:
   - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/metrics_summary.yaml`
   - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/training_test_report.md`
@@ -37,6 +40,36 @@ Historical rationale and approval history remain in:
   - `output/smoke_tests/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_smoke_test/smoke_test_summary.yaml`
 
 ## Completed
+
+### Track 1 RCIM Paper-Faithful Model Bank
+
+Status:
+
+- closed
+
+Delivered:
+
+- recovered original RCIM workflow preserved under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+- faithful original-dataset exact-model-bank implementation under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+- completed forward paper-faithful grid-search campaign across
+  `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`
+- completed backward paper-faithful grid-search campaign across the same
+  operational family bank
+- refreshed accepted model archives under `models/paper_reference/rcim_track1/`
+- repopulated RCIM paper-reference Tables `2`-`5` in
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- documented Windows PowerShell and Linux Bash launcher surfaces for future
+  reruns
+
+Closure rule:
+
+- Track 1 is closed because the faithful full-bank protocol was run in both
+  directions and all benchmark cells were repopulated.
+- Green-only status is not a Track 1 closure requirement; all-green pursuit
+  would be a separate optimization branch because it changes the scientific
+  objective away from faithful protocol recovery.
 
 ### Planning Foundation
 
@@ -112,37 +145,28 @@ Current next step:
 - treat the exact recovered RCIM family-bank branch as implemented at script
   level under
   `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
-- treat the exact-paper branch as the immediate active `Track 1` execution path,
-  with the first prepared batch campaign now staged under
-  `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`
-- use the exact recovered branch to recreate paper-family and per-target
-  baselines before promoting any third harmonic-wise optimization pass as the
-  canonical exact-paper reference
-- treat the current author-supplied original-pipeline workspace as
-  operationally `Fw`-centered for shipped training, evaluation, and artifacts,
-  even though the dataframe-creation surface already supports `Bw`
-- plan the future `Bw` implementation to mirror the author workflow exactly:
-  generate the backward dataframe, start from the `v17` structure with
-  `predictorMLCrossValidationWithHyperparameter(...)` when new tuning is
-  needed, then replay the tuned backward paper-style branch through `v18`
+- treat Track 1 exact-paper work as closed for the current full-dataset
+  faithful model-bank surface; future work should start from a new approved
+  campaign plan instead of treating Track 1 as still active
+- keep the exact recovered branch as the archived paper-family and per-target
+  baseline evidence for future comparison work
+- treat the recovered-original workflow as the code-level provenance anchor
+  and the original-dataset exact-model-bank branch as the closed
+  forward/backward repository-owned reproduction surface
 - use the completed campaign to lock three decisions:
   - keep the full RCIM set as the mainline `Target A` branch;
   - do not promote the reduced harmonic subsets as the main optimization path;
   - do not promote the current engineered operating-condition features as the
     new default
-- while `Track 1` remains open, keep intermediate validation-model `.pkl`
+- now that Track 1 is closed, keep intermediate validation-model `.pkl`
   bundles under
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
   and `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
-  out of Git tracking and out of Git LFS; at `Track 1` closure, revisit only
-  the final selected model artifacts for selective Git LFS promotion
-- defer a third harmonic-wise optimization pass until after the exact-paper
-  campaign clarifies whether the remaining gap is primarily:
-  - export-surface only;
-  - family-selection only;
-  - or still predictor-quality limited
-- keep the third `Track 1` iteration available as the next modeling step only
-  after the exact-paper campaign results are reviewed:
+  out of Git tracking and out of Git LFS; only the curated accepted archives
+  under `models/paper_reference/rcim_track1/` are the paper-reference model
+  surface
+- keep a later harmonic-wise optimization pass available only as a separate
+  post-Track-1 modeling branch:
   - explicit target-parameterization work around `h0`
   - selective `cos/sin` versus `amplitude/phase` comparison on dominant
     harmonics
@@ -169,47 +193,27 @@ Current next step:
 - until `Target B` is executed, present all paper comparisons as `offline-only`
   rather than end-to-end equivalent
 
-### Track 1 Bidirectional Original-Dataset Rebuild
+### Track 1 Restricted-Dataset Future Rerun
 
-- open a new repository-owned `Track 1` rebuild branch that reads harmonic
-  training data from the original dataset root `data/datasets/` instead of the
-  recovered forward-only CSV snapshot
-- treat `forward` and `backward` as distinct modeling targets and train
-  direction-specific family banks rather than one shared direction-agnostic
-  bank
-- rebuild the exact-paper family surface as:
-  - `10 x 19` models for `Fw`
-  - `10 x 19` models for `Bw`
-- expand the canonical benchmark so each of the four exact-paper table
-  surfaces has:
-  - the paper reference table
-  - the repository `Fw` table
-  - the repository `Bw` table
-- restructure `models/paper_reference/rcim_track1/` so each family archive has
-  separate `forward` and `backward` subtrees for ONNX, Python, manifests, and
-  recreation metadata
-- freeze a canonical split policy before launch:
-  - evaluate repository-native `70/20/10`
-  - versus paper-closer `80/20`
-  - then keep one chosen rule fixed for both directional branches
-- after workflow stabilization, prepare a dedicated mega-campaign sized well
-  beyond the minimum `380` family-target-direction runs
-- keep the current recovered-paper branch documented as the forward-only
-  recovered baseline, not as the final shape of the new bidirectional
-  repository-owned rebuild
-- when the backward recovered branch is implemented, keep its filesystem
-  behavior runner-managed in the repository rather than reusing mutable local
-  original output-folder conventions directly
-- deferred cache note:
-  when a future original-dataset shrinking branch is opened, revisit the
-  current shared recovered-workflow pickle cache contract so restricted-dataset
-  experiments can use explicit cache partitioning instead of one global
-  `data/original_pipeline_instances/` cache root
-- for `SVR`, temporarily disable the current grid-search path and use direct
-  training during the rebuild branch and the mega-campaign
-- backlog note:
-  re-open `SVR` grid-search only if needed later to push the `SVM` cells to
-  all-green status on the new `Fw`/`Bw` benchmark surfaces
+This branch is explicitly deferred until much later, after all planned wave
+implementations have been completed and reviewed.
+
+- rerun the closed Track 1 paper-faithful model-bank protocol on one or more
+  restricted dataset variants;
+- keep the current full-dataset Track 1 archive and benchmark as immutable
+  comparison anchors;
+- use separate campaign names, output roots, and model archive namespaces for
+  every restricted-dataset level;
+- revisit the shared recovered-workflow pickle cache contract so
+  restricted-dataset experiments use explicit cache partitioning instead of one
+  global `data/original_pipeline_instances/` cache root;
+- create a new Markdown comparison report under `doc/reports/analysis/` that
+  places the full-dataset Tables `2`-`5` beside the restricted-dataset Tables
+  `2`-`5` for every reduction level;
+- record the dataset-reduction rule, sample count, split policy, direction,
+  family list, and benchmark-color counts for each table variant;
+- do not use this future branch to overwrite the closed full-dataset Track 1
+  status.
 
 ### Paper Pipeline Breakdown
 
@@ -329,6 +333,15 @@ Entry rule:
 - validation checks: completed
 - campaign execution: completed
 - results report: completed
+
+### Track 1. RCIM Paper-Faithful Model Bank
+
+- forward campaign: completed
+- backward campaign: completed
+- paper-reference archives: refreshed
+- Tables `2`-`5`: repopulated
+- closure status: closed as faithful full-bank reproduction, not all-green
+  optimization
 
 ### Wave 2. Temporal Models
 

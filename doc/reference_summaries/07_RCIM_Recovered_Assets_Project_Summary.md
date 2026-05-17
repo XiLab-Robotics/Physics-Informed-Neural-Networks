@@ -87,6 +87,9 @@ Important clarification:
   model archives to `models/paper_reference/rcim_track1/`.
 - The repository already tracks paper-vs-repository status in
   `RCIM Paper Reference Benchmark.md`.
+- The current Track 1 status is closed for the faithful full-dataset
+  reproduction surface, while later all-green or restricted-dataset studies
+  remain separate future branches.
 
 ## What Remains Missing, Risky, Or Uncertain
 

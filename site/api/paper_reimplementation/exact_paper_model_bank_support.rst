@@ -6,6 +6,10 @@ RCIM exact model-bank validation branch. The current Track 1 paper-faithful
 surface preserves the recovered original pipeline protocol and feeds the
 accepted forward/backward archives under ``models/paper_reference/rcim_track1``.
 
+Track 1 is closed at the full-dataset faithful model-bank level; later
+all-green or restricted-dataset studies are separate optimization/comparison
+branches.
+
 .. automodule:: scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank.exact_paper_model_bank_support
    :no-members:
 

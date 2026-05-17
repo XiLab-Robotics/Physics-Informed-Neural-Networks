@@ -46,6 +46,11 @@ reference surfaces live in:
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
+That downstream Track 1 surface is now closed for the current full-dataset
+faithful reproduction: both forward and backward grid-search campaigns were
+run and Tables `2`-`5` were repopulated from accepted archives. The recovered
+workflow remains the provenance anchor for future reruns and comparisons.
+
 ## Folder Structure
 
 - `create_dataframe.py`

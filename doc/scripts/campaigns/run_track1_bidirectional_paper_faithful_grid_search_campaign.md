@@ -5,6 +5,11 @@
 This launcher executes the prepared `Track 1` bidirectional paper-faithful
 campaign that replaces the old `400`-run literal-refresh wave.
 
+The forward and backward campaign surfaces have both completed for the current
+full-dataset Track 1 closeout. Keep this launcher documented because it remains
+the canonical rerun path on Windows and Linux, but treat new reruns as new
+approved campaigns rather than as unfinished closure work.
+
 The script is stored in:
 
 - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithful_grid_search_campaign.ps1`
@@ -31,6 +36,10 @@ The prepared package covers:
 - all `11` operational exact-paper families, including `ELM`;
 - exactly `1` grid-search run per family-direction surface;
 - total queue size `22`.
+
+The completed closure used this paper-faithful sizing rule instead of widening
+the grid search to chase all-green benchmark cells. Later all-green or
+restricted-dataset studies must document their changed objective separately.
 
 This campaign also depends on the restored historical search protocol in the
 shared exact-paper training path:

@@ -2670,6 +2670,14 @@ archives to `models/paper_reference/rcim_track1/`, and the corresponding RCIM
 Tables `2`-`5` status lives in
 `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
+The current Track 1 surface is closed as the full-dataset faithful
+model-bank reproduction: both directions have been run through the restored
+grid-search plus historical cross-validation protocol, all accepted archives
+have been refreshed, and Tables `2`-`5` have been repopulated. This status does
+not require every table cell to be green; all-green tuning or
+restricted-dataset comparison work must use a new approved campaign branch and
+a separate comparison report.
+
 Canonical script:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
@@ -2782,6 +2790,11 @@ Main outputs:
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
 - `models/paper_reference/rcim_track1/forward/`
 - `models/paper_reference/rcim_track1/backward/`
+
+Future restricted-dataset Track 1 reruns should keep these full-dataset
+archives immutable and write their own comparison document under
+`doc/reports/analysis/`, with Tables `2`-`5` shown side by side for every
+dataset-reduction level.
 
 Current scope:
 

@@ -15,6 +15,12 @@ literally as practical on the repository dataset and feed the canonical Tables
 
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
+Track 1 is closed at this archive layer: the forward and backward
+paper-faithful grid-search campaigns have both completed, accepted archives
+have been refreshed for every operational family, and the benchmark tables are
+fully populated. This archive status is independent of whether every benchmark
+cell is green.
+
 Current topic roots:
 
 - `rcim_track1/`

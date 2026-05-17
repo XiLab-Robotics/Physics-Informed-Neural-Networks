@@ -7,6 +7,10 @@ campaign surface that promotes accepted models into
 ``models/paper_reference/rcim_track1`` and updates the RCIM Tables ``2``-``5``
 benchmark.
 
+The full-dataset Track 1 surface is closed after completed forward and
+backward paper-faithful grid-search campaigns. Future restricted-dataset
+reruns should use separate campaign namespaces and comparison reports.
+
 .. automodule:: scripts.paper_reimplementation.rcim_ml_compensation.original_dataset_exact_model_bank.original_dataset_exact_model_bank_support
    :members:
    :undoc-members:

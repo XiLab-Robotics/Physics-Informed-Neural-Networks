@@ -28,6 +28,8 @@ Important scope clarification:
 - completed forward and backward paper-faithful campaigns now populate
   `models/paper_reference/rcim_track1/` and
   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+- this makes Track 1 closed as the full-dataset faithful model-bank
+  reproduction, without claiming that every colored benchmark cell is green.
 
 ## What This Workflow Implements
 
@@ -284,6 +286,8 @@ proof of concept.
 
 The current Track 1 state is:
 
+- closure status: closed as faithful full-bank reproduction, not all-green
+  optimization;
 - recovered original workflow: available under
   `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
 - faithful original-dataset exact-model-bank implementation: available under
@@ -298,4 +302,5 @@ The current Track 1 state is:
 
 That is the point where `Track 1` stops being only paper-aligned and becomes an
 auditable, repository-owned paper-faithful reproduction branch for RCIM Tables
-`2`-`5`.
+`2`-`5`. Future restricted-dataset reruns must use separate campaign and
+report surfaces so this full-dataset baseline remains auditable.

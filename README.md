@@ -51,8 +51,9 @@ Implemented today:
   `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
 - a faithful RCIM Track 1 exact-model-bank reimplementation under
   `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`,
-  with forward/backward paper-reference campaigns, archived per-target
-  `Python + ONNX` model banks, and benchmark tables for RCIM Tables `2`-`5`;
+  with completed forward/backward paper-reference campaigns, archived
+  per-target `Python + ONNX` model banks, and populated benchmark tables for
+  RCIM Tables `2`-`5`;
 - repository-owned TwinCAT/TestRig video-guide tooling for high-quality transcript extraction, evidence-driven snapshots, and OCR-assisted report synthesis through Google GenAI;
 - a repository-owned LAN AI node path for remote `LM Studio`, `faster-whisper`, and `PaddleOCR` integration while keeping repository orchestration on the current workstation;
 - explicit LAN OCR compatibility handling for current `PaddleOCR` versions, with clearer remote-node diagnostics instead of opaque OCR-side `500` crashes;
@@ -200,6 +201,13 @@ Current accepted Track 1 model archives and benchmark tables live here:
 
 - `models/paper_reference/rcim_track1/`
 - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
+Track 1 is considered closed as the repository-owned paper-faithful full-bank
+reproduction surface: both `forward` and `backward` grid-search campaigns were
+run, the accepted archives were refreshed, and Tables `2`-`5` were repopulated.
+The closure does not claim that every colored benchmark cell is green; later
+all-green or restricted-dataset studies must be tracked as separate
+optimization/comparison branches.
 
 ### Use The Short Wave 1 Recovery Launcher
 

@@ -38,6 +38,9 @@ Current repository status:
   `models/paper_reference/rcim_track1/`;
 - RCIM Tables `2`-`5` are reported in
   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+- Track 1 is closed as the faithful full-dataset model-bank reproduction; later
+  all-green or restricted-dataset work should be read as a new comparison
+  branch, not as a correction to this baseline.
 
 Important clarification from the newly recovered full original root plus the
 author conversation:

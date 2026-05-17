@@ -65,6 +65,10 @@ These three variables describe a large part of the operating dependence of the T
 - Accepted Track 1 paper-reference models live under
   `models/paper_reference/rcim_track1/`, and their Tables `2`-`5` comparison
   surface is `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+- Track 1 is now closed as the full-dataset faithful model-bank reproduction:
+  forward and backward grid-search campaigns were completed and the benchmark
+  tables were repopulated. Remaining yellow/red cells are recorded as
+  benchmark evidence, not as closure blockers.
 
 ## Design Decisions To Preserve
 
