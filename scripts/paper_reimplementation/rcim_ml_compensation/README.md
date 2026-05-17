@@ -17,6 +17,41 @@ The recovered-original branch remains documented separately in:
 
 - `recovered_original_workflow/README.md`
 
+## Current Paper-Faithful Status
+
+The repository now exposes two distinct but connected RCIM reproduction
+surfaces:
+
+- recovered original workflow:
+  `recovered_original_workflow/` keeps the author pipeline close to its
+  recovered code shape, with repository-owned path handling and runtime roots;
+- faithful exact-model-bank reimplementation:
+  `original_dataset_exact_model_bank/` rebuilds the original pipeline protocol
+  on the canonical repository dataset for both `forward` and `backward`
+  directions.
+
+The faithful Track 1 campaign surface has completed forward and backward
+paper-faithful grid-search runs for the current `11`-family bank:
+
+- `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, `ELM`.
+
+Accepted model archives from those campaigns are promoted to:
+
+- `models/paper_reference/rcim_track1/forward/`
+- `models/paper_reference/rcim_track1/backward/`
+
+The canonical RCIM Tables `2`-`5` comparison surface is:
+
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
+Within practical limits imposed by modern library versions and missing
+historical runtime state, this is the repository's literal or near-literal
+reimplementation of the original RCIM ML-compensation model-bank pipeline:
+same paper input schema, same harmonic target surface, same family-wise
+multioutput training shape, restored `GridSearchCV(...)` plus historical
+`cross_validate(...)` replay, and original-style per-target `Python + ONNX`
+exports.
+
 ## Folder Structure
 
 - `exact_paper_model_bank/`

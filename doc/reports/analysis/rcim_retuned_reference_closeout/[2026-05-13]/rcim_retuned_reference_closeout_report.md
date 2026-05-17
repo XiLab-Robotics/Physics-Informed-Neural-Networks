@@ -215,8 +215,11 @@ These values come from the accepted `Eval` stage
 
 ## Source Recovery Notes
 
-- `RF` uses separate backward `Eval` and `Export` recovery bundles after the parser fix.
+- `RF` uses separate backward `Eval` and `Export` recovery bundles after the
+  parser fix.
 - `ELM` uses later recovery export bundles where the custom ONNX exporter is active.
-- `GBM` uses the original multi-family retune bundle because that bundle contains the accepted `GBM` eval row and complete exports.
+- `GBM` uses the original multi-family retune bundle because that bundle
+  contains the accepted `GBM` eval row and complete exports.
 - `HGBM` uses later recovery export bundles that removed earlier ONNX export errors.
-- `LGBM` uses the quieter retune factory surface so native LightGBM chatter does not bury failure evidence.
+- `LGBM` uses the quieter retune factory surface so native LightGBM chatter
+  does not bury failure evidence.

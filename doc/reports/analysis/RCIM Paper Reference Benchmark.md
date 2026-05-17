@@ -17,6 +17,29 @@ Forward Track 1 cells must compare against the better value between
 compare against `paper retuned`, because the paper does not provide
 backward original tables.
 
+The current Track 1 values come from the faithful original-dataset
+exact-model-bank reimplementation under:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+That reimplementation is anchored to the recovered original RCIM pipeline
+preserved under:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+
+The accepted model archives backing these tables are:
+
+- `models/paper_reference/rcim_track1/forward/`
+- `models/paper_reference/rcim_track1/backward/`
+
+The protocol is literal or near-literal to the recovered original pipeline
+where possible: `rpm`, `deg`, and `tor` inputs; harmonic amplitude and phase
+targets; family-wise multioutput training; restored `GridSearchCV(...)`;
+historical `cross_validate(...)` replay; and per-target `Python + ONNX`
+exports. Documented compatibility repairs, such as the `SVR(kernel="linear")`
+replacement with `StandardScaler + LinearSVR`, are treated as explicit
+near-literal deviations rather than silent changes.
+
 ## Current Archive Status
 
 - retuned family-direction archives promoted: `22`

@@ -6,7 +6,7 @@
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: the immediate implementation branch is now the offline
-- Active Campaign Status: `cancelled`
+- Active Campaign Status: `completed`
 - Active Campaign Name: `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30`
 - Current Global Winner: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Family `tree_fw` | Test MAE `0.002743`
 
@@ -205,7 +205,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | --- |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw` with model type `hist_gradient_boosting` | not_aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `feedforward` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/1` harmonics fully closed, `0/1` partially closed, `1/1` still open | not_yet_met |
+| Track 1 canonical closure rule | Paper Tables `2`-`5` replicated per family and per harmonic target | Forward and backward Track 1 paper-faithful campaigns are completed, archived under `models/paper_reference/rcim_track1/`, and tabulated in `RCIM Paper Reference Benchmark.md` | populated_not_exactly_matched |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -213,6 +213,10 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
+- Recovered original workflow root: `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+- Faithful original-dataset exact-model-bank root: `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+- Accepted paper-reference archive root: `models/paper_reference/rcim_track1/`
+- Canonical Tables `2`-`5` benchmark report: `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 - Latest exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
 - Prior forward exact-paper closeout report: `doc/reports/campaign_results/track1/exact_paper/forward/2026-05-15-11-11-35_track1_forward_paper_faithful_grid_search_closeout_report.md`
 - Latest completed surface: `backward` paper-faithful grid search across `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`
@@ -241,7 +245,9 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
+- `Track 1` Tables `2`-`5` are now populated for both forward and backward
+  from the faithful exact-model-bank campaigns, but not every cell matches the
+  paper or retuned reference within the green threshold.
 - Offline benchmark scope remains `partially comparable` rather than like-for-like.
 - Not yet aligned: the current repository winner is not tree-based, while the paper deployment path is dominated by boosting/tree models.
 - Neural models remain secondary in the repository (`feedforward`), which is also consistent with the paper not promoting a plain neural winner for deployment.

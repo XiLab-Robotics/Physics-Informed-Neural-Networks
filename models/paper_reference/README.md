@@ -3,6 +3,18 @@
 This folder stores curated repository-local copies of model artifacts used as
 canonical paper-reference anchors.
 
+For RCIM Track 1, the paper-reference models are not generic experiment
+outputs. They are the accepted archives promoted during closeout of the
+faithful exact-model-bank campaigns implemented under:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+Those campaigns reproduce the recovered original RCIM pipeline protocol as
+literally as practical on the repository dataset and feed the canonical Tables
+`2`-`5` benchmark surface:
+
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
 Current topic roots:
 
 - `rcim_track1/`

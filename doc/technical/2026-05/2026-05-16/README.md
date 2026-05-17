@@ -11,3 +11,7 @@
   Plan the Track 1 backward paper-faithful campaign closeout, backward
   paper-reference model archive replacement, linked report updates, and RCIM
   Tables `2`-`5` benchmark recompilation.
+- [2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md](./2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md)
+  Plan the documentation alignment for the recovered RCIM original pipeline,
+  faithful exact-model-bank reimplementation, Track 1 campaigns, benchmark
+  tables, and paper-reference model archives.

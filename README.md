@@ -46,6 +46,13 @@ Implemented today:
 - one-batch validation checks and smoke-test utilities;
 - batch campaign execution and artifact tracking;
 - styled report generation and PDF validation tooling;
+- recovered RCIM original-pipeline documentation and a repository-owned
+  near-literal execution copy under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
+- a faithful RCIM Track 1 exact-model-bank reimplementation under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`,
+  with forward/backward paper-reference campaigns, archived per-target
+  `Python + ONNX` model banks, and benchmark tables for RCIM Tables `2`-`5`;
 - repository-owned TwinCAT/TestRig video-guide tooling for high-quality transcript extraction, evidence-driven snapshots, and OCR-assisted report synthesis through Google GenAI;
 - a repository-owned LAN AI node path for remote `LM Studio`, `faster-whisper`, and `PaddleOCR` integration while keeping repository orchestration on the current workstation;
 - explicit LAN OCR compatibility handling for current `PaddleOCR` versions, with clearer remote-node diagnostics instead of opaque OCR-side `500` crashes;
@@ -85,6 +92,9 @@ The most important folders for a new user are:
 - `reference/`
   External reference material and imported codebases kept outside the main
   canonical workflow.
+- `models/paper_reference/rcim_track1/`
+  Curated RCIM Track 1 forward/backward paper-reference model archives
+  produced by the faithful exact-model-bank reimplementation.
 - `reference/video_guides/source_bundle/`
   Canonical Git-tracked TwinCAT/TestRig video source bundle, with large media
   files stored through Git LFS.
@@ -173,6 +183,23 @@ python scripts/training/run_training_campaign.py
   -CampaignName "remote_example_campaign" `
   -PlanningReportPath "doc\reports\campaign_plans\YOUR_PLAN.md"
 ```
+
+### Inspect The RCIM Track 1 Paper-Faithful Baseline
+
+The recovered original RCIM pipeline is preserved as a near-literal
+repository-owned copy here:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+
+The campaign-ready faithful reimplementation that reproduces RCIM paper
+Tables `2`-`5` on the repository dataset lives here:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+Current accepted Track 1 model archives and benchmark tables live here:
+
+- `models/paper_reference/rcim_track1/`
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
 
 ### Use The Short Wave 1 Recovery Launcher
 

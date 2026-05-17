@@ -15,6 +15,37 @@ original code modules almost unchanged and only modernize:
 - repository-owned output roots;
 - code readability and repository-style documentation.
 
+## Recovery Role In The Repository
+
+This subtree is the code-facing record of the recovered RCIM original pipeline.
+It exists so the repository can inspect and rerun the author workflow without
+mutating the immutable reference package under `reference/`.
+
+The implementation is intentionally literal or near-literal:
+
+- the original staged workflow remains dataframe creation, model
+  training/export/tuning, and paper-table evaluation;
+- the original paper input schema remains `rpm`, `deg`, and `tor`;
+- the original harmonic target surface remains amplitude and phase targets for
+  the recovered harmonic set;
+- the original family-wise `MultiOutputRegressor` structure is preserved;
+- repository changes are limited to path safety, CLI entrypoints, runtime
+  roots, logging, compatibility repairs, and explicit documentation.
+
+The campaign-ready Track 1 reimplementation that uses this recovered workflow
+as its protocol reference is separate and lives in:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+Accepted faithful Track 1 outputs from that reimplementation are promoted to:
+
+- `models/paper_reference/rcim_track1/`
+
+The benchmark tables that report those results against the paper and retuned
+reference surfaces live in:
+
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
 ## Folder Structure
 
 - `create_dataframe.py`

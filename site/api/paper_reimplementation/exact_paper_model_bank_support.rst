@@ -2,7 +2,9 @@ Exact Paper Model Bank Support
 ==============================
 
 This page documents the helper utilities used by the strict paper-faithful
-RCIM exact model-bank validation branch.
+RCIM exact model-bank validation branch. The current Track 1 paper-faithful
+surface preserves the recovered original pipeline protocol and feeds the
+accepted forward/backward archives under ``models/paper_reference/rcim_track1``.
 
 .. automodule:: scripts.paper_reimplementation.rcim_ml_compensation.exact_paper_model_bank.exact_paper_model_bank_support
    :no-members:

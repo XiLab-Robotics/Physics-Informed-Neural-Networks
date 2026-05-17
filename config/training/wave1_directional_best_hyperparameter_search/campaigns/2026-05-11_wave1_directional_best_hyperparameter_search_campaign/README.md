@@ -13,4 +13,3 @@ a mixed search strategy.
 - bounded grid queue configs: `90`
 - Optuna study configs: `9`
 - Optuna trial budget per study: `18`
-

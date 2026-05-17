@@ -85,7 +85,9 @@ This folder contains the internal project documents derived from the reference P
   backup evolution, TwinCAT export evidence, archive limitations, and the
   exact consequences for faithful `Track 1` reimplementation.
 - [reports/analysis/RCIM Paper Reference Benchmark.md](./reports/analysis/RCIM%20Paper%20Reference%20Benchmark.md)
-  Canonical repository-owned extraction of the RCIM ML-compensation paper baseline, including minimum targets, paper-vs-repository status, and the missing pipeline for a true Table 9 comparison.
+  Canonical repository-owned RCIM Tables `2`-`5` benchmark surface, now backed
+  by the faithful Track 1 exact-model-bank reimplementation and accepted
+  `models/paper_reference/rcim_track1/` archives.
 - [reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -120,6 +122,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the Track 1 backward paper-faithful campaign closeout, backward
   paper-reference model archive replacement, linked report updates, and RCIM
   Tables `2`-`5` benchmark recompilation.
+- [technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md](./technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md)
+  Plan the documentation alignment for the recovered RCIM original pipeline,
+  faithful exact-model-bank reimplementation, Track 1 campaigns, benchmark
+  tables, and paper-reference model archives.
 - [technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md](./technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md)
   Plan the Python-entrypoint Linux portability tranche that adds a uniform
   `--linux` / `--windows` command-line contract to the remaining runnable

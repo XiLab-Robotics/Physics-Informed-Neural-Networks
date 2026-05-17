@@ -2656,6 +2656,20 @@ Its role is to reconstruct the recovered paper family bank directly from the
 recovered dataframe and exact `ampl_k` / `phase_k` target schema, rather than
 only through the repository-owned harmonic-wise approximation branch.
 
+The current Track 1 paper-faithful baseline is split into two connected
+surfaces:
+
+- `recovered_original_workflow/`
+  preserves the recovered author pipeline as a near-literal runnable copy;
+- `original_dataset_exact_model_bank/`
+  reimplements that pipeline protocol on the canonical repository dataset for
+  both `forward` and `backward`.
+
+Completed forward and backward Track 1 campaigns have promoted accepted model
+archives to `models/paper_reference/rcim_track1/`, and the corresponding RCIM
+Tables `2`-`5` status lives in
+`doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+
 Canonical script:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
@@ -2713,7 +2727,8 @@ to the recovered-original RCIM launcher:
 - `-HistoricalCrossValidateVerboseOverride <int>`
 
 This allows the operator to run one branch or one family at a time from the
-prepared `20`-run package instead of relaunching the full queue every time.
+prepared family-direction package instead of relaunching the full queue every
+time.
 
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.md`
 
@@ -2762,8 +2777,11 @@ Optional PowerShell usage:
 Main outputs:
 
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/<run_instance_id>/`
+- `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/*_exact_paper_model_bank_report.md`
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/exact_paper_model_bank_campaign_2026_04_10_17_04_41/logs/`
+- `models/paper_reference/rcim_track1/forward/`
+- `models/paper_reference/rcim_track1/backward/`
 
 Current scope:
 
@@ -2772,8 +2790,9 @@ Current scope:
 - exact recovered family bank:
   `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, `ELM`;
 - family-wise `MultiOutputRegressor` fitting;
+- restored `GridSearchCV(...)` plus historical `cross_validate(...)` replay;
 - one Python plus ONNX export per family and target;
-- target-wise winner registry for later paper-style tabulation.
+- target-wise winner registry and paper-style tabulation in the RCIM benchmark.
 - prepared exact-paper campaign package under
   `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/baseline_reproduction/shared/2026-04-10_exact_paper_model_bank_campaign/`;
 - prepared launcher note:
@@ -2783,6 +2802,11 @@ Current scope:
 
 The repository also exposes a direct rebuilt execution surface for the
 recovered original RCIM scripts.
+
+This surface is the code-level recovery anchor for the faithful Track 1
+reimplementation. It keeps the original stages, family-wise multioutput logic,
+input schema, and target shape visible while moving mutable outputs into
+repository-owned runtime roots.
 
 Canonical folder:
 

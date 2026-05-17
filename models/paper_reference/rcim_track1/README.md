@@ -3,6 +3,27 @@
 This folder groups curated paper-reference model archives for the canonical
 `Track 1` RCIM paper-reimplementation branch.
 
+These archives are the accepted model outputs from the faithful
+original-dataset exact-model-bank reimplementation:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+That reimplementation is anchored to the recovered original RCIM workflow:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
+
+It preserves the original paper input schema, harmonic amplitude/phase target
+surface, family-wise multioutput training shape, restored `GridSearchCV(...)`
+search, historical `cross_validate(...)` replay, and original-style per-target
+`Python + ONNX` exports. The only documented protocol deviations are pragmatic
+compatibility repairs such as the `SVR(kernel="linear")` replacement with
+`StandardScaler + LinearSVR` where the historical branch is impractical in the
+modern runtime.
+
+The benchmark tables backed by this archive root live in:
+
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
 Direction branches:
 
 - `forward/`

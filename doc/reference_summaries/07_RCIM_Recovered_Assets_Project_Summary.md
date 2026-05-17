@@ -22,8 +22,13 @@ Important clarification:
 
 - the recovered asset root remains generic because the code and backup surface
   is generic recovered material;
-- the exact ONNX paper release and the shipped `Fw` dataframe currently stored
-  under this root are `forward` only.
+- the exact ONNX paper release remains a forward-side evidence surface;
+- the recovered original code also ships `Fw` and `Bw` dataframe evidence, but
+  important training and evaluation runner paths remain historically
+  forward-coded in practice;
+- the repository-owned bidirectional reproduction surface is therefore the
+  faithful original-dataset Track 1 reimplementation under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`.
 
 ## What The Recovered Assets Actually Say
 
@@ -56,8 +61,10 @@ Important clarification:
 
 - It confirms that `Track 1` is correctly positioned as a harmonic-wise paper
   reimplementation branch.
-- It clarifies that the currently recovered `Track 1` paper asset surface is
-  the forward-only branch, not a combined forward/backward bank.
+- It clarifies that the recovered exact ONNX paper asset surface is not itself
+  a combined forward/backward bank.
+- It provides the protocol evidence used by the repository-owned faithful
+  Track 1 reimplementation for both directions.
 - It gives us exact recovered ONNX artifacts for the paper families, instead
   of relying only on textual interpretation of the paper.
 - It provides original code snapshots that can be mined for:
@@ -71,8 +78,13 @@ Important clarification:
 ## What Is Already Implemented Here
 
 - The repository already has the paper PDF and a high-level summary.
-- The repository already has a paper-faithful harmonic-wise offline pipeline
-  under `scripts/paper_reimplementation/rcim_ml_compensation/`.
+- The repository has a near-literal recovered original workflow copy under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`.
+- The repository has a faithful original-dataset exact-model-bank pipeline
+  under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`.
+- Completed Track 1 forward and backward campaigns have promoted accepted
+  model archives to `models/paper_reference/rcim_track1/`.
 - The repository already tracks paper-vs-repository status in
   `RCIM Paper Reference Benchmark.md`.
 
@@ -85,8 +97,10 @@ Important clarification:
 - The author README text refers to `1-main_prediction_v17.py`, but the shipped
   file is named `1.1-main_prediction_v17.py`; this appears to be a naming
   mismatch in the note, not a second missing file.
-- The recovered package does not currently contain the backward-side model bank
-  implied by the generalized paper notation.
+- The recovered package does not currently contain a complete backward-side
+  exact ONNX model bank implied by the generalized paper notation; the
+  repository backward Track 1 bank is therefore a faithful reimplementation on
+  the canonical project dataset, not a copied recovered backward ONNX release.
 - The shipped evaluation entrypoint `2-main_evaluatePrediction_v4.py` is still
   forward-coded in practice because it calls `predicted_TE_Fw_*` methods and
   points to `output_prediction/instV3.8_Fw_allFreq_def/`.

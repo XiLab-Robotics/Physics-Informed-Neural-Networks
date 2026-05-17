@@ -21,6 +21,27 @@ The shared repo-owned operational helper is:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/workflow_runtime.py`
 
+## Repository Role
+
+This workflow is the recovered RCIM original pipeline made runnable inside the
+repository without treating the reference archive itself as mutable source.
+The implementation is intentionally literal or near-literal where possible:
+the original dataframe-creation, training/export/tuning, and evaluation stages
+remain visible, while repository-owned changes are limited to path handling,
+CLI entrypoints, runtime-output roots, logging, compatibility fixes, and
+documentation.
+
+The faithful Track 1 reimplementation that uses this recovered pipeline as the
+protocol reference is:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+Its accepted forward/backward model archives and Tables `2`-`5` benchmark
+surface are:
+
+- `models/paper_reference/rcim_track1/`
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
 ## Short Usage
 
 Create a backward dataframe:

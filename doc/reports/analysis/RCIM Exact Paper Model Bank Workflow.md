@@ -19,12 +19,15 @@ tables per family and per target `A_k` / `phi_k`.
 
 Important scope clarification:
 
-- the currently recovered repository-owned exact-paper bank is the
-  `forward-only` bank;
-- the paper notation is generalized, but the currently recovered assets do not
-  provide the backward-side bank;
-- current `Track 1` exact-paper replication therefore targets the paper's
-  forward tables and forward model bank only.
+- the recovered exact ONNX paper release remains a forward-side evidence
+  surface;
+- the recovered original code ships both `Fw` and `Bw` dataframe evidence but
+  keeps important runner and evaluator paths forward-coded in practice;
+- the repository's `original_dataset_exact_model_bank/` branch is therefore
+  the canonical bidirectional Track 1 reimplementation on the project dataset;
+- completed forward and backward paper-faithful campaigns now populate
+  `models/paper_reference/rcim_track1/` and
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
 ## What This Workflow Implements
 
@@ -33,14 +36,16 @@ The exact branch mirrors the recovered paper methodology:
 - input features are exactly `rpm`, `deg`, and `tor`;
   In the recovered prediction CSVs, `deg` is the oil-temperature column;
 - targets are harmonic-wise `ampl_k` and `phase_k`;
-- the currently recovered dataframe source is `Fw` forward-only;
 - the target set is the recovered RCIM harmonic bank:
   `0, 1, 3, 39, 40, 78, 81, 156, 162, 240`;
 - each model family is trained through `MultiOutputRegressor`;
 - the canonical training mode now applies the recovered paper-side
   `GridSearchCV` path on top of the family wrapper instead of fitting only the
   base estimator directly;
-- export happens as one ONNX artifact per target and per family;
+- the historical `cross_validate(...)` replay path is preserved for the search
+  wrapper and selected target estimators;
+- export happens as one Python artifact plus one ONNX artifact per target and
+  per family;
 - evaluation produces both:
   - family-level aggregate metrics;
   - per-target ranking tables.
@@ -62,12 +67,12 @@ The implemented exact paper family bank is:
 - `HGBM`
 - `XGBM`
 - `LGBM`
+- `ELM`
 
-These are the families recovered from the exact paper ONNX bank.
-
-The branch intentionally excludes `ELM` from the canonical exact-bank
-implementation because `ELM` appears in one recovered training script but is
-absent from the recovered exact ONNX release.
+The original paper tables still use the ten-family paper order, while `ELM` is
+archived and benchmarked as an operational Track 1 family because it is present
+in the recovered original code surface and now exports successfully through the
+repository-owned `ELMRegressor` ONNX converter.
 
 ## Operating Principle
 
@@ -83,10 +88,11 @@ Instead it does this:
 5. split the dataframe with `test_size = 0.20` and `random_state = 0`;
 6. wrap each family estimator with `MultiOutputRegressor`;
 7. apply the recovered paper-reference `GridSearchCV` path to that wrapper;
-8. keep the best recovered search result per family;
-9. evaluate each family on the held-out split;
-10. export one ONNX model per fitted target estimator;
-11. build a target-wise winner registry.
+8. replay the historical `cross_validate(...)` reporting path;
+9. keep the best recovered search result per family;
+10. evaluate each family on the held-out split;
+11. export one Python artifact and one ONNX model per fitted target estimator;
+12. build a target-wise winner registry.
 
 This means one family launch is operationally simple, but internally still
 produces one fitted estimator per harmonic target.
@@ -209,8 +215,8 @@ These functions create:
 
 These functions recreate the deployment-facing artifact surface:
 
-- one ONNX file per family;
-- one ONNX file per target.
+- one Python estimator artifact per family and per target;
+- one ONNX file per family and per target.
 
 ### Reporting
 
@@ -232,14 +238,18 @@ It defines:
 
 - recovered dataframe path;
 - recovered exact ONNX reference root;
-- a forward-only recovered paper asset surface under an explicit forward-only
-  root name;
+- an explicit recovered-data exact-paper asset surface;
 - experiment identity;
 - exact paper feature schema;
 - enabled family list;
 - deterministic split settings;
 - paper-reference hyperparameter-search settings;
 - ONNX export behavior.
+
+For the current bidirectional Track 1 reproduction on the repository dataset,
+the canonical configs and campaigns live under the
+`original_dataset_exact_model_bank/` and Track 1 campaign roots, not the older
+forward recovered-CSV baseline alone.
 
 The prepared batch campaign package is:
 
@@ -269,15 +279,23 @@ They are complementary, not redundant.
 
 ## Practical Next Step
 
-The next serious use of this branch is not generic tuning.
+The next serious use of this branch is no longer generic tuning or first-pass
+proof of concept.
 
-The next step is:
+The current Track 1 state is:
 
-- execute the exact family bank;
-- compare generated ONNX exports against the recovered exact release;
-- build per-target family tables;
-- identify whether the repository can recreate the same winning families for
-  each `ampl_k` and `phase_k`.
+- recovered original workflow: available under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
+- faithful original-dataset exact-model-bank implementation: available under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`;
+- forward and backward paper-faithful grid-search campaigns: completed for
+  `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `XGBM`, `LGBM`, and
+  `ELM`;
+- accepted model archives: promoted under
+  `models/paper_reference/rcim_track1/`;
+- benchmark tables: regenerated in
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
-That is the point where `Track 1` stops being only paper-aligned and becomes a
-true paper-faithful reproduction branch.
+That is the point where `Track 1` stops being only paper-aligned and becomes an
+auditable, repository-owned paper-faithful reproduction branch for RCIM Tables
+`2`-`5`.

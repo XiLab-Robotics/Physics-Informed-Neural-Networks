@@ -16,6 +16,8 @@ Primary repository reimplementation files:
 
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py`
 
 This document does not try to prove that the repository reimplementation is a
 literal line-by-line port. The goal is to explain:
@@ -25,6 +27,17 @@ literal line-by-line port. The goal is to explain:
 3. how the same workflow was redistributed across the repository
    reimplementation;
 4. what stayed conceptually faithful and what changed in engineering shape.
+
+Current repository status:
+
+- the recovered original workflow now has a near-literal runnable copy under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
+- the faithful Track 1 reimplementation on the repository dataset lives under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`;
+- completed forward and backward paper-faithful campaigns populate
+  `models/paper_reference/rcim_track1/`;
+- RCIM Tables `2`-`5` are reported in
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
 Important clarification from the newly recovered full original root plus the
 author conversation:
@@ -586,9 +599,11 @@ The reimplementation writes immutable, report-ready validation artifacts.
 
 The original `v18` includes `ELMRegressor`.
 
-The repository exact-paper branch chooses the recovered exact ONNX family bank
-as the canonical reference and therefore excludes `ELM` from the main exact
-bank.
+The repository originally treated the recovered exact ONNX family bank as the
+strict ten-family reference. The current Track 1 paper-faithful campaign
+surface now also includes `ELM`, because `ELMRegressor` is present in the
+recovered original code and the repository now has the export support needed
+to archive per-target `ELM` Python and ONNX artifacts.
 
 ### Tuning Surface
 
@@ -596,7 +611,9 @@ The original predictor file contains tuning logic, but it is mixed with the
 rest of the script ecosystem.
 
 The reimplementation promotes that tuning policy into an explicit and
-configurable training strategy.
+configurable training strategy. For the current Track 1 campaigns, that means
+one paper-faithful search pass per family-direction surface with the restored
+`GridSearchCV(...)` plus historical `cross_validate(...)` protocol.
 
 ### Evaluation Packaging
 
@@ -620,19 +637,21 @@ The more accurate statement is:
 - the repository reimplementation preserves the main modeling logic of the
   recovered original prediction pipeline, but redistributes it into explicit
   dataset, fit, evaluation, export, and reporting stages, and it also
-  introduces deliberate canonicalization and artifact-discipline choices that
-  are not merely cosmetic.
+  introduces documented compatibility and artifact-discipline choices that are
+  not merely cosmetic.
 
 ## Reading Order For Side-By-Side Study
 
 If you want to inspect the code manually with two files open, use this order:
 
 1. original `1-main_prediction_v18.py`
-   Compare against `run_exact_paper_model_bank_validation.py` to understand the
+   Compare against `run_exact_paper_model_bank_validation.py` and
+   `run_original_dataset_exact_model_bank_validation.py` to understand the
    high-level orchestration shift.
 2. original `predictorMLEvalutationOnTrain` inside `1-predictorML_v7.py`
    Compare against:
    - `build_exact_paper_dataset_bundle`
+   - `build_original_dataset_exact_model_bank_bundle`
    - `fit_exact_family_model_bank`
    - `evaluate_exact_family_model_bank`
 3. original `exportModel` inside `MLModelMultipleOutput`
@@ -657,11 +676,14 @@ The fairest comparison is therefore:
 
 - original active prediction branch
   versus
-- repository exact-paper dataset + family-bank + evaluation + export stages
+- repository recovered-data and original-dataset exact-paper dataset +
+  family-bank + evaluation + export stages
 
 Under that comparison, the repository implementation is best understood as:
 
-- modeling-faithful in its core training philosophy;
+- modeling-faithful and protocol-faithful in its core training philosophy;
 - structurally refactored into explicit pipeline stages;
 - stronger in validation packaging, reporting, and export governance;
-- not a literal source-level clone of the paper-era script bundle.
+- not a literal source-level clone of the paper-era script bundle, but a
+  literal or near-literal pipeline reproduction where the recovered code,
+  modern dependencies, and repository dataset allow it.

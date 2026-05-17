@@ -55,8 +55,16 @@ These three variables describe a large part of the operating dependence of the T
 - Input features must stay aligned with the real test rig: speed, torque, temperature, and angular position.
 - Paper-faithful comparisons must keep `forward` and `backward` model banks
   separate.
-- The current recovered RCIM reference package in the repository must be read
-  as a `forward-only` asset surface.
+- The recovered exact ONNX release in the repository must still be read as a
+  forward-side evidence surface, but the repository now owns a faithful
+  original-dataset Track 1 reimplementation for both `forward` and `backward`
+  directions.
+- The recovered original pipeline is preserved as a near-literal runnable copy
+  under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`.
+- Accepted Track 1 paper-reference models live under
+  `models/paper_reference/rcim_track1/`, and their Tables `2`-`5` comparison
+  surface is `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
 
 ## Design Decisions To Preserve
 

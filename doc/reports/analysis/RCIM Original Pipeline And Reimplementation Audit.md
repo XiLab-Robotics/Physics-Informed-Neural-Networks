@@ -17,6 +17,18 @@ The goal is to state precisely:
 3. where the repository reimplementation intentionally diverges from the
    recovered code.
 
+Current closure status:
+
+- the recovered original workflow is preserved as a near-literal runnable copy
+  under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
+- the faithful original-dataset exact-model-bank reimplementation lives under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`;
+- completed Track 1 forward and backward paper-faithful campaigns now promote
+  accepted artifacts to `models/paper_reference/rcim_track1/`;
+- the repository-owned RCIM Tables `2`-`5` benchmark surface is
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+
 ## Recovered Workflow Status
 
 | Stage | Recovered Source | Directly Runnable Now | Main Reason |
@@ -87,19 +99,20 @@ Recovered author-shipped `1.1-main_prediction_v17.py`:
 
 Repository exact-paper reimplementation:
 
-- keeps the ten paper families;
+- keeps the ten original paper-table families;
 - normalizes `SVM` to `SVR`;
-- excludes `ELM` from the canonical exact-paper family bank because it is not
-  part of the recovered exact ONNX release.
+- also includes `ELM` as an operational Track 1 family because it is present in
+  the recovered original code and now has repository-owned Python plus ONNX
+  export support.
 
 Why it matters:
 
 - the recovered source contains at least three family surfaces:
   exact ONNX paper bank, original `v18` code, and the author-shipped `v17`
   export branch;
-- the repository reimplementation already made one explicit interpretation:
-  the canonical exact-paper bank is the ten-family set, not the `ELM`
-  experiment branch.
+- the repository reimplementation keeps the ten-family paper-table order for
+  direct paper comparison while also archiving and reporting `ELM` as the
+  recovered-code operational extension.
 
 ### 3. Hyperparameter Governance
 
@@ -123,7 +136,9 @@ Repository reimplementation:
   `exact_paper_model_bank_support.py`;
 - keeps the paper-family hyperparameters explicit, named, and centrally
   inspectable;
-- adds alias maps and paper-table mappings for later benchmark comparison.
+- restores the paper-style `GridSearchCV(...)` plus historical
+  `cross_validate(...)` replay protocol;
+- adds alias maps and paper-table mappings for benchmark comparison.
 
 Why it matters:
 
@@ -143,7 +158,9 @@ Repository reimplementation:
 - writes immutable validation artifacts under `output/validation_checks/...`;
 - snapshots config and metadata;
 - emits Markdown and YAML summaries;
-- keeps launch behavior separate from support utilities.
+- keeps launch behavior separate from support utilities;
+- promotes accepted closeout artifacts into
+  `models/paper_reference/rcim_track1/`.
 
 Why it matters:
 
@@ -193,17 +210,19 @@ Repository reimplementation:
 
 - the original-dataset exact branch makes direction an explicit configuration
   dimension through `forward` and `backward` manifests and target prefixes.
+- completed forward and backward Track 1 campaigns now provide archived
+  paper-reference models and benchmark tables for both directions.
 
 Why it matters:
 
 - this is one of the clearest places where the repository went beyond merely
   replaying the recovered files and formalized the paper's direction split into
   a stable program structure.
-- the future `Bw` branch should mirror the original usage sequence explicitly:
-  generate the backward dataframe, run tuning from the `v17` structure through
-  `predictorMLCrossValidationWithHyperparameter(...)`, then replay the tuned
-  backward paper-style path through the `v18` structure with repository-owned
-  runner-managed output roots.
+- the completed Track 1 backward campaign now follows that interpretation at
+  repository-pipeline level: it treats backward as an explicit
+  direction-scoped exact-model-bank surface, trains it through the restored
+  search protocol, exports per-target artifacts, and archives accepted results
+  under `models/paper_reference/rcim_track1/backward/`.
 
 ## New Repository-Owned Reconstruction Surface
 
@@ -221,6 +240,16 @@ That separation makes the comparison more trustworthy because the copied source
 can now be inspected directly under `scripts/` without silently mutating the
 reference archive.
 
+The current campaign-ready reconstruction root is:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
+
+It is the repository-owned faithful pipeline surface used to train and export
+the Track 1 model banks that populate:
+
+- `models/paper_reference/rcim_track1/`
+- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+
 ## Practical Conclusion
 
 The recovered original material is now sufficient to inspect and likely rerun
@@ -228,7 +257,7 @@ the main paper-era dataframe, training/export, and evaluation scripts from one
 author-supplied root.
 
 The current repository reimplementation is still not just a style rewrite. It
-contains deliberate engineering substitutions in:
+contains deliberate, documented engineering substitutions in:
 
 - dataset regeneration;
 - family-bank normalization;
@@ -243,3 +272,10 @@ The new recovered-workflow runner closes one gap:
   surface;
 - and we can compare that behavior against the current repository branch
   without editing the archived recovered files.
+
+The completed Track 1 paper-faithful campaign cycle closes the next gap:
+
+- accepted forward and backward exact-model-bank artifacts are now archived in
+  `models/paper_reference/rcim_track1/`;
+- Tables `2`-`5` are now regenerated from those accepted artifacts in
+  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
