@@ -20,7 +20,7 @@ the expected Python-native and ONNX deployment formats.
 Use the committed campaign artifacts as the source of truth:
 
 - bounded-grid results from
-  `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/`;
+  `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/`;
 - neural `Optuna` study outputs from
   `output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/optuna_studies/`;
 - family registries under `output/registries/families/`;
@@ -55,7 +55,7 @@ keeps the better canonical family-best score.
 - `scripts/reports/closeout/wave1/`
 - `scripts/reports/pdf/run_report_pipeline.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
-- `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/`
+- `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/`
 - `output/training_campaigns/wave1/directional_best_hyperparameter_search/wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11/`
 - `output/registries/families/`
 - `output/registries/program/`

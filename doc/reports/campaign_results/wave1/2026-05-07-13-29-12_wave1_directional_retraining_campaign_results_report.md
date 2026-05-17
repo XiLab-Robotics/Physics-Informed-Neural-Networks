@@ -4,7 +4,7 @@
 
 - Campaign Name: `wave1_directional_retraining_campaign_2026_05_06_16_07_16`
 - Closeout Timestamp: `2026-05-07-13-48-50`
-- Campaign Output Directory: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16`
+- Campaign Output Directory: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16`
 - Completed Runs: `15`
 - Failed Runs: `0`
 - All `15` planned Wave 1 runs are now closed across `global`, `forward`, and `backward` variants.
@@ -77,6 +77,6 @@
 
 - `Wave 1` summary refreshed: `doc/reports/analysis/Wave 1 - Closeout Status.md`
 - master summary refreshed: `doc/reports/analysis/Training Results Master Summary.md`
-- campaign leaderboard refreshed: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/campaign_leaderboard.yaml`
-- campaign best run refreshed: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/campaign_best_run.yaml`
+- campaign leaderboard refreshed: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/campaign_leaderboard.yaml`
+- campaign best run refreshed: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/campaign_best_run.yaml`
 - program best registry: `output/registries/program/current_best_solution.yaml`

@@ -8,7 +8,7 @@ This document plans the formal closeout of the completed
 The campaign has completed successfully with `15/15` runs and `0` failures
 under:
 
-- `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/`
+- `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/`
 
 The requested closeout scope has three parts:
 
@@ -61,7 +61,7 @@ approval must be obtained before touching it.
 
 ## Involved Components
 
-- `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/`
+- `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/`
 - `output/training_runs/`
 - `output/registries/families/`
 - `output/registries/program/`

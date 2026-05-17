@@ -119,6 +119,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the documentation-only closure update for `Track 1` after completed
   forward and backward paper-faithful campaigns, with a deferred
   restricted-dataset rerun backlog item.
+- [technical/2026-05/2026-05-17/2026-05-17-18-48-59_wave1_campaign_output_taxonomy_repair.md](./technical/2026-05/2026-05-17/2026-05-17-18-48-59_wave1_campaign_output_taxonomy_repair.md)
+  Plan the filesystem and metadata repair that moves two completed `Wave 1`
+  campaign bundles from the flat `output/training_campaigns/` root into the
+  canonical `output/training_campaigns/wave1/` taxonomy.
 
 #### 2026-05-16
 

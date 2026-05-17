@@ -5,7 +5,7 @@
 - Campaign Name: `wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11`
 - Generated At: `2026-05-12T05:44:32`
 - Queue Root: `config/training/queue`
-- Campaign Output Directory: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1`
+- Campaign Output Directory: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1`
 - Planning Report Path: `doc/reports/campaign_plans/wave1/2026-05-11-19-41-11_wave1_directional_best_hyperparameter_search_campaign_plan_report.md`
 - Completed Runs: `90`
 - Failed Runs: `0`
@@ -125,7 +125,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-07-44__te_hist_gbr_tabular_global_grid_depth6_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-07-44__te_hist_gbr_tabular_global_grid_depth6_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/001_te_hist_gbr_tabular_global_grid_depth6_lr003_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/001_te_hist_gbr_tabular_global_grid_depth6_lr003_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth6_lr003_leaf20
@@ -146,7 +146,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-10-02__te_hist_gbr_tabular_global_grid_depth6_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-10-02__te_hist_gbr_tabular_global_grid_depth6_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/002_te_hist_gbr_tabular_global_grid_depth6_lr003_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/002_te_hist_gbr_tabular_global_grid_depth6_lr003_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth6_lr005_leaf10
@@ -167,7 +167,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-11-58__te_hist_gbr_tabular_global_grid_depth6_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-11-58__te_hist_gbr_tabular_global_grid_depth6_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/003_te_hist_gbr_tabular_global_grid_depth6_lr005_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/003_te_hist_gbr_tabular_global_grid_depth6_lr005_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth6_lr005_leaf20
@@ -188,7 +188,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-13-41__te_hist_gbr_tabular_global_grid_depth6_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-13-41__te_hist_gbr_tabular_global_grid_depth6_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/004_te_hist_gbr_tabular_global_grid_depth6_lr005_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/004_te_hist_gbr_tabular_global_grid_depth6_lr005_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth6_lr008_leaf10
@@ -209,7 +209,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-15-24__te_hist_gbr_tabular_global_grid_depth6_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-15-24__te_hist_gbr_tabular_global_grid_depth6_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/005_te_hist_gbr_tabular_global_grid_depth6_lr008_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/005_te_hist_gbr_tabular_global_grid_depth6_lr008_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth6_lr008_leaf20
@@ -230,7 +230,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-16-49__te_hist_gbr_tabular_global_grid_depth6_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-16-49__te_hist_gbr_tabular_global_grid_depth6_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/006_te_hist_gbr_tabular_global_grid_depth6_lr008_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/006_te_hist_gbr_tabular_global_grid_depth6_lr008_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth8_lr003_leaf10
@@ -251,7 +251,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-18-17__te_hist_gbr_tabular_global_grid_depth8_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-18-17__te_hist_gbr_tabular_global_grid_depth8_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/007_te_hist_gbr_tabular_global_grid_depth8_lr003_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/007_te_hist_gbr_tabular_global_grid_depth8_lr003_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth8_lr003_leaf20
@@ -272,7 +272,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-20-18__te_hist_gbr_tabular_global_grid_depth8_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-20-18__te_hist_gbr_tabular_global_grid_depth8_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/008_te_hist_gbr_tabular_global_grid_depth8_lr003_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/008_te_hist_gbr_tabular_global_grid_depth8_lr003_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth8_lr005_leaf10
@@ -293,7 +293,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-22-19__te_hist_gbr_tabular_global_grid_depth8_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-22-19__te_hist_gbr_tabular_global_grid_depth8_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/009_te_hist_gbr_tabular_global_grid_depth8_lr005_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/009_te_hist_gbr_tabular_global_grid_depth8_lr005_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth8_lr005_leaf20
@@ -314,7 +314,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-23-58__te_hist_gbr_tabular_global_grid_depth8_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-23-58__te_hist_gbr_tabular_global_grid_depth8_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/010_te_hist_gbr_tabular_global_grid_depth8_lr005_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/010_te_hist_gbr_tabular_global_grid_depth8_lr005_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth8_lr008_leaf10
@@ -335,7 +335,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-25-39__te_hist_gbr_tabular_global_grid_depth8_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-25-39__te_hist_gbr_tabular_global_grid_depth8_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/011_te_hist_gbr_tabular_global_grid_depth8_lr008_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/011_te_hist_gbr_tabular_global_grid_depth8_lr008_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth8_lr008_leaf20
@@ -356,7 +356,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-27-06__te_hist_gbr_tabular_global_grid_depth8_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-27-06__te_hist_gbr_tabular_global_grid_depth8_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/012_te_hist_gbr_tabular_global_grid_depth8_lr008_lea.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/012_te_hist_gbr_tabular_global_grid_depth8_lr008_lea.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth10_lr003_leaf10
@@ -377,7 +377,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-28-33__te_hist_gbr_tabular_global_grid_depth10_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-28-33__te_hist_gbr_tabular_global_grid_depth10_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/013_te_hist_gbr_tabular_global_grid_depth10_lr003_le.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/013_te_hist_gbr_tabular_global_grid_depth10_lr003_le.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth10_lr003_leaf20
@@ -398,7 +398,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-30-42__te_hist_gbr_tabular_global_grid_depth10_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-30-42__te_hist_gbr_tabular_global_grid_depth10_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/014_te_hist_gbr_tabular_global_grid_depth10_lr003_le.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/014_te_hist_gbr_tabular_global_grid_depth10_lr003_le.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth10_lr005_leaf10
@@ -419,7 +419,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-32-46__te_hist_gbr_tabular_global_grid_depth10_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-32-46__te_hist_gbr_tabular_global_grid_depth10_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/015_te_hist_gbr_tabular_global_grid_depth10_lr005_le.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/015_te_hist_gbr_tabular_global_grid_depth10_lr005_le.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth10_lr005_leaf20
@@ -440,7 +440,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-34-24__te_hist_gbr_tabular_global_grid_depth10_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-34-24__te_hist_gbr_tabular_global_grid_depth10_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/016_te_hist_gbr_tabular_global_grid_depth10_lr005_le.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/016_te_hist_gbr_tabular_global_grid_depth10_lr005_le.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10
@@ -461,7 +461,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-36-03__te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-36-03__te_hist_gbr_tabular_global_grid_depth10_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/017_te_hist_gbr_tabular_global_grid_depth10_lr008_le.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/017_te_hist_gbr_tabular_global_grid_depth10_lr008_le.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_global_grid_depth10_lr008_leaf20
@@ -482,7 +482,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-11-20-37-30__te_hist_gbr_tabular_global_grid_depth10_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-11-20-37-30__te_hist_gbr_tabular_global_grid_depth10_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/018_te_hist_gbr_tabular_global_grid_depth10_lr008_le.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/018_te_hist_gbr_tabular_global_grid_depth10_lr008_le.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth6_lr003_leaf10
@@ -503,7 +503,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-38-56__te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-38-56__te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/019_te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/019_te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth6_lr003_leaf20
@@ -524,7 +524,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-40-08__te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-40-08__te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/020_te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/020_te_hist_gbr_tabular_fw_grid_depth6_lr003_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth6_lr005_leaf10
@@ -545,7 +545,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-41-19__te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-41-19__te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/021_te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/021_te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth6_lr005_leaf20
@@ -566,7 +566,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-42-22__te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-42-22__te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/022_te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/022_te_hist_gbr_tabular_fw_grid_depth6_lr005_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10
@@ -587,7 +587,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-43-25__te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-43-25__te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/023_te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/023_te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf20
@@ -608,7 +608,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-44-29__te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-44-29__te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/024_te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/024_te_hist_gbr_tabular_fw_grid_depth6_lr008_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth8_lr003_leaf10
@@ -629,7 +629,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-45-29__te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-45-29__te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/025_te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/025_te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth8_lr003_leaf20
@@ -650,7 +650,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-46-42__te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-46-42__te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/026_te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/026_te_hist_gbr_tabular_fw_grid_depth8_lr003_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth8_lr005_leaf10
@@ -671,7 +671,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-47-55__te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-47-55__te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/027_te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/027_te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth8_lr005_leaf20
@@ -692,7 +692,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-48-58__te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-48-58__te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/028_te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/028_te_hist_gbr_tabular_fw_grid_depth8_lr005_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth8_lr008_leaf10
@@ -713,7 +713,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-50-01__te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-50-01__te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/029_te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/029_te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth8_lr008_leaf20
@@ -734,7 +734,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-51-01__te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-51-01__te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/030_te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/030_te_hist_gbr_tabular_fw_grid_depth8_lr008_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth10_lr003_leaf10
@@ -755,7 +755,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-52-00__te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-52-00__te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/031_te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/031_te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth10_lr003_leaf20
@@ -776,7 +776,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-53-13__te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-53-13__te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/032_te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/032_te_hist_gbr_tabular_fw_grid_depth10_lr003_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth10_lr005_leaf10
@@ -797,7 +797,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-54-26__te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-54-26__te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/033_te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/033_te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth10_lr005_leaf20
@@ -818,7 +818,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-55-31__te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-55-31__te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/034_te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/034_te_hist_gbr_tabular_fw_grid_depth10_lr005_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth10_lr008_leaf10
@@ -839,7 +839,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-56-36__te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-56-36__te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/035_te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/035_te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw_grid_depth10_lr008_leaf20
@@ -860,7 +860,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-11-20-57-34__te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-11-20-57-34__te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/036_te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/036_te_hist_gbr_tabular_fw_grid_depth10_lr008_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth6_lr003_leaf10
@@ -881,7 +881,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-20-58-32__te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-20-58-32__te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/037_te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/037_te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth6_lr003_leaf20
@@ -902,7 +902,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-20-59-43__te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-20-59-43__te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/038_te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/038_te_hist_gbr_tabular_bw_grid_depth6_lr003_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth6_lr005_leaf10
@@ -923,7 +923,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-00-54__te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-00-54__te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/039_te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/039_te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth6_lr005_leaf20
@@ -944,7 +944,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-02-00__te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-02-00__te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/040_te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/040_te_hist_gbr_tabular_bw_grid_depth6_lr005_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth6_lr008_leaf10
@@ -965,7 +965,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-03-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/041_te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/041_te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth6_lr008_leaf20
@@ -986,7 +986,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-04-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-04-08__te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/042_te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/042_te_hist_gbr_tabular_bw_grid_depth6_lr008_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth8_lr003_leaf10
@@ -1007,7 +1007,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-05-09__te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-05-09__te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/043_te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/043_te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth8_lr003_leaf20
@@ -1028,7 +1028,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-06-21__te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-06-21__te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/044_te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/044_te_hist_gbr_tabular_bw_grid_depth8_lr003_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth8_lr005_leaf10
@@ -1049,7 +1049,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-07-32__te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-07-32__te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/045_te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/045_te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth8_lr005_leaf20
@@ -1070,7 +1070,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-08-37__te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-08-37__te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/046_te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/046_te_hist_gbr_tabular_bw_grid_depth8_lr005_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth8_lr008_leaf10
@@ -1091,7 +1091,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-09-42__te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-09-42__te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/047_te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/047_te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth8_lr008_leaf20
@@ -1112,7 +1112,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-10-43__te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-10-43__te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/048_te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/048_te_hist_gbr_tabular_bw_grid_depth8_lr008_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth10_lr003_leaf10
@@ -1133,7 +1133,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-11-45__te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-11-45__te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/049_te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/049_te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth10_lr003_leaf20
@@ -1154,7 +1154,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-12-59__te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-12-59__te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/050_te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/050_te_hist_gbr_tabular_bw_grid_depth10_lr003_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth10_lr005_leaf10
@@ -1175,7 +1175,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-14-14__te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-14-14__te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/051_te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/051_te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth10_lr005_leaf20
@@ -1196,7 +1196,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-15-22__te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-15-22__te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/052_te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/052_te_hist_gbr_tabular_bw_grid_depth10_lr005_leaf20.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth10_lr008_leaf10
@@ -1217,7 +1217,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-16-29__te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf10/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-16-29__te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf10/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/053_te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf10.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/053_te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf10.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw_grid_depth10_lr008_leaf20
@@ -1238,7 +1238,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-11-21-17-29__te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf20/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-11-21-17-29__te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf20/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/054_te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf20.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/054_te_hist_gbr_tabular_bw_grid_depth10_lr008_leaf20.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride1
@@ -1259,7 +1259,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-21-18-30__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride1\checkpoints\harmonic_regression-epoch=073-val_mae=0.01702063.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-21-18-30__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-21-18-30__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/055_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/055_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride5
@@ -1280,7 +1280,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-21-46-10__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride5\checkpoints\harmonic_regression-epoch=017-val_mae=0.01701921.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-21-46-10__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-21-46-10__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr00005_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/056_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/056_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride1
@@ -1301,7 +1301,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-21-59-02__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride1\checkpoints\harmonic_regression-epoch=051-val_mae=0.01700146.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-21-59-02__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-21-59-02__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/057_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/057_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride5
@@ -1322,7 +1322,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-22-20-31__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride5\checkpoints\harmonic_regression-epoch=056-val_mae=0.01700290.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-22-20-31__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-22-20-31__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0001_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/058_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/058_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1
@@ -1343,7 +1343,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-22-39-27__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1\checkpoints\harmonic_regression-epoch=007-val_mae=0.01697999.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-22-39-27__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-22-39-27__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/059_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/059_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride5
@@ -1364,7 +1364,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-22-54-21__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride5\checkpoints\harmonic_regression-epoch=003-val_mae=0.01699265.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-22-54-21__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-22-54-21__te_harmonic_order12_linear_conditioned_recovery_global_grid_order8_lr0002_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/060_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/060_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride1
@@ -1385,7 +1385,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-23-04-58__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride1\checkpoints\harmonic_regression-epoch=042-val_mae=0.01701869.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-23-04-58__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-23-04-58__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/061_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/061_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride5
@@ -1406,7 +1406,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-23-32-17__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride5\checkpoints\harmonic_regression-epoch=040-val_mae=0.01702522.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-23-32-17__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-23-32-17__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr00005_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/062_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/062_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride1
@@ -1427,7 +1427,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-11-23-44-59__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride1\checkpoints\harmonic_regression-epoch=026-val_mae=0.01701349.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-11-23-44-59__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-11-23-44-59__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/063_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/063_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride5
@@ -1448,7 +1448,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-12-00-07-41__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride5\checkpoints\harmonic_regression-epoch=038-val_mae=0.01700669.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-12-00-07-41__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-12-00-07-41__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0001_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/064_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/064_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride1
@@ -1469,7 +1469,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-12-00-24-22__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride1\checkpoints\harmonic_regression-epoch=012-val_mae=0.01700928.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-12-00-24-22__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-12-00-24-22__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/065_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/065_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride5
@@ -1490,7 +1490,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-12-00-40-22__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride5\checkpoints\harmonic_regression-epoch=008-val_mae=0.01700294.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-12-00-40-22__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-12-00-40-22__te_harmonic_order12_linear_conditioned_recovery_global_grid_order12_lr0002_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/066_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/066_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order8_lr00005_stride1
@@ -1511,7 +1511,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-00-51-53__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr00005_stride1\checkpoints\harmonic_regression-epoch=013-val_mae=0.00283065.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-00-51-53__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr00005_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-00-51-53__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr00005_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/067_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/067_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order8_lr00005_stride5
@@ -1532,7 +1532,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-02-13__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr00005_stride5\checkpoints\harmonic_regression-epoch=043-val_mae=0.00284796.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-01-02-13__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr00005_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-01-02-13__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr00005_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/068_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/068_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order8_lr0001_stride1
@@ -1553,7 +1553,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-12-06__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride1\checkpoints\harmonic_regression-epoch=046-val_mae=0.00282731.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-01-12-06__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-01-12-06__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/069_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/069_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order8_lr0001_stride5
@@ -1574,7 +1574,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-23-15__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride5\checkpoints\harmonic_regression-epoch=055-val_mae=0.00280814.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-01-23-15__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-01-23-15__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0001_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/070_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/070_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order8_lr0002_stride1
@@ -1595,7 +1595,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-34-46__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0002_stride1\checkpoints\harmonic_regression-epoch=014-val_mae=0.00279855.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-01-34-46__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0002_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-01-34-46__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0002_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/071_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/071_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order8_lr0002_stride5
@@ -1616,7 +1616,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-44-30__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0002_stride5\checkpoints\harmonic_regression-epoch=024-val_mae=0.00280047.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-01-44-30__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0002_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-01-44-30__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order8_lr0002_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/072_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/072_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr00005_stride1
@@ -1637,7 +1637,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-01-53-37__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride1\checkpoints\harmonic_regression-epoch=061-val_mae=0.00283880.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-01-53-37__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-01-53-37__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/073_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/073_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr00005_stride5
@@ -1658,7 +1658,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-02-12-24__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride5\checkpoints\harmonic_regression-epoch=059-val_mae=0.00284271.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-02-12-24__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-02-12-24__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr00005_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/074_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/074_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr0001_stride1
@@ -1679,7 +1679,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-02-22-50__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0001_stride1\checkpoints\harmonic_regression-epoch=031-val_mae=0.00282508.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-02-22-50__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0001_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-02-22-50__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0001_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/075_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/075_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr0001_stride5
@@ -1700,7 +1700,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-02-36-57__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0001_stride5\checkpoints\harmonic_regression-epoch=028-val_mae=0.00284170.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-02-36-57__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0001_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-02-36-57__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0001_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/076_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/076_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr0002_stride1
@@ -1721,7 +1721,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-02-44-57__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0002_stride1\checkpoints\harmonic_regression-epoch=024-val_mae=0.00279216.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-02-44-57__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0002_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-02-44-57__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0002_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/077_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/077_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw_grid_order12_lr0002_stride5
@@ -1742,7 +1742,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-12-02-56-48__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0002_stride5\checkpoints\harmonic_regression-epoch=033-val_mae=0.00277858.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-12-02-56-48__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0002_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-12-02-56-48__te_harmonic_order12_linear_conditioned_recovery_fw_grid_order12_lr0002_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/078_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/078_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr00005_stride1
@@ -1763,7 +1763,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-03-06-41__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr00005_stride1\checkpoints\harmonic_regression-epoch=039-val_mae=0.00374278.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-03-06-41__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr00005_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-03-06-41__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr00005_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/079_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/079_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr00005_stride5
@@ -1784,7 +1784,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-03-20-06__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr00005_stride5\checkpoints\harmonic_regression-epoch=040-val_mae=0.00374673.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-03-20-06__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr00005_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-03-20-06__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr00005_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/080_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/080_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0001_stride1
@@ -1805,7 +1805,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-03-30-27__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0001_stride1\checkpoints\harmonic_regression-epoch=043-val_mae=0.00371026.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-03-30-27__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0001_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-03-30-27__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0001_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/081_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/081_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0001_stride5
@@ -1826,7 +1826,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-03-43-13__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0001_stride5\checkpoints\harmonic_regression-epoch=048-val_mae=0.00369669.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-03-43-13__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0001_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-03-43-13__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0001_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/082_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/082_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0002_stride1
@@ -1847,7 +1847,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-03-54-09__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride1\checkpoints\harmonic_regression-epoch=029-val_mae=0.00360913.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-03-54-09__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-03-54-09__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/083_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/083_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0002_stride5
@@ -1868,7 +1868,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5\checkpoints\harmonic_regression-epoch=047-val_mae=0.00363757.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/084_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/084_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr00005_stride1
@@ -1889,7 +1889,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-04-17-32__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride1\checkpoints\harmonic_regression-epoch=071-val_mae=0.00373203.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-04-17-32__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-04-17-32__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/085_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/085_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr00005_stride5
@@ -1910,7 +1910,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-04-37-40__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride5\checkpoints\harmonic_regression-epoch=062-val_mae=0.00372870.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-04-37-40__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-04-37-40__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr00005_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/086_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/086_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr0001_stride1
@@ -1931,7 +1931,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-04-48-34__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0001_stride1\checkpoints\harmonic_regression-epoch=085-val_mae=0.00369148.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-04-48-34__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0001_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-04-48-34__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0001_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/087_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/087_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr0001_stride5
@@ -1952,7 +1952,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-05-11-00__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0001_stride5\checkpoints\harmonic_regression-epoch=026-val_mae=0.00369115.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-05-11-00__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0001_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-05-11-00__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0001_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/088_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/088_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr0002_stride1
@@ -1973,7 +1973,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-05-20-22__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0002_stride1\checkpoints\harmonic_regression-epoch=034-val_mae=0.00360341.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-05-20-22__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0002_stride1/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-05-20-22__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0002_stride1/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/089_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/089_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order12_lr0002_stride5
@@ -1994,7 +1994,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-12-05-33-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0002_stride5\checkpoints\harmonic_regression-epoch=045-val_mae=0.00360287.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-12-05-33-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0002_stride5/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-12-05-33-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order12_lr0002_stride5/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/090_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_best_hyperparameter_search/2026-05-11-20-07-44_wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_1/logs/090_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ## Post-Training Reporting Notes

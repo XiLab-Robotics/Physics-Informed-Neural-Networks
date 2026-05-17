@@ -5,7 +5,7 @@
 - Campaign Name: `wave1_directional_retraining_campaign_2026_05_06_16_07_16`
 - Generated At: `2026-05-06T23:14:10`
 - Queue Root: `config/training/queue`
-- Campaign Output Directory: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16`
+- Campaign Output Directory: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16`
 - Planning Report Path: `doc/reports/campaign_plans/wave1/2026-05-06-16-07-16_wave1_directional_retraining_campaign_plan_report.md`
 - Completed Runs: `15`
 - Failed Runs: `0`
@@ -50,7 +50,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree/2026-05-06-16-58-54__te_hist_gbr_tabular_global/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree/2026-05-06-16-58-54__te_hist_gbr_tabular_global/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/001_te_hist_gbr_tabular_global.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/001_te_hist_gbr_tabular_global.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Fw
@@ -71,7 +71,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_fw/2026-05-06-17-00-56__te_hist_gbr_tabular_fw/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_fw/2026-05-06-17-00-56__te_hist_gbr_tabular_fw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/002_te_hist_gbr_tabular_fw.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/002_te_hist_gbr_tabular_fw.log`
 - Error Message: `N/A`
 
 ### te_hist_gbr_tabular_Bw
@@ -92,7 +92,7 @@
 - Best Checkpoint Path: `N/A`
 - Metrics Snapshot: `output/training_runs/tree_bw/2026-05-06-17-02-06__te_hist_gbr_tabular_bw/metrics_summary.yaml`
 - Training Report: `output/training_runs/tree_bw/2026-05-06-17-02-06__te_hist_gbr_tabular_bw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/003_te_hist_gbr_tabular_bw.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/003_te_hist_gbr_tabular_bw.log`
 - Error Message: `N/A`
 
 ### te_residual_h12_deep_joint_wave1_global
@@ -113,7 +113,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\residual_harmonic_mlp\2026-05-06-17-03-18__te_residual_h12_deep_joint_wave1_global\checkpoints\residual_harmonic_mlp-epoch=038-val_mae=0.00311466.ckpt`
 - Metrics Snapshot: `output/training_runs/residual_harmonic_mlp/2026-05-06-17-03-18__te_residual_h12_deep_joint_wave1_global/metrics_summary.yaml`
 - Training Report: `output/training_runs/residual_harmonic_mlp/2026-05-06-17-03-18__te_residual_h12_deep_joint_wave1_global/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/004_te_residual_h12_deep_joint_wave1_global.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/004_te_residual_h12_deep_joint_wave1_global.log`
 - Error Message: `N/A`
 
 ### te_residual_h12_deep_joint_wave1_Fw
@@ -134,7 +134,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\residual_harmonic_mlp_fw\2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw\checkpoints\residual_harmonic_mlp-epoch=018-val_mae=0.00285191.ckpt`
 - Metrics Snapshot: `output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/metrics_summary.yaml`
 - Training Report: `output/training_runs/residual_harmonic_mlp_fw/2026-05-06-17-23-53__te_residual_h12_deep_joint_wave1_fw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/005_te_residual_h12_deep_joint_wave1_fw.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/005_te_residual_h12_deep_joint_wave1_fw.log`
 - Error Message: `N/A`
 
 ### te_residual_h12_deep_joint_wave1_Bw
@@ -155,7 +155,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\residual_harmonic_mlp_bw\2026-05-06-17-34-34__te_residual_h12_deep_joint_wave1_bw\checkpoints\residual_harmonic_mlp-epoch=037-val_mae=0.00310962.ckpt`
 - Metrics Snapshot: `output/training_runs/residual_harmonic_mlp_bw/2026-05-06-17-34-34__te_residual_h12_deep_joint_wave1_bw/metrics_summary.yaml`
 - Training Report: `output/training_runs/residual_harmonic_mlp_bw/2026-05-06-17-34-34__te_residual_h12_deep_joint_wave1_bw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/006_te_residual_h12_deep_joint_wave1_bw.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/006_te_residual_h12_deep_joint_wave1_bw.log`
 - Error Message: `N/A`
 
 ### te_feedforward_stride1_high_compute_long_remote_global
@@ -176,7 +176,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\feedforward\2026-05-06-17-49-37__te_feedforward_stride1_high_compute_long_remote_global\checkpoints\feedforward-epoch=180-val_mae=0.00305586.ckpt`
 - Metrics Snapshot: `output/training_runs/feedforward/2026-05-06-17-49-37__te_feedforward_stride1_high_compute_long_remote_global/metrics_summary.yaml`
 - Training Report: `output/training_runs/feedforward/2026-05-06-17-49-37__te_feedforward_stride1_high_compute_long_remote_global/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/007_te_feedforward_stride1_high_compute_long_remote.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/007_te_feedforward_stride1_high_compute_long_remote.log`
 - Error Message: `N/A`
 
 ### te_feedforward_stride1_high_compute_long_remote_Fw
@@ -197,7 +197,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\feedforward_fw\2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw\checkpoints\feedforward-epoch=033-val_mae=0.00291539.ckpt`
 - Metrics Snapshot: `output/training_runs/feedforward_fw/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/metrics_summary.yaml`
 - Training Report: `output/training_runs/feedforward_fw/2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/008_te_feedforward_stride1_high_compute_long_remote.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/008_te_feedforward_stride1_high_compute_long_remote.log`
 - Error Message: `N/A`
 
 ### te_feedforward_stride1_high_compute_long_remote_Bw
@@ -218,7 +218,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\feedforward_bw\2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw\checkpoints\feedforward-epoch=093-val_mae=0.00304864.ckpt`
 - Metrics Snapshot: `output/training_runs/feedforward_bw/2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw/metrics_summary.yaml`
 - Training Report: `output/training_runs/feedforward_bw/2026-05-06-20-41-50__te_feedforward_stride1_high_compute_long_remote_bw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/009_te_feedforward_stride1_high_compute_long_remote.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/009_te_feedforward_stride1_high_compute_long_remote.log`
 - Error Message: `N/A`
 
 ### te_periodic_mlp_h04_standard_global
@@ -239,7 +239,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_mlp\2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global\checkpoints\periodic_mlp-epoch=041-val_mae=0.00298461.ckpt`
 - Metrics Snapshot: `output/training_runs/periodic_mlp/2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global/metrics_summary.yaml`
 - Training Report: `output/training_runs/periodic_mlp/2026-05-06-21-49-56__te_periodic_mlp_h04_standard_global/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/010_te_periodic_mlp_h04_standard_global.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/010_te_periodic_mlp_h04_standard_global.log`
 - Error Message: `N/A`
 
 ### te_periodic_mlp_h04_standard_Fw
@@ -260,7 +260,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_mlp_fw\2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw\checkpoints\periodic_mlp-epoch=022-val_mae=0.00284801.ckpt`
 - Metrics Snapshot: `output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/metrics_summary.yaml`
 - Training Report: `output/training_runs/periodic_mlp_fw/2026-05-06-22-14-09__te_periodic_mlp_h04_standard_fw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/011_te_periodic_mlp_h04_standard_fw.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/011_te_periodic_mlp_h04_standard_fw.log`
 - Error Message: `N/A`
 
 ### te_periodic_mlp_h04_standard_Bw
@@ -281,7 +281,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_mlp_bw\2026-05-06-22-25-13__te_periodic_mlp_h04_standard_bw\checkpoints\periodic_mlp-epoch=049-val_mae=0.00315372.ckpt`
 - Metrics Snapshot: `output/training_runs/periodic_mlp_bw/2026-05-06-22-25-13__te_periodic_mlp_h04_standard_bw/metrics_summary.yaml`
 - Training Report: `output/training_runs/periodic_mlp_bw/2026-05-06-22-25-13__te_periodic_mlp_h04_standard_bw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/012_te_periodic_mlp_h04_standard_bw.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/012_te_periodic_mlp_h04_standard_bw.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_global
@@ -302,7 +302,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression\2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global\checkpoints\harmonic_regression-epoch=018-val_mae=0.01701703.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression/2026-05-06-22-40-20__te_harmonic_order12_linear_conditioned_recovery_global/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/013_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/013_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Fw
@@ -323,7 +323,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_fw\2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw\checkpoints\harmonic_regression-epoch=068-val_mae=0.00281060.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_fw/2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_fw/2026-05-06-22-54-24__te_harmonic_order12_linear_conditioned_recovery_fw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/014_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/014_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ### te_harmonic_order12_linear_conditioned_recovery_Bw
@@ -344,7 +344,7 @@
 - Best Checkpoint Path: `C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\harmonic_regression_bw\2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw\checkpoints\harmonic_regression-epoch=019-val_mae=0.00370070.ckpt`
 - Metrics Snapshot: `output/training_runs/harmonic_regression_bw/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/metrics_summary.yaml`
 - Training Report: `output/training_runs/harmonic_regression_bw/2026-05-06-23-05-13__te_harmonic_order12_linear_conditioned_recovery_bw/training_test_report.md`
-- Terminal Log: `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/015_te_harmonic_order12_linear_conditioned_recovery.log`
+- Terminal Log: `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/logs/015_te_harmonic_order12_linear_conditioned_recovery.log`
 - Error Message: `N/A`
 
 ## Post-Training Reporting Notes

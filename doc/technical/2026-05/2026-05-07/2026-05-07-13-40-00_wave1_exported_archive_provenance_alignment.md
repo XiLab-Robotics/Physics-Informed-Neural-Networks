@@ -61,7 +61,7 @@ paper-reference surfaces.
 - `doc/reports/analysis/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `output/training_runs/*`
-- `output/training_campaigns/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/`
+- `output/training_campaigns/wave1/directional_retraining/2026-05-06-16-58-54_wave1_directional_retraining_campaign_2026_05_06_16_07_16/`
 
 ## Implementation Steps
 
