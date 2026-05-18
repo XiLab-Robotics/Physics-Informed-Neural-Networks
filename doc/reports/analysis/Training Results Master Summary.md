@@ -211,7 +211,7 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw` with model type `hist_gradient_boosting` | not_aligned |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
 | Track 1 canonical closure rule | Paper Tables `2`-`5` reproduced as a faithful model-bank comparison surface | Forward and backward Track 1 paper-faithful campaigns are completed, archived under `models/paper_reference/rcim_track1/`, and tabulated in `RCIM Paper Reference Benchmark.md` | closed_populated_not_cell_exact |
-| Track 2 offline model comparison | Direction-valid direct TE-curve comparison between accepted reference banks and repository models | Full matrix generated across `22` Track 1 family banks and `15` Wave 1 exported surfaces, tabulated in `Track 2 Directional Model Comparison.md` | populated_directional_offline |
+| Track 2 offline model comparison | Direction-valid direct TE-curve comparison between paper-reference banks and repository models | Full matrix generated across `22` Track 1 family banks, `11` recovered original forward banks, `22` retuned banks, and `15` Wave 1 exported surfaces, tabulated in `Track 2 Directional Model Comparison.md` | populated_directional_offline |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -236,7 +236,7 @@ workflows must load TE curves directly from `data/datasets` through
 
 Current Track 2 output:
 `doc/reports/analysis/Track 2 Directional Model Comparison.md`, backed by
-`output/validation_checks/track2_reference_comparison/2026-05-18-01-01-02__track2_full_directional_family_matrix_full_directional_matrix_validation/`.
+`output/validation_checks/track2_reference_comparison/2026-05-18-11-10-34__track2_full_directional_family_matrix_original_retuned_matrix_validation/`.
 
 ### Track 1 Canonical Status
 

@@ -90,10 +90,10 @@ Canonical report:
 `doc/reports/analysis/Track 2 Directional Model Comparison.md`.
 
 Validation report:
-`doc/reports/analysis/validation_checks/track2/2026-05-18-01-08-06_track2_full_directional_family_matrix_full_directional_matrix_validation_report.md`.
+`doc/reports/analysis/validation_checks/track2/2026-05-18-11-23-52_track2_full_directional_family_matrix_original_retuned_matrix_validation_report.md`.
 
 Output artifacts:
-`output/validation_checks/track2_reference_comparison/2026-05-18-01-01-02__track2_full_directional_family_matrix_full_directional_matrix_validation/`.
+`output/validation_checks/track2_reference_comparison/2026-05-18-11-10-34__track2_full_directional_family_matrix_original_retuned_matrix_validation/`.
 
 The matrix evaluates:
 
@@ -101,6 +101,12 @@ The matrix evaluates:
   `models/paper_reference/rcim_track1/forward/`;
 - all `11` `Track 1` backward family banks from
   `models/paper_reference/rcim_track1/backward/`;
+- all `11` recovered original forward family banks from
+  `models/paper_reference/rcim_original/forward/`;
+- all `11` retuned forward family banks from
+  `models/paper_reference/rcim_retuned/forward/`;
+- all `11` retuned backward family banks from
+  `models/paper_reference/rcim_retuned/backward/`;
 - all `15` current `Wave 1` exported surfaces from `models/exported/`:
   `global`, `Fw`, and `Bw` for `feedforward`, `harmonic_regression`,
   `periodic_mlp`, `residual_harmonic_mlp`, and `tree`.
@@ -109,8 +115,8 @@ Best current Track 2 rows:
 
 | Direction | Best Candidate | Mean Percentage Error [%] |
 | --- | --- | ---: |
-| forward | `tree_global` | 6.590 |
-| backward | `tree_Bw` | 7.051 |
+| forward | `rcim_retuned_GBM19_Fw` | 2.372 |
+| backward | `rcim_retuned_GBM19_Bw` | 5.398 |
 | global combined | `tree_global` | 6.854 |
 
 ## Forward Tables

@@ -89,9 +89,9 @@ This folder contains the internal project documents derived from the reference P
   by the faithful Track 1 exact-model-bank reimplementation and accepted
   `models/paper_reference/rcim_track1/` archives.
 - [reports/analysis/Track 2 Directional Model Comparison.md](./reports/analysis/Track%202%20Directional%20Model%20Comparison.md)
-  Canonical `Track 2` offline matrix comparing accepted `Track 1`
-  paper-reference banks with exported `Wave 1` models from `models/`, split
-  into forward, backward, and global direction sections.
+  Canonical `Track 2` offline matrix comparing accepted `Track 1`, recovered
+  original, retuned paper-reference banks, and exported `Wave 1` models from
+  `models/`, split into forward, backward, and global direction sections.
 - [reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -114,6 +114,14 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-18
+
+- [technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md](./technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md)
+  Plan the `Track 2` report readability refinement that groups comparison
+  tables by original, retuned, Track 1, and Wave 1 source families.
+
+- [technical/2026-05/2026-05-18/2026-05-18-10-03-13_track2_original_and_retuned_reference_matrix_extension.md](./technical/2026-05/2026-05-18/2026-05-18-10-03-13_track2_original_and_retuned_reference_matrix_extension.md)
+  Plan the next `Track 2` matrix extension for `rcim_original` forward-only and
+  `rcim_retuned` forward/backward paper-reference archives from `models/`.
 
 - [technical/2026-05/2026-05-18/2026-05-18-00-53-52_track2_full_directional_matrix_report.md](./technical/2026-05/2026-05-18/2026-05-18-00-53-52_track2_full_directional_matrix_report.md)
   Plan the full `Track 2` directional comparison matrix and standalone report,

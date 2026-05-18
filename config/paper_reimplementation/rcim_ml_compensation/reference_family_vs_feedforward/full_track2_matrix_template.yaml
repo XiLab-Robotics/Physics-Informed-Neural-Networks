@@ -13,7 +13,7 @@ comparison:
     track1_reference_banks:
       forward_archive_root: models/paper_reference/rcim_track1/forward
       backward_archive_root: models/paper_reference/rcim_track1/backward
-      family_list:
+      family_list: &paper_reference_family_list
         - family_id: SVM
           family_label: SVM
           archive_folder: svm_reference_models
@@ -47,6 +47,22 @@ comparison:
         - family_id: ELM
           family_label: ELM
           archive_folder: elm_reference_models
+    paper_reference_archive_groups:
+      - source_label: rcim_original
+        direction_list:
+          - direction_label: forward
+            candidate_surface: Fw
+            archive_root: models/paper_reference/rcim_original/forward
+        family_list: *paper_reference_family_list
+      - source_label: rcim_retuned
+        direction_list:
+          - direction_label: forward
+            candidate_surface: Fw
+            archive_root: models/paper_reference/rcim_retuned/forward
+          - direction_label: backward
+            candidate_surface: Bw
+            archive_root: models/paper_reference/rcim_retuned/backward
+        family_list: *paper_reference_family_list
     wave1_exported_models:
       exported_model_root: models/exported
       base_family_list:

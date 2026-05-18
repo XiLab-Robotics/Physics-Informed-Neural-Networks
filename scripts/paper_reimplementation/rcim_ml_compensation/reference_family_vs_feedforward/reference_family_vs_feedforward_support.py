@@ -63,6 +63,7 @@ class Track2Candidate:
     candidate_id: str
     candidate_family: str
     candidate_kind: str
+    candidate_source_label: str
     candidate_surface: str
     allowed_direction_list: list[str]
     source_path: Path
@@ -654,6 +655,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                     "candidate_id": f"{family_id}19_Fw",
                     "candidate_family": family_label,
                     "candidate_kind": "track1_reference_bank",
+                    "candidate_source_label": "rcim_track1",
                     "candidate_surface": "Fw",
                     "reference_inventory_path": (
                         f"{forward_archive_root}/{archive_folder}/reference_inventory.yaml"
@@ -666,6 +668,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                     "candidate_id": f"{family_id}19_Bw",
                     "candidate_family": family_label,
                     "candidate_kind": "track1_reference_bank",
+                    "candidate_source_label": "rcim_track1",
                     "candidate_surface": "Bw",
                     "reference_inventory_path": (
                         f"{backward_archive_root}/{archive_folder}/reference_inventory.yaml"
@@ -673,6 +676,30 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                     "allowed_direction_list": ["backward"],
                 }
             )
+
+    paper_reference_group_list = generation_configuration.get("paper_reference_archive_groups", [])
+    for paper_reference_group in paper_reference_group_list:
+        source_label = str(paper_reference_group["source_label"]).strip()
+        for direction_configuration in paper_reference_group["direction_list"]:
+            direction_label = str(direction_configuration["direction_label"]).strip().lower()
+            candidate_surface = str(direction_configuration["candidate_surface"]).strip()
+            archive_root = str(direction_configuration["archive_root"]).rstrip("/")
+            allowed_direction_list = [direction_label]
+            for family_configuration in paper_reference_group["family_list"]:
+                family_id = str(family_configuration["family_id"]).strip()
+                family_label = str(family_configuration["family_label"]).strip()
+                archive_folder = str(family_configuration["archive_folder"]).strip()
+                candidate_configuration_list.append(
+                    {
+                        "candidate_id": f"{source_label}_{family_id}19_{candidate_surface}",
+                        "candidate_family": family_label,
+                        "candidate_kind": "track1_reference_bank",
+                        "candidate_source_label": source_label,
+                        "candidate_surface": candidate_surface,
+                        "reference_inventory_path": f"{archive_root}/{archive_folder}/reference_inventory.yaml",
+                        "allowed_direction_list": allowed_direction_list,
+                    }
+                )
 
     wave1_configuration = generation_configuration.get("wave1_registry_models", {})
     if wave1_configuration:
@@ -685,6 +712,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_id": f"{base_family_name}_global",
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_registry_model",
+                        "candidate_source_label": "wave1",
                         "candidate_surface": "global",
                         "family_registry_path": (
                             f"{family_registry_root}/{base_family_name}/latest_family_best.yaml"
@@ -695,6 +723,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_id": f"{base_family_name}_Fw",
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_registry_model",
+                        "candidate_source_label": "wave1",
                         "candidate_surface": "Fw",
                         "family_registry_path": (
                             f"{family_registry_root}/{base_family_name}_fw/latest_family_best.yaml"
@@ -705,6 +734,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_id": f"{base_family_name}_Bw",
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_registry_model",
+                        "candidate_source_label": "wave1",
                         "candidate_surface": "Bw",
                         "family_registry_path": (
                             f"{family_registry_root}/{base_family_name}_bw/latest_family_best.yaml"
@@ -725,6 +755,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_id": f"{base_family_name}_global",
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_exported_model",
+                        "candidate_source_label": "wave1",
                         "candidate_surface": "global",
                         "reference_inventory_path": (
                             f"{exported_model_root}/{base_family_name}/global/reference_inventory.yaml"
@@ -735,6 +766,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_id": f"{base_family_name}_Fw",
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_exported_model",
+                        "candidate_source_label": "wave1",
                         "candidate_surface": "Fw",
                         "reference_inventory_path": (
                             f"{exported_model_root}/{base_family_name}/forward/reference_inventory.yaml"
@@ -745,6 +777,7 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_id": f"{base_family_name}_Bw",
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_exported_model",
+                        "candidate_source_label": "wave1",
                         "candidate_surface": "Bw",
                         "reference_inventory_path": (
                             f"{exported_model_root}/{base_family_name}/backward/reference_inventory.yaml"
@@ -782,6 +815,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
     candidate_id = str(candidate_configuration["candidate_id"]).strip()
     candidate_family = str(candidate_configuration["candidate_family"]).strip()
     candidate_kind = str(candidate_configuration["candidate_kind"]).strip()
+    candidate_source_label = str(candidate_configuration.get("candidate_source_label", candidate_kind)).strip()
     candidate_surface = str(candidate_configuration["candidate_surface"]).strip()
     allowed_direction_list = normalize_allowed_direction_list(candidate_configuration)
 
@@ -795,6 +829,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             candidate_id=candidate_id,
             candidate_family=candidate_family,
             candidate_kind=candidate_kind,
+            candidate_source_label=candidate_source_label,
             candidate_surface=candidate_surface,
             allowed_direction_list=allowed_direction_list,
             source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(reference_inventory_path),
@@ -814,6 +849,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             candidate_id=candidate_id,
             candidate_family=candidate_family,
             candidate_kind=candidate_kind,
+            candidate_source_label=candidate_source_label,
             candidate_surface=candidate_surface,
             allowed_direction_list=allowed_direction_list,
             source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_path),
@@ -836,6 +872,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             candidate_id=candidate_id,
             candidate_family=candidate_family,
             candidate_kind=candidate_kind,
+            candidate_source_label=candidate_source_label,
             candidate_surface=candidate_surface,
             allowed_direction_list=allowed_direction_list,
             source_path=resolved_inventory_path,
@@ -930,6 +967,7 @@ def evaluate_track2_candidate(
                 "candidate_id": candidate.candidate_id,
                 "candidate_family": candidate.candidate_family,
                 "candidate_kind": candidate.candidate_kind,
+                "candidate_source_label": candidate.candidate_source_label,
                 "candidate_surface": candidate.candidate_surface,
                 "allowed_direction_list": list(candidate.allowed_direction_list),
                 "source_path": shared_training_infrastructure.format_project_relative_path(candidate.source_path),
@@ -1039,6 +1077,7 @@ def save_track2_per_condition_metrics_csv(
                 "candidate_id",
                 "candidate_family",
                 "candidate_kind",
+                "candidate_source_label",
                 "candidate_surface",
                 "curve_mae_deg",
                 "curve_rmse_deg",
@@ -1057,6 +1096,7 @@ def save_track2_per_condition_metrics_csv(
                     per_candidate_entry["candidate_id"],
                     per_candidate_entry["candidate_family"],
                     per_candidate_entry["candidate_kind"],
+                    per_candidate_entry["candidate_source_label"],
                     per_candidate_entry["candidate_surface"],
                     metric_dictionary["mae"],
                     metric_dictionary["rmse"],
@@ -1447,6 +1487,7 @@ def build_track2_directional_comparison_summary(
                 "candidate_id": candidate.candidate_id,
                 "candidate_family": candidate.candidate_family,
                 "candidate_kind": candidate.candidate_kind,
+                "candidate_source_label": candidate.candidate_source_label,
                 "candidate_surface": candidate.candidate_surface,
                 "allowed_direction_list": candidate.allowed_direction_list,
                 "source_path": shared_training_infrastructure.format_project_relative_path(candidate.source_path),
@@ -1494,19 +1535,42 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
     comparison_scope = comparison_summary["comparison_scope"]
     candidate_metric_summary = comparison_summary["candidate_metric_summary"]
     direction_breakdown = comparison_summary["direction_breakdown"]
+    candidate_source_lookup = {
+        str(candidate_entry["candidate_id"]): str(candidate_entry["candidate_source_label"])
+        for candidate_entry in comparison_summary["candidate_list"]
+    }
 
-    def append_direction_table(
+    def append_grouped_direction_table(
         report_line_list: list[str],
+        section_title: str,
         direction_label: str,
-        candidate_filter,
+        source_label: str,
+        include_global_wave1: bool = False,
     ) -> None:
         direction_entry = direction_breakdown.get(direction_label, {})
         table_row_list = [
             (candidate_id, metric_dictionary)
             for candidate_id, metric_dictionary in direction_entry.items()
-            if candidate_filter(candidate_id)
+            if candidate_source_lookup.get(candidate_id) == source_label
+            and (
+                candidate_id.endswith("_Fw")
+                or candidate_id.endswith("_Bw")
+                or (include_global_wave1 and candidate_id.endswith("_global"))
+            )
         ]
         table_row_list.sort(key=lambda row: row[1]["mean_percentage_error_pct"])
+        if not table_row_list:
+            return
+
+        report_line_list.extend(
+            [
+                "",
+                f"### {section_title}",
+                "",
+                "| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+                "| --- | ---: | ---: | ---: | ---: |",
+            ]
+        )
         for candidate_id, metric_dictionary in table_row_list:
             report_line_list.append(
                 f"| `{candidate_id}` | "
@@ -1521,10 +1585,10 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "",
         "## Overview",
         "",
-        "This report is the canonical `Track 2` offline comparison between the",
-        "accepted `Track 1` paper-reference model banks and exported `Wave 1`",
-        "repository models. It starts from the current direction-aware comparison",
-        "matrix.",
+        "This report is the canonical `Track 2` offline comparison between",
+        "`Track 1`, recovered original, retuned paper-reference model banks, and",
+        "exported `Wave 1` repository models. It starts from the current",
+        "direction-aware comparison matrix.",
         "",
         "## Dataset And Split",
         "",
@@ -1541,8 +1605,8 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "",
         "## Candidate Inventory",
         "",
-        "| Candidate | Family | Source Track | Surface | Valid Directions | Model Source |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| Candidate | Family | Source | Kind | Surface | Valid Directions | Model Source |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
 
     for candidate_entry in comparison_summary["candidate_list"]:
@@ -1550,6 +1614,7 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         report_line_list.append(
             f"| `{candidate_entry['candidate_id']}` | "
             f"`{candidate_entry['candidate_family']}` | "
+            f"`{candidate_entry['candidate_source_label']}` | "
             f"`{candidate_entry['candidate_kind']}` | "
             f"`{candidate_entry['candidate_surface']}` | "
             f"`{', '.join(candidate_entry['allowed_direction_list'])}` | "
@@ -1560,30 +1625,33 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         [
             "",
             "## Forward Comparison",
-            "",
-            "| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
-            "| --- | ---: | ---: | ---: | ---: |",
         ]
     )
-    append_direction_table(
+    append_grouped_direction_table(report_line_list, "Original Forward Models", "forward", "rcim_original")
+    append_grouped_direction_table(report_line_list, "Retuned Forward Models", "forward", "rcim_retuned")
+    append_grouped_direction_table(report_line_list, "Track 1 Forward Models", "forward", "rcim_track1")
+    append_grouped_direction_table(
         report_line_list,
+        "Wave 1 Forward And Global Models",
         "forward",
-        lambda candidate_id: candidate_id.endswith("_Fw") or candidate_id.endswith("_global"),
+        "wave1",
+        include_global_wave1=True,
     )
 
     report_line_list.extend(
         [
             "",
             "## Backward Comparison",
-            "",
-            "| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
-            "| --- | ---: | ---: | ---: | ---: |",
         ]
     )
-    append_direction_table(
+    append_grouped_direction_table(report_line_list, "Retuned Backward Models", "backward", "rcim_retuned")
+    append_grouped_direction_table(report_line_list, "Track 1 Backward Models", "backward", "rcim_track1")
+    append_grouped_direction_table(
         report_line_list,
+        "Wave 1 Backward And Global Models",
         "backward",
-        lambda candidate_id: candidate_id.endswith("_Bw") or candidate_id.endswith("_global"),
+        "wave1",
+        include_global_wave1=True,
     )
 
     report_line_list.extend(
@@ -1639,11 +1707,11 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             "",
             "## Interpretation",
             "",
-            "Rows are ranked by mean percentage error within each direction.",
-            "Directional Track 1 and Wave 1 models are never evaluated on the",
-            "opposite direction. Global Wave 1 models remain valid on both",
-            "directions and are therefore shown in both directional sections and",
-            "again in the global breakdown.",
+            "Rows are ranked by mean percentage error within each source group",
+            "and direction. Directional paper-reference and Wave 1 models are",
+            "never evaluated on the opposite direction. Global Wave 1 models",
+            "remain valid on both directions and are therefore shown in both",
+            "directional Wave 1 sections and again in the global breakdown.",
             "",
             "## Open Gaps",
             "",
