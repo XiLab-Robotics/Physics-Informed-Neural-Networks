@@ -41,6 +41,10 @@ CANONICAL_TRACK2_REPORT_PATH = (
     / "analysis"
     / "Track 2 Directional Model Comparison.md"
 )
+REFERENCE_CANDIDATE_KIND_SET = {
+    "track1_reference_bank",
+    "composite_reference_bank",
+}
 
 
 @dataclass(frozen=True)
@@ -173,6 +177,28 @@ def load_reference_model_entries(reference_inventory: dict[str, Any]) -> list[Re
 
     assert reference_model_entry_list, "Reference inventory produced no model entries"
     return reference_model_entry_list
+
+
+def find_reference_model_entry(
+    reference_model_entry_list: list[ReferenceModelEntry],
+    target_kind: str,
+    harmonic_order: int,
+) -> ReferenceModelEntry:
+
+    """Find one target entry in a reference inventory."""
+
+    normalized_target_kind = str(target_kind).strip().lower()
+    matching_entry_list = [
+        reference_entry
+        for reference_entry in reference_model_entry_list
+        if reference_entry.target_kind == normalized_target_kind
+        and reference_entry.harmonic_order == int(harmonic_order)
+    ]
+    assert len(matching_entry_list) == 1, (
+        "Expected exactly one reference target entry | "
+        f"target_kind={normalized_target_kind} | harmonic_order={harmonic_order}"
+    )
+    return matching_entry_list[0]
 
 
 def load_reference_model_dictionary(reference_model_entry_list: list[ReferenceModelEntry]) -> dict[str, Any]:
@@ -458,11 +484,7 @@ def resolve_reference_h0_sign_multiplier(candidate: Track2Candidate) -> float:
 
     """Resolve source-specific `h0` sign compatibility for reference banks."""
 
-    if (
-        candidate.candidate_kind == "track1_reference_bank"
-        and candidate.candidate_source_label == "rcim_track1"
-        and candidate.candidate_surface == "Fw"
-    ):
+    if candidate.candidate_source_label == "rcim_track1" and candidate.candidate_surface == "Fw":
         return -1.0
     return 1.0
 
@@ -650,6 +672,55 @@ def build_legacy_candidate_configuration_list(training_config: dict[str, Any]) -
     ]
 
 
+def build_reference_family_folder_lookup(family_configuration_list: list[dict[str, Any]]) -> dict[str, str]:
+
+    """Build a paper-family to archive-folder lookup from compact config rows."""
+
+    family_folder_lookup: dict[str, str] = {}
+    for family_configuration in family_configuration_list:
+        family_id = str(family_configuration["family_id"]).strip()
+        archive_folder = str(family_configuration["archive_folder"]).strip()
+        family_folder_lookup[family_id] = archive_folder
+    return family_folder_lookup
+
+
+def build_composite_reference_candidate_configuration_list(
+    generation_configuration: dict[str, Any],
+) -> list[dict[str, Any]]:
+
+    """Build configured composed reference-bank candidates."""
+
+    composite_configuration = generation_configuration.get("composite_reference_models", {})
+    if not composite_configuration:
+        return []
+
+    family_folder_lookup = build_reference_family_folder_lookup(composite_configuration["family_list"])
+    candidate_configuration_list: list[dict[str, Any]] = []
+    for composite_candidate in composite_configuration["candidate_list"]:
+        archive_root = str(composite_candidate["archive_root"]).rstrip("/")
+        candidate_configuration_list.append(
+            {
+                "candidate_id": str(composite_candidate["candidate_id"]).strip(),
+                "candidate_family": str(composite_candidate["candidate_family"]).strip(),
+                "candidate_kind": "composite_reference_bank",
+                "candidate_source_label": str(composite_candidate["candidate_source_label"]).strip(),
+                "candidate_surface": str(composite_candidate["candidate_surface"]).strip(),
+                "archive_root": archive_root,
+                "family_folder_lookup": dict(family_folder_lookup),
+                "amplitude_family_by_harmonic": {
+                    str(harmonic_order): str(family_id).strip()
+                    for harmonic_order, family_id in composite_candidate["amplitude_family_by_harmonic"].items()
+                },
+                "phase_family_by_harmonic": {
+                    str(harmonic_order): str(family_id).strip()
+                    for harmonic_order, family_id in composite_candidate["phase_family_by_harmonic"].items()
+                },
+                "allowed_direction_list": [str(direction_label).strip().lower() for direction_label in composite_candidate["allowed_direction_list"]],
+            }
+        )
+    return candidate_configuration_list
+
+
 def build_generated_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
 
     """Generate a full Track 2 candidate matrix from compact config metadata."""
@@ -802,6 +873,10 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                 ]
             )
 
+    candidate_configuration_list.extend(
+        build_composite_reference_candidate_configuration_list(generation_configuration)
+    )
+
     assert candidate_configuration_list, "Generated Track 2 candidate list is empty"
     return candidate_configuration_list
 
@@ -852,6 +927,66 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             model_entry_list=model_entry_list,
             model_dictionary=model_dictionary,
             registry_entry=None,
+            training_config=None,
+            model_object=None,
+        )
+
+    if candidate_kind == "composite_reference_bank":
+        archive_root = str(candidate_configuration["archive_root"]).rstrip("/")
+        family_folder_lookup = candidate_configuration["family_folder_lookup"]
+        model_entry_list: list[ReferenceModelEntry] = []
+        inventory_entry_cache: dict[str, list[ReferenceModelEntry]] = {}
+        inventory_path_cache: dict[str, Path] = {}
+
+        for target_kind, selection_dictionary in [
+            ("amplitude", candidate_configuration["amplitude_family_by_harmonic"]),
+            ("phase", candidate_configuration["phase_family_by_harmonic"]),
+        ]:
+            for harmonic_order_text, family_id in selection_dictionary.items():
+                archive_folder = family_folder_lookup[str(family_id)]
+                reference_inventory_path = f"{archive_root}/{archive_folder}/reference_inventory.yaml"
+                if family_id not in inventory_entry_cache:
+                    reference_inventory = load_reference_inventory(reference_inventory_path)
+                    inventory_entry_cache[family_id] = load_reference_model_entries(reference_inventory)
+                    inventory_path_cache[family_id] = shared_training_infrastructure.resolve_runtime_project_relative_path(
+                        reference_inventory_path
+                    )
+                model_entry_list.append(
+                    find_reference_model_entry(
+                        inventory_entry_cache[family_id],
+                        target_kind,
+                        int(harmonic_order_text),
+                    )
+                )
+
+        selected_harmonic_list = sorted(
+            {
+                reference_entry.harmonic_order
+                for reference_entry in model_entry_list
+            }
+        )
+        model_dictionary = load_reference_model_dictionary(model_entry_list)
+        return Track2Candidate(
+            candidate_id=candidate_id,
+            candidate_family=candidate_family,
+            candidate_kind=candidate_kind,
+            candidate_source_label=candidate_source_label,
+            candidate_surface=candidate_surface,
+            allowed_direction_list=allowed_direction_list,
+            source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(archive_root),
+            selected_harmonic_list=selected_harmonic_list,
+            model_entry_list=model_entry_list,
+            model_dictionary=model_dictionary,
+            registry_entry={
+                "composite_selection": {
+                    "amplitude_family_by_harmonic": candidate_configuration["amplitude_family_by_harmonic"],
+                    "phase_family_by_harmonic": candidate_configuration["phase_family_by_harmonic"],
+                    "inventory_path_by_family": {
+                        family_id: shared_training_infrastructure.format_project_relative_path(inventory_path)
+                        for family_id, inventory_path in sorted(inventory_path_cache.items())
+                    },
+                },
+            },
             training_config=None,
             model_object=None,
         )
@@ -929,7 +1064,7 @@ def evaluate_track2_candidate(
     candidate_curve_record_list = filter_curve_records_for_candidate(curve_record_list, candidate)
     target_metric_dictionary: dict[str, float] | None = None
 
-    if candidate.candidate_kind == "track1_reference_bank":
+    if candidate.candidate_kind in REFERENCE_CANDIDATE_KIND_SET:
         assert candidate.model_entry_list is not None
         assert candidate.model_dictionary is not None
         predicted_target_dictionary = predict_reference_bank_target_dictionary(
@@ -953,7 +1088,7 @@ def evaluate_track2_candidate(
 
     per_candidate_entry_list: list[dict[str, Any]] = []
     for sample_index, curve_record in enumerate(candidate_curve_record_list):
-        if candidate.candidate_kind == "track1_reference_bank":
+        if candidate.candidate_kind in REFERENCE_CANDIDATE_KIND_SET:
             coefficient_dictionary, _ = build_reference_coefficient_dictionary_from_entries(
                 prediction_lookup,
                 sample_index,
@@ -1638,6 +1773,11 @@ def build_track2_directional_comparison_summary(
                 "model_file_path": (
                     str(candidate.registry_entry["python_model_path"])
                     if candidate.registry_entry is not None and "python_model_path" in candidate.registry_entry
+                    else None
+                ),
+                "composite_selection": (
+                    candidate.registry_entry.get("composite_selection")
+                    if candidate.registry_entry is not None
                     else None
                 ),
             }

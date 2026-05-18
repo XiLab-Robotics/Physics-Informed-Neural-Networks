@@ -64,6 +64,149 @@ comparison:
             candidate_surface: Bw
             archive_root: models/paper_reference/rcim_retuned/backward
         family_list: *paper_reference_family_list
+    composite_reference_models:
+      family_list: *paper_reference_family_list
+      candidate_list:
+        - candidate_id: paper_original_best_Fw
+          candidate_family: best_composite
+          candidate_source_label: rcim_original
+          candidate_surface: Fw
+          archive_root: models/paper_reference/rcim_original/forward
+          allowed_direction_list:
+            - forward
+          amplitude_family_by_harmonic:
+            "0": SVM
+            "1": RF
+            "3": HGBM
+            "39": HGBM
+            "40": ERT
+            "78": HGBM
+            "81": RF
+            "156": ERT
+            "162": ERT
+            "240": ERT
+          phase_family_by_harmonic:
+            "1": LGBM
+            "3": HGBM
+            "39": HGBM
+            "40": GBM
+            "78": RF
+            "81": RF
+            "156": RF
+            "162": ERT
+            "240": ERT
+        - candidate_id: paper_retuned_best_Fw
+          candidate_family: best_composite
+          candidate_source_label: rcim_retuned
+          candidate_surface: Fw
+          archive_root: models/paper_reference/rcim_retuned/forward
+          allowed_direction_list:
+            - forward
+          amplitude_family_by_harmonic:
+            "0": LGBM
+            "1": ERT
+            "3": HGBM
+            "39": LGBM
+            "40": ERT
+            "78": HGBM
+            "81": RF
+            "156": ERT
+            "162": RF
+            "240": RF
+          phase_family_by_harmonic:
+            "1": XGBM
+            "3": GBM
+            "39": LGBM
+            "40": RF
+            "78": GBM
+            "81": RF
+            "156": ERT
+            "162": ERT
+            "240": ERT
+        - candidate_id: track1_best_Fw
+          candidate_family: best_composite
+          candidate_source_label: rcim_track1
+          candidate_surface: Fw
+          archive_root: models/paper_reference/rcim_track1/forward
+          allowed_direction_list:
+            - forward
+          amplitude_family_by_harmonic:
+            "0": SVM
+            "1": HGBM
+            "3": ERT
+            "39": ERT
+            "40": ERT
+            "78": ERT
+            "81": ERT
+            "156": ERT
+            "162": ET
+            "240": ERT
+          phase_family_by_harmonic:
+            "1": RF
+            "3": GBM
+            "39": RF
+            "40": GBM
+            "78": GBM
+            "81": ERT
+            "156": ERT
+            "162": RF
+            "240": DT
+        - candidate_id: paper_retuned_best_Bw
+          candidate_family: best_composite
+          candidate_source_label: rcim_retuned
+          candidate_surface: Bw
+          archive_root: models/paper_reference/rcim_retuned/backward
+          allowed_direction_list:
+            - backward
+          amplitude_family_by_harmonic:
+            "0": RF
+            "1": ERT
+            "3": ERT
+            "39": RF
+            "40": ERT
+            "78": ERT
+            "81": ERT
+            "156": ERT
+            "162": RF
+            "240": RF
+          phase_family_by_harmonic:
+            "1": GBM
+            "3": RF
+            "39": ERT
+            "40": RF
+            "78": RF
+            "81": ERT
+            "156": RF
+            "162": ERT
+            "240": RF
+        - candidate_id: track1_best_Bw
+          candidate_family: best_composite
+          candidate_source_label: rcim_track1
+          candidate_surface: Bw
+          archive_root: models/paper_reference/rcim_track1/backward
+          allowed_direction_list:
+            - backward
+          amplitude_family_by_harmonic:
+            "0": LGBM
+            "1": ERT
+            "3": GBM
+            "39": LGBM
+            "40": RF
+            "78": LGBM
+            "81": ERT
+            "156": ERT
+            "162": LGBM
+            "240": LGBM
+          phase_family_by_harmonic:
+            "1": RF
+            "3": LGBM
+            "39": DT
+            "40": ERT
+            "78": LGBM
+            "81": LGBM
+            "156": ERT
+            "162": DT
+            "240": DT
     wave1_exported_models:
       exported_model_root: models/exported
       base_family_list:

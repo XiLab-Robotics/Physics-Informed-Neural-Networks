@@ -90,10 +90,10 @@ Canonical report:
 `doc/reports/analysis/Track 2 Directional Model Comparison.md`.
 
 Validation report:
-`doc/reports/analysis/validation_checks/track2/2026-05-18-13-34-28_track2_full_directional_family_matrix_direction_truth_audit_validation_report.md`.
+`doc/reports/analysis/validation_checks/track2/2026-05-18-17-26-52_track2_full_directional_family_matrix_composite_best_reference_validation_report.md`.
 
 Output artifacts:
-`output/validation_checks/track2_reference_comparison/2026-05-18-12-51-02__track2_full_directional_family_matrix_direction_truth_audit_validation/`.
+`output/validation_checks/track2_reference_comparison/2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation/`.
 
 Grouped curve previews:
 `doc/reports/campaign_results/track 2/`.
@@ -113,12 +113,24 @@ The matrix evaluates:
 - all `15` current `Wave 1` exported surfaces from `models/exported/`:
   `global`, `Fw`, and `Bw` for `feedforward`, `harmonic_regression`,
   `periodic_mlp`, `residual_harmonic_mlp`, and `tree`.
+- five composed best-reference candidates assembled from the approved
+  per-target paper original, retuned, and Track 1 harmonic selections.
 
 The latest audit confirms zero direction-scope violations across the Track 2
 per-condition table: `Fw` rows use only forward curves, `Bw` rows use only
 backward curves, and `global` rows use both directions with separate metrics.
 The Track 1 forward reference banks also apply the documented source-specific
 `h0` compatibility sign before TE-curve reconstruction.
+
+Current composed candidates:
+
+| Direction | Source | Candidate | Mean Percentage Error [%] |
+| --- | --- | --- | ---: |
+| forward | paper original | `paper_original_best_Fw` | 6.250 |
+| forward | paper retuned | `paper_retuned_best_Fw` | 4.109 |
+| forward | Track 1 | `track1_best_Fw` | 6.819 |
+| backward | paper retuned | `paper_retuned_best_Bw` | 7.572 |
+| backward | Track 1 | `track1_best_Bw` | 11.860 |
 
 Best current Track 2 rows:
 
