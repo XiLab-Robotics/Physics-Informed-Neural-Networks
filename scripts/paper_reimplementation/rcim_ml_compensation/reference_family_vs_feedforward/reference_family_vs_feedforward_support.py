@@ -1825,6 +1825,80 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         for candidate_entry in comparison_summary["candidate_list"]
     }
 
+    def append_best_composite_reference_table(report_line_list: list[str]) -> None:
+        composite_row_list = []
+        source_order_lookup = {
+            "rcim_original": 0,
+            "rcim_retuned": 1,
+            "rcim_track1": 2,
+        }
+        surface_order_lookup = {
+            "Fw": 0,
+            "Bw": 1,
+        }
+
+        for candidate_entry in comparison_summary["candidate_list"]:
+            if str(candidate_entry["candidate_kind"]) != "composite_reference_bank":
+                continue
+
+            candidate_id = str(candidate_entry["candidate_id"])
+            for direction_label in candidate_entry["allowed_direction_list"]:
+                metric_dictionary = direction_breakdown.get(direction_label, {}).get(candidate_id)
+                if metric_dictionary is None:
+                    continue
+                composite_row_list.append(
+                    (
+                        candidate_id,
+                        str(candidate_entry["candidate_source_label"]),
+                        str(candidate_entry["candidate_surface"]),
+                        str(direction_label),
+                        metric_dictionary,
+                    )
+                )
+
+        composite_row_list.sort(
+            key=lambda row: (
+                surface_order_lookup.get(row[2], 99),
+                source_order_lookup.get(row[1], 99),
+                row[0],
+            )
+        )
+        if not composite_row_list:
+            return
+
+        report_line_list.extend(
+            [
+                "",
+                "## Best Composite Reference Models",
+                "",
+                "These candidates combine the approved best harmonic-wise cells into",
+                "one Track 2 curve-reconstruction candidate. They are also repeated",
+                "inside the source-group tables below, but this section keeps the",
+                "composed models explicit.",
+                "",
+                "| Candidate | Source | Surface | Direction | Curve MAE [deg] | Curve RMSE [deg] | "
+                "Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+                "| --- | --- | --- | --- | ---: | ---: | ---: | ---: |",
+            ]
+        )
+        for (
+            candidate_id,
+            source_label,
+            surface_label,
+            direction_label,
+            metric_dictionary,
+        ) in composite_row_list:
+            report_line_list.append(
+                f"| `{candidate_id}` | "
+                f"`{source_label}` | "
+                f"`{surface_label}` | "
+                f"`{direction_label}` | "
+                f"{metric_dictionary['mae']:.6f} | "
+                f"{metric_dictionary['rmse']:.6f} | "
+                f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+                f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+            )
+
     def append_grouped_direction_table(
         report_line_list: list[str],
         section_title: str,
@@ -1905,6 +1979,8 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             f"`{', '.join(candidate_entry['allowed_direction_list'])}` | "
             f"`{model_source}` |"
         )
+
+    append_best_composite_reference_table(report_line_list)
 
     report_line_list.extend(
         [

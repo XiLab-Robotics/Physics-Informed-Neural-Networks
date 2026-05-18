@@ -115,6 +115,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-18
 
+- [technical/2026-05/2026-05-18/2026-05-18-19-59-32_track2_best_composite_report_visibility_fix.md](./technical/2026-05/2026-05-18/2026-05-18-19-59-32_track2_best_composite_report_visibility_fix.md)
+  Plan the `Track 2` report visibility fix that promotes composed best-reference
+  models into a dedicated canonical comparison section.
+
 - [technical/2026-05/2026-05-18/2026-05-18-15-37-22_track2_composite_best_reference_models.md](./technical/2026-05/2026-05-18/2026-05-18-15-37-22_track2_composite_best_reference_models.md)
   Plan the `Track 2` composed best-reference candidates assembled from the
   selected paper original, retuned, and Track 1 harmonic cells.
