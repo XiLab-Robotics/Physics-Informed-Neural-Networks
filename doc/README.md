@@ -115,6 +115,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-18
 
+- [technical/2026-05/2026-05-18/2026-05-18-12-20-17_track2_direction_truth_and_preview_audit.md](./technical/2026-05/2026-05-18/2026-05-18-12-20-17_track2_direction_truth_and_preview_audit.md)
+  Plan the `Track 2` direction/truth audit after preview-curve sign concerns,
+  plus complete grouped PNG generation under `doc/reports/campaign_results/track 2/`.
+
 - [technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md](./technical/2026-05/2026-05-18/2026-05-18-11-50-19_track2_report_grouped_source_tables.md)
   Plan the `Track 2` report readability refinement that groups comparison
   tables by original, retuned, Track 1, and Wave 1 source families.

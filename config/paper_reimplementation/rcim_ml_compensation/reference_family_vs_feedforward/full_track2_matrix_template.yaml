@@ -9,6 +9,7 @@ comparison:
   canonical_report_path: doc/reports/analysis/Track 2 Directional Model Comparison.md
   percentage_error_denominator: peak_to_peak_truth
   preview_curve_count: 8
+  report_plot_root: doc/reports/campaign_results/track 2
   candidate_generation:
     track1_reference_banks:
       forward_archive_root: models/paper_reference/rcim_track1/forward

@@ -97,6 +97,12 @@ def run_reference_family_vs_feedforward_comparison(
         per_candidate_entry_list,
         int(training_config["comparison"]["preview_curve_count"]),
     )
+    report_plot_root = reference_family_vs_feedforward_support.resolve_track2_report_plot_root(training_config)
+    report_plot_path_list = reference_family_vs_feedforward_support.maybe_generate_track2_grouped_report_plots(
+        report_plot_root,
+        per_candidate_entry_list,
+        int(training_config["comparison"]["preview_curve_count"]),
+    )
 
     # Save Summary And Report
     comparison_summary = reference_family_vs_feedforward_support.build_track2_directional_comparison_summary(
@@ -108,6 +114,8 @@ def run_reference_family_vs_feedforward_comparison(
         target_metric_dictionary,
         per_candidate_entry_list,
         preview_plot_path_list,
+        report_plot_root,
+        report_plot_path_list,
         per_condition_metrics_csv_path,
         dataset_root,
     )

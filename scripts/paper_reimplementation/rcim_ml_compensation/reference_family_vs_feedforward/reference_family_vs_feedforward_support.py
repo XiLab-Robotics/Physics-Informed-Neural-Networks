@@ -423,6 +423,7 @@ def build_reference_coefficient_dictionary_from_entries(
     prediction_lookup: dict[tuple[str, int], np.ndarray],
     sample_index: int,
     selected_harmonic_list: list[int],
+    h0_sign_multiplier: float = 1.0,
 ) -> tuple[dict[str, float], dict[str, float]]:
 
     """Convert one generic Track 1 bank prediction into harmonic coefficients."""
@@ -434,8 +435,9 @@ def build_reference_coefficient_dictionary_from_entries(
         predicted_amplitude = float(prediction_lookup[("amplitude", harmonic_order)][sample_index])
 
         if harmonic_order == 0:
-            coefficient_dictionary["coefficient_cos_h0"] = predicted_amplitude
-            amplitude_phase_dictionary["amplitude_h0"] = abs(predicted_amplitude)
+            signed_amplitude = float(h0_sign_multiplier * predicted_amplitude)
+            coefficient_dictionary["coefficient_cos_h0"] = signed_amplitude
+            amplitude_phase_dictionary["amplitude_h0"] = abs(signed_amplitude)
             amplitude_phase_dictionary["phase_rad_h0"] = 0.0
             continue
 
@@ -450,6 +452,19 @@ def build_reference_coefficient_dictionary_from_entries(
         amplitude_phase_dictionary[f"phase_rad_h{harmonic_order}"] = float(predicted_phase)
 
     return coefficient_dictionary, amplitude_phase_dictionary
+
+
+def resolve_reference_h0_sign_multiplier(candidate: Track2Candidate) -> float:
+
+    """Resolve source-specific `h0` sign compatibility for reference banks."""
+
+    if (
+        candidate.candidate_kind == "track1_reference_bank"
+        and candidate.candidate_source_label == "rcim_track1"
+        and candidate.candidate_surface == "Fw"
+    ):
+        return -1.0
+    return 1.0
 
 
 def build_reference_target_metric_dictionary(
@@ -943,6 +958,7 @@ def evaluate_track2_candidate(
                 prediction_lookup,
                 sample_index,
                 candidate.selected_harmonic_list,
+                resolve_reference_h0_sign_multiplier(candidate),
             )
             predicted_curve_deg = harmonic_wise_support.reconstruct_curve_from_coefficients(
                 curve_record.angular_position_deg,
@@ -1243,6 +1259,118 @@ def maybe_generate_track2_preview_plots(
     return preview_plot_path_list
 
 
+def resolve_track2_report_plot_root(training_config: dict[str, Any]) -> Path | None:
+
+    """Resolve the optional report-facing grouped PNG root."""
+
+    report_plot_root = training_config.get("comparison", {}).get("report_plot_root")
+    if report_plot_root in [None, ""]:
+        return None
+    return shared_training_infrastructure.resolve_runtime_project_relative_path(report_plot_root)
+
+
+def build_track2_plot_source_folder_name(candidate_source_label: str) -> str:
+
+    """Map a candidate source label to the requested report-folder name."""
+
+    source_label = str(candidate_source_label).strip()
+    if source_label == "rcim_original":
+        return "original"
+    if source_label == "rcim_retuned":
+        return "original retuned"
+    if source_label == "rcim_track1":
+        return "track 1"
+    if source_label == "wave1":
+        return "wave 1"
+    return shared_training_infrastructure.sanitize_name(source_label)
+
+
+def build_track2_condition_slug(per_candidate_entry: dict[str, Any]) -> str:
+
+    """Build a stable condition slug for one plotted Track 2 curve."""
+
+    return (
+        f"{per_candidate_entry['direction_label']}_"
+        f"{float(per_candidate_entry['speed_rpm']):.0f}rpm_"
+        f"{float(per_candidate_entry['torque_nm']):.0f}Nm_"
+        f"{float(per_candidate_entry['oil_temperature_deg']):.0f}C"
+    )
+
+
+def maybe_generate_track2_grouped_report_plots(
+    report_plot_root: Path | None,
+    per_candidate_entry_list: list[dict[str, Any]],
+    preview_curve_count_per_candidate: int,
+) -> list[str]:
+
+    """Generate report-facing Track 2 PNG overlays for every evaluated model."""
+
+    if report_plot_root is None:
+        return []
+
+    try:
+        import matplotlib
+
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except Exception:
+        return []
+
+    grouped_entry_dictionary: dict[str, list[dict[str, Any]]] = {}
+    for per_candidate_entry in per_candidate_entry_list:
+        candidate_id = str(per_candidate_entry["candidate_id"])
+        grouped_entry_dictionary.setdefault(candidate_id, []).append(per_candidate_entry)
+
+    report_plot_path_list: list[str] = []
+    max_plot_count = max(int(preview_curve_count_per_candidate), 1)
+    for candidate_id in sorted(grouped_entry_dictionary):
+        selected_entry_list = grouped_entry_dictionary[candidate_id][:max_plot_count]
+        for plot_index, per_candidate_entry in enumerate(selected_entry_list, start=1):
+            source_folder_name = build_track2_plot_source_folder_name(
+                str(per_candidate_entry["candidate_source_label"])
+            )
+            family_folder_name = shared_training_infrastructure.sanitize_name(
+                str(per_candidate_entry["candidate_family"]).lower()
+            )
+            plot_directory = report_plot_root / source_folder_name / family_folder_name
+            plot_directory.mkdir(parents=True, exist_ok=True)
+
+            condition_slug = build_track2_condition_slug(per_candidate_entry)
+            plot_filename = (
+                f"{plot_index:02d}_"
+                f"{shared_training_infrastructure.sanitize_name(candidate_id)}_"
+                f"{shared_training_infrastructure.sanitize_name(condition_slug)}.png"
+            )
+            plot_path = plot_directory / plot_filename
+
+            figure, axis = plt.subplots(figsize=(8.0, 4.0))
+            angular_position_deg = np.asarray(per_candidate_entry["angular_position_deg"], dtype=np.float32)
+            axis.plot(angular_position_deg, per_candidate_entry["truth_curve_deg"], label="Truth", linewidth=1.5)
+            axis.plot(
+                angular_position_deg,
+                per_candidate_entry["predicted_curve_deg"],
+                label=candidate_id,
+                linewidth=1.1,
+            )
+            axis.set_xlabel("Angular Position [deg]")
+            axis.set_ylabel("Transmission Error [deg]")
+            axis.set_title(
+                f"{candidate_id} | "
+                f"{per_candidate_entry['direction_label']} | "
+                f"{per_candidate_entry['speed_rpm']:.0f} rpm | "
+                f"{per_candidate_entry['torque_nm']:.0f} Nm | "
+                f"{per_candidate_entry['oil_temperature_deg']:.0f} C"
+            )
+            axis.grid(True, alpha=0.3)
+            axis.legend(loc="best")
+            figure.tight_layout()
+            figure.savefig(plot_path, dpi=180)
+            plt.close(figure)
+            report_plot_path_list.append(shared_training_infrastructure.format_project_relative_path(plot_path))
+
+    return report_plot_path_list
+
+
 def build_comparison_summary(
     resolved_config_path: Path,
     output_directory: Path,
@@ -1452,6 +1580,8 @@ def build_track2_directional_comparison_summary(
     target_metric_dictionary: dict[str, dict[str, float]],
     per_candidate_entry_list: list[dict[str, Any]],
     preview_plot_path_list: list[str],
+    report_plot_root: Path | None,
+    report_plot_path_list: list[str],
     per_condition_metrics_csv_path: Path,
     dataset_root: Path,
 ) -> dict[str, Any]:
@@ -1480,6 +1610,14 @@ def build_track2_directional_comparison_summary(
                 "global": ["forward", "backward"],
                 "Fw": ["forward"],
                 "Bw": ["backward"],
+            },
+            "reference_bank_compatibility_policy": {
+                "rcim_track1_Fw_h0_sign_multiplier": -1.0,
+                "reason": (
+                    "Track 1 forward reference banks store the constant harmonic with "
+                    "the opposite sign convention relative to the Track 2 TE-curve "
+                    "reconstruction contract."
+                ),
             },
         },
         "candidate_list": [
@@ -1510,6 +1648,13 @@ def build_track2_directional_comparison_summary(
         "direction_breakdown": direction_metric_summary,
         "temperature_breakdown": temperature_metric_summary,
         "preview_plot_path_list": preview_plot_path_list,
+        "report_plot_root": (
+            shared_training_infrastructure.format_project_relative_path(report_plot_root)
+            if report_plot_root is not None
+            else None
+        ),
+        "report_plot_path_list": report_plot_path_list,
+        "report_plot_count": int(len(report_plot_path_list)),
         "per_condition_metrics_csv_path": shared_training_infrastructure.format_project_relative_path(
             per_condition_metrics_csv_path
         ),
@@ -1696,6 +1841,8 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             "",
             f"- summary YAML: `{comparison_summary['output_directory']}/validation_summary.yaml`;",
             f"- per-condition CSV: `{comparison_summary['per_condition_metrics_csv_path']}`;",
+            f"- grouped report plot root: `{comparison_summary['report_plot_root']}`;",
+            f"- grouped report plot count: `{comparison_summary['report_plot_count']}`;",
         ]
     )
 
@@ -1712,6 +1859,11 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             "never evaluated on the opposite direction. Global Wave 1 models",
             "remain valid on both directions and are therefore shown in both",
             "directional Wave 1 sections and again in the global breakdown.",
+            "The `rcim_track1` forward reference banks use the opposite stored",
+            "`h0` sign convention relative to the Track 2 reconstruction",
+            "contract, so the Track 2 comparison applies the documented",
+            "source-specific `h0` compatibility multiplier before curve",
+            "reconstruction.",
             "",
             "## Open Gaps",
             "",
