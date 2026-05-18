@@ -378,6 +378,20 @@ This workflow is explicitly `result-level comparable`:
 - both are compared only after projection onto the same held-out TE-curve
   metric surface.
 
+The recovered paper-original ONNX release can be parity-checked against the
+current `rcim_original` forward archive with the same exact-paper split and
+Track 2 forward curve context:
+
+```powershell
+conda run -n standard_ml_codex_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_original_onnx_release_parity_validation.py `
+  --output-suffix initial_parity_validation
+```
+
+This workflow is evaluation-only. It loads the immutable ONNX release under
+`reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`,
+compares it with `models/paper_reference/rcim_original/forward`, and reports
+both `Tables 2-5` target-level parity and Track 2 forward curve parity.
+
 The repository also exposes an offline Wave 1 family-best TE-curve plotting
 workflow. It loads each current `latest_family_best.yaml` registry entry,
 predicts a deterministic subset of the canonical held-out test curves, writes

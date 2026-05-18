@@ -1,0 +1,539 @@
+run_instance_id: 2026-05-18-21-42-15__original_onnx_release_initial_parity_validation
+created_at: '2026-05-18T21:44:14'
+onnx_release_root: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release
+repo_archive_root: models\paper_reference\rcim_original\forward
+source_dataframe_path: reference\rcim_ml_compensation_recovered_assets\code\original_pipeline\dataFrame_prediction_Fw_v14_newFreq.csv
+exact_config_path: config\paper_reimplementation\rcim_ml_compensation\exact_model_bank\baseline.yaml
+track2_config_path: config\paper_reimplementation\rcim_ml_compensation\reference_family_vs_feedforward\full_track2_matrix_template.yaml
+manifest_summary:
+  onnx_file_count: 201
+  resolved_target_model_count: 200
+  expected_target_model_count: 200
+  duplicate_target_key_count: 1
+  missing_target_key_count: 0
+  duplicate_entry_list:
+  - family_name: RF
+    target_kind: ampl
+    harmonic_order: 240
+    selected_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\RF\ampl\RandomForestRegressor_ampl240.onnx
+    duplicate_path_list:
+    - reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\RF\ampl\RandomForestRegressor_ampl240
+      (1).onnx
+    - reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\RF\ampl\RandomForestRegressor_ampl240.onnx
+  missing_entry_list: []
+tables_2_5_family_summary:
+- family_name: SVR
+  target_count: 15
+  mean_onnx_mae: 0.17873789576675125
+  mean_repo_mae: 0.17873896666804037
+  mean_onnx_rmse: 0.32675521380754563
+  mean_repo_rmse: 0.32675960558230405
+  max_abs_prediction_delta: 0.0010690564016309356
+  mean_abs_prediction_delta: 0.00018783839301478596
+- family_name: MLP
+  target_count: 20
+  mean_onnx_mae: 0.20809702911114977
+  mean_repo_mae: 0.2214095270955319
+  mean_onnx_rmse: 0.28868506965959134
+  mean_repo_rmse: 0.294545364487107
+  max_abs_prediction_delta: 1.950384010928031
+  mean_abs_prediction_delta: 0.07891562954956396
+- family_name: RF
+  target_count: 20
+  mean_onnx_mae: 0.024802093213392162
+  mean_repo_mae: 0.024382035708279258
+  mean_onnx_rmse: 0.06673576092541086
+  mean_repo_rmse: 0.06673227913857085
+  max_abs_prediction_delta: 0.8921744871096068
+  mean_abs_prediction_delta: 0.006880522191357598
+- family_name: DT
+  target_count: 20
+  mean_onnx_mae: 0.024937535517265623
+  mean_repo_mae: 0.02493753478170894
+  mean_onnx_rmse: 0.07692314062819831
+  mean_repo_rmse: 0.07692314032210586
+  max_abs_prediction_delta: 1.1898653973219098e-07
+  mean_abs_prediction_delta: 1.120116346329562e-08
+- family_name: ET
+  target_count: 20
+  mean_onnx_mae: 0.04016637534613432
+  mean_repo_mae: 0.04016637553025683
+  mean_onnx_rmse: 0.11017509959459955
+  mean_repo_rmse: 0.11017509960404079
+  max_abs_prediction_delta: 1.1861819615432978e-07
+  mean_abs_prediction_delta: 1.1168819437942685e-08
+- family_name: ERT
+  target_count: 20
+  mean_onnx_mae: 0.015059620932541682
+  mean_repo_mae: 0.015059620692656631
+  mean_onnx_rmse: 0.044175706216335556
+  mean_repo_rmse: 0.04417570996971402
+  max_abs_prediction_delta: 1.6046878865694225e-06
+  mean_abs_prediction_delta: 1.0725607320057929e-07
+- family_name: GBM
+  target_count: 20
+  mean_onnx_mae: 0.029729695818497374
+  mean_repo_mae: 0.029729698454249477
+  mean_onnx_rmse: 0.0746753996874941
+  mean_repo_rmse: 0.0746754013387364
+  max_abs_prediction_delta: 1.1270385655848258e-06
+  mean_abs_prediction_delta: 2.714611519479889e-08
+- family_name: HGBM
+  target_count: 20
+  mean_onnx_mae: 0.05005763412548021
+  mean_repo_mae: 0.05005763604256578
+  mean_onnx_rmse: 0.09992320837681554
+  mean_repo_rmse: 0.09992320950817386
+  max_abs_prediction_delta: 1.825863332083344e-06
+  mean_abs_prediction_delta: 3.522407852420516e-08
+- family_name: XGBM
+  target_count: 4
+  mean_onnx_mae: 4.3399185560608975e-05
+  mean_repo_mae: 4.0742518744282864e-05
+  mean_onnx_rmse: 5.566382213407515e-05
+  mean_repo_rmse: 5.275048492951777e-05
+  max_abs_prediction_delta: 1.0359159205108881e-05
+  mean_abs_prediction_delta: 1.033310400089249e-05
+- family_name: LGBM
+  target_count: 20
+  mean_onnx_mae: 0.04095251625495847
+  mean_repo_mae: 0.04095251671230784
+  mean_onnx_rmse: 0.08457885881884245
+  mean_repo_rmse: 0.0845788591842793
+  max_abs_prediction_delta: 1.2952170376223648e-06
+  mean_abs_prediction_delta: 7.896141571206268e-08
+tables_2_5_target_result_count: 179
+track2_delta_summary:
+- family_name: MLP
+  onnx_candidate_id: MLP_original_onnx_Fw
+  repo_candidate_id: rcim_original_MLP19_Fw
+  onnx_metrics:
+    mse: 0.00179469494157846
+    mae: 0.024962144315170527
+    rmse: 0.029817975784969572
+    mean_percentage_error_pct: 56.844087768888215
+    p95_mean_percentage_error_pct: 170.15366110213324
+  repo_metrics:
+    mse: 0.0007772045433156226
+    mae: 0.018753830067202375
+    rmse: 0.022588986175848473
+    mean_percentage_error_pct: 42.94339514583757
+    p95_mean_percentage_error_pct: 107.51488134903033
+  delta_metrics:
+    mae: 0.0062083142479681525
+    rmse: 0.007228989609121099
+    mean_percentage_error_pct: 13.900692623050645
+    p95_mean_percentage_error_pct: 62.63877975310291
+- family_name: RF
+  onnx_candidate_id: RF_original_onnx_Fw
+  repo_candidate_id: rcim_original_RF19_Fw
+  onnx_metrics:
+    mse: 4.753954823969064e-06
+    mae: 0.001763818814425436
+    rmse: 0.001968455285358228
+    mean_percentage_error_pct: 3.9356133885793105
+    p95_mean_percentage_error_pct: 7.692823860501253
+  repo_metrics:
+    mse: 4.7792460935268385e-06
+    mae: 0.0017672622749752393
+    rmse: 0.0019711849757868796
+    mean_percentage_error_pct: 3.9398595652692765
+    p95_mean_percentage_error_pct: 6.872174244097731
+  delta_metrics:
+    mae: -3.4434605498032643e-06
+    rmse: -2.7296904286516765e-06
+    mean_percentage_error_pct: -0.004246176689965964
+    p95_mean_percentage_error_pct: 0.8206496164035224
+- family_name: DT
+  onnx_candidate_id: DT_original_onnx_Fw
+  repo_candidate_id: rcim_original_DT19_Fw
+  onnx_metrics:
+    mse: 5.9342104160061625e-06
+    mae: 0.0019185546438599092
+    rmse: 0.0021138974223206563
+    mean_percentage_error_pct: 4.305734767411477
+    p95_mean_percentage_error_pct: 9.062968620731796
+  repo_metrics:
+    mse: 5.9342104160061625e-06
+    mae: 0.0019185546438599092
+    rmse: 0.0021138974223206563
+    mean_percentage_error_pct: 4.305734767411477
+    p95_mean_percentage_error_pct: 9.062968620731796
+  delta_metrics:
+    mae: 0.0
+    rmse: 0.0
+    mean_percentage_error_pct: 0.0
+    p95_mean_percentage_error_pct: 0.0
+- family_name: ET
+  onnx_candidate_id: ET_original_onnx_Fw
+  repo_candidate_id: rcim_original_ET19_Fw
+  onnx_metrics:
+    mse: 8.420526653663714e-06
+    mae: 0.0022322693021984146
+    rmse: 0.0024317748858117714
+    mean_percentage_error_pct: 4.984881377640583
+    p95_mean_percentage_error_pct: 11.357233981337448
+  repo_metrics:
+    mse: 8.420526653663714e-06
+    mae: 0.0022322693021984146
+    rmse: 0.0024317748858117714
+    mean_percentage_error_pct: 4.984881377640583
+    p95_mean_percentage_error_pct: 11.357233981337448
+  delta_metrics:
+    mae: 0.0
+    rmse: 0.0
+    mean_percentage_error_pct: 0.0
+    p95_mean_percentage_error_pct: 0.0
+- family_name: ERT
+  onnx_candidate_id: ERT_original_onnx_Fw
+  repo_candidate_id: rcim_original_ERT19_Fw
+  onnx_metrics:
+    mse: 3.4997621235726407e-06
+    mae: 0.0014712936759682543
+    rmse: 0.0016769565959338013
+    mean_percentage_error_pct: 3.252973929755183
+    p95_mean_percentage_error_pct: 6.14515415605694
+  repo_metrics:
+    mse: 3.4997564778485575e-06
+    mae: 0.0014712928841470257
+    rmse: 0.0016769559029295373
+    mean_percentage_error_pct: 3.252972244542073
+    p95_mean_percentage_error_pct: 6.145159915111995
+  delta_metrics:
+    mae: 7.918212285937948e-10
+    rmse: 6.930042640001383e-10
+    mean_percentage_error_pct: 1.6852131099476253e-06
+    p95_mean_percentage_error_pct: -5.759055055065687e-06
+- family_name: GBM
+  onnx_candidate_id: GBM_original_onnx_Fw
+  repo_candidate_id: rcim_original_GBM19_Fw
+  onnx_metrics:
+    mse: 5.473464928388374e-06
+    mae: 0.0019211270103299182
+    rmse: 0.0021220642835035153
+    mean_percentage_error_pct: 4.312143622541755
+    p95_mean_percentage_error_pct: 8.193371078753458
+  repo_metrics:
+    mse: 5.473465681752069e-06
+    mae: 0.0019211270254049504
+    rmse: 0.002122064305696719
+    mean_percentage_error_pct: 4.312143644090744
+    p95_mean_percentage_error_pct: 8.193384374712446
+  delta_metrics:
+    mae: -1.5075032151409817e-11
+    rmse: -2.2193203871867517e-11
+    mean_percentage_error_pct: -2.1548989259656537e-08
+    p95_mean_percentage_error_pct: -1.3295958988024381e-05
+- family_name: HGBM
+  onnx_candidate_id: HGBM_original_onnx_Fw
+  repo_candidate_id: rcim_original_HGBM19_Fw
+  onnx_metrics:
+    mse: 6.59565749669592e-06
+    mae: 0.0020111798326140694
+    rmse: 0.0022168108158662704
+    mean_percentage_error_pct: 4.493305920518204
+    p95_mean_percentage_error_pct: 10.616763974716214
+  repo_metrics:
+    mse: 6.5956563581227254e-06
+    mae: 0.002011179390381173
+    rmse: 0.0022168103737870187
+    mean_percentage_error_pct: 4.493304992140479
+    p95_mean_percentage_error_pct: 10.616760607109368
+  delta_metrics:
+    mae: 4.422328965698885e-10
+    rmse: 4.420792516779404e-10
+    mean_percentage_error_pct: 9.283777249180503e-07
+    p95_mean_percentage_error_pct: 3.3676068458277086e-06
+- family_name: LGBM
+  onnx_candidate_id: LGBM_original_onnx_Fw
+  repo_candidate_id: rcim_original_LGBM19_Fw
+  onnx_metrics:
+    mse: 5.509545837605811e-06
+    mae: 0.0018007399930080104
+    rmse: 0.0020041437687102087
+    mean_percentage_error_pct: 4.016685975112765
+    p95_mean_percentage_error_pct: 10.054458106271149
+  repo_metrics:
+    mse: 5.509542832467138e-06
+    mae: 0.001800739701678647
+    rmse: 0.0020041434722980183
+    mean_percentage_error_pct: 4.016685421072092
+    p95_mean_percentage_error_pct: 10.054445814223607
+  delta_metrics:
+    mae: 2.9132936341103033e-10
+    rmse: 2.9641219036549704e-10
+    mean_percentage_error_pct: 5.540406728954395e-07
+    p95_mean_percentage_error_pct: 1.2292047541606621e-05
+failure_entry_list:
+- stage: tables_2_5
+  family_name: SVR
+  target_kind: ampl
+  harmonic_order: 1
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\SVR\ampl\SVR_ampl1.onnx
+  error_type: Fail
+  error_message: "[ONNXRuntimeError] : 1 : FAIL : Exception during initialization:\
+    \ E:\\_work\\1\\s\\onnxruntime\\core\\providers\\cpu\\ml\\svmregressor.cc:26 onnxruntime::ml::SVMRegressor<float>::SVMRegressor\
+    \ !coefficients_.empty() was false. \n"
+- stage: tables_2_5
+  family_name: SVR
+  target_kind: ampl
+  harmonic_order: 3
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\SVR\ampl\SVR_ampl3.onnx
+  error_type: Fail
+  error_message: "[ONNXRuntimeError] : 1 : FAIL : Exception during initialization:\
+    \ E:\\_work\\1\\s\\onnxruntime\\core\\providers\\cpu\\ml\\svmregressor.cc:26 onnxruntime::ml::SVMRegressor<float>::SVMRegressor\
+    \ !coefficients_.empty() was false. \n"
+- stage: tables_2_5
+  family_name: SVR
+  target_kind: ampl
+  harmonic_order: 40
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\SVR\ampl\SVR_ampl40.onnx
+  error_type: Fail
+  error_message: "[ONNXRuntimeError] : 1 : FAIL : Exception during initialization:\
+    \ E:\\_work\\1\\s\\onnxruntime\\core\\providers\\cpu\\ml\\svmregressor.cc:26 onnxruntime::ml::SVMRegressor<float>::SVMRegressor\
+    \ !coefficients_.empty() was false. \n"
+- stage: tables_2_5
+  family_name: SVR
+  target_kind: ampl
+  harmonic_order: 81
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\SVR\ampl\SVR_ampl81.onnx
+  error_type: Fail
+  error_message: "[ONNXRuntimeError] : 1 : FAIL : Exception during initialization:\
+    \ E:\\_work\\1\\s\\onnxruntime\\core\\providers\\cpu\\ml\\svmregressor.cc:26 onnxruntime::ml::SVMRegressor<float>::SVMRegressor\
+    \ !coefficients_.empty() was false. \n"
+- stage: tables_2_5
+  family_name: SVR
+  target_kind: phase
+  harmonic_order: 0
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\SVR\phase\SVR_phase0.onnx
+  error_type: Fail
+  error_message: "[ONNXRuntimeError] : 1 : FAIL : Exception during initialization:\
+    \ E:\\_work\\1\\s\\onnxruntime\\core\\providers\\cpu\\ml\\svmregressor.cc:26 onnxruntime::ml::SVMRegressor<float>::SVMRegressor\
+    \ !coefficients_.empty() was false. \n"
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 0
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl0.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 3
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl3.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 39
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl39.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 78
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl78.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 156
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl156.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 162
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl162.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: ampl
+  harmonic_order: 240
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\ampl\XGBRegressor_ampl240.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 1
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase1.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 3
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase3.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 39
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase39.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 40
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase40.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 78
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase78.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 81
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase81.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 156
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase156.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 162
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase162.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: tables_2_5
+  family_name: XGBM
+  target_kind: phase
+  harmonic_order: 240
+  onnx_model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\XGBM\phase\XGBRegressor_phase240.onnx
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+- stage: track2
+  family_name: SVR
+  error_type: Fail
+  error_message: "[ONNXRuntimeError] : 1 : FAIL : Exception during initialization:\
+    \ E:\\_work\\1\\s\\onnxruntime\\core\\providers\\cpu\\ml\\svmregressor.cc:26 onnxruntime::ml::SVMRegressor<float>::SVMRegressor\
+    \ !coefficients_.empty() was false. \n"
+- stage: track2
+  family_name: XGBM
+  error_type: RuntimeException
+  error_message: '[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Non-zero status code
+    returned while running TreeEnsembleRegressor node. Name:''TreeEnsembleRegressor''
+    Status Message: E:\_work\1\s\onnxruntime\core\providers\cpu\ml\tree_ensemble_common.h:565
+    onnxruntime::ml::detail::TreeEnsembleCommon<float,float,float>::ComputeAgg One
+    path in the graph requests feature 3 but input tensor has 3 features.
+
+    '
+validation_summary_path: output\validation_checks\rcim_original_onnx_release_parity\2026-05-18-21-42-15__original_onnx_release_initial_parity_validation\validation_summary.yaml
+target_parity_csv_path: output\validation_checks\rcim_original_onnx_release_parity\2026-05-18-21-42-15__original_onnx_release_initial_parity_validation\tables_2_5_target_parity.csv
+report_path: doc\reports\analysis\validation_checks\track2\2026-05-18-21-42-15_original_onnx_release_initial_parity_validation_report.md

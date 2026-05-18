@@ -55,6 +55,10 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Original ONNX Release Parity Interpretation.md](./reports/analysis/RCIM%20Original%20ONNX%20Release%20Parity%20Interpretation.md)
+  Canonical interpretation of the recovered original ONNX release parity check
+  against the repository `rcim_original/forward` archive and Track 2 forward
+  curve evaluation.
 - [reports/analysis/linux_script_portability/[2026-05-16]/script_portability_inventory.md](./reports/analysis/linux_script_portability/%5B2026-05-16%5D/script_portability_inventory.md)
   Refreshed repository-wide script portability inventory after the final
   Linux Bash-equivalent sweep for campaign, tooling, and report scripts.
@@ -114,6 +118,14 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-18
+
+- [technical/2026-05/2026-05-18/2026-05-18-21-53-46_rcim_original_onnx_parity_interpretation_report.md](./technical/2026-05/2026-05-18/2026-05-18-21-53-46_rcim_original_onnx_parity_interpretation_report.md)
+  Plan the canonical interpretation report for the recovered original ONNX
+  release parity validation.
+
+- [technical/2026-05/2026-05-18/2026-05-18-20-26-23_rcim_original_onnx_release_parity_validation.md](./technical/2026-05/2026-05-18/2026-05-18-20-26-23_rcim_original_onnx_release_parity_validation.md)
+  Plan the forward-only parity validation between the recovered original ONNX
+  release, `Tables 2-5`, and the current `rcim_original` Track 2 baseline.
 
 - [technical/2026-05/2026-05-18/2026-05-18-20-18-29_rcim_paper_original_table_audit.md](./technical/2026-05/2026-05-18/2026-05-18-20-18-29_rcim_paper_original_table_audit.md)
   Plan the RCIM paper-original table audit and Table 2 marker refresh after
