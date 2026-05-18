@@ -34,6 +34,13 @@ COMPARISON_REPORT_ROOT = (
     / "track2"
 )
 COMPARISON_REPORT_TIMESTAMP_FORMAT = "%Y-%m-%d-%H-%M-%S"
+CANONICAL_TRACK2_REPORT_PATH = (
+    shared_training_infrastructure.PROJECT_PATH
+    / "doc"
+    / "reports"
+    / "analysis"
+    / "Track 2 Directional Model Comparison.md"
+)
 
 
 @dataclass(frozen=True)
@@ -93,6 +100,16 @@ def build_comparison_report_path(training_config: dict[str, Any]) -> Path:
         shared_training_infrastructure.resolve_output_run_name(training_config)
     )
     return COMPARISON_REPORT_ROOT / f"{report_timestamp}_{run_name}_report.md"
+
+
+def build_canonical_track2_report_path(training_config: dict[str, Any]) -> Path:
+
+    """Resolve the stable Track 2 report path for canonical full-matrix runs."""
+
+    configured_report_path = training_config.get("comparison", {}).get("canonical_report_path")
+    if configured_report_path is None:
+        return CANONICAL_TRACK2_REPORT_PATH
+    return shared_training_infrastructure.resolve_runtime_project_relative_path(configured_report_path)
 
 
 def load_reference_inventory(reference_inventory_path: str | Path) -> dict[str, Any]:
@@ -253,6 +270,43 @@ def load_wave1_registry_model(registry_entry: dict[str, Any]) -> tuple[Any, dict
     )
     regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
         checkpoint_path=best_checkpoint_path,
+        regression_model=create_model(
+            model_type=str(training_config["experiment"]["model_type"]),
+            model_configuration=training_config["model"],
+        ),
+        input_feature_dim=datamodule.get_input_feature_dim(),
+        target_feature_dim=datamodule.get_target_feature_dim(),
+        normalization_statistics=normalization_statistics,
+        map_location=torch.device("cpu"),
+    )
+    regression_module.to(torch.device("cpu"))
+    regression_module.eval()
+    return regression_module, training_config
+
+
+def load_wave1_exported_model(export_inventory: dict[str, Any]) -> tuple[Any, dict[str, Any]]:
+
+    """Load one Wave 1 exported model directly from the `models/` tree."""
+
+    source_run_snapshot_path_map = export_inventory["source_run_snapshot_path_map"]
+    training_config_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        source_run_snapshot_path_map["training_config.snapshot.yaml"]
+    )
+    training_config = shared_training_infrastructure.load_training_config(training_config_path)
+    model_type = str(export_inventory["model_type"]).strip().lower()
+    model_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        export_inventory["python_model_path"]
+    )
+
+    if model_type in {"hist_gradient_boosting", "random_forest"}:
+        return tree_regression_support.load_tree_model(model_path), training_config
+
+    datamodule, _, _, normalization_statistics = shared_training_infrastructure.initialize_training_components(
+        training_config
+    )
+    datamodule.setup(stage="fit")
+    regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
+        checkpoint_path=model_path,
         regression_model=create_model(
             model_type=str(training_config["experiment"]["model_type"]),
             model_configuration=training_config["model"],
@@ -660,6 +714,46 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                 ]
             )
 
+    wave1_export_configuration = generation_configuration.get("wave1_exported_models", {})
+    if wave1_export_configuration:
+        exported_model_root = str(wave1_export_configuration["exported_model_root"]).rstrip("/")
+        for base_family in wave1_export_configuration["base_family_list"]:
+            base_family_name = str(base_family).strip()
+            candidate_configuration_list.extend(
+                [
+                    {
+                        "candidate_id": f"{base_family_name}_global",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_exported_model",
+                        "candidate_surface": "global",
+                        "reference_inventory_path": (
+                            f"{exported_model_root}/{base_family_name}/global/reference_inventory.yaml"
+                        ),
+                        "allowed_direction_list": ["forward", "backward"],
+                    },
+                    {
+                        "candidate_id": f"{base_family_name}_Fw",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_exported_model",
+                        "candidate_surface": "Fw",
+                        "reference_inventory_path": (
+                            f"{exported_model_root}/{base_family_name}/forward/reference_inventory.yaml"
+                        ),
+                        "allowed_direction_list": ["forward"],
+                    },
+                    {
+                        "candidate_id": f"{base_family_name}_Bw",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_exported_model",
+                        "candidate_surface": "Bw",
+                        "reference_inventory_path": (
+                            f"{exported_model_root}/{base_family_name}/backward/reference_inventory.yaml"
+                        ),
+                        "allowed_direction_list": ["backward"],
+                    },
+                ]
+            )
+
     assert candidate_configuration_list, "Generated Track 2 candidate list is empty"
     return candidate_configuration_list
 
@@ -727,6 +821,28 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             model_entry_list=None,
             model_dictionary=None,
             registry_entry=registry_entry,
+            training_config=training_config,
+            model_object=model_object,
+        )
+
+    if candidate_kind == "wave1_exported_model":
+        reference_inventory_path = candidate_configuration["reference_inventory_path"]
+        resolved_inventory_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+            reference_inventory_path
+        )
+        export_inventory = load_yaml_dictionary(resolved_inventory_path)
+        model_object, training_config = load_wave1_exported_model(export_inventory)
+        return Track2Candidate(
+            candidate_id=candidate_id,
+            candidate_family=candidate_family,
+            candidate_kind=candidate_kind,
+            candidate_surface=candidate_surface,
+            allowed_direction_list=allowed_direction_list,
+            source_path=resolved_inventory_path,
+            selected_harmonic_list=[],
+            model_entry_list=None,
+            model_dictionary=None,
+            registry_entry=export_inventory,
             training_config=training_config,
             model_object=model_object,
         )
@@ -1340,6 +1456,11 @@ def build_track2_directional_comparison_summary(
                     if candidate.registry_entry is not None and "run_instance_id" in candidate.registry_entry
                     else None
                 ),
+                "model_file_path": (
+                    str(candidate.registry_entry["python_model_path"])
+                    if candidate.registry_entry is not None and "python_model_path" in candidate.registry_entry
+                    else None
+                ),
             }
             for candidate in candidate_list
         ],
@@ -1372,18 +1493,40 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
 
     comparison_scope = comparison_summary["comparison_scope"]
     candidate_metric_summary = comparison_summary["candidate_metric_summary"]
+    direction_breakdown = comparison_summary["direction_breakdown"]
+
+    def append_direction_table(
+        report_line_list: list[str],
+        direction_label: str,
+        candidate_filter,
+    ) -> None:
+        direction_entry = direction_breakdown.get(direction_label, {})
+        table_row_list = [
+            (candidate_id, metric_dictionary)
+            for candidate_id, metric_dictionary in direction_entry.items()
+            if candidate_filter(candidate_id)
+        ]
+        table_row_list.sort(key=lambda row: row[1]["mean_percentage_error_pct"])
+        for candidate_id, metric_dictionary in table_row_list:
+            report_line_list.append(
+                f"| `{candidate_id}` | "
+                f"{metric_dictionary['mae']:.6f} | "
+                f"{metric_dictionary['rmse']:.6f} | "
+                f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+                f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
+            )
 
     report_line_list = [
-        "# Track 2 Directional Comparison Report",
+        "# Track 2 Directional Model Comparison",
         "",
         "## Overview",
         "",
-        "This report evaluates `Track 1` paper-reference banks and `Wave 1`",
-        "repository models on direction-valid held-out TE curves. Directional",
-        "candidates are evaluated only on their matching direction, while global",
-        "candidates are evaluated on both directions and reported separately.",
+        "This report is the canonical `Track 2` offline comparison between the",
+        "accepted `Track 1` paper-reference model banks and exported `Wave 1`",
+        "repository models. It starts from the current direction-aware comparison",
+        "matrix.",
         "",
-        "## Scope",
+        "## Dataset And Split",
         "",
         f"- dataset config: `{comparison_summary['dataset']['dataset_config_path']}`;",
         f"- dataset root: `{comparison_summary['dataset']['dataset_root']}`;",
@@ -1391,83 +1534,97 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         f"- candidate count: `{comparison_scope['candidate_count']}`;",
         f"- held-out curve count before candidate filtering: `{comparison_scope['curve_count']}`;",
         f"- percentage-error denominator: `{comparison_scope['percentage_error_denominator']}`;",
+        "- `Fw` candidates are evaluated only on forward curves;",
+        "- `Bw` candidates are evaluated only on backward curves;",
+        "- `global` candidates are evaluated on both directions and reported with",
+        "  direction-separated metrics.",
         "",
         "## Candidate Inventory",
         "",
-        "| Candidate | Family | Kind | Surface | Valid Directions | Source |",
+        "| Candidate | Family | Source Track | Surface | Valid Directions | Model Source |",
         "| --- | --- | --- | --- | --- | --- |",
     ]
 
     for candidate_entry in comparison_summary["candidate_list"]:
+        model_source = candidate_entry["model_file_path"] or candidate_entry["source_path"]
         report_line_list.append(
             f"| `{candidate_entry['candidate_id']}` | "
             f"`{candidate_entry['candidate_family']}` | "
             f"`{candidate_entry['candidate_kind']}` | "
             f"`{candidate_entry['candidate_surface']}` | "
             f"`{', '.join(candidate_entry['allowed_direction_list'])}` | "
-            f"`{candidate_entry['source_path']}` |"
+            f"`{model_source}` |"
         )
 
     report_line_list.extend(
         [
             "",
-            "## Aggregate Comparison",
+            "## Forward Comparison",
             "",
             "| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
             "| --- | ---: | ---: | ---: | ---: |",
         ]
     )
-
-    for candidate_id, metric_dictionary in candidate_metric_summary.items():
-        report_line_list.append(
-            f"| `{candidate_id}` | "
-            f"{metric_dictionary['mae']:.6f} | "
-            f"{metric_dictionary['rmse']:.6f} | "
-            f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
-            f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
-        )
+    append_direction_table(
+        report_line_list,
+        "forward",
+        lambda candidate_id: candidate_id.endswith("_Fw") or candidate_id.endswith("_global"),
+    )
 
     report_line_list.extend(
         [
             "",
-            "## Direction Breakdown",
+            "## Backward Comparison",
             "",
-            "| Direction | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] |",
-            "| --- | --- | ---: | ---: | ---: |",
+            "| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+            "| --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    append_direction_table(
+        report_line_list,
+        "backward",
+        lambda candidate_id: candidate_id.endswith("_Bw") or candidate_id.endswith("_global"),
+    )
+
+    report_line_list.extend(
+        [
+            "",
+            "## Global Model Direction Breakdown",
+            "",
+            "| Candidate | Direction | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |",
+            "| --- | --- | ---: | ---: | ---: | ---: |",
         ]
     )
 
-    for direction_label, direction_entry in comparison_summary["direction_breakdown"].items():
-        for candidate_id, metric_dictionary in direction_entry.items():
+    for candidate_id in sorted(
+        candidate_id
+        for candidate_id in candidate_metric_summary
+        if candidate_id.endswith("_global")
+    ):
+        for direction_label in ["forward", "backward"]:
+            metric_dictionary = direction_breakdown.get(direction_label, {}).get(candidate_id)
+            if metric_dictionary is None:
+                continue
             report_line_list.append(
-                f"| `{direction_label}` | `{candidate_id}` | "
+                f"| `{candidate_id}` | `{direction_label}` | "
                 f"{metric_dictionary['mae']:.6f} | "
                 f"{metric_dictionary['rmse']:.6f} | "
-                f"{metric_dictionary['mean_percentage_error_pct']:.3f} |"
+                f"{metric_dictionary['mean_percentage_error_pct']:.3f} | "
+                f"{metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
             )
-
-    report_line_list.extend(
-        [
-            "",
-            "## Sample Preview",
-            "",
-        ]
-    )
-
-    for preview_entry in comparison_summary["sample_preview_list"]:
+        combined_metric_dictionary = candidate_metric_summary[candidate_id]
         report_line_list.append(
-            f"- `{preview_entry['candidate_id']}` | `{preview_entry['direction_label']}` | "
-            f"`{preview_entry['source_file_path']}` | "
-            f"`{preview_entry['speed_rpm']:.0f} rpm` | "
-            f"`{preview_entry['torque_nm']:.0f} Nm` | "
-            f"`{preview_entry['oil_temperature_deg']:.0f} C` | "
-            f"`MPE={preview_entry['mean_percentage_error_pct']:.3f}%`"
+            f"| `{candidate_id}` | `combined` | "
+            f"{combined_metric_dictionary['mae']:.6f} | "
+            f"{combined_metric_dictionary['rmse']:.6f} | "
+            f"{combined_metric_dictionary['mean_percentage_error_pct']:.3f} | "
+            f"{combined_metric_dictionary['p95_mean_percentage_error_pct']:.3f} |"
         )
 
     report_line_list.extend(
         [
             "",
-            "## Output Artifacts",
+            "## Artifacts",
             "",
             f"- summary YAML: `{comparison_summary['output_directory']}/validation_summary.yaml`;",
             f"- per-condition CSV: `{comparison_summary['per_condition_metrics_csv_path']}`;",
@@ -1476,5 +1633,25 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
 
     for preview_plot_path in comparison_summary["preview_plot_path_list"]:
         report_line_list.append(f"- preview plot: `{preview_plot_path}`;")
+
+    report_line_list.extend(
+        [
+            "",
+            "## Interpretation",
+            "",
+            "Rows are ranked by mean percentage error within each direction.",
+            "Directional Track 1 and Wave 1 models are never evaluated on the",
+            "opposite direction. Global Wave 1 models remain valid on both",
+            "directions and are therefore shown in both directional sections and",
+            "again in the global breakdown.",
+            "",
+            "## Open Gaps",
+            "",
+            "- This remains an offline TE-curve comparison and does not replace the",
+            "  future online `Table 9` compensation benchmark.",
+            "- The report uses the saved Python model artifacts from `models/`; ONNX",
+            "  parity checks remain a separate deployment-readiness task.",
+        ]
+    )
 
     return "\n".join(report_line_list) + "\n"

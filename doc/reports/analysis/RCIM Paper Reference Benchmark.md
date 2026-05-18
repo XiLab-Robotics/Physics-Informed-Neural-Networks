@@ -79,62 +79,39 @@ pipelines must load the canonical TE curves directly from `data/datasets`
 through `config/datasets/transmission_error_dataset.yaml`, matching the
 repository-owned model workflow such as `feedforward`.
 
-### Current Historical Smoke Result
+### Current Canonical Track 2 Matrix
 
-The first `Track 2` smoke test compared one forward `LGBM-19` archive against
-the global `feedforward` baseline on both directions. It remains useful as
-historical evidence, but it is superseded by the direction-aware contract above.
+The current canonical direction-aware comparison starts from the full Track 2
+matrix.
+It was generated from:
+`config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
 
-| Candidate | Scope In Historical Smoke Test | Mean Percentage Error [%] | Status |
-| --- | --- | ---: | --- |
-| `LGBM-19 reference bank` | mixed forward/backward | 93.133 | superseded |
-| `feedforward best` | mixed forward/backward | 7.718 | superseded |
-| `oracle harmonic truncation` | mixed forward/backward | 1.785 | diagnostic |
+Canonical report:
+`doc/reports/analysis/Track 2 Directional Model Comparison.md`.
 
-Historical report:
-`doc/reports/analysis/validation_checks/track2/2026-04-23-19-13-11_track2_lgbm19_vs_feedforward_smoke_validation_report.md`.
-
-### Current Canonical Track 2 Directional Comparison
-
-The current canonical direction-aware comparison was generated from:
-`config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/directional_lgbm_feedforward.yaml`.
+Validation report:
+`doc/reports/analysis/validation_checks/track2/2026-05-18-01-08-06_track2_full_directional_family_matrix_full_directional_matrix_validation_report.md`.
 
 Output artifacts:
-`output/validation_checks/track2_reference_comparison/2026-05-17-22-19-27__track2_directional_lgbm19_vs_feedforward_directional_validation/`.
+`output/validation_checks/track2_reference_comparison/2026-05-18-01-01-02__track2_full_directional_family_matrix_full_directional_matrix_validation/`.
 
-Report:
-`doc/reports/analysis/validation_checks/track2/2026-05-17-22-22-12_track2_directional_lgbm19_vs_feedforward_directional_validation_report.md`.
+The matrix evaluates:
 
-| Candidate | Source | Evaluation Rule |
-| --- | --- | --- |
-| `LGBM19_Fw` | `models/paper_reference/rcim_track1/forward/lgbm_reference_models/` | forward curves only |
-| `LGBM19_Bw` | `models/paper_reference/rcim_track1/backward/lgbm_reference_models/` | backward curves only |
-| `feedforward_global` | `output/registries/families/feedforward/` | forward and backward, reported separately |
-| `feedforward_Fw` | `output/registries/families/feedforward_fw/` | forward curves only |
-| `feedforward_Bw` | `output/registries/families/feedforward_bw/` | backward curves only |
-
-| Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] |
-| --- | ---: | ---: | ---: |
-| `LGBM19_Fw` | 0.116164 | 0.116179 | 259.051 |
-| `LGBM19_Bw` | 0.005037 | 0.005231 | 11.880 |
-| `feedforward_global` | 0.003465 | 0.003897 | 7.636 |
-| `feedforward_Fw` | 0.003404 | 0.003855 | 7.551 |
-| `feedforward_Bw` | 0.003586 | 0.004023 | 7.832 |
-
-### Full Matrix Backlog
-
-The full `Track 2` matrix must extend the same rule to:
-
-- all `11` `Track 1` forward family banks, each with `19` target models;
-- all `11` `Track 1` backward family banks, each with `19` target models;
-- all `15` current `Wave 1` family-best surfaces:
+- all `11` `Track 1` forward family banks from
+  `models/paper_reference/rcim_track1/forward/`;
+- all `11` `Track 1` backward family banks from
+  `models/paper_reference/rcim_track1/backward/`;
+- all `15` current `Wave 1` exported surfaces from `models/exported/`:
   `global`, `Fw`, and `Bw` for `feedforward`, `harmonic_regression`,
-  `periodic_mlp`, `residual_harmonic_mlp`, and `tree`;
-- future global family models evaluated against both forward and backward
-  curves with direction-separated metrics.
+  `periodic_mlp`, `residual_harmonic_mlp`, and `tree`.
 
-Template config:
-`config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
+Best current Track 2 rows:
+
+| Direction | Best Candidate | Mean Percentage Error [%] |
+| --- | --- | ---: |
+| forward | `tree_global` | 6.590 |
+| backward | `tree_Bw` | 7.051 |
+| global combined | `tree_global` | 6.854 |
 
 ## Forward Tables
 

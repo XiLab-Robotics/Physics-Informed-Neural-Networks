@@ -6,6 +6,7 @@ experiment:
   model_type: reference_family_vs_feedforward
 comparison:
   comparison_mode: full_directional_candidate_matrix
+  canonical_report_path: doc/reports/analysis/Track 2 Directional Model Comparison.md
   percentage_error_denominator: peak_to_peak_truth
   preview_curve_count: 8
   candidate_generation:
@@ -46,8 +47,8 @@ comparison:
         - family_id: ELM
           family_label: ELM
           archive_folder: elm_reference_models
-    wave1_registry_models:
-      family_registry_root: output/registries/families
+    wave1_exported_models:
+      exported_model_root: models/exported
       base_family_list:
         - feedforward
         - harmonic_regression

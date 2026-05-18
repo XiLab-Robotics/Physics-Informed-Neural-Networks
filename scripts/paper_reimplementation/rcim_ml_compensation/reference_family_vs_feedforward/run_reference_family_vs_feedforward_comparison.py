@@ -117,11 +117,22 @@ def run_reference_family_vs_feedforward_comparison(
     validation_report_path = reference_family_vs_feedforward_support.build_comparison_report_path(training_config)
     validation_report_path.parent.mkdir(parents=True, exist_ok=True)
     validation_report_path.write_text(
-        reference_family_vs_feedforward_support.build_track2_directional_comparison_report_markdown(
-            comparison_summary
-        ),
+        reference_family_vs_feedforward_support.build_track2_directional_comparison_report_markdown(comparison_summary),
         encoding="utf-8",
     )
+    if str(training_config["comparison"].get("comparison_mode", "")).strip() == "full_directional_candidate_matrix":
+        canonical_report_path = reference_family_vs_feedforward_support.build_canonical_track2_report_path(
+            training_config
+        )
+        canonical_report_path.parent.mkdir(parents=True, exist_ok=True)
+        canonical_report_path.write_text(
+            reference_family_vs_feedforward_support.build_track2_directional_comparison_report_markdown(
+                comparison_summary
+            ),
+            encoding="utf-8",
+        )
+    else:
+        canonical_report_path = None
 
     print(
         "[DONE] Reference family comparison summary written | "
@@ -131,6 +142,11 @@ def run_reference_family_vs_feedforward_comparison(
         "[DONE] Reference family comparison report written | "
         f"{shared_training_infrastructure.format_project_relative_path(validation_report_path)}"
     )
+    if canonical_report_path is not None:
+        print(
+            "[DONE] Canonical Track 2 report written | "
+            f"{shared_training_infrastructure.format_project_relative_path(canonical_report_path)}"
+        )
     return validation_summary_path, validation_report_path
 
 
