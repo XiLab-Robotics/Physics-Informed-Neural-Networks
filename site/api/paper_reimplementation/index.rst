@@ -15,4 +15,5 @@ Paper Reimplementation API
    run_harmonic_wise_comparison_pipeline
    run_original_dataset_exact_model_bank_validation
    run_original_onnx_release_parity_validation
+   run_paper_reference_archive_parity_report
    run_reference_family_vs_feedforward_comparison

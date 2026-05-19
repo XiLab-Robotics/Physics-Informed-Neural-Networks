@@ -55,6 +55,9 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/RCIM Paper Reference Archive Parity Interpretation.md](./reports/analysis/RCIM%20Paper%20Reference%20Archive%20Parity%20Interpretation.md)
+  Canonical interpretation of the repository-local parity check across
+  `models/paper_reference/rcim_original`, `rcim_retuned`, and `rcim_track1`.
 - [reports/analysis/RCIM Original ONNX Release Parity Interpretation.md](./reports/analysis/RCIM%20Original%20ONNX%20Release%20Parity%20Interpretation.md)
   Canonical interpretation of the recovered original ONNX release parity check
   against the repository `rcim_original/forward` archive and Track 2 forward
@@ -128,6 +131,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the repository-wide Conda environment rename from
   `pinns_env` to `pinns_env` and from `pinns_lan_env` to
   `pinns_lan_env`.
+
+- [technical/2026-05/2026-05-18/2026-05-18-22-01-35_rcim_paper_reference_archive_parity_report.md](./technical/2026-05/2026-05-18/2026-05-18-22-01-35_rcim_paper_reference_archive_parity_report.md)
+  Plan the repository-local parity report comparing `rcim_original`,
+  `rcim_retuned`, and `rcim_track1` archives under `models/paper_reference`.
 
 - [technical/2026-05/2026-05-18/2026-05-18-21-53-46_rcim_original_onnx_parity_interpretation_report.md](./technical/2026-05/2026-05-18/2026-05-18-21-53-46_rcim_original_onnx_parity_interpretation_report.md)
   Plan the canonical interpretation report for the recovered original ONNX

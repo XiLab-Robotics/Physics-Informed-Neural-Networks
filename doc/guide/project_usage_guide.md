@@ -392,6 +392,19 @@ This workflow is evaluation-only. It loads the immutable ONNX release under
 compares it with `models/paper_reference/rcim_original/forward`, and reports
 both `Tables 2-5` target-level parity and Track 2 forward curve parity.
 
+The saved repository paper-reference archives can also be compared against one
+another without retraining:
+
+```powershell
+conda run -n standard_ml_codex_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_paper_reference_archive_parity_report.py `
+  --output-suffix paper_reference_archive_validation
+```
+
+This report builder reads the latest compatible Track 2 validation summary by
+default, filters the comparison to `models/paper_reference/rcim_original`,
+`rcim_retuned`, and `rcim_track1`, then writes a canonical interpretation
+report under `doc/reports/analysis`.
+
 The repository also exposes an offline Wave 1 family-best TE-curve plotting
 workflow. It loads each current `latest_family_best.yaml` registry entry,
 predicts a deterministic subset of the canonical held-out test curves, writes
