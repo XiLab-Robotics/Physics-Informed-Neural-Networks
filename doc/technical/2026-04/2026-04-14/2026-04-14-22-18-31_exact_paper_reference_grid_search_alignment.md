@@ -58,7 +58,7 @@ workflow again.
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/`
   Exact-paper configuration surface, expected to gain an explicit switch for
   paper-reference hyperparameter search behavior.
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
   Explanatory report that should be kept semantically aligned once the workflow
   becomes truly `GridSearchCV`-backed instead of base-estimator-only.
 

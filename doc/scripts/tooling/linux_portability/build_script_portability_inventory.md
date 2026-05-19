@@ -26,7 +26,7 @@ conda run -n pinns_env python scripts/tooling/linux_portability/build_script_por
 
 The default output bundle is written under:
 
-- `doc/reports/analysis/linux_script_portability/[YYYY-MM-DD]/`
+- `doc/reports/analysis/utilities/linux_script_portability/[YYYY-MM-DD]/`
 
 ## Outputs
 

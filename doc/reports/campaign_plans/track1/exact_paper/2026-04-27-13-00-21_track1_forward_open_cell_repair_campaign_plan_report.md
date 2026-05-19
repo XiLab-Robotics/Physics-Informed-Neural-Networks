@@ -13,7 +13,7 @@ non-green forward family-target cells in Tables `2-5`.
 
 Canonical status source:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 Current forward-side counts:
 

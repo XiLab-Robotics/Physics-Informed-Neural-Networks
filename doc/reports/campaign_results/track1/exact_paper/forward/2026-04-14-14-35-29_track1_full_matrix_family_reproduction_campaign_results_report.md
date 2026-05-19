@@ -289,4 +289,4 @@ The next technically justified steps are:
 - Campaign logs:
   `output/training_campaigns/track1/exact_paper/forward/full_matrix/shared/track1_full_matrix_family_reproduction_campaign_2026_04_14_13_50_51/logs/`
 - Canonical benchmark dashboard:
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`

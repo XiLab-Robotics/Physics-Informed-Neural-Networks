@@ -124,7 +124,7 @@ comparison on the common offline evaluator.
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/validation_checks/track1/harmonic_wise/`
 - `models/paper_reference/rcim_track1/forward/lgbm_reference_models/`

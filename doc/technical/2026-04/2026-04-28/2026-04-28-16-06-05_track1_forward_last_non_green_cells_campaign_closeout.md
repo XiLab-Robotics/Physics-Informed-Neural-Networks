@@ -34,7 +34,7 @@ forward and bidirectional Track 1 exact-paper closeouts:
    campaign state;
 3. materialize the final campaign-results Markdown report and validate the
    PDF export;
-4. refresh `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+4. refresh `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 5. refresh `doc/reports/analysis/Training Results Master Summary.md`;
 6. refresh `models/paper_reference/rcim_track1/forward/` only for target-level
    accepted winners that improve over the stored archive entries;
@@ -52,7 +52,7 @@ state recorded in the campaign plan.
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-28-11-21-25_track1_forward_last_non_green_cells_campaign_plan_report.md`
 - `doc/reports/campaign_results/track1/exact_paper/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/forward/`
 - `output/training_campaigns/track1/exact_paper/forward_last_non_green_cells/`

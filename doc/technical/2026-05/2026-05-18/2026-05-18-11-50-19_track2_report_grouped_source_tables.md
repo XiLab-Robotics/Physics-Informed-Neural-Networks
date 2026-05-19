@@ -55,7 +55,7 @@ backward, and combined directions.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   - update Markdown report generation helpers to group comparison rows by
     source label and direction.
-- `doc/reports/analysis/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - regenerate the canonical report with grouped source tables.
 - `doc/reports/analysis/validation_checks/track2/`
   - regenerate or update the latest Track 2 validation report with the same

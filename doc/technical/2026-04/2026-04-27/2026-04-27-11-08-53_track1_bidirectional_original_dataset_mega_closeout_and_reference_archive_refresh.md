@@ -48,7 +48,7 @@ The implementation should:
    - benchmark-cell outcomes;
    - archive-promotion consequences;
 4. refresh the canonical benchmark report
-   `doc/reports/analysis/RCIM Paper Reference Benchmark.md` so the colored
+   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` so the colored
    status tables and related summary text reflect the accepted results from
    this bidirectional wave rather than the previous restart baseline;
 5. refresh the curated model archives under
@@ -73,7 +73,7 @@ cause unnecessary archive churn.
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-26-00-43-19_track1_bidirectional_original_dataset_mega_relaunch_after_micro_gate_plan_report.md`
 - `doc/reports/campaign_results/track1/exact_paper/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/README.md`
 - `models/paper_reference/rcim_track1/forward/`

@@ -27,7 +27,7 @@ Current closure status:
 - completed Track 1 forward and backward paper-faithful campaigns now promote
   accepted artifacts to `models/paper_reference/rcim_track1/`;
 - the repository-owned RCIM Tables `2`-`5` benchmark surface is
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 - Track 1 is closed as the populated full-dataset faithful reproduction
   surface; yellow and red cells are retained as numerical-gap evidence under
   the faithful protocol.
@@ -251,7 +251,7 @@ It is the repository-owned faithful pipeline surface used to train and export
 the Track 1 model banks that populate:
 
 - `models/paper_reference/rcim_track1/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 ## Practical Conclusion
 
@@ -283,4 +283,4 @@ The completed Track 1 paper-faithful campaign cycle closes the next gap:
 - Tables `2`-`5` are repopulated for both directions and the closed status is
   no longer gated by all-green benchmark coloring.
 - Tables `2`-`5` are now regenerated from those accepted artifacts in
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.

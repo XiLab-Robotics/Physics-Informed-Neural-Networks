@@ -4,7 +4,7 @@ Run Original Dataset Exact Model Bank Validation
 This page documents the runner used by the faithful RCIM Track 1
 original-dataset exact-model-bank campaigns. The accepted forward/backward
 campaign outputs are archived under ``models/paper_reference/rcim_track1`` and
-reported in ``doc/reports/analysis/RCIM Paper Reference Benchmark.md``.
+reported in ``doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md``.
 
 The current full-dataset Track 1 closure uses this runner as the faithful
 forward/backward model-bank surface. Yellow and red benchmark cells are kept as

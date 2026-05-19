@@ -74,8 +74,8 @@ without launching model training.
 
 - Inventory and documentation:
   - `scripts/tooling/linux_portability/build_script_portability_inventory.py`
-  - `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.md`
-  - `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
+  - `doc/reports/analysis/utilities/linux_script_portability/[2026-05-15]/script_portability_inventory.md`
+  - `doc/reports/analysis/utilities/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
   - `doc/scripts/campaigns/`
   - `doc/scripts/tooling/linux_portability/build_script_portability_inventory.md`
   - `doc/guide/project_usage_guide.md`

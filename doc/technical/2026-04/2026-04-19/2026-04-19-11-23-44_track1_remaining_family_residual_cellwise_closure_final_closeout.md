@@ -56,7 +56,7 @@ closure-first bookkeeping convention:
 ## Involved Components
 
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/campaign_results/track1/exact_paper/forward/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`

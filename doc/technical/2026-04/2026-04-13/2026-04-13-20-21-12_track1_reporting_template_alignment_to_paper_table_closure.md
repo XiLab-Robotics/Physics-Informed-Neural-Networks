@@ -54,7 +54,7 @@ winner-first language for `Track 1`.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `scripts/reports/generate_training_results_master_summary.py`
 - `scripts/training/run_training_campaign.py`

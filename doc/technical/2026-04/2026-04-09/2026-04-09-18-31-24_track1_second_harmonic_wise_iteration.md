@@ -111,7 +111,7 @@ Planned analysis additions:
 ## Involved Components
 
 - `reference/RCIM_ML-compensation.pdf`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/`

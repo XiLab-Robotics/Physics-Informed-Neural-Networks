@@ -50,7 +50,7 @@ The reorganization should also update repository-owned references that point to
 the moved reports, including:
 
 - `doc/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - any other canonical report indexes or notes that still reference the old flat
   paths.
@@ -60,7 +60,7 @@ the moved reports, including:
 - `doc/reports/campaign_results/`
 - `doc/reports/campaign_plans/`
 - `doc/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - any additional repository-owned Markdown files that reference the moved
   campaign report paths

@@ -37,7 +37,7 @@ The expected sequence after approval is:
 4. run the canonical closeout path to generate the Markdown report, the PDF
    export, and the PDF validation evidence;
 5. refresh
-   `doc/reports/analysis/RCIM Paper Reference Benchmark.md` and
+   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` and
    `doc/reports/analysis/Training Results Master Summary.md`;
 6. refresh the accepted forward paper-reference family archives as a mandatory
    closeout side effect if the new winners improve the tracked canonical
@@ -60,7 +60,7 @@ must be recorded and approved before use.
 - `doc/reports/campaign_results/track1/exact_paper/`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/`
 

@@ -73,7 +73,7 @@ work unless a later explicit approval says otherwise.
 - `doc/reports/campaign_plans/`
 - `output/registries/families/`
 - `output/registries/program/`
-- `doc/reports/analysis/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 
 No subagent is planned for this scope. If subagent help becomes useful later,

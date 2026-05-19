@@ -76,8 +76,8 @@ Primary repository reimplementation references:
 
 Existing related documents to align with:
 
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/run_recovered_original_pipeline.md`
 

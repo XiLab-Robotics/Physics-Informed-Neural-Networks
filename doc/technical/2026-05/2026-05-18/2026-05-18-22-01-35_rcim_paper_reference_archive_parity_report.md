@@ -8,7 +8,7 @@ RCIM paper-reference archives under `models/paper_reference`:
 
 The requested output is a canonical interpretation report under
 `doc/reports/analysis`, analogous in structure and intent to
-`doc/reports/analysis/RCIM Original ONNX Release Parity Interpretation.md`,
+`doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md`,
 but focused on repository model archives rather than the recovered external
 ONNX release.
 
@@ -64,8 +64,8 @@ scope and approval requirement will be documented before launch.
 | `models/paper_reference/rcim_track1` | Final Track 1 faithful reference archive. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py` | Existing Track 2 directional comparison path to reuse or extend. |
 | `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py` | Shared candidate loading, prediction, and report support utilities. |
-| `doc/reports/analysis/RCIM Original ONNX Release Parity Interpretation.md` | Report structure and interpretation style reference. |
-| `doc/reports/analysis/Track 2 Directional Model Comparison.md` | Current canonical Track 2 matrix context. |
+| `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md` | Report structure and interpretation style reference. |
+| `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md` | Current canonical Track 2 matrix context. |
 | `output/validation_checks` | Destination for generated comparison summaries and tabular artifacts. |
 | `doc/reports/analysis` | Destination for the new canonical interpretation report. |
 
@@ -82,7 +82,7 @@ scope and approval requirement will be documented before launch.
    `output/validation_checks`, including at least a summary YAML and one or
    more CSV tables for family-direction comparisons.
 5. Create the canonical report
-   `doc/reports/analysis/RCIM Paper Reference Archive Parity Interpretation.md`
+   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Archive Parity Interpretation.md`
    with sections mirroring the ONNX parity interpretation report:
    executive verdict, source artifacts, test context, forward parity,
    backward parity, family-group interpretation, and final conclusion.

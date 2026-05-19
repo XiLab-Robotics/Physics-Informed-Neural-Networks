@@ -48,7 +48,7 @@ campaign with several `SVR` runs, grouped as:
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/campaign_plans/`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/`
 - `scripts/campaigns/`

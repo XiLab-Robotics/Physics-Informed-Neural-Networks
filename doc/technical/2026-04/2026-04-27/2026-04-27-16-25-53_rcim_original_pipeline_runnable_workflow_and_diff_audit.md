@@ -65,7 +65,7 @@ Primary reference inputs:
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`
 - `reference/rcim_ml_compensation_recovered_assets/code/latest_snapshot/`
-- `doc/reports/analysis/RCIM Recovered Asset Deep Analysis.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Recovered Asset Deep Analysis.md`
 - `doc/technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md`
 
 Current repository implementation surface to compare against:

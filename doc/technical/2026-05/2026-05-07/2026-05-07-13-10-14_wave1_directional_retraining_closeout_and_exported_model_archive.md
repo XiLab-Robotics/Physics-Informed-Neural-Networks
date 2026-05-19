@@ -66,7 +66,7 @@ approval must be obtained before touching it.
 - `output/registries/families/`
 - `output/registries/program/`
 - `doc/reports/campaign_results/`
-- `doc/reports/analysis/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/exported/`
 - `scripts/reports/closeout/`

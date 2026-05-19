@@ -52,7 +52,7 @@ same scope multiple times would not add information.
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`
   Canonical exact-paper configuration surface now exposing
   `training.hyperparameter_search.mode`.
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   Canonical benchmark that will absorb any `SVR` upgrades produced by the new
   paper-faithful repair run.
 

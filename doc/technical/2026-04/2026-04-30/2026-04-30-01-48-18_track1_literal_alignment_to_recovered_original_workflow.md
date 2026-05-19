@@ -60,9 +60,9 @@ that same family behavior rather than replacing it with a nearby alternative.
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/exact_paper_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/original_dataset_exact_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py`
-- `doc/reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/active_training_campaign.yaml`
 - future planning artifact under `doc/reports/campaign_plans/track1/exact_paper/`

@@ -20,7 +20,7 @@ recreate the paper model families across every recovered harmonic target:
 This work will use the recovered RCIM assets as the strict primary reference,
 especially the newly consolidated analysis report:
 
-- [RCIM Recovered Asset Deep Analysis.md](../../../reports/analysis/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
+- [RCIM Recovered Asset Deep Analysis.md](../../../reports/analysis/rcim_paper_reference/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
 
 ## Technical Approach
 
@@ -98,8 +98,8 @@ At this stage, the preferred path is the first one.
 
 Primary reference inputs:
 
-- [RCIM Recovered Asset Deep Analysis.md](../../../reports/analysis/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
-- [RCIM Paper Reference Benchmark.md](../../../reports/analysis/RCIM%20Paper%20Reference%20Benchmark.md)
+- [RCIM Recovered Asset Deep Analysis.md](../../../reports/analysis/rcim_paper_reference/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
+- [RCIM Paper Reference Benchmark.md](../../../reports/analysis/rcim_paper_reference/RCIM%20Paper%20Reference%20Benchmark.md)
 - [reference/rcim_ml_compensation_recovered_assets/README.md](../../../../reference/rcim_ml_compensation_recovered_assets/README.md)
 
 Current repository implementation surface to evolve:
@@ -117,7 +117,7 @@ Recovered paper-era implementation references:
 
 Canonical documentation surfaces likely to be updated during implementation:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `doc/guide/project_usage_guide.md`

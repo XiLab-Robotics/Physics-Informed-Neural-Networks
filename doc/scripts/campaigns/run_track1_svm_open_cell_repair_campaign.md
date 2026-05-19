@@ -56,7 +56,7 @@ Optional explicit environment arguments:
 - validation artifacts under
   `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - canonical benchmark status in
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 ## Related Documents
 

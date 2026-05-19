@@ -80,7 +80,7 @@ Therefore the implementation should follow a hybrid launcher pattern:
 - `doc/running/active_training_campaign.yaml`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `models/paper_reference/rcim_track1/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 No subagent is planned for this work. The preparation and implementation scope
 remain local to the repository workflow.

@@ -87,8 +87,8 @@ be prepared for that future branch now.
 - `scripts/paper_reimplementation/rcim_ml_compensation/`
 - `scripts/reports/`
 - `doc/reference_summaries/`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/guide/project_usage_guide.md`
 - `site/`
 

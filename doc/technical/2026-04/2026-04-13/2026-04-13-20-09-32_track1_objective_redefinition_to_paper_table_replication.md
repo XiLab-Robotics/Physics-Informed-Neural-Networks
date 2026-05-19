@@ -75,8 +75,8 @@ Instead, they will frame `Track 1` around:
 
 - `reference/RCIM_ML-compensation.pdf`
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/track1/harmonic_wise/2026-04-13-00-55-21_track1_overnight_gap_closure_campaign_plan_report.md`

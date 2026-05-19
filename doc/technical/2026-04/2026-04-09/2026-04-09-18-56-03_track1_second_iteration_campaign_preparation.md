@@ -56,7 +56,7 @@ The intended comparison blocks are:
 - `doc/scripts/campaigns/`
 - `doc/running/active_training_campaign.yaml`
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 ## Implementation Steps
 

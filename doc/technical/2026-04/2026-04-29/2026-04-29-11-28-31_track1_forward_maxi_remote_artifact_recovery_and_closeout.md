@@ -58,7 +58,7 @@ becomes useful later, explicit user approval will be requested first.
 - `output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank_forward_maxi_last_non_green_cells/`
 - `doc/reports/analysis/validation_checks/`
 - `doc/reports/campaign_results/track1/exact_paper/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `models/paper_reference/rcim_track1/forward/`
 - any current Track 1 closeout helper scripts under `scripts/reports/closeout/track1/`

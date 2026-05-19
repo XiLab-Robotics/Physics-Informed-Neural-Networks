@@ -59,10 +59,10 @@ duplicate explicitly.
   - existing exact-paper split, target, metric, and table-report machinery.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/`
   - existing Track 2 curve-reconstruction comparison pipeline.
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - benchmark report to receive the ONNX release parity findings after
     validation.
-- `doc/reports/analysis/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - Track 2 report to receive the ONNX release forward comparison findings.
 
 ## Implementation Steps

@@ -8,7 +8,7 @@ comparison with a fresh full directional comparison matrix built directly from
 the saved model artifacts under `models/`.
 
 The new `Track 2` report must be a standalone canonical analysis report,
-parallel in role to `doc/reports/analysis/RCIM Paper Reference Benchmark.md`,
+parallel in role to `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`,
 but focused only on direct offline curve comparisons between:
 
 - the accepted `Track 1` paper-reference family banks;
@@ -70,7 +70,7 @@ Create a new canonical report under `doc/reports/analysis/`, with a readable
 title-based filename such as:
 
 ```text
-doc/reports/analysis/Track 2 Directional Model Comparison.md
+doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
 ```
 
 The report must start from the new comparison only and must not include the
@@ -118,10 +118,10 @@ remain provenance evidence only.
 
 ## Involved Components
 
-- `doc/reports/analysis/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - new canonical Track 2 report with forward, backward, and global sections;
   - no historical mixed-comparison section.
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - remove the obsolete historical mixed Track 2 subsection from the canonical
     benchmark text;
   - keep only a concise pointer to the new Track 2 report if useful.

@@ -38,7 +38,7 @@ of truth, then add an interpretation layer:
   - source validation-check report.
 - `output/validation_checks/rcim_original_onnx_release_parity/2026-05-18-21-42-15__original_onnx_release_initial_parity_validation/validation_summary.yaml`
   - source machine-readable validation summary.
-- `doc/reports/analysis/RCIM Original ONNX Release Parity Interpretation.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md`
   - planned canonical analysis report.
 - `doc/README.md`
   - canonical documentation index to register the new report if needed.
@@ -47,7 +47,7 @@ of truth, then add an interpretation layer:
 
 1. Read the validation-check report and summary YAML to avoid hand-copying stale
    figures.
-2. Create `doc/reports/analysis/RCIM Original ONNX Release Parity Interpretation.md`.
+2. Create `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md`.
 3. Include compact tables for manifest status, Tables `2-5` parity, Track 2
    parity, and limitations.
 4. State the conclusion precisely: successful forward reimplementation for the

@@ -61,9 +61,9 @@ must not reintroduce the obsolete mixed historical `LGBM-19` smoke comparison.
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
   - generalize candidate generation to support multiple paper-reference archive
     groups with explicit source labels and direction roots.
-- `doc/reports/analysis/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - regenerate the canonical Track 2 report with the enlarged candidate matrix.
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - update Track 2 status and best-row summary after the enlarged matrix is
     regenerated.
 - `doc/reports/analysis/Training Results Master Summary.md`

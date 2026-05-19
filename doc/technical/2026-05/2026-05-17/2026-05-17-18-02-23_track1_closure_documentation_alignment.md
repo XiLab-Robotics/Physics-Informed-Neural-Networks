@@ -24,7 +24,7 @@ levels used for each comparison.
 ## Involved Components
 
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - Track 1 and RCIM paper-reimplementation documentation under `doc/` and
   `scripts/paper_reimplementation/rcim_ml_compensation/`
 - model archive documentation under `models/paper_reference/rcim_track1/`

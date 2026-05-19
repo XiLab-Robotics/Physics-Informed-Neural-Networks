@@ -31,7 +31,7 @@ Current RCIM paper-faithful documentation split:
 Current accepted model archives and benchmark tables:
 
 - `models/paper_reference/rcim_track1/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 Track 1 is closed for the current full-dataset paper-faithful surface. The
 closed status means both forward and backward grid-search campaigns completed,

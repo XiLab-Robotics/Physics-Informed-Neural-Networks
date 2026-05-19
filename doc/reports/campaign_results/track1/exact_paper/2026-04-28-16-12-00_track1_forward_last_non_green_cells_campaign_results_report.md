@@ -69,7 +69,7 @@
 
 ## Linked Artifacts
 
-- benchmark report: `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- benchmark report: `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - training results master summary: `doc/reports/analysis/Training Results Master Summary.md`
 - track1 reference root: `models/paper_reference/rcim_track1/forward/`
 - campaign leaderboard: `output/training_campaigns/track1/exact_paper/forward_last_non_green_cells/track1_forward_last_non_green_cells_campaign_2026-04-28_11_36_05/campaign_leaderboard.yaml`

@@ -67,7 +67,7 @@ approval will be requested first.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/track1/exact_paper/`
 - `doc/running/active_training_campaign.yaml`

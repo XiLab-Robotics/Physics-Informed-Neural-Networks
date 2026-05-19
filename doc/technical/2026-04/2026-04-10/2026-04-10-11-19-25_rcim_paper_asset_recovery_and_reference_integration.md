@@ -102,7 +102,7 @@ Repository documents already relevant to the interpretation:
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 ## Implementation Steps
 

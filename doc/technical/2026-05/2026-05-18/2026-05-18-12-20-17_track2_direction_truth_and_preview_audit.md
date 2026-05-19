@@ -84,7 +84,7 @@ comparison.
     preview generation.
 - `output/validation_checks/track2_reference_comparison/`
   - regenerate validation artifacts if the comparison logic changes.
-- `doc/reports/analysis/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - update results and artifact pointers after any corrected run.
 - `doc/reports/campaign_results/track 2/`
   - store grouped report-facing PNG overlays.

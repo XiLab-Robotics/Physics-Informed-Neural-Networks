@@ -51,7 +51,7 @@ The implementation will:
    `results_report_path` points to the final Markdown report;
 7. refresh the canonical analysis summaries that must reflect the new
    post-campaign residual `MLP` state, especially:
-   - `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+   - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
    - `doc/reports/analysis/Training Results Master Summary.md`
 
 The closeout report will stay focused on the actual objective of this wave:
@@ -68,7 +68,7 @@ closeout flow in the main rollout.
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/2026-04-21-23-32-36_track1_mlp_residual_cell_final_closure_campaign_plan_report.md`
 - `doc/reports/campaign_results/track1/exact_paper/forward/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/campaigns/track1/exact_paper/forward/family_repair/mlp/2026-04-21_track1_mlp_residual_cell_final_closure_campaign/`
 - `output/training_campaigns/track1/exact_paper/forward/family_repair/mlp/track1_mlp_residual_cell_final_closure_campaign_2026_04_21_23_32_36/`

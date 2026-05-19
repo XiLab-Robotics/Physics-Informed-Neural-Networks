@@ -13,7 +13,7 @@ pattern family by family:
 - one curated reference-model bank per family;
 - one explicit archive and provenance surface per family under `models/`;
 - one canonical benchmark section per family inside
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
 The remaining families are:
 
@@ -107,8 +107,8 @@ strictly structured:
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/technical/2026-04/2026-04-17/2026-04-17-18-52-51_svm_reference_model_inventory_and_archive.md`
 - `doc/technical/2026-04/2026-04-17/2026-04-17-19-43-39_track1_reference_family_archive_standardization.md`

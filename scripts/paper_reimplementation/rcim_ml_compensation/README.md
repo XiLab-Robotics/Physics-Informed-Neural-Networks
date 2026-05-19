@@ -48,7 +48,7 @@ Accepted model archives from those campaigns are promoted to:
 
 The canonical RCIM Tables `2`-`5` comparison surface is:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 Within practical limits imposed by modern library versions and missing
 historical runtime state, this is the repository's literal or near-literal

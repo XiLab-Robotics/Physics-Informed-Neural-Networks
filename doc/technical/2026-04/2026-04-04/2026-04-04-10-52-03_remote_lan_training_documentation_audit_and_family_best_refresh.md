@@ -47,8 +47,8 @@ than model-family weakness.
 - `doc/scripts/campaigns/run_remote_training_validation_campaign.md`
 - `.codex/skills/remote-lan-training-campaigns/SKILL.md`
 - `doc/reports/campaign_results/infrastructure/2026-04-03-22-35-07_remote_training_validation_campaign_results_report.md`
-- `doc/reports/analysis/Wave 1 - Closeout Status.md`
-- `doc/reports/analysis/family_studies/TE Model Family Analysis.md` if the
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/te_modeling/family_studies/TE Model Family Analysis.md` if the
   family-level interpretation also needs a current-results refresh
 - `output/registries/families/*/latest_family_best.yaml`
 - `output/registries/program/current_best_solution.yaml`

@@ -10,7 +10,7 @@ colored comparison surfaces for Tables `2-5` were not fully updated to reflect
 the latest `XGBM/LGBM` improvements.
 
 The goal of this task is to refresh the four canonical comparative tables in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` and to codify the
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` and to codify the
 rule that every future `Track 1` closeout must update those tables whenever a
 campaign changes the accepted family results.
 
@@ -45,7 +45,7 @@ inspectable.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/technical/2026-04/2026-04-18/README.md`
 - `doc/README.md`
 - Latest exact-paper validation summaries for:

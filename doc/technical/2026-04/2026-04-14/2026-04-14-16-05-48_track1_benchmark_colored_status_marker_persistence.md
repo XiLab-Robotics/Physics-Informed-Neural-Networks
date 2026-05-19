@@ -5,7 +5,7 @@
 This document covers a narrow but permanent repair of the canonical
 `Track 1` benchmark maintenance flow for:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 The immediate issue is that the `Full Paper-Matrix Replication` section no
 longer preserves the intended colored status markers in the
@@ -49,7 +49,7 @@ Important maintenance rule after the fix:
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - the repository-owned script or helper path currently used to normalize or
   refresh the benchmark full-matrix section
 - `doc/README.md`

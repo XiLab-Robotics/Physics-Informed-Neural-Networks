@@ -11,7 +11,7 @@ tables were not fully backfilled at that time.
 
 The goal is to re-check those seven family rows against the accepted
 partial-closeout outputs and update the canonical matrices in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` where any value or
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` where any value or
 `🟢/🟡/🔴` marker still reflects the older pre-refresh state.
 
 Those four colored matrices are the canonical reference for future `Track 1`
@@ -54,7 +54,7 @@ does not justify delegation.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report.md`
 - accepted exact-paper validation summaries for the seven completed rerun
   families

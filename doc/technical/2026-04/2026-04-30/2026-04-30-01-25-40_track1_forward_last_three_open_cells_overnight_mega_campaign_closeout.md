@@ -53,7 +53,7 @@ The implementation should:
   Validation bundles that determine whether the queue completed successfully.
 - `doc/reports/analysis/validation_checks/`
   Per-run Markdown validation reports for the overnight mega campaign.
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   Canonical paper-facing benchmark that must reflect any accepted forward
   improvements.
 - `doc/reports/analysis/Training Results Master Summary.md`

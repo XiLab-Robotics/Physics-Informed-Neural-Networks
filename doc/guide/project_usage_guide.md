@@ -2447,7 +2447,7 @@ That closeout utility is responsible for:
 - materializing `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and
   `campaign_best_run.md` inside the campaign output directory;
 - refreshing the `forward` and `backward` restart matrices in
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 - rebuilding the canonical `Track 1` paper-reference archives under
   `models/paper_reference/rcim_track1/`;
 - patching the final campaign state and writing the campaign-results report.
@@ -2695,7 +2695,7 @@ surfaces:
 Completed forward and backward Track 1 campaigns have promoted accepted model
 archives to `models/paper_reference/rcim_track1/`, and the corresponding RCIM
 Tables `2`-`5` status lives in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
 The current Track 1 surface is closed as the full-dataset faithful
 model-bank reproduction: both directions have been run through the restored
@@ -2715,7 +2715,7 @@ Canonical config:
 
 Main supporting report:
 
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 
 The exact-paper runner now also supports a stage-aware operator surface closer
 to the recovered-original RCIM launcher. In addition to the default search

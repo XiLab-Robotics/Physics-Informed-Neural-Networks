@@ -134,7 +134,7 @@ references Tables `2-5`.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - source of Tables `2-5` and the currently accepted paper-reference cells.
 - `models/paper_reference/rcim_original/forward/`
   - forward-only recovered original paper-reference inventories.
@@ -152,7 +152,7 @@ references Tables `2-5`.
   - Track 2 comparison runner.
 - `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`
   - canonical Track 2 matrix configuration.
-- `doc/reports/analysis/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
   - canonical Track 2 report to refresh after implementation.
 
 ## Implementation Steps

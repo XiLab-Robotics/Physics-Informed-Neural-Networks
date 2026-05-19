@@ -59,7 +59,7 @@ Delivered:
   operational family bank
 - refreshed accepted model archives under `models/paper_reference/rcim_track1/`
 - repopulated RCIM paper-reference Tables `2`-`5` in
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - documented Windows PowerShell and Linux Bash launcher surfaces for future
   reruns
 
@@ -133,7 +133,7 @@ Current next step:
   with practical PLC/TwinCAT memory budgets
 - use the consolidated `Wave 1` closeout report as the canonical summary when
   comparing future families against the current structured-baseline stage
-- use `doc/reports/analysis/RCIM Paper Reference Benchmark.md` as the canonical
+- use `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` as the canonical
   paper-baseline reference while the repository still lacks online
   compensation validation
 - treat the paper-aligned harmonic-wise pipeline as the immediate execution

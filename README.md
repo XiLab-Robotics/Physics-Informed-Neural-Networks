@@ -200,7 +200,7 @@ Tables `2`-`5` on the repository dataset lives here:
 Current accepted Track 1 model archives and benchmark tables live here:
 
 - `models/paper_reference/rcim_track1/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 Track 1 is considered closed as the repository-owned paper-faithful full-bank
 reproduction surface: both `forward` and `backward` grid-search campaigns were

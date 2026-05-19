@@ -17,7 +17,7 @@ The user requested one canonical document that:
 - stays updated after every future `Track 1` progress step until full closure.
 
 The most appropriate canonical home is
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`, because that file is
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`, because that file is
 already the repository-owned entry point for the paper baseline, the current
 paper-vs-repository verdict, and the explicit `Track 1` / `Track 2` separation.
 
@@ -101,7 +101,7 @@ as `small positive gap only`, instead of inventing arbitrary optimism.
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-13-22-09-00_paper_reimplementation_rcim_exact_model_bank_exact_open_cell_paper_family_reference_campaign_run_exact_paper_model_bank_report.md`
@@ -115,7 +115,7 @@ as `small positive gap only`, instead of inventing arbitrary optimism.
 1. Inspect the paper content for Tables `2-6` and confirm the repository-owned
    mapping needed to restate them accurately.
 2. Add one dedicated `Tables 2-6` section to
-   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 3. For each table, add the paper-side Markdown reconstruction and the aligned
    repository-side comparison table.
 4. Define and document the exact `green / yellow / red` rule so future updates

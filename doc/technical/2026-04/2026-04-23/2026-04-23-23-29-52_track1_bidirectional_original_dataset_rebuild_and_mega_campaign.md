@@ -88,7 +88,7 @@ the difficult open cells.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/running/te_model_live_backlog.md`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`

@@ -72,7 +72,7 @@ future families:
 - `models/paper_reference/rcim_track1/README.md`
 - `models/paper_reference/rcim_track1/forward/svm_reference_models/`
 - future family roots under `models/paper_reference/rcim_track1/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/README.md`
 - `doc/technical/2026-04/2026-04-17/README.md`
 

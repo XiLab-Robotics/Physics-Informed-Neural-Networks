@@ -10,7 +10,7 @@ The immediate goal is to make the `SVM` reference surface explicit and
 reconstructible in two places:
 
 - a dedicated section inside
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 - a dedicated archive area under `models/` that preserves a curated copy of
   the reference model artifacts together with the provenance needed to rebuild
   them faithfully.
@@ -59,7 +59,7 @@ That artifact already preserves:
 The approved implementation should therefore:
 
 1. add a dedicated `SVM Reference Models` section to
-   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 2. enumerate the `19` canonical `SVM` targets explicitly with:
    - harmonic order;
    - target kind (`amplitude` or `phase`);
@@ -94,7 +94,7 @@ source paths have been verified to exist and to correspond to the canonical
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `models/README.md`
 - `models/paper_reference/rcim_track1/forward/svm_reference_models/`
 - `doc/README.md`

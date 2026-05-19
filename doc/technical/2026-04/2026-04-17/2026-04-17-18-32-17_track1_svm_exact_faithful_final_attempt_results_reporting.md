@@ -56,7 +56,7 @@ owned reporting task over already completed artifacts.
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/2026-04-17-*track1_svr_exact_faithful*`
 - `doc/reports/analysis/validation_checks/2026-04-17-*track1_svr_exact_faithful*`
 - `doc/reports/campaign_results/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `scripts/reports/run_report_pipeline.py`
 - `scripts/reports/generate_styled_report_pdf.py`

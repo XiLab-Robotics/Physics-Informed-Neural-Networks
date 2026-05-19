@@ -49,7 +49,7 @@ keeps the better canonical family-best score.
 
 - `doc/reports/campaign_results/wave1/`
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `models/exported/`
 - `models/README.md`
 - `scripts/reports/closeout/wave1/`

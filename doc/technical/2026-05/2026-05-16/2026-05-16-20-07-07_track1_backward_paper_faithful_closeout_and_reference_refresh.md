@@ -36,7 +36,7 @@ added for the forward closeout where the same table shapes appear.
 - `scripts/reports/closeout/track1/closeout_track1_forward_paper_faithful_grid_search_campaign.py`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `doc/running/active_training_campaign.yaml`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/campaign_results/track1/exact_paper/backward/`
 - `models/paper_reference/rcim_track1/backward/`

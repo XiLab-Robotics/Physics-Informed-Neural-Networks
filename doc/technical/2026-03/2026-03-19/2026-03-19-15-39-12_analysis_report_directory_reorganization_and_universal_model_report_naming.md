@@ -26,8 +26,8 @@ The proposed structure is:
 
 - `doc/reports/analysis/model_explanatory/`
 - `doc/reports/analysis/training_analysis/`
-- `doc/reports/analysis/analytical_studies/`
-- `doc/reports/analysis/family_studies/`
+- `doc/reports/analysis/te_modeling/analytical_studies/`
+- `doc/reports/analysis/te_modeling/family_studies/`
 
 This keeps the directory readable while preserving the semantic distinction between the different report classes already present in the repository.
 
@@ -56,13 +56,13 @@ The non-model reports should also be moved into more meaningful categories.
 The intended mapping is:
 
 - `2026-03-12-13-18-30_feedforward_trial_analytical_report.md`
-  -> `doc/reports/analysis/analytical_studies/FeedForward Trial Analytical Report.md`
+  -> `doc/reports/analysis/te_modeling/analytical_studies/FeedForward Trial Analytical Report.md`
 - `2026-03-12-13-38-17_training_configuration_analysis_report.md`
   -> `doc/reports/analysis/training_analysis/Training Configuration Analysis.md`
 - `2026-03-12-13-38-17_training_configuration_analysis_report.pdf`
   -> `doc/reports/analysis/training_analysis/Training Configuration Analysis.pdf`
 - `2026-03-17-15-46-01_te_model_family_analysis_report.md`
-  -> `doc/reports/analysis/family_studies/TE Model Family Analysis.md`
+  -> `doc/reports/analysis/te_modeling/family_studies/TE Model Family Analysis.md`
 
 This preserves meaning while making the top-level analysis folder much less noisy.
 

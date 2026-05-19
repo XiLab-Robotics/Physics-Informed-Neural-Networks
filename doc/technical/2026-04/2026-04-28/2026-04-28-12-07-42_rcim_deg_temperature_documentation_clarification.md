@@ -46,9 +46,9 @@ Primary reference inputs:
 
 Primary documentation targets to inspect:
 
-- `doc/reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 
 Index target:
 

@@ -77,8 +77,8 @@ Current exact-paper implementation surface to modify:
 
 Reference material that should stay in scope:
 
-- [RCIM Recovered Asset Deep Analysis.md](../../../reports/analysis/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
-- [RCIM Exact Paper Model Bank Workflow.md](../../../reports/analysis/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
+- [RCIM Recovered Asset Deep Analysis.md](../../../reports/analysis/rcim_paper_reference/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
+- [RCIM Exact Paper Model Bank Workflow.md](../../../reports/analysis/rcim_paper_reference/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
 - `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/1-prediction/1-predictorML_v7.py`
 - `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/`
 
@@ -92,7 +92,7 @@ New repository workflow components likely to be added:
 Canonical documentation likely to be updated:
 
 - `doc/guide/project_usage_guide.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `site/`

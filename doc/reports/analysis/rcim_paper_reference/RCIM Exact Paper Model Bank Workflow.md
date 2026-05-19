@@ -27,7 +27,7 @@ Important scope clarification:
   the canonical bidirectional Track 1 reimplementation on the project dataset;
 - completed forward and backward paper-faithful campaigns now populate
   `models/paper_reference/rcim_track1/` and
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 - this makes Track 1 closed as the full-dataset faithful model-bank
   reproduction, without claiming that every colored benchmark cell is green.
 
@@ -298,7 +298,7 @@ The current Track 1 state is:
 - accepted model archives: promoted under
   `models/paper_reference/rcim_track1/`;
 - benchmark tables: regenerated in
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
 That is the point where `Track 1` stops being only paper-aligned and becomes an
 auditable, repository-owned paper-faithful reproduction branch for RCIM Tables

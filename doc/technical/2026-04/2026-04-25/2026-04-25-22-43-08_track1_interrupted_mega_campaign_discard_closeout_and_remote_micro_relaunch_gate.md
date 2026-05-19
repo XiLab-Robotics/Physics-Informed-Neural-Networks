@@ -55,7 +55,7 @@ Phase `3` is gated mega-campaign re-preparation:
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_results/track1/exact_paper/`
 - `doc/reports/campaign_plans/track1/exact_paper/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `scripts/campaigns/track1/exact_paper/run_exact_paper_campaign_remote.ps1`
 - `scripts/campaigns/track1/exact_paper/run_track1_bidirectional_original_dataset_mega_campaign.ps1`
 - `scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py`

@@ -74,11 +74,11 @@ some pickle artifacts.
 - `reference/rcim_ml_compensation_recovered_assets/data/instance_archives/`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 Planned output:
 
-- `doc/reports/analysis/RCIM Recovered Asset Deep Analysis.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Recovered Asset Deep Analysis.md`
 
 ## Implementation Steps
 

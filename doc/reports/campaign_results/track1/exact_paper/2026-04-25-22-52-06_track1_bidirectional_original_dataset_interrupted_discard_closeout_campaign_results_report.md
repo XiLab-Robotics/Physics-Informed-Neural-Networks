@@ -122,7 +122,7 @@ These paths remain useful for troubleshooting and provenance only.
 
 This closeout intentionally does **not** update:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - family or program best-run registries
 - `models/paper_reference/rcim_track1/`

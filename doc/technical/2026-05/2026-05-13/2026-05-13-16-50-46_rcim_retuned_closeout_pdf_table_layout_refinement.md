@@ -9,7 +9,7 @@ more readable and consistent.
 
 The target PDF is:
 
-`doc/reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.pdf`
+`doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.pdf`
 
 The requested refinements are:
 
@@ -44,8 +44,8 @@ changed.
 
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/closeout/closeout_rcim_retuned_reference_archive.py`
-- `doc/reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`
-- `doc/reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.pdf`
+- `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`
+- `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.pdf`
 - `output/validation_checks/reports/rcim_retuned_reference_closeout_pdf_validation/`
 
 No subagent is planned for this implementation.

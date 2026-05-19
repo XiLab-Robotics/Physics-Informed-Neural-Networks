@@ -110,7 +110,7 @@ The planned implementation must define and document:
   Primary workflow to be adapted from direct provider calls to LAN services.
 - `scripts/tooling/analyze_video_guides.py`
   Existing OCR and frame-extraction support.
-- `doc/reports/analysis/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md`
+- `doc/reports/analysis/utilities/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md`
   Decision report that justifies this architecture.
 
 Planned new implementation artifacts are expected to include:

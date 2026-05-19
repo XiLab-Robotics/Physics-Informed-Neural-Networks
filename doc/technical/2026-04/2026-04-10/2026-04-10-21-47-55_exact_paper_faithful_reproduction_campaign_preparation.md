@@ -57,8 +57,8 @@ That means:
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `reference/rcim_ml_compensation_recovered_assets/`
 - `scripts/paper_reimplementation/rcim_ml_compensation/`

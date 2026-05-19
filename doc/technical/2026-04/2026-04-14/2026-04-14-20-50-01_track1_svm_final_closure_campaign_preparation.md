@@ -44,7 +44,7 @@ single deterministic rerun.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/campaign_plans/`
 - `doc/running/active_training_campaign.yaml`

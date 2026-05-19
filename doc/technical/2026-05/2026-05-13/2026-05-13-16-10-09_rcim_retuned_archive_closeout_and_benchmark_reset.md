@@ -8,7 +8,7 @@ curated repository archive and a refreshed benchmark report surface.
 The immediate operator request is to validate the retuned model artifacts
 created by the recovered-original launcher, promote archive-grade models into
 `models/paper_reference/rcim_retuned/`, generate a detailed PDF report, and
-reset `doc/reports/analysis/RCIM Paper Reference Benchmark.md` around the new
+reset `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` around the new
 paper-original, paper-retuned, and Track 1 comparison structure.
 
 The active campaign state is `cancelled`, so no currently running campaign file
@@ -38,7 +38,7 @@ The closeout will use a validation-first promotion flow.
    it to PDF with
    `scripts/reports/pdf/generate_styled_report_pdf.py`; validate the real PDF
    with the repository PDF validation tooling.
-6. Rewrite `doc/reports/analysis/RCIM Paper Reference Benchmark.md` around the
+6. Rewrite `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` around the
    new canonical structure:
    forward and backward copies of Tables `2`, `3`, `4`, and `5`;
    paper-original, paper-retuned, and Track 1 variants for each table;
@@ -60,7 +60,7 @@ The Track 1 colored markers will compare against the best available baseline:
 - `models/paper_reference/rcim_retuned/`
 - `models/paper_reference/README.md`
 - `models/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/validate_report_pdf.py`

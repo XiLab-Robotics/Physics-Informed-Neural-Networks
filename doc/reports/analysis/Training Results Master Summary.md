@@ -235,7 +235,7 @@ workflows must load TE curves directly from `data/datasets` through
 `config/datasets/transmission_error_dataset.yaml`.
 
 Current Track 2 output:
-`doc/reports/analysis/Track 2 Directional Model Comparison.md`, backed by
+`doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`, backed by
 `output/validation_checks/track2_reference_comparison/2026-05-18-16-35-26__track2_full_directional_family_matrix_composite_best_reference_validation/`.
 The report-facing PNG overlays are grouped under
 `doc/reports/campaign_results/track 2/`.
@@ -249,7 +249,7 @@ The report-facing PNG overlays are grouped under
   `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
 - Accepted paper-reference archive root: `models/paper_reference/rcim_track1/`
 - Canonical Tables `2`-`5` benchmark report:
-  `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - Latest exact-paper closeout report:
   `doc/reports/campaign_results/track1/exact_paper/backward/2026-05-16-20-07-07_track1_backward_paper_faithful_grid_search_closeout_report.md`
 - Prior forward exact-paper closeout report:
@@ -794,6 +794,6 @@ The report-facing PNG overlays are grouped under
 - Family registries root: `output/registries/families`
 - Training campaign root: `output/training_campaigns`
 - Training run root: `output/training_runs`
-- Paper reference report: `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- Paper reference report: `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 This document is repository-generated. Regenerate it after new campaign results so the cross-family snapshot stays aligned with the canonical registries and campaign artifacts.

@@ -12,7 +12,7 @@ the repository-owned reimplementation under
 `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank`,
 and the Track 1 paper-reference result surface under
 `models/paper_reference/rcim_track1` and
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
 ## Technical Approach
 
@@ -34,7 +34,7 @@ exact-model-bank campaigns, to the archived reference models and RCIM Tables
 - `README.md`, only if the public-facing project overview needs a short
   capability pointer.
 - `doc/reports/analysis/Training Results Master Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `models/README.md`
 - `models/paper_reference/README.md`
 - `models/paper_reference/rcim_track1/README.md`

@@ -3,7 +3,7 @@
 ## Overview
 
 This document plans the correction of `Track 1` status markers in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` after commit
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` after commit
 `ce0237d27cd7466bd14e16d767fccf125e3ee2eb` corrected several Table 2 paper
 original values.
 
@@ -26,7 +26,7 @@ RCIM paper source before changing the benchmark report.
 ## Involved Components
 
 - `reference/RCIM_ML-compensation.pdf`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/README.md`
 - Markdown QA tooling under `scripts/tooling/markdown/`
 

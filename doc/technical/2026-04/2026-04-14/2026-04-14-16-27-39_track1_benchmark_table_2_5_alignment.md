@@ -3,7 +3,7 @@
 ## Overview
 
 The canonical `Track 1` benchmark in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` currently mixes two
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` currently mixes two
 different numbering schemes:
 
 - the true paper tables for amplitude/phase error matrices;
@@ -51,7 +51,7 @@ mapping and keep the `🟢/🟡/🔴` markers synchronized with the numeric valu
 ## Involved Components
 
 - `reference/RCIM_ML-compensation.pdf`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `scripts/reports/refresh_track1_benchmark_colored_markers.py`
 - repository-owned exact-paper validation reports under
   `doc/reports/analysis/validation_checks/`

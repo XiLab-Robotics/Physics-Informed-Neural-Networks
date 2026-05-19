@@ -7,7 +7,7 @@
 - finished at: `2026-05-15T07:07:30+02:00`
 - closed direction: `forward`
 - refreshed archive root: `models/paper_reference/rcim_track1/forward`
-- benchmark report: `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- benchmark report: `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 ## Family Results
 

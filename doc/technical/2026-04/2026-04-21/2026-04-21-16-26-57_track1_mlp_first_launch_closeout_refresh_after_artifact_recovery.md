@@ -50,7 +50,7 @@ in place.
 ## Involved Components
 
 - `doc/reports/campaign_results/track1/exact_paper/forward/2026-04-21-14-58-00_track1_open_cell_full_matrix_closure_campaign_results_report.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/analysis/validation_checks/`

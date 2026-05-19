@@ -33,7 +33,7 @@ The following surfaces will be kept aligned:
 
 - `reference_inventory.yaml`
 - `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `models/.gitignore`
 
 ## Involved Components
@@ -41,7 +41,7 @@ The following surfaces will be kept aligned:
 - `models/paper_reference/rcim_track1/forward/svm_reference_models/`
 - `models/paper_reference/rcim_track1/forward/svm_reference_models/reference_inventory.yaml`
 - `models/paper_reference/rcim_track1/forward/svm_reference_models/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `models/.gitignore`
 - `doc/technical/2026-04/2026-04-17/README.md`
 - `doc/README.md`

@@ -108,7 +108,7 @@ Local form:
 
 After execution and review, the closeout must refresh:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 - `doc/reports/analysis/Training Results Master Summary.md`;
 - the accepted family-row colored replication matrices for Tables `2-5`;
 - exact-paper family registries if any new accepted winners are promoted;

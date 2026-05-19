@@ -54,7 +54,7 @@ tracking reports.
 ## Involved Components
 
 - `doc/running/te_model_live_backlog.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/README.md`
 - `doc/technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md`
 

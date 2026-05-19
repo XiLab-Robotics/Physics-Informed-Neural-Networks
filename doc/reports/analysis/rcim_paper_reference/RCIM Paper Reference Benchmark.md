@@ -87,7 +87,7 @@ It was generated from:
 `config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/full_track2_matrix_template.yaml`.
 
 Canonical report:
-`doc/reports/analysis/Track 2 Directional Model Comparison.md`.
+`doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`.
 
 Validation report:
 `doc/reports/analysis/validation_checks/track2/2026-05-18-17-26-52_track2_full_directional_family_matrix_composite_best_reference_validation_report.md`.

@@ -76,8 +76,8 @@ table comparison.
 - `reference/RCIM_ML-compensation.pdf`
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 - `scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml`

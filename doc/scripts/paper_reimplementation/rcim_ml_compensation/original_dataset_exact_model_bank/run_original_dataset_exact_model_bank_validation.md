@@ -33,7 +33,7 @@ The accepted Track 1 forward and backward campaign outputs are archived under:
 
 The canonical Tables `2`-`5` benchmark report is:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 Track 1 is closed for the current full-dataset faithful reproduction: both
 directions were searched, accepted archives were refreshed, and Tables `2`-`5`

@@ -72,7 +72,7 @@ path:
 
 ## Benchmark Reset Plan
 
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` must be reset before
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` must be reset before
 the new bidirectional campaign becomes the canonical reference.
 
 Planned benchmark changes:

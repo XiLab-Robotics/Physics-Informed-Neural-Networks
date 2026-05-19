@@ -93,8 +93,8 @@ Likely documentation surfaces to update:
 - `doc/README.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/`
 - `doc/guide/project_usage_guide.md`
-- `doc/reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
 - `site/api/paper_reimplementation/`
 - `site/guide/project_usage_guide.md`
 

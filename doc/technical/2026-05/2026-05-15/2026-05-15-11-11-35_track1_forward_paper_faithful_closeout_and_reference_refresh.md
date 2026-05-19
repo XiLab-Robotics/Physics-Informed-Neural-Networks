@@ -37,7 +37,7 @@ exports, ONNX exports, and campaign log evidence.
   contains the campaign-level forward run logs and campaign bookkeeping.
 - `models/paper_reference/rcim_track1/` is the Track 1 paper-reference archive
   that must be refreshed with the new forward artifacts.
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md` must be recompiled
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` must be recompiled
   for Tables `2`-`5` with green/yellow/red status markers.
 - `doc/reports/analysis/Training Results Master Summary.md`, the relevant
   campaign-results report area, and model-archive README files must remain
@@ -58,7 +58,7 @@ exports, ONNX exports, and campaign log evidence.
    artifacts while preserving archive traceability.
 4. Generate or update the forward closeout report and linked model-archive
    documentation, including the reference-refresh provenance.
-5. Recompile `doc/reports/analysis/RCIM Paper Reference Benchmark.md` Tables
+5. Recompile `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` Tables
    `2`-`5` with the current forward metrics and green/yellow/red status
    markers.
 6. Update `doc/reports/analysis/Training Results Master Summary.md`,

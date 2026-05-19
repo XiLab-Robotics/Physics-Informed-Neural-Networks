@@ -55,65 +55,65 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
-- [reports/analysis/RCIM Paper Reference Archive Parity Interpretation.md](./reports/analysis/RCIM%20Paper%20Reference%20Archive%20Parity%20Interpretation.md)
+- [reports/analysis/rcim_paper_reference/RCIM Paper Reference Archive Parity Interpretation.md](./reports/analysis/rcim_paper_reference/RCIM%20Paper%20Reference%20Archive%20Parity%20Interpretation.md)
   Canonical interpretation of the repository-local parity check across
   `models/paper_reference/rcim_original`, `rcim_retuned`, and `rcim_track1`.
-- [reports/analysis/RCIM Original ONNX Release Parity Interpretation.md](./reports/analysis/RCIM%20Original%20ONNX%20Release%20Parity%20Interpretation.md)
+- [reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md](./reports/analysis/rcim_paper_reference/RCIM%20Original%20ONNX%20Release%20Parity%20Interpretation.md)
   Canonical interpretation of the recovered original ONNX release parity check
   against the repository `rcim_original/forward` archive and Track 2 forward
   curve evaluation.
-- [reports/analysis/linux_script_portability/[2026-05-16]/script_portability_inventory.md](./reports/analysis/linux_script_portability/%5B2026-05-16%5D/script_portability_inventory.md)
+- [reports/analysis/utilities/linux_script_portability/[2026-05-16]/script_portability_inventory.md](./reports/analysis/utilities/linux_script_portability/%5B2026-05-16%5D/script_portability_inventory.md)
   Refreshed repository-wide script portability inventory after the final
   Linux Bash-equivalent sweep for campaign, tooling, and report scripts.
-- [reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.md](./reports/analysis/linux_script_portability/%5B2026-05-15%5D/script_portability_inventory.md)
+- [reports/analysis/utilities/linux_script_portability/[2026-05-15]/script_portability_inventory.md](./reports/analysis/utilities/linux_script_portability/%5B2026-05-15%5D/script_portability_inventory.md)
   Repository-wide script portability inventory for the Unimore Aries Linux
   migration, including per-script platform-flag and Bash-equivalent status.
-- [reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md](./reports/analysis/RCIM%20Original%20Pipeline%20To%20Reimplementation%20Companion.md)
+- [reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md](./reports/analysis/rcim_paper_reference/RCIM%20Original%20Pipeline%20To%20Reimplementation%20Companion.md)
   Deep explanatory companion that walks through the recovered original RCIM
   prediction pipeline, maps the active `v18` path inside `predictorML_v7.py`,
   and explains how the repository exact-paper reimplementation redistributes
   that workflow.
-- [reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md](./reports/analysis/RCIM%20Original%20Pipeline%20And%20Reimplementation%20Audit.md)
+- [reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md](./reports/analysis/rcim_paper_reference/RCIM%20Original%20Pipeline%20And%20Reimplementation%20Audit.md)
   Code-level audit of the copied recovered RCIM original workflow versus the
   current repository reimplementation, including runnable-stage boundaries and
   the main engineering divergences.
-- [reports/analysis/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
+- [reports/analysis/wave1/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md](./reports/analysis/wave1/wave1_best_model_te_curve_prediction/%5B2026-04-25%5D/wave1_best_model_te_curve_prediction_report.md)
   Offline comparison report for the current Wave 1 family-best models on a
   deterministic 20% subset of the canonical held-out TE test curves, including
   aggregate metrics and plot artifact pointers.
-- [reports/analysis/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
+- [reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/rcim_paper_reference/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
   Explanatory report for the strict paper-faithful RCIM family-bank branch,
   including the exact target schema, recovered family inventory, operating
   principle, Python structure, and relationship with the older repository-owned
   harmonic-wise branch.
-- [reports/analysis/RCIM Recovered Asset Deep Analysis.md](./reports/analysis/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
+- [reports/analysis/rcim_paper_reference/RCIM Recovered Asset Deep Analysis.md](./reports/analysis/rcim_paper_reference/RCIM%20Recovered%20Asset%20Deep%20Analysis.md)
   Deep implementation-facing analysis of the recovered RCIM paper assets,
   including the exact ONNX family bank, original and later code generations,
   backup evolution, TwinCAT export evidence, archive limitations, and the
   exact consequences for faithful `Track 1` reimplementation.
-- [reports/analysis/RCIM Paper Reference Benchmark.md](./reports/analysis/RCIM%20Paper%20Reference%20Benchmark.md)
+- [reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md](./reports/analysis/rcim_paper_reference/RCIM%20Paper%20Reference%20Benchmark.md)
   Canonical repository-owned RCIM Tables `2`-`5` benchmark surface, now backed
   by the faithful Track 1 exact-model-bank reimplementation and accepted
   `models/paper_reference/rcim_track1/` archives.
-- [reports/analysis/Track 2 Directional Model Comparison.md](./reports/analysis/Track%202%20Directional%20Model%20Comparison.md)
+- [reports/analysis/track2/Track 2 Directional Model Comparison.md](./reports/analysis/track2/Track%202%20Directional%20Model%20Comparison.md)
   Canonical `Track 2` offline matrix comparing accepted `Track 1`, recovered
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
-- [reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
+- [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
   `2`-`5` for both directions.
 - [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
   Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
-- [reports/analysis/Wave 1 - Closeout Status.md](./reports/analysis/Wave%201%20-%20Closeout%20Status.md)
+- [reports/analysis/wave1/Wave 1 - Closeout Status.md](./reports/analysis/wave1/Wave%201%20-%20Closeout%20Status.md)
   Consolidated closeout report for `Wave 1`, covering campaign completion status, compared families, family winners, and final ranking.
-- [reports/analysis/Skill and Subagent Operational Test.md](./reports/analysis/Skill%20and%20Subagent%20Operational%20Test.md)
+- [reports/analysis/utilities/Skill and Subagent Operational Test.md](./reports/analysis/utilities/Skill%20and%20Subagent%20Operational%20Test.md)
   Operational test report for the second wave of repository-owned Codex skills and subagents.
-- [reports/analysis/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/Twincat-Friendly%20Structured%20TE%20Modeling.md)
+- [reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/te_modeling/Twincat-Friendly%20Structured%20TE%20Modeling.md)
   Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
-- [reports/analysis/Code Documentation Platform Comparison.md](./reports/analysis/Code%20Documentation%20Platform%20Comparison.md)
+- [reports/analysis/utilities/Code Documentation Platform Comparison.md](./reports/analysis/utilities/Code%20Documentation%20Platform%20Comparison.md)
   Comparative analysis of repository documentation-platform options in the readable-filename analysis-report layout.
-- [reports/analysis/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md](./reports/analysis/Local%20LAN%20AI%20Infrastructure%20Options%20for%20Video%20Knowledge%20Extraction.md)
+- [reports/analysis/utilities/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md](./reports/analysis/utilities/Local%20LAN%20AI%20Infrastructure%20Options%20for%20Video%20Knowledge%20Extraction.md)
   Comparative architecture report for local and LAN-accessible transcript, OCR, and LLM infrastructure for the TwinCAT/TestRig video workflow.
 - [reports/analysis/twincat_video_guides/[2026-04-02]/remote_high_quality_video_campaign_sum_up.md](./reports/analysis/twincat_video_guides/%5B2026-04-02%5D/remote_high_quality_video_campaign_sum_up.md)
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
@@ -121,6 +121,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-19
+
+- [technical/2026-05/2026-05-19/2026-05-19-10-21-12_analysis_report_reorganization.md](./technical/2026-05/2026-05-19/2026-05-19-10-21-12_analysis_report_reorganization.md)
+  Plan the topic-root reorganization of `doc/reports/analysis/`, including
+  validation-check report consolidation, RCIM paper-reference grouping, Wave 1
+  grouping, and utility report grouping.
 
 - [technical/2026-05/2026-05-19/2026-05-19-09-50-45_paper_reference_parity_command_env_rename_fix.md](./technical/2026-05/2026-05-19/2026-05-19-09-50-45_paper_reference_parity_command_env_rename_fix.md)
   Plan the stale Conda environment-name correction in the paper-reference

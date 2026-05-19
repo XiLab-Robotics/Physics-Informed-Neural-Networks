@@ -40,7 +40,7 @@ Its accepted forward/backward model archives and Tables `2`-`5` benchmark
 surface are:
 
 - `models/paper_reference/rcim_track1/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 The current Track 1 full-dataset surface is closed as a faithful
 forward/backward reproduction. Future restricted-dataset reruns should use this

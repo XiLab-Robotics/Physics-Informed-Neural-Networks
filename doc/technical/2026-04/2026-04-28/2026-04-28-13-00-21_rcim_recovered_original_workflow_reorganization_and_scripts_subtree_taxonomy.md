@@ -114,8 +114,8 @@ Documentation surfaces likely to update:
 
 - `doc/README.md`
 - `doc/scripts/paper_reimplementation/rcim_ml_compensation/`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
-- `doc/reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
 
 No subagent use is planned. If that changes, explicit user approval will be
 requested before any launch.

@@ -77,7 +77,7 @@ of duplicating the full monolithic bundle unchanged.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `models/.gitignore`
 - `models/README.md`
 - `models/paper_reference/README.md`

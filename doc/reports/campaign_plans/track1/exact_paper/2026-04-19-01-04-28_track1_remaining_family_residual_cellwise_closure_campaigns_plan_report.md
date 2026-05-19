@@ -190,7 +190,7 @@ Aggregate overnight remote form:
 
 The closeout for this wave must update:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `Tables 2-5` family-by-family marker matrices
 - harmonic-level Table `6` closure interpretation

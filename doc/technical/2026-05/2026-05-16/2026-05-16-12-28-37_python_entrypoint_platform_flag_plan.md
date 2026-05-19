@@ -18,7 +18,7 @@ No subagent use is planned for this tranche.
 ## Technical Approach
 
 The implementation will start from the current inventory in
-`doc/reports/analysis/linux_script_portability/[2026-05-16]/` and inspect the
+`doc/reports/analysis/utilities/linux_script_portability/[2026-05-16]/` and inspect the
 listed scripts before editing them. Scripts will be grouped by behavior instead
 of applying a blind textual change:
 
@@ -64,7 +64,7 @@ The planned scope is the Python portion of the portability inventory:
 - `scripts/tooling/technical_documents/`
 - `scripts/tooling/video_guides/`
 - `scripts/training/`
-- `doc/reports/analysis/linux_script_portability/[2026-05-16]/`
+- `doc/reports/analysis/utilities/linux_script_portability/[2026-05-16]/`
 - `doc/README.md`
 
 The protected-campaign file rule remains in force. If inspection shows that a

@@ -10,7 +10,7 @@
 - Bash scripts: `85`
 - report-domain scripts: `28`
 - report-domain scripts with platform flags: `3`
-- inventory YAML: `doc/reports/analysis/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
+- inventory YAML: `doc/reports/analysis/utilities/linux_script_portability/[2026-05-15]/script_portability_inventory.yaml`
 
 ## Status Counts
 

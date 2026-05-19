@@ -74,7 +74,7 @@ reporting alignment.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/technical/2026-04/2026-04-20/README.md`
 - `doc/README.md`

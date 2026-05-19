@@ -61,7 +61,7 @@ The script should generate one timestamped artifact directory containing:
 - planned artifacts:
   `output/validation_checks/wave1_best_model_te_curve_prediction/<run_instance_id>/`
 - planned report:
-  `doc/reports/analysis/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md`
+  `doc/reports/analysis/wave1/wave1_best_model_te_curve_prediction/[2026-04-25]/wave1_best_model_te_curve_prediction_report.md`
 
 ## Implementation Steps
 

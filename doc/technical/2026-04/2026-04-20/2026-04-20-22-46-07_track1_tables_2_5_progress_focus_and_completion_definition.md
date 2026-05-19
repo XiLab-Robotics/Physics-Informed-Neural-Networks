@@ -7,7 +7,7 @@ status summaries and completion checks.
 
 From this point onward, repository-owned summaries of `Track 1` state should
 use the four colored full-matrix replication tables in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` as the primary
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` as the primary
 reference:
 
 - `Table 2 - Amplitude MAE Full-Matrix Replication`
@@ -60,7 +60,7 @@ policy clarification across the technical-document surface.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/technical/2026-04/2026-04-18/2026-04-18-11-02-15_track1_remaining_family_partial_closeout_and_benchmark_refresh.md`
 - `doc/technical/2026-04/2026-04-18/2026-04-18-16-29-35_track1_remaining_family_final_closeout_after_xgbm_lgbm_reruns.md`
 - `doc/technical/2026-04/2026-04-18/2026-04-18-16-47-12_track1_full_matrix_replication_table_refresh_after_closeout.md`

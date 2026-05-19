@@ -54,7 +54,7 @@ suffix on family names.
 
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `scripts/reports/analysis/generate_training_results_master_summary.py`
-- `doc/reports/analysis/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `output/registries/families/*/latest_family_best.yaml`
 - `output/registries/program/current_best_solution.yaml`
 - future wave-specific campaign closeout and reporting surfaces that feed the

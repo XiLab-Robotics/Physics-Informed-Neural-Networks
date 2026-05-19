@@ -102,7 +102,7 @@ Remote form:
 
 After execution and review, the closeout should update:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 - `doc/reports/analysis/Training Results Master Summary.md`;
 - the `MLP` row of the four canonical full-matrix replication tables;
 - the accepted exact-paper `MLP` family inventory where promotions are justified;

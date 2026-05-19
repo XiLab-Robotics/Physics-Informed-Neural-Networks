@@ -61,7 +61,7 @@ The final pass must cover four surfaces together:
      to the final results report;
 3. canonical analysis refresh:
    - refresh
-     `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+     `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
    - refresh
      `doc/reports/analysis/Training Results Master Summary.md`;
    - refresh the family-by-family colored `Tables 2-5` whenever accepted cell
@@ -95,7 +95,7 @@ The closeout should also explicitly acknowledge the current artifact gap:
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/lgbm/track1_lgbm_cellwise_reference_campaign_2026_04_18_22_28_04/`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
 - `doc/reports/campaign_results/track1/exact_paper/forward/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 
 ## Implementation Steps

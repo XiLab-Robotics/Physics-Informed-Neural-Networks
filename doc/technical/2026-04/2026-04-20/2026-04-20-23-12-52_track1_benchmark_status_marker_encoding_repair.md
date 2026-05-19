@@ -3,7 +3,7 @@
 ## Overview
 
 This technical document covers the repair of corrupted status-marker glyphs in
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
 
 The current benchmark file no longer renders the intended colored `Track 1`
 status markers consistently. In multiple sections, the expected `🟢`, `🟡`, and
@@ -48,7 +48,7 @@ repair.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/technical/2026-04/2026-04-20/README.md`
 - `doc/README.md`
 - `scripts/tooling/markdown/markdown_style_check.py`

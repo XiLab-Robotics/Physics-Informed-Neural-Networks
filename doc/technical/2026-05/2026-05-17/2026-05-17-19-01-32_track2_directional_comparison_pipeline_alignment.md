@@ -110,7 +110,7 @@ registry or archive, and dataset split explicit for every row.
 
 ## Involved Components
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
   - restore a concise `Track 2` section;
   - describe the direction-aware comparison contract;
   - link the current historical `LGBM-19` smoke report and the future canonical
@@ -145,7 +145,7 @@ registry or archive, and dataset split explicit for every row.
 ## Implementation Steps
 
 1. Recover the document-only `Track 2` context in
-   `doc/reports/analysis/RCIM Paper Reference Benchmark.md`.
+   `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`.
    - Record the historical `LGBM-19` versus global `feedforward` smoke result
      as superseded evidence.
    - Add the new direction-aware comparison rule.

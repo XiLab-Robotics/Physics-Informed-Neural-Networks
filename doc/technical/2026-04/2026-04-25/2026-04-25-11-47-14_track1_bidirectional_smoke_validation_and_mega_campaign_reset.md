@@ -17,7 +17,7 @@ to end:
 - artifact creation, report generation, and benchmark integration.
 
 The user also requested a reset of the canonical
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md` tables because the
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` tables because the
 project is restarting the `Track 1` exact-model replication from zero on the
 original dataset rather than continuing the older recovered forward-only wave.
 
@@ -58,7 +58,7 @@ The benchmark reset is handled as part of the approved implementation:
 - `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank_support.py`
 - `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank_support.py`
 - `config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/campaign_plans/track1/exact_paper/`
 - `scripts/campaigns/track1/exact_paper/`
 - `doc/scripts/campaigns/`

@@ -48,7 +48,7 @@ repository-owned training, reporting, and backlog artifacts.
 ## Involved Components
 
 - `reference/RCIM_ML-compensation.pdf`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/campaign_plans/`
 - `doc/running/te_model_live_backlog.md`
 - `doc/README.md`

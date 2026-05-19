@@ -108,7 +108,7 @@ Primary remote overnight form:
 
 After execution and closeout, the repository must refresh:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 - `doc/reports/analysis/Training Results Master Summary.md`;
 - the bidirectional paper-reference archives under
   `models/paper_reference/rcim_track1/`;

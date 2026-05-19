@@ -710,7 +710,7 @@ def write_benchmark_markdown(
         "- archive root: `models/paper_reference/rcim_retuned/`",
         "- accepted export contract: `20` ONNX files, `20` PKL files, `0` export errors",
         "- detailed closeout report:",
-        "  `doc/reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`",
+        "  `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`",
         "",
     ]
 
@@ -852,7 +852,7 @@ def read_paper_original_source_texts(benchmark_path: Path) -> list[str]:
             [
                 "git",
                 "show",
-                "HEAD:doc/reports/analysis/RCIM Paper Reference Benchmark.md",
+                "HEAD:doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md",
             ],
             cwd=PROJECT_ROOT,
             check=True,

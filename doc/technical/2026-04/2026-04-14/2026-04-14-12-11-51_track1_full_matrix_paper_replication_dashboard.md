@@ -57,7 +57,7 @@ The dashboard must be reframed from a `best achieved` view into a
 `paper-matrix replication` view.
 
 The canonical document may still remain
-`doc/reports/analysis/RCIM Paper Reference Benchmark.md`, but its new section
+`doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`, but its new section
 must be organized around direct matrix replication first.
 
 Required dashboard structure:
@@ -116,7 +116,7 @@ real table width in Markdown and PDF views.
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-13-22-09-00_paper_reimplementation_rcim_exact_model_bank_exact_open_cell_paper_family_reference_campaign_run_exact_paper_model_bank_report.md`
 - `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/open_cell_repair/shared/2026-04-13-22-08-40__exact_open_cell_paper_family_reference_campaign_run/validation_summary.yaml`

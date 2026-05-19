@@ -30,8 +30,8 @@ eval, export, model regeneration, or campaign-state mutation is planned.
 ## Involved Components
 
 - `scripts/reports/closeout/closeout_rcim_retuned_reference_archive.py`
-- `doc/reports/analysis/rcim_retuned_reference_closeout/[2026-05-13]/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `scripts/reports/pdf/generate_styled_report_pdf.py`
 - `scripts/reports/pdf/validate_report_pdf.py`
 - `doc/README.md`

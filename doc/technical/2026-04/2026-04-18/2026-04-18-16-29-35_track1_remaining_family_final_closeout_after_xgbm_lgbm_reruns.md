@@ -56,7 +56,7 @@ surface.
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/lgbm/track1_lgbm_full_matrix_campaign_2026_04_18_00_48_05/`
 - `output/training_campaigns/track1/exact_paper/forward/uncategorized/shared/track1_remaining_family_full_matrix_campaigns_2026_04_18_00_48_05/`
 - `doc/reports/campaign_results/track1/exact_paper/forward/`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 
 ## Implementation Steps

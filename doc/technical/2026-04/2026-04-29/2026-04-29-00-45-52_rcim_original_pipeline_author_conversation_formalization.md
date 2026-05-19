@@ -91,9 +91,9 @@ From the newly recovered original pipeline root:
 - `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/`
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
-- `doc/reports/analysis/RCIM Recovered Asset Deep Analysis.md`
-- `doc/reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Recovered Asset Deep Analysis.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
 - any README or note that still describes `original_pipeline/` as an empty
   placeholder or still assumes only the old split-fragment backup roots
 

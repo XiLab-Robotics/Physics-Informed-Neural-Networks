@@ -94,7 +94,7 @@ This task only improves the structure and discoverability of `Track 1`.
 ## Involved Components
 
 - `reference/RCIM_ML-compensation.pdf`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `scripts/training/run_harmonic_wise_comparison_pipeline.py`

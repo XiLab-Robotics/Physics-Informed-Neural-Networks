@@ -133,7 +133,7 @@ without mixing implementation-faithfulness and final-output quality.
 
 - `reference/RCIM_ML-compensation.pdf`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/running/te_model_live_backlog.md`
 - `scripts/training/run_harmonic_wise_comparison_pipeline.py`

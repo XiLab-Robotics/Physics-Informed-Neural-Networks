@@ -29,8 +29,8 @@ The work will also rename the recovered asset root from `reference/rcim_ml_compe
 - `reference/rcim_ml_compensation_recovered_assets/README.md`
 - `doc/reference_summaries/03_RCIM_ML_Compensation_Project_Summary.md`
 - `doc/reference_summaries/07_RCIM_Recovered_Assets_Project_Summary.md`
-- `doc/reports/analysis/RCIM Recovered Asset Deep Analysis.md`
-- `doc/reports/analysis/RCIM Exact Paper Model Bank Workflow.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Recovered Asset Deep Analysis.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md`
 - Additional repository documents and scripts that currently reference `reference/rcim_ml_compensation_recovered_assets/`
 
 ## Implementation Steps

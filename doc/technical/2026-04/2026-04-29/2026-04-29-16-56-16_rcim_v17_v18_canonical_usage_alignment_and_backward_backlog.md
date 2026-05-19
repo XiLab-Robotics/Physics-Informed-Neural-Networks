@@ -59,9 +59,9 @@ The pass should preserve important evidence distinctions:
 ## Involved Components
 
 - `reference/rcim_ml_compensation_recovered_assets/code/original_pipeline/README.md`
-- `doc/reports/analysis/RCIM Recovered Asset Deep Analysis.md`
-- `doc/reports/analysis/RCIM Original Pipeline To Reimplementation Companion.md`
-- `doc/reports/analysis/RCIM Original Pipeline And Reimplementation Audit.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Recovered Asset Deep Analysis.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`
 - `doc/running/te_model_live_backlog.md`
 - `doc/technical/2026-04/2026-04-29/README.md`
 - `doc/README.md`

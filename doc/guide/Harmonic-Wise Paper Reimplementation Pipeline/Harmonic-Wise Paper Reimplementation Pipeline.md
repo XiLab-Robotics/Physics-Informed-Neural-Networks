@@ -327,7 +327,7 @@ The current human-readable validation report is generated under:
 
 The canonical comparison reports that summarize the branch are:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/reports/analysis/validation_checks/track1/exact_paper/forward/shared/2026-04-12-17-00-28_paper_reimplementation_rcim_exact_model_bank_rcim_exact_paper_model_bank_exact_paper_validation_tables_3_4_5_6_exact_paper_model_bank_report.md`
 
@@ -336,7 +336,7 @@ The canonical comparison reports that summarize the branch are:
 If you want to understand the branch quickly, read in this order:
 
 1. this guide;
-2. `doc/reports/analysis/RCIM Paper Reference Benchmark.md`;
+2. `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
 3. `doc/reports/analysis/validation_checks/track1/harmonic_wise/...harmonic_wise_comparison_report.md`;
 4. the pipeline script and support module.
 
@@ -364,6 +364,6 @@ winner-centric story. For `Track 1`, the table-replication branch is primary.
 
 ## Related Reading
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 - `doc/guide/project_usage_guide.md`

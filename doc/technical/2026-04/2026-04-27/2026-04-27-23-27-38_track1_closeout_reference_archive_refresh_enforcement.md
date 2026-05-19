@@ -47,7 +47,7 @@ The implementation should:
 - `models/README.md`
 - `models/paper_reference/README.md`
 - `models/paper_reference/rcim_track1/README.md`
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 
 ## Implementation Steps

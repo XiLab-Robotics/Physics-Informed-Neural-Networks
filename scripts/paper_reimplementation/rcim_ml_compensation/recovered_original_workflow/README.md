@@ -44,7 +44,7 @@ Accepted faithful Track 1 outputs from that reimplementation are promoted to:
 The benchmark tables that report those results against the paper and retuned
 reference surfaces live in:
 
-- `doc/reports/analysis/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 
 That downstream Track 1 surface is now closed for the current full-dataset
 faithful reproduction: both forward and backward grid-search campaigns were
