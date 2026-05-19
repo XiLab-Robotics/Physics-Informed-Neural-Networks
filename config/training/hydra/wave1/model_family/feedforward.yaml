@@ -1,0 +1,17 @@
+base_model_family: feedforward
+output_model_family: feedforward
+model_type: feedforward
+base_run_name: te_feedforward_stride1_high_compute_long_remote
+note_fragment: Feedforward high-compute long-run pilot composed through Hydra.
+
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+    - 256
+    - 256
+    - 128
+    - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true

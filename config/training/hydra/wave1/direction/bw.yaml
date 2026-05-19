@@ -1,0 +1,7 @@
+training_variant: Bw
+filename_token: bw
+run_suffix: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+note_fragment: backward-only data scope.

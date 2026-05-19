@@ -122,6 +122,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-19
 
+- [technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md](./technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md)
+  Plan the gradual `Hydra` configuration transition for `Wave 1` and future
+  waves while keeping closed `Track 1` exact-paper workflows stable unless a
+  future non-faithful branch opts in.
+
 - [technical/2026-05/2026-05-19/2026-05-19-16-27-02_rcim_archive_parity_interpretation_and_gbm_grid_fix.md](./technical/2026-05/2026-05-19/2026-05-19-16-27-02_rcim_archive_parity_interpretation_and_gbm_grid_fix.md)
   Plan the refined `rcim_original`, `rcim_retuned`, and `rcim_track1` archive
   parity interpretation plus the Track 1 GBM grid transcription fix.

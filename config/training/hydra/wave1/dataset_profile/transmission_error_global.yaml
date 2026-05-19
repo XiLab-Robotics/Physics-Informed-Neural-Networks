@@ -1,0 +1,27 @@
+dataset_config_path: config/training/hydra/wave1/materialized/dataset_variants/transmission_error_dataset_${direction.filename_token}.yaml
+
+dataset_variant:
+  paths:
+    dataset_root: data/datasets
+  dataset:
+    reduction_ratio: 81.0
+    angular_window_deg:
+      minimum: 0.0
+      maximum: 360.0
+  directions:
+    use_forward_direction: ${direction.use_forward_direction}
+    use_backward_direction: ${direction.use_backward_direction}
+  split:
+    validation_split: 0.2
+    test_split: 0.1
+    random_seed: 42
+  dataloader:
+    batch_size: 8
+    num_workers: 0
+
+training_dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true

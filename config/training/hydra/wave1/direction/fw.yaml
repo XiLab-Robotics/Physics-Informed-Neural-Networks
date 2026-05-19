@@ -1,0 +1,7 @@
+training_variant: Fw
+filename_token: fw
+run_suffix: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+note_fragment: forward-only data scope.

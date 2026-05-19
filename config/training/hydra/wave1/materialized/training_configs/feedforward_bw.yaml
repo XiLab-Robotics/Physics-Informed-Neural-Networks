@@ -1,0 +1,55 @@
+paths:
+  dataset_config_path: config/training/hydra/wave1/materialized/dataset_variants/transmission_error_dataset_bw.yaml
+  output_root: output/training_runs/feedforward
+experiment:
+  run_name: te_feedforward_stride1_high_compute_long_remote_Bw
+  model_family: feedforward
+  model_type: feedforward
+metadata:
+  campaign_name: wave1_hydra_materialization_pilot
+  planning_report_path: doc/technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md
+  phase_name: wave1_hydra_config_materialization
+  campaign_config_id: feedforward_bw
+  notes: Hydra materialization pilot for Wave 1 and future-wave configuration transition.
+    Feedforward high-compute long-run pilot composed through Hydra. backward-only
+    data scope.
+  random_seed: 42
+  base_model_family: feedforward
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  hydra_transition_policy: wave1_future_waves_materialization_pilot
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size:
+  - 256
+  - 256
+  - 128
+  - 64
+  activation_name: GELU
+  dropout_probability: 0.1
+  use_layer_norm: true
+training:
+  learning_rate: 0.0007
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 320
+  patience: 45
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

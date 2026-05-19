@@ -1,0 +1,7 @@
+training_variant: global
+filename_token: global
+run_suffix: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+note_fragment: global data scope.

@@ -1,0 +1,19 @@
+random_seed: 42
+
+training:
+  learning_rate: 0.0007
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 320
+  patience: 45
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

@@ -20,6 +20,9 @@ At the moment, the implemented workflows are:
 - a mixed Wave 1 directional best-hyperparameter search workflow that combines
   bounded CPU grids for `tree` and `harmonic_regression` with persisted
   GPU-preferred `Optuna` studies for the directional neural winners;
+- a `Hydra` configuration-materialization pilot for `Wave 1` and future-wave
+  training configs that writes repository-compatible YAML without launching
+  training;
 - coordinated short PowerShell and Bash launchers for the paper-faithful
   `Track 1` reproduction campaign, including a Linux surface for the Unimore
   Aries clone;
@@ -139,6 +142,11 @@ The current usage flow mainly relies on these folders:
 - `scripts/campaigns/wave1/run_wave1_directional_best_hyperparameter_search_campaign.ps1`
   Canonical mixed launcher for the directional Wave 1 best-hyperparameter search
   campaign.
+
+- `scripts/training/compose_hydra_training_config.py`
+  Pilot `Hydra` composition entry point for materializing `Wave 1` and
+  future-wave training YAML while keeping queue execution in the existing
+  campaign pipeline.
 
 - `scripts/campaigns/track1/exact_paper/run_exact_paper_faithful_reproduction_campaign.ps1`
   Canonical coordinated launcher for the current paper-faithful `Track 1`
@@ -315,6 +323,22 @@ This workflow intentionally mixes:
   `residual_harmonic_mlp`;
 - one GPU-visible worker process per neural study slot, so the launcher can use
   multiple GPUs without pushing the host into a CPU-only saturation pattern.
+
+The repository now also exposes a `Hydra` materialization pilot for `Wave 1`
+and future-wave training configuration work:
+
+```powershell
+conda run -n pinns_env python -B scripts/training/compose_hydra_training_config.py `
+  --config-dir config/training/hydra/wave1 `
+  --config-name config
+```
+
+The pilot composes a training config, writes the resolved YAML under
+`config/training/hydra/wave1/materialized/`, and does not launch training. The
+existing campaign pipeline remains the execution boundary for queue movement,
+launcher behavior, artifact taxonomy, closeout reports, and registry refreshes.
+Use `--override direction=fw` or `--override direction=bw` to materialize a
+directional variant with a derived training-config and dataset-config path.
 
 The bidirectional paper-faithful `Track 1` grid-search campaign also has a
 Linux launcher for the Unimore Aries clone:
