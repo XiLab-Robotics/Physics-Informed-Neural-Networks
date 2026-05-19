@@ -2,12 +2,13 @@
 
 ## Program Overview
 
-This file is the canonical operational backlog for the TE model implementation program.
+This file is the canonical operational backlog for the TE model implementation
+program.
 
 Use this document as the day-to-day source of truth for:
 
 - current execution status;
-- completed waves;
+- completed waves and tracks;
 - next implementation targets;
 - deferred and low-priority branches;
 - promotion and comparison decisions.
@@ -16,82 +17,78 @@ Historical rationale and approval history remain in:
 
 - `doc/technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md`
 - `doc/technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md`
-- later TE-related technical notes under `doc/technical/2026-03/2026-03-17/`
+- later TE-related technical notes under `doc/technical/`
 
 ## Current Status
 
-- Program State: active
-- Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
-- Current Focus: the immediate implementation branch is now the offline
-  `Harmonic-Wise Comparison Pipeline`; its job is to establish the paper-
-  comparable harmonic baseline before `Wave 2` temporal models are opened
-- Current Best Implemented Family: `tree` (`hist_gradient_boosting`)
-- Current Best Implemented Run Registry: `output/registries/program/current_best_solution.yaml`
-- Track 1 RCIM paper-faithful model bank status: `closed` as a populated
-  forward/backward full-bank reproduction surface for Tables `2`-`5`; not an
-  all-green optimized benchmark.
-- Current Reference Feedforward Baseline Run:
-  - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/metrics_summary.yaml`
-  - `output/training_runs/feedforward/legacy__te_feedforward_stride5_long_large_batch/training_test_report.md`
-  - `output/registries/families/feedforward/latest_family_best.yaml`
-- Wave 0 Verification Artifacts:
-  - `output/training_runs/feedforward/2026-03-17-19-49-41__te_feedforward_trial/metrics_summary.yaml`
-  - `output/validation_checks/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_validation/validation_summary.yaml`
-  - `output/smoke_tests/feedforward/2026-03-17-19-49-04__te_feedforward_trial_registry_smoke_test/smoke_test_summary.yaml`
+- Program State: active.
+- Active Campaign State: no protected prepared or active campaign is currently
+  registered in `doc/running/active_training_campaign.yaml`.
+- Current Completed Wave: `Wave 1` structured-baseline optimization pass,
+  closed with `global`, `forward`, and `backward` model surfaces.
+- Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
+  a faithful full-bank reproduction surface for Tables `2`-`5`.
+- Current Focus: finish `Track 2` by closing the canonical direction-aware
+  offline comparison between recovered original, retuned, `Track 1`, and
+  `Wave 1` model surfaces.
+- Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
+- Current Best Implemented Run Registry:
+  `output/registries/program/current_best_solution.yaml`.
+
+Current canonical status reports:
+
+- `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/Training Results Master Summary.md`
+
+## Directional Rule
+
+The repository now treats direction as a first-class evaluation surface.
+
+The default rule for `Track 2`, `Wave 1`, and all future waves is:
+
+| Surface | Training / archive scope | Evaluation scope |
+| --- | --- | --- |
+| `global` | forward and backward together | both directions, reported separately |
+| `Fw` / `forward` | forward only | forward curves only |
+| `Bw` / `backward` | backward only | backward curves only |
+
+Exceptions require a new approved technical document. This rule applies whether
+the candidate comes from a paper-reference bank, a retuned archive, a
+repository-owned neural model, or a future deployable model package.
 
 ## Completed
 
-### Track 1 RCIM Paper-Faithful Model Bank
+### Planning Foundation
 
 Status:
 
-- closed
+- completed.
 
 Delivered:
-
-- recovered original RCIM workflow preserved under
-  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`
-- faithful original-dataset exact-model-bank implementation under
-  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`
-- completed forward paper-faithful grid-search campaign across
-  `SVR, MLP, RF, DT, ET, ERT, GBM, HGBM, LGBM, XGBM, ELM`
-- completed backward paper-faithful grid-search campaign across the same
-  operational family bank
-- refreshed accepted model archives under `models/paper_reference/rcim_track1/`
-- repopulated RCIM paper-reference Tables `2`-`5` in
-  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- documented Windows PowerShell and Linux Bash launcher surfaces for future
-  reruns
-
-Closure rule:
-
-- Track 1 is closed because the faithful full-bank protocol was run in both
-  directions and all benchmark cells were repopulated.
-- Green-only status is not a Track 1 closure requirement; all-green pursuit
-  would be a separate optimization branch because it changes the scientific
-  objective away from faithful protocol recovery.
-
-### Planning Foundation
 
 - TE family roadmap approved.
 - TE analytical family comparison report approved.
 - TE implementation backlog approved.
-- low-priority `Lightweight Transformer` and `Neural ODE` branches made explicit.
+- low-priority `Lightweight Transformer` and `Neural ODE` branches made
+  explicit.
 - additional family candidates added explicitly:
   - `State-Space Sequence Model`
   - `Mixture-of-Experts / Regime-Conditioned Model`
   - optional `Kernel Ridge / Gaussian Process` benchmark
 
-### Wave 0
+### Wave 0 Shared Infrastructure
 
 Status:
 
-- completed
+- completed.
 
 Delivered:
 
-- shared training infrastructure in `scripts/training/shared_training_infrastructure.py`
-- explicit `experiment.model_family` in feedforward presets
+- shared training infrastructure in
+  `scripts/training/shared_training_infrastructure.py`;
+- explicit `experiment.model_family` in feedforward presets;
 - common artifact names:
   - `training_config.yaml`
   - `metrics_summary.yaml`
@@ -101,213 +98,355 @@ Delivered:
   - `output/smoke_tests/`
   - `output/registries/`
 - reusable one-batch validation entry point:
-  - `scripts/training/validate_training_setup.py`
+  `scripts/training/validate_training_setup.py`;
 - reusable Lightning smoke-test entry point:
-  - `scripts/training/run_training_smoke_test.py`
-- feedforward training path updated to consume the shared infrastructure
-- documentation updated for the new runnable workflows
+  `scripts/training/run_training_smoke_test.py`;
+- feedforward training path updated to consume the shared infrastructure.
 
 Verification:
 
-- one-batch validation completed successfully
-- smoke test with checkpoint save/reload completed successfully
-- feedforward `trial` run completed successfully with the common metrics schema
-- Wave 0 `trial` artifacts are verification-only and are not the canonical program baseline
+- one-batch validation completed successfully;
+- smoke test with checkpoint save/reload completed successfully;
+- feedforward `trial` run completed successfully with the common metrics
+  schema;
+- Wave 0 `trial` artifacts are verification-only and are not the canonical
+  program baseline.
+
+### Recovered Original RCIM Pipeline
+
+Status:
+
+- completed and preserved as provenance evidence.
+
+Delivered:
+
+- recovered original RCIM workflow copied under
+  `scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/`;
+- original `v18` forward path and recovered pipeline structure documented in
+  `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline To Reimplementation Companion.md`;
+- code-level audit documented in
+  `doc/reports/analysis/rcim_paper_reference/RCIM Original Pipeline And Reimplementation Audit.md`;
+- original ONNX release parity interpretation documented in
+  `doc/reports/analysis/rcim_paper_reference/RCIM Original ONNX Release Parity Interpretation.md`;
+- archive parity across `rcim_original`, `rcim_retuned`, and `rcim_track1`
+  documented in
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Archive Parity Interpretation.md`.
+
+Operational meaning:
+
+- the recovered workflow is the code-level provenance anchor;
+- the copied original workflow is not the active implementation surface;
+- current comparisons use curated archives under `models/paper_reference/`.
+
+### Retuned RCIM Reference Archive
+
+Status:
+
+- completed as the current recovered-original retuned baseline.
+
+Delivered:
+
+- retuned forward and backward paper-reference archives promoted under
+  `models/paper_reference/rcim_retuned/`;
+- retuned family-direction archive count: `22`;
+- retuned closeout report:
+  `doc/reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md`;
+- retuned values integrated into the canonical RCIM Tables `2`-`5` benchmark
+  and Track 2 comparison matrix.
+
+Operational meaning:
+
+- forward `Track 1` cells compare against the better value between paper
+  original and paper retuned;
+- backward `Track 1` cells compare against paper retuned, because the paper
+  does not provide backward original tables.
+
+### Track 1 RCIM Paper-Faithful Model Bank
+
+Status:
+
+- closed.
+
+Delivered:
+
+- faithful original-dataset exact-model-bank implementation under
+  `scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/`;
+- completed forward paper-faithful grid-search campaign across
+  `SVR`, `MLP`, `RF`, `DT`, `ET`, `ERT`, `GBM`, `HGBM`, `LGBM`, `XGBM`, and
+  `ELM`;
+- completed backward paper-faithful grid-search campaign across the same
+  operational family bank;
+- accepted forward archives refreshed under
+  `models/paper_reference/rcim_track1/forward/`;
+- accepted backward archives refreshed under
+  `models/paper_reference/rcim_track1/backward/`;
+- Tables `2`-`5` repopulated in
+  `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`;
+- Windows PowerShell and Linux Bash launcher surfaces documented for future
+  reruns.
+
+Closure rule:
+
+- `Track 1` is closed because the faithful full-bank protocol was run in both
+  directions and all benchmark cells were repopulated.
+- Green-only status is not a `Track 1` closure requirement.
+- Any all-green pursuit, restricted-dataset rerun, or target-parameterization
+  search is a new optimization branch, not a reopening of closed `Track 1`.
+
+Artifact rule:
+
+- intermediate validation-model `.pkl` bundles under
+  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/`
+  and
+  `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
+  stay out of Git tracking and Git LFS;
+- only curated accepted archives under `models/paper_reference/rcim_track1/`
+  are the `Track 1` paper-reference model surface.
+
+### Wave 1 Structured Static Baselines
+
+Status:
+
+- closed.
+
+Delivered:
+
+- completed `global`, `forward`, and `backward` surfaces for the implemented
+  repository model families;
+- completed directional best-hyperparameter search campaign;
+- refreshed exported model surfaces under `models/exported/`;
+- consolidated closeout report:
+  `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`.
+
+Current HPO leader:
+
+- run: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10`;
+- family: `tree_fw`;
+- scope: `forward`;
+- test MAE: `0.002743 deg`.
+
+Operational meaning:
+
+- `Wave 1` is the closed structured-baseline stage for future model-family
+  comparisons;
+- future waves must either produce `global`, `forward`, and `backward` surfaces
+  or explicitly justify why one of those surfaces is omitted;
+- the oversized random-forest artifact class observed near `91 GB` remains
+  deployment-incompatible and must not be promoted into future TwinCAT/PLC
+  export candidate sets.
 
 ## In Progress
 
-- planning and implementation handoff from completed static structured
-  baselines toward the intermediate paper-aligned harmonic-wise pipeline branch
-- post-harmonic-pipeline decision staging for the later `Wave 2` temporal-model
-  branch and the deferred TwinCAT deployment-evaluation branch
+### Track 2 Directional Offline Comparison
+
+Status:
+
+- active closeout branch.
+
+Canonical report:
+
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+
+Current comparison surface:
+
+- comparison mode: `full_directional_candidate_matrix`;
+- candidate count: `75`;
+- held-out curve count before candidate filtering: `194`;
+- denominator for percentage error: `peak_to_peak_truth`;
+- `Fw` candidates evaluate only on forward curves;
+- `Bw` candidates evaluate only on backward curves;
+- `global` candidates evaluate on both directions with separated metrics.
+
+Candidate groups:
+
+- accepted `Track 1` forward and backward family banks;
+- recovered original forward family banks;
+- retuned forward and backward family banks;
+- `Wave 1` exported `global`, `forward`, and `backward` models;
+- composed best-reference candidates for paper original, paper retuned, and
+  `Track 1`.
+
+Current Track 2 leaders by source:
+
+| Direction | Source | Candidate | Mean percentage error [%] |
+| --- | --- | --- | ---: |
+| forward | paper original | `paper_original_best_Fw` | 6.250 |
+| forward | paper retuned | `paper_retuned_best_Fw` | 4.109 |
+| forward | Track 1 | `track1_best_Fw` | 6.819 |
+| backward | paper retuned | `paper_retuned_best_Bw` | 7.572 |
+| backward | Track 1 | `track1_best_Bw` | 11.860 |
+
+Best individual family candidates currently visible in Track 2:
+
+| Direction | Candidate | Mean percentage error [%] |
+| --- | --- | ---: |
+| forward | `rcim_retuned_GBM19_Fw` | 2.372 |
+| backward | `rcim_retuned_GBM19_Bw` | 5.398 |
+
+Remaining closeout work:
+
+- confirm the final Track 2 report wording after grouped source-table and
+  composite-best visibility fixes;
+- keep the direction/truth and preview-curve audit notes attached to the final
+  report package;
+- decide whether Track 2 is closed as the canonical offline comparison matrix
+  or whether one more explicitly approved comparison refinement is needed.
 
 ## Next Up
 
-### Post-Wave 1 Follow-Up
+### Planned Next Step
 
-Current next step:
+After this cleaning and alignment, the next planned step is:
 
-- do not promote the oversized random-forest artifact class produced during the
-  remote LAN validation path into future deployment/export candidate sets,
-  because the observed `tree_model.pkl` size of roughly `91 GB` is incompatible
-  with practical PLC/TwinCAT memory budgets
-- use the consolidated `Wave 1` closeout report as the canonical summary when
-  comparing future families against the current structured-baseline stage
-- use `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md` as the canonical
-  paper-baseline reference while the repository still lacks online
-  compensation validation
-- treat the paper-aligned harmonic-wise pipeline as the immediate execution
-  branch before opening `Wave 2` temporal models
-- keep `Wave 2` temporal models planned, but only after the harmonic-wise
-  comparison framework is implemented and reviewed
-- treat the second `Track 1` harmonic-wise iteration as completed and use its
-  campaign results as the current paper-faithful offline baseline
-- treat the exact recovered RCIM family-bank branch as implemented at script
-  level under
-  `scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py`
-- treat Track 1 exact-paper work as closed for the current full-dataset
-  faithful model-bank surface; future work should start from a new approved
-  campaign plan instead of treating Track 1 as still active
-- keep the exact recovered branch as the archived paper-family and per-target
-  baseline evidence for future comparison work
-- treat the recovered-original workflow as the code-level provenance anchor
-  and the original-dataset exact-model-bank branch as the closed
-  forward/backward repository-owned reproduction surface
-- use the completed campaign to lock three decisions:
-  - keep the full RCIM set as the mainline `Target A` branch;
-  - do not promote the reduced harmonic subsets as the main optimization path;
-  - do not promote the current engineered operating-condition features as the
-    new default
-- now that Track 1 is closed, keep intermediate validation-model `.pkl`
-  bundles under
-  `output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward/`
-  and `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
-  out of Git tracking and out of Git LFS; only the curated accepted archives
-  under `models/paper_reference/rcim_track1/` are the paper-reference model
-  surface
-- keep a later harmonic-wise optimization pass available only as a separate
-  post-Track-1 modeling branch:
-  - explicit target-parameterization work around `h0`
-  - selective `cos/sin` versus `amplitude/phase` comparison on dominant
-    harmonics
-  - per-harmonic estimator specialization for the dominant error terms
-  - full RCIM promotion path retained as mandatory for every serious
-    `Target A` attempt
+- close `Track 2` as the canonical direction-aware offline comparison report,
+  using `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+  as the source of truth.
+
+The closeout should answer three concrete questions:
+
+- which source surface is the current best offline reference for forward
+  curves;
+- which source surface is the current best offline reference for backward
+  curves;
+- whether the next implementation branch should be `Wave 2` temporal models or
+  a short paper-alignment bridge toward `Target A`.
+
+### Post-Track-2 Decision
+
+Default decision path after Track 2 closeout:
+
+- open `Wave 2` temporal models only after the Track 2 report is accepted as
+  closed;
+- keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
+- use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;
+- keep paper-alignment bridge work available only if the user explicitly
+  prioritizes `Target A` before temporal-model exploration.
 
 ### Paper Alignment Targets
 
-- `Target A`: match or beat the paper on a comparable offline prediction
-  benchmark
-  - required validation path:
-    - reproduce a TE-curve validation protocol comparable to the paper
-    - report mean percentage error on unseen scenarios
-    - reach `<= 4.7%` mean percentage error
-- `Target B`: reproduce the online compensation benchmark
-  - required validation path:
-    - implement repository-owned online compensation tests
-    - run `Robot` and `Cycloidal` style motion-profile validation
-    - reach at least `83%` robot TE RMS reduction
-    - reach at least `90%` cycloidal TE RMS reduction
-    - report uncompensated and compensated TE RMS plus TE max in a Table 9
-      style comparison
-- until `Target B` is executed, present all paper comparisons as `offline-only`
-  rather than end-to-end equivalent
+`Target A`: match or beat the paper on a comparable offline prediction
+benchmark.
+
+Required validation path:
+
+- reproduce a TE-curve validation protocol comparable to the paper;
+- report mean percentage error on unseen scenarios;
+- reach `<= 4.7%` mean percentage error.
+
+Current offline evidence:
+
+- paper retuned forward best composite is below the `4.7%` threshold;
+- retuned individual `GBM` forward and backward candidates are currently the
+  strongest Track 2 offline family references;
+- `Track 1` remains closed as faithful reproduction evidence, not as the
+  optimized winner.
+
+`Target B`: reproduce the online compensation benchmark.
+
+Required validation path:
+
+- implement repository-owned online compensation tests;
+- run `Robot` and `Cycloidal` style motion-profile validation;
+- reach at least `83%` robot TE RMS reduction;
+- reach at least `90%` cycloidal TE RMS reduction;
+- report uncompensated and compensated TE RMS plus TE max in a Table 9 style
+  comparison.
+
+Until `Target B` is executed, present all paper comparisons as `offline-only`
+rather than end-to-end equivalent.
+
+## Deferred Branches
+
+### Paper-Alignment Bridge
+
+Status:
+
+- deferred until Track 2 is closed or explicitly promoted.
+
+Scope if promoted:
+
+- harmonic-wise prediction of paper-style `A_k` and `phi_k` terms;
+- TE reconstruction from predicted harmonic terms;
+- offline motion-profile playback for `Robot` and `Cycloidal` style profiles;
+- paper-comparable offline validation protocol that reports TE-curve
+  percentage-error metrics and closes or rejects `Target A`.
+
+Candidate script root:
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/`
+
+Candidate artifact root:
+
+- `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/`
 
 ### Track 1 Restricted-Dataset Future Rerun
 
-This branch is explicitly deferred until much later, after all planned wave
-implementations have been completed and reviewed.
+Status:
 
-- rerun the closed Track 1 paper-faithful model-bank protocol on one or more
-  restricted dataset variants;
-- keep the current full-dataset Track 1 archive and benchmark as immutable
-  comparison anchors;
-- use separate campaign names, output roots, and model archive namespaces for
-  every restricted-dataset level;
-- revisit the shared recovered-workflow pickle cache contract so
-  restricted-dataset experiments use explicit cache partitioning instead of one
-  global `data/original_pipeline_instances/` cache root;
-- create a new Markdown comparison report under `doc/reports/analysis/` that
-  places the full-dataset Tables `2`-`5` beside the restricted-dataset Tables
-  `2`-`5` for every reduction level;
-- record the dataset-reduction rule, sample count, split policy, direction,
-  family list, and benchmark-color counts for each table variant;
-- do not use this future branch to overwrite the closed full-dataset Track 1
-  status.
-
-### Paper Pipeline Breakdown
-
-Implement now:
-
-- `Pipeline 1`: harmonic-wise prediction of paper-style `A_k` and `phi_k`
-  terms for the selected harmonics across operating conditions
-- `Pipeline 2`: TE reconstruction from the predicted harmonic terms so the
-  repository can evaluate reconstructed TE curves instead of only direct
-  end-to-end regressors
-- `Pipeline 3`: offline motion-profile playback for `Robot` and `Cycloidal`
-  style profiles using the reconstructed TE path
-- `Pipeline 4`: paper-comparable offline validation protocol that reports
-  TE-curve percentage-error metrics and closes `Target A`
-
-Implement later in the deferred TestRig / online branch:
-
-- `Pipeline 5`: online compensation loop applied during real motion execution
-  inside the future TestRig/TwinCAT integration path
-- `Pipeline 6`: uncompensated vs compensated `TE RMS` and `TE max`
-  measurement path for the online compensation experiments
-- `Pipeline 7`: final `Table 9` style benchmark report that closes `Target B`
-
-Priority note:
-
-- treat `Pipelines 1-4` as the immediate repository branch because they build
-  the stable offline baseline required before any online compensation work
-- treat this immediate branch as an explicit intermediate stage between
-  completed `Wave 1` and the future `Wave 2` temporal-model branch
-- treat `Pipelines 5-7` as follow-up work that belongs to the future TestRig /
-  online integration branch after the offline baseline is implemented and
-  reviewed
-
-### Deferred Post-Wave TwinCAT Deployment Evaluation
-
-Planned execution order after the harmonic-wise branch and the later next wave
-are implemented and reviewed:
-
-- formalize a dedicated `TwinCAT deployment evaluation` execution branch in the
-  operational workstream
-- use [testrig_twincat_ml_reference.md](../reference_codes/testrig_twincat_ml_reference.md)
-  as the canonical technical baseline for the imported TestRig PLC path
-- keep the legacy Beckhoff path as the main deployment target:
-  - `TF38x0`
-  - `FB_MllPrediction`
-  - `XML/BML`
-- open a separate comparison track for the newer Beckhoff server path:
-  - `TF3820/TF3830`
-  - `FB_MlSvrPrediction`
-  - `ONNX + JSON + PlcOpenXml`
-- evaluate both branches against repository-authored models instead of relying
-  only on historical paper coverage
-- compare at least:
-  - model acceptance and conversion success
-  - artifact workflow complexity
-  - runtime behavior and timing suitability
-  - maintainability and engineering cost
-- include the later online-compensation execution branch for:
-  - repository-owned compensation-loop execution
-  - uncompensated vs compensated `TE RMS` / `TE max` measurements
-  - final `Table 9` style paper benchmark closure
-- exclude the oversized random-forest artifact class already observed at
-  roughly `91 GB` from future export attempts, unless a later explicitly
-  lighter tree variant is produced and re-evaluated as a separate candidate
-- use isolated mode for preparatory or parallel experiments whenever campaign-
-  sensitive repository areas should remain untouched
-
-Entry conditions:
-
-- the harmonic-wise intermediate branch has been implemented and reviewed;
-- and the later next wave has then been implemented and reviewed;
-- and the user then explicitly decides whether the TwinCAT branch should be
-  activated immediately or deferred again;
-- or the user explicitly approves isolated parallel preparation before full
-  integration.
-
-## Deferred / Low Priority
-
-### Repository Documentation Publication
-
-- keep the repository private for now
-- keep GitHub Pages publication deferred until the repository is intentionally
-  made public
-- once the repository becomes public, activate the existing Sphinx publication
-  workflow through GitHub Pages with `GitHub Actions`
-- after activation, record the live documentation URL in the appropriate
-  documentation entry points if that public link should be surfaced
+- deferred until much later.
 
 Entry rule:
 
-- do not activate this branch while the repository must remain private
-- promote it when the user explicitly approves the public-repository transition
+- do not use this branch to overwrite the closed full-dataset `Track 1` status;
+- create new campaign names, output roots, archive namespaces, and comparison
+  reports for every restricted-dataset level.
+
+Required scope if promoted:
+
+- rerun the closed `Track 1` paper-faithful model-bank protocol on one or more
+  restricted dataset variants;
+- keep the current full-dataset `Track 1` archive and benchmark as immutable
+  comparison anchors;
+- revisit the recovered-workflow pickle cache contract so restricted-dataset
+  experiments use explicit cache partitioning;
+- create a new Markdown comparison report that places full-dataset and
+  restricted-dataset Tables `2`-`5` side by side.
+
+### TwinCAT Deployment Evaluation
+
+Status:
+
+- deferred until after Track 2 closeout and the next approved modeling branch.
+
+Planned scope:
+
+- formalize a dedicated `TwinCAT deployment evaluation` execution branch;
+- use `doc/reference_codes/testrig_twincat_ml_reference.md` as the canonical
+  technical baseline for the imported TestRig PLC path;
+- keep the legacy Beckhoff path in scope:
+  - `TF38x0`
+  - `FB_MllPrediction`
+  - `XML/BML`
+- compare the newer Beckhoff server path:
+  - `TF3820` / `TF3830`
+  - `FB_MlSvrPrediction`
+  - `ONNX + JSON + PlcOpenXml`
+- evaluate model acceptance, conversion success, workflow complexity, runtime
+  behavior, maintainability, and engineering cost;
+- exclude the already observed oversized random-forest artifact class unless a
+  later explicitly lighter tree variant is produced.
+
+### Repository Documentation Publication
+
+Status:
+
+- deferred.
+
+Entry rule:
+
+- keep the repository private for now;
+- do not activate GitHub Pages publication until the repository is intentionally
+  made public;
+- after public activation, record the live documentation URL in the appropriate
+  documentation entry points.
 
 ### Explicit Low-Priority Exploratory Families
+
+Status:
+
+- low priority.
+
+Families:
 
 - `Lightweight Transformer`
 - `State-Space Sequence Model`
@@ -317,99 +456,111 @@ Entry rule:
 
 Entry rule:
 
-- these families should not displace the main roadmap unless later evidence justifies them or the user explicitly promotes them.
+- these families should not displace the main roadmap unless later evidence
+  justifies them or the user explicitly promotes them.
 
 ## Wave Checklist
 
 ### Wave 0. Shared Infrastructure
 
-- completed
+- completed.
 
 ### Wave 1. Structured Static Baselines
 
-- planning report: completed
-- implementation: completed
-- smoke-tests: completed
-- validation checks: completed
-- campaign execution: completed
-- results report: completed
+- planning report: completed;
+- implementation: completed;
+- smoke tests: completed;
+- validation checks: completed;
+- campaign execution: completed;
+- directional HPO closeout: completed;
+- exported `global`, `forward`, and `backward` surfaces: completed;
+- results report: completed;
+- status: closed.
 
 ### Track 1. RCIM Paper-Faithful Model Bank
 
-- forward campaign: completed
-- backward campaign: completed
-- paper-reference archives: refreshed
-- Tables `2`-`5`: repopulated
-- closure status: closed as faithful full-bank reproduction, not all-green
-  optimization
+- recovered original workflow: preserved;
+- original-dataset reimplementation: completed;
+- retuned reference archive: completed;
+- forward campaign: completed;
+- backward campaign: completed;
+- paper-reference archives: refreshed;
+- Tables `2`-`5`: repopulated;
+- status: closed as faithful full-bank reproduction, not all-green
+  optimization.
+
+### Track 2. Directional Offline Comparison
+
+- direction-aware loader and candidate matrix: completed;
+- recovered original forward candidates: included;
+- retuned forward and backward candidates: included;
+- `Track 1` forward and backward candidates: included;
+- `Wave 1` `global`, `forward`, and `backward` exports: included;
+- grouped source tables: completed;
+- composite best-reference visibility: completed;
+- direction/truth and preview audit: completed;
+- status: active closeout branch.
 
 ### Wave 2. Temporal Models
 
-- planned after the harmonic-wise intermediate branch
-- temporal-model scope will start only after the harmonic-wise comparison
-  framework is stable and reviewed
-
-### Intermediate Branch. Harmonic-Wise Comparison Pipeline
-
-- current primary implementation branch
-- focused scope:
-  - implement harmonic-wise prediction of `A_k` and `phi_k`
-  - implement TE reconstruction from the predicted harmonic terms
-  - add offline `Robot` and `Cycloidal` motion-profile playback
-  - define comparable offline validation scenarios and TE-curve error metrics
-  - close `Target A`
-- initial repository-owned offline pipeline script should live under
-  `scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py`
-- validation artifacts for this branch should live under
-  `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/`
+- status: planned after Track 2 closeout;
+- mandatory rule: prepare or justify `global`, `forward`, and `backward`
+  surfaces;
+- baseline comparison: Track 2 plus closed Wave 1.
 
 ### Wave 3. Hybrid Structured Models
 
-- pending
+- status: pending;
+- mandatory rule: prepare or justify `global`, `forward`, and `backward`
+  surfaces;
 - paper-reproduction scope:
-  - compare hybrid structured predictors against the paper-style harmonic stack
-  - prepare the repository-owned deployable predictor package
+  - compare hybrid structured predictors against the paper-style harmonic stack;
+  - prepare the repository-owned deployable predictor package.
 
 ### Wave 4. PINN Formulation And First PINN
 
-- pending
+- status: pending;
+- mandatory rule: prepare or justify `global`, `forward`, and `backward`
+  surfaces;
 - paper-reproduction scope:
   - implement the repository-side compensation-loop evaluation path in the
-    future TestRig / online branch
-  - implement uncompensated vs compensated `TE RMS` / `TE max` measurements
-  - prepare the final online benchmark harness
+    future TestRig / online branch;
+  - implement uncompensated vs compensated `TE RMS` / `TE max` measurements;
+  - prepare the final online benchmark harness.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
-- pending
+- status: pending;
+- mandatory rule: preserve direction-separated reporting;
 - paper-reproduction scope:
-  - execute Table 9 style online compensation tests
-  - evaluate `Target B`
-  - finalize the real `paper vs repository` comparison with online results
+  - execute Table 9 style online compensation tests;
+  - evaluate `Target B`;
+  - finalize the real `paper vs repository` comparison with online results.
 
 ## Decision Notes
 
-- the live backlog is now the privileged operational view of the TE program
-- technical documents remain the historical planning baseline and design rationale
-- output artifacts now follow the privileged category-specific structure rather than the old flat family-root convention
-- the canonical feedforward reference baseline is the registry-selected best historical run, not the Wave 0 `trial` verification run
-- the currently tracked residual-harmonic family optimization belongs to `Wave 1` and its campaign assets have been realigned to the same naming
-- the first cross-family `Wave 1` execution had a mixed operational outcome, but the missing branches were recovered and the wave now has campaign-specific reporting plus a consolidated closeout summary
-- the remote LAN tree-validation path proved that an oversized random-forest
-  artifact class can reach roughly `91 GB`; treat that class as
-  deployment-incompatible and exclude it from future TwinCAT/PLC export work
-- the TwinCAT deployment-evaluation branch is intentionally deferred until
-  after the next wave is implemented and reviewed; re-evaluate that priority
-  only after the next wave closes
-- best-result visibility should be read from:
-  - campaign-level `campaign_best_run.yaml`
-  - family-level `latest_family_best.yaml`
-  - program-level `current_best_solution.yaml`
+- the live backlog is the privileged operational view of the TE program;
+- technical documents remain the historical planning baseline and design
+  rationale;
+- output artifacts follow the privileged category-specific structure rather
+  than the old flat family-root convention;
+- best-result visibility should be read from campaign-level
+  `campaign_best_run.yaml`, family-level `latest_family_best.yaml`, and
+  program-level `current_best_solution.yaml`;
+- the recovered original workflow is provenance evidence, while curated
+  `models/paper_reference/` archives are the active comparison surface;
+- `Track 1` is closed under the revised closure rule and should not be reopened
+  for all-green optimization;
+- `Track 2` is the active branch to finish before opening Wave 2;
+- future wave planning must keep direction-separated modeling and reporting in
+  scope from the start;
+- the TwinCAT deployment-evaluation branch remains deferred until the next
+  approved modeling branch has been closed or the user explicitly promotes it;
 - future updates to program status should land here whenever:
-  - a wave starts or finishes
-  - a model family is promoted or deferred
-  - a campaign is approved, started, completed, or cancelled
-  - the current best candidate changes
-  - a paper-alignment target changes state
+  - a wave starts or finishes;
+  - a model family is promoted or deferred;
+  - a campaign is approved, started, completed, or cancelled;
+  - the current best candidate changes;
+  - a paper-alignment target changes state;
   - a TwinCAT deployment branch is promoted, deferred, or selected as the
-    preferred deployment path
+    preferred deployment path.

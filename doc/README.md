@@ -122,6 +122,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-19
 
+- [technical/2026-05/2026-05-19/2026-05-19-15-00-46_te_model_live_backlog_alignment.md](./technical/2026-05/2026-05-19/2026-05-19-15-00-46_te_model_live_backlog_alignment.md)
+  Plan the documentation-only cleanup of the TE model live backlog after the
+  recovered original pipeline, retuned reference archive, closed `Track 1`,
+  active `Track 2`, and directional `Wave 1` rule updates.
+
 - [technical/2026-05/2026-05-19/2026-05-19-10-21-12_analysis_report_reorganization.md](./technical/2026-05/2026-05-19/2026-05-19-10-21-12_analysis_report_reorganization.md)
   Plan the topic-root reorganization of `doc/reports/analysis/`, including
   validation-check report consolidation, RCIM paper-reference grouping, Wave 1
