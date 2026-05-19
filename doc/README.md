@@ -120,6 +120,12 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-19
+
+- [technical/2026-05/2026-05-19/2026-05-19-09-50-45_paper_reference_parity_command_env_rename_fix.md](./technical/2026-05/2026-05-19/2026-05-19-09-50-45_paper_reference_parity_command_env_rename_fix.md)
+  Plan the stale Conda environment-name correction in the paper-reference
+  archive parity report command.
+
 #### 2026-05-18
 
 - [technical/2026-05/2026-05-18/2026-05-18-22-27-08_clear_completed_active_campaign_state.md](./technical/2026-05/2026-05-18/2026-05-18-22-27-08_clear_completed_active_campaign_state.md)

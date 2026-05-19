@@ -396,7 +396,7 @@ The saved repository paper-reference archives can also be compared against one
 another without retraining:
 
 ```powershell
-conda run -n standard_ml_codex_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_paper_reference_archive_parity_report.py `
+conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_paper_reference_archive_parity_report.py `
   --output-suffix paper_reference_archive_validation
 ```
 
