@@ -2,27 +2,35 @@
 
 ## Executive Verdict
 
-The repository paper-reference archives are internally consistent but they
-are not three equivalent implementations of the same fitted model surface.
+The repository paper-reference archives are internally consistent, but they
+must be read as two recovered-pipeline archives plus one intentionally
+Wave-1-aligned Track 1 reimplementation.
 
 The direct same-family comparison shows that `rcim_original/forward` and
-`rcim_retuned/forward` are mostly similar, with `DT` and `LGBM` effectively
-near-equivalent on Track 2 curve metrics and substantial differences only
-for `MLP` and `ELM`. By contrast, `rcim_track1` is not a near-copy of either
-`rcim_original` or `rcim_retuned`: many forward families and all backward
-families show substantial Track 2 metric differences.
+`rcim_retuned/forward` are substantially equivalent as implementations of
+the recovered original-pipeline surface. Most deterministic or robust
+families remain close on Track 2 curve metrics; the material exceptions are
+`MLP` and `ELM`, where stochastic training and retuned hyperparameters make
+the fitted surfaces less stable.
+
+`rcim_track1` is different by design. It uses the same operating-condition
+surface, but it is trained with the repository Track 1 / Wave 1 split policy
+rather than the recovered original row-level split. Therefore its metrics are
+expected to differ from `rcim_original` and `rcim_retuned`, but the large
+outliers still matter: `LGBM` and `MLP` forward, plus the broader backward
+gap, should remain visible as follow-up investigation points.
 
 `rcim_original/forward` remains the recovered original-pipeline baseline.
 `rcim_retuned` is the closest repository-local continuation of that
 pipeline and the strongest Track 2 curve performer in this comparison.
-`rcim_track1` is the closed faithful full-dataset Track 1 archive: it is
-structurally complete and direction-valid, but it is a materially different
-trained archive rather than an interchangeable implementation of the
-original or retuned bank.
+`rcim_track1` is the closed faithful Track 1 archive aligned with the Wave 1
+split. It is structurally complete and direction-valid, but it should not be
+treated as an interchangeable numerical clone of the recovered original or
+retuned bank.
 
 The practical conclusion is that the three archives are usable as distinct
-baselines: original-paper behavior, retuned recovered-pipeline behavior,
-and final Track 1 faithful full-dataset behavior.
+baselines: original-paper behavior, retuned recovered-pipeline behavior, and
+final Track 1 faithful behavior on the Wave-1-aligned split.
 
 ## Source Validation Artifacts
 
@@ -50,6 +58,43 @@ and final Track 1 faithful full-dataset behavior.
 | Forward policy | `Fw` archives evaluated only on forward curves |
 | Backward policy | `Bw` archives evaluated only on backward curves |
 | Original backward coverage | not available in `rcim_original` |
+
+## Dataset And Split Context
+
+The archive comparison is a Track 2 curve evaluation, not a claim that every
+archive was trained with the same split protocol.
+
+| Archive Group | Training Split Contract | Interpretation |
+| --- | --- | --- |
+| `rcim_original/forward` | recovered original row-level split | Paper-original forward baseline. |
+| `rcim_retuned` | recovered original row-level split | Same recovered pipeline with retuned parameters. |
+| `rcim_track1` | repository Track 1 / Wave 1 split | Faithful reimplementation aligned with new model comparisons. |
+
+The operating-condition grid is shared: the checked forward archives expose
+the same `969` `(rpm, deg, tor)` conditions. The split protocol is not shared:
+the recovered original path trains on the row-level complement of a `0.1`
+test split, while Track 1 trains on the repository file-level train split and
+keeps separate validation and test partitions. This is intentional so Track 1
+can be compared with Wave 1 on the same repository split policy.
+
+Because of that design choice, Track 1 metrics are allowed to differ from
+`rcim_original` and `rcim_retuned`. Differences in the same broad error range
+are acceptable; large family-specific gaps are investigation signals rather
+than immediate proof that the implementation is wrong.
+
+## Diagnostic Findings
+
+| Finding | Status | Consequence |
+| --- | --- | --- |
+| Track 2 `h0` sign handling for `rcim_track1` forward | correct | The curve reconstruction applies the required `h0` multiplier. |
+| Track 1 GBM grid appended base value | corrected in code | Future GBM runs now append `learning_rate`, matching `predictorML.py`. |
+| Existing Track 1 GBM archives | not invalidated | Current forward/backward GBM best summaries selected `learning_rate: 0.1`. |
+| Track 1 `LGBM` and `MLP` | open outliers | Keep highlighted for targeted follow-up validation. |
+
+The `h0` sign check is important: without the forward Track 1 sign multiplier,
+representative Track 2 curve errors jump to roughly `270%`; with the current
+multiplier they return to the reported single-digit or low double-digit
+range. No Track 2 code change is required for this point.
 
 ## Same-Family Archive Parity Verdict
 
@@ -337,24 +382,27 @@ how amplitude and phase prediction quality changes before TE reconstruction.
 | Archive | Coverage | Interpretation |
 | --- | --- | --- |
 | `rcim_original` | forward only | Recovered original-pipeline reference. It remains the correct baseline for paper-original forward behavior and ONNX parity context. |
-| `rcim_retuned` | forward and backward | Best current paper-reference curve performer in this comparison; it reflects repository retuning rather than exact original-paper hyperparameter behavior. |
-| `rcim_track1` | forward and backward | Closed faithful full-dataset Track 1 archive. It is the most complete paper-reference family bank but is not the lowest-error Track 2 archive in this validation. |
+| `rcim_retuned` | forward and backward | Substantially equivalent recovered-pipeline continuation, with retuned parameters and the strongest Track 2 curve metrics in this comparison. |
+| `rcim_track1` | forward and backward | Closed faithful Track 1 archive aligned with the Wave 1 split policy. It is complete and direction-valid, but intentionally not a numerical clone of the recovered split. |
 
 ## Final Conclusion
 
 The repository `models/paper_reference` surface is coherent and usable as a
-three-baseline system rather than a single interchangeable model bank.
-`rcim_original` and `rcim_retuned` forward are broadly analogous but not
-identical. `rcim_track1` is substantially different from both on the Track 2
-curve surface, especially in backward where every family differs
-substantially from the retuned counterpart under the selected thresholds.
+three-baseline system. `rcim_original` and `rcim_retuned` forward are
+substantially equivalent recovered-pipeline archives, with `MLP` and `ELM`
+kept as the main unstable exceptions. `rcim_track1` is a faithful
+reimplementation aligned with the repository Track 1 / Wave 1 split policy,
+so its metrics are expected to move away from the recovered original split.
+The magnitude is acceptable for several families, but `LGBM`, `MLP`, and the
+larger backward gaps should remain flagged for targeted follow-up.
 
 The defensible wording is:
 
 > `rcim_original` preserves the recovered forward original-pipeline baseline;
-> `rcim_retuned` provides the strongest current paper-reference Track 2 curve
-> metrics; and `rcim_track1` provides the final faithful full-dataset
-> Track 1 family archive for both directions.
+> `rcim_retuned` is a substantially equivalent retuned recovered-pipeline
+> archive and currently provides the strongest paper-reference Track 2 curve
+> metrics; and `rcim_track1` provides the final faithful Track 1 family
+> archive for both directions under the repository Wave-1-aligned split.
 
 This report should be used together with the canonical Track 2 matrix when
 choosing which paper-reference archive to cite in downstream comparisons.

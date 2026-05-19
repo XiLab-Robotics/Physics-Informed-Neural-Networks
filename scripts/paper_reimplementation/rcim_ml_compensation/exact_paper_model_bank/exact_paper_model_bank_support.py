@@ -1801,7 +1801,7 @@ def build_exact_paper_reference_parameter_grid(
             "estimator__max_features": list(dict.fromkeys(["log2", "sqrt", base_estimator.get_params()["max_features"]])),
             "estimator__max_depth": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 14, 21) + [int(base_estimator.get_params()["max_depth"])])),
             "estimator__min_samples_split": list(dict.fromkeys(_generate_uniform_integer_sequence(5, 2, 10) + [int(base_estimator.get_params()["min_samples_split"])])),
-            "estimator__learning_rate": list(dict.fromkeys([0.0001, 0.001, 0.01, 0.1, 1.0, base_estimator.get_params()["min_samples_split"]])),
+            "estimator__learning_rate": list(dict.fromkeys([0.0001, 0.001, 0.01, 0.1, 1.0, base_estimator.get_params()["learning_rate"]])),
         }
 
     if family_name == "XGBM":
