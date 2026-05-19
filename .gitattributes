@@ -17,5 +17,3 @@ reference/video_guides/source_bundle/*.mkv filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.mov filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.avi filter=lfs diff=lfs merge=lfs -text
 reference/video_guides/source_bundle/*.m4v filter=lfs diff=lfs merge=lfs -text
-output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-03-00-03__track1_original_dataset_forward_rf_attempt_18_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text
-output/validation_checks/paper_reimplementation_rcim_original_dataset_exact_model_bank/2026-04-26-16-56-26__track1_original_dataset_backward_ert_attempt_08_campaign_validation/paper_family_model_bank.pkl filter=lfs diff=lfs merge=lfs -text

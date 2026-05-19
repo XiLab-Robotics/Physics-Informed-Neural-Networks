@@ -1,1 +1,0 @@
-C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\feedforward_fw\2026-05-06-20-16-42__te_feedforward_stride1_high_compute_long_remote_fw\checkpoints\feedforward-epoch=033-val_mae=0.00291539.ckpt

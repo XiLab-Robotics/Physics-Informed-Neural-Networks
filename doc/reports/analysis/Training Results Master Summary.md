@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-05-18T01:08:06`
+- Generated At: `2026-05-19T15:18:05+02:00`
 - Program State: active
 - Current Completed Wave: `Wave 1` structured-baseline familywise optimization pass
 - Current Focus: offline Track 2 directional model comparison is populated with composed best-reference candidates;
-- Active Campaign Status: `completed`
-- Active Campaign Name: `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30`
+- Active Campaign Status: `none`
+- Active Campaign Name: `none`
 - Current Global Winner: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Family `tree_fw` | Test MAE `0.002743`
 
 ## Main Takeaways
@@ -16,6 +16,9 @@
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `17`
+- Output artifact retention cleanup is applied: family leaderboards keep the
+  top `3` entries, bulky obsolete validation/campaign/smoke artifacts were
+  removed from `output/`, and canonical model archives remain under `models/`.
 
 ## Current Project Status
 
@@ -137,6 +140,18 @@ Low-priority exploratory families currently listed in the backlog:
 | `track1_bidirectional_paper_faithful_grid_search_campaign_2026-05-04_12_26_30__forward_svr_mlp_rf_dt_et_ert_gbm_hgbm_lgbm_xgbm_elm_search` | `2026-05-15-07-07-30` | 11 | 0 | `forward` | Closed the forward Track 1 full-bank surface, refreshed paper-reference archives, and repopulated RCIM Tables `2`-`5` |
 | `wave1_directional_best_hyperparameter_search_campaign_2026_05_11_19_41_11` | `2026-05-12 05:44:32` | 90 | 0 | `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Updated global best |
 | `wave1_directional_retraining_campaign_2026_05_06_16_07_16` | `2026-05-06 23:14:10` | 15 | 0 | `te_hist_gbr_tabular_Fw` | No family-best change |
+
+## Artifact Retention Update
+
+- On `2026-05-19`, obsolete generated artifacts under `output/` were pruned:
+  validation-check bundles, old smoke-test outputs, generated preview PNGs,
+  non-top3 training runs, and bulky campaign payload files.
+- Family leaderboards under `output/registries/families/` now retain the top
+  `3` entries only. `latest_family_best.yaml` and the program-best registry
+  remain the authoritative current-best pointers.
+- Canonical exported models under `models/exported/` and accepted paper
+  reference archives under `models/paper_reference/` were not pruned in this
+  cleanup pass.
 
 ## Ranking Policy
 
