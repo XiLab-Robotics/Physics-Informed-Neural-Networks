@@ -35,7 +35,7 @@ The campaign purpose is a relaunch gate, not a scientific benchmark wave:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
 ```
 
 ## Remote Bootstrap Contract

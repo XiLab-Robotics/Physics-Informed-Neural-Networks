@@ -33,7 +33,7 @@ Explicit Conda environment:
 
 ```powershell
 .\scripts\\campaigns\\track1\\svm\\run_track1_svm_exact_faithful_final_attempt_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env
+  -CondaEnvironmentName pinns_env
 ```
 
 ## Outputs To Monitor

@@ -20,7 +20,7 @@ The local validation command remains:
 
 .. code-block:: powershell
 
-   conda activate standard_ml_codex_env
+   conda activate pinns_env
    python -m pip install -r site/requirements-docs.txt
    python -m sphinx -W -b html site site/_build/html
 

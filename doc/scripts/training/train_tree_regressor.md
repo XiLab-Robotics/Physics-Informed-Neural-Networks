@@ -82,7 +82,7 @@ Each physical run writes into an immutable directory such as:
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_tree_regressor.py `
+conda run -n pinns_env python scripts/training/train_tree_regressor.py `
   --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/09_random_forest_tabular.yaml
 ```
 

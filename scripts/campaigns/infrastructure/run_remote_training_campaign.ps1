@@ -9,8 +9,8 @@ param(
     [string]$PlanningReportPath,
 
     [string]$RemoteHostAlias = "xilab-remote",
-    [string]$RemoteRepositoryPath = $env:STANDARDML_REMOTE_TRAINING_REPO_PATH,
-    [string]$RemoteCondaEnvironmentName = $(if ($env:STANDARDML_REMOTE_TRAINING_CONDA_ENV) { $env:STANDARDML_REMOTE_TRAINING_CONDA_ENV } else { "standard_ml_codex_env" }),
+    [string]$RemoteRepositoryPath = $env:PINNS_REMOTE_TRAINING_REPO_PATH,
+    [string]$RemoteCondaEnvironmentName = $(if ($env:PINNS_REMOTE_TRAINING_CONDA_ENV) { $env:PINNS_REMOTE_TRAINING_CONDA_ENV } else { "pinns_env" }),
     [string[]]$SourceSyncPathList = @("scripts", "config", "doc", "requirements.txt")
 )
 
@@ -686,7 +686,7 @@ exit 0
 }
 
 if ([string]::IsNullOrWhiteSpace($RemoteRepositoryPath)) {
-    throw "RemoteRepositoryPath is required. Set STANDARDML_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
+    throw "RemoteRepositoryPath is required. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
 }
 
 # Resolve Repository-Relative Inputs

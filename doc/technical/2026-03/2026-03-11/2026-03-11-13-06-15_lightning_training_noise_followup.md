@@ -9,7 +9,7 @@ The current feedforward training entry point is cleaner than before, but two Lig
 
 The user requested a follow-up cleanup focused on these residual messages, while keeping the current training workflow, TensorBoard logging, and validation behavior intact.
 
-Local inspection of the installed `lightning` package in `standard_ml_codex_env` shows:
+Local inspection of the installed `lightning` package in `pinns_env` shows:
 
 - the `litlogger` message is emitted through `rank_zero_info(...)` inside `lightning.pytorch.trainer.connectors.logger_connector._LoggerConnector.configure_logger`;
 - the `_pytree` message surfaces from `lightning.pytorch.utilities._pytree` and is triggered by the `torch.utils._pytree.LeafSpec` deprecation path, while the current repository filter is configured for `DeprecationWarning`, so it does not match the real warning category.
@@ -46,7 +46,7 @@ This approach is preferred over disabling the logger entirely or turning off san
 1. Update the warning-filter block in `training/train_feedforward_network.py` so the `_pytree` deprecation message is filtered with the correct warning category and module scope.
 2. Add a small Lightning logging helper in the training entry point to suppress only rank-zero `INFO` messages that generate the `litlogger` tip.
 3. Keep the existing `TensorBoardLogger`, progress bar, checkpointing, and sanity validation configuration unchanged unless verification proves an additional adjustment is necessary.
-4. Re-run a lightweight training command in `standard_ml_codex_env` to confirm:
+4. Re-run a lightweight training command in `pinns_env` to confirm:
    - the `litlogger` tip no longer appears;
    - the `_pytree` warning no longer appears during sanity checking;
    - the current terminal summaries, progress bar, checkpoints, and TensorBoard logs still work.

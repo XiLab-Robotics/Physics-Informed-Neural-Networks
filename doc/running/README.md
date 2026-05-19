@@ -18,6 +18,7 @@ Primary operational entry points:
 Current policy:
 
 - one campaign may be tracked as the current campaign state file;
+- `status: none` means no campaign is currently prepared, running, or protected;
 - `status: prepared` means the campaign files and launch command are ready but the user has not yet confirmed execution start;
 - `status: running` means the user explicitly confirmed that the campaign has started;
 - `status: completed` means the campaign finished and is ready for final reporting;

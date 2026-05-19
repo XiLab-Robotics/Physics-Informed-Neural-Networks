@@ -3,7 +3,7 @@ param(
     [string]$Branch = "Forward",
     [ValidateSet("Original", "Retune", "Eval", "Export", "LoadBest")]
     [string]$Stage = "LoadBest",
-    [string]$CondaEnvironmentName = "standard_ml_codex_env",
+    [string]$CondaEnvironmentName = "pinns_env",
     [string]$PythonExecutable = "python",
     [string]$Families = "",
     [double]$TestSize = 0.20,

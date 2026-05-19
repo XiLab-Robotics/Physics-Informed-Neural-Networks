@@ -119,6 +119,16 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-18
 
+- [technical/2026-05/2026-05-18/2026-05-18-22-27-08_clear_completed_active_campaign_state.md](./technical/2026-05/2026-05-18/2026-05-18-22-27-08_clear_completed_active_campaign_state.md)
+  Plan the cleanup of the completed active campaign state so
+  `doc/running/active_training_campaign.yaml` no longer protects closed
+  campaign files.
+
+- [technical/2026-05/2026-05-18/2026-05-18-22-18-31_conda_environment_rename.md](./technical/2026-05/2026-05-18/2026-05-18-22-18-31_conda_environment_rename.md)
+  Plan the repository-wide Conda environment rename from
+  `pinns_env` to `pinns_env` and from `pinns_lan_env` to
+  `pinns_lan_env`.
+
 - [technical/2026-05/2026-05-18/2026-05-18-21-53-46_rcim_original_onnx_parity_interpretation_report.md](./technical/2026-05/2026-05-18/2026-05-18-21-53-46_rcim_original_onnx_parity_interpretation_report.md)
   Plan the canonical interpretation report for the recovered original ONNX
   release parity validation.

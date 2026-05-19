@@ -39,7 +39,7 @@ Optional PowerShell usage:
 
 ```powershell
 .\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_extended_overnight_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env `
+  -CondaEnvironmentName pinns_env `
   -PythonExecutable python
 ```
 

@@ -58,14 +58,14 @@ under:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
 ```
 
 On Linux, prepare a new package with Linux-formatted repository-relative path
 surfaces:
 
 ```bash
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py --linux
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py --linux
 ```
 
 ## Launch Command
@@ -201,7 +201,7 @@ bash scripts/campaigns/track1/exact_paper/run_track1_bidirectional_paper_faithfu
   --remote \
   --remote-host-alias aries-login \
   --remote-repository-path /home/<user>/StandardML-Codex \
-  --remote-conda-environment-name standard_ml_codex_env \
+  --remote-conda-environment-name pinns_env \
   --dry-run
 ```
 

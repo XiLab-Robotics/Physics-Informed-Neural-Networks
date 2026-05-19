@@ -10,7 +10,7 @@ source "${PROJECT_ROOT}/scripts/campaigns/infrastructure/shared_streaming_campai
 CAMPAIGN_CONFIG_ROOT=""
 PLANNING_REPORT_PATH=""
 CAMPAIGN_NAME=""
-CONDA_ENVIRONMENT_NAME="standard_ml_codex_env"
+CONDA_ENVIRONMENT_NAME="pinns_env"
 PYTHON_EXECUTABLE="python"
 DRY_RUN="0"
 CAMPAIGN_CONFIG_FILE_LIST=()

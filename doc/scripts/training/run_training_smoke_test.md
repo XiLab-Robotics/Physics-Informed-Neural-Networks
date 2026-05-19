@@ -40,7 +40,7 @@ The smoke-test output folder is now separated from normal training runs so quick
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/run_training_smoke_test.py `
+conda run -n pinns_env python scripts/training/run_training_smoke_test.py `
   --config-path config/training/feedforward/presets/trial.yaml `
   --output-suffix wave0_smoke_test `
   --fast-dev-run-batches 1

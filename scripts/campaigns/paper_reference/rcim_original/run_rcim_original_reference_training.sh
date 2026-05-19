@@ -9,7 +9,7 @@ source "${PROJECT_ROOT}/scripts/campaigns/infrastructure/shared_streaming_campai
 
 BRANCH="Forward"
 STAGE="LoadBest"
-CONDA_ENVIRONMENT_NAME="standard_ml_codex_env"
+CONDA_ENVIRONMENT_NAME="pinns_env"
 PYTHON_EXECUTABLE="python"
 FAMILIES=""
 TEST_SIZE="0.20"

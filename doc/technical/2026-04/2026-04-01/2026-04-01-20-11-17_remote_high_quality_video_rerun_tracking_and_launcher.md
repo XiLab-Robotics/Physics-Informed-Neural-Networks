@@ -74,7 +74,7 @@ No Codex subagent is planned for this scope.
 - `.temp/video_guides/`
 - `doc/reference_codes/video_guides/`
 - remote `LM Studio`
-- remote `standard_ml_lan_node`
+- remote `pinns_lan_env`
 
 ## Implementation Steps
 

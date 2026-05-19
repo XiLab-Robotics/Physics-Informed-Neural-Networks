@@ -64,8 +64,8 @@ The validated SSH alias and remote-clone setup process is already documented in:
 
 Use these environment variables on the current workstation for convenience:
 
-- `STANDARDML_REMOTE_TRAINING_REPO_PATH`
-- `STANDARDML_REMOTE_TRAINING_CONDA_ENV`
+- `PINNS_REMOTE_TRAINING_REPO_PATH`
+- `PINNS_REMOTE_TRAINING_CONDA_ENV`
 
 ## Practical Use
 

@@ -4,7 +4,7 @@
 - Stage: completed
 - Remote host alias: xilab-remote
 - Remote repository path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks
-- Remote Conda environment: standard_ml_lan_node
+- Remote Conda environment: pinns_lan_env
 - Campaign name: track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48
 - Planning report path: doc\reports\campaign_plans\2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md
 - Local log path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\.temp\remote_training_campaigns\2026-04-15-23-21-58_track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48\remote_training_campaign.log

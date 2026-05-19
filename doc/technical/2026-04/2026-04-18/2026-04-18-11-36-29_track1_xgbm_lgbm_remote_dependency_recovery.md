@@ -7,7 +7,7 @@ remaining-family `Track 1` batch after the remote `XGBM` launcher failed on
 `2026-04-18`.
 
 The crash evidence is explicit: the remote Conda environment
-`standard_ml_lan_node` does not currently expose the optional Python package
+`pinns_lan_env` does not currently expose the optional Python package
 required by the repository-owned exact-paper `XGBM` workflow. The failing
 traceback stopped at:
 
@@ -74,7 +74,7 @@ recovery plan.
 - `doc/scripts/campaigns/run_track1_remaining_family_full_matrix_campaigns.md`
 - `doc/running/active_training_campaign.yaml`
 - `doc/reports/campaign_plans/track1/exact_paper/`
-- remote Conda environment `standard_ml_lan_node`
+- remote Conda environment `pinns_lan_env`
 
 ## Implementation Steps
 

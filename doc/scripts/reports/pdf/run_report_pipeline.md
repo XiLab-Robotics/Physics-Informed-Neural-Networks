@@ -39,17 +39,17 @@ The preferred repository-local tool environment for PDF validation is:
 Typical usage for the current explanatory model reports:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py `
+conda run -n pinns_env python scripts/reports/pdf/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
-  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe `
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe `
   --windows
 ```
 
 Linux usage on a host with Chrome or Chromium available:
 
 ```bash
-conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py \
+conda run -n pinns_env python scripts/reports/pdf/run_report_pipeline.py \
   --use-model-explanatory-reports \
   --regenerate-diagrams \
   --linux

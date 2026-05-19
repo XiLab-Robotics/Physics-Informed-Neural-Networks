@@ -40,7 +40,7 @@ These assets are designed to be:
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/analysis/generate_model_report_diagrams.py
+conda run -n pinns_env python scripts/reports/analysis/generate_model_report_diagrams.py
 ```
 
 Use this script when:

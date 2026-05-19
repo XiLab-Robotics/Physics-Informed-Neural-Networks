@@ -35,7 +35,7 @@ invoke_exact_paper_campaign_local() {
     local campaign_output_root_override=""
     local runner_script_path="scripts/paper_reimplementation/rcim_ml_compensation/run_exact_paper_model_bank_validation.py"
     local output_suffix="campaign_run"
-    local conda_environment_name="standard_ml_codex_env"
+    local conda_environment_name="pinns_env"
     local python_executable="python"
     local dry_run="0"
     local campaign_config_file_name_list=()

@@ -32,7 +32,7 @@ The campaign purpose is final residual closure, not another family-bank sweep:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
 ```
 
 ## Queue Design

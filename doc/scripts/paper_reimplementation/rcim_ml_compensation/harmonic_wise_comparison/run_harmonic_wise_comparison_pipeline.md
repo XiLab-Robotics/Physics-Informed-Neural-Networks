@@ -92,7 +92,7 @@ Operational note:
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml `
   --output-suffix baseline_validation
 ```

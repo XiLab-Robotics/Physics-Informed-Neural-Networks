@@ -13,9 +13,9 @@ LAUNCHER_RELATIVE_PATH=""
 CAMPAIGN_OUTPUT_ROOT_OVERRIDE=""
 VALIDATION_OUTPUT_ROOT="output/validation_checks/paper_reimplementation_rcim_exact_model_bank/forward"
 VALIDATION_REPORT_ROOT="doc/reports/analysis/validation_checks/track1/exact_paper/forward"
-REMOTE_HOST_ALIAS="${STANDARDML_REMOTE_TRAINING_HOST_ALIAS:-xilab-remote}"
-REMOTE_REPOSITORY_PATH="${STANDARDML_REMOTE_TRAINING_REPO_PATH:-}"
-REMOTE_CONDA_ENVIRONMENT_NAME="${STANDARDML_REMOTE_TRAINING_CONDA_ENV:-standard_ml_codex_env}"
+REMOTE_HOST_ALIAS="${PINNS_REMOTE_TRAINING_HOST_ALIAS:-xilab-remote}"
+REMOTE_REPOSITORY_PATH="${PINNS_REMOTE_TRAINING_REPO_PATH:-}"
+REMOTE_CONDA_ENVIRONMENT_NAME="${PINNS_REMOTE_TRAINING_CONDA_ENV:-pinns_env}"
 DRY_RUN="0"
 CAMPAIGN_CONFIG_PATH_LIST=()
 RUN_NAME_LIST=()
@@ -124,7 +124,7 @@ if [[ -z "${CAMPAIGN_NAME}" || -z "${PLANNING_REPORT_PATH}" || -z "${LAUNCHER_RE
     exit 2
 fi
 if [[ -z "${REMOTE_REPOSITORY_PATH}" ]]; then
-    echo "[ERROR] Remote repository path is required through --remote-repository-path or STANDARDML_REMOTE_TRAINING_REPO_PATH." >&2
+    echo "[ERROR] Remote repository path is required through --remote-repository-path or PINNS_REMOTE_TRAINING_REPO_PATH." >&2
     exit 2
 fi
 if [[ "${#CAMPAIGN_CONFIG_PATH_LIST[@]}" -eq 0 ]]; then

@@ -8,7 +8,7 @@ After the feasibility check was approved on March 16, 2026, the repository basel
 
 The current validated environment state is:
 
-- Conda environment: `standard_ml_codex_env`
+- Conda environment: `pinns_env`
 - Active Python series: `3.12`
 - Observed interpreter version in the environment: `3.12.12`
 - Observed core stack:
@@ -62,8 +62,8 @@ If any of those checks fail or remain unclear, the repository should stay on Pyt
 
 The validation and migration were successful:
 
-- a temporary `standard_ml_codex_env_py312` environment installed the repository requirements cleanly;
-- the main `standard_ml_codex_env` environment was then upgraded in place to Python 3.12;
+- a temporary `pinns_env_py312` environment installed the repository requirements cleanly;
+- the main `pinns_env` environment was then upgraded in place to Python 3.12;
 - the binary `pip` packages had to be rebuilt after the interpreter change, as expected for compiled wheels on Windows;
 - the final environment passed direct import checks for the tracked stack;
 - the main project CLI entry points still run correctly with `--help`.
@@ -103,9 +103,9 @@ This validation scope was sufficient to approve and execute the baseline migrati
   Repository dependency baseline to test against Python 3.12.
 - `doc/technical/2026-03/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
   Original environment baseline decision, updated after the approved migration.
-- `standard_ml_codex_env`
+- `pinns_env`
   Current validated Python 3.12 environment.
-- Temporary test environment such as `standard_ml_codex_env_py312`
+- Temporary test environment such as `pinns_env_py312`
   Validation environment used to confirm package and CUDA compatibility before the in-place migration.
 
 ## Implementation Steps
@@ -113,8 +113,8 @@ This validation scope was sufficient to approve and execute the baseline migrati
 1. Create this technical document and register it in the documentation indexes.
 2. Wait for explicit user approval before modifying the documented environment baseline or repository setup instructions.
 3. Verify official Python-version support for PyTorch and Lightning.
-4. Inspect the currently installed project stack in `standard_ml_codex_env`.
+4. Inspect the currently installed project stack in `pinns_env`.
 5. If needed, create a temporary Python 3.12 validation environment and attempt installation of the repository requirements.
 6. Record whether the installation path, imports, and basic project smoke tests succeed.
 7. Present a recommendation on whether the repository should remain on Python 3.10 or migrate its documented baseline to Python 3.12.
-8. After approval, migrate `standard_ml_codex_env` in place, rebuild the binary wheels, and re-run the smoke tests.
+8. After approval, migrate `pinns_env` in place, rebuild the binary wheels, and re-run the smoke tests.

@@ -1,9 +1,9 @@
-﻿[INFO] RCIM Original Launcher Foreground Console Mode
+[INFO] RCIM Original Launcher Foreground Console Mode
 [INFO] Stage | eval
 [INFO] Mode | paper_eval
 [INFO] Direction | backward
 [INFO] Stage Root | C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\eval
-[INFO] Command | "C:\Users\Davide\.conda\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_eval --direction backward --test-size 0.2 --output-root C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\eval --families "ET, ERT, GBM, HGBM" --best-parameter-summary-path C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
+[INFO] Command | "C:\Users\Davide\.conda\envs\pinns_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_eval --direction backward --test-size 0.2 --output-root C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\eval --families "ET, ERT, GBM, HGBM" --best-parameter-summary-path C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv
 [INFO] Combined Transcript Path | C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\logs\eval.combined.log
 [INFO] The child training process runs in true foreground-console mode.
 [INFO] Ctrl+C should behave like the direct python command.

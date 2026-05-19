@@ -36,13 +36,13 @@ The current workstation already passed the first connectivity check:
   `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`
 - the remote clone is currently at commit
   `8ff4bf90e0d7cbdc06778a749e1eb7db5843b8de`
-- the existing Conda environment `standard_ml_lan_node` can run the repository
+- the existing Conda environment `pinns_lan_env` can run the repository
   validation check successfully
 
 The same preflight also surfaced one concrete setup gap on the remote node:
 
 - the remote workstation has an NVIDIA RTX A4000 visible through `nvidia-smi`,
-  but the current `standard_ml_lan_node` PyTorch build is CPU-only, so
+  but the current `pinns_lan_env` PyTorch build is CPU-only, so
   `torch.cuda.is_available()` currently returns `False`
 
 This means the launcher is already usable for tree runs and for end-to-end sync
@@ -65,7 +65,7 @@ git checkout main
 dependencies are present:
 
 ```powershell
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
@@ -74,14 +74,14 @@ python -m pip install -r requirements.txt
 campaign:
 
 ```powershell
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 python -m pip install --force-reinstall --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
 
 5. Verify that the remote training environment is usable:
 
 ```powershell
-conda run -n standard_ml_lan_node python -c "import torch, lightning, sklearn; print(torch.__version__); print(torch.cuda.is_available())"
+conda run -n pinns_lan_env python -c "import torch, lightning, sklearn; print(torch.__version__); print(torch.cuda.is_available())"
 ```
 
 6. Verify that the repository dataset exists inside the clone:
@@ -102,15 +102,15 @@ ssh xilab-remote "hostname"
 2. Persist the remote training settings locally:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_REPO_PATH", "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks", "User")
-[System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_CONDA_ENV", "standard_ml_lan_node", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_REMOTE_TRAINING_REPO_PATH", "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_REMOTE_TRAINING_CONDA_ENV", "pinns_lan_env", "User")
 ```
 
 3. Close and reopen PowerShell, then verify them:
 
 ```powershell
-echo $env:STANDARDML_REMOTE_TRAINING_REPO_PATH
-echo $env:STANDARDML_REMOTE_TRAINING_CONDA_ENV
+echo $env:PINNS_REMOTE_TRAINING_REPO_PATH
+echo $env:PINNS_REMOTE_TRAINING_CONDA_ENV
 ```
 
 4. Confirm the dedicated campaign state is still marked as prepared:
@@ -142,7 +142,7 @@ explicit operator command:
 ```powershell
 .\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
-  -RemoteCondaEnvironmentName "standard_ml_lan_node" `
+  -RemoteCondaEnvironmentName "pinns_lan_env" `
   -RemoteHostAlias "xilab-remote"
 ```
 

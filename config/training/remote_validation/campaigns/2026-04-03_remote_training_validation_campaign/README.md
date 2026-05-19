@@ -44,8 +44,8 @@ Use the dedicated launcher:
 ```
 
 If the current workstation already stores
-`STANDARDML_REMOTE_TRAINING_REPO_PATH` and
-`STANDARDML_REMOTE_TRAINING_CONDA_ENV`, the launcher can be called without
+`PINNS_REMOTE_TRAINING_REPO_PATH` and
+`PINNS_REMOTE_TRAINING_CONDA_ENV`, the launcher can be called without
 extra arguments.
 
 Operational rule:

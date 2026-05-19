@@ -1,4 +1,4 @@
-Command: C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_tree_regressor.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-11-20-07-44_053_053_tree_bw_depth10_lr008_leaf10.yaml
+Command: C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_tree_regressor.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-11-20-07-44_053_053_tree_bw_depth10_lr008_leaf10.yaml
 Working Directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex
 
 

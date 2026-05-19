@@ -76,7 +76,7 @@ It also writes a repository-owned Markdown validation report under:
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml `
   --output-suffix exact_paper_validation
 ```

@@ -49,7 +49,7 @@ root under:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
 ```
 
 ## Launch Command

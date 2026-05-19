@@ -40,13 +40,13 @@ sync with new campaign results.
 Manual regeneration from the repository root:
 
 ```powershell
-conda run -n standard_ml_codex_env python -B scripts/reports/analysis/generate_training_results_master_summary.py
+conda run -n pinns_env python -B scripts/reports/analysis/generate_training_results_master_summary.py
 ```
 
 Optional explicit output path:
 
 ```powershell
-conda run -n standard_ml_codex_env python -B scripts/reports/analysis/generate_training_results_master_summary.py `
+conda run -n pinns_env python -B scripts/reports/analysis/generate_training_results_master_summary.py `
   --output-markdown-path "doc/reports/analysis/Training Results Master Summary.md"
 ```
 

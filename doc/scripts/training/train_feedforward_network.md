@@ -112,38 +112,38 @@ The runtime summary now also reports the configured accelerator, device selectio
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
+conda run -n pinns_env python scripts/training/train_feedforward_network.py
 ```
 
 To run an explicit configuration path from the command line:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/high_epoch.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/high_epoch.yaml
 ```
 
 To run one of the structured Wave 1 neural baselines:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py `
+conda run -n pinns_env python scripts/training/train_feedforward_network.py `
   --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/04_periodic_mlp_h04_standard.yaml
 ```
 
 To run the lighter proof configuration used for a quick end-to-end verification:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 Before a longer run, you can now validate the shared training wiring with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/validate_training_setup.py --config-path config/training/feedforward/presets/trial.yaml --output-suffix validation_check
+conda run -n pinns_env python scripts/training/validate_training_setup.py --config-path config/training/feedforward/presets/trial.yaml --output-suffix validation_check
 ```
 
 You can also run the minimal Lightning smoke test with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/run_training_smoke_test.py --config-path config/training/feedforward/presets/trial.yaml --output-suffix smoke_test --fast-dev-run-batches 1
+conda run -n pinns_env python scripts/training/run_training_smoke_test.py --config-path config/training/feedforward/presets/trial.yaml --output-suffix smoke_test --fast-dev-run-batches 1
 ```
 
 The training entry point prints a compact terminal report before training, keeps the Lightning progress bars active, avoids the previous raw configuration dump, suppresses the current low-signal Lightning startup tip plus the known `_pytree` sanity-check warning, and writes both validation and test results for the selected best checkpoint.

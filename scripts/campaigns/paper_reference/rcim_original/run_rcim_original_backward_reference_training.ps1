@@ -1,7 +1,7 @@
 param(
     [ValidateSet("Retune", "PaperEval")]
     [string]$Stage = "Retune",
-    [string]$CondaEnvironmentName = "standard_ml_codex_env",
+    [string]$CondaEnvironmentName = "pinns_env",
     [string]$PythonExecutable = "python",
     [string]$Families = "",
     [double]$TestSize = 0.20,

@@ -1,6 +1,6 @@
 param(
     [string]$PythonExecutable = "python",
-    [string]$LanAiBaseUrl = $env:STANDARDML_LAN_AI_BASE_URL,
+    [string]$LanAiBaseUrl = $env:PINNS_LAN_AI_BASE_URL,
     [string]$LmStudioBaseUrl = $env:LM_STUDIO_BASE_URL,
     [string]$TranscriptModel = "large-v3",
     [string]$CleanupModel = "openai/gpt-oss-20b",
@@ -220,7 +220,7 @@ function Assert-RemoteRuntime {
 
     Write-StatusLine "INFO" "Checking remote LAN AI node reachability"
     $lanHealthUrl = "$LanAiBaseUrl/health"
-    $lanHealthHeaders = @{ Authorization = "Bearer $env:STANDARDML_LAN_AI_TOKEN" }
+    $lanHealthHeaders = @{ Authorization = "Bearer $env:PINNS_LAN_AI_TOKEN" }
     $lanHealthResponse = Invoke-RestMethod -Uri $lanHealthUrl -Headers $lanHealthHeaders -Method Get -TimeoutSec 30
 
     Write-StatusLine "INFO" ("LAN node ok | whisper={0} | device={1} | compute={2}" -f $lanHealthResponse.default_whisper_model, $lanHealthResponse.default_whisper_device, $lanHealthResponse.default_whisper_compute_type)

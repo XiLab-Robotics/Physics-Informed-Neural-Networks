@@ -220,8 +220,8 @@ The implementation phase should provide an explicit operator guide that covers:
 ### Local Workstation
 
 1. confirm SSH alias access, for example `ssh xilab-remote`;
-2. confirm `STANDARDML_REMOTE_TRAINING_REPO_PATH` and
-   `STANDARDML_REMOTE_TRAINING_CONDA_ENV` if those variables are being used;
+2. confirm `PINNS_REMOTE_TRAINING_REPO_PATH` and
+   `PINNS_REMOTE_TRAINING_CONDA_ENV` if those variables are being used;
 3. confirm the approved campaign YAML package exists locally;
 4. launch the remote campaign through the repository-owned launcher;
 5. monitor:

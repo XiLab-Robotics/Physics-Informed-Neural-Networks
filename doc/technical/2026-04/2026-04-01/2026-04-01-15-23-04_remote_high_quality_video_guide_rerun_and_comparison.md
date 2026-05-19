@@ -60,7 +60,7 @@ runtime blockers.
 - `scripts/tooling/lan_ai_node_server.py`
 - `scripts/tooling/lan_ai_node_client.py`
 - remote `LM Studio`
-- remote `standard_ml_lan_node` environment
+- remote `pinns_lan_env` environment
 - `.temp/video_guides/_analysis_hq/`
 - `doc/reference_codes/video_guides/`
 - comparison notes or follow-up documentation generated from the rerun

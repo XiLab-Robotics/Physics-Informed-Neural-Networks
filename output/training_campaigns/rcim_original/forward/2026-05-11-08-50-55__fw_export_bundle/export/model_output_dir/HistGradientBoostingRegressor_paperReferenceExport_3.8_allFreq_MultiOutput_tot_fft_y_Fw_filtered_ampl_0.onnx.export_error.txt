@@ -1,12 +1,12 @@
 Traceback (most recent call last):
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\common\_container.py", line 735, in add_node
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\common\_container.py", line 735, in add_node
     node = make_node(op_type, inputs, outputs, name=name, **new_attrs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\onnx\helper.py", line 176, in make_node
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\onnx\helper.py", line 176, in make_node
     node.attribute.extend(
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\onnx\helper.py", line 177, in <genexpr>
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\onnx\helper.py", line 177, in <genexpr>
     make_attribute(key, value)
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\onnx\helper.py", line 691, in make_attribute
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\onnx\helper.py", line 691, in make_attribute
     attr.ints.extend(value)
 TypeError: Field onnx.AttributeProto.ints: Expected an int, got a boolean.
 
@@ -16,21 +16,21 @@ Traceback (most recent call last):
   File "C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\utilities\predictorML.py", line 450, in exportModel
     onx = convert_sklearn(est, initial_types=initial_type)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\convert.py", line 211, in convert_sklearn
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\convert.py", line 211, in convert_sklearn
     onnx_model = convert_topology(
                  ^^^^^^^^^^^^^^^^^
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\common\_topology.py", line 1675, in convert_topology
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\common\_topology.py", line 1675, in convert_topology
     topology.convert_operators(container=container, verbose=verbose)
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\common\_topology.py", line 1352, in convert_operators
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\common\_topology.py", line 1352, in convert_operators
     self.call_converter(operator, container, verbose=verbose)
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\common\_topology.py", line 1135, in call_converter
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\common\_topology.py", line 1135, in call_converter
     conv(self.scopes[0], operator, container)
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\common\_registration.py", line 26, in __call__
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\common\_registration.py", line 26, in __call__
     return self._fct(*args)
            ^^^^^^^^^^^^^^^^
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\operator_converters\random_forest.py", line 525, in convert_sklearn_random_forest_regressor_converter
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\operator_converters\random_forest.py", line 525, in convert_sklearn_random_forest_regressor_converter
     container.add_node(
-  File "C:\Users\Davide\.conda\envs\standard_ml_codex_env\Lib\site-packages\skl2onnx\common\_container.py", line 737, in add_node
+  File "C:\Users\Davide\.conda\envs\pinns_env\Lib\site-packages\skl2onnx\common\_container.py", line 737, in add_node
     raise ValueError(
 ValueError: Unable to create node 'TreeEnsembleRegressor' with name='TreeEnsembleRegressor' and attributes={'base_values': array([-0.05578832], dtype=float32),
  'n_targets': 1,

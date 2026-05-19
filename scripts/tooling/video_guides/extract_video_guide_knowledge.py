@@ -73,13 +73,13 @@ DEFAULT_REPORT_PROVIDER = "google"
 DEFAULT_OCR_PROVIDER = "local"
 DEFAULT_TRANSCRIPT_LANGUAGE = "it"
 DEFAULT_OCR_LANGUAGE = "en"
-DEFAULT_LAN_AI_BASE_URL = os.environ.get("STANDARDML_LAN_AI_BASE_URL", "").strip()
-DEFAULT_LAN_AI_TOKEN = os.environ.get("STANDARDML_LAN_AI_TOKEN", "").strip()
+DEFAULT_LAN_AI_BASE_URL = os.environ.get("PINNS_LAN_AI_BASE_URL", "").strip()
+DEFAULT_LAN_AI_TOKEN = os.environ.get("PINNS_LAN_AI_TOKEN", "").strip()
 DEFAULT_LM_STUDIO_BASE_URL = os.environ.get(
     "LM_STUDIO_LOCAL_URL",
-    os.environ.get("LM_STUDIO_BASE_URL", os.environ.get("STANDARDML_LM_STUDIO_BASE_URL", "http://127.0.0.1:1234")),
+    os.environ.get("LM_STUDIO_BASE_URL", os.environ.get("PINNS_LM_STUDIO_BASE_URL", "http://127.0.0.1:1234")),
 ).strip()
-DEFAULT_LM_STUDIO_API_KEY = os.environ.get("LM_STUDIO_API_KEY", os.environ.get("STANDARDML_LM_STUDIO_API_KEY", "lm-studio")).strip()
+DEFAULT_LM_STUDIO_API_KEY = os.environ.get("LM_STUDIO_API_KEY", os.environ.get("PINNS_LM_STUDIO_API_KEY", "lm-studio")).strip()
 VIDEO_SUFFIXES = {".mp4", ".mkv", ".mov", ".avi", ".m4v"}
 
 warnings.filterwarnings("ignore", category=RequestsDependencyWarning)

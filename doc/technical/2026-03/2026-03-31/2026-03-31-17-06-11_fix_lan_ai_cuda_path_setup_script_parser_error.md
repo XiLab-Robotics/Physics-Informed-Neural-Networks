@@ -6,7 +6,7 @@ The repository-owned helper `scripts/tooling/setup_lan_ai_node_cuda_path.ps1`
 fails on Windows PowerShell before execution starts. The reported parser error
 shows that the script contains invalid escaping around the `-join` expression in
 the missing-directory error message, so remote users cannot complete the
-persistent CUDA runtime `PATH` setup for the `standard_ml_lan_node`
+persistent CUDA runtime `PATH` setup for the `pinns_lan_env`
 environment.
 
 ## Technical Approach

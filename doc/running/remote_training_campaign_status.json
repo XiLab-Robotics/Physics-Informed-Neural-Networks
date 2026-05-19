@@ -3,7 +3,7 @@
     "stage":  "completed",
     "remote_host_alias":  "xilab-remote",
     "remote_repository_path":  "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks",
-    "remote_conda_environment_name":  "standard_ml_lan_node",
+    "remote_conda_environment_name":  "pinns_lan_env",
     "campaign_name":  "track1_svr_reference_grid_search_repair_campaign_2026_04_14_22_53_48",
     "planning_report_path":  "doc\\reports\\campaign_plans\\track1\\svm\\2026-04-14-22-53-48_track1_svr_reference_grid_search_repair_campaign_plan_report.md",
     "campaign_config_path_list":  [

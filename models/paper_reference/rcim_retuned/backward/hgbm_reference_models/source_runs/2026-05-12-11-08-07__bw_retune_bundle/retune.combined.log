@@ -1,9 +1,9 @@
-﻿[INFO] RCIM Original Launcher Foreground Console Mode
+[INFO] RCIM Original Launcher Foreground Console Mode
 [INFO] Stage | retune
 [INFO] Mode | retune
 [INFO] Direction | backward
 [INFO] Stage Root | C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\retune
-[INFO] Command | "C:\Users\Davide\.conda\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode retune --direction backward --test-size 0.2 --output-root C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\retune --families "ET, ERT, GBM, HGBM" --retune-grid-search-verbose 10 --retune-cross-validate-verbose 10
+[INFO] Command | "C:\Users\Davide\.conda\envs\pinns_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode retune --direction backward --test-size 0.2 --output-root C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\retune --families "ET, ERT, GBM, HGBM" --retune-grid-search-verbose 10 --retune-cross-validate-verbose 10
 [INFO] Combined Transcript Path | C:\Users\Davide\Desktop\PINNs\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\backward\2026-05-12-11-08-07__bw_retune_bundle\logs\retune.combined.log
 [INFO] The child training process runs in true foreground-console mode.
 [INFO] Ctrl+C should behave like the direct python command.

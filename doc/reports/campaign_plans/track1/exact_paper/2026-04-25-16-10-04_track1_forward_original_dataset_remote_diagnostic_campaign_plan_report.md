@@ -29,7 +29,7 @@ training-validation run for each of the `10` exact-paper families.
 - random seed: `42`
 - launch mode: `remote_operator_launcher`
 - remote host alias: `xilab-remote`
-- remote conda environment: `standard_ml_lan_node`
+- remote conda environment: `pinns_lan_env`
 
 ## Queue Surface
 

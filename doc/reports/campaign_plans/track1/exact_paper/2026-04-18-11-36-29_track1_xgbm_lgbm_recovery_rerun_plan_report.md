@@ -6,7 +6,7 @@ This planning report covers the recovery phase for the interrupted
 `Track 1` remaining-family exact-paper batch.
 
 The `2026-04-18` remote sequence stopped during the first `XGBM` run because
-the remote Conda environment `standard_ml_lan_node` did not provide the
+the remote Conda environment `pinns_lan_env` did not provide the
 optional package `xgboost`. The aggregate batch therefore remains only
 partially closed out, with two families still pending:
 
@@ -70,7 +70,7 @@ clear preflight failure instead of failing later during model creation.
 Recommended recovery order:
 
 1. repair the remote environment so `xgboost` and `lightgbm` are installed in
-   `standard_ml_lan_node`;
+   `pinns_lan_env`;
 2. run the dedicated `XGBM` campaign in remote mode;
 3. run the dedicated `LGBM` campaign in remote mode;
 4. perform the final remaining-family closeout and benchmark refresh.

@@ -7,7 +7,7 @@
 - Local start timestamp: `2026-04-22T09:14:36+02:00`
 - Remote host alias: `xilab-remote`
 - Remote repository path: `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`
-- Remote Conda environment: `standard_ml_lan_node`
+- Remote Conda environment: `pinns_lan_env`
 - Scope for this manual sync: `SVM` only
 - Closeout gate: do not update the canonical campaign state, benchmark, or forward-only asset-root migration until the artifact copy below has completed
 

@@ -46,7 +46,7 @@ The validation output folder is now separated from normal training runs so sanit
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/validate_training_setup.py `
+conda run -n pinns_env python scripts/training/validate_training_setup.py `
   --config-path config/training/feedforward/presets/trial.yaml `
   --output-suffix wave0_validation
 ```

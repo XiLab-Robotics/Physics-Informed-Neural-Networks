@@ -48,7 +48,7 @@ DEFAULT_PORT = 8765
 DEFAULT_WHISPER_MODEL = "large-v3"
 DEFAULT_WHISPER_DEVICE = "auto"
 DEFAULT_WHISPER_COMPUTE_TYPE = "auto"
-DEFAULT_BEARER_TOKEN = os.environ.get("STANDARDML_LAN_AI_TOKEN", "").strip()
+DEFAULT_BEARER_TOKEN = os.environ.get("PINNS_LAN_AI_TOKEN", "").strip()
 
 WHISPER_MODEL_CACHE: dict[tuple[str, str, str], Any] = {}
 PADDLE_OCR_CACHE: dict[str, Any] = {}

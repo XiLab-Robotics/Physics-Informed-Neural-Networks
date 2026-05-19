@@ -233,8 +233,8 @@ module load Anaconda3
 Create the project environment:
 
 ```bash
-conda create -y -n standard_ml_codex_env python=3.12
-conda activate standard_ml_codex_env
+conda create -y -n pinns_env python=3.12
+conda activate pinns_env
 python -m pip install --upgrade pip
 ```
 
@@ -357,7 +357,7 @@ environment:
 ```bash
 module load cuda
 module load Anaconda3
-conda activate standard_ml_codex_env
+conda activate pinns_env
 ```
 
 Check the GPU:
@@ -384,7 +384,7 @@ Use the repository's lightweight setup validation before launching training:
 
 ```bash
 cd /scratch1/$USER/Physics-Informed-Neural-Networks
-conda activate standard_ml_codex_env
+conda activate pinns_env
 python -B scripts/training/validate_training_setup.py \
   --config-path config/training/feedforward/presets/baseline.yaml \
   --platform linux
@@ -432,7 +432,7 @@ set -euo pipefail
 module load cuda
 module load Anaconda3
 
-conda activate standard_ml_codex_env
+conda activate pinns_env
 
 cd /scratch1/${USER}/Physics-Informed-Neural-Networks
 

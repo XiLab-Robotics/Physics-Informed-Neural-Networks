@@ -57,7 +57,7 @@ Use the remote workstation for:
 
 The repository uses two shared secrets:
 
-- `STANDARDML_LAN_AI_TOKEN`
+- `PINNS_LAN_AI_TOKEN`
   protects `lan_ai_node_server.py`
 - `LM_STUDIO_API_KEY`
   protects the `LM Studio` OpenAI-compatible API
@@ -77,14 +77,14 @@ Generate one token for each variable and store the values somewhere secure.
 Run these commands on the remote workstation:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
 ```
 
 Run the same two variables on the current workstation with the same values:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
 ```
 
@@ -96,21 +96,21 @@ If you want the variables available to all users on the remote workstation, run
 an elevated PowerShell prompt:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "Machine")
+[System.Environment]::SetEnvironmentVariable("PINNS_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "Machine")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "Machine")
 ```
 
 ### Verify The Variables
 
 ```powershell
-echo $env:STANDARDML_LAN_AI_TOKEN
+echo $env:PINNS_LAN_AI_TOKEN
 echo $env:LM_STUDIO_API_KEY
 ```
 
 Safer verification without printing the full values:
 
 ```powershell
-python -c "import os; print(bool(os.environ.get('STANDARDML_LAN_AI_TOKEN'))); print(bool(os.environ.get('LM_STUDIO_API_KEY')))"
+python -c "import os; print(bool(os.environ.get('PINNS_LAN_AI_TOKEN'))); print(bool(os.environ.get('LM_STUDIO_API_KEY')))"
 ```
 
 ## 3. Enable Long Paths Before Cloning
@@ -241,8 +241,8 @@ pulling the entire local workstation dependency surface.
 From the repository root on the remote workstation:
 
 ```powershell
-conda create -y -n standard_ml_lan_node python=3.12
-conda activate standard_ml_lan_node
+conda create -y -n pinns_lan_env python=3.12
+conda activate pinns_lan_env
 python -m pip install --upgrade pip wheel
 python -m pip install -r scripts/tooling/lan_ai/requirements-lan-ai-node.txt
 ```
@@ -259,7 +259,7 @@ active, otherwise `faster-whisper` GPU execution fails with errors such as:
 Run the repository-owned helper once after the packages are installed:
 
 ```powershell
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 powershell -ExecutionPolicy Bypass -File .\scripts\tooling\setup_lan_ai_node_cuda_path.ps1 -CondaPrefix $env:CONDA_PREFIX
 ```
 
@@ -272,7 +272,7 @@ After that, reactivate the environment:
 
 ```powershell
 conda deactivate
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 ```
 
 Validate that the DLLs are now visible from `PATH`:
@@ -618,7 +618,7 @@ curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_
 From a PowerShell window or an SSH session on the remote workstation:
 
 ```powershell
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
@@ -637,7 +637,7 @@ transcript in one giant prompt.
 If CUDA is not ready yet:
 
 ```powershell
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cpu --whisper-compute-type int8
 ```
 
@@ -654,7 +654,7 @@ Then run on the remote shell:
 
 ```powershell
 cd "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16
 ```
 
@@ -668,7 +668,7 @@ When the SSH shell lands in `cmd.exe` and `conda activate` is unavailable, use
 the non-interactive `conda run` form instead:
 
 ```powershell
-ssh xilab-remote "cd /d C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks && conda run -n standard_ml_lan_node python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16"
+ssh xilab-remote "cd /d C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks && conda run -n pinns_lan_env python -B scripts/tooling/lan_ai/lan_ai_node_server.py --host 0.0.0.0 --port 8765 --whisper-model large-v3 --whisper-device cuda --whisper-compute-type float16"
 ```
 
 This is the simplest reliable way to keep everything driven from the current
@@ -679,22 +679,22 @@ workstation terminal.
 On the current workstation, configure the LAN endpoints:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_BASE_URL", "http://REMOTE_HOST:1234", "User")
 ```
 
 Open a new PowerShell window and verify:
 
 ```powershell
-echo $env:STANDARDML_LAN_AI_BASE_URL
+echo $env:PINNS_LAN_AI_BASE_URL
 echo $env:LM_STUDIO_BASE_URL
 ```
 
 The current workstation should now have these four variables available:
 
-- `STANDARDML_LAN_AI_TOKEN`
+- `PINNS_LAN_AI_TOKEN`
 - `LM_STUDIO_API_KEY`
-- `STANDARDML_LAN_AI_BASE_URL`
+- `PINNS_LAN_AI_BASE_URL`
 - `LM_STUDIO_BASE_URL`
 
 ## 13. Run The First Health Checks
@@ -712,7 +712,7 @@ Test-NetConnection REMOTE_HOST -Port 1234
 ### LAN AI Node Health
 
 ```powershell
-curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
+curl.exe -H "Authorization: Bearer $env:PINNS_LAN_AI_TOKEN" "$env:PINNS_LAN_AI_BASE_URL/health"
 ```
 
 Expected response shape:
@@ -825,7 +825,7 @@ New-NetFirewallRule -Name "LM-Studio-1234" -DisplayName "LM Studio 1234" -Enable
 
 ### `/health` Returns `401 Unauthorized`
 
-- verify `STANDARDML_LAN_AI_TOKEN` is identical on both machines;
+- verify `PINNS_LAN_AI_TOKEN` is identical on both machines;
 - verify the request is sending `Authorization: Bearer ...`.
 
 ### `LM Studio` Returns Unauthorized Or Empty Results
@@ -887,7 +887,7 @@ Validated current-workstation checks:
 
 ```powershell
 Test-NetConnection REMOTE_HOST -Port 8765
-curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
+curl.exe -H "Authorization: Bearer $env:PINNS_LAN_AI_TOKEN" "$env:PINNS_LAN_AI_BASE_URL/health"
 ```
 
 Validated firewall rule:

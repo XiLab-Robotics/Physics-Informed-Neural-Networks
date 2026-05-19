@@ -220,7 +220,7 @@ Default input:
 Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
   --direction backward `
   --rebuild-instance-cache `
   --output-suffix bw_dataframe
@@ -229,7 +229,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Example with raw CSV directory:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
   --instances-path "C:\path\to\raw_instance_csv_dir" `
   --direction forward `
   --output-suffix fw_from_raw
@@ -260,7 +260,7 @@ This mirrors the role of `1.1-main_prediction_v17.py`:
 Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode export `
   --direction forward `
   --output-suffix v17_export_fw
@@ -285,7 +285,7 @@ This mirrors the author guidance:
 Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode retune `
   --direction forward `
   --test-size 0.20 `
@@ -301,7 +301,7 @@ Optional retune-monitoring controls:
 Quieter example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode retune `
   --direction backward `
   --families SVR `
@@ -323,7 +323,7 @@ This mirrors `1-main_prediction_v18.py`:
 Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_eval `
   --direction forward `
   --test-size 0.20 `
@@ -333,7 +333,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Example for future `Bw` replay:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_eval `
   --direction backward `
   --dataframe-path "C:\path\to\dataFrame_prediction_Bw_v14_newFreq.csv" `
@@ -355,7 +355,7 @@ This is the repository-owned paper-reference export companion mode:
 Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_export `
   --direction forward `
   --output-suffix v18_export_fw
@@ -640,7 +640,7 @@ Important current limitation:
 Example:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
   --direction forward `
   --rebuild-instance-cache `
   --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `

@@ -81,7 +81,7 @@ It also writes a repository-owned Markdown report under:
 Typical usage from the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/baseline.yaml `
   --output-suffix baseline_validation
 ```

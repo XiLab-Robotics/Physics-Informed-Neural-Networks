@@ -62,7 +62,7 @@ The operator assumptions remain the same as the validated remote campaign path:
 1. `ssh xilab-remote` already works from the current workstation;
 2. the remote repository clone exists at
    `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`;
-3. the remote Conda environment `standard_ml_lan_node` exists;
+3. the remote Conda environment `pinns_lan_env` exists;
 4. the remote environment still exposes CUDA-enabled PyTorch;
 5. the dataset path expected by the repository configs is available on the
    remote machine.
@@ -75,7 +75,7 @@ used recently:
 ```powershell
 Set-Location "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
 git checkout main
-conda run -n standard_ml_lan_node python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+conda run -n pinns_lan_env python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
 Test-Path ".\data\datasets"
 ```
 
@@ -105,7 +105,7 @@ If you prefer the explicit form, use this explicit operator command:
 ```powershell
 .\scripts\\campaigns\\infrastructure\\run_targeted_remote_followup_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
-  -RemoteCondaEnvironmentName "standard_ml_lan_node" `
+  -RemoteCondaEnvironmentName "pinns_lan_env" `
   -RemoteHostAlias "xilab-remote"
 ```
 

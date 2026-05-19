@@ -233,9 +233,9 @@ W0416 18:24:05.087000 6340 site-packages\torch\utils\flop_counter.py:29] triton 
 [CV] END estimator__C=0.001, estimator__epsilon=0.001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
 [CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=linear; total time=   0.0s
 [CV] END estimator__C=0.001, estimator__epsilon=0.0001, estimator__gamma=1.1e-06, estimator__kernel=rbf; total time=   0.0s
-C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:359: UserWarning: resource_tracker: There appear to be 2 leaked folder objects to clean up at shutdown
+C:\Users\Martina Salami\.conda\envs\pinns_lan_env\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:359: UserWarning: resource_tracker: There appear to be 2 leaked folder objects to clean up at shutdown
   warnings.warn(
-C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:375: UserWarning: resource_tracker: C:\Users\Martina Salami\AppData\Local\Temp\joblib_memmapping_folder_36496_661ff019744341cf9af605f007302aee_d424571338374d7fb6c86d583f15ae2e: FileNotFoundError(2, 'The system cannot find the path specified')
+C:\Users\Martina Salami\.conda\envs\pinns_lan_env\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:375: UserWarning: resource_tracker: C:\Users\Martina Salami\AppData\Local\Temp\joblib_memmapping_folder_36496_661ff019744341cf9af605f007302aee_d424571338374d7fb6c86d583f15ae2e: FileNotFoundError(2, 'The system cannot find the path specified')
   warnings.warn(f"resource_tracker: {name}: {e!r}")
-C:\Users\Martina Salami\.conda\envs\standard_ml_lan_node\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:375: UserWarning: resource_tracker: C:\Users\Martina Salami\AppData\Local\Temp\joblib_memmapping_folder_36496_661ff019744341cf9af605f007302aee_eb0eed83edfe43bdab2ee3dae28209d5: FileNotFoundError(2, 'The system cannot find the path specified')
+C:\Users\Martina Salami\.conda\envs\pinns_lan_env\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:375: UserWarning: resource_tracker: C:\Users\Martina Salami\AppData\Local\Temp\joblib_memmapping_folder_36496_661ff019744341cf9af605f007302aee_eb0eed83edfe43bdab2ee3dae28209d5: FileNotFoundError(2, 'The system cannot find the path specified')
   warnings.warn(f"resource_tracker: {name}: {e!r}")

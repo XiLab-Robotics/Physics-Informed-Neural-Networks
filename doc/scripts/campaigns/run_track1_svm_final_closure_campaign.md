@@ -46,7 +46,7 @@ Optional explicit environment arguments:
 
 ```powershell
 .\scripts\\campaigns\\track1\\svm\\run_track1_svm_final_closure_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env `
+  -CondaEnvironmentName pinns_env `
   -PythonExecutable python
 ```
 

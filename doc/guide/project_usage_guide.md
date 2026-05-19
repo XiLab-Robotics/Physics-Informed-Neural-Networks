@@ -57,8 +57,8 @@ git config --system core.longpaths true
 If the environment is not ready yet, install the tracked project dependencies first:
 
 ```powershell
-conda create -y -n standard_ml_codex_env python=3.12
-conda activate standard_ml_codex_env
+conda create -y -n pinns_env python=3.12
+conda activate pinns_env
 python -m pip install --upgrade pip
 python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
@@ -66,11 +66,11 @@ python -m pip install -r requirements.txt
 
 This keeps the dependency installation aligned with `requirements.txt` while still pulling the CUDA-enabled `torch` build from the official PyTorch wheel index for the current Windows setup.
 
-If you are upgrading an existing `standard_ml_codex_env` from Python 3.10, rebuild the binary packages after the interpreter update:
+If you are upgrading an existing `pinns_env` from Python 3.10, rebuild the binary packages after the interpreter update:
 
 ```powershell
-conda install -y -n standard_ml_codex_env python=3.12
-conda activate standard_ml_codex_env
+conda install -y -n pinns_env python=3.12
+conda activate pinns_env
 python -m pip install --force-reinstall --no-cache-dir -r requirements.txt
 python -m pip install --force-reinstall --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
@@ -78,7 +78,7 @@ python -m pip install --force-reinstall --no-cache-dir torch torchvision --index
 ### 1. Activate The Conda Environment
 
 ```powershell
-conda activate standard_ml_codex_env
+conda activate pinns_env
 ```
 
 ### 2. Verify The Main Dependencies
@@ -366,7 +366,7 @@ the curated `LGBM-19` exact-paper reference bank and the canonical best
 direct-TE `feedforward` baseline:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/baseline.yaml `
   --output-suffix baseline_validation
 ```
@@ -383,7 +383,7 @@ current `rcim_original` forward archive with the same exact-paper split and
 Track 2 forward curve context:
 
 ```powershell
-conda run -n standard_ml_codex_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_original_onnx_release_parity_validation.py `
+conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_original_onnx_release_parity_validation.py `
   --output-suffix initial_parity_validation
 ```
 
@@ -399,20 +399,20 @@ per-curve prediction CSVs, saves overlay plots, and generates a Markdown
 comparison report:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py
+conda run -n pinns_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py
 ```
 
 For a quick loader and plot smoke test, cap the selected curves:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py --max-curves 2
+conda run -n pinns_env python scripts/reports/analysis/plot_wave1_best_model_te_curves.py --max-curves 2
 ```
 
 The repository also exposes a separate original-dataset exact-model-bank branch
 for the bidirectional `Track 1` rebuild:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
   --output-suffix forward_validation
 ```
@@ -426,7 +426,7 @@ Validated smoke launcher for the post-refactor structural check:
 Prepared mega-campaign package generator and launcher:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_original_dataset_mega_campaign.py
 .\scripts\campaigns\track1\exact_paper\run_track1_bidirectional_original_dataset_mega_campaign.ps1 -Remote
 ```
 
@@ -434,7 +434,7 @@ Forward-only remote micro-campaign package for validating the repaired remote
 launcher stack before regenerating the full bidirectional campaign from zero:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_micro_campaign.py
 .\scripts\campaigns\track1\exact_paper\run_track1_forward_original_dataset_remote_micro_campaign.ps1 -Remote
 ```
 
@@ -453,7 +453,7 @@ Forward-only open-cell repair package for the current residual forward
 benchmark cells:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
 .\scripts\campaigns\track1\exact_paper\run_track1_forward_open_cell_repair_campaign.ps1 -Remote
 ```
 
@@ -469,7 +469,7 @@ Final forward residual package for the last canonical non-green `Table 2-5`
 cells:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_final_open_cells_campaign.py
 .\scripts\campaigns\track1\exact_paper\run_track1_forward_final_open_cells_campaign.ps1 -Remote
 ```
 
@@ -485,7 +485,7 @@ Aggressive final forward residual package for the last canonical non-green
 `forward` amplitude cells:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_last_non_green_cells_campaign.py
 .\scripts\campaigns\track1\exact_paper\run_track1_forward_last_non_green_cells_campaign.ps1 -Remote
 ```
 
@@ -580,7 +580,7 @@ The remote workstation now has its own dependency file:
 
 - `scripts/tooling/lan_ai/requirements-lan-ai-node.txt`
 
-Use that file for the `standard_ml_lan_node` environment instead of the main
+Use that file for the `pinns_lan_env` environment instead of the main
 `requirements.txt`. The remote guide also documents the persistent Conda
 `activate.d` / `deactivate.d` setup used to prepend the NVIDIA CUDA 12 runtime
 DLL directories to `PATH` automatically.
@@ -600,9 +600,9 @@ The validated LAN workflow also includes:
 
 At minimum, the current workstation needs these environment variables:
 
-- `STANDARDML_LAN_AI_TOKEN`
+- `PINNS_LAN_AI_TOKEN`
 - `LM_STUDIO_API_KEY`
-- `STANDARDML_LAN_AI_BASE_URL`
+- `PINNS_LAN_AI_BASE_URL`
 - `LM_STUDIO_BASE_URL`
 
 For local-only validation on the current workstation, you can keep the remote
@@ -613,9 +613,9 @@ variables unchanged and add:
 Example persistent setup on the current workstation:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_LAN_AI_TOKEN", "PASTE_LAN_TOKEN_HERE", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_API_KEY", "PASTE_LM_STUDIO_TOKEN_HERE", "User")
-[System.Environment]::SetEnvironmentVariable("STANDARDML_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_LAN_AI_BASE_URL", "http://REMOTE_HOST:8765", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_BASE_URL", "http://REMOTE_HOST:1234", "User")
 [System.Environment]::SetEnvironmentVariable("LM_STUDIO_LOCAL_URL", "http://127.0.0.1:1234", "User")
 ```
@@ -626,7 +626,7 @@ Quick reachability checks from the current workstation:
 Test-NetConnection REMOTE_HOST -Port 22
 Test-NetConnection REMOTE_HOST -Port 8765
 Test-NetConnection REMOTE_HOST -Port 1234
-curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
+curl.exe -H "Authorization: Bearer $env:PINNS_LAN_AI_TOKEN" "$env:PINNS_LAN_AI_BASE_URL/health"
 curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_URL/v1/models"
 ```
 
@@ -731,9 +731,9 @@ Prerequisites:
 - for the LAN route:
   - `LM_STUDIO_BASE_URL` must point to the remote `LM Studio` server;
   - `LM_STUDIO_API_KEY` must contain the configured `LM Studio` token;
-  - `STANDARDML_LAN_AI_BASE_URL` must point to the remote
+  - `PINNS_LAN_AI_BASE_URL` must point to the remote
     `lan_ai_node_server.py` instance;
-  - `STANDARDML_LAN_AI_TOKEN` must contain the bearer token used by that node;
+  - `PINNS_LAN_AI_TOKEN` must contain the bearer token used by that node;
 - for local OCR fallback:
   - `pytesseract` plus a local Tesseract executable are still required.
 
@@ -1251,17 +1251,17 @@ Use the orchestration runner when you want one repository-owned command for:
 For the current four structured-model explanatory reports:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py `
+conda run -n pinns_env python scripts/reports/pdf/run_report_pipeline.py `
   --use-model-explanatory-reports `
   --regenerate-diagrams `
-  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe `
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe `
   --windows
 ```
 
 On Linux, use the same orchestration entry point with `--linux`:
 
 ```bash
-conda run -n standard_ml_codex_env python scripts/reports/pdf/run_report_pipeline.py \
+conda run -n pinns_env python scripts/reports/pdf/run_report_pipeline.py \
   --use-model-explanatory-reports \
   --regenerate-diagrams \
   --linux
@@ -1349,7 +1349,7 @@ Current environment assumption:
 ## Regenerate The Model Report Diagrams
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/reports/analysis/generate_model_report_diagrams.py
+conda run -n pinns_env python scripts/reports/analysis/generate_model_report_diagrams.py
 ```
 
 This command regenerates the current SVG assets stored under:
@@ -1436,7 +1436,7 @@ The same checks now also support the Wave 1 tree baselines through a reduced `sc
 ## Run The One-Batch Validation Check
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/validate_training_setup.py `
+conda run -n pinns_env python scripts/training/validate_training_setup.py `
   --config-path config/training/feedforward/presets/trial.yaml `
   --output-suffix validation_check
 ```
@@ -1459,7 +1459,7 @@ It writes:
 ## Run The Minimal Lightning Smoke Test
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/run_training_smoke_test.py `
+conda run -n pinns_env python scripts/training/run_training_smoke_test.py `
   --config-path config/training/feedforward/presets/trial.yaml `
   --output-suffix smoke_test `
   --fast-dev-run-batches 1
@@ -1869,7 +1869,7 @@ Main configurable sections:
 From the project root:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
+conda run -n pinns_env python scripts/training/train_feedforward_network.py
 ```
 
 The direct script execution shown above is supported from the repository root. The training entry point bootstraps the project root into `sys.path`, so the internal `scripts.models`, `scripts.training`, and `scripts.datasets` imports resolve correctly even when the file is launched directly.
@@ -1919,7 +1919,7 @@ Typical artifacts now include:
 If you want a faster verification run before trying the default baseline, use the trial config:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 This proof configuration:
@@ -2012,7 +2012,7 @@ If the project is later executed on CPU-only hardware or on a different workstat
 If you want to launch the same workflow with a different YAML file:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/baseline.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/baseline.yaml
 ```
 
 The script now exposes `--config-path`, so custom YAML files can be launched directly without using `python -c`.
@@ -2020,20 +2020,20 @@ The script now exposes `--config-path`, so custom YAML files can be launched dir
 To launch the current best practical feedforward preset directly:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
 ```
 
 To launch one prepared Wave 1 structured-neural candidate directly:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py `
+conda run -n pinns_env python scripts/training/train_feedforward_network.py `
   --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/07_residual_h12_small_frozen.yaml
 ```
 
 To launch one prepared Wave 1 tree candidate directly:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_tree_regressor.py `
+conda run -n pinns_env python scripts/training/train_tree_regressor.py `
   --config-path config/training/wave1_structured_baselines/campaigns/2026-03-17_wave1_structured_baseline_campaign/09_random_forest_tabular.yaml
 ```
 
@@ -2194,8 +2194,8 @@ ssh xilab-remote "hostname"
 
 Recommended convenience variables on the current workstation:
 
-- `STANDARDML_REMOTE_TRAINING_REPO_PATH`
-- `STANDARDML_REMOTE_TRAINING_CONDA_ENV`
+- `PINNS_REMOTE_TRAINING_REPO_PATH`
+- `PINNS_REMOTE_TRAINING_CONDA_ENV`
 
 Generic launcher example:
 
@@ -2283,7 +2283,7 @@ Real preflight performed on `2026-04-03` already established:
   `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`;
 - the remote clone is currently at commit
   `8ff4bf90e0d7cbdc06778a749e1eb7db5843b8de`;
-- the existing environment `standard_ml_lan_node` passes the repository
+- the existing environment `pinns_lan_env` passes the repository
   validation check;
 - the remote workstation has an NVIDIA RTX A4000 visible through `nvidia-smi`;
 - the remote environment now exposes `torch==2.11.0+cu130`;
@@ -2295,7 +2295,7 @@ Recommended one-time remote setup:
 ```powershell
 Set-Location "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks"
 git checkout main
-conda activate standard_ml_lan_node
+conda activate pinns_lan_env
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m pip install --force-reinstall --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu130
@@ -2304,8 +2304,8 @@ python -m pip install --force-reinstall --no-cache-dir torch torchvision --index
 Recommended one-time current-workstation setup:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_REPO_PATH", "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks", "User")
-[System.Environment]::SetEnvironmentVariable("STANDARDML_REMOTE_TRAINING_CONDA_ENV", "standard_ml_lan_node", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_REMOTE_TRAINING_REPO_PATH", "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks", "User")
+[System.Environment]::SetEnvironmentVariable("PINNS_REMOTE_TRAINING_CONDA_ENV", "pinns_lan_env", "User")
 ```
 
 After reopening PowerShell, the validated campaign launcher can be reused with:
@@ -2320,7 +2320,7 @@ use:
 ```powershell
 .\scripts\\campaigns\\infrastructure\\run_remote_training_validation_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
-  -RemoteCondaEnvironmentName "standard_ml_lan_node" `
+  -RemoteCondaEnvironmentName "pinns_lan_env" `
   -RemoteHostAlias "xilab-remote"
 ```
 
@@ -2378,7 +2378,7 @@ If you prefer the explicit form, use:
 ```powershell
 .\scripts\\campaigns\\infrastructure\\run_targeted_remote_followup_campaign.ps1 `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
-  -RemoteCondaEnvironmentName "standard_ml_lan_node" `
+  -RemoteCondaEnvironmentName "pinns_lan_env" `
   -RemoteHostAlias "xilab-remote"
 ```
 
@@ -2424,7 +2424,7 @@ For the bidirectional original-dataset `Track 1` exact-paper mega wave, the
 repo-owned closeout entry point is:
 
 ```powershell
-conda run -n standard_ml_codex_env python -B scripts\reports\closeout\track1\closeout_track1_bidirectional_original_dataset_mega_campaign.py
+conda run -n pinns_env python -B scripts\reports\closeout\track1\closeout_track1_bidirectional_original_dataset_mega_campaign.py
 ```
 
 That closeout utility is responsible for:
@@ -2484,10 +2484,10 @@ If you want to inspect the dataset and train the current baseline, use this sequ
 Example sequence:
 
 ```powershell
-conda activate standard_ml_codex_env
+conda activate pinns_env
 python -c "from scripts.datasets.transmission_error_dataset import create_transmission_error_dataloaders_from_config; bundle=create_transmission_error_dataloaders_from_config(); print(len(bundle['train_dataset'])); print(len(bundle['validation_dataset']))"
 python -m scripts.datasets.visualize_transmission_error --file-index 0 --save-path output\te_curve_0.png
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
+conda run -n pinns_env python scripts/training/train_feedforward_network.py
 ```
 
 ## Documentation Portal Build
@@ -2513,7 +2513,7 @@ Repository rule:
 To build the local HTML portal:
 
 ```powershell
-conda activate standard_ml_codex_env
+conda activate pinns_env
 python -m pip install -r requirements.txt
 python -m sphinx -W -b html site site/_build/html
 ```
@@ -2620,7 +2620,7 @@ Canonical config:
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/harmonic_wise_comparison/run_harmonic_wise_comparison_pipeline.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/harmonic_wise/baseline.yaml `
   --output-suffix baseline_validation
 ```
@@ -2757,7 +2757,7 @@ time.
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/exact_model_bank/baseline.yaml `
   --output-suffix exact_paper_validation
 ```
@@ -2765,7 +2765,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Original-dataset bidirectional usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
   --output-suffix forward_validation
 ```
@@ -2792,7 +2792,7 @@ Optional PowerShell usage:
 
 ```powershell
 .\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_model_bank_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env `
+  -CondaEnvironmentName pinns_env `
   -PythonExecutable python
 ```
 
@@ -2853,13 +2853,13 @@ Canonical detailed guide:
 Typical usage:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
   --direction backward `
   --output-suffix bw_dataframe
 ```
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_eval `
   --direction forward `
   --test-size 0.20 `
@@ -2867,14 +2867,14 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 ```
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_export `
   --direction forward `
   --output-suffix v18_export_fw
 ```
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
   --direction forward `
   --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `
   --output-suffix eval_fw

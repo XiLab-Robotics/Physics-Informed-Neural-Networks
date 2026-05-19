@@ -6,7 +6,7 @@ The repository-owned helper `scripts/tooling/setup_lan_ai_node_cuda_path.ps1`
 can resolve the wrong Conda prefix when launched through
 `powershell -ExecutionPolicy Bypass -File ...` from an already activated
 environment. In the validated remote workflow, the child PowerShell process may
-see the base Miniconda prefix instead of `standard_ml_lan_node`, causing the
+see the base Miniconda prefix instead of `pinns_lan_env`, causing the
 helper to look for NVIDIA CUDA DLL directories in the wrong location.
 
 ## Technical Approach

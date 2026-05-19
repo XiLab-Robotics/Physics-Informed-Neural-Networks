@@ -115,7 +115,7 @@ It also writes a repository-owned Markdown validation report under:
 Forward branch:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_forward.yaml `
   --output-suffix forward_validation
 ```
@@ -123,7 +123,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Backward branch:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path config/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/baseline_backward.yaml `
   --output-suffix backward_validation
 ```

@@ -8,9 +8,9 @@ set -euo pipefail
 SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIRECTORY}/../../.." && pwd)"
 
-REMOTE_HOST_ALIAS="${STANDARDML_REMOTE_TRAINING_HOST:-xilab-remote}"
-REMOTE_REPOSITORY_PATH="${STANDARDML_REMOTE_TRAINING_REPO_PATH:-}"
-REMOTE_CONDA_ENVIRONMENT_NAME="${STANDARDML_REMOTE_TRAINING_CONDA_ENV:-standard_ml_codex_env}"
+REMOTE_HOST_ALIAS="${PINNS_REMOTE_TRAINING_HOST:-xilab-remote}"
+REMOTE_REPOSITORY_PATH="${PINNS_REMOTE_TRAINING_REPO_PATH:-}"
+REMOTE_CONDA_ENVIRONMENT_NAME="${PINNS_REMOTE_TRAINING_CONDA_ENV:-pinns_env}"
 CAMPAIGN_NAME=""
 PLANNING_REPORT_PATH=""
 DRY_RUN="0"
@@ -30,7 +30,7 @@ Options:
   --campaign-config-path PATH       Repository-relative campaign YAML path. Repeatable.
   --campaign-name NAME              Campaign name passed to run_training_campaign.py.
   --planning-report-path PATH       Repository-relative planning report path.
-  --remote-host-alias HOST          SSH host alias. Defaults to STANDARDML_REMOTE_TRAINING_HOST or xilab-remote.
+  --remote-host-alias HOST          SSH host alias. Defaults to PINNS_REMOTE_TRAINING_HOST or xilab-remote.
   --remote-repository-path PATH     Repository root on the Linux remote host.
   --remote-conda-environment NAME   Conda environment on the Linux remote host.
   --source-sync-path PATH           Repository-relative path to sync. Repeatable; overrides defaults.
@@ -145,7 +145,7 @@ validate_inputs() {
         exit 2
     fi
     if [[ -z "${REMOTE_REPOSITORY_PATH}" ]]; then
-        echo "[ERROR] --remote-repository-path is required or set STANDARDML_REMOTE_TRAINING_REPO_PATH." >&2
+        echo "[ERROR] --remote-repository-path is required or set PINNS_REMOTE_TRAINING_REPO_PATH." >&2
         exit 2
     fi
 

@@ -255,7 +255,7 @@ prepared YAML for the desired scope.
 Search with live verbosity and keep downstream evaluation plus export enabled:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
   --config-path "config\paper_reimplementation\rcim_ml_compensation\exact_paper_model_bank\your_config.yaml" `
   --output-suffix exact_paper_search `
   --stage search `
@@ -266,7 +266,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Replay one stored best-parameter summary without repeating search:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
   --config-path "config\paper_reimplementation\rcim_ml_compensation\exact_paper_model_bank\your_config.yaml" `
   --output-suffix exact_paper_loadbest `
   --stage loadbest `
@@ -276,7 +276,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Run only export from stored best parameters:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/exact_paper_model_bank/run_exact_paper_model_bank_validation.py `
   --config-path "config\paper_reimplementation\rcim_ml_compensation\exact_paper_model_bank\your_config.yaml" `
   --output-suffix exact_paper_export_only `
   --stage export `
@@ -288,7 +288,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Search on one prepared original-dataset config:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\your_config.yaml" `
   --output-suffix original_dataset_search `
   --stage search `
@@ -299,7 +299,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Reuse registry-backed best parameters and skip export:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\your_config.yaml" `
   --output-suffix original_dataset_loadbest `
   --stage loadbest `
@@ -309,7 +309,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Run only evaluation from one explicit saved summary:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/original_dataset_exact_model_bank/run_original_dataset_exact_model_bank_validation.py `
   --config-path "config\paper_reimplementation\rcim_ml_compensation\original_dataset_exact_model_bank\your_config.yaml" `
   --output-suffix original_dataset_eval_only `
   --stage eval `
@@ -331,7 +331,7 @@ The main PowerShell launcher is:
 Preparation command:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_bidirectional_paper_faithful_grid_search_campaign.py
 ```
 
 Canonical remote launch:

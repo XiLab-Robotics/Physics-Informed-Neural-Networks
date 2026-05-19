@@ -1,4 +1,4 @@
-﻿[STDERR] Traceback (most recent call last):
+[STDERR] Traceback (most recent call last):
 [STDERR]   File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py", line 371, in <module>
 [STDERR]     main()
 [STDERR]   File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py", line 273, in main
@@ -10,19 +10,19 @@
 [STDERR]   File "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py", line 204, in _load_best_parameter_map
 [STDERR]     summary_dataframe = pd.read_csv(best_parameter_summary_path, sep=";", decimal=",")
 [STDERR]                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\pinns_env\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
 [STDERR]     return _read(filepath_or_buffer, kwds)
 [STDERR]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\pinns_env\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
 [STDERR]     parser = TextFileReader(filepath_or_buffer, **kwds)
 [STDERR]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\pinns_env\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
 [STDERR]     self._engine = self._make_engine(f, self.engine)
 [STDERR]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\pinns_env\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
 [STDERR]     self.handles = get_handle(
 [STDERR]                    ^^^^^^^^^^^
-[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+[STDERR]   File "C:\Users\XiLabTRig\miniconda3\envs\pinns_env\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
 [STDERR]     handle = open(
 [STDERR]              ^^^^^
 [STDERR] FileNotFoundError: [Errno 2] No such file or directory: 'models\\paper_reference\\rcim_original\\backward\\source_runs\\2026-05-02-13-13-50__bw_v17_retune\\output_prediction\\summaryBestParameter+_3.8_allFreq.csv'

@@ -33,7 +33,7 @@ The campaign purpose is residual closure, not a fresh full-bank sweep:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_open_cell_repair_campaign.py
 ```
 
 ## Queue Design

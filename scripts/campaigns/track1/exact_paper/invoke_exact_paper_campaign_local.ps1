@@ -19,7 +19,7 @@ function Invoke-ExactPaperCampaignLocal {
         [string]$CampaignOutputRootOverride = "",
         [string]$RunnerScriptPath = "scripts\paper_reimplementation\rcim_ml_compensation\run_exact_paper_model_bank_validation.py",
         [string]$OutputSuffix = "campaign_run",
-        [string]$CondaEnvironmentName = "standard_ml_codex_env",
+        [string]$CondaEnvironmentName = "pinns_env",
         [string]$PythonExecutable = "python",
         [string[]]$RunnerArgumentList = @()
     )

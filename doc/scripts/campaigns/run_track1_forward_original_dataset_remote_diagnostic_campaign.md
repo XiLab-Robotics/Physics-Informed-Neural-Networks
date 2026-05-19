@@ -29,7 +29,7 @@ The campaign purpose is diagnostic, not benchmark-complete:
 Generate the package and update the active campaign state with:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
+conda run -n pinns_env python scripts/campaigns/track1/exact_paper/prepare_track1_forward_original_dataset_remote_diagnostic_campaign.py
 ```
 
 ## Remote Bootstrap Contract

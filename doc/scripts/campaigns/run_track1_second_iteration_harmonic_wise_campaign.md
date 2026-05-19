@@ -75,7 +75,7 @@ Optional PowerShell usage:
 
 ```powershell
 .\scripts\\campaigns\\track1\\harmonic_wise\\run_track1_second_iteration_harmonic_wise_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env `
+  -CondaEnvironmentName pinns_env `
   -PythonExecutable python
 ```
 

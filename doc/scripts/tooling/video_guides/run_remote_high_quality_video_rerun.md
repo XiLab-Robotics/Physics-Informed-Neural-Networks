@@ -69,9 +69,9 @@ Override the discovered set explicitly when needed:
 
 The launcher expects the current workstation to already expose:
 
-- `STANDARDML_LAN_AI_TOKEN`
+- `PINNS_LAN_AI_TOKEN`
 - `LM_STUDIO_API_KEY`
-- `STANDARDML_LAN_AI_BASE_URL`
+- `PINNS_LAN_AI_BASE_URL`
 - `LM_STUDIO_BASE_URL`
 
 The remote `LM Studio` server and the remote LAN AI node must already be

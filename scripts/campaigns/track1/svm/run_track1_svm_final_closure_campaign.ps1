@@ -1,5 +1,5 @@
 param(
-    [string]$CondaEnvironmentName = "standard_ml_codex_env",
+    [string]$CondaEnvironmentName = "pinns_env",
     [string]$PythonExecutable = "python"
 )
 

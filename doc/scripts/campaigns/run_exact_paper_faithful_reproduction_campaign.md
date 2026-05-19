@@ -67,7 +67,7 @@ Optional PowerShell usage:
 
 ```powershell
 .\scripts\\campaigns\\track1\\exact_paper\\run_exact_paper_faithful_reproduction_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env `
+  -CondaEnvironmentName pinns_env `
   -PythonExecutable python
 ```
 

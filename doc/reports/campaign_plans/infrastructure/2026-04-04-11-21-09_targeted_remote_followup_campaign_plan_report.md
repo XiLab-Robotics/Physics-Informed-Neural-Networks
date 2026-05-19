@@ -203,7 +203,7 @@ The implementation phase should provide an explicit operator guide that covers:
 
 1. confirm the repository clone exists at
    `C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`;
-2. confirm the environment `standard_ml_lan_node` exists and still exposes
+2. confirm the environment `pinns_lan_env` exists and still exposes
    `torch.cuda.is_available() == True`;
 3. confirm the dataset path used by the configs is available on the remote
    machine;

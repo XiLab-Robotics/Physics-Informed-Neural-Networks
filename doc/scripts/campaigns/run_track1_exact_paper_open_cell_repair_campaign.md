@@ -69,7 +69,7 @@ Optional PowerShell usage:
 
 ```powershell
 .\scripts\\campaigns\\track1\\exact_paper\\run_track1_exact_paper_open_cell_repair_campaign.ps1 `
-  -CondaEnvironmentName standard_ml_codex_env `
+  -CondaEnvironmentName pinns_env `
   -PythonExecutable python
 ```
 

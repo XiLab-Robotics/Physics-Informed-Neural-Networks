@@ -1,9 +1,9 @@
-﻿[INFO] RCIM Original Launcher Mirrored Live Log Mode
+[INFO] RCIM Original Launcher Mirrored Live Log Mode
 [INFO] Stage | retune
 [INFO] Mode | retune
 [INFO] Direction | forward
 [INFO] Stage Root | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-27-27__fw_retune_bundle_live_log_backpressure_fix_smoke\retune
-[INFO] Command | "C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode retune --direction forward --test-size 0.2 --output-root "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-27-27__fw_retune_bundle_live_log_backpressure_fix_smoke\retune" --families DT --retune-grid-search-verbose 10 --retune-cross-validate-verbose 10
+[INFO] Command | "C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode retune --direction forward --test-size 0.2 --output-root "C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-27-27__fw_retune_bundle_live_log_backpressure_fix_smoke\retune" --families DT --retune-grid-search-verbose 10 --retune-cross-validate-verbose 10
 [INFO] Stdout Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-27-27__fw_retune_bundle_live_log_backpressure_fix_smoke\logs\retune.stdout.log
 [INFO] Stderr Compatibility Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-27-27__fw_retune_bundle_live_log_backpressure_fix_smoke\logs\retune.stderr.log
 [INFO] Combined Log Path | C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_campaigns\rcim_original\forward\2026-05-13-14-27-27__fw_retune_bundle_live_log_backpressure_fix_smoke\logs\retune.combined.log

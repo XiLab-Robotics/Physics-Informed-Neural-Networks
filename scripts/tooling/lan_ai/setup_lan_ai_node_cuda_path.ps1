@@ -34,17 +34,17 @@ $activateScriptPath = Join-Path $activateDirectory "standardml_lan_ai_node_cuda_
 $deactivateScriptPath = Join-Path $deactivateDirectory "standardml_lan_ai_node_cuda_path.ps1"
 
 $activateScriptText = @'
-$env:STANDARDML_PREPEND_NVIDIA_PATH = "__STANDARDML_NVIDIA_PATHS__"
-$env:STANDARDML_PREVIOUS_PATH = $env:PATH
-$env:PATH = "$env:STANDARDML_PREPEND_NVIDIA_PATH;$env:PATH"
-'@ -replace "__STANDARDML_NVIDIA_PATHS__", ($cudaBinPathList -join ';')
+$env:PINNS_PREPEND_NVIDIA_PATH = "__PINNS_NVIDIA_PATHS__"
+$env:PINNS_PREVIOUS_PATH = $env:PATH
+$env:PATH = "$env:PINNS_PREPEND_NVIDIA_PATH;$env:PATH"
+'@ -replace "__PINNS_NVIDIA_PATHS__", ($cudaBinPathList -join ';')
 
 $deactivateScriptText = @'
-if ($env:STANDARDML_PREVIOUS_PATH) {
-    $env:PATH = $env:STANDARDML_PREVIOUS_PATH
+if ($env:PINNS_PREVIOUS_PATH) {
+    $env:PATH = $env:PINNS_PREVIOUS_PATH
 }
-Remove-Item Env:STANDARDML_PREVIOUS_PATH -ErrorAction SilentlyContinue
-Remove-Item Env:STANDARDML_PREPEND_NVIDIA_PATH -ErrorAction SilentlyContinue
+Remove-Item Env:PINNS_PREVIOUS_PATH -ErrorAction SilentlyContinue
+Remove-Item Env:PINNS_PREPEND_NVIDIA_PATH -ErrorAction SilentlyContinue
 '@
 
 Set-Content -Path $activateScriptPath -Value $activateScriptText -NoNewline

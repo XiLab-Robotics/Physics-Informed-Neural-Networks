@@ -334,7 +334,7 @@ def main() -> None:
         "remote_repository_path": (
             "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks"
         ),
-        "remote_conda_environment_name": "standard_ml_lan_node",
+        "remote_conda_environment_name": "pinns_lan_env",
         "queue_config_path_list": queue_config_relative_path_list,
         "protected_file_list": protected_file_relative_path_list,
         "launch_command_list": [

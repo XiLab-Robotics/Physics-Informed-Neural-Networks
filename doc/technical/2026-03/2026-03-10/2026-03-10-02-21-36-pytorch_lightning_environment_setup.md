@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document defines the Python dependency baseline for implementing the neural network stack in PyTorch with PyTorch Lightning inside the `standard_ml_codex_env` Conda environment.
+This document defines the Python dependency baseline for implementing the neural network stack in PyTorch with PyTorch Lightning inside the `pinns_env` Conda environment.
 
 The objective is to:
 
@@ -82,7 +82,7 @@ If future project components require `torchvision` or `torchaudio`, they can be 
 - `doc/technical/2026-03/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md`
   Technical decision record for this environment setup feature.
 
-- `standard_ml_codex_env`
+- `pinns_env`
   Target Conda environment for dependency installation and validation.
 
 ## Implementation Steps
@@ -95,5 +95,5 @@ If future project components require `torchvision` or `torchaudio`, they can be 
    - upgrade `pip`;
    - install the CUDA-enabled `torch` wheel explicitly from the official PyTorch index;
    - install the remaining tracked dependencies from `requirements.txt`.
-4. Install the dependencies into `standard_ml_codex_env`.
+4. Install the dependencies into `pinns_env`.
 5. Run a lightweight verification step by importing the installed packages and printing their versions.

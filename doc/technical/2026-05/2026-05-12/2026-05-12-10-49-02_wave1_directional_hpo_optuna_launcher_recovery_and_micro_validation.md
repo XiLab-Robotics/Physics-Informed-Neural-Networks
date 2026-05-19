@@ -10,7 +10,7 @@ The observed failure is not a late training crash. The launcher attempted to
 start `run_optuna_neural_hpo_study.py`, but the spawned Python process did not
 have `optuna` available. Current inspection also shows that the launcher
 resolved `python` to `C:\Users\XiLabTRig\miniconda3\python.exe` instead of the
-intended `standard_ml_codex_env` interpreter.
+intended `pinns_env` interpreter.
 
 This recovery scope must:
 
@@ -45,7 +45,7 @@ Second, validate the fix with a repository-owned micro-campaign:
 
 Third, resume the blocked production campaign:
 
-- install or verify `optuna` inside `standard_ml_codex_env`;
+- install or verify `optuna` inside `pinns_env`;
 - relaunch the real directional neural study phase;
 - confirm whether `15/15` directional surfaces now expose best hyperparameters,
   winner artifacts, and the required Python plus ONNX model outputs;

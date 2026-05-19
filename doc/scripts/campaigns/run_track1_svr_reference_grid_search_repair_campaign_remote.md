@@ -47,12 +47,12 @@ By default the launcher uses:
 
 - `RemoteHostAlias = xilab-remote`
 - `RemoteRepositoryPath = C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks`
-- `RemoteCondaEnvironmentName = standard_ml_lan_node`
+- `RemoteCondaEnvironmentName = pinns_lan_env`
 
 If your LAN workstation uses different values, pass them explicitly or set:
 
-- `STANDARDML_REMOTE_TRAINING_REPO_PATH`
-- `STANDARDML_REMOTE_TRAINING_CONDA_ENV`
+- `PINNS_REMOTE_TRAINING_REPO_PATH`
+- `PINNS_REMOTE_TRAINING_CONDA_ENV`
 
 ## Practical Use
 
@@ -68,7 +68,7 @@ Explicit remote arguments:
 .\scripts\\campaigns\\track1\\svm\\run_track1_svr_reference_grid_search_repair_campaign_remote.ps1 `
   -RemoteHostAlias xilab-remote `
   -RemoteRepositoryPath "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" `
-  -RemoteCondaEnvironmentName standard_ml_lan_node
+  -RemoteCondaEnvironmentName pinns_lan_env
 ```
 
 ## Outputs To Monitor

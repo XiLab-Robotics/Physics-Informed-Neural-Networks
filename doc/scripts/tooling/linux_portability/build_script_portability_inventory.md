@@ -15,13 +15,13 @@ equivalent coverage, Windows-specific markers, and current portability status.
 Windows-formatted output paths:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/tooling/linux_portability/build_script_portability_inventory.py --windows
+conda run -n pinns_env python scripts/tooling/linux_portability/build_script_portability_inventory.py --windows
 ```
 
 Linux-formatted output paths:
 
 ```bash
-conda run -n standard_ml_codex_env python scripts/tooling/linux_portability/build_script_portability_inventory.py --linux
+conda run -n pinns_env python scripts/tooling/linux_portability/build_script_portability_inventory.py --linux
 ```
 
 The default output bundle is written under:

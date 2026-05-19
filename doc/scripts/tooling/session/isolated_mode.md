@@ -117,7 +117,7 @@ python -B scripts/tooling/session/isolated_mode.py close-session `
 ## Operational Notes
 
 - The expected runtime environment is the project Conda environment
-  `standard_ml_codex_env`, where `PyYAML` should normally already be available
+  `pinns_env`, where `PyYAML` should normally already be available
   through `requirements.txt`.
 - The script keeps a JSON-compatible fallback when `PyYAML` is unavailable, but
   that path is only a defensive compatibility layer and not the preferred

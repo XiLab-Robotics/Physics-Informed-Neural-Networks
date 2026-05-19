@@ -125,8 +125,8 @@ Then clone the repository into a reasonably short path such as `C:\Work`.
 ### 1. Create The Environment
 
 ```powershell
-conda create -y -n standard_ml_codex_env python=3.12
-conda activate standard_ml_codex_env
+conda create -y -n pinns_env python=3.12
+conda activate pinns_env
 python -m pip install --upgrade pip
 python -m pip install torch --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -r requirements.txt
@@ -149,13 +149,13 @@ Update that path if your validated TE dataset is stored elsewhere.
 For a lightweight verification run:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/trial.yaml
 ```
 
 For the default feedforward baseline:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py
+conda run -n pinns_env python scripts/training/train_feedforward_network.py
 ```
 
 Artifacts are written under:
@@ -167,7 +167,7 @@ Artifacts are written under:
 ### Run The Current Best Feedforward Preset
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
+conda run -n pinns_env python scripts/training/train_feedforward_network.py --config-path config/training/feedforward/presets/best_training.yaml
 ```
 
 ### Launch A Prepared Campaign

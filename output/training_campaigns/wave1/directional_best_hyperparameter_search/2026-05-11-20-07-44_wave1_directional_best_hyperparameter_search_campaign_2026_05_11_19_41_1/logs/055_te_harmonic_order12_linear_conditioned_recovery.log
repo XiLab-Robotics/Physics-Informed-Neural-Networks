@@ -1,4 +1,4 @@
-Command: C:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_feedforward_network.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-11-20-07-44_055_055_harmonic_regression_order8_lr00005_stride1.yaml
+Command: C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\scripts\training\train_feedforward_network.py --config-path C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\config\training\queue\running\2026-05-11-20-07-44_055_055_harmonic_regression_order8_lr00005_stride1.yaml
 Working Directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex
 
 
@@ -114,7 +114,7 @@ Campaign Progress 55/90 [##############----------]
 [0m[37m[1mCUDA Available                    [0m[33mTrue[0m[0m
 [0m[37m[1mCUDA Device Count                 [0m[33m1[0m[0m
 [0m[37m[1mCUDA Device Name                  [0m[33mNVIDIA RTX 1000 Ada Generation Laptop GPU[0m[0m
-[0mC:\Users\XiLabTRig\miniconda3\envs\standard_ml_codex_env\Lib\site-packages\lightning\pytorch\trainer\setup.py:175: GPU available but not used. You can set it by doing `Trainer(accelerator='gpu')`.
+[0mC:\Users\XiLabTRig\miniconda3\envs\pinns_env\Lib\site-packages\lightning\pytorch\trainer\setup.py:175: GPU available but not used. You can set it by doing `Trainer(accelerator='gpu')`.
 [0m
 [0m[36m[1m================================================================================================[0m
 [0m[36m[1mTraining Loop[0m

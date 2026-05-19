@@ -38,7 +38,7 @@ Underlying runner:
 Generate the configs first:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/generate_original_dataset_exact_smoke_configs.py
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/generate_original_dataset_exact_smoke_configs.py
 ```
 
 Run the smoke wave:

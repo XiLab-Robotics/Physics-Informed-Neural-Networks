@@ -20,7 +20,7 @@ The user explicitly requested:
 - move that useful information into proper technical documentation;
 - remove the legacy handoff archive files entirely;
 - acknowledge that `PyYAML` should normally be available from the project
-  Conda environment `standard_ml_codex_env`, because it is already tracked in
+  Conda environment `pinns_env`, because it is already tracked in
   `requirements.txt`.
 
 ## Technical Approach
@@ -91,7 +91,7 @@ inside `requirements.txt`.
 
 Therefore, the normal operational assumption should be:
 
-- when the project is run inside `standard_ml_codex_env`, `PyYAML` is expected
+- when the project is run inside `pinns_env`, `PyYAML` is expected
   to be available.
 
 The isolated-mode manager can keep its current fallback behavior as a defensive
@@ -108,7 +108,7 @@ After approval, the cleanup should:
 - remove now-obsolete current-state references to that archive root;
 - keep historical technical documents intact where they explicitly describe the
   old workflow as past state;
-- update the isolated-mode script documentation so `standard_ml_codex_env`
+- update the isolated-mode script documentation so `pinns_env`
   remains the expected runtime environment and the fallback is treated as
   secondary protection only.
 
@@ -136,7 +136,7 @@ After approval, the cleanup should:
 4. Update current-state canonical documents that still reference
    `reference/isolated_handoff/` as a live root.
 5. Update the isolated-mode script documentation to clarify that
-   `standard_ml_codex_env` is the expected runtime environment and that the
+   `pinns_env` is the expected runtime environment and that the
    no-`PyYAML` fallback is only a defensive compatibility layer.
 6. Remove the legacy files under `reference/isolated_handoff/`.
 7. Re-run targeted searches to confirm that no active repository workflow still

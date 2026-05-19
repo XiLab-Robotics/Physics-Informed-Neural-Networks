@@ -75,6 +75,6 @@ The tuning should not:
 
 1. Add this technical document and reference it from the documentation indexes.
 2. After user approval, update the default feedforward training config to the tuned dataloader settings.
-3. Verify that the current datamodule and training workflow still run correctly in `standard_ml_codex_env`.
+3. Verify that the current datamodule and training workflow still run correctly in `pinns_env`.
 4. Update `doc/guide/project_usage_guide.md` so the training section documents the new default dataloader settings and their meaning.
 5. Verify repository status and create a Git commit summarizing the tuning change.

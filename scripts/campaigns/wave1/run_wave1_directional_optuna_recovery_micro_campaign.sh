@@ -7,7 +7,7 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIRECTORY}/../../.." && pwd)"
 # shellcheck source=../infrastructure/shared_streaming_campaign_launcher.sh
 source "${PROJECT_ROOT}/scripts/campaigns/infrastructure/shared_streaming_campaign_launcher.sh"
 
-CONDA_ENVIRONMENT_NAME="standard_ml_codex_env"
+CONDA_ENVIRONMENT_NAME="pinns_env"
 PYTHON_EXECUTABLE="python"
 GPU_ID="0"
 DRY_RUN="0"

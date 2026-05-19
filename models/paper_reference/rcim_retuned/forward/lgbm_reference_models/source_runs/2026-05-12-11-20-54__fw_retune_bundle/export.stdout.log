@@ -1,9 +1,9 @@
-﻿[INFO] RCIM Original Launcher Foreground Console Mode
+[INFO] RCIM Original Launcher Foreground Console Mode
 [INFO] Stage | export
 [INFO] Mode | paper_export
 [INFO] Direction | forward
 [INFO] Stage Root | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\export
-[INFO] Command | "C:\Users\Martina Salami\.conda\envs\standard_ml_codex_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_export --direction forward --test-size 0.2 --output-root "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\export" --families LGBM --best-parameter-summary-path "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv"
+[INFO] Command | "C:\Users\Martina Salami\.conda\envs\pinns_env\python.exe" -u -B scripts\paper_reimplementation\rcim_ml_compensation\recovered_original_workflow\training_models.py --mode paper_export --direction forward --test-size 0.2 --output-root "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\export" --families LGBM --best-parameter-summary-path "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\retune\output_prediction\summaryBestParameter+_3.8_allFreq.csv"
 [INFO] Combined Transcript Path | C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_campaigns\rcim_original\forward\2026-05-12-11-20-54__fw_retune_bundle\logs\export.combined.log
 [INFO] The child training process runs in true foreground-console mode.
 [INFO] Ctrl+C should behave like the direct python command.

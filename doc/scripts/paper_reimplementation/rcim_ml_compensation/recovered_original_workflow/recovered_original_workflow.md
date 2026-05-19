@@ -52,7 +52,7 @@ instead of overwriting the closed baseline.
 Create a backward dataframe:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/create_dataframe.py `
   --direction backward `
   --output-suffix bw_dataframe
 ```
@@ -60,7 +60,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Run the `v18` paper-style forward replay:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_eval `
   --direction forward `
   --test-size 0.20 `
@@ -70,7 +70,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Run the paper-reference export companion mode:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/training_models.py `
   --mode paper_export `
   --direction forward `
   --output-suffix v18_export_fw
@@ -79,7 +79,7 @@ conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml
 Run forward evaluation on a prepared prediction directory:
 
 ```powershell
-conda run -n standard_ml_codex_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
+conda run -n pinns_env python scripts/paper_reimplementation/rcim_ml_compensation/recovered_original_workflow/evaluate_models.py `
   --direction forward `
   --prediction-directory "C:\path\to\output_prediction\instV3.8_Fw_allFreq_def" `
   --output-suffix eval_fw

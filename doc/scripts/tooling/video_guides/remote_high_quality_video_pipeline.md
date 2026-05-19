@@ -59,8 +59,8 @@ The preferred tracked path is:
 
 The current workstation should expose:
 
-- `STANDARDML_LAN_AI_TOKEN`
-- `STANDARDML_LAN_AI_BASE_URL`
+- `PINNS_LAN_AI_TOKEN`
+- `PINNS_LAN_AI_BASE_URL`
 - `LM_STUDIO_API_KEY`
 - `LM_STUDIO_BASE_URL`
 
@@ -83,7 +83,7 @@ Use these checks from the current workstation:
 ```powershell
 Test-NetConnection 155.185.226.100 -Port 8765
 Test-NetConnection 155.185.226.100 -Port 1234
-curl.exe -H "Authorization: Bearer $env:STANDARDML_LAN_AI_TOKEN" "$env:STANDARDML_LAN_AI_BASE_URL/health"
+curl.exe -H "Authorization: Bearer $env:PINNS_LAN_AI_TOKEN" "$env:PINNS_LAN_AI_BASE_URL/health"
 curl.exe -H "Authorization: Bearer $env:LM_STUDIO_API_KEY" "$env:LM_STUDIO_BASE_URL/v1/models"
 ```
 
