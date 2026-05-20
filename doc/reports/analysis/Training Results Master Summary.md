@@ -124,7 +124,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 4. PINN Formulation And First PINN | status: pending;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; implement the repository-side compensation-loop evaluation path in the; implement uncompensated vs compensated `TE RMS` / `TE max` measurements;; prepare the final online benchmark harness. |
+| Wave 4. PINN Formulation And First PINN | status: pending;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and deployment evaluation;; keep online compensation execution in future Track 3 unless explicitly promoted. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -134,7 +134,9 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 5. Cross-Wave Comparison And Best Solution | status: pending;; mandatory rule: preserve direction-separated reporting;; paper-reproduction scope:; execute Table 9 style online compensation tests;; evaluate `Target B`;; finalize the real `paper vs repository` comparison with online results. |
+| Wave 5. Cross-Wave Comparison And Best Solution | status: pending;; mandatory rule: preserve direction-separated reporting;; paper-reproduction scope:; compare closed offline waves and Track 3 results when available;; finalize the real `paper vs repository` comparison only after Track 3 closes `Target B`. |
+
+| Track 3. Online Compensation And Deployment Evaluation | status: future implementation branch;; canonical objective: close `Target B`;; scope: old future Pipelines `8-10`, online TestRig / TwinCAT compensation loop, `Robot` and `Cycloidal` motion-profile validation, uncompensated versus compensated `TE RMS` and `TE max`, final paper-style `Table 9` report. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -212,8 +214,8 @@ and retuned references. The backward offline comparison uses the recovered
 retuned backward reference as the canonical paper-derived baseline because the
 paper does not provide a paper-original backward surface. Under this
 direction-qualified interpretation, `Target A` is closed offline. A real
-end-to-end paper-equivalent comparison still requires repository-owned online
-compensation tests under `Target B`.
+end-to-end paper-equivalent comparison still requires future Track 3 online
+compensation tests, whose closeout objective is `Target B`.
 
 ### Extracted Paper Targets
 
@@ -237,7 +239,7 @@ compensation tests under `Target B`.
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
-| Table 9-style end-to-end benchmark | PLC-integrated motion-profile compensation benchmark | Missing in the repository at the current state | not_yet_comparable |
+| Track 3 / `Target B` end-to-end benchmark | PLC-integrated motion-profile compensation benchmark and Table 9-style report | Future implementation branch; not implemented yet | not_yet_comparable |
 
 ### Track 1 Canonical Status
 
@@ -259,9 +261,12 @@ compensation tests under `Target B`.
 - This older harmonic-wise validation run is supporting historical evidence,
   not the current Track 2 `Target A` closeout baseline.
 
-### Online Compensation Tracking Placeholder
+### Track 3 Online Compensation Tracking Placeholder
 
 - Repository online compensation status: `not yet available`.
+- Canonical future branch: `Track 3. Online Compensation And Deployment
+  Evaluation`.
+- Track 3 closeout objective: `Target B`.
 - When online compensation tests are implemented, update this master summary with TE RMS, TE max, and reduction percentages for both robot and cycloidal motion profiles.
 - Until those tests exist, present the paper comparison as `offline-only` rather than end-to-end equivalent.
 
@@ -278,7 +283,8 @@ compensation tests under `Target B`.
 - The strongest repository offline family class is tree/boosting based, aligned
   with the paper's practical model-selection direction.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
-- End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.
+- End-to-end paper comparison remains `not yet comparable` until Track 3
+  implements repository-owned online compensation tests and closes `Target B`.
 
 ## Family-By-Family Result Breakdowns
 

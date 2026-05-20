@@ -376,6 +376,12 @@ Closeout verdict:
 
 `Target B`: reproduce the online compensation benchmark.
 
+Canonical branch:
+
+- `Track 3. Online Compensation And Deployment Evaluation`.
+- `Target B` is the closeout objective for Track 3, not a standalone modeling
+  wave.
+
 Required validation path:
 
 - implement repository-owned online compensation tests;
@@ -435,15 +441,26 @@ Required scope if promoted:
 - create a new Markdown comparison report that places full-dataset and
   restricted-dataset Tables `2`-`5` side by side.
 
-### TwinCAT Deployment Evaluation
+### Track 3. Online Compensation And Deployment Evaluation
 
 Status:
 
-- deferred until after Track 2 closeout and the next approved modeling branch.
+- future implementation branch;
+- not implemented;
+- deferred until the offline comparison baseline is accepted as closed.
+
+Canonical objective:
+
+- close `Target B`.
 
 Planned scope:
 
-- formalize a dedicated `TwinCAT deployment evaluation` execution branch;
+- implement the repository-owned online compensation loop in the TestRig /
+  TwinCAT execution path;
+- run `Robot` and `Cycloidal` style motion-profile validation;
+- report uncompensated versus compensated `TE RMS` and `TE max`;
+- produce the final paper-style `Table 9` comparison;
+- evaluate deployment-readiness for the selected repository model path;
 - use `doc/reference_codes/testrig_twincat_ml_reference.md` as the canonical
   technical baseline for the imported TestRig PLC path;
 - keep the legacy Beckhoff path in scope:
@@ -458,6 +475,13 @@ Planned scope:
   behavior, maintainability, and engineering cost;
 - exclude the already observed oversized random-forest artifact class unless a
   later explicitly lighter tree variant is produced.
+
+Boundary:
+
+- Track 3 is not `Wave 3`; `Wave 3` remains an offline hybrid structured-model
+  exploration branch.
+- Track 3 absorbs the old future online Pipelines `8-10`, `Target B`, and the
+  deferred TwinCAT deployment-evaluation branch.
 
 ### Repository Documentation Publication
 
@@ -556,19 +580,31 @@ Entry rule:
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
-  - implement the repository-side compensation-loop evaluation path in the
-    future TestRig / online branch;
-  - implement uncompensated vs compensated `TE RMS` / `TE max` measurements;
-  - prepare the final online benchmark harness.
+  - prepare PINN-side model and loss formulations for later offline and
+    deployment evaluation;
+  - keep online compensation execution out of Wave 4 unless Track 3 is
+    explicitly promoted first.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 
 - status: pending;
 - mandatory rule: preserve direction-separated reporting;
 - paper-reproduction scope:
-  - execute Table 9 style online compensation tests;
-  - evaluate `Target B`;
-  - finalize the real `paper vs repository` comparison with online results.
+  - compare closed offline waves and Track 3 results when available;
+  - finalize the real `paper vs repository` comparison only after Track 3
+    closes `Target B`.
+
+### Track 3. Online Compensation And Deployment Evaluation
+
+- status: future implementation branch;
+- canonical objective: close `Target B`;
+- scope:
+  - online compensation loop in the TestRig / TwinCAT path;
+  - old future Pipelines `8-10`;
+  - `Robot` and `Cycloidal` motion-profile validation;
+  - uncompensated versus compensated `TE RMS` and `TE max`;
+  - final paper-style `Table 9` report;
+  - deployment-readiness interpretation for the selected repository model path.
 
 ## Decision Notes
 
@@ -587,13 +623,13 @@ Entry rule:
 - `Track 2` is the active branch to finish before opening Wave 2;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
-- the TwinCAT deployment-evaluation branch remains deferred until the next
-  approved modeling branch has been closed or the user explicitly promotes it;
+- Track 3 is the future online compensation and deployment-evaluation branch;
+  it absorbs `Target B`, old future Pipelines `8-10`, and the deferred TwinCAT
+  deployment-evaluation scope;
 - future updates to program status should land here whenever:
   - a wave starts or finishes;
   - a model family is promoted or deferred;
   - a campaign is approved, started, completed, or cancelled;
   - the current best candidate changes;
   - a paper-alignment target changes state;
-  - a TwinCAT deployment branch is promoted, deferred, or selected as the
-    preferred deployment path.
+  - Track 3 is promoted, deferred, or updated with a selected deployment path.

@@ -2747,7 +2747,7 @@ Current scope:
 
 Current non-scope:
 
-- online compensation loop;
+- Track 3 online compensation loop;
 - uncompensated vs compensated runtime TE measurements;
 - final `Table 9` style benchmark closure for `Target B`.
 
@@ -3042,7 +3042,7 @@ Current non-scope:
   original evaluation path is still forward-shaped.
 
 - final target-wise deployed winner assembly;
-- online compensation loop;
+- Track 3 online compensation loop;
 - TwinCAT/TestRig execution;
 - `Track 2` direct-TE comparison.
 

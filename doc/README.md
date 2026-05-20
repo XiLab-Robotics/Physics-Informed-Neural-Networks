@@ -128,6 +128,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-20
 
+- [technical/2026-05/2026-05-20/2026-05-20-22-10-13_track3_online_compensation_backlog_formalization.md](./technical/2026-05/2026-05-20/2026-05-20-22-10-13_track3_online_compensation_backlog_formalization.md)
+  Plan the documentation-only formalization of future `Track 3` as the online
+  compensation, TestRig/TwinCAT, and `Target B` / `Table 9` branch.
+
 - [technical/2026-05/2026-05-20/2026-05-20-20-28-08_target_a_offline_closeout.md](./technical/2026-05/2026-05-20/2026-05-20-20-28-08_target_a_offline_closeout.md)
   Plan the documentation-only closeout of `Target A` as an offline
   direction-qualified paper-comparable benchmark, leaving online compensation
