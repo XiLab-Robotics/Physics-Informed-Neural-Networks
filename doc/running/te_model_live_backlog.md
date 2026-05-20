@@ -276,6 +276,15 @@ Current Track 2 leaders by source:
 | backward | paper retuned | `paper_retuned_best_Bw` | 7.572 |
 | backward | Track 1 | `track1_best_Bw` | 11.860 |
 
+Backward baseline rule:
+
+- the paper does not provide a paper-original backward reference surface;
+- `paper_retuned_best_Bw` is therefore the canonical paper-derived backward
+  baseline for `Track 2` and `Target A`;
+- future backward comparisons should report against this retuned baseline
+  unless a later approved technical document defines a stronger backward paper
+  proxy.
+
 Best individual family candidates currently visible in Track 2:
 
 | Direction | Candidate | Mean percentage error [%] |
@@ -285,8 +294,8 @@ Best individual family candidates currently visible in Track 2:
 
 Remaining closeout work:
 
-- confirm the final Track 2 report wording after grouped source-table and
-  composite-best visibility fixes;
+- confirm the final Track 2 report wording after grouped source-table,
+  composite-best visibility, and backward retuned-baseline fixes;
 - keep the direction/truth and preview-curve audit notes attached to the final
   report package;
 - decide whether Track 2 is closed as the canonical offline comparison matrix
@@ -306,10 +315,11 @@ The closeout should answer three concrete questions:
 
 - which source surface is the current best offline reference for forward
   curves;
-- which source surface is the current best offline reference for backward
-  curves;
+- confirm that `paper_retuned_best_Bw` is the canonical backward baseline
+  because no paper-original backward reference exists;
 - whether the next implementation branch should be `Wave 2` temporal models or
-  a short paper-alignment bridge toward `Target A`.
+  a short paper-alignment bridge beyond the now-formalized `Target A` baseline
+  interpretation.
 
 ### Post-Track-2 Decision
 
@@ -331,11 +341,17 @@ Required validation path:
 
 - reproduce a TE-curve validation protocol comparable to the paper;
 - report mean percentage error on unseen scenarios;
-- reach `<= 4.7%` mean percentage error.
+- reach `<= 4.7%` mean percentage error for the paper-comparable forward
+  surface;
+- use `paper_retuned_best_Bw` as the canonical paper-derived backward baseline,
+  because the paper provides no paper-original backward reference surface.
 
 Current offline evidence:
 
-- paper retuned forward best composite is below the `4.7%` threshold;
+- paper retuned forward best composite is below the `4.7%` threshold at
+  `4.109%`;
+- paper retuned backward best composite is the accepted backward baseline at
+  `7.572%`;
 - retuned individual `GBM` forward and backward candidates are currently the
   strongest Track 2 offline family references;
 - `Track 1` remains closed as faithful reproduction evidence, not as the

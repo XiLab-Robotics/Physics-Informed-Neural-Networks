@@ -128,13 +128,18 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-20
 
-- [technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md](./technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md)
-  Plan the `Track 2` styled PDF report with four-curve collages for the best
-  paper-reference, Track 1, Wave 1 directional, and Wave 1 global models.
-
 - [technical/2026-05/2026-05-20/2026-05-20-20-27-06_track2_multi_model_curve_comparison_report.md](./technical/2026-05/2026-05-20/2026-05-20-20-27-06_track2_multi_model_curve_comparison_report.md)
   Plan the `Track 2` multi-model overlay report comparing original TE curves,
   reference best models, and screened Wave 1 family-best models.
+
+- [technical/2026-05/2026-05-20/2026-05-20-19-17-04_track2_backward_retuned_baseline_rule.md](./technical/2026-05/2026-05-20/2026-05-20-19-17-04_track2_backward_retuned_baseline_rule.md)
+  Plan the `Track 2` and `Target A` documentation rule that uses
+  `paper_retuned_best_Bw` as the canonical backward baseline when no
+  paper-original backward reference exists.
+
+- [technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md](./technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md)
+  Plan the `Track 2` styled PDF report with four-curve collages for the best
+  paper-reference, Track 1, Wave 1 directional, and Wave 1 global models.
 
 #### 2026-05-19
 

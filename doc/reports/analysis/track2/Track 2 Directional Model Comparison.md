@@ -115,6 +115,21 @@ composed models explicit.
 | `paper_retuned_best_Bw` | `rcim_retuned` | `Bw` | `backward` | 0.003675 | 0.004284 | 7.572 | 15.645 |
 | `track1_best_Bw` | `rcim_track1` | `Bw` | `backward` | 0.005027 | 0.005212 | 11.860 | 48.106 |
 
+## Baseline Rule For Target A
+
+`Target A` is the offline paper-comparable TE-curve prediction target.
+The forward side can be compared against paper-original and paper-retuned
+references because both are available in the comparison matrix. The current
+paper-derived forward baseline is `paper_retuned_best_Fw`, with `4.109%` mean
+percentage error.
+
+The RCIM paper does not provide an equivalent paper-original backward reference.
+For backward curves, `paper_retuned_best_Bw` is therefore the canonical
+paper-derived baseline for `Track 2` and future `Target A` wording. Its current
+mean percentage error is `7.572%`. Backward comparisons should use this retuned
+baseline unless a later approved technical document defines a stronger backward
+paper proxy.
+
 ## Forward Comparison
 
 ### Original Forward Models
@@ -281,6 +296,13 @@ The `rcim_track1` forward reference banks use the opposite stored
 contract, so the Track 2 comparison applies the documented
 source-specific `h0` compatibility multiplier before curve
 reconstruction.
+
+For closeout interpretation, `Track 2` separates source-faithfulness from the
+numeric offline winner. `Track 1` remains closed as the faithful full-dataset
+model-bank reproduction surface. The strongest current paper-derived offline
+reference is retuned: `paper_retuned_best_Fw` for forward curves and
+`paper_retuned_best_Bw` for backward curves, with the backward side explicitly
+standing in for the missing paper-original backward surface.
 
 ## Open Gaps
 

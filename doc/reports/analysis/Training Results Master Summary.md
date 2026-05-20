@@ -206,7 +206,13 @@ Low-priority exploratory families currently listed in the backlog:
 ## Paper Reference Benchmark
 
 The repository benchmark paper is `reference/RCIM_ML-compensation.pdf`.
-At the current repository state, the comparison is explicitly `offline-only`. A real paper-equivalent comparison still requires repository-owned online compensation tests.
+At the current repository state, the comparison is explicitly `offline-only`.
+The forward offline comparison is paper-comparable through the paper-original
+and retuned references. The backward offline comparison uses the recovered
+retuned backward reference as the canonical paper-derived baseline because the
+paper does not provide a paper-original backward surface. A real end-to-end
+paper-equivalent comparison still requires repository-owned online compensation
+tests.
 
 ### Extracted Paper Targets
 
@@ -221,9 +227,11 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 | Comparison Item | Paper Reference | Repository Status | Current Verdict |
 | --- | --- | --- | --- |
-| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw` with model type `hist_gradient_boosting` | not_aligned |
+| Forward offline `Target A` baseline | Paper-original and paper-retuned forward references | `paper_retuned_best_Fw` reaches `4.109%` mean percentage error in Track 2 | met_offline |
+| Backward offline `Target A` baseline | No paper-original backward surface is provided | `paper_retuned_best_Bw` is the canonical paper-derived backward baseline at `7.572%` mean percentage error | baseline_formalized |
+| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw` with model type `hist_gradient_boosting` | aligned_family_class |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
-| Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/0` harmonics fully closed, `0/0` partially closed, `0/0` still open | not_yet_met |
+| Track 1 canonical closure rule | Paper-faithful full-bank reproduction surface | Track 1 is closed as faithful full-dataset reproduction for forward and backward model banks, not as all-green numeric optimization | closed |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |
 | Online cycloidal-profile compensation | TE RMS reduction `94.0%`, TE max reduction `91.7%` | No repository-owned online compensation result yet | not_yet_comparable |
@@ -231,19 +239,23 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Track 1 Canonical Status
 
-- Latest exact-paper validation summary: `N/A`
-- Table `3` amplitude `RMSE`: `0/0` harmonics at or below the paper target
-- Table `4` phase `MAE`: `0/0` harmonics at or below the paper target
-- Table `5` phase `RMSE`: `0/0` harmonics at or below the paper target
-- Target-level expected-family direction: `0/0`
-- Harmonic-level Table `6` closure: `0/0` fully matched, `0/0` partially matched, `0/0` still open
-- Highest-priority open harmonics: `N/A`
+- Track 1 status: closed as faithful full-dataset reproduction.
+- Forward model bank: completed and archived under
+  `models/paper_reference/rcim_track1/forward/`.
+- Backward model bank: completed and archived under
+  `models/paper_reference/rcim_track1/backward/`.
+- Closure meaning: the paper-faithful protocol was run and accepted in both
+  directions; all-green optimization is not a Track 1 closure requirement.
+- Track 2 meaning: Track 1 remains provenance and reproduction evidence, while
+  retuned references currently define the strongest paper-derived offline
+  baselines.
 
 ### Latest Harmonic-Wise Validation Support
 
 - Latest harmonic-wise validation summary: `output/validation_checks/paper_reimplementation_rcim_harmonic_wise/forward/family_exploration/rf/2026-04-13-16-00-30__track1_rf_h039_h162240_bridge_control_campaign_run/validation_summary.yaml`
 - Harmonic-wise test mean percentage error: `11.212%`
-- `Target A` status from the latest harmonic-wise run: `not_yet_met`
+- This older harmonic-wise validation run is supporting historical evidence,
+  not the current Track 2 `Target A` closeout baseline.
 
 ### Online Compensation Tracking Placeholder
 
@@ -253,9 +265,13 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 ### Gap Summary
 
-- `Track 1` remains open primarily because the canonical Tables `3-6` are not yet fully matched.
-- Offline benchmark scope remains `partially comparable` rather than like-for-like.
-- Not yet aligned: the current repository winner is not tree-based, while the paper deployment path is dominated by boosting/tree models.
+- `Track 1` is closed as faithful full-dataset reproduction and should not be
+  described as open for all-green optimization.
+- Offline `Target A` is now direction-qualified: forward is paper-comparable
+  against the `4.7%` paper threshold, while backward uses
+  `paper_retuned_best_Bw` as the canonical paper-derived baseline.
+- The strongest repository offline family class is tree/boosting based, aligned
+  with the paper's practical model-selection direction.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.
 - End-to-end paper comparison remains `not yet comparable` until repository-owned online compensation tests exist.
 
