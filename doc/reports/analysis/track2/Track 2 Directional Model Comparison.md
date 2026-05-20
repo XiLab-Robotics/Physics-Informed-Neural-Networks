@@ -118,6 +118,8 @@ composed models explicit.
 ## Baseline Rule For Target A
 
 `Target A` is the offline paper-comparable TE-curve prediction target.
+Its current status is `closed_offline_direction_qualified`.
+
 The forward side can be compared against paper-original and paper-retuned
 references because both are available in the comparison matrix. The current
 paper-derived forward baseline is `paper_retuned_best_Fw`, with `4.109%` mean
@@ -129,6 +131,15 @@ paper-derived baseline for `Track 2` and future `Target A` wording. Its current
 mean percentage error is `7.572%`. Backward comparisons should use this retuned
 baseline unless a later approved technical document defines a stronger backward
 paper proxy.
+
+The closeout verdict is therefore direction-qualified:
+
+- forward `Target A` is met against the paper-comparable `4.7%` offline
+  threshold;
+- backward `Target A` is closed against the canonical retuned backward
+  baseline;
+- online compensation remains outside `Target A` and is tracked separately as
+  `Target B`.
 
 ## Forward Comparison
 
@@ -302,11 +313,13 @@ numeric offline winner. `Track 1` remains closed as the faithful full-dataset
 model-bank reproduction surface. The strongest current paper-derived offline
 reference is retuned: `paper_retuned_best_Fw` for forward curves and
 `paper_retuned_best_Bw` for backward curves, with the backward side explicitly
-standing in for the missing paper-original backward surface.
+standing in for the missing paper-original backward surface. This closes
+`Target A` as an offline direction-qualified benchmark and leaves the online
+compensation benchmark to `Target B`.
 
 ## Open Gaps
 
-- This remains an offline TE-curve comparison and does not replace the
-  future online `Table 9` compensation benchmark.
+- `Target A` is closed offline, but this report does not replace the future
+  online `Table 9` compensation benchmark.
 - The report uses the saved Python model artifacts from `models/`; ONNX
   parity checks remain a separate deployment-readiness task.

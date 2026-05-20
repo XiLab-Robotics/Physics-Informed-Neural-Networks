@@ -128,6 +128,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-20
 
+- [technical/2026-05/2026-05-20/2026-05-20-20-28-08_target_a_offline_closeout.md](./technical/2026-05/2026-05-20/2026-05-20-20-28-08_target_a_offline_closeout.md)
+  Plan the documentation-only closeout of `Target A` as an offline
+  direction-qualified paper-comparable benchmark, leaving online compensation
+  under `Target B`.
+
 - [technical/2026-05/2026-05-20/2026-05-20-20-27-06_track2_multi_model_curve_comparison_report.md](./technical/2026-05/2026-05-20/2026-05-20-20-27-06_track2_multi_model_curve_comparison_report.md)
   Plan the `Track 2` multi-model overlay report comparing original TE curves,
   reference best models, and screened Wave 1 family-best models.

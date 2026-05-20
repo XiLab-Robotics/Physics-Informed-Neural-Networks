@@ -210,9 +210,10 @@ At the current repository state, the comparison is explicitly `offline-only`.
 The forward offline comparison is paper-comparable through the paper-original
 and retuned references. The backward offline comparison uses the recovered
 retuned backward reference as the canonical paper-derived baseline because the
-paper does not provide a paper-original backward surface. A real end-to-end
-paper-equivalent comparison still requires repository-owned online compensation
-tests.
+paper does not provide a paper-original backward surface. Under this
+direction-qualified interpretation, `Target A` is closed offline. A real
+end-to-end paper-equivalent comparison still requires repository-owned online
+compensation tests under `Target B`.
 
 ### Extracted Paper Targets
 
@@ -229,6 +230,7 @@ tests.
 | --- | --- | --- | --- |
 | Forward offline `Target A` baseline | Paper-original and paper-retuned forward references | `paper_retuned_best_Fw` reaches `4.109%` mean percentage error in Track 2 | met_offline |
 | Backward offline `Target A` baseline | No paper-original backward surface is provided | `paper_retuned_best_Bw` is the canonical paper-derived backward baseline at `7.572%` mean percentage error | baseline_formalized |
+| Overall `Target A` closeout | Offline paper-comparable TE-curve prediction | Direction-qualified closeout: forward met, backward closed against retuned baseline | closed_offline_direction_qualified |
 | Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw` with model type `hist_gradient_boosting` | aligned_family_class |
 | Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `residual_harmonic_mlp` and still trails the tree winner | aligned |
 | Track 1 canonical closure rule | Paper-faithful full-bank reproduction surface | Track 1 is closed as faithful full-dataset reproduction for forward and backward model banks, not as all-green numeric optimization | closed |
@@ -270,6 +272,9 @@ tests.
 - Offline `Target A` is now direction-qualified: forward is paper-comparable
   against the `4.7%` paper threshold, while backward uses
   `paper_retuned_best_Bw` as the canonical paper-derived baseline.
+- `Target A` is closed as `closed_offline_direction_qualified`; do not track it
+  as an open offline paper-alignment blocker unless a new approved technical
+  document reopens a narrower question.
 - The strongest repository offline family class is tree/boosting based, aligned
   with the paper's practical model-selection direction.
 - Neural models remain secondary in the repository (`residual_harmonic_mlp`), which is also consistent with the paper not promoting a plain neural winner for deployment.

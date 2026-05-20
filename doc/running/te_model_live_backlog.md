@@ -318,8 +318,8 @@ The closeout should answer three concrete questions:
 - confirm that `paper_retuned_best_Bw` is the canonical backward baseline
   because no paper-original backward reference exists;
 - whether the next implementation branch should be `Wave 2` temporal models or
-  a short paper-alignment bridge beyond the now-formalized `Target A` baseline
-  interpretation.
+  another explicitly approved branch. `Target A` is no longer a blocking bridge
+  because it is closed as an offline direction-qualified benchmark.
 
 ### Post-Track-2 Decision
 
@@ -330,12 +330,19 @@ Default decision path after Track 2 closeout:
 - keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
 - use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;
 - keep paper-alignment bridge work available only if the user explicitly
-  prioritizes `Target A` before temporal-model exploration.
+  reopens a narrower offline paper-alignment question before temporal-model
+  exploration.
 
 ### Paper Alignment Targets
 
 `Target A`: match or beat the paper on a comparable offline prediction
 benchmark.
+
+Status:
+
+- closed as `closed_offline_direction_qualified`.
+- closeout source of truth:
+  `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`.
 
 Required validation path:
 
@@ -356,6 +363,16 @@ Current offline evidence:
   strongest Track 2 offline family references;
 - `Track 1` remains closed as faithful reproduction evidence, not as the
   optimized winner.
+
+Closeout verdict:
+
+- forward `Target A` is met against the paper-comparable `4.7%` offline
+  threshold;
+- backward `Target A` is closed against the approved retuned backward baseline;
+- no additional offline paper-alignment bridge is required before opening the
+  next modeling branch;
+- online compensation remains outside `Target A` and is tracked under
+  `Target B`.
 
 `Target B`: reproduce the online compensation benchmark.
 
