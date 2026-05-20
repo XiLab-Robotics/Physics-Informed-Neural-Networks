@@ -13,7 +13,7 @@ model is trained or promoted by this report.
 - selected curve count: `97`;
 - requested sample fraction: `1.000`;
 - random seed: `42`;
-- output directory: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction`;
+- output directory: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction`;
 
 ## Loaded Family Best Models
 
@@ -135,16 +135,16 @@ model is trained or promoted by this report.
 
 ## Output Artifacts
 
-- validation summary: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction/validation_summary.yaml`;
-- per-curve metrics CSV: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\per_curve_metrics.csv`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_001_dataset_0000_backward_1000_0rpm1200_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_002_dataset_0001_backward_1000_0rpm1300_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_003_dataset_0002_backward_1000_0rpm1800_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_004_dataset_0003_backward_1000_0rpm400_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_005_dataset_0004_backward_1000_0rpm800_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_006_dataset_0005_backward_100_0rpm100_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_007_dataset_0006_backward_100_0rpm1800_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_008_dataset_0007_backward_100_0rpm300_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_009_dataset_0008_backward_100_0rpm600_0nm25_0deg.png`;
-- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-16-13-38__wave1_best_model_te_curve_prediction\plots\curve_010_dataset_0009_backward_1300_0rpm1200_0nm25_0deg.png`;
+- validation summary: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction/validation_summary.yaml`;
+- per-curve metrics CSV: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\per_curve_metrics.csv`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_001_dataset_0000_backward_1000_0rpm1200_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_002_dataset_0001_backward_1000_0rpm1300_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_003_dataset_0002_backward_1000_0rpm1800_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_004_dataset_0003_backward_1000_0rpm400_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_005_dataset_0004_backward_1000_0rpm800_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_006_dataset_0005_backward_100_0rpm100_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_007_dataset_0006_backward_100_0rpm1800_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_008_dataset_0007_backward_100_0rpm300_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_009_dataset_0008_backward_100_0rpm600_0nm25_0deg.png`;
+- plot: `output\validation_checks\wave1_high_order_track2_curve_prediction_backward\2026-05-20-17-08-08__wave1_best_model_te_curve_prediction\plots\curve_010_dataset_0009_backward_1300_0rpm1200_0nm25_0deg.png`;
 - additional plots omitted from this list: `87`.

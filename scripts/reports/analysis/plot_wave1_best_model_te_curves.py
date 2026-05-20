@@ -419,7 +419,7 @@ def save_prediction_plot(
 
     plot_path.parent.mkdir(parents=True, exist_ok=True)
     figure, axis = plt.subplots(figsize=(10.0, 5.0))
-    axis.plot(angular_position_deg, target_curve_deg, label="Measured TE", linewidth=2.0, color="#111111")
+    axis.plot(angular_position_deg, target_curve_deg, label="Measured TE", linewidth=1.2, color="#4a4a4a")
 
     for model_name, prediction_curve in prediction_dictionary.items():
         axis.plot(angular_position_deg, prediction_curve, label=model_name, linewidth=1.2, alpha=0.88)
