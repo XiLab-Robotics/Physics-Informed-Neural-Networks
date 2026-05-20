@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-51-03__te_residual_harmonic_dense360_tracking_fw\checkpoints\residual_harmonic_mlp-epoch=022-val_mae=0.00259842.ckpt

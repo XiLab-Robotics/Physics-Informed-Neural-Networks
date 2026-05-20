@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_bw\2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw\checkpoints\residual_harmonic_mlp-epoch=060-val_mae=0.00295293.ckpt

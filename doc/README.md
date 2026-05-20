@@ -122,6 +122,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-19
 
+- [technical/2026-05/2026-05-19/2026-05-19-17-32-08_wave1_high_order_harmonic_tracking.md](./technical/2026-05/2026-05-19/2026-05-19-17-32-08_wave1_high_order_harmonic_tracking.md)
+  Plan the `Wave 1` follow-up for sparse RCIM and dense high-order harmonic
+  bases in `harmonic_regression` and `residual_harmonic_mlp`, motivated by
+  `Track 2` curve smoothing against multi-harmonic TE truth curves.
+
 - [technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md](./technical/2026-05/2026-05-19/2026-05-19-16-40-26_wave1_future_waves_hydra_config_transition.md)
   Plan the gradual `Hydra` configuration transition for `Wave 1` and future
   waves while keeping closed `Track 1` exact-paper workflows stable unless a
@@ -1420,6 +1425,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the canonical Wave 1 residual-harmonic family launcher.
 - [scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md](./scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md)
   Script-level documentation for the mixed bounded-grid plus Optuna Wave 1 directional best-hyperparameter search launcher.
+- [scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md](./scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md)
+  Script-level documentation for the prepared Wave 1 high-order harmonic
+  tracking launcher across RCIM sparse, dense `0..240`, and dense `0..360`
+  harmonic banks.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -1679,10 +1688,20 @@ This folder contains the internal project documents derived from the reference P
   search campaign, including the bounded-grid and Optuna surfaces, verified best
   hyperparameters, and refreshed Python plus ONNX exports under
   `models/exported/`.
+- [reports/campaign_results/wave1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md)
+  Final results report for the completed Wave 1 high-order harmonic tracking
+  campaign, including the `RCIM` sparse, dense `0..240`, and dense `0..360`
+  harmonic-bank comparison and the validated closeout artifact set.
 - [reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md](./reports/campaign_results/2026-03-27-11-50-27_wave1_residual_harmonic_family_campaign_results_report.md)
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md)
+  Preliminary campaign plan for the `Wave 1` high-order harmonic tracking
+  follow-up, comparing baseline, RCIM sparse, dense `0..240`, and dense
+  `0..360` harmonic banks for `harmonic_regression` and
+  `residual_harmonic_mlp`.
 
 - [reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md](./reports/campaign_plans/2026-04-17-11-44-20_track1_svm_exact_faithful_final_attempt_campaign_plan_report.md)
   Planning report for deciding whether one final exact-faithful `SVR` rerun

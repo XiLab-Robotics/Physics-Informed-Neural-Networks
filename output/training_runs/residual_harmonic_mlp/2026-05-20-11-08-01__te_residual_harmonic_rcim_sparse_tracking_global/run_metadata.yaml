@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_mlp
+base_model_family: residual_harmonic_mlp
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_residual_harmonic_rcim_sparse_tracking_global
+run_instance_id: 2026-05-20-11-08-01__te_residual_harmonic_rcim_sparse_tracking_global
+output_directory: output\training_runs\residual_harmonic_mlp\2026-05-20-11-08-01__te_residual_harmonic_rcim_sparse_tracking_global

@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-20-10-11-06_014_14_residual_harmonic_fw_dense240.yaml
+experiment:
+  model_family: residual_harmonic_mlp_fw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_dense240_tracking_Fw
+  output_run_name: te_residual_harmonic_dense240_tracking_Fw
+  run_instance_id: 2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw\checkpoints\residual_harmonic_mlp-epoch=019-val_mae=0.00264874.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26722
+  frozen_parameter_count: 0
+  total_parameter_count: 26722
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9654083251953
+  - 497.8670959472656
+  - 896.0154418945312
+  - 30.364086151123047
+  - 1.0
+  input_feature_std:
+  - 103.92489624023438
+  - 466.8084411621094
+  - 543.8319702148438
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.056905604898929596
+  target_std:
+  - 0.023635772988200188
+validation_metrics:
+  val_loss: 0.021462295204401016
+  val_mae: 0.0026487396098673344
+  val_rmse: 0.0031632103491574526
+  val_structured_mae: 0.016743402928113937
+  val_structured_rmse: 0.01901639625430107
+test_metrics:
+  test_loss: 0.027751626446843147
+  test_mae: 0.003303761128336191
+  test_rmse: 0.0037728617899119854
+  test_structured_mae: 0.020117351785302162
+  test_structured_rmse: 0.022179653868079185
+comparison_payload:
+  model_family: residual_harmonic_mlp_fw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_dense240_tracking_Fw
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26722
+  total_parameter_count: 26722
+  val_mae: 0.0026487396098673344
+  val_rmse: 0.0031632103491574526
+  test_mae: 0.003303761128336191
+  test_rmse: 0.0037728617899119854
+  deployment_notes: ''
+  interpretability_notes: ''

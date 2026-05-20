@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_mlp_bw
+base_model_family: residual_harmonic_mlp
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_residual_harmonic_rcim_sparse_tracking_Bw
+run_instance_id: 2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw
+output_directory: output\training_runs\residual_harmonic_mlp_bw\2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw

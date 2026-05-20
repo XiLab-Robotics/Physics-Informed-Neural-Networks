@@ -251,11 +251,13 @@ def print_training_configuration_summary(training_config: dict) -> None:
     # Print Harmonic Regression Configuration
     elif normalized_model_type == "harmonic_regression":
         print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+        print_key_value("Harmonic Index List", model_config.get("harmonic_index_list"), value_color=Fore.YELLOW)
         print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
 
     # Print Residual Harmonic Regression Configuration
     elif normalized_model_type == "residual_harmonic_mlp":
         print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+        print_key_value("Harmonic Index List", model_config.get("harmonic_index_list"), value_color=Fore.YELLOW)
         print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
         print_key_value("Residual Hidden Layers", model_config["residual_hidden_size"], value_color=Fore.YELLOW)
         print_key_value("Residual Activation", model_config.get("residual_activation_name", "GELU"), value_color=Fore.YELLOW)

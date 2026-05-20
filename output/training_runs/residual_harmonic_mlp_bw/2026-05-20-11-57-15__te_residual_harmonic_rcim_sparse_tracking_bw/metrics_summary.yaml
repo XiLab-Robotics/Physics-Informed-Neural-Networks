@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-20-10-11-06_016_16_residual_harmonic_bw_rcim_sparse.yaml
+experiment:
+  model_family: residual_harmonic_mlp_bw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_rcim_sparse_tracking_Bw
+  output_run_name: te_residual_harmonic_rcim_sparse_tracking_Bw
+  run_instance_id: 2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_mlp
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_bw\2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_mlp_bw\2026-05-20-11-57-15__te_residual_harmonic_rcim_sparse_tracking_bw\checkpoints\residual_harmonic_mlp-epoch=060-val_mae=0.00295293.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26260
+  frozen_parameter_count: 0
+  total_parameter_count: 26260
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96620178222656
+  - 497.8681335449219
+  - 896.0157470703125
+  - 30.36408042907715
+  - -1.0
+  input_feature_std:
+  - 103.92540740966797
+  - 466.80963134765625
+  - 543.8322143554688
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425875067710876
+  target_std:
+  - 0.02495734579861164
+validation_metrics:
+  val_loss: 0.025537334382534027
+  val_mae: 0.0029529291205108166
+  val_rmse: 0.0035303430631756783
+  val_structured_mae: 0.017464278265833855
+  val_structured_rmse: 0.019692277535796165
+test_metrics:
+  test_loss: 0.02325338125228882
+  test_mae: 0.003042093478143215
+  test_rmse: 0.0035480791702866554
+  test_structured_mae: 0.021560709923505783
+  test_structured_rmse: 0.023490123450756073
+comparison_payload:
+  model_family: residual_harmonic_mlp_bw
+  model_type: residual_harmonic_mlp
+  run_name: te_residual_harmonic_rcim_sparse_tracking_Bw
+  backbone_name: ResidualHarmonicNetwork
+  trainable_parameter_count: 26260
+  total_parameter_count: 26260
+  val_mae: 0.0029529291205108166
+  val_rmse: 0.0035303430631756783
+  test_mae: 0.003042093478143215
+  test_rmse: 0.0035480791702866554
+  deployment_notes: ''
+  interpretability_notes: ''

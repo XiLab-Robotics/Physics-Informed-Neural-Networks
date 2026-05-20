@@ -54,6 +54,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             output_size=int(model_configuration.get("output_size", 1)),
             harmonic_order=int(model_configuration["harmonic_order"]),
             coefficient_mode=str(model_configuration.get("coefficient_mode", "static")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
         )
 
     # Create Periodic-Feature Feedforward Model
@@ -76,6 +77,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             output_size=int(model_configuration.get("output_size", 1)),
             harmonic_order=int(model_configuration["harmonic_order"]),
             coefficient_mode=str(model_configuration.get("coefficient_mode", "static")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
             residual_hidden_size=list(model_configuration["residual_hidden_size"]),
             residual_activation_name=str(model_configuration.get("residual_activation_name", "GELU")),
             residual_dropout_probability=float(model_configuration.get("residual_dropout_probability", 0.10)),

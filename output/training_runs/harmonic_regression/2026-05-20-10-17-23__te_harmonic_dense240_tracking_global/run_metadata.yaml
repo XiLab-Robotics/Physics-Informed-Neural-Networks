@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: harmonic_regression
+base_model_family: harmonic_regression
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_harmonic_dense240_tracking_global
+run_instance_id: 2026-05-20-10-17-23__te_harmonic_dense240_tracking_global
+output_directory: output\training_runs\harmonic_regression\2026-05-20-10-17-23__te_harmonic_dense240_tracking_global

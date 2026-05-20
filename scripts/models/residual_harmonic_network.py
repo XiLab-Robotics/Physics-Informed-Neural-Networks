@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+# Import Typing Utilities
+from collections.abc import Sequence
+
 # Import PyTorch Utilities
 import torch
 import torch.nn as nn
@@ -20,6 +23,7 @@ class ResidualHarmonicNetwork(nn.Module):
         output_size: int = 1,
         harmonic_order: int = 12,
         coefficient_mode: str = "static",
+        harmonic_index_list: Sequence[int] | None = None,
         residual_hidden_size: list[int] | None = None,
         residual_activation_name: str = "GELU",
         residual_dropout_probability: float = 0.10,
@@ -36,6 +40,8 @@ class ResidualHarmonicNetwork(nn.Module):
                 branch.
             coefficient_mode: Harmonic coefficient parameterization mode passed
                 to the structured branch.
+            harmonic_index_list: Optional explicit harmonic list passed to the
+                structured branch.
             residual_hidden_size: Hidden-layer widths for the residual neural
                 branch.
             residual_activation_name: Activation function used by the residual
@@ -59,6 +65,7 @@ class ResidualHarmonicNetwork(nn.Module):
             output_size=output_size,
             harmonic_order=harmonic_order,
             coefficient_mode=coefficient_mode,
+            harmonic_index_list=harmonic_index_list,
         )
 
         # Initialize Residual Neural Branch

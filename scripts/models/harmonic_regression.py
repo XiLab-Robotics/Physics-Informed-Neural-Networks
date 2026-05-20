@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+# Import Typing Utilities
+from collections.abc import Sequence
+
 # Import PyTorch Utilities
 import torch
 import torch.nn as nn
@@ -16,6 +19,7 @@ class HarmonicRegression(nn.Module):
         output_size: int = 1,
         harmonic_order: int = 12,
         coefficient_mode: str = "static",
+        harmonic_index_list: Sequence[int] | None = None,
     ) -> None:
         """Initialize the harmonic regression baseline.
 
@@ -28,6 +32,10 @@ class HarmonicRegression(nn.Module):
                 expansion of the angular position.
             coefficient_mode: Coefficient parameterization mode. Supported
                 values are `static` and `linear_conditioned`.
+            harmonic_index_list: Optional explicit harmonic list. When omitted,
+                the model uses the backward-compatible contiguous basis
+                `1..harmonic_order`. When provided, `0` represents the DC/bias
+                term and positive values create sine/cosine feature pairs.
         """
 
         super().__init__()
@@ -36,19 +44,27 @@ class HarmonicRegression(nn.Module):
         assert input_size >= 5, f"Input Size must expose the TE operating-condition features | {input_size}"
         assert output_size == 1, f"Harmonic Regression currently supports scalar TE output only | {output_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
+        resolved_harmonic_index_list = self.resolve_harmonic_index_list(harmonic_order, harmonic_index_list)
+        positive_harmonic_index_list = [harmonic_index for harmonic_index in resolved_harmonic_index_list if harmonic_index > 0]
 
         # Save Architecture Parameters
         self.input_size = input_size
         self.output_size = output_size
         self.harmonic_order = harmonic_order
         self.coefficient_mode = coefficient_mode.strip().lower()
-        self.harmonic_feature_count = 1 + (2 * self.harmonic_order)
+        self.harmonic_index_list = resolved_harmonic_index_list
+        self.positive_harmonic_index_list = positive_harmonic_index_list
+        self.harmonic_feature_count = 1 + (2 * len(self.positive_harmonic_index_list))
 
         # Validate Coefficient Mode
         supported_coefficient_mode_list = ["static", "linear_conditioned"]
         assert self.coefficient_mode in supported_coefficient_mode_list, (
             f"Unsupported Coefficient Mode | {coefficient_mode} | Supported: {supported_coefficient_mode_list}"
         )
+
+        # Register Device-Aware Harmonic Index Buffer
+        positive_harmonic_index_tensor = torch.tensor(self.positive_harmonic_index_list, dtype=torch.float32)
+        self.register_buffer("positive_harmonic_index_tensor", positive_harmonic_index_tensor, persistent=False)
 
         # Initialize Coefficient Parameterization
         self.base_coefficient_tensor = nn.Parameter(torch.zeros(self.harmonic_feature_count, dtype=torch.float32))
@@ -57,6 +73,43 @@ class HarmonicRegression(nn.Module):
         # Initialize Linear Conditioning Projection
         if self.coefficient_mode == "linear_conditioned":
             self.conditioning_projection = nn.Linear(input_size - 1, self.harmonic_feature_count)
+
+    @staticmethod
+    def resolve_harmonic_index_list(harmonic_order: int, harmonic_index_list: Sequence[int] | None) -> list[int]:
+
+        """Resolve and validate the configured harmonic basis indices.
+
+        Args:
+            harmonic_order: Contiguous harmonic order used when no explicit
+                harmonic index list is provided.
+            harmonic_index_list: Optional explicit harmonic index sequence.
+
+        Returns:
+            list[int]: Sorted unique harmonic indices used by the model.
+        """
+
+        # Preserve Current Contiguous Harmonic Basis When No Explicit List Is Provided
+        if harmonic_index_list is None:
+            return list(range(1, harmonic_order + 1))
+
+        # Validate Explicit Harmonic List
+        assert len(harmonic_index_list) > 0, "Harmonic index list must not be empty"
+
+        resolved_harmonic_index_list: list[int] = []
+        for harmonic_index in harmonic_index_list:
+            resolved_harmonic_index = int(harmonic_index)
+            assert resolved_harmonic_index >= 0, f"Harmonic index must be non-negative | {resolved_harmonic_index}"
+            resolved_harmonic_index_list.append(resolved_harmonic_index)
+
+        unique_harmonic_index_list = sorted(set(resolved_harmonic_index_list))
+        assert len(unique_harmonic_index_list) == len(resolved_harmonic_index_list), (
+            f"Harmonic index list contains duplicate entries | {harmonic_index_list}"
+        )
+        assert any(harmonic_index > 0 for harmonic_index in unique_harmonic_index_list), (
+            f"Harmonic index list must contain at least one positive harmonic | {harmonic_index_list}"
+        )
+
+        return unique_harmonic_index_list
 
     def build_harmonic_feature_tensor(self, angular_position_deg: torch.Tensor) -> torch.Tensor:
 
@@ -76,8 +129,7 @@ class HarmonicRegression(nn.Module):
         harmonic_feature_tensor_list = [torch.ones_like(angular_position_rad)]
 
         # Append Sine And Cosine Features For Each Harmonic Order
-        for harmonic_index in range(1, self.harmonic_order + 1):
-            harmonic_multiplier = float(harmonic_index)
+        for harmonic_multiplier in self.positive_harmonic_index_tensor:
             harmonic_feature_tensor_list.append(torch.sin(harmonic_multiplier * angular_position_rad))
             harmonic_feature_tensor_list.append(torch.cos(harmonic_multiplier * angular_position_rad))
 

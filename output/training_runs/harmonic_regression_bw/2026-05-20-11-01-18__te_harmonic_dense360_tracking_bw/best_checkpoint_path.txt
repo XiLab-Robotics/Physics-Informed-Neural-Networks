@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression_bw\2026-05-20-11-01-18__te_harmonic_dense360_tracking_bw\checkpoints\harmonic_regression-epoch=033-val_mae=0.00363716.ckpt

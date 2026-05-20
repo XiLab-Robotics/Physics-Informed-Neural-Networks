@@ -6,9 +6,37 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-16T06:03:09'
-entry_count: 3
+updated_at: '2026-05-20T11:57:15'
+entry_count: 6
 entry_list:
+- run_instance_id: 2026-05-20-11-41-03__te_residual_harmonic_rcim_sparse_tracking_fw
+  run_name: te_residual_harmonic_rcim_sparse_tracking_Fw
+  output_run_name: te_residual_harmonic_rcim_sparse_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp_fw
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 26260
+  total_parameter_count: 26260
+  val_mae: 0.002704329788684845
+  val_rmse: 0.0031964259687811136
+  test_mae: 0.0030886060558259487
+  test_rmse: 0.0034975027665495872
+  output_directory: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-41-03__te_residual_harmonic_rcim_sparse_tracking_fw
+  best_checkpoint_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-41-03__te_residual_harmonic_rcim_sparse_tracking_fw\checkpoints\residual_harmonic_mlp-epoch=029-val_mae=0.00270433.ckpt
+  metrics_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-41-03__te_residual_harmonic_rcim_sparse_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-41-03__te_residual_harmonic_rcim_sparse_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-20T11:45:59'
 - run_instance_id: 2026-05-16-03-44-43__te_residual_h12_deep_joint_wave1_fw_optuna_t0005
   run_name: te_residual_h12_deep_joint_wave1_Fw_optuna_t0005
   output_run_name: te_residual_h12_deep_joint_wave1_Fw_optuna_t0005
@@ -93,3 +121,59 @@ entry_list:
     third_tie_breaker: trainable_parameter_count
     direction: minimize
   selected_at: '2026-05-16T04:42:09'
+- run_instance_id: 2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw
+  run_name: te_residual_harmonic_dense240_tracking_Fw
+  output_run_name: te_residual_harmonic_dense240_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp_fw
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 26722
+  total_parameter_count: 26722
+  val_mae: 0.0026487396098673344
+  val_rmse: 0.0031632103491574526
+  test_mae: 0.003303761128336191
+  test_rmse: 0.0037728617899119854
+  output_directory: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw
+  best_checkpoint_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw\checkpoints\residual_harmonic_mlp-epoch=019-val_mae=0.00264874.ckpt
+  metrics_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-45-59__te_residual_harmonic_dense240_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-20T11:51:03'
+- run_instance_id: 2026-05-20-11-51-03__te_residual_harmonic_dense360_tracking_fw
+  run_name: te_residual_harmonic_dense360_tracking_Fw
+  output_run_name: te_residual_harmonic_dense360_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_mlp_fw
+  base_model_family: residual_harmonic_mlp
+  model_type: residual_harmonic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 26962
+  total_parameter_count: 26962
+  val_mae: 0.0025984172243624926
+  val_rmse: 0.003135942155495286
+  test_mae: 0.0035679969005286694
+  test_rmse: 0.004117995500564575
+  output_directory: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-51-03__te_residual_harmonic_dense360_tracking_fw
+  best_checkpoint_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-51-03__te_residual_harmonic_dense360_tracking_fw\checkpoints\residual_harmonic_mlp-epoch=022-val_mae=0.00259842.ckpt
+  metrics_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-51-03__te_residual_harmonic_dense360_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_mlp_fw\2026-05-20-11-51-03__te_residual_harmonic_dense360_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-20T11:57:15'

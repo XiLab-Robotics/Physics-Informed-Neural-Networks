@@ -6,11 +6,11 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-12T05:44:32'
+updated_at: '2026-05-20T11:08:01'
 best_entry:
-  run_instance_id: 2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5
-  run_name: te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0002_stride5
-  output_run_name: te_harmonic_order12_linear_conditioned_recovery_Bw_grid_order8_lr0002_stride5
+  run_instance_id: 2026-05-20-10-56-18__te_harmonic_dense240_tracking_bw
+  run_name: te_harmonic_dense240_tracking_Bw
+  output_run_name: te_harmonic_dense240_tracking_Bw
   output_artifact_kind: training_run
   model_family: harmonic_regression_bw
   base_model_family: harmonic_regression
@@ -19,20 +19,20 @@ best_entry:
   direction_scope_label: backward_only
   use_forward_direction: false
   use_backward_direction: true
-  trainable_parameter_count: 102
-  total_parameter_count: 102
-  val_mae: 0.0036375659983605146
-  val_rmse: 0.004219168331474066
-  test_mae: 0.0034936447627842426
-  test_rmse: 0.0040808143094182014
-  output_directory: output/training_runs/harmonic_regression_bw/2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5
-  best_checkpoint_path: output/training_runs/harmonic_regression_bw/2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5/checkpoints/harmonic_regression-epoch=047-val_mae=0.00363757.ckpt
-  metrics_path: output/training_runs/harmonic_regression_bw/2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5/metrics_summary.yaml
-  report_path: output/training_runs/harmonic_regression_bw/2026-05-12-04-06-33__te_harmonic_order12_linear_conditioned_recovery_bw_grid_order8_lr0002_stride5/training_test_report.md
+  trainable_parameter_count: 2886
+  total_parameter_count: 2886
+  val_mae: 0.003587546059861779
+  val_rmse: 0.004006792325526476
+  test_mae: 0.0033999730367213488
+  test_rmse: 0.0038858309853821993
+  output_directory: output\training_runs\harmonic_regression_bw\2026-05-20-10-56-18__te_harmonic_dense240_tracking_bw
+  best_checkpoint_path: output\training_runs\harmonic_regression_bw\2026-05-20-10-56-18__te_harmonic_dense240_tracking_bw\checkpoints\harmonic_regression-epoch=023-val_mae=0.00358755.ckpt
+  metrics_path: output\training_runs\harmonic_regression_bw\2026-05-20-10-56-18__te_harmonic_dense240_tracking_bw/metrics_summary.yaml
+  report_path: output\training_runs\harmonic_regression_bw\2026-05-20-10-56-18__te_harmonic_dense240_tracking_bw/training_test_report.md
   selection_policy:
     primary_metric: test_mae
     first_tie_breaker: test_rmse
     second_tie_breaker: val_mae
     third_tie_breaker: trainable_parameter_count
     direction: minimize
-  selected_at: '2026-05-12T04:17:31'
+  selected_at: '2026-05-20T11:01:18'

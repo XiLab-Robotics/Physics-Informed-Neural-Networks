@@ -115,6 +115,10 @@ SVR_REFERENCE_GRID_EXPORT_SURFACE_TABLE_CLASS_NAME = "report-table report-table-
 SVR_REFERENCE_GRID_GAP_VS_PAPER_TABLE_CLASS_NAME = "report-table report-table-svr-reference-grid-gap-vs-paper"
 CAMPAIGN_CELL_REPAIR_RANKING_TABLE_CLASS_NAME = TRACK1_SVM_REPAIR_RANKING_TABLE_CLASS_NAME
 SURFACE_BEFORE_AFTER_SUMMARY_TABLE_CLASS_NAME = TRACK1_SVM_REPAIR_BEFORE_AFTER_TABLE_CLASS_NAME
+WAVE1_HIGH_ORDER_ARTIFACT_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-artifact"
+WAVE1_HIGH_ORDER_KEY_VALUE_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-key-value"
+WAVE1_HIGH_ORDER_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-leaderboard"
+WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-registry"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -626,6 +630,24 @@ REPORT_STYLESHEET = """
     .report-table-generic th:nth-child(9), .report-table-generic td:nth-child(9) { width: 15%; }
     .report-table-generic th:nth-child(10), .report-table-generic td:nth-child(10) { width: 7%; }
     .report-table-generic th:nth-child(11), .report-table-generic td:nth-child(11) { width: 5%; }
+
+    .report-table-wave1-high-order-artifact th:nth-child(1), .report-table-wave1-high-order-artifact td:nth-child(1) { width: 20%; }
+    .report-table-wave1-high-order-artifact th:nth-child(2), .report-table-wave1-high-order-artifact td:nth-child(2) { width: 80%; }
+
+    .report-table-wave1-high-order-key-value th:nth-child(1), .report-table-wave1-high-order-key-value td:nth-child(1) { width: 20%; }
+    .report-table-wave1-high-order-key-value th:nth-child(2), .report-table-wave1-high-order-key-value td:nth-child(2) { width: 80%; }
+
+    .report-table-wave1-high-order-leaderboard th:nth-child(1), .report-table-wave1-high-order-leaderboard td:nth-child(1) { width: 5%; }
+    .report-table-wave1-high-order-leaderboard th:nth-child(2), .report-table-wave1-high-order-leaderboard td:nth-child(2) { width: 41%; }
+    .report-table-wave1-high-order-leaderboard th:nth-child(3), .report-table-wave1-high-order-leaderboard td:nth-child(3) { width: 8%; }
+    .report-table-wave1-high-order-leaderboard th:nth-child(4), .report-table-wave1-high-order-leaderboard td:nth-child(4) { width: 16%; }
+    .report-table-wave1-high-order-leaderboard th:nth-child(5), .report-table-wave1-high-order-leaderboard td:nth-child(5) { width: 15%; }
+    .report-table-wave1-high-order-leaderboard th:nth-child(6), .report-table-wave1-high-order-leaderboard td:nth-child(6) { width: 15%; }
+
+    .report-table-wave1-high-order-registry th:nth-child(1), .report-table-wave1-high-order-registry td:nth-child(1) { width: 25%; }
+    .report-table-wave1-high-order-registry th:nth-child(2), .report-table-wave1-high-order-registry td:nth-child(2) { width: 36%; }
+    .report-table-wave1-high-order-registry th:nth-child(3), .report-table-wave1-high-order-registry td:nth-child(3) { width: 11%; }
+    .report-table-wave1-high-order-registry th:nth-child(4), .report-table-wave1-high-order-registry td:nth-child(4) { width: 28%; }
 
     .report-table-historical-results,
     .report-table-phase-results,
@@ -2517,6 +2539,33 @@ def resolve_standard_table_class_name(
     # Resolve Comparative Example Table
     if normalized_header_cells == COMPARATIVE_EXAMPLE_TABLE_HEADER_CELLS:
         return COMPARATIVE_EXAMPLE_TABLE_CLASS_NAME
+
+    # Resolve Wave 1 High-Order Harmonic Tracking Closeout Table Profiles
+    if report_stem == "2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-artifacts"
+            and normalized_header_cells == ("Artifact", "Path")
+        ):
+            return WAVE1_HIGH_ORDER_ARTIFACT_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug in {"execution-summary", "campaign-winner"}
+            and normalized_header_cells == ("Field", "Value")
+        ):
+            return WAVE1_HIGH_ORDER_KEY_VALUE_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "leaderboard"
+            and normalized_header_cells == ("Rank", "Run", "Scope", "Harmonics", "Test MAE", "Test RMSE")
+        ):
+            return WAVE1_HIGH_ORDER_LEADERBOARD_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "registry-effects"
+            and normalized_header_cells == ("Registry Scope", "New Relevant Entry", "Test MAE", "Interpretation")
+        ):
+            return WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME
 
     # Resolve Wave 1 Recovery Table Profiles
     if report_stem == "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report":

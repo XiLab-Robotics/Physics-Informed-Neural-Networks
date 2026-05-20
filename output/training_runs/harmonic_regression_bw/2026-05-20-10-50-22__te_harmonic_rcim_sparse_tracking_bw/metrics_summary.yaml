@@ -1,0 +1,70 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-20-10-11-06_007_07_harmonic_regression_bw_rcim_sparse.yaml
+experiment:
+  model_family: harmonic_regression_bw
+  model_type: harmonic_regression
+  run_name: te_harmonic_rcim_sparse_tracking_Bw
+  output_run_name: te_harmonic_rcim_sparse_tracking_Bw
+  run_instance_id: 2026-05-20-10-50-22__te_harmonic_rcim_sparse_tracking_bw
+  output_artifact_kind: training_run
+  base_model_family: harmonic_regression
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression_bw\2026-05-20-10-50-22__te_harmonic_rcim_sparse_tracking_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression_bw\2026-05-20-10-50-22__te_harmonic_rcim_sparse_tracking_bw\checkpoints\harmonic_regression-epoch=055-val_mae=0.00357006.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 114
+  frozen_parameter_count: 0
+  total_parameter_count: 114
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.96620178222656
+  - 497.8681335449219
+  - 896.0157470703125
+  - 30.36408042907715
+  - -1.0
+  input_feature_std:
+  - 103.92540740966797
+  - 466.80963134765625
+  - 543.8322143554688
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425875067710876
+  target_std:
+  - 0.02495734579861164
+validation_metrics:
+  val_loss: 0.030441714450716972
+  val_mae: 0.0035700611770153046
+  val_rmse: 0.004008579533547163
+test_metrics:
+  test_loss: 0.026432786136865616
+  test_mae: 0.0034059896133840084
+  test_rmse: 0.003894441993907094
+comparison_payload:
+  model_family: harmonic_regression_bw
+  model_type: harmonic_regression
+  run_name: te_harmonic_rcim_sparse_tracking_Bw
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 114
+  total_parameter_count: 114
+  val_mae: 0.0035700611770153046
+  val_rmse: 0.004008579533547163
+  test_mae: 0.0034059896133840084
+  test_rmse: 0.003894441993907094
+  deployment_notes: ''
+  interpretability_notes: ''

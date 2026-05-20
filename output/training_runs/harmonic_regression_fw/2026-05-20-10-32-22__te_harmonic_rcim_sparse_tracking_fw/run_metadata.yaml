@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: harmonic_regression_fw
+base_model_family: harmonic_regression
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_harmonic_rcim_sparse_tracking_Fw
+run_instance_id: 2026-05-20-10-32-22__te_harmonic_rcim_sparse_tracking_fw
+output_directory: output\training_runs\harmonic_regression_fw\2026-05-20-10-32-22__te_harmonic_rcim_sparse_tracking_fw

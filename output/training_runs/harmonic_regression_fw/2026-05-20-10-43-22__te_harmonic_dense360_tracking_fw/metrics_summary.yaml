@@ -1,0 +1,70 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-20-10-11-06_006_06_harmonic_regression_fw_dense360.yaml
+experiment:
+  model_family: harmonic_regression_fw
+  model_type: harmonic_regression
+  run_name: te_harmonic_dense360_tracking_Fw
+  output_run_name: te_harmonic_dense360_tracking_Fw
+  run_instance_id: 2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
+  output_artifact_kind: training_run
+  base_model_family: harmonic_regression
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression_fw\2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\harmonic_regression_fw\2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw\checkpoints\harmonic_regression-epoch=053-val_mae=0.00261006.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 4326
+  frozen_parameter_count: 0
+  total_parameter_count: 4326
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9654083251953
+  - 497.8670959472656
+  - 896.0154418945312
+  - 30.364086151123047
+  - 1.0
+  input_feature_std:
+  - 103.92489624023438
+  - 466.8084411621094
+  - 543.8319702148438
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.056905604898929596
+  target_std:
+  - 0.023635772988200188
+validation_metrics:
+  val_loss: 0.019247790798544884
+  val_mae: 0.0026100631803274155
+  val_rmse: 0.00305662932805717
+test_metrics:
+  test_loss: 0.020546332001686096
+  test_mae: 0.0029159323312342167
+  test_rmse: 0.0032367417588829994
+comparison_payload:
+  model_family: harmonic_regression_fw
+  model_type: harmonic_regression
+  run_name: te_harmonic_dense360_tracking_Fw
+  backbone_name: HarmonicRegression
+  trainable_parameter_count: 4326
+  total_parameter_count: 4326
+  val_mae: 0.0026100631803274155
+  val_rmse: 0.00305662932805717
+  test_mae: 0.0029159323312342167
+  test_rmse: 0.0032367417588829994
+  deployment_notes: ''
+  interpretability_notes: ''

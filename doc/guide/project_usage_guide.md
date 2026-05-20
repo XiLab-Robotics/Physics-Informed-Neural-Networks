@@ -143,6 +143,10 @@ The current usage flow mainly relies on these folders:
   Canonical mixed launcher for the directional Wave 1 best-hyperparameter search
   campaign.
 
+- `scripts/campaigns/wave1/run_wave1_high_order_harmonic_tracking_campaign.ps1`
+  Prepared launcher for the Wave 1 high-order harmonic tracking campaign across
+  RCIM sparse, dense `0..240`, and dense `0..360` harmonic banks.
+
 - `scripts/training/compose_hydra_training_config.py`
   Pilot `Hydra` composition entry point for materializing `Wave 1` and
   future-wave training YAML while keeping queue execution in the existing
@@ -158,6 +162,10 @@ The current usage flow mainly relies on these folders:
 
 - `scripts/models/`
   Neural-network backbones and the model factory.
+
+- `scripts/models/check_harmonic_basis_configuration.py`
+  Smoke check for contiguous, sparse RCIM, dense `0..240`, and dense `0..360`
+  harmonic-basis model configuration.
 
 - `scripts/tooling/`
   Repository-owned tooling utilities, now grouped by domain.
@@ -323,6 +331,17 @@ This workflow intentionally mixes:
   `residual_harmonic_mlp`;
 - one GPU-visible worker process per neural study slot, so the launcher can use
   multiple GPUs without pushing the host into a CPU-only saturation pattern.
+
+The approved Wave 1 high-order harmonic tracking follow-up can be launched with:
+
+```powershell
+.\scripts\campaigns\wave1\run_wave1_high_order_harmonic_tracking_campaign.ps1
+```
+
+This package contains `18` runs: `harmonic_regression` and
+`residual_harmonic_mlp` across `global`, `Fw`, and `Bw` scopes, each with
+`rcim_sparse`, `dense240`, and `dense360` harmonic banks. It uses the existing
+Wave 1 directional best-hyperparameter results as the baseline comparison.
 
 The repository now also exposes a `Hydra` materialization pilot for `Wave 1`
 and future-wave training configuration work:
@@ -1745,7 +1764,9 @@ The structured baseline stack is composed of:
   Feedforward backbone with hidden layers, activation, optional layer normalization, and dropout.
 
 - `scripts/models/harmonic_regression.py`
-  Harmonic regression backbone with optional operating-condition terms.
+  Harmonic regression backbone with optional operating-condition terms. The
+  model supports either the legacy contiguous `harmonic_order` basis or an
+  explicit `harmonic_index_list` for sparse and high-order harmonic banks.
 
 - `scripts/models/periodic_feature_network.py`
   Periodic-feature MLP backbone using harmonic feature expansion before the residual MLP.
@@ -1858,6 +1879,16 @@ Main configurable sections:
 
 - `model.use_layer_norm`
   Enables or disables `LayerNorm` in the hidden stages.
+
+- `model.harmonic_order`
+  Highest contiguous harmonic used by harmonic models when
+  `model.harmonic_index_list` is omitted.
+
+- `model.harmonic_index_list`
+  Optional explicit non-negative harmonic index list for
+  `harmonic_regression` and `residual_harmonic_mlp`. Use `0` for the DC/bias
+  component and positive values for sine/cosine harmonic pairs, for example
+  `[0, 1, 3, 39, 40, 78, 81, 156, 162, 240]`.
 
 - `training.learning_rate`
   Optimizer learning rate.
