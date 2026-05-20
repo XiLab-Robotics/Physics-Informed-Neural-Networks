@@ -119,6 +119,7 @@ WAVE1_HIGH_ORDER_ARTIFACT_TABLE_CLASS_NAME = "report-table report-table-wave1-hi
 WAVE1_HIGH_ORDER_KEY_VALUE_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-key-value"
 WAVE1_HIGH_ORDER_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-leaderboard"
 WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-registry"
+TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -332,6 +333,21 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report": {
         "targeted-pair-outcome",
+    },
+    "track2_best_model_collage_report": {
+        "collage-gallery-forward-reference-best-models",
+        "collage-gallery-forward-reference-best-models-continued",
+        "collage-gallery-forward-wave-1-family-best-models",
+        "collage-gallery-forward-wave-1-family-best-models-continued",
+        "collage-gallery-forward-wave-1-family-best-models-continued-2",
+        "collage-gallery-backward-reference-best-models",
+        "collage-gallery-backward-wave-1-family-best-models",
+        "collage-gallery-backward-wave-1-family-best-models-continued",
+        "collage-gallery-backward-wave-1-family-best-models-continued-2",
+        "collage-gallery-global-wave-1-family-best-models",
+        "collage-gallery-global-wave-1-family-best-models-continued",
+        "collage-gallery-global-wave-1-family-best-models-continued-2",
+        "output-artifacts",
     },
 }
 
@@ -648,6 +664,24 @@ REPORT_STYLESHEET = """
     .report-table-wave1-high-order-registry th:nth-child(2), .report-table-wave1-high-order-registry td:nth-child(2) { width: 36%; }
     .report-table-wave1-high-order-registry th:nth-child(3), .report-table-wave1-high-order-registry td:nth-child(3) { width: 11%; }
     .report-table-wave1-high-order-registry th:nth-child(4), .report-table-wave1-high-order-registry td:nth-child(4) { width: 28%; }
+
+    .report-table-track2-best-model-collage {
+      font-size: 6.85pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track2-best-model-collage th,
+    .report-table-track2-best-model-collage td {
+      padding: 3px 4px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2-best-model-collage th:nth-child(1), .report-table-track2-best-model-collage td:nth-child(1) { width: 27%; }
+    .report-table-track2-best-model-collage th:nth-child(2), .report-table-track2-best-model-collage td:nth-child(2) { width: 25%; }
+    .report-table-track2-best-model-collage th:nth-child(3), .report-table-track2-best-model-collage td:nth-child(3) { width: 7%; }
+    .report-table-track2-best-model-collage th:nth-child(4), .report-table-track2-best-model-collage td:nth-child(4) { width: 13.666%; }
+    .report-table-track2-best-model-collage th:nth-child(5), .report-table-track2-best-model-collage td:nth-child(5) { width: 13.666%; }
+    .report-table-track2-best-model-collage th:nth-child(6), .report-table-track2-best-model-collage td:nth-child(6) { width: 13.666%; }
 
     .report-table-historical-results,
     .report-table-phase-results,
@@ -1585,7 +1619,8 @@ REPORT_STYLESHEET = """
     .report-table-track1-overnight-delta .metric-unit,
     .report-table-track1-overnight-block-winner .metric-unit,
     .report-table-track1-exact-open-cell-ranking .metric-unit,
-    .report-table-track1-exact-open-cell-export .metric-unit {
+    .report-table-track1-exact-open-cell-export .metric-unit,
+    .report-table-track2-best-model-collage .metric-unit {
       display: block;
     }
 
@@ -2227,6 +2262,7 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         TRACK1_OVERNIGHT_COMPLETED_TABLE_CLASS_NAME,
         TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME,
         TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME,
+        TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
     } and wrapped_common_metric_header is not None:
         return wrapped_common_metric_header
 
@@ -2564,8 +2600,16 @@ def resolve_standard_table_class_name(
         if (
             current_section_slug == "registry-effects"
             and normalized_header_cells == ("Registry Scope", "New Relevant Entry", "Test MAE", "Interpretation")
-        ):
+            ):
             return WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME
+
+    # Resolve Track 2 Best-Model Collage Summary Tables
+    if (
+        report_stem == "track2_best_model_collage_report"
+        and normalized_header_cells
+        == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
+    ):
+        return TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME
 
     # Resolve Wave 1 Recovery Table Profiles
     if report_stem == "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report":
@@ -3159,6 +3203,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
             if (
                 force_page_break_before_section
+                and report_stem != "track2_best_model_collage_report"
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
                     and current_section_slug == "targeted-pair-outcome"

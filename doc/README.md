@@ -99,6 +99,9 @@ This folder contains the internal project documents derived from the reference P
   Canonical `Track 2` offline matrix comparing accepted `Track 1`, recovered
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
+- [reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-05-20%5D/track2_best_model_collage_report.md)
+  Styled `Track 2` visual report with four-curve collages for the current best
+  reference, Track 1, Wave 1 directional, and Wave 1 global models.
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -119,6 +122,12 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-05-20
+
+- [technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md](./technical/2026-05/2026-05-20/2026-05-20-17-37-09_track2_best_model_collage_pdf_report.md)
+  Plan the `Track 2` styled PDF report with four-curve collages for the best
+  paper-reference, Track 1, Wave 1 directional, and Wave 1 global models.
 
 #### 2026-05-19
 
