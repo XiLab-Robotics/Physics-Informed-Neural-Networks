@@ -349,6 +349,15 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "collage-gallery-global-wave-1-family-best-models-continued-2",
         "output-artifacts",
     },
+    "track2_multi_model_curve_comparison_report": {
+        "comparison-gallery-forward-reference-model-overlay",
+        "comparison-gallery-forward-wave-1-family-model-overlay",
+        "comparison-gallery-backward-reference-model-overlay",
+        "comparison-gallery-backward-wave-1-family-model-overlay",
+        "comparison-gallery-forward-track-1-and-screened-wave-1-overlay",
+        "comparison-gallery-backward-track-1-and-screened-wave-1-overlay",
+        "output-artifacts",
+    },
 }
 
 # Browser And Report Constants
@@ -2605,7 +2614,7 @@ def resolve_standard_table_class_name(
 
     # Resolve Track 2 Best-Model Collage Summary Tables
     if (
-        report_stem == "track2_best_model_collage_report"
+        report_stem in {"track2_best_model_collage_report", "track2_multi_model_curve_comparison_report"}
         and normalized_header_cells
         == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
     ):
@@ -3203,7 +3212,10 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
 
             if (
                 force_page_break_before_section
-                and report_stem != "track2_best_model_collage_report"
+                and report_stem not in {
+                    "track2_best_model_collage_report",
+                    "track2_multi_model_curve_comparison_report",
+                }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
                     and current_section_slug == "targeted-pair-outcome"

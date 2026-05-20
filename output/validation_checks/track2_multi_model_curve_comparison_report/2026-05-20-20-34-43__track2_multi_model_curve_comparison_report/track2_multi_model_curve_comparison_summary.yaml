@@ -1,0 +1,487 @@
+schema_version: 1
+run_instance_id: 2026-05-20-20-34-43__track2_multi_model_curve_comparison_report
+output_directory: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report
+report_path: doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-05-20]\track2_multi_model_curve_comparison_report.md
+dataset:
+  config_path: config/datasets/transmission_error_dataset.yaml
+  dataset_root: data\datasets
+  curve_count: 194
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+comparison_count: 6
+comparison_summary_list:
+- group_id: forward_reference
+  group_title: Forward Reference Model Overlay
+  candidate_id_list:
+  - paper_original_best_Fw
+  - paper_retuned_best_Fw
+  - track1_best_Fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: paper_original_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_original
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: models\paper_reference\rcim_original\forward
+    metrics:
+      mse: 1.184383818134888e-05
+      mae: 0.0027688394806654887
+      rmse: 0.0029512633152858833
+      mean_percentage_error_pct: 6.25031119295237
+      p95_mean_percentage_error_pct: 13.826565958236902
+  - candidate_id: paper_retuned_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: models\paper_reference\rcim_retuned\forward
+    metrics:
+      mse: 5.648091864497738e-06
+      mae: 0.0018393615404676234
+      rmse: 0.0020408865402264296
+      mean_percentage_error_pct: 4.108527185855838
+      p95_mean_percentage_error_pct: 9.865679888626206
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: &id001
+    - forward
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: &id002
+      mse: 1.1858540132878466e-05
+      mae: 0.0030138657957830537
+      rmse: 0.0032040340242032346
+      mean_percentage_error_pct: 6.8186870727698725
+      p95_mean_percentage_error_pct: 11.638363100441913
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\comparisons\forward_reference.png
+  comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/forward_reference.png
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: forward_wave1
+  group_title: Forward Wave 1 Family Model Overlay
+  candidate_id_list:
+  - feedforward_fw
+  - harmonic_regression_fw
+  - periodic_mlp_fw
+  - residual_harmonic_mlp_fw
+  - tree_fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: feedforward_fw
+    candidate_family: feedforward
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\feedforward_fw\latest_family_best.yaml
+    metrics:
+      mse: 1.7535421849006526e-05
+      mae: 0.0034041733010334303
+      rmse: 0.003854670770216893
+      mean_percentage_error_pct: 7.5511376841180695
+      p95_mean_percentage_error_pct: 13.028754866088278
+  - candidate_id: harmonic_regression_fw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id005
+    - forward
+    source_path: output\registries\families\harmonic_regression_fw\latest_family_best.yaml
+    metrics: &id006
+      mse: 1.444541551828669e-05
+      mae: 0.003230064409142564
+      rmse: 0.003494257694748104
+      mean_percentage_error_pct: 7.184704152597394
+      p95_mean_percentage_error_pct: 11.605921675150928
+  - candidate_id: periodic_mlp_fw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list:
+    - forward
+    source_path: output\registries\families\periodic_mlp_fw\latest_family_best.yaml
+    metrics:
+      mse: 1.711056907916954e-05
+      mae: 0.0033912105467201773
+      rmse: 0.0038141567566354006
+      mean_percentage_error_pct: 7.523968527260914
+      p95_mean_percentage_error_pct: 13.032199284657825
+  - candidate_id: residual_harmonic_mlp_fw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id007
+    - forward
+    source_path: output\registries\families\residual_harmonic_mlp_fw\latest_family_best.yaml
+    metrics: &id008
+      mse: 1.556709707660605e-05
+      mae: 0.0032734541309056464
+      rmse: 0.003563196976847953
+      mean_percentage_error_pct: 7.265561991021862
+      p95_mean_percentage_error_pct: 12.751791025035866
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: &id003
+    - forward
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: &id004
+      mse: 1.4409035673291414e-05
+      mae: 0.003053085316638953
+      rmse: 0.0033946915013691
+      mean_percentage_error_pct: 6.731470912711412
+      p95_mean_percentage_error_pct: 11.994866840914167
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\comparisons\forward_wave1.png
+  comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/forward_wave1.png
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: backward_reference
+  group_title: Backward Reference Model Overlay
+  candidate_id_list:
+  - paper_retuned_best_Bw
+  - track1_best_Bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: paper_retuned_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_retuned
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: models\paper_reference\rcim_retuned\backward
+    metrics:
+      mse: 3.497621612108493e-05
+      mae: 0.0036747434553014557
+      rmse: 0.004284144686520554
+      mean_percentage_error_pct: 7.571629592027339
+      p95_mean_percentage_error_pct: 15.644902733051126
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: &id009
+    - backward
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: &id010
+      mse: 8.171488240895845e-05
+      mae: 0.0050274500217194025
+      rmse: 0.0052124783828927535
+      mean_percentage_error_pct: 11.859558073404244
+      p95_mean_percentage_error_pct: 48.10578429036961
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\comparisons\backward_reference.png
+  comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/backward_reference.png
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: backward_wave1
+  group_title: Backward Wave 1 Family Model Overlay
+  candidate_id_list:
+  - feedforward_bw
+  - harmonic_regression_bw
+  - periodic_mlp_bw
+  - residual_harmonic_mlp_bw
+  - tree_bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: feedforward_bw
+    candidate_family: feedforward
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\feedforward_bw\latest_family_best.yaml
+    metrics:
+      mse: 2.1912284005565264e-05
+      mae: 0.0035859347265435873
+      rmse: 0.004022767201168608
+      mean_percentage_error_pct: 7.831933909853704
+      p95_mean_percentage_error_pct: 14.855703491839963
+  - candidate_id: harmonic_regression_bw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list:
+    - backward
+    source_path: output\registries\families\harmonic_regression_bw\latest_family_best.yaml
+    metrics:
+      mse: 2.2178533425749413e-05
+      mae: 0.003677546612008678
+      rmse: 0.004011667935230364
+      mean_percentage_error_pct: 8.057502272419441
+      p95_mean_percentage_error_pct: 15.07113339842358
+  - candidate_id: periodic_mlp_bw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id015
+    - backward
+    source_path: output\registries\families\periodic_mlp_bw\latest_family_best.yaml
+    metrics: &id016
+      mse: 2.150198418020919e-05
+      mae: 0.003573554004124977
+      rmse: 0.004005557404598399
+      mean_percentage_error_pct: 7.806509457544888
+      p95_mean_percentage_error_pct: 13.969814931152268
+  - candidate_id: residual_harmonic_mlp_bw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id013
+    - backward
+    source_path: output\registries\families\residual_harmonic_mlp_bw\latest_family_best.yaml
+    metrics: &id014
+      mse: 2.054004462227846e-05
+      mae: 0.0035361430807751308
+      rmse: 0.0038744477346263555
+      mean_percentage_error_pct: 7.728394447392765
+      p95_mean_percentage_error_pct: 14.618392001377298
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: &id011
+    - backward
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: &id012
+      mse: 1.916551559687136e-05
+      mae: 0.0032576256871406977
+      rmse: 0.0036512511051981326
+      mean_percentage_error_pct: 7.0514840815236965
+      p95_mean_percentage_error_pct: 14.115583744845246
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\comparisons\backward_wave1.png
+  comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/backward_wave1.png
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: forward_track1_screened_wave1
+  group_title: Forward Track 1 And Screened Wave 1 Overlay
+  candidate_id_list:
+  - track1_best_Fw
+  - tree_fw
+  - harmonic_regression_fw
+  - residual_harmonic_mlp_fw
+  direction_scope: forward
+  candidate_summary_list:
+  - candidate_id: track1_best_Fw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Fw
+    allowed_direction_list: *id001
+    source_path: models\paper_reference\rcim_track1\forward
+    metrics: *id002
+  - candidate_id: tree_fw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id003
+    source_path: output\registries\families\tree_fw\latest_family_best.yaml
+    metrics: *id004
+  - candidate_id: harmonic_regression_fw
+    candidate_family: harmonic_regression
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id005
+    source_path: output\registries\families\harmonic_regression_fw\latest_family_best.yaml
+    metrics: *id006
+  - candidate_id: residual_harmonic_mlp_fw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Fw
+    allowed_direction_list: *id007
+    source_path: output\registries\families\residual_harmonic_mlp_fw\latest_family_best.yaml
+    metrics: *id008
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\comparisons\forward_track1_screened_wave1.png
+  comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/forward_track1_screened_wave1.png
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    direction_label: forward
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    direction_label: forward
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    direction_label: forward
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+- group_id: backward_track1_screened_wave1
+  group_title: Backward Track 1 And Screened Wave 1 Overlay
+  candidate_id_list:
+  - track1_best_Bw
+  - tree_bw
+  - residual_harmonic_mlp_bw
+  - periodic_mlp_bw
+  direction_scope: backward
+  candidate_summary_list:
+  - candidate_id: track1_best_Bw
+    candidate_family: best_composite
+    candidate_kind: composite_reference_bank
+    candidate_source_label: rcim_track1
+    candidate_surface: Bw
+    allowed_direction_list: *id009
+    source_path: models\paper_reference\rcim_track1\backward
+    metrics: *id010
+  - candidate_id: tree_bw
+    candidate_family: tree
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id011
+    source_path: output\registries\families\tree_bw\latest_family_best.yaml
+    metrics: *id012
+  - candidate_id: residual_harmonic_mlp_bw
+    candidate_family: residual_harmonic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id013
+    source_path: output\registries\families\residual_harmonic_mlp_bw\latest_family_best.yaml
+    metrics: *id014
+  - candidate_id: periodic_mlp_bw
+    candidate_family: periodic_mlp
+    candidate_kind: wave1_registry_model
+    candidate_source_label: wave1_current_registry
+    candidate_surface: Bw
+    allowed_direction_list: *id015
+    source_path: output\registries\families\periodic_mlp_bw\latest_family_best.yaml
+    metrics: *id016
+  comparison_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\comparisons\backward_track1_screened_wave1.png
+  comparison_markdown_path: ../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/backward_track1_screened_wave1.png
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    direction_label: backward
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    direction_label: backward
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    direction_label: backward
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+metrics_csv_path: output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_metrics.csv

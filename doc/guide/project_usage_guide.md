@@ -130,6 +130,10 @@ The current usage flow mainly relies on these folders:
   Track 2 visual report builder that creates four-curve collage plots for the
   selected reference, Wave 1 directional, and Wave 1 global best models.
 
+- `scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py`
+  Track 2 visual report builder that overlays original TE curves, reference
+  best models, and screened Wave 1 family-best models on shared axes.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
@@ -473,6 +477,13 @@ per selected model and writes a dated Markdown report bundle:
 
 ```powershell
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_best_model_collage_report.py
+```
+
+The Track 2 multi-model curve comparison report overlays multiple selected
+models against the original curve on each representative test curve:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py
 ```
 
 The repository also exposes a separate original-dataset exact-model-bank branch
