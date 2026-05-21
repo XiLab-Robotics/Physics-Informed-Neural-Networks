@@ -225,6 +225,12 @@ def print_training_configuration_summary(training_config: dict) -> None:
     print_key_value("Curve Batch Size", dataset_config["curve_batch_size"], value_color=Fore.YELLOW)
     print_key_value("Point Stride", dataset_config["point_stride"], value_color=Fore.YELLOW)
     print_key_value("Maximum Points Per Curve", dataset_config["maximum_points_per_curve"], value_color=Fore.YELLOW)
+    print_key_value("Collate Mode", dataset_config.get("collate_mode", "point"), value_color=Fore.YELLOW)
+    if str(dataset_config.get("collate_mode", "point")).strip().lower() == "sequence":
+        print_key_value("Sequence Length", dataset_config.get("sequence_length"), value_color=Fore.YELLOW)
+        print_key_value("Sequence Stride", dataset_config.get("sequence_stride"), value_color=Fore.YELLOW)
+        print_key_value("Sequence Target Position", dataset_config.get("sequence_target_position"), value_color=Fore.YELLOW)
+        print_key_value("Maximum Sequences Per Curve", dataset_config.get("maximum_sequences_per_curve"), value_color=Fore.YELLOW)
     print_key_value("Num Workers", dataset_config["num_workers"], value_color=Fore.YELLOW)
     print_key_value("Pin Memory", dataset_config["pin_memory"], value_color=Fore.YELLOW)
 
@@ -266,6 +272,22 @@ def print_training_configuration_summary(training_config: dict) -> None:
         print_key_value("Residual Use Layer Norm", model_config.get("residual_use_layer_norm", True), value_color=Fore.YELLOW)
         print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
 
+    # Print Temporal Convolution Configuration
+    elif normalized_model_type == "temporal_convolution":
+        print_key_value("Channel Layers", model_config["channel_size"], value_color=Fore.YELLOW)
+        print_key_value("Kernel Size", model_config.get("kernel_size", 5), value_color=Fore.YELLOW)
+        print_key_value("Activation", model_config.get("activation_name", "GELU"), value_color=Fore.YELLOW)
+        print_key_value("Dropout Probability", model_config.get("dropout_probability", 0.10), value_color=Fore.YELLOW)
+        print_key_value("Readout Position", model_config.get("readout_position", "center"), value_color=Fore.YELLOW)
+
+    # Print Recurrent Sequence Configuration
+    elif normalized_model_type in ["gru_sequence", "lstm_sequence"]:
+        print_key_value("Hidden Size", model_config["hidden_size"], value_color=Fore.YELLOW)
+        print_key_value("Num Layers", model_config.get("num_layers", 2), value_color=Fore.YELLOW)
+        print_key_value("Dropout Probability", model_config.get("dropout_probability", 0.10), value_color=Fore.YELLOW)
+        print_key_value("Bidirectional", model_config.get("bidirectional", False), value_color=Fore.YELLOW)
+        print_key_value("Readout Position", model_config.get("readout_position", "center"), value_color=Fore.YELLOW)
+
     # Print Model Config Keys
     else: print_key_value("Model Config Keys", sorted(model_config.keys()), value_color=Fore.YELLOW)
 
@@ -305,6 +327,12 @@ def print_dataset_summary(datamodule: TransmissionErrorDataModule, input_feature
     print_key_value("Test Curves", dataset_split_summary.test_curve_count, value_color=Fore.YELLOW)
     print_key_value("Point Stride", datamodule.point_stride, value_color=Fore.YELLOW)
     print_key_value("Maximum Points Per Curve", datamodule.maximum_points_per_curve, value_color=Fore.YELLOW)
+    print_key_value("Collate Mode", datamodule.collate_mode, value_color=Fore.YELLOW)
+    if datamodule.collate_mode == "sequence":
+        print_key_value("Sequence Length", datamodule.sequence_length, value_color=Fore.YELLOW)
+        print_key_value("Sequence Stride", datamodule.sequence_stride, value_color=Fore.YELLOW)
+        print_key_value("Sequence Target Position", datamodule.sequence_target_position, value_color=Fore.YELLOW)
+        print_key_value("Maximum Sequences Per Curve", datamodule.maximum_sequences_per_curve, value_color=Fore.YELLOW)
     print_key_value("Persistent Workers", datamodule.num_workers > 0, value_color=Fore.YELLOW)
 
 def print_model_summary(regression_backbone: torch.nn.Module) -> None:

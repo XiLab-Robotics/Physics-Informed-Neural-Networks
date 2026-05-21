@@ -1,0 +1,14 @@
+base_model_family: gru_sequence
+output_model_family: gru_sequence
+model_type: gru_sequence
+base_run_name: te_gru_sequence_remote
+note_fragment: GRU sequence candidate using centered TE sequence windows.
+
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center

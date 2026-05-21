@@ -1,0 +1,14 @@
+base_model_family: lstm_sequence
+output_model_family: lstm_sequence
+model_type: lstm_sequence
+base_run_name: te_lstm_sequence_remote
+note_fragment: LSTM sequence candidate using centered TE sequence windows.
+
+model:
+  input_size: 5
+  output_size: 1
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center

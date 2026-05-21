@@ -29,6 +29,10 @@ from scripts.tooling import repository_path_support
 
 DEFAULT_CONFIG_DIR = PROJECT_PATH / "config" / "training" / "hydra" / "wave1"
 DEFAULT_CONFIG_NAME = "config"
+SUPPORTED_HYDRA_TRANSITION_POLICY_LIST = [
+    "wave1_future_waves_materialization_pilot",
+    "wave2_temporal_model_entry_preparation",
+]
 HYDRA_INTERNAL_KEY_LIST = [
     "dataset_profile",
     "model_family",
@@ -224,9 +228,10 @@ def validate_materialized_training_config(training_config: dict[str, Any]) -> No
     assert str(experiment_dictionary.get("model_type", "")).strip(), (
         "experiment.model_type must not be empty"
     )
-    assert metadata_dictionary.get("hydra_transition_policy") == (
-        "wave1_future_waves_materialization_pilot"
-    ), "metadata.hydra_transition_policy must identify the pilot policy"
+    hydra_transition_policy = metadata_dictionary.get("hydra_transition_policy")
+    assert hydra_transition_policy in SUPPORTED_HYDRA_TRANSITION_POLICY_LIST, (
+        f"metadata.hydra_transition_policy must identify a supported policy | {hydra_transition_policy}"
+    )
 
 
 def validate_materialized_dataset_config(
@@ -275,12 +280,16 @@ def build_default_training_output_path(training_config: dict[str, Any]) -> Path:
     # Build Deterministic Materialization Path
     campaign_config_id = str(training_config["metadata"].get("campaign_config_id", "")).strip()
     assert campaign_config_id, "metadata.campaign_config_id must not be empty"
+    # Materialize Under The Matching Hydra Wave Root
+    hydra_transition_policy = str(training_config["metadata"].get("hydra_transition_policy", "")).strip()
+    hydra_wave_root_name = "wave2" if hydra_transition_policy == "wave2_temporal_model_entry_preparation" else "wave1"
+
     return (
         PROJECT_PATH
         / "config"
         / "training"
         / "hydra"
-        / "wave1"
+        / hydra_wave_root_name
         / "materialized"
         / "training_configs"
         / f"{campaign_config_id}.yaml"

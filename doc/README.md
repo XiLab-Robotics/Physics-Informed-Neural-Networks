@@ -81,6 +81,9 @@ This folder contains the internal project documents derived from the reference P
   Offline comparison report for the current Wave 1 family-best models on a
   deterministic 20% subset of the canonical held-out TE test curves, including
   aggregate metrics and plot artifact pointers.
+- [reports/analysis/wave2/Wave 2 Temporal Sequence Models.md](./reports/analysis/wave2/Wave%202%20Temporal%20Sequence%20Models.md)
+  Explanatory report for the first `Wave 2` temporal sequence families:
+  temporal convolution, `GRU`, and `LSTM` windowed TE regressors.
 - [reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/rcim_paper_reference/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
   Explanatory report for the strict paper-faithful RCIM family-bank branch,
   including the exact target schema, recovered family inventory, operating
@@ -131,6 +134,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-21
+
+- [technical/2026-05/2026-05-21/2026-05-21-16-46-08_wave2_temporal_model_entry_plan.md](./technical/2026-05/2026-05-21/2026-05-21-16-46-08_wave2_temporal_model_entry_plan.md)
+  Plan the opening of `Wave 2` as the temporal-model branch, starting from
+  lightweight temporal convolution, `GRU`, and `LSTM` sequence baselines while
+  preserving the `global` / `Fw` / `Bw` verification rule and official `Track
+  2` closeout workflow.
 
 - [technical/2026-05/2026-05-21/2026-05-21-15-09-15_track2_official_model_verification_report.md](./technical/2026-05/2026-05-21/2026-05-21-15-09-15_track2_official_model_verification_report.md)
   Plan the official `Track 2` model-verification report that consolidates the
@@ -1605,6 +1614,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Latest Campaign Plans
 
+- [reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
+  Preliminary campaign plan for the first `Wave 2` temporal-model entry
+  campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
+  baselines across `global`, `Fw`, and `Bw`.
 - [reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md](./reports/campaign_plans/2026-03-12-15-32-28_mixed_training_campaign_plan_report.md)
   Planning report for the next mixed feedforward campaign that combines longer schedules, denser point sampling, larger batches, and larger models.
 - [reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md](./reports/campaign_plans/2026-03-17-21-01-47_wave1_structured_baseline_campaign_plan_report.md)
@@ -1760,6 +1773,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
+  Preliminary campaign plan for the first `Wave 2` temporal-model entry
+  campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
+  baselines across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 1` `periodic_mlp` explicit harmonic

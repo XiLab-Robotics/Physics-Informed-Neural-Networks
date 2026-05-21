@@ -189,6 +189,155 @@ def collate_transmission_error_points(batch_dictionary_list: list[dict[str, Any]
         "source_file_path": [curve_sample_dictionary["source_file_path"] for curve_sample_dictionary in batch_dictionary_list],
     }
 
+def extract_sequence_tensor_from_curve_sample(
+    curve_sample_dictionary: dict[str, Any],
+    point_stride: int = 1,
+    sequence_length: int = 17,
+    sequence_stride: int = 1,
+    target_position: str = "center",
+    maximum_sequences_per_curve: int | None = None,
+) -> dict[str, torch.Tensor]:
+
+    """Convert one curve sample into overlapping temporal sequence tensors.
+
+    Args:
+        curve_sample_dictionary: Dataset sample containing full-curve tensors.
+        point_stride: Step used before sequence-window construction.
+        sequence_length: Number of sampled points included in each window.
+        sequence_stride: Step between consecutive temporal windows.
+        target_position: Window position used as the regression target point.
+        maximum_sequences_per_curve: Optional cap on windows per curve.
+
+    Returns:
+        dict[str, torch.Tensor]: Sequence-level input tensors plus target and
+        angular-position tensors aligned with the configured target point.
+    """
+
+    # Validate Sequence Sampling Parameters
+    assert sequence_length > 0, f"Sequence Length must be positive | {sequence_length}"
+    assert sequence_stride > 0, f"Sequence Stride must be positive | {sequence_stride}"
+    if maximum_sequences_per_curve is not None: assert maximum_sequences_per_curve > 0, (f"Maximum Sequences Per Curve must be positive | {maximum_sequences_per_curve}")
+
+    normalized_target_position = target_position.strip().lower()
+    assert normalized_target_position in ["center", "last"], f"Unsupported Sequence Target Position | {target_position}"
+    if normalized_target_position == "center": assert sequence_length % 2 == 1, f"Center target requires an odd Sequence Length | {sequence_length}"
+
+    # Start From Point-Sampled Curve Tensors
+    point_sample_dictionary = extract_point_tensor_from_curve_sample(
+        curve_sample_dictionary=curve_sample_dictionary,
+        point_stride=point_stride,
+        maximum_points_per_curve=None,
+    )
+
+    input_tensor = point_sample_dictionary["input_tensor"]
+    target_tensor = point_sample_dictionary["target_tensor"]
+    angular_position_deg = point_sample_dictionary["angular_position_deg"]
+
+    # Validate Enough Sampled Points Exist For At Least One Window
+    sampled_point_count = int(input_tensor.shape[0])
+    assert sampled_point_count >= sequence_length, (
+        f"Sampled curve is shorter than Sequence Length | {sampled_point_count} < {sequence_length}"
+    )
+
+    # Build Window Start Indices
+    sequence_start_index_tensor = torch.arange(
+        0,
+        sampled_point_count - sequence_length + 1,
+        sequence_stride,
+        dtype=torch.long,
+    )
+    assert len(sequence_start_index_tensor) > 0, "Sequence Index Tensor is empty after applying Sequence Stride"
+
+    # Reduce Number Of Windows Per Curve
+    if maximum_sequences_per_curve is not None and len(sequence_start_index_tensor) > maximum_sequences_per_curve:
+        reduced_index_positions = torch.linspace(
+            0,
+            len(sequence_start_index_tensor) - 1,
+            steps=maximum_sequences_per_curve,
+            dtype=torch.float32,
+        ).round().long()
+        sequence_start_index_tensor = sequence_start_index_tensor.index_select(0, reduced_index_positions)
+
+    # Stack Temporal Windows
+    sequence_input_tensor_list: list[torch.Tensor] = []
+    target_index_list: list[int] = []
+    target_offset = sequence_length // 2 if normalized_target_position == "center" else sequence_length - 1
+
+    for sequence_start_index in sequence_start_index_tensor.tolist():
+        sequence_end_index = sequence_start_index + sequence_length
+        sequence_input_tensor_list.append(input_tensor[sequence_start_index:sequence_end_index])
+        target_index_list.append(sequence_start_index + target_offset)
+
+    sequence_input_tensor = torch.stack(sequence_input_tensor_list, dim=0)
+    target_index_tensor = torch.tensor(target_index_list, dtype=torch.long)
+    sequence_target_tensor = target_tensor.index_select(0, target_index_tensor)
+    sequence_angular_position_deg = angular_position_deg.index_select(0, target_index_tensor)
+
+    return {
+        "input_tensor": sequence_input_tensor,
+        "target_tensor": sequence_target_tensor,
+        "angular_position_deg": sequence_angular_position_deg,
+    }
+
+def collate_transmission_error_sequences(
+    batch_dictionary_list: list[dict[str, Any]],
+    point_stride: int = 1,
+    sequence_length: int = 17,
+    sequence_stride: int = 1,
+    target_position: str = "center",
+    maximum_sequences_per_curve: int | None = None,
+    shuffle_sequences: bool = True,
+) -> dict[str, Any]:
+
+    """Collate curve samples into one sequence-window training batch."""
+
+    # Validate Batch Input
+    assert len(batch_dictionary_list) > 0, "Batch Dictionary List is empty"
+
+    # Initialize Sequence Lists
+    input_tensor_list: list[torch.Tensor] = []
+    target_tensor_list: list[torch.Tensor] = []
+    angular_position_tensor_list: list[torch.Tensor] = []
+    sequence_count_per_curve: list[int] = []
+
+    # Extract Sequence Samples From Each Curve
+    for curve_sample_dictionary in batch_dictionary_list:
+        sequence_sample_dictionary = extract_sequence_tensor_from_curve_sample(
+            curve_sample_dictionary=curve_sample_dictionary,
+            point_stride=point_stride,
+            sequence_length=sequence_length,
+            sequence_stride=sequence_stride,
+            target_position=target_position,
+            maximum_sequences_per_curve=maximum_sequences_per_curve,
+        )
+
+        input_tensor_list.append(sequence_sample_dictionary["input_tensor"])
+        target_tensor_list.append(sequence_sample_dictionary["target_tensor"])
+        angular_position_tensor_list.append(sequence_sample_dictionary["angular_position_deg"])
+        sequence_count_per_curve.append(sequence_sample_dictionary["input_tensor"].shape[0])
+
+    # Concatenate Sequence Tensors
+    input_tensor = torch.cat(input_tensor_list, dim=0)
+    target_tensor = torch.cat(target_tensor_list, dim=0)
+    angular_position_deg = torch.cat(angular_position_tensor_list, dim=0)
+
+    # Shuffle Windows Inside Batch
+    if shuffle_sequences and input_tensor.shape[0] > 1:
+        permutation_indices = torch.randperm(input_tensor.shape[0])
+        input_tensor = input_tensor.index_select(0, permutation_indices)
+        target_tensor = target_tensor.index_select(0, permutation_indices)
+        angular_position_deg = angular_position_deg.index_select(0, permutation_indices)
+
+    return {
+        "input_tensor": input_tensor,
+        "target_tensor": target_tensor,
+        "angular_position_deg": angular_position_deg,
+        "sequence_count_per_curve": torch.tensor(sequence_count_per_curve, dtype=torch.long),
+        "curve_count": len(batch_dictionary_list),
+        "direction_label": [curve_sample_dictionary["direction_label"] for curve_sample_dictionary in batch_dictionary_list],
+        "source_file_path": [curve_sample_dictionary["source_file_path"] for curve_sample_dictionary in batch_dictionary_list],
+    }
+
 class TransmissionErrorDataModule(LightningDataModule):
 
     """LightningDataModule for TE curve splits, sampling, and normalization."""
@@ -199,6 +348,11 @@ class TransmissionErrorDataModule(LightningDataModule):
         curve_batch_size: int = 2,
         point_stride: int = 20,
         maximum_points_per_curve: int | None = None,
+        collate_mode: str = "point",
+        sequence_length: int = 17,
+        sequence_stride: int = 1,
+        sequence_target_position: str = "center",
+        maximum_sequences_per_curve: int | None = None,
         num_workers: int = 0,
         pin_memory: bool = False,
         use_non_blocking_transfer: bool = False,
@@ -210,6 +364,12 @@ class TransmissionErrorDataModule(LightningDataModule):
             curve_batch_size: Number of curves loaded per dataloader batch.
             point_stride: Subsampling stride applied inside each curve.
             maximum_points_per_curve: Optional cap on sampled points per curve.
+            collate_mode: Batch collation mode, either ``point`` or
+                ``sequence``.
+            sequence_length: Number of point-sampled timesteps per sequence.
+            sequence_stride: Step between consecutive temporal windows.
+            sequence_target_position: Window point aligned with the target.
+            maximum_sequences_per_curve: Optional cap on windows per curve.
             num_workers: PyTorch dataloader worker count.
             pin_memory: Whether dataloaders should pin host memory.
             use_non_blocking_transfer: Whether device transfer should request
@@ -221,6 +381,9 @@ class TransmissionErrorDataModule(LightningDataModule):
         # Validate Dataloader Parameters
         assert curve_batch_size > 0, f"Curve Batch Size must be positive | {curve_batch_size}"
         assert point_stride > 0, f"Point Stride must be positive | {point_stride}"
+        assert collate_mode in ["point", "sequence"], f"Unsupported Collate Mode | {collate_mode}"
+        assert sequence_length > 0, f"Sequence Length must be positive | {sequence_length}"
+        assert sequence_stride > 0, f"Sequence Stride must be positive | {sequence_stride}"
         assert num_workers >= 0, f"Num Workers must be non-negative | {num_workers}"
 
         # Save Dataset Parameters
@@ -228,6 +391,11 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.curve_batch_size = curve_batch_size
         self.point_stride = point_stride
         self.maximum_points_per_curve = maximum_points_per_curve
+        self.collate_mode = collate_mode
+        self.sequence_length = sequence_length
+        self.sequence_stride = sequence_stride
+        self.sequence_target_position = sequence_target_position
+        self.maximum_sequences_per_curve = maximum_sequences_per_curve
         self.num_workers = num_workers
         self.pin_memory = pin_memory
         self.use_non_blocking_transfer = use_non_blocking_transfer
@@ -400,7 +568,7 @@ class TransmissionErrorDataModule(LightningDataModule):
 
     def train_dataloader(self) -> DataLoader:
 
-        """Build the training dataloader with point-level collation."""
+        """Build the training dataloader with configured collation."""
 
         assert self.train_dataset is not None, "Train Dataset is not initialized"
 
@@ -411,17 +579,12 @@ class TransmissionErrorDataModule(LightningDataModule):
             num_workers=self.num_workers,
             persistent_workers=(self.num_workers > 0),
             pin_memory=self.pin_memory,
-            collate_fn=partial(
-                collate_transmission_error_points,
-                point_stride=self.point_stride,
-                maximum_points_per_curve=self.maximum_points_per_curve,
-                shuffle_points=True,
-            ),
+            collate_fn=self._build_collate_function(shuffle_batch_elements=True),
         )
 
     def val_dataloader(self) -> DataLoader:
 
-        """Build the validation dataloader with deterministic point ordering."""
+        """Build the validation dataloader with deterministic ordering."""
 
         assert self.validation_dataset is not None, "Validation Dataset is not initialized"
 
@@ -432,17 +595,12 @@ class TransmissionErrorDataModule(LightningDataModule):
             num_workers=self.num_workers,
             persistent_workers=(self.num_workers > 0),
             pin_memory=self.pin_memory,
-            collate_fn=partial(
-                collate_transmission_error_points,
-                point_stride=self.point_stride,
-                maximum_points_per_curve=self.maximum_points_per_curve,
-                shuffle_points=False,
-            ),
+            collate_fn=self._build_collate_function(shuffle_batch_elements=False),
         )
 
     def test_dataloader(self) -> DataLoader:
 
-        """Build the test dataloader with deterministic point ordering."""
+        """Build the test dataloader with deterministic ordering."""
 
         assert self.test_dataset is not None, "Test Dataset is not initialized"
 
@@ -453,12 +611,31 @@ class TransmissionErrorDataModule(LightningDataModule):
             num_workers=self.num_workers,
             persistent_workers=(self.num_workers > 0),
             pin_memory=self.pin_memory,
-            collate_fn=partial(
+            collate_fn=self._build_collate_function(shuffle_batch_elements=False),
+        )
+
+    def _build_collate_function(self, shuffle_batch_elements: bool):
+
+        """Return the configured point or sequence collate function."""
+
+        # Build Point-Level Collation
+        if self.collate_mode == "point":
+            return partial(
                 collate_transmission_error_points,
                 point_stride=self.point_stride,
                 maximum_points_per_curve=self.maximum_points_per_curve,
-                shuffle_points=False,
-            ),
+                shuffle_points=shuffle_batch_elements,
+            )
+
+        # Build Sequence-Level Collation
+        return partial(
+            collate_transmission_error_sequences,
+            point_stride=self.point_stride,
+            sequence_length=self.sequence_length,
+            sequence_stride=self.sequence_stride,
+            target_position=self.sequence_target_position,
+            maximum_sequences_per_curve=self.maximum_sequences_per_curve,
+            shuffle_sequences=shuffle_batch_elements,
         )
 
     def transfer_batch_to_device(self, batch: Any, device: torch.device, dataloader_idx: int) -> Any:

@@ -8,4 +8,5 @@ Models API
    harmonic_regression
    periodic_feature_network
    residual_harmonic_network
+   temporal_sequence_network
    model_factory

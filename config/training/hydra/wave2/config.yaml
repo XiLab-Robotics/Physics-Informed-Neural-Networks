@@ -1,0 +1,53 @@
+defaults:
+  - dataset_profile: transmission_error_sequence
+  - model_family: temporal_convolution
+  - direction: global
+  - trainer_profile: sequence_remote
+  - export_profile: disabled
+  - campaign_profile: temporal_model_entry
+  - _self_
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+  sweep:
+    dir: .
+    subdir: ${hydra.job.num}
+  job:
+    chdir: false
+
+paths:
+  dataset_config_path: ${dataset_profile.dataset_config_path}
+  output_root: output/training_runs/${model_family.output_model_family}
+
+experiment:
+  run_name: ${model_family.base_run_name}_${direction.run_suffix}
+  model_family: ${model_family.output_model_family}
+  model_type: ${model_family.model_type}
+
+metadata:
+  campaign_name: ${campaign_profile.campaign_name}
+  planning_report_path: ${campaign_profile.planning_report_path}
+  phase_name: ${campaign_profile.phase_name}
+  campaign_config_id: ${model_family.base_model_family}_${direction.filename_token}
+  notes: ${campaign_profile.note_prefix} ${model_family.note_fragment} ${direction.note_fragment}
+  random_seed: ${trainer_profile.random_seed}
+  base_model_family: ${model_family.base_model_family}
+  training_variant: ${direction.training_variant}
+  direction_scope_label: ${direction.direction_scope_label}
+  use_forward_direction: ${direction.use_forward_direction}
+  use_backward_direction: ${direction.use_backward_direction}
+  hydra_transition_policy: wave2_temporal_model_entry_preparation
+
+dataset: ${dataset_profile.training_dataset}
+model: ${model_family.model}
+training: ${trainer_profile.training}
+runtime: ${trainer_profile.runtime}
+
+_hydra_transition:
+  scope: wave2_temporal_models
+  policy: compose_and_materialize_before_campaign_launch
+  direct_multirun_allowed: false
+  campaign_pipeline_remains_source_of_truth: true
+  track2_official_verification_required: true

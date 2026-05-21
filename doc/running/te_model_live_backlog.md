@@ -308,9 +308,10 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the official `Track 2` closeout, the next planned step is:
+After the official `Track 2` closeout, the active next step is:
 
-- prepare the `Wave 2` temporal-model branch, using the official `Track 2`
+- prepare the `Wave 2` temporal-model branch with temporal convolution,
+  `GRU`, and `LSTM` sequence baselines, using the official `Track 2`
   model-verification report and closed `Wave 1` surfaces as the baseline.
 
 The `Wave 2` preparation should answer three concrete questions:
@@ -559,7 +560,11 @@ Entry rule:
 
 ### Wave 2. Temporal Models
 
-- status: next planned branch after Track 2 closeout;
+- status: implementation scaffolding and preliminary campaign plan prepared;
+- initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;
+- configuration root: `config/training/hydra/wave2/`;
+- preliminary campaign plan:
+  `doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - baseline comparison: Track 2 plus closed Wave 1.

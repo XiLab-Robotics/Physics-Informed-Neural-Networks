@@ -642,6 +642,11 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
         curve_batch_size=int(training_config["dataset"]["curve_batch_size"]),
         point_stride=int(training_config["dataset"]["point_stride"]),
         maximum_points_per_curve=training_config["dataset"]["maximum_points_per_curve"],
+        collate_mode=str(training_config["dataset"].get("collate_mode", "point")),
+        sequence_length=int(training_config["dataset"].get("sequence_length", 17)),
+        sequence_stride=int(training_config["dataset"].get("sequence_stride", 1)),
+        sequence_target_position=str(training_config["dataset"].get("sequence_target_position", "center")),
+        maximum_sequences_per_curve=training_config["dataset"].get("maximum_sequences_per_curve"),
         num_workers=int(training_config["dataset"]["num_workers"]),
         pin_memory=bool(training_config["dataset"]["pin_memory"]),
         use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
@@ -745,7 +750,7 @@ def fetch_first_batch(datamodule: TransmissionErrorDataModule, split_name: str =
 
 def validate_batch_dictionary(batch_dictionary: dict[str, Any], input_feature_dim: int, target_feature_dim: int) -> dict[str, Any]:
 
-    """Validate the structural contract of a collated point batch.
+    """Validate the structural contract of a collated point or sequence batch.
 
     Args:
         batch_dictionary: Batch emitted by the datamodule collate function.
@@ -762,13 +767,22 @@ def validate_batch_dictionary(batch_dictionary: dict[str, Any], input_feature_di
     # Validate Batch Dictionary Contains Required Tensors with Correct Shapes and Types
     assert isinstance(input_tensor, torch.Tensor), "input_tensor must be a torch.Tensor"
     assert isinstance(target_tensor, torch.Tensor), "target_tensor must be a torch.Tensor"
-    assert input_tensor.ndim == 2, f"input_tensor must be rank-2 | {tuple(input_tensor.shape)}"
+    assert input_tensor.ndim in [2, 3], f"input_tensor must be rank-2 or rank-3 | {tuple(input_tensor.shape)}"
     assert target_tensor.ndim == 2, f"target_tensor must be rank-2 | {tuple(target_tensor.shape)}"
     assert input_tensor.shape[-1] == input_feature_dim, (f"Input feature mismatch | {input_tensor.shape[-1]} vs {input_feature_dim}")
     assert target_tensor.shape[-1] == target_feature_dim, (f"Target feature mismatch | {target_tensor.shape[-1]} vs {target_feature_dim}")
+    assert input_tensor.shape[0] == target_tensor.shape[0], (
+        f"Input and Target batch dimensions must match | {input_tensor.shape[0]} vs {target_tensor.shape[0]}"
+    )
+
+    # Resolve Batch Mode for Summary
+    batch_mode = "sequence" if input_tensor.ndim == 3 else "point"
 
     return {
-        "point_batch_size": int(input_tensor.shape[0]),
+        "batch_mode": batch_mode,
+        "point_batch_size": int(input_tensor.shape[0]) if batch_mode == "point" else 0,
+        "sequence_batch_size": int(input_tensor.shape[0]) if batch_mode == "sequence" else 0,
+        "sequence_length": int(input_tensor.shape[1]) if batch_mode == "sequence" else 0,
         "input_feature_dim": int(input_tensor.shape[-1]),
         "target_feature_dim": int(target_tensor.shape[-1]),
         "curve_count": int(batch_dictionary.get("curve_count", 0)),

@@ -7,8 +7,8 @@
 - Current Completed Wave: `Wave 1` structured-baseline optimization pass,
 - Current Completed Track: `Track 2` official offline model-verification
   report.
-- Current Focus: prepare `Wave 2` temporal models against the closed `Track 2`
-  and `Wave 1` baselines.
+- Current Focus: prepare `Wave 2` temporal convolution, `GRU`, and `LSTM`
+  sequence models against the closed `Track 2` and `Wave 1` baselines.
 - Active Campaign Status: `none`
 - Active Campaign Name: `null`
 - Current Global Winner: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Family `tree_fw` | Test MAE `0.002743`
@@ -110,7 +110,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | status: next planned branch after Track 2 closeout;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: Track 2 plus closed Wave 1. |
+| Wave 2. Temporal Models | status: implementation scaffolding and preliminary campaign plan prepared;; initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: Track 2 plus closed Wave 1. |
 
 Low-priority exploratory families currently listed in the backlog:
 

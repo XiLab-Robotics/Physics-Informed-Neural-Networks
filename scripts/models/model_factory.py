@@ -13,6 +13,8 @@ from scripts.models.feedforward_network import FeedForwardNetwork
 from scripts.models.harmonic_regression import HarmonicRegression
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
+from scripts.models.temporal_sequence_network import RecurrentSequenceNetwork
+from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
 
 def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Module:
 
@@ -20,8 +22,9 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
 
     Args:
         model_type: Canonical model-type string such as `feedforward`,
-            `harmonic_regression`, `periodic_mlp`, or
-            `residual_harmonic_mlp`.
+            `harmonic_regression`, `periodic_mlp`,
+            `residual_harmonic_mlp`, `temporal_convolution`,
+            `gru_sequence`, or `lstm_sequence`.
         model_configuration: Model-specific configuration dictionary.
 
     Returns:
@@ -84,6 +87,44 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             residual_dropout_probability=float(model_configuration.get("residual_dropout_probability", 0.10)),
             residual_use_layer_norm=bool(model_configuration.get("residual_use_layer_norm", True)),
             freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
+        )
+
+    # Create Temporal Convolution Sequence Model
+    if normalized_model_type == "temporal_convolution":
+        return TemporalConvolutionNetwork(
+            input_size=int(model_configuration["input_size"]),
+            channel_size=list(model_configuration["channel_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            kernel_size=int(model_configuration.get("kernel_size", 5)),
+            activation_name=str(model_configuration.get("activation_name", "GELU")),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+        )
+
+    # Create GRU Sequence Model
+    if normalized_model_type == "gru_sequence":
+        return RecurrentSequenceNetwork(
+            recurrent_type="gru",
+            input_size=int(model_configuration["input_size"]),
+            hidden_size=int(model_configuration["hidden_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            num_layers=int(model_configuration.get("num_layers", 2)),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            bidirectional=bool(model_configuration.get("bidirectional", False)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+        )
+
+    # Create LSTM Sequence Model
+    if normalized_model_type == "lstm_sequence":
+        return RecurrentSequenceNetwork(
+            recurrent_type="lstm",
+            input_size=int(model_configuration["input_size"]),
+            hidden_size=int(model_configuration["hidden_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            num_layers=int(model_configuration.get("num_layers", 2)),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            bidirectional=bool(model_configuration.get("bidirectional", False)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
         )
 
     raise ValueError(f"Unsupported Model Type | {model_type}")

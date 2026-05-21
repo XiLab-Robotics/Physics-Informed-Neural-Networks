@@ -1,0 +1,17 @@
+base_model_family: temporal_convolution
+output_model_family: temporal_convolution
+model_type: temporal_convolution
+base_run_name: te_temporal_convolution_sequence_remote
+note_fragment: Temporal convolution candidate using centered TE sequence windows.
+
+model:
+  input_size: 5
+  output_size: 1
+  channel_size:
+    - 128
+    - 128
+    - 96
+  kernel_size: 5
+  activation_name: GELU
+  dropout_probability: 0.1
+  readout_position: center
