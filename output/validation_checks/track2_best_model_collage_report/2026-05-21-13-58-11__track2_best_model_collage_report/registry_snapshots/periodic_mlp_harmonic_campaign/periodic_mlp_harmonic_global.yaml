@@ -1,0 +1,31 @@
+schema_version: 1
+source_campaign_leaderboard_path: output\training_campaigns\2026-05-20-23-14-17_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42\campaign_leaderboard.yaml
+best_entry:
+  run_instance_id: 2026-05-20-23-14-17__te_periodic_mlp_rcim_sparse_tracking_global
+  run_name: te_periodic_mlp_rcim_sparse_tracking_global
+  output_run_name: te_periodic_mlp_rcim_sparse_tracking_global
+  output_artifact_kind: training_run
+  model_family: periodic_mlp
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.002863159868866205
+  val_rmse: 0.003304483834654093
+  test_mae: 0.003274519694969058
+  test_rmse: 0.0037257070653140545
+  output_directory: output\training_runs\periodic_mlp\2026-05-20-23-14-17__te_periodic_mlp_rcim_sparse_tracking_global
+  best_checkpoint_path: output\training_runs\periodic_mlp\2026-05-20-23-14-17__te_periodic_mlp_rcim_sparse_tracking_global\checkpoints\periodic_mlp-epoch=067-val_mae=0.00286316.ckpt
+  metrics_path: output\training_runs\periodic_mlp\2026-05-20-23-14-17__te_periodic_mlp_rcim_sparse_tracking_global/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp\2026-05-20-23-14-17__te_periodic_mlp_rcim_sparse_tracking_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-21T09:38:37'

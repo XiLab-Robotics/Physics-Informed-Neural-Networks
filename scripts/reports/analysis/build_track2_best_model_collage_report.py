@@ -21,6 +21,7 @@ if str(PROJECT_PATH) not in sys.path:
 
 # Import Scientific Python Utilities
 import numpy as np
+import yaml
 
 # Import Project Utilities
 from scripts.paper_reimplementation.rcim_ml_compensation.reference_family_vs_feedforward import (
@@ -40,6 +41,13 @@ DEFAULT_CONFIG_PATH = (
 DEFAULT_OUTPUT_ROOT = PROJECT_PATH / "output" / "validation_checks" / "track2_best_model_collage_report"
 DEFAULT_REPORT_TOPIC_ROOT = PROJECT_PATH / "doc" / "reports" / "analysis" / "track2" / "best_model_collage_report"
 DEFAULT_FAMILY_REGISTRY_ROOT = PROJECT_PATH / "output" / "registries" / "families"
+DEFAULT_PERIODIC_MLP_HARMONIC_CAMPAIGN_LEADERBOARD_PATH = (
+    PROJECT_PATH
+    / "output"
+    / "training_campaigns"
+    / "2026-05-20-23-14-17_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42"
+    / "campaign_leaderboard.yaml"
+)
 SUMMARY_FILENAME = "track2_best_model_collage_summary.yaml"
 METRICS_FILENAME = "track2_best_model_collage_metrics.csv"
 REPORT_FILENAME = "track2_best_model_collage_report.md"
@@ -103,10 +111,25 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Root for the dated Markdown/PDF report bundle.",
     )
     argument_parser.add_argument(
+        "--report-date",
+        type=str,
+        default=None,
+        help=(
+            "Optional YYYY-MM-DD report bundle date to refresh instead of "
+            "creating a report folder from the current date."
+        ),
+    )
+    argument_parser.add_argument(
         "--family-registry-root",
         type=Path,
         default=DEFAULT_FAMILY_REGISTRY_ROOT,
         help="Root containing current Wave 1 family latest_family_best.yaml registries.",
+    )
+    argument_parser.add_argument(
+        "--periodic-mlp-harmonic-campaign-leaderboard-path",
+        type=Path,
+        default=DEFAULT_PERIODIC_MLP_HARMONIC_CAMPAIGN_LEADERBOARD_PATH,
+        help="Completed campaign leaderboard used to add explicit-harmonic periodic MLP candidates.",
     )
     argument_parser.add_argument(
         "--curves-per-collage",
@@ -125,7 +148,11 @@ def parse_command_line_arguments() -> argparse.Namespace:
     return build_argument_parser().parse_args()
 
 
-def resolve_timestamped_output_paths(output_root: Path, report_topic_root: Path) -> tuple[str, Path, Path]:
+def resolve_timestamped_output_paths(
+    output_root: Path,
+    report_topic_root: Path,
+    report_date: str | None,
+) -> tuple[str, Path, Path]:
 
     """Resolve timestamped output and report directories."""
 
@@ -134,13 +161,18 @@ def resolve_timestamped_output_paths(output_root: Path, report_topic_root: Path)
         f"{current_timestamp.strftime('%Y-%m-%d-%H-%M-%S')}"
         "__track2_best_model_collage_report"
     )
+    if report_date is None:
+        report_date = current_timestamp.strftime("%Y-%m-%d")
+    else:
+        datetime.strptime(report_date, "%Y-%m-%d")
+
     output_directory = (
         shared_training_infrastructure.resolve_runtime_project_relative_path(output_root)
         / run_instance_id
     )
     report_directory = (
         shared_training_infrastructure.resolve_runtime_project_relative_path(report_topic_root)
-        / f"[{current_timestamp.strftime('%Y-%m-%d')}]"
+        / f"[{report_date}]"
     )
     output_directory.mkdir(parents=True, exist_ok=True)
     report_directory.mkdir(parents=True, exist_ok=True)
@@ -192,9 +224,94 @@ def build_wave1_registry_candidate_configuration_list(family_registry_root: Path
     return candidate_configuration_list
 
 
+def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
+    campaign_leaderboard_path: Path,
+    output_directory: Path,
+) -> list[dict[str, Any]]:
+
+    """Build explicit-harmonic periodic MLP candidate configs from one campaign."""
+
+    resolved_leaderboard_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
+        campaign_leaderboard_path
+    )
+    if not resolved_leaderboard_path.exists():
+        return []
+
+    with resolved_leaderboard_path.open("r", encoding="utf-8") as input_stream:
+        leaderboard = yaml.safe_load(input_stream)
+    entry_list = list(leaderboard["entry_list"])
+    model_family_to_candidate_metadata = {
+        "periodic_mlp": {
+            "candidate_id": "periodic_mlp_harmonic_global",
+            "candidate_surface": "global",
+            "allowed_direction_list": ["forward", "backward"],
+        },
+        "periodic_mlp_fw": {
+            "candidate_id": "periodic_mlp_harmonic_fw",
+            "candidate_surface": "Fw",
+            "allowed_direction_list": ["forward"],
+        },
+        "periodic_mlp_bw": {
+            "candidate_id": "periodic_mlp_harmonic_bw",
+            "candidate_surface": "Bw",
+            "allowed_direction_list": ["backward"],
+        },
+    }
+    snapshot_directory = output_directory / "registry_snapshots" / "periodic_mlp_harmonic_campaign"
+    snapshot_directory.mkdir(parents=True, exist_ok=True)
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for model_family, candidate_metadata in model_family_to_candidate_metadata.items():
+        matching_entry_list = [
+            entry
+            for entry in entry_list
+            if str(entry["model_family"]).strip() == model_family
+        ]
+        if not matching_entry_list:
+            continue
+
+        best_entry = min(
+            matching_entry_list,
+            key=lambda entry: (
+                float(entry["test_mae"]),
+                float(entry["test_rmse"]),
+                float(entry["val_mae"]),
+                int(entry["trainable_parameter_count"]),
+            ),
+        )
+        snapshot_path = snapshot_directory / f"{candidate_metadata['candidate_id']}.yaml"
+        shared_training_infrastructure.save_yaml_snapshot(
+            {
+                "schema_version": 1,
+                "source_campaign_leaderboard_path": shared_training_infrastructure.format_project_relative_path(
+                    resolved_leaderboard_path
+                ),
+                "best_entry": best_entry,
+            },
+            snapshot_path,
+        )
+        candidate_configuration_list.append(
+            {
+                "candidate_id": candidate_metadata["candidate_id"],
+                "candidate_family": "periodic_mlp_harmonic",
+                "candidate_kind": "wave1_registry_model",
+                "candidate_source_label": "wave1_periodic_mlp_harmonic_campaign",
+                "candidate_surface": candidate_metadata["candidate_surface"],
+                "family_registry_path": shared_training_infrastructure.format_project_relative_path(
+                    snapshot_path
+                ).replace("\\", "/"),
+                "allowed_direction_list": candidate_metadata["allowed_direction_list"],
+            }
+        )
+
+    return candidate_configuration_list
+
+
 def resolve_report_candidate_configuration_list(
     training_config: dict[str, Any],
     family_registry_root: Path,
+    periodic_mlp_harmonic_campaign_leaderboard_path: Path,
+    output_directory: Path,
 ) -> list[dict[str, Any]]:
 
     """Resolve the selected Track 2 report candidates."""
@@ -212,8 +329,13 @@ def resolve_report_candidate_configuration_list(
         "Could not resolve every requested Track 2 reference best candidate."
     )
 
-    return reference_candidate_configuration_list + build_wave1_registry_candidate_configuration_list(
-        family_registry_root
+    return (
+        reference_candidate_configuration_list
+        + build_wave1_registry_candidate_configuration_list(family_registry_root)
+        + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
+            periodic_mlp_harmonic_campaign_leaderboard_path,
+            output_directory,
+        )
     )
 
 
@@ -222,8 +344,11 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
     """Build the ordered report groups."""
 
     wave1_forward_candidate_id_list = [f"{family_name}_fw" for family_name in WAVE1_BASE_FAMILY_LIST]
+    wave1_forward_candidate_id_list.append("periodic_mlp_harmonic_fw")
     wave1_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE1_BASE_FAMILY_LIST]
+    wave1_backward_candidate_id_list.append("periodic_mlp_harmonic_bw")
     wave1_global_candidate_id_list = [f"{family_name}_global" for family_name in WAVE1_BASE_FAMILY_LIST]
+    wave1_global_candidate_id_list.append("periodic_mlp_harmonic_global")
 
     return [
         ReportCandidateGroup(
@@ -561,6 +686,7 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     run_instance_id, output_directory, report_directory = resolve_timestamped_output_paths(
         arguments.output_root,
         arguments.report_topic_root,
+        arguments.report_date,
     )
     report_path = report_directory / REPORT_FILENAME
     metrics_csv_path = output_directory / METRICS_FILENAME
@@ -577,6 +703,8 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     candidate_configuration_list = resolve_report_candidate_configuration_list(
         training_config,
         arguments.family_registry_root,
+        arguments.periodic_mlp_harmonic_campaign_leaderboard_path,
+        output_directory,
     )
     candidate_list = [
         reference_family_vs_feedforward_support.load_track2_candidate(candidate_configuration)

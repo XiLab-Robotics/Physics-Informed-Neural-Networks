@@ -32,9 +32,10 @@ oscillation tracking can be inspected directly.
 | --- | --- | --- | ---: | ---: | ---: |
 | `feedforward_fw` | `wave1_current_registry` | Fw | 0.003404 | 0.003855 | 7.551 |
 | `harmonic_regression_fw` | `wave1_current_registry` | Fw | 0.003230 | 0.003494 | 7.185 |
-| `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003391 | 0.003814 | 7.524 |
+| `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003254 | 0.003553 | 7.232 |
 | `residual_harmonic_mlp_fw` | `wave1_current_registry` | Fw | 0.003273 | 0.003563 | 7.266 |
 | `tree_fw` | `wave1_current_registry` | Fw | 0.003053 | 0.003395 | 6.731 |
+| `periodic_mlp_harmonic_fw` | `wave1_periodic_mlp_harmonic_campaign` | Fw | 0.003254 | 0.003553 | 7.232 |
 
 ### Backward Reference Best Models
 
@@ -52,6 +53,7 @@ oscillation tracking can be inspected directly.
 | `periodic_mlp_bw` | `wave1_current_registry` | Bw | 0.003574 | 0.004006 | 7.807 |
 | `residual_harmonic_mlp_bw` | `wave1_current_registry` | Bw | 0.003536 | 0.003874 | 7.728 |
 | `tree_bw` | `wave1_current_registry` | Bw | 0.003258 | 0.003651 | 7.051 |
+| `periodic_mlp_harmonic_bw` | `wave1_periodic_mlp_harmonic_campaign` | Bw | 0.003583 | 0.003925 | 7.875 |
 
 ### Global Wave 1 Family Best Models
 
@@ -62,114 +64,127 @@ oscillation tracking can be inspected directly.
 | `periodic_mlp_global` | `wave1_current_registry` | global | 0.003447 | 0.003872 | 7.582 |
 | `residual_harmonic_mlp_global` | `wave1_current_registry` | global | 0.003407 | 0.003822 | 7.486 |
 | `tree_global` | `wave1_current_registry` | global | 0.003144 | 0.003533 | 6.854 |
+| `periodic_mlp_harmonic_global` | `wave1_periodic_mlp_harmonic_campaign` | global | 0.003516 | 0.003810 | 7.779 |
 
 ## Collage Gallery - Forward Reference Best Models
 
 paper_original_best_Fw:
 
-![paper_original_best_Fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_reference/paper_original_best_fw.png)
+![paper_original_best_Fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_reference/paper_original_best_fw.png)
 
 paper_retuned_best_Fw:
 
-![paper_retuned_best_Fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_reference/paper_retuned_best_fw.png)
+![paper_retuned_best_Fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_reference/paper_retuned_best_fw.png)
 
 ## Collage Gallery - Forward Reference Best Models Continued
 
 track1_best_Fw:
 
-![track1_best_Fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_reference/track1_best_fw.png)
+![track1_best_Fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_reference/track1_best_fw.png)
 
 ## Collage Gallery - Forward Wave 1 Family Best Models
 
 feedforward_fw:
 
-![feedforward_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_wave1/feedforward_fw.png)
+![feedforward_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_wave1/feedforward_fw.png)
 
 harmonic_regression_fw:
 
-![harmonic_regression_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_wave1/harmonic_regression_fw.png)
+![harmonic_regression_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_wave1/harmonic_regression_fw.png)
 
 ## Collage Gallery - Forward Wave 1 Family Best Models Continued
 
 periodic_mlp_fw:
 
-![periodic_mlp_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_wave1/periodic_mlp_fw.png)
+![periodic_mlp_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_wave1/periodic_mlp_fw.png)
 
 residual_harmonic_mlp_fw:
 
-![residual_harmonic_mlp_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_wave1/residual_harmonic_mlp_fw.png)
+![residual_harmonic_mlp_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_wave1/residual_harmonic_mlp_fw.png)
 
 ## Collage Gallery - Forward Wave 1 Family Best Models Continued 2
 
 tree_fw:
 
-![tree_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/forward_wave1/tree_fw.png)
+![tree_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_wave1/tree_fw.png)
+
+periodic_mlp_harmonic_fw:
+
+![periodic_mlp_harmonic_fw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/forward_wave1/periodic_mlp_harmonic_fw.png)
 
 ## Collage Gallery - Backward Reference Best Models
 
 paper_retuned_best_Bw:
 
-![paper_retuned_best_Bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_reference/paper_retuned_best_bw.png)
+![paper_retuned_best_Bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_reference/paper_retuned_best_bw.png)
 
 track1_best_Bw:
 
-![track1_best_Bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_reference/track1_best_bw.png)
+![track1_best_Bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_reference/track1_best_bw.png)
 
 ## Collage Gallery - Backward Wave 1 Family Best Models
 
 feedforward_bw:
 
-![feedforward_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_wave1/feedforward_bw.png)
+![feedforward_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_wave1/feedforward_bw.png)
 
 harmonic_regression_bw:
 
-![harmonic_regression_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_wave1/harmonic_regression_bw.png)
+![harmonic_regression_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_wave1/harmonic_regression_bw.png)
 
 ## Collage Gallery - Backward Wave 1 Family Best Models Continued
 
 periodic_mlp_bw:
 
-![periodic_mlp_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_wave1/periodic_mlp_bw.png)
+![periodic_mlp_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_wave1/periodic_mlp_bw.png)
 
 residual_harmonic_mlp_bw:
 
-![residual_harmonic_mlp_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_wave1/residual_harmonic_mlp_bw.png)
+![residual_harmonic_mlp_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_wave1/residual_harmonic_mlp_bw.png)
 
 ## Collage Gallery - Backward Wave 1 Family Best Models Continued 2
 
 tree_bw:
 
-![tree_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/backward_wave1/tree_bw.png)
+![tree_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_wave1/tree_bw.png)
+
+periodic_mlp_harmonic_bw:
+
+![periodic_mlp_harmonic_bw Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/backward_wave1/periodic_mlp_harmonic_bw.png)
 
 ## Collage Gallery - Global Wave 1 Family Best Models
 
 feedforward_global:
 
-![feedforward_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/global_wave1/feedforward_global.png)
+![feedforward_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/global_wave1/feedforward_global.png)
 
 harmonic_regression_global:
 
-![harmonic_regression_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/global_wave1/harmonic_regression_global.png)
+![harmonic_regression_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/global_wave1/harmonic_regression_global.png)
 
 ## Collage Gallery - Global Wave 1 Family Best Models Continued
 
 periodic_mlp_global:
 
-![periodic_mlp_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/global_wave1/periodic_mlp_global.png)
+![periodic_mlp_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/global_wave1/periodic_mlp_global.png)
 
 residual_harmonic_mlp_global:
 
-![residual_harmonic_mlp_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/global_wave1/residual_harmonic_mlp_global.png)
+![residual_harmonic_mlp_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/global_wave1/residual_harmonic_mlp_global.png)
 
 ## Collage Gallery - Global Wave 1 Family Best Models Continued 2
 
 tree_global:
 
-![tree_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-20-19-56-41__track2_best_model_collage_report/collages/global_wave1/tree_global.png)
+![tree_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/global_wave1/tree_global.png)
+
+periodic_mlp_harmonic_global:
+
+![periodic_mlp_harmonic_global Track 2 collage](../../../../../../output/validation_checks/track2_best_model_collage_report/2026-05-21-13-58-11__track2_best_model_collage_report/collages/global_wave1/periodic_mlp_harmonic_global.png)
 
 ## Output Artifacts
 
-- output directory: `output\validation_checks\track2_best_model_collage_report\2026-05-20-19-56-41__track2_best_model_collage_report`;
-- summary YAML: `output\validation_checks\track2_best_model_collage_report\2026-05-20-19-56-41__track2_best_model_collage_report\track2_best_model_collage_summary.yaml`;
-- metrics CSV: `output\validation_checks\track2_best_model_collage_report\2026-05-20-19-56-41__track2_best_model_collage_report\track2_best_model_collage_metrics.csv`;
+- output directory: `output\validation_checks\track2_best_model_collage_report\2026-05-21-13-58-11__track2_best_model_collage_report`;
+- summary YAML: `output\validation_checks\track2_best_model_collage_report\2026-05-21-13-58-11__track2_best_model_collage_report\track2_best_model_collage_summary.yaml`;
+- metrics CSV: `output\validation_checks\track2_best_model_collage_report\2026-05-21-13-58-11__track2_best_model_collage_report\track2_best_model_collage_metrics.csv`;
 - report Markdown: `doc\reports\analysis\track2\best_model_collage_report\[2026-05-20]\track2_best_model_collage_report.md`.

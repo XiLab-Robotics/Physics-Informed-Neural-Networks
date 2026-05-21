@@ -126,6 +126,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-21
+
+- [technical/2026-05/2026-05-21/2026-05-21-13-23-42_track2_periodic_mlp_harmonic_report_refresh.md](./technical/2026-05/2026-05-21/2026-05-21-13-23-42_track2_periodic_mlp_harmonic_report_refresh.md)
+  Plan the `Track 2` visual report refresh that updates the existing
+  `[2026-05-20]` best-model collage and multi-model curve comparison PDFs
+  with the newly trained explicit-harmonic `periodic_mlp` family winners.
+
 #### 2026-05-20
 
 - [technical/2026-05/2026-05-20/2026-05-20-22-34-11_periodic_mlp_explicit_harmonic_basis.md](./technical/2026-05/2026-05-20/2026-05-20-22-34-11_periodic_mlp_explicit_harmonic_basis.md)

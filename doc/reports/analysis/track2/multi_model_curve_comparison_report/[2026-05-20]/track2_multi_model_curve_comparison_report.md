@@ -33,9 +33,10 @@ oscillations rather than only the broad mean trend.
 | --- | --- | --- | ---: | ---: | ---: |
 | `feedforward_fw` | `wave1_current_registry` | Fw | 0.003404 | 0.003855 | 7.551 |
 | `harmonic_regression_fw` | `wave1_current_registry` | Fw | 0.003230 | 0.003494 | 7.185 |
-| `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003391 | 0.003814 | 7.524 |
+| `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003254 | 0.003553 | 7.232 |
 | `residual_harmonic_mlp_fw` | `wave1_current_registry` | Fw | 0.003273 | 0.003563 | 7.266 |
 | `tree_fw` | `wave1_current_registry` | Fw | 0.003053 | 0.003395 | 6.731 |
+| `periodic_mlp_harmonic_fw` | `wave1_periodic_mlp_harmonic_campaign` | Fw | 0.003254 | 0.003553 | 7.232 |
 
 ### Backward Reference Model Overlay
 
@@ -53,6 +54,7 @@ oscillations rather than only the broad mean trend.
 | `periodic_mlp_bw` | `wave1_current_registry` | Bw | 0.003574 | 0.004006 | 7.807 |
 | `residual_harmonic_mlp_bw` | `wave1_current_registry` | Bw | 0.003536 | 0.003874 | 7.728 |
 | `tree_bw` | `wave1_current_registry` | Bw | 0.003258 | 0.003651 | 7.051 |
+| `periodic_mlp_harmonic_bw` | `wave1_periodic_mlp_harmonic_campaign` | Bw | 0.003583 | 0.003925 | 7.875 |
 
 ### Forward Track 1 And Screened Wave 1 Overlay
 
@@ -61,7 +63,7 @@ oscillations rather than only the broad mean trend.
 | `track1_best_Fw` | `rcim_track1` | Fw | 0.003014 | 0.003204 | 6.819 |
 | `tree_fw` | `wave1_current_registry` | Fw | 0.003053 | 0.003395 | 6.731 |
 | `harmonic_regression_fw` | `wave1_current_registry` | Fw | 0.003230 | 0.003494 | 7.185 |
-| `residual_harmonic_mlp_fw` | `wave1_current_registry` | Fw | 0.003273 | 0.003563 | 7.266 |
+| `periodic_mlp_fw` | `wave1_current_registry` | Fw | 0.003254 | 0.003553 | 7.232 |
 
 ### Backward Track 1 And Screened Wave 1 Overlay
 
@@ -76,41 +78,41 @@ oscillations rather than only the broad mean trend.
 
 Included models: `paper_original_best_Fw`, `paper_retuned_best_Fw`, `track1_best_Fw`.
 
-![Forward Reference Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/forward_reference.png)
+![Forward Reference Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-21-14-07-16__track2_multi_model_curve_comparison_report/comparisons/forward_reference.png)
 
 ## Comparison Gallery - Forward Wave 1 Family Model Overlay
 
-Included models: `feedforward_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`, `residual_harmonic_mlp_fw`, `tree_fw`.
+Included models: `feedforward_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`, `residual_harmonic_mlp_fw`, `tree_fw`, `periodic_mlp_harmonic_fw`.
 
-![Forward Wave 1 Family Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/forward_wave1.png)
+![Forward Wave 1 Family Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-21-14-07-16__track2_multi_model_curve_comparison_report/comparisons/forward_wave1.png)
 
 ## Comparison Gallery - Backward Reference Model Overlay
 
 Included models: `paper_retuned_best_Bw`, `track1_best_Bw`.
 
-![Backward Reference Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/backward_reference.png)
+![Backward Reference Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-21-14-07-16__track2_multi_model_curve_comparison_report/comparisons/backward_reference.png)
 
 ## Comparison Gallery - Backward Wave 1 Family Model Overlay
 
-Included models: `feedforward_bw`, `harmonic_regression_bw`, `periodic_mlp_bw`, `residual_harmonic_mlp_bw`, `tree_bw`.
+Included models: `feedforward_bw`, `harmonic_regression_bw`, `periodic_mlp_bw`, `residual_harmonic_mlp_bw`, `tree_bw`, `periodic_mlp_harmonic_bw`.
 
-![Backward Wave 1 Family Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/backward_wave1.png)
+![Backward Wave 1 Family Model Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-21-14-07-16__track2_multi_model_curve_comparison_report/comparisons/backward_wave1.png)
 
 ## Comparison Gallery - Forward Track 1 And Screened Wave 1 Overlay
 
-Included models: `track1_best_Fw`, `tree_fw`, `harmonic_regression_fw`, `residual_harmonic_mlp_fw`.
+Included models: `track1_best_Fw`, `tree_fw`, `harmonic_regression_fw`, `periodic_mlp_fw`.
 
-![Forward Track 1 And Screened Wave 1 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/forward_track1_screened_wave1.png)
+![Forward Track 1 And Screened Wave 1 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-21-14-07-16__track2_multi_model_curve_comparison_report/comparisons/forward_track1_screened_wave1.png)
 
 ## Comparison Gallery - Backward Track 1 And Screened Wave 1 Overlay
 
 Included models: `track1_best_Bw`, `tree_bw`, `residual_harmonic_mlp_bw`, `periodic_mlp_bw`.
 
-![Backward Track 1 And Screened Wave 1 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-20-20-34-43__track2_multi_model_curve_comparison_report/comparisons/backward_track1_screened_wave1.png)
+![Backward Track 1 And Screened Wave 1 Overlay Track 2 comparison](../../../../../../output/validation_checks/track2_multi_model_curve_comparison_report/2026-05-21-14-07-16__track2_multi_model_curve_comparison_report/comparisons/backward_track1_screened_wave1.png)
 
 ## Output Artifacts
 
-- output directory: `output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report`;
-- summary YAML: `output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_summary.yaml`;
-- metrics CSV: `output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-20-20-34-43__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_metrics.csv`;
+- output directory: `output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-21-14-07-16__track2_multi_model_curve_comparison_report`;
+- summary YAML: `output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-21-14-07-16__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_summary.yaml`;
+- metrics CSV: `output\validation_checks\track2_multi_model_curve_comparison_report\2026-05-21-14-07-16__track2_multi_model_curve_comparison_report\track2_multi_model_curve_comparison_metrics.csv`;
 - report Markdown: `doc\reports\analysis\track2\multi_model_curve_comparison_report\[2026-05-20]\track2_multi_model_curve_comparison_report.md`.
