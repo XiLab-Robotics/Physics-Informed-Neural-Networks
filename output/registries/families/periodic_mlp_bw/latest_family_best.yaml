@@ -6,7 +6,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-15T09:47:21'
+updated_at: '2026-05-21T09:38:37'
 best_entry:
   run_instance_id: 2026-05-15-06-09-21__te_periodic_mlp_h04_standard_bw_optuna_t0006
   run_name: te_periodic_mlp_h04_standard_Bw_optuna_t0006

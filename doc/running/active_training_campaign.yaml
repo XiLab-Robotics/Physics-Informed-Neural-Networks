@@ -1,24 +1,24 @@
 status: none
 campaign_name: null
-cleared_at: '2026-05-20T12:25:49+02:00'
+cleared_at: '2026-05-21T12:59:34+02:00'
 clear_reason: completed_campaign_removed_from_running_state_after_closeout_report
 last_completed_campaign:
-  campaign_name: wave1_high_order_harmonic_tracking_campaign_2026_05_19_17_40_01
+  campaign_name: wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49
   status: completed
-  started_at: '2026-05-20T10:11:06+02:00'
-  finished_at: '2026-05-20T12:25:49+02:00'
-  completion_recorded_at: '2026-05-20T12:25:49+02:00'
-  completed_run_count: 18
+  started_at: '2026-05-20T23:14:17'
+  finished_at: '2026-05-21T09:38:37'
+  completion_recorded_at: '2026-05-21T09:38:37'
+  completed_run_count: 9
   failed_run_count: 0
-  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-05/2026-05-19/2026-05-19-17-32-08_wave1_high_order_harmonic_tracking.md
-  campaign_output_directory: output/training_campaigns/2026-05-20-10-11-06_wave1_high_order_harmonic_tracking_campaign_2026_05_19_17_40_01
-  results_report_path: doc/reports/campaign_results/wave1/2026-05-20-12-25-49_wave1_high_order_harmonic_tracking_campaign_results_report.md
-  best_run_name: te_harmonic_dense360_tracking_Fw
-  best_run_instance_id: 2026-05-20-10-43-22__te_harmonic_dense360_tracking_fw
-  best_model_family: harmonic_regression_fw
-  best_test_mae: 0.0029159323312342167
-  best_test_rmse: 0.0032367417588829994
+  planning_report_path: doc/reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-05/2026-05-20/2026-05-20-22-34-11_periodic_mlp_explicit_harmonic_basis.md
+  campaign_output_directory: output/training_campaigns/2026-05-20-23-14-17_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42
+  results_report_path: doc/reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md
+  best_run_name: te_periodic_mlp_dense240_tracking_Fw
+  best_run_instance_id: 2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw
+  best_model_family: periodic_mlp_fw
+  best_test_mae: 0.0030554654076695442
+  best_test_rmse: 0.003537037642672658
 protected_file_list: []
 queue_config_path_list: []
 launch_command_list: []

@@ -8,6 +8,7 @@ import torch.nn as nn
 
 # Import Project Models
 from scripts.models.feedforward_network import FeedForwardNetwork
+from scripts.models.harmonic_regression import HarmonicRegression
 
 class PeriodicFeatureNetwork(nn.Module):
 
@@ -22,6 +23,7 @@ class PeriodicFeatureNetwork(nn.Module):
         dropout_probability: float = 0.10,
         use_layer_norm: bool = True,
         harmonic_order: int = 8,
+        harmonic_index_list: list[int] | None = None,
         include_raw_angle_feature: bool = True,
     ) -> None:
         """Initialize the periodic-feature TE model.
@@ -35,7 +37,12 @@ class PeriodicFeatureNetwork(nn.Module):
             dropout_probability: Backbone dropout probability.
             use_layer_norm: Whether the backbone uses layer normalization.
             harmonic_order: Highest harmonic order used in the periodic feature
-                expansion.
+                expansion when no explicit harmonic index list is provided.
+            harmonic_index_list: Optional explicit harmonic list. When omitted,
+                the model uses the backward-compatible contiguous basis
+                `1..harmonic_order`. When provided, `0` represents the DC/bias
+                convention and positive values create sine/cosine feature
+                pairs.
             include_raw_angle_feature: Whether to preserve the normalized raw
                 angle alongside the sine/cosine expansion.
         """
@@ -45,15 +52,23 @@ class PeriodicFeatureNetwork(nn.Module):
         # Validate Feature Parameters
         assert input_size >= 5, f"Input Size must expose the TE operating-condition features | {input_size}"
         assert harmonic_order > 0, f"Harmonic Order must be positive | {harmonic_order}"
+        resolved_harmonic_index_list = HarmonicRegression.resolve_harmonic_index_list(harmonic_order, harmonic_index_list)
+        positive_harmonic_index_list = [harmonic_index for harmonic_index in resolved_harmonic_index_list if harmonic_index > 0]
 
         # Save Feature Parameters
         self.input_size = input_size
         self.output_size = output_size
         self.harmonic_order = harmonic_order
+        self.harmonic_index_list = resolved_harmonic_index_list
+        self.positive_harmonic_index_list = positive_harmonic_index_list
         self.include_raw_angle_feature = include_raw_angle_feature
 
+        # Register Device-Aware Harmonic Index Buffer
+        positive_harmonic_index_tensor = torch.tensor(self.positive_harmonic_index_list, dtype=torch.float32)
+        self.register_buffer("positive_harmonic_index_tensor", positive_harmonic_index_tensor, persistent=False)
+
         # Resolve Expanded Input Size
-        harmonic_feature_count = 2 * self.harmonic_order
+        harmonic_feature_count = 2 * len(self.positive_harmonic_index_list)
         raw_angle_feature_count = 1 if self.include_raw_angle_feature else 0
         conditioning_feature_count = input_size - 1
         expanded_input_size = raw_angle_feature_count + harmonic_feature_count + conditioning_feature_count
@@ -86,8 +101,7 @@ class PeriodicFeatureNetwork(nn.Module):
         periodic_feature_tensor_list: list[torch.Tensor] = []
 
         # Append Sine And Cosine Features For Each Harmonic Order
-        for harmonic_index in range(1, self.harmonic_order + 1):
-            harmonic_multiplier = float(harmonic_index)
+        for harmonic_multiplier in self.positive_harmonic_index_tensor:
             periodic_feature_tensor_list.append(torch.sin(harmonic_multiplier * angular_position_rad))
             periodic_feature_tensor_list.append(torch.cos(harmonic_multiplier * angular_position_rad))
 

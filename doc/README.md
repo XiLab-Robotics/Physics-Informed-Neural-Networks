@@ -128,6 +128,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-20
 
+- [technical/2026-05/2026-05-20/2026-05-20-22-34-11_periodic_mlp_explicit_harmonic_basis.md](./technical/2026-05/2026-05-20/2026-05-20-22-34-11_periodic_mlp_explicit_harmonic_basis.md)
+  Plan the narrow `periodic_mlp` extension that accepts explicit harmonic
+  index lists while keeping the pure `feedforward` baseline unchanged and
+  leaving the future `Fourier-Feature MLP` family separate.
+
 - [technical/2026-05/2026-05-20/2026-05-20-22-10-13_track3_online_compensation_backlog_formalization.md](./technical/2026-05/2026-05-20/2026-05-20-22-10-13_track3_online_compensation_backlog_formalization.md)
   Plan the documentation-only formalization of future `Track 3` as the online
   compensation, TestRig/TwinCAT, and `Target B` / `Table 9` branch.
@@ -1459,6 +1464,10 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared Wave 1 high-order harmonic
   tracking launcher across RCIM sparse, dense `0..240`, and dense `0..360`
   harmonic banks.
+- [scripts/campaigns/run_wave1_periodic_mlp_explicit_harmonic_tracking_campaign.md](./scripts/campaigns/run_wave1_periodic_mlp_explicit_harmonic_tracking_campaign.md)
+  Script-level documentation for the prepared Wave 1 `periodic_mlp` explicit
+  harmonic tracking launcher across RCIM sparse, dense `0..240`, and dense
+  `0..360` fixed periodic-feature banks.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -1593,6 +1602,10 @@ This folder contains the internal project documents derived from the reference P
   Lightweight recovery-campaign plan for reproducing and validating the blocked
   neural `Optuna` launcher path before resuming the full directional HPO
   campaign.
+- [reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
+  Planning report for the `periodic_mlp` fixed-feature follow-up campaign
+  that mirrors the high-order harmonic bank comparison with `9` directional
+  sparse and dense periodic-feature runs.
 - [reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md](./reports/campaign_plans/track1/exact_paper/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_addendum_plan_report.md)
   Addendum for extending the Track 1 paper-faithful campaign queue with one
   `ELM` search run per direction.
@@ -1686,6 +1699,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md)
+  Final results report for the completed `Wave 1` `periodic_mlp` explicit
+  harmonic tracking campaign, including the 9-run leaderboard and
+  registry-impact summary.
 - [reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md](./reports/campaign_results/2026-04-17-18-33-39_track1_svm_exact_faithful_final_attempt_campaign_results_report.md)
   Final results report for the completed strict paper-faithful `SVR` final
   attempt on the residual `SVM` yellow cells, including the repeated plateau
@@ -1726,6 +1743,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md)
+  Preliminary campaign plan for the `Wave 1` `periodic_mlp` explicit harmonic
+  tracking follow-up, comparing RCIM sparse, dense `0..240`, and dense
+  `0..360` fixed periodic-feature banks across `global`, `fw`, and `bw`.
 
 - [reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md](./reports/campaign_plans/wave1/2026-05-19-17-40-01_wave1_high_order_harmonic_tracking_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 1` high-order harmonic tracking

@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_mlp\2026-05-21-07-01-51__te_periodic_mlp_dense240_tracking_global\checkpoints\periodic_mlp-epoch=025-val_mae=0.00296227.ckpt

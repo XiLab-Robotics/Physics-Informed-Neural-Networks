@@ -119,6 +119,8 @@ WAVE1_HIGH_ORDER_ARTIFACT_TABLE_CLASS_NAME = "report-table report-table-wave1-hi
 WAVE1_HIGH_ORDER_KEY_VALUE_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-key-value"
 WAVE1_HIGH_ORDER_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-leaderboard"
 WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-registry"
+WAVE1_PERIODIC_MLP_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1-periodic-mlp-leaderboard"
+WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-periodic-mlp-registry"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 
 # Table Header Cells
@@ -673,6 +675,19 @@ REPORT_STYLESHEET = """
     .report-table-wave1-high-order-registry th:nth-child(2), .report-table-wave1-high-order-registry td:nth-child(2) { width: 36%; }
     .report-table-wave1-high-order-registry th:nth-child(3), .report-table-wave1-high-order-registry td:nth-child(3) { width: 11%; }
     .report-table-wave1-high-order-registry th:nth-child(4), .report-table-wave1-high-order-registry td:nth-child(4) { width: 28%; }
+
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(1), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(1) { width: 4%; }
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(2), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(2) { width: 42%; }
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(3), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(3) { width: 6%; }
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(4), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(4) { width: 12%; }
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(5), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(5) { width: 12%; }
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(6), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(6) { width: 12%; }
+    .report-table-wave1-periodic-mlp-leaderboard th:nth-child(7), .report-table-wave1-periodic-mlp-leaderboard td:nth-child(7) { width: 12%; }
+
+    .report-table-wave1-periodic-mlp-registry th:nth-child(1), .report-table-wave1-periodic-mlp-registry td:nth-child(1) { width: 16%; }
+    .report-table-wave1-periodic-mlp-registry th:nth-child(2), .report-table-wave1-periodic-mlp-registry td:nth-child(2) { width: 43%; }
+    .report-table-wave1-periodic-mlp-registry th:nth-child(3), .report-table-wave1-periodic-mlp-registry td:nth-child(3) { width: 8%; }
+    .report-table-wave1-periodic-mlp-registry th:nth-child(4), .report-table-wave1-periodic-mlp-registry td:nth-child(4) { width: 33%; }
 
     .report-table-track2-best-model-collage {
       font-size: 6.85pt;
@@ -2611,6 +2626,33 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Registry Scope", "New Relevant Entry", "Test MAE", "Interpretation")
             ):
             return WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME
+
+    # Resolve Wave 1 Periodic MLP Explicit Harmonic Tracking Closeout Table Profiles
+    if report_stem == "2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-artifacts"
+            and normalized_header_cells == ("Artifact", "Path")
+        ):
+            return WAVE1_HIGH_ORDER_ARTIFACT_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug in {"execution-summary", "campaign-winner"}
+            and normalized_header_cells == ("Field", "Value")
+        ):
+            return WAVE1_HIGH_ORDER_KEY_VALUE_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "leaderboard"
+            and normalized_header_cells == ("Rank", "Run", "Scope", "Harmonics", "Test MAE", "Test RMSE", "Params")
+        ):
+            return WAVE1_PERIODIC_MLP_LEADERBOARD_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "registry-effects"
+            and normalized_header_cells == ("Registry Scope", "Current Family Best", "Test MAE", "Interpretation")
+        ):
+            return WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME
 
     # Resolve Track 2 Best-Model Collage Summary Tables
     if (

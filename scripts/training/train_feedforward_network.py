@@ -246,6 +246,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
         # Print Periodic MLP Configuration
         if normalized_model_type == "periodic_mlp":
             print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+            print_key_value("Harmonic Index List", model_config.get("harmonic_index_list"), value_color=Fore.YELLOW)
             print_key_value("Include Raw Angle Feature", model_config.get("include_raw_angle_feature", True), value_color=Fore.YELLOW)
 
     # Print Harmonic Regression Configuration

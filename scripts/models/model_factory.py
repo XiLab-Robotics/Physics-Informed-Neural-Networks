@@ -67,6 +67,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             dropout_probability=float(model_configuration["dropout_probability"]),
             use_layer_norm=bool(model_configuration["use_layer_norm"]),
             harmonic_order=int(model_configuration["harmonic_order"]),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
             include_raw_angle_feature=bool(model_configuration.get("include_raw_angle_feature", True)),
         )
 

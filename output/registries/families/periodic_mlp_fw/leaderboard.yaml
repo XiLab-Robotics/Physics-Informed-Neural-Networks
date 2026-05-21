@@ -6,9 +6,93 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-05-15T12:47:24'
-entry_count: 3
+updated_at: '2026-05-21T08:48:01'
+entry_count: 6
 entry_list:
+- run_instance_id: 2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw
+  run_name: te_periodic_mlp_dense240_tracking_Fw
+  output_run_name: te_periodic_mlp_dense240_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_fw
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 87681
+  total_parameter_count: 87681
+  val_mae: 0.0025407699868083
+  val_rmse: 0.0030491685029119253
+  test_mae: 0.0030554654076695442
+  test_rmse: 0.003537037642672658
+  output_directory: output\training_runs\periodic_mlp_fw\2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw
+  best_checkpoint_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw\checkpoints\periodic_mlp-epoch=039-val_mae=0.00254077.ckpt
+  metrics_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-22-25__te_periodic_mlp_dense240_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-21T08:35:46'
+- run_instance_id: 2026-05-21-08-12-57__te_periodic_mlp_rcim_sparse_tracking_fw
+  run_name: te_periodic_mlp_rcim_sparse_tracking_Fw
+  output_run_name: te_periodic_mlp_rcim_sparse_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_fw
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 28545
+  total_parameter_count: 28545
+  val_mae: 0.0025159840006381273
+  val_rmse: 0.002984655788168311
+  test_mae: 0.003131492994725704
+  test_rmse: 0.003578136209398508
+  output_directory: output\training_runs\periodic_mlp_fw\2026-05-21-08-12-57__te_periodic_mlp_rcim_sparse_tracking_fw
+  best_checkpoint_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-12-57__te_periodic_mlp_rcim_sparse_tracking_fw\checkpoints\periodic_mlp-epoch=032-val_mae=0.00251598.ckpt
+  metrics_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-12-57__te_periodic_mlp_rcim_sparse_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-12-57__te_periodic_mlp_rcim_sparse_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-21T08:22:25'
+- run_instance_id: 2026-05-21-08-35-46__te_periodic_mlp_dense360_tracking_fw
+  run_name: te_periodic_mlp_dense360_tracking_Fw
+  output_run_name: te_periodic_mlp_dense360_tracking_Fw
+  output_artifact_kind: training_run
+  model_family: periodic_mlp_fw
+  base_model_family: periodic_mlp
+  model_type: periodic_mlp
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 118401
+  total_parameter_count: 118401
+  val_mae: 0.002523534931242466
+  val_rmse: 0.003062295261770487
+  test_mae: 0.00315499329008162
+  test_rmse: 0.0036801856476813555
+  output_directory: output\training_runs\periodic_mlp_fw\2026-05-21-08-35-46__te_periodic_mlp_dense360_tracking_fw
+  best_checkpoint_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-35-46__te_periodic_mlp_dense360_tracking_fw\checkpoints\periodic_mlp-epoch=017-val_mae=0.00252353.ckpt
+  metrics_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-35-46__te_periodic_mlp_dense360_tracking_fw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_mlp_fw\2026-05-21-08-35-46__te_periodic_mlp_dense360_tracking_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-21T08:48:01'
 - run_instance_id: 2026-05-15-11-07-39__te_periodic_mlp_h04_standard_fw_optuna_t0008
   run_name: te_periodic_mlp_h04_standard_Fw_optuna_t0008
   output_run_name: te_periodic_mlp_h04_standard_Fw_optuna_t0008

@@ -1,0 +1,1 @@
+C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML - Codex\output\training_runs\periodic_mlp_bw\2026-05-21-08-48-01__te_periodic_mlp_rcim_sparse_tracking_bw\checkpoints\periodic_mlp-epoch=051-val_mae=0.00301058.ckpt
