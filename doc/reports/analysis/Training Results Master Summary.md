@@ -2,19 +2,22 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-05-21T09:38:39`
+- Generated At: `2026-05-21T15:36:51`
 - Program State: active.
 - Current Completed Wave: `Wave 1` structured-baseline optimization pass,
-- Current Focus: finish `Track 2` by closing the canonical direction-aware
-- Active Campaign Status: `prepared`
-- Active Campaign Name: `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49`
+- Current Completed Track: `Track 2` official offline model-verification
+  report.
+- Current Focus: prepare `Wave 2` temporal models against the closed `Track 2`
+  and `Wave 1` baselines.
+- Active Campaign Status: `none`
+- Active Campaign Name: `null`
 - Current Global Winner: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Family `tree_fw` | Test MAE `0.002743`
 
 ## Main Takeaways
 
 - Strongest current neural family: `residual_harmonic_mlp`
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
-- Active family-improvement branch count: `2`
+- Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `15`
 
 ## Current Project Status
@@ -57,10 +60,11 @@
 
 ### Active Training Or Improvement Branches
 
-- Current campaign: `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49`
+- Current campaign: `none`
 - Launch mode: `N/A`
-- Families under active improvement: `harmonic_regression`, `periodic_mlp`
-- Planning report: `doc/reports/campaign_plans/wave1/2026-05-20-22-42-49_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_plan_report.md`
+- Families under active improvement: `none`
+- Last completed campaign:
+  `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49`
 
 ### Roadmap And Planned Work
 
@@ -96,7 +100,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; status: active closeout branch. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -106,7 +110,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | status: planned after Track 2 closeout;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: Track 2 plus closed Wave 1. |
+| Wave 2. Temporal Models | status: next planned branch after Track 2 closeout;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: Track 2 plus closed Wave 1. |
 
 Low-priority exploratory families currently listed in the backlog:
 

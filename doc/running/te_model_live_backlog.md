@@ -28,9 +28,11 @@ Historical rationale and approval history remain in:
   closed with `global`, `forward`, and `backward` model surfaces.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
-- Current Focus: finish `Track 2` by closing the canonical direction-aware
-  offline comparison between recovered original, retuned, `Track 1`, and
-  `Wave 1` model surfaces.
+- Current Completed Track: `Track 2` official offline model-verification
+  report, closed as the canonical direction-aware verification surface for new
+  model families.
+- Current Focus: prepare the `Wave 2` temporal-model branch against the closed
+  `Track 2` and `Wave 1` baselines.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -38,6 +40,7 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -241,10 +244,11 @@ Operational meaning:
 
 Status:
 
-- active closeout branch.
+- closed as the official offline model-verification report.
 
 Canonical report:
 
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 
 Current comparison surface:
@@ -292,41 +296,35 @@ Best individual family candidates currently visible in Track 2:
 | forward | `rcim_retuned_GBM19_Fw` | 2.372 |
 | backward | `rcim_retuned_GBM19_Bw` | 5.398 |
 
-Remaining closeout work:
+Official closeout package:
 
-- confirm the final Track 2 report wording after grouped source-table,
-  composite-best visibility, and backward retuned-baseline fixes;
-- keep the direction/truth and preview-curve audit notes attached to the final
-  report package;
-- decide whether Track 2 is closed as the canonical offline comparison matrix
-  or whether one more explicitly approved comparison refinement is needed.
+- the official verification report consolidates the direction-aware metric
+  matrix, best-model collage PDF, multi-model curve comparison PDF, and future
+  `Track 2` campaign update ledger;
+- future model-verification updates must refresh the matrix, visual reports,
+  official PDF, and this backlog before new candidates are accepted.
 
 ## Next Up
 
 ### Planned Next Step
 
-After this cleaning and alignment, the next planned step is:
+After the official `Track 2` closeout, the next planned step is:
 
-- close `Track 2` as the canonical direction-aware offline comparison report,
-  using `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
-  as the source of truth.
+- prepare the `Wave 2` temporal-model branch, using the official `Track 2`
+  model-verification report and closed `Wave 1` surfaces as the baseline.
 
-The closeout should answer three concrete questions:
+The `Wave 2` preparation should answer three concrete questions:
 
-- which source surface is the current best offline reference for forward
-  curves;
-- confirm that `paper_retuned_best_Bw` is the canonical backward baseline
-  because no paper-original backward reference exists;
-- whether the next implementation branch should be `Wave 2` temporal models or
-  another explicitly approved branch. `Target A` is no longer a blocking bridge
-  because it is closed as an offline direction-qualified benchmark.
+- which temporal model families should be evaluated first;
+- how each family will expose `global`, `forward`, and `backward` surfaces;
+- how each candidate will be fed back into the official `Track 2`
+  verification report after training.
 
 ### Post-Track-2 Decision
 
 Default decision path after Track 2 closeout:
 
-- open `Wave 2` temporal models only after the Track 2 report is accepted as
-  closed;
+- open `Wave 2` temporal models from the closed Track 2 baseline;
 - keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
 - use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;
 - keep paper-alignment bridge work available only if the user explicitly
@@ -556,11 +554,12 @@ Entry rule:
 - grouped source tables: completed;
 - composite best-reference visibility: completed;
 - direction/truth and preview audit: completed;
-- status: active closeout branch.
+- official model-verification report: completed;
+- status: closed.
 
 ### Wave 2. Temporal Models
 
-- status: planned after Track 2 closeout;
+- status: next planned branch after Track 2 closeout;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - baseline comparison: Track 2 plus closed Wave 1.

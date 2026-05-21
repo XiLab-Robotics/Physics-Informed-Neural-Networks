@@ -122,6 +122,11 @@ WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-hi
 WAVE1_PERIODIC_MLP_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1-periodic-mlp-leaderboard"
 WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-periodic-mlp-registry"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
+TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
+TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
+TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME = "report-table report-table-track2-official-best-composite"
+TRACK2_OFFICIAL_STATIC_BASELINE_TABLE_CLASS_NAME = "report-table report-table-track2-official-static-baseline"
+TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME = "report-table report-table-track2-official-campaign-ledger"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -706,6 +711,60 @@ REPORT_STYLESHEET = """
     .report-table-track2-best-model-collage th:nth-child(4), .report-table-track2-best-model-collage td:nth-child(4) { width: 13.666%; }
     .report-table-track2-best-model-collage th:nth-child(5), .report-table-track2-best-model-collage td:nth-child(5) { width: 13.666%; }
     .report-table-track2-best-model-collage th:nth-child(6), .report-table-track2-best-model-collage td:nth-child(6) { width: 13.666%; }
+
+    .report-table-track2-official-verification-rule,
+    .report-table-track2-official-pipeline-coverage,
+    .report-table-track2-official-best-composite,
+    .report-table-track2-official-static-baseline,
+    .report-table-track2-official-campaign-ledger {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track2-official-verification-rule th,
+    .report-table-track2-official-verification-rule td,
+    .report-table-track2-official-pipeline-coverage th,
+    .report-table-track2-official-pipeline-coverage td,
+    .report-table-track2-official-best-composite th,
+    .report-table-track2-official-best-composite td,
+    .report-table-track2-official-static-baseline th,
+    .report-table-track2-official-static-baseline td,
+    .report-table-track2-official-campaign-ledger th,
+    .report-table-track2-official-campaign-ledger td {
+      padding: 4px 4px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2-official-verification-rule th:nth-child(1), .report-table-track2-official-verification-rule td:nth-child(1) { width: 18%; }
+    .report-table-track2-official-verification-rule th:nth-child(2), .report-table-track2-official-verification-rule td:nth-child(2) { width: 41%; }
+    .report-table-track2-official-verification-rule th:nth-child(3), .report-table-track2-official-verification-rule td:nth-child(3) { width: 41%; }
+
+    .report-table-track2-official-pipeline-coverage th:nth-child(1), .report-table-track2-official-pipeline-coverage td:nth-child(1) { width: 25%; }
+    .report-table-track2-official-pipeline-coverage th:nth-child(2), .report-table-track2-official-pipeline-coverage td:nth-child(2) { width: 31%; }
+    .report-table-track2-official-pipeline-coverage th:nth-child(3), .report-table-track2-official-pipeline-coverage td:nth-child(3) { width: 13%; }
+    .report-table-track2-official-pipeline-coverage th:nth-child(4), .report-table-track2-official-pipeline-coverage td:nth-child(4) { width: 31%; }
+
+    .report-table-track2-official-best-composite th:nth-child(1), .report-table-track2-official-best-composite td:nth-child(1) { width: 26%; }
+    .report-table-track2-official-best-composite th:nth-child(2), .report-table-track2-official-best-composite td:nth-child(2) { width: 20%; }
+    .report-table-track2-official-best-composite th:nth-child(3), .report-table-track2-official-best-composite td:nth-child(3) { width: 10%; }
+    .report-table-track2-official-best-composite th:nth-child(4), .report-table-track2-official-best-composite td:nth-child(4) { width: 11%; }
+    .report-table-track2-official-best-composite th:nth-child(5), .report-table-track2-official-best-composite td:nth-child(5) { width: 11%; }
+    .report-table-track2-official-best-composite th:nth-child(6), .report-table-track2-official-best-composite td:nth-child(6) { width: 11%; }
+    .report-table-track2-official-best-composite th:nth-child(7), .report-table-track2-official-best-composite td:nth-child(7) { width: 11%; }
+
+    .report-table-track2-official-static-baseline th:nth-child(1), .report-table-track2-official-static-baseline td:nth-child(1) { width: 24%; }
+    .report-table-track2-official-static-baseline th:nth-child(2), .report-table-track2-official-static-baseline td:nth-child(2) { width: 28%; }
+    .report-table-track2-official-static-baseline th:nth-child(3), .report-table-track2-official-static-baseline td:nth-child(3) { width: 12%; }
+    .report-table-track2-official-static-baseline th:nth-child(4), .report-table-track2-official-static-baseline td:nth-child(4) { width: 12%; }
+    .report-table-track2-official-static-baseline th:nth-child(5), .report-table-track2-official-static-baseline td:nth-child(5) { width: 12%; }
+    .report-table-track2-official-static-baseline th:nth-child(6), .report-table-track2-official-static-baseline td:nth-child(6) { width: 12%; }
+
+    .report-table-track2-official-campaign-ledger th:nth-child(1), .report-table-track2-official-campaign-ledger td:nth-child(1) { width: 9%; }
+    .report-table-track2-official-campaign-ledger th:nth-child(2), .report-table-track2-official-campaign-ledger td:nth-child(2) { width: 27%; }
+    .report-table-track2-official-campaign-ledger th:nth-child(3), .report-table-track2-official-campaign-ledger td:nth-child(3) { width: 13%; }
+    .report-table-track2-official-campaign-ledger th:nth-child(4), .report-table-track2-official-campaign-ledger td:nth-child(4) { width: 17%; }
+    .report-table-track2-official-campaign-ledger th:nth-child(5), .report-table-track2-official-campaign-ledger td:nth-child(5) { width: 17%; }
+    .report-table-track2-official-campaign-ledger th:nth-child(6), .report-table-track2-official-campaign-ledger td:nth-child(6) { width: 17%; }
 
     .report-table-historical-results,
     .report-table-phase-results,
@@ -2318,6 +2377,16 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         if header_cell == "Exported Errors":
             return "Exported<br>Errors"
 
+    if table_class_name == TRACK2_OFFICIAL_STATIC_BASELINE_TABLE_CLASS_NAME:
+        if header_cell == "Current Strongest Candidate":
+            return "Current Strongest<br>Candidate"
+
+    if table_class_name == TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME:
+        if header_cell == "Campaign or Update":
+            return "Campaign or<br>Update"
+        if header_cell == "Candidate Scope":
+            return "Candidate<br>Scope"
+
     if table_class_name == TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_CLASS_NAME:
         if header_cell == "Exported ONNX":
             return "Exported<br>ONNX"
@@ -2661,6 +2730,30 @@ def resolve_standard_table_class_name(
         == ("Candidate", "Source", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error")
     ):
         return TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME
+
+    # Resolve Track 2 Official Verification Report Tables
+    if report_stem == "track2_official_model_verification_report":
+
+        if normalized_header_cells == ("Surface", "Training or Archive Scope", "Evaluation Scope"):
+            return TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME
+
+        if normalized_header_cells == ("Pipeline or Source", "Track 2 Role", "Current Status", "Verification Artifact"):
+            return TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME
+
+        if (
+            current_subsection_slug == "best-composite-references"
+            and normalized_header_cells == ("Candidate", "Source", "Direction", "MAE [deg]", "RMSE [deg]", "Mean [%]", "P95 [%]")
+        ):
+            return TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME
+
+        if (
+            current_subsection_slug == "repository-owned-static-baselines"
+            and normalized_header_cells == ("Direction", "Current Strongest Candidate", "MAE [deg]", "RMSE [deg]", "Mean [%]", "P95 [%]")
+        ):
+            return TRACK2_OFFICIAL_STATIC_BASELINE_TABLE_CLASS_NAME
+
+        if normalized_header_cells == ("Date", "Campaign or Update", "Candidate Scope", "Matrix Status", "Visual Status", "Decision"):
+            return TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME
 
     # Resolve Wave 1 Recovery Table Profiles
     if report_stem == "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report":

@@ -99,6 +99,10 @@ This folder contains the internal project documents derived from the reference P
   Canonical `Track 2` offline matrix comparing accepted `Track 1`, recovered
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
+- [reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-05-21%5D/track2_official_model_verification_report.md)
+  Official `Track 2` model-verification report consolidating the directional
+  matrix, best-model collage PDF, multi-model curve comparison PDF, and future
+  `Track 2` campaign update ledger.
 - [reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-05-20%5D/track2_best_model_collage_report.md)
   Styled `Track 2` visual report with four-curve collages for the current best
   reference, Track 1, Wave 1 directional, and Wave 1 global models.
@@ -127,6 +131,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-21
+
+- [technical/2026-05/2026-05-21/2026-05-21-15-09-15_track2_official_model_verification_report.md](./technical/2026-05/2026-05-21/2026-05-21-15-09-15_track2_official_model_verification_report.md)
+  Plan the official `Track 2` model-verification report that consolidates the
+  directional metric matrix, best-model collage PDF, multi-model curve
+  comparison PDF, and future `Track 2` campaign results into one maintained
+  closeout surface.
 
 - [technical/2026-05/2026-05-21/2026-05-21-13-23-42_track2_periodic_mlp_harmonic_report_refresh.md](./technical/2026-05/2026-05-21/2026-05-21-13-23-42_track2_periodic_mlp_harmonic_report_refresh.md)
   Plan the `Track 2` visual report refresh that updates the existing
