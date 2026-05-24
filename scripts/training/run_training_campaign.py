@@ -37,6 +37,9 @@ SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {
     "harmonic_regression": "scripts/training/train_feedforward_network.py",
     "periodic_mlp": "scripts/training/train_feedforward_network.py",
     "residual_harmonic_mlp": "scripts/training/train_feedforward_network.py",
+    "temporal_convolution": "scripts/training/train_feedforward_network.py",
+    "gru_sequence": "scripts/training/train_feedforward_network.py",
+    "lstm_sequence": "scripts/training/train_feedforward_network.py",
     "random_forest": "scripts/training/train_tree_regressor.py",
     "hist_gradient_boosting": "scripts/training/train_tree_regressor.py",
 }
@@ -529,6 +532,9 @@ def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
         "harmonic_regression": run_feedforward_training,
         "periodic_mlp": run_feedforward_training,
         "residual_harmonic_mlp": run_feedforward_training,
+        "temporal_convolution": run_feedforward_training,
+        "gru_sequence": run_feedforward_training,
+        "lstm_sequence": run_feedforward_training,
         "random_forest": run_tree_regression_training,
         "hist_gradient_boosting": run_tree_regression_training,
     }

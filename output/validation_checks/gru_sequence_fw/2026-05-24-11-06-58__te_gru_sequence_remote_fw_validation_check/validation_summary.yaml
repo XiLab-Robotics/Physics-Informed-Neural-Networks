@@ -1,0 +1,26 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\wave2_temporal_model_entry\campaigns\2026-05-24_wave2_temporal_model_entry_campaign\queue\05_gru_sequence_fw.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\gru_sequence_fw\2026-05-24-11-06-58__te_gru_sequence_remote_fw_validation_check
+experiment:
+  run_name: te_gru_sequence_remote_Fw
+  output_run_name: te_gru_sequence_remote_Fw_validation_check
+  run_instance_id: 2026-05-24-11-06-58__te_gru_sequence_remote_fw_validation_check
+  model_family: gru_sequence_fw
+  model_type: gru_sequence
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.4367083013057709
+  mae: 0.012850216589868069
+  rmse: 0.015619504265487194

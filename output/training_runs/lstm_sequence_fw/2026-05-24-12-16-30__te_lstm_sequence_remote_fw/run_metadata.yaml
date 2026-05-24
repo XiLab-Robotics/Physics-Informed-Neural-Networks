@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: lstm_sequence_fw
+base_model_family: lstm_sequence
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_lstm_sequence_remote_Fw
+run_instance_id: 2026-05-24-12-16-30__te_lstm_sequence_remote_fw
+output_directory: output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw

@@ -1,0 +1,70 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-24-11-20-37_006_06_gru_sequence_bw.yaml
+experiment:
+  model_family: gru_sequence_bw
+  model_type: gru_sequence
+  run_name: te_gru_sequence_remote_Bw
+  output_run_name: te_gru_sequence_remote_Bw
+  run_instance_id: 2026-05-24-12-00-05__te_gru_sequence_remote_bw
+  output_artifact_kind: training_run
+  base_model_family: gru_sequence
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\gru_sequence_bw\2026-05-24-12-00-05__te_gru_sequence_remote_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\gru_sequence_bw\2026-05-24-12-00-05__te_gru_sequence_remote_bw\checkpoints\gru_sequence-epoch=058-val_mae=0.00386744.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 151041
+  frozen_parameter_count: 0
+  total_parameter_count: 151041
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.04793759435415268
+  val_mae: 0.0038674406241625547
+  val_rmse: 0.0045671784318983555
+test_metrics:
+  test_loss: 0.035017628222703934
+  test_mae: 0.0036306900437921286
+  test_rmse: 0.004296942614018917
+comparison_payload:
+  model_family: gru_sequence_bw
+  model_type: gru_sequence
+  run_name: te_gru_sequence_remote_Bw
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.0038674406241625547
+  val_rmse: 0.0045671784318983555
+  test_mae: 0.0036306900437921286
+  test_rmse: 0.004296942614018917
+  deployment_notes: ''
+  interpretability_notes: ''

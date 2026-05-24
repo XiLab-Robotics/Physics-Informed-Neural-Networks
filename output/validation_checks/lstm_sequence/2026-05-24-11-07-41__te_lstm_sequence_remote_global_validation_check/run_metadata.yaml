@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: lstm_sequence
+base_model_family: lstm_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_lstm_sequence_remote_global_validation_check
+run_instance_id: 2026-05-24-11-07-41__te_lstm_sequence_remote_global_validation_check
+output_directory: output\validation_checks\lstm_sequence\2026-05-24-11-07-41__te_lstm_sequence_remote_global_validation_check

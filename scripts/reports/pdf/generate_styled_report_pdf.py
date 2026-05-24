@@ -121,6 +121,9 @@ WAVE1_HIGH_ORDER_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1
 WAVE1_HIGH_ORDER_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-high-order-registry"
 WAVE1_PERIODIC_MLP_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave1-periodic-mlp-leaderboard"
 WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-periodic-mlp-registry"
+WAVE2_TEMPORAL_ARTIFACT_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-artifact"
+WAVE2_TEMPORAL_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-leaderboard"
+WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-registry"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
@@ -693,6 +696,46 @@ REPORT_STYLESHEET = """
     .report-table-wave1-periodic-mlp-registry th:nth-child(2), .report-table-wave1-periodic-mlp-registry td:nth-child(2) { width: 43%; }
     .report-table-wave1-periodic-mlp-registry th:nth-child(3), .report-table-wave1-periodic-mlp-registry td:nth-child(3) { width: 8%; }
     .report-table-wave1-periodic-mlp-registry th:nth-child(4), .report-table-wave1-periodic-mlp-registry td:nth-child(4) { width: 33%; }
+
+    .report-table-wave2-temporal-artifact th:nth-child(1), .report-table-wave2-temporal-artifact td:nth-child(1) { width: 15%; }
+    .report-table-wave2-temporal-artifact th:nth-child(2), .report-table-wave2-temporal-artifact td:nth-child(2) { width: 85%; }
+
+    .report-table-wave2-temporal-leaderboard {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-wave2-temporal-leaderboard th,
+    .report-table-wave2-temporal-leaderboard td,
+    .report-table-wave2-temporal-registry th,
+    .report-table-wave2-temporal-registry td {
+      padding: 4px 4px;
+      vertical-align: middle;
+    }
+
+    .report-table-wave2-temporal-leaderboard th:nth-child(1), .report-table-wave2-temporal-leaderboard td:nth-child(1) { width: 5%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(2), .report-table-wave2-temporal-leaderboard td:nth-child(2) { width: 30%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(3), .report-table-wave2-temporal-leaderboard td:nth-child(3) { width: 18%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(4), .report-table-wave2-temporal-leaderboard td:nth-child(4) { width: 10%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(5), .report-table-wave2-temporal-leaderboard td:nth-child(5) { width: 9.25%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(6), .report-table-wave2-temporal-leaderboard td:nth-child(6) { width: 9.25%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(7), .report-table-wave2-temporal-leaderboard td:nth-child(7) { width: 9.25%; }
+    .report-table-wave2-temporal-leaderboard th:nth-child(8), .report-table-wave2-temporal-leaderboard td:nth-child(8) { width: 9.25%; }
+
+    .report-table-wave2-temporal-registry {
+      font-size: 6.95pt;
+      line-height: 1.18;
+    }
+
+    .report-table-wave2-temporal-registry th:nth-child(1), .report-table-wave2-temporal-registry td:nth-child(1) { width: 24%; }
+    .report-table-wave2-temporal-registry th:nth-child(2), .report-table-wave2-temporal-registry td:nth-child(2) { width: 36%; }
+    .report-table-wave2-temporal-registry th:nth-child(3), .report-table-wave2-temporal-registry td:nth-child(3) {
+      width: 9%;
+      white-space: nowrap;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .report-table-wave2-temporal-registry th:nth-child(4), .report-table-wave2-temporal-registry td:nth-child(4) { width: 31%; }
 
     .report-table-track2-best-model-collage {
       font-size: 6.85pt;
@@ -2722,6 +2765,27 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Registry Scope", "Current Family Best", "Test MAE", "Interpretation")
         ):
             return WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME
+
+    # Resolve Wave 2 Temporal Model Entry Closeout Table Profiles
+    if report_stem == "2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report":
+
+        if (
+            current_section_slug == "campaign-artifacts"
+            and normalized_header_cells == ("Artifact", "Path")
+        ):
+            return WAVE2_TEMPORAL_ARTIFACT_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "leaderboard"
+            and normalized_header_cells == ("Rank", "Run", "Family", "Scope", "Test MAE", "Test RMSE", "Val MAE", "Params")
+        ):
+            return WAVE2_TEMPORAL_LEADERBOARD_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "registry-effects"
+            and normalized_header_cells == ("Registry Scope", "Current Family Best", "Test MAE", "Interpretation")
+        ):
+            return WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME
 
     # Resolve Track 2 Best-Model Collage Summary Tables
     if (

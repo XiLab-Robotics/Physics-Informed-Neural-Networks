@@ -106,6 +106,10 @@ This folder contains the internal project documents derived from the reference P
   Official `Track 2` model-verification report consolidating the directional
   matrix, best-model collage PDF, multi-model curve comparison PDF, and future
   `Track 2` campaign update ledger.
+- [reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/track2/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
+  Operational refresh plan for adding the completed `Wave 2`
+  temporal-model candidates to the official `Track 2` verification matrix,
+  visual reports, and update ledger.
 - [reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-05-20%5D/track2_best_model_collage_report.md)
   Styled `Track 2` visual report with four-curve collages for the current best
   reference, Track 1, Wave 1 directional, and Wave 1 global models.
@@ -132,6 +136,13 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-05-24
+
+- [technical/2026-05/2026-05-24/2026-05-24-12-36-49_wave2_closeout_and_track2_refresh_plan.md](./technical/2026-05/2026-05-24/2026-05-24-12-36-49_wave2_closeout_and_track2_refresh_plan.md)
+  Plan the `Wave 2` temporal-model campaign closeout and the follow-on
+  official `Track 2` model-verification refresh required before temporal
+  candidates are accepted.
 
 #### 2026-05-21
 
@@ -1494,6 +1505,9 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared Wave 1 `periodic_mlp` explicit
   harmonic tracking launcher across RCIM sparse, dense `0..240`, and dense
   `0..360` fixed periodic-feature banks.
+- [scripts/campaigns/run_wave2_temporal_model_entry_campaign.md](./scripts/campaigns/run_wave2_temporal_model_entry_campaign.md)
+  Script-level documentation for the prepared Wave 2 temporal-model entry
+  launcher across temporal convolution, `GRU`, and `LSTM` sequence baselines.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -1729,6 +1743,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md)
+  Final results report for the completed `Wave 2` temporal-model entry
+  campaign, including temporal convolution, `GRU`, and `LSTM` candidates
+  across `global`, `Fw`, and `Bw`.
 - [reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md](./reports/campaign_results/wave1/2026-05-21-09-38-37_wave1_periodic_mlp_explicit_harmonic_tracking_campaign_results_report.md)
   Final results report for the completed `Wave 1` `periodic_mlp` explicit
   harmonic tracking campaign, including the 9-run leaderboard and

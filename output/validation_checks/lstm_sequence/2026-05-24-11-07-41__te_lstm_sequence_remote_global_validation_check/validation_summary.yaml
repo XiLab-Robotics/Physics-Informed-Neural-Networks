@@ -1,0 +1,26 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\wave2_temporal_model_entry\campaigns\2026-05-24_wave2_temporal_model_entry_campaign\queue\07_lstm_sequence_global.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\lstm_sequence\2026-05-24-11-07-41__te_lstm_sequence_remote_global_validation_check
+experiment:
+  run_name: te_lstm_sequence_remote_global
+  output_run_name: te_lstm_sequence_remote_global_validation_check
+  run_instance_id: 2026-05-24-11-07-41__te_lstm_sequence_remote_global_validation_check
+  model_family: lstm_sequence
+  model_type: lstm_sequence
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.853574275970459
+  mae: 0.037558503448963165
+  rmse: 0.042979564517736435

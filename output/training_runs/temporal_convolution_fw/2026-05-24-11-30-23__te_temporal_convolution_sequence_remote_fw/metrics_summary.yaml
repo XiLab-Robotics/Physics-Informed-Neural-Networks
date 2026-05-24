@@ -1,0 +1,70 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-24-11-20-37_002_02_temporal_convolution_fw.yaml
+experiment:
+  model_family: temporal_convolution_fw
+  model_type: temporal_convolution
+  run_name: te_temporal_convolution_sequence_remote_Fw
+  output_run_name: te_temporal_convolution_sequence_remote_Fw
+  run_instance_id: 2026-05-24-11-30-23__te_temporal_convolution_sequence_remote_fw
+  output_artifact_kind: training_run
+  base_model_family: temporal_convolution
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\temporal_convolution_fw\2026-05-24-11-30-23__te_temporal_convolution_sequence_remote_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\temporal_convolution_fw\2026-05-24-11-30-23__te_temporal_convolution_sequence_remote_fw\checkpoints\temporal_convolution-epoch=059-val_mae=0.00349000.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: TemporalConvolutionNetwork
+  trainable_parameter_count: 147009
+  frozen_parameter_count: 0
+  total_parameter_count: 147009
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.03676476329565048
+  val_mae: 0.0034899974707514048
+  val_rmse: 0.004104663152247667
+test_metrics:
+  test_loss: 0.034974195063114166
+  test_mae: 0.003610612591728568
+  test_rmse: 0.004182818811386824
+comparison_payload:
+  model_family: temporal_convolution_fw
+  model_type: temporal_convolution
+  run_name: te_temporal_convolution_sequence_remote_Fw
+  backbone_name: TemporalConvolutionNetwork
+  trainable_parameter_count: 147009
+  total_parameter_count: 147009
+  val_mae: 0.0034899974707514048
+  val_rmse: 0.004104663152247667
+  test_mae: 0.003610612591728568
+  test_rmse: 0.004182818811386824
+  deployment_notes: ''
+  interpretability_notes: ''

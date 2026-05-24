@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: lstm_sequence_fw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-24T12:21:01'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-24-12-16-30__te_lstm_sequence_remote_fw
+  run_name: te_lstm_sequence_remote_Fw
+  output_run_name: te_lstm_sequence_remote_Fw
+  output_artifact_kind: training_run
+  model_family: lstm_sequence_fw
+  base_model_family: lstm_sequence
+  model_type: lstm_sequence
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 201345
+  total_parameter_count: 201345
+  val_mae: 0.003448072588071227
+  val_rmse: 0.004070174880325794
+  test_mae: 0.003369982121512294
+  test_rmse: 0.003920894116163254
+  output_directory: output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw
+  best_checkpoint_path: output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw\checkpoints\lstm_sequence-epoch=012-val_mae=0.00344807.ckpt
+  metrics_path: output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw/metrics_summary.yaml
+  report_path: output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-24T12:21:01'

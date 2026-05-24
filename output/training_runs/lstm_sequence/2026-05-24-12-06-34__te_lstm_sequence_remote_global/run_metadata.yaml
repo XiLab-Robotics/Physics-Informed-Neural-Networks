@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: lstm_sequence
+base_model_family: lstm_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_lstm_sequence_remote_global
+run_instance_id: 2026-05-24-12-06-34__te_lstm_sequence_remote_global
+output_directory: output\training_runs\lstm_sequence\2026-05-24-12-06-34__te_lstm_sequence_remote_global

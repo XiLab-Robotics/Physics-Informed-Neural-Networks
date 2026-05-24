@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: gru_sequence_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-24T12:06:34'
+best_entry:
+  run_instance_id: 2026-05-24-12-00-05__te_gru_sequence_remote_bw
+  run_name: te_gru_sequence_remote_Bw
+  output_run_name: te_gru_sequence_remote_Bw
+  output_artifact_kind: training_run
+  model_family: gru_sequence_bw
+  base_model_family: gru_sequence
+  model_type: gru_sequence
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 151041
+  total_parameter_count: 151041
+  val_mae: 0.0038674406241625547
+  val_rmse: 0.0045671784318983555
+  test_mae: 0.0036306900437921286
+  test_rmse: 0.004296942614018917
+  output_directory: output\training_runs\gru_sequence_bw\2026-05-24-12-00-05__te_gru_sequence_remote_bw
+  best_checkpoint_path: output\training_runs\gru_sequence_bw\2026-05-24-12-00-05__te_gru_sequence_remote_bw\checkpoints\gru_sequence-epoch=058-val_mae=0.00386744.ckpt
+  metrics_path: output\training_runs\gru_sequence_bw\2026-05-24-12-00-05__te_gru_sequence_remote_bw/metrics_summary.yaml
+  report_path: output\training_runs\gru_sequence_bw\2026-05-24-12-00-05__te_gru_sequence_remote_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-24T12:06:34'

@@ -1,0 +1,70 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-24-11-20-37_008_08_lstm_sequence_fw.yaml
+experiment:
+  model_family: lstm_sequence_fw
+  model_type: lstm_sequence
+  run_name: te_lstm_sequence_remote_Fw
+  output_run_name: te_lstm_sequence_remote_Fw
+  run_instance_id: 2026-05-24-12-16-30__te_lstm_sequence_remote_fw
+  output_artifact_kind: training_run
+  base_model_family: lstm_sequence
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\lstm_sequence_fw\2026-05-24-12-16-30__te_lstm_sequence_remote_fw\checkpoints\lstm_sequence-epoch=012-val_mae=0.00344807.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 201345
+  frozen_parameter_count: 0
+  total_parameter_count: 201345
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.036091119050979614
+  val_mae: 0.003448072588071227
+  val_rmse: 0.004070174880325794
+test_metrics:
+  test_loss: 0.030543455854058266
+  test_mae: 0.003369982121512294
+  test_rmse: 0.003920894116163254
+comparison_payload:
+  model_family: lstm_sequence_fw
+  model_type: lstm_sequence
+  run_name: te_lstm_sequence_remote_Fw
+  backbone_name: RecurrentSequenceNetwork
+  trainable_parameter_count: 201345
+  total_parameter_count: 201345
+  val_mae: 0.003448072588071227
+  val_rmse: 0.004070174880325794
+  test_mae: 0.003369982121512294
+  test_rmse: 0.003920894116163254
+  deployment_notes: ''
+  interpretability_notes: ''

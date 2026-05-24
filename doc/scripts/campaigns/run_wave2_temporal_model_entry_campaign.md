@@ -1,0 +1,63 @@
+# Wave 2 Temporal Model Entry Campaign Launcher
+
+## Overview
+
+This launcher runs the approved `Wave 2` temporal-model entry campaign. The
+package compares `temporal_convolution`, `gru_sequence`, and `lstm_sequence`
+across the required `global`, `Fw`, and `Bw` direction surfaces.
+
+The launcher does not run Track 2 verification by itself. Promotion remains a
+post-campaign closeout step that must refresh the official Track 2 matrix and
+visual reports.
+
+## Campaign Package
+
+Prepared campaign root:
+
+- `config/training/wave2_temporal_model_entry/campaigns/2026-05-24_wave2_temporal_model_entry_campaign`
+
+Prepared queue count:
+
+- `9` YAML files
+
+Families:
+
+- `temporal_convolution`
+- `gru_sequence`
+- `lstm_sequence`
+
+## Planning Report
+
+This launcher is tied to:
+
+- `doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`
+
+## Practical Use
+
+Run the full prepared campaign from the repository root:
+
+```powershell
+.\scripts\campaigns\wave2\run_wave2_temporal_model_entry_campaign.ps1
+```
+
+Optional Python executable override:
+
+```powershell
+.\scripts\campaigns\wave2\run_wave2_temporal_model_entry_campaign.ps1 -PythonExecutable python
+```
+
+## Expected Outputs
+
+The shared campaign runner writes campaign artifacts under:
+
+- `output/training_campaigns/wave2/temporal_model_entry/wave2_temporal_model_entry_campaign_2026_05_24_11_01_15`
+
+Per-run training artifacts are written under each configured
+`output/training_runs/<model_family>/` root with immutable run-instance
+directories.
+
+## Operator Notes
+
+The launcher clears stale `pending` and `running` queue copies for the prepared
+file names before starting. It does not remove completed or failed historical
+queue records.

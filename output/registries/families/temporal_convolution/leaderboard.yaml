@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: temporal_convolution
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-24T11:30:23'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-24-11-20-37__te_temporal_convolution_sequence_remote_global
+  run_name: te_temporal_convolution_sequence_remote_global
+  output_run_name: te_temporal_convolution_sequence_remote_global
+  output_artifact_kind: training_run
+  model_family: temporal_convolution
+  base_model_family: temporal_convolution
+  model_type: temporal_convolution
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 147009
+  total_parameter_count: 147009
+  val_mae: 0.003934565931558609
+  val_rmse: 0.004531886428594589
+  test_mae: 0.003754020668566227
+  test_rmse: 0.004266308154910803
+  output_directory: output\training_runs\temporal_convolution\2026-05-24-11-20-37__te_temporal_convolution_sequence_remote_global
+  best_checkpoint_path: output\training_runs\temporal_convolution\2026-05-24-11-20-37__te_temporal_convolution_sequence_remote_global\checkpoints\temporal_convolution-epoch=055-val_mae=0.00393457.ckpt
+  metrics_path: output\training_runs\temporal_convolution\2026-05-24-11-20-37__te_temporal_convolution_sequence_remote_global/metrics_summary.yaml
+  report_path: output\training_runs\temporal_convolution\2026-05-24-11-20-37__te_temporal_convolution_sequence_remote_global/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-24T11:30:23'

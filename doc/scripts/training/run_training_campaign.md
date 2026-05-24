@@ -51,6 +51,9 @@ Current single-run static neural training entry point reused directly by the bat
 - `harmonic_regression`
 - `periodic_mlp`
 - `residual_harmonic_mlp`
+- `temporal_convolution`
+- `gru_sequence`
+- `lstm_sequence`
 
 ### `scripts/training/train_tree_regressor.py`
 
@@ -120,7 +123,9 @@ During execution, the campaign runner now keeps the direct single-run training o
 
 The underlying run artifacts are now expected under `output/training_runs/<model_family>/<run_instance_id>/`, while campaign summaries remain under `output/training_campaigns/<campaign_id>/`.
 
-The same runner can now dispatch both neural and tree-based structured baselines inside one campaign, provided each YAML exposes a supported `experiment.model_type`.
+The same runner can now dispatch static neural, temporal neural, and tree-based
+structured baselines inside one campaign, provided each YAML exposes a
+supported `experiment.model_type`.
 
 ## Short Launcher For The Wave 1 Recovery Campaign
 

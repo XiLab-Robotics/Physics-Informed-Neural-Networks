@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: gru_sequence
+base_model_family: gru_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_gru_sequence_remote_global_validation_check
+run_instance_id: 2026-05-24-11-06-35__te_gru_sequence_remote_global_validation_check
+output_directory: output\validation_checks\gru_sequence\2026-05-24-11-06-35__te_gru_sequence_remote_global_validation_check

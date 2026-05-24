@@ -31,8 +31,9 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: prepare the `Wave 2` temporal-model branch against the closed
-  `Track 2` and `Wave 1` baselines.
+- Current Focus: refresh the official `Track 2` verification package with the
+  completed `Wave 2` temporal-model candidates before accepting them as a
+  comparison surface.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -308,18 +309,20 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the official `Track 2` closeout, the active next step is:
+After the completed `Wave 2` temporal-model entry campaign, the active next
+step is:
 
-- prepare the `Wave 2` temporal-model branch with temporal convolution,
-  `GRU`, and `LSTM` sequence baselines, using the official `Track 2`
-  model-verification report and closed `Wave 1` surfaces as the baseline.
+- refresh the official `Track 2` model-verification package with the
+  temporal convolution, `GRU`, and `LSTM` `global`, `Fw`, and `Bw` campaign
+  outputs.
 
-The `Wave 2` preparation should answer three concrete questions:
+The refresh should answer three concrete questions:
 
-- which temporal model families should be evaluated first;
-- how each family will expose `global`, `forward`, and `backward` surfaces;
-- how each candidate will be fed back into the official `Track 2`
-  verification report after training.
+- where each `Wave 2` temporal candidate ranks in the direction-aware matrix;
+- whether any temporal candidate improves the existing `Track 2` visual or
+  percentage-error surface;
+- whether the official `Track 2` report accepts, rejects, or keeps the
+  temporal models as exploratory baselines.
 
 ### Post-Track-2 Decision
 
@@ -560,11 +563,18 @@ Entry rule:
 
 ### Wave 2. Temporal Models
 
-- status: implementation scaffolding and preliminary campaign plan prepared;
+- status: entry campaign completed; closeout report prepared; official
+  `Track 2` refresh pending;
 - initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;
 - configuration root: `config/training/hydra/wave2/`;
 - preliminary campaign plan:
   `doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md`;
+- closeout report:
+  `doc/reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md`;
+- campaign winner: `te_gru_sequence_remote_Fw` from family
+  `gru_sequence_fw`, with test MAE `0.003333 deg`;
+- refresh plan:
+  `doc/reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md`;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - baseline comparison: Track 2 plus closed Wave 1.
