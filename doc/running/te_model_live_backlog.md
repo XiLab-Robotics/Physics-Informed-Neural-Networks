@@ -24,16 +24,15 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Wave 1` structured-baseline optimization pass,
-  closed with `global`, `forward`, and `backward` model surfaces.
+- Current Completed Wave: `Wave 2` temporal-model entry campaign, verified in
+  `Track 2` but not promoted over the `tree` baseline.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: refresh the official `Track 2` verification package with the
-  completed `Wave 2` temporal-model candidates before accepting them as a
-  comparison surface.
+- Current Focus: plan the next approved branch from verified `Track 2`
+  evidence after the completed `Wave 2` temporal refresh.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -41,7 +40,7 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -255,7 +254,7 @@ Canonical report:
 Current comparison surface:
 
 - comparison mode: `full_directional_candidate_matrix`;
-- candidate count: `75`;
+- candidate count: `84`;
 - held-out curve count before candidate filtering: `194`;
 - denominator for percentage error: `peak_to_peak_truth`;
 - `Fw` candidates evaluate only on forward curves;
@@ -268,6 +267,7 @@ Candidate groups:
 - recovered original forward family banks;
 - retuned forward and backward family banks;
 - `Wave 1` exported `global`, `forward`, and `backward` models;
+- `Wave 2` temporal `global`, `forward`, and `backward` registry models;
 - composed best-reference candidates for paper original, paper retuned, and
   `Track 1`.
 
@@ -309,26 +309,25 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed `Wave 2` temporal-model entry campaign, the active next
-step is:
+After the completed `Wave 2` temporal-model entry campaign and `Track 2`
+refresh, the active next step is:
 
-- refresh the official `Track 2` model-verification package with the
-  temporal convolution, `GRU`, and `LSTM` `global`, `Fw`, and `Bw` campaign
-  outputs.
+- choose the next approved branch from the verified evidence: either tune a
+  compact temporal/hybrid model against the `tree` baseline or move the
+  strongest verified candidates into deployment-readiness checks.
 
-The refresh should answer three concrete questions:
+The refresh answered three concrete questions:
 
-- where each `Wave 2` temporal candidate ranks in the direction-aware matrix;
-- whether any temporal candidate improves the existing `Track 2` visual or
-  percentage-error surface;
-- whether the official `Track 2` report accepts, rejects, or keeps the
-  temporal models as exploratory baselines.
+- best temporal forward candidate: `gru_sequence_Fw` at `7.378%` mean error;
+- best temporal backward candidate: `lstm_sequence_Bw` at `7.767%` mean error;
+- final decision: temporal models are verified exploratory baselines and are
+  not promoted over `tree`.
 
 ### Post-Track-2 Decision
 
 Default decision path after Track 2 closeout:
 
-- open `Wave 2` temporal models from the closed Track 2 baseline;
+- keep `Wave 2` temporal models as verified exploratory baselines;
 - keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
 - use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;
 - keep paper-alignment bridge work available only if the user explicitly
@@ -555,6 +554,8 @@ Entry rule:
 - retuned forward and backward candidates: included;
 - `Track 1` forward and backward candidates: included;
 - `Wave 1` `global`, `forward`, and `backward` exports: included;
+- `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:
+  included;
 - grouped source tables: completed;
 - composite best-reference visibility: completed;
 - direction/truth and preview audit: completed;
@@ -564,7 +565,7 @@ Entry rule:
 ### Wave 2. Temporal Models
 
 - status: entry campaign completed; closeout report prepared; official
-  `Track 2` refresh pending;
+  `Track 2` refresh completed;
 - initial families: `temporal_convolution`, `gru_sequence`, `lstm_sequence`;
 - configuration root: `config/training/hydra/wave2/`;
 - preliminary campaign plan:
@@ -575,6 +576,9 @@ Entry rule:
   `gru_sequence_fw`, with test MAE `0.003333 deg`;
 - refresh plan:
   `doc/reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md`;
+- official verification report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`;
+- Track 2 decision: verified exploratory baselines, not promoted over `tree`;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - baseline comparison: Track 2 plus closed Wave 1.

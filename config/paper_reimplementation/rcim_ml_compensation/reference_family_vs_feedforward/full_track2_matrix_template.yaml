@@ -6,7 +6,7 @@ experiment:
   model_type: reference_family_vs_feedforward
 comparison:
   comparison_mode: full_directional_candidate_matrix
-  canonical_report_path: doc/reports/analysis/Track 2 Directional Model Comparison.md
+  canonical_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
   percentage_error_denominator: peak_to_peak_truth
   preview_curve_count: 8
   report_plot_root: doc/reports/campaign_results/track 2
@@ -215,6 +215,12 @@ comparison:
         - periodic_mlp
         - residual_harmonic_mlp
         - tree
+    wave2_registry_models:
+      family_registry_root: output/registries/families
+      base_family_list:
+        - temporal_convolution
+        - gru_sequence
+        - lstm_sequence
 evaluation:
   selected_harmonics:
     - 0

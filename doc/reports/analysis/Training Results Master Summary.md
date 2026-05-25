@@ -7,8 +7,9 @@
 - Current Completed Wave: `Wave 2` temporal-model entry campaign.
 - Current Completed Track: `Track 2` official offline model-verification
   report.
-- Current Focus: refresh official `Track 2` verification for the completed
-  `Wave 2` temporal-model candidates.
+- Current Focus: plan the next approved branch after the completed `Track 2`
+  refresh verified `Wave 2` temporal candidates without promoting them over
+  `tree`.
 - Active Campaign Status: `none`
 - Active Campaign Name: `null`
 - Current Global Winner: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | Family `tree_fw` | Test MAE `0.002743`
@@ -106,7 +107,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; status: closed. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -116,7 +117,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2. Temporal Models | entry campaign completed; closeout report prepared; campaign winner `te_gru_sequence_remote_Fw` from family `gru_sequence_fw` with test MAE `0.003333`; official Track 2 matrix, visual, and report refresh pending. |
+| Wave 2. Temporal Models | entry campaign completed; closeout report prepared; campaign winner `te_gru_sequence_remote_Fw` from family `gru_sequence_fw` with test MAE `0.003333`; official Track 2 matrix, visual, and report refresh completed; verified exploratory baselines, not promoted over `tree`. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -233,6 +234,9 @@ Low-priority exploratory families currently listed in the backlog:
 - Current global reference winner: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` from family `tree_fw`.
 - Strongest current neural family: `residual_harmonic_mlp`.
 - Current plain-MLP comparison anchor: `te_feedforward_stride1_high_compute_long_remote_global`.
+- Wave 2 temporal models are verified in Track 2; strongest temporal
+  candidates are `gru_sequence_Fw`, `lstm_sequence_Bw`, and
+  `lstm_sequence_global`, but they do not displace `tree`.
 - Predictive quality and deployment suitability must stay separate: the best leaderboard entry is not automatically the best TwinCAT/PLC candidate.
 - Large tree artifacts should be treated cautiously even when tree-based accuracy remains strong, because model weight and memory footprint can dominate deployment feasibility.
 

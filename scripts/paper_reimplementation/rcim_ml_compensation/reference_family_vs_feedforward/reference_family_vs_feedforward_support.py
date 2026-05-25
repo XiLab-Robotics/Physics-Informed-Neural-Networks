@@ -45,6 +45,11 @@ REFERENCE_CANDIDATE_KIND_SET = {
     "track1_reference_bank",
     "composite_reference_bank",
 }
+TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
+    "temporal_convolution",
+    "gru_sequence",
+    "lstm_sequence",
+}
 
 
 @dataclass(frozen=True)
@@ -576,6 +581,57 @@ def build_feedforward_input_tensor(curve_record: harmonic_wise_support.HarmonicC
     return torch.from_numpy(input_feature_matrix)
 
 
+def build_temporal_sequence_input_tensor(
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+    training_config: dict[str, Any],
+) -> torch.Tensor:
+
+    """Build full-curve sequence windows for one temporal registry model."""
+
+    point_input_tensor = build_feedforward_input_tensor(curve_record).float()
+    dataset_configuration = training_config.get("dataset", {})
+    sequence_length = int(dataset_configuration.get("sequence_length", 1))
+    sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
+
+    assert sequence_length > 0, f"Sequence Length must be positive | {sequence_length}"
+    assert sequence_target_position in {"center", "last"}, (
+        f"Unsupported Sequence Target Position | {sequence_target_position}"
+    )
+
+    if sequence_target_position == "center":
+        assert sequence_length % 2 == 1, (
+            "Center-readout full-curve evaluation requires an odd sequence length | "
+            f"{sequence_length}"
+        )
+        left_padding_count = sequence_length // 2
+        right_padding_count = sequence_length // 2
+    else:
+        left_padding_count = sequence_length - 1
+        right_padding_count = 0
+
+    feature_count = int(point_input_tensor.shape[1])
+    empty_padding_tensor = point_input_tensor.new_empty((0, feature_count))
+    left_padding_tensor = (
+        point_input_tensor[:1].repeat(left_padding_count, 1)
+        if left_padding_count > 0
+        else empty_padding_tensor
+    )
+    right_padding_tensor = (
+        point_input_tensor[-1:].repeat(right_padding_count, 1)
+        if right_padding_count > 0
+        else empty_padding_tensor
+    )
+    padded_input_tensor = torch.cat(
+        [left_padding_tensor, point_input_tensor, right_padding_tensor],
+        dim=0,
+    )
+    sequence_window_list = [
+        padded_input_tensor[start_index:start_index + sequence_length]
+        for start_index in range(int(point_input_tensor.shape[0]))
+    ]
+    return torch.stack(sequence_window_list, dim=0)
+
+
 def predict_feedforward_curve(
     regression_module: TransmissionErrorRegressionModule,
     curve_record: harmonic_wise_support.HarmonicCurveRecord,
@@ -600,17 +656,22 @@ def predict_wave1_registry_curve(
     curve_record: harmonic_wise_support.HarmonicCurveRecord,
 ) -> np.ndarray:
 
-    """Predict one TE curve with a loaded Wave 1 registry-backed model."""
+    """Predict one TE curve with a loaded registry-backed model."""
 
-    input_tensor = build_feedforward_input_tensor(curve_record).float()
     model_type = str(training_config["experiment"]["model_type"]).strip().lower()
     if model_type in {"hist_gradient_boosting", "random_forest"}:
+        input_tensor = build_feedforward_input_tensor(curve_record).float()
         input_feature_matrix = input_tensor.detach().cpu().numpy().astype(np.float32)
         return np.asarray(model_object.predict(input_feature_matrix), dtype=np.float32).reshape(-1)
 
     assert isinstance(model_object, TransmissionErrorRegressionModule), (
         f"Expected TransmissionErrorRegressionModule | {model_type}"
     )
+    if model_type in TEMPORAL_SEQUENCE_MODEL_TYPE_SET:
+        input_tensor = build_temporal_sequence_input_tensor(curve_record, training_config).float()
+    else:
+        input_tensor = build_feedforward_input_tensor(curve_record).float()
+
     with torch.no_grad():
         normalized_input_tensor = model_object.normalize_input_tensor(input_tensor)
         normalized_prediction_tensor, _ = model_object.forward_regression_model(
@@ -821,6 +882,49 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
                         "candidate_family": base_family_name,
                         "candidate_kind": "wave1_registry_model",
                         "candidate_source_label": "wave1",
+                        "candidate_surface": "Bw",
+                        "family_registry_path": (
+                            f"{family_registry_root}/{base_family_name}_bw/latest_family_best.yaml"
+                        ),
+                        "allowed_direction_list": ["backward"],
+                    },
+                ]
+            )
+
+    wave2_configuration = generation_configuration.get("wave2_registry_models", {})
+    if wave2_configuration:
+        family_registry_root = str(wave2_configuration["family_registry_root"]).rstrip("/")
+        for base_family in wave2_configuration["base_family_list"]:
+            base_family_name = str(base_family).strip()
+            candidate_configuration_list.extend(
+                [
+                    {
+                        "candidate_id": f"{base_family_name}_global",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_registry_model",
+                        "candidate_source_label": "wave2_temporal_entry_registry",
+                        "candidate_surface": "global",
+                        "family_registry_path": (
+                            f"{family_registry_root}/{base_family_name}/latest_family_best.yaml"
+                        ),
+                        "allowed_direction_list": ["forward", "backward"],
+                    },
+                    {
+                        "candidate_id": f"{base_family_name}_Fw",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_registry_model",
+                        "candidate_source_label": "wave2_temporal_entry_registry",
+                        "candidate_surface": "Fw",
+                        "family_registry_path": (
+                            f"{family_registry_root}/{base_family_name}_fw/latest_family_best.yaml"
+                        ),
+                        "allowed_direction_list": ["forward"],
+                    },
+                    {
+                        "candidate_id": f"{base_family_name}_Bw",
+                        "candidate_family": base_family_name,
+                        "candidate_kind": "wave1_registry_model",
+                        "candidate_source_label": "wave2_temporal_entry_registry",
                         "candidate_surface": "Bw",
                         "family_registry_path": (
                             f"{family_registry_root}/{base_family_name}_bw/latest_family_best.yaml"
@@ -1904,7 +2008,7 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         section_title: str,
         direction_label: str,
         source_label: str,
-        include_global_wave1: bool = False,
+        include_global_models: bool = False,
     ) -> None:
         direction_entry = direction_breakdown.get(direction_label, {})
         table_row_list = [
@@ -1914,7 +2018,7 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             and (
                 candidate_id.endswith("_Fw")
                 or candidate_id.endswith("_Bw")
-                or (include_global_wave1 and candidate_id.endswith("_global"))
+                or (include_global_models and candidate_id.endswith("_global"))
             )
         ]
         table_row_list.sort(key=lambda row: row[1]["mean_percentage_error_pct"])
@@ -1946,8 +2050,8 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "",
         "This report is the canonical `Track 2` offline comparison between",
         "`Track 1`, recovered original, retuned paper-reference model banks, and",
-        "exported `Wave 1` repository models. It starts from the current",
-        "direction-aware comparison matrix.",
+        "repository-owned `Wave 1` and `Wave 2` model candidates. It starts from",
+        "the current direction-aware comparison matrix.",
         "",
         "## Dataset And Split",
         "",
@@ -1996,7 +2100,14 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Wave 1 Forward And Global Models",
         "forward",
         "wave1",
-        include_global_wave1=True,
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Wave 2 Temporal Forward And Global Models",
+        "forward",
+        "wave2_temporal_entry_registry",
+        include_global_models=True,
     )
 
     report_line_list.extend(
@@ -2012,7 +2123,14 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Wave 1 Backward And Global Models",
         "backward",
         "wave1",
-        include_global_wave1=True,
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Wave 2 Temporal Backward And Global Models",
+        "backward",
+        "wave2_temporal_entry_registry",
+        include_global_models=True,
     )
 
     report_line_list.extend(
@@ -2071,10 +2189,10 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
             "## Interpretation",
             "",
             "Rows are ranked by mean percentage error within each source group",
-            "and direction. Directional paper-reference and Wave 1 models are",
-            "never evaluated on the opposite direction. Global Wave 1 models",
-            "remain valid on both directions and are therefore shown in both",
-            "directional Wave 1 sections and again in the global breakdown.",
+            "and direction. Directional paper-reference, Wave 1, and Wave 2",
+            "models are never evaluated on the opposite direction. Global Wave",
+            "models remain valid on both directions and are therefore shown in",
+            "the directional sections and again in the global breakdown.",
             "The `rcim_track1` forward reference banks use the opposite stored",
             "`h0` sign convention relative to the Track 2 reconstruction",
             "contract, so the Track 2 comparison applies the documented",

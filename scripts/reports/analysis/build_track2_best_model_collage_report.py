@@ -59,6 +59,11 @@ WAVE1_BASE_FAMILY_LIST = [
     "residual_harmonic_mlp",
     "tree",
 ]
+WAVE2_BASE_FAMILY_LIST = [
+    "temporal_convolution",
+    "gru_sequence",
+    "lstm_sequence",
+]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
     "paper_retuned_best_Fw",
@@ -224,6 +229,51 @@ def build_wave1_registry_candidate_configuration_list(family_registry_root: Path
     return candidate_configuration_list
 
 
+def build_wave2_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Wave 2 temporal candidate configurations."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for base_family_name in WAVE2_BASE_FAMILY_LIST:
+        candidate_configuration_list.extend(
+            [
+                {
+                    "candidate_id": f"{base_family_name}_global",
+                    "candidate_family": base_family_name,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "wave2_temporal_entry_registry",
+                    "candidate_surface": "global",
+                    "family_registry_path": f"{registry_root_text}/{base_family_name}/latest_family_best.yaml",
+                    "allowed_direction_list": ["forward", "backward"],
+                },
+                {
+                    "candidate_id": f"{base_family_name}_fw",
+                    "candidate_family": base_family_name,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "wave2_temporal_entry_registry",
+                    "candidate_surface": "Fw",
+                    "family_registry_path": f"{registry_root_text}/{base_family_name}_fw/latest_family_best.yaml",
+                    "allowed_direction_list": ["forward"],
+                },
+                {
+                    "candidate_id": f"{base_family_name}_bw",
+                    "candidate_family": base_family_name,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "wave2_temporal_entry_registry",
+                    "candidate_surface": "Bw",
+                    "family_registry_path": f"{registry_root_text}/{base_family_name}_bw/latest_family_best.yaml",
+                    "allowed_direction_list": ["backward"],
+                },
+            ]
+        )
+
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -332,6 +382,7 @@ def resolve_report_candidate_configuration_list(
     return (
         reference_candidate_configuration_list
         + build_wave1_registry_candidate_configuration_list(family_registry_root)
+        + build_wave2_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -349,6 +400,9 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
     wave1_backward_candidate_id_list.append("periodic_mlp_harmonic_bw")
     wave1_global_candidate_id_list = [f"{family_name}_global" for family_name in WAVE1_BASE_FAMILY_LIST]
     wave1_global_candidate_id_list.append("periodic_mlp_harmonic_global")
+    wave2_forward_candidate_id_list = [f"{family_name}_fw" for family_name in WAVE2_BASE_FAMILY_LIST]
+    wave2_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE2_BASE_FAMILY_LIST]
+    wave2_global_candidate_id_list = [f"{family_name}_global" for family_name in WAVE2_BASE_FAMILY_LIST]
 
     return [
         ReportCandidateGroup(
@@ -376,9 +430,27 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             selection_mode="backward",
         ),
         ReportCandidateGroup(
+            group_id="forward_wave2",
+            group_title="Forward Wave 2 Temporal Family Best Models",
+            candidate_id_list=wave2_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave2",
+            group_title="Backward Wave 2 Temporal Family Best Models",
+            candidate_id_list=wave2_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
             group_id="global_wave1",
             group_title="Global Wave 1 Family Best Models",
             candidate_id_list=wave1_global_candidate_id_list,
+            selection_mode="mixed",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave2",
+            group_title="Global Wave 2 Temporal Family Best Models",
+            candidate_id_list=wave2_global_candidate_id_list,
             selection_mode="mixed",
         ),
     ]

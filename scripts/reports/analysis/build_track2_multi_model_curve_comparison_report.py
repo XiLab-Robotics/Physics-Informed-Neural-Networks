@@ -60,6 +60,11 @@ WAVE1_BASE_FAMILY_LIST = [
     "residual_harmonic_mlp",
     "tree",
 ]
+WAVE2_BASE_FAMILY_LIST = [
+    "temporal_convolution",
+    "gru_sequence",
+    "lstm_sequence",
+]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
     "paper_retuned_best_Fw",
@@ -217,6 +222,42 @@ def build_wave1_registry_candidate_configuration_list(family_registry_root: Path
     return candidate_configuration_list
 
 
+def build_wave2_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Wave 2 temporal candidate configurations."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for base_family_name in WAVE2_BASE_FAMILY_LIST:
+        candidate_configuration_list.extend(
+            [
+                {
+                    "candidate_id": f"{base_family_name}_fw",
+                    "candidate_family": base_family_name,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "wave2_temporal_entry_registry",
+                    "candidate_surface": "Fw",
+                    "family_registry_path": f"{registry_root_text}/{base_family_name}_fw/latest_family_best.yaml",
+                    "allowed_direction_list": ["forward"],
+                },
+                {
+                    "candidate_id": f"{base_family_name}_bw",
+                    "candidate_family": base_family_name,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "wave2_temporal_entry_registry",
+                    "candidate_surface": "Bw",
+                    "family_registry_path": f"{registry_root_text}/{base_family_name}_bw/latest_family_best.yaml",
+                    "allowed_direction_list": ["backward"],
+                },
+            ]
+        )
+
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -320,6 +361,7 @@ def resolve_report_candidate_configuration_list(
     return (
         reference_candidate_configuration_list
         + build_wave1_registry_candidate_configuration_list(family_registry_root)
+        + build_wave2_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -335,6 +377,8 @@ def build_base_comparison_group_list() -> list[ReportComparisonGroup]:
     wave1_forward_candidate_id_list.append("periodic_mlp_harmonic_fw")
     wave1_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE1_BASE_FAMILY_LIST]
     wave1_backward_candidate_id_list.append("periodic_mlp_harmonic_bw")
+    wave2_forward_candidate_id_list = [f"{family_name}_fw" for family_name in WAVE2_BASE_FAMILY_LIST]
+    wave2_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE2_BASE_FAMILY_LIST]
     return [
         ReportComparisonGroup(
             group_id="forward_reference",
@@ -358,6 +402,18 @@ def build_base_comparison_group_list() -> list[ReportComparisonGroup]:
             group_id="backward_wave1",
             group_title="Backward Wave 1 Family Model Overlay",
             candidate_id_list=wave1_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportComparisonGroup(
+            group_id="forward_wave2",
+            group_title="Forward Wave 2 Temporal Model Overlay",
+            candidate_id_list=wave2_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportComparisonGroup(
+            group_id="backward_wave2",
+            group_title="Backward Wave 2 Temporal Model Overlay",
+            candidate_id_list=wave2_backward_candidate_id_list,
             selection_mode="backward",
         ),
     ]
@@ -685,6 +741,8 @@ def build_full_comparison_group_list(
     wave1_forward_candidate_id_list.append("periodic_mlp_harmonic_fw")
     wave1_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE1_BASE_FAMILY_LIST]
     wave1_backward_candidate_id_list.append("periodic_mlp_harmonic_bw")
+    wave2_forward_candidate_id_list = [f"{family_name}_fw" for family_name in WAVE2_BASE_FAMILY_LIST]
+    wave2_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE2_BASE_FAMILY_LIST]
     screened_forward_candidate_id_list = select_screened_wave1_candidate_id_list(
         wave1_forward_candidate_id_list,
         "forward",
@@ -707,6 +765,26 @@ def build_full_comparison_group_list(
                 group_id="backward_track1_screened_wave1",
                 group_title="Backward Track 1 And Screened Wave 1 Overlay",
                 candidate_id_list=["track1_best_Bw"] + screened_backward_candidate_id_list,
+                selection_mode="backward",
+            ),
+            ReportComparisonGroup(
+                group_id="forward_reference_tree_wave2",
+                group_title="Forward Reference Tree And Wave 2 Overlay",
+                candidate_id_list=[
+                    "paper_retuned_best_Fw",
+                    "track1_best_Fw",
+                    "tree_fw",
+                ] + wave2_forward_candidate_id_list,
+                selection_mode="forward",
+            ),
+            ReportComparisonGroup(
+                group_id="backward_reference_tree_wave2",
+                group_title="Backward Reference Tree And Wave 2 Overlay",
+                candidate_id_list=[
+                    "paper_retuned_best_Bw",
+                    "track1_best_Bw",
+                    "tree_bw",
+                ] + wave2_backward_candidate_id_list,
                 selection_mode="backward",
             ),
         ]
