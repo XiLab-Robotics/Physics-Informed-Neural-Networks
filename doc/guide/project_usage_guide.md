@@ -2683,6 +2683,8 @@ The repository now already has:
 - tree-based structured benchmarks under the same artifact contract;
 - a reusable datamodule and regression module structure for future architectures;
 - an offline harmonic-wise comparison pipeline for paper-aligned baseline work;
+- Wave 2B harmonic-temporal model profiles that add explicit periodic harmonic
+  features to temporal sequence windows;
 - technical, script-level, and user-facing documentation aligned with the current structure.
 
 ## Harmonic-Wise Comparison Pipeline

@@ -100,6 +100,10 @@ class PeriodicFeatureNetwork(nn.Module):
         angular_position_rad = angular_position_deg * (torch.pi / 180.0)
         periodic_feature_tensor_list: list[torch.Tensor] = []
 
+        # Return An Empty Feature Block When Only The DC Convention Is Requested
+        if len(self.positive_harmonic_index_list) == 0:
+            return angular_position_deg.new_empty((*angular_position_deg.shape[:-1], 0))
+
         # Append Sine And Cosine Features For Each Harmonic Order
         for harmonic_multiplier in self.positive_harmonic_index_tensor:
             periodic_feature_tensor_list.append(torch.sin(harmonic_multiplier * angular_position_rad))

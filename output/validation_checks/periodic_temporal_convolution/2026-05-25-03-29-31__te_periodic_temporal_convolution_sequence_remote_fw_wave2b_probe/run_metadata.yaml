@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: periodic_temporal_convolution
+base_model_family: periodic_temporal_convolution
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_periodic_temporal_convolution_sequence_remote_Fw_wave2b_probe
+run_instance_id: 2026-05-25-03-29-31__te_periodic_temporal_convolution_sequence_remote_fw_wave2b_probe
+output_directory: output\validation_checks\periodic_temporal_convolution\2026-05-25-03-29-31__te_periodic_temporal_convolution_sequence_remote_fw_wave2b_probe

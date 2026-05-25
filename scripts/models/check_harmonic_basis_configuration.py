@@ -76,6 +76,38 @@ def assert_periodic_model_shape(model: PeriodicFeatureNetwork, expected_feature_
     prediction_tensor = model.forward_with_input_context(input_tensor, input_tensor)
     assert tuple(prediction_tensor.shape) == (2, 1), f"Unexpected prediction shape | {prediction_tensor.shape}"
 
+def assert_periodic_temporal_model_shape(model, expected_feature_count: int) -> None:
+
+    """Assert one periodic-temporal configuration has the expected shape."""
+
+    # Validate Expanded Feature Shape
+    assert model.expanded_input_size == expected_feature_count, (
+        f"Unexpected periodic temporal expanded feature count | {model.expanded_input_size} != {expected_feature_count}"
+    )
+
+    # Validate Forward Output Shape
+    input_tensor = torch.tensor(
+        [
+            [
+                [0.0, 100.0, 25.0, 30.0, 1.0],
+                [10.0, 100.0, 25.0, 30.0, 1.0],
+                [20.0, 100.0, 25.0, 30.0, 1.0],
+                [30.0, 100.0, 25.0, 30.0, 1.0],
+                [40.0, 100.0, 25.0, 30.0, 1.0],
+            ],
+            [
+                [90.0, 200.0, 30.0, 35.0, 0.0],
+                [100.0, 200.0, 30.0, 35.0, 0.0],
+                [110.0, 200.0, 30.0, 35.0, 0.0],
+                [120.0, 200.0, 30.0, 35.0, 0.0],
+                [130.0, 200.0, 30.0, 35.0, 0.0],
+            ],
+        ],
+        dtype=torch.float32,
+    )
+    prediction_tensor = model.forward_with_input_context(input_tensor, input_tensor)
+    assert tuple(prediction_tensor.shape) == (2, 1), f"Unexpected prediction shape | {prediction_tensor.shape}"
+
 def main() -> int:
 
     """Run harmonic-basis configuration smoke checks."""
@@ -158,6 +190,61 @@ def main() -> int:
     )
     assert periodic_sparse_model.harmonic_index_list == RCIM_HARMONIC_INDEX_LIST
     assert_periodic_model_shape(periodic_sparse_model, expected_feature_count=23)
+
+    # Validate Periodic Temporal Sequence Bases
+    periodic_temporal_convolution_model = create_model(
+        "periodic_temporal_convolution",
+        {
+            "input_size": 5,
+            "output_size": 1,
+            "harmonic_order": 240,
+            "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
+            "include_raw_angle_feature": True,
+            "channel_size": [8, 8],
+            "kernel_size": 3,
+            "activation_name": "GELU",
+            "dropout_probability": 0.0,
+            "readout_position": "center",
+        },
+    )
+    assert periodic_temporal_convolution_model.harmonic_index_list == RCIM_HARMONIC_INDEX_LIST
+    assert_periodic_temporal_model_shape(periodic_temporal_convolution_model, expected_feature_count=23)
+
+    periodic_gru_model = create_model(
+        "periodic_gru_sequence",
+        {
+            "input_size": 5,
+            "output_size": 1,
+            "harmonic_order": 240,
+            "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
+            "include_raw_angle_feature": True,
+            "hidden_size": 8,
+            "num_layers": 1,
+            "dropout_probability": 0.0,
+            "bidirectional": False,
+            "readout_position": "center",
+        },
+    )
+    assert periodic_gru_model.harmonic_index_list == RCIM_HARMONIC_INDEX_LIST
+    assert_periodic_temporal_model_shape(periodic_gru_model, expected_feature_count=23)
+
+    periodic_lstm_model = create_model(
+        "periodic_lstm_sequence",
+        {
+            "input_size": 5,
+            "output_size": 1,
+            "harmonic_order": 240,
+            "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
+            "include_raw_angle_feature": True,
+            "hidden_size": 8,
+            "num_layers": 1,
+            "dropout_probability": 0.0,
+            "bidirectional": False,
+            "readout_position": "center",
+        },
+    )
+    assert periodic_lstm_model.harmonic_index_list == RCIM_HARMONIC_INDEX_LIST
+    assert_periodic_temporal_model_shape(periodic_lstm_model, expected_feature_count=23)
 
     print("[DONE] Harmonic basis configuration smoke checks passed")
     return 0

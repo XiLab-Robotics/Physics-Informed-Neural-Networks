@@ -216,8 +216,11 @@ def build_validation_report_markdown(
 ## Batch Structure
 
 | Field | Value |
-| --- | ---: |
-| Point Batch Size | {batch_summary_dictionary["point_batch_size"]} |
+| --- | --- |
+| Batch Mode | `{batch_summary_dictionary.get("batch_mode", "point")}` |
+| Point Batch Size | {batch_summary_dictionary.get("point_batch_size", 0)} |
+| Sequence Batch Size | {batch_summary_dictionary.get("sequence_batch_size", 0)} |
+| Sequence Length | {batch_summary_dictionary.get("sequence_length", 0)} |
 | Input Feature Dim | {batch_summary_dictionary["input_feature_dim"]} |
 | Target Feature Dim | {batch_summary_dictionary["target_feature_dim"]} |
 | Curve Count | {batch_summary_dictionary["curve_count"]} |

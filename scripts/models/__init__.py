@@ -2,11 +2,13 @@
 
 from .feedforward_network import FeedForwardNetwork
 from .model_factory import create_model
+from .periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
 from .temporal_sequence_network import RecurrentSequenceNetwork
 from .temporal_sequence_network import TemporalConvolutionNetwork
 
 __all__ = [
     "FeedForwardNetwork",
+    "PeriodicTemporalSequenceNetwork",
     "RecurrentSequenceNetwork",
     "TemporalConvolutionNetwork",
     "create_model",

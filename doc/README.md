@@ -84,6 +84,10 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/wave2/Wave 2 Temporal Sequence Models.md](./reports/analysis/wave2/Wave%202%20Temporal%20Sequence%20Models.md)
   Explanatory report for the first `Wave 2` temporal sequence families:
   temporal convolution, `GRU`, and `LSTM` windowed TE regressors.
+- [reports/analysis/wave2/Wave 2B Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202B%20Harmonic%20Temporal%20Hybrid%20Models.md)
+  Explanatory report for the `Wave 2B` harmonic-temporal hybrid families that
+  add explicit periodic harmonic features to temporal convolution, `GRU`, and
+  `LSTM` sequence windows.
 - [reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/rcim_paper_reference/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
   Explanatory report for the strict paper-faithful RCIM family-bank branch,
   including the exact target schema, recovered family inventory, operating
@@ -138,6 +142,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-25
+
+- [technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md](./technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md)
+  Plan the `Wave 2B` harmonic-temporal hybrid branch that applies explicit
+  periodic harmonic feature expansion to the temporal convolution, `GRU`, and
+  `LSTM` sequence families before a campaign package is prepared.
 
 - [technical/2026-05/2026-05-25/2026-05-25-03-06-07_track2_verification_refresh_skill.md](./technical/2026-05/2026-05-25/2026-05-25-03-06-07_track2_verification_refresh_skill.md)
   Plan the repository-local Codex skill that captures the post-campaign

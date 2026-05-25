@@ -12,6 +12,7 @@ import torch.nn as nn
 from scripts.models.feedforward_network import FeedForwardNetwork
 from scripts.models.harmonic_regression import HarmonicRegression
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
+from scripts.models.periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
 from scripts.models.temporal_sequence_network import RecurrentSequenceNetwork
 from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
@@ -24,7 +25,8 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
         model_type: Canonical model-type string such as `feedforward`,
             `harmonic_regression`, `periodic_mlp`,
             `residual_harmonic_mlp`, `temporal_convolution`,
-            `gru_sequence`, or `lstm_sequence`.
+            `gru_sequence`, `lstm_sequence`, or one of the periodic temporal
+            sequence variants.
         model_configuration: Model-specific configuration dictionary.
 
     Returns:
@@ -101,6 +103,22 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             readout_position=str(model_configuration.get("readout_position", "center")),
         )
 
+    # Create Periodic Temporal Convolution Sequence Model
+    if normalized_model_type == "periodic_temporal_convolution":
+        return PeriodicTemporalSequenceNetwork(
+            temporal_model_type="temporal_convolution",
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration["harmonic_order"]),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            include_raw_angle_feature=bool(model_configuration.get("include_raw_angle_feature", True)),
+            channel_size=list(model_configuration["channel_size"]),
+            kernel_size=int(model_configuration.get("kernel_size", 5)),
+            activation_name=str(model_configuration.get("activation_name", "GELU")),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+        )
+
     # Create GRU Sequence Model
     if normalized_model_type == "gru_sequence":
         return RecurrentSequenceNetwork(
@@ -114,6 +132,22 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             readout_position=str(model_configuration.get("readout_position", "center")),
         )
 
+    # Create Periodic GRU Sequence Model
+    if normalized_model_type == "periodic_gru_sequence":
+        return PeriodicTemporalSequenceNetwork(
+            temporal_model_type="gru_sequence",
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration["harmonic_order"]),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            include_raw_angle_feature=bool(model_configuration.get("include_raw_angle_feature", True)),
+            hidden_size=int(model_configuration["hidden_size"]),
+            num_layers=int(model_configuration.get("num_layers", 2)),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            bidirectional=bool(model_configuration.get("bidirectional", False)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+        )
+
     # Create LSTM Sequence Model
     if normalized_model_type == "lstm_sequence":
         return RecurrentSequenceNetwork(
@@ -121,6 +155,22 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             input_size=int(model_configuration["input_size"]),
             hidden_size=int(model_configuration["hidden_size"]),
             output_size=int(model_configuration.get("output_size", 1)),
+            num_layers=int(model_configuration.get("num_layers", 2)),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            bidirectional=bool(model_configuration.get("bidirectional", False)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+        )
+
+    # Create Periodic LSTM Sequence Model
+    if normalized_model_type == "periodic_lstm_sequence":
+        return PeriodicTemporalSequenceNetwork(
+            temporal_model_type="lstm_sequence",
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration["harmonic_order"]),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            include_raw_angle_feature=bool(model_configuration.get("include_raw_angle_feature", True)),
+            hidden_size=int(model_configuration["hidden_size"]),
             num_layers=int(model_configuration.get("num_layers", 2)),
             dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
             bidirectional=bool(model_configuration.get("bidirectional", False)),
