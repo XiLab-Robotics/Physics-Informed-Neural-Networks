@@ -1,0 +1,4 @@
+interface:
+  display_name: "Track 2 Verification Refresh"
+  short_description: "Refresh Track 2 verification after completed campaigns."
+  default_prompt: "Use this skill after a completed campaign needs to be accepted into the official Track 2 verification package."

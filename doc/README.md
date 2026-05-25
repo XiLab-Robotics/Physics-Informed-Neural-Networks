@@ -137,6 +137,14 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-25
+
+- [technical/2026-05/2026-05-25/2026-05-25-03-06-07_track2_verification_refresh_skill.md](./technical/2026-05/2026-05-25/2026-05-25-03-06-07_track2_verification_refresh_skill.md)
+  Plan the repository-local Codex skill that captures the post-campaign
+  `Track 2` verification refresh workflow: matrix update, visual PDF
+  regeneration, official report decision, status updates, QA, and commit
+  preflight.
+
 #### 2026-05-24
 
 - [technical/2026-05/2026-05-24/2026-05-24-12-36-49_wave2_closeout_and_track2_refresh_plan.md](./technical/2026-05/2026-05-24/2026-05-24-12-36-49_wave2_closeout_and_track2_refresh_plan.md)
