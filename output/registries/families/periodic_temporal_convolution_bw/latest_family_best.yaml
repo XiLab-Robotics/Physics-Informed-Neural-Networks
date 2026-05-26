@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: periodic_temporal_convolution_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-25T16:26:53'
+best_entry:
+  run_instance_id: 2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw
+  run_name: te_periodic_temporal_convolution_sequence_remote_Bw
+  output_run_name: te_periodic_temporal_convolution_sequence_remote_Bw
+  output_artifact_kind: training_run
+  model_family: periodic_temporal_convolution_bw
+  base_model_family: periodic_temporal_convolution
+  model_type: periodic_temporal_convolution
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 158529
+  total_parameter_count: 158529
+  val_mae: 0.003889910876750946
+  val_rmse: 0.0045043956488370895
+  test_mae: 0.003614312969148159
+  test_rmse: 0.0041631171479821205
+  output_directory: output\training_runs\periodic_temporal_convolution_bw\2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw
+  best_checkpoint_path: output\training_runs\periodic_temporal_convolution_bw\2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw\checkpoints\periodic_temporal_convolution-epoch=018-val_mae=0.00388991.ckpt
+  metrics_path: output\training_runs\periodic_temporal_convolution_bw\2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw/metrics_summary.yaml
+  report_path: output\training_runs\periodic_temporal_convolution_bw\2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-25T16:26:53'

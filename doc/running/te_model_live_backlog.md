@@ -24,15 +24,13 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Wave 2` temporal-model entry campaign, verified in
-  `Track 2` but not promoted over the `tree` baseline.
+- Current Completed Wave: `Wave 2B` harmonic-temporal hybrid campaign closeout complete; `Track 2` refresh pending as a separate operator-launched workflow.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: plan the next approved branch from verified `Track 2`
-  evidence after the completed `Wave 2` temporal refresh.
+- Current Focus: review the completed `Wave 2B` closeout package, then decide whether to prepare the separate operator-run `Track 2` launcher.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -582,6 +580,29 @@ Entry rule:
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - baseline comparison: Track 2 plus closed Wave 1.
+
+### Wave 2B. Harmonic Temporal Hybrid Models
+
+- status: harmonic-temporal hybrid campaign completed; normal closeout report
+  prepared; official `Track 2` refresh not run;
+- families: `periodic_temporal_convolution`, `periodic_gru_sequence`,
+  `periodic_lstm_sequence`;
+- configuration root:
+  `config/training/wave2b_harmonic_temporal_hybrid/`;
+- preliminary campaign plan:
+  `doc/reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md`;
+- closeout report:
+  `doc/reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md`;
+- campaign winner: `te_periodic_gru_sequence_remote_Bw` from family
+  `periodic_gru_sequence_bw`, with test MAE `0.002344 deg`;
+- strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`
+  from family `periodic_gru_sequence`, with test MAE `0.002681 deg`;
+- Track 2 decision: pending; must be prepared as a separate PowerShell
+  launcher with local and `-Remote` modes after explicit approval;
+- mandatory rule: prepare or justify `global`, `forward`, and `backward`
+  surfaces;
+- baseline comparison: scalar campaign metrics only until the optional
+  operator-run Track 2 refresh is completed.
 
 ### Wave 3. Hybrid Structured Models
 

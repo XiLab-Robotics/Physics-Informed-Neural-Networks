@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: periodic_temporal_convolution_bw
+base_model_family: periodic_temporal_convolution
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_periodic_temporal_convolution_sequence_remote_Bw_wave2b_package_final_validation
+run_instance_id: 2026-05-25-13-48-30__te_periodic_temporal_convolution_sequence_remote_bw_wave2b_package_final_validation
+output_directory: output\validation_checks\periodic_temporal_convolution_bw\2026-05-25-13-48-30__te_periodic_temporal_convolution_sequence_remote_bw_wave2b_package_final_validation

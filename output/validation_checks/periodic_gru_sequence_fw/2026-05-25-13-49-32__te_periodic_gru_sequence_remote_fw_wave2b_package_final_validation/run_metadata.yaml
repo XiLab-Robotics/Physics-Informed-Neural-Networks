@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: periodic_gru_sequence_fw
+base_model_family: periodic_gru_sequence
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_periodic_gru_sequence_remote_Fw_wave2b_package_final_validation
+run_instance_id: 2026-05-25-13-49-32__te_periodic_gru_sequence_remote_fw_wave2b_package_final_validation
+output_directory: output\validation_checks\periodic_gru_sequence_fw\2026-05-25-13-49-32__te_periodic_gru_sequence_remote_fw_wave2b_package_final_validation

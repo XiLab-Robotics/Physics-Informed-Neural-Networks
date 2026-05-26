@@ -1,0 +1,28 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\wave2b_harmonic_temporal_hybrid\campaigns\2026-05-25_wave2b_harmonic_temporal_hybrid_campaign\queue\06_periodic_gru_sequence_bw.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\periodic_gru_sequence_bw\2026-05-25-13-50-01__te_periodic_gru_sequence_remote_bw_wave2b_package_final_validation
+experiment:
+  run_name: te_periodic_gru_sequence_remote_Bw
+  output_run_name: te_periodic_gru_sequence_remote_Bw_wave2b_package_final_validation
+  run_instance_id: 2026-05-25-13-50-01__te_periodic_gru_sequence_remote_bw_wave2b_package_final_validation
+  model_family: periodic_gru_sequence_bw
+  model_type: periodic_gru_sequence
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 2.629774808883667
+  mae: 0.033531304448843
+  rmse: 0.04047226533293724

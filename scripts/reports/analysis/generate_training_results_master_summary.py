@@ -35,7 +35,17 @@ DEFAULT_EXACT_PAPER_VALIDATION_ROOT = (
 )
 
 TREE_MODEL_TYPE_SET = {"random_forest", "hist_gradient_boosting"}
-NEURAL_MODEL_TYPE_SET = {"feedforward", "periodic_mlp", "residual_harmonic_mlp"}
+NEURAL_MODEL_TYPE_SET = {
+    "feedforward",
+    "periodic_mlp",
+    "residual_harmonic_mlp",
+    "temporal_convolution",
+    "gru_sequence",
+    "lstm_sequence",
+    "periodic_temporal_convolution",
+    "periodic_gru_sequence",
+    "periodic_lstm_sequence",
+}
 PAPER_REFERENCE_DATA = {
     "dataset_sample_count": 1026,
     "input_axes": ["input speed", "applied torque", "oil temperature"],
@@ -1005,7 +1015,7 @@ def build_family_role(model_family: str, best_entry_dictionary: dict[str, Any], 
     """
 
     if best_entry_dictionary.get("run_instance_id") == program_best_entry.get("run_instance_id"):
-        return "Current Global Winner"
+        return "Current Program Winner"
     if strongest_neural_family == model_family:
         return "Strongest Neural Family"
     if model_family == "feedforward":
@@ -1396,7 +1406,7 @@ def build_master_summary_markdown() -> str:
         f"- Current Focus: {current_status_dictionary.get('Current Focus', 'N/A')}",
         f"- Active Campaign Status: `{active_campaign_snapshot['status']}`",
         f"- Active Campaign Name: `{active_campaign_snapshot['campaign_name']}`",
-        f"- Current Global Winner: `{program_best_entry.get('run_name', 'N/A')}` | Family `{program_best_entry.get('model_family', 'N/A')}` | Test MAE `{format_float(program_best_entry.get('test_mae'))}`",
+        f"- Current Program Winner: `{program_best_entry.get('run_name', 'N/A')}` | Family `{program_best_entry.get('model_family', 'N/A')}` | Test MAE `{format_float(program_best_entry.get('test_mae'))}`",
         "",
         "## Main Takeaways",
         "",
@@ -1587,7 +1597,7 @@ def build_master_summary_markdown() -> str:
     report_line_list.extend([
         "## Cross-Family Interpretation",
         "",
-        f"- Current global reference winner: `{program_best_entry.get('run_name', 'N/A')}` from family `{program_best_entry.get('model_family', 'N/A')}`.",
+        f"- Current program-registry winner: `{program_best_entry.get('run_name', 'N/A')}` from family `{program_best_entry.get('model_family', 'N/A')}`.",
         f"- Strongest current neural family: `{strongest_neural_family or 'N/A'}`.",
         f"- Current plain-MLP comparison anchor: `{family_best_entry_dictionary.get('feedforward', {}).get('run_name', 'N/A')}`.",
         "- Predictive quality and deployment suitability must stay separate: the best leaderboard entry is not automatically the best TwinCAT/PLC candidate.",

@@ -1532,6 +1532,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/run_wave2_temporal_model_entry_campaign.md](./scripts/campaigns/run_wave2_temporal_model_entry_campaign.md)
   Script-level documentation for the prepared Wave 2 temporal-model entry
   launcher across temporal convolution, `GRU`, and `LSTM` sequence baselines.
+- [scripts/campaigns/wave2/run_wave2b_harmonic_temporal_hybrid_campaign.md](./scripts/campaigns/wave2/run_wave2b_harmonic_temporal_hybrid_campaign.md)
+  Script-level documentation for the prepared Wave 2B harmonic-temporal
+  hybrid launcher across periodic temporal convolution, periodic `GRU`, and
+  periodic `LSTM` sequence models.
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 - [scripts/training/run_training_smoke_test.md](./scripts/training/run_training_smoke_test.md)
@@ -1652,6 +1656,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### Latest Campaign Plans
 
+- [reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
+  Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid
+  campaign, comparing periodic temporal convolution, periodic `GRU`, and
+  periodic `LSTM` sequence models across `global`, `Fw`, and `Bw`.
 - [reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
   Preliminary campaign plan for the first `Wave 2` temporal-model entry
   campaign, comparing temporal convolution, `GRU`, and `LSTM` sequence
@@ -1767,6 +1775,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)
+  Final results report for the completed `Wave 2B` harmonic-temporal
+  hybrid campaign, including the 9-run leaderboard, registry effects,
+  and the explicit boundary that `Track 2` remains a separate
+  operator-launched workflow.
 - [reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md)
   Final results report for the completed `Wave 2` temporal-model entry
   campaign, including temporal convolution, `GRU`, and `LSTM` candidates
@@ -1815,6 +1828,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
+  Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid
+  campaign, comparing periodic temporal convolution, periodic `GRU`, and
+  periodic `LSTM` sequence models across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md)
   Preliminary campaign plan for the first `Wave 2` temporal-model entry

@@ -1,0 +1,73 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-05-25-15-44-37_003_03_periodic_temporal_convolution_bw.yaml
+experiment:
+  model_family: periodic_temporal_convolution_bw
+  model_type: periodic_temporal_convolution
+  run_name: te_periodic_temporal_convolution_sequence_remote_Bw
+  output_run_name: te_periodic_temporal_convolution_sequence_remote_Bw
+  run_instance_id: 2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw
+  output_artifact_kind: training_run
+  base_model_family: periodic_temporal_convolution
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_temporal_convolution_bw\2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_temporal_convolution_bw\2026-05-25-16-18-28__te_periodic_temporal_convolution_sequence_remote_bw\checkpoints\periodic_temporal_convolution-epoch=018-val_mae=0.00388991.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 158529
+  frozen_parameter_count: 0
+  total_parameter_count: 158529
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.04473687708377838
+  val_mae: 0.003889910876750946
+  val_rmse: 0.0045043956488370895
+test_metrics:
+  test_loss: 0.03264704719185829
+  test_mae: 0.003614312969148159
+  test_rmse: 0.0041631171479821205
+comparison_payload:
+  model_family: periodic_temporal_convolution_bw
+  model_type: periodic_temporal_convolution
+  run_name: te_periodic_temporal_convolution_sequence_remote_Bw
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 158529
+  total_parameter_count: 158529
+  val_mae: 0.003889910876750946
+  val_rmse: 0.0045043956488370895
+  test_mae: 0.003614312969148159
+  test_rmse: 0.0041631171479821205
+  deployment_notes: ''
+  interpretability_notes: ''

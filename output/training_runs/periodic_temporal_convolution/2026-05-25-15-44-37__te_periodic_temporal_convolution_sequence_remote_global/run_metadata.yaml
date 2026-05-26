@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_temporal_convolution
+base_model_family: periodic_temporal_convolution
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_periodic_temporal_convolution_sequence_remote_global
+run_instance_id: 2026-05-25-15-44-37__te_periodic_temporal_convolution_sequence_remote_global
+output_directory: output\training_runs\periodic_temporal_convolution\2026-05-25-15-44-37__te_periodic_temporal_convolution_sequence_remote_global

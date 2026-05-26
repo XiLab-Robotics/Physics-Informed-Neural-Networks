@@ -1,25 +1,26 @@
 status: none
 campaign_name: null
-cleared_at: '2026-05-24T12:34:31+02:00'
-clear_reason: completed_campaign_removed_from_running_state_after_wave2_temporal_model_entry_execution
+cleared_at: '2026-05-26T14:14:56+02:00'
+clear_reason: completed_campaign_removed_from_running_state_after_closeout_report
 last_completed_campaign:
-  campaign_name: wave2_temporal_model_entry_campaign_2026_05_24_11_01_15
+  campaign_name: wave2b_harmonic_temporal_hybrid_campaign_2026_05_25
   status: completed
-  started_at: '2026-05-24T11:20:37'
-  finished_at: '2026-05-24T12:27:31'
-  completion_recorded_at: '2026-05-24T12:34:31+02:00'
+  started_at: '2026-05-25T15:44:37'
+  finished_at: '2026-05-25T20:05:38'
+  completion_recorded_at: '2026-05-25T20:05:38'
   completed_run_count: 9
   failed_run_count: 0
-  planning_report_path: doc/reports/campaign_plans/wave2/2026-05-21-16-46-08_wave2_temporal_model_entry_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-05/2026-05-21/2026-05-21-16-46-08_wave2_temporal_model_entry_plan.md
-  campaign_output_directory: output/training_campaigns/2026-05-24-11-20-37_wave2_temporal_model_entry_campaign_2026_05_24_11_01_15
-  results_report_path: doc/reports/campaign_results/wave2/2026-05-24-12-36-49_wave2_temporal_model_entry_campaign_results_report.md
-  track2_refresh_plan_path: doc/reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md
-  best_run_name: te_gru_sequence_remote_Fw
-  best_run_instance_id: 2026-05-24-11-54-04__te_gru_sequence_remote_fw
-  best_model_family: gru_sequence_fw
-  best_test_mae: 0.0033327306155115366
-  best_test_rmse: 0.003880843287333846
+  planning_report_path: doc/reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md
+  closeout_workflow_document_path: doc/technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md
+  campaign_output_directory: output/training_campaigns/2026-05-25-15-44-37_wave2b_harmonic_temporal_hybrid_campaign_2026_05_25
+  results_report_path: doc/reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md
+  best_run_name: te_periodic_gru_sequence_remote_Bw
+  best_run_instance_id: 2026-05-25-17-38-18__te_periodic_gru_sequence_remote_bw
+  best_model_family: periodic_gru_sequence_bw
+  best_test_mae: 0.0023438564967364073
+  best_test_rmse: 0.002746675396338105
+  track2_status: not_run_operator_launch_required
 protected_file_list: []
 queue_config_path_list: []
 launch_command_list: []

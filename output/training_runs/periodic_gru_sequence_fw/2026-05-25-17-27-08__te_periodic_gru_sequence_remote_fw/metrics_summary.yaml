@@ -1,0 +1,73 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\queue\running\2026-05-25-15-44-37_005_05_periodic_gru_sequence_fw.yaml
+experiment:
+  model_family: periodic_gru_sequence_fw
+  model_type: periodic_gru_sequence
+  run_name: te_periodic_gru_sequence_remote_Fw
+  output_run_name: te_periodic_gru_sequence_remote_Fw
+  run_instance_id: 2026-05-25-17-27-08__te_periodic_gru_sequence_remote_fw
+  output_artifact_kind: training_run
+  base_model_family: periodic_gru_sequence
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_gru_sequence_fw\2026-05-25-17-27-08__te_periodic_gru_sequence_remote_fw
+  best_checkpoint_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+    - Codex\output\training_runs\periodic_gru_sequence_fw\2026-05-25-17-27-08__te_periodic_gru_sequence_remote_fw\checkpoints\periodic_gru_sequence-epoch=029-val_mae=0.00322710.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 157953
+  frozen_parameter_count: 0
+  total_parameter_count: 157953
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.030703183263540268
+  val_mae: 0.003227096050977707
+  val_rmse: 0.0037104592192918062
+test_metrics:
+  test_loss: 0.026138965040445328
+  test_mae: 0.003192741656675935
+  test_rmse: 0.003583470592275262
+comparison_payload:
+  model_family: periodic_gru_sequence_fw
+  model_type: periodic_gru_sequence
+  run_name: te_periodic_gru_sequence_remote_Fw
+  backbone_name: PeriodicTemporalSequenceNetwork
+  trainable_parameter_count: 157953
+  total_parameter_count: 157953
+  val_mae: 0.003227096050977707
+  val_rmse: 0.0037104592192918062
+  test_mae: 0.003192741656675935
+  test_rmse: 0.003583470592275262
+  deployment_notes: ''
+  interpretability_notes: ''

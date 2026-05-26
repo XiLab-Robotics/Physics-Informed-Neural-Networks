@@ -38,7 +38,7 @@ metadata:
   direction_scope_label: ${direction.direction_scope_label}
   use_forward_direction: ${direction.use_forward_direction}
   use_backward_direction: ${direction.use_backward_direction}
-  hydra_transition_policy: wave2_temporal_model_entry_preparation
+  hydra_transition_policy: ${campaign_profile.hydra_transition_policy}
 
 dataset: ${dataset_profile.training_dataset}
 model: ${model_family.model}

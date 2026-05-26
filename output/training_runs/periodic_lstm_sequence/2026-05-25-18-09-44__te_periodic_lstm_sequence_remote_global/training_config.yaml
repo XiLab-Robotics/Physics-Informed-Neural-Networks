@@ -1,0 +1,74 @@
+paths:
+  dataset_config_path: config/training/wave2b_harmonic_temporal_hybrid/campaigns/2026-05-25_wave2b_harmonic_temporal_hybrid_campaign/dataset_variants/transmission_error_dataset_global.yaml
+  output_root: output/training_runs/periodic_lstm_sequence
+experiment:
+  run_name: te_periodic_lstm_sequence_remote_global
+  model_family: periodic_lstm_sequence
+  model_type: periodic_lstm_sequence
+metadata:
+  campaign_name: wave2b_harmonic_temporal_hybrid_campaign_2026_05_25
+  planning_report_path: doc/reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md
+  phase_name: wave2b_harmonic_temporal_hybrid_preparation
+  campaign_config_id: periodic_lstm_sequence
+  notes: Wave 2B harmonic-temporal hybrid campaign | family=periodic_lstm_sequence
+    | direction=global. Candidate must return through official Track 2 verification.
+  random_seed: 42
+  base_model_family: periodic_lstm_sequence
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  hydra_transition_policy: wave2b_harmonic_temporal_hybrid_preparation
+  technical_document_path: doc/technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md
+  queue_index: 7
+  output_artifact_kind: training_run
+  output_run_name: te_periodic_lstm_sequence_remote_global
+  run_instance_id: 2026-05-25-18-09-44__te_periodic_lstm_sequence_remote_global
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 240
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  include_raw_angle_feature: true
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

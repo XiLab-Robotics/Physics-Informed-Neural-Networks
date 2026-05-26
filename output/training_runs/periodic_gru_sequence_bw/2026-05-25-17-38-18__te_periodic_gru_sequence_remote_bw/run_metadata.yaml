@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: periodic_gru_sequence_bw
+base_model_family: periodic_gru_sequence
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_periodic_gru_sequence_remote_Bw
+run_instance_id: 2026-05-25-17-38-18__te_periodic_gru_sequence_remote_bw
+output_directory: output\training_runs\periodic_gru_sequence_bw\2026-05-25-17-38-18__te_periodic_gru_sequence_remote_bw

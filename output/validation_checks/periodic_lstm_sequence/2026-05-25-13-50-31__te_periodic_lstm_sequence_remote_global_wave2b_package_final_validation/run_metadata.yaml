@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: periodic_lstm_sequence
+base_model_family: periodic_lstm_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_periodic_lstm_sequence_remote_global_wave2b_package_final_validation
+run_instance_id: 2026-05-25-13-50-31__te_periodic_lstm_sequence_remote_global_wave2b_package_final_validation
+output_directory: output\validation_checks\periodic_lstm_sequence\2026-05-25-13-50-31__te_periodic_lstm_sequence_remote_global_wave2b_package_final_validation
