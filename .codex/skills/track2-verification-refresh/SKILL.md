@@ -7,11 +7,16 @@ description: Use after a completed StandardML training campaign must be accepted
 
 ## Purpose
 
-Run the post-campaign `Track 2` verification workflow without losing the
-decision discipline established during the Wave 2 temporal refresh. This skill
-does not replace campaign planning or training execution; use it after the
-campaign is complete and the user asks to refresh or close out official
-`Track 2` verification.
+Prepare and review the post-campaign `Track 2` verification workflow without
+losing the decision discipline established during the Wave 2 temporal refresh.
+This skill does not replace campaign planning, training execution, or normal
+campaign closeout; use it after the campaign is complete and the user asks to
+refresh official `Track 2` verification.
+
+Do not run the heavy `Track 2` matrix inside Codex by default. The default
+workflow is to prepare an operator-facing PowerShell launcher with local and
+`-Remote` modes, provide the exact command, and wait for the user to run it and
+report completion before inspecting the resulting artifacts.
 
 ## Coordinate Skills
 
@@ -33,10 +38,13 @@ scope and wait for explicit user approval.
 2. Confirm the campaign is completed or explicitly cleared before touching
    protected files.
 3. Read the approved technical document or refresh plan for the campaign.
-4. Identify the new candidate surfaces: `global`, `Fw`, `Bw`, or an explicitly
+4. Confirm normal campaign closeout has already completed, or that the user has
+   explicitly approved preparing `Track 2` before closeout.
+5. Confirm the user approved an operator-launched `Track 2` run.
+6. Identify the new candidate surfaces: `global`, `Fw`, `Bw`, or an explicitly
    approved exception.
-5. Confirm the registry files exist under `output/registries/families/`.
-6. Inspect current `Track 2` report-builder code before patching.
+7. Confirm the registry files exist under `output/registries/families/`.
+8. Inspect current `Track 2` report-builder code before patching.
 
 For the detailed command checklist, read
 `references/track2-refresh-checklist.md`.
@@ -59,6 +67,23 @@ If the candidate model family needs a new inference shape, patch the shared
 support code in:
 
 `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/reference_family_vs_feedforward_support.py`
+
+## Operator Launcher Gate
+
+When `Track 2` is approved, create or update a dedicated launcher under
+`scripts/campaigns/` or the existing campaign-specific tooling root. The
+launcher must:
+
+- run the matrix locally by default;
+- expose a `-Remote` option when the repository remote-campaign conventions are
+  available;
+- write logs and output suffixes that make reruns distinguishable;
+- avoid starting the matrix during preparation;
+- be accompanied by a short launcher note under `doc/scripts/campaigns/` or the
+  relevant `doc/scripts/` topic.
+
+After providing the command, stop and wait until the user confirms that the
+launcher completed.
 
 Verify the canonical matrix report updates:
 

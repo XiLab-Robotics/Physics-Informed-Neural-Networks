@@ -141,6 +141,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-26
+
+- [technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md](./technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md)
+  Plan the revised campaign-closeout workflow that separates normal campaign
+  closeout from optional operator-launched `Track 2` verification, including
+  local and `-Remote` launcher preparation before any heavy Track 2 run.
+
 #### 2026-05-25
 
 - [technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md](./technical/2026-05/2026-05-25/2026-05-25-03-17-26_wave2b_harmonic_temporal_hybrids.md)

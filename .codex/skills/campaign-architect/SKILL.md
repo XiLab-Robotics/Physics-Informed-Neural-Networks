@@ -49,6 +49,13 @@ When the task is campaign-oriented, keep this sequence explicit:
 - Keep `run_name` separate from immutable `run_instance_id`.
 - Do not introduce new legacy flat output roots.
 - Prefer narrow, inspectable campaign batches over loosely defined sweeps.
+- Close out completed campaigns before any optional `Track 2` refresh. The
+  normal closeout covers campaign-results Markdown/PDF, active-state cleanup,
+  registry/status synchronization, and QA; it must not run the heavy `Track 2`
+  matrix inside Codex.
+- If `Track 2` is requested after closeout, prepare an operator-facing
+  PowerShell launcher with local and `-Remote` execution paths, then wait for
+  the user to run it and confirm completion.
 - When reviewing changes, check naming consistency across:
   `campaign_name`, config filenames, run names, launcher names, and report
   titles.

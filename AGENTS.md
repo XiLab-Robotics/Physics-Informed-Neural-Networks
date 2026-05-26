@@ -145,6 +145,13 @@
 - Every completed training campaign must expose its winner explicitly through
   `campaign_leaderboard.yaml`, `campaign_best_run.yaml`, and
   `campaign_best_run.md`.
+- Normal campaign closeout must not automatically execute the heavy `Track 2`
+  offline verification matrix. Finish the campaign-results report, PDF export,
+  registry/status synchronization, and active-campaign cleanup first.
+- After normal closeout, propose `Track 2` as a separate optional step. If the
+  user approves it, generate a repository-owned PowerShell launcher that can be
+  run locally or with `-Remote`, then wait for the user to run it and report
+  completion before inspecting or accepting `Track 2` artifacts.
 - Keep family-level and program-level best-result registries updated after
   training or campaign completion.
 - Keep `doc/reports/analysis/Training Results Master Summary.md` synchronized

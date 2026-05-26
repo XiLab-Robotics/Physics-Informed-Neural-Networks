@@ -39,7 +39,11 @@ If a model expects sequence windows, build full-curve windows so the predicted
 curve length matches the measured angular grid. Do not compare truncated
 center-only outputs against full curves.
 
-Run the matrix:
+Prepare an operator-facing launcher for the matrix. The launcher must support a
+local run and, when available for the repository workflow, a `-Remote` run. Do
+not run the heavy matrix from Codex during preparation.
+
+The local launcher command should wrap this matrix command:
 
 ```powershell
 conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/run_reference_family_vs_feedforward_comparison.py `
@@ -48,8 +52,11 @@ conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensa
   --windows
 ```
 
-If the wrapper times out but the child `pinns_env` Python process is still
-using CPU, wait for that process instead of launching a second matrix run.
+Provide the exact local command and the exact `-Remote` command to the user,
+then wait for the user to run the launcher and report completion. If the user
+reports that the wrapper timed out but the child `pinns_env` Python process is
+still using CPU, tell them to wait for that process instead of launching a
+second matrix run.
 
 ## 3. Matrix Report Sanity Checks
 
