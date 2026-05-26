@@ -221,6 +221,9 @@ comparison:
         - temporal_convolution
         - gru_sequence
         - lstm_sequence
+        - periodic_temporal_convolution
+        - periodic_gru_sequence
+        - periodic_lstm_sequence
 evaluation:
   selected_harmonics:
     - 0

@@ -64,6 +64,9 @@ WAVE2_BASE_FAMILY_LIST = [
     "temporal_convolution",
     "gru_sequence",
     "lstm_sequence",
+    "periodic_temporal_convolution",
+    "periodic_gru_sequence",
+    "periodic_lstm_sequence",
 ]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
