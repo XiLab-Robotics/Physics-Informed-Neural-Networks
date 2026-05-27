@@ -19,6 +19,7 @@ import yaml
 import torch
 
 # Import Project Utilities
+from scripts.datasets import transmission_error_dataset
 from scripts.models.model_factory import create_model
 from scripts.paper_reimplementation.rcim_ml_compensation.harmonic_wise_comparison import harmonic_wise_support
 from scripts.training import shared_training_infrastructure
@@ -49,7 +50,12 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "temporal_convolution",
     "gru_sequence",
     "lstm_sequence",
+    "periodic_temporal_convolution",
+    "periodic_gru_sequence",
+    "periodic_lstm_sequence",
 }
+REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
+TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
 
 
 @dataclass(frozen=True)
@@ -248,6 +254,42 @@ def resolve_family_best_entry(registry_path: str | Path) -> dict[str, Any]:
     return best_entry
 
 
+def load_lightning_regression_module_for_inference(
+    checkpoint_path: Path,
+    training_config: dict[str, Any],
+) -> TransmissionErrorRegressionModule:
+
+    """Load one Lightning TE checkpoint without constructing the full datamodule."""
+
+    inference_device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    checkpoint_dictionary = torch.load(checkpoint_path, map_location=torch.device("cpu"), weights_only=False)
+    hyperparameter_dictionary = checkpoint_dictionary.get("hyper_parameters", {})
+    input_feature_dim = int(
+        hyperparameter_dictionary.get(
+            "input_feature_dim",
+            training_config.get("model", {}).get("input_size", 5),
+        )
+    )
+    target_feature_dim = int(hyperparameter_dictionary.get("target_feature_dim", 1))
+    del checkpoint_dictionary
+
+    regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
+        checkpoint_path=checkpoint_path,
+        regression_model=create_model(
+            model_type=str(training_config["experiment"]["model_type"]),
+            model_configuration=training_config["model"],
+        ),
+        input_feature_dim=input_feature_dim,
+        target_feature_dim=target_feature_dim,
+        normalization_statistics=None,
+        map_location=torch.device("cpu"),
+    )
+    regression_module.normalization_statistics_initialized = True
+    regression_module.to(inference_device)
+    regression_module.eval()
+    return regression_module
+
+
 def load_feedforward_regression_module(feedforward_best_entry: dict[str, Any]) -> tuple[TransmissionErrorRegressionModule, dict[str, Any]]:
 
     """Load the canonical best feedforward checkpoint plus its config snapshot."""
@@ -257,24 +299,16 @@ def load_feedforward_regression_module(feedforward_best_entry: dict[str, Any]) -
     )
     training_config_path = output_directory / shared_training_infrastructure.COMMON_TRAINING_CONFIG_FILENAME
     training_config = shared_training_infrastructure.load_training_config(training_config_path)
-    datamodule, _, _, normalization_statistics = shared_training_infrastructure.initialize_training_components(training_config)
-    datamodule.setup(stage="fit")
     best_checkpoint_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
         feedforward_best_entry["best_checkpoint_path"]
     )
-    regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
-        checkpoint_path=best_checkpoint_path,
-        regression_model=create_model(
-            model_type=str(training_config["experiment"]["model_type"]),
-            model_configuration=training_config["model"],
+    return (
+        load_lightning_regression_module_for_inference(
+            best_checkpoint_path,
+            training_config,
         ),
-        input_feature_dim=datamodule.get_input_feature_dim(),
-        target_feature_dim=datamodule.get_target_feature_dim(),
-        normalization_statistics=normalization_statistics,
+        training_config,
     )
-    regression_module.to(torch.device("cpu"))
-    regression_module.eval()
-    return regression_module, training_config
 
 
 def load_wave1_registry_model(registry_entry: dict[str, Any]) -> tuple[Any, dict[str, Any]]:
@@ -293,27 +327,16 @@ def load_wave1_registry_model(registry_entry: dict[str, Any]) -> tuple[Any, dict
         )
         return tree_regression_support.load_tree_model(model_path), training_config
 
-    datamodule, _, _, normalization_statistics = shared_training_infrastructure.initialize_training_components(
-        training_config
-    )
-    datamodule.setup(stage="fit")
     best_checkpoint_path = shared_training_infrastructure.resolve_runtime_project_relative_path(
         registry_entry["best_checkpoint_path"]
     )
-    regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
-        checkpoint_path=best_checkpoint_path,
-        regression_model=create_model(
-            model_type=str(training_config["experiment"]["model_type"]),
-            model_configuration=training_config["model"],
+    return (
+        load_lightning_regression_module_for_inference(
+            best_checkpoint_path,
+            training_config,
         ),
-        input_feature_dim=datamodule.get_input_feature_dim(),
-        target_feature_dim=datamodule.get_target_feature_dim(),
-        normalization_statistics=normalization_statistics,
-        map_location=torch.device("cpu"),
+        training_config,
     )
-    regression_module.to(torch.device("cpu"))
-    regression_module.eval()
-    return regression_module, training_config
 
 
 def load_wave1_exported_model(export_inventory: dict[str, Any]) -> tuple[Any, dict[str, Any]]:
@@ -333,24 +356,13 @@ def load_wave1_exported_model(export_inventory: dict[str, Any]) -> tuple[Any, di
     if model_type in {"hist_gradient_boosting", "random_forest"}:
         return tree_regression_support.load_tree_model(model_path), training_config
 
-    datamodule, _, _, normalization_statistics = shared_training_infrastructure.initialize_training_components(
-        training_config
-    )
-    datamodule.setup(stage="fit")
-    regression_module = TransmissionErrorRegressionModule.load_from_checkpoint(
-        checkpoint_path=model_path,
-        regression_model=create_model(
-            model_type=str(training_config["experiment"]["model_type"]),
-            model_configuration=training_config["model"],
+    return (
+        load_lightning_regression_module_for_inference(
+            model_path,
+            training_config,
         ),
-        input_feature_dim=datamodule.get_input_feature_dim(),
-        target_feature_dim=datamodule.get_target_feature_dim(),
-        normalization_statistics=normalization_statistics,
-        map_location=torch.device("cpu"),
+        training_config,
     )
-    regression_module.to(torch.device("cpu"))
-    regression_module.eval()
-    return regression_module, training_config
 
 
 def build_curve_record_list(
@@ -359,6 +371,58 @@ def build_curve_record_list(
 ) -> tuple[list[harmonic_wise_support.HarmonicCurveRecord], dict[str, int], dict[str, int], Path]:
 
     """Build the held-out TE-curve record list used by the comparison."""
+
+    if bool(training_config.get("comparison", {}).get("lightweight_test_curve_records", False)):
+        dataset_configuration = transmission_error_dataset.load_dataset_processing_config(
+            training_config["paths"]["dataset_config_path"]
+        )
+        dataset_root = transmission_error_dataset.resolve_project_relative_path(
+            dataset_configuration["paths"]["dataset_root"]
+        )
+        direction_configuration = dataset_configuration["directions"]
+        split_configuration = dataset_configuration["split"]
+        directional_file_manifest = transmission_error_dataset.build_directional_file_manifest(
+            dataset_root=dataset_root,
+            use_forward_direction=bool(direction_configuration["use_forward_direction"]),
+            use_backward_direction=bool(direction_configuration["use_backward_direction"]),
+        )
+        train_manifest, validation_manifest, test_manifest = transmission_error_dataset.split_directional_file_manifest(
+            directional_file_manifest,
+            validation_split=float(split_configuration["validation_split"]),
+            test_split=float(split_configuration["test_split"]),
+            random_seed=int(split_configuration["random_seed"]),
+        )
+        curve_record_list = []
+        for csv_file_path, direction_label in test_manifest:
+            curve_sample = transmission_error_dataset.build_validated_directional_sample(
+                csv_file_path.resolve(),
+                direction_label,
+            )
+            curve_record_list.append(
+                harmonic_wise_support.HarmonicCurveRecord(
+                    source_file_path=curve_sample.source_file_path,
+                    direction_label=curve_sample.direction_label,
+                    direction_flag=float(curve_sample.direction_flag),
+                    speed_rpm=float(curve_sample.speed_rpm),
+                    torque_nm=float(curve_sample.torque_nm),
+                    oil_temperature_deg=float(curve_sample.oil_temperature_deg),
+                    angular_position_deg=curve_sample.angular_position_deg.astype(np.float32),
+                    transmission_error_deg=curve_sample.transmission_error_deg.astype(np.float32),
+                    coefficient_dictionary={},
+                    amplitude_phase_dictionary={},
+                )
+            )
+        directional_count_dictionary = {
+            "train": len(train_manifest),
+            "validation": len(validation_manifest),
+            "test": len(test_manifest),
+        }
+        file_count_dictionary = {
+            "train": len({csv_file_path for csv_file_path, _ in train_manifest}),
+            "validation": len({csv_file_path for csv_file_path, _ in validation_manifest}),
+            "test": len({csv_file_path for csv_file_path, _ in test_manifest}),
+        }
+        return curve_record_list, directional_count_dictionary, file_count_dictionary, dataset_root
 
     split_record_bundle, directional_count_dictionary, file_count_dictionary, dataset_root = (
         harmonic_wise_support.build_split_record_bundle(training_config)
@@ -383,10 +447,29 @@ def build_reference_feature_matrix(curve_record_list: list[harmonic_wise_support
     )
 
 
+def predict_reference_model_in_batches(model_object: Any, reference_feature_matrix: pd.DataFrame) -> np.ndarray:
+
+    """Predict one archived reference target with a bounded inference batch size."""
+
+    prediction_array_list: list[np.ndarray] = []
+    for batch_start_index in range(0, len(reference_feature_matrix), REFERENCE_BANK_PREDICTION_BATCH_SIZE):
+        batch_feature_matrix = reference_feature_matrix.iloc[
+            batch_start_index : batch_start_index + REFERENCE_BANK_PREDICTION_BATCH_SIZE
+        ]
+        prediction_array_list.append(
+            np.asarray(
+                model_object.predict(batch_feature_matrix),
+                dtype=np.float32,
+            ).reshape(-1)
+        )
+
+    return np.concatenate(prediction_array_list).reshape(-1)
+
+
 def predict_reference_bank_target_dictionary(
     curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
     reference_model_entry_list: list[ReferenceModelEntry],
-    reference_model_dictionary: dict[str, Any],
+    reference_model_dictionary: dict[str, Any] | None,
 ) -> dict[str, np.ndarray]:
 
     """Predict all archived amplitude and phase targets for the held-out curves."""
@@ -398,10 +481,16 @@ def predict_reference_bank_target_dictionary(
             "Unexpected reference feature schema | "
             f"{reference_entry.feature_name_list}"
         )
-        predicted_target_dictionary[reference_entry.target_name] = np.asarray(
-            reference_model_dictionary[reference_entry.target_name].predict(reference_feature_matrix),
-            dtype=np.float32,
-        ).reshape(-1)
+        if reference_model_dictionary is None:
+            with reference_entry.python_model_path.open("rb") as model_file:
+                reference_model_object = pickle.load(model_file)
+        else:
+            reference_model_object = reference_model_dictionary[reference_entry.target_name]
+        predicted_target_dictionary[reference_entry.target_name] = predict_reference_model_in_batches(
+            reference_model_object,
+            reference_feature_matrix,
+        )
+        del reference_model_object
     return predicted_target_dictionary
 
 
@@ -632,6 +721,76 @@ def build_temporal_sequence_input_tensor(
     return torch.stack(sequence_window_list, dim=0)
 
 
+def predict_temporal_sequence_curve_in_batches(
+    model_object: TransmissionErrorRegressionModule,
+    curve_record: harmonic_wise_support.HarmonicCurveRecord,
+    training_config: dict[str, Any],
+) -> np.ndarray:
+
+    """Predict one temporal TE curve without materializing every sequence window at once."""
+
+    inference_device = model_object.input_feature_mean.device
+    point_input_tensor = build_feedforward_input_tensor(curve_record).float().to(inference_device)
+    dataset_configuration = training_config.get("dataset", {})
+    sequence_length = int(dataset_configuration.get("sequence_length", 1))
+    sequence_target_position = str(dataset_configuration.get("sequence_target_position", "center")).strip().lower()
+
+    assert sequence_length > 0, f"Sequence Length must be positive | {sequence_length}"
+    assert sequence_target_position in {"center", "last"}, (
+        f"Unsupported Sequence Target Position | {sequence_target_position}"
+    )
+
+    if sequence_target_position == "center":
+        assert sequence_length % 2 == 1, (
+            "Center-readout full-curve evaluation requires an odd sequence length | "
+            f"{sequence_length}"
+        )
+        left_padding_count = sequence_length // 2
+        right_padding_count = sequence_length // 2
+    else:
+        left_padding_count = sequence_length - 1
+        right_padding_count = 0
+
+    feature_count = int(point_input_tensor.shape[1])
+    empty_padding_tensor = point_input_tensor.new_empty((0, feature_count))
+    left_padding_tensor = (
+        point_input_tensor[:1].repeat(left_padding_count, 1)
+        if left_padding_count > 0
+        else empty_padding_tensor
+    )
+    right_padding_tensor = (
+        point_input_tensor[-1:].repeat(right_padding_count, 1)
+        if right_padding_count > 0
+        else empty_padding_tensor
+    )
+    padded_input_tensor = torch.cat(
+        [left_padding_tensor, point_input_tensor, right_padding_tensor],
+        dim=0,
+    )
+    prediction_tensor_list: list[torch.Tensor] = []
+
+    with torch.no_grad():
+        for batch_start_index in range(0, int(point_input_tensor.shape[0]), TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE):
+            batch_end_index = min(
+                batch_start_index + TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE,
+                int(point_input_tensor.shape[0]),
+            )
+            sequence_window_list = [
+                padded_input_tensor[start_index:start_index + sequence_length]
+                for start_index in range(batch_start_index, batch_end_index)
+            ]
+            input_tensor = torch.stack(sequence_window_list, dim=0)
+            normalized_input_tensor = model_object.normalize_input_tensor(input_tensor)
+            normalized_prediction_tensor, _ = model_object.forward_regression_model(
+                input_tensor,
+                normalized_input_tensor,
+            )
+            predicted_curve_tensor = model_object.denormalize_target_tensor(normalized_prediction_tensor)
+            prediction_tensor_list.append(predicted_curve_tensor.detach().cpu())
+
+    return torch.cat(prediction_tensor_list, dim=0).numpy().reshape(-1).astype(np.float32)
+
+
 def predict_feedforward_curve(
     regression_module: TransmissionErrorRegressionModule,
     curve_record: harmonic_wise_support.HarmonicCurveRecord,
@@ -639,7 +798,8 @@ def predict_feedforward_curve(
 
     """Predict one TE curve with the canonical feedforward checkpoint."""
 
-    input_tensor = build_feedforward_input_tensor(curve_record).float()
+    inference_device = regression_module.input_feature_mean.device
+    input_tensor = build_feedforward_input_tensor(curve_record).float().to(inference_device)
     with torch.no_grad():
         normalized_input_tensor = regression_module.normalize_input_tensor(input_tensor)
         normalized_prediction_tensor, _ = regression_module.forward_regression_model(
@@ -668,9 +828,13 @@ def predict_wave1_registry_curve(
         f"Expected TransmissionErrorRegressionModule | {model_type}"
     )
     if model_type in TEMPORAL_SEQUENCE_MODEL_TYPE_SET:
-        input_tensor = build_temporal_sequence_input_tensor(curve_record, training_config).float()
+        return predict_temporal_sequence_curve_in_batches(
+            model_object,
+            curve_record,
+            training_config,
+        )
     else:
-        input_tensor = build_feedforward_input_tensor(curve_record).float()
+        input_tensor = build_feedforward_input_tensor(curve_record).float().to(model_object.input_feature_mean.device)
 
     with torch.no_grad():
         normalized_input_tensor = model_object.normalize_input_tensor(input_tensor)
@@ -1018,7 +1182,6 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
         reference_inventory = load_reference_inventory(reference_inventory_path)
         selected_harmonic_list = resolve_selected_harmonic_list(reference_inventory)
         model_entry_list = load_reference_model_entries(reference_inventory)
-        model_dictionary = load_reference_model_dictionary(model_entry_list)
         return Track2Candidate(
             candidate_id=candidate_id,
             candidate_family=candidate_family,
@@ -1029,7 +1192,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(reference_inventory_path),
             selected_harmonic_list=selected_harmonic_list,
             model_entry_list=model_entry_list,
-            model_dictionary=model_dictionary,
+            model_dictionary=None,
             registry_entry=None,
             training_config=None,
             model_object=None,
@@ -1069,7 +1232,6 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
                 for reference_entry in model_entry_list
             }
         )
-        model_dictionary = load_reference_model_dictionary(model_entry_list)
         return Track2Candidate(
             candidate_id=candidate_id,
             candidate_family=candidate_family,
@@ -1080,7 +1242,7 @@ def load_track2_candidate(candidate_configuration: dict[str, Any]) -> Track2Cand
             source_path=shared_training_infrastructure.resolve_runtime_project_relative_path(archive_root),
             selected_harmonic_list=selected_harmonic_list,
             model_entry_list=model_entry_list,
-            model_dictionary=model_dictionary,
+            model_dictionary=None,
             registry_entry={
                 "composite_selection": {
                     "amplitude_family_by_harmonic": candidate_configuration["amplitude_family_by_harmonic"],
@@ -1161,6 +1323,7 @@ def evaluate_track2_candidate(
     candidate: Track2Candidate,
     curve_record_list: list[harmonic_wise_support.HarmonicCurveRecord],
     percentage_error_denominator: str,
+    include_curve_payload: bool = True,
 ) -> tuple[list[dict[str, Any]], dict[str, float] | None]:
 
     """Evaluate one Track 2 candidate on its valid held-out curve records."""
@@ -1170,18 +1333,18 @@ def evaluate_track2_candidate(
 
     if candidate.candidate_kind in REFERENCE_CANDIDATE_KIND_SET:
         assert candidate.model_entry_list is not None
-        assert candidate.model_dictionary is not None
         predicted_target_dictionary = predict_reference_bank_target_dictionary(
             candidate_curve_record_list,
             candidate.model_entry_list,
             candidate.model_dictionary,
         )
-        target_metric_dictionary = build_reference_target_metric_dictionary_from_entries(
-            candidate_curve_record_list,
-            candidate.model_entry_list,
-            predicted_target_dictionary,
-            candidate.selected_harmonic_list,
-        )
+        if all(curve_record.amplitude_phase_dictionary for curve_record in candidate_curve_record_list):
+            target_metric_dictionary = build_reference_target_metric_dictionary_from_entries(
+                candidate_curve_record_list,
+                candidate.model_entry_list,
+                predicted_target_dictionary,
+                candidate.selected_harmonic_list,
+            )
         prediction_lookup = build_reference_prediction_lookup(
             candidate.model_entry_list,
             predicted_target_dictionary,
@@ -1217,26 +1380,30 @@ def evaluate_track2_candidate(
             predicted_curve_deg,
             percentage_error_denominator,
         )
-        per_candidate_entry_list.append(
-            {
-                "candidate_id": candidate.candidate_id,
-                "candidate_family": candidate.candidate_family,
-                "candidate_kind": candidate.candidate_kind,
-                "candidate_source_label": candidate.candidate_source_label,
-                "candidate_surface": candidate.candidate_surface,
-                "allowed_direction_list": list(candidate.allowed_direction_list),
-                "source_path": shared_training_infrastructure.format_project_relative_path(candidate.source_path),
-                "source_file_path": shared_training_infrastructure.format_project_relative_path(curve_record.source_file_path),
-                "direction_label": curve_record.direction_label,
-                "speed_rpm": float(curve_record.speed_rpm),
-                "torque_nm": float(curve_record.torque_nm),
-                "oil_temperature_deg": float(curve_record.oil_temperature_deg),
-                "angular_position_deg": curve_record.angular_position_deg.astype(float).tolist(),
-                "truth_curve_deg": curve_record.transmission_error_deg.astype(float).tolist(),
-                "predicted_curve_deg": predicted_curve_deg.astype(float).tolist(),
-                "metrics": metric_dictionary,
-            }
-        )
+        per_candidate_entry = {
+            "candidate_id": candidate.candidate_id,
+            "candidate_family": candidate.candidate_family,
+            "candidate_kind": candidate.candidate_kind,
+            "candidate_source_label": candidate.candidate_source_label,
+            "candidate_surface": candidate.candidate_surface,
+            "allowed_direction_list": list(candidate.allowed_direction_list),
+            "source_path": shared_training_infrastructure.format_project_relative_path(candidate.source_path),
+            "source_file_path": shared_training_infrastructure.format_project_relative_path(curve_record.source_file_path),
+            "direction_label": curve_record.direction_label,
+            "speed_rpm": float(curve_record.speed_rpm),
+            "torque_nm": float(curve_record.torque_nm),
+            "oil_temperature_deg": float(curve_record.oil_temperature_deg),
+            "metrics": metric_dictionary,
+        }
+        if include_curve_payload:
+            per_candidate_entry.update(
+                {
+                    "angular_position_deg": curve_record.angular_position_deg.astype(float).tolist(),
+                    "truth_curve_deg": curve_record.transmission_error_deg.astype(float).tolist(),
+                    "predicted_curve_deg": predicted_curve_deg.astype(float).tolist(),
+                }
+            )
+        per_candidate_entry_list.append(per_candidate_entry)
 
     return per_candidate_entry_list, target_metric_dictionary
 
@@ -1465,7 +1632,11 @@ def maybe_generate_track2_preview_plots(
     preview_directory = output_directory / "preview_curves"
     preview_directory.mkdir(parents=True, exist_ok=True)
     preview_plot_path_list: list[str] = []
-    selected_entry_list = per_candidate_entry_list[: max(int(preview_curve_count), 0)]
+    selected_entry_list = [
+        per_candidate_entry
+        for per_candidate_entry in per_candidate_entry_list
+        if "angular_position_deg" in per_candidate_entry
+    ][: max(int(preview_curve_count), 0)]
 
     for preview_index, per_candidate_entry in enumerate(selected_entry_list):
         figure, axis = plt.subplots(figsize=(8.0, 4.0))
@@ -1557,6 +1728,8 @@ def maybe_generate_track2_grouped_report_plots(
 
     grouped_entry_dictionary: dict[str, list[dict[str, Any]]] = {}
     for per_candidate_entry in per_candidate_entry_list:
+        if "angular_position_deg" not in per_candidate_entry:
+            continue
         candidate_id = str(per_candidate_entry["candidate_id"])
         grouped_entry_dictionary.setdefault(candidate_id, []).append(per_candidate_entry)
 
@@ -1823,14 +1996,46 @@ def build_track2_directional_comparison_summary(
     report_plot_path_list: list[str],
     per_condition_metrics_csv_path: Path,
     dataset_root: Path,
+    candidate_metric_summary_override: dict[str, dict[str, float]] | None = None,
+    direction_metric_summary_override: dict[str, dict[str, dict[str, float]]] | None = None,
+    temperature_metric_summary_override: dict[str, dict[str, dict[str, float]]] | None = None,
+    sample_preview_list_override: list[dict[str, object]] | None = None,
 ) -> dict[str, Any]:
 
     """Build the direction-aware Track 2 comparison summary."""
 
     comparison_configuration = training_config["comparison"]
-    candidate_metric_summary = build_candidate_metric_summary(per_candidate_entry_list)
-    direction_metric_summary = build_generic_group_metric_summary(per_candidate_entry_list, "direction_label")
-    temperature_metric_summary = build_generic_group_metric_summary(per_candidate_entry_list, "oil_temperature_deg")
+    candidate_metric_summary = (
+        candidate_metric_summary_override
+        if candidate_metric_summary_override is not None
+        else build_candidate_metric_summary(per_candidate_entry_list)
+    )
+    direction_metric_summary = (
+        direction_metric_summary_override
+        if direction_metric_summary_override is not None
+        else build_generic_group_metric_summary(per_candidate_entry_list, "direction_label")
+    )
+    temperature_metric_summary = (
+        temperature_metric_summary_override
+        if temperature_metric_summary_override is not None
+        else build_generic_group_metric_summary(per_candidate_entry_list, "oil_temperature_deg")
+    )
+    sample_preview_list = (
+        sample_preview_list_override
+        if sample_preview_list_override is not None
+        else [
+            {
+                "source_file_path": per_candidate_entry["source_file_path"],
+                "direction_label": per_candidate_entry["direction_label"],
+                "candidate_id": per_candidate_entry["candidate_id"],
+                "speed_rpm": per_candidate_entry["speed_rpm"],
+                "torque_nm": per_candidate_entry["torque_nm"],
+                "oil_temperature_deg": per_candidate_entry["oil_temperature_deg"],
+                "mean_percentage_error_pct": per_candidate_entry["metrics"]["mean_percentage_error_pct"],
+            }
+            for per_candidate_entry in per_candidate_entry_list[:5]
+        ]
+    )
 
     return {
         "config_path": shared_training_infrastructure.format_project_relative_path(resolved_config_path),
@@ -1902,18 +2107,7 @@ def build_track2_directional_comparison_summary(
         "per_condition_metrics_csv_path": shared_training_infrastructure.format_project_relative_path(
             per_condition_metrics_csv_path
         ),
-        "sample_preview_list": [
-            {
-                "source_file_path": per_candidate_entry["source_file_path"],
-                "direction_label": per_candidate_entry["direction_label"],
-                "candidate_id": per_candidate_entry["candidate_id"],
-                "speed_rpm": per_candidate_entry["speed_rpm"],
-                "torque_nm": per_candidate_entry["torque_nm"],
-                "oil_temperature_deg": per_candidate_entry["oil_temperature_deg"],
-                "mean_percentage_error_pct": per_candidate_entry["metrics"]["mean_percentage_error_pct"],
-            }
-            for per_candidate_entry in per_candidate_entry_list[:5]
-        ],
+        "sample_preview_list": sample_preview_list,
     }
 
 

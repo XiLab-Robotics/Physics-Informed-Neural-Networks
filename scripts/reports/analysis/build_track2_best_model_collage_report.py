@@ -796,6 +796,7 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
             candidate,
             curve_record_list,
             percentage_error_denominator,
+            include_curve_payload=False,
         )
         per_candidate_entry_list.extend(candidate_entry_list)
 
@@ -813,6 +814,20 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
     group_list = build_report_group_list()
     candidate_summary_list: list[dict[str, Any]] = []
 
+    def build_curve_key(entry_dictionary: dict[str, Any]) -> tuple[str, str]:
+        return (
+            str(entry_dictionary["source_file_path"]),
+            str(entry_dictionary["direction_label"]),
+        )
+
+    curve_record_lookup = {
+        (
+            shared_training_infrastructure.format_project_relative_path(curve_record.source_file_path),
+            str(curve_record.direction_label),
+        ): curve_record
+        for curve_record in curve_record_list
+    }
+
     for group in group_list:
         for candidate_id in group.candidate_id_list:
             candidate = candidate_lookup[candidate_id]
@@ -821,6 +836,24 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
                 group.selection_mode,
                 int(arguments.curves_per_collage),
             )
+            selected_curve_record_list = [
+                curve_record_lookup[build_curve_key(selected_entry)]
+                for selected_entry in selected_entry_list
+            ]
+            selected_payload_entry_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
+                candidate,
+                selected_curve_record_list,
+                percentage_error_denominator,
+                include_curve_payload=True,
+            )
+            selected_payload_lookup = {
+                build_curve_key(selected_payload_entry): selected_payload_entry
+                for selected_payload_entry in selected_payload_entry_list
+            }
+            selected_entry_list = [
+                selected_payload_lookup[build_curve_key(selected_entry)]
+                for selected_entry in selected_entry_list
+            ]
             collage_path = (
                 output_directory
                 / "collages"

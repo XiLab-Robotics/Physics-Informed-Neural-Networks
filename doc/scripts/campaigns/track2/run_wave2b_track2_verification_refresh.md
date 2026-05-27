@@ -36,9 +36,12 @@ Run from the repository root:
 .\scripts\campaigns\track2\run_wave2b_track2_verification_refresh.ps1 -Remote
 ```
 
-Remote mode assumes the remote repository checkout already contains the same
-committed state as the local repository. Override connection details when
-needed:
+Remote mode syncs the required local Track 2 launcher, config, script, registry,
+and `Wave 2B` checkpoint paths to the remote checkout before execution. It then
+syncs the generated Track 2 matrix artifacts, visual reports, campaign-result
+plots, and operator logs back to the local repository.
+
+Override connection details when needed:
 
 ```powershell
 .\scripts\campaigns\track2\run_wave2b_track2_verification_refresh.ps1 `
@@ -78,6 +81,23 @@ Visual report bundles are written under:
 Operator launch logs are written under:
 
 - `output/validation_checks/track2_operator_launch_logs/`
+
+Remote source synchronization sends:
+
+- `scripts/`
+- `config/`
+- `doc/scripts/campaigns/track2/`
+- `output/registries/families/periodic_*`
+- `output/training_runs/periodic_*`
+
+Remote artifact synchronization retrieves:
+
+- `output/validation_checks/track2_reference_comparison/`
+- `output/validation_checks/track2_best_model_collage_report/`
+- `output/validation_checks/track2_multi_model_curve_comparison_report/`
+- `output/validation_checks/track2_operator_launch_logs/`
+- `doc/reports/analysis/track2/`
+- `doc/reports/campaign_results/track 2/`
 
 ## Follow-Up
 

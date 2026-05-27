@@ -12,7 +12,7 @@ the current direction-aware comparison matrix.
 - dataset config: `config/datasets/transmission_error_dataset.yaml`;
 - dataset root: `data\datasets`;
 - comparison mode: `full_directional_candidate_matrix`;
-- candidate count: `84`;
+- candidate count: `93`;
 - held-out curve count before candidate filtering: `194`;
 - percentage-error denominator: `peak_to_peak_truth`;
 - `Fw` candidates are evaluated only on forward curves;
@@ -108,6 +108,15 @@ the current direction-aware comparison matrix.
 | `track1_best_Fw` | `best_composite` | `rcim_track1` | `composite_reference_bank` | `Fw` | `forward` | `models\paper_reference\rcim_track1\forward` |
 | `paper_retuned_best_Bw` | `best_composite` | `rcim_retuned` | `composite_reference_bank` | `Bw` | `backward` | `models\paper_reference\rcim_retuned\backward` |
 | `track1_best_Bw` | `best_composite` | `rcim_track1` | `composite_reference_bank` | `Bw` | `backward` | `models\paper_reference\rcim_track1\backward` |
+| `periodic_temporal_convolution_global` | `periodic_temporal_convolution` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\periodic_temporal_convolution\latest_family_best.yaml` |
+| `periodic_temporal_convolution_Fw` | `periodic_temporal_convolution` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\periodic_temporal_convolution_fw\latest_family_best.yaml` |
+| `periodic_temporal_convolution_Bw` | `periodic_temporal_convolution` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\periodic_temporal_convolution_bw\latest_family_best.yaml` |
+| `periodic_gru_sequence_global` | `periodic_gru_sequence` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\periodic_gru_sequence\latest_family_best.yaml` |
+| `periodic_gru_sequence_Fw` | `periodic_gru_sequence` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\periodic_gru_sequence_fw\latest_family_best.yaml` |
+| `periodic_gru_sequence_Bw` | `periodic_gru_sequence` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\periodic_gru_sequence_bw\latest_family_best.yaml` |
+| `periodic_lstm_sequence_global` | `periodic_lstm_sequence` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `global` | `forward, backward` | `output\registries\families\periodic_lstm_sequence\latest_family_best.yaml` |
+| `periodic_lstm_sequence_Fw` | `periodic_lstm_sequence` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `Fw` | `forward` | `output\registries\families\periodic_lstm_sequence_fw\latest_family_best.yaml` |
+| `periodic_lstm_sequence_Bw` | `periodic_lstm_sequence` | `wave2_temporal_entry_registry` | `wave1_registry_model` | `Bw` | `backward` | `output\registries\families\periodic_lstm_sequence_bw\latest_family_best.yaml` |
 
 ## Best Composite Reference Models
 
@@ -196,8 +205,14 @@ composed models explicit.
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
+| `periodic_lstm_sequence_global` | 0.002726 | 0.002959 | 6.142 | 14.092 |
+| `periodic_gru_sequence_global` | 0.002777 | 0.003023 | 6.267 | 13.580 |
+| `periodic_gru_sequence_Fw` | 0.003186 | 0.003438 | 7.077 | 11.974 |
+| `periodic_lstm_sequence_Fw` | 0.003266 | 0.003550 | 7.258 | 11.961 |
 | `gru_sequence_Fw` | 0.003330 | 0.003762 | 7.378 | 13.029 |
+| `periodic_temporal_convolution_Fw` | 0.003335 | 0.003708 | 7.404 | 12.518 |
 | `lstm_sequence_Fw` | 0.003366 | 0.003800 | 7.450 | 11.807 |
+| `periodic_temporal_convolution_global` | 0.003407 | 0.003724 | 7.581 | 14.480 |
 | `lstm_sequence_global` | 0.003445 | 0.003863 | 7.642 | 12.032 |
 | `temporal_convolution_global` | 0.003508 | 0.003928 | 7.792 | 14.045 |
 | `gru_sequence_global` | 0.003546 | 0.003975 | 7.869 | 14.344 |
@@ -258,10 +273,16 @@ composed models explicit.
 
 | Candidate | Curve MAE [deg] | Curve RMSE [deg] | Mean Percentage Error [%] | P95 Mean Percentage Error [%] |
 | --- | ---: | ---: | ---: | ---: |
+| `periodic_gru_sequence_Bw` | 0.002392 | 0.002639 | 5.466 | 14.820 |
+| `periodic_gru_sequence_global` | 0.002630 | 0.002876 | 6.010 | 12.693 |
+| `periodic_lstm_sequence_Bw` | 0.002625 | 0.002877 | 6.013 | 15.382 |
+| `periodic_lstm_sequence_global` | 0.002689 | 0.002956 | 6.098 | 14.674 |
 | `lstm_sequence_global` | 0.003515 | 0.003944 | 7.666 | 12.502 |
 | `lstm_sequence_Bw` | 0.003555 | 0.003985 | 7.767 | 14.507 |
 | `gru_sequence_Bw` | 0.003626 | 0.004082 | 7.907 | 12.900 |
+| `periodic_temporal_convolution_global` | 0.003604 | 0.003948 | 7.935 | 13.804 |
 | `gru_sequence_global` | 0.003637 | 0.004080 | 7.946 | 14.580 |
+| `periodic_temporal_convolution_Bw` | 0.003628 | 0.003987 | 7.979 | 13.839 |
 | `temporal_convolution_Bw` | 0.003742 | 0.004166 | 8.184 | 13.908 |
 | `temporal_convolution_global` | 0.003994 | 0.004438 | 8.798 | 18.339 |
 
@@ -281,9 +302,18 @@ composed models explicit.
 | `lstm_sequence_global` | `forward` | 0.003445 | 0.003863 | 7.642 | 12.032 |
 | `lstm_sequence_global` | `backward` | 0.003515 | 0.003944 | 7.666 | 12.502 |
 | `lstm_sequence_global` | `combined` | 0.003480 | 0.003903 | 7.654 | 12.430 |
+| `periodic_gru_sequence_global` | `forward` | 0.002777 | 0.003023 | 6.267 | 13.580 |
+| `periodic_gru_sequence_global` | `backward` | 0.002630 | 0.002876 | 6.010 | 12.693 |
+| `periodic_gru_sequence_global` | `combined` | 0.002704 | 0.002949 | 6.139 | 13.200 |
+| `periodic_lstm_sequence_global` | `forward` | 0.002726 | 0.002959 | 6.142 | 14.092 |
+| `periodic_lstm_sequence_global` | `backward` | 0.002689 | 0.002956 | 6.098 | 14.674 |
+| `periodic_lstm_sequence_global` | `combined` | 0.002707 | 0.002958 | 6.120 | 14.717 |
 | `periodic_mlp_global` | `forward` | 0.003380 | 0.003791 | 7.493 | 14.349 |
 | `periodic_mlp_global` | `backward` | 0.003610 | 0.004030 | 7.879 | 13.661 |
 | `periodic_mlp_global` | `combined` | 0.003495 | 0.003910 | 7.686 | 14.284 |
+| `periodic_temporal_convolution_global` | `forward` | 0.003407 | 0.003724 | 7.581 | 14.480 |
+| `periodic_temporal_convolution_global` | `backward` | 0.003604 | 0.003948 | 7.935 | 13.804 |
+| `periodic_temporal_convolution_global` | `combined` | 0.003506 | 0.003836 | 7.758 | 14.308 |
 | `residual_harmonic_mlp_global` | `forward` | 0.003649 | 0.004051 | 8.123 | 14.713 |
 | `residual_harmonic_mlp_global` | `backward` | 0.003639 | 0.004044 | 7.967 | 14.489 |
 | `residual_harmonic_mlp_global` | `combined` | 0.003644 | 0.004048 | 8.045 | 14.717 |
@@ -296,18 +326,10 @@ composed models explicit.
 
 ## Artifacts
 
-- summary YAML: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh/validation_summary.yaml`;
-- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\per_condition_metrics.csv`;
+- summary YAML: `output\validation_checks\track2_reference_comparison\2026-05-27-16-03-14__track2_full_directional_family_matrix_wave2b_harmonic_temporal_hybrid_track2_refresh_2026_05_26/validation_summary.yaml`;
+- per-condition CSV: `output\validation_checks\track2_reference_comparison\2026-05-27-16-03-14__track2_full_directional_family_matrix_wave2b_harmonic_temporal_hybrid_track2_refresh_2026_05_26\per_condition_metrics.csv`;
 - grouped report plot root: `doc\reports\campaign_results\track 2`;
-- grouped report plot count: `672`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_01.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_02.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_03.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_04.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_05.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_06.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_07.png`;
-- preview plot: `output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\preview_curves\preview_08.png`;
+- grouped report plot count: `0`;
 
 ## Interpretation
 

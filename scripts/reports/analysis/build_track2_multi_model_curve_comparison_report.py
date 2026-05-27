@@ -870,6 +870,7 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
             candidate,
             curve_record_list,
             percentage_error_denominator,
+            include_curve_payload=False,
         )
         per_candidate_entry_list.extend(candidate_entry_list)
 
@@ -882,8 +883,21 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
         "direction_label",
     )
     group_list = build_full_comparison_group_list(direction_metric_summary)
-    entry_lookup_by_candidate_and_curve = build_entry_lookup_by_candidate_and_curve(per_candidate_entry_list)
     comparison_summary_list: list[dict[str, Any]] = []
+
+    def build_curve_key(entry_dictionary: dict[str, Any]) -> tuple[str, str]:
+        return (
+            str(entry_dictionary["source_file_path"]),
+            str(entry_dictionary["direction_label"]),
+        )
+
+    curve_record_lookup = {
+        (
+            shared_training_infrastructure.format_project_relative_path(curve_record.source_file_path),
+            str(curve_record.direction_label),
+        ): curve_record
+        for curve_record in curve_record_list
+    }
 
     for group in group_list:
         selected_reference_entry_list = select_group_reference_entries(
@@ -891,6 +905,30 @@ def run_track2_multi_model_curve_comparison_report(arguments: argparse.Namespace
             group.selection_mode,
             int(arguments.curves_per_comparison),
         )
+        selected_curve_record_list = [
+            curve_record_lookup[build_curve_key(selected_reference_entry)]
+            for selected_reference_entry in selected_reference_entry_list
+        ]
+        group_payload_entry_list: list[dict[str, Any]] = []
+        for candidate_id in group.candidate_id_list:
+            candidate_payload_entry_list, _ = reference_family_vs_feedforward_support.evaluate_track2_candidate(
+                candidate_lookup[candidate_id],
+                selected_curve_record_list,
+                percentage_error_denominator,
+                include_curve_payload=True,
+            )
+            group_payload_entry_list.extend(candidate_payload_entry_list)
+
+        entry_lookup_by_candidate_and_curve = build_entry_lookup_by_candidate_and_curve(group_payload_entry_list)
+        selected_reference_payload_lookup = {
+            build_curve_key(payload_entry): payload_entry
+            for payload_entry in group_payload_entry_list
+            if str(payload_entry["candidate_id"]) == group.candidate_id_list[0]
+        }
+        selected_reference_entry_list = [
+            selected_reference_payload_lookup[build_curve_key(selected_reference_entry)]
+            for selected_reference_entry in selected_reference_entry_list
+        ]
         comparison_path = (
             output_directory
             / "comparisons"
