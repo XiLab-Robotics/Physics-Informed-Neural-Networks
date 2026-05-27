@@ -27,18 +27,14 @@ param(
         "output\training_runs\periodic_gru_sequence_bw",
         "output\training_runs\periodic_lstm_sequence",
         "output\training_runs\periodic_lstm_sequence_fw",
-        "output\training_runs\periodic_lstm_sequence_bw"
+        "output\training_runs\periodic_lstm_sequence_bw",
+        "output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\validation_summary.yaml",
+        "output\validation_checks\track2_reference_comparison\2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh\per_condition_metrics.csv"
     ),
-    [string[]]$ArtifactSyncPathList = @(
-        "output\validation_checks\track2_reference_comparison",
-        "output\validation_checks\track2_best_model_collage_report",
-        "output\validation_checks\track2_multi_model_curve_comparison_report",
-        "output\validation_checks\track2_operator_launch_logs",
-        "doc\reports\analysis\track2",
-        "doc\reports\campaign_results\track 2"
-    ),
+    [string[]]$ArtifactSyncPathList = @(),
     [switch]$SkipVisualReports,
-    [switch]$SkipPdfExport
+    [switch]$SkipPdfExport,
+    [switch]$SyncFullTrack2CampaignResultPlots
 )
 
 $ErrorActionPreference = "Stop"
@@ -55,6 +51,15 @@ $pdfPipelinePath = "scripts\reports\pdf\run_report_pipeline.py"
 $collageReportPath = "doc\reports\analysis\track2\best_model_collage_report\[$ReportDate]\track2_best_model_collage_report.md"
 $overlayReportPath = "doc\reports\analysis\track2\multi_model_curve_comparison_report\[$ReportDate]\track2_multi_model_curve_comparison_report.md"
 $logRoot = Join-Path $projectRoot ("output\validation_checks\track2_operator_launch_logs\{0}_{1}" -f (Get-Date -Format "yyyy-MM-dd-HH-mm-ss"), $OutputSuffix)
+$matrixOutputRoot = "output\validation_checks\track2_reference_comparison"
+$collageOutputRoot = "output\validation_checks\track2_best_model_collage_report"
+$overlayOutputRoot = "output\validation_checks\track2_multi_model_curve_comparison_report"
+$canonicalTrack2ReportPath = "doc\reports\analysis\track2\Track 2 Directional Model Comparison.md"
+$collageReportDirectory = "doc\reports\analysis\track2\best_model_collage_report\[$ReportDate]"
+$overlayReportDirectory = "doc\reports\analysis\track2\multi_model_curve_comparison_report\[$ReportDate]"
+$newCandidateCampaignResultPlotDirectory = "doc\reports\campaign_results\track 2\wave2_temporal_entry_registry"
+$artifactSyncManifestPath = Join-Path $logRoot "artifact_sync_manifest.txt"
+$artifactSyncRelativePathList = [System.Collections.Generic.List[string]]::new()
 
 function Write-StatusLine {
     param(
@@ -64,6 +69,69 @@ function Write-StatusLine {
 
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     Write-Host "[$timestamp] [$Label] $Message"
+}
+
+function Add-ArtifactSyncRelativePath {
+    param(
+        [string]$RelativePath
+    )
+
+    if ([string]::IsNullOrWhiteSpace($RelativePath)) {
+        return
+    }
+
+    $normalizedRelativePath = $RelativePath.Trim().TrimStart(".", "\", "/")
+    if (-not (Test-Path -LiteralPath (Join-Path $projectRoot $normalizedRelativePath))) {
+        return
+    }
+
+    if (-not $artifactSyncRelativePathList.Contains($normalizedRelativePath)) {
+        $artifactSyncRelativePathList.Add($normalizedRelativePath) | Out-Null
+    }
+}
+
+function Add-LatestArtifactDirectory {
+    param(
+        [string]$RelativeRootPath,
+        [string]$NamePattern
+    )
+
+    $absoluteRootPath = Join-Path $projectRoot $RelativeRootPath
+    if (-not (Test-Path -LiteralPath $absoluteRootPath)) {
+        return
+    }
+
+    $latestDirectory = Get-ChildItem -LiteralPath $absoluteRootPath -Directory |
+        Where-Object { $_.Name -like $NamePattern } |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if ($null -eq $latestDirectory) {
+        return
+    }
+
+    Add-ArtifactSyncRelativePath -RelativePath (Join-Path $RelativeRootPath $latestDirectory.Name)
+}
+
+function Save-ArtifactSyncManifest {
+    New-Item -ItemType Directory -Force -Path $logRoot | Out-Null
+    Add-ArtifactSyncRelativePath -RelativePath $canonicalTrack2ReportPath
+    Add-ArtifactSyncRelativePath -RelativePath $collageReportDirectory
+    Add-ArtifactSyncRelativePath -RelativePath $overlayReportDirectory
+    if ($SyncFullTrack2CampaignResultPlots) {
+        Add-ArtifactSyncRelativePath -RelativePath "doc\reports\campaign_results\track 2"
+    }
+    else {
+        Add-ArtifactSyncRelativePath -RelativePath $newCandidateCampaignResultPlotDirectory
+    }
+    Add-ArtifactSyncRelativePath -RelativePath (
+        Resolve-Path -LiteralPath $logRoot |
+            ForEach-Object { Resolve-Path -LiteralPath $_ -Relative }
+    )
+
+    $artifactSyncRelativePathList |
+        Sort-Object -Unique |
+        Set-Content -LiteralPath $artifactSyncManifestPath -Encoding utf8
+    Write-StatusLine "INFO" ("Artifact sync manifest: {0}" -f $artifactSyncManifestPath)
 }
 
 function Invoke-LoggedCondaPython {
@@ -310,6 +378,65 @@ exit 0
     Remove-Item -LiteralPath $localArchivePath -Force -ErrorAction SilentlyContinue
 }
 
+function Invoke-RemoteArtifactManifestSync {
+    $syncRoot = Join-Path $projectRoot "output\validation_checks\track2_operator_launch_logs\remote_sync"
+    New-Item -ItemType Directory -Force -Path $syncRoot | Out-Null
+    $localArchivePath = Join-Path $syncRoot ("track2_artifact_manifest_sync_{0}.tar" -f (Get-Date -Format "yyyy-MM-dd-HH-mm-ss"))
+    $remoteArchivePath = Join-Path $RemoteRepositoryPath ".temp\track2_artifact_manifest_sync.tar"
+    $remoteArchiveScpPath = Convert-ToScpRemotePath -WindowsPath $remoteArchivePath
+
+    Write-StatusLine "STEP" "Preparing remote artifact manifest sync archive"
+    Invoke-RemotePowerShellText -RemoteScriptText @"
+Set-Location -LiteralPath '$RemoteRepositoryPath'
+`$manifestRoot = 'output\validation_checks\track2_operator_launch_logs'
+`$manifestPath = Get-ChildItem -LiteralPath `$manifestRoot -Recurse -Filter 'artifact_sync_manifest.txt' |
+    Where-Object { `$_.FullName -like '*$OutputSuffix*' } |
+    Sort-Object LastWriteTime -Descending |
+    Select-Object -First 1
+if (`$null -eq `$manifestPath) {
+    throw 'No remote Track 2 artifact sync manifest found.'
+}
+`$existingPathList = @()
+foreach (`$relativePath in Get-Content -LiteralPath `$manifestPath.FullName) {
+    if ([string]::IsNullOrWhiteSpace(`$relativePath)) {
+        continue
+    }
+    if (Test-Path -LiteralPath `$relativePath) {
+        `$existingPathList += `$relativePath
+    }
+    else {
+        Write-Host ("REMOTE_ARTIFACT_MANIFEST_SYNC_SKIP::{0}" -f `$relativePath)
+    }
+}
+if (`$existingPathList.Count -eq 0) {
+    throw 'The remote Track 2 artifact sync manifest did not contain existing paths.'
+}
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent '$remoteArchivePath') | Out-Null
+if (Test-Path -LiteralPath '$remoteArchivePath') {
+    Remove-Item -LiteralPath '$remoteArchivePath' -Force
+}
+& tar.exe -cf '$remoteArchivePath' @existingPathList
+exit `$LASTEXITCODE
+"@
+
+    & scp "${RemoteHostAlias}:${remoteArchiveScpPath}" $localArchivePath
+    if ($LASTEXITCODE -ne 0) {
+        throw ("Remote artifact manifest archive download failed | host={0}" -f $RemoteHostAlias)
+    }
+
+    & tar.exe -xf $localArchivePath -C $projectRoot
+    if ($LASTEXITCODE -ne 0) {
+        throw ("Local artifact manifest archive extract failed | {0}" -f $localArchivePath)
+    }
+
+    Invoke-RemotePowerShellText -RemoteScriptText @"
+Remove-Item -LiteralPath '$remoteArchivePath' -Force -ErrorAction SilentlyContinue
+exit 0
+"@
+
+    Remove-Item -LiteralPath $localArchivePath -Force -ErrorAction SilentlyContinue
+}
+
 if ($Remote) {
     if ([string]::IsNullOrWhiteSpace($RemoteRepositoryPath)) {
         throw "RemoteRepositoryPath is required for -Remote. Set PINNS_REMOTE_TRAINING_REPO_PATH or pass -RemoteRepositoryPath."
@@ -321,12 +448,17 @@ if ($Remote) {
     $remoteScriptPath = "scripts\campaigns\track2\run_wave2b_track2_verification_refresh.ps1"
     $remoteCommand = @"
 Set-Location -LiteralPath '$RemoteRepositoryPath'
-& '.\$remoteScriptPath' -CondaEnvironmentName '$RemoteCondaEnvironmentName' -OutputSuffix '$OutputSuffix' -ReportDate '$ReportDate'$(if ($SkipVisualReports) { " -SkipVisualReports" } else { "" })$(if ($SkipPdfExport) { " -SkipPdfExport" } else { "" })
+& '.\$remoteScriptPath' -CondaEnvironmentName '$RemoteCondaEnvironmentName' -OutputSuffix '$OutputSuffix' -ReportDate '$ReportDate'$(if ($SkipVisualReports) { " -SkipVisualReports" } else { "" })$(if ($SkipPdfExport) { " -SkipPdfExport" } else { "" })$(if ($SyncFullTrack2CampaignResultPlots) { " -SyncFullTrack2CampaignResultPlots" } else { "" })
 exit `$LASTEXITCODE
 "@
 
     Invoke-RemotePowerShellText -RemoteScriptText $remoteCommand
-    Invoke-RemoteArtifactSync -RelativePathList $ArtifactSyncPathList
+    if ($ArtifactSyncPathList.Count -gt 0) {
+        Invoke-RemoteArtifactSync -RelativePathList $ArtifactSyncPathList
+    }
+    else {
+        Invoke-RemoteArtifactManifestSync
+    }
     Write-StatusLine "DONE" "Remote Track 2 refresh completed and artifacts synchronized locally"
     exit 0
 }
@@ -347,6 +479,7 @@ Invoke-LoggedCondaPython `
         $OutputSuffix,
         "--windows"
     )
+Add-LatestArtifactDirectory -RelativeRootPath $matrixOutputRoot -NamePattern ("*__{0}" -f $OutputSuffix)
 
 if (-not $SkipVisualReports) {
     Invoke-LoggedCondaPython `
@@ -360,6 +493,7 @@ if (-not $SkipVisualReports) {
             $ReportDate,
             "--windows"
         )
+    Add-LatestArtifactDirectory -RelativeRootPath $collageOutputRoot -NamePattern "*__track2_best_model_collage_report"
 
     Invoke-LoggedCondaPython `
         -StepName "03_track2_multi_model_curve_comparison_report" `
@@ -372,6 +506,7 @@ if (-not $SkipVisualReports) {
             $ReportDate,
             "--windows"
         )
+    Add-LatestArtifactDirectory -RelativeRootPath $overlayOutputRoot -NamePattern "*__track2_multi_model_curve_comparison_report"
 
     if (-not $SkipPdfExport) {
         Invoke-LoggedCondaPython `
@@ -389,5 +524,6 @@ if (-not $SkipVisualReports) {
     }
 }
 
+Save-ArtifactSyncManifest
 Write-StatusLine "DONE" ("Track 2 operator-launched refresh completed | log_root={0}" -f $logRoot)
 Write-StatusLine "DONE" "Tell Codex the run completed so the official decision report and closeout synchronization can be inspected."

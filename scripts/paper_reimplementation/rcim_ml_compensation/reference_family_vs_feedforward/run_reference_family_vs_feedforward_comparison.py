@@ -84,6 +84,14 @@ def run_reference_family_vs_feedforward_comparison(
             flush=True,
         )
         assert candidate_configuration_list, "Incremental Track 2 refresh found no new candidates."
+    report_plot_generation_scope = str(
+        training_config["comparison"].get("report_plot_generation_scope", "incremental_current_candidates")
+    ).strip()
+    if baseline_summary is not None and report_plot_generation_scope == "incremental_current_candidates":
+        print(
+            "[INFO] Track 2 grouped report plots are limited to current incremental candidates.",
+            flush=True,
+        )
     selected_harmonic_list = [int(value) for value in training_config["evaluation"]["selected_harmonics"]]
 
     # Build Held-Out Curve Records

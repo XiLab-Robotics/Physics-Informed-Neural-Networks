@@ -141,6 +141,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-27
+
+- [technical/2026-05/2026-05-27/2026-05-27-17-51-45_track2_incremental_visual_artifact_sync.md](./technical/2026-05/2026-05-27/2026-05-27-17-51-45_track2_incremental_visual_artifact_sync.md)
+  Plan the `Track 2` refresh cleanup that keeps incremental matrix runs and
+  remote artifact synchronization focused on new candidate visual artifacts
+  instead of regenerating or resynchronizing closed `Wave 1` PNG history.
+
 #### 2026-05-26
 
 - [technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md](./technical/2026-05/2026-05-26/2026-05-26-14-01-40_campaign_closeout_and_manual_track2_gate.md)

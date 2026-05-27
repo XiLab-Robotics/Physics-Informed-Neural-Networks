@@ -9,6 +9,7 @@ comparison:
   canonical_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
   baseline_summary_path: output/validation_checks/track2_reference_comparison/2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh/validation_summary.yaml
   lightweight_test_curve_records: true
+  report_plot_generation_scope: incremental_current_candidates
   percentage_error_denominator: peak_to_peak_truth
   preview_curve_count: 8
   report_plot_root: doc/reports/campaign_results/track 2

@@ -38,8 +38,9 @@ Run from the repository root:
 
 Remote mode syncs the required local Track 2 launcher, config, script, registry,
 and `Wave 2B` checkpoint paths to the remote checkout before execution. It then
-syncs the generated Track 2 matrix artifacts, visual reports, campaign-result
-plots, and operator logs back to the local repository.
+syncs only the generated artifact paths listed by the run-local artifact sync
+manifest back to the local repository. This keeps closed `Wave 1` report-plot
+history out of normal `Wave 2B` refresh downloads.
 
 Override connection details when needed:
 
@@ -62,6 +63,12 @@ The launcher runs:
 
 Use `-SkipVisualReports` to run only the matrix, or `-SkipPdfExport` to leave
 the generated visual reports as Markdown plus image artifacts.
+
+By default, the matrix uses the configured baseline summary and only evaluates
+new incremental candidates. The grouped report-plot sync is also scoped to the
+new `wave2_temporal_entry_registry` source. Use
+`-SyncFullTrack2CampaignResultPlots` only when a deliberate full historical
+`doc/reports/campaign_results/track 2/` visual refresh is required.
 
 ## Expected Outputs
 
@@ -92,12 +99,15 @@ Remote source synchronization sends:
 
 Remote artifact synchronization retrieves:
 
-- `output/validation_checks/track2_reference_comparison/`
-- `output/validation_checks/track2_best_model_collage_report/`
-- `output/validation_checks/track2_multi_model_curve_comparison_report/`
-- `output/validation_checks/track2_operator_launch_logs/`
-- `doc/reports/analysis/track2/`
-- `doc/reports/campaign_results/track 2/`
+- the current run's `output/validation_checks/track2_reference_comparison/...`
+  directory;
+- the current run's visual-report output directories when visual reports are
+  enabled;
+- `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`;
+- the dated visual-report bundles for the selected `-ReportDate`;
+- the current run's operator log directory and `artifact_sync_manifest.txt`;
+- `doc/reports/campaign_results/track 2/wave2_temporal_entry_registry/` when
+  present.
 
 ## Follow-Up
 
