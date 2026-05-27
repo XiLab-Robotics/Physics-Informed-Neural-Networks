@@ -108,6 +108,45 @@ def assert_periodic_temporal_model_shape(model, expected_feature_count: int) -> 
     prediction_tensor = model.forward_with_input_context(input_tensor, input_tensor)
     assert tuple(prediction_tensor.shape) == (2, 1), f"Unexpected prediction shape | {prediction_tensor.shape}"
 
+def assert_residual_harmonic_temporal_model_shape(model, expected_feature_count: int) -> None:
+
+    """Assert one residual harmonic temporal configuration has the expected shape."""
+
+    # Validate Structured Harmonic Shape
+    assert_harmonic_model_shape(model.structured_branch, expected_feature_count=expected_feature_count)
+
+    # Validate Forward And Auxiliary Output Shapes
+    input_tensor = torch.tensor(
+        [
+            [
+                [0.0, 100.0, 25.0, 30.0, 1.0],
+                [10.0, 100.0, 25.0, 30.0, 1.0],
+                [20.0, 100.0, 25.0, 30.0, 1.0],
+                [30.0, 100.0, 25.0, 30.0, 1.0],
+                [40.0, 100.0, 25.0, 30.0, 1.0],
+            ],
+            [
+                [90.0, 200.0, 30.0, 35.0, 0.0],
+                [100.0, 200.0, 30.0, 35.0, 0.0],
+                [110.0, 200.0, 30.0, 35.0, 0.0],
+                [120.0, 200.0, 30.0, 35.0, 0.0],
+                [130.0, 200.0, 30.0, 35.0, 0.0],
+            ],
+        ],
+        dtype=torch.float32,
+    )
+    auxiliary_output_dictionary = model.compute_auxiliary_output_dictionary(input_tensor, input_tensor)
+    expected_output_key_list = [
+        "structured_prediction_tensor",
+        "residual_prediction_tensor",
+        "prediction_tensor",
+    ]
+    for output_key in expected_output_key_list:
+        output_tensor = auxiliary_output_dictionary[output_key]
+        assert tuple(output_tensor.shape) == (2, 1), (
+            f"Unexpected {output_key} shape | {output_tensor.shape}"
+        )
+
 def main() -> int:
 
     """Run harmonic-basis configuration smoke checks."""
@@ -245,6 +284,45 @@ def main() -> int:
     )
     assert periodic_lstm_model.harmonic_index_list == RCIM_HARMONIC_INDEX_LIST
     assert_periodic_temporal_model_shape(periodic_lstm_model, expected_feature_count=23)
+
+    # Validate Residual Harmonic Temporal Sequence Bases
+    residual_harmonic_gru_model = create_model(
+        "residual_harmonic_gru_sequence",
+        {
+            "input_size": 5,
+            "output_size": 1,
+            "harmonic_order": 240,
+            "coefficient_mode": "static",
+            "harmonic_index_list": RCIM_HARMONIC_INDEX_LIST,
+            "hidden_size": 8,
+            "num_layers": 1,
+            "dropout_probability": 0.0,
+            "bidirectional": False,
+            "readout_position": "center",
+            "freeze_structured_branch": False,
+        },
+    )
+    assert residual_harmonic_gru_model.harmonic_index_list == RCIM_HARMONIC_INDEX_LIST
+    assert_residual_harmonic_temporal_model_shape(residual_harmonic_gru_model, expected_feature_count=19)
+
+    residual_harmonic_lstm_dense_model = create_model(
+        "residual_harmonic_lstm_sequence",
+        {
+            "input_size": 5,
+            "output_size": 1,
+            "harmonic_order": 360,
+            "coefficient_mode": "static",
+            "harmonic_index_list": list(range(0, 361)),
+            "hidden_size": 8,
+            "num_layers": 1,
+            "dropout_probability": 0.0,
+            "bidirectional": False,
+            "readout_position": "center",
+            "freeze_structured_branch": False,
+        },
+    )
+    assert residual_harmonic_lstm_dense_model.harmonic_index_list == list(range(0, 361))
+    assert_residual_harmonic_temporal_model_shape(residual_harmonic_lstm_dense_model, expected_feature_count=721)
 
     print("[DONE] Harmonic basis configuration smoke checks passed")
     return 0

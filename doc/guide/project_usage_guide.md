@@ -388,10 +388,16 @@ exist:
 - approved planning report;
 - generated campaign YAML files;
 - persistent state in `doc/running/active_training_campaign.yaml`;
-- exact raw launch command;
-- dedicated PowerShell launcher under `scripts/campaigns/`, plus a Bash
-  equivalent when the campaign is intended for Linux execution;
+- exact local and `-Remote` launch commands;
+- dedicated PowerShell launcher under `scripts/campaigns/` that supports local
+  execution and `-Remote`, plus a Bash equivalent when the campaign is intended
+  for Linux execution;
 - launcher usage note under `doc/scripts/campaigns/`.
+
+The `-Remote` launcher path must use the repository-owned remote workflow, or a
+documented equivalent, to sync source/configuration/docs before launch and then
+sync campaign outputs, per-run artifacts, queue end state, registries, and
+status artifacts back into the local repository.
 
 The current paper-faithful `Track 1` preparation also has a dedicated
 coordinated launcher:
@@ -2290,7 +2296,7 @@ Recommended convenience variables on the current workstation:
 Generic launcher example:
 
 ```powershell
-.\scripts\\campaigns\\infrastructure\\run_remote_training_campaign.ps1 `
+.\scripts\campaigns\infrastructure\run_remote_training_campaign.ps1 `
   -CampaignConfigPathList @(
       "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\01_residual_h08_small_frozen.yaml",
       "config\training\residual_harmonic_mlp\campaigns\2026-03-26_wave1_residual_harmonic_family_campaign\02_residual_h08_small_joint.yaml"
@@ -2545,8 +2551,12 @@ This state file stores:
 
 Operational rule:
 
-- approved campaign preparation must now include generated YAML files, the exact launch command, the dedicated PowerShell launcher, and the matching launcher usage note;
-- for LAN-remote campaigns, those launch commands are an operator handoff artifact: Codex prepares them, the user launches them manually, and the user later reports start and finish;
+- approved campaign preparation must now include generated YAML files, exact
+  local and `-Remote` launch commands, the dedicated PowerShell launcher, and
+  the matching launcher usage note;
+- for LAN-remote campaigns, those launch commands are an operator handoff
+  artifact: Codex prepares them, the user launches them manually, and the user
+  later reports start and finish;
 - when the user confirms that the campaign has started, the campaign state should be updated to `running`;
 - while the campaign is prepared or running, any edit to a protected campaign file requires a `CRITICAL WARNING` and explicit user approval first;
 - when the user says the campaign is finished, use the stored state to gather artifacts for the final results report;
@@ -2685,6 +2695,8 @@ The repository now already has:
 - an offline harmonic-wise comparison pipeline for paper-aligned baseline work;
 - Wave 2B harmonic-temporal model profiles that add explicit periodic harmonic
   features to temporal sequence windows;
+- Wave 2C residual harmonic temporal model profiles and an approved
+  operator-launch package for sparse plus dense harmonic-basis comparison;
 - technical, script-level, and user-facing documentation aligned with the current structure.
 
 ## Harmonic-Wise Comparison Pipeline

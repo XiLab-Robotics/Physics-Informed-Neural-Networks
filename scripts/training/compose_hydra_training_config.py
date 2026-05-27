@@ -33,6 +33,7 @@ SUPPORTED_HYDRA_TRANSITION_POLICY_LIST = [
     "wave1_future_waves_materialization_pilot",
     "wave2_temporal_model_entry_preparation",
     "wave2b_harmonic_temporal_hybrid_preparation",
+    "wave2c_residual_harmonic_temporal_hybrid_preparation",
 ]
 HYDRA_INTERNAL_KEY_LIST = [
     "dataset_profile",

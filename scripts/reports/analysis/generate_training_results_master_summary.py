@@ -45,6 +45,8 @@ NEURAL_MODEL_TYPE_SET = {
     "periodic_temporal_convolution",
     "periodic_gru_sequence",
     "periodic_lstm_sequence",
+    "residual_harmonic_gru_sequence",
+    "residual_harmonic_lstm_sequence",
 }
 PAPER_REFERENCE_DATA = {
     "dataset_sample_count": 1026,

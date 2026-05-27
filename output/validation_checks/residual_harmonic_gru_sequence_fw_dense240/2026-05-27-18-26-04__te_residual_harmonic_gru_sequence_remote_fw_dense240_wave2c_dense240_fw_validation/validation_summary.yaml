@@ -1,0 +1,28 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\wave2c_residual_harmonic_temporal_hybrid\campaigns\2026-05-27_wave2c_residual_harmonic_temporal_hybrid_campaign\queue\05_residual_harmonic_gru_sequence_dense_240_fw.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\residual_harmonic_gru_sequence_fw_dense240\2026-05-27-18-26-04__te_residual_harmonic_gru_sequence_remote_fw_dense240_wave2c_dense240_fw_validation
+experiment:
+  run_name: te_residual_harmonic_gru_sequence_remote_Fw_dense240
+  output_run_name: te_residual_harmonic_gru_sequence_remote_Fw_dense240_wave2c_dense240_fw_validation
+  run_instance_id: 2026-05-27-18-26-04__te_residual_harmonic_gru_sequence_remote_fw_dense240_wave2c_dense240_fw_validation
+  model_family: residual_harmonic_gru_sequence_fw_dense240
+  model_type: residual_harmonic_gru_sequence
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.42906296253204346
+  mae: 0.012703907676041126
+  rmse: 0.015482177957892418

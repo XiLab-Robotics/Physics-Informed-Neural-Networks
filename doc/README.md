@@ -88,6 +88,10 @@ This folder contains the internal project documents derived from the reference P
   Explanatory report for the `Wave 2B` harmonic-temporal hybrid families that
   add explicit periodic harmonic features to temporal convolution, `GRU`, and
   `LSTM` sequence windows.
+- [reports/analysis/wave2/Wave 2C Residual Harmonic Temporal Hybrid Models.md](./reports/analysis/wave2/Wave%202C%20Residual%20Harmonic%20Temporal%20Hybrid%20Models.md)
+  Explanatory report for the `Wave 2C` residual harmonic temporal hybrid
+  families that add recurrent sequence residuals over a structured harmonic
+  base.
 - [reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/rcim_paper_reference/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
   Explanatory report for the strict paper-faithful RCIM family-bank branch,
   including the exact target schema, recovered family inventory, operating
@@ -142,6 +146,15 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-27
+
+- [technical/2026-05/2026-05-27/2026-05-27-18-35-06_campaign_launcher_remote_execution_standard.md](./technical/2026-05/2026-05-27/2026-05-27-18-35-06_campaign_launcher_remote_execution_standard.md)
+  Plan the protected `Wave 2C` launcher retrofit that adds `-Remote` execution
+  plus the repository rule that future campaign launchers must sync required
+  sources before remote execution and artifacts after completion.
+
+- [technical/2026-05/2026-05-27/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrids.md](./technical/2026-05/2026-05-27/2026-05-27-18-08-32_wave2c_residual_harmonic_temporal_hybrids.md)
+  Plan the `Wave 2C` residual harmonic temporal hybrid branch that uses a
+  structured harmonic base with `GRU` and `LSTM` residual sequence branches.
 
 - [technical/2026-05/2026-05-27/2026-05-27-17-51-45_track2_incremental_visual_artifact_sync.md](./technical/2026-05/2026-05-27/2026-05-27-17-51-45_track2_incremental_visual_artifact_sync.md)
   Plan the `Track 2` refresh cleanup that keeps incremental matrix runs and

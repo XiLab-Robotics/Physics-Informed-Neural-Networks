@@ -43,6 +43,8 @@ SUPPORTED_MODEL_ENTRYPOINT_NAME_DICTIONARY = {
     "periodic_temporal_convolution": "scripts/training/train_feedforward_network.py",
     "periodic_gru_sequence": "scripts/training/train_feedforward_network.py",
     "periodic_lstm_sequence": "scripts/training/train_feedforward_network.py",
+    "residual_harmonic_gru_sequence": "scripts/training/train_feedforward_network.py",
+    "residual_harmonic_lstm_sequence": "scripts/training/train_feedforward_network.py",
     "random_forest": "scripts/training/train_tree_regressor.py",
     "hist_gradient_boosting": "scripts/training/train_tree_regressor.py",
 }
@@ -541,6 +543,8 @@ def resolve_training_handler(model_type: str) -> Callable[[str | Path], None]:
         "periodic_temporal_convolution": run_feedforward_training,
         "periodic_gru_sequence": run_feedforward_training,
         "periodic_lstm_sequence": run_feedforward_training,
+        "residual_harmonic_gru_sequence": run_feedforward_training,
+        "residual_harmonic_lstm_sequence": run_feedforward_training,
         "random_forest": run_tree_regression_training,
         "hist_gradient_boosting": run_tree_regression_training,
     }

@@ -1,0 +1,28 @@
+base_model_family: residual_harmonic_lstm_sequence
+output_model_family: residual_harmonic_lstm_sequence
+model_type: residual_harmonic_lstm_sequence
+base_run_name: te_residual_harmonic_lstm_sequence_remote
+note_fragment: Residual harmonic LSTM candidate with structured harmonic base plus recurrent residual on centered TE sequence windows.
+
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 240
+  coefficient_mode: static
+  harmonic_index_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  hidden_size: 128
+  num_layers: 2
+  dropout_probability: 0.1
+  bidirectional: false
+  readout_position: center
+  freeze_structured_branch: false

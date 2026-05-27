@@ -50,6 +50,15 @@
   `scripts/campaigns/`, create the matching launcher note under
   `doc/scripts/campaigns/`, store the campaign state, and provide the exact
   launch command.
+- Every dedicated PowerShell campaign launcher must support local execution and
+  `-Remote`. The `-Remote` path must sync required source/configuration/docs
+  before remote launch and sync campaign outputs, per-run artifacts, queue end
+  state, registries, and relevant status artifacts after completion, reusing
+  `scripts/campaigns/infrastructure/run_remote_training_campaign.ps1` or an
+  equivalent documented repository-owned workflow.
+- Launcher notes and `doc/running/active_training_campaign.yaml`
+  `launch_command_list` entries must document both the local command and the
+  `-Remote` command.
 
 ### Final Approval Gate
 

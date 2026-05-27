@@ -14,6 +14,7 @@ from scripts.models.harmonic_regression import HarmonicRegression
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
 from scripts.models.periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
+from scripts.models.residual_harmonic_temporal_sequence_network import ResidualHarmonicTemporalSequenceNetwork
 from scripts.models.temporal_sequence_network import RecurrentSequenceNetwork
 from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
 
@@ -26,7 +27,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             `harmonic_regression`, `periodic_mlp`,
             `residual_harmonic_mlp`, `temporal_convolution`,
             `gru_sequence`, `lstm_sequence`, or one of the periodic temporal
-            sequence variants.
+            sequence and residual harmonic temporal variants.
         model_configuration: Model-specific configuration dictionary.
 
     Returns:
@@ -132,6 +133,23 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             readout_position=str(model_configuration.get("readout_position", "center")),
         )
 
+    # Create Residual Harmonic GRU Sequence Model
+    if normalized_model_type == "residual_harmonic_gru_sequence":
+        return ResidualHarmonicTemporalSequenceNetwork(
+            temporal_model_type="gru_sequence",
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration["harmonic_order"]),
+            coefficient_mode=str(model_configuration.get("coefficient_mode", "static")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            hidden_size=int(model_configuration["hidden_size"]),
+            num_layers=int(model_configuration.get("num_layers", 2)),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            bidirectional=bool(model_configuration.get("bidirectional", False)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+            freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
+        )
+
     # Create Periodic GRU Sequence Model
     if normalized_model_type == "periodic_gru_sequence":
         return PeriodicTemporalSequenceNetwork(
@@ -159,6 +177,23 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
             bidirectional=bool(model_configuration.get("bidirectional", False)),
             readout_position=str(model_configuration.get("readout_position", "center")),
+        )
+
+    # Create Residual Harmonic LSTM Sequence Model
+    if normalized_model_type == "residual_harmonic_lstm_sequence":
+        return ResidualHarmonicTemporalSequenceNetwork(
+            temporal_model_type="lstm_sequence",
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration["harmonic_order"]),
+            coefficient_mode=str(model_configuration.get("coefficient_mode", "static")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            hidden_size=int(model_configuration["hidden_size"]),
+            num_layers=int(model_configuration.get("num_layers", 2)),
+            dropout_probability=float(model_configuration.get("dropout_probability", 0.10)),
+            bidirectional=bool(model_configuration.get("bidirectional", False)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+            freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
         )
 
     # Create Periodic LSTM Sequence Model

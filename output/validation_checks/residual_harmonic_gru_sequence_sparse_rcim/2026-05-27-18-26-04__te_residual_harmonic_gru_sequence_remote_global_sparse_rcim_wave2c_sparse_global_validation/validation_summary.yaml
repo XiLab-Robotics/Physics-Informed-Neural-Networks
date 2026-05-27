@@ -1,0 +1,28 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\config\training\wave2c_residual_harmonic_temporal_hybrid\campaigns\2026-05-27_wave2c_residual_harmonic_temporal_hybrid_campaign\queue\01_residual_harmonic_gru_sequence_sparse_rcim_global.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\residual_harmonic_gru_sequence_sparse_rcim\2026-05-27-18-26-04__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim_wave2c_sparse_global_validation
+experiment:
+  run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim_wave2c_sparse_global_validation
+  run_instance_id: 2026-05-27-18-26-04__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim_wave2c_sparse_global_validation
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.861821174621582
+  mae: 0.03617841750383377
+  rmse: 0.04318669065833092

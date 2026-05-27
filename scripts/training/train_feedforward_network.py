@@ -285,11 +285,27 @@ def print_training_configuration_summary(training_config: dict) -> None:
         print_key_value("Readout Position", model_config.get("readout_position", "center"), value_color=Fore.YELLOW)
 
     # Print Recurrent Sequence Configuration
-    elif normalized_model_type in ["gru_sequence", "lstm_sequence", "periodic_gru_sequence", "periodic_lstm_sequence"]:
-        if normalized_model_type in ["periodic_gru_sequence", "periodic_lstm_sequence"]:
+    elif normalized_model_type in [
+        "gru_sequence",
+        "lstm_sequence",
+        "periodic_gru_sequence",
+        "periodic_lstm_sequence",
+        "residual_harmonic_gru_sequence",
+        "residual_harmonic_lstm_sequence",
+    ]:
+        if normalized_model_type in [
+            "periodic_gru_sequence",
+            "periodic_lstm_sequence",
+            "residual_harmonic_gru_sequence",
+            "residual_harmonic_lstm_sequence",
+        ]:
             print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
             print_key_value("Harmonic Index List", model_config.get("harmonic_index_list"), value_color=Fore.YELLOW)
+        if normalized_model_type in ["periodic_gru_sequence", "periodic_lstm_sequence"]:
             print_key_value("Include Raw Angle Feature", model_config.get("include_raw_angle_feature", True), value_color=Fore.YELLOW)
+        if normalized_model_type in ["residual_harmonic_gru_sequence", "residual_harmonic_lstm_sequence"]:
+            print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
+            print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
         print_key_value("Hidden Size", model_config["hidden_size"], value_color=Fore.YELLOW)
         print_key_value("Num Layers", model_config.get("num_layers", 2), value_color=Fore.YELLOW)
         print_key_value("Dropout Probability", model_config.get("dropout_probability", 0.10), value_color=Fore.YELLOW)
