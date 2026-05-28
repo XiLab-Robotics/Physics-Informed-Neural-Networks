@@ -241,7 +241,7 @@ def write_launcher(queue_file_name_list: list[str]) -> None:
     [switch]$Remote,
     [string]$PythonExecutable = "python",
     [string]$RemoteHostAlias = "xilab-remote",
-    [string]$RemoteRepositoryPath = $env:PINNS_REMOTE_TRAINING_REPO_PATH,
+    [string]$RemoteRepositoryPath = $(if ($env:PINNS_REMOTE_TRAINING_REPO_PATH) {{ $env:PINNS_REMOTE_TRAINING_REPO_PATH }} else {{ "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks" }}),
     [string]$RemoteCondaEnvironmentName = $(if ($env:PINNS_REMOTE_TRAINING_CONDA_ENV) {{ $env:PINNS_REMOTE_TRAINING_CONDA_ENV }} else {{ "pinns_env" }})
 )
 
@@ -378,7 +378,7 @@ Optional remote overrides:
 .\\scripts\\campaigns\\wave2\\run_wave2c_residual_harmonic_temporal_hybrid_campaign.ps1 `
   -Remote `
   -RemoteHostAlias xilab-remote `
-  -RemoteRepositoryPath $env:PINNS_REMOTE_TRAINING_REPO_PATH `
+  -RemoteRepositoryPath "C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks" `
   -RemoteCondaEnvironmentName pinns_env
 ```
 
@@ -387,6 +387,11 @@ The `-Remote` path delegates to
 `scripts`, `config`, `doc`, `requirements.txt`, and `AGENTS.md` before launch,
 then syncs the manifest-declared campaign outputs, per-run training artifacts,
 queue end state, and affected registries back into the local repository.
+
+When `PINNS_REMOTE_TRAINING_REPO_PATH` is not set, the launcher defaults to the
+validated LAN clone path:
+
+- `C:\\Users\\Martina Salami\\Documents\\Davide\\Physics-Informed-Neural-Networks`
 
 ## Expected Outputs
 

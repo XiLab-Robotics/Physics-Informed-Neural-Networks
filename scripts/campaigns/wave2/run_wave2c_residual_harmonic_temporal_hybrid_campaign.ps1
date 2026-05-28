@@ -2,7 +2,7 @@ param(
     [switch]$Remote,
     [string]$PythonExecutable = "python",
     [string]$RemoteHostAlias = "xilab-remote",
-    [string]$RemoteRepositoryPath = $env:PINNS_REMOTE_TRAINING_REPO_PATH,
+    [string]$RemoteRepositoryPath = $(if ($env:PINNS_REMOTE_TRAINING_REPO_PATH) { $env:PINNS_REMOTE_TRAINING_REPO_PATH } else { "C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks" }),
     [string]$RemoteCondaEnvironmentName = $(if ($env:PINNS_REMOTE_TRAINING_CONDA_ENV) { $env:PINNS_REMOTE_TRAINING_CONDA_ENV } else { "pinns_env" })
 )
 

@@ -147,6 +147,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-28
 
+- [technical/2026-05/2026-05-28/2026-05-28-11-38-20_wave2c_remote_repository_path_fallback.md](./technical/2026-05/2026-05-28/2026-05-28-11-38-20_wave2c_remote_repository_path_fallback.md)
+  Plan the `Wave 2C` remote launcher fallback fix so `-Remote` uses the
+  established LAN repository clone path when the environment variable is unset.
+
 - [technical/2026-05/2026-05-28/2026-05-28-11-35-34_wave2c_campaign_closeout.md](./technical/2026-05/2026-05-28/2026-05-28-11-35-34_wave2c_campaign_closeout.md)
   Plan the completed `Wave 2C` campaign closeout: verify the 18-run
   residual-harmonic temporal hybrid artifact surface, generate the Markdown and
