@@ -13,6 +13,8 @@
   Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
 - Current Curve-First Promotion State: pending reranking on the expanded Track
   2 curve metric surface.
+- Runtime Input Constraint: point-level operating state, optional short causal
+  history, or derived causal features only.
 
 ## Main Takeaways
 
@@ -233,6 +235,10 @@ Curve-first promotion policy:
 - scalar registry ranking remains a required sanity surface;
 - deployment-relevant promotion must also pass Track 2 direction-valid
   full-curve evaluation;
+- full curves are evaluation and aggregation units, not future inputs supplied
+  to the model at inference time;
+- future deployed models must keep causal inputs: current point, optional past
+  history, and causal derived features;
 - the next planned analysis branch is `Track 2B Curve-First Reranking`;
 - candidate promotion should separate scalar winner, curve-first winner, and
   deployment-ready candidate until Track 3 online compensation evidence exists.

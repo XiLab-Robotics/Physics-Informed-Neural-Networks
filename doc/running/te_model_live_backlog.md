@@ -69,6 +69,17 @@ repository-owned neural model, or a future deployable model package.
 Future program-best promotion must distinguish scalar training metrics from
 TE-curve compensation readiness.
 
+Input constraint:
+
+- future deployed models consume only the current point-level operating state,
+  an explicitly supported short history of already observed samples, or
+  derived causal features;
+- full held-out curves are used for validation, diagnostics, and promotion,
+  not as future information supplied to the model;
+- future-looking smoothing, centered windows containing future samples, and
+  complete-curve normalization unavailable at runtime are not valid deployment
+  inputs.
+
 The immediate rule is:
 
 - scalar `MAE` and `RMSE` remain required sanity metrics;
@@ -81,7 +92,8 @@ The immediate rule is:
 
 This rule does not reopen closed campaigns. It changes how future branches
 interpret their evidence and defines the next planned work as a curve-first
-reranking pass over existing accepted candidates.
+reranking pass over existing accepted candidates while preserving the causal
+input contract.
 
 ## Completed
 
@@ -258,6 +270,9 @@ Operational meaning:
   compensation evidence by itself;
 - future `Wave 1B` work should first rerank accepted artifacts on Track 2
   curve metrics before retraining or adding losses;
+- any `Wave 1B` retraining must keep the same pointwise operating-state input
+  contract unless a later approved deployment note explicitly supports a causal
+  history extension;
 - future waves must either produce `global`, `forward`, and `backward` surfaces
   or explicitly justify why one of those surfaces is omitted;
 - the oversized random-forest artifact class observed near `91 GB` remains
@@ -339,7 +354,8 @@ After the completed `Wave 2` temporal-model entry campaign and `Track 2`
 refresh, the active next step is:
 
 - run a curve-first Track 2 reranking branch over accepted `Wave 1`, `Wave 2`,
-  `Wave 2B`, and `Wave 2C` candidates before any new training campaign.
+  `Wave 2B`, and `Wave 2C` candidates before any new training campaign,
+  without changing the model input contract.
 
 The previous temporal refresh answered three concrete questions:
 
@@ -356,6 +372,8 @@ Default decision path after Track 2 closeout:
   compensation-relevant candidates;
 - open a `Track 2B Curve-First Reranking` analysis branch before changing
   model families or training losses;
+- preserve causal runtime inputs: point-level state, optional short past
+  history, and causal derived features only;
 - keep `Wave 2` temporal models as verified exploratory baselines;
 - keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
 - use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;

@@ -151,6 +151,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-28
 
+- [technical/2026-05/2026-05-28/2026-05-28-16-44-36_causal_input_constraint_clarification.md](./technical/2026-05/2026-05-28/2026-05-28-16-44-36_causal_input_constraint_clarification.md)
+  Plan the causal-input clarification for the curve-first TE strategy so
+  future models are evaluated on full curves while still consuming only the
+  current point, a short causal history, or derived causal features at runtime.
+
 - [technical/2026-05/2026-05-28/2026-05-28-16-32-36_curve_first_te_training_strategy.md](./technical/2026-05/2026-05-28/2026-05-28-16-32-36_curve_first_te_training_strategy.md)
   Plan the curve-first TE training strategy research and documentation refresh
   so future `Wave 1` / `Wave 2` follow-up work is judged by continuous

@@ -14,6 +14,12 @@ cycle-after-cycle TE curves for many consecutive revolutions while preserving
 phase, amplitude, smoothness, direction handling, and operating-condition
 dependence.
 
+This does not change the runtime input contract. Deployed candidates must
+consume only the current point-level state, an explicitly supported short
+history of already observed samples, or derived causal features. Complete
+curves are used for validation, diagnostics, and promotion, not as future
+information supplied to the model.
+
 This task will clarify the documentation and design the next training strategy
 around curve-following quality rather than pointwise score alone. The first
 implementation phase is documentation and research only. Any later training

@@ -20,6 +20,33 @@ This report defines the curve-first strategy for the next training and
 selection work. It is a planning and analysis document, not a completed
 training campaign.
 
+## Causal Input Contract
+
+Curve-first selection does not change the runtime input contract.
+
+The real TestRig / TwinCAT predictor must remain causal. At inference time the
+model can consume only:
+
+- the current point-level operating state;
+- a short historical window of already observed samples, when the selected
+  family explicitly supports a sequence input;
+- derived features computed from the current point and past samples.
+
+The model must not require a future TE sample, a future angular sample, or a
+complete future revolution curve as input. Curve-first means that training,
+validation, and promotion aggregate the model's causal predictions over
+complete held-out curves to judge compensation quality. It does not mean that
+the dataset is redesigned so the model sees the full curve in advance.
+
+This also constrains future feature engineering:
+
+- harmonic features are allowed when computed from current angular position
+  and known operating variables;
+- derivative or history features are allowed only if they use past samples;
+- future-looking smoothing, centered windows that include future points, and
+  full-curve normalization unavailable at runtime are not deployment-valid
+  model inputs.
+
 ## Current Evidence
 
 ### Repository Facts
@@ -181,7 +208,8 @@ Relevant source:
 Repository implication: do not evaluate future temporal models only as
 single-readout regressors if the deployment target requires continuous curve
 compensation. Either evaluate full curve playback directly or add a multi-curve
-offline playback test before promotion.
+offline playback test before promotion. This is an evaluation requirement, not
+permission to feed future curve values to the runtime model.
 
 ## Recommended Strategy
 
@@ -237,6 +265,11 @@ total_loss =
 
 Use small weights first. The loss should improve curve tracking without
 destroying the stable pointwise baseline.
+
+The loss implementation must still operate on causal predictions. It may
+aggregate consecutive predictions into curve-level terms after the forward
+pass, but it must not make non-causal future samples part of the input tensor
+for a deployed candidate.
 
 Soft-DTW or DILATE can be an ablation, but not the main line, because
 warp-tolerant shape matching may hide physically harmful phase shifts.

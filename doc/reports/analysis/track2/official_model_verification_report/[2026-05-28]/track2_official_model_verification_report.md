@@ -121,5 +121,7 @@ Follow-up rules:
 - do not reopen `Wave 1`, `Wave 2`, `Wave 2B`, or `Wave 2C`;
 - create a separate `Track 2B Curve-First Reranking` branch that evaluates
   accepted candidates on expanded full-curve metrics;
+- preserve causal runtime inputs: current point-level operating state, optional
+  short past-history windows, and derived causal features only;
 - separate scalar registry winner, curve-first offline winner, and future
   deployment-ready candidate in later summaries.
