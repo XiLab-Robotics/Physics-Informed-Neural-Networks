@@ -130,6 +130,13 @@ This folder contains the internal project documents derived from the reference P
   `2`-`5` for both directions.
 - [reports/analysis/Training Results Master Summary.md](./reports/analysis/Training%20Results%20Master%20Summary.md)
   Canonical always-updated summary of current project status, best family results, recent campaign changes, and family-by-family ranked outcomes across the TE training program.
+- [reports/analysis/Repository Status Wave Track Synthesis.md](./reports/analysis/Repository%20Status%20Wave%20Track%20Synthesis.md)
+  Consolidated state report covering the repository status, `Wave 1`,
+  `Wave 2`, `Wave 2B`, `Wave 2C`, `Track 2` outcomes, sparse `RCIM` versus
+  dense harmonic-bank results, and the curve-first future plan introduced by
+  commit `b73220679410276246421b7e2832d8878cff90a0`. A styled PDF companion
+  is available at
+  `reports/analysis/Repository Status Wave Track Synthesis.pdf`.
 - [reports/analysis/wave1/Wave 1 - Closeout Status.md](./reports/analysis/wave1/Wave%201%20-%20Closeout%20Status.md)
   Consolidated closeout report for `Wave 1`, covering campaign completion status, compared families, family winners, and final ranking.
 - [reports/analysis/utilities/Skill and Subagent Operational Test.md](./reports/analysis/utilities/Skill%20and%20Subagent%20Operational%20Test.md)
@@ -150,6 +157,16 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-28
+
+- [technical/2026-05/2026-05-28/2026-05-28-16-58-12_repository_status_wave_track_synthesis_report.md](./technical/2026-05/2026-05-28/2026-05-28-16-58-12_repository_status_wave_track_synthesis_report.md)
+  Plan the repository status synthesis report covering current repository
+  state, `Wave 1`, `Wave 2`, `Wave 2B`, `Wave 2C`, `Track 2` outcomes,
+  sparse `RCIM` versus dense harmonic-bank results, and the future development
+  path including commit `b73220679410276246421b7e2832d8878cff90a0`.
+
+- [technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md](./technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md)
+  Plan the styled PDF export and validation pass for the repository status,
+  Wave, and `Track 2` synthesis report.
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-44-36_causal_input_constraint_clarification.md](./technical/2026-05/2026-05-28/2026-05-28-16-44-36_causal_input_constraint_clarification.md)
   Plan the causal-input clarification for the curve-first TE strategy so

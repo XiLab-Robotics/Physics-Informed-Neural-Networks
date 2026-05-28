@@ -130,6 +130,18 @@ TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-
 TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME = "report-table report-table-track2-official-best-composite"
 TRACK2_OFFICIAL_STATIC_BASELINE_TABLE_CLASS_NAME = "report-table report-table-track2-official-static-baseline"
 TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME = "report-table report-table-track2-official-campaign-ledger"
+REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-scalar-winner"
+REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME = "report-table report-table-repository-status-hpo-leader"
+REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-results"
+REPOSITORY_STATUS_TEMPORAL_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-temporal-winner"
+REPOSITORY_STATUS_TEMPORAL_SURFACES_TABLE_CLASS_NAME = "report-table report-table-repository-status-temporal-surfaces"
+REPOSITORY_STATUS_WAVE2B_SCALAR_TABLE_CLASS_NAME = "report-table report-table-repository-status-wave2b-scalar"
+REPOSITORY_STATUS_WAVE2B_TRACK2_TABLE_CLASS_NAME = "report-table report-table-repository-status-wave2b-track2"
+REPOSITORY_STATUS_WAVE2C_SCALAR_TABLE_CLASS_NAME = "report-table report-table-repository-status-wave2c-scalar"
+REPOSITORY_STATUS_WAVE2C_TRACK2_TABLE_CLASS_NAME = "report-table report-table-repository-status-wave2c-track2"
+REPOSITORY_STATUS_WAVE2C_DENSE_TABLE_CLASS_NAME = "report-table report-table-repository-status-wave2c-dense"
+REPOSITORY_STATUS_TRACK2_CURRENT_TABLE_CLASS_NAME = "report-table report-table-repository-status-track2-current"
+REPOSITORY_STATUS_HARMONIC_BANK_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-bank"
 
 # Table Header Cells
 CONFIGURATION_TABLE_HEADER_CELLS = (
@@ -812,6 +824,136 @@ REPORT_STYLESHEET = """
     .report-table-track2-official-campaign-ledger th:nth-child(4), .report-table-track2-official-campaign-ledger td:nth-child(4) { width: 17%; }
     .report-table-track2-official-campaign-ledger th:nth-child(5), .report-table-track2-official-campaign-ledger td:nth-child(5) { width: 17%; }
     .report-table-track2-official-campaign-ledger th:nth-child(6), .report-table-track2-official-campaign-ledger td:nth-child(6) { width: 17%; }
+
+    .report-table-repository-status-scalar-winner,
+    .report-table-repository-status-hpo-leader,
+    .report-table-repository-status-harmonic-results,
+    .report-table-repository-status-temporal-winner,
+    .report-table-repository-status-temporal-surfaces,
+    .report-table-repository-status-wave2b-scalar,
+    .report-table-repository-status-wave2b-track2,
+    .report-table-repository-status-wave2c-scalar,
+    .report-table-repository-status-wave2c-track2,
+    .report-table-repository-status-wave2c-dense,
+    .report-table-repository-status-track2-current,
+    .report-table-repository-status-harmonic-bank {
+      font-size: 6.7pt;
+      line-height: 1.17;
+    }
+
+    .report-table-repository-status-scalar-winner th,
+    .report-table-repository-status-scalar-winner td,
+    .report-table-repository-status-hpo-leader th,
+    .report-table-repository-status-hpo-leader td,
+    .report-table-repository-status-harmonic-results th,
+    .report-table-repository-status-harmonic-results td,
+    .report-table-repository-status-temporal-winner th,
+    .report-table-repository-status-temporal-winner td,
+    .report-table-repository-status-temporal-surfaces th,
+    .report-table-repository-status-temporal-surfaces td,
+    .report-table-repository-status-wave2b-scalar th,
+    .report-table-repository-status-wave2b-scalar td,
+    .report-table-repository-status-wave2b-track2 th,
+    .report-table-repository-status-wave2b-track2 td,
+    .report-table-repository-status-wave2c-scalar th,
+    .report-table-repository-status-wave2c-scalar td,
+    .report-table-repository-status-wave2c-track2 th,
+    .report-table-repository-status-wave2c-track2 td,
+    .report-table-repository-status-wave2c-dense th,
+    .report-table-repository-status-wave2c-dense td,
+    .report-table-repository-status-track2-current th,
+    .report-table-repository-status-track2-current td,
+    .report-table-repository-status-harmonic-bank th,
+    .report-table-repository-status-harmonic-bank td {
+      padding: 3px 4px;
+      vertical-align: middle;
+    }
+
+    .report-table-repository-status-scalar-winner th,
+    .report-table-repository-status-hpo-leader th,
+    .report-table-repository-status-harmonic-results th,
+    .report-table-repository-status-temporal-winner th,
+    .report-table-repository-status-temporal-surfaces th,
+    .report-table-repository-status-wave2b-scalar th,
+    .report-table-repository-status-wave2b-track2 th,
+    .report-table-repository-status-wave2c-scalar th,
+    .report-table-repository-status-wave2c-track2 th,
+    .report-table-repository-status-wave2c-dense th,
+    .report-table-repository-status-track2-current th,
+    .report-table-repository-status-harmonic-bank th {
+      line-height: 1.08;
+    }
+
+    .report-table-repository-status-scalar-winner th:nth-child(1), .report-table-repository-status-scalar-winner td:nth-child(1) { width: 7%; }
+    .report-table-repository-status-scalar-winner th:nth-child(2), .report-table-repository-status-scalar-winner td:nth-child(2) { width: 42%; }
+    .report-table-repository-status-scalar-winner th:nth-child(3), .report-table-repository-status-scalar-winner td:nth-child(3) { width: 25%; }
+    .report-table-repository-status-scalar-winner th:nth-child(4), .report-table-repository-status-scalar-winner td:nth-child(4) { width: 13%; }
+    .report-table-repository-status-scalar-winner th:nth-child(5), .report-table-repository-status-scalar-winner td:nth-child(5) { width: 13%; }
+
+    .report-table-repository-status-hpo-leader th:nth-child(1), .report-table-repository-status-hpo-leader td:nth-child(1) { width: 5%; }
+    .report-table-repository-status-hpo-leader th:nth-child(2), .report-table-repository-status-hpo-leader td:nth-child(2) { width: 20%; }
+    .report-table-repository-status-hpo-leader th:nth-child(3), .report-table-repository-status-hpo-leader td:nth-child(3) { width: 20%; }
+    .report-table-repository-status-hpo-leader th:nth-child(4), .report-table-repository-status-hpo-leader td:nth-child(4) { width: 20%; }
+    .report-table-repository-status-hpo-leader th:nth-child(5), .report-table-repository-status-hpo-leader td:nth-child(5) { width: 17.5%; }
+    .report-table-repository-status-hpo-leader th:nth-child(6), .report-table-repository-status-hpo-leader td:nth-child(6) { width: 17.5%; }
+
+    .report-table-repository-status-harmonic-results th:nth-child(1), .report-table-repository-status-harmonic-results td:nth-child(1) { width: 30%; }
+    .report-table-repository-status-harmonic-results th:nth-child(2), .report-table-repository-status-harmonic-results td:nth-child(2) { width: 40%; }
+    .report-table-repository-status-harmonic-results th:nth-child(3), .report-table-repository-status-harmonic-results td:nth-child(3) { width: 14%; }
+    .report-table-repository-status-harmonic-results th:nth-child(4), .report-table-repository-status-harmonic-results td:nth-child(4) { width: 16%; }
+
+    .report-table-repository-status-temporal-winner th:nth-child(1), .report-table-repository-status-temporal-winner td:nth-child(1) { width: 43%; }
+    .report-table-repository-status-temporal-winner th:nth-child(2), .report-table-repository-status-temporal-winner td:nth-child(2) { width: 25%; }
+    .report-table-repository-status-temporal-winner th:nth-child(3), .report-table-repository-status-temporal-winner td:nth-child(3) { width: 6%; }
+    .report-table-repository-status-temporal-winner th:nth-child(4), .report-table-repository-status-temporal-winner td:nth-child(4) { width: 13%; }
+    .report-table-repository-status-temporal-winner th:nth-child(5), .report-table-repository-status-temporal-winner td:nth-child(5) { width: 13%; }
+
+    .report-table-repository-status-temporal-surfaces th:nth-child(1), .report-table-repository-status-temporal-surfaces td:nth-child(1) { width: 8%; }
+    .report-table-repository-status-temporal-surfaces th:nth-child(2), .report-table-repository-status-temporal-surfaces td:nth-child(2) { width: 48%; }
+    .report-table-repository-status-temporal-surfaces th:nth-child(3), .report-table-repository-status-temporal-surfaces td:nth-child(3) { width: 27%; }
+    .report-table-repository-status-temporal-surfaces th:nth-child(4), .report-table-repository-status-temporal-surfaces td:nth-child(4) { width: 17%; }
+
+    .report-table-repository-status-wave2b-scalar th:nth-child(1), .report-table-repository-status-wave2b-scalar td:nth-child(1) { width: 39%; }
+    .report-table-repository-status-wave2b-scalar th:nth-child(2), .report-table-repository-status-wave2b-scalar td:nth-child(2) { width: 27%; }
+    .report-table-repository-status-wave2b-scalar th:nth-child(3), .report-table-repository-status-wave2b-scalar td:nth-child(3) { width: 10%; }
+    .report-table-repository-status-wave2b-scalar th:nth-child(4), .report-table-repository-status-wave2b-scalar td:nth-child(4) { width: 12%; }
+    .report-table-repository-status-wave2b-scalar th:nth-child(5), .report-table-repository-status-wave2b-scalar td:nth-child(5) { width: 12%; }
+
+    .report-table-repository-status-wave2b-track2 th:nth-child(1), .report-table-repository-status-wave2b-track2 td:nth-child(1) { width: 40%; }
+    .report-table-repository-status-wave2b-track2 th:nth-child(2), .report-table-repository-status-wave2b-track2 td:nth-child(2) { width: 11%; }
+    .report-table-repository-status-wave2b-track2 th:nth-child(3), .report-table-repository-status-wave2b-track2 td:nth-child(3) { width: 16.333%; }
+    .report-table-repository-status-wave2b-track2 th:nth-child(4), .report-table-repository-status-wave2b-track2 td:nth-child(4) { width: 16.333%; }
+    .report-table-repository-status-wave2b-track2 th:nth-child(5), .report-table-repository-status-wave2b-track2 td:nth-child(5) { width: 16.333%; }
+
+    .report-table-repository-status-wave2c-scalar th:nth-child(1), .report-table-repository-status-wave2c-scalar td:nth-child(1) { width: 29%; }
+    .report-table-repository-status-wave2c-scalar th:nth-child(2), .report-table-repository-status-wave2c-scalar td:nth-child(2) { width: 29%; }
+    .report-table-repository-status-wave2c-scalar th:nth-child(3), .report-table-repository-status-wave2c-scalar td:nth-child(3) { width: 10%; }
+    .report-table-repository-status-wave2c-scalar th:nth-child(4), .report-table-repository-status-wave2c-scalar td:nth-child(4) { width: 7%; }
+    .report-table-repository-status-wave2c-scalar th:nth-child(5), .report-table-repository-status-wave2c-scalar td:nth-child(5) { width: 12.5%; }
+    .report-table-repository-status-wave2c-scalar th:nth-child(6), .report-table-repository-status-wave2c-scalar td:nth-child(6) { width: 12.5%; }
+
+    .report-table-repository-status-wave2c-track2 th:nth-child(1), .report-table-repository-status-wave2c-track2 td:nth-child(1) { width: 8%; }
+    .report-table-repository-status-wave2c-track2 th:nth-child(2), .report-table-repository-status-wave2c-track2 td:nth-child(2) { width: 39%; }
+    .report-table-repository-status-wave2c-track2 th:nth-child(3), .report-table-repository-status-wave2c-track2 td:nth-child(3) { width: 14%; }
+    .report-table-repository-status-wave2c-track2 th:nth-child(4), .report-table-repository-status-wave2c-track2 td:nth-child(4) { width: 13%; }
+    .report-table-repository-status-wave2c-track2 th:nth-child(5), .report-table-repository-status-wave2c-track2 td:nth-child(5) { width: 13%; }
+    .report-table-repository-status-wave2c-track2 th:nth-child(6), .report-table-repository-status-wave2c-track2 td:nth-child(6) { width: 13%; }
+
+    .report-table-repository-status-wave2c-dense th:nth-child(1), .report-table-repository-status-wave2c-dense td:nth-child(1) { width: 8%; }
+    .report-table-repository-status-wave2c-dense th:nth-child(2), .report-table-repository-status-wave2c-dense td:nth-child(2) { width: 47%; }
+    .report-table-repository-status-wave2c-dense th:nth-child(3), .report-table-repository-status-wave2c-dense td:nth-child(3) { width: 17%; }
+    .report-table-repository-status-wave2c-dense th:nth-child(4), .report-table-repository-status-wave2c-dense td:nth-child(4) { width: 14%; }
+    .report-table-repository-status-wave2c-dense th:nth-child(5), .report-table-repository-status-wave2c-dense td:nth-child(5) { width: 14%; }
+
+    .report-table-repository-status-track2-current th:nth-child(1), .report-table-repository-status-track2-current td:nth-child(1) { width: 18%; }
+    .report-table-repository-status-track2-current th:nth-child(2), .report-table-repository-status-track2-current td:nth-child(2) { width: 43%; }
+    .report-table-repository-status-track2-current th:nth-child(3), .report-table-repository-status-track2-current td:nth-child(3) { width: 13%; }
+    .report-table-repository-status-track2-current th:nth-child(4), .report-table-repository-status-track2-current td:nth-child(4) { width: 13%; }
+    .report-table-repository-status-track2-current th:nth-child(5), .report-table-repository-status-track2-current td:nth-child(5) { width: 13%; }
+
+    .report-table-repository-status-harmonic-bank th:nth-child(1), .report-table-repository-status-harmonic-bank td:nth-child(1) { width: 34%; }
+    .report-table-repository-status-harmonic-bank th:nth-child(2), .report-table-repository-status-harmonic-bank td:nth-child(2) { width: 36%; }
+    .report-table-repository-status-harmonic-bank th:nth-child(3), .report-table-repository-status-harmonic-bank td:nth-child(3) { width: 30%; }
 
     .report-table-historical-results,
     .report-table-phase-results,
@@ -1750,7 +1892,19 @@ REPORT_STYLESHEET = """
     .report-table-track1-overnight-block-winner .metric-unit,
     .report-table-track1-exact-open-cell-ranking .metric-unit,
     .report-table-track1-exact-open-cell-export .metric-unit,
-    .report-table-track2-best-model-collage .metric-unit {
+    .report-table-track2-best-model-collage .metric-unit,
+    .report-table-repository-status-scalar-winner .metric-unit,
+    .report-table-repository-status-hpo-leader .metric-unit,
+    .report-table-repository-status-harmonic-results .metric-unit,
+    .report-table-repository-status-temporal-winner .metric-unit,
+    .report-table-repository-status-temporal-surfaces .metric-unit,
+    .report-table-repository-status-wave2b-scalar .metric-unit,
+    .report-table-repository-status-wave2b-track2 .metric-unit,
+    .report-table-repository-status-wave2c-scalar .metric-unit,
+    .report-table-repository-status-wave2c-track2 .metric-unit,
+    .report-table-repository-status-wave2c-dense .metric-unit,
+    .report-table-repository-status-track2-current .metric-unit,
+    .report-table-repository-status-harmonic-bank .metric-unit {
       display: block;
     }
 
@@ -2393,6 +2547,18 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME,
         TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME,
         TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_TEMPORAL_WINNER_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_TEMPORAL_SURFACES_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_WAVE2B_SCALAR_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_WAVE2B_TRACK2_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_WAVE2C_SCALAR_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_WAVE2C_TRACK2_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_WAVE2C_DENSE_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_TRACK2_CURRENT_TABLE_CLASS_NAME,
+        REPOSITORY_STATUS_HARMONIC_BANK_TABLE_CLASS_NAME,
     } and wrapped_common_metric_header is not None:
         return wrapped_common_metric_header
 
@@ -2446,6 +2612,12 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         return "Amplitude<span class=\"metric-unit\">Run</span>"
     if header_cell == "Phase Run":
         return "Phase<span class=\"metric-unit\">Run</span>"
+    if (
+        table_class_name == REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME
+        and header_cell == "Best Run"
+    ):
+        return "Best Run"
+
     if header_cell == "Best Run":
         return "Best<span class=\"metric-unit\">Run</span>"
     if header_cell == "Open Cells":
@@ -2629,6 +2801,16 @@ def render_configuration_split_tables(body_rows: Sequence[str]) -> str:
         f"{model_and_schedule_html}"
         "</div>"
     )
+
+
+def is_repository_status_wave_track_report(report_stem: str) -> bool:
+
+    """ Return Whether A Report Should Use The Repository Status Table Profile """
+
+    normalized_report_stem = report_stem.lower().replace("_", " ").replace("-", " ")
+    required_terms = ("repository", "status", "wave", "track")
+    return all(required_term in normalized_report_stem for required_term in required_terms)
+
 
 def resolve_standard_table_class_name(
     header_cells: Sequence[str],
@@ -3115,6 +3297,80 @@ def resolve_standard_table_class_name(
             and normalized_header_cells == ("Surface", "Harmonics Met", "Total Harmonics", "Open Harmonics")
         ):
             return TRACK1_OPEN_CELL_CLOSEOUT_BENCHMARK_TABLE_CLASS_NAME
+
+    if is_repository_status_wave_track_report(report_stem):
+
+        if (
+            current_section_slug == "executive-summary"
+            and normalized_header_cells == ("Surface", "Run", "Family", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-1-static-baselines"
+            and normalized_header_cells == ("Rank", "Family", "Scope", "Engine", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-1-static-baselines"
+            and normalized_header_cells == ("Family Surface", "Best Run", "Harmonic Basis", "Test MAE [deg]")
+        ):
+            return REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2-temporal-sequence-models"
+            and normalized_header_cells == ("Run", "Family", "Scope", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return REPOSITORY_STATUS_TEMPORAL_WINNER_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2-temporal-sequence-models"
+            and normalized_header_cells == ("Surface", "Run", "Family", "Test MAE [deg]")
+        ):
+            return REPOSITORY_STATUS_TEMPORAL_SURFACES_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2b-harmonic-temporal-hybrids"
+            and normalized_header_cells == ("Run", "Family", "Scope", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return REPOSITORY_STATUS_WAVE2B_SCALAR_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2b-harmonic-temporal-hybrids"
+            and normalized_header_cells == ("Candidate", "Surface", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error [%]")
+        ):
+            return REPOSITORY_STATUS_WAVE2B_TRACK2_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2c-residual-harmonic-temporal-hybrids"
+            and normalized_header_cells == ("Run", "Family", "Basis", "Scope", "Test MAE [deg]", "Test RMSE [deg]")
+        ):
+            return REPOSITORY_STATUS_WAVE2C_SCALAR_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2c-residual-harmonic-temporal-hybrids"
+            and normalized_header_cells == ("Scope", "Candidate", "Basis", "Curve MAE [deg]", "Curve RMSE [deg]", "Mean Error [%]")
+        ):
+            return REPOSITORY_STATUS_WAVE2C_TRACK2_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "wave-2c-residual-harmonic-temporal-hybrids"
+            and normalized_header_cells == ("Scope", "Candidate", "Basis", "Curve MAE [deg]", "Mean Error [%]")
+        ):
+            return REPOSITORY_STATUS_WAVE2C_DENSE_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "track-2-current-result"
+            and normalized_header_cells == ("Scope", "Current Strongest Candidate", "MAE [deg]", "RMSE [deg]", "Mean [%]")
+        ):
+            return REPOSITORY_STATUS_TRACK2_CURRENT_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "harmonic-bank-conclusions"
+            and normalized_header_cells == ("Context", "Best Observed Choice", "Evidence")
+        ):
+            return REPOSITORY_STATUS_HARMONIC_BANK_TABLE_CLASS_NAME
 
     if (
         current_section_slug == "targeted-pair-outcome"
