@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-27-18-55-46_009_09_residual_harmonic_gru_sequence_dense_360_bw.yaml
+experiment:
+  model_family: residual_harmonic_gru_sequence_bw_dense360
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_remote_Bw_dense360
+  output_run_name: te_residual_harmonic_gru_sequence_remote_Bw_dense360
+  run_instance_id: 2026-05-27-20-33-03__te_residual_harmonic_gru_sequence_remote_bw_dense360
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_gru_sequence
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_bw_dense360\2026-05-27-20-33-03__te_residual_harmonic_gru_sequence_remote_bw_dense360
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_bw_dense360\2026-05-27-20-33-03__te_residual_harmonic_gru_sequence_remote_bw_dense360\checkpoints\residual_harmonic_gru_sequence-epoch=056-val_mae=0.00377293.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151762
+  frozen_parameter_count: 0
+  total_parameter_count: 151762
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.04317464306950569
+  val_mae: 0.003772927215322852
+  val_rmse: 0.0043788873590528965
+  val_structured_mae: 0.017631931230425835
+  val_structured_rmse: 0.019306190311908722
+test_metrics:
+  test_loss: 0.03175346180796623
+  test_mae: 0.003467981703579426
+  test_rmse: 0.004050321411341429
+  test_structured_mae: 0.01879981905221939
+  test_structured_rmse: 0.02072402462363243
+comparison_payload:
+  model_family: residual_harmonic_gru_sequence_bw_dense360
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_remote_Bw_dense360
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151762
+  total_parameter_count: 151762
+  val_mae: 0.003772927215322852
+  val_rmse: 0.0043788873590528965
+  test_mae: 0.003467981703579426
+  test_rmse: 0.004050321411341429
+  deployment_notes: ''
+  interpretability_notes: ''

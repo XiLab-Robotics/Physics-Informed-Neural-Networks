@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: residual_harmonic_gru_sequence_sparse_rcim
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-27T19:07:31'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-27-18-55-47__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_run_name: te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_sparse_rcim
+  base_model_family: residual_harmonic_gru_sequence
+  model_type: residual_harmonic_gru_sequence
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  trainable_parameter_count: 151060
+  total_parameter_count: 151060
+  val_mae: 0.003606528742238879
+  val_rmse: 0.004119613207876682
+  test_mae: 0.0034404706675559282
+  test_rmse: 0.0038478162605315447
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-05-27-18-55-47__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-05-27-18-55-47__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim\checkpoints\residual_harmonic_gru_sequence-epoch=089-val_mae=0.00360653.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-05-27-18-55-47__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_sparse_rcim\2026-05-27-18-55-47__te_residual_harmonic_gru_sequence_remote_global_sparse_rcim/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-27T19:07:31'

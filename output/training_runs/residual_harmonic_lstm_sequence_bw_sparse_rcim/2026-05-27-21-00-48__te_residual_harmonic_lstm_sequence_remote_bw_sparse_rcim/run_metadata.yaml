@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_lstm_sequence_bw_sparse_rcim
+base_model_family: residual_harmonic_lstm_sequence
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_residual_harmonic_lstm_sequence_remote_Bw_sparse_rcim
+run_instance_id: 2026-05-27-21-00-48__te_residual_harmonic_lstm_sequence_remote_bw_sparse_rcim
+output_directory: output\training_runs\residual_harmonic_lstm_sequence_bw_sparse_rcim\2026-05-27-21-00-48__te_residual_harmonic_lstm_sequence_remote_bw_sparse_rcim

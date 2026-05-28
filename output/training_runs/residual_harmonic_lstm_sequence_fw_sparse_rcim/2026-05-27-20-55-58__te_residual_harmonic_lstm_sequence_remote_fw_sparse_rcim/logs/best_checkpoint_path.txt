@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_lstm_sequence_fw_sparse_rcim\2026-05-27-20-55-58__te_residual_harmonic_lstm_sequence_remote_fw_sparse_rcim\checkpoints\residual_harmonic_lstm_sequence-epoch=013-val_mae=0.00334394.ckpt

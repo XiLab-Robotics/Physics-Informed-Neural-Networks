@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: residual_harmonic_gru_sequence_fw_dense360
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-27T20:33:03'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360
+  run_name: te_residual_harmonic_gru_sequence_remote_Fw_dense360
+  output_run_name: te_residual_harmonic_gru_sequence_remote_Fw_dense360
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_gru_sequence_fw_dense360
+  base_model_family: residual_harmonic_gru_sequence
+  model_type: residual_harmonic_gru_sequence
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  trainable_parameter_count: 151762
+  total_parameter_count: 151762
+  val_mae: 0.0032648369669914246
+  val_rmse: 0.003797477576881647
+  test_mae: 0.0032408323604613543
+  test_rmse: 0.00367719866335392
+  output_directory: output\training_runs\residual_harmonic_gru_sequence_fw_dense360\2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360
+  best_checkpoint_path: output\training_runs\residual_harmonic_gru_sequence_fw_dense360\2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360\checkpoints\residual_harmonic_gru_sequence-epoch=037-val_mae=0.00326484.ckpt
+  metrics_path: output\training_runs\residual_harmonic_gru_sequence_fw_dense360\2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_gru_sequence_fw_dense360\2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-27T20:33:03'

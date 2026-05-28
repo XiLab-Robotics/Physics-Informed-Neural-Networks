@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_bw_dense240\2026-05-27-19-40-30__te_residual_harmonic_gru_sequence_remote_bw_dense240\checkpoints\residual_harmonic_gru_sequence-epoch=158-val_mae=0.00358498.ckpt

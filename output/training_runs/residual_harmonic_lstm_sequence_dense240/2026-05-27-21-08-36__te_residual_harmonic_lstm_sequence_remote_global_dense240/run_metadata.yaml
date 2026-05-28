@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_lstm_sequence_dense240
+base_model_family: residual_harmonic_lstm_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_residual_harmonic_lstm_sequence_remote_global_dense240
+run_instance_id: 2026-05-27-21-08-36__te_residual_harmonic_lstm_sequence_remote_global_dense240
+output_directory: output\training_runs\residual_harmonic_lstm_sequence_dense240\2026-05-27-21-08-36__te_residual_harmonic_lstm_sequence_remote_global_dense240

@@ -145,6 +145,14 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-28
+
+- [technical/2026-05/2026-05-28/2026-05-28-11-35-34_wave2c_campaign_closeout.md](./technical/2026-05/2026-05-28/2026-05-28-11-35-34_wave2c_campaign_closeout.md)
+  Plan the completed `Wave 2C` campaign closeout: verify the 18-run
+  residual-harmonic temporal hybrid artifact surface, generate the Markdown and
+  PDF results report, clear active campaign state, and keep `Track 2` as a
+  separate operator-approved follow-up.
+
 #### 2026-05-27
 
 - [technical/2026-05/2026-05-27/2026-05-27-18-35-06_campaign_launcher_remote_execution_standard.md](./technical/2026-05/2026-05-27/2026-05-27-18-35-06_campaign_launcher_remote_execution_standard.md)
@@ -1795,6 +1803,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### Campaign Results
 
+- [reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md)
+  Final results report for the completed `Wave 2C` residual harmonic
+  temporal hybrid campaign, including the 18-run sparse/dense
+  harmonic-basis leaderboard, registry effects, and the explicit
+  boundary that `Track 2` remains a separate optional workflow.
 - [reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-26-14-01-40_wave2b_harmonic_temporal_hybrid_campaign_results_report.md)
   Final results report for the completed `Wave 2B` harmonic-temporal
   hybrid campaign, including the 9-run leaderboard, registry effects,

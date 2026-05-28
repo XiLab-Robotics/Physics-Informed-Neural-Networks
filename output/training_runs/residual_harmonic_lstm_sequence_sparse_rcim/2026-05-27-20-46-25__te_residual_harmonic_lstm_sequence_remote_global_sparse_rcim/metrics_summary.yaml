@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-27-18-55-46_010_10_residual_harmonic_lstm_sequence_sparse_rcim_global.yaml
+experiment:
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
+  run_name: te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+  output_run_name: te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+  run_instance_id: 2026-05-27-20-46-25__te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_lstm_sequence
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-05-27-20-46-25__te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-05-27-20-46-25__te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim\checkpoints\residual_harmonic_lstm_sequence-epoch=035-val_mae=0.00363187.ckpt
+dataset_split:
+  train_curve_count: 1356
+  validation_curve_count: 388
+  test_curve_count: 194
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 201364
+  frozen_parameter_count: 0
+  total_parameter_count: 201364
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98074340820312
+  - 497.8580017089844
+  - 896.0145263671875
+  - 30.364091873168945
+  - -4.3438788566163566e-07
+  input_feature_std:
+  - 103.92313385009766
+  - 466.8042297363281
+  - 543.8323974609375
+  - 4.080519676208496
+  - 1.0
+  target_mean:
+  - -0.01724020391702652
+  target_std:
+  - 0.0465201772749424
+validation_metrics:
+  val_loss: 0.011093994602560997
+  val_mae: 0.0036318718921393156
+  val_rmse: 0.004158519674092531
+  val_structured_mae: 0.03783486783504486
+  val_structured_rmse: 0.038258522748947144
+test_metrics:
+  test_loss: 0.008282951079308987
+  test_mae: 0.0033679341431707144
+  test_rmse: 0.0038080206140875816
+  test_structured_mae: 0.04070577397942543
+  test_structured_rmse: 0.04102366045117378
+comparison_payload:
+  model_family: residual_harmonic_lstm_sequence_sparse_rcim
+  model_type: residual_harmonic_lstm_sequence
+  run_name: te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 201364
+  total_parameter_count: 201364
+  val_mae: 0.0036318718921393156
+  val_rmse: 0.004158519674092531
+  test_mae: 0.0033679341431707144
+  test_rmse: 0.0038080206140875816
+  deployment_notes: ''
+  interpretability_notes: ''

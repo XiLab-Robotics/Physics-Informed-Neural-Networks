@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-27-18-55-46_015_15_residual_harmonic_lstm_sequence_dense_240_bw.yaml
+experiment:
+  model_family: residual_harmonic_lstm_sequence_bw_dense240
+  model_type: residual_harmonic_lstm_sequence
+  run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense240
+  output_run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense240
+  run_instance_id: 2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_lstm_sequence
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_lstm_sequence_bw_dense240\2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_lstm_sequence_bw_dense240\2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240\checkpoints\residual_harmonic_lstm_sequence-epoch=045-val_mae=0.00374158.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 201826
+  frozen_parameter_count: 0
+  total_parameter_count: 201826
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.042891357094049454
+  val_mae: 0.003741584252566099
+  val_rmse: 0.004353807773441076
+  val_structured_mae: 0.0176340714097023
+  val_structured_rmse: 0.019309282302856445
+test_metrics:
+  test_loss: 0.032446086406707764
+  test_mae: 0.0036054772790521383
+  test_rmse: 0.004128734115511179
+  test_structured_mae: 0.018797338008880615
+  test_structured_rmse: 0.020726971328258514
+comparison_payload:
+  model_family: residual_harmonic_lstm_sequence_bw_dense240
+  model_type: residual_harmonic_lstm_sequence
+  run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense240
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 201826
+  total_parameter_count: 201826
+  val_mae: 0.003741584252566099
+  val_rmse: 0.004353807773441076
+  test_mae: 0.0036054772790521383
+  test_rmse: 0.004128734115511179
+  deployment_notes: ''
+  interpretability_notes: ''

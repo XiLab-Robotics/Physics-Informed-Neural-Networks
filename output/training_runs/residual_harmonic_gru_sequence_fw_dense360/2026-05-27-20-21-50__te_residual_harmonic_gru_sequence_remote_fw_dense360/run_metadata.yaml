@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_gru_sequence_fw_dense360
+base_model_family: residual_harmonic_gru_sequence
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_residual_harmonic_gru_sequence_remote_Fw_dense360
+run_instance_id: 2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360
+output_directory: output\training_runs\residual_harmonic_gru_sequence_fw_dense360\2026-05-27-20-21-50__te_residual_harmonic_gru_sequence_remote_fw_dense360

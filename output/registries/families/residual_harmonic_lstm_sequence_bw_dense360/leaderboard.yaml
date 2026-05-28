@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: residual_harmonic_lstm_sequence_bw_dense360
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-27T22:35:20'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-05-27-22-19-22__te_residual_harmonic_lstm_sequence_remote_bw_dense360
+  run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense360
+  output_run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense360
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_bw_dense360
+  base_model_family: residual_harmonic_lstm_sequence
+  model_type: residual_harmonic_lstm_sequence
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 202066
+  total_parameter_count: 202066
+  val_mae: 0.003729094285517931
+  val_rmse: 0.004335916135460138
+  test_mae: 0.003555574454367161
+  test_rmse: 0.004125193692743778
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_bw_dense360\2026-05-27-22-19-22__te_residual_harmonic_lstm_sequence_remote_bw_dense360
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_bw_dense360\2026-05-27-22-19-22__te_residual_harmonic_lstm_sequence_remote_bw_dense360\checkpoints\residual_harmonic_lstm_sequence-epoch=078-val_mae=0.00372909.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_bw_dense360\2026-05-27-22-19-22__te_residual_harmonic_lstm_sequence_remote_bw_dense360/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_bw_dense360\2026-05-27-22-19-22__te_residual_harmonic_lstm_sequence_remote_bw_dense360/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-27T22:35:20'

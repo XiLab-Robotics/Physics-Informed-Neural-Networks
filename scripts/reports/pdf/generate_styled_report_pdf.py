@@ -368,6 +368,10 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "comparison-gallery-backward-track-1-and-screened-wave-1-overlay",
         "output-artifacts",
     },
+    "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report": {
+        "execution-summary",
+        "leaderboard",
+    },
 }
 
 # Browser And Report Constants
@@ -3436,6 +3440,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                 and report_stem not in {
                     "track2_best_model_collage_report",
                     "track2_multi_model_curve_comparison_report",
+                    "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"

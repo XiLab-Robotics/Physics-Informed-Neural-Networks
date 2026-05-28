@@ -1,0 +1,74 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-05-27-18-55-46_002_02_residual_harmonic_gru_sequence_sparse_rcim_fw.yaml
+experiment:
+  model_family: residual_harmonic_gru_sequence_fw_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim
+  output_run_name: te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim
+  run_instance_id: 2026-05-27-19-07-31__te_residual_harmonic_gru_sequence_remote_fw_sparse_rcim
+  output_artifact_kind: training_run
+  base_model_family: residual_harmonic_gru_sequence
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_fw_sparse_rcim\2026-05-27-19-07-31__te_residual_harmonic_gru_sequence_remote_fw_sparse_rcim
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\residual_harmonic_gru_sequence_fw_sparse_rcim\2026-05-27-19-07-31__te_residual_harmonic_gru_sequence_remote_fw_sparse_rcim\checkpoints\residual_harmonic_gru_sequence-epoch=015-val_mae=0.00330934.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151060
+  frozen_parameter_count: 0
+  total_parameter_count: 151060
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.9805145263672
+  - 497.85791015625
+  - 896.0144653320312
+  - 30.364091873168945
+  - 1.0
+  input_feature_std:
+  - 103.9229736328125
+  - 466.8041076660156
+  - 543.8323974609375
+  - 4.080519676208496
+  - 9.999999974752427e-07
+  target_mean:
+  - -0.05690589174628258
+  target_std:
+  - 0.02363586612045765
+validation_metrics:
+  val_loss: 0.03278950974345207
+  val_mae: 0.0033093420788645744
+  val_rmse: 0.0038282121531665325
+  val_structured_mae: 0.01790178194642067
+  val_structured_rmse: 0.02011839859187603
+test_metrics:
+  test_loss: 0.027285950258374214
+  test_mae: 0.0032002832740545273
+  test_rmse: 0.0036349971778690815
+  test_structured_mae: 0.01835477165877819
+  test_structured_rmse: 0.0207032673060894
+comparison_payload:
+  model_family: residual_harmonic_gru_sequence_fw_sparse_rcim
+  model_type: residual_harmonic_gru_sequence
+  run_name: te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim
+  backbone_name: ResidualHarmonicTemporalSequenceNetwork
+  trainable_parameter_count: 151060
+  total_parameter_count: 151060
+  val_mae: 0.0033093420788645744
+  val_rmse: 0.0038282121531665325
+  test_mae: 0.0032002832740545273
+  test_rmse: 0.0036349971778690815
+  deployment_notes: ''
+  interpretability_notes: ''

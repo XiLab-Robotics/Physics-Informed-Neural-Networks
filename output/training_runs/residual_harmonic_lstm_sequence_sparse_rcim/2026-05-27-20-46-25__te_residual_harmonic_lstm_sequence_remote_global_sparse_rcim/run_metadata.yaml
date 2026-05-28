@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: residual_harmonic_lstm_sequence_sparse_rcim
+base_model_family: residual_harmonic_lstm_sequence
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+run_instance_id: 2026-05-27-20-46-25__te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim
+output_directory: output\training_runs\residual_harmonic_lstm_sequence_sparse_rcim\2026-05-27-20-46-25__te_residual_harmonic_lstm_sequence_remote_global_sparse_rcim

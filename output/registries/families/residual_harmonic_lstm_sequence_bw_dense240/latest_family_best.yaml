@@ -1,0 +1,38 @@
+schema_version: 1
+model_family: residual_harmonic_lstm_sequence_bw_dense240
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-05-27T21:40:13'
+best_entry:
+  run_instance_id: 2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240
+  run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense240
+  output_run_name: te_residual_harmonic_lstm_sequence_remote_Bw_dense240
+  output_artifact_kind: training_run
+  model_family: residual_harmonic_lstm_sequence_bw_dense240
+  base_model_family: residual_harmonic_lstm_sequence
+  model_type: residual_harmonic_lstm_sequence
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 201826
+  total_parameter_count: 201826
+  val_mae: 0.003741584252566099
+  val_rmse: 0.004353807773441076
+  test_mae: 0.0036054772790521383
+  test_rmse: 0.004128734115511179
+  output_directory: output\training_runs\residual_harmonic_lstm_sequence_bw_dense240\2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240
+  best_checkpoint_path: output\training_runs\residual_harmonic_lstm_sequence_bw_dense240\2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240\checkpoints\residual_harmonic_lstm_sequence-epoch=045-val_mae=0.00374158.ckpt
+  metrics_path: output\training_runs\residual_harmonic_lstm_sequence_bw_dense240\2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240/metrics_summary.yaml
+  report_path: output\training_runs\residual_harmonic_lstm_sequence_bw_dense240\2026-05-27-21-29-55__te_residual_harmonic_lstm_sequence_remote_bw_dense240/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-05-27T21:40:13'
