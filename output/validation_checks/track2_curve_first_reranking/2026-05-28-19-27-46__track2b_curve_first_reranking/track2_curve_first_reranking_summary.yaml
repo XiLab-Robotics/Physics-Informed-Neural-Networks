@@ -1,0 +1,75 @@
+schema_version: 1
+run_instance_id: 2026-05-28-19-27-46__track2b_curve_first_reranking
+source_track2_run_directory: output\validation_checks\track2_reference_comparison\2026-05-28-12-22-56__track2_full_directional_family_matrix_wave2c_residual_harmonic_temporal_hybrid_track2_refresh_2026_05_28
+output_directory: output\validation_checks\track2_curve_first_reranking\2026-05-28-19-27-46__track2b_curve_first_reranking
+report_path: doc\reports\analysis\track2\curve_first_reranking_report\[2026-05-28]\track2_curve_first_reranking_report.md
+ranking_policy:
+  primary_metric: mean_percentage_error_pct
+  first_tie_breaker: p95_mean_percentage_error_pct
+  second_tie_breaker: worst_mean_percentage_error_pct
+  third_tie_breaker: mean_curve_mae_deg
+  direction: minimize
+  causal_input_contract: current point, optional short causal history, or derived
+    causal features only
+overall_best:
+  rank: 1
+  candidate_id: rcim_retuned_GBM19_Fw
+  candidate_family: GBM
+  candidate_kind: track1_reference_bank
+  candidate_source_label: rcim_retuned
+  candidate_surface: Fw
+  ranking_scope: overall_valid_direction_surface
+  direction_label: all_valid
+  condition_count: 97
+  mean_curve_mae_deg: '0.001089'
+  mean_curve_rmse_deg: '0.001299'
+  mean_percentage_error_pct: '2.371752'
+  p95_mean_percentage_error_pct: '4.911649'
+  worst_mean_percentage_error_pct: '5.680916'
+  worst_curve_mae_deg: '0.003175'
+  worst_curve_rmse_deg: '0.003859'
+  std_mean_percentage_error_pct: '1.171424'
+  valid_direction_list: forward
+forward_best:
+  rank: 1
+  candidate_id: rcim_retuned_GBM19_Fw
+  candidate_family: GBM
+  candidate_kind: track1_reference_bank
+  candidate_source_label: rcim_retuned
+  candidate_surface: Fw
+  ranking_scope: forward_only
+  direction_label: forward
+  condition_count: 97
+  mean_curve_mae_deg: '0.001089'
+  mean_curve_rmse_deg: '0.001299'
+  mean_percentage_error_pct: '2.371752'
+  p95_mean_percentage_error_pct: '4.911649'
+  worst_mean_percentage_error_pct: '5.680916'
+  worst_curve_mae_deg: '0.003175'
+  worst_curve_rmse_deg: '0.003859'
+  std_mean_percentage_error_pct: '1.171424'
+  valid_direction_list: forward
+backward_best:
+  rank: 1
+  candidate_id: rcim_retuned_GBM19_Bw
+  candidate_family: GBM
+  candidate_kind: track1_reference_bank
+  candidate_source_label: rcim_retuned
+  candidate_surface: Bw
+  ranking_scope: backward_only
+  direction_label: backward
+  condition_count: 97
+  mean_curve_mae_deg: '0.002766'
+  mean_curve_rmse_deg: '0.003300'
+  mean_percentage_error_pct: '5.398275'
+  p95_mean_percentage_error_pct: '12.280348'
+  worst_mean_percentage_error_pct: '29.298779'
+  worst_curve_mae_deg: '0.027092'
+  worst_curve_rmse_deg: '0.030351'
+  std_mean_percentage_error_pct: '4.141784'
+  valid_direction_list: backward
+deferred_diagnostics:
+- harmonic_amplitude_error_by_order
+- harmonic_phase_error_by_order
+- derivative_or_slope_continuity_error
+- stitched_revolution_residual_drift

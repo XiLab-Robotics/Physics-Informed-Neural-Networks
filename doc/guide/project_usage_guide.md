@@ -134,6 +134,11 @@ The current usage flow mainly relies on these folders:
   Track 2 visual report builder that overlays original TE curves, reference
   best models, and screened Wave 1 family-best models on shared axes.
 
+- `scripts/reports/analysis/build_track2_curve_first_reranking_report.py`
+  Track 2B metric report builder that reranks accepted Track 2 candidates by
+  full-curve mean percentage error, P95, worst-condition error, and curve
+  `MAE` without changing the causal runtime input contract.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
@@ -490,6 +495,15 @@ models against the original curve on each representative test curve:
 
 ```powershell
 conda run -n pinns_env python -B scripts/reports/analysis/build_track2_multi_model_curve_comparison_report.py
+```
+
+The Track 2B curve-first reranking report reuses an existing Track 2 validation
+matrix and ranks candidates by continuous-curve metrics. It does not launch
+training and does not change the point-level or causal-history runtime input
+contract:
+
+```powershell
+python -B scripts/reports/analysis/build_track2_curve_first_reranking_report.py
 ```
 
 The repository also exposes a separate original-dataset exact-model-bank branch

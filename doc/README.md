@@ -124,6 +124,10 @@ This folder contains the internal project documents derived from the reference P
 - [reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-05-28%5D/track2_multi_model_curve_comparison_report.md)
   Styled `Track 2` overlay report comparing original TE curves against
   reference best models and screened Wave 1, Wave 2, and Wave 2C models.
+- [reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md](./reports/analysis/track2/curve_first_reranking_report/%5B2026-05-28%5D/track2_curve_first_reranking_report.md)
+  `Track 2B` curve-first reranking report that ranks accepted `Track 2`
+  candidates by full-curve mean percentage error, P95, worst-condition error,
+  and curve `MAE` while preserving the causal runtime input boundary.
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -157,6 +161,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-28
+
+- [technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md](./technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md)
+  Plan the `Track 2B` curve-first reranking pass that standardizes existing
+  `Track 2` curve metrics before opening new training-loss or model-family
+  work.
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-58-12_repository_status_wave_track_synthesis_report.md](./technical/2026-05/2026-05-28/2026-05-28-16-58-12_repository_status_wave_track_synthesis_report.md)
   Plan the repository status synthesis report covering current repository
@@ -1569,6 +1578,9 @@ This folder contains the internal project documents derived from the reference P
   Canonical index for the reorganized `scripts/reports/` subfolders and their operator-facing notes.
 - [scripts/reports/analysis/generate_model_report_diagrams.md](./scripts/reports/analysis/generate_model_report_diagrams.md)
   Script-level documentation for the SVG generator used by the model explanatory reports.
+- [scripts/reports/analysis/build_track2_curve_first_reranking_report.md](./scripts/reports/analysis/build_track2_curve_first_reranking_report.md)
+  Script-level documentation for the `Track 2B` curve-first reranking report
+  builder.
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
   Script-level documentation for the canonical training-results master-summary generator.
 - [scripts/reports/pdf/run_report_pipeline.md](./scripts/reports/pdf/run_report_pipeline.md)

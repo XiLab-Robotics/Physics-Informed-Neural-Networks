@@ -31,10 +31,10 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: standardize curve-first Track 2 reranking before opening new
-  model-family work, because the real compensation target is continuous TE
-  curve prediction over many consecutive motor revolutions rather than
-  isolated pointwise regression.
+- Current Focus: use the completed `Track 2B` curve-first reranking to decide
+  whether the next branch should change training losses/reranking for existing
+  families or open a new model-family wave with richer curve-payload
+  diagnostics.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -44,6 +44,7 @@ Current canonical status reports:
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
+- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -94,6 +95,23 @@ This rule does not reopen closed campaigns. It changes how future branches
 interpret their evidence and defines the next planned work as a curve-first
 reranking pass over existing accepted candidates while preserving the causal
 input contract.
+
+The first standardized reranking pass is complete in:
+
+- `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+
+Current `Track 2B` curve-first leaders:
+
+| Scope | Leader | Mean MPE [%] | P95 MPE [%] | Mean Curve MAE [deg] |
+| --- | --- | ---: | ---: | ---: |
+| Forward | `rcim_retuned_GBM19_Fw` | 2.371752 | 4.911649 | 0.001089 |
+| Backward | `rcim_retuned_GBM19_Bw` | 5.398275 | 12.280348 | 0.002766 |
+| Global surface | `periodic_lstm_sequence_global` | 6.119950 | 14.716986 | 0.002707 |
+
+This reranking does not promote a new program-best model by itself. Harmonic
+amplitude, harmonic phase, derivative-continuity, and stitched-revolution
+residual diagnostics remain the next validation extension before curve-first
+training losses become canonical.
 
 ## Completed
 

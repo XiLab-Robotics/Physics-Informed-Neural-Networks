@@ -5,14 +5,16 @@
 - Generated At: `2026-05-28T11:42:23`
 - Program State: active.
 - Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign and official `Track 2` refresh complete.
-- Current Focus: standardize curve-first Track 2 reranking before opening new
-  model-family work or retraining with new losses.
+- Current Focus: use completed `Track 2B` curve-first reranking to choose
+  between loss/reranking changes for existing families and a new model-family
+  wave with richer curve-payload diagnostics.
 - Active Campaign Status: `none`
 - Active Campaign Name: `None`
 - Current Scalar Registry Winner: `te_periodic_gru_sequence_remote_Bw` |
   Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
-- Current Curve-First Promotion State: pending reranking on the expanded Track
-  2 curve metric surface.
+- Current Curve-First Promotion State: `Track 2B` reranking complete; no new
+  program-best promotion until harmonic/phase and continuity diagnostics are
+  available.
 - Runtime Input Constraint: point-level operating state, optional short causal
   history, or derived causal features only.
 
@@ -22,7 +24,10 @@
 - Latest Track 2 decision: `Wave 2C` sparse `RCIM` residual harmonic temporal
   models are verified exploratory baselines, not promoted over `Wave 2B`.
 - New selection direction: future program-best promotion should require Track
-  2 curve-first evidence, not scalar `test_mae` alone.
+  2 curve-first evidence, not scalar `test_mae` alone; the first standardized
+  reranking favors `rcim_retuned_GBM19_Fw` forward,
+  `rcim_retuned_GBM19_Bw` backward, and `periodic_lstm_sequence_global` on the
+  global surface.
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `53`
@@ -140,7 +145,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; status: closed. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 

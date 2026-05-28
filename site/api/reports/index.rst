@@ -9,3 +9,4 @@ repository reporting workflow.
 
    generate_styled_report_pdf
    plot_wave1_best_model_te_curves
+   build_track2_curve_first_reranking_report
