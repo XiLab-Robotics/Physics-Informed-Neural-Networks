@@ -110,20 +110,20 @@ This folder contains the internal project documents derived from the reference P
   Canonical `Track 2` offline matrix comparing accepted `Track 1`, recovered
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
-- [reports/analysis/track2/official_model_verification_report/[2026-05-21]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-05-21%5D/track2_official_model_verification_report.md)
-  Official `Track 2` model-verification report consolidating the directional
-  matrix, best-model collage PDF, multi-model curve comparison PDF, and future
-  `Track 2` campaign update ledger.
+- [reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-05-28%5D/track2_official_model_verification_report.md)
+  Official `Track 2` model-verification report accepting `Wave 2C` as a
+  verified exploratory residual harmonic temporal baseline without promoting
+  it over the current `Wave 2B` neural leaders or accepted Track 2 baselines.
 - [reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/track2/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
   Operational refresh plan for adding the completed `Wave 2`
   temporal-model candidates to the official `Track 2` verification matrix,
   visual reports, and update ledger.
-- [reports/analysis/track2/best_model_collage_report/[2026-05-20]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-05-20%5D/track2_best_model_collage_report.md)
+- [reports/analysis/track2/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-05-28%5D/track2_best_model_collage_report.md)
   Styled `Track 2` visual report with four-curve collages for the current best
-  reference, Track 1, Wave 1 directional, and Wave 1 global models.
-- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-20]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-05-20%5D/track2_multi_model_curve_comparison_report.md)
+  reference, Track 1, Wave 1, Wave 2, and Wave 2C candidates.
+- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-05-28%5D/track2_multi_model_curve_comparison_report.md)
   Styled `Track 2` overlay report comparing original TE curves against
-  reference best models and screened Wave 1 family-best models.
+  reference best models and screened Wave 1, Wave 2, and Wave 2C models.
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -146,6 +146,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-28
+
+- [technical/2026-05/2026-05-28/2026-05-28-12-10-21_wave2c_track2_verification_refresh.md](./technical/2026-05/2026-05-28/2026-05-28-12-10-21_wave2c_track2_verification_refresh.md)
+  Plan the optional `Wave 2C` `Track 2` verification refresh, including the
+  matrix candidate update, local and `-Remote` operator launcher, visual report
+  regeneration, official decision report, and status synchronization.
 
 - [technical/2026-05/2026-05-28/2026-05-28-11-38-20_wave2c_remote_repository_path_fallback.md](./technical/2026-05/2026-05-28/2026-05-28-11-38-20_wave2c_remote_repository_path_fallback.md)
   Plan the `Wave 2C` remote launcher fallback fix so `-Remote` uses the

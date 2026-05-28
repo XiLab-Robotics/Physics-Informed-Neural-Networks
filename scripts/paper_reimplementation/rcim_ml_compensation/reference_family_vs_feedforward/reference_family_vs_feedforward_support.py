@@ -53,6 +53,8 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "periodic_temporal_convolution",
     "periodic_gru_sequence",
     "periodic_lstm_sequence",
+    "residual_harmonic_gru_sequence",
+    "residual_harmonic_lstm_sequence",
 }
 REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
 TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
@@ -946,6 +948,58 @@ def build_composite_reference_candidate_configuration_list(
     return candidate_configuration_list
 
 
+def build_registry_candidate_configuration_list(
+    registry_group_configuration: dict[str, Any],
+    default_source_label: str,
+) -> list[dict[str, Any]]:
+
+    """Generate registry-backed Track 2 candidates from compact family metadata."""
+
+    family_registry_root = str(registry_group_configuration["family_registry_root"]).rstrip("/")
+    source_label = str(registry_group_configuration.get("source_label", default_source_label)).strip()
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for family_configuration in registry_group_configuration["base_family_list"]:
+        if isinstance(family_configuration, dict):
+            candidate_id_prefix = str(family_configuration["candidate_id_prefix"]).strip()
+            candidate_family = str(family_configuration.get("candidate_family", candidate_id_prefix)).strip()
+            surface_family_dictionary = {
+                "global": str(family_configuration["global_family"]).strip(),
+                "Fw": str(family_configuration["fw_family"]).strip(),
+                "Bw": str(family_configuration["bw_family"]).strip(),
+            }
+        else:
+            candidate_id_prefix = str(family_configuration).strip()
+            candidate_family = candidate_id_prefix
+            surface_family_dictionary = {
+                "global": candidate_id_prefix,
+                "Fw": f"{candidate_id_prefix}_fw",
+                "Bw": f"{candidate_id_prefix}_bw",
+            }
+
+        for candidate_surface, allowed_direction_list in [
+            ("global", ["forward", "backward"]),
+            ("Fw", ["forward"]),
+            ("Bw", ["backward"]),
+        ]:
+            registry_family_name = surface_family_dictionary[candidate_surface]
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{candidate_id_prefix}_{candidate_surface}",
+                    "candidate_family": candidate_family,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": source_label,
+                    "candidate_surface": candidate_surface,
+                    "family_registry_path": (
+                        f"{family_registry_root}/{registry_family_name}/latest_family_best.yaml"
+                    ),
+                    "allowed_direction_list": allowed_direction_list,
+                }
+            )
+
+    return candidate_configuration_list
+
+
 def build_generated_candidate_configuration_list(training_config: dict[str, Any]) -> list[dict[str, Any]]:
 
     """Generate a full Track 2 candidate matrix from compact config metadata."""
@@ -1014,89 +1068,24 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
 
     wave1_configuration = generation_configuration.get("wave1_registry_models", {})
     if wave1_configuration:
-        family_registry_root = str(wave1_configuration["family_registry_root"]).rstrip("/")
-        for base_family in wave1_configuration["base_family_list"]:
-            base_family_name = str(base_family).strip()
-            candidate_configuration_list.extend(
-                [
-                    {
-                        "candidate_id": f"{base_family_name}_global",
-                        "candidate_family": base_family_name,
-                        "candidate_kind": "wave1_registry_model",
-                        "candidate_source_label": "wave1",
-                        "candidate_surface": "global",
-                        "family_registry_path": (
-                            f"{family_registry_root}/{base_family_name}/latest_family_best.yaml"
-                        ),
-                        "allowed_direction_list": ["forward", "backward"],
-                    },
-                    {
-                        "candidate_id": f"{base_family_name}_Fw",
-                        "candidate_family": base_family_name,
-                        "candidate_kind": "wave1_registry_model",
-                        "candidate_source_label": "wave1",
-                        "candidate_surface": "Fw",
-                        "family_registry_path": (
-                            f"{family_registry_root}/{base_family_name}_fw/latest_family_best.yaml"
-                        ),
-                        "allowed_direction_list": ["forward"],
-                    },
-                    {
-                        "candidate_id": f"{base_family_name}_Bw",
-                        "candidate_family": base_family_name,
-                        "candidate_kind": "wave1_registry_model",
-                        "candidate_source_label": "wave1",
-                        "candidate_surface": "Bw",
-                        "family_registry_path": (
-                            f"{family_registry_root}/{base_family_name}_bw/latest_family_best.yaml"
-                        ),
-                        "allowed_direction_list": ["backward"],
-                    },
-                ]
-            )
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(wave1_configuration, "wave1")
+        )
 
     wave2_configuration = generation_configuration.get("wave2_registry_models", {})
     if wave2_configuration:
-        family_registry_root = str(wave2_configuration["family_registry_root"]).rstrip("/")
-        for base_family in wave2_configuration["base_family_list"]:
-            base_family_name = str(base_family).strip()
-            candidate_configuration_list.extend(
-                [
-                    {
-                        "candidate_id": f"{base_family_name}_global",
-                        "candidate_family": base_family_name,
-                        "candidate_kind": "wave1_registry_model",
-                        "candidate_source_label": "wave2_temporal_entry_registry",
-                        "candidate_surface": "global",
-                        "family_registry_path": (
-                            f"{family_registry_root}/{base_family_name}/latest_family_best.yaml"
-                        ),
-                        "allowed_direction_list": ["forward", "backward"],
-                    },
-                    {
-                        "candidate_id": f"{base_family_name}_Fw",
-                        "candidate_family": base_family_name,
-                        "candidate_kind": "wave1_registry_model",
-                        "candidate_source_label": "wave2_temporal_entry_registry",
-                        "candidate_surface": "Fw",
-                        "family_registry_path": (
-                            f"{family_registry_root}/{base_family_name}_fw/latest_family_best.yaml"
-                        ),
-                        "allowed_direction_list": ["forward"],
-                    },
-                    {
-                        "candidate_id": f"{base_family_name}_Bw",
-                        "candidate_family": base_family_name,
-                        "candidate_kind": "wave1_registry_model",
-                        "candidate_source_label": "wave2_temporal_entry_registry",
-                        "candidate_surface": "Bw",
-                        "family_registry_path": (
-                            f"{family_registry_root}/{base_family_name}_bw/latest_family_best.yaml"
-                        ),
-                        "allowed_direction_list": ["backward"],
-                    },
-                ]
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(wave2_configuration, "wave2_temporal_entry_registry")
+        )
+
+    wave2c_configuration = generation_configuration.get("wave2c_registry_models", {})
+    if wave2c_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                wave2c_configuration,
+                "wave2c_residual_harmonic_temporal_registry",
             )
+        )
 
     wave1_export_configuration = generation_configuration.get("wave1_exported_models", {})
     if wave1_export_configuration:

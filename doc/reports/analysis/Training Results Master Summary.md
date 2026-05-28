@@ -4,8 +4,8 @@
 
 - Generated At: `2026-05-28T11:42:23`
 - Program State: active.
-- Current Completed Wave: `Wave 2B` harmonic-temporal hybrid campaign closeout complete; `Track 2` refresh pending as a separate operator-launched workflow.
-- Current Focus: review the completed `Wave 2B` closeout package, then decide whether to prepare the separate operator-run `Track 2` launcher.
+- Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign and official `Track 2` refresh complete.
+- Current Focus: choose the next modeling branch after `Wave 2C` was verified as an exploratory baseline and not promoted over `Wave 2B`.
 - Active Campaign Status: `none`
 - Active Campaign Name: `None`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -13,6 +13,8 @@
 ## Main Takeaways
 
 - Strongest current neural family: `periodic_gru_sequence_bw`
+- Latest Track 2 decision: `Wave 2C` sparse `RCIM` residual harmonic temporal
+  models are verified exploratory baselines, not promoted over `Wave 2B`.
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `53`
@@ -130,7 +132,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; status: closed. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -150,7 +152,8 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 2B. Harmonic Temporal Hybrid Models | status: harmonic-temporal hybrid campaign completed; normal closeout report; families: `periodic_temporal_convolution`, `periodic_gru_sequence`,; configuration root:; preliminary campaign plan:; closeout report:; campaign winner: `te_periodic_gru_sequence_remote_Bw` from family; strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`; Track 2 decision: pending; must be prepared as a separate PowerShell; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: scalar campaign metrics only until the optional |
+| Wave 2B. Harmonic Temporal Hybrid Models | status: harmonic-temporal hybrid campaign completed; normal closeout report; families: `periodic_temporal_convolution`, `periodic_gru_sequence`, `periodic_lstm_sequence`;; campaign winner: `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw`;; strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`;; Track 2 decision: strongest current repository-owned neural branch;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; baseline comparison: official Track 2 matrix plus visual reports. |
+| Wave 2C. Residual Harmonic Temporal Hybrid Models | status: residual harmonic temporal hybrid campaign and official Track 2 refresh completed;; families: `residual_harmonic_gru_sequence`, `residual_harmonic_lstm_sequence` with sparse `RCIM`, dense `240`, and dense `360` harmonic banks;; campaign winner: `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim`;; strongest Track 2 Wave 2C candidates: `residual_harmonic_gru_sequence_sparse_rcim_Fw`, `residual_harmonic_lstm_sequence_sparse_rcim_Bw`, and `residual_harmonic_lstm_sequence_sparse_rcim_global`;; Track 2 decision: verified exploratory baseline, not promoted over `Wave 2B` periodic sequence leaders. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -295,6 +298,9 @@ Low-priority exploratory families currently listed in the backlog:
 
 - Current program-registry winner: `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw`.
 - Strongest current neural family: `periodic_gru_sequence_bw`.
+- `Wave 2C` is now Track 2 verified as exploratory evidence: sparse `RCIM`
+  residual harmonic temporal models are the only competitive branch, but they
+  do not displace `Wave 2B`.
 - Current plain-MLP comparison anchor: `te_feedforward_stride1_high_compute_long_remote_global`.
 - Predictive quality and deployment suitability must stay separate: the best leaderboard entry is not automatically the best TwinCAT/PLC candidate.
 - Large tree artifacts should be treated cautiously even when tree-based accuracy remains strong, because model weight and memory footprint can dominate deployment feasibility.

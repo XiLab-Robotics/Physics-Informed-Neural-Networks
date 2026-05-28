@@ -24,13 +24,15 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Wave 2B` harmonic-temporal hybrid campaign closeout complete; `Track 2` refresh pending as a separate operator-launched workflow.
+- Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign
+  and official `Track 2` refresh complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: review the completed `Wave 2B` closeout package, then decide whether to prepare the separate operator-run `Track 2` launcher.
+- Current Focus: decide the next modeling branch after `Wave 2C` was verified
+  as an exploratory baseline and not promoted over `Wave 2B`.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -38,7 +40,7 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-24]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -584,7 +586,7 @@ Entry rule:
 ### Wave 2B. Harmonic Temporal Hybrid Models
 
 - status: harmonic-temporal hybrid campaign completed; normal closeout report
-  prepared; official `Track 2` refresh not run;
+  prepared; official `Track 2` refresh completed;
 - families: `periodic_temporal_convolution`, `periodic_gru_sequence`,
   `periodic_lstm_sequence`;
 - configuration root:
@@ -597,12 +599,40 @@ Entry rule:
   `periodic_gru_sequence_bw`, with test MAE `0.002344 deg`;
 - strongest bidirectional candidate: `te_periodic_gru_sequence_remote_global`
   from family `periodic_gru_sequence`, with test MAE `0.002681 deg`;
-- Track 2 decision: pending; must be prepared as a separate PowerShell
-  launcher with local and `-Remote` modes after explicit approval;
+- Track 2 decision: strongest repository-owned neural branch after official
+  verification; `periodic_gru_sequence_Bw` is the strongest backward-only
+  candidate and `periodic_gru_sequence_global` is the strongest global neural
+  candidate;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
-- baseline comparison: scalar campaign metrics only until the optional
-  operator-run Track 2 refresh is completed.
+- baseline comparison: official Track 2 matrix plus visual collage and overlay
+  reports.
+
+### Wave 2C. Residual Harmonic Temporal Hybrid Models
+
+- status: residual harmonic temporal hybrid campaign completed; official
+  `Track 2` refresh completed;
+- families: `residual_harmonic_gru_sequence`,
+  `residual_harmonic_lstm_sequence`;
+- harmonic banks: sparse `RCIM`, dense `240`, dense `360`;
+- closeout report:
+  `doc/reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md`;
+- official verification report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`;
+- strongest Wave 2C forward candidate:
+  `residual_harmonic_gru_sequence_sparse_rcim_Fw`, Track 2 MAE
+  `0.003194 deg`;
+- strongest Wave 2C backward candidate:
+  `residual_harmonic_lstm_sequence_sparse_rcim_Bw`, Track 2 MAE
+  `0.003440 deg`;
+- strongest Wave 2C global candidate:
+  `residual_harmonic_lstm_sequence_sparse_rcim_global`, Track 2 MAE
+  `0.003368 deg`;
+- Track 2 decision: verified exploratory baseline, not promoted over the
+  `Wave 2B` periodic sequence leaders;
+- design conclusion: sparse `RCIM` harmonics remain useful, while dense `240`
+  and dense `360` harmonic banks are not competitive for this residual
+  temporal branch.
 
 ### Wave 3. Hybrid Structured Models
 

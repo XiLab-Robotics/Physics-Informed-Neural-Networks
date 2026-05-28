@@ -7,7 +7,7 @@ experiment:
 comparison:
   comparison_mode: full_directional_candidate_matrix
   canonical_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
-  baseline_summary_path: output/validation_checks/track2_reference_comparison/2026-05-24-22-01-57__track2_full_directional_family_matrix_wave2_temporal_refresh/validation_summary.yaml
+  baseline_summary_path: output/validation_checks/track2_reference_comparison/2026-05-27-16-03-14__track2_full_directional_family_matrix_wave2b_harmonic_temporal_hybrid_track2_refresh_2026_05_26/validation_summary.yaml
   lightweight_test_curve_records: true
   report_plot_generation_scope: incremental_current_candidates
   percentage_error_denominator: peak_to_peak_truth
@@ -227,6 +227,40 @@ comparison:
         - periodic_temporal_convolution
         - periodic_gru_sequence
         - periodic_lstm_sequence
+    wave2c_registry_models:
+      family_registry_root: output/registries/families
+      source_label: wave2c_residual_harmonic_temporal_registry
+      base_family_list:
+        - candidate_id_prefix: residual_harmonic_gru_sequence_sparse_rcim
+          candidate_family: residual_harmonic_gru_sequence_sparse_rcim
+          global_family: residual_harmonic_gru_sequence_sparse_rcim
+          fw_family: residual_harmonic_gru_sequence_fw_sparse_rcim
+          bw_family: residual_harmonic_gru_sequence_bw_sparse_rcim
+        - candidate_id_prefix: residual_harmonic_gru_sequence_dense240
+          candidate_family: residual_harmonic_gru_sequence_dense240
+          global_family: residual_harmonic_gru_sequence_dense240
+          fw_family: residual_harmonic_gru_sequence_fw_dense240
+          bw_family: residual_harmonic_gru_sequence_bw_dense240
+        - candidate_id_prefix: residual_harmonic_gru_sequence_dense360
+          candidate_family: residual_harmonic_gru_sequence_dense360
+          global_family: residual_harmonic_gru_sequence_dense360
+          fw_family: residual_harmonic_gru_sequence_fw_dense360
+          bw_family: residual_harmonic_gru_sequence_bw_dense360
+        - candidate_id_prefix: residual_harmonic_lstm_sequence_sparse_rcim
+          candidate_family: residual_harmonic_lstm_sequence_sparse_rcim
+          global_family: residual_harmonic_lstm_sequence_sparse_rcim
+          fw_family: residual_harmonic_lstm_sequence_fw_sparse_rcim
+          bw_family: residual_harmonic_lstm_sequence_bw_sparse_rcim
+        - candidate_id_prefix: residual_harmonic_lstm_sequence_dense240
+          candidate_family: residual_harmonic_lstm_sequence_dense240
+          global_family: residual_harmonic_lstm_sequence_dense240
+          fw_family: residual_harmonic_lstm_sequence_fw_dense240
+          bw_family: residual_harmonic_lstm_sequence_bw_dense240
+        - candidate_id_prefix: residual_harmonic_lstm_sequence_dense360
+          candidate_family: residual_harmonic_lstm_sequence_dense360
+          global_family: residual_harmonic_lstm_sequence_dense360
+          fw_family: residual_harmonic_lstm_sequence_fw_dense360
+          bw_family: residual_harmonic_lstm_sequence_bw_dense360
 evaluation:
   selected_harmonics:
     - 0

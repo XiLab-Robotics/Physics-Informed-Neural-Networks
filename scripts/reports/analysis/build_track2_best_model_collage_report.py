@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import os
+import shutil
 import sys
 from dataclasses import dataclass
 from datetime import datetime
@@ -66,6 +67,50 @@ WAVE2_BASE_FAMILY_LIST = [
     "periodic_temporal_convolution",
     "periodic_gru_sequence",
     "periodic_lstm_sequence",
+]
+WAVE2C_FAMILY_CONFIGURATION_LIST = [
+    {
+        "candidate_id_prefix": "residual_harmonic_gru_sequence_sparse_rcim",
+        "candidate_family": "residual_harmonic_gru_sequence_sparse_rcim",
+        "global_family": "residual_harmonic_gru_sequence_sparse_rcim",
+        "fw_family": "residual_harmonic_gru_sequence_fw_sparse_rcim",
+        "bw_family": "residual_harmonic_gru_sequence_bw_sparse_rcim",
+    },
+    {
+        "candidate_id_prefix": "residual_harmonic_gru_sequence_dense240",
+        "candidate_family": "residual_harmonic_gru_sequence_dense240",
+        "global_family": "residual_harmonic_gru_sequence_dense240",
+        "fw_family": "residual_harmonic_gru_sequence_fw_dense240",
+        "bw_family": "residual_harmonic_gru_sequence_bw_dense240",
+    },
+    {
+        "candidate_id_prefix": "residual_harmonic_gru_sequence_dense360",
+        "candidate_family": "residual_harmonic_gru_sequence_dense360",
+        "global_family": "residual_harmonic_gru_sequence_dense360",
+        "fw_family": "residual_harmonic_gru_sequence_fw_dense360",
+        "bw_family": "residual_harmonic_gru_sequence_bw_dense360",
+    },
+    {
+        "candidate_id_prefix": "residual_harmonic_lstm_sequence_sparse_rcim",
+        "candidate_family": "residual_harmonic_lstm_sequence_sparse_rcim",
+        "global_family": "residual_harmonic_lstm_sequence_sparse_rcim",
+        "fw_family": "residual_harmonic_lstm_sequence_fw_sparse_rcim",
+        "bw_family": "residual_harmonic_lstm_sequence_bw_sparse_rcim",
+    },
+    {
+        "candidate_id_prefix": "residual_harmonic_lstm_sequence_dense240",
+        "candidate_family": "residual_harmonic_lstm_sequence_dense240",
+        "global_family": "residual_harmonic_lstm_sequence_dense240",
+        "fw_family": "residual_harmonic_lstm_sequence_fw_dense240",
+        "bw_family": "residual_harmonic_lstm_sequence_bw_dense240",
+    },
+    {
+        "candidate_id_prefix": "residual_harmonic_lstm_sequence_dense360",
+        "candidate_family": "residual_harmonic_lstm_sequence_dense360",
+        "global_family": "residual_harmonic_lstm_sequence_dense360",
+        "fw_family": "residual_harmonic_lstm_sequence_fw_dense360",
+        "bw_family": "residual_harmonic_lstm_sequence_bw_dense360",
+    },
 ]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
@@ -277,6 +322,44 @@ def build_wave2_registry_candidate_configuration_list(family_registry_root: Path
     return candidate_configuration_list
 
 
+def build_wave2c_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Wave 2C residual harmonic temporal candidates."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST:
+        candidate_id_prefix = str(family_configuration["candidate_id_prefix"])
+        candidate_family = str(family_configuration["candidate_family"])
+        surface_family_dictionary = {
+            "global": str(family_configuration["global_family"]),
+            "Fw": str(family_configuration["fw_family"]),
+            "Bw": str(family_configuration["bw_family"]),
+        }
+        for candidate_surface, allowed_direction_list in [
+            ("global", ["forward", "backward"]),
+            ("Fw", ["forward"]),
+            ("Bw", ["backward"]),
+        ]:
+            registry_family_name = surface_family_dictionary[candidate_surface]
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{candidate_id_prefix}_{candidate_surface}",
+                    "candidate_family": candidate_family,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "wave2c_residual_harmonic_temporal_registry",
+                    "candidate_surface": candidate_surface,
+                    "family_registry_path": f"{registry_root_text}/{registry_family_name}/latest_family_best.yaml",
+                    "allowed_direction_list": allowed_direction_list,
+                }
+            )
+
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -386,6 +469,7 @@ def resolve_report_candidate_configuration_list(
         reference_candidate_configuration_list
         + build_wave1_registry_candidate_configuration_list(family_registry_root)
         + build_wave2_registry_candidate_configuration_list(family_registry_root)
+        + build_wave2c_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -406,6 +490,18 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
     wave2_forward_candidate_id_list = [f"{family_name}_fw" for family_name in WAVE2_BASE_FAMILY_LIST]
     wave2_backward_candidate_id_list = [f"{family_name}_bw" for family_name in WAVE2_BASE_FAMILY_LIST]
     wave2_global_candidate_id_list = [f"{family_name}_global" for family_name in WAVE2_BASE_FAMILY_LIST]
+    wave2c_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST
+    ]
+    wave2c_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST
+    ]
+    wave2c_global_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_global"
+        for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST
+    ]
 
     return [
         ReportCandidateGroup(
@@ -445,6 +541,18 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             selection_mode="backward",
         ),
         ReportCandidateGroup(
+            group_id="forward_wave2c",
+            group_title="Forward Wave 2C Residual Harmonic Temporal Models",
+            candidate_id_list=wave2c_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_wave2c",
+            group_title="Backward Wave 2C Residual Harmonic Temporal Models",
+            candidate_id_list=wave2c_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
             group_id="global_wave1",
             group_title="Global Wave 1 Family Best Models",
             candidate_id_list=wave1_global_candidate_id_list,
@@ -454,6 +562,12 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             group_id="global_wave2",
             group_title="Global Wave 2 Temporal Family Best Models",
             candidate_id_list=wave2_global_candidate_id_list,
+            selection_mode="mixed",
+        ),
+        ReportCandidateGroup(
+            group_id="global_wave2c",
+            group_title="Global Wave 2C Residual Harmonic Temporal Models",
+            candidate_id_list=wave2c_global_candidate_id_list,
             selection_mode="mixed",
         ),
     ]
@@ -860,7 +974,15 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
                 / group.group_id
                 / f"{sanitize_filename_fragment(candidate_id)}.png"
             )
+            report_asset_path = (
+                report_path.parent
+                / "assets"
+                / group.group_id
+                / f"{sanitize_filename_fragment(candidate_id)}.png"
+            )
             save_candidate_collage(collage_path, candidate_id, selected_entry_list)
+            report_asset_path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(collage_path, report_asset_path)
 
             if group.selection_mode in {"forward", "backward"}:
                 metric_dictionary = direction_metric_summary[group.selection_mode][candidate_id]
@@ -882,7 +1004,7 @@ def run_track2_best_model_collage_report(arguments: argparse.Namespace) -> dict[
                     ),
                     "metrics": metric_dictionary,
                     "collage_path": shared_training_infrastructure.format_project_relative_path(collage_path),
-                    "collage_markdown_path": build_relative_markdown_path(collage_path, report_path.parent),
+                    "collage_markdown_path": build_relative_markdown_path(report_asset_path, report_path.parent),
                     "selected_curve_list": [
                         {
                             "source_file_path": entry["source_file_path"],
