@@ -1,0 +1,305 @@
+# Curve-First TE Training Strategy
+
+## Overview
+
+The repository now has enough evidence to separate two ideas that were
+previously coupled:
+
+- pointwise dataset accuracy, usually reported as scalar `MAE` or `RMSE`;
+- full TE-curve tracking quality on the direction-valid `Track 2` held-out
+  surface.
+
+The final application is continuous Transmission Error compensation. A deployed
+predictor will run through many consecutive motor revolutions, so the useful
+offline question is not only whether a single dataset sample has a low absolute
+error. The useful question is whether the predicted TE curve preserves the
+measured waveform over repeated cycles under the right speed, torque,
+temperature, direction, angular-position, and `DataValid` conditions.
+
+This report defines the curve-first strategy for the next training and
+selection work. It is a planning and analysis document, not a completed
+training campaign.
+
+## Current Evidence
+
+### Repository Facts
+
+Current training and registry infrastructure still promotes best runs with the
+shared scalar policy:
+
+- primary metric: `test_mae`;
+- first tie-breaker: `test_rmse`;
+- second tie-breaker: `val_mae`;
+- third tie-breaker: trainable parameter count.
+
+`Track 2`, however, already evaluates candidates on complete held-out TE
+curves. The official matrix uses:
+
+- `194` held-out curves before candidate filtering;
+- direction-valid evaluation for `Fw`, `Bw`, and `global` candidates;
+- per-curve `MAE`, `RMSE`, mean percentage error, and P95 percentage error;
+- visual collages and multi-model overlays for local waveform inspection.
+
+The current `Wave 1` closeout shows the risk clearly. The scalar HPO leader is
+`tree_fw` with test `MAE = 0.002743 deg`, but the Track 2 visual reports are
+the correct surface for judging whether the model follows the TE waveform well
+enough for compensation.
+
+The `Wave 2B` periodic sequence branch is the strongest current
+repository-owned neural branch in Track 2. `Wave 2C` confirms another important
+point: sparse `RCIM` harmonic structure helps, while dense `240` and dense
+`360` residual harmonic variants over-expand the basis and are not
+competitive on the official Track 2 curve surface.
+
+### Reference-Backed Constraints
+
+The RCIM compensation reference frames the real target as online TE prediction
+and TwinCAT compensation, not only offline tabular regression. It keeps speed,
+torque, oil temperature, direction, and angular position as first-class
+variables.
+
+The data-series reference also matters: TE is defined on valid steady-state
+segments selected by `DataValid`. Any future curve-first split, loss, or
+evaluation protocol must preserve that valid-window meaning.
+
+The TwinCAT-friendly modeling synthesis adds a deployment constraint: the
+candidate should preserve a credible path to inspectable, stable compensation.
+That favors harmonic, periodic, and hybrid structured predictors over opaque
+models when scalar performance is close.
+
+## External Technique Review
+
+### Curve-Level Reranking
+
+The lowest-risk improvement is not a new algorithm. It is to rerank existing
+candidate artifacts on the full Track 2 curve surface before accepting a
+family best or program best.
+
+Recommended metrics:
+
+- mean per-curve `MAE`;
+- mean per-curve `RMSE`;
+- mean percentage error normalized by curve peak-to-peak truth;
+- P95 and worst-condition percentage error;
+- direction-separated `Fw`, `Bw`, and `global` summaries;
+- count of unacceptable curves above a project-defined threshold.
+
+This strategy is directly compatible with the existing Track 2 scripts and can
+be applied to `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` without retraining.
+
+### Shape-Aware Diagnostics
+
+Pointwise `MAE` can hide visually poor curve behavior. The next diagnostics
+should measure curve shape explicitly:
+
+- first-derivative error for local slope;
+- second-derivative or curvature error for oscillation shape;
+- peak and trough location error;
+- peak-to-peak amplitude error;
+- phase offset on selected harmonics;
+- local correlation between predicted and measured curves;
+- residual autocorrelation along the angular coordinate.
+
+These metrics should first be diagnostic and promotion-facing. Only after they
+are stable should they become training losses.
+
+### Frequency And Harmonic Metrics
+
+TE is strongly periodic in angular position, and the RCIM paper works through
+harmonic amplitude and phase terms. A curve-first benchmark should therefore
+add harmonic-space diagnostics:
+
+- amplitude error on the sparse `RCIM` harmonic set;
+- phase error on the sparse `RCIM` harmonic set;
+- weighted error on the high-value harmonics used by the paper reference;
+- spectral leakage outside the selected harmonic bank;
+- low-frequency bias versus high-frequency tracking gap.
+
+This class is especially relevant because neural networks can show spectral
+bias toward low-frequency functions. Frequency-aware diagnostics explain why a
+model may achieve acceptable average error while smoothing out important TE
+oscillations.
+
+Relevant sources:
+
+- [On the Spectral Bias of Neural Networks](https://proceedings.mlr.press/v97/rahaman19a)
+- [Fourier Features Let Networks Learn High Frequency Functions in Low
+  Dimensional Domains](https://papers.nips.cc/paper_files/paper/2020/hash/55053683268957697aa39fba6f231c68-Abstract.html)
+
+### Differentiable Time-Series Losses
+
+Soft-DTW and DILATE show that deep models can be trained with differentiable
+time-series shape objectives instead of plain pointwise loss.
+
+Relevant sources:
+
+- [Soft-DTW: a Differentiable Loss Function for Time-Series](https://proceedings.mlr.press/v70/cuturi17a.html)
+- [Shape and Time Distortion Loss for Training Deep Time Series Forecasting
+  Models](https://papers.neurips.cc/paper/by-source-2019-2368)
+
+These methods are useful candidates, but they are not the first recommended
+implementation for TE compensation. DTW-style losses are designed to tolerate
+time shifts and dilations. In this project, physical phase matters: a predictor
+that looks good only after temporal warping may still compensate at the wrong
+angle. Therefore:
+
+- do not use DTW or Soft-DTW as the primary promotion metric;
+- if tested, use a constrained or low-weight term only;
+- always keep phase-preserving curve metrics and harmonic phase error ahead of
+  any warp-tolerant metric.
+
+### Functional Curve Regularization
+
+Functional data analysis supports the idea of treating each TE revolution as a
+curve rather than as disconnected samples. Roughness-penalized curve fitting
+uses derivative penalties to control slope and curvature.
+
+Relevant source:
+
+- [Roughness regularization for functional data analysis with free knots spline
+  estimation](https://link.springer.com/article/10.1007/s11222-024-10474-w)
+
+For this repository, that suggests two practical directions:
+
+- add derivative and curvature diagnostics for Track 2;
+- test loss terms that penalize physically implausible oscillation roughness
+  without smoothing away valid high-frequency harmonic content.
+
+### Multi-Curve And Multi-Output Forecast Framing
+
+The real compensation workflow is not a one-point forecast. It is a repeated
+curve-output problem. Multi-step forecasting literature distinguishes recursive
+prediction, direct prediction, and multiple-output strategies. Multiple-output
+strategies preserve dependencies between future points, while recursive
+strategies can accumulate errors.
+
+Relevant source:
+
+- [Stratify: unifying multi-step forecasting
+  strategies](https://link.springer.com/article/10.1007/s10618-025-01135-1)
+
+Repository implication: do not evaluate future temporal models only as
+single-readout regressors if the deployment target requires continuous curve
+compensation. Either evaluate full curve playback directly or add a multi-curve
+offline playback test before promotion.
+
+## Recommended Strategy
+
+### Phase 1: Standardize Curve-First Selection
+
+This is the immediate next step.
+
+Create a `Track 2B` or `curve_first_track2_reranking` branch that does not
+train new models. It should:
+
+1. evaluate all existing accepted candidates on the same Track 2 held-out
+   curves;
+2. compute the expanded curve-first metric bundle;
+3. rerank existing `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` candidates;
+4. write a promotion table that separates scalar registry winner from
+   curve-first winner;
+5. update the master summary so program-best status is not read from scalar
+   `test_mae` alone.
+
+This directly answers the operator concern without spending training time on
+an objective that is not yet standardized.
+
+### Phase 2: Add Curve-First Checkpoint Selection
+
+After Phase 1, update training infrastructure so neural checkpoints can be
+selected by a validation curve metric instead of only `val_mae`.
+
+Candidate monitor:
+
+- `val_curve_mean_percentage_error_pct`;
+- tie-breakers: `val_curve_p95_percentage_error_pct`,
+  `val_curve_harmonic_phase_error`, then scalar `val_mae`.
+
+This phase affects `scripts/training/train_feedforward_network.py`,
+`scripts/training/transmission_error_regression_module.py`, and shared
+registry snapshots. It requires a dedicated technical document before code
+changes.
+
+### Phase 3: Add Curve-Aware Losses
+
+Only after Phase 1 and Phase 2 should retraining change the loss.
+
+Recommended first composite loss for neural families:
+
+```text
+total_loss =
+  pointwise_normalized_mse
+  + lambda_curve * denormalized_curve_mae
+  + lambda_slope * first_derivative_mae
+  + lambda_harmonic_amp * selected_harmonic_amplitude_mae
+  + lambda_harmonic_phase * selected_harmonic_phase_mae
+```
+
+Use small weights first. The loss should improve curve tracking without
+destroying the stable pointwise baseline.
+
+Soft-DTW or DILATE can be an ablation, but not the main line, because
+warp-tolerant shape matching may hide physically harmful phase shifts.
+
+### Phase 4: Decide Whether A New Wave Is Needed
+
+If Phase 1 reranking shows that existing harmonic or periodic models are
+already better curve-first candidates than the scalar leader, retrain only the
+promising families with the new selection policy.
+
+If Phase 3 still fails, then open a later model-family wave. Good candidates
+are:
+
+- structured harmonic regression with curve-aware regularization;
+- residual harmonic MLP with harmonic-space loss;
+- periodic GRU or LSTM sequence models with curve-first checkpoint selection;
+- spline or Fourier functional regressors;
+- lightweight state-space sequence models;
+- kernel ridge or Gaussian-process baselines for small offline comparisons;
+- TwinCAT-oriented hybrid harmonic residual models.
+
+## Promotion Policy
+
+Future promotion should use a two-gate policy.
+
+Gate 1: scalar sanity.
+
+- finite validation and test metrics;
+- no gross scalar regression failure;
+- no direction-scope violation;
+- acceptable artifact size and deployment plausibility.
+
+Gate 2: curve-first Track 2 promotion.
+
+- direction-valid Track 2 curve metrics;
+- P95 and worst-condition diagnostics;
+- harmonic amplitude and phase diagnostics;
+- visual overlay review;
+- deployment-facing interpretation.
+
+The program winner should not be updated from Gate 1 alone when the task is TE
+compensation. A scalar winner can remain a useful baseline, but program-best
+promotion should require Gate 2.
+
+## Concrete Next Step
+
+Open a curve-first reranking branch before any new training campaign.
+
+Recommended name:
+
+```text
+Track 2B Curve-First Reranking
+```
+
+Recommended deliverables:
+
+- technical document;
+- analysis report under `doc/reports/analysis/track2/`;
+- expanded per-curve metric CSV;
+- updated Track 2 visual overlays if the screened candidate set changes;
+- master-summary update distinguishing scalar best from curve-first best;
+- backlog update with the next approved training decision.
+
+If the reranking confirms the operator observation, the next campaign should
+be a compact `Wave 1B` or `Wave 2D` retraining pass with curve-first checkpoint
+selection before introducing new families.

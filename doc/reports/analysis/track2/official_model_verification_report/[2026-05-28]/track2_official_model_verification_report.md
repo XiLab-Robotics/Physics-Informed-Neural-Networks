@@ -107,3 +107,19 @@ while the dense harmonic banks are dimensionally expensive and less accurate.
 The next modeling decision should keep `Wave 2B` periodic sequence models as
 the strongest neural branch and treat `Wave 2C` as a verified exploratory
 baseline rather than the next promotion target.
+
+## Curve-First Follow-Up
+
+The next approved analysis direction is curve-first reranking before any new
+training campaign. The reason is practical compensation: future deployed
+models must follow complete TE curves for many consecutive motor revolutions,
+not only reduce pointwise scalar error on the dataset.
+
+Follow-up rules:
+
+- keep this official report as the accepted `Wave 2C` Track 2 closeout;
+- do not reopen `Wave 1`, `Wave 2`, `Wave 2B`, or `Wave 2C`;
+- create a separate `Track 2B Curve-First Reranking` branch that evaluates
+  accepted candidates on expanded full-curve metrics;
+- separate scalar registry winner, curve-first offline winner, and future
+  deployment-ready candidate in later summaries.

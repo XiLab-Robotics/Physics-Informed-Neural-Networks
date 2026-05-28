@@ -12,6 +12,16 @@ the directional best-hyperparameter search campaign.
 - Leader test MAE: `0.002743 deg`
 - Full HPO closeout report: `doc\reports\campaign_results\wave1\2026-05-17-11-40-42_wave1_directional_best_hyperparameter_search_campaign_results_report.md`
 
+Curve-first interpretation:
+
+- this report remains the scalar HPO closeout for `Wave 1`;
+- the final compensation target is continuous TE-curve prediction, so scalar
+  `MAE` is not sufficient promotion evidence by itself;
+- future `Wave 1B` work should rerank accepted `Wave 1` artifacts on the full
+  `Track 2` curve surface before retraining or changing model families;
+- the governing strategy is
+  `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`.
+
 ## HPO Surface Ranking
 
 | Rank | Family | Scope | Engine | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] |

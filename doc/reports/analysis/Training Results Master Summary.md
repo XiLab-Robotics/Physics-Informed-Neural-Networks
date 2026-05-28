@@ -5,16 +5,22 @@
 - Generated At: `2026-05-28T11:42:23`
 - Program State: active.
 - Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign and official `Track 2` refresh complete.
-- Current Focus: choose the next modeling branch after `Wave 2C` was verified as an exploratory baseline and not promoted over `Wave 2B`.
+- Current Focus: standardize curve-first Track 2 reranking before opening new
+  model-family work or retraining with new losses.
 - Active Campaign Status: `none`
 - Active Campaign Name: `None`
-- Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
+- Current Scalar Registry Winner: `te_periodic_gru_sequence_remote_Bw` |
+  Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
+- Current Curve-First Promotion State: pending reranking on the expanded Track
+  2 curve metric surface.
 
 ## Main Takeaways
 
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Latest Track 2 decision: `Wave 2C` sparse `RCIM` residual harmonic temporal
   models are verified exploratory baselines, not promoted over `Wave 2B`.
+- New selection direction: future program-best promotion should require Track
+  2 curve-first evidence, not scalar `test_mae` alone.
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `53`
@@ -216,11 +222,20 @@ Low-priority exploratory families currently listed in the backlog:
 
 ## Ranking Policy
 
-- Primary metric: `test_mae`
-- First tie-breaker: `test_rmse`
-- Second tie-breaker: `val_mae`
-- Third tie-breaker: `trainable_parameter_count`
+- Scalar registry primary metric: `test_mae`
+- Scalar registry first tie-breaker: `test_rmse`
+- Scalar registry second tie-breaker: `val_mae`
+- Scalar registry third tie-breaker: `trainable_parameter_count`
 - Direction: `minimize`
+
+Curve-first promotion policy:
+
+- scalar registry ranking remains a required sanity surface;
+- deployment-relevant promotion must also pass Track 2 direction-valid
+  full-curve evaluation;
+- the next planned analysis branch is `Track 2B Curve-First Reranking`;
+- candidate promotion should separate scalar winner, curve-first winner, and
+  deployment-ready candidate until Track 3 online compensation evidence exists.
 
 ## Best Result Per Family
 

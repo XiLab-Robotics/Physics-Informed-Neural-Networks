@@ -136,6 +136,10 @@ This folder contains the internal project documents derived from the reference P
   Operational test report for the second wave of repository-owned Codex skills and subagents.
 - [reports/analysis/te_modeling/Twincat-Friendly Structured TE Modeling.md](./reports/analysis/te_modeling/Twincat-Friendly%20Structured%20TE%20Modeling.md)
   Reference-backed synthesis of TwinCAT-friendly structured TE modeling implications for the current repository direction.
+- [reports/analysis/te_modeling/Curve-First TE Training Strategy.md](./reports/analysis/te_modeling/Curve-First%20TE%20Training%20Strategy.md)
+  Strategy report for shifting TE model selection from scalar pointwise
+  `MAE` toward Track 2 curve-following quality, harmonic/phase diagnostics,
+  and continuous compensation readiness.
 - [reports/analysis/utilities/Code Documentation Platform Comparison.md](./reports/analysis/utilities/Code%20Documentation%20Platform%20Comparison.md)
   Comparative analysis of repository documentation-platform options in the readable-filename analysis-report layout.
 - [reports/analysis/utilities/Local LAN AI Infrastructure Options for Video Knowledge Extraction.md](./reports/analysis/utilities/Local%20LAN%20AI%20Infrastructure%20Options%20for%20Video%20Knowledge%20Extraction.md)
@@ -146,6 +150,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-05-28
+
+- [technical/2026-05/2026-05-28/2026-05-28-16-32-36_curve_first_te_training_strategy.md](./technical/2026-05/2026-05-28/2026-05-28-16-32-36_curve_first_te_training_strategy.md)
+  Plan the curve-first TE training strategy research and documentation refresh
+  so future `Wave 1` / `Wave 2` follow-up work is judged by continuous
+  Track 2 curve-following quality, not only scalar pointwise `MAE`.
 
 - [technical/2026-05/2026-05-28/2026-05-28-12-10-21_wave2c_track2_verification_refresh.md](./technical/2026-05/2026-05-28/2026-05-28-12-10-21_wave2c_track2_verification_refresh.md)
   Plan the optional `Wave 2C` `Track 2` verification refresh, including the

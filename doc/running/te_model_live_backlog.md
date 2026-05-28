@@ -31,8 +31,10 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: decide the next modeling branch after `Wave 2C` was verified
-  as an exploratory baseline and not promoted over `Wave 2B`.
+- Current Focus: standardize curve-first Track 2 reranking before opening new
+  model-family work, because the real compensation target is continuous TE
+  curve prediction over many consecutive motor revolutions rather than
+  isolated pointwise regression.
 - Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
@@ -43,6 +45,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
+- `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
 
 ## Directional Rule
@@ -60,6 +63,25 @@ The default rule for `Track 2`, `Wave 1`, and all future waves is:
 Exceptions require a new approved technical document. This rule applies whether
 the candidate comes from a paper-reference bank, a retuned archive, a
 repository-owned neural model, or a future deployable model package.
+
+## Curve-First Selection Rule
+
+Future program-best promotion must distinguish scalar training metrics from
+TE-curve compensation readiness.
+
+The immediate rule is:
+
+- scalar `MAE` and `RMSE` remain required sanity metrics;
+- `Track 2` direction-valid full-curve metrics are the canonical promotion
+  surface for deployment-relevant comparison;
+- visual overlays and collage evidence must be considered when scalar metrics
+  and curve shape disagree;
+- harmonic amplitude, harmonic phase, P95, and worst-condition diagnostics
+  should be added before new training losses are treated as canonical.
+
+This rule does not reopen closed campaigns. It changes how future branches
+interpret their evidence and defines the next planned work as a curve-first
+reranking pass over existing accepted candidates.
 
 ## Completed
 
@@ -232,6 +254,10 @@ Operational meaning:
 
 - `Wave 1` is the closed structured-baseline stage for future model-family
   comparisons;
+- the current `Wave 1` scalar HPO leader is a baseline, not sufficient
+  compensation evidence by itself;
+- future `Wave 1B` work should first rerank accepted artifacts on Track 2
+  curve metrics before retraining or adding losses;
 - future waves must either produce `global`, `forward`, and `backward` surfaces
   or explicitly justify why one of those surfaces is omitted;
 - the oversized random-forest artifact class observed near `91 GB` remains
@@ -312,11 +338,10 @@ Official closeout package:
 After the completed `Wave 2` temporal-model entry campaign and `Track 2`
 refresh, the active next step is:
 
-- choose the next approved branch from the verified evidence: either tune a
-  compact temporal/hybrid model against the `tree` baseline or move the
-  strongest verified candidates into deployment-readiness checks.
+- run a curve-first Track 2 reranking branch over accepted `Wave 1`, `Wave 2`,
+  `Wave 2B`, and `Wave 2C` candidates before any new training campaign.
 
-The refresh answered three concrete questions:
+The previous temporal refresh answered three concrete questions:
 
 - best temporal forward candidate: `gru_sequence_Fw` at `7.378%` mean error;
 - best temporal backward candidate: `lstm_sequence_Bw` at `7.767%` mean error;
@@ -327,6 +352,10 @@ The refresh answered three concrete questions:
 
 Default decision path after Track 2 closeout:
 
+- treat Track 2 curve-following quality as the promotion surface for future
+  compensation-relevant candidates;
+- open a `Track 2B Curve-First Reranking` analysis branch before changing
+  model families or training losses;
 - keep `Wave 2` temporal models as verified exploratory baselines;
 - keep the same `global`, `forward`, and `backward` surface rule for Wave 2;
 - use `Wave 1` and Track 2 as the comparison baseline for every Wave 2 family;
@@ -560,6 +589,7 @@ Entry rule:
 - composite best-reference visibility: completed;
 - direction/truth and preview audit: completed;
 - official model-verification report: completed;
+- curve-first reranking policy: planned as the next analysis branch;
 - status: closed.
 
 ### Wave 2. Temporal Models
@@ -690,6 +720,8 @@ Entry rule:
 - `Track 1` is closed under the revised closure rule and should not be reopened
   for all-green optimization;
 - `Track 2` is the active branch to finish before opening Wave 2;
+- `Track 2B Curve-First Reranking` is the next planned analysis branch before
+  any new training campaign or model-family wave;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;
