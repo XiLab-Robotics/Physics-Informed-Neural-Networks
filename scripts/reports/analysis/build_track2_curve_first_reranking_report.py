@@ -673,7 +673,7 @@ def build_report_lines(
         [
             "",
             (
-                f"The curve-first winner in this reranking is `{overall_winner.candidate_id}` "
+                f"The strongest forward curve-first candidate in this reranking is `{overall_winner.candidate_id}` "
                 f"from family `{overall_winner.candidate_family}` with mean `MPE` "
                 f"`{format_float(overall_winner.mean_percentage_error_pct)}` percent and "
                 f"P95 `MPE` `{format_float(overall_winner.p95_mean_percentage_error_pct)}` percent."
@@ -682,11 +682,12 @@ def build_report_lines(
             "## Decision",
             "",
             (
-                "This pass standardizes the curve-first evidence surface and should be "
-                "used before deciding whether the next branch is a loss/reranking "
-                "change for existing families or a new model-family wave. It does "
-                "not promote a new program-best model by itself because richer "
-                "harmonic/phase diagnostics still require curve-payload export."
+                "This pass standardizes the curve-first evidence surface and should "
+                "be read as three parallel selection tracks: `Fw`, `Bw`, and "
+                "`global`. It does not promote one single program-best model by "
+                "itself because the real application needs one best candidate per "
+                "surface and richer harmonic/phase diagnostics still require "
+                "curve-payload export."
             ),
             "",
             "Machine-readable artifacts:",

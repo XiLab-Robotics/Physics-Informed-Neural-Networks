@@ -139,6 +139,11 @@ The current usage flow mainly relies on these folders:
   full-curve mean percentage error, P95, worst-condition error, and curve
   `MAE` without changing the causal runtime input contract.
 
+- `scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.py`
+  Track 2C diagnostics builder that exports downsampled curve payload samples
+  and computes peak-to-peak, harmonic, phase, derivative, smoothness, and
+  closure diagnostics for screened candidates.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
@@ -504,6 +509,14 @@ contract:
 
 ```powershell
 python -B scripts/reports/analysis/build_track2_curve_first_reranking_report.py
+```
+
+The Track 2C curve-payload diagnostics report evaluates a compact screened
+candidate set with post-prediction curve diagnostics. It stores downsampled
+payload samples for inspection while computing metrics on the full curves:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.py
 ```
 
 The repository also exposes a separate original-dataset exact-model-bank branch

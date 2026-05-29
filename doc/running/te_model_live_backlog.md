@@ -31,11 +31,11 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: use the completed `Track 2B` curve-first reranking to decide
-  whether the next branch should change training losses/reranking for existing
-  families or open a new model-family wave with richer curve-payload
-  diagnostics.
-- Current Best Implemented Family: `tree` / `hist_gradient_boosting`.
+- Current Focus: prepare direction-parallel curve-aware retraining or
+  reranking branches for `Fw`, `Bw`, and `global` surfaces, using completed
+  `Track 2B` and `Track 2C` evidence as the selection basis.
+- Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
+  `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
   `output/registries/program/current_best_solution.yaml`.
 
@@ -45,6 +45,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
+- `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -64,6 +65,21 @@ The default rule for `Track 2`, `Wave 1`, and all future waves is:
 Exceptions require a new approved technical document. This rule applies whether
 the candidate comes from a paper-reference bank, a retuned archive, a
 repository-owned neural model, or a future deployable model package.
+
+## Direction-Parallel Best Policy
+
+The project must maintain three best-model surfaces in parallel:
+
+| Surface | Required outcome | Selection meaning |
+| --- | --- | --- |
+| `Fw` | one best forward model | best compensation candidate for forward curves only |
+| `Bw` | one best backward model | best compensation candidate for backward curves only |
+| `global` | one best cross-direction model | best deployable combined-surface or fallback candidate |
+
+These tracks are not a single competition. A strong `Fw` model does not
+replace the `Bw` or `global` branch, and a strong `Bw` model does not replace
+the `Fw` or `global` branch. Future planning, training, reranking, closeout,
+and registry-promotion language must keep all three surfaces visible.
 
 ## Curve-First Selection Rule
 
@@ -92,15 +108,14 @@ The immediate rule is:
   should be added before new training losses are treated as canonical.
 
 This rule does not reopen closed campaigns. It changes how future branches
-interpret their evidence and defines the next planned work as a curve-first
-reranking pass over existing accepted candidates while preserving the causal
-input contract.
+interpret their evidence and defines future work as three parallel
+direction-valid selection surfaces while preserving the causal input contract.
 
 The first standardized reranking pass is complete in:
 
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 
-Current `Track 2B` curve-first leaders:
+Current `Track 2B` curve-first leaders by parallel surface:
 
 | Scope | Leader | Mean MPE [%] | P95 MPE [%] | Mean Curve MAE [deg] |
 | --- | --- | ---: | ---: | ---: |
@@ -108,10 +123,37 @@ Current `Track 2B` curve-first leaders:
 | Backward | `rcim_retuned_GBM19_Bw` | 5.398275 | 12.280348 | 0.002766 |
 | Global surface | `periodic_lstm_sequence_global` | 6.119950 | 14.716986 | 0.002707 |
 
-This reranking does not promote a new program-best model by itself. Harmonic
+This reranking does not promote a single new program-best model by itself.
+It provides one `Fw`, one `Bw`, and one `global` evidence track. Harmonic
 amplitude, harmonic phase, derivative-continuity, and stitched-revolution
-residual diagnostics remain the next validation extension before curve-first
-training losses become canonical.
+residual diagnostics remain validation extensions before curve-first training
+losses become canonical.
+
+The first screened curve-payload diagnostics pass is also complete in:
+
+- `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
+
+Current `Track 2C` diagnostic observations:
+
+| Finding | Interpretation |
+| --- | --- |
+| `rcim_retuned_GBM19_Fw` keeps the best screened diagnostic score. | It remains the strongest forward paper-reference curve-shape baseline. |
+| `periodic_gru_sequence_Bw` is the strongest practical repository-owned backward candidate. | It is close to `rcim_retuned_GBM19_Bw` on mean percentage error and much better on selected harmonic phase. |
+| `periodic_lstm_sequence_global` is the strongest screened global-surface neural candidate. | It is the best current global neural starting point for a deployable cross-direction branch. |
+| `harmonic_regression_Bw` has the cleanest backward harmonic amplitude/phase diagnostics but worse scalar and peak-to-peak error. | It is useful as a structured diagnostic reference, not the next direct promotion target. |
+| `tree` candidates remain weak on peak-to-peak and shape diagnostics. | The next direction-parallel training work should not start from `tree` despite scalar strength. |
+
+The next approved work should therefore advance all three best-model surfaces
+in parallel:
+
+| Surface | Current evidence | Practical next action |
+| --- | --- | --- |
+| `Fw` | paper-reference `rcim_retuned_GBM19_Fw` leads current curve diagnostics. | Keep the forward repository-owned branch open and search for a deployable neural/structured candidate that can approach the forward paper-reference baseline. |
+| `Bw` | `periodic_gru_sequence_Bw` is the strongest practical repository-owned backward candidate. | Prioritize curve-aware reranking or retraining around periodic temporal backward models. |
+| `global` | `periodic_lstm_sequence_global` is the strongest screened global neural candidate. | Keep a dedicated global branch for cross-direction deployment/fallback instead of folding it into the backward winner. |
+
+Full-curve diagnostics remain strictly post-prediction and must preserve the
+causal runtime input contract.
 
 ## Completed
 

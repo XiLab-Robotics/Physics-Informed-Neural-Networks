@@ -128,6 +128,10 @@ This folder contains the internal project documents derived from the reference P
   `Track 2B` curve-first reranking report that ranks accepted `Track 2`
   candidates by full-curve mean percentage error, P95, worst-condition error,
   and curve `MAE` while preserving the causal runtime input boundary.
+- [reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md](./reports/analysis/track2/curve_payload_diagnostics_report/%5B2026-05-28%5D/track2_curve_payload_diagnostics_report.md)
+  `Track 2C` curve-payload diagnostics report for screened candidates,
+  including peak-to-peak, harmonic amplitude, harmonic phase, derivative,
+  smoothness, and closure diagnostics.
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -160,7 +164,18 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-05-29
+
+- [technical/2026-05/2026-05-29/2026-05-29-12-23-56_direction_parallel_best_policy.md](./technical/2026-05/2026-05-29/2026-05-29-12-23-56_direction_parallel_best_policy.md)
+  Plan the documentation correction that keeps `Fw`, `Bw`, and `global`
+  best-model surfaces as parallel branches instead of one single competition.
+
 #### 2026-05-28
+
+- [technical/2026-05/2026-05-28/2026-05-28-19-33-44_track2c_curve_payload_diagnostics.md](./technical/2026-05/2026-05-28/2026-05-28-19-33-44_track2c_curve_payload_diagnostics.md)
+  Plan the `Track 2C` curve-payload diagnostics pass that will export selected
+  truth/prediction curves and measure harmonic, phase, slope, smoothness, and
+  stitched-revolution behavior before new training is opened.
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md](./technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md)
   Plan the `Track 2B` curve-first reranking pass that standardizes existing
@@ -1581,6 +1596,9 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_track2_curve_first_reranking_report.md](./scripts/reports/analysis/build_track2_curve_first_reranking_report.md)
   Script-level documentation for the `Track 2B` curve-first reranking report
   builder.
+- [scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.md](./scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.md)
+  Script-level documentation for the `Track 2C` curve-payload diagnostics
+  report builder.
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
   Script-level documentation for the canonical training-results master-summary generator.
 - [scripts/reports/pdf/run_report_pipeline.md](./scripts/reports/pdf/run_report_pipeline.md)

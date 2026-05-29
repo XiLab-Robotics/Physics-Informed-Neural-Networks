@@ -5,16 +5,16 @@
 - Generated At: `2026-05-28T11:42:23`
 - Program State: active.
 - Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign and official `Track 2` refresh complete.
-- Current Focus: use completed `Track 2B` curve-first reranking to choose
-  between loss/reranking changes for existing families and a new model-family
-  wave with richer curve-payload diagnostics.
+- Current Focus: prepare direction-parallel curve-aware retraining or
+  reranking branches for `Fw`, `Bw`, and `global` surfaces, using completed
+  `Track 2B` and `Track 2C` evidence.
 - Active Campaign Status: `none`
 - Active Campaign Name: `None`
 - Current Scalar Registry Winner: `te_periodic_gru_sequence_remote_Bw` |
   Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
-- Current Curve-First Promotion State: `Track 2B` reranking complete; no new
-  program-best promotion until harmonic/phase and continuity diagnostics are
-  available.
+- Current Curve-First Promotion State: `Track 2B` reranking and screened
+  `Track 2C` curve-payload diagnostics complete; no automatic single-winner
+  registry promotion.
 - Runtime Input Constraint: point-level operating state, optional short causal
   history, or derived causal features only.
 
@@ -23,11 +23,16 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Latest Track 2 decision: `Wave 2C` sparse `RCIM` residual harmonic temporal
   models are verified exploratory baselines, not promoted over `Wave 2B`.
-- New selection direction: future program-best promotion should require Track
-  2 curve-first evidence, not scalar `test_mae` alone; the first standardized
-  reranking favors `rcim_retuned_GBM19_Fw` forward,
-  `rcim_retuned_GBM19_Bw` backward, and `periodic_lstm_sequence_global` on the
-  global surface.
+- New selection direction: future best-model promotion must keep three
+  parallel surfaces, not one single competition: `Fw`, `Bw`, and `global`.
+  The first standardized reranking favors `rcim_retuned_GBM19_Fw` forward,
+  `rcim_retuned_GBM19_Bw` backward, and `periodic_lstm_sequence_global` on
+  the global surface.
+- New diagnostic direction: `periodic_gru_sequence_Bw` is the strongest
+  practical repository-owned backward candidate in the screened curve-payload
+  diagnostics, while `periodic_lstm_sequence_global` remains the strongest
+  screened global neural surface; the forward repository-owned branch remains
+  open because the current forward leader is paper-reference.
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `53`
@@ -145,7 +150,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; status: closed. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; `Track 2C` curve-payload diagnostics: completed;; status: closed. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -244,9 +249,11 @@ Curve-first promotion policy:
   to the model at inference time;
 - future deployed models must keep causal inputs: current point, optional past
   history, and causal derived features;
-- the next planned analysis branch is `Track 2B Curve-First Reranking`;
-- candidate promotion should separate scalar winner, curve-first winner, and
-  deployment-ready candidate until Track 3 online compensation evidence exists.
+- completed curve-first analysis now separates `Fw`, `Bw`, and `global`
+  leaders instead of one single winner;
+- candidate promotion should keep scalar, curve-first, and deployment-ready
+  evidence separated for each surface until Track 3 online compensation
+  evidence exists.
 
 ## Best Result Per Family
 
@@ -322,8 +329,13 @@ Curve-first promotion policy:
 
 ## Cross-Family Interpretation
 
-- Current program-registry winner: `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw`.
-- Strongest current neural family: `periodic_gru_sequence_bw`.
+- Current scalar program-registry winner: `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw`.
+- Current curve-first interpretation: maintain `Fw`, `Bw`, and `global`
+  branches in parallel; do not collapse them into the scalar registry winner.
+- Strongest practical screened neural `Bw` candidate: `periodic_gru_sequence_Bw`.
+- Strongest practical screened neural `global` candidate: `periodic_lstm_sequence_global`.
+- Forward branch status: current screened leader is paper-reference
+  `rcim_retuned_GBM19_Fw`, so the repository-owned `Fw` branch remains open.
 - `Wave 2C` is now Track 2 verified as exploratory evidence: sparse `RCIM`
   residual harmonic temporal models are the only competitive branch, but they
   do not displace `Wave 2B`.
@@ -349,8 +361,8 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 
 | Comparison Item | Paper Reference | Repository Status | Current Verdict |
 | --- | --- | --- | --- |
-| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Current winner `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw` with model type `periodic_gru_sequence` | not_aligned |
-| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Strongest repository neural family is `periodic_gru_sequence_bw` and still trails the tree winner | aligned |
+| Offline model-selection direction | Boosting/tree-heavy deployed harmonic predictors | Repository now tracks `Fw`, `Bw`, and `global` best surfaces separately; strongest screened neural candidates are `periodic_gru_sequence_Bw` and `periodic_lstm_sequence_global` | partly_aligned |
+| Strongest neural branch role | Neural models are evaluated, but not the primary deployed winners | Neural branches remain active per surface, while the current screened `Fw` leader is still paper-reference | aligned |
 | Track 1 canonical closure rule | Paper Tables `3-6` replicated per target and per harmonic | Exact-paper report currently shows `0/0` harmonics fully closed, `0/0` partially closed, `0/0` still open | not_yet_met |
 | Supporting harmonic-wise TE metric | Mean percentage error over full TE curves | Latest harmonic-wise validation reports `11.212%` mean percentage error on held-out curves using harmonics `0, 1, 3, 39, 40, 78, 81, 156, 162, 240` | supporting_only_not_yet_met |
 | Online robot-profile compensation | TE RMS reduction `83.6%` | No repository-owned online compensation result yet | not_yet_comparable |

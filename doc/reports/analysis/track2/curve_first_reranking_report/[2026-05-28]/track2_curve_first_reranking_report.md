@@ -97,11 +97,11 @@ The validation surface is full-curve because the compensation target is continuo
 - Current scalar registry winner: `te_periodic_gru_sequence_remote_Bw` from family `periodic_gru_sequence_bw`.
 - Scalar test `MAE`: `0.002344` and scalar test `RMSE`: `0.002747`.
 
-The curve-first winner in this reranking is `rcim_retuned_GBM19_Fw` from family `GBM` with mean `MPE` `2.371752` percent and P95 `MPE` `4.911649` percent.
+The strongest forward curve-first candidate in this reranking is `rcim_retuned_GBM19_Fw` from family `GBM` with mean `MPE` `2.371752` percent and P95 `MPE` `4.911649` percent. This does not replace the backward or global branches.
 
 ## Decision
 
-This pass standardizes the curve-first evidence surface and should be used before deciding whether the next branch is a loss/reranking change for existing families or a new model-family wave. It does not promote a new program-best model by itself because richer harmonic/phase diagnostics still require curve-payload export.
+This pass standardizes the curve-first evidence surface and should be read as three parallel selection tracks: `Fw`, `Bw`, and `global`. It does not promote one single program-best model by itself because the real application needs one best candidate per surface and richer harmonic/phase diagnostics still require curve-payload export.
 
 Machine-readable artifacts:
 

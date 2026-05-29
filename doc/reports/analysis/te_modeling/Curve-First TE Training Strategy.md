@@ -211,6 +211,23 @@ compensation. Either evaluate full curve playback directly or add a multi-curve
 offline playback test before promotion. This is an evaluation requirement, not
 permission to feed future curve values to the runtime model.
 
+## Direction-Parallel Best Policy
+
+The real model program needs three best-model surfaces, not one absolute
+winner:
+
+| Surface | Required best model | Operational meaning |
+| --- | --- | --- |
+| `Fw` | best forward model | compensation candidate for forward motion only |
+| `Bw` | best backward model | compensation candidate for backward motion only |
+| `global` | best combined-surface model | deployable cross-direction model or fallback |
+
+These surfaces must move in parallel. A strong `Fw` result cannot close the
+`Bw` or `global` branch, and a strong `Bw` result cannot close the `Fw` or
+`global` branch. Curve-first reports should therefore identify leaders per
+surface and avoid language that turns the comparison into one single
+competition.
+
 ## Recommended Strategy
 
 ### Phase 1: Standardize Curve-First Selection
@@ -224,10 +241,10 @@ train new models. It should:
    curves;
 2. compute the expanded curve-first metric bundle;
 3. rerank existing `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` candidates;
-4. write a promotion table that separates scalar registry winner from
-   curve-first winner;
-5. update the master summary so program-best status is not read from scalar
-   `test_mae` alone.
+4. write a promotion table that separates scalar registry winners from
+   curve-first leaders for `Fw`, `Bw`, and `global`;
+5. update the master summary so best-model status is not read from scalar
+   `test_mae` alone and is not collapsed into one surface.
 
 This directly answers the operator concern without spending training time on
 an objective that is not yet standardized.
@@ -310,9 +327,10 @@ Gate 2: curve-first Track 2 promotion.
 - visual overlay review;
 - deployment-facing interpretation.
 
-The program winner should not be updated from Gate 1 alone when the task is TE
-compensation. A scalar winner can remain a useful baseline, but program-best
-promotion should require Gate 2.
+The direction-specific or global best model should not be updated from Gate 1
+alone when the task is TE compensation. Scalar winners can remain useful
+baselines, but each `Fw`, `Bw`, and `global` promotion should require Gate 2 on
+its own valid surface.
 
 ## Concrete Next Step
 
@@ -330,9 +348,11 @@ Recommended deliverables:
 - analysis report under `doc/reports/analysis/track2/`;
 - expanded per-curve metric CSV;
 - updated Track 2 visual overlays if the screened candidate set changes;
-- master-summary update distinguishing scalar best from curve-first best;
-- backlog update with the next approved training decision.
+- master-summary update distinguishing scalar bests from curve-first leaders
+  for `Fw`, `Bw`, and `global`;
+- backlog update with the next approved direction-parallel training decision.
 
 If the reranking confirms the operator observation, the next campaign should
-be a compact `Wave 1B` or `Wave 2D` retraining pass with curve-first checkpoint
-selection before introducing new families.
+be a compact `Wave 1B` or `Wave 2D` retraining pass that advances `Fw`, `Bw`,
+and `global` candidates in parallel with curve-first checkpoint selection
+before introducing new families.
