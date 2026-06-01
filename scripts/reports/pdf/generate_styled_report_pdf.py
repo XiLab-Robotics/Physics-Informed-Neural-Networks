@@ -130,6 +130,9 @@ TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-
 TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME = "report-table report-table-track2-official-best-composite"
 TRACK2_OFFICIAL_STATIC_BASELINE_TABLE_CLASS_NAME = "report-table report-table-track2-official-static-baseline"
 TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME = "report-table report-table-track2-official-campaign-ledger"
+TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-curve-first-ranking"
+TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_CLASS_NAME = "report-table report-table-track2-curve-payload-diagnostics"
+TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME = "report-table report-table-track2-surface-leader"
 REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-scalar-winner"
 REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME = "report-table report-table-repository-status-hpo-leader"
 REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-results"
@@ -269,6 +272,51 @@ TRACK1_FORWARD_CLOSEOUT_REFERENCE_ARCHIVE_TABLE_HEADER_CELLS = (
     "Archive Root",
 )
 
+TRACK2_CURVE_FIRST_RANKING_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "Family",
+    "Source",
+    "Surface",
+    "Direction",
+    "Curves",
+    "Mean MPE [%]",
+    "P95 MPE [%]",
+    "Worst MPE [%]",
+    "Mean Curve MAE [deg]",
+)
+
+TRACK2_CURVE_FIRST_RANKING_PDF_COLUMN_INDEXES = (0, 1, 2, 4, 5, 6, 7, 8, 9)
+
+TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "Family",
+    "Surface",
+    "Directions",
+    "Curves",
+    "Mean MPE [%]",
+    "Mean Harmonic Amp Error [%]",
+    "Mean Harmonic Phase Error [deg]",
+    "Mean P2P Error [%]",
+    "Derivative RMSE",
+    "Closure Mismatch [deg]",
+    "Diagnostic Score",
+)
+
+TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_PDF_COLUMN_INDEXES = (0, 1, 3, 4, 6, 7, 8, 9, 12)
+
+TRACK2_SURFACE_LEADER_TABLE_HEADER_CELLS = (
+    "Surface",
+    "Leader",
+    "Family",
+    "Source",
+    "Curves",
+    "Mean MPE [%]",
+    "P95 MPE [%]",
+    "Mean Curve MAE [deg]",
+)
+
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
     "Platform",
     "Python API Docs",
@@ -302,6 +350,13 @@ FORCED_PAGE_BREAK_SECTION_SLUGS = {
 }
 
 REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
+    "track2_curve_first_reranking_report": {
+        "backward-curve-first-leaders",
+        "overall-curve-first-leaders",
+    },
+    "track2_curve_payload_diagnostics_report": {
+        "candidate-diagnostic-ranking",
+    },
     "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report": {
         "recovery-campaign-ranking",
         "campaign-winner",
@@ -824,6 +879,52 @@ REPORT_STYLESHEET = """
     .report-table-track2-official-campaign-ledger th:nth-child(4), .report-table-track2-official-campaign-ledger td:nth-child(4) { width: 17%; }
     .report-table-track2-official-campaign-ledger th:nth-child(5), .report-table-track2-official-campaign-ledger td:nth-child(5) { width: 17%; }
     .report-table-track2-official-campaign-ledger th:nth-child(6), .report-table-track2-official-campaign-ledger td:nth-child(6) { width: 17%; }
+
+    .report-table-track2-curve-first-ranking,
+    .report-table-track2-curve-payload-diagnostics,
+    .report-table-track2-surface-leader {
+      font-size: 6.55pt;
+      line-height: 1.16;
+    }
+
+    .report-table-track2-curve-first-ranking th,
+    .report-table-track2-curve-first-ranking td,
+    .report-table-track2-curve-payload-diagnostics th,
+    .report-table-track2-curve-payload-diagnostics td,
+    .report-table-track2-surface-leader th,
+    .report-table-track2-surface-leader td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2-curve-first-ranking th:nth-child(1), .report-table-track2-curve-first-ranking td:nth-child(1) { width: 5%; }
+    .report-table-track2-curve-first-ranking th:nth-child(2), .report-table-track2-curve-first-ranking td:nth-child(2) { width: 22%; }
+    .report-table-track2-curve-first-ranking th:nth-child(3), .report-table-track2-curve-first-ranking td:nth-child(3) { width: 16%; }
+    .report-table-track2-curve-first-ranking th:nth-child(4), .report-table-track2-curve-first-ranking td:nth-child(4) { width: 7%; }
+    .report-table-track2-curve-first-ranking th:nth-child(5), .report-table-track2-curve-first-ranking td:nth-child(5) { width: 7%; }
+    .report-table-track2-curve-first-ranking th:nth-child(6), .report-table-track2-curve-first-ranking td:nth-child(6) { width: 6%; }
+    .report-table-track2-curve-first-ranking th:nth-child(7), .report-table-track2-curve-first-ranking td:nth-child(7) { width: 12%; }
+    .report-table-track2-curve-first-ranking th:nth-child(8), .report-table-track2-curve-first-ranking td:nth-child(8) { width: 12%; }
+    .report-table-track2-curve-first-ranking th:nth-child(9), .report-table-track2-curve-first-ranking td:nth-child(9) { width: 13%; }
+
+    .report-table-track2-curve-payload-diagnostics th:nth-child(1), .report-table-track2-curve-payload-diagnostics td:nth-child(1) { width: 5%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(2), .report-table-track2-curve-payload-diagnostics td:nth-child(2) { width: 23%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(3), .report-table-track2-curve-payload-diagnostics td:nth-child(3) { width: 7%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(4), .report-table-track2-curve-payload-diagnostics td:nth-child(4) { width: 10%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(5), .report-table-track2-curve-payload-diagnostics td:nth-child(5) { width: 10%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(6), .report-table-track2-curve-payload-diagnostics td:nth-child(6) { width: 12%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(7), .report-table-track2-curve-payload-diagnostics td:nth-child(7) { width: 13%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(8), .report-table-track2-curve-payload-diagnostics td:nth-child(8) { width: 10%; }
+    .report-table-track2-curve-payload-diagnostics th:nth-child(9), .report-table-track2-curve-payload-diagnostics td:nth-child(9) { width: 10%; }
+
+    .report-table-track2-surface-leader th:nth-child(1), .report-table-track2-surface-leader td:nth-child(1) { width: 7%; }
+    .report-table-track2-surface-leader th:nth-child(2), .report-table-track2-surface-leader td:nth-child(2) { width: 24%; }
+    .report-table-track2-surface-leader th:nth-child(3), .report-table-track2-surface-leader td:nth-child(3) { width: 22%; }
+    .report-table-track2-surface-leader th:nth-child(4), .report-table-track2-surface-leader td:nth-child(4) { width: 13%; }
+    .report-table-track2-surface-leader th:nth-child(5), .report-table-track2-surface-leader td:nth-child(5) { width: 7%; }
+    .report-table-track2-surface-leader th:nth-child(6), .report-table-track2-surface-leader td:nth-child(6) { width: 9%; }
+    .report-table-track2-surface-leader th:nth-child(7), .report-table-track2-surface-leader td:nth-child(7) { width: 9%; }
+    .report-table-track2-surface-leader th:nth-child(8), .report-table-track2-surface-leader td:nth-child(8) { width: 9%; }
 
     .report-table-repository-status-scalar-winner,
     .report-table-repository-status-hpo-leader,
@@ -2600,6 +2701,28 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         if header_cell == "Candidate Scope":
             return "Candidate<br>Scope"
 
+    if table_class_name in {
+        TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME,
+        TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_CLASS_NAME,
+        TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME,
+    }:
+        if header_cell == "Mean MPE [%]":
+            return "Mean<br><span class=\"metric-unit\">MPE [%]</span>"
+        if header_cell == "P95 MPE [%]":
+            return "P95<br><span class=\"metric-unit\">MPE [%]</span>"
+        if header_cell == "Worst MPE [%]":
+            return "Worst<br><span class=\"metric-unit\">MPE [%]</span>"
+        if header_cell == "Mean Harmonic Amp Error [%]":
+            return "Harm. Amp<br><span class=\"metric-unit\">Err. [%]</span>"
+        if header_cell == "Mean Harmonic Phase Error [deg]":
+            return "Harm. Phase<br><span class=\"metric-unit\">Err. [deg]</span>"
+        if header_cell == "Mean P2P Error [%]":
+            return "P2P<br><span class=\"metric-unit\">Err. [%]</span>"
+        if header_cell == "Diagnostic Score":
+            return "Diag.<br><span class=\"metric-unit\">Score</span>"
+        if header_cell == "Mean Curve MAE [deg]":
+            return "Mean Curve<br><span class=\"metric-unit\">MAE [deg]</span>"
+
     if table_class_name == TRACK1_FORWARD_CLOSEOUT_FAMILY_RESULTS_TABLE_CLASS_NAME:
         if header_cell == "Exported ONNX":
             return "Exported<br>ONNX"
@@ -2637,6 +2760,8 @@ def is_identifier_column_header(header_cell: str) -> bool:
         "Config",
         "Best Config",
         "Best Run After This Campaign",
+        "Candidate",
+        "Leader",
         "Run",
         "Amplitude Run",
         "Phase Run",
@@ -2708,6 +2833,74 @@ def render_split_table_body_rows(body_rows: Sequence[str], alignments: Sequence[
         body_html_tokens.append("</tr>")
 
     return "".join(body_html_tokens)
+
+def render_column_subset_table_body_rows(
+    body_rows: Sequence[str],
+    selected_header_cells: Sequence[str],
+    selected_alignments: Sequence[str],
+    selected_indexes: Sequence[int],
+) -> str:
+
+    """Render table rows after selecting a PDF-readable subset of columns."""
+
+    body_html_tokens: list[str] = []
+
+    for body_row in body_rows:
+
+        # Split Row Cells
+        row_cells = split_table_row(body_row)
+        body_html_tokens.append("<tr>")
+
+        for output_index, source_index in enumerate(selected_indexes):
+
+            # Resolve Cell Rendering
+            body_cell = row_cells[source_index]
+            alignment_class = selected_alignments[output_index] if output_index < len(selected_alignments) else ALIGN_LEFT
+            use_identifier_wrap = (
+                output_index < len(selected_header_cells)
+                and is_identifier_column_header(selected_header_cells[output_index])
+            )
+            body_html_tokens.append(
+                f'<td class="{alignment_class}">{convert_inline_markup_with_semantic_identifier_wrap(body_cell) if use_identifier_wrap else convert_inline_markup(body_cell)}</td>'
+            )
+
+        body_html_tokens.append("</tr>")
+
+    return "".join(body_html_tokens)
+
+def render_column_subset_table(
+    header_cells: Sequence[str],
+    alignments: Sequence[str],
+    body_rows: Sequence[str],
+    selected_indexes: Sequence[int],
+    table_class_name: str,
+) -> str:
+
+    """Render a PDF-readable subset of a wide analytical table."""
+
+    # Select Columns
+    selected_header_cells = tuple(header_cells[index] for index in selected_indexes)
+    selected_alignments = tuple(alignments[index] if index < len(alignments) else ALIGN_LEFT for index in selected_indexes)
+
+    # Render Table Sections
+    header_html = render_table_header_cells(selected_header_cells, selected_alignments, table_class_name)
+    body_html = render_column_subset_table_body_rows(
+        body_rows,
+        selected_header_cells,
+        selected_alignments,
+        selected_indexes,
+    )
+
+    return (
+        '<div class="table-wrap">'
+        f'<table class="{table_class_name}">'
+        "<thead><tr>"
+        f"{header_html}"
+        "</tr></thead>"
+        "<tbody>"
+        f"{body_html}"
+        "</tbody></table></div>"
+    )
 
 def render_standard_table(
     header_cells: Sequence[str],
@@ -3458,6 +3651,34 @@ def render_table(
     if tuple(header_cells) == CONFIGURATION_TABLE_HEADER_CELLS:
         return render_configuration_split_tables(body_rows), current_index
 
+    # Render Track 2 Wide Tables With PDF-Safe Summary Columns
+    if tuple(header_cells) == TRACK2_CURVE_FIRST_RANKING_TABLE_HEADER_CELLS:
+        return (
+            render_column_subset_table(
+                header_cells,
+                alignments,
+                body_rows,
+                TRACK2_CURVE_FIRST_RANKING_PDF_COLUMN_INDEXES,
+                TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME,
+            ),
+            current_index,
+        )
+
+    if tuple(header_cells) == TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_HEADER_CELLS:
+        return (
+            render_column_subset_table(
+                header_cells,
+                alignments,
+                body_rows,
+                TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_PDF_COLUMN_INDEXES,
+                TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_CLASS_NAME,
+            ),
+            current_index,
+        )
+
+    if tuple(header_cells) == TRACK2_SURFACE_LEADER_TABLE_HEADER_CELLS:
+        return render_standard_table(header_cells, alignments, body_rows, TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME), current_index
+
     # Resolve Table Class
     table_class_name = resolve_standard_table_class_name(
         header_cells,
@@ -3694,6 +3915,8 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
             if (
                 force_page_break_before_section
                 and report_stem not in {
+                    "track2_curve_first_reranking_report",
+                    "track2_curve_payload_diagnostics_report",
                     "track2_best_model_collage_report",
                     "track2_multi_model_curve_comparison_report",
                     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
