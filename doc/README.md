@@ -212,6 +212,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-02
 
+- [technical/2026-06/2026-06-02/2026-06-02-23-21-05_track2_mean_offset_resolution_strategy.md](./technical/2026-06/2026-06-02/2026-06-02-23-21-05_track2_mean_offset_resolution_strategy.md)
+  Plan the documentation update that incorporates the `Track 2`
+  mean-centered diagnostic, explains the mean-offset failure mode, and adds the
+  next full-matrix offset audit plus curve-aware training strategy.
+
 - [technical/2026-06/2026-06-02/2026-06-02-12-40-01_track2_mean_centered_collage_diagnostics.md](./technical/2026-06/2026-06-02/2026-06-02-12-40-01_track2_mean_centered_collage_diagnostics.md)
   Plan the `Track 2` mean-centered collage diagnostics report that tests
   whether persistent prediction offsets hide stronger TE curve-shape tracking.

@@ -31,9 +31,9 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: prepare direction-parallel curve-aware retraining or
-  reranking branches for `Fw`, `Bw`, and `global` surfaces, using completed
-  `Track 2B` and `Track 2C` evidence as the selection basis.
+- Current Focus: prepare `Track 2D` mean-offset full-matrix diagnostics before
+  any direction-parallel curve-aware retraining branch for `Fw`, `Bw`, and
+  `global` surfaces.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -46,6 +46,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
+- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -104,6 +105,10 @@ The immediate rule is:
   surface for deployment-relevant comparison;
 - visual overlays and collage evidence must be considered when scalar metrics
   and curve shape disagree;
+- mean-centered diagnostics must be interpreted as post-prediction analysis,
+  not as a deployment-valid runtime correction;
+- raw curve error, curve-bias / `DC` offset error, centered-shape error,
+  amplitude error, and harmonic phase error should be tracked separately;
 - harmonic amplitude, harmonic phase, P95, and worst-condition diagnostics
   should be added before new training losses are treated as canonical.
 
@@ -143,17 +148,40 @@ Current `Track 2C` diagnostic observations:
 | `harmonic_regression_Bw` has the cleanest backward harmonic amplitude/phase diagnostics but worse scalar and peak-to-peak error. | It is useful as a structured diagnostic reference, not the next direct promotion target. |
 | `tree` candidates remain weak on peak-to-peak and shape diagnostics. | The next direction-parallel training work should not start from `tree` despite scalar strength. |
 
-The next approved work should therefore advance all three best-model surfaces
-in parallel:
+The first mean-centered collage diagnostic is complete in:
+
+- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
+
+Current mean-offset observations:
+
+| Finding | Interpretation |
+| --- | --- |
+| `harmonic_regression_global` improves from `0.031130 deg` raw MAE to `0.000888 deg` centered MAE on the four-curve collage. | Vertical offset is a dominant raw-error component for this candidate; centered shape is much better than raw MAE suggests. |
+| `periodic_lstm_sequence_global`, `periodic_temporal_convolution_global`, and `periodic_gru_sequence_global` also improve strongly after mean-centering. | Several temporal neural candidates need offset and centered-shape diagnostics reported separately. |
+| Dense `Wave 2C` variants improve much less after mean-centering. | Their limitation is not only offset; centered shape, amplitude, or phase quality remains weak. |
+| Full-curve mean-centering uses information unavailable at runtime. | It is a diagnostic decomposition, not a deployable correction. |
+
+The next approved work should therefore first diagnose all three best-model
+surfaces in parallel:
 
 | Surface | Current evidence | Practical next action |
 | --- | --- | --- |
-| `Fw` | paper-reference `rcim_retuned_GBM19_Fw` leads current curve diagnostics. | Keep the forward repository-owned branch open and search for a deployable neural/structured candidate that can approach the forward paper-reference baseline. |
-| `Bw` | `periodic_gru_sequence_Bw` is the strongest practical repository-owned backward candidate. | Prioritize curve-aware reranking or retraining around periodic temporal backward models. |
-| `global` | `periodic_lstm_sequence_global` is the strongest screened global neural candidate. | Keep a dedicated global branch for cross-direction deployment/fallback instead of folding it into the backward winner. |
+| `Fw` | paper-reference `rcim_retuned_GBM19_Fw` leads current curve diagnostics. | Run Track 2D offset, centered-shape, amplitude, phase, and condition audit before selecting a forward retraining family. |
+| `Bw` | `periodic_gru_sequence_Bw` is the strongest practical repository-owned backward candidate. | Run Track 2D to decide whether the backward issue is offset-limited or shape-limited before retraining periodic temporal models. |
+| `global` | `periodic_lstm_sequence_global` is the strongest screened global neural candidate. | Keep a dedicated global branch and audit offset/shape separately instead of folding it into the backward winner. |
 
 Full-curve diagnostics remain strictly post-prediction and must preserve the
 causal runtime input contract.
+
+Next planned diagnostic and training decision branches:
+
+| Branch | Scope | Status |
+| --- | --- | --- |
+| `Track 2D Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official Track 2 candidate matrix. | next |
+| Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | pending Track 2D |
+| Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | pending Track 2D |
+| Multi-task / multi-head model branch | Shared causal trunk with separate offset / low-frequency and centered-shape heads summed into final TE. | candidate after audit |
+| Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 ## Completed
 
@@ -410,12 +438,12 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed `Wave 2` temporal-model entry campaign and `Track 2`
-refresh, the active next step is:
+After the completed `Track 2B`, `Track 2C`, and mean-centered collage
+diagnostics, the active next step is:
 
-- run a curve-first Track 2 reranking branch over accepted `Wave 1`, `Wave 2`,
-  `Wave 2B`, and `Wave 2C` candidates before any new training campaign,
-  without changing the model input contract.
+- run `Track 2D Mean-Offset Full-Matrix Audit` over the official Track 2
+  candidate matrix before any new training campaign, without changing the
+  model input contract.
 
 The previous temporal refresh answered three concrete questions:
 
@@ -430,8 +458,11 @@ Default decision path after Track 2 closeout:
 
 - treat Track 2 curve-following quality as the promotion surface for future
   compensation-relevant candidates;
-- open a `Track 2B Curve-First Reranking` analysis branch before changing
-  model families or training losses;
+- open `Track 2D Mean-Offset Full-Matrix Audit` before changing model families,
+  checkpoint monitors, or training losses;
+- after Track 2D, choose among offset-aware checkpoint selection, curve-aware
+  loss terms, a multi-task / multi-head offset-shape structure, or sequential
+  residual offset calibration;
 - preserve causal runtime inputs: point-level state, optional short past
   history, and causal derived features only;
 - keep `Wave 2` temporal models as verified exploratory baselines;
@@ -797,9 +828,11 @@ Entry rule:
   `models/paper_reference/` archives are the active comparison surface;
 - `Track 1` is closed under the revised closure rule and should not be reopened
   for all-green optimization;
-- `Track 2` is the active branch to finish before opening Wave 2;
-- `Track 2B Curve-First Reranking` is the next planned analysis branch before
-  any new training campaign or model-family wave;
+- `Track 2` is the canonical offline verification baseline; diagnostic
+  extensions now continue as Track 2B, Track 2C, mean-centered collage, and
+  next `Track 2D`;
+- `Track 2D Mean-Offset Full-Matrix Audit` is the next planned analysis branch
+  before any new training campaign or model-family wave;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;

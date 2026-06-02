@@ -8,6 +8,8 @@ previously coupled:
 - pointwise dataset accuracy, usually reported as scalar `MAE` or `RMSE`;
 - full TE-curve tracking quality on the direction-valid `Track 2` held-out
   surface.
+- curve mean / `DC` offset tracking versus mean-centered waveform shape
+  tracking.
 
 The final application is continuous Transmission Error compensation. A deployed
 predictor will run through many consecutive motor revolutions, so the useful
@@ -78,6 +80,62 @@ point: sparse `RCIM` harmonic structure helps, while dense `240` and dense
 `360` residual harmonic variants over-expand the basis and are not
 competitive on the official Track 2 curve surface.
 
+### Mean-Centered Track 2 Evidence
+
+The mean-centered Track 2 collage diagnostic is now the strongest evidence that
+raw pointwise error mixes at least two different failure modes:
+
+- per-curve vertical offset error;
+- mean-centered shape error.
+
+Canonical report:
+
+- `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
+
+Key observed signal:
+
+- `harmonic_regression_global` four-curve collage MAE improves from
+  `0.031130 deg` to `0.000888 deg` after subtracting each curve mean from
+  prediction and truth, a `97.1%` improvement;
+- `periodic_lstm_sequence_global`, `periodic_temporal_convolution_global`, and
+  `periodic_gru_sequence_global` also improve strongly after mean-centering;
+- dense `Wave 2C` residual harmonic variants improve much less, which means
+  their issue is not only offset but also centered shape quality.
+
+This is diagnostic evidence only. Mean-centering with the full truth curve is
+not a deployment-valid runtime correction, because the deployed predictor will
+not know the future curve mean. It does, however, show that future training and
+selection must measure mean offset and shape separately.
+
+### Mean Offset Failure Mode
+
+The current neural training path optimizes normalized pointwise MSE. For
+pointwise batches, the data module concatenates samples from selected curves
+and may shuffle the points within the batch. For sequence batches, the model
+sees causal windows, but the checkpoint objective is still pointwise. This is
+valid for a pointwise regression objective, but it does not explicitly tell the
+model that a complete held-out revolution has a curve-level mean that must be
+matched.
+
+The suspected mechanism is therefore not that random mini-batches are
+incorrect. The issue is that pointwise `MSE` and `RMSE` reward the conditional
+average prediction when the input features do not encode enough information to
+identify the per-curve offset. In Track 2 playback this appears as
+under-prediction on high-mean TE curves and over-prediction on low-mean TE
+curves. Global target normalization can reinforce the visual tendency toward a
+global center, but it is not the root cause by itself because denormalization
+restores the global scale.
+
+The next work should decompose each candidate's residuals before changing
+training:
+
+- `bias_c = mean(prediction_c - truth_c)`;
+- centered residual after removing `bias_c`;
+- peak-to-peak and amplitude error;
+- selected harmonic amplitude and phase error;
+- dependence of each component on speed, torque, temperature, direction, and
+  valid-window identity.
+
 ### Reference-Backed Constraints
 
 The RCIM compensation reference frames the real target as online TE prediction
@@ -146,6 +204,13 @@ This class is especially relevant because neural networks can show spectral
 bias toward low-frequency functions. Frequency-aware diagnostics explain why a
 model may achieve acceptable average error while smoothing out important TE
 oscillations.
+
+A spectral or harmonic metric that removes the `DC` term is useful as a
+mean-independent shape score, but it cannot replace an offset metric. The
+promotion surface should report both:
+
+- explicit `DC` / curve-bias error;
+- non-`DC` harmonic amplitude and phase error for centered waveform quality.
 
 Relevant sources:
 
@@ -232,10 +297,10 @@ competition.
 
 ### Phase 1: Standardize Curve-First Selection
 
-This is the immediate next step.
+Status: completed through `Track 2B` and `Track 2C`.
 
-Create a `Track 2B` or `curve_first_track2_reranking` branch that does not
-train new models. It should:
+The completed `Track 2B` and `Track 2C` branches did not train new models.
+They:
 
 1. evaluate all existing accepted candidates on the same Track 2 held-out
    curves;
@@ -249,32 +314,58 @@ train new models. It should:
 This directly answers the operator concern without spending training time on
 an objective that is not yet standardized.
 
-### Phase 2: Add Curve-First Checkpoint Selection
+### Phase 2: Run Track 2D Mean-Offset Full-Matrix Audit
 
-After Phase 1, update training infrastructure so neural checkpoints can be
-selected by a validation curve metric instead of only `val_mae`.
+This is the immediate next step before any new training campaign.
+
+`Track 2D` should apply the mean-centered diagnostic to the official Track 2
+matrix rather than only to the small collage subset. It should produce one
+row per candidate, surface, direction, and curve group with:
+
+- raw per-curve `MAE` and `RMSE`;
+- curve residual mean / `DC` offset;
+- centered per-curve `MAE` and `RMSE`;
+- raw-to-centered improvement percentage;
+- peak-to-peak amplitude error;
+- selected harmonic amplitude and phase error;
+- condition-stratified summaries by speed, torque, temperature, direction, and
+  `DataValid` window.
+
+The output should identify whether a model family is offset-limited,
+shape-limited, amplitude-limited, phase-limited, or condition-regime-limited.
+Only after this classification should retraining be planned.
+
+### Phase 3: Add Offset-Aware Checkpoint Selection
+
+After Track 2D, update training infrastructure so neural checkpoints can be
+selected by validation curve metrics instead of only `val_mae`.
 
 Candidate monitor:
 
+- `val_curve_bias_abs_mean_deg`;
+- `val_curve_centered_mae_deg`;
 - `val_curve_mean_percentage_error_pct`;
 - tie-breakers: `val_curve_p95_percentage_error_pct`,
   `val_curve_harmonic_phase_error`, then scalar `val_mae`.
 
 This phase affects `scripts/training/train_feedforward_network.py`,
 `scripts/training/transmission_error_regression_module.py`, and shared
-registry snapshots. It requires a dedicated technical document before code
-changes.
+registry snapshots. It also requires a curve id or point-to-curve index in the
+validation batch so post-forward aggregation can compute per-curve metrics.
+It requires a dedicated technical document and campaign plan before training.
 
-### Phase 3: Add Curve-Aware Losses
+### Phase 4: Add Curve-Aware Losses
 
-Only after Phase 1 and Phase 2 should retraining change the loss.
+Only after Track 2D and offset-aware checkpoint selection should retraining
+change the loss.
 
 Recommended first composite loss for neural families:
 
 ```text
 total_loss =
-  pointwise_normalized_mse
-  + lambda_curve * denormalized_curve_mae
+  lambda_point * pointwise_normalized_mse
+  + lambda_bias * mean_curve_residual_mse
+  + lambda_shape * centered_curve_mse
   + lambda_slope * first_derivative_mae
   + lambda_harmonic_amp * selected_harmonic_amplitude_mae
   + lambda_harmonic_phase * selected_harmonic_phase_mae
@@ -291,14 +382,31 @@ for a deployed candidate.
 Soft-DTW or DILATE can be an ablation, but not the main line, because
 warp-tolerant shape matching may hide physically harmful phase shifts.
 
-### Phase 4: Decide Whether A New Wave Is Needed
+### Phase 5: Test Offset/Shape Model Structures
 
-If Phase 1 reranking shows that existing harmonic or periodic models are
+If Track 2D confirms that the model families are systematically offset-limited,
+two training structures should be evaluated before opening a broad new model
+family wave:
+
+- multi-task / multi-head model: shared causal feature trunk with one head for
+  curve offset or low-frequency component and one head for centered waveform
+  shape, summed into the final TE prediction;
+- sequential residual calibration: first run the current best causal model,
+  then train a second causal residual or offset calibrator on the prediction
+  error using only deployment-valid inputs and past predictions.
+
+Both structures keep the same runtime data contract. They do not feed a future
+curve to the model. Their purpose is to prevent the offset component and the
+periodic shape component from competing inside one scalar pointwise objective.
+
+### Phase 6: Decide Whether A New Wave Is Needed
+
+If Track 2D shows that existing harmonic or periodic models are
 already better curve-first candidates than the scalar leader, retrain only the
 promising families with the new selection policy.
 
-If Phase 3 still fails, then open a later model-family wave. Good candidates
-are:
+If curve-aware losses and offset/shape structures still fail, then open a
+later model-family wave. Good candidates are:
 
 - structured harmonic regression with curve-aware regularization;
 - residual harmonic MLP with harmonic-space loss;
@@ -334,25 +442,28 @@ its own valid surface.
 
 ## Concrete Next Step
 
-Open a curve-first reranking branch before any new training campaign.
+Open a mean-offset full-matrix diagnostic branch before any new training
+campaign.
 
 Recommended name:
 
 ```text
-Track 2B Curve-First Reranking
+Track 2D Mean-Offset Full-Matrix Audit
 ```
 
 Recommended deliverables:
 
 - technical document;
 - analysis report under `doc/reports/analysis/track2/`;
-- expanded per-curve metric CSV;
+- full-matrix per-curve metric CSV with raw, bias, centered-shape, amplitude,
+  and harmonic diagnostics;
+- condition-stratified tables for `Fw`, `Bw`, and `global` surfaces;
 - updated Track 2 visual overlays if the screened candidate set changes;
-- master-summary update distinguishing scalar bests from curve-first leaders
-  for `Fw`, `Bw`, and `global`;
+- master-summary update distinguishing offset-limited, shape-limited, and
+  deployment-ready candidates for `Fw`, `Bw`, and `global`;
 - backlog update with the next approved direction-parallel training decision.
 
-If the reranking confirms the operator observation, the next campaign should
-be a compact `Wave 1B` or `Wave 2D` retraining pass that advances `Fw`, `Bw`,
-and `global` candidates in parallel with curve-first checkpoint selection
-before introducing new families.
+If the audit confirms the offset mechanism, the next campaign should be a
+compact `Wave 1B`, `Wave 2D`, or equivalent retraining pass that advances
+`Fw`, `Bw`, and `global` candidates in parallel with offset-aware checkpoint
+selection before introducing new families.

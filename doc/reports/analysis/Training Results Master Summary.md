@@ -5,16 +5,15 @@
 - Generated At: `2026-05-28T11:42:23`
 - Program State: active.
 - Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign and official `Track 2` refresh complete.
-- Current Focus: prepare direction-parallel curve-aware retraining or
-  reranking branches for `Fw`, `Bw`, and `global` surfaces, using completed
-  `Track 2B` and `Track 2C` evidence.
+- Current Focus: prepare `Track 2D` mean-offset full-matrix diagnostics before
+  any direction-parallel curve-aware retraining branch.
 - Active Campaign Status: `none`
 - Active Campaign Name: `None`
 - Current Scalar Registry Winner: `te_periodic_gru_sequence_remote_Bw` |
   Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
-- Current Curve-First Promotion State: `Track 2B` reranking and screened
-  `Track 2C` curve-payload diagnostics complete; no automatic single-winner
-  registry promotion.
+- Current Curve-First Promotion State: `Track 2B` reranking, screened
+  `Track 2C` curve-payload diagnostics, and `Track 2` mean-centered collage
+  diagnostics complete; no automatic single-winner registry promotion.
 - Runtime Input Constraint: point-level operating state, optional short causal
   history, or derived causal features only.
 
@@ -28,11 +27,11 @@
   The first standardized reranking favors `rcim_retuned_GBM19_Fw` forward,
   `rcim_retuned_GBM19_Bw` backward, and `periodic_lstm_sequence_global` on
   the global surface.
-- New diagnostic direction: `periodic_gru_sequence_Bw` is the strongest
-  practical repository-owned backward candidate in the screened curve-payload
-  diagnostics, while `periodic_lstm_sequence_global` remains the strongest
-  screened global neural surface; the forward repository-owned branch remains
-  open because the current forward leader is paper-reference.
+- New diagnostic direction: `Track 2` mean-centered diagnostics show that raw
+  curve error mixes vertical offset and centered shape error. In the four-curve
+  collage, `harmonic_regression_global` improves from `0.031130 deg` raw MAE
+  to `0.000888 deg` centered MAE, while dense `Wave 2C` variants improve much
+  less and remain shape-limited.
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `53`
@@ -150,7 +149,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; `Track 2C` curve-payload diagnostics: completed;; status: closed. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; `Track 2C` curve-payload diagnostics: completed;; mean-centered collage diagnostic: completed;; next diagnostic: `Track 2D` mean-offset full-matrix audit before retraining;; status: closed as official baseline, with diagnostic extensions active. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -251,6 +250,13 @@ Curve-first promotion policy:
   history, and causal derived features;
 - completed curve-first analysis now separates `Fw`, `Bw`, and `global`
   leaders instead of one single winner;
+- completed mean-centered diagnostics now separate curve-bias error from
+  centered waveform-shape error;
+- future Track 2 diagnostics should report raw error, explicit `DC` / curve
+  offset error, centered-shape error, amplitude error, and harmonic phase
+  error as separate quantities;
+- spectral or non-`DC` harmonic metrics are useful shape diagnostics, but they
+  must not replace the explicit offset term;
 - candidate promotion should keep scalar, curve-first, and deployment-ready
   evidence separated for each surface until Track 3 online compensation
   evidence exists.
@@ -336,6 +342,10 @@ Curve-first promotion policy:
 - Strongest practical screened neural `global` candidate: `periodic_lstm_sequence_global`.
 - Forward branch status: current screened leader is paper-reference
   `rcim_retuned_GBM19_Fw`, so the repository-owned `Fw` branch remains open.
+- Mean-offset interpretation: pointwise `MSE` and `RMSE` can favor a
+  conditional-average prediction when the input features do not identify the
+  curve-level offset, so Track 2D must audit offset, centered shape, amplitude,
+  harmonic phase, and condition dependence before retraining.
 - `Wave 2C` is now Track 2 verified as exploratory evidence: sparse `RCIM`
   residual harmonic temporal models are the only competitive branch, but they
   do not displace `Wave 2B`.
