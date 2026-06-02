@@ -11,3 +11,4 @@ repository reporting workflow.
    plot_wave1_best_model_te_curves
    build_track2_curve_first_reranking_report
    build_track2_curve_payload_diagnostics_report
+   build_track2_mean_centered_collage_report

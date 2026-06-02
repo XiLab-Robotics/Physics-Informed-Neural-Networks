@@ -164,6 +164,11 @@ This folder contains the internal project documents derived from the reference P
   including peak-to-peak, harmonic amplitude, harmonic phase, derivative,
   smoothness, and closure diagnostics.
 
+- [reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md](./reports/analysis/track2/mean_centered_collage_report/%5B2026-06-02%5D/track2_mean_centered_collage_report.md)
+  `Track 2` mean-centered collage diagnostics report that subtracts each
+  truth and prediction curve mean after inference, then recomputes curve
+  `MAE` and `RMSE` to separate vertical offset from waveform-shape tracking.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -206,6 +211,10 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-02
+
+- [technical/2026-06/2026-06-02/2026-06-02-12-40-01_track2_mean_centered_collage_diagnostics.md](./technical/2026-06/2026-06-02/2026-06-02-12-40-01_track2_mean_centered_collage_diagnostics.md)
+  Plan the `Track 2` mean-centered collage diagnostics report that tests
+  whether persistent prediction offsets hide stronger TE curve-shape tracking.
 
 - [technical/2026-06/2026-06-02/2026-06-02-12-24-15_technical_document_index_chronological_order.md](./technical/2026-06/2026-06-02/2026-06-02-12-24-15_technical_document_index_chronological_order.md)
   Technical document for reordering the `doc/README.md` technical-document
@@ -1945,6 +1954,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.md](./scripts/reports/analysis/build_track2_curve_payload_diagnostics_report.md)
   Script-level documentation for the `Track 2C` curve-payload diagnostics
   report builder.
+
+- [scripts/reports/analysis/build_track2_mean_centered_collage_report.md](./scripts/reports/analysis/build_track2_mean_centered_collage_report.md)
+  Script-level documentation for the `Track 2` mean-centered collage
+  diagnostics report builder.
 
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
   Script-level documentation for the canonical training-results master-summary generator.

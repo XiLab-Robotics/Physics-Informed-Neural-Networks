@@ -144,6 +144,12 @@ The current usage flow mainly relies on these folders:
   and computes peak-to-peak, harmonic, phase, derivative, smoothness, and
   closure diagnostics for screened candidates.
 
+- `scripts/reports/analysis/build_track2_mean_centered_collage_report.py`
+  Track 2 diagnostics builder that reuses the best-model collage curve
+  selections, subtracts each truth and prediction curve mean after inference,
+  and recomputes curve `MAE` and `RMSE` to separate vertical offset from
+  waveform-shape tracking while preserving the causal runtime input contract.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 

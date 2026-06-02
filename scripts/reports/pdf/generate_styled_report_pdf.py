@@ -133,6 +133,8 @@ TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME = "report-table report-table-tr
 TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-curve-first-ranking"
 TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_CLASS_NAME = "report-table report-table-track2-curve-payload-diagnostics"
 TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME = "report-table report-table-track2-surface-leader"
+TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME = "report-table report-table-track2-mean-centered-top"
+TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME = "report-table report-table-track2-mean-centered-group"
 REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-scalar-winner"
 REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME = "report-table report-table-repository-status-hpo-leader"
 REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-results"
@@ -315,6 +317,25 @@ TRACK2_SURFACE_LEADER_TABLE_HEADER_CELLS = (
     "Mean MPE [%]",
     "P95 MPE [%]",
     "Mean Curve MAE [deg]",
+)
+
+TRACK2_MEAN_CENTERED_TOP_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "Surface",
+    "Raw MAE",
+    "Centered MAE",
+    "Improvement",
+    "Offset",
+)
+
+TRACK2_MEAN_CENTERED_GROUP_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Surface",
+    "Raw MAE",
+    "Centered MAE",
+    "Improvement",
+    "Offset",
 )
 
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
@@ -925,6 +946,44 @@ REPORT_STYLESHEET = """
     .report-table-track2-surface-leader th:nth-child(6), .report-table-track2-surface-leader td:nth-child(6) { width: 9%; }
     .report-table-track2-surface-leader th:nth-child(7), .report-table-track2-surface-leader td:nth-child(7) { width: 9%; }
     .report-table-track2-surface-leader th:nth-child(8), .report-table-track2-surface-leader td:nth-child(8) { width: 9%; }
+
+    .report-table-track2-mean-centered-top,
+    .report-table-track2-mean-centered-group {
+      font-size: 6.55pt;
+      line-height: 1.16;
+    }
+
+    .report-table-track2-mean-centered-top th,
+    .report-table-track2-mean-centered-top td,
+    .report-table-track2-mean-centered-group th,
+    .report-table-track2-mean-centered-group td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2-mean-centered-top th,
+    .report-table-track2-mean-centered-group th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track2-mean-centered-top th:nth-child(1), .report-table-track2-mean-centered-top td:nth-child(1) { width: 4%; }
+    .report-table-track2-mean-centered-top th:nth-child(2), .report-table-track2-mean-centered-top td:nth-child(2) { width: 42%; }
+    .report-table-track2-mean-centered-top th:nth-child(3), .report-table-track2-mean-centered-top td:nth-child(3) { width: 8%; }
+    .report-table-track2-mean-centered-top th:nth-child(4), .report-table-track2-mean-centered-top td:nth-child(4) { width: 11.5%; }
+    .report-table-track2-mean-centered-top th:nth-child(5), .report-table-track2-mean-centered-top td:nth-child(5) { width: 11.5%; }
+    .report-table-track2-mean-centered-top th:nth-child(6), .report-table-track2-mean-centered-top td:nth-child(6) { width: 11.5%; }
+    .report-table-track2-mean-centered-top th:nth-child(7), .report-table-track2-mean-centered-top td:nth-child(7) { width: 11.5%; }
+
+    .report-table-track2-mean-centered-group th:nth-child(1), .report-table-track2-mean-centered-group td:nth-child(1) { width: 42%; }
+    .report-table-track2-mean-centered-group th:nth-child(2), .report-table-track2-mean-centered-group td:nth-child(2) { width: 8%; }
+    .report-table-track2-mean-centered-group th:nth-child(3), .report-table-track2-mean-centered-group td:nth-child(3) { width: 12.5%; }
+    .report-table-track2-mean-centered-group th:nth-child(4), .report-table-track2-mean-centered-group td:nth-child(4) { width: 12.5%; }
+    .report-table-track2-mean-centered-group th:nth-child(5), .report-table-track2-mean-centered-group td:nth-child(5) { width: 12.5%; }
+    .report-table-track2-mean-centered-group th:nth-child(6), .report-table-track2-mean-centered-group td:nth-child(6) { width: 12.5%; }
 
     .report-table-repository-status-scalar-winner,
     .report-table-repository-status-hpo-leader,
@@ -2705,7 +2764,13 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME,
         TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_CLASS_NAME,
         TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME,
+        TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME,
+        TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME,
     }:
+        if header_cell == "Raw MAE":
+            return "Raw<br><span class=\"metric-unit\">MAE</span>"
+        if header_cell == "Centered MAE":
+            return "Centered<br><span class=\"metric-unit\">MAE</span>"
         if header_cell == "Mean MPE [%]":
             return "Mean<br><span class=\"metric-unit\">MPE [%]</span>"
         if header_cell == "P95 MPE [%]":
@@ -3678,6 +3743,12 @@ def render_table(
 
     if tuple(header_cells) == TRACK2_SURFACE_LEADER_TABLE_HEADER_CELLS:
         return render_standard_table(header_cells, alignments, body_rows, TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME), current_index
+
+    if tuple(header_cells) == TRACK2_MEAN_CENTERED_TOP_TABLE_HEADER_CELLS:
+        return render_standard_table(header_cells, alignments, body_rows, TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME), current_index
+
+    if tuple(header_cells) == TRACK2_MEAN_CENTERED_GROUP_TABLE_HEADER_CELLS:
+        return render_standard_table(header_cells, alignments, body_rows, TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME), current_index
 
     # Resolve Table Class
     table_class_name = resolve_standard_table_class_name(
