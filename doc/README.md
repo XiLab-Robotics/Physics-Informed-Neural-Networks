@@ -205,6 +205,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-02
+
+- [technical/2026-06/2026-06-02/2026-06-02-12-24-15_technical_document_index_chronological_order.md](./technical/2026-06/2026-06-02/2026-06-02-12-24-15_technical_document_index_chronological_order.md)
+  Technical document for reordering the `doc/README.md` technical-document
+  index in reverse chronological order while preserving existing links and
+  summaries.
+
 #### 2026-05-29
 
 - [technical/2026-05/2026-05-29/2026-05-29-12-23-56_direction_parallel_best_policy.md](./technical/2026-05/2026-05-29/2026-05-29-12-23-56_direction_parallel_best_policy.md)
@@ -218,6 +225,10 @@ This folder contains the internal project documents derived from the reference P
   truth/prediction curves and measure harmonic, phase, slope, smoothness, and
   stitched-revolution behavior before new training is opened.
 
+- [technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md](./technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md)
+  Plan the styled PDF export and validation pass for the repository status,
+  Wave, and `Track 2` synthesis report.
+
 - [technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md](./technical/2026-05/2026-05-28/2026-05-28-16-59-09_track2b_curve_first_reranking.md)
   Plan the `Track 2B` curve-first reranking pass that standardizes existing
   `Track 2` curve metrics before opening new training-loss or model-family
@@ -228,10 +239,6 @@ This folder contains the internal project documents derived from the reference P
   state, `Wave 1`, `Wave 2`, `Wave 2B`, `Wave 2C`, `Track 2` outcomes,
   sparse `RCIM` versus dense harmonic-bank results, and the future development
   path including commit `b73220679410276246421b7e2832d8878cff90a0`.
-
-- [technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md](./technical/2026-05/2026-05-28/2026-05-28-18-21-51_repository_status_wave_track_synthesis_pdf_export.md)
-  Plan the styled PDF export and validation pass for the repository status,
-  Wave, and `Track 2` synthesis report.
 
 - [technical/2026-05/2026-05-28/2026-05-28-16-44-36_causal_input_constraint_clarification.md](./technical/2026-05/2026-05-28/2026-05-28-16-44-36_causal_input_constraint_clarification.md)
   Plan the causal-input clarification for the curve-first TE strategy so
@@ -439,32 +446,32 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-17
 
-- [technical/2026-05/2026-05-17/2026-05-17-11-40-42_wave1_directional_hpo_closeout_and_export_refresh.md](./technical/2026-05/2026-05-17/2026-05-17-11-40-42_wave1_directional_hpo_closeout_and_export_refresh.md)
-  Plan the closeout for the completed `Wave 1` directional best-hyperparameter
-  campaign, including bounded-grid and `Optuna` result consolidation, winner
-  hyperparameter verification, and refreshed Python plus ONNX exports.
-
-- [technical/2026-05/2026-05-17/2026-05-17-18-02-23_track1_closure_documentation_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-18-02-23_track1_closure_documentation_alignment.md)
-  Plan the documentation-only closure update for `Track 1` after completed
-  forward and backward paper-faithful campaigns, with a deferred
-  restricted-dataset rerun backlog item.
+- [technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md)
+  Plan the direction-aware `Track 2` comparison pipeline, including `Track 1`
+  forward/backward family banks, `Wave 1` global and directional models, and
+  canonical `data/datasets` loading for future waves.
 
 - [technical/2026-05/2026-05-17/2026-05-17-18-48-59_wave1_campaign_output_taxonomy_repair.md](./technical/2026-05/2026-05-17/2026-05-17-18-48-59_wave1_campaign_output_taxonomy_repair.md)
   Plan the filesystem and metadata repair that moves two completed `Wave 1`
   campaign bundles from the flat `output/training_campaigns/` root into the
   canonical `output/training_campaigns/wave1/` taxonomy.
 
-- [technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-19-01-32_track2_directional_comparison_pipeline_alignment.md)
-  Plan the direction-aware `Track 2` comparison pipeline, including `Track 1`
-  forward/backward family banks, `Wave 1` global and directional models, and
-  canonical `data/datasets` loading for future waves.
+- [technical/2026-05/2026-05-17/2026-05-17-18-02-23_track1_closure_documentation_alignment.md](./technical/2026-05/2026-05-17/2026-05-17-18-02-23_track1_closure_documentation_alignment.md)
+  Plan the documentation-only closure update for `Track 1` after completed
+  forward and backward paper-faithful campaigns, with a deferred
+  restricted-dataset rerun backlog item.
+
+- [technical/2026-05/2026-05-17/2026-05-17-11-40-42_wave1_directional_hpo_closeout_and_export_refresh.md](./technical/2026-05/2026-05-17/2026-05-17-11-40-42_wave1_directional_hpo_closeout_and_export_refresh.md)
+  Plan the closeout for the completed `Wave 1` directional best-hyperparameter
+  campaign, including bounded-grid and `Optuna` result consolidation, winner
+  hyperparameter verification, and refreshed Python plus ONNX exports.
 
 #### 2026-05-16
 
-- [technical/2026-05/2026-05-16/2026-05-16-20-04-43_git_lfs_exact_model_bank_threshold_cleanup.md](./technical/2026-05/2026-05-16/2026-05-16-20-04-43_git_lfs_exact_model_bank_threshold_cleanup.md)
-  Plan the Git LFS threshold cleanup for exact-model-bank validation artifacts
-  so only required oversized `paper_family_model_bank.pkl` files remain tracked
-  through LFS.
+- [technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md](./technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md)
+  Plan the documentation alignment for the recovered RCIM original pipeline,
+  faithful exact-model-bank reimplementation, Track 1 campaigns, benchmark
+  tables, and paper-reference model archives.
 
 - [technical/2026-05/2026-05-16/2026-05-16-20-14-35_small_exact_model_bank_lfs_pointer_conversion.md](./technical/2026-05/2026-05-16/2026-05-16-20-14-35_small_exact_model_bank_lfs_pointer_conversion.md)
   Plan the multi-commit conversion of small exact-model-bank
@@ -475,10 +482,10 @@ This folder contains the internal project documents derived from the reference P
   paper-reference model archive replacement, linked report updates, and RCIM
   Tables `2`-`5` benchmark recompilation.
 
-- [technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md](./technical/2026-05/2026-05-16/2026-05-16-20-46-00_rcim_original_pipeline_documentation_alignment.md)
-  Plan the documentation alignment for the recovered RCIM original pipeline,
-  faithful exact-model-bank reimplementation, Track 1 campaigns, benchmark
-  tables, and paper-reference model archives.
+- [technical/2026-05/2026-05-16/2026-05-16-20-04-43_git_lfs_exact_model_bank_threshold_cleanup.md](./technical/2026-05/2026-05-16/2026-05-16-20-04-43_git_lfs_exact_model_bank_threshold_cleanup.md)
+  Plan the Git LFS threshold cleanup for exact-model-bank validation artifacts
+  so only required oversized `paper_family_model_bank.pkl` files remain tracked
+  through LFS.
 
 - [technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md](./technical/2026-05/2026-05-16/2026-05-16-12-28-37_python_entrypoint_platform_flag_plan.md)
   Plan the Python-entrypoint Linux portability tranche that adds a uniform
@@ -490,28 +497,28 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-05/2026-05-15/2026-05-15-21-12-21_aries_cluster_user_guide_plan.md](./technical/2026-05/2026-05-15/2026-05-15-21-12-21_aries_cluster_user_guide_plan.md)
   Plan the Unimore Aries cluster user guide covering SSH access, GitHub SSH setup, repository clone, Conda environment setup, Slurm interactive tests, and first batch submission.
 
-- [technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md)
-  Plan the Track 1 forward paper-faithful campaign closeout, paper-reference
-  model archive replacement, linked report updates, and RCIM Tables `2`-`5`
-  benchmark recompilation.
-
-- [technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md)
-  Plan the reusable styled-PDF table layout refinement for the Track 1 forward
-  paper-faithful closeout report.
-
-- [technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md](./technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md)
-  Plan the Linux portability pass for Unimore Aries, including platform-aware
-  repository-relative paths and Bash equivalents for Track 1 campaign
-  launchers.
+- [technical/2026-05/2026-05-15/2026-05-15-19-46-50_repository_wide_linux_portability_tranche2_campaign_launcher_plan.md](./technical/2026-05/2026-05-15/2026-05-15-19-46-50_repository_wide_linux_portability_tranche2_campaign_launcher_plan.md)
+  Plan the second repository-wide Linux portability tranche, starting from
+  protected campaign launcher Bash equivalents and the shared launcher helper.
 
 - [technical/2026-05/2026-05-15/2026-05-15-16-20-20_repository_wide_linux_script_portability_plan.md](./technical/2026-05/2026-05-15/2026-05-15-16-20-20_repository_wide_linux_script_portability_plan.md)
   Plan the repository-wide Linux portability pass so every runnable script is
   either Linux-runnable, has a Linux equivalent, or is explicitly classified as
   Windows-only with a documented replacement.
 
-- [technical/2026-05/2026-05-15/2026-05-15-19-46-50_repository_wide_linux_portability_tranche2_campaign_launcher_plan.md](./technical/2026-05/2026-05-15/2026-05-15-19-46-50_repository_wide_linux_portability_tranche2_campaign_launcher_plan.md)
-  Plan the second repository-wide Linux portability tranche, starting from
-  protected campaign launcher Bash equivalents and the shared launcher helper.
+- [technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md](./technical/2026-05/2026-05-15/2026-05-15-13-18-01_unimore_aries_linux_portability_plan.md)
+  Plan the Linux portability pass for Unimore Aries, including platform-aware
+  repository-relative paths and Bash equivalents for Track 1 campaign
+  launchers.
+
+- [technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-15/2026-05-15-12-10-04_track1_forward_closeout_pdf_table_layout_refinement.md)
+  Plan the reusable styled-PDF table layout refinement for the Track 1 forward
+  paper-faithful closeout report.
+
+- [technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md](./technical/2026-05/2026-05-15/2026-05-15-11-11-35_track1_forward_paper_faithful_closeout_and_reference_refresh.md)
+  Plan the Track 1 forward paper-faithful campaign closeout, paper-reference
+  model archive replacement, linked report updates, and RCIM Tables `2`-`5`
+  benchmark recompilation.
 
 #### 2026-05-14
 
@@ -527,26 +534,26 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-05-13
 
-- [technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md](./technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md)
-  Plan the recovered-original RCIM launcher follow-up fix that keeps complete
-  persisted stage logs while eliminating the new live-log backpressure path
-  that can stall verbose retune runs.
-
-- [technical/2026-05/2026-05-13/2026-05-13-16-10-09_rcim_retuned_archive_closeout_and_benchmark_reset.md](./technical/2026-05/2026-05-13/2026-05-13-16-10-09_rcim_retuned_archive_closeout_and_benchmark_reset.md)
-  Plan the recovered-original RCIM retuned-model closeout, archive promotion,
-  detailed PDF reporting, and canonical paper-reference benchmark reset.
-
-- [technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md)
-  Plan the narrow styled-PDF table layout refinement for the recovered-original
-  RCIM retuned closeout report.
+- [technical/2026-05/2026-05-13/2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md](./technical/2026-05/2026-05-13/2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md)
+  Plan the protected remote launcher fix that creates the remote `.temp`
+  directory before uploading the source-sync archive with `scp`.
 
 - [technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md](./technical/2026-05/2026-05-13/2026-05-13-17-33-38_track1_paper_faithful_elm_queue_completion.md)
   Plan the protected Track 1 paper-faithful queue update that adds forward and
   backward `ELM` YAML entries for the `11`-family launcher command.
 
-- [technical/2026-05/2026-05-13/2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md](./technical/2026-05/2026-05-13/2026-05-13-18-22-31_track1_remote_source_sync_temp_directory_fix.md)
-  Plan the protected remote launcher fix that creates the remote `.temp`
-  directory before uploading the source-sync archive with `scp`.
+- [technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md](./technical/2026-05/2026-05-13/2026-05-13-16-50-46_rcim_retuned_closeout_pdf_table_layout_refinement.md)
+  Plan the narrow styled-PDF table layout refinement for the recovered-original
+  RCIM retuned closeout report.
+
+- [technical/2026-05/2026-05-13/2026-05-13-16-10-09_rcim_retuned_archive_closeout_and_benchmark_reset.md](./technical/2026-05/2026-05-13/2026-05-13-16-10-09_rcim_retuned_archive_closeout_and_benchmark_reset.md)
+  Plan the recovered-original RCIM retuned-model closeout, archive promotion,
+  detailed PDF reporting, and canonical paper-reference benchmark reset.
+
+- [technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md](./technical/2026-05/2026-05-13/2026-05-13-14-14-43_rcim_original_live_log_backpressure_fix.md)
+  Plan the recovered-original RCIM launcher follow-up fix that keeps complete
+  persisted stage logs while eliminating the new live-log backpressure path
+  that can stall verbose retune runs.
 
 #### 2026-05-12
 
@@ -588,20 +595,20 @@ This folder contains the internal project documents derived from the reference P
   execution for neural families and CPU-throttled handling for non-neural
   families.
 
-- [technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md)
-  Plan the exact-paper export alignment that restores recovered-original-style
-  per-target Python plus ONNX export artifacts instead of ONNX-only per-target
-  exports.
+- [technical/2026-05/2026-05-11/2026-05-11-15-39-02_rcim_original_lgbm_retune_log_flood_and_failure_capture_fix.md](./technical/2026-05/2026-05-11/2026-05-11-15-39-02_rcim_original_lgbm_retune_log_flood_and_failure_capture_fix.md)
+  Plan the narrow recovered-original RCIM `LGBM` retune fix that suppresses
+  unusable LightGBM log flooding while preserving repository-owned progress
+  lines and persistent failure capture.
 
 - [technical/2026-05/2026-05-11/2026-05-11-10-05-21_rcim_original_elm_onnx_export_feature_shape_fix.md](./technical/2026-05/2026-05-11/2026-05-11-10-05-21_rcim_original_elm_onnx_export_feature_shape_fix.md)
   Plan the narrow recovered-original RCIM exporter fix that restores ONNX
   export for fitted `ELMRegressor` targets without changing the training or
   stage semantics.
 
-- [technical/2026-05/2026-05-11/2026-05-11-15-39-02_rcim_original_lgbm_retune_log_flood_and_failure_capture_fix.md](./technical/2026-05/2026-05-11/2026-05-11-15-39-02_rcim_original_lgbm_retune_log_flood_and_failure_capture_fix.md)
-  Plan the narrow recovered-original RCIM `LGBM` retune fix that suppresses
-  unusable LightGBM log flooding while preserving repository-owned progress
-  lines and persistent failure capture.
+- [technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md](./technical/2026-05/2026-05-11/2026-05-11-09-43-31_exact_paper_python_plus_onnx_export_alignment.md)
+  Plan the exact-paper export alignment that restores recovered-original-style
+  per-target Python plus ONNX export artifacts instead of ONNX-only per-target
+  exports.
 
 #### 2026-05-09
 
@@ -742,16 +749,21 @@ This folder contains the internal project documents derived from the reference P
   stages stop exiting non-zero, and the automatic transition from
   `paper_eval` to `paper_export` becomes reliable.
 
-- [technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md](./technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md)
-  Plan the missing exact-paper search-protocol alignment to the recovered original RCIM workflow, including the historical `cross_validate(...)` stage, and the replacement of the active `400`-run campaign with a paper-faithful `20`-run design.
-
 - [technical/2026-05/2026-05-04/2026-05-04-15-36-05_rcim_original_training_surface_completion_and_launcher_hardening.md](./technical/2026-05/2026-05-04/2026-05-04-15-36-05_rcim_original_training_surface_completion_and_launcher_hardening.md)
   Plan the completion and hardening pass for the recovered original RCIM paper-reference workflow, including missing-family coverage, persistent launcher logging, progress reporting, output-root relocation, and ONNX/Python export alignment.
+
+- [technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md](./technical/2026-05/2026-05-04/2026-05-04-12-13-07_track1_paper_faithful_search_protocol_and_campaign_replacement.md)
+  Plan the missing exact-paper search-protocol alignment to the recovered original RCIM workflow, including the historical `cross_validate(...)` stage, and the replacement of the active `400`-run campaign with a paper-faithful `20`-run design.
 
 #### 2026-05-03
 
 - [technical/2026-05/2026-05-03/2026-05-03-13-23-46_track1_bidirectional_paper_faithful_grid_search_campaign_replacement.md](./technical/2026-05/2026-05-03/2026-05-03-13-23-46_track1_bidirectional_paper_faithful_grid_search_campaign_replacement.md)
   Plan the replacement of the active Track 1 bidirectional `400`-run literal-refresh mega campaign with a paper-faithful `20`-run grid-search campaign that performs exactly one search pass per family-direction surface.
+
+#### 2026-05-02
+
+- [technical/2026-05/2026-05-02/2026-05-02-12-31-12_rcim_original_reference_training_and_archive_plan.md](./technical/2026-05/2026-05-02/2026-05-02-12-31-12_rcim_original_reference_training_and_archive_plan.md)
+  Plan the operator-run retraining of the recovered original RCIM workflow into `models/paper_reference/rcim_original/`, including the `forward` `v18` replay, the `backward` `v17` retuning step, and the current manual handoff gap before a valid `backward` tuned replay.
 
 #### 2026-05-01
 
@@ -778,11 +790,6 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md](./technical/2026-05/2026-05-01/2026-05-01-00-42-42_rcim_recovered_original_workflow_comment_preserving_restore.md)
   Plan a conservative restoration of the recovered-original RCIM workflow so the user-authored inline comments and local formatting are recovered from the `_old` backup copies and only minimal repository-style normalization is applied afterward.
-
-#### 2026-05-02
-
-- [technical/2026-05/2026-05-02/2026-05-02-12-31-12_rcim_original_reference_training_and_archive_plan.md](./technical/2026-05/2026-05-02/2026-05-02-12-31-12_rcim_original_reference_training_and_archive_plan.md)
-  Plan the operator-run retraining of the recovered original RCIM workflow into `models/paper_reference/rcim_original/`, including the `forward` `v18` replay, the `backward` `v17` retuning step, and the current manual handoff gap before a valid `backward` tuned replay.
 
 #### 2026-04-30
 
@@ -1007,17 +1014,17 @@ This folder contains the internal project documents derived from the reference P
   accordingly, and renaming the recovered asset root so the stored models are
   explicitly marked as forward-only.
 
-- [technical/2026-04/2026-04-23/2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md](./technical/2026-04/2026-04-23/2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md)
-  Technical document for adding one read-only remote monitoring script that
-  reports the real aggregate progress of the current exact-paper `Track 1`
-  remaining-yellow-cell campaign bundle after the original local launcher
-  terminal was lost.
-
 - [technical/2026-04/2026-04-23/2026-04-23-18-42-31_track1_lgbm19_vs_feedforward_curve_space_comparison.md](./technical/2026-04/2026-04-23/2026-04-23-18-42-31_track1_lgbm19_vs_feedforward_curve_space_comparison.md)
   Technical document for the first implementation pass of a shared
   curve-space comparison between the paper-faithful `LGBM` `19`-model bank and
   the best direct-TE `feedforward` baseline, designed for later extension to
   cherry-picked harmonic banks and other `Track 1` families.
+
+- [technical/2026-04/2026-04-23/2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md](./technical/2026-04/2026-04-23/2026-04-23-12-32-05_track1_remote_campaign_total_progress_monitor.md)
+  Technical document for adding one read-only remote monitoring script that
+  reports the real aggregate progress of the current exact-paper `Track 1`
+  remaining-yellow-cell campaign bundle after the original local launcher
+  terminal was lost.
 
 #### 2026-04-22
 
@@ -1137,22 +1144,44 @@ This folder contains the internal project documents derived from the reference P
   to the still-flat `scripts/campaigns`, validation-check analysis bundle, and
   `output/training_campaigns` roots.
 
+- [technical/2026-04/2026-04-20/2026-04-20-12-57-55_dataset_split_export_script_rename.md](./technical/2026-04/2026-04-20/2026-04-20-12-57-55_dataset_split_export_script_rename.md)
+  Technical document for renaming the dataset split export helper to a generic
+  script name and aligning the local README references with that rename.
+
 - [technical/2026-04/2026-04-20/2026-04-20-12-44-46_wave1_dataset_split_export_script.md](./technical/2026-04/2026-04-20/2026-04-20-12-44-46_wave1_dataset_split_export_script.md)
   Technical document for exporting the canonical `Wave 1` dataset split so a
   colleague can reproduce the same `70/20/10` partition with the repository
   seed and randomization logic.
 
-- [technical/2026-04/2026-04-20/2026-04-20-12-57-55_dataset_split_export_script_rename.md](./technical/2026-04/2026-04-20/2026-04-20-12-57-55_dataset_split_export_script_rename.md)
-  Technical document for renaming the dataset split export helper to a generic
-  script name and aligning the local README references with that rename.
-
 #### 2026-04-19
 
-- [technical/2026-04/2026-04-19/2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md](./technical/2026-04/2026-04-19/2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md)
-  Technical document for the final closeout of the completed `171`-run
-  remaining-family `Track 1` exact-paper cellwise campaign wave, including
-  winner-bookkeeping reconstruction, canonical benchmark refresh, and final
-  results reporting.
+- [technical/2026-04/2026-04-19/2026-04-19-13-17-01_residual_closeout_pdf_table_micro_rebalance.md](./technical/2026-04/2026-04-19/2026-04-19-13-17-01_residual_closeout_pdf_table_micro_rebalance.md)
+  Technical document for the narrow PDF table rebalance of the residual
+  closeout report, focused on the `Family Recovery Outcome` and
+  `Aggregate Ranking` tables.
+
+- [technical/2026-04/2026-04-19/2026-04-19-13-07-54_styled_pdf_persistent_preview_cleanup_fix.md](./technical/2026-04/2026-04-19/2026-04-19-13-07-54_styled_pdf_persistent_preview_cleanup_fix.md)
+  Technical document for fixing the styled PDF exporter so it always renders
+  from the stable preview HTML path beside the target PDF and only uses
+  `--keep-html` to decide whether that preview file is deleted afterward.
+
+- [technical/2026-04/2026-04-19/2026-04-19-12-20-48_residual_closeout_exact_styled_parity_repair.md](./technical/2026-04/2026-04-19/2026-04-19-12-20-48_residual_closeout_exact_styled_parity_repair.md)
+  Technical document for the stricter residual closeout repair that requires
+  the final PDF to match the earlier exact-paper closeout style in practice.
+
+- [technical/2026-04/2026-04-19/2026-04-19-12-08-11_residual_closeout_styled_pdf_repair.md](./technical/2026-04/2026-04-19/2026-04-19-12-08-11_residual_closeout_styled_pdf_repair.md)
+  Technical document for repairing the residual closeout report so its final
+  PDF returns to the canonical styled export workflow.
+
+- [technical/2026-04/2026-04-19/2026-04-19-11-23-44_track1_remaining_family_residual_cellwise_closure_final_closeout.md](./technical/2026-04/2026-04-19/2026-04-19-11-23-44_track1_remaining_family_residual_cellwise_closure_final_closeout.md)
+  Technical document for the final closeout of the completed `1026`-run
+  remaining-family residual-cell closure wave, including reconstructed
+  bookkeeping, benchmark refresh, and final Markdown plus PDF reporting.
+
+- [technical/2026-04/2026-04-19/2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md](./technical/2026-04/2026-04-19/2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md)
+  Technical document for the narrow aggregate-launcher repair after the
+  prepared overnight residual-closure package failed before launch because the
+  execution-mode status line used bare `remote/local` PowerShell tokens.
 
 - [technical/2026-04/2026-04-19/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md](./technical/2026-04/2026-04-19/2026-04-19-01-04-28_track1_remaining_family_residual_cellwise_closure_campaigns.md)
   Technical document for the next aggressive overnight `Track 1`
@@ -1160,33 +1189,11 @@ This folder contains the internal project documents derived from the reference P
   on the remaining non-green family-target cells across the nine non-`SVM`
   exact-paper families.
 
-- [technical/2026-04/2026-04-19/2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md](./technical/2026-04/2026-04-19/2026-04-19-01-33-26_track1_residual_closure_aggregate_launcher_execution_mode_fix.md)
-  Technical document for the narrow aggregate-launcher repair after the
-  prepared overnight residual-closure package failed before launch because the
-  execution-mode status line used bare `remote/local` PowerShell tokens.
-
-- [technical/2026-04/2026-04-19/2026-04-19-11-23-44_track1_remaining_family_residual_cellwise_closure_final_closeout.md](./technical/2026-04/2026-04-19/2026-04-19-11-23-44_track1_remaining_family_residual_cellwise_closure_final_closeout.md)
-  Technical document for the final closeout of the completed `1026`-run
-  remaining-family residual-cell closure wave, including reconstructed
-  bookkeeping, benchmark refresh, and final Markdown plus PDF reporting.
-
-- [technical/2026-04/2026-04-19/2026-04-19-12-08-11_residual_closeout_styled_pdf_repair.md](./technical/2026-04/2026-04-19/2026-04-19-12-08-11_residual_closeout_styled_pdf_repair.md)
-  Technical document for repairing the residual closeout report so its final
-  PDF returns to the canonical styled export workflow.
-
-- [technical/2026-04/2026-04-19/2026-04-19-12-20-48_residual_closeout_exact_styled_parity_repair.md](./technical/2026-04/2026-04-19/2026-04-19-12-20-48_residual_closeout_exact_styled_parity_repair.md)
-  Technical document for the stricter residual closeout repair that requires
-  the final PDF to match the earlier exact-paper closeout style in practice.
-
-- [technical/2026-04/2026-04-19/2026-04-19-13-07-54_styled_pdf_persistent_preview_cleanup_fix.md](./technical/2026-04/2026-04-19/2026-04-19-13-07-54_styled_pdf_persistent_preview_cleanup_fix.md)
-  Technical document for fixing the styled PDF exporter so it always renders
-  from the stable preview HTML path beside the target PDF and only uses
-  `--keep-html` to decide whether that preview file is deleted afterward.
-
-- [technical/2026-04/2026-04-19/2026-04-19-13-17-01_residual_closeout_pdf_table_micro_rebalance.md](./technical/2026-04/2026-04-19/2026-04-19-13-17-01_residual_closeout_pdf_table_micro_rebalance.md)
-  Technical document for the narrow PDF table rebalance of the residual
-  closeout report, focused on the `Family Recovery Outcome` and
-  `Aggregate Ranking` tables.
+- [technical/2026-04/2026-04-19/2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md](./technical/2026-04/2026-04-19/2026-04-19-00-25-58_track1_remaining_family_cellwise_final_closeout.md)
+  Technical document for the final closeout of the completed `171`-run
+  remaining-family `Track 1` exact-paper cellwise campaign wave, including
+  winner-bookkeeping reconstruction, canonical benchmark refresh, and final
+  results reporting.
 
 #### 2026-04-18
 
@@ -1283,27 +1290,68 @@ This folder contains the internal project documents derived from the reference P
   be prepared under a strict exact-paper `SVR` constraint, without changing
   the recovered algorithm or hyperparameter regime.
 
-#### 2026-04-12
+#### 2026-04-14
 
-- [technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md](./technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md)
-  Technical document for building the canonical `Track 1` paper-table
-  comparison against tables `3-6`, including paper targets, repository
-  results, explicit gap status, and a closure-oriented harmonic summary.
+- [technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md)
+  Technical document for preparing the final `SVR` micro-pass against the
+  last residual `SVM` harmonics `40`, `240`, and `162` in canonical
+  `Track 1`.
 
-- [technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md](./technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md)
-  Technical document for redefining `Track 1` completion around faithful
-  per-harmonic paper-table replication, including canonical `paper vs
-  repository` comparison artifacts and explicit closure status per harmonic.
+- [technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md)
+  Technical document for preparing the narrow `SVR` final-closure campaign
+  against the last residual yellow `SVM` cells in canonical `Track 1`
+  Tables `2-5`.
 
-- [technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md](./technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md)
-  Technical document for the final narrow width-equalization pass on the first
-  `Exact-Paper Support Runs` table, focused on making `Mean Component MAPE [%]`
-  match `Mean Component MAE`.
+- [technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md](./technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md)
+  Technical document for promoting manually validated report-specific table
+  width profiles into permanent styled-PDF renderer rules instead of relying on
+  visibly wrong generic fallback sizing for dense campaign tables.
 
-- [technical/2026-04/2026-04-12/2026-04-12-11-04-10_campaign_results_pdf_micro_rebalance_followup.md](./technical/2026-04/2026-04-12/2026-04-12-11-04-10_campaign_results_pdf_micro_rebalance_followup.md)
-  Technical document for a narrow follow-up rebalance of the campaign-results
-  PDF table profiles after the first renderer-level promotion, focused on
-  `Target A`, `Curve MAE`, and the first `Exact-Paper Support Runs` table.
+- [technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md)
+  Technical document for introducing report-specific styled-PDF width rules
+  for the `Ranked Completed Runs` and `Table-Level Before Vs After` tables in
+  the `Track 1` SVM repair campaign results report.
+
+- [technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md)
+  Technical document for preparing a broad but targeted `SVR` repair campaign
+  against the currently open `SVM` cells in the canonical `Track 1` benchmark.
+
+- [technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md](./technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md)
+  Technical document for realigning the canonical `Track 1` benchmark so that
+  sections labeled `Table 2-5` match the actual paper tables, including the
+  missing amplitude-MAE `Table 2` and the demotion of the current repository
+  derived harmonic-direction summary.
+
+- [technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md](./technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md)
+  Technical document for restoring and permanently preserving the colored
+  `🟢/🟡/🔴` status markers in the canonical `Track 1` benchmark full-matrix
+  tables during future campaign-driven updates.
+
+- [technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md)
+  Technical document for introducing table-specific PDF width rules for the
+  `Ranked Completed Runs` and `Campaign-Wide Cell Totals` tables in the
+  `Track 1` full-matrix campaign results report without changing the generic
+  table profile.
+
+- [technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md)
+  Technical document for extending the exact-paper workflow and preparing a
+  family-by-family `Track 1` full-matrix reproduction campaign across
+  amplitudes and phases.
+
+- [technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md)
+  Technical document for correcting the `Track 1` dashboard toward full
+  paper-matrix replication, with Tables `3-5` reproduced model-by-model and
+  harmonic-by-harmonic instead of only best-per-harmonic summaries.
+
+- [technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md)
+  Technical document for promoting `RCIM Paper Reference Benchmark.md` into
+  the canonical always-updated `Track 1` dashboard for paper Tables `2-6`,
+  including repository-owned paper-table reconstructions and color-coded
+  repository comparison tables.
+
+- [technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md)
+  Technical document for rebalancing the two `Campaign Ranking` tables in the
+  `Track 1` exact-paper open-cell repair campaign-results PDF.
 
 #### 2026-04-13
 
@@ -1337,68 +1385,27 @@ This folder contains the internal project documents derived from the reference P
   `MD012/no-multiple-blanks` failures in harmonic-wise validation Markdown
   reports and, only if needed, the shared report-generation path.
 
-#### 2026-04-14
+#### 2026-04-12
 
-- [technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-13-42-10_track1_full_matrix_family_campaign_preparation.md)
-  Technical document for extending the exact-paper workflow and preparing a
-  family-by-family `Track 1` full-matrix reproduction campaign across
-  amplitudes and phases.
+- [technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md](./technical/2026-04/2026-04-12/2026-04-12-16-47-53_track1_paper_tables_3_4_5_6_canonical_comparison.md)
+  Technical document for building the canonical `Track 1` paper-table
+  comparison against tables `3-6`, including paper targets, repository
+  results, explicit gap status, and a closure-oriented harmonic summary.
 
-- [technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-12-11-51_track1_full_matrix_paper_replication_dashboard.md)
-  Technical document for correcting the `Track 1` dashboard toward full
-  paper-matrix replication, with Tables `3-5` reproduced model-by-model and
-  harmonic-by-harmonic instead of only best-per-harmonic summaries.
+- [technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md](./technical/2026-04/2026-04-12/2026-04-12-15-35-39_track1_per_harmonic_paper_table_replication.md)
+  Technical document for redefining `Track 1` completion around faithful
+  per-harmonic paper-table replication, including canonical `paper vs
+  repository` comparison artifacts and explicit closure status per harmonic.
 
-- [technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md](./technical/2026-04/2026-04-14/2026-04-14-11-37-05_track1_paper_tables_2_6_canonical_dashboard.md)
-  Technical document for promoting `RCIM Paper Reference Benchmark.md` into
-  the canonical always-updated `Track 1` dashboard for paper Tables `2-6`,
-  including repository-owned paper-table reconstructions and color-coded
-  repository comparison tables.
+- [technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md](./technical/2026-04/2026-04-12/2026-04-12-11-29-44_exact_support_table_metric_width_equalization.md)
+  Technical document for the final narrow width-equalization pass on the first
+  `Exact-Paper Support Runs` table, focused on making `Mean Component MAPE [%]`
+  match `Mean Component MAE`.
 
-- [technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-10-27-49_track1_exact_paper_open_cell_repair_pdf_table_rebalance.md)
-  Technical document for rebalancing the two `Campaign Ranking` tables in the
-  `Track 1` exact-paper open-cell repair campaign-results PDF.
-
-- [technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-15-17-07_track1_full_matrix_pdf_table_specific_width_rebalance.md)
-  Technical document for introducing table-specific PDF width rules for the
-  `Ranked Completed Runs` and `Campaign-Wide Cell Totals` tables in the
-  `Track 1` full-matrix campaign results report without changing the generic
-  table profile.
-
-- [technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md](./technical/2026-04/2026-04-14/2026-04-14-16-05-48_track1_benchmark_colored_status_marker_persistence.md)
-  Technical document for restoring and permanently preserving the colored
-  `🟢/🟡/🔴` status markers in the canonical `Track 1` benchmark full-matrix
-  tables during future campaign-driven updates.
-
-- [technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md](./technical/2026-04/2026-04-14/2026-04-14-16-27-39_track1_benchmark_table_2_5_alignment.md)
-  Technical document for realigning the canonical `Track 1` benchmark so that
-  sections labeled `Table 2-5` match the actual paper tables, including the
-  missing amplitude-MAE `Table 2` and the demotion of the current repository
-  derived harmonic-direction summary.
-
-- [technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-17-17-21_track1_svm_open_cell_repair_campaign_preparation.md)
-  Technical document for preparing a broad but targeted `SVR` repair campaign
-  against the currently open `SVM` cells in the canonical `Track 1` benchmark.
-
-- [technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-20-50-01_track1_svm_final_closure_campaign_preparation.md)
-  Technical document for preparing the narrow `SVR` final-closure campaign
-  against the last residual yellow `SVM` cells in canonical `Track 1`
-  Tables `2-5`.
-
-- [technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md](./technical/2026-04/2026-04-14/2026-04-14-21-42-47_track1_svm_micro_closure_campaign_preparation.md)
-  Technical document for preparing the final `SVR` micro-pass against the
-  last residual `SVM` harmonics `40`, `240`, and `162` in canonical
-  `Track 1`.
-
-- [technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md](./technical/2026-04/2026-04-14/2026-04-14-18-06-03_track1_svm_repair_pdf_table_rebalance.md)
-  Technical document for introducing report-specific styled-PDF width rules
-  for the `Ranked Completed Runs` and `Table-Level Before Vs After` tables in
-  the `Track 1` SVM repair campaign results report.
-
-- [technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md](./technical/2026-04/2026-04-14/2026-04-14-18-19-07_styled_pdf_table_profile_promotion_for_report_specific_widths.md)
-  Technical document for promoting manually validated report-specific table
-  width profiles into permanent styled-PDF renderer rules instead of relying on
-  visibly wrong generic fallback sizing for dense campaign tables.
+- [technical/2026-04/2026-04-12/2026-04-12-11-04-10_campaign_results_pdf_micro_rebalance_followup.md](./technical/2026-04/2026-04-12/2026-04-12-11-04-10_campaign_results_pdf_micro_rebalance_followup.md)
+  Technical document for a narrow follow-up rebalance of the campaign-results
+  PDF table profiles after the first renderer-level promotion, focused on
+  `Target A`, `Curve MAE`, and the first `Exact-Paper Support Runs` table.
 
 #### 2026-04-11
 
@@ -1442,20 +1449,20 @@ This folder contains the internal project documents derived from the reference P
   `fft_y_Fw_filtered_ampl_0` ONNX export before re-running the canonical
   batch launcher.
 
-- [technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md](./technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md)
-  Technical document for fixing the exact-paper ONNX export failure and
-  converting the strict RCIM exact-paper branch into a repository-style
-  batch-run workflow with launcher, logging, and campaign-oriented execution.
+- [technical/2026-04/2026-04-10/2026-04-10-18-30-57_exact_paper_untracked_artifact_cleanup.md](./technical/2026-04/2026-04-10/2026-04-10-18-30-57_exact_paper_untracked_artifact_cleanup.md)
+  Technical document for removing the leftover untracked exact-paper crash and
+  superseded intermediate validation artifacts after the stabilized workflow
+  commit.
 
 - [technical/2026-04/2026-04-10/2026-04-10-17-42-04_track_exact_paper_model_bundles_with_git_lfs.md](./technical/2026-04/2026-04-10/2026-04-10-17-42-04_track_exact_paper_model_bundles_with_git_lfs.md)
   Technical document for tracking only the newly generated exact-paper
   `paper_family_model_bank.pkl` validation bundles with Git LFS so the branch
   remains GitHub push-safe.
 
-- [technical/2026-04/2026-04-10/2026-04-10-18-30-57_exact_paper_untracked_artifact_cleanup.md](./technical/2026-04/2026-04-10/2026-04-10-18-30-57_exact_paper_untracked_artifact_cleanup.md)
-  Technical document for removing the leftover untracked exact-paper crash and
-  superseded intermediate validation artifacts after the stabilized workflow
-  commit.
+- [technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md](./technical/2026-04/2026-04-10/2026-04-10-17-00-06_exact_paper_validation_fix_and_campaignization.md)
+  Technical document for fixing the exact-paper ONNX export failure and
+  converting the strict RCIM exact-paper branch into a repository-style
+  batch-run workflow with launcher, logging, and campaign-oriented execution.
 
 - [technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md](./technical/2026-04/2026-04-10/2026-04-10-16-12-21_rcim_exact_model_reimplementation_plan.md)
   Technical document for evolving the current `Track 1` paper branch into a
@@ -1485,13 +1492,85 @@ This folder contains the internal project documents derived from the reference P
   and the local Git LFS shell-hook `sh.exe` error path in this repository
   clone.
 
+#### 2026-04-09
+
+- [technical/2026-04/2026-04-09/2026-04-09-22-40-59_sphinx_requests_dependency_warning_resolution.md](./technical/2026-04/2026-04-09/2026-04-09-22-40-59_sphinx_requests_dependency_warning_resolution.md)
+  Technical document for resolving the previously observed
+  `RequestsDependencyWarning` in the canonical Sphinx build path by aligning
+  the documentation dependency environment explicitly.
+
+- [technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md](./technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md)
+  Technical document for auditing repository-owned Python scripts against the
+  approved style baseline and for formalizing a mandatory style-compliance
+  check whenever a new Python script is created.
+
+- [technical/2026-04/2026-04-09/2026-04-09-11-56-36_paper_reimplementation_structure_reorganization.md](./technical/2026-04/2026-04-09/2026-04-09-11-56-36_paper_reimplementation_structure_reorganization.md)
+  Technical document for reorganizing the paper-faithful reimplementation branch into a dedicated repository structure instead of leaving its scripts, configs, notes, and artifacts mixed with generic training helpers.
+
+- [technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md](./technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md)
+  Technical document for separating the paper-faithful harmonic-wise benchmark from the repository direct-TE comparison track and for planning their coordinated backlog integration.
+
+#### 2026-04-08
+
+- [technical/2026-04/2026-04-08/2026-04-08-18-57-43_harmonic_wise_comparison_pipeline.md](./technical/2026-04/2026-04-08/2026-04-08-18-57-43_harmonic_wise_comparison_pipeline.md)
+  Technical document for opening the offline paper-aligned harmonic-wise comparison pipeline branch, including harmonic prediction, TE reconstruction, offline motion-profile playback, and the benchmark path needed to close `Target A`.
+
+- [technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md](./technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md)
+  Technical document for making the paper-aligned harmonic-wise pipeline the immediate post-Wave-1 branch before the future Wave 2 temporal-model work is opened.
+
+- [technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md](./technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md)
+  Technical document for decomposing the remaining paper-aligned implementation gap into six concrete pipeline stages and prioritizing which stages should land immediately versus later in the backlog.
+
+- [technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md](./technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md)
+  Technical document for turning the RCIM ML-compensation paper into a canonical repository benchmark package, adding explicit paper-vs-repository tracking, and recording the missing pipelines required for a true Table 9 comparison.
+
+- [technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md](./technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md)
+  Technical document for promoting the canonical training-results master summary into a mandatory maintained project-control report that must stay synchronized after campaigns and result-registry updates.
+
+- [technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md](./technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md)
+  Technical document for creating a canonical always-updated master summary of implemented model families, roadmap state, best results, and family-by-family training outcomes for colleague-facing project control.
+
+- [technical/2026-04/2026-04-08/2026-04-08-16-11-02_post_wave_twincat_deployment_branch_deferral.md](./technical/2026-04/2026-04-08/2026-04-08-16-11-02_post_wave_twincat_deployment_branch_deferral.md)
+  Technical document for deferring the TwinCAT deployment-evaluation branch until after the next modeling wave is implemented and reviewed, while keeping the branch available for later re-prioritization.
+
+- [technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md](./technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md)
+  Technical document for formalizing the LAN-remote training workflow so Codex prepares the launcher and exact terminal command, then waits for the user to start and finish the campaign instead of holding the live remote execution session open.
+
+- [technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md](./technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md)
+  Technical document for the final read-only audit of the completed GitHub branch migration, focused on local tracking, remote branch topology, workflow triggers, and current-facing repository references.
+
+- [technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md](./technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md)
+  Technical document for the narrow post-migration cleanup that removes stale pre-rename branch references from the active workflows and current-facing documentation after the repository has already moved to `main`.
+
+- [technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md](./technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md)
+  Technical document for refactoring the repository branch topology around a new canonical `main` branch, retiring `standard-ml-codex`, and defining the legacy/test handling of the remaining historical branches plus the required GitHub ruleset and Pages follow-up.
+
+#### 2026-04-07
+
+- [technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md](./technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md)
+  Technical document for renaming the new repository-quality workflow to a clearer GitHub-facing label and fixing the GitHub Actions Markdownlint out-of-memory failure by switching to chunked lint execution.
+
+- [technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md](./technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md)
+  Technical document for defining the first practical GitHub governance baseline for the public repository, including a separate CI workflow, review templates, ownership hints, Dependabot, and recommended GitHub-side ruleset settings.
+
+- [technical/2026-04/2026-04-07/2026-04-07-12-47-33_github_pages_live_url_publication_registration.md](./technical/2026-04/2026-04-07/2026-04-07-12-47-33_github_pages_live_url_publication_registration.md)
+  Technical document for registering the now-live GitHub Pages public URL of the repository Sphinx portal and updating the main repository entry points to surface that published documentation endpoint.
+
+#### 2026-04-05
+
+- [technical/2026-04/2026-04-05/2026-04-05-11-04-45_github_pages_environment_protection_fix_and_node24_alignment.md](./technical/2026-04/2026-04-05/2026-04-05-11-04-45_github_pages_environment_protection_fix_and_node24_alignment.md)
+  Technical document for fixing the GitHub Pages deploy blocker caused by `github-pages` environment protection rules and aligning the workflow with GitHub's Node.js 24 action-runtime transition.
+
 #### 2026-04-04
 
-- [technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md)
-- [technical/2026-04/2026-04-04/2026-04-04-22-24-40_targeted_remote_followup_results_pdf_layout_rebalance_and_page_break_fix.md](./technical/2026-04/2026-04-04/2026-04-04-22-24-40_targeted_remote_followup_results_pdf_layout_rebalance_and_page_break_fix.md)
-- [technical/2026-04/2026-04-04/2026-04-04-22-29-19_targeted_remote_followup_completed_runs_family_column_final_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-29-19_targeted_remote_followup_completed_runs_family_column_final_refinement.md)
 - [technical/2026-04/2026-04-04/2026-04-04-22-34-46_targeted_remote_followup_completed_runs_family_width_final_micro_adjustment.md](./technical/2026-04/2026-04-04/2026-04-04-22-34-46_targeted_remote_followup_completed_runs_family_width_final_micro_adjustment.md)
   Technical document for refining the styled PDF layout of the targeted remote follow-up campaign results report, including table rebalancing and forced clean page starts for the final conclusions and artifact-reference sections.
+
+- [technical/2026-04/2026-04-04/2026-04-04-22-29-19_targeted_remote_followup_completed_runs_family_column_final_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-29-19_targeted_remote_followup_completed_runs_family_column_final_refinement.md)
+
+- [technical/2026-04/2026-04-04/2026-04-04-22-24-40_targeted_remote_followup_results_pdf_layout_rebalance_and_page_break_fix.md](./technical/2026-04/2026-04-04/2026-04-04-22-24-40_targeted_remote_followup_results_pdf_layout_rebalance_and_page_break_fix.md)
+
+- [technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md](./technical/2026-04/2026-04-04/2026-04-04-22-14-17_targeted_remote_followup_results_pdf_layout_refinement.md)
 
 - [technical/2026-04/2026-04-04/2026-04-04-22-07-17_large_tree_model_exportability_constraint.md](./technical/2026-04/2026-04-04/2026-04-04-22-07-17_large_tree_model_exportability_constraint.md)
   Technical document for recording that the oversized ~`91 GB` tree-model artifact class is excluded from future deployment/export candidate sets and should not be promoted into the TwinCAT-oriented export branch.
@@ -1528,75 +1607,6 @@ This folder contains the internal project documents derived from the reference P
 
 - [technical/2026-04/2026-04-04/2026-04-04-00-57-29_remote_training_pipeline_hardening_and_skill_promotion.md](./technical/2026-04/2026-04-04/2026-04-04-00-57-29_remote_training_pipeline_hardening_and_skill_promotion.md)
   Technical document for hardening the LAN-remote training campaign pipeline after the first real execution, eliminating the remaining artifact-bookkeeping bug, and promoting the validated workflow into a repository-local Codex skill.
-
-#### 2026-04-05
-
-- [technical/2026-04/2026-04-05/2026-04-05-11-04-45_github_pages_environment_protection_fix_and_node24_alignment.md](./technical/2026-04/2026-04-05/2026-04-05-11-04-45_github_pages_environment_protection_fix_and_node24_alignment.md)
-  Technical document for fixing the GitHub Pages deploy blocker caused by `github-pages` environment protection rules and aligning the workflow with GitHub's Node.js 24 action-runtime transition.
-
-#### 2026-04-07
-
-- [technical/2026-04/2026-04-07/2026-04-07-12-47-33_github_pages_live_url_publication_registration.md](./technical/2026-04/2026-04-07/2026-04-07-12-47-33_github_pages_live_url_publication_registration.md)
-  Technical document for registering the now-live GitHub Pages public URL of the repository Sphinx portal and updating the main repository entry points to surface that published documentation endpoint.
-
-- [technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md](./technical/2026-04/2026-04-07/2026-04-07-13-04-01_github_repository_governance_and_automation_baseline.md)
-  Technical document for defining the first practical GitHub governance baseline for the public repository, including a separate CI workflow, review templates, ownership hints, Dependabot, and recommended GitHub-side ruleset settings.
-
-- [technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md](./technical/2026-04/2026-04-07/2026-04-07-15-41-56_github_quality_workflow_naming_and_markdownlint_memory_fix.md)
-  Technical document for renaming the new repository-quality workflow to a clearer GitHub-facing label and fixing the GitHub Actions Markdownlint out-of-memory failure by switching to chunked lint execution.
-
-#### 2026-04-08
-
-- [technical/2026-04/2026-04-08/2026-04-08-18-57-43_harmonic_wise_comparison_pipeline.md](./technical/2026-04/2026-04-08/2026-04-08-18-57-43_harmonic_wise_comparison_pipeline.md)
-  Technical document for opening the offline paper-aligned harmonic-wise comparison pipeline branch, including harmonic prediction, TE reconstruction, offline motion-profile playback, and the benchmark path needed to close `Target A`.
-
-- [technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md](./technical/2026-04/2026-04-08/2026-04-08-17-51-22_harmonic_wise_pipeline_before_wave2_temporal_models.md)
-  Technical document for making the paper-aligned harmonic-wise pipeline the immediate post-Wave-1 branch before the future Wave 2 temporal-model work is opened.
-
-- [technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md](./technical/2026-04/2026-04-08/2026-04-08-17-28-35_paper_pipeline_breakdown_and_backlog_prioritization.md)
-  Technical document for decomposing the remaining paper-aligned implementation gap into six concrete pipeline stages and prioritizing which stages should land immediately versus later in the backlog.
-
-- [technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md](./technical/2026-04/2026-04-08/2026-04-08-17-11-00_paper_reference_alignment_and_gap_tracking.md)
-  Technical document for turning the RCIM ML-compensation paper into a canonical repository benchmark package, adding explicit paper-vs-repository tracking, and recording the missing pipelines required for a true Table 9 comparison.
-
-- [technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md](./technical/2026-04/2026-04-08/2026-04-08-16-52-12_master_summary_mandatory_maintenance_rule.md)
-  Technical document for promoting the canonical training-results master summary into a mandatory maintained project-control report that must stay synchronized after campaigns and result-registry updates.
-
-- [technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md](./technical/2026-04/2026-04-08/2026-04-08-16-24-05_canonical_training_results_master_summary.md)
-  Technical document for creating a canonical always-updated master summary of implemented model families, roadmap state, best results, and family-by-family training outcomes for colleague-facing project control.
-
-- [technical/2026-04/2026-04-08/2026-04-08-16-11-02_post_wave_twincat_deployment_branch_deferral.md](./technical/2026-04/2026-04-08/2026-04-08-16-11-02_post_wave_twincat_deployment_branch_deferral.md)
-  Technical document for deferring the TwinCAT deployment-evaluation branch until after the next modeling wave is implemented and reviewed, while keeping the branch available for later re-prioritization.
-
-- [technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md](./technical/2026-04/2026-04-08/2026-04-08-15-51-10_remote_campaign_user_driven_launch_handoff.md)
-  Technical document for formalizing the LAN-remote training workflow so Codex prepares the launcher and exact terminal command, then waits for the user to start and finish the campaign instead of holding the live remote execution session open.
-
-- [technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md](./technical/2026-04/2026-04-08/2026-04-08-12-50-04_github_branch_topology_refactor_and_main_adoption.md)
-  Technical document for refactoring the repository branch topology around a new canonical `main` branch, retiring `standard-ml-codex`, and defining the legacy/test handling of the remaining historical branches plus the required GitHub ruleset and Pages follow-up.
-
-- [technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md](./technical/2026-04/2026-04-08/2026-04-08-13-35-06_post_rename_branch_reference_realignment.md)
-  Technical document for the narrow post-migration cleanup that removes stale pre-rename branch references from the active workflows and current-facing documentation after the repository has already moved to `main`.
-
-- [technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md](./technical/2026-04/2026-04-08/2026-04-08-13-54-00_github_branch_migration_final_audit.md)
-  Technical document for the final read-only audit of the completed GitHub branch migration, focused on local tracking, remote branch topology, workflow triggers, and current-facing repository references.
-
-#### 2026-04-09
-
-- [technical/2026-04/2026-04-09/2026-04-09-22-40-59_sphinx_requests_dependency_warning_resolution.md](./technical/2026-04/2026-04-09/2026-04-09-22-40-59_sphinx_requests_dependency_warning_resolution.md)
-  Technical document for resolving the previously observed
-  `RequestsDependencyWarning` in the canonical Sphinx build path by aligning
-  the documentation dependency environment explicitly.
-
-- [technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md](./technical/2026-04/2026-04-09/2026-04-09-22-19-28_python_script_style_audit_and_rule_enforcement.md)
-  Technical document for auditing repository-owned Python scripts against the
-  approved style baseline and for formalizing a mandatory style-compliance
-  check whenever a new Python script is created.
-
-- [technical/2026-04/2026-04-09/2026-04-09-11-56-36_paper_reimplementation_structure_reorganization.md](./technical/2026-04/2026-04-09/2026-04-09-11-56-36_paper_reimplementation_structure_reorganization.md)
-  Technical document for reorganizing the paper-faithful reimplementation branch into a dedicated repository structure instead of leaving its scripts, configs, notes, and artifacts mixed with generic training helpers.
-
-- [technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md](./technical/2026-04/2026-04-09/2026-04-09-11-36-10_dual_track_paper_comparison_strategy.md)
-  Technical document for separating the paper-faithful harmonic-wise benchmark from the repository direct-TE comparison track and for planning their coordinated backlog integration.
 
 #### 2026-04-03
 
@@ -1641,278 +1651,278 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-04/2026-04-02/2026-04-02-18-46-22_markdown_zero_warning_rule_tightening.md](./technical/2026-04/2026-04-02/2026-04-02-18-46-22_markdown_zero_warning_rule_tightening.md)
   Technical document for tightening the repository Markdown rule so newly created or modified Git-tracked Markdown files must reach zero warnings before task closure.
 
-#### 2026-03-10
+#### 2026-03-20
 
-- [technical/2026-03/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md](./technical/2026-03/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md)
-  Technical document for the Conda, PyTorch, and PyTorch Lightning environment baseline.
+- [technical/2026-03/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md](./technical/2026-03/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md)
+  Technical planning document for the architecture learning-guide series starting from the FeedForward Network and extending to the other documented model families.
 
-- [technical/2026-03/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md](./technical/2026-03/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md)
-  Technical document for the validated TE dataset-processing pipeline and raw-data reconstruction path.
+- [technical/2026-03/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md](./technical/2026-03/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md)
+  Technical planning document for preparing NotebookLM-ready video-guide source packages and adding the related approval-gated workflow rule for future learning-guide videos.
 
-- [technical/2026-03/2026-03-10/2026-03-10-03-04-57_script_config_documentation_structure.md](./technical/2026-03/2026-03-10/2026-03-10-03-04-57_script_config_documentation_structure.md)
-  Technical document for the `scripts/`, `config/`, and per-script documentation repository rules.
+- [technical/2026-03/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md](./technical/2026-03/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md)
+  Technical planning document for exporting the learning guides to PDF and requiring explicit user approval of generated guide images before final PDF generation.
 
-- [technical/2026-03/2026-03-10/2026-03-10-03-16-44_doc_folder_reorganization.md](./technical/2026-03/2026-03-10/2026-03-10-03-16-44_doc_folder_reorganization.md)
-  Technical document for the grouped `doc/` folder reorganization.
+- [technical/2026-03/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md](./technical/2026-03/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md)
+  Technical planning document for a beginner-to-university learning guide covering neural-network foundations, training/validation/testing, and the TE model-family curriculum from feedforward baselines to planned advanced architectures.
 
-- [technical/2026-03/2026-03-10/2026-03-10-15-13-29_agent_submodule_reorganization.md](./technical/2026-03/2026-03-10/2026-03-10-15-13-29_agent_submodule_reorganization.md)
-  Technical document for moving the existing agent submodule and adding the requested `agents/` submodule collection.
+#### 2026-03-18
 
-- [technical/2026-03/2026-03-10/2026-03-10-15-25-39_commit_workflow_rule_update.md](./technical/2026-03/2026-03-10/2026-03-10-15-25-39_commit_workflow_rule_update.md)
-  Technical document for enforcing the technical-document approval workflow plus a mandatory final Git commit.
+- [technical/2026-03/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md](./technical/2026-03/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md)
+  Technical document for a formatting-only repository-wide cleanup that normalizes redundant blank lines between top-level definitions across the Python scripts under `scripts/`.
 
-- [technical/2026-03/2026-03-10/2026-03-10-15-33-05_reference_code_submodule_migration.md](./technical/2026-03/2026-03-10/2026-03-10-15-33-05_reference_code_submodule_migration.md)
-  Technical document for replacing the archived reference code `.zip` files in `reference/codes/` with Git submodules.
+- [technical/2026-03/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md](./technical/2026-03/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md)
+  Technical document for a formatting-only cleanup that normalizes redundant blank lines between top-level definitions in the model-report diagram generator.
 
-- [technical/2026-03/2026-03-10/2026-03-10-15-58-05_reference_code_style_reference_docs.md](./technical/2026-03/2026-03-10/2026-03-10-15-58-05_reference_code_style_reference_docs.md)
-  Technical document for creating persistent `doc/reference_codes/` notes from the reference-code submodules.
+- [technical/2026-03/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md](./technical/2026-03/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md)
+  Technical document for the third pass of model-report diagram refinement, focused on simplifying neuron arrows, enforcing perpendicular box routing, arrowhead clearance, and model-specific spacing fixes.
 
-- [technical/2026-03/2026-03-10/2026-03-10-16-05-50_feedforward_lightning_baseline.md](./technical/2026-03/2026-03-10/2026-03-10-16-05-50_feedforward_lightning_baseline.md)
-  Technical document for the first modular PyTorch Lightning feedforward baseline for TE regression.
+- [technical/2026-03/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md](./technical/2026-03/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md)
+  Technical document for the second pass of model-report diagram refinement, focused on connector pile-up, slide centering, multiline card layout, and safer routing.
 
-- [technical/2026-03/2026-03-10/2026-03-10-16-32-23_dataset_header_typo_clarification.md](./technical/2026-03/2026-03-10/2026-03-10-16-32-23_dataset_header_typo_clarification.md)
-  Technical document for clarifying the original CSV header typo `Poisition_Output_Reducer_Fw` versus the normalized internal column naming.
+- [technical/2026-03/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md](./technical/2026-03/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md)
+  Technical document for auditing all Python comments under `scripts/` and correcting only the ones whose meaning no longer matches the code they describe.
 
-- [technical/2026-03/2026-03-10/2026-03-10-16-41-20_project_usage_guide_update_rule.md](./technical/2026-03/2026-03-10/2026-03-10-16-41-20_project_usage_guide_update_rule.md)
-  Technical document for requiring a detailed `project_usage_guide.md` update before commit whenever repository functionality changes.
+- [technical/2026-03/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md](./technical/2026-03/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md)
+  Technical document for a focused section-comment retrofit of the remaining model scripts that still underuse internal `# ...` stage markers.
 
-- [technical/2026-03/2026-03-10/2026-03-10-16-45-41_project_usage_guide_refresh.md](./technical/2026-03/2026-03-10/2026-03-10-16-45-41_project_usage_guide_refresh.md)
-  Technical document for refreshing `project_usage_guide.md` so it matches the current runnable training and dataset workflows.
+- [technical/2026-03/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md](./technical/2026-03/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md)
+  Technical document for making frequent internal section comments an explicit persistent style rule and retrofitting that style into the recent report scripts.
 
-- [technical/2026-03/2026-03-10/2026-03-10-16-55-13_dataloader_worker_tuning.md](./technical/2026-03/2026-03-10/2026-03-10-16-55-13_dataloader_worker_tuning.md)
-  Technical document for tuning the default dataloader worker and memory-pinning settings of the current feedforward training workflow.
+- [technical/2026-03/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md](./technical/2026-03/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md)
+  Technical document for fully removing the remaining standardized report-pipeline runtime temp root and leaving the repository without runtime temporary folders.
 
-- [technical/2026-03/2026-03-10/2026-03-10-18-11-49_training_entry_point_import_fix.md](./technical/2026-03/2026-03-10/2026-03-10-18-11-49_training_entry_point_import_fix.md)
-  Technical document for fixing direct execution of the feedforward training entry point when the repository root is missing from `sys.path`.
+- [technical/2026-03/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md](./technical/2026-03/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md)
+  Technical document for removing obsolete report-pipeline temporary environments and retaining only the intended standardized temporary layout.
 
-- [technical/2026-03/2026-03-10/2026-03-10-18-35-11_training_terminal_output_cleanup.md](./technical/2026-03/2026-03-10/2026-03-10-18-35-11_training_terminal_output_cleanup.md)
-  Technical document for making the feedforward training terminal output cleaner, colorized, and less noisy on Windows.
+- [technical/2026-03/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md](./technical/2026-03/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md)
+  Technical document for standardizing the report-generation pipeline with a repository-owned orchestrator, a persistent PDF-validation tooling environment, and cleaner temporary-artifact management.
 
-- [technical/2026-03/2026-03-10/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md](./technical/2026-03/2026-03-10/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md)
-  Technical document for formalizing dependency tracking in the workflow and auditing current imports against `requirements.txt`.
+- [technical/2026-03/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md](./technical/2026-03/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md)
+  Technical document for correcting diagram geometry defects, improving figure centering, replacing pseudo-arrows with real connectors, and revalidating the SVG and PDF outputs.
 
-#### 2026-03-11
+- [technical/2026-03/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md](./technical/2026-03/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md)
+  Technical document for correcting diagram layout defects, introducing reusable diagram generation, removing figure-background clashes, and adding both conceptual and architecture diagrams to the model reports.
 
-- [technical/2026-03/2026-03-11/2026-03-11-13-06-15_lightning_training_noise_followup.md](./technical/2026-03/2026-03-11/2026-03-11-13-06-15_lightning_training_noise_followup.md)
-  Technical document for removing the remaining Lightning startup tip and `_pytree` sanity-check warning from feedforward training output.
+- [technical/2026-03/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md](./technical/2026-03/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md)
+  Technical document for retroactively adding diagrams to the existing structured-model reports and preserving those images in the exported PDFs.
 
-- [technical/2026-03/2026-03-11/2026-03-11-13-28-06_contextmanager_return_type_fix.md](./technical/2026-03/2026-03-11/2026-03-11-13-28-06_contextmanager_return_type_fix.md)
-  Technical document for correcting the generator-based context-manager return annotation in the training entry point.
+- [technical/2026-03/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md](./technical/2026-03/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md)
+  Technical document for requiring visual conceptual diagrams and image assets inside future model-explanatory reports and their PDF exports.
 
-- [technical/2026-03/2026-03-11/2026-03-11-13-36-18_function_definition_spacing_normalization.md](./technical/2026-03/2026-03-11/2026-03-11-13-36-18_function_definition_spacing_normalization.md)
-  Technical document for normalizing blank-line spacing around top-level function definitions in the feedforward training entry point.
+- [technical/2026-03/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md](./technical/2026-03/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md)
+  Technical document for exporting the existing model-explanatory reports to styled PDFs and validating the real exported artifacts.
 
-- [technical/2026-03/2026-03-11/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md](./technical/2026-03/2026-03-11/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md)
-  Technical document for extending the approved function-spacing convention to all project-authored Python scripts.
+- [technical/2026-03/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md](./technical/2026-03/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md)
+  Technical document for creating retroactive explanatory reports for the already implemented structured TE model families.
 
-- [technical/2026-03/2026-03-11/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md](./technical/2026-03/2026-03-11/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md)
-  Technical document for extending the approved blank-line spacing convention to top-level class and dataclass declarations.
+- [technical/2026-03/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md](./technical/2026-03/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md)
+  Technical document for making model-level explanatory reports mandatory whenever a new model or new model-specific training workflow is introduced.
 
-- [technical/2026-03/2026-03-11/2026-03-11-15-57-47_manual_refactoring_style_propagation.md](./technical/2026-03/2026-03-11/2026-03-11-15-57-47_manual_refactoring_style_propagation.md)
-  Technical document for propagating the broader manual coding style introduced in commit `228a999c94eb67d1c07eebfbd87c05903e99b694` to the remaining project scripts.
+#### 2026-03-17
 
-- [technical/2026-03/2026-03-11/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md](./technical/2026-03/2026-03-11/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md)
-  Technical document for updating the persistent programming style guide with the approved spacing rules and the broader manual refactoring conventions.
+- [technical/2026-03/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md](./technical/2026-03/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md)
+  Technical document for preparing Wave 1 structured-baseline implementation and the first exploratory campaign against the formalized feedforward reference baseline.
 
-- [technical/2026-03/2026-03-11/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md](./technical/2026-03/2026-03-11/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md)
-  Technical document for aligning the persistent programming style guide with the latest approved manual code-style refactoring commit.
+- [technical/2026-03/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md](./technical/2026-03/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md)
+  Technical document for formalizing the registry-selected feedforward run as the canonical reference baseline before Wave 1.
 
-- [technical/2026-03/2026-03-11/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md](./technical/2026-03/2026-03-11/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md)
-  Technical document for adding a proof feedforward training run, a held-out test phase, and a per-run result report artifact.
+- [technical/2026-03/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md](./technical/2026-03/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md)
+  Technical document for removing the remaining feedforward-specific legacy snapshot compatibility from the active training pipeline.
 
-#### 2026-03-12
+- [technical/2026-03/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md](./technical/2026-03/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md)
+  Technical document for migrating the historical `output/feedforward_network/` artifacts into the new training-run structure and rewriting repository-authored path references.
 
-- [technical/2026-03/2026-03-12/2026-03-12-13-13-27_feedforward_trial_analytical_report.md](./technical/2026-03/2026-03-12/2026-03-12-13-13-27_feedforward_trial_analytical_report.md)
-  Technical document for writing a full analytical report of the feedforward proof run with narrative interpretation and comparison against the reference papers.
+- [technical/2026-03/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md](./technical/2026-03/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md)
+  Technical document for reorganizing training outputs by artifact type and adding explicit campaign, family, and program best-result registries.
 
-- [technical/2026-03/2026-03-12/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md](./technical/2026-03/2026-03-12/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md)
-  Technical document for producing a detailed training-configuration explanation report plus a PDF export and heavier workstation-oriented configuration proposals.
+- [technical/2026-03/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md](./technical/2026-03/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md)
+  Technical document for cleaning up redundant `variable=variable` function-call arguments while preserving explicit keywords where they improve readability.
 
-- [technical/2026-03/2026-03-12/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md](./technical/2026-03/2026-03-12/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md)
-  Technical document for executing and comparing the pending baseline and workstation-oriented feedforward training variants.
+- [technical/2026-03/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md](./technical/2026-03/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md)
+  Technical document for moving the TE implementation backlog into a privileged live location under `doc/running/`.
 
-- [technical/2026-03/2026-03-12/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md](./technical/2026-03/2026-03-12/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md)
-  Technical document for executing a mixed campaign that combines longer schedules, denser point sampling, larger batches, and larger feedforward models.
+- [technical/2026-03/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md](./technical/2026-03/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md)
+  Technical document for the shared training, smoke-test, validation, and metrics infrastructure required before implementing the planned TE model families.
 
-- [technical/2026-03/2026-03-12/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md](./technical/2026-03/2026-03-12/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md)
-  Technical document for making preliminary planning reports and final results reports mandatory companions to every future training campaign.
+- [technical/2026-03/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md](./technical/2026-03/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md)
+  Technical review note for adding explicit State-Space, Mixture-of-Experts, and optional Kernel/GP families to the TE planning set.
 
-- [technical/2026-03/2026-03-12/2026-03-12-15-36-51_report_filename_timestamp_normalization.md](./technical/2026-03/2026-03-12/2026-03-12-15-36-51_report_filename_timestamp_normalization.md)
-  Technical document for renaming the current report files so they include the full timestamp in their filenames.
+- [technical/2026-03/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md](./technical/2026-03/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md)
+  Technical note for keeping Lightweight Transformer and Neural ODE families explicitly in scope as low-priority exploratory options.
 
-- [technical/2026-03/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md](./technical/2026-03/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md)
-  Technical document for reorganizing the technical-document tree by day and the report tree by report type.
+- [technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md](./technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md)
+  Technical backlog document for implementing, validating, smoke-testing, and comparing all approved TE model families through campaign waves.
 
-- [technical/2026-03/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md](./technical/2026-03/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md)
-  Technical document for regenerating the training-configuration analysis PDF with a much stronger visual layout and print-oriented styling.
-
-- [technical/2026-03/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md](./technical/2026-03/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md)
-  Technical document for redesigning the analytical PDF again with a restrained blue palette, white background, better page flow, and more professional typography.
-
-- [technical/2026-03/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md](./technical/2026-03/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md)
-  Technical document for correcting the analytical PDF printable margins and replacing the dense configuration table with a cleaner professional layout.
-
-- [technical/2026-03/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md](./technical/2026-03/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md)
-  Technical document for fixing the remaining technical-table fit issues in the analytical PDF and enforcing post-export PDF validation.
-
-- [technical/2026-03/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md](./technical/2026-03/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md)
-  Technical document for refining the three configuration tables so each one repeats the config name and uses more consistent centered alignment.
-
-- [technical/2026-03/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md](./technical/2026-03/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md)
-  Technical document for declaring the approved analytical PDF as the project golden standard and encoding its style rules for future reports.
-
-- [technical/2026-03/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md](./technical/2026-03/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md)
-  Technical document for refactoring the styled PDF exporter to match repository coding style and clarifying that the style rules also apply to utility/report scripts.
-
-- [technical/2026-03/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md](./technical/2026-03/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md)
-  Technical document for changing the repository workflow so every Git commit requires a final explicit user approval after the work is completed.
-
-- [technical/2026-03/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md](./technical/2026-03/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md)
-  Technical document for shortening the styled PDF exporter comments and aligning the persistent coding-style rules with the latest user-approved manual refactor.
-
-- [technical/2026-03/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md](./technical/2026-03/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md)
-  Technical document for reorganizing `config/`, introducing a queue-based batch training workflow, and generating campaign execution reports for later post-training analysis.
-
-- [technical/2026-03/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md](./technical/2026-03/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md)
-  Technical document for automatic campaign YAML generation, active-campaign state tracking, protected-file warnings, and completion/cancellation handling.
-
-#### 2026-03-13
-
-- [technical/2026-03/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md](./technical/2026-03/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md)
-  Technical document for writing the final mixed-campaign results report and selecting the best current feedforward training preset.
-
-- [technical/2026-03/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md](./technical/2026-03/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md)
-  Technical document for making PDF export and PDF validation mandatory for final campaign-results reports.
-
-- [technical/2026-03/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md](./technical/2026-03/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md)
-  Technical document for repairing the mixed-campaign PDF table widths and tightening the rule so future table-layout defects must be caught before task closure.
-
-#### 2026-03-14
-
-- [technical/2026-03/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md](./technical/2026-03/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md)
-  Technical document for fixing remaining header spill and semantic config wrapping issues in the campaign-results PDF tables.
-
-- [technical/2026-03/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md](./technical/2026-03/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md)
-  Technical document for enforcing vertical table-cell centering and cleaner section page-break behavior in the campaign-results PDF.
-
-- [technical/2026-03/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md](./technical/2026-03/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md)
-  Technical document for evaluating a cleaner internal code layout and moving the external agent submodules under `reference/agents/`.
-
-- [technical/2026-03/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md](./technical/2026-03/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md)
-  Technical document for moving root `models/` and `training/` source code under `scripts/`, reserving root `models/` for artifacts, and relocating agent submodules under `reference/agents/`.
-
-- [technical/2026-03/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md](./technical/2026-03/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md)
-  Technical document for reviewing the current GPU training path and proposing practical transfer, precision, and Trainer-level performance optimizations.
+- [technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md](./technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md)
+  Technical planning document for the TE model-family roadmap across standard, temporal, hybrid, and PINN approaches.
 
 #### 2026-03-16
 
 - [technical/2026-03/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md](./technical/2026-03/2026-03-16/2026-03-16-16-55-15_python_3_12_environment_migration_feasibility.md)
   Technical document for validating and executing the project environment migration from Python 3.10 to Python 3.12.
 
-#### 2026-03-17
+#### 2026-03-14
 
-- [technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md](./technical/2026-03/2026-03-17/2026-03-17-15-34-08_te_model_family_roadmap.md)
-  Technical planning document for the TE model-family roadmap across standard, temporal, hybrid, and PINN approaches.
+- [technical/2026-03/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md](./technical/2026-03/2026-03-14/2026-03-14-12-46-27_gpu_training_path_and_transfer_optimization.md)
+  Technical document for reviewing the current GPU training path and proposing practical transfer, precision, and Trainer-level performance optimizations.
 
-- [technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md](./technical/2026-03/2026-03-17/2026-03-17-15-57-17_te_model_implementation_backlog.md)
-  Technical backlog document for implementing, validating, smoke-testing, and comparing all approved TE model families through campaign waves.
+- [technical/2026-03/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md](./technical/2026-03/2026-03-14/2026-03-14-12-23-10_scripts_root_code_reorganization_and_reference_agents_move.md)
+  Technical document for moving root `models/` and `training/` source code under `scripts/`, reserving root `models/` for artifacts, and relocating agent submodules under `reference/agents/`.
 
-- [technical/2026-03/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md](./technical/2026-03/2026-03-17/2026-03-17-16-11-13_low_priority_neural_ode_and_transformer_models.md)
-  Technical note for keeping Lightweight Transformer and Neural ODE families explicitly in scope as low-priority exploratory options.
+- [technical/2026-03/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md](./technical/2026-03/2026-03-14/2026-03-14-12-15-36_repository_code_layout_reorganization_and_agent_reference_migration.md)
+  Technical document for evaluating a cleaner internal code layout and moving the external agent submodules under `reference/agents/`.
 
-- [technical/2026-03/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md](./technical/2026-03/2026-03-17/2026-03-17-16-22-47_additional_te_model_family_candidates.md)
-  Technical review note for adding explicit State-Space, Mixture-of-Experts, and optional Kernel/GP families to the TE planning set.
+- [technical/2026-03/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md](./technical/2026-03/2026-03-14/2026-03-14-00-25-04_pdf_vertical_alignment_and_section_page_break_control.md)
+  Technical document for enforcing vertical table-cell centering and cleaner section page-break behavior in the campaign-results PDF.
 
-- [technical/2026-03/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md](./technical/2026-03/2026-03-17/2026-03-17-16-30-08_wave0_shared_training_and_validation_infrastructure.md)
-  Technical document for the shared training, smoke-test, validation, and metrics infrastructure required before implementing the planned TE model families.
+- [technical/2026-03/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md](./technical/2026-03/2026-03-14/2026-03-14-00-07-38_pdf_table_header_and_semantic_wrap_refinement.md)
+  Technical document for fixing remaining header spill and semantic config wrapping issues in the campaign-results PDF tables.
 
-- [technical/2026-03/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md](./technical/2026-03/2026-03-17/2026-03-17-19-10-35_privileged_live_backlog_location.md)
-  Technical document for moving the TE implementation backlog into a privileged live location under `doc/running/`.
+#### 2026-03-13
 
-- [technical/2026-03/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md](./technical/2026-03/2026-03-17/2026-03-17-19-16-27_function_call_argument_verbosity_cleanup.md)
-  Technical document for cleaning up redundant `variable=variable` function-call arguments while preserving explicit keywords where they improve readability.
+- [technical/2026-03/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md](./technical/2026-03/2026-03-13/2026-03-13-23-09-48_campaign_results_pdf_table_layout_repair.md)
+  Technical document for repairing the mixed-campaign PDF table widths and tightening the rule so future table-layout defects must be caught before task closure.
 
-- [technical/2026-03/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md](./technical/2026-03/2026-03-17/2026-03-17-19-34-45_training_output_reorganization_and_best_result_registry.md)
-  Technical document for reorganizing training outputs by artifact type and adding explicit campaign, family, and program best-result registries.
+- [technical/2026-03/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md](./technical/2026-03/2026-03-13/2026-03-13-20-50-37_campaign_results_pdf_requirement.md)
+  Technical document for making PDF export and PDF validation mandatory for final campaign-results reports.
 
-- [technical/2026-03/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md](./technical/2026-03/2026-03-17/2026-03-17-20-06-23_legacy_feedforward_output_migration.md)
-  Technical document for migrating the historical `output/feedforward_network/` artifacts into the new training-run structure and rewriting repository-authored path references.
+- [technical/2026-03/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md](./technical/2026-03/2026-03-13/2026-03-13-20-43-20_mixed_campaign_results_report_and_best_feedforward_config.md)
+  Technical document for writing the final mixed-campaign results report and selecting the best current feedforward training preset.
 
-- [technical/2026-03/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md](./technical/2026-03/2026-03-17/2026-03-17-20-24-57_remove_feedforward_legacy_backward_compatibility.md)
-  Technical document for removing the remaining feedforward-specific legacy snapshot compatibility from the active training pipeline.
+#### 2026-03-12
 
-- [technical/2026-03/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md](./technical/2026-03/2026-03-17/2026-03-17-20-46-59_formalize_feedforward_reference_baseline_run.md)
-  Technical document for formalizing the registry-selected feedforward run as the canonical reference baseline before Wave 1.
+- [technical/2026-03/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md](./technical/2026-03/2026-03-12/2026-03-12-18-41-55_active_training_campaign_lock_and_auto_generation_workflow.md)
+  Technical document for automatic campaign YAML generation, active-campaign state tracking, protected-file warnings, and completion/cancellation handling.
 
-- [technical/2026-03/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md](./technical/2026-03/2026-03-17/2026-03-17-21-00-57_wave1_structured_baseline_campaign_preparation.md)
-  Technical document for preparing Wave 1 structured-baseline implementation and the first exploratory campaign against the formalized feedforward reference baseline.
+- [technical/2026-03/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md](./technical/2026-03/2026-03-12/2026-03-12-18-06-27_batch_training_queue_and_config_reorganization.md)
+  Technical document for reorganizing `config/`, introducing a queue-based batch training workflow, and generating campaign execution reports for later post-training analysis.
 
-#### 2026-03-18
+- [technical/2026-03/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md](./technical/2026-03/2026-03-12/2026-03-12-17-54-59_report_exporter_comment_cleanup_and_style_rule_alignment.md)
+  Technical document for shortening the styled PDF exporter comments and aligning the persistent coding-style rules with the latest user-approved manual refactor.
 
-- [technical/2026-03/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md](./technical/2026-03/2026-03-18/2026-03-18-00-12-54_model_and_training_explanatory_report_rule.md)
-  Technical document for making model-level explanatory reports mandatory whenever a new model or new model-specific training workflow is introduced.
+- [technical/2026-03/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md](./technical/2026-03/2026-03-12/2026-03-12-17-49-03_commit_requires_final_user_approval_rule.md)
+  Technical document for changing the repository workflow so every Git commit requires a final explicit user approval after the work is completed.
 
-- [technical/2026-03/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md](./technical/2026-03/2026-03-18/2026-03-18-00-22-41_retroactive_model_explanatory_reports_for_existing_structured_models.md)
-  Technical document for creating retroactive explanatory reports for the already implemented structured TE model families.
+- [technical/2026-03/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md](./technical/2026-03/2026-03-12/2026-03-12-17-11-25_report_exporter_style_alignment_and_rule_update.md)
+  Technical document for refactoring the styled PDF exporter to match repository coding style and clarifying that the style rules also apply to utility/report scripts.
 
-- [technical/2026-03/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md](./technical/2026-03/2026-03-18/2026-03-18-00-39-43_pdf_export_for_existing_model_explanatory_reports.md)
-  Technical document for exporting the existing model-explanatory reports to styled PDFs and validating the real exported artifacts.
+- [technical/2026-03/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md](./technical/2026-03/2026-03-12/2026-03-12-17-07-18_pdf_golden_standard_and_report_style_rules.md)
+  Technical document for declaring the approved analytical PDF as the project golden standard and encoding its style rules for future reports.
 
-- [technical/2026-03/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md](./technical/2026-03/2026-03-18/2026-03-18-00-45-12_model_report_diagram_and_image_rule.md)
-  Technical document for requiring visual conceptual diagrams and image assets inside future model-explanatory reports and their PDF exports.
+- [technical/2026-03/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md](./technical/2026-03/2026-03-12/2026-03-12-17-01-59_pdf_configuration_table_consistency_refinement.md)
+  Technical document for refining the three configuration tables so each one repeats the config name and uses more consistent centered alignment.
 
-- [technical/2026-03/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md](./technical/2026-03/2026-03-18/2026-03-18-00-56-18_retroactive_model_report_diagrams_and_pdf_image_integration.md)
-  Technical document for retroactively adding diagrams to the existing structured-model reports and preserving those images in the exported PDFs.
+- [technical/2026-03/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md](./technical/2026-03/2026-03-12/2026-03-12-16-54-22_pdf_table_fit_and_post_export_validation.md)
+  Technical document for fixing the remaining technical-table fit issues in the analytical PDF and enforcing post-export PDF validation.
 
-- [technical/2026-03/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md](./technical/2026-03/2026-03-18/2026-03-18-01-09-27_model_report_diagram_quality_and_dual_visualization_upgrade.md)
-  Technical document for correcting diagram layout defects, introducing reusable diagram generation, removing figure-background clashes, and adding both conceptual and architecture diagrams to the model reports.
+- [technical/2026-03/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md](./technical/2026-03/2026-03-12/2026-03-12-16-35-28_pdf_margin_and_table_layout_corrections.md)
+  Technical document for correcting the analytical PDF printable margins and replacing the dense configuration table with a cleaner professional layout.
 
-- [technical/2026-03/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md](./technical/2026-03/2026-03-18/2026-03-18-01-24-18_diagram_geometry_and_pdf_figure_layout_corrections.md)
-  Technical document for correcting diagram geometry defects, improving figure centering, replacing pseudo-arrows with real connectors, and revalidating the SVG and PDF outputs.
+- [technical/2026-03/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md](./technical/2026-03/2026-03-12/2026-03-12-16-25-26_professional_blue_pdf_report_redesign.md)
+  Technical document for redesigning the analytical PDF again with a restrained blue palette, white background, better page flow, and more professional typography.
 
-- [technical/2026-03/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md](./technical/2026-03/2026-03-18/2026-03-18-17-19-42_report_pipeline_standardization_and_tooling_env.md)
-  Technical document for standardizing the report-generation pipeline with a repository-owned orchestrator, a persistent PDF-validation tooling environment, and cleaner temporary-artifact management.
+- [technical/2026-03/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md](./technical/2026-03/2026-03-12/2026-03-12-16-03-09_report_pdf_visual_redesign.md)
+  Technical document for regenerating the training-configuration analysis PDF with a much stronger visual layout and print-oriented styling.
 
-- [technical/2026-03/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md](./technical/2026-03/2026-03-18/2026-03-18-17-30-42_report_pipeline_temp_cleanup.md)
-  Technical document for removing obsolete report-pipeline temporary environments and retaining only the intended standardized temporary layout.
+- [technical/2026-03/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md](./technical/2026-03/2026-03-12/2026-03-12-15-48-42_documentation_folder_reorganization_by_day_and_report_type.md)
+  Technical document for reorganizing the technical-document tree by day and the report tree by report type.
 
-- [technical/2026-03/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md](./technical/2026-03/2026-03-18/2026-03-18-17-38-39_full_report_pipeline_temp_reset.md)
-  Technical document for fully removing the remaining standardized report-pipeline runtime temp root and leaving the repository without runtime temporary folders.
+- [technical/2026-03/2026-03-12/2026-03-12-15-36-51_report_filename_timestamp_normalization.md](./technical/2026-03/2026-03-12/2026-03-12-15-36-51_report_filename_timestamp_normalization.md)
+  Technical document for renaming the current report files so they include the full timestamp in their filenames.
 
-- [technical/2026-03/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md](./technical/2026-03/2026-03-18/2026-03-18-17-48-21_section_comment_frequency_rule_and_report_script_retrofit.md)
-  Technical document for making frequent internal section comments an explicit persistent style rule and retrofitting that style into the recent report scripts.
+- [technical/2026-03/2026-03-12/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md](./technical/2026-03/2026-03-12/2026-03-12-15-33-38_training_workflow_report_requirements_rule.md)
+  Technical document for making preliminary planning reports and final results reports mandatory companions to every future training campaign.
 
-- [technical/2026-03/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md](./technical/2026-03/2026-03-18/2026-03-18-18-05-52_targeted_model_script_comment_retrofit.md)
-  Technical document for a focused section-comment retrofit of the remaining model scripts that still underuse internal `# ...` stage markers.
+- [technical/2026-03/2026-03-12/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md](./technical/2026-03/2026-03-12/2026-03-12-15-27-38_mixed_density_batch_model_training_campaign.md)
+  Technical document for executing a mixed campaign that combines longer schedules, denser point sampling, larger batches, and larger feedforward models.
 
-- [technical/2026-03/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md](./technical/2026-03/2026-03-18/2026-03-18-18-17-36_repository_wide_comment_semantic_audit.md)
-  Technical document for auditing all Python comments under `scripts/` and correcting only the ones whose meaning no longer matches the code they describe.
+- [technical/2026-03/2026-03-12/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md](./technical/2026-03/2026-03-12/2026-03-12-13-55-11_comparative_training_campaign_for_feedforward_variants.md)
+  Technical document for executing and comparing the pending baseline and workstation-oriented feedforward training variants.
 
-- [technical/2026-03/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md](./technical/2026-03/2026-03-18/2026-03-18-18-43-52_second_pass_model_report_diagram_layout_refinement.md)
-  Technical document for the second pass of model-report diagram refinement, focused on connector pile-up, slide centering, multiline card layout, and safer routing.
+- [technical/2026-03/2026-03-12/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md](./technical/2026-03/2026-03-12/2026-03-12-13-31-56_training_configuration_analysis_and_pdf_report.md)
+  Technical document for producing a detailed training-configuration explanation report plus a PDF export and heavier workstation-oriented configuration proposals.
 
-- [technical/2026-03/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md](./technical/2026-03/2026-03-18/2026-03-18-19-24-36_third_pass_model_report_arrow_and_spacing_refinement.md)
-  Technical document for the third pass of model-report diagram refinement, focused on simplifying neuron arrows, enforcing perpendicular box routing, arrowhead clearance, and model-specific spacing fixes.
+- [technical/2026-03/2026-03-12/2026-03-12-13-13-27_feedforward_trial_analytical_report.md](./technical/2026-03/2026-03-12/2026-03-12-13-13-27_feedforward_trial_analytical_report.md)
+  Technical document for writing a full analytical report of the feedforward proof run with narrative interpretation and comparison against the reference papers.
 
-- [technical/2026-03/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md](./technical/2026-03/2026-03-18/2026-03-18-20-01-27_generate_model_report_diagrams_spacing_cleanup.md)
-  Technical document for a formatting-only cleanup that normalizes redundant blank lines between top-level definitions in the model-report diagram generator.
+#### 2026-03-11
 
-- [technical/2026-03/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md](./technical/2026-03/2026-03-18/2026-03-18-20-05-42_repository_wide_script_spacing_cleanup.md)
-  Technical document for a formatting-only repository-wide cleanup that normalizes redundant blank lines between top-level definitions across the Python scripts under `scripts/`.
+- [technical/2026-03/2026-03-11/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md](./technical/2026-03/2026-03-11/2026-03-11-16-59-54_feedforward_training_trial_and_testing_report.md)
+  Technical document for adding a proof feedforward training run, a held-out test phase, and a per-run result report artifact.
 
-#### 2026-03-20
+- [technical/2026-03/2026-03-11/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md](./technical/2026-03/2026-03-11/2026-03-11-16-53-35_programming_style_guide_alignment_with_latest_manual_refactor.md)
+  Technical document for aligning the persistent programming style guide with the latest approved manual code-style refactoring commit.
 
-- [technical/2026-03/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md](./technical/2026-03/2026-03-20/2026-03-20-12-00-29_neural_network_foundations_and_te_model_learning_guide.md)
-  Technical planning document for a beginner-to-university learning guide covering neural-network foundations, training/validation/testing, and the TE model-family curriculum from feedforward baselines to planned advanced architectures.
+- [technical/2026-03/2026-03-11/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md](./technical/2026-03/2026-03-11/2026-03-11-16-00-33_programming_style_guide_update_for_spacing_and_manual_refactor_rules.md)
+  Technical document for updating the persistent programming style guide with the approved spacing rules and the broader manual refactoring conventions.
 
-- [technical/2026-03/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md](./technical/2026-03/2026-03-20/2026-03-20-12-51-34_learning_guide_pdf_exports_and_post_image_approval_rule.md)
-  Technical planning document for exporting the learning guides to PDF and requiring explicit user approval of generated guide images before final PDF generation.
+- [technical/2026-03/2026-03-11/2026-03-11-15-57-47_manual_refactoring_style_propagation.md](./technical/2026-03/2026-03-11/2026-03-11-15-57-47_manual_refactoring_style_propagation.md)
+  Technical document for propagating the broader manual coding style introduced in commit `228a999c94eb67d1c07eebfbd87c05903e99b694` to the remaining project scripts.
 
-- [technical/2026-03/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md](./technical/2026-03/2026-03-20/2026-03-20-12-58-52_notebooklm_video_guide_source_package_and_workflow_rule.md)
-  Technical planning document for preparing NotebookLM-ready video-guide source packages and adding the related approval-gated workflow rule for future learning-guide videos.
+- [technical/2026-03/2026-03-11/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md](./technical/2026-03/2026-03-11/2026-03-11-15-53-46_class_and_dataclass_spacing_normalization.md)
+  Technical document for extending the approved blank-line spacing convention to top-level class and dataclass declarations.
 
-- [technical/2026-03/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md](./technical/2026-03/2026-03-20/2026-03-20-13-21-58_architecture_learning_guides_from_feedforward_network.md)
-  Technical planning document for the architecture learning-guide series starting from the FeedForward Network and extending to the other documented model families.
+- [technical/2026-03/2026-03-11/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md](./technical/2026-03/2026-03-11/2026-03-11-15-18-56_repository_wide_function_spacing_normalization.md)
+  Technical document for extending the approved function-spacing convention to all project-authored Python scripts.
+
+- [technical/2026-03/2026-03-11/2026-03-11-13-36-18_function_definition_spacing_normalization.md](./technical/2026-03/2026-03-11/2026-03-11-13-36-18_function_definition_spacing_normalization.md)
+  Technical document for normalizing blank-line spacing around top-level function definitions in the feedforward training entry point.
+
+- [technical/2026-03/2026-03-11/2026-03-11-13-28-06_contextmanager_return_type_fix.md](./technical/2026-03/2026-03-11/2026-03-11-13-28-06_contextmanager_return_type_fix.md)
+  Technical document for correcting the generator-based context-manager return annotation in the training entry point.
+
+- [technical/2026-03/2026-03-11/2026-03-11-13-06-15_lightning_training_noise_followup.md](./technical/2026-03/2026-03-11/2026-03-11-13-06-15_lightning_training_noise_followup.md)
+  Technical document for removing the remaining Lightning startup tip and `_pytree` sanity-check warning from feedforward training output.
+
+#### 2026-03-10
+
+- [technical/2026-03/2026-03-10/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md](./technical/2026-03/2026-03-10/2026-03-10-18-56-13_dependency_tracking_rule_and_requirements_audit.md)
+  Technical document for formalizing dependency tracking in the workflow and auditing current imports against `requirements.txt`.
+
+- [technical/2026-03/2026-03-10/2026-03-10-18-35-11_training_terminal_output_cleanup.md](./technical/2026-03/2026-03-10/2026-03-10-18-35-11_training_terminal_output_cleanup.md)
+  Technical document for making the feedforward training terminal output cleaner, colorized, and less noisy on Windows.
+
+- [technical/2026-03/2026-03-10/2026-03-10-18-11-49_training_entry_point_import_fix.md](./technical/2026-03/2026-03-10/2026-03-10-18-11-49_training_entry_point_import_fix.md)
+  Technical document for fixing direct execution of the feedforward training entry point when the repository root is missing from `sys.path`.
+
+- [technical/2026-03/2026-03-10/2026-03-10-16-55-13_dataloader_worker_tuning.md](./technical/2026-03/2026-03-10/2026-03-10-16-55-13_dataloader_worker_tuning.md)
+  Technical document for tuning the default dataloader worker and memory-pinning settings of the current feedforward training workflow.
+
+- [technical/2026-03/2026-03-10/2026-03-10-16-45-41_project_usage_guide_refresh.md](./technical/2026-03/2026-03-10/2026-03-10-16-45-41_project_usage_guide_refresh.md)
+  Technical document for refreshing `project_usage_guide.md` so it matches the current runnable training and dataset workflows.
+
+- [technical/2026-03/2026-03-10/2026-03-10-16-41-20_project_usage_guide_update_rule.md](./technical/2026-03/2026-03-10/2026-03-10-16-41-20_project_usage_guide_update_rule.md)
+  Technical document for requiring a detailed `project_usage_guide.md` update before commit whenever repository functionality changes.
+
+- [technical/2026-03/2026-03-10/2026-03-10-16-32-23_dataset_header_typo_clarification.md](./technical/2026-03/2026-03-10/2026-03-10-16-32-23_dataset_header_typo_clarification.md)
+  Technical document for clarifying the original CSV header typo `Poisition_Output_Reducer_Fw` versus the normalized internal column naming.
+
+- [technical/2026-03/2026-03-10/2026-03-10-16-05-50_feedforward_lightning_baseline.md](./technical/2026-03/2026-03-10/2026-03-10-16-05-50_feedforward_lightning_baseline.md)
+  Technical document for the first modular PyTorch Lightning feedforward baseline for TE regression.
+
+- [technical/2026-03/2026-03-10/2026-03-10-15-58-05_reference_code_style_reference_docs.md](./technical/2026-03/2026-03-10/2026-03-10-15-58-05_reference_code_style_reference_docs.md)
+  Technical document for creating persistent `doc/reference_codes/` notes from the reference-code submodules.
+
+- [technical/2026-03/2026-03-10/2026-03-10-15-33-05_reference_code_submodule_migration.md](./technical/2026-03/2026-03-10/2026-03-10-15-33-05_reference_code_submodule_migration.md)
+  Technical document for replacing the archived reference code `.zip` files in `reference/codes/` with Git submodules.
+
+- [technical/2026-03/2026-03-10/2026-03-10-15-25-39_commit_workflow_rule_update.md](./technical/2026-03/2026-03-10/2026-03-10-15-25-39_commit_workflow_rule_update.md)
+  Technical document for enforcing the technical-document approval workflow plus a mandatory final Git commit.
+
+- [technical/2026-03/2026-03-10/2026-03-10-15-13-29_agent_submodule_reorganization.md](./technical/2026-03/2026-03-10/2026-03-10-15-13-29_agent_submodule_reorganization.md)
+  Technical document for moving the existing agent submodule and adding the requested `agents/` submodule collection.
+
+- [technical/2026-03/2026-03-10/2026-03-10-03-16-44_doc_folder_reorganization.md](./technical/2026-03/2026-03-10/2026-03-10-03-16-44_doc_folder_reorganization.md)
+  Technical document for the grouped `doc/` folder reorganization.
+
+- [technical/2026-03/2026-03-10/2026-03-10-03-04-57_script_config_documentation_structure.md](./technical/2026-03/2026-03-10/2026-03-10-03-04-57_script_config_documentation_structure.md)
+  Technical document for the `scripts/`, `config/`, and per-script documentation repository rules.
+
+- [technical/2026-03/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md](./technical/2026-03/2026-03-10/2026-03-10-02-49-17_dataset_processing_pipeline.md)
+  Technical document for the validated TE dataset-processing pipeline and raw-data reconstruction path.
+
+- [technical/2026-03/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md](./technical/2026-03/2026-03-10/2026-03-10-02-21-36-pytorch_lightning_environment_setup.md)
+  Technical document for the Conda, PyTorch, and PyTorch Lightning environment baseline.
 
 ### Script Documentation
 
