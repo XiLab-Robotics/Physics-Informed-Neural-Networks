@@ -31,9 +31,9 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: prepare `Track 2D` mean-offset full-matrix diagnostics before
-  any direction-parallel curve-aware retraining branch for `Fw`, `Bw`, and
-  `global` surfaces.
+- Current Focus: use completed `Track 2D` mean-offset full-matrix diagnostics
+  to choose the next direction-parallel offset-aware training or calibration
+  branch for `Fw`, `Bw`, and `global` surfaces.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -47,6 +47,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
 - `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
+- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -173,13 +174,27 @@ surfaces in parallel:
 Full-curve diagnostics remain strictly post-prediction and must preserve the
 causal runtime input contract.
 
+The `Track 2D` full-matrix audit is complete in:
+
+- `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
+
+Current `Track 2D` observations:
+
+| Finding | Interpretation |
+| --- | --- |
+| `111` candidates and `12,416` curves were evaluated. | The mean-offset finding now covers the full official direction-valid matrix, not only the collage subset. |
+| `periodic_gru_sequence_global` is the global-surface diagnostic leader. | The next global branch should start from periodic sequence models and add offset-aware selection or calibration. |
+| `rcim_retuned_GBM19_Fw` remains the strongest forward diagnostic leader. | The repository-owned forward branch remains open; the forward target is still to approach the paper-reference shape/offset behavior. |
+| Many candidates are labeled `offset-limited` or mixed with offset limitations. | A causal offset-calibration or offset-aware loss branch is justified before opening unrelated model-family exploration. |
+| `harmonic_regression_global` shows the largest mean-offset improvement but remains amplitude/phase limited. | Removing offset alone is insufficient for that global harmonic candidate; phase and amplitude terms must stay in the metric bundle. |
+
 Next planned diagnostic and training decision branches:
 
 | Branch | Scope | Status |
 | --- | --- | --- |
-| `Track 2D Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official Track 2 candidate matrix. | next |
-| Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | pending Track 2D |
-| Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | pending Track 2D |
+| `Track 2D Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official Track 2 candidate matrix. | completed |
+| Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
+| Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Multi-task / multi-head model branch | Shared causal trunk with separate offset / low-frequency and centered-shape heads summed into final TE. | candidate after audit |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
@@ -438,12 +453,12 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed `Track 2B`, `Track 2C`, and mean-centered collage
-diagnostics, the active next step is:
+After the completed `Track 2B`, `Track 2C`, mean-centered collage, and
+`Track 2D` full-matrix diagnostics, the active next step is:
 
-- run `Track 2D Mean-Offset Full-Matrix Audit` over the official Track 2
-  candidate matrix before any new training campaign, without changing the
-  model input contract.
+- choose the first direction-parallel offset-aware training or calibration
+  branch before any new training campaign, without changing the model input
+  contract.
 
 The previous temporal refresh answered three concrete questions:
 
@@ -458,9 +473,9 @@ Default decision path after Track 2 closeout:
 
 - treat Track 2 curve-following quality as the promotion surface for future
   compensation-relevant candidates;
-- open `Track 2D Mean-Offset Full-Matrix Audit` before changing model families,
-  checkpoint monitors, or training losses;
-- after Track 2D, choose among offset-aware checkpoint selection, curve-aware
+- use completed `Track 2D Mean-Offset Full-Matrix Audit` before changing model
+  families, checkpoint monitors, or training losses;
+- choose among offset-aware checkpoint selection, curve-aware
   loss terms, a multi-task / multi-head offset-shape structure, or sequential
   residual offset calibration;
 - preserve causal runtime inputs: point-level state, optional short past
@@ -830,9 +845,10 @@ Entry rule:
   for all-green optimization;
 - `Track 2` is the canonical offline verification baseline; diagnostic
   extensions now continue as Track 2B, Track 2C, mean-centered collage, and
-  next `Track 2D`;
-- `Track 2D Mean-Offset Full-Matrix Audit` is the next planned analysis branch
-  before any new training campaign or model-family wave;
+  completed `Track 2D`;
+- the next planned branch before any new broad model-family wave is an
+  offset-aware training or calibration design selected from the completed
+  Track 2D failure-mode labels;
 - future wave planning must keep direction-separated modeling and reporting in
   scope from the start;
 - Track 3 is the future online compensation and deployment-evaluation branch;

@@ -169,6 +169,12 @@ This folder contains the internal project documents derived from the reference P
   truth and prediction curve mean after inference, then recomputes curve
   `MAE` and `RMSE` to separate vertical offset from waveform-shape tracking.
 
+- [reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md](./reports/analysis/track2/mean_offset_full_matrix_audit/%5B2026-06-03%5D/track2d_mean_offset_full_matrix_audit.md)
+  `Track 2D` full-matrix mean-offset audit over `111` direction-valid
+  candidates and `12,416` curves, separating raw error, curve offset,
+  centered-shape error, amplitude error, harmonic phase error, and diagnostic
+  failure-mode labels.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -209,6 +215,18 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-06-03
+
+- [technical/2026-06/2026-06-03/2026-06-03-10-49-06_track2d_pdf_table_layout_rules.md](./technical/2026-06/2026-06-03/2026-06-03-10-49-06_track2d_pdf_table_layout_rules.md)
+  Plan the `Track 2D` styled-PDF table layout correction and reusable
+  generator rule for future mean-offset diagnostic reports.
+
+- [technical/2026-06/2026-06-03/2026-06-03-00-08-04_track2d_mean_offset_full_matrix_audit.md](./technical/2026-06/2026-06-03/2026-06-03-00-08-04_track2d_mean_offset_full_matrix_audit.md)
+  Plan the `Track 2D` full-matrix audit that decomposes every official
+  direction-valid `Track 2` candidate into raw error, curve offset,
+  centered-shape error, amplitude error, harmonic phase error, and
+  condition-regime behavior before new curve-aware training is opened.
 
 #### 2026-06-02
 
@@ -1963,6 +1981,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_track2_mean_centered_collage_report.md](./scripts/reports/analysis/build_track2_mean_centered_collage_report.md)
   Script-level documentation for the `Track 2` mean-centered collage
   diagnostics report builder.
+
+- [scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md](./scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md)
+  Script-level documentation for the `Track 2D` full-matrix mean-offset audit
+  report builder, including chunked execution and merge-only finalization.
 
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
   Script-level documentation for the canonical training-results master-summary generator.
