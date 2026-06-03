@@ -224,6 +224,12 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-03
 
+- [technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md](./technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md)
+  Plan the `Track 2F` offset-aware probe campaign gate that compares
+  post-hoc `direction_torque` calibration, sequential residual-offset
+  modeling, and multi-head shape/offset training across `Fw`, `Bw`, and
+  `global` surfaces.
+
 - [technical/2026-06/2026-06-03/2026-06-03-11-40-21_track2e_offset_predictability_feasibility.md](./technical/2026-06/2026-06-03/2026-06-03-11-40-21_track2e_offset_predictability_feasibility.md)
   Plan the `Track 2E` offset-predictability feasibility diagnostic that uses
   completed `Track 2D` artifacts to decide whether the next branch should be
@@ -2224,6 +2230,11 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the unified residual-harmonic network guide.
 
 #### Latest Campaign Plans
+
+- [reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md)
+  Preliminary campaign plan for the `Track 2F` offset-aware probe comparing
+  post-hoc causal offset calibration, sequential residual-offset modeling, and
+  multi-head shape/offset training across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid

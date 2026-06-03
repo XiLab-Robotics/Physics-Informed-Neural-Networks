@@ -1,0 +1,43 @@
+# Track 2F Offset-Aware Probe Campaign Package
+
+This package materializes the approved Track 2F offset-aware probe plan.
+
+It contains descriptor entries rather than standard `run_training_campaign.py`
+YAML files because the repository does not yet implement the learned
+`sequential_residual_offset_probe` and `multi_head_shape_offset_probe` model
+types. The post-hoc `direction_torque` offset baseline is runnable as a
+validation-only benchmark; learned probes remain guarded until the matching
+model types are introduced through a later technical gate.
+
+## Descriptor Matrix
+
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/01_global_posthoc_direction_torque_offset_baseline.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/02_fw_posthoc_direction_torque_offset_baseline.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/03_bw_posthoc_direction_torque_offset_baseline.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/04_global_sequential_residual_offset_probe.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/05_fw_sequential_residual_offset_probe.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/06_bw_sequential_residual_offset_probe.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/07_global_multi_head_shape_offset_probe.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/08_fw_multi_head_shape_offset_probe.yaml`
+- `config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign/probe_descriptors/09_bw_multi_head_shape_offset_probe.yaml`
+
+## Launch Commands
+
+Preflight validation:
+
+```powershell
+.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
+```
+
+Baseline-status validation:
+
+```powershell
+.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1
+```
+
+Remote training is intentionally guarded until the learned Track 2F model
+types exist:
+
+```powershell
+.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -Remote
+```

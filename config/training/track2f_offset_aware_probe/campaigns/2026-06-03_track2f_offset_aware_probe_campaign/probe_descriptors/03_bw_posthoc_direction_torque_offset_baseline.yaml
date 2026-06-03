@@ -1,0 +1,33 @@
+schema_version: 1
+campaign_name: track2f_offset_aware_probe_campaign_2026_06_03
+probe_index: 3
+probe_id: track2f_bw_posthoc_direction_torque_offset_baseline
+surface: Bw
+surface_key: bw
+direction_scope: backward_only
+intervention: posthoc_direction_torque_offset_baseline
+intervention_role: non_learned_causal_baseline
+implementation_status: runnable_posthoc_baseline
+launch_guard: validation_only_no_training_entrypoint_required
+planning_report_path: doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
+technical_document_path: doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md
+track2e_reference_candidate: rcim_retuned_XGBM19_Bw
+track2e_recommendation_path: output/validation_checks/track2e_offset_predictability_feasibility/2026-06-03-13-28-54__track2e_offset_predictability_feasibility/track2e_surface_intervention_recommendation.csv
+runtime_input_contract:
+  allowed_inputs:
+  - current point-level operating state
+  - supported short causal history
+  - causal derived features from already observed samples
+  - direction, speed, torque, and oil temperature when runtime-available
+  forbidden_inputs:
+  - future TE samples
+  - complete-curve means during inference
+  - full-curve normalization during inference
+  - future-looking smoothing
+  validation_only_units:
+  - full Track 2 curve raw error
+  - centered-shape error
+  - mean-offset error
+  - amplitude error
+  - harmonic phase error
+promotion_rule: Candidate cannot be promoted from pointwise MAE/RMSE alone; it must return through official Track 2 curve-first verification on the matching surface.
