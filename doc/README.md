@@ -175,6 +175,12 @@ This folder contains the internal project documents derived from the reference P
   centered-shape error, amplitude error, harmonic phase error, and diagnostic
   failure-mode labels.
 
+- [reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md](./reports/analysis/track2/offset_predictability_feasibility/%5B2026-06-03%5D/track2e_offset_predictability_feasibility.md)
+  `Track 2E` offset-predictability feasibility report that uses completed
+  `Track 2D` artifacts to test conservative causal offset-correction
+  baselines and recommend the next intervention branch per `Fw`, `Bw`, and
+  `global` surface.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -217,6 +223,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-03
+
+- [technical/2026-06/2026-06-03/2026-06-03-11-40-21_track2e_offset_predictability_feasibility.md](./technical/2026-06/2026-06-03/2026-06-03-11-40-21_track2e_offset_predictability_feasibility.md)
+  Plan the `Track 2E` offset-predictability feasibility diagnostic that uses
+  completed `Track 2D` artifacts to decide whether the next branch should be
+  loss reweighting, multi-head shape/offset modeling, sequential offset
+  modeling, post-hoc offset calibration, or a non-offset-first intervention.
 
 - [technical/2026-06/2026-06-03/2026-06-03-10-49-06_track2d_pdf_table_layout_rules.md](./technical/2026-06/2026-06-03/2026-06-03-10-49-06_track2d_pdf_table_layout_rules.md)
   Plan the `Track 2D` styled-PDF table layout correction and reusable
@@ -1985,6 +1997,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md](./scripts/reports/analysis/build_track2d_mean_offset_full_matrix_audit.md)
   Script-level documentation for the `Track 2D` full-matrix mean-offset audit
   report builder, including chunked execution and merge-only finalization.
+
+- [scripts/reports/analysis/build_track2e_offset_predictability_feasibility.md](./scripts/reports/analysis/build_track2e_offset_predictability_feasibility.md)
+  Script-level documentation for the `Track 2E` offset-predictability
+  feasibility report builder and its conservative causal correction baselines.
 
 - [scripts/reports/analysis/generate_training_results_master_summary.md](./scripts/reports/analysis/generate_training_results_master_summary.md)
   Script-level documentation for the canonical training-results master-summary generator.

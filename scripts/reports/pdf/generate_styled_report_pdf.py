@@ -136,6 +136,7 @@ TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME = "report-table report-table-track2-surfa
 TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME = "report-table report-table-track2-mean-centered-top"
 TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME = "report-table report-table-track2-mean-centered-group"
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
+TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
 REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-scalar-winner"
 REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME = "report-table report-table-repository-status-hpo-leader"
 REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-results"
@@ -350,6 +351,18 @@ TRACK2D_MEAN_OFFSET_TABLE_HEADER_CELLS = (
     "Label",
 )
 
+TRACK2E_OFFSET_FEASIBILITY_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Candidate",
+    "Surface",
+    "Interv.",
+    "Raw MAE",
+    "Corr. MAE",
+    "Gain [%]",
+    "Explain [%]",
+    "Best Group",
+)
+
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
     "Platform",
     "Python API Docs",
@@ -385,6 +398,9 @@ FORCED_PAGE_BREAK_SECTION_SLUGS = {
 REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "track2d_mean_offset_full_matrix_audit": {
         "diagnostic-label-counts",
+    },
+    "track2e_offset_predictability_feasibility": {
+        "intervention-counts",
     },
     "track2_curve_first_reranking_report": {
         "backward-curve-first-leaders",
@@ -1027,6 +1043,35 @@ REPORT_STYLESHEET = """
     .report-table-track2d-mean-offset th:nth-child(6), .report-table-track2d-mean-offset td:nth-child(6) { width: 10.8%; }
     .report-table-track2d-mean-offset th:nth-child(7), .report-table-track2d-mean-offset td:nth-child(7) { width: 10.8%; }
     .report-table-track2d-mean-offset th:nth-child(8), .report-table-track2d-mean-offset td:nth-child(8) { width: 10.8%; }
+
+    .report-table-track2e-offset-feasibility {
+      font-size: 6.35pt;
+      line-height: 1.13;
+    }
+
+    .report-table-track2e-offset-feasibility th,
+    .report-table-track2e-offset-feasibility td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2e-offset-feasibility th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track2e-offset-feasibility th:nth-child(1), .report-table-track2e-offset-feasibility td:nth-child(1) { width: 4%; }
+    .report-table-track2e-offset-feasibility th:nth-child(2), .report-table-track2e-offset-feasibility td:nth-child(2) { width: 30%; }
+    .report-table-track2e-offset-feasibility th:nth-child(3), .report-table-track2e-offset-feasibility td:nth-child(3) { width: 6%; }
+    .report-table-track2e-offset-feasibility th:nth-child(4), .report-table-track2e-offset-feasibility td:nth-child(4) { width: 7%; }
+    .report-table-track2e-offset-feasibility th:nth-child(5), .report-table-track2e-offset-feasibility td:nth-child(5) { width: 10%; }
+    .report-table-track2e-offset-feasibility th:nth-child(6), .report-table-track2e-offset-feasibility td:nth-child(6) { width: 10%; }
+    .report-table-track2e-offset-feasibility th:nth-child(7), .report-table-track2e-offset-feasibility td:nth-child(7) { width: 9%; }
+    .report-table-track2e-offset-feasibility th:nth-child(8), .report-table-track2e-offset-feasibility td:nth-child(8) { width: 9%; }
+    .report-table-track2e-offset-feasibility th:nth-child(9), .report-table-track2e-offset-feasibility td:nth-child(9) { width: 15%; }
 
     .report-table-repository-status-scalar-winner,
     .report-table-repository-status-hpo-leader,
@@ -2810,9 +2855,12 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME,
         TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME,
         TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME,
+        TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME,
     }:
         if header_cell == "Raw MAE":
             return "Raw<br><span class=\"metric-unit\">MAE</span>"
+        if header_cell == "Corr. MAE":
+            return "Corr.<br><span class=\"metric-unit\">MAE</span>"
         if header_cell == "Centered MAE":
             return "Centered<br><span class=\"metric-unit\">MAE</span>"
         if header_cell == "Mean MPE [%]":
@@ -2829,6 +2877,10 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
             return "P2P<br><span class=\"metric-unit\">Err. [%]</span>"
         if header_cell == "Diagnostic Score":
             return "Diag.<br><span class=\"metric-unit\">Score</span>"
+        if header_cell == "Gain [%]":
+            return "Gain<br><span class=\"metric-unit\">[%]</span>"
+        if header_cell == "Explain [%]":
+            return "Explain<br><span class=\"metric-unit\">[%]</span>"
         if header_cell == "Mean Curve MAE [deg]":
             return "Mean Curve<br><span class=\"metric-unit\">MAE [deg]</span>"
 
@@ -3797,6 +3849,9 @@ def render_table(
     if tuple(header_cells) == TRACK2D_MEAN_OFFSET_TABLE_HEADER_CELLS:
         return render_standard_table(header_cells, alignments, body_rows, TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME), current_index
 
+    if tuple(header_cells) == TRACK2E_OFFSET_FEASIBILITY_TABLE_HEADER_CELLS:
+        return render_standard_table(header_cells, alignments, body_rows, TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME), current_index
+
     # Resolve Table Class
     table_class_name = resolve_standard_table_class_name(
         header_cells,
@@ -4038,6 +4093,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "track2_best_model_collage_report",
                     "track2_multi_model_curve_comparison_report",
                     "track2d_mean_offset_full_matrix_audit",
+                    "track2e_offset_predictability_feasibility",
                     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
                 }
                 and not (

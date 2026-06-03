@@ -31,9 +31,9 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: use completed `Track 2D` mean-offset full-matrix diagnostics
-  to choose the next direction-parallel offset-aware training or calibration
-  branch for `Fw`, `Bw`, and `global` surfaces.
+- Current Focus: use completed `Track 2E` offset-predictability feasibility
+  diagnostics to prepare the next approved direction-parallel offset-aware
+  training or calibration branch for `Fw`, `Bw`, and `global` surfaces.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -48,6 +48,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
 - `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
 - `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
+- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -197,6 +198,26 @@ Next planned diagnostic and training decision branches:
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Multi-task / multi-head model branch | Shared causal trunk with separate offset / low-frequency and centered-shape heads summed into final TE. | candidate after audit |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
+
+The `Track 2E` offset-predictability feasibility diagnostic is complete in:
+
+- `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
+
+Current `Track 2E` observations:
+
+| Finding | Interpretation |
+| --- | --- |
+| The conservative best causal grouping is `direction_torque`, not the exact full operating condition. | Offset has a condition-linked signal, but exact full-condition memorization must not be treated as deployable predictability. |
+| `harmonic_regression_global` shows the largest conservative offset-correction feasibility gain, but remains amplitude/phase limited. | It is useful as an offset probe reference, not as an automatic global production winner. |
+| `rcim_retuned_XGBM19_Bw` and `LGBM19_Fw` are the strongest per-surface sequential-offset feasibility probes. | The next branch should test offset modeling behavior per surface without collapsing `Fw`, `Bw`, and `global` into one competition. |
+| Most candidates fall into `multi_head_shape_offset`, `posthoc_offset_baseline`, or `not_offset_first` rather than a clean sequential-offset path. | The next training plan should include offset, centered-shape, amplitude, and phase terms instead of assuming offset correction alone solves the curve-following problem. |
+
+Recommended next gate:
+
+- prepare a campaign plan for a small direction-parallel offset-aware probe
+  that compares a post-hoc `direction_torque` baseline, a sequential causal
+  residual-offset head, and a multi-head shape/offset loss on selected `Fw`,
+  `Bw`, and `global` starting candidates.
 
 ## Completed
 

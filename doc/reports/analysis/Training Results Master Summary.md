@@ -5,16 +5,18 @@
 - Generated At: `2026-05-28T11:42:23`
 - Program State: active.
 - Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign and official `Track 2` refresh complete.
-- Current Focus: use completed `Track 2D` failure-mode labels to choose the
-  next direction-parallel offset-aware training or calibration branch.
+- Current Focus: use completed `Track 2E` offset-predictability feasibility
+  labels to prepare the next direction-parallel offset-aware training or
+  calibration branch.
 - Active Campaign Status: `none`
 - Active Campaign Name: `None`
 - Current Scalar Registry Winner: `te_periodic_gru_sequence_remote_Bw` |
   Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
 - Current Curve-First Promotion State: `Track 2B` reranking, screened
-  `Track 2C` curve-payload diagnostics, and `Track 2` mean-centered collage
-  diagnostics complete; `Track 2D` full-matrix mean-offset audit complete; no
-  automatic single-winner registry promotion.
+  `Track 2C` curve-payload diagnostics, `Track 2` mean-centered collage
+  diagnostics, `Track 2D` full-matrix mean-offset audit, and `Track 2E`
+  offset-predictability feasibility complete; no automatic single-winner
+  registry promotion.
 - Runtime Input Constraint: point-level operating state, optional short causal
   history, or derived causal features only.
 
@@ -32,6 +34,11 @@
   `12,416` curves and confirms that many candidates are offset-limited. The
   global surface leader is `periodic_gru_sequence_global`, while the strongest
   forward diagnostic leader remains `rcim_retuned_GBM19_Fw`.
+- New feasibility direction: `Track 2E` excludes exact full-condition
+  memorization and finds `direction_torque` as the strongest conservative
+  causal offset grouping. The next branch should compare post-hoc offset
+  baselines, sequential residual-offset modeling, and multi-head shape/offset
+  losses per `Fw`, `Bw`, and `global` surface.
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
 - Implemented and benchmarked family count: `53`
@@ -149,7 +156,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; `Track 2C` curve-payload diagnostics: completed;; mean-centered collage diagnostic: completed;; `Track 2D` mean-offset full-matrix audit: completed;; next decision: offset-aware checkpoint/loss, multi-head offset-shape model, or sequential residual calibration branch;; status: closed as official baseline, with diagnostic extensions active. |
+| Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1`, `Wave 2`, `Wave 2B`, and `Wave 2C` registry candidates: included;; grouped source tables: completed;; composite best-reference visibility: completed;; visual reports refreshed through `Wave 2C`;; official model-verification report: completed;; `Track 2B` curve-first reranking: completed;; `Track 2C` curve-payload diagnostics: completed;; mean-centered collage diagnostic: completed;; `Track 2D` mean-offset full-matrix audit: completed;; `Track 2E` offset-predictability feasibility: completed;; next decision: plan a direction-parallel offset-aware probe comparing post-hoc, sequential, and multi-head interventions;; status: closed as official baseline, with diagnostic extensions active. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -347,6 +354,10 @@ Curve-first promotion policy:
   curve-level offset. `Track 2D` now provides candidate-level labels for
   offset, centered shape, amplitude, phase, and condition dependence before
   retraining.
+- Offset-predictability interpretation: `Track 2E` shows that conservative
+  causal condition groupings, especially `direction_torque`, explain part of
+  the offset but do not justify exact-condition memorization or automatic
+  model promotion.
 - `Wave 2C` is now Track 2 verified as exploratory evidence: sparse `RCIM`
   residual harmonic temporal models are the only competitive branch, but they
   do not displace `Wave 2B`.
