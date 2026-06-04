@@ -992,9 +992,13 @@ def extract_active_campaign_snapshot() -> dict[str, Any]:
             if "hist_gbr" in queue_config_text or "random_forest" in queue_config_text:
                 family_set.add("tree")
 
+    active_campaign_name = active_campaign_dictionary.get("campaign_name", "N/A")
+    if active_campaign_name is None:
+        active_campaign_name = "N/A"
+
     return {
         "status": str(active_campaign_dictionary.get("status", "unknown")),
-        "campaign_name": str(active_campaign_dictionary.get("campaign_name", "N/A")),
+        "campaign_name": str(active_campaign_name),
         "family_set": family_set,
         "launch_mode": str(active_campaign_dictionary.get("launch_mode", "N/A")),
         "planning_report_path": str(active_campaign_dictionary.get("planning_report_path", "N/A")),

@@ -1,0 +1,76 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-04-11-36-09_003_03_sequential_residual_offset_probe_bw.yaml
+experiment:
+  model_family: sequential_residual_offset_probe_bw
+  model_type: sequential_residual_offset_probe
+  run_name: te_sequential_residual_offset_probe_remote_bw
+  output_run_name: te_sequential_residual_offset_probe_remote_bw
+  run_instance_id: 2026-06-04-11-57-40__te_sequential_residual_offset_probe_remote_bw
+  output_artifact_kind: training_run
+  base_model_family: sequential_residual_offset_probe
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\sequential_residual_offset_probe_bw\2026-06-04-11-57-40__te_sequential_residual_offset_probe_remote_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\sequential_residual_offset_probe_bw\2026-06-04-11-57-40__te_sequential_residual_offset_probe_remote_bw\checkpoints\sequential_residual_offset_probe-epoch=061-val_mae=0.00383996.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: SequentialResidualOffsetNetwork
+  trainable_parameter_count: 92802
+  frozen_parameter_count: 0
+  total_parameter_count: 92802
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.047545820474624634
+  val_mae: 0.0038399631157517433
+  val_rmse: 0.004511796869337559
+  val_base_mae: 0.014664138667285442
+  val_base_rmse: 0.01745711639523506
+  val_residual_offset_mean_abs: 0.014134308323264122
+test_metrics:
+  test_loss: 0.035071924328804016
+  test_mae: 0.003637756686657667
+  test_rmse: 0.004280265420675278
+  test_base_mae: 0.015475335530936718
+  test_base_rmse: 0.018389113247394562
+  test_residual_offset_mean_abs: 0.014939757063984871
+comparison_payload:
+  model_family: sequential_residual_offset_probe_bw
+  model_type: sequential_residual_offset_probe
+  run_name: te_sequential_residual_offset_probe_remote_bw
+  backbone_name: SequentialResidualOffsetNetwork
+  trainable_parameter_count: 92802
+  total_parameter_count: 92802
+  val_mae: 0.0038399631157517433
+  val_rmse: 0.004511796869337559
+  test_mae: 0.003637756686657667
+  test_rmse: 0.004280265420675278
+  deployment_notes: ''
+  interpretability_notes: ''

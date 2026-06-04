@@ -229,6 +229,17 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-04
 
+- [technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md](./technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md)
+  Plan the `Track 2F` closeout PDF refinement that starts `Execution Summary`
+  on a fresh page and updates the campaign closeout skill so generated PDFs
+  are always reviewed and repaired before finalization.
+
+- [technical/2026-06/2026-06-04/2026-06-04-12-28-46_track2f_campaign_closeout.md](./technical/2026-06/2026-06-04/2026-06-04-12-28-46_track2f_campaign_closeout.md)
+  Plan the completed `Track 2F` campaign closeout, including the final
+  campaign-results Markdown/PDF deliverable, wrapper-error review, active-state
+  cleanup, and explicit preservation of separate `global`, `Fw`, and `Bw`
+  best-model branches.
+
 - [technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md](./technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md)
   Plan the protected Track 2F launcher fix that prevents Python validation
   stdout from being captured as a false launcher error before the sequential
@@ -2421,6 +2432,13 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md](./reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)
+  Final results report for the completed `Track 2F` offset-aware
+  probe campaign, including separate `global`, `Fw`, and `Bw`
+  branch results, runner-wrapper diagnostics, registry effects, and
+  the boundary that official `Track 2` verification remains a
+  separate operator-launched workflow.
 
 - [reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md](./reports/campaign_results/wave2/2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report.md)
   Final results report for the completed `Wave 2C` residual harmonic

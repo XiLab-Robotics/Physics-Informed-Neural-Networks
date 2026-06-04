@@ -124,6 +124,8 @@ WAVE1_PERIODIC_MLP_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave1-
 WAVE2_TEMPORAL_ARTIFACT_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-artifact"
 WAVE2_TEMPORAL_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-leaderboard"
 WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-registry"
+TRACK2F_BRANCH_RESULTS_TABLE_CLASS_NAME = "report-table report-table-track2f-branch-results"
+TRACK2F_SCALAR_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-track2f-scalar-leaderboard"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
@@ -490,6 +492,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report": {
         "execution-summary",
         "leaderboard",
+    },
+    "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": {
+        "execution-summary",
     },
 }
 
@@ -859,6 +864,38 @@ REPORT_STYLESHEET = """
       overflow-wrap: normal;
     }
     .report-table-wave2-temporal-registry th:nth-child(4), .report-table-wave2-temporal-registry td:nth-child(4) { width: 18.5%; }
+
+    .report-table-track2f-branch-results,
+    .report-table-track2f-scalar-leaderboard {
+      font-size: 6.55pt;
+      line-height: 1.15;
+    }
+
+    .report-table-track2f-branch-results th,
+    .report-table-track2f-branch-results td,
+    .report-table-track2f-scalar-leaderboard th,
+    .report-table-track2f-scalar-leaderboard td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2f-branch-results th:nth-child(1), .report-table-track2f-branch-results td:nth-child(1) { width: 7%; }
+    .report-table-track2f-branch-results th:nth-child(2), .report-table-track2f-branch-results td:nth-child(2) { width: 11%; }
+    .report-table-track2f-branch-results th:nth-child(3), .report-table-track2f-branch-results td:nth-child(3) { width: 29%; }
+    .report-table-track2f-branch-results th:nth-child(4), .report-table-track2f-branch-results td:nth-child(4) { width: 23%; }
+    .report-table-track2f-branch-results th:nth-child(5), .report-table-track2f-branch-results td:nth-child(5) { width: 8%; }
+    .report-table-track2f-branch-results th:nth-child(6), .report-table-track2f-branch-results td:nth-child(6) { width: 8%; }
+    .report-table-track2f-branch-results th:nth-child(7), .report-table-track2f-branch-results td:nth-child(7) { width: 8%; }
+    .report-table-track2f-branch-results th:nth-child(8), .report-table-track2f-branch-results td:nth-child(8) { width: 6%; }
+
+    .report-table-track2f-scalar-leaderboard th:nth-child(1), .report-table-track2f-scalar-leaderboard td:nth-child(1) { width: 5%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(2), .report-table-track2f-scalar-leaderboard td:nth-child(2) { width: 7%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(3), .report-table-track2f-scalar-leaderboard td:nth-child(3) { width: 30%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(4), .report-table-track2f-scalar-leaderboard td:nth-child(4) { width: 24%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(5), .report-table-track2f-scalar-leaderboard td:nth-child(5) { width: 8%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(6), .report-table-track2f-scalar-leaderboard td:nth-child(6) { width: 8%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(7), .report-table-track2f-scalar-leaderboard td:nth-child(7) { width: 8%; }
+    .report-table-track2f-scalar-leaderboard th:nth-child(8), .report-table-track2f-scalar-leaderboard td:nth-child(8) { width: 10%; }
 
     .report-table-track2-best-model-collage {
       font-size: 6.85pt;
@@ -3349,6 +3386,23 @@ def resolve_standard_table_class_name(
     ):
         return WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME
 
+    # Resolve Track 2F Closeout Table Profiles
+    if report_stem == "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report":
+
+        if (
+            current_section_slug == "directional-branch-results"
+            and normalized_header_cells
+            == ("Surface", "Role", "Run", "Family", "Test MAE", "Test RMSE", "Val MAE", "Params")
+        ):
+            return TRACK2F_BRANCH_RESULTS_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "scalar-leaderboard"
+            and normalized_header_cells
+            == ("Rank", "Surface", "Run", "Family", "Test MAE", "Test RMSE", "Val MAE", "Params")
+        ):
+            return TRACK2F_SCALAR_LEADERBOARD_TABLE_CLASS_NAME
+
     # Resolve Track 2 Best-Model Collage Summary Tables
     if (
         report_stem in {"track2_best_model_collage_report", "track2_multi_model_curve_comparison_report"}
@@ -4095,6 +4149,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "track2d_mean_offset_full_matrix_audit",
                     "track2e_offset_predictability_feasibility",
                     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
+                    "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
