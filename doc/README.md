@@ -141,6 +141,12 @@ This folder contains the internal project documents derived from the reference P
   original, retuned paper-reference banks, and exported `Wave 1` models from
   `models/`, split into forward, backward, and global direction sections.
 
+- [reports/analysis/track2/Track 2 Curve Reconstruction And Collage Pipeline.md](./reports/analysis/track2/Track%202%20Curve%20Reconstruction%20And%20Collage%20Pipeline.md)
+  Implementation-facing `Track 2` curve-reconstruction guide covering the
+  standard best-model collage path, repository models such as
+  `harmonic_regression`, paper-original reference-bank reconstruction, and
+  mean-centered diagnostic interpretation.
+
 - [reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-05-28%5D/track2_official_model_verification_report.md)
   Official `Track 2` model-verification report accepting `Wave 2C` as a
   verified exploratory residual harmonic temporal baseline without promoting
@@ -253,6 +259,11 @@ This folder contains the internal project documents derived from the reference P
   completed `Track 2F` offset-aware probe, preserving separate `global`, `Fw`,
   and `Bw` branch candidates and preparing local plus `-Remote` launcher
   commands without running the heavy matrix inside Codex.
+
+- [technical/2026-06/2026-06-04/2026-06-04-16-28-04_track2_curve_reconstruction_documentation.md](./technical/2026-06/2026-06-04/2026-06-04-16-28-04_track2_curve_reconstruction_documentation.md)
+  Plan the detailed `Track 2` curve-reconstruction documentation covering
+  repository models, paper-original reference banks, collage plotting, and
+  mean-centered diagnostic context.
 
 - [technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md](./technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md)
   Plan the `Track 2F` closeout PDF refinement that starts `Execution Summary`
