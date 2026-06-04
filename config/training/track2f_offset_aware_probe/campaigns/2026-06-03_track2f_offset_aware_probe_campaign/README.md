@@ -2,12 +2,11 @@
 
 This package materializes the approved Track 2F offset-aware probe plan.
 
-It contains descriptor entries rather than standard `run_training_campaign.py`
-YAML files because the repository does not yet implement the learned
-`sequential_residual_offset_probe` and `multi_head_shape_offset_probe` model
-types. The post-hoc `direction_torque` offset baseline is runnable as a
-validation-only benchmark; learned probes remain guarded until the matching
-model types are introduced through a later technical gate.
+It contains descriptor entries for the full Track 2F matrix plus three
+runnable `sequential_residual_offset_probe` queue YAML files. The post-hoc
+`direction_torque` offset baseline remains a validation-only benchmark, while
+`multi_head_shape_offset_probe` remains guarded until its own model type is
+introduced through a later technical gate.
 
 ## Descriptor Matrix
 
@@ -29,14 +28,13 @@ Preflight validation:
 .\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
 ```
 
-Baseline-status validation:
+Sequential probe training:
 
 ```powershell
 .\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
-Remote training is intentionally guarded until the learned Track 2F model
-types exist:
+Remote sequential probe training:
 
 ```powershell
 .\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -Remote

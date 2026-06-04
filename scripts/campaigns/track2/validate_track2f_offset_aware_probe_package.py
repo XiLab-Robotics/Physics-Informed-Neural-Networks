@@ -88,6 +88,7 @@ def validate_descriptor_matrix(descriptor_list: list[dict[str, Any]]) -> None:
         assert "runtime_input_contract" in descriptor
         assert descriptor.get("implementation_status") in [
             "runnable_posthoc_baseline",
+            "runnable_training_entry",
             "blocked_until_model_type_implementation",
         ]
 
@@ -148,11 +149,12 @@ def write_baseline_status_artifacts(
             surface_name = str(descriptor["surface"]).lower()
             recommendation_row = recommendation_by_surface.get(surface_name, {})
             implementation_status = str(descriptor["implementation_status"])
-            launch_decision = (
-                "runnable_baseline_validation"
-                if implementation_status == "runnable_posthoc_baseline"
-                else "blocked_pending_model_type"
-            )
+            if implementation_status == "runnable_posthoc_baseline":
+                launch_decision = "runnable_baseline_validation"
+            elif implementation_status == "runnable_training_entry":
+                launch_decision = "runnable_training_campaign_entry"
+            else:
+                launch_decision = "blocked_pending_model_type"
             writer.writerow(
                 {
                     "probe_id": descriptor["probe_id"],
@@ -174,18 +176,28 @@ def write_baseline_status_artifacts(
         for descriptor in descriptor_list
         if descriptor["implementation_status"] == "blocked_until_model_type_implementation"
     )
-    runnable_descriptor_count = len(descriptor_list) - blocked_descriptor_count
+    runnable_baseline_count = sum(
+        1
+        for descriptor in descriptor_list
+        if descriptor["implementation_status"] == "runnable_posthoc_baseline"
+    )
+    runnable_training_count = sum(
+        1
+        for descriptor in descriptor_list
+        if descriptor["implementation_status"] == "runnable_training_entry"
+    )
     write_yaml_file(
         summary_yaml_path,
         {
             "campaign_name": CAMPAIGN_NAME,
             "validated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
             "descriptor_count": len(descriptor_list),
-            "runnable_posthoc_baseline_count": runnable_descriptor_count,
+            "runnable_posthoc_baseline_count": runnable_baseline_count,
+            "runnable_training_entry_count": runnable_training_count,
             "blocked_learned_probe_count": blocked_descriptor_count,
             "status_csv_path": status_csv_path.relative_to(PROJECT_PATH).as_posix(),
             "track2e_recommendation_path": TRACK2E_RECOMMENDATION_PATH.as_posix(),
-            "training_launch_status": "blocked_until_learned_model_types_are_implemented",
+            "training_launch_status": "sequential_residual_offset_probe_enabled_multi_head_blocked",
         },
     )
 
@@ -244,12 +256,15 @@ def main() -> int:
     runnable_count = sum(
         1
         for descriptor in descriptor_list
-        if descriptor["implementation_status"] == "runnable_posthoc_baseline"
+        if descriptor["implementation_status"] in [
+            "runnable_posthoc_baseline",
+            "runnable_training_entry",
+        ]
     )
     blocked_count = len(descriptor_list) - runnable_count
     print(
         "Track 2F package validated | "
-        f"descriptors={len(descriptor_list)} | runnable_baselines={runnable_count} | "
+        f"descriptors={len(descriptor_list)} | runnable_entries={runnable_count} | "
         f"blocked_learned_probes={blocked_count}"
     )
     return 0

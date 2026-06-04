@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: smoke_test
+model_family: sequential_residual_offset_probe
+base_model_family: sequential_residual_offset_probe
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_sequential_residual_offset_probe_remote_global_track2f_seq_offset_smoke
+run_instance_id: 2026-06-03-23-41-00__te_sequential_residual_offset_probe_remote_global_track2f_seq_offset_smoke
+output_directory: output\smoke_tests\sequential_residual_offset_probe\2026-06-03-23-41-00__te_sequential_residual_offset_probe_remote_global_track2f_seq_offset_smoke

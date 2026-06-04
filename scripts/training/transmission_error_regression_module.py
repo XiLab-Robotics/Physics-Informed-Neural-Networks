@@ -253,6 +253,21 @@ class TransmissionErrorRegressionModule(LightningModule):
             self.log(f"{log_prefix}_structured_mae", structured_mae, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
             self.log(f"{log_prefix}_structured_rmse", structured_rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
 
+        # Log Track 2F Branch Diagnostics When Available
+        base_prediction_tensor = batch_output_dictionary.get("base_prediction_tensor")
+        if isinstance(base_prediction_tensor, torch.Tensor):
+            base_prediction_denormalized = self.denormalize_target_tensor(base_prediction_tensor)
+            base_mae = torch.mean(torch.abs(base_prediction_denormalized - batch_output_dictionary["target_tensor"]))
+            base_rmse = torch.sqrt(torch.mean(torch.square(base_prediction_denormalized - batch_output_dictionary["target_tensor"])))
+            self.log(f"{log_prefix}_base_mae", base_mae, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+            self.log(f"{log_prefix}_base_rmse", base_rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+
+        residual_offset_prediction_tensor = batch_output_dictionary.get("residual_offset_prediction_tensor")
+        if isinstance(residual_offset_prediction_tensor, torch.Tensor):
+            residual_offset_denormalized = residual_offset_prediction_tensor * self.target_std
+            residual_offset_mean_abs = torch.mean(torch.abs(residual_offset_denormalized))
+            self.log(f"{log_prefix}_residual_offset_mean_abs", residual_offset_mean_abs, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+
         return loss
 
     def training_step(self, batch_dictionary: dict[str, torch.Tensor], batch_idx: int) -> torch.Tensor:

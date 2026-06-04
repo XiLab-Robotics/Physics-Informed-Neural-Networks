@@ -15,6 +15,7 @@ from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
 from scripts.models.periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
 from scripts.models.residual_harmonic_temporal_sequence_network import ResidualHarmonicTemporalSequenceNetwork
+from scripts.models.sequential_residual_offset_network import SequentialResidualOffsetNetwork
 from scripts.models.temporal_sequence_network import RecurrentSequenceNetwork
 from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
 
@@ -194,6 +195,23 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             bidirectional=bool(model_configuration.get("bidirectional", False)),
             readout_position=str(model_configuration.get("readout_position", "center")),
             freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
+        )
+
+    # Create Track 2F Sequential Residual-Offset Probe
+    if normalized_model_type == "sequential_residual_offset_probe":
+        return SequentialResidualOffsetNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            base_hidden_size=list(model_configuration.get("base_hidden_size", [96, 64])),
+            base_activation_name=str(model_configuration.get("base_activation_name", "GELU")),
+            base_dropout_probability=float(model_configuration.get("base_dropout_probability", 0.05)),
+            base_use_layer_norm=bool(model_configuration.get("base_use_layer_norm", True)),
+            offset_hidden_size=int(model_configuration.get("offset_hidden_size", 96)),
+            offset_num_layers=int(model_configuration.get("offset_num_layers", 2)),
+            offset_dropout_probability=float(model_configuration.get("offset_dropout_probability", 0.10)),
+            offset_bidirectional=bool(model_configuration.get("offset_bidirectional", False)),
+            offset_readout_position=str(model_configuration.get("offset_readout_position", "center")),
+            offset_scale=float(model_configuration.get("offset_scale", 1.0)),
         )
 
     # Create Periodic LSTM Sequence Model

@@ -1,0 +1,26 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\track2f_offset_aware_probe\campaigns\2026-06-03_track2f_offset_aware_probe_campaign\queue\03_sequential_residual_offset_probe_bw.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\sequential_residual_offset_probe_bw\2026-06-03-23-41-33__te_sequential_residual_offset_probe_remote_bw_validation_check
+experiment:
+  run_name: te_sequential_residual_offset_probe_remote_bw
+  output_run_name: te_sequential_residual_offset_probe_remote_bw_validation_check
+  run_instance_id: 2026-06-03-23-41-33__te_sequential_residual_offset_probe_remote_bw_validation_check
+  model_family: sequential_residual_offset_probe_bw
+  model_type: sequential_residual_offset_probe
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 0.882256269454956
+  mae: 0.018547749146819115
+  rmse: 0.023442048579454422

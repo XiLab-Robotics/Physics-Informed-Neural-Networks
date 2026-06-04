@@ -5,16 +5,14 @@
 This launcher validates the prepared Track 2F offset-aware probe package.
 
 The package contains nine descriptor entries across `global`, `Fw`, and `Bw`
-surfaces:
+surfaces and three runnable sequential residual-offset queue YAML files:
 
 - three `posthoc_direction_torque_offset_baseline` validation entries;
-- three `sequential_residual_offset_probe` learned-probe placeholders;
+- three `sequential_residual_offset_probe` training entries;
 - three `multi_head_shape_offset_probe` learned-probe placeholders.
 
-The learned probe entries are intentionally guarded because the current
-training runner does not yet implement their model types. The launcher can
-therefore validate the prepared package and write baseline-status artifacts,
-but it must not be treated as approval to start learned Track 2F training.
+The multi-head entries remain guarded because that model type is intentionally
+deferred to a later technical gate.
 
 ## Local Preflight
 
@@ -32,7 +30,7 @@ python` so the repository YAML dependencies are available. Use
 `-PythonExecutable` only when pointing at another Python environment that has
 the same dependencies installed.
 
-## Baseline-Status Validation
+## Local Sequential Probe Training
 
 Run this from the repository root:
 
@@ -40,14 +38,10 @@ Run this from the repository root:
 .\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
-This writes a lightweight status bundle under:
+This validates the package, enqueues the three sequential residual-offset
+training YAML files, and starts the local campaign runner.
 
-`output/validation_checks/track2f_offset_aware_probe/2026-06-03_track2f_offset_aware_probe_prelaunch`
-
-The status bundle records which entries are runnable as non-training post-hoc
-baselines and which entries are blocked pending model-type implementation.
-
-## Remote Guard
+## Remote Sequential Probe Training
 
 The operator-facing remote command is recorded for continuity:
 
@@ -55,10 +49,6 @@ The operator-facing remote command is recorded for continuity:
 .\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -Remote
 ```
 
-At this stage the command exits with a guard message instead of using the
-remote training sync wrapper. The guard is deliberate: launching through the
-standard remote training path would hand unsupported Track 2F model types to
-`scripts/training/run_training_campaign.py`.
-
-The remote path should be enabled only after a later approved implementation
-adds the sequential residual-offset and multi-head shape/offset model types.
+This uses the canonical remote training sync wrapper for the three runnable
+sequential residual-offset queue YAML files. It does not launch the multi-head
+placeholder entries.

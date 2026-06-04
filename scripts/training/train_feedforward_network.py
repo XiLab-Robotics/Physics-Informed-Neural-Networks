@@ -292,6 +292,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
         "periodic_lstm_sequence",
         "residual_harmonic_gru_sequence",
         "residual_harmonic_lstm_sequence",
+        "sequential_residual_offset_probe",
     ]:
         if normalized_model_type in [
             "periodic_gru_sequence",
@@ -306,11 +307,23 @@ def print_training_configuration_summary(training_config: dict) -> None:
         if normalized_model_type in ["residual_harmonic_gru_sequence", "residual_harmonic_lstm_sequence"]:
             print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "static"), value_color=Fore.YELLOW)
             print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
-        print_key_value("Hidden Size", model_config["hidden_size"], value_color=Fore.YELLOW)
-        print_key_value("Num Layers", model_config.get("num_layers", 2), value_color=Fore.YELLOW)
-        print_key_value("Dropout Probability", model_config.get("dropout_probability", 0.10), value_color=Fore.YELLOW)
-        print_key_value("Bidirectional", model_config.get("bidirectional", False), value_color=Fore.YELLOW)
-        print_key_value("Readout Position", model_config.get("readout_position", "center"), value_color=Fore.YELLOW)
+        if normalized_model_type == "sequential_residual_offset_probe":
+            print_key_value("Base Hidden Layers", model_config.get("base_hidden_size", [96, 64]), value_color=Fore.YELLOW)
+            print_key_value("Base Activation", model_config.get("base_activation_name", "GELU"), value_color=Fore.YELLOW)
+            print_key_value("Base Dropout Probability", model_config.get("base_dropout_probability", 0.05), value_color=Fore.YELLOW)
+            print_key_value("Base Use Layer Norm", model_config.get("base_use_layer_norm", True), value_color=Fore.YELLOW)
+            print_key_value("Offset Hidden Size", model_config.get("offset_hidden_size", 96), value_color=Fore.YELLOW)
+            print_key_value("Offset Num Layers", model_config.get("offset_num_layers", 2), value_color=Fore.YELLOW)
+            print_key_value("Offset Dropout Probability", model_config.get("offset_dropout_probability", 0.10), value_color=Fore.YELLOW)
+            print_key_value("Offset Bidirectional", model_config.get("offset_bidirectional", False), value_color=Fore.YELLOW)
+            print_key_value("Offset Readout Position", model_config.get("offset_readout_position", "center"), value_color=Fore.YELLOW)
+            print_key_value("Offset Scale", model_config.get("offset_scale", 1.0), value_color=Fore.YELLOW)
+        else:
+            print_key_value("Hidden Size", model_config["hidden_size"], value_color=Fore.YELLOW)
+            print_key_value("Num Layers", model_config.get("num_layers", 2), value_color=Fore.YELLOW)
+            print_key_value("Dropout Probability", model_config.get("dropout_probability", 0.10), value_color=Fore.YELLOW)
+            print_key_value("Bidirectional", model_config.get("bidirectional", False), value_color=Fore.YELLOW)
+            print_key_value("Readout Position", model_config.get("readout_position", "center"), value_color=Fore.YELLOW)
 
     # Print Model Config Keys
     else: print_key_value("Model Config Keys", sorted(model_config.keys()), value_color=Fore.YELLOW)

@@ -16,8 +16,16 @@ Set-Location $projectRoot
 
 $campaignName = "track2f_offset_aware_probe_campaign_2026_06_03"
 $descriptorRoot = "config\training\track2f_offset_aware_probe\campaigns\2026-06-03_track2f_offset_aware_probe_campaign\probe_descriptors"
+$campaignConfigRoot = "config\training\track2f_offset_aware_probe\campaigns\2026-06-03_track2f_offset_aware_probe_campaign\queue"
 $validatorPath = "scripts\campaigns\track2\validate_track2f_offset_aware_probe_package.py"
 $baselineOutputRoot = "output\validation_checks\track2f_offset_aware_probe\2026-06-03_track2f_offset_aware_probe_prelaunch"
+$planningReportPath = "doc\reports\campaign_plans\track2\2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md"
+$queueRoot = "config\training\queue"
+$campaignConfigFileNameList = @(
+    "01_sequential_residual_offset_probe_global.yaml"
+    "02_sequential_residual_offset_probe_fw.yaml"
+    "03_sequential_residual_offset_probe_bw.yaml"
+)
 
 function Write-Track2FStatus {
     param(
@@ -46,13 +54,7 @@ function Invoke-Track2FPython {
 
 Write-Track2FStatus -Label "INFO" -Message ("Campaign: {0}" -f $campaignName)
 Write-Track2FStatus -Label "INFO" -Message ("Descriptor root: {0}" -f $descriptorRoot)
-
-if ($Remote) {
-    Write-Track2FStatus -Label "BLOCKED" -Message "Remote Track 2F learned training is not enabled yet."
-    Write-Track2FStatus -Label "BLOCKED" -Message "The prepared descriptors include learned probe placeholders, but the model types are not implemented in scripts/training/run_training_campaign.py."
-    Write-Track2FStatus -Label "NEXT" -Message "Implement the sequential and multi-head Track 2F model types, then replace this guard with the canonical remote training sync wrapper."
-    exit 2
-}
+Write-Track2FStatus -Label "INFO" -Message ("Runnable queue root: {0}" -f $campaignConfigRoot)
 
 $validatorArgumentList = @(
     $validatorPath,
@@ -77,8 +79,50 @@ if ($pythonExitCode -ne 0) {
 
 if ($PreflightOnly) {
     Write-Track2FStatus -Label "DONE" -Message "Preflight validation completed without launching training."
+    exit 0
 }
-else {
-    Write-Track2FStatus -Label "DONE" -Message "Baseline-status artifacts written without launching learned training."
-    Write-Track2FStatus -Label "NEXT" -Message "Learned Track 2F training remains blocked until its model types are implemented."
+
+$campaignConfigPathList = $campaignConfigFileNameList | ForEach-Object {
+    Join-Path $campaignConfigRoot $_
 }
+
+foreach ($queueSubdirectoryName in @("pending", "running")) {
+    $queueSubdirectoryPath = Join-Path $queueRoot $queueSubdirectoryName
+    if (-not (Test-Path -LiteralPath $queueSubdirectoryPath)) {
+        continue
+    }
+
+    foreach ($campaignConfigFileName in $campaignConfigFileNameList) {
+        Get-ChildItem -LiteralPath $queueSubdirectoryPath -File -ErrorAction SilentlyContinue |
+            Where-Object { $_.Name -like "*$campaignConfigFileName" } |
+            Remove-Item -Force
+    }
+}
+
+if ($Remote) {
+    $remoteLauncherPath = "scripts\campaigns\infrastructure\run_remote_training_campaign.ps1"
+    $sourceSyncPathList = @("scripts", "config", "doc", "requirements.txt", "AGENTS.md")
+
+    & $remoteLauncherPath `
+        -CampaignConfigPathList $campaignConfigPathList `
+        -CampaignName $campaignName `
+        -PlanningReportPath $planningReportPath `
+        -RemoteHostAlias $RemoteHostAlias `
+        -RemoteRepositoryPath $RemoteRepositoryPath `
+        -RemoteCondaEnvironmentName $RemoteCondaEnvironmentName `
+        -SourceSyncPathList $sourceSyncPathList
+    exit $LASTEXITCODE
+}
+
+$argumentList = @(
+    "scripts\training\run_training_campaign.py"
+) + $campaignConfigPathList + @(
+    "--campaign-name",
+    $campaignName,
+    "--planning-report-path",
+    $planningReportPath
+)
+
+Write-Track2FStatus -Label "STEP" -Message "Launching local sequential residual-offset probe campaign."
+$trainingExitCode = Invoke-Track2FPython -ArgumentList $argumentList
+exit $trainingExitCode

@@ -19,6 +19,8 @@ CAMPAIGN_ROOT = Path(
     "2026-06-03_track2f_offset_aware_probe_campaign"
 )
 PROBE_DESCRIPTOR_ROOT = CAMPAIGN_ROOT / "probe_descriptors"
+QUEUE_ROOT = CAMPAIGN_ROOT / "queue"
+DATASET_VARIANT_ROOT = CAMPAIGN_ROOT / "dataset_variants"
 PLANNING_REPORT_PATH = Path(
     "doc/reports/campaign_plans/track2/"
     "2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md"
@@ -27,14 +29,23 @@ TECHNICAL_DOCUMENT_PATH = Path(
     "doc/technical/2026-06/2026-06-03/"
     "2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md"
 )
+SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH = Path(
+    "doc/technical/2026-06/2026-06-03/"
+    "2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md"
+)
 LAUNCHER_PATH = Path("scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1")
 VALIDATOR_PATH = Path("scripts/campaigns/track2/validate_track2f_offset_aware_probe_package.py")
 LAUNCHER_NOTE_PATH = Path("doc/scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.md")
 ACTIVE_CAMPAIGN_STATE_PATH = Path("doc/running/active_training_campaign.yaml")
+MODEL_REPORT_PATH = Path("doc/reports/analysis/wave2/Track 2F Sequential Residual-Offset Probe Model.md")
 CAMPAIGN_OUTPUT_DIRECTORY = Path("output/training_campaigns") / CAMPAIGN_NAME
 BASELINE_STATUS_OUTPUT_DIRECTORY = (
     Path("output/validation_checks/track2f_offset_aware_probe")
     / "2026-06-03_track2f_offset_aware_probe_prelaunch"
+)
+SOURCE_DATASET_VARIANT_ROOT = Path(
+    "config/training/wave2c_residual_harmonic_temporal_hybrid/campaigns/"
+    "2026-05-27_wave2c_residual_harmonic_temporal_hybrid_campaign/dataset_variants"
 )
 TRACK2E_RECOMMENDATION_PATH = Path(
     "output/validation_checks/track2e_offset_predictability_feasibility/"
@@ -66,12 +77,9 @@ INTERVENTION_DICTIONARY = {
         "launch_guard": "validation_only_no_training_entrypoint_required",
     },
     "sequential_residual_offset_probe": {
-        "implementation_status": "blocked_until_model_type_implementation",
+        "implementation_status": "runnable_training_entry",
         "role": "second_stage_causal_residual_offset_predictor",
-        "launch_guard": (
-            "blocked because scripts/training/run_training_campaign.py has no "
-            "sequential_residual_offset_probe model_type"
-        ),
+        "launch_guard": "runnable after Track 2F sequential residual-offset model registration",
     },
     "multi_head_shape_offset_probe": {
         "implementation_status": "blocked_until_model_type_implementation",
@@ -80,6 +88,35 @@ INTERVENTION_DICTIONARY = {
             "blocked because scripts/training/run_training_campaign.py has no "
             "multi_head_shape_offset_probe model_type"
         ),
+    },
+}
+DIRECTION_METADATA_DICTIONARY = {
+    "global": {
+        "training_variant": "global",
+        "direction_scope_label": "bidirectional",
+        "use_forward_direction": True,
+        "use_backward_direction": True,
+        "model_family": "sequential_residual_offset_probe",
+        "run_direction_token": "global",
+        "dataset_file_name": "transmission_error_dataset_global.yaml",
+    },
+    "fw": {
+        "training_variant": "Fw",
+        "direction_scope_label": "forward_only",
+        "use_forward_direction": True,
+        "use_backward_direction": False,
+        "model_family": "sequential_residual_offset_probe_fw",
+        "run_direction_token": "fw",
+        "dataset_file_name": "transmission_error_dataset_fw.yaml",
+    },
+    "bw": {
+        "training_variant": "Bw",
+        "direction_scope_label": "backward_only",
+        "use_forward_direction": False,
+        "use_backward_direction": True,
+        "model_family": "sequential_residual_offset_probe_bw",
+        "run_direction_token": "bw",
+        "dataset_file_name": "transmission_error_dataset_bw.yaml",
     },
 }
 
@@ -214,6 +251,123 @@ def write_probe_descriptors() -> list[Path]:
     return descriptor_path_list
 
 
+def copy_dataset_variants() -> list[Path]:
+
+    """Copy the direction-specific dataset variants into the Track 2F package."""
+
+    dataset_variant_path_list: list[Path] = []
+    for direction_metadata in DIRECTION_METADATA_DICTIONARY.values():
+        dataset_file_name = str(direction_metadata["dataset_file_name"])
+        source_path = PROJECT_PATH / SOURCE_DATASET_VARIANT_ROOT / dataset_file_name
+        target_path = PROJECT_PATH / DATASET_VARIANT_ROOT / dataset_file_name
+        assert source_path.exists(), f"Missing source dataset variant | {source_path}"
+        dataset_payload = read_yaml_file(source_path)
+        write_yaml_file(target_path, dataset_payload)
+        dataset_variant_path_list.append(DATASET_VARIANT_ROOT / dataset_file_name)
+    return dataset_variant_path_list
+
+
+def build_sequential_probe_training_config(queue_index: int, surface_key: str) -> dict[str, Any]:
+
+    """Build one runnable sequential residual-offset training config."""
+
+    direction_metadata = DIRECTION_METADATA_DICTIONARY[surface_key]
+    model_family = str(direction_metadata["model_family"])
+    run_direction_token = str(direction_metadata["run_direction_token"])
+    dataset_file_name = str(direction_metadata["dataset_file_name"])
+    return {
+        "paths": {
+            "dataset_config_path": to_posix_path(DATASET_VARIANT_ROOT / dataset_file_name),
+            "output_root": f"output/training_runs/{model_family}",
+        },
+        "experiment": {
+            "run_name": f"te_sequential_residual_offset_probe_remote_{run_direction_token}",
+            "model_family": model_family,
+            "model_type": "sequential_residual_offset_probe",
+        },
+        "metadata": {
+            "campaign_name": CAMPAIGN_NAME,
+            "planning_report_path": to_posix_path(PLANNING_REPORT_PATH),
+            "technical_document_path": to_posix_path(SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH),
+            "parent_technical_document_path": to_posix_path(TECHNICAL_DOCUMENT_PATH),
+            "phase_name": "track2f_sequential_residual_offset_probe_training",
+            "campaign_config_id": model_family,
+            "queue_index": queue_index,
+            "base_model_family": "sequential_residual_offset_probe",
+            "training_variant": direction_metadata["training_variant"],
+            "direction_scope_label": direction_metadata["direction_scope_label"],
+            "use_forward_direction": bool(direction_metadata["use_forward_direction"]),
+            "use_backward_direction": bool(direction_metadata["use_backward_direction"]),
+            "track2e_reference_candidate": SURFACE_REFERENCE_DICTIONARY[surface_key]["track2e_reference_candidate"],
+            "track2e_recommendation_path": to_posix_path(TRACK2E_RECOMMENDATION_PATH),
+            "runtime_input_contract": "current point state plus supported short causal sequence history only",
+            "notes": (
+                "Track 2F sequential residual-offset probe. Final TE prediction is "
+                "base_te_prediction + residual_offset_prediction. Candidate must "
+                "return through official Track 2 curve-first verification."
+            ),
+        },
+        "dataset": {
+            "curve_batch_size": 2,
+            "point_stride": 1,
+            "maximum_points_per_curve": None,
+            "collate_mode": "sequence",
+            "sequence_length": 33,
+            "sequence_stride": 4,
+            "sequence_target_position": "center",
+            "maximum_sequences_per_curve": 192,
+            "num_workers": 8,
+            "pin_memory": True,
+        },
+        "model": {
+            "input_size": 5,
+            "output_size": 1,
+            "base_hidden_size": [96, 64],
+            "base_activation_name": "GELU",
+            "base_dropout_probability": 0.05,
+            "base_use_layer_norm": True,
+            "offset_hidden_size": 96,
+            "offset_num_layers": 2,
+            "offset_dropout_probability": 0.10,
+            "offset_bidirectional": False,
+            "offset_readout_position": "center",
+            "offset_scale": 1.0,
+        },
+        "training": {
+            "learning_rate": 0.0005,
+            "weight_decay": 0.0001,
+            "min_epochs": 20,
+            "max_epochs": 260,
+            "patience": 40,
+            "min_delta": 1.0e-05,
+            "log_every_n_steps": 1,
+            "fast_dev_run": False,
+            "deterministic": False,
+        },
+        "runtime": {
+            "accelerator": "auto",
+            "devices": "auto",
+            "precision": "32",
+            "benchmark": True,
+            "use_non_blocking_transfer": True,
+        },
+    }
+
+
+def write_sequential_probe_queue_configs() -> list[Path]:
+
+    """Write the three runnable sequential probe queue YAML files."""
+
+    queue_path_list: list[Path] = []
+    for queue_index, surface_key in enumerate(SURFACE_REFERENCE_DICTIONARY, start=1):
+        queue_file_name = f"{queue_index:02d}_sequential_residual_offset_probe_{surface_key}.yaml"
+        queue_path = QUEUE_ROOT / queue_file_name
+        training_config = build_sequential_probe_training_config(queue_index, surface_key)
+        write_yaml_file(PROJECT_PATH / queue_path, training_config)
+        queue_path_list.append(queue_path)
+    return queue_path_list
+
+
 def write_campaign_readme(descriptor_path_list: list[Path]) -> Path:
 
     """Write a campaign-local README for the prepared descriptor package."""
@@ -227,12 +381,11 @@ def write_campaign_readme(descriptor_path_list: list[Path]) -> Path:
 
 This package materializes the approved Track 2F offset-aware probe plan.
 
-It contains descriptor entries rather than standard `run_training_campaign.py`
-YAML files because the repository does not yet implement the learned
-`sequential_residual_offset_probe` and `multi_head_shape_offset_probe` model
-types. The post-hoc `direction_torque` offset baseline is runnable as a
-validation-only benchmark; learned probes remain guarded until the matching
-model types are introduced through a later technical gate.
+It contains descriptor entries for the full Track 2F matrix plus three
+runnable `sequential_residual_offset_probe` queue YAML files. The post-hoc
+`direction_torque` offset baseline remains a validation-only benchmark, while
+`multi_head_shape_offset_probe` remains guarded until its own model type is
+introduced through a later technical gate.
 
 ## Descriptor Matrix
 
@@ -246,14 +399,13 @@ Preflight validation:
 .\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly
 ```
 
-Baseline-status validation:
+Sequential probe training:
 
 ```powershell
 .\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
-Remote training is intentionally guarded until the learned Track 2F model
-types exist:
+Remote sequential probe training:
 
 ```powershell
 .\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -Remote
@@ -287,8 +439,16 @@ Set-Location $projectRoot
 
 $campaignName = "{CAMPAIGN_NAME}"
 $descriptorRoot = "{to_windows_path(PROBE_DESCRIPTOR_ROOT)}"
+$campaignConfigRoot = "{to_windows_path(QUEUE_ROOT)}"
 $validatorPath = "{to_windows_path(VALIDATOR_PATH)}"
 $baselineOutputRoot = "{to_windows_path(BASELINE_STATUS_OUTPUT_DIRECTORY)}"
+$planningReportPath = "{to_windows_path(PLANNING_REPORT_PATH)}"
+$queueRoot = "config\\training\\queue"
+$campaignConfigFileNameList = @(
+    "01_sequential_residual_offset_probe_global.yaml"
+    "02_sequential_residual_offset_probe_fw.yaml"
+    "03_sequential_residual_offset_probe_bw.yaml"
+)
 
 function Write-Track2FStatus {{
     param(
@@ -317,13 +477,7 @@ function Invoke-Track2FPython {{
 
 Write-Track2FStatus -Label "INFO" -Message ("Campaign: {{0}}" -f $campaignName)
 Write-Track2FStatus -Label "INFO" -Message ("Descriptor root: {{0}}" -f $descriptorRoot)
-
-if ($Remote) {{
-    Write-Track2FStatus -Label "BLOCKED" -Message "Remote Track 2F learned training is not enabled yet."
-    Write-Track2FStatus -Label "BLOCKED" -Message "The prepared descriptors include learned probe placeholders, but the model types are not implemented in scripts/training/run_training_campaign.py."
-    Write-Track2FStatus -Label "NEXT" -Message "Implement the sequential and multi-head Track 2F model types, then replace this guard with the canonical remote training sync wrapper."
-    exit 2
-}}
+Write-Track2FStatus -Label "INFO" -Message ("Runnable queue root: {{0}}" -f $campaignConfigRoot)
 
 $validatorArgumentList = @(
     $validatorPath,
@@ -348,11 +502,53 @@ if ($pythonExitCode -ne 0) {{
 
 if ($PreflightOnly) {{
     Write-Track2FStatus -Label "DONE" -Message "Preflight validation completed without launching training."
+    exit 0
 }}
-else {{
-    Write-Track2FStatus -Label "DONE" -Message "Baseline-status artifacts written without launching learned training."
-    Write-Track2FStatus -Label "NEXT" -Message "Learned Track 2F training remains blocked until its model types are implemented."
+
+$campaignConfigPathList = $campaignConfigFileNameList | ForEach-Object {{
+    Join-Path $campaignConfigRoot $_
 }}
+
+foreach ($queueSubdirectoryName in @("pending", "running")) {{
+    $queueSubdirectoryPath = Join-Path $queueRoot $queueSubdirectoryName
+    if (-not (Test-Path -LiteralPath $queueSubdirectoryPath)) {{
+        continue
+    }}
+
+    foreach ($campaignConfigFileName in $campaignConfigFileNameList) {{
+        Get-ChildItem -LiteralPath $queueSubdirectoryPath -File -ErrorAction SilentlyContinue |
+            Where-Object {{ $_.Name -like "*$campaignConfigFileName" }} |
+            Remove-Item -Force
+    }}
+}}
+
+if ($Remote) {{
+    $remoteLauncherPath = "scripts\\campaigns\\infrastructure\\run_remote_training_campaign.ps1"
+    $sourceSyncPathList = @("scripts", "config", "doc", "requirements.txt", "AGENTS.md")
+
+    & $remoteLauncherPath `
+        -CampaignConfigPathList $campaignConfigPathList `
+        -CampaignName $campaignName `
+        -PlanningReportPath $planningReportPath `
+        -RemoteHostAlias $RemoteHostAlias `
+        -RemoteRepositoryPath $RemoteRepositoryPath `
+        -RemoteCondaEnvironmentName $RemoteCondaEnvironmentName `
+        -SourceSyncPathList $sourceSyncPathList
+    exit $LASTEXITCODE
+}}
+
+$argumentList = @(
+    "scripts\\training\\run_training_campaign.py"
+) + $campaignConfigPathList + @(
+    "--campaign-name",
+    $campaignName,
+    "--planning-report-path",
+    $planningReportPath
+)
+
+Write-Track2FStatus -Label "STEP" -Message "Launching local sequential residual-offset probe campaign."
+$trainingExitCode = Invoke-Track2FPython -ArgumentList $argumentList
+exit $trainingExitCode
 """
     output_path = PROJECT_PATH / LAUNCHER_PATH
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -370,16 +566,14 @@ def write_launcher_note() -> None:
 This launcher validates the prepared Track 2F offset-aware probe package.
 
 The package contains nine descriptor entries across `global`, `Fw`, and `Bw`
-surfaces:
+surfaces and three runnable sequential residual-offset queue YAML files:
 
 - three `posthoc_direction_torque_offset_baseline` validation entries;
-- three `sequential_residual_offset_probe` learned-probe placeholders;
+- three `sequential_residual_offset_probe` training entries;
 - three `multi_head_shape_offset_probe` learned-probe placeholders.
 
-The learned probe entries are intentionally guarded because the current
-training runner does not yet implement their model types. The launcher can
-therefore validate the prepared package and write baseline-status artifacts,
-but it must not be treated as approval to start learned Track 2F training.
+The multi-head entries remain guarded because that model type is intentionally
+deferred to a later technical gate.
 
 ## Local Preflight
 
@@ -397,7 +591,7 @@ python` so the repository YAML dependencies are available. Use
 `-PythonExecutable` only when pointing at another Python environment that has
 the same dependencies installed.
 
-## Baseline-Status Validation
+## Local Sequential Probe Training
 
 Run this from the repository root:
 
@@ -405,14 +599,10 @@ Run this from the repository root:
 .\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1
 ```
 
-This writes a lightweight status bundle under:
+This validates the package, enqueues the three sequential residual-offset
+training YAML files, and starts the local campaign runner.
 
-`{to_posix_path(BASELINE_STATUS_OUTPUT_DIRECTORY)}`
-
-The status bundle records which entries are runnable as non-training post-hoc
-baselines and which entries are blocked pending model-type implementation.
-
-## Remote Guard
+## Remote Sequential Probe Training
 
 The operator-facing remote command is recorded for continuity:
 
@@ -420,20 +610,21 @@ The operator-facing remote command is recorded for continuity:
 .\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -Remote
 ```
 
-At this stage the command exits with a guard message instead of using the
-remote training sync wrapper. The guard is deliberate: launching through the
-standard remote training path would hand unsupported Track 2F model types to
-`scripts/training/run_training_campaign.py`.
-
-The remote path should be enabled only after a later approved implementation
-adds the sequential residual-offset and multi-head shape/offset model types.
+This uses the canonical remote training sync wrapper for the three runnable
+sequential residual-offset queue YAML files. It does not launch the multi-head
+placeholder entries.
 """
     output_path = PROJECT_PATH / LAUNCHER_NOTE_PATH
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(launcher_note_text, encoding="utf-8")
 
 
-def write_active_campaign_state(descriptor_path_list: list[Path], readme_path: Path) -> None:
+def write_active_campaign_state(
+    descriptor_path_list: list[Path],
+    dataset_variant_path_list: list[Path],
+    queue_path_list: list[Path],
+    readme_path: Path,
+) -> None:
 
     """Write the persistent active campaign state for Track 2F."""
 
@@ -444,10 +635,14 @@ def write_active_campaign_state(descriptor_path_list: list[Path], readme_path: P
     ]
     protected_file_list = [
         to_posix_path(TECHNICAL_DOCUMENT_PATH),
+        to_posix_path(SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH),
+        to_posix_path(MODEL_REPORT_PATH),
         to_posix_path(PLANNING_REPORT_PATH),
         to_posix_path(LAUNCHER_PATH),
         to_posix_path(LAUNCHER_NOTE_PATH),
         to_posix_path(readme_path),
+        *[to_posix_path(dataset_variant_path) for dataset_variant_path in dataset_variant_path_list],
+        *[to_posix_path(queue_path) for queue_path in queue_path_list],
         *[to_posix_path(descriptor_path) for descriptor_path in descriptor_path_list],
     ]
     active_campaign_state = {
@@ -459,13 +654,13 @@ def write_active_campaign_state(descriptor_path_list: list[Path], readme_path: P
         "campaign_config_root": to_posix_path(CAMPAIGN_ROOT),
         "campaign_output_directory": to_posix_path(CAMPAIGN_OUTPUT_DIRECTORY),
         "baseline_status_output_directory": to_posix_path(BASELINE_STATUS_OUTPUT_DIRECTORY),
-        "execution_status": "prelaunch_baseline_validation_only",
+        "execution_status": "prepared_for_sequential_residual_offset_probe_training",
         "training_launch_guard": (
-            "learned Track 2F probes are blocked until sequential and multi-head "
-            "offset-aware model types are implemented"
+            "multi-head Track 2F probes remain blocked until the multi-head "
+            "shape/offset model type is implemented"
         ),
         "protected_file_list": protected_file_list,
-        "queue_config_path_list": [to_posix_path(descriptor_path) for descriptor_path in descriptor_path_list],
+        "queue_config_path_list": [to_posix_path(queue_path) for queue_path in queue_path_list],
         "launch_command_list": launch_command_list,
     }
     write_yaml_file(PROJECT_PATH / ACTIVE_CAMPAIGN_STATE_PATH, active_campaign_state)
@@ -478,24 +673,35 @@ def main() -> int:
     validate_no_conflicting_active_campaign()
     assert (PROJECT_PATH / PLANNING_REPORT_PATH).exists(), f"Missing plan | {PLANNING_REPORT_PATH}"
     assert (PROJECT_PATH / TECHNICAL_DOCUMENT_PATH).exists(), f"Missing doc | {TECHNICAL_DOCUMENT_PATH}"
+    assert (PROJECT_PATH / SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH).exists(), (
+        f"Missing sequential probe doc | {SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH}"
+    )
     assert (PROJECT_PATH / TRACK2E_RECOMMENDATION_PATH).exists(), (
         f"Missing Track 2E recommendation CSV | {TRACK2E_RECOMMENDATION_PATH}"
     )
 
     descriptor_path_list = write_probe_descriptors()
+    dataset_variant_path_list = copy_dataset_variants()
+    queue_path_list = write_sequential_probe_queue_configs()
     readme_path = write_campaign_readme(descriptor_path_list)
     write_launcher()
     write_launcher_note()
-    write_active_campaign_state(descriptor_path_list, readme_path)
+    write_active_campaign_state(
+        descriptor_path_list,
+        dataset_variant_path_list,
+        queue_path_list,
+        readme_path,
+    )
 
     print(f"Prepared {CAMPAIGN_NAME}")
     print(f"Descriptor count: {len(descriptor_path_list)}")
+    print(f"Runnable queue count: {len(queue_path_list)}")
     print(f"Campaign root: {to_posix_path(CAMPAIGN_ROOT)}")
     print("Local preflight command:")
     print(".\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -PreflightOnly")
-    print("Baseline-status command:")
+    print("Local sequential training command:")
     print(".\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1")
-    print("Remote command, guarded until learned model types exist:")
+    print("Remote sequential training command:")
     print(".\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -Remote")
     return 0
 

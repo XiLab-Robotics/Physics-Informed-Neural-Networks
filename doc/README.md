@@ -114,6 +114,11 @@ This folder contains the internal project documents derived from the reference P
   families that add recurrent sequence residuals over a structured harmonic
   base.
 
+- [reports/analysis/wave2/Track 2F Sequential Residual-Offset Probe Model.md](./reports/analysis/wave2/Track%202F%20Sequential%20Residual-Offset%20Probe%20Model.md)
+  Explanatory report for the first learned `Track 2F`
+  `sequential_residual_offset_probe` model, including branch structure,
+  causal input boundary, implemented files, and verification status.
+
 - [reports/analysis/rcim_paper_reference/RCIM Exact Paper Model Bank Workflow.md](./reports/analysis/rcim_paper_reference/RCIM%20Exact%20Paper%20Model%20Bank%20Workflow.md)
   Explanatory report for the strict paper-faithful RCIM family-bank branch,
   including the exact target schema, recovered family inventory, operating
@@ -223,6 +228,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-03
+
+- [technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md](./technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md)
+  Plan the first learned `Track 2F` implementation step by adding the
+  `sequential_residual_offset_probe` model type and converting the prepared
+  sequential descriptors into runnable campaign entries.
 
 - [technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md](./technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md)
   Plan the `Track 2F` offset-aware probe campaign gate that compares
