@@ -6,6 +6,7 @@ Models API
 
    feedforward_network
    harmonic_regression
+   harmonic_residual_offset_network
    periodic_feature_network
    periodic_temporal_sequence_network
    residual_harmonic_network

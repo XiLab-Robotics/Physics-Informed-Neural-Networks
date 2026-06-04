@@ -11,6 +11,7 @@ import torch.nn as nn
 # Import Project Models
 from scripts.models.feedforward_network import FeedForwardNetwork
 from scripts.models.harmonic_regression import HarmonicRegression
+from scripts.models.harmonic_residual_offset_network import HarmonicResidualOffsetNetwork
 from scripts.models.periodic_feature_network import PeriodicFeatureNetwork
 from scripts.models.periodic_temporal_sequence_network import PeriodicTemporalSequenceNetwork
 from scripts.models.residual_harmonic_network import ResidualHarmonicNetwork
@@ -212,6 +213,23 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             offset_bidirectional=bool(model_configuration.get("offset_bidirectional", False)),
             offset_readout_position=str(model_configuration.get("offset_readout_position", "center")),
             offset_scale=float(model_configuration.get("offset_scale", 1.0)),
+        )
+
+    # Create Track 2F-Bis Harmonic Residual-Offset Probe
+    if normalized_model_type == "harmonic_residual_offset_probe":
+        return HarmonicResidualOffsetNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration["harmonic_order"]),
+            coefficient_mode=str(model_configuration.get("coefficient_mode", "linear_conditioned")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            offset_hidden_size=int(model_configuration.get("offset_hidden_size", 96)),
+            offset_num_layers=int(model_configuration.get("offset_num_layers", 2)),
+            offset_dropout_probability=float(model_configuration.get("offset_dropout_probability", 0.10)),
+            offset_bidirectional=bool(model_configuration.get("offset_bidirectional", False)),
+            offset_readout_position=str(model_configuration.get("offset_readout_position", "center")),
+            offset_scale=float(model_configuration.get("offset_scale", 1.0)),
+            freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
         )
 
     # Create Periodic LSTM Sequence Model

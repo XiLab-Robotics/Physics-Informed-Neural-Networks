@@ -229,6 +229,12 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-04
 
+- [technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md](./technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md)
+  Plan the Track 2F-bis harmonic-offset probe that keeps the clean
+  non-harmonic Track 2F branch as a control while adding an explicit harmonic
+  shape branch plus causal offset branch for separate `global`, `Fw`, and `Bw`
+  comparisons.
+
 - [technical/2026-06/2026-06-04/2026-06-04-21-07-46_track2f_clean_baseline_and_harmonic_offset_followup.md](./technical/2026-06/2026-06-04/2026-06-04-21-07-46_track2f_clean_baseline_and_harmonic_offset_followup.md)
   Plan the Track 2F follow-up documentation update that records
   `sequential_residual_offset_probe` as a clean non-harmonic baseline and
@@ -2097,6 +2103,11 @@ This folder contains the internal project documents derived from the reference P
   hybrid launcher across periodic temporal convolution, periodic `GRU`, and
   periodic `LSTM` sequence models.
 
+- [scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.md](./scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.md)
+  Script-level documentation for the prepared Track 2F-bis harmonic-offset
+  launcher across clean non-harmonic controls and explicit harmonic-offset
+  probes for `global`, `Fw`, and `Bw`.
+
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 
@@ -2154,6 +2165,14 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf](./reports/analysis/validation_checks/2026-03-30-10-46-47_feedforward_te_feedforward_trial_skill_operational_test_validation_setup_report.pdf)
   Styled PDF export of the feedforward trial validation-check report.
+
+- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_2c54bdf1_te_track2f_bis_clean_residual_o_00ddc617_validation_setup_report.md)
+  One-batch validation setup report for the Track 2F-bis clean non-harmonic
+  control `global` entry.
+
+- [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
+  One-batch validation setup report for the Track 2F-bis harmonic-offset
+  `global` entry.
 
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
   Foundational learning guide that explains supervised learning, neurons, MLPs, loss functions, backpropagation, and generalization in the TE project context.
@@ -2270,6 +2289,11 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the unified residual-harmonic network guide.
 
 #### Latest Campaign Plans
+
+- [reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md)
+  Preliminary campaign plan for the `Track 2F-bis` harmonic-offset probe that
+  compares clean non-harmonic Track 2F-like controls against explicit
+  harmonic-offset candidates across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2F` offset-aware probe comparing

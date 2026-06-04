@@ -1,48 +1,38 @@
-status: none
-campaign_name: null
-cleared_at: '2026-06-04T12:40:44+02:00'
-clear_reason: completed_campaign_removed_from_running_state_after_closeout_report
-last_completed_campaign:
-  campaign_name: track2f_offset_aware_probe_campaign_2026_06_03
-  status: completed
-  started_at: '2026-06-04T11:36:09'
-  finished_at: '2026-06-04T12:04:47'
-  completion_recorded_at: '2026-06-04T12:04:47'
-  completed_run_count: 3
-  failed_run_count: 0
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md
-  closeout_report_path: doc/reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md
-  campaign_output_directory: output/training_campaigns/2026-06-04-11-36-09_track2f_offset_aware_probe_campaign_2026_06_03
-  track2_status: not_run_optional_operator_launch_required
-  branch_best_list:
-  - surface: global
-    run_name: te_sequential_residual_offset_probe_remote_global
-    run_instance_id: 2026-06-04-11-36-09__te_sequential_residual_offset_probe_remote_global
-    model_family: sequential_residual_offset_probe
-    model_type: sequential_residual_offset_probe
-    test_mae: 0.0035365470685064793
-    test_rmse: 0.004005025140941143
-    val_mae: 0.0037831298541277647
-    best_checkpoint_path: output\training_runs\sequential_residual_offset_probe\2026-06-04-11-36-09__te_sequential_residual_offset_probe_remote_global\checkpoints\sequential_residual_offset_probe-epoch=061-val_mae=0.00378313.ckpt
-  - surface: Fw
-    run_name: te_sequential_residual_offset_probe_remote_fw
-    run_instance_id: 2026-06-04-11-45-31__te_sequential_residual_offset_probe_remote_fw
-    model_family: sequential_residual_offset_probe_fw
-    model_type: sequential_residual_offset_probe
-    test_mae: 0.0033847105223685503
-    test_rmse: 0.003931487910449505
-    val_mae: 0.0033800131641328335
-    best_checkpoint_path: output\training_runs\sequential_residual_offset_probe_fw\2026-06-04-11-45-31__te_sequential_residual_offset_probe_remote_fw\checkpoints\sequential_residual_offset_probe-epoch=168-val_mae=0.00338001.ckpt
-  - surface: Bw
-    run_name: te_sequential_residual_offset_probe_remote_bw
-    run_instance_id: 2026-06-04-11-57-40__te_sequential_residual_offset_probe_remote_bw
-    model_family: sequential_residual_offset_probe_bw
-    model_type: sequential_residual_offset_probe
-    test_mae: 0.003637756686657667
-    test_rmse: 0.004280265420675278
-    val_mae: 0.0038399631157517433
-    best_checkpoint_path: output\training_runs\sequential_residual_offset_probe_bw\2026-06-04-11-57-40__te_sequential_residual_offset_probe_remote_bw\checkpoints\sequential_residual_offset_probe-epoch=061-val_mae=0.00383996.ckpt
-protected_file_list: []
-queue_config_path_list: []
-launch_command_list: []
+status: prepared
+campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+prepared_at: '2026-06-04T23:06:20+02:00'
+planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+technical_document_path: doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
+campaign_config_root: config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign
+campaign_output_directory: output/training_campaigns/track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+execution_status: prepared_for_track2f_bis_harmonic_offset_probe_training
+protected_file_list:
+- doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
+- doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+- scripts/models/harmonic_residual_offset_network.py
+- scripts/models/model_factory.py
+- scripts/models/__init__.py
+- scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.ps1
+- scripts/campaigns/track2/validate_track2f_bis_harmonic_offset_probe_package.py
+- doc/scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.md
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/README.md
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_global.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_fw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_bw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/01_clean_sequential_residual_offset_control_global.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/02_clean_sequential_residual_offset_control_fw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/03_clean_sequential_residual_offset_control_bw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/04_harmonic_residual_offset_probe_global.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/05_harmonic_residual_offset_probe_fw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/06_harmonic_residual_offset_probe_bw.yaml
+queue_config_path_list:
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/01_clean_sequential_residual_offset_control_global.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/02_clean_sequential_residual_offset_control_fw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/03_clean_sequential_residual_offset_control_bw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/04_harmonic_residual_offset_probe_global.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/05_harmonic_residual_offset_probe_fw.yaml
+- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/06_harmonic_residual_offset_probe_bw.yaml
+launch_command_list:
+- .\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -PreflightOnly
+- .\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1
+- .\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -Remote
