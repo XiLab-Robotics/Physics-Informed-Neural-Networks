@@ -112,6 +112,15 @@ WAVE2C_FAMILY_CONFIGURATION_LIST = [
         "bw_family": "residual_harmonic_lstm_sequence_bw_dense360",
     },
 ]
+TRACK2F_FAMILY_CONFIGURATION_LIST = [
+    {
+        "candidate_id_prefix": "sequential_residual_offset_probe",
+        "candidate_family": "sequential_residual_offset_probe",
+        "global_family": "sequential_residual_offset_probe",
+        "fw_family": "sequential_residual_offset_probe_fw",
+        "bw_family": "sequential_residual_offset_probe_bw",
+    },
+]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
     "paper_retuned_best_Fw",
@@ -360,6 +369,44 @@ def build_wave2c_registry_candidate_configuration_list(family_registry_root: Pat
     return candidate_configuration_list
 
 
+def build_track2f_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Track 2F offset-aware probe candidates."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST:
+        candidate_id_prefix = str(family_configuration["candidate_id_prefix"])
+        candidate_family = str(family_configuration["candidate_family"])
+        surface_family_dictionary = {
+            "global": str(family_configuration["global_family"]),
+            "Fw": str(family_configuration["fw_family"]),
+            "Bw": str(family_configuration["bw_family"]),
+        }
+        for candidate_surface, allowed_direction_list in [
+            ("global", ["forward", "backward"]),
+            ("Fw", ["forward"]),
+            ("Bw", ["backward"]),
+        ]:
+            registry_family_name = surface_family_dictionary[candidate_surface]
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{candidate_id_prefix}_{candidate_surface}",
+                    "candidate_family": candidate_family,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "track2f_offset_aware_probe_registry",
+                    "candidate_surface": candidate_surface,
+                    "family_registry_path": f"{registry_root_text}/{registry_family_name}/latest_family_best.yaml",
+                    "allowed_direction_list": allowed_direction_list,
+                }
+            )
+
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -470,6 +517,7 @@ def resolve_report_candidate_configuration_list(
         + build_wave1_registry_candidate_configuration_list(family_registry_root)
         + build_wave2_registry_candidate_configuration_list(family_registry_root)
         + build_wave2c_registry_candidate_configuration_list(family_registry_root)
+        + build_track2f_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -501,6 +549,18 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
     wave2c_global_candidate_id_list = [
         f"{family_configuration['candidate_id_prefix']}_global"
         for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_global_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_global"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
     ]
 
     return [
@@ -553,6 +613,18 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             selection_mode="backward",
         ),
         ReportCandidateGroup(
+            group_id="forward_track2f",
+            group_title="Forward Track 2F Offset-Aware Probe Models",
+            candidate_id_list=track2f_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_track2f",
+            group_title="Backward Track 2F Offset-Aware Probe Models",
+            candidate_id_list=track2f_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
             group_id="global_wave1",
             group_title="Global Wave 1 Family Best Models",
             candidate_id_list=wave1_global_candidate_id_list,
@@ -568,6 +640,12 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             group_id="global_wave2c",
             group_title="Global Wave 2C Residual Harmonic Temporal Models",
             candidate_id_list=wave2c_global_candidate_id_list,
+            selection_mode="mixed",
+        ),
+        ReportCandidateGroup(
+            group_id="global_track2f",
+            group_title="Global Track 2F Offset-Aware Probe Models",
+            candidate_id_list=track2f_global_candidate_id_list,
             selection_mode="mixed",
         ),
     ]

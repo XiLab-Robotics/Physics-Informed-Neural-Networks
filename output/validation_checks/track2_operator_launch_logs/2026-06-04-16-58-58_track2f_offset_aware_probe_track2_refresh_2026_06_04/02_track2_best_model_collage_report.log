@@ -1,0 +1,3 @@
+W0604 17:00:42.198000 14136 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+[DONE] Track 2 collage report: doc\reports\analysis\track2\best_model_collage_report\[2026-06-04]\track2_best_model_collage_report.md
+[DONE] Artifacts: output\validation_checks\track2_best_model_collage_report\2026-06-04-17-00-42__track2_best_model_collage_report

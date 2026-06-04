@@ -106,6 +106,14 @@ WAVE2C_FAMILY_CONFIGURATION_LIST = [
         "bw_family": "residual_harmonic_lstm_sequence_bw_dense360",
     },
 ]
+TRACK2F_FAMILY_CONFIGURATION_LIST = [
+    {
+        "candidate_id_prefix": "sequential_residual_offset_probe",
+        "candidate_family": "sequential_residual_offset_probe",
+        "fw_family": "sequential_residual_offset_probe_fw",
+        "bw_family": "sequential_residual_offset_probe_bw",
+    },
+]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
     "paper_retuned_best_Fw",
@@ -335,6 +343,42 @@ def build_wave2c_registry_candidate_configuration_list(family_registry_root: Pat
     return candidate_configuration_list
 
 
+def build_track2f_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Track 2F offset-aware probe candidates."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST:
+        candidate_id_prefix = str(family_configuration["candidate_id_prefix"])
+        candidate_family = str(family_configuration["candidate_family"])
+        surface_family_dictionary = {
+            "Fw": str(family_configuration["fw_family"]),
+            "Bw": str(family_configuration["bw_family"]),
+        }
+        for candidate_surface, allowed_direction_list in [
+            ("Fw", ["forward"]),
+            ("Bw", ["backward"]),
+        ]:
+            registry_family_name = surface_family_dictionary[candidate_surface]
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{candidate_id_prefix}_{candidate_surface}",
+                    "candidate_family": candidate_family,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "track2f_offset_aware_probe_registry",
+                    "candidate_surface": candidate_surface,
+                    "family_registry_path": f"{registry_root_text}/{registry_family_name}/latest_family_best.yaml",
+                    "allowed_direction_list": allowed_direction_list,
+                }
+            )
+
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -440,6 +484,7 @@ def resolve_report_candidate_configuration_list(
         + build_wave1_registry_candidate_configuration_list(family_registry_root)
         + build_wave2_registry_candidate_configuration_list(family_registry_root)
         + build_wave2c_registry_candidate_configuration_list(family_registry_root)
+        + build_track2f_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -464,6 +509,14 @@ def build_base_comparison_group_list() -> list[ReportComparisonGroup]:
     wave2c_backward_candidate_id_list = [
         f"{family_configuration['candidate_id_prefix']}_Bw"
         for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
     ]
     return [
         ReportComparisonGroup(
@@ -512,6 +565,18 @@ def build_base_comparison_group_list() -> list[ReportComparisonGroup]:
             group_id="backward_wave2c",
             group_title="Backward Wave 2C Residual Harmonic Temporal Overlay",
             candidate_id_list=wave2c_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportComparisonGroup(
+            group_id="forward_track2f",
+            group_title="Forward Track 2F Offset-Aware Probe Overlay",
+            candidate_id_list=track2f_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportComparisonGroup(
+            group_id="backward_track2f",
+            group_title="Backward Track 2F Offset-Aware Probe Overlay",
+            candidate_id_list=track2f_backward_candidate_id_list,
             selection_mode="backward",
         ),
     ]
@@ -849,6 +914,14 @@ def build_full_comparison_group_list(
         f"{family_configuration['candidate_id_prefix']}_Bw"
         for family_configuration in WAVE2C_FAMILY_CONFIGURATION_LIST
     ]
+    track2f_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
+    ]
     screened_forward_candidate_id_list = select_screened_wave1_candidate_id_list(
         wave1_forward_candidate_id_list,
         "forward",
@@ -911,6 +984,26 @@ def build_full_comparison_group_list(
                     "track1_best_Bw",
                     "tree_bw",
                 ] + wave2c_backward_candidate_id_list,
+                selection_mode="backward",
+            ),
+            ReportComparisonGroup(
+                group_id="forward_reference_tree_track2f",
+                group_title="Forward Reference Tree And Track 2F Overlay",
+                candidate_id_list=[
+                    "paper_retuned_best_Fw",
+                    "track1_best_Fw",
+                    "tree_fw",
+                ] + track2f_forward_candidate_id_list,
+                selection_mode="forward",
+            ),
+            ReportComparisonGroup(
+                group_id="backward_reference_tree_track2f",
+                group_title="Backward Reference Tree And Track 2F Overlay",
+                candidate_id_list=[
+                    "paper_retuned_best_Bw",
+                    "track1_best_Bw",
+                    "tree_bw",
+                ] + track2f_backward_candidate_id_list,
                 selection_mode="backward",
             ),
         ]

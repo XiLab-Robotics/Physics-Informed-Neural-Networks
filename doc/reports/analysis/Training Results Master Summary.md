@@ -2,10 +2,10 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-04T12:41:58`
+- Generated At: `2026-06-04T19:08:00`
 - Program State: active.
-- Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign
-- Current Focus: use completed `Track 2E` offset-predictability feasibility
+- Current Completed Wave: `Track 2F` offset-aware probe campaign
+- Current Focus: use completed `Track 2F` matrix evidence to prepare explicit offset calibration or multi-task offset/shape training
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -219,6 +219,7 @@ Low-priority exploratory families currently listed in the backlog:
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
 | `track2f_offset_aware_probe_campaign_2026_06_03` | `2026-06-04 12:04:47` | 3 | 0 | `te_sequential_residual_offset_probe_remote_fw` | Updated sequential_residual_offset_probe_fw family best |
+| `track2f_track2_verification_refresh_2026_06_04` | `2026-06-04 16:59:02` | 3 | 0 | `sequential_residual_offset_probe_Fw` | Included Track 2F `global`, `Fw`, and `Bw` candidates in the official 114-candidate Track 2 matrix; decision: verified exploratory baseline, not promoted |
 | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` | `2026-05-27 22:35:20` | 18 | 0 | `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim` | Updated residual_harmonic_gru_sequence_fw_sparse_rcim family best |
 | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` | `2026-05-25 20:05:38` | 9 | 0 | `te_periodic_gru_sequence_remote_Bw` | Updated global best |
 | `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15` | `2026-05-24 12:27:31` | 9 | 0 | `te_gru_sequence_remote_Fw` | Updated gru_sequence_fw family best |

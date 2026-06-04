@@ -229,6 +229,12 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-04
 
+- [technical/2026-06/2026-06-04/2026-06-04-16-31-58_track2f_official_track2_refresh_preparation.md](./technical/2026-06/2026-06-04/2026-06-04-16-31-58_track2f_official_track2_refresh_preparation.md)
+  Plan the operator-launched official `Track 2` verification refresh for the
+  completed `Track 2F` offset-aware probe, preserving separate `global`, `Fw`,
+  and `Bw` branch candidates and preparing local plus `-Remote` launcher
+  commands without running the heavy matrix inside Codex.
+
 - [technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md](./technical/2026-06/2026-06-04/2026-06-04-12-47-33_track2f_closeout_pdf_refinement_and_skill_rule.md)
   Plan the `Track 2F` closeout PDF refinement that starts `Execution Summary`
   on a fresh page and updates the campaign closeout skill so generated PDFs

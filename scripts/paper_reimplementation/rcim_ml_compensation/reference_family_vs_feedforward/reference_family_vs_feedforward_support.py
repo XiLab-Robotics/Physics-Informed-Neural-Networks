@@ -55,6 +55,7 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "periodic_lstm_sequence",
     "residual_harmonic_gru_sequence",
     "residual_harmonic_lstm_sequence",
+    "sequential_residual_offset_probe",
 }
 REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
 TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
@@ -1084,6 +1085,15 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             build_registry_candidate_configuration_list(
                 wave2c_configuration,
                 "wave2c_residual_harmonic_temporal_registry",
+            )
+        )
+
+    track2f_configuration = generation_configuration.get("track2f_registry_models", {})
+    if track2f_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                track2f_configuration,
+                "track2f_offset_aware_probe_registry",
             )
         )
 
@@ -2292,6 +2302,20 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "wave2_temporal_entry_registry",
         include_global_models=True,
     )
+    append_grouped_direction_table(
+        report_line_list,
+        "Wave 2C Residual Harmonic Temporal Forward And Global Models",
+        "forward",
+        "wave2c_residual_harmonic_temporal_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2F Offset-Aware Forward And Global Models",
+        "forward",
+        "track2f_offset_aware_probe_registry",
+        include_global_models=True,
+    )
 
     report_line_list.extend(
         [
@@ -2313,6 +2337,20 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Wave 2 Temporal Backward And Global Models",
         "backward",
         "wave2_temporal_entry_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Wave 2C Residual Harmonic Temporal Backward And Global Models",
+        "backward",
+        "wave2c_residual_harmonic_temporal_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2F Offset-Aware Backward And Global Models",
+        "backward",
+        "track2f_offset_aware_probe_registry",
         include_global_models=True,
     )
 

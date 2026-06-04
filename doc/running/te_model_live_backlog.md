@@ -24,16 +24,16 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Wave 2C` residual harmonic temporal hybrid campaign
-  and official `Track 2` refresh complete.
+- Current Completed Wave: `Track 2F` offset-aware probe campaign and official
+  `Track 2` matrix refresh complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: use completed `Track 2E` offset-predictability feasibility
-  diagnostics to prepare the next approved direction-parallel offset-aware
-  training or calibration branch for `Fw`, `Bw`, and `global` surfaces.
+- Current Focus: use the completed `Track 2F` result to prepare the next
+  direction-parallel offset calibration or multi-task offset/shape training
+  branch for `Fw`, `Bw`, and `global` surfaces.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -42,7 +42,7 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -808,6 +808,26 @@ Entry rule:
 - design conclusion: sparse `RCIM` harmonics remain useful, while dense `240`
   and dense `360` harmonic banks are not competitive for this residual
   temporal branch.
+
+### Track 2F. Offset-Aware Sequential Residual Probe
+
+- status: offset-aware probe campaign completed; official `Track 2` matrix
+  refresh completed;
+- family: `sequential_residual_offset_probe`;
+- official verification report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/track2_official_model_verification_report.md`;
+- strongest Track 2F forward candidate:
+  `sequential_residual_offset_probe_Fw`, Track 2 MAE `0.003377 deg`;
+- strongest Track 2F backward candidate:
+  `sequential_residual_offset_probe_Bw`, Track 2 MAE `0.003636 deg`;
+- strongest Track 2F global candidate:
+  `sequential_residual_offset_probe_global`, combined Track 2 MAE
+  `0.003536 deg`;
+- Track 2 decision: verified exploratory baseline, not promoted over the
+  accepted paper-derived, `tree`, or `Wave 2B` periodic sequence leaders;
+- design conclusion: a sequential residual offset head alone does not solve
+  the curve-following gap; the next branch should test explicit offset
+  calibration or multi-task offset/shape training.
 
 ### Wave 3. Hybrid Structured Models
 
