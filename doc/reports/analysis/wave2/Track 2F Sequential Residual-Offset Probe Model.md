@@ -20,6 +20,13 @@ branch uses a short sequence window built from already available runtime
 features. The model does not consume future TE samples, true full-curve means,
 or complete-curve normalization at inference time.
 
+This first Track 2F model is deliberately non-harmonic. It does not use the
+explicit periodic `sin`/`cos` feature expansion used by periodic MLP or
+periodic sequence families, and it does not embed the `RCIM` harmonic index
+bank used by harmonic or residual-harmonic families. That makes it a clean
+baseline for later tests where the new ingredient is a curve index,
+multi-head structure, or composite loss rather than forced harmonic shape.
+
 ## Operating Principle
 
 The branch split is intentionally simple:
@@ -66,12 +73,31 @@ The campaign materializes three direction-parallel training entries:
 
 - The first loss is still pointwise normalized MSE, so final acceptance still
   depends on later curve-first `Track 2` verification.
+- The model is not forced to preserve harmonic TE waveform shape; visually it
+  can behave similarly to a feedforward baseline when the residual branch
+  learns mostly low-frequency correction.
 - The branch split is not guaranteed to make the residual branch learn only
   offset; it is encouraged by structure and diagnostics, not hard constrained.
 - It does not yet implement the planned multi-head centered-shape/offset
   architecture.
 - It may improve raw curve error while still leaving amplitude or phase
   limitations, which must be checked after training.
+
+## Baseline Role
+
+Track 2F should remain in the comparison matrix even if the next family moves
+to harmonic-offset or periodic multi-head structures. It answers a different
+question from harmonic models:
+
+- clean Track 2F baseline: what can a causal non-harmonic residual structure
+  do with the current input contract?
+- harmonic-offset follow-up: what improves when the shape branch is explicitly
+  periodic or harmonic and the offset branch is trained separately?
+
+Future new-index, multi-head, or composite-loss campaigns should keep a
+Track 2F-like clean branch in parallel with `global`, `Fw`, and `Bw` surfaces
+so the effect of the objective can be separated from the effect of harmonic
+feature forcing.
 
 ## Implemented Components
 

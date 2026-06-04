@@ -384,9 +384,22 @@ warp-tolerant shape matching may hide physically harmful phase shifts.
 
 ### Phase 5: Test Offset/Shape Model Structures
 
+Status: partially completed by `Track 2F`.
+
+`Track 2F` implemented and trained the first learned sequential residual-offset
+probe across `global`, `Fw`, and `Bw`. That branch is a clean non-harmonic
+baseline: it uses a feedforward readout branch plus a causal recurrent
+residual branch, but it does not force periodic `sin`/`cos` features, `RCIM`
+harmonic indices, or a structured harmonic base.
+
+This result is important even if it is not the shape-leading family. It shows
+what a causal non-harmonic offset/residual structure can do under the current
+input contract, and it should remain in future comparisons when new curve
+indices, multi-head training, or composite losses are introduced.
+
 If Track 2D confirms that the model families are systematically offset-limited,
-two training structures should be evaluated before opening a broad new model
-family wave:
+the next training structures should be evaluated before opening a broad new
+model family wave:
 
 - multi-task / multi-head model: shared causal feature trunk with one head for
   curve offset or low-frequency component and one head for centered waveform
@@ -394,10 +407,17 @@ family wave:
 - sequential residual calibration: first run the current best causal model,
   then train a second causal residual or offset calibrator on the prediction
   error using only deployment-valid inputs and past predictions.
+- harmonic-offset hybrid: explicit harmonic or periodic shape branch plus a
+  separate causal offset, bias, or amplitude branch.
 
 Both structures keep the same runtime data contract. They do not feed a future
 curve to the model. Their purpose is to prevent the offset component and the
 periodic shape component from competing inside one scalar pointwise objective.
+
+Future campaigns should keep a Track 2F-like clean baseline in parallel with
+the harmonic-offset candidates. That baseline is required to distinguish gains
+from the new objective or multi-head split from gains caused only by forced
+harmonic features.
 
 ### Phase 6: Decide Whether A New Wave Is Needed
 
@@ -442,28 +462,31 @@ its own valid surface.
 
 ## Concrete Next Step
 
-Open a mean-offset full-matrix diagnostic branch before any new training
-campaign.
+The mean-offset diagnostic chain has now advanced through Track 2D, Track 2E,
+and the first Track 2F learned probe. The next modeling step should be a
+compact harmonic-offset follow-up, while retaining a clean Track 2F-like branch
+as the non-harmonic control.
 
 Recommended name:
 
 ```text
-Track 2D Mean-Offset Full-Matrix Audit
+Track 2G Harmonic-Offset Shape Baseline
 ```
 
 Recommended deliverables:
 
 - technical document;
-- analysis report under `doc/reports/analysis/track2/`;
-- full-matrix per-curve metric CSV with raw, bias, centered-shape, amplitude,
+- campaign plan;
+- one clean non-harmonic baseline branch derived from Track 2F;
+- one harmonic or periodic shape-preserving branch with a separate offset,
+  bias, or amplitude head;
+- optional composite-loss ablation with pointwise, centered-shape, mean-offset,
   and harmonic diagnostics;
-- condition-stratified tables for `Fw`, `Bw`, and `global` surfaces;
-- updated Track 2 visual overlays if the screened candidate set changes;
-- master-summary update distinguishing offset-limited, shape-limited, and
-  deployment-ready candidates for `Fw`, `Bw`, and `global`;
-- backlog update with the next approved direction-parallel training decision.
+- separate `global`, `Fw`, and `Bw` candidates for every branch;
+- Track 2 curve-first verification report comparing raw error, centered-shape
+  error, offset, amplitude, and phase behavior.
 
-If the audit confirms the offset mechanism, the next campaign should be a
-compact `Wave 1B`, `Wave 2D`, or equivalent retraining pass that advances
-`Fw`, `Bw`, and `global` candidates in parallel with offset-aware checkpoint
-selection before introducing new families.
+The promotion decision should not ask whether the new branch merely beats
+Track 2F on scalar `MAE`. It should ask whether harmonic forcing plus explicit
+offset handling restores TE curve shape while preserving a deployable causal
+input contract.

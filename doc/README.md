@@ -229,6 +229,12 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-04
 
+- [technical/2026-06/2026-06-04/2026-06-04-21-07-46_track2f_clean_baseline_and_harmonic_offset_followup.md](./technical/2026-06/2026-06-04/2026-06-04-21-07-46_track2f_clean_baseline_and_harmonic_offset_followup.md)
+  Plan the Track 2F follow-up documentation update that records
+  `sequential_residual_offset_probe` as a clean non-harmonic baseline and
+  keeps it in future comparisons against harmonic-offset, multi-head, new
+  index, and composite-loss model branches.
+
 - [technical/2026-06/2026-06-04/2026-06-04-16-31-58_track2f_official_track2_refresh_preparation.md](./technical/2026-06/2026-06-04/2026-06-04-16-31-58_track2f_official_track2_refresh_preparation.md)
   Plan the operator-launched official `Track 2` verification refresh for the
   completed `Track 2F` offset-aware probe, preserving separate `global`, `Fw`,

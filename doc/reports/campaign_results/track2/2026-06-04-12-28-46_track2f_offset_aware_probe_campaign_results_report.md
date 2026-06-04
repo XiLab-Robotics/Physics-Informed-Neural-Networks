@@ -84,6 +84,15 @@ winner, `te_periodic_gru_sequence_remote_Bw`, which remains at test `MAE`
 designed to test whether the offset branch is feasible, not to promote a new
 global scalar winner from pointwise training alone.
 
+Track 2F is also a clean non-harmonic baseline. The
+`sequential_residual_offset_probe` architecture does not include explicit
+harmonic forcing, periodic `sin`/`cos` feature expansion, `RCIM` harmonic
+indices, or a structured harmonic branch. It should therefore not be judged as
+the harmonic shape-preserving intervention. Its value is to show how far a
+causal feedforward-plus-sequence residual structure can go when the future
+comparison introduces new curve indices, multi-head shape/offset training, or
+composite losses.
+
 The important closeout result is therefore structural. The repository now has
 three trained sequential residual-offset candidates that can be evaluated in
 the official curve-first `Track 2` surface:
@@ -130,5 +139,7 @@ Track 2 curve-first refresh confirms a real curve-level gain.
 
 1. Keep all three Track 2F branch candidates: `global`, `Fw`, and `Bw`.
 2. Do not collapse Track 2F to the scalar-first `Fw` candidate.
-3. Prepare the optional Track 2 curve-first verification refresh as the next
+3. Keep Track 2F as the clean non-harmonic baseline for future comparisons
+   against harmonic-offset, new-index, multi-head, and composite-loss models.
+4. Prepare the optional Track 2 curve-first verification refresh as the next
    operator-launched step.

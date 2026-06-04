@@ -5,7 +5,9 @@
 - Generated At: `2026-06-04T19:08:00`
 - Program State: active.
 - Current Completed Wave: `Track 2F` offset-aware probe campaign
-- Current Focus: use completed `Track 2F` matrix evidence to prepare explicit offset calibration or multi-task offset/shape training
+- Current Focus: use completed `Track 2F` matrix evidence to prepare
+  harmonic-offset or multi-head curve-shape training while keeping Track 2F as
+  the clean non-harmonic baseline
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -218,7 +220,7 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
-| `track2f_offset_aware_probe_campaign_2026_06_03` | `2026-06-04 12:04:47` | 3 | 0 | `te_sequential_residual_offset_probe_remote_fw` | Updated sequential_residual_offset_probe_fw family best |
+| `track2f_offset_aware_probe_campaign_2026_06_03` | `2026-06-04 12:04:47` | 3 | 0 | `te_sequential_residual_offset_probe_remote_fw` | Updated sequential_residual_offset_probe_fw family best; retained as clean non-harmonic control for future new-index, multi-head, and composite-loss comparisons |
 | `track2f_track2_verification_refresh_2026_06_04` | `2026-06-04 16:59:02` | 3 | 0 | `sequential_residual_offset_probe_Fw` | Included Track 2F `global`, `Fw`, and `Bw` candidates in the official 114-candidate Track 2 matrix; decision: verified exploratory baseline, not promoted |
 | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` | `2026-05-27 22:35:20` | 18 | 0 | `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim` | Updated residual_harmonic_gru_sequence_fw_sparse_rcim family best |
 | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` | `2026-05-25 20:05:38` | 9 | 0 | `te_periodic_gru_sequence_remote_Bw` | Updated global best |
@@ -588,6 +590,8 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Best test MAE: `0.003537`
 - Completed tracked runs: `1`
 - Known failed campaign attempts: `0`
+- Interpretation: clean non-harmonic Track 2F baseline, not a
+  shape-preserving harmonic model.
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
