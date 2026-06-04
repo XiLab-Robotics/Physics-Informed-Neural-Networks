@@ -33,6 +33,10 @@ SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH = Path(
     "doc/technical/2026-06/2026-06-03/"
     "2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md"
 )
+LAUNCHER_FIX_TECHNICAL_DOCUMENT_PATH = Path(
+    "doc/technical/2026-06/2026-06-04/"
+    "2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md"
+)
 LAUNCHER_PATH = Path("scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1")
 VALIDATOR_PATH = Path("scripts/campaigns/track2/validate_track2f_offset_aware_probe_package.py")
 LAUNCHER_NOTE_PATH = Path("doc/scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.md")
@@ -424,6 +428,7 @@ def write_launcher() -> None:
     launcher_text = f"""param(
     [switch]$Remote,
     [switch]$PreflightOnly,
+    [switch]$EnqueueOnly,
     [string]$PythonExecutable = "",
     [string]$CondaEnvironmentName = "pinns_env",
     [string]$RemoteHostAlias = "xilab-remote",
@@ -444,6 +449,7 @@ $validatorPath = "{to_windows_path(VALIDATOR_PATH)}"
 $baselineOutputRoot = "{to_windows_path(BASELINE_STATUS_OUTPUT_DIRECTORY)}"
 $planningReportPath = "{to_windows_path(PLANNING_REPORT_PATH)}"
 $queueRoot = "config\\training\\queue"
+$script:LastTrack2FPythonExitCode = 0
 $campaignConfigFileNameList = @(
     "01_sequential_residual_offset_probe_global.yaml"
     "02_sequential_residual_offset_probe_fw.yaml"
@@ -467,12 +473,13 @@ function Invoke-Track2FPython {{
 
     if (-not [string]::IsNullOrWhiteSpace($PythonExecutable)) {{
         & $PythonExecutable @ArgumentList
-        return $LASTEXITCODE
+        $script:LastTrack2FPythonExitCode = $LASTEXITCODE
+        return
     }}
 
     $condaExecutablePath = (Get-Command conda -ErrorAction Stop).Source
     & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList
-    return $LASTEXITCODE
+    $script:LastTrack2FPythonExitCode = $LASTEXITCODE
 }}
 
 Write-Track2FStatus -Label "INFO" -Message ("Campaign: {{0}}" -f $campaignName)
@@ -495,7 +502,8 @@ if (-not $PreflightOnly) {{
 }}
 
 Write-Track2FStatus -Label "STEP" -Message "Validating Track 2F package."
-$pythonExitCode = Invoke-Track2FPython -ArgumentList $validatorArgumentList
+Invoke-Track2FPython -ArgumentList $validatorArgumentList
+$pythonExitCode = $script:LastTrack2FPythonExitCode
 if ($pythonExitCode -ne 0) {{
     exit $pythonExitCode
 }}
@@ -523,6 +531,10 @@ foreach ($queueSubdirectoryName in @("pending", "running")) {{
 }}
 
 if ($Remote) {{
+    if ($EnqueueOnly) {{
+        throw "-EnqueueOnly is supported only for local launcher verification."
+    }}
+
     $remoteLauncherPath = "scripts\\campaigns\\infrastructure\\run_remote_training_campaign.ps1"
     $sourceSyncPathList = @("scripts", "config", "doc", "requirements.txt", "AGENTS.md")
 
@@ -546,8 +558,14 @@ $argumentList = @(
     $planningReportPath
 )
 
+if ($EnqueueOnly) {{
+    $argumentList += "--enqueue-only"
+    Write-Track2FStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
+}}
+
 Write-Track2FStatus -Label "STEP" -Message "Launching local sequential residual-offset probe campaign."
-$trainingExitCode = Invoke-Track2FPython -ArgumentList $argumentList
+Invoke-Track2FPython -ArgumentList $argumentList
+$trainingExitCode = $script:LastTrack2FPythonExitCode
 exit $trainingExitCode
 """
     output_path = PROJECT_PATH / LAUNCHER_PATH
@@ -602,6 +620,13 @@ Run this from the repository root:
 This validates the package, enqueues the three sequential residual-offset
 training YAML files, and starts the local campaign runner.
 
+Use this local verification command to confirm launcher flow without starting
+training:
+
+```powershell
+.\\scripts\\campaigns\\track2\\run_track2f_offset_aware_probe_campaign.ps1 -EnqueueOnly
+```
+
 ## Remote Sequential Probe Training
 
 The operator-facing remote command is recorded for continuity:
@@ -636,6 +661,7 @@ def write_active_campaign_state(
     protected_file_list = [
         to_posix_path(TECHNICAL_DOCUMENT_PATH),
         to_posix_path(SEQUENTIAL_PROBE_TECHNICAL_DOCUMENT_PATH),
+        to_posix_path(LAUNCHER_FIX_TECHNICAL_DOCUMENT_PATH),
         to_posix_path(MODEL_REPORT_PATH),
         to_posix_path(PLANNING_REPORT_PATH),
         to_posix_path(LAUNCHER_PATH),

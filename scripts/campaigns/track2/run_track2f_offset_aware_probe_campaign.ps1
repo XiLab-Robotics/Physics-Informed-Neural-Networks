@@ -1,6 +1,7 @@
 param(
     [switch]$Remote,
     [switch]$PreflightOnly,
+    [switch]$EnqueueOnly,
     [string]$PythonExecutable = "",
     [string]$CondaEnvironmentName = "pinns_env",
     [string]$RemoteHostAlias = "xilab-remote",
@@ -21,6 +22,7 @@ $validatorPath = "scripts\campaigns\track2\validate_track2f_offset_aware_probe_p
 $baselineOutputRoot = "output\validation_checks\track2f_offset_aware_probe\2026-06-03_track2f_offset_aware_probe_prelaunch"
 $planningReportPath = "doc\reports\campaign_plans\track2\2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md"
 $queueRoot = "config\training\queue"
+$script:LastTrack2FPythonExitCode = 0
 $campaignConfigFileNameList = @(
     "01_sequential_residual_offset_probe_global.yaml"
     "02_sequential_residual_offset_probe_fw.yaml"
@@ -44,12 +46,13 @@ function Invoke-Track2FPython {
 
     if (-not [string]::IsNullOrWhiteSpace($PythonExecutable)) {
         & $PythonExecutable @ArgumentList
-        return $LASTEXITCODE
+        $script:LastTrack2FPythonExitCode = $LASTEXITCODE
+        return
     }
 
     $condaExecutablePath = (Get-Command conda -ErrorAction Stop).Source
     & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList
-    return $LASTEXITCODE
+    $script:LastTrack2FPythonExitCode = $LASTEXITCODE
 }
 
 Write-Track2FStatus -Label "INFO" -Message ("Campaign: {0}" -f $campaignName)
@@ -72,7 +75,8 @@ if (-not $PreflightOnly) {
 }
 
 Write-Track2FStatus -Label "STEP" -Message "Validating Track 2F package."
-$pythonExitCode = Invoke-Track2FPython -ArgumentList $validatorArgumentList
+Invoke-Track2FPython -ArgumentList $validatorArgumentList
+$pythonExitCode = $script:LastTrack2FPythonExitCode
 if ($pythonExitCode -ne 0) {
     exit $pythonExitCode
 }
@@ -100,6 +104,10 @@ foreach ($queueSubdirectoryName in @("pending", "running")) {
 }
 
 if ($Remote) {
+    if ($EnqueueOnly) {
+        throw "-EnqueueOnly is supported only for local launcher verification."
+    }
+
     $remoteLauncherPath = "scripts\campaigns\infrastructure\run_remote_training_campaign.ps1"
     $sourceSyncPathList = @("scripts", "config", "doc", "requirements.txt", "AGENTS.md")
 
@@ -123,6 +131,12 @@ $argumentList = @(
     $planningReportPath
 )
 
+if ($EnqueueOnly) {
+    $argumentList += "--enqueue-only"
+    Write-Track2FStatus -Label "STEP" -Message "Enqueue-only verification enabled; training will not start."
+}
+
 Write-Track2FStatus -Label "STEP" -Message "Launching local sequential residual-offset probe campaign."
-$trainingExitCode = Invoke-Track2FPython -ArgumentList $argumentList
+Invoke-Track2FPython -ArgumentList $argumentList
+$trainingExitCode = $script:LastTrack2FPythonExitCode
 exit $trainingExitCode

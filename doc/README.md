@@ -227,6 +227,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-04
+
+- [technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md](./technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md)
+  Plan the protected Track 2F launcher fix that prevents Python validation
+  stdout from being captured as a false launcher error before the sequential
+  training campaign starts.
+
 #### 2026-06-03
 
 - [technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md](./technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md)

@@ -1,6 +1,6 @@
 status: prepared
 campaign_name: track2f_offset_aware_probe_campaign_2026_06_03
-prepared_at: '2026-06-03T23:42:53+02:00'
+prepared_at: '2026-06-04T11:19:25+02:00'
 planning_report_path: doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
 technical_document_path: doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md
 campaign_config_root: config/training/track2f_offset_aware_probe/campaigns/2026-06-03_track2f_offset_aware_probe_campaign
@@ -11,6 +11,7 @@ training_launch_guard: multi-head Track 2F probes remain blocked until the multi
 protected_file_list:
 - doc/technical/2026-06/2026-06-03/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign.md
 - doc/technical/2026-06/2026-06-03/2026-06-03-18-18-20_track2f_sequential_residual_offset_probe.md
+- doc/technical/2026-06/2026-06-04/2026-06-04-11-15-13_track2f_launcher_exit_flow_fix.md
 - doc/reports/analysis/wave2/Track 2F Sequential Residual-Offset Probe Model.md
 - doc/reports/campaign_plans/track2/2026-06-03-17-25-37_track2f_offset_aware_probe_campaign_plan_report.md
 - scripts/campaigns/track2/run_track2f_offset_aware_probe_campaign.ps1

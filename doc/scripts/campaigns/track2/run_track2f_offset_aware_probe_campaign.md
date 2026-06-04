@@ -41,6 +41,13 @@ Run this from the repository root:
 This validates the package, enqueues the three sequential residual-offset
 training YAML files, and starts the local campaign runner.
 
+Use this local verification command to confirm launcher flow without starting
+training:
+
+```powershell
+.\scripts\campaigns\track2\run_track2f_offset_aware_probe_campaign.ps1 -EnqueueOnly
+```
+
 ## Remote Sequential Probe Training
 
 The operator-facing remote command is recorded for continuity:
