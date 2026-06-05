@@ -270,6 +270,76 @@ def compute_target_metric_dictionary(
     }
 
 
+def compute_curve_mean_centering_metric_dictionary(
+    truth_curve_deg: np.ndarray,
+    predicted_curve_deg: np.ndarray,
+) -> dict[str, float]:
+
+    """Compute raw and mean-centered metrics for one Track 2 curve."""
+
+    truth_curve = np.asarray(truth_curve_deg, dtype=np.float64).reshape(-1)
+    predicted_curve = np.asarray(predicted_curve_deg, dtype=np.float64).reshape(-1)
+    raw_residual_curve = predicted_curve - truth_curve
+
+    truth_mean_deg = float(np.mean(truth_curve))
+    predicted_mean_deg = float(np.mean(predicted_curve))
+    centered_truth_curve = truth_curve - truth_mean_deg
+    centered_predicted_curve = predicted_curve - predicted_mean_deg
+    centered_residual_curve = centered_predicted_curve - centered_truth_curve
+
+    raw_mae_deg = float(np.mean(np.abs(raw_residual_curve)))
+    raw_rmse_deg = float(np.sqrt(np.mean(raw_residual_curve ** 2)))
+    mean_centered_mae_deg = float(np.mean(np.abs(centered_residual_curve)))
+    mean_centered_rmse_deg = float(np.sqrt(np.mean(centered_residual_curve ** 2)))
+    offset_error_deg = float(predicted_mean_deg - truth_mean_deg)
+
+    return {
+        "truth_mean_deg": truth_mean_deg,
+        "predicted_mean_deg": predicted_mean_deg,
+        "offset_error_deg": offset_error_deg,
+        "absolute_offset_error_deg": float(abs(offset_error_deg)),
+        "raw_mae_deg": raw_mae_deg,
+        "raw_rmse_deg": raw_rmse_deg,
+        "mean_centered_mae_deg": mean_centered_mae_deg,
+        "mean_centered_rmse_deg": mean_centered_rmse_deg,
+        "mae_improvement_deg": float(raw_mae_deg - mean_centered_mae_deg),
+        "rmse_improvement_deg": float(raw_rmse_deg - mean_centered_rmse_deg),
+        "mae_improvement_pct": compute_improvement_percent(raw_mae_deg, mean_centered_mae_deg),
+        "rmse_improvement_pct": compute_improvement_percent(raw_rmse_deg, mean_centered_rmse_deg),
+    }
+
+
+def compute_improvement_percent(raw_metric_value: float, adjusted_metric_value: float) -> float:
+
+    """Compute percentage improvement from a raw metric to an adjusted metric."""
+
+    if abs(raw_metric_value) < 1.0e-12:
+        return 0.0
+    return float(100.0 * (raw_metric_value - adjusted_metric_value) / raw_metric_value)
+
+
+def summarize_mean_centering_metric_dictionary(
+    metric_dictionary_list: list[dict[str, float]],
+) -> dict[str, float]:
+
+    """Summarize one list of mean-centering metric dictionaries."""
+
+    assert metric_dictionary_list, "Mean-centering metric dictionary list must not be empty"
+    metric_name_list = list(metric_dictionary_list[0].keys())
+    summary_dictionary = {
+        metric_name: float(np.mean([metric_dictionary[metric_name] for metric_dictionary in metric_dictionary_list]))
+        for metric_name in metric_name_list
+    }
+    summary_dictionary["curve_count"] = int(len(metric_dictionary_list))
+    summary_dictionary["p95_absolute_offset_error_deg"] = float(
+        np.percentile(
+            [metric_dictionary["absolute_offset_error_deg"] for metric_dictionary in metric_dictionary_list],
+            95.0,
+        )
+    )
+    return summary_dictionary
+
+
 def build_table_parity_result(
     exact_config_path: Path,
     source_dataframe_path: Path,
@@ -408,13 +478,21 @@ def evaluate_track2_onnx_family(
             predicted_curve_deg,
             percentage_error_denominator,
         )
+        mean_centering_metric_dictionary = compute_curve_mean_centering_metric_dictionary(
+            curve_record.transmission_error_deg,
+            predicted_curve_deg,
+        )
         metric_entry_list.append(
             {
                 "candidate_id": f"{family_name}_original_onnx_Fw",
                 "family_name": family_name,
                 "source_file_path": format_project_path(curve_record.source_file_path),
                 "direction_label": curve_record.direction_label,
+                "speed_rpm": float(curve_record.speed_rpm),
+                "torque_nm": float(curve_record.torque_nm),
+                "oil_temperature_deg": float(curve_record.oil_temperature_deg),
                 "metrics": metric_dictionary,
+                "mean_centering_metrics": mean_centering_metric_dictionary,
             }
         )
 
@@ -426,7 +504,7 @@ def evaluate_track2_onnx_family(
 def build_track2_parity_result(
     track2_config_path: Path,
     onnx_manifest_dictionary: dict[tuple[str, str, int], OnnxTargetEntry],
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
 
     """Evaluate recovered ONNX release and repo original archive in Track 2."""
 
@@ -453,19 +531,45 @@ def build_track2_parity_result(
     ]
 
     repo_track2_summary_list: list[dict[str, Any]] = []
+    track2_offset_entry_list: list[dict[str, Any]] = []
     for candidate_configuration in repo_candidate_configuration_list:
         candidate = track2_support.load_track2_candidate(candidate_configuration)
         per_candidate_entry_list, _ = track2_support.evaluate_track2_candidate(
             candidate,
             curve_record_list,
             percentage_error_denominator,
+            include_curve_payload=True,
         )
+        repo_mean_centering_metric_list: list[dict[str, float]] = []
+        for per_candidate_entry in per_candidate_entry_list:
+            mean_centering_metric_dictionary = compute_curve_mean_centering_metric_dictionary(
+                np.asarray(per_candidate_entry["truth_curve_deg"], dtype=np.float64),
+                np.asarray(per_candidate_entry["predicted_curve_deg"], dtype=np.float64),
+            )
+            repo_mean_centering_metric_list.append(mean_centering_metric_dictionary)
+            track2_offset_entry_list.append(
+                {
+                    "source": "repo_python_archive",
+                    "family_name": candidate.candidate_family,
+                    "candidate_id": candidate.candidate_id,
+                    "source_file_path": per_candidate_entry["source_file_path"],
+                    "direction_label": per_candidate_entry["direction_label"],
+                    "speed_rpm": float(per_candidate_entry["speed_rpm"]),
+                    "torque_nm": float(per_candidate_entry["torque_nm"]),
+                    "oil_temperature_deg": float(per_candidate_entry["oil_temperature_deg"]),
+                    "raw_metrics": per_candidate_entry["metrics"],
+                    "mean_centering_metrics": mean_centering_metric_dictionary,
+                }
+            )
         repo_track2_summary_list.append(
             {
                 "family_name": candidate.candidate_family,
                 "candidate_id": candidate.candidate_id,
                 "metrics": track2_support.summarize_metric_dictionary(
                     [entry["metrics"] for entry in per_candidate_entry_list]
+                ),
+                "mean_centering_metrics": summarize_mean_centering_metric_dictionary(
+                    repo_mean_centering_metric_list
                 ),
             }
         )
@@ -474,7 +578,7 @@ def build_track2_parity_result(
     failure_entry_list: list[dict[str, Any]] = []
     for family_name in FAMILY_FOLDER_LOOKUP:
         try:
-            _, metric_dictionary = evaluate_track2_onnx_family(
+            onnx_metric_entry_list, metric_dictionary = evaluate_track2_onnx_family(
                 forward_curve_record_list,
                 family_name,
                 onnx_manifest_dictionary,
@@ -491,11 +595,29 @@ def build_track2_parity_result(
                 }
             )
             continue
+        for onnx_metric_entry in onnx_metric_entry_list:
+            track2_offset_entry_list.append(
+                {
+                    "source": "original_onnx_release",
+                    "family_name": family_name,
+                    "candidate_id": onnx_metric_entry["candidate_id"],
+                    "source_file_path": onnx_metric_entry["source_file_path"],
+                    "direction_label": onnx_metric_entry["direction_label"],
+                    "speed_rpm": float(onnx_metric_entry["speed_rpm"]),
+                    "torque_nm": float(onnx_metric_entry["torque_nm"]),
+                    "oil_temperature_deg": float(onnx_metric_entry["oil_temperature_deg"]),
+                    "raw_metrics": onnx_metric_entry["metrics"],
+                    "mean_centering_metrics": onnx_metric_entry["mean_centering_metrics"],
+                }
+            )
         onnx_track2_summary_list.append(
             {
                 "family_name": family_name,
                 "candidate_id": f"{family_name}_original_onnx_Fw",
                 "metrics": metric_dictionary,
+                "mean_centering_metrics": summarize_mean_centering_metric_dictionary(
+                    [entry["mean_centering_metrics"] for entry in onnx_metric_entry_list]
+                ),
             }
         )
 
@@ -528,7 +650,12 @@ def build_track2_parity_result(
             }
         )
 
-    return repo_track2_summary_list, onnx_track2_summary_list, track2_delta_list + failure_entry_list
+    return (
+        repo_track2_summary_list,
+        onnx_track2_summary_list,
+        track2_delta_list + failure_entry_list,
+        track2_offset_entry_list,
+    )
 
 
 def summarize_table_parity(target_result_list: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -581,7 +708,7 @@ def write_target_parity_csv(csv_path: Path, target_result_list: list[dict[str, A
             "max_abs_prediction_delta",
             "mean_abs_prediction_delta",
         ]
-        writer = csv.DictWriter(csv_file, fieldnames=field_name_list)
+        writer = csv.DictWriter(csv_file, fieldnames=field_name_list, lineterminator="\n")
         writer.writeheader()
         for entry in target_result_list:
             writer.writerow(
@@ -600,6 +727,63 @@ def write_target_parity_csv(csv_path: Path, target_result_list: list[dict[str, A
             )
 
 
+def write_track2_offset_diagnostic_csv(csv_path: Path, offset_entry_list: list[dict[str, Any]]) -> None:
+
+    """Write Track 2 per-curve raw and mean-centered diagnostic rows."""
+
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with csv_path.open("w", encoding="utf-8", newline="") as csv_file:
+        field_name_list = [
+            "source",
+            "family_name",
+            "candidate_id",
+            "source_file_path",
+            "direction_label",
+            "speed_rpm",
+            "torque_nm",
+            "oil_temperature_deg",
+            "raw_mae_deg",
+            "raw_rmse_deg",
+            "raw_mean_percentage_error_pct",
+            "truth_mean_deg",
+            "predicted_mean_deg",
+            "offset_error_deg",
+            "absolute_offset_error_deg",
+            "mean_centered_mae_deg",
+            "mean_centered_rmse_deg",
+            "mae_improvement_deg",
+            "mae_improvement_pct",
+        ]
+        writer = csv.DictWriter(csv_file, fieldnames=field_name_list, lineterminator="\n")
+        writer.writeheader()
+        for entry in offset_entry_list:
+            raw_metric_dictionary = entry["raw_metrics"]
+            mean_centering_dictionary = entry["mean_centering_metrics"]
+            writer.writerow(
+                {
+                    "source": entry["source"],
+                    "family_name": entry["family_name"],
+                    "candidate_id": entry["candidate_id"],
+                    "source_file_path": entry["source_file_path"],
+                    "direction_label": entry["direction_label"],
+                    "speed_rpm": entry["speed_rpm"],
+                    "torque_nm": entry["torque_nm"],
+                    "oil_temperature_deg": entry["oil_temperature_deg"],
+                    "raw_mae_deg": raw_metric_dictionary["mae"],
+                    "raw_rmse_deg": raw_metric_dictionary["rmse"],
+                    "raw_mean_percentage_error_pct": raw_metric_dictionary["mean_percentage_error_pct"],
+                    "truth_mean_deg": mean_centering_dictionary["truth_mean_deg"],
+                    "predicted_mean_deg": mean_centering_dictionary["predicted_mean_deg"],
+                    "offset_error_deg": mean_centering_dictionary["offset_error_deg"],
+                    "absolute_offset_error_deg": mean_centering_dictionary["absolute_offset_error_deg"],
+                    "mean_centered_mae_deg": mean_centering_dictionary["mean_centered_mae_deg"],
+                    "mean_centered_rmse_deg": mean_centering_dictionary["mean_centered_rmse_deg"],
+                    "mae_improvement_deg": mean_centering_dictionary["mae_improvement_deg"],
+                    "mae_improvement_pct": mean_centering_dictionary["mae_improvement_pct"],
+                }
+            )
+
+
 def build_parity_report_markdown(validation_summary: dict[str, Any]) -> str:
 
     """Build the Markdown report for original ONNX release parity."""
@@ -607,6 +791,8 @@ def build_parity_report_markdown(validation_summary: dict[str, Any]) -> str:
     manifest_summary = validation_summary["manifest_summary"]
     table_family_summary = validation_summary["tables_2_5_family_summary"]
     track2_delta_list = validation_summary["track2_delta_summary"]
+    onnx_track2_summary_list = validation_summary["track2_onnx_family_summary"]
+    repo_track2_summary_list = validation_summary["track2_repo_family_summary"]
 
     line_list = [
         "# RCIM Original ONNX Release Parity Validation",
@@ -670,10 +856,34 @@ def build_parity_report_markdown(validation_summary: dict[str, Any]) -> str:
     line_list.extend(
         [
             "",
+            "## Track 2 Mean-Centered Offset Diagnostics",
+            "",
+            "| Source | Family | Raw MAE [deg] | Centered MAE [deg] | Mean Abs Offset [deg] | MAE Improvement [%] |",
+            "| --- | --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    for source_label, family_summary_list in [
+        ("ONNX", onnx_track2_summary_list),
+        ("Repo", repo_track2_summary_list),
+    ]:
+        for family_entry in family_summary_list:
+            mean_centering_dictionary = family_entry["mean_centering_metrics"]
+            line_list.append(
+                f"| {source_label} | `{family_entry['family_name']}` | "
+                f"{mean_centering_dictionary['raw_mae_deg']:.6f} | "
+                f"{mean_centering_dictionary['mean_centered_mae_deg']:.6f} | "
+                f"{mean_centering_dictionary['absolute_offset_error_deg']:.6f} | "
+                f"{mean_centering_dictionary['mae_improvement_pct']:.3f} |"
+            )
+
+    line_list.extend(
+        [
+            "",
             "## Artifacts",
             "",
             f"- validation summary: `{validation_summary['validation_summary_path']}`;",
-            f"- target parity CSV: `{validation_summary['target_parity_csv_path']}`.",
+            f"- target parity CSV: `{validation_summary['target_parity_csv_path']}`;",
+            f"- Track 2 offset diagnostics CSV: `{validation_summary['track2_offset_diagnostic_csv_path']}`.",
         ]
     )
 
@@ -732,7 +942,12 @@ def run_original_onnx_release_parity_validation(
         repo_reference_entry_lookup,
     )
     table_family_summary = summarize_table_parity(target_result_list)
-    _, _, track2_delta_or_failure_list = build_track2_parity_result(track2_config_path, manifest_dictionary)
+    (
+        repo_track2_summary_list,
+        onnx_track2_summary_list,
+        track2_delta_or_failure_list,
+        track2_offset_entry_list,
+    ) = build_track2_parity_result(track2_config_path, manifest_dictionary)
     track2_failure_entry_list = [
         entry
         for entry in track2_delta_or_failure_list
@@ -746,6 +961,8 @@ def run_original_onnx_release_parity_validation(
 
     target_parity_csv_path = output_directory / "tables_2_5_target_parity.csv"
     write_target_parity_csv(target_parity_csv_path, target_result_list)
+    track2_offset_diagnostic_csv_path = output_directory / "track2_curve_offset_diagnostics.csv"
+    write_track2_offset_diagnostic_csv(track2_offset_diagnostic_csv_path, track2_offset_entry_list)
 
     validation_summary_path = output_directory / "validation_summary.yaml"
     report_path = DEFAULT_REPORT_ROOT / f"{run_timestamp}_original_onnx_release_{output_suffix}_report.md"
@@ -768,10 +985,14 @@ def run_original_onnx_release_parity_validation(
         },
         "tables_2_5_family_summary": table_family_summary,
         "tables_2_5_target_result_count": len(target_result_list),
+        "track2_repo_family_summary": repo_track2_summary_list,
+        "track2_onnx_family_summary": onnx_track2_summary_list,
         "track2_delta_summary": track2_delta_list,
+        "track2_offset_entry_count": len(track2_offset_entry_list),
         "failure_entry_list": table_failure_entry_list + track2_failure_entry_list,
         "validation_summary_path": format_project_path(validation_summary_path),
         "target_parity_csv_path": format_project_path(target_parity_csv_path),
+        "track2_offset_diagnostic_csv_path": format_project_path(track2_offset_diagnostic_csv_path),
         "report_path": format_project_path(report_path),
     }
     write_yaml_dictionary(validation_summary_path, validation_summary)

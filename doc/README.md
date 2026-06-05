@@ -192,6 +192,11 @@ This folder contains the internal project documents derived from the reference P
   baselines and recommend the next intervention branch per `Fw`, `Bw`, and
   `global` surface.
 
+- [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
+  Diagnostic replay of the recovered paper-original `ONNX` release through the
+  `Track 2` forward curve evaluator, including raw parity and mean-centered
+  offset evidence for the original executable model families.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -241,6 +246,11 @@ This folder contains the internal project documents derived from the reference P
   the three failed harmonic-offset entries before normal closeout.
 
 #### 2026-06-04
+
+- [technical/2026-06/2026-06-04/2026-06-04-23-32-17_original_onnx_track2_offset_diagnostic.md](./technical/2026-06/2026-06-04/2026-06-04-23-32-17_original_onnx_track2_offset_diagnostic.md)
+  Plan the focused diagnostic that loads recovered original RCIM paper ONNX
+  models through `Track 2` and checks whether the investigated mean-offset
+  error pattern is present in the original ONNX release.
 
 - [technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md](./technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md)
   Plan the Track 2F-bis harmonic-offset probe that keeps the clean

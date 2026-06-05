@@ -463,7 +463,9 @@ conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensa
 This workflow is evaluation-only. It loads the immutable ONNX release under
 `reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release`,
 compares it with `models/paper_reference/rcim_original/forward`, and reports
-both `Tables 2-5` target-level parity and Track 2 forward curve parity.
+`Tables 2-5` target-level parity, Track 2 forward curve parity, and the
+`track2_curve_offset_diagnostics.csv` mean-centered offset diagnostic for the
+executable original model families.
 
 The saved repository paper-reference archives can also be compared against one
 another without retraining:
