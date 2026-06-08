@@ -207,6 +207,12 @@ This folder contains the internal project documents derived from the reference P
   simplified RCIM variant and the PLC-oriented all-`HGBM` variant over
   harmonics `0`, `1`, `39`, and `40`.
 
+- [reports/analysis/track2/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md](./reports/analysis/track2/forward_reference_curve_comparison/%5B2026-06-08%5D/track2_forward_reference_curve_comparison_report.md)
+  Forward `Track 2` curve-comparison report collecting the paper-original,
+  paper-retuned, full original `ONNX`, sparse original `ONNX`, and PLC-oriented
+  sparse original `ONNX` collages with aggregate and pairwise curve-difference
+  metrics.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -249,6 +255,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-08
+
+- [technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md](./technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md)
+  Plan the combined forward `Track 2` reference-curve comparison report across
+  paper-original, paper-retuned, full original `ONNX`, and sparse original
+  `ONNX` candidates.
 
 - [technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md](./technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md)
   Plan the simplified and PLC-oriented sparse original `ONNX` forward

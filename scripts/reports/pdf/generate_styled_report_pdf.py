@@ -146,6 +146,9 @@ TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-targets"
 TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-metrics"
 TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-curves"
+TRACK2_FORWARD_REFERENCE_PAIRWISE_TABLE_CLASS_NAME = "report-table report-table-track2-forward-reference-pairwise"
+TRACK2_FORWARD_REFERENCE_COLLAGE_METRICS_TABLE_CLASS_NAME = "report-table report-table-track2-forward-reference-collage-metrics"
+TRACK2_FORWARD_REFERENCE_COLLAGE_DELTAS_TABLE_CLASS_NAME = "report-table report-table-track2-forward-reference-collage-deltas"
 REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-scalar-winner"
 REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME = "report-table report-table-repository-status-hpo-leader"
 REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-results"
@@ -397,6 +400,34 @@ TRACK2_ORIGINAL_ONNX_CURVES_TABLE_HEADER_CELLS = (
     "Mean Error [%]",
 )
 
+TRACK2_FORWARD_REFERENCE_PAIRWISE_TABLE_HEADER_CELLS = (
+    "Pair",
+    "Mean MAE [deg]",
+    "P95 [deg]",
+    "Max [deg]",
+    "RMSE [deg]",
+    "Corr.",
+)
+
+TRACK2_FORWARD_REFERENCE_COLLAGE_METRICS_TABLE_HEADER_CELLS = (
+    "Curve",
+    "Operating Point",
+    "Original",
+    "Retuned",
+    "Full ONNX",
+    "Sparse",
+    "PLC HGBM",
+)
+
+TRACK2_FORWARD_REFERENCE_COLLAGE_DELTAS_TABLE_HEADER_CELLS = (
+    "Curve",
+    "Operating Point",
+    "Full ONNX",
+    "Sparse",
+    "PLC",
+    "PLC-Full",
+)
+
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
     "Platform",
     "Python API Docs",
@@ -442,6 +473,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "track2_curve_payload_diagnostics_report": {
         "candidate-diagnostic-ranking",
+    },
+    "track2_forward_reference_curve_comparison_report": {
+        "pairwise-predicted-curve-differences",
     },
     "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report": {
         "recovery-campaign-ranking",
@@ -1188,6 +1222,53 @@ REPORT_STYLESHEET = """
     .report-table-track2-original-onnx-curves td {
       width: 16.666%;
     }
+
+    .report-table-track2-forward-reference-pairwise,
+    .report-table-track2-forward-reference-collage-metrics,
+    .report-table-track2-forward-reference-collage-deltas {
+      font-size: 7.05pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track2-forward-reference-pairwise th,
+    .report-table-track2-forward-reference-pairwise td,
+    .report-table-track2-forward-reference-collage-metrics th,
+    .report-table-track2-forward-reference-collage-metrics td,
+    .report-table-track2-forward-reference-collage-deltas th,
+    .report-table-track2-forward-reference-collage-deltas td {
+      padding: 4px 4px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .report-table-track2-forward-reference-pairwise th,
+    .report-table-track2-forward-reference-collage-metrics th,
+    .report-table-track2-forward-reference-collage-deltas th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track2-forward-reference-pairwise th:nth-child(1),
+    .report-table-track2-forward-reference-pairwise td:nth-child(1) { width: 30%; }
+    .report-table-track2-forward-reference-pairwise th:nth-child(n+2),
+    .report-table-track2-forward-reference-pairwise td:nth-child(n+2) { width: 14%; }
+
+    .report-table-track2-forward-reference-collage-metrics th:nth-child(1),
+    .report-table-track2-forward-reference-collage-metrics td:nth-child(1) { width: 10%; }
+    .report-table-track2-forward-reference-collage-metrics th:nth-child(2),
+    .report-table-track2-forward-reference-collage-metrics td:nth-child(2) { width: 30%; }
+    .report-table-track2-forward-reference-collage-metrics th:nth-child(n+3),
+    .report-table-track2-forward-reference-collage-metrics td:nth-child(n+3) { width: 12%; }
+
+    .report-table-track2-forward-reference-collage-deltas th:nth-child(1),
+    .report-table-track2-forward-reference-collage-deltas td:nth-child(1) { width: 10%; }
+    .report-table-track2-forward-reference-collage-deltas th:nth-child(2),
+    .report-table-track2-forward-reference-collage-deltas td:nth-child(2) { width: 30%; }
+    .report-table-track2-forward-reference-collage-deltas th:nth-child(n+3),
+    .report-table-track2-forward-reference-collage-deltas td:nth-child(n+3) { width: 15%; }
 
     .report-table-repository-status-scalar-winner,
     .report-table-repository-status-hpo-leader,
@@ -3312,6 +3393,15 @@ def resolve_standard_table_class_name(
     if normalized_header_cells == TRACK2_ORIGINAL_ONNX_CURVES_TABLE_HEADER_CELLS:
         return TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME
 
+    if normalized_header_cells == TRACK2_FORWARD_REFERENCE_PAIRWISE_TABLE_HEADER_CELLS:
+        return TRACK2_FORWARD_REFERENCE_PAIRWISE_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_FORWARD_REFERENCE_COLLAGE_METRICS_TABLE_HEADER_CELLS:
+        return TRACK2_FORWARD_REFERENCE_COLLAGE_METRICS_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_FORWARD_REFERENCE_COLLAGE_DELTAS_TABLE_HEADER_CELLS:
+        return TRACK2_FORWARD_REFERENCE_COLLAGE_DELTAS_TABLE_CLASS_NAME
+
     # Resolve Historical Comparison Table
     if normalized_header_cells == HISTORICAL_REFERENCE_TABLE_HEADER_CELLS:
         return HISTORICAL_REFERENCE_TABLE_CLASS_NAME
@@ -4247,6 +4337,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "track2_curve_payload_diagnostics_report",
                     "track2_best_model_collage_report",
                     "track2_multi_model_curve_comparison_report",
+                    "track2_forward_reference_curve_comparison_report",
                     "track2d_mean_offset_full_matrix_audit",
                     "track2e_offset_predictability_feasibility",
                     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",

@@ -155,6 +155,12 @@ The current usage flow mainly relies on these folders:
   component-selected simplified RCIM variant and the PLC-oriented all-`HGBM`
   variant over harmonics `0`, `1`, `39`, and `40`.
 
+- `scripts/reports/analysis/build_track2_forward_reference_curve_comparison_report.py`
+  Track 2 forward reference comparison builder that regenerates collages for
+  `paper_original_best_Fw`, `paper_retuned_best_Fw`, full original `ONNX`, and
+  the two sparse original `ONNX` variants on the same four representative
+  curves, then computes aggregate and pairwise predicted-curve differences.
+
 - `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py`
   Lightweight original `ONNX` Track 2 curve plotter. The `--variant-id`
   argument can select the full original `19`-target bank, the sparse
@@ -485,6 +491,19 @@ conda run -n pinns_env python -B scripts/reports/analysis/build_track2_original_
   --report-date 2026-06-05
 conda run -n pinns_env python -B scripts/reports/pdf/run_report_pipeline.py `
   --input-markdown-path "doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md" `
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe
+```
+
+The forward reference curve-comparison report collects the paper-original,
+paper-retuned, full original `ONNX`, sparse original `ONNX`, and PLC-oriented
+sparse original `ONNX` collages in one PDF and computes pairwise curve
+differences across all five candidates:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_forward_reference_curve_comparison_report.py `
+  --report-date 2026-06-08
+conda run -n pinns_env python -B scripts/reports/pdf/run_report_pipeline.py `
+  --input-markdown-path "doc/reports/analysis/track2/forward_reference_curve_comparison/[2026-06-08]/track2_forward_reference_curve_comparison_report.md" `
   --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe
 ```
 

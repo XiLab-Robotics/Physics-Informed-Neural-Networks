@@ -14,3 +14,4 @@ repository reporting workflow.
    build_track2_mean_centered_collage_report
    build_track2_original_onnx_fw_collage_report
    build_track2_sparse_original_onnx_variants_report
+   build_track2_forward_reference_curve_comparison_report
