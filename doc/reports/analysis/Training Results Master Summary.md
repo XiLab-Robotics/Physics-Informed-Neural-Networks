@@ -1,11 +1,11 @@
-﻿# Training Results Master Summary
+# Training Results Master Summary
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-05T16:56:45`
+- Generated At: `2026-06-08T17:09:05`
 - Program State: active.
-- Current Completed Wave: `Track 2F-bis` harmonic-offset probe campaign closeout complete after runner repair; official `Track 2` matrix refresh remains the next optional operator-launched step.
-- Current Focus: use the completed `Track 2F-bis` results to run a direction-parallel `Track 2` verification refresh for clean and harmonic offset branches across `Fw`, `Bw`, and `global` surfaces.
+- Current Completed Wave: `Track 2F-bis` harmonic-offset probe official
+- Current Focus: use the completed `Track 2F-bis` official verification to
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -189,7 +189,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2F-Bis. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; Track 2 decision: pending; evaluate clean and harmonic branches in parallel,; design conclusion: harmonic forcing improves scalar `Fw` clearly and `Bw` |
+| Track 2F-Bis. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; official verification report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; strongest Track 2F-bis forward candidate:; strongest Track 2F-bis backward candidate:; strongest Track 2F-bis global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: harmonic forcing helps the direction-specific `Fw` and |
 
 Low-priority exploratory families currently listed in the backlog:
 

@@ -147,23 +147,25 @@ This folder contains the internal project documents derived from the reference P
   `harmonic_regression`, paper-original reference-bank reconstruction, and
   mean-centered diagnostic interpretation.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-05-28]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-05-28%5D/track2_official_model_verification_report.md)
-  Official `Track 2` model-verification report accepting `Wave 2C` as a
-  verified exploratory residual harmonic temporal baseline without promoting
-  it over the current `Wave 2B` neural leaders or accepted Track 2 baselines.
+- [reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-08%5D/track2_official_model_verification_report.md)
+  Official `Track 2` model-verification report accepting `Track 2F-bis` as a
+  verified exploratory harmonic-offset baseline without promoting it over the
+  current `Wave 2B` neural leaders or accepted Track 2 baselines.
 
 - [reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/track2/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
   Operational refresh plan for adding the completed `Wave 2`
   temporal-model candidates to the official `Track 2` verification matrix,
   visual reports, and update ledger.
 
-- [reports/analysis/track2/best_model_collage_report/[2026-05-28]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-05-28%5D/track2_best_model_collage_report.md)
+- [reports/analysis/track2/best_model_collage_report/[2026-06-08]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-08%5D/track2_best_model_collage_report.md)
   Styled `Track 2` visual report with four-curve collages for the current best
-  reference, Track 1, Wave 1, Wave 2, and Wave 2C candidates.
+  reference, Track 1, Wave 1, Wave 2, Wave 2C, Track 2F, and Track 2F-bis
+  candidates.
 
-- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-05-28]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-05-28%5D/track2_multi_model_curve_comparison_report.md)
+- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-08]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-08%5D/track2_multi_model_curve_comparison_report.md)
   Styled `Track 2` overlay report comparing original TE curves against
-  reference best models and screened Wave 1, Wave 2, and Wave 2C models.
+  reference best models and screened Wave 1, Wave 2, Wave 2C, Track 2F, and
+  Track 2F-bis models.
 
 - [reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md](./reports/analysis/track2/curve_first_reranking_report/%5B2026-05-28%5D/track2_curve_first_reranking_report.md)
   `Track 2B` curve-first reranking report that ranks accepted `Track 2`
@@ -268,6 +270,12 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md](./technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md)
   Plan the simplified and PLC-oriented sparse original `ONNX` forward
   `Track 2` variants over harmonics `0`, `1`, `39`, and `40`.
+
+- [technical/2026-06/2026-06-08/2026-06-08-12-53-28_track2f_bis_official_track2_refresh_preparation.md](./technical/2026-06/2026-06-08/2026-06-08-12-53-28_track2f_bis_official_track2_refresh_preparation.md)
+  Plan the operator-launched official `Track 2` verification refresh for the
+  completed `Track 2F-bis` harmonic-offset probe, preserving clean and
+  harmonic candidates for `global`, `Fw`, and `Bw` as parallel curve-first
+  comparison surfaces.
 
 - [technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md](./technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md)
   Plan the table-width repair for the simple original paper `ONNX` forward
@@ -2174,6 +2182,11 @@ This folder contains the internal project documents derived from the reference P
   Script-level documentation for the prepared Track 2F-bis harmonic-offset
   launcher across clean non-harmonic controls and explicit harmonic-offset
   probes for `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track2/run_track2f_bis_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2f_bis_track2_verification_refresh.md)
+  Script-level documentation for the operator-launched Track 2F-bis official
+  `Track 2` verification refresh across clean and harmonic candidates for
+  `global`, `Fw`, and `Bw`.
 
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.

@@ -17,7 +17,12 @@ last_completed_campaign:
   repaired_failed_run_count: 0
   effective_completed_candidate_count: 6
   unresolved_failed_run_count: 0
-  track2_status: not_run_optional_operator_launch_required
+  track2_status: official_track2_refresh_completed
+  track2_completed_at: '2026-06-08T17:08:26+02:00'
+  track2_matrix_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
+  track2_official_verification_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md
+  track2_best_model_collage_report_path: doc/reports/analysis/track2/best_model_collage_report/[2026-06-08]/track2_best_model_collage_report.md
+  track2_multi_model_curve_comparison_report_path: doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-08]/track2_multi_model_curve_comparison_report.md
   branch_candidate_list:
   - surface: global
     intervention: clean_baseline

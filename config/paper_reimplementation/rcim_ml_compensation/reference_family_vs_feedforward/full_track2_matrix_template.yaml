@@ -270,6 +270,20 @@ comparison:
           global_family: sequential_residual_offset_probe
           fw_family: sequential_residual_offset_probe_fw
           bw_family: sequential_residual_offset_probe_bw
+    track2f_bis_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2f_bis_harmonic_offset_probe_registry
+      base_family_list:
+        - candidate_id_prefix: track2f_bis_clean_sequential_residual_offset
+          candidate_family: track2f_bis_clean_sequential_residual_offset
+          global_family: track2f_bis_clean_sequential_residual_offset_global
+          fw_family: track2f_bis_clean_sequential_residual_offset_fw
+          bw_family: track2f_bis_clean_sequential_residual_offset_bw
+        - candidate_id_prefix: track2f_bis_harmonic_residual_offset
+          candidate_family: track2f_bis_harmonic_residual_offset
+          global_family: track2f_bis_harmonic_residual_offset_global
+          fw_family: track2f_bis_harmonic_residual_offset_fw
+          bw_family: track2f_bis_harmonic_residual_offset_bw
 evaluation:
   selected_harmonics:
     - 0

@@ -114,4 +114,3 @@ The causal grouping baselines use only direction and operating condition metadat
 - `output\validation_checks\track2e_offset_predictability_feasibility\2026-06-03-13-28-54__track2e_offset_predictability_feasibility\track2e_surface_intervention_recommendation.csv`
 - `output\validation_checks\track2e_offset_predictability_feasibility\2026-06-03-13-28-54__track2e_offset_predictability_feasibility\track2e_condition_offset_stability.csv`
 - `output\validation_checks\track2e_offset_predictability_feasibility\2026-06-03-13-28-54__track2e_offset_predictability_feasibility\track2e_offset_predictability_feasibility_summary.yaml`
-

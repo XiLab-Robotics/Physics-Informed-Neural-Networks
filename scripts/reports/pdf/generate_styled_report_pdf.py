@@ -136,6 +136,8 @@ TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-
 TRACK2_OFFICIAL_BEST_COMPOSITE_TABLE_CLASS_NAME = "report-table report-table-track2-official-best-composite"
 TRACK2_OFFICIAL_STATIC_BASELINE_TABLE_CLASS_NAME = "report-table report-table-track2-official-static-baseline"
 TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME = "report-table report-table-track2-official-campaign-ledger"
+TRACK2_OFFICIAL_CANDIDATE_REFRESH_TABLE_CLASS_NAME = "report-table report-table-track2-official-candidate-refresh"
+TRACK2_OFFICIAL_TRACK2FBIS_RESULT_TABLE_CLASS_NAME = "report-table report-table-track2-official-track2fbis-result"
 TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME = "report-table report-table-track2-curve-first-ranking"
 TRACK2_CURVE_PAYLOAD_DIAGNOSTICS_TABLE_CLASS_NAME = "report-table report-table-track2-curve-payload-diagnostics"
 TRACK2_SURFACE_LEADER_TABLE_CLASS_NAME = "report-table report-table-track2-surface-leader"
@@ -988,7 +990,9 @@ REPORT_STYLESHEET = """
     .report-table-track2-official-pipeline-coverage,
     .report-table-track2-official-best-composite,
     .report-table-track2-official-static-baseline,
-    .report-table-track2-official-campaign-ledger {
+    .report-table-track2-official-campaign-ledger,
+    .report-table-track2-official-candidate-refresh,
+    .report-table-track2-official-track2fbis-result {
       font-size: 6.95pt;
       line-height: 1.18;
     }
@@ -1002,7 +1006,11 @@ REPORT_STYLESHEET = """
     .report-table-track2-official-static-baseline th,
     .report-table-track2-official-static-baseline td,
     .report-table-track2-official-campaign-ledger th,
-    .report-table-track2-official-campaign-ledger td {
+    .report-table-track2-official-campaign-ledger td,
+    .report-table-track2-official-candidate-refresh th,
+    .report-table-track2-official-candidate-refresh td,
+    .report-table-track2-official-track2fbis-result th,
+    .report-table-track2-official-track2fbis-result td {
       padding: 4px 4px;
       vertical-align: middle;
     }
@@ -1037,6 +1045,18 @@ REPORT_STYLESHEET = """
     .report-table-track2-official-campaign-ledger th:nth-child(4), .report-table-track2-official-campaign-ledger td:nth-child(4) { width: 17%; }
     .report-table-track2-official-campaign-ledger th:nth-child(5), .report-table-track2-official-campaign-ledger td:nth-child(5) { width: 17%; }
     .report-table-track2-official-campaign-ledger th:nth-child(6), .report-table-track2-official-campaign-ledger td:nth-child(6) { width: 17%; }
+
+    .report-table-track2-official-candidate-refresh th:nth-child(1), .report-table-track2-official-candidate-refresh td:nth-child(1) { width: 8%; }
+    .report-table-track2-official-candidate-refresh th:nth-child(2), .report-table-track2-official-candidate-refresh td:nth-child(2) { width: 22%; }
+    .report-table-track2-official-candidate-refresh th:nth-child(3), .report-table-track2-official-candidate-refresh td:nth-child(3) { width: 43%; }
+    .report-table-track2-official-candidate-refresh th:nth-child(4), .report-table-track2-official-candidate-refresh td:nth-child(4) { width: 27%; }
+
+    .report-table-track2-official-track2fbis-result th:nth-child(1), .report-table-track2-official-track2fbis-result td:nth-child(1) { width: 14%; }
+    .report-table-track2-official-track2fbis-result th:nth-child(2), .report-table-track2-official-track2fbis-result td:nth-child(2) { width: 36%; }
+    .report-table-track2-official-track2fbis-result th:nth-child(3), .report-table-track2-official-track2fbis-result td:nth-child(3) { width: 23%; }
+    .report-table-track2-official-track2fbis-result th:nth-child(4), .report-table-track2-official-track2fbis-result td:nth-child(4) { width: 9%; }
+    .report-table-track2-official-track2fbis-result th:nth-child(5), .report-table-track2-official-track2fbis-result td:nth-child(5) { width: 9%; }
+    .report-table-track2-official-track2fbis-result th:nth-child(6), .report-table-track2-official-track2fbis-result td:nth-child(6) { width: 9%; }
 
     .report-table-track2-curve-first-ranking,
     .report-table-track2-curve-payload-diagnostics,
@@ -2338,6 +2358,7 @@ REPORT_STYLESHEET = """
     .report-table-track1-exact-open-cell-ranking .metric-unit,
     .report-table-track1-exact-open-cell-export .metric-unit,
     .report-table-track2-best-model-collage .metric-unit,
+    .report-table-track2-official-track2fbis-result .metric-unit,
     .report-table-repository-status-scalar-winner .metric-unit,
     .report-table-repository-status-hpo-leader .metric-unit,
     .report-table-repository-status-harmonic-results .metric-unit,
@@ -3611,6 +3632,9 @@ def resolve_standard_table_class_name(
         if normalized_header_cells == ("Pipeline or Source", "Track 2 Role", "Current Status", "Verification Artifact"):
             return TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME
 
+        if normalized_header_cells == ("Surface", "Branch", "Candidate", "Registry"):
+            return TRACK2_OFFICIAL_CANDIDATE_REFRESH_TABLE_CLASS_NAME
+
         if (
             current_subsection_slug == "best-composite-references"
             and normalized_header_cells == ("Candidate", "Source", "Direction", "MAE [deg]", "RMSE [deg]", "Mean [%]", "P95 [%]")
@@ -3625,6 +3649,9 @@ def resolve_standard_table_class_name(
 
         if normalized_header_cells == ("Date", "Campaign or Update", "Candidate Scope", "Matrix Status", "Visual Status", "Decision"):
             return TRACK2_OFFICIAL_CAMPAIGN_LEDGER_TABLE_CLASS_NAME
+
+        if normalized_header_cells == ("Surface", "Candidate", "Branch", "MAE [deg]", "RMSE [deg]", "Mean [%]"):
+            return TRACK2_OFFICIAL_TRACK2FBIS_RESULT_TABLE_CLASS_NAME
 
     # Resolve Wave 1 Recovery Table Profiles
     if report_stem == "2026-03-24-15-49-42_wave1_structured_baseline_recovery_campaign_results_report":

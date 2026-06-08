@@ -121,6 +121,22 @@ TRACK2F_FAMILY_CONFIGURATION_LIST = [
         "bw_family": "sequential_residual_offset_probe_bw",
     },
 ]
+TRACK2F_BIS_FAMILY_CONFIGURATION_LIST = [
+    {
+        "candidate_id_prefix": "track2f_bis_clean_sequential_residual_offset",
+        "candidate_family": "track2f_bis_clean_sequential_residual_offset",
+        "global_family": "track2f_bis_clean_sequential_residual_offset_global",
+        "fw_family": "track2f_bis_clean_sequential_residual_offset_fw",
+        "bw_family": "track2f_bis_clean_sequential_residual_offset_bw",
+    },
+    {
+        "candidate_id_prefix": "track2f_bis_harmonic_residual_offset",
+        "candidate_family": "track2f_bis_harmonic_residual_offset",
+        "global_family": "track2f_bis_harmonic_residual_offset_global",
+        "fw_family": "track2f_bis_harmonic_residual_offset_fw",
+        "bw_family": "track2f_bis_harmonic_residual_offset_bw",
+    },
+]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
     "paper_retuned_best_Fw",
@@ -407,6 +423,43 @@ def build_track2f_registry_candidate_configuration_list(family_registry_root: Pa
     return candidate_configuration_list
 
 
+def build_track2f_bis_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Track 2F-bis harmonic-offset probe candidates."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for family_configuration in TRACK2F_BIS_FAMILY_CONFIGURATION_LIST:
+        candidate_id_prefix = str(family_configuration["candidate_id_prefix"])
+        candidate_family = str(family_configuration["candidate_family"])
+        surface_family_dictionary = {
+            "global": str(family_configuration["global_family"]),
+            "Fw": str(family_configuration["fw_family"]),
+            "Bw": str(family_configuration["bw_family"]),
+        }
+        for candidate_surface, registry_family_name in surface_family_dictionary.items():
+            allowed_direction_list = ["forward", "backward"]
+            if candidate_surface == "Fw":
+                allowed_direction_list = ["forward"]
+            if candidate_surface == "Bw":
+                allowed_direction_list = ["backward"]
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{candidate_id_prefix}_{candidate_surface}",
+                    "candidate_family": candidate_family,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "track2f_bis_harmonic_offset_probe_registry",
+                    "candidate_surface": candidate_surface,
+                    "family_registry_path": f"{registry_root_text}/{registry_family_name}/latest_family_best.yaml",
+                    "allowed_direction_list": allowed_direction_list,
+                }
+            )
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -518,6 +571,7 @@ def resolve_report_candidate_configuration_list(
         + build_wave2_registry_candidate_configuration_list(family_registry_root)
         + build_wave2c_registry_candidate_configuration_list(family_registry_root)
         + build_track2f_registry_candidate_configuration_list(family_registry_root)
+        + build_track2f_bis_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -561,6 +615,18 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
     track2f_global_candidate_id_list = [
         f"{family_configuration['candidate_id_prefix']}_global"
         for family_configuration in TRACK2F_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_bis_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in TRACK2F_BIS_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_bis_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in TRACK2F_BIS_FAMILY_CONFIGURATION_LIST
+    ]
+    track2f_bis_global_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_global"
+        for family_configuration in TRACK2F_BIS_FAMILY_CONFIGURATION_LIST
     ]
 
     return [
@@ -625,6 +691,18 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             selection_mode="backward",
         ),
         ReportCandidateGroup(
+            group_id="forward_track2f_bis",
+            group_title="Forward Track 2F-Bis Harmonic-Offset Probe Models",
+            candidate_id_list=track2f_bis_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportCandidateGroup(
+            group_id="backward_track2f_bis",
+            group_title="Backward Track 2F-Bis Harmonic-Offset Probe Models",
+            candidate_id_list=track2f_bis_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportCandidateGroup(
             group_id="global_wave1",
             group_title="Global Wave 1 Family Best Models",
             candidate_id_list=wave1_global_candidate_id_list,
@@ -646,6 +724,12 @@ def build_report_group_list() -> list[ReportCandidateGroup]:
             group_id="global_track2f",
             group_title="Global Track 2F Offset-Aware Probe Models",
             candidate_id_list=track2f_global_candidate_id_list,
+            selection_mode="mixed",
+        ),
+        ReportCandidateGroup(
+            group_id="global_track2f_bis",
+            group_title="Global Track 2F-Bis Harmonic-Offset Probe Models",
+            candidate_id_list=track2f_bis_global_candidate_id_list,
             selection_mode="mixed",
         ),
     ]

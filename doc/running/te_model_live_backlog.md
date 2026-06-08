@@ -24,13 +24,16 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Track 2F-bis` harmonic-offset probe campaign closeout complete after runner repair; official `Track 2` matrix refresh remains the next optional operator-launched step.
+- Current Completed Wave: `Track 2F-bis` harmonic-offset probe official
+  `Track 2` verification refresh complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: use the completed `Track 2F-bis` results to run a direction-parallel `Track 2` verification refresh for clean and harmonic offset branches across `Fw`, `Bw`, and `global` surfaces.
+- Current Focus: use the completed `Track 2F-bis` official verification to
+  select the next curve-aware loss or multi-task shape/offset branch while
+  keeping `Fw`, `Bw`, and `global` surfaces parallel.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -39,7 +42,7 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-04]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -829,7 +832,7 @@ Entry rule:
 ### Track 2F-Bis. Harmonic-Offset Probe
 
 - status: campaign completed after runner registration repair; official
-  `Track 2` matrix refresh not yet run;
+  `Track 2` matrix refresh completed;
 - families:
   - `track2f_bis_clean_sequential_residual_offset_global`;
   - `track2f_bis_clean_sequential_residual_offset_fw`;
@@ -839,6 +842,8 @@ Entry rule:
   - `track2f_bis_harmonic_residual_offset_bw`;
 - closeout report:
   `doc/reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md`;
+- official verification report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md`;
 - clean global candidate:
   `te_track2f_bis_clean_residual_offset_global`, scalar test MAE
   `0.003528 deg`;
@@ -857,11 +862,20 @@ Entry rule:
 - harmonic backward candidate:
   `te_track2f_bis_harmonic_residual_offset_bw`, scalar test MAE
   `0.003336 deg`;
-- Track 2 decision: pending; evaluate clean and harmonic branches in parallel,
-  not as a single scalar-only competition;
-- design conclusion: harmonic forcing improves scalar `Fw` clearly and `Bw`
-  moderately, while `global` needs curve-first verification before any
-  promotion decision.
+- strongest Track 2F-bis forward candidate:
+  `track2f_bis_harmonic_residual_offset_Fw`, Track 2 MAE `0.002850 deg`;
+- strongest Track 2F-bis backward candidate:
+  `track2f_bis_harmonic_residual_offset_Bw`, Track 2 MAE `0.003331 deg`;
+- strongest Track 2F-bis global candidate:
+  `track2f_bis_clean_sequential_residual_offset_global`, combined Track 2 MAE
+  `0.003522 deg`;
+- Track 2 decision: verified exploratory baseline, not promoted over the
+  accepted paper-derived, `tree`, or `Wave 2B` periodic sequence leaders;
+- design conclusion: harmonic forcing helps the direction-specific `Fw` and
+  `Bw` branches, but the harmonic global model improves forward behavior while
+  degrading backward behavior; the next branch should use curve-aware loss or
+  multi-task shape/offset training rather than relying on harmonic forcing
+  alone.
 
 ### Wave 3. Hybrid Structured Models
 

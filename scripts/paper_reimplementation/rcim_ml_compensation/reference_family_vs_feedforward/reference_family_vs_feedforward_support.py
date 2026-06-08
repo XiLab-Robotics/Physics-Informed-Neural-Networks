@@ -56,6 +56,7 @@ TEMPORAL_SEQUENCE_MODEL_TYPE_SET = {
     "residual_harmonic_gru_sequence",
     "residual_harmonic_lstm_sequence",
     "sequential_residual_offset_probe",
+    "harmonic_residual_offset_probe",
 }
 REFERENCE_BANK_PREDICTION_BATCH_SIZE = 64
 TEMPORAL_SEQUENCE_INFERENCE_BATCH_SIZE = 2048
@@ -1094,6 +1095,15 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             build_registry_candidate_configuration_list(
                 track2f_configuration,
                 "track2f_offset_aware_probe_registry",
+            )
+        )
+
+    track2f_bis_configuration = generation_configuration.get("track2f_bis_registry_models", {})
+    if track2f_bis_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                track2f_bis_configuration,
+                "track2f_bis_harmonic_offset_probe_registry",
             )
         )
 
