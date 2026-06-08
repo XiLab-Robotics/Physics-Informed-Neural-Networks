@@ -143,6 +143,9 @@ TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME = "report-table report-table-track2-me
 TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME = "report-table report-table-track2-mean-centered-group"
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
+TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-targets"
+TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-metrics"
+TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-curves"
 REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME = "report-table report-table-repository-status-scalar-winner"
 REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME = "report-table report-table-repository-status-hpo-leader"
 REPOSITORY_STATUS_HARMONIC_RESULTS_TABLE_CLASS_NAME = "report-table report-table-repository-status-harmonic-results"
@@ -367,6 +370,31 @@ TRACK2E_OFFSET_FEASIBILITY_TABLE_HEADER_CELLS = (
     "Gain [%]",
     "Explain [%]",
     "Best Group",
+)
+
+TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS = (
+    "Target",
+    "Harmonic",
+    "Family",
+    "Original ONNX Files",
+)
+
+TRACK2_ORIGINAL_ONNX_METRICS_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Curves",
+    "MAE [deg]",
+    "RMSE [deg]",
+    "Mean Error [%]",
+    "P95 Error [%]",
+)
+
+TRACK2_ORIGINAL_ONNX_CURVES_TABLE_HEADER_CELLS = (
+    "Curve",
+    "Speed [rpm]",
+    "Torque [Nm]",
+    "Oil [C]",
+    "MAE [deg]",
+    "Mean Error [%]",
 )
 
 DECISION_MATRIX_TABLE_HEADER_CELLS = (
@@ -1116,6 +1144,50 @@ REPORT_STYLESHEET = """
     .report-table-track2e-offset-feasibility th:nth-child(7), .report-table-track2e-offset-feasibility td:nth-child(7) { width: 9%; }
     .report-table-track2e-offset-feasibility th:nth-child(8), .report-table-track2e-offset-feasibility td:nth-child(8) { width: 9%; }
     .report-table-track2e-offset-feasibility th:nth-child(9), .report-table-track2e-offset-feasibility td:nth-child(9) { width: 15%; }
+
+    .report-table-track2-original-onnx-targets,
+    .report-table-track2-original-onnx-metrics,
+    .report-table-track2-original-onnx-curves {
+      font-size: 7.0pt;
+      line-height: 1.18;
+    }
+
+    .report-table-track2-original-onnx-targets th,
+    .report-table-track2-original-onnx-targets td,
+    .report-table-track2-original-onnx-metrics th,
+    .report-table-track2-original-onnx-metrics td,
+    .report-table-track2-original-onnx-curves th,
+    .report-table-track2-original-onnx-curves td {
+      padding: 4px 4px;
+      text-align: center;
+    }
+
+    .report-table-track2-original-onnx-targets th,
+    .report-table-track2-original-onnx-metrics th,
+    .report-table-track2-original-onnx-curves th {
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      line-height: 1.12;
+    }
+
+    .report-table-track2-original-onnx-targets th:nth-child(1), .report-table-track2-original-onnx-targets td:nth-child(1) { width: 14%; }
+    .report-table-track2-original-onnx-targets th:nth-child(2), .report-table-track2-original-onnx-targets td:nth-child(2) { width: 8%; }
+    .report-table-track2-original-onnx-targets th:nth-child(3), .report-table-track2-original-onnx-targets td:nth-child(3) { width: 8%; }
+    .report-table-track2-original-onnx-targets th:nth-child(4), .report-table-track2-original-onnx-targets td:nth-child(4) { width: 70%; }
+
+    .report-table-track2-original-onnx-metrics th:nth-child(1), .report-table-track2-original-onnx-metrics td:nth-child(1) { width: 28%; }
+    .report-table-track2-original-onnx-metrics th:nth-child(2), .report-table-track2-original-onnx-metrics td:nth-child(2) { width: 8%; }
+    .report-table-track2-original-onnx-metrics th:nth-child(3), .report-table-track2-original-onnx-metrics td:nth-child(3) { width: 16%; }
+    .report-table-track2-original-onnx-metrics th:nth-child(4), .report-table-track2-original-onnx-metrics td:nth-child(4) { width: 16%; }
+    .report-table-track2-original-onnx-metrics th:nth-child(5), .report-table-track2-original-onnx-metrics td:nth-child(5) { width: 16%; }
+    .report-table-track2-original-onnx-metrics th:nth-child(6), .report-table-track2-original-onnx-metrics td:nth-child(6) { width: 16%; }
+
+    .report-table-track2-original-onnx-curves th,
+    .report-table-track2-original-onnx-curves td {
+      width: 16.666%;
+    }
 
     .report-table-repository-status-scalar-winner,
     .report-table-repository-status-hpo-leader,
@@ -2854,6 +2926,16 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
     } and wrapped_common_metric_header is not None:
         return wrapped_common_metric_header
 
+    if table_class_name == TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME:
+        if header_cell == "MAE [deg]":
+            return "MAE<br><span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "RMSE [deg]":
+            return "RMSE<br><span class=\"metric-unit\">[deg]</span>"
+        if header_cell == "Mean Error [%]":
+            return "Mean Error<br><span class=\"metric-unit\">[%]</span>"
+        if header_cell == "P95 Error [%]":
+            return "P95 Error<br><span class=\"metric-unit\">[%]</span>"
+
     if (
         table_class_name == TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME
         and header_cell.startswith("Delta Vs `")
@@ -3220,6 +3302,15 @@ def resolve_standard_table_class_name(
     """ Resolve Standard Table Class Name """
 
     normalized_header_cells = tuple(header_cells)
+
+    if normalized_header_cells == TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS:
+        return TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_ORIGINAL_ONNX_METRICS_TABLE_HEADER_CELLS:
+        return TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_ORIGINAL_ONNX_CURVES_TABLE_HEADER_CELLS:
+        return TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME
 
     # Resolve Historical Comparison Table
     if normalized_header_cells == HISTORICAL_REFERENCE_TABLE_HEADER_CELLS:

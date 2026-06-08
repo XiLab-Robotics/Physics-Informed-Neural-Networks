@@ -467,6 +467,25 @@ compares it with `models/paper_reference/rcim_original/forward`, and reports
 `track2_curve_offset_diagnostics.csv` mean-centered offset diagnostic for the
 executable original model families.
 
+A simple `Track 2` collage PDF can also be generated for only the recovered
+paper-original `ONNX` `paper_original_best_Fw` composite:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_original_onnx_fw_collage_report.py `
+  --report-date 2026-06-05
+conda run -n pinns_env python -B scripts/reports/pdf/run_report_pipeline.py `
+  --input-markdown-path "doc/reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md" `
+  --validation-python-path C:\Users\XiLabTRig\miniconda3\envs\pinns_env\python.exe
+```
+
+For direct curve-by-curve inspection without the report stack, use the
+standalone hardcoded `ONNX` plotter:
+
+```powershell
+conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py `
+  --max-curves 4
+```
+
 The saved repository paper-reference archives can also be compared against one
 another without retraining:
 

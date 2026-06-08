@@ -197,6 +197,11 @@ This folder contains the internal project documents derived from the reference P
   `Track 2` forward curve evaluator, including raw parity and mean-centered
   offset evidence for the original executable model families.
 
+- [reports/analysis/track2/original_onnx_fw_collage_report/[2026-06-05]/track2_original_onnx_fw_collage_report.md](./reports/analysis/track2/original_onnx_fw_collage_report/%5B2026-06-05%5D/track2_original_onnx_fw_collage_report.md)
+  Simple `Track 2` collage report and PDF for the recovered paper-original
+  `ONNX` `paper_original_best_Fw` composite loaded directly from the `19`
+  original target models.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -238,7 +243,17 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-08
+
+- [technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md](./technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md)
+  Plan the table-width repair for the simple original paper `ONNX` forward
+  `Track 2` collage PDF.
+
 #### 2026-06-05
+
+- [technical/2026-06/2026-06-05/2026-06-05-16-02-33_original_onnx_fw_track2_collage_pdf_and_standalone_plotter.md](./technical/2026-06/2026-06-05/2026-06-05-16-02-33_original_onnx_fw_track2_collage_pdf_and_standalone_plotter.md)
+  Plan the simple original paper `ONNX` forward `Track 2` collage PDF and
+  standalone hardcoded-ONNX curve plotter.
 
 - [technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md](./technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md)
   Plan the Track 2F-bis runner fix that registers
