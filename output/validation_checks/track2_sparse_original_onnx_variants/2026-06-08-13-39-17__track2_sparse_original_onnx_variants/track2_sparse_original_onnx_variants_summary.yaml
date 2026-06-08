@@ -1,0 +1,194 @@
+schema_version: 1
+run_instance_id: 2026-06-08-13-39-17__track2_sparse_original_onnx_variants
+output_directory: output\validation_checks\track2_sparse_original_onnx_variants\2026-06-08-13-39-17__track2_sparse_original_onnx_variants
+report_path: doc\reports\analysis\track2\sparse_original_onnx_variants\[2026-06-08]\track2_sparse_original_onnx_variants_report.md
+metrics_csv_path: output\validation_checks\track2_sparse_original_onnx_variants\2026-06-08-13-39-17__track2_sparse_original_onnx_variants\track2_sparse_original_onnx_variants_metrics.csv
+variant_summary_list:
+- candidate_id: rcim_original_simplified_onnx_Fw
+  display_name: RCIM original simplified ONNX Fw
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 39
+  - 40
+  target_count: 7
+  curve_count: 97
+  metric_summary:
+    mae: 0.0026170891446686485
+    rmse: 0.002979175225214826
+    mean_percentage_error_pct: 5.729772049106002
+    p95_mean_percentage_error_pct: 11.357307358319245
+  collage_path: output\validation_checks\track2_sparse_original_onnx_variants\2026-06-08-13-39-17__track2_sparse_original_onnx_variants\collages\rcim_original_simplified_onnx_Fw.png
+  collage_markdown_path: assets/rcim_original_simplified_onnx_Fw.png
+  target_list:
+  - target_kind: amplitude
+    harmonic_order: 0
+    family_name: ET
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\ET\ampl\ExtraTreeRegressor_ampl0.onnx
+  - target_kind: amplitude
+    harmonic_order: 1
+    family_name: RF
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\RF\ampl\RandomForestRegressor_ampl1.onnx
+  - target_kind: phase
+    harmonic_order: 1
+    family_name: LGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\LGBM\phase\LGBMRegressor_phase1.onnx
+  - target_kind: amplitude
+    harmonic_order: 39
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\ampl\HistGradientBoostingRegressor_ampl39.onnx
+  - target_kind: phase
+    harmonic_order: 39
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\phase\HistGradientBoostingRegressor_phase39.onnx
+  - target_kind: amplitude
+    harmonic_order: 40
+    family_name: ERT
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\ERT\ampl\ExtraTreesRegressor_ampl40.onnx
+  - target_kind: phase
+    harmonic_order: 40
+    family_name: GBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\GBM\phase\GradientBoostingRegressor_phase40.onnx
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 1.849081105862335e-05
+      mae: 0.004241495665087107
+      rmse: 0.004300094308108062
+      mean_percentage_error_pct: 11.01024697486154
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 1.3986081112844687e-05
+      mae: 0.00302862922626513
+      rmse: 0.0037397969347071087
+      mean_percentage_error_pct: 5.961300323617734
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+    metrics:
+      mse: 2.3284627588094004e-05
+      mae: 0.004597119902769038
+      rmse: 0.0048254147581419365
+      mean_percentage_error_pct: 10.5025526147783
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 1.7522801595986565e-05
+      mae: 0.003744365663992034
+      rmse: 0.004186024557499223
+      mean_percentage_error_pct: 8.153283671412941
+- candidate_id: rcim_original_plc_hgbm_onnx_Fw
+  display_name: RCIM original PLC HGBM ONNX Fw
+  selected_harmonic_list:
+  - 0
+  - 1
+  - 39
+  - 40
+  target_count: 7
+  curve_count: 97
+  metric_summary:
+    mae: 0.0024494820880803852
+    rmse: 0.002809452584924288
+    mean_percentage_error_pct: 5.338222754737662
+    p95_mean_percentage_error_pct: 10.932099178812356
+  collage_path: output\validation_checks\track2_sparse_original_onnx_variants\2026-06-08-13-39-17__track2_sparse_original_onnx_variants\collages\rcim_original_plc_hgbm_onnx_Fw.png
+  collage_markdown_path: assets/rcim_original_plc_hgbm_onnx_Fw.png
+  target_list:
+  - target_kind: amplitude
+    harmonic_order: 0
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\ampl\HistGradientBoostingRegressor_ampl0.onnx
+  - target_kind: amplitude
+    harmonic_order: 1
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\ampl\HistGradientBoostingRegressor_ampl1.onnx
+  - target_kind: phase
+    harmonic_order: 1
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\phase\HistGradientBoostingRegressor_phase1.onnx
+  - target_kind: amplitude
+    harmonic_order: 39
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\ampl\HistGradientBoostingRegressor_ampl39.onnx
+  - target_kind: phase
+    harmonic_order: 39
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\phase\HistGradientBoostingRegressor_phase39.onnx
+  - target_kind: amplitude
+    harmonic_order: 40
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\ampl\HistGradientBoostingRegressor_ampl40.onnx
+  - target_kind: phase
+    harmonic_order: 40
+    family_name: HGBM
+    model_path: reference\rcim_ml_compensation_recovered_assets\models\exact_onnx_paper_release\HGBM\phase\HistGradientBoostingRegressor_phase40.onnx
+  selected_curve_list:
+  - source_file_path: data\datasets\Test_25degree\100rpm\100.0rpm100.0Nm25.0deg.csv
+    speed_rpm: 100.0
+    torque_nm: 100.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 1.805387306031219e-05
+      mae: 0.0041900606799215355
+      rmse: 0.004248984944702934
+      mean_percentage_error_pct: 10.876729948195038
+  - source_file_path: data\datasets\Test_25degree\1600rpm\1600.0rpm1500.0Nm25.0deg.csv
+    speed_rpm: 1600.0
+    torque_nm: 1500.0
+    oil_temperature_deg: 25.0
+    metrics:
+      mse: 1.235903774283941e-05
+      mae: 0.002887110987931122
+      rmse: 0.003515542311342506
+      mean_percentage_error_pct: 5.682747665979053
+  - source_file_path: data\datasets\Test_30degree\700rpm\700.0rpm1400.0Nm30.0deg.csv
+    speed_rpm: 700.0
+    torque_nm: 1400.0
+    oil_temperature_deg: 30.0
+    metrics:
+      mse: 6.5452981767567e-06
+      mae: 0.002192192572802128
+      rmse: 0.0025583780363262775
+      mean_percentage_error_pct: 5.0082700309192445
+  - source_file_path: data\datasets\Test_35degree\800rpm\800.0rpm1800.0Nm35.0deg.csv
+    speed_rpm: 800.0
+    torque_nm: 1800.0
+    oil_temperature_deg: 35.0
+    metrics:
+      mse: 8.175018739307132e-06
+      mae: 0.0024116561009928034
+      rmse: 0.0028591989681215142
+      mean_percentage_error_pct: 5.251334424513581
+baseline_summary_list:
+- candidate_id: paper_original_best_Fw_original_onnx_release
+  source: full original ONNX report
+  metrics:
+    mae: 0.0028035442380703033
+    rmse: 0.00298689420627187
+    mean_percentage_error_pct: 6.329387042722369
+    p95_mean_percentage_error_pct: 13.846839797359157
+- candidate_id: paper_original_best_Fw
+  source: rcim_original
+  metrics:
+    mse: 1.184383818134888e-05
+    mae: 0.0027688394806654887
+    rmse: 0.0029512633152858833
+    mean_percentage_error_pct: 6.25031119295237
+    p95_mean_percentage_error_pct: 13.826565958236902
+- candidate_id: paper_retuned_best_Fw
+  source: rcim_retuned
+  metrics:
+    mse: 5.648091864497738e-06
+    mae: 0.0018393615404676234
+    rmse: 0.0020408865402264296
+    mean_percentage_error_pct: 4.108527185855838
+    p95_mean_percentage_error_pct: 9.865679888626206

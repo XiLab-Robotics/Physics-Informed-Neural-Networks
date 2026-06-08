@@ -150,6 +150,16 @@ The current usage flow mainly relies on these folders:
   and recomputes curve `MAE` and `RMSE` to separate vertical offset from
   waveform-shape tracking while preserving the causal runtime input contract.
 
+- `scripts/reports/analysis/build_track2_sparse_original_onnx_variants_report.py`
+  Track 2 sparse original `ONNX` report builder that evaluates the
+  component-selected simplified RCIM variant and the PLC-oriented all-`HGBM`
+  variant over harmonics `0`, `1`, `39`, and `40`.
+
+- `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py`
+  Lightweight original `ONNX` Track 2 curve plotter. The `--variant-id`
+  argument can select the full original `19`-target bank, the sparse
+  simplified bank, or the sparse PLC all-`HGBM` bank.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 

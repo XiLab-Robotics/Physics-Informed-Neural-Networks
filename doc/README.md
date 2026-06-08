@@ -202,6 +202,11 @@ This folder contains the internal project documents derived from the reference P
   `ONNX` `paper_original_best_Fw` composite loaded directly from the `19`
   original target models.
 
+- [reports/analysis/track2/sparse_original_onnx_variants/[2026-06-08]/track2_sparse_original_onnx_variants_report.md](./reports/analysis/track2/sparse_original_onnx_variants/%5B2026-06-08%5D/track2_sparse_original_onnx_variants_report.md)
+  Sparse original `ONNX` `Track 2` report comparing the component-selected
+  simplified RCIM variant and the PLC-oriented all-`HGBM` variant over
+  harmonics `0`, `1`, `39`, and `40`.
+
 - [reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/[2026-05-13]/rcim_retuned_reference_closeout_report.md](./reports/analysis/rcim_paper_reference/rcim_retuned_reference_closeout/%5B2026-05-13%5D/rcim_retuned_reference_closeout_report.md)
   Detailed closeout report for the recovered-original RCIM retuned reference
   archive, including source bundles, export completeness, and retuned Tables
@@ -244,6 +249,10 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-08
+
+- [technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md](./technical/2026-06/2026-06-08/2026-06-08-13-30-17_rcim_original_sparse_onnx_track2_variants.md)
+  Plan the simplified and PLC-oriented sparse original `ONNX` forward
+  `Track 2` variants over harmonics `0`, `1`, `39`, and `40`.
 
 - [technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md](./technical/2026-06/2026-06-08/2026-06-08-12-32-29_original_onnx_fw_collage_pdf_table_width_repair.md)
   Plan the table-width repair for the simple original paper `ONNX` forward

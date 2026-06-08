@@ -7,7 +7,7 @@ import argparse
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 # Define Project Path
 PROJECT_PATH = Path(__file__).resolve().parents[4]
@@ -44,7 +44,11 @@ DEFAULT_OUTPUT_ROOT = (
     / "track2_original_onnx_fw_curve_plotter"
 )
 
-ONNX_TARGET_CONFIGURATION_LIST = [
+FULL_ORIGINAL_ONNX_VARIANT_ID = "paper_original_best_Fw_original_onnx_release"
+SPARSE_SIMPLIFIED_ONNX_VARIANT_ID = "rcim_original_simplified_onnx_Fw"
+SPARSE_PLC_HGBM_ONNX_VARIANT_ID = "rcim_original_plc_hgbm_onnx_Fw"
+
+FULL_ORIGINAL_ONNX_TARGET_CONFIGURATION_LIST = [
     ("amplitude", 0, "SVR", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/SVR/ampl/SVR_ampl0.onnx"),
     ("amplitude", 1, "RF", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/RF/ampl/RandomForestRegressor_ampl1.onnx"),
     ("amplitude", 3, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl3.onnx"),
@@ -65,6 +69,51 @@ ONNX_TARGET_CONFIGURATION_LIST = [
     ("phase", 162, "ERT", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/ERT/phase/ExtraTreesRegressor_phase162.onnx"),
     ("phase", 240, "ERT", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/ERT/phase/ExtraTreesRegressor_phase240.onnx"),
 ]
+
+SPARSE_SELECTED_HARMONIC_LIST = [0, 1, 39, 40]
+
+SPARSE_SIMPLIFIED_ONNX_TARGET_CONFIGURATION_LIST = [
+    ("amplitude", 0, "ET", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/ET/ampl/ExtraTreeRegressor_ampl0.onnx"),
+    ("amplitude", 1, "RF", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/RF/ampl/RandomForestRegressor_ampl1.onnx"),
+    ("phase", 1, "LGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/LGBM/phase/LGBMRegressor_phase1.onnx"),
+    ("amplitude", 39, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl39.onnx"),
+    ("phase", 39, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/phase/HistGradientBoostingRegressor_phase39.onnx"),
+    ("amplitude", 40, "ERT", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/ERT/ampl/ExtraTreesRegressor_ampl40.onnx"),
+    ("phase", 40, "GBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/GBM/phase/GradientBoostingRegressor_phase40.onnx"),
+]
+
+SPARSE_PLC_HGBM_ONNX_TARGET_CONFIGURATION_LIST = [
+    ("amplitude", 0, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl0.onnx"),
+    ("amplitude", 1, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl1.onnx"),
+    ("phase", 1, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/phase/HistGradientBoostingRegressor_phase1.onnx"),
+    ("amplitude", 39, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl39.onnx"),
+    ("phase", 39, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/phase/HistGradientBoostingRegressor_phase39.onnx"),
+    ("amplitude", 40, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/ampl/HistGradientBoostingRegressor_ampl40.onnx"),
+    ("phase", 40, "HGBM", "reference/rcim_ml_compensation_recovered_assets/models/exact_onnx_paper_release/HGBM/phase/HistGradientBoostingRegressor_phase40.onnx"),
+]
+
+ONNX_TARGET_CONFIGURATION_LIST = FULL_ORIGINAL_ONNX_TARGET_CONFIGURATION_LIST
+
+ONNX_VARIANT_CONFIGURATION_DICTIONARY = {
+    FULL_ORIGINAL_ONNX_VARIANT_ID: {
+        "candidate_id": FULL_ORIGINAL_ONNX_VARIANT_ID,
+        "display_name": "Original ONNX paper best Fw",
+        "target_configuration_list": FULL_ORIGINAL_ONNX_TARGET_CONFIGURATION_LIST,
+        "selected_harmonic_list": None,
+    },
+    SPARSE_SIMPLIFIED_ONNX_VARIANT_ID: {
+        "candidate_id": SPARSE_SIMPLIFIED_ONNX_VARIANT_ID,
+        "display_name": "RCIM original simplified ONNX Fw",
+        "target_configuration_list": SPARSE_SIMPLIFIED_ONNX_TARGET_CONFIGURATION_LIST,
+        "selected_harmonic_list": SPARSE_SELECTED_HARMONIC_LIST,
+    },
+    SPARSE_PLC_HGBM_ONNX_VARIANT_ID: {
+        "candidate_id": SPARSE_PLC_HGBM_ONNX_VARIANT_ID,
+        "display_name": "RCIM original PLC HGBM ONNX Fw",
+        "target_configuration_list": SPARSE_PLC_HGBM_ONNX_TARGET_CONFIGURATION_LIST,
+        "selected_harmonic_list": SPARSE_SELECTED_HARMONIC_LIST,
+    },
+}
 
 
 @dataclass(frozen=True)
@@ -98,6 +147,12 @@ def parse_command_line_arguments() -> argparse.Namespace:
         help="Directory where one PNG is written per plotted curve.",
     )
     parser.add_argument(
+        "--variant-id",
+        choices=sorted(ONNX_VARIANT_CONFIGURATION_DICTIONARY),
+        default=FULL_ORIGINAL_ONNX_VARIANT_ID,
+        help="Original ONNX variant to evaluate.",
+    )
+    parser.add_argument(
         "--max-curves",
         type=int,
         default=None,
@@ -111,12 +166,25 @@ def parse_command_line_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_hardcoded_onnx_target_list() -> list[HardcodedOnnxTarget]:
+def resolve_onnx_variant_configuration(variant_id: str) -> dict[str, Any]:
 
-    """Load the 19 hardcoded original paper-best forward ONNX targets."""
+    """Resolve one named original-ONNX variant configuration."""
+
+    assert variant_id in ONNX_VARIANT_CONFIGURATION_DICTIONARY, f"Unknown ONNX variant | {variant_id}"
+    return ONNX_VARIANT_CONFIGURATION_DICTIONARY[variant_id]
+
+
+def load_hardcoded_onnx_target_list(
+    target_configuration_list: Sequence[tuple[str, int, str, str]] | None = None,
+) -> list[HardcodedOnnxTarget]:
+
+    """Load one hardcoded original paper forward ONNX target list."""
+
+    if target_configuration_list is None:
+        target_configuration_list = ONNX_TARGET_CONFIGURATION_LIST
 
     target_list: list[HardcodedOnnxTarget] = []
-    for target_kind, harmonic_order, family_name, path_text in ONNX_TARGET_CONFIGURATION_LIST:
+    for target_kind, harmonic_order, family_name, path_text in target_configuration_list:
         model_path = PROJECT_PATH / path_text
         assert model_path.exists(), f"Missing hardcoded ONNX target | {model_path}"
         session = ort.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
@@ -131,7 +199,6 @@ def load_hardcoded_onnx_target_list() -> list[HardcodedOnnxTarget]:
             )
         )
 
-    assert len(target_list) == 19, f"Expected 19 ONNX targets, found {len(target_list)}"
     return target_list
 
 
@@ -252,11 +319,22 @@ def run_plotter(arguments: argparse.Namespace) -> dict[str, Any]:
 
     """Run the hardcoded original-ONNX curve plotter."""
 
-    output_root = shared_training_infrastructure.resolve_runtime_project_relative_path(arguments.output_root)
-    target_list = load_hardcoded_onnx_target_list()
+    variant_configuration = resolve_onnx_variant_configuration(str(arguments.variant_id))
+    output_root = (
+        shared_training_infrastructure.resolve_runtime_project_relative_path(arguments.output_root)
+        / str(variant_configuration["candidate_id"])
+    )
+    target_list = load_hardcoded_onnx_target_list(
+        variant_configuration["target_configuration_list"]
+    )
     curve_record_list, selected_harmonic_list, percentage_error_denominator = build_forward_track2_curve_record_list(
         arguments.config_path
     )
+    if variant_configuration["selected_harmonic_list"] is not None:
+        selected_harmonic_list = [
+            int(harmonic_order)
+            for harmonic_order in variant_configuration["selected_harmonic_list"]
+        ]
     if arguments.max_curves is not None:
         curve_record_list = curve_record_list[: int(arguments.max_curves)]
 
@@ -292,8 +370,10 @@ def run_plotter(arguments: argparse.Namespace) -> dict[str, Any]:
         )
 
     return {
+        "candidate_id": str(variant_configuration["candidate_id"]),
         "curve_count": len(plot_entry_list),
         "target_count": len(target_list),
+        "selected_harmonic_list": selected_harmonic_list,
         "plot_entry_list": plot_entry_list,
     }
 
@@ -305,6 +385,7 @@ def main() -> None:
     summary_dictionary = run_plotter(parse_command_line_arguments())
     print(
         "[DONE] Original ONNX paper-best forward plots | "
+        f"candidate={summary_dictionary['candidate_id']} "
         f"curves={summary_dictionary['curve_count']} "
         f"targets={summary_dictionary['target_count']}"
     )
