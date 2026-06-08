@@ -1,4 +1,4 @@
-"""Styled Markdown-to-PDF report exporter for repository analysis artifacts."""
+﻿"""Styled Markdown-to-PDF report exporter for repository analysis artifacts."""
 
 from __future__ import annotations
 
@@ -42,6 +42,10 @@ HERO_NOTE_TEXT = (
     "Styled PDF edition generated from the canonical Markdown analysis report "
     "for improved readability, section hierarchy, and table presentation."
 )
+REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
+    "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": "Track 2 Campaign Closeout",
+    "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": "Track 2 Campaign Closeout",
+}
 
 # Report Styles
 ALIGN_LEFT = "align-left"
@@ -441,8 +445,8 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     "2026-04-13-22-55-28_track1_exact_paper_open_cell_repair_campaign_results_report": {
         "open-numeric-gaps-after-the-best-run",
     },
-    "2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report": {                                                                                                                 
-        "main-conclusions",                                                                                                                                                                                 
+    "2026-04-14-14-35-29_track1_full_matrix_family_reproduction_campaign_results_report": {
+        "main-conclusions",
     },
     "2026-04-18-11-14-50_track1_remaining_family_partial_closeout_campaign_results_report": {
         "completed-family-closeout",
@@ -494,6 +498,9 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
         "leaderboard",
     },
     "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": {
+        "execution-summary",
+    },
+    "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": {
         "execution-summary",
     },
 }
@@ -3387,7 +3394,10 @@ def resolve_standard_table_class_name(
         return WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME
 
     # Resolve Track 2F Closeout Table Profiles
-    if report_stem == "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report":
+    if report_stem in {
+        "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
+        "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
+    }:
 
         if (
             current_section_slug == "directional-branch-results"
@@ -4150,6 +4160,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "track2e_offset_predictability_feasibility",
                     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
                     "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
+                    "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"
@@ -4361,9 +4372,13 @@ def main() -> None:
     # Render Styled HTML Document
     markdown_text = input_markdown_path.read_text(encoding="utf-8")
     report_title, body_html = render_markdown_body(markdown_text, input_markdown_path)
+    report_subtitle = REPORT_SPECIFIC_SUBTITLE_DICTIONARY.get(
+        input_markdown_path.stem,
+        parsed_arguments.report_subtitle,
+    )
     html_document = build_html_document(
         report_title,
-        parsed_arguments.report_subtitle,
+        report_subtitle,
         parsed_arguments.report_category,
         body_html,
     )

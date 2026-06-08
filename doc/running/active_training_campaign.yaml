@@ -1,38 +1,78 @@
-status: prepared
-campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
-prepared_at: '2026-06-04T23:06:20+02:00'
-planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
-technical_document_path: doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
-campaign_config_root: config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign
-campaign_output_directory: output/training_campaigns/track2f_bis_harmonic_offset_probe_campaign_2026_06_04
-execution_status: prepared_for_track2f_bis_harmonic_offset_probe_training
-protected_file_list:
-- doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
-- doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
-- scripts/models/harmonic_residual_offset_network.py
-- scripts/models/model_factory.py
-- scripts/models/__init__.py
-- scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.ps1
-- scripts/campaigns/track2/validate_track2f_bis_harmonic_offset_probe_package.py
-- doc/scripts/campaigns/track2/run_track2f_bis_harmonic_offset_probe_campaign.md
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/README.md
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_global.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_fw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_bw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/01_clean_sequential_residual_offset_control_global.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/02_clean_sequential_residual_offset_control_fw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/03_clean_sequential_residual_offset_control_bw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/04_harmonic_residual_offset_probe_global.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/05_harmonic_residual_offset_probe_fw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/06_harmonic_residual_offset_probe_bw.yaml
-queue_config_path_list:
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/01_clean_sequential_residual_offset_control_global.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/02_clean_sequential_residual_offset_control_fw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/03_clean_sequential_residual_offset_control_bw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/04_harmonic_residual_offset_probe_global.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/05_harmonic_residual_offset_probe_fw.yaml
-- config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/queue/06_harmonic_residual_offset_probe_bw.yaml
-launch_command_list:
-- .\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -PreflightOnly
-- .\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1
-- .\scripts\campaigns\track2\run_track2f_bis_harmonic_offset_probe_campaign.ps1 -Remote
+status: none
+campaign_name:
+cleared_at: '2026-06-05T16:49:50+02:00'
+clear_reason: completed_track2f_bis_campaign_removed_from_running_state_after_repair_closeout
+last_completed_campaign:
+  campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+  status: completed_after_repair
+  original_campaign_output_directory: output/training_campaigns/2026-06-04-23-31-57_track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+  repair_campaign_output_directory: output/training_campaigns/2026-06-05-16-07-17_track2f_bis_harmonic_offset_probe_repair_2026_06_05
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
+  runner_fix_technical_document_path: doc/technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md
+  closeout_report_path: doc/reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md
+  original_completed_run_count: 3
+  original_failed_run_count: 3
+  repaired_completed_run_count: 3
+  repaired_failed_run_count: 0
+  effective_completed_candidate_count: 6
+  unresolved_failed_run_count: 0
+  track2_status: not_run_optional_operator_launch_required
+  branch_candidate_list:
+  - surface: global
+    intervention: clean_baseline
+    run_name: te_track2f_bis_clean_residual_offset_global
+    run_instance_id: 2026-06-04-23-31-57__te_track2f_bis_clean_residual_offset_global
+    model_family: track2f_bis_clean_sequential_residual_offset_global
+    model_type: sequential_residual_offset_probe
+    test_mae: 0.0035279763396829367
+    test_rmse: 0.004010066390037537
+    val_mae: 0.0037169386632740498
+  - surface: global
+    intervention: harmonic_offset
+    run_name: te_track2f_bis_harmonic_residual_offset_global
+    run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global
+    model_family: track2f_bis_harmonic_residual_offset_global
+    model_type: harmonic_residual_offset_probe
+    test_mae: 0.003537735203281045
+    test_rmse: 0.003932197578251362
+    val_mae: 0.003658934263512492
+  - surface: Fw
+    intervention: clean_baseline
+    run_name: te_track2f_bis_clean_residual_offset_fw
+    run_instance_id: 2026-06-04-23-43-38__te_track2f_bis_clean_residual_offset_fw
+    model_family: track2f_bis_clean_sequential_residual_offset_fw
+    model_type: sequential_residual_offset_probe
+    test_mae: 0.0034461263567209244
+    test_rmse: 0.003971843980252743
+    val_mae: 0.003474122378975153
+  - surface: Fw
+    intervention: harmonic_offset
+    run_name: te_track2f_bis_harmonic_residual_offset_fw
+    run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw
+    model_family: track2f_bis_harmonic_residual_offset_fw
+    model_type: harmonic_residual_offset_probe
+    test_mae: 0.0028616469353437424
+    test_rmse: 0.0033336810301989317
+    val_mae: 0.0029414519667625427
+  - surface: Bw
+    intervention: clean_baseline
+    run_name: te_track2f_bis_clean_residual_offset_bw
+    run_instance_id: 2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw
+    model_family: track2f_bis_clean_sequential_residual_offset_bw
+    model_type: sequential_residual_offset_probe
+    test_mae: 0.0035396674647927284
+    test_rmse: 0.004203124437481165
+    val_mae: 0.0038196418900042772
+  - surface: Bw
+    intervention: harmonic_offset
+    run_name: te_track2f_bis_harmonic_residual_offset_bw
+    run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw
+    model_family: track2f_bis_harmonic_residual_offset_bw
+    model_type: harmonic_residual_offset_probe
+    test_mae: 0.0033360894303768873
+    test_rmse: 0.003934947773814201
+    val_mae: 0.003555009141564369
+protected_file_list: []
+queue_config_path_list: []
+launch_command_list: []

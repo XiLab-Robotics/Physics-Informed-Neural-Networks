@@ -1,0 +1,69 @@
+﻿campaign_name: track2f_bis_harmonic_offset_probe_repair_2026_06_05
+generated_at: '2026-06-05T16:44:49'
+queue_root: config/training/queue
+campaign_output_directory: output/training_campaigns/2026-06-05-16-07-17_track2f_bis_harmonic_offset_probe_repair_2026_06_05
+planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+run_list:
+- original_queue_config_path: config/training/queue/pending/2026-06-05-16-07-17_001_2026_06_04_23_31_57_004_04_harmonic_residual_offset_probe_global.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-05-16-07-17_001_2026_06_04_23_31_57_004_04_harmonic_residual_offset_probe_global.yaml
+  source_config_path: config/training/queue/failed/2026-06-04-23-31-57_004_04_harmonic_residual_offset_probe_global.yaml
+  run_name: te_track2f_bis_harmonic_residual_offset_global
+  run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global
+  model_type: harmonic_residual_offset_probe
+  queue_status: completed
+  start_time: '2026-06-05T16:07:17'
+  end_time: '2026-06-05T16:19:21'
+  duration_seconds: 724.626
+  process_return_code: 0
+  output_directory: output/training_runs/track2f_bis_harmonic_residual_offset_global/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global
+  config_snapshot_path: output/training_runs/track2f_bis_harmonic_residual_offset_global/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/track2f_bis_harmonic_residual_offset_global/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_harmonic_residual_offset_global\2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global\checkpoints\harmonic_residual_offset_probe-epoch=050-val_mae=0.00365893.ckpt
+  metrics_path: output/training_runs/track2f_bis_harmonic_residual_offset_global/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global/metrics_summary.yaml
+  training_report_path: output/training_runs/track2f_bis_harmonic_residual_offset_global/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global/training_test_report.md
+  log_path: output/training_campaigns/2026-06-05-16-07-17_track2f_bis_harmonic_offset_probe_repair_2026_06_05/logs/001_te_track2f_bis_harmonic_residual_offset_global.log
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+  campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-05-16-07-17_002_2026_06_04_23_31_57_005_05_harmonic_residual_offset_probe_fw.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-05-16-07-17_002_2026_06_04_23_31_57_005_05_harmonic_residual_offset_probe_fw.yaml
+  source_config_path: config/training/queue/failed/2026-06-04-23-31-57_005_05_harmonic_residual_offset_probe_fw.yaml
+  run_name: te_track2f_bis_harmonic_residual_offset_fw
+  run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw
+  model_type: harmonic_residual_offset_probe
+  queue_status: completed
+  start_time: '2026-06-05T16:19:21'
+  end_time: '2026-06-05T16:32:38'
+  duration_seconds: 796.255
+  process_return_code: 0
+  output_directory: output/training_runs/track2f_bis_harmonic_residual_offset_fw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw
+  config_snapshot_path: output/training_runs/track2f_bis_harmonic_residual_offset_fw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/track2f_bis_harmonic_residual_offset_fw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_harmonic_residual_offset_fw\2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw\checkpoints\harmonic_residual_offset_probe-epoch=175-val_mae=0.00294145.ckpt
+  metrics_path: output/training_runs/track2f_bis_harmonic_residual_offset_fw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw/metrics_summary.yaml
+  training_report_path: output/training_runs/track2f_bis_harmonic_residual_offset_fw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw/training_test_report.md
+  log_path: output/training_campaigns/2026-06-05-16-07-17_track2f_bis_harmonic_offset_probe_repair_2026_06_05/logs/002_te_track2f_bis_harmonic_residual_offset_fw.log
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+  campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+  error_message: null
+- original_queue_config_path: config/training/queue/pending/2026-06-05-16-07-17_003_2026_06_04_23_31_57_006_06_harmonic_residual_offset_probe_bw.yaml
+  final_queue_config_path: config/training/queue/completed/2026-06-05-16-07-17_003_2026_06_04_23_31_57_006_06_harmonic_residual_offset_probe_bw.yaml
+  source_config_path: config/training/queue/failed/2026-06-04-23-31-57_006_06_harmonic_residual_offset_probe_bw.yaml
+  run_name: te_track2f_bis_harmonic_residual_offset_bw
+  run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw
+  model_type: harmonic_residual_offset_probe
+  queue_status: completed
+  start_time: '2026-06-05T16:32:38'
+  end_time: '2026-06-05T16:44:49'
+  duration_seconds: 731.102
+  process_return_code: 0
+  output_directory: output/training_runs/track2f_bis_harmonic_residual_offset_bw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw
+  config_snapshot_path: output/training_runs/track2f_bis_harmonic_residual_offset_bw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw/training_config.yaml
+  best_checkpoint_reference_path: output/training_runs/track2f_bis_harmonic_residual_offset_bw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw/best_checkpoint_path.txt
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_harmonic_residual_offset_bw\2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw\checkpoints\harmonic_residual_offset_probe-epoch=171-val_mae=0.00355501.ckpt
+  metrics_path: output/training_runs/track2f_bis_harmonic_residual_offset_bw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw/metrics_summary.yaml
+  training_report_path: output/training_runs/track2f_bis_harmonic_residual_offset_bw/2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw/training_test_report.md
+  log_path: output/training_campaigns/2026-06-05-16-07-17_track2f_bis_harmonic_offset_probe_repair_2026_06_05/logs/003_te_track2f_bis_harmonic_residual_offset_bw.log
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+  campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+  error_message: null

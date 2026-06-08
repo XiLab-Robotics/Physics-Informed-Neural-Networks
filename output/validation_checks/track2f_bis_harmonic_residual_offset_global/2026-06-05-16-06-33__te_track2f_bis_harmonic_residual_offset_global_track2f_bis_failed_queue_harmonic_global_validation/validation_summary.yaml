@@ -1,0 +1,26 @@
+﻿schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\failed\2026-06-04-23-31-57_004_04_harmonic_residual_offset_probe_global.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\track2f_bis_harmonic_residual_offset_global\2026-06-05-16-06-33__te_track2f_bis_harmonic_residual_offset_global_track2f_bis_failed_queue_harmonic_global_validation
+experiment:
+  run_name: te_track2f_bis_harmonic_residual_offset_global
+  output_run_name: te_track2f_bis_harmonic_residual_offset_global_track2f_bis_failed_queue_harmonic_global_validation
+  run_instance_id: 2026-06-05-16-06-33__te_track2f_bis_harmonic_residual_offset_global_track2f_bis_failed_queue_harmonic_global_validation
+  model_family: track2f_bis_harmonic_residual_offset_global
+  model_type: harmonic_residual_offset_probe
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 4.590452194213867
+  mae: 0.07735336571931839
+  rmse: 0.09967106580734253

@@ -227,6 +227,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-05
+
+- [technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md](./technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md)
+  Plan the Track 2F-bis runner fix that registers
+  `harmonic_residual_offset_probe` in the campaign runner, then reruns only
+  the three failed harmonic-offset entries before normal closeout.
+
 #### 2026-06-04
 
 - [technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md](./technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md)
@@ -2468,6 +2475,13 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md](./reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md)
+  Final results report for the completed-after-repair `Track 2F-bis`
+  harmonic-offset probe campaign, including clean and harmonic candidates
+  for `global`, `Fw`, and `Bw`, the runner registration repair, launcher
+  wrapper hardening, registry effects, and the boundary that official
+  `Track 2` curve verification remains a separate operator-launched workflow.
 
 - [reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md](./reports/campaign_results/track2/2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report.md)
   Final results report for the completed `Track 2F` offset-aware

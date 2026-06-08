@@ -477,6 +477,12 @@ function Invoke-Track2FPython {{
         return
     }}
 
+    if ($env:CONDA_DEFAULT_ENV -eq $CondaEnvironmentName) {{
+        & python @ArgumentList
+        $script:LastTrack2FPythonExitCode = $LASTEXITCODE
+        return
+    }}
+
     $condaExecutablePath = (Get-Command conda -ErrorAction Stop).Source
     & $condaExecutablePath run --no-capture-output -n $CondaEnvironmentName python @ArgumentList
     $script:LastTrack2FPythonExitCode = $LASTEXITCODE

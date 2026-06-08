@@ -24,16 +24,13 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Track 2F` offset-aware probe campaign and official
-  `Track 2` matrix refresh complete.
+- Current Completed Wave: `Track 2F-bis` harmonic-offset probe campaign closeout complete after runner repair; official `Track 2` matrix refresh remains the next optional operator-launched step.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: use the completed `Track 2F` result to prepare the next
-  direction-parallel offset calibration or multi-task offset/shape training
-  branch for `Fw`, `Bw`, and `global` surfaces.
+- Current Focus: use the completed `Track 2F-bis` results to run a direction-parallel `Track 2` verification refresh for clean and harmonic offset branches across `Fw`, `Bw`, and `global` surfaces.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -828,6 +825,43 @@ Entry rule:
 - design conclusion: a sequential residual offset head alone does not solve
   the curve-following gap; the next branch should test explicit offset
   calibration or multi-task offset/shape training.
+
+### Track 2F-Bis. Harmonic-Offset Probe
+
+- status: campaign completed after runner registration repair; official
+  `Track 2` matrix refresh not yet run;
+- families:
+  - `track2f_bis_clean_sequential_residual_offset_global`;
+  - `track2f_bis_clean_sequential_residual_offset_fw`;
+  - `track2f_bis_clean_sequential_residual_offset_bw`;
+  - `track2f_bis_harmonic_residual_offset_global`;
+  - `track2f_bis_harmonic_residual_offset_fw`;
+  - `track2f_bis_harmonic_residual_offset_bw`;
+- closeout report:
+  `doc/reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md`;
+- clean global candidate:
+  `te_track2f_bis_clean_residual_offset_global`, scalar test MAE
+  `0.003528 deg`;
+- harmonic global candidate:
+  `te_track2f_bis_harmonic_residual_offset_global`, scalar test MAE
+  `0.003538 deg`;
+- clean forward candidate:
+  `te_track2f_bis_clean_residual_offset_fw`, scalar test MAE
+  `0.003446 deg`;
+- harmonic forward candidate:
+  `te_track2f_bis_harmonic_residual_offset_fw`, scalar test MAE
+  `0.002862 deg`;
+- clean backward candidate:
+  `te_track2f_bis_clean_residual_offset_bw`, scalar test MAE
+  `0.003540 deg`;
+- harmonic backward candidate:
+  `te_track2f_bis_harmonic_residual_offset_bw`, scalar test MAE
+  `0.003336 deg`;
+- Track 2 decision: pending; evaluate clean and harmonic branches in parallel,
+  not as a single scalar-only competition;
+- design conclusion: harmonic forcing improves scalar `Fw` clearly and `Bw`
+  moderately, while `global` needs curve-first verification before any
+  promotion decision.
 
 ### Wave 3. Hybrid Structured Models
 

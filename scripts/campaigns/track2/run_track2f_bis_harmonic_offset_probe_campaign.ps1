@@ -1,4 +1,4 @@
-param(
+﻿param(
     [switch]$Remote,
     [switch]$PreflightOnly,
     [switch]$EnqueueOnly,
@@ -47,6 +47,12 @@ function Invoke-Track2FBisPython {
 
     if (-not [string]::IsNullOrWhiteSpace($PythonExecutable)) {
         & $PythonExecutable @ArgumentList
+        $script:LastTrack2FBisPythonExitCode = $LASTEXITCODE
+        return
+    }
+
+    if ($env:CONDA_DEFAULT_ENV -eq $CondaEnvironmentName) {
+        & python @ArgumentList
         $script:LastTrack2FBisPythonExitCode = $LASTEXITCODE
         return
     }

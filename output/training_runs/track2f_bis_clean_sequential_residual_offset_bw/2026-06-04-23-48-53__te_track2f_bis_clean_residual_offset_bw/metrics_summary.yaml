@@ -1,0 +1,76 @@
+﻿schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-04-23-31-57_003_03_clean_sequential_residual_offset_control_bw.yaml
+experiment:
+  model_family: track2f_bis_clean_sequential_residual_offset_bw
+  model_type: sequential_residual_offset_probe
+  run_name: te_track2f_bis_clean_residual_offset_bw
+  output_run_name: te_track2f_bis_clean_residual_offset_bw
+  run_instance_id: 2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw
+  output_artifact_kind: training_run
+  base_model_family: track2f_bis_clean_sequential_residual_offset_bw
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_clean_sequential_residual_offset_bw\2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_clean_sequential_residual_offset_bw\2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw\checkpoints\sequential_residual_offset_probe-epoch=099-val_mae=0.00381964.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: SequentialResidualOffsetNetwork
+  trainable_parameter_count: 92802
+  frozen_parameter_count: 0
+  total_parameter_count: 92802
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.047426678240299225
+  val_mae: 0.0038196418900042772
+  val_rmse: 0.004489891696721315
+  val_base_mae: 0.014356262050569057
+  val_base_rmse: 0.017048154026269913
+  val_residual_offset_mean_abs: 0.01397829782217741
+test_metrics:
+  test_loss: 0.03439033776521683
+  test_mae: 0.0035396674647927284
+  test_rmse: 0.004203124437481165
+  test_base_mae: 0.014895005151629448
+  test_base_rmse: 0.017483925446867943
+  test_residual_offset_mean_abs: 0.014363931491971016
+comparison_payload:
+  model_family: track2f_bis_clean_sequential_residual_offset_bw
+  model_type: sequential_residual_offset_probe
+  run_name: te_track2f_bis_clean_residual_offset_bw
+  backbone_name: SequentialResidualOffsetNetwork
+  trainable_parameter_count: 92802
+  total_parameter_count: 92802
+  val_mae: 0.0038196418900042772
+  val_rmse: 0.004489891696721315
+  test_mae: 0.0035396674647927284
+  test_rmse: 0.004203124437481165
+  deployment_notes: ''
+  interpretability_notes: ''

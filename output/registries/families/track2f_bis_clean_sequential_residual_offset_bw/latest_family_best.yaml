@@ -1,0 +1,38 @@
+﻿schema_version: 1
+model_family: track2f_bis_clean_sequential_residual_offset_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-04T23:58:31'
+best_entry:
+  run_instance_id: 2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw
+  run_name: te_track2f_bis_clean_residual_offset_bw
+  output_run_name: te_track2f_bis_clean_residual_offset_bw
+  output_artifact_kind: training_run
+  model_family: track2f_bis_clean_sequential_residual_offset_bw
+  base_model_family: track2f_bis_clean_sequential_residual_offset_bw
+  model_type: sequential_residual_offset_probe
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 92802
+  total_parameter_count: 92802
+  val_mae: 0.0038196418900042772
+  val_rmse: 0.004489891696721315
+  test_mae: 0.0035396674647927284
+  test_rmse: 0.004203124437481165
+  output_directory: output\training_runs\track2f_bis_clean_sequential_residual_offset_bw\2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw
+  best_checkpoint_path: output\training_runs\track2f_bis_clean_sequential_residual_offset_bw\2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw\checkpoints\sequential_residual_offset_probe-epoch=099-val_mae=0.00381964.ckpt
+  metrics_path: output\training_runs\track2f_bis_clean_sequential_residual_offset_bw\2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw/metrics_summary.yaml
+  report_path: output\training_runs\track2f_bis_clean_sequential_residual_offset_bw\2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-04T23:58:31'

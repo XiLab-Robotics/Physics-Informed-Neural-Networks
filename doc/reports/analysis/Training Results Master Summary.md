@@ -1,13 +1,11 @@
-# Training Results Master Summary
+﻿# Training Results Master Summary
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-04T19:08:00`
+- Generated At: `2026-06-05T16:56:45`
 - Program State: active.
-- Current Completed Wave: `Track 2F` offset-aware probe campaign
-- Current Focus: use completed `Track 2F` matrix evidence to prepare
-  harmonic-offset or multi-head curve-shape training while keeping Track 2F as
-  the clean non-harmonic baseline
+- Current Completed Wave: `Track 2F-bis` harmonic-offset probe campaign closeout complete after runner repair; official `Track 2` matrix refresh remains the next optional operator-launched step.
+- Current Focus: use the completed `Track 2F-bis` results to run a direction-parallel `Track 2` verification refresh for clean and harmonic offset branches across `Fw`, `Bw`, and `global` surfaces.
 - Active Campaign Status: `none`
 - Active Campaign Name: `N/A`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -17,7 +15,7 @@
 - Strongest current neural family: `periodic_gru_sequence_bw`
 - Current plain MLP anchor: `te_feedforward_stride1_high_compute_long_remote_global`
 - Active family-improvement branch count: `0`
-- Implemented and benchmarked family count: `56`
+- Implemented and benchmarked family count: `62`
 
 ## Current Project Status
 
@@ -42,8 +40,10 @@
 | `lstm_sequence` | Implemented Benchmark | `te_lstm_sequence_remote_global` | `lstm_sequence` | 0.003482 | 201,345 | `2026-05-24 12:16:30` |
 | `periodic_temporal_convolution` | Implemented Benchmark | `te_periodic_temporal_convolution_sequence_remote_global` | `periodic_temporal_convolution` | 0.003508 | 158,529 | `2026-05-25 16:10:13` |
 | `residual_harmonic_gru_sequence_dense240` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_global_dense240` | `residual_harmonic_gru_sequence` | 0.003511 | 151,522 | `2026-05-27 19:32:17` |
+| `track2f_bis_clean_sequential_residual_offset_global` | Implemented Benchmark | `te_track2f_bis_clean_residual_offset_global` | `sequential_residual_offset_probe` | 0.003528 | 92,802 | `2026-06-04 23:43:38` |
 | `residual_harmonic_gru_sequence_dense360` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_global_dense360` | `residual_harmonic_gru_sequence` | 0.003535 | 151,762 | `2026-05-27 20:21:50` |
 | `sequential_residual_offset_probe` | Implemented Benchmark | `te_sequential_residual_offset_probe_remote_global` | `sequential_residual_offset_probe` | 0.003537 | 92,802 | `2026-06-04 11:45:31` |
+| `track2f_bis_harmonic_residual_offset_global` | Implemented Benchmark | `te_track2f_bis_harmonic_residual_offset_global` | `harmonic_residual_offset_probe` | 0.003538 | 85,747 | `2026-06-05 16:19:21` |
 | `gru_sequence` | Implemented Benchmark | `te_gru_sequence_remote_global` | `gru_sequence` | 0.003591 | 151,041 | `2026-05-24 11:54:03` |
 | `temporal_convolution` | Implemented Benchmark | `te_temporal_convolution_sequence_remote_global` | `temporal_convolution` | 0.003754 | 147,009 | `2026-05-24 11:30:23` |
 | `feedforward_recovery_micro` | Implemented Benchmark | `te_feedforward_optuna_recovery_micro_global_optuna_t0000` | `feedforward` | 0.004164 | 109,953 | `2026-05-12 11:12:51` |
@@ -55,6 +55,7 @@
 | Family | Current Role | Best Run | Model Type | Test MAE [deg] | Params | Last Update |
 | --- | --- | --- | --- | ---: | ---: | --- |
 | `tree_fw` | Implemented Benchmark | `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | `hist_gradient_boosting` | 0.002743 | 5 | `2026-05-11 20:58:32` |
+| `track2f_bis_harmonic_residual_offset_fw` | Implemented Benchmark | `te_track2f_bis_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.002862 | 85,747 | `2026-06-05 16:32:38` |
 | `harmonic_regression_fw` | Implemented Benchmark | `te_harmonic_dense360_tracking_Fw` | `harmonic_regression` | 0.002916 | 4,326 | `2026-05-20 10:50:22` |
 | `periodic_mlp_fw` | Implemented Benchmark | `te_periodic_mlp_dense240_tracking_Fw` | `periodic_mlp` | 0.003055 | 87,681 | `2026-05-21 08:48:01` |
 | `residual_harmonic_mlp_fw` | Implemented Benchmark | `te_residual_harmonic_rcim_sparse_tracking_Fw` | `residual_harmonic_mlp` | 0.003089 | 26,260 | `2026-05-20 11:57:15` |
@@ -71,6 +72,7 @@
 | `residual_harmonic_lstm_sequence_fw_dense360` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_remote_Fw_dense360` | `residual_harmonic_lstm_sequence` | 0.003351 | 202,066 | `2026-05-27 22:19:22` |
 | `lstm_sequence_fw` | Implemented Benchmark | `te_lstm_sequence_remote_Fw` | `lstm_sequence` | 0.003370 | 201,345 | `2026-05-24 12:21:01` |
 | `sequential_residual_offset_probe_fw` | Implemented Benchmark | `te_sequential_residual_offset_probe_remote_fw` | `sequential_residual_offset_probe` | 0.003385 | 92,802 | `2026-06-04 11:57:40` |
+| `track2f_bis_clean_sequential_residual_offset_fw` | Implemented Benchmark | `te_track2f_bis_clean_residual_offset_fw` | `sequential_residual_offset_probe` | 0.003446 | 92,802 | `2026-06-04 23:48:53` |
 | `temporal_convolution_fw` | Implemented Benchmark | `te_temporal_convolution_sequence_remote_Fw` | `temporal_convolution` | 0.003611 | 147,009 | `2026-05-24 11:37:07` |
 
 #### Backward Models
@@ -83,11 +85,13 @@
 | `residual_harmonic_mlp_bw` | Implemented Benchmark | `te_residual_harmonic_rcim_sparse_tracking_Bw` | `residual_harmonic_mlp` | 0.003042 | 26,260 | `2026-05-20 12:25:49` |
 | `feedforward_bw` | Implemented Benchmark | `te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0005` | `feedforward` | 0.003099 | 167,937 | `2026-05-14 13:49:53` |
 | `periodic_mlp_bw` | Implemented Benchmark | `te_periodic_mlp_h04_standard_Bw_optuna_t0006` | `periodic_mlp` | 0.003233 | 27,777 | `2026-05-21 09:38:37` |
+| `track2f_bis_harmonic_residual_offset_bw` | Implemented Benchmark | `te_track2f_bis_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.003336 | 85,747 | `2026-06-05 16:44:49` |
 | `harmonic_regression_bw` | Implemented Benchmark | `te_harmonic_dense240_tracking_Bw` | `harmonic_regression` | 0.003400 | 2,886 | `2026-05-20 11:08:01` |
 | `residual_harmonic_lstm_sequence_bw_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_remote_Bw_sparse_rcim` | `residual_harmonic_lstm_sequence` | 0.003440 | 201,364 | `2026-05-27 21:08:36` |
 | `residual_harmonic_gru_sequence_bw_dense360` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_Bw_dense360` | `residual_harmonic_gru_sequence` | 0.003468 | 151,762 | `2026-05-27 20:46:25` |
 | `residual_harmonic_gru_sequence_bw_dense240` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_Bw_dense240` | `residual_harmonic_gru_sequence` | 0.003492 | 151,522 | `2026-05-27 20:00:10` |
 | `residual_harmonic_gru_sequence_bw_sparse_rcim` | Implemented Benchmark | `te_residual_harmonic_gru_sequence_remote_Bw_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003502 | 151,060 | `2026-05-27 19:18:56` |
+| `track2f_bis_clean_sequential_residual_offset_bw` | Implemented Benchmark | `te_track2f_bis_clean_residual_offset_bw` | `sequential_residual_offset_probe` | 0.003540 | 92,802 | `2026-06-04 23:58:31` |
 | `residual_harmonic_lstm_sequence_bw_dense360` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_remote_Bw_dense360` | `residual_harmonic_lstm_sequence` | 0.003556 | 202,066 | `2026-05-27 22:35:20` |
 | `lstm_sequence_bw` | Implemented Benchmark | `te_lstm_sequence_remote_Bw` | `lstm_sequence` | 0.003557 | 201,345 | `2026-05-24 12:27:31` |
 | `residual_harmonic_lstm_sequence_bw_dense240` | Implemented Benchmark | `te_residual_harmonic_lstm_sequence_remote_Bw_dense240` | `residual_harmonic_lstm_sequence` | 0.003605 | 201,826 | `2026-05-27 21:40:13` |
@@ -175,6 +179,26 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2F. Offset-Aware Sequential Residual Probe | status: offset-aware probe campaign completed; official `Track 2` matrix; family: `sequential_residual_offset_probe`;; official verification report:; strongest Track 2F forward candidate:; strongest Track 2F backward candidate:; strongest Track 2F global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: a sequential residual offset head alone does not solve |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2F-Bis. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; Track 2 decision: pending; evaluate clean and harmonic branches in parallel,; design conclusion: harmonic forcing improves scalar `Fw` clearly and `Bw` |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
 | Wave 3. Hybrid Structured Models | status: pending;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; prepare the repository-owned deployable predictor package. |
 
 Low-priority exploratory families currently listed in the backlog:
@@ -220,12 +244,11 @@ Low-priority exploratory families currently listed in the backlog:
 
 | Campaign | Generated At | Completed | Failed | Winner | Impact |
 | --- | --- | ---: | ---: | --- | --- |
-| `track2f_offset_aware_probe_campaign_2026_06_03` | `2026-06-04 12:04:47` | 3 | 0 | `te_sequential_residual_offset_probe_remote_fw` | Updated sequential_residual_offset_probe_fw family best; retained as clean non-harmonic control for future new-index, multi-head, and composite-loss comparisons |
-| `track2f_track2_verification_refresh_2026_06_04` | `2026-06-04 16:59:02` | 3 | 0 | `sequential_residual_offset_probe_Fw` | Included Track 2F `global`, `Fw`, and `Bw` candidates in the official 114-candidate Track 2 matrix; decision: verified exploratory baseline, not promoted |
+| `track2f_bis_harmonic_offset_probe_repair_2026_06_05` | `2026-06-05 16:44:49` | 3 | 0 | `te_track2f_bis_harmonic_residual_offset_fw` | Updated track2f_bis_harmonic_residual_offset_fw family best |
+| `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` | `2026-06-04 23:58:31` | 3 | 3 | `te_track2f_bis_clean_residual_offset_fw` | Updated track2f_bis_clean_sequential_residual_offset_fw family best |
+| `track2f_offset_aware_probe_campaign_2026_06_03` | `2026-06-04 12:04:47` | 3 | 0 | `te_sequential_residual_offset_probe_remote_fw` | Updated sequential_residual_offset_probe_fw family best |
 | `wave2c_residual_harmonic_temporal_hybrid_campaign_2026_05_27` | `2026-05-27 22:35:20` | 18 | 0 | `te_residual_harmonic_gru_sequence_remote_Fw_sparse_rcim` | Updated residual_harmonic_gru_sequence_fw_sparse_rcim family best |
 | `wave2b_harmonic_temporal_hybrid_campaign_2026_05_25` | `2026-05-25 20:05:38` | 9 | 0 | `te_periodic_gru_sequence_remote_Bw` | Updated global best |
-| `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15` | `2026-05-24 12:27:31` | 9 | 0 | `te_gru_sequence_remote_Fw` | Updated gru_sequence_fw family best |
-| `wave1_periodic_mlp_explicit_harmonic_tracking_campaign_2026_05_20_22_42_49` | `2026-05-21 09:38:37` | 9 | 0 | `te_periodic_mlp_dense240_tracking_Fw` | Updated periodic_mlp_fw family best |
 
 ## Ranking Policy
 
@@ -256,8 +279,10 @@ Low-priority exploratory families currently listed in the backlog:
 | `lstm_sequence` | `te_lstm_sequence_remote_global` | `lstm_sequence` | 0.003681 | 0.003482 | 0.003948 | 201,345 | 2.32 MB | Low | Implemented Benchmark |
 | `periodic_temporal_convolution` | `te_periodic_temporal_convolution_sequence_remote_global` | `periodic_temporal_convolution` | 0.003634 | 0.003508 | 0.003929 | 158,529 | 1.83 MB | Medium | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense240` | `te_residual_harmonic_gru_sequence_remote_global_dense240` | `residual_harmonic_gru_sequence` | 0.003600 | 0.003511 | 0.003983 | 151,522 | 1.75 MB | Low | Implemented Benchmark |
+| `track2f_bis_clean_sequential_residual_offset_global` | `te_track2f_bis_clean_residual_offset_global` | `sequential_residual_offset_probe` | 0.003717 | 0.003528 | 0.004010 | 92,802 | 1.09 MB | Low | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_dense360` | `te_residual_harmonic_gru_sequence_remote_global_dense360` | `residual_harmonic_gru_sequence` | 0.003628 | 0.003535 | 0.003999 | 151,762 | 1.75 MB | Medium | Implemented Benchmark |
 | `sequential_residual_offset_probe` | `te_sequential_residual_offset_probe_remote_global` | `sequential_residual_offset_probe` | 0.003783 | 0.003537 | 0.004005 | 92,802 | 1.09 MB | Low | Implemented Benchmark |
+| `track2f_bis_harmonic_residual_offset_global` | `te_track2f_bis_harmonic_residual_offset_global` | `harmonic_residual_offset_probe` | 0.003659 | 0.003538 | 0.003932 | 85,747 | 1.00 MB | Very Low | Implemented Benchmark |
 | `gru_sequence` | `te_gru_sequence_remote_global` | `gru_sequence` | 0.003707 | 0.003591 | 0.004110 | 151,041 | 1.74 MB | Low | Implemented Benchmark |
 | `temporal_convolution` | `te_temporal_convolution_sequence_remote_global` | `temporal_convolution` | 0.003935 | 0.003754 | 0.004266 | 147,009 | 1.70 MB | Low | Implemented Benchmark |
 | `feedforward_recovery_micro` | `te_feedforward_optuna_recovery_micro_global_optuna_t0000` | `feedforward` | 0.004266 | 0.004164 | 0.005109 | 109,953 | 1.28 MB | Unknown | Implemented Benchmark |
@@ -269,6 +294,7 @@ Low-priority exploratory families currently listed in the backlog:
 | Family | Best Run | Model Type | Val MAE [deg] | Test MAE [deg] | Test RMSE [deg] | Params | Artifact Size | Training Cost | Current Role |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | `tree_fw` | `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10` | `hist_gradient_boosting` | 0.002677 | 0.002743 | 0.003409 | 5 | 0.45 MB | Unknown | Implemented Benchmark |
+| `track2f_bis_harmonic_residual_offset_fw` | `te_track2f_bis_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.002941 | 0.002862 | 0.003334 | 85,747 | 1.00 MB | Very Low | Implemented Benchmark |
 | `harmonic_regression_fw` | `te_harmonic_dense360_tracking_Fw` | `harmonic_regression` | 0.002610 | 0.002916 | 0.003237 | 4,326 | 0.06 MB | Low | Implemented Benchmark |
 | `periodic_mlp_fw` | `te_periodic_mlp_dense240_tracking_Fw` | `periodic_mlp` | 0.002541 | 0.003055 | 0.003537 | 87,681 | 1.03 MB | Low | Implemented Benchmark |
 | `residual_harmonic_mlp_fw` | `te_residual_harmonic_rcim_sparse_tracking_Fw` | `residual_harmonic_mlp` | 0.002704 | 0.003089 | 0.003498 | 26,260 | 0.32 MB | Low | Implemented Benchmark |
@@ -285,6 +311,7 @@ Low-priority exploratory families currently listed in the backlog:
 | `residual_harmonic_lstm_sequence_fw_dense360` | `te_residual_harmonic_lstm_sequence_remote_Fw_dense360` | `residual_harmonic_lstm_sequence` | 0.003302 | 0.003351 | 0.003774 | 202,066 | 2.33 MB | Low | Implemented Benchmark |
 | `lstm_sequence_fw` | `te_lstm_sequence_remote_Fw` | `lstm_sequence` | 0.003448 | 0.003370 | 0.003921 | 201,345 | 2.32 MB | Low | Implemented Benchmark |
 | `sequential_residual_offset_probe_fw` | `te_sequential_residual_offset_probe_remote_fw` | `sequential_residual_offset_probe` | 0.003380 | 0.003385 | 0.003931 | 92,802 | 1.09 MB | Low | Implemented Benchmark |
+| `track2f_bis_clean_sequential_residual_offset_fw` | `te_track2f_bis_clean_residual_offset_fw` | `sequential_residual_offset_probe` | 0.003474 | 0.003446 | 0.003972 | 92,802 | 1.09 MB | Low | Implemented Benchmark |
 | `temporal_convolution_fw` | `te_temporal_convolution_sequence_remote_Fw` | `temporal_convolution` | 0.003490 | 0.003611 | 0.004183 | 147,009 | 1.70 MB | Low | Implemented Benchmark |
 
 ### Backward Models
@@ -297,11 +324,13 @@ Low-priority exploratory families currently listed in the backlog:
 | `residual_harmonic_mlp_bw` | `te_residual_harmonic_rcim_sparse_tracking_Bw` | `residual_harmonic_mlp` | 0.002953 | 0.003042 | 0.003548 | 26,260 | 0.32 MB | Low | Implemented Benchmark |
 | `feedforward_bw` | `te_feedforward_stride1_high_compute_long_remote_Bw_optuna_t0005` | `feedforward` | 0.003018 | 0.003099 | 0.003630 | 167,937 | 1.95 MB | Unknown | Implemented Benchmark |
 | `periodic_mlp_bw` | `te_periodic_mlp_h04_standard_Bw_optuna_t0006` | `periodic_mlp` | 0.002907 | 0.003233 | 0.003792 | 27,777 | 0.34 MB | Unknown | Implemented Benchmark |
+| `track2f_bis_harmonic_residual_offset_bw` | `te_track2f_bis_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.003555 | 0.003336 | 0.003935 | 85,747 | 1.00 MB | Very Low | Implemented Benchmark |
 | `harmonic_regression_bw` | `te_harmonic_dense240_tracking_Bw` | `harmonic_regression` | 0.003588 | 0.003400 | 0.003886 | 2,886 | 0.04 MB | Low | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_bw_sparse_rcim` | `te_residual_harmonic_lstm_sequence_remote_Bw_sparse_rcim` | `residual_harmonic_lstm_sequence` | 0.003764 | 0.003440 | 0.004030 | 201,364 | 2.32 MB | Low | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_bw_dense360` | `te_residual_harmonic_gru_sequence_remote_Bw_dense360` | `residual_harmonic_gru_sequence` | 0.003773 | 0.003468 | 0.004050 | 151,762 | 1.75 MB | Low | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_bw_dense240` | `te_residual_harmonic_gru_sequence_remote_Bw_dense240` | `residual_harmonic_gru_sequence` | 0.003585 | 0.003492 | 0.004074 | 151,522 | 1.75 MB | Medium | Implemented Benchmark |
 | `residual_harmonic_gru_sequence_bw_sparse_rcim` | `te_residual_harmonic_gru_sequence_remote_Bw_sparse_rcim` | `residual_harmonic_gru_sequence` | 0.003833 | 0.003502 | 0.004061 | 151,060 | 1.75 MB | Low | Implemented Benchmark |
+| `track2f_bis_clean_sequential_residual_offset_bw` | `te_track2f_bis_clean_residual_offset_bw` | `sequential_residual_offset_probe` | 0.003820 | 0.003540 | 0.004203 | 92,802 | 1.09 MB | Low | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_bw_dense360` | `te_residual_harmonic_lstm_sequence_remote_Bw_dense360` | `residual_harmonic_lstm_sequence` | 0.003729 | 0.003556 | 0.004125 | 202,066 | 2.33 MB | Medium | Implemented Benchmark |
 | `lstm_sequence_bw` | `te_lstm_sequence_remote_Bw` | `lstm_sequence` | 0.003815 | 0.003557 | 0.004201 | 201,345 | 2.32 MB | Low | Implemented Benchmark |
 | `residual_harmonic_lstm_sequence_bw_dense240` | `te_residual_harmonic_lstm_sequence_remote_Bw_dense240` | `residual_harmonic_lstm_sequence` | 0.003742 | 0.003605 | 0.004129 | 201,826 | 2.33 MB | Low | Implemented Benchmark |
@@ -590,8 +619,6 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 - Best test MAE: `0.003537`
 - Completed tracked runs: `1`
 - Known failed campaign attempts: `0`
-- Interpretation: clean non-harmonic Track 2F baseline, not a
-  shape-preserving harmonic model.
 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
@@ -607,6 +634,32 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_temporal_convolution_sequence_remote_global` | `temporal_convolution` | 0.003754 | 0.004266 | 0.003935 | 147,009 | 9m 46s | 1.70 MB | High | Low | `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15` |
+
+#### track2f_bis_clean_sequential_residual_offset_global
+
+- Best run: `te_track2f_bis_clean_residual_offset_global`
+- Best test MAE: `0.003528`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2f_bis_clean_residual_offset_global` | `sequential_residual_offset_probe` | 0.003528 | 0.004010 | 0.003717 | 92,802 | 11m 40s | 1.09 MB | High | Low | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` |
+
+#### track2f_bis_harmonic_residual_offset_global
+
+- Best run: `te_track2f_bis_harmonic_residual_offset_global`
+- Best test MAE: `0.003538`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `1`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2f_bis_harmonic_residual_offset_global` | `harmonic_residual_offset_probe` | 0.003538 | 0.003932 | 0.003659 | 85,747 | 0s | 1.00 MB | High | Very Low | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` |
+
+Known failed campaign attempts for this family:
+
+- `te_track2f_bis_harmonic_residual_offset_global` | campaign `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` | model type `harmonic_residual_offset_probe` | error `Unsupported Model Type for Campaign Runner | harmonic_residual_offset_probe | Supported: ['feedforward', 'gru_sequence', 'harmonic_regression', 'hist_gradient_boosting', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution']`
 
 #### tree
 
@@ -827,6 +880,32 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_temporal_convolution_sequence_remote_Fw` | `temporal_convolution` | 0.003611 | 0.004183 | 0.003490 | 147,009 | 6m 45s | 1.70 MB | High | Low | `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15` |
 
+#### track2f_bis_clean_sequential_residual_offset_fw
+
+- Best run: `te_track2f_bis_clean_residual_offset_fw`
+- Best test MAE: `0.003446`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2f_bis_clean_residual_offset_fw` | `sequential_residual_offset_probe` | 0.003446 | 0.003972 | 0.003474 | 92,802 | 5m 16s | 1.09 MB | High | Low | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` |
+
+#### track2f_bis_harmonic_residual_offset_fw
+
+- Best run: `te_track2f_bis_harmonic_residual_offset_fw`
+- Best test MAE: `0.002862`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `1`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2f_bis_harmonic_residual_offset_fw` | `harmonic_residual_offset_probe` | 0.002862 | 0.003334 | 0.002941 | 85,747 | 0s | 1.00 MB | High | Very Low | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` |
+
+Known failed campaign attempts for this family:
+
+- `te_track2f_bis_harmonic_residual_offset_fw` | campaign `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` | model type `harmonic_residual_offset_probe` | error `Unsupported Model Type for Campaign Runner | harmonic_residual_offset_probe | Supported: ['feedforward', 'gru_sequence', 'harmonic_regression', 'hist_gradient_boosting', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution']`
+
 #### tree_fw
 
 - Best run: `te_hist_gbr_tabular_Fw_grid_depth6_lr008_leaf10`
@@ -1045,6 +1124,32 @@ At the current repository state, the comparison is explicitly `offline-only`. A 
 | Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
 | 1 | `te_temporal_convolution_sequence_remote_Bw` | `temporal_convolution` | 0.003739 | 0.004369 | 0.003933 | 147,009 | 8m 12s | 1.70 MB | High | Low | `wave2_temporal_model_entry_campaign_2026_05_24_11_01_15` |
+
+#### track2f_bis_clean_sequential_residual_offset_bw
+
+- Best run: `te_track2f_bis_clean_residual_offset_bw`
+- Best test MAE: `0.003540`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `0`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2f_bis_clean_residual_offset_bw` | `sequential_residual_offset_probe` | 0.003540 | 0.004203 | 0.003820 | 92,802 | 9m 37s | 1.09 MB | High | Low | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` |
+
+#### track2f_bis_harmonic_residual_offset_bw
+
+- Best run: `te_track2f_bis_harmonic_residual_offset_bw`
+- Best test MAE: `0.003336`
+- Completed tracked runs: `1`
+- Known failed campaign attempts: `1`
+
+| Rank | Run | Model Type | Test MAE [deg] | Test RMSE [deg] | Val MAE [deg] | Params | Duration | Artifact Size | Model Complexity | Training Heaviness | Campaign |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | --- | --- |
+| 1 | `te_track2f_bis_harmonic_residual_offset_bw` | `harmonic_residual_offset_probe` | 0.003336 | 0.003935 | 0.003555 | 85,747 | 0s | 1.00 MB | High | Very Low | `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` |
+
+Known failed campaign attempts for this family:
+
+- `te_track2f_bis_harmonic_residual_offset_bw` | campaign `track2f_bis_harmonic_offset_probe_campaign_2026_06_04` | model type `harmonic_residual_offset_probe` | error `Unsupported Model Type for Campaign Runner | harmonic_residual_offset_probe | Supported: ['feedforward', 'gru_sequence', 'harmonic_regression', 'hist_gradient_boosting', 'lstm_sequence', 'periodic_gru_sequence', 'periodic_lstm_sequence', 'periodic_mlp', 'periodic_temporal_convolution', 'random_forest', 'residual_harmonic_gru_sequence', 'residual_harmonic_lstm_sequence', 'residual_harmonic_mlp', 'sequential_residual_offset_probe', 'temporal_convolution']`
 
 #### tree_bw
 

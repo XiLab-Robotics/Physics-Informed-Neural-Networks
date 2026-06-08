@@ -1,0 +1,76 @@
+﻿schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-05-16-07-17_003_2026_06_04_23_31_57_006_06_harmonic_residual_offset_probe_bw.yaml
+experiment:
+  model_family: track2f_bis_harmonic_residual_offset_bw
+  model_type: harmonic_residual_offset_probe
+  run_name: te_track2f_bis_harmonic_residual_offset_bw
+  output_run_name: te_track2f_bis_harmonic_residual_offset_bw
+  run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw
+  output_artifact_kind: training_run
+  base_model_family: track2f_bis_harmonic_residual_offset_bw
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_harmonic_residual_offset_bw\2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2f_bis_harmonic_residual_offset_bw\2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw\checkpoints\harmonic_residual_offset_probe-epoch=171-val_mae=0.00355501.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  frozen_parameter_count: 0
+  total_parameter_count: 85747
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.042213890701532364
+  val_mae: 0.003555009141564369
+  val_rmse: 0.004222002346068621
+  val_structured_mae: 0.01221721526235342
+  val_structured_rmse: 0.013333817943930626
+  val_residual_offset_mean_abs: 0.01127217710018158
+test_metrics:
+  test_loss: 0.03104756958782673
+  test_mae: 0.0033360894303768873
+  test_rmse: 0.003934947773814201
+  test_structured_mae: 0.012058357708156109
+  test_structured_rmse: 0.013552645221352577
+  test_residual_offset_mean_abs: 0.011024287901818752
+comparison_payload:
+  model_family: track2f_bis_harmonic_residual_offset_bw
+  model_type: harmonic_residual_offset_probe
+  run_name: te_track2f_bis_harmonic_residual_offset_bw
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.003555009141564369
+  val_rmse: 0.004222002346068621
+  test_mae: 0.0033360894303768873
+  test_rmse: 0.003934947773814201
+  deployment_notes: ''
+  interpretability_notes: ''

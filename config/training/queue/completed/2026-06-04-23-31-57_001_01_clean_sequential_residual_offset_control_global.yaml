@@ -1,0 +1,69 @@
+﻿paths:
+  dataset_config_path: config/training/track2f_bis_harmonic_offset_probe/campaigns/2026-06-04_track2f_bis_harmonic_offset_probe_campaign/dataset_variants/transmission_error_dataset_global.yaml
+  output_root: output/training_runs/track2f_bis_clean_sequential_residual_offset_global
+experiment:
+  run_name: te_track2f_bis_clean_residual_offset_global
+  model_family: track2f_bis_clean_sequential_residual_offset_global
+  model_type: sequential_residual_offset_probe
+metadata:
+  campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
+  phase_name: track2f_bis_harmonic_offset_probe_training
+  campaign_config_id: track2f_bis_clean_sequential_residual_offset_global
+  queue_index: 1
+  intervention: clean_sequential_residual_offset_control
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+  runtime_input_contract: current point state plus supported short causal sequence
+    history only
+  promotion_rule: Candidate must return through official Track 2 curve-first verification.
+  notes: Track 2F-bis clean non-harmonic control. Final TE prediction is base_te_prediction
+    + residual_offset_prediction.
+  output_artifact_kind: training_run
+  output_run_name: te_track2f_bis_clean_residual_offset_global
+  run_instance_id: 2026-06-04-23-31-57__te_track2f_bis_clean_residual_offset_global
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  base_hidden_size:
+  - 96
+  - 64
+  base_activation_name: GELU
+  base_dropout_probability: 0.05
+  base_use_layer_norm: true
+  offset_hidden_size: 96
+  offset_num_layers: 2
+  offset_dropout_probability: 0.1
+  offset_bidirectional: false
+  offset_readout_position: center
+  offset_scale: 1.0
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
