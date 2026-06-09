@@ -194,6 +194,12 @@ This folder contains the internal project documents derived from the reference P
   baselines and recommend the next intervention branch per `Fw`, `Bw`, and
   `global` surface.
 
+- [reports/analysis/track2/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md](./reports/analysis/track2/component_offset_identification_plan/%5B2026-06-09%5D/track2_component_offset_identification_plan.md)
+  `Track 2` component-offset identification plan for testing whether the
+  observed curve offset is dominated by `a_0` / `Component 0`, multiple
+  harmonics, condition/regime behavior, or experimental repeatability limits
+  before opening another training campaign.
+
 - [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the
   `Track 2` forward curve evaluator, including raw parity and mean-centered
@@ -257,6 +263,12 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-09
+
+- [technical/2026-06/2026-06-09/2026-06-09-18-22-15_track2_component_offset_identification_plan.md](./technical/2026-06/2026-06-09/2026-06-09-18-22-15_track2_component_offset_identification_plan.md)
+  Plan the separate `Track 2` diagnostic branch for identifying whether the
+  observed curve offset is dominated by `a_0` / `Component 0`, multiple
+  harmonics, or experiment-condition variability before opening another
+  training campaign.
 
 - [technical/2026-06/2026-06-09/2026-06-09-13-11-16_track2g_track2_verification_refresh.md](./technical/2026-06/2026-06-09/2026-06-09-13-11-16_track2g_track2_verification_refresh.md)
   Plan the separate operator-launched official `Track 2` verification refresh
