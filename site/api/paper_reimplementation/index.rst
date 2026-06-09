@@ -17,4 +17,5 @@ Paper Reimplementation API
    run_original_onnx_release_parity_validation
    run_paper_reference_archive_parity_report
    plot_original_onnx_fw_track2_curves
+   portable_original_onnx_curve_plotter
    run_reference_family_vs_feedforward_comparison

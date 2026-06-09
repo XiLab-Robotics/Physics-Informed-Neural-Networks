@@ -166,6 +166,11 @@ The current usage flow mainly relies on these folders:
   argument can select the full original `19`-target bank, the sparse
   simplified bank, or the sparse PLC all-`HGBM` bank.
 
+- `scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/portable_original_onnx_curve_plotter.py`
+  Repository-independent original `ONNX` curve plotter. Edit the hardcoded
+  top-of-file configuration to point at copied `ONNX` models and custom curve
+  `CSV` files, then run it without importing repository modules.
+
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
 
@@ -513,6 +518,24 @@ standalone hardcoded `ONNX` plotter:
 ```powershell
 conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/plot_original_onnx_fw_track2_curves.py `
   --max-curves 4
+```
+
+For a copyable external workflow, use the portable plotter instead. Edit the
+`USER CONFIGURATION` block at the top of the script, especially
+`BASE_DIRECTORY_PATH`, `ONNX_TARGET_CONFIGURATION_LIST`,
+`SELECTED_HARMONIC_ORDER_LIST`, `CURVE_CSV_PATH_LIST`,
+`CURVE_CSV_DIRECTORY_PATH`, and `OUTPUT_DIRECTORY_PATH`.
+
+```powershell
+conda run -n pinns_env python -B scripts/paper_reimplementation/rcim_ml_compensation/reference_family_vs_feedforward/portable_original_onnx_curve_plotter.py
+```
+
+After copying the script outside the repository, install its external
+dependencies and run it directly from the folder used as `BASE_DIRECTORY_PATH`:
+
+```powershell
+python -m pip install numpy pandas matplotlib onnxruntime
+python portable_original_onnx_curve_plotter.py
 ```
 
 The saved repository paper-reference archives can also be compared against one

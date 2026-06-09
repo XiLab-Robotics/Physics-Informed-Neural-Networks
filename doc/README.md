@@ -256,6 +256,10 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-08
 
+- [technical/2026-06/2026-06-08/2026-06-08-19-11-41_portable_original_onnx_curve_plotter.md](./technical/2026-06/2026-06-08/2026-06-08-19-11-41_portable_original_onnx_curve_plotter.md)
+  Plan the repository-independent original paper `ONNX` curve plotter for
+  user-provided curve `CSV` files and sparse harmonic selections.
+
 - [technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md](./technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md)
   Plan the combined forward `Track 2` reference-curve comparison report across
   paper-original, paper-retuned, full original `ONNX`, and sparse original
