@@ -1,288 +1,270 @@
-# Physics-Informed Neural Networks for Rotational Transmission Error Compensation in RV Reducers
+# Track 2 Portable ONNX Curve Plotter
 
-## Overview
+This branch is a small, portable package for running the recovered original
+RCIM paper forward ONNX models on measured transmission-error curves.
 
-This project implements a **Physics-Informed Neural Network (PINN)** for modeling and compensating the **Rotational Transmission Error (RTE)** in RV reducers used in industrial robotics.
+It is intentionally separate from the full research repository. The goal is to
+load the original paper ONNX models, reconstruct the predicted transmission
+error curve from harmonic amplitude and phase predictions, and plot measured
+TE versus predicted TE without depending on any repository-internal Python
+modules.
 
-The objective is to combine:
+## What Is Included
 
-* Analytical kinematic error models of RV reducers
-* Experimental datasets from a dedicated Test Rig
-* Deep learning (PyTorch / PyTorch Lightning)
-* Real-time deployment in **TwinCAT 3 PLC environments**
-
-The project follows the software architecture and coding style of previous PyTorch-based repositories (notably `blind_handover_controller`) and is structured for industrial-grade reproducibility and deployment.
-
----
-
-## Scientific Motivation
-
-Rotational Transmission Error (RTE) is a key performance indicator in precision gear systems and directly affects robot joint positioning accuracy.
-
-Traditional approaches include:
-
-1. Purely analytical multi-loop kinematic error models
-2. Data-driven machine learning compensation models
-
-This project introduces a **Physics-Informed approach**, where:
-
-* The neural network is trained on experimental RTE data
-* Physical constraints derived from the RV reducer kinematics are embedded directly into the loss function
-
-The PINN enforces consistency with:
-
-* Gear ratio constraints
-* Multi-loop kinematic relations
-* Error transfer coefficients
-* Structural coupling between high-speed and low-speed stages
-
-This ensures improved generalization, physical interpretability, and robustness under varying operating conditions.
-
----
-
-## Project Objectives
-
-* Implement a PINN-based RTE predictor
-* Compare against:
-
-  * Analytical equivalent multi-loop model
-  * Classical ML compensation approaches
-* Validate on experimental datasets
-* Deploy the trained model on TwinCAT 3 for real-time compensation
-
----
-
-## Repository Structure
-
-The repository follows a modular PyTorch Lightning architecture.
-
-```
+```text
 .
-├── configs/                # YAML configuration files
-├── data/                   # Dataset loaders and preprocessing
-│   ├── datasets/
-│   ├── transforms/
-│   └── datamodules/
-├── models/                 # Neural network architectures
-│   ├── pinn_model.py
-│   ├── ml_baseline.py
-│   └── blocks/
-├── losses/                 # Physics-informed loss functions
-│   ├── data_loss.py
-│   ├── physics_loss.py
-│   └── composite_loss.py
-├── training/               # Lightning training scripts
-│   ├── train.py
-│   ├── evaluate.py
-│   └── callbacks/
-├── inference/              # Export and runtime inference utilities
-│   ├── export_onnx.py
-│   ├── export_st.py
-│   └── runtime_validation.py
-├── twincat/                # Structured Text implementation templates
-├── utils/                  # Logging, metrics, normalization
+├── data/
+│   └── datasets/
+│       └── Test_<temperature>degree/<speed>rpm/*.csv
+├── models/
+│   └── exact_onnx_paper_release/
+├── output/
+│   ├── plots/
+│   ├── predicted_curves/
+│   └── portable_original_onnx_curve_summary.csv
+├── portable_original_onnx_curve_plotter.py
+├── requirements.txt
 └── README.md
 ```
 
-All comments in source files follow the internal style convention:
+The main entry point is:
 
-> Concise imperative descriptions with capitalized key words.
+```text
+portable_original_onnx_curve_plotter.py
+```
+
+The script uses the ONNX models stored under:
+
+```text
+models/exact_onnx_paper_release/
+```
+
+The bundled dataset follows the original test-rig CSV layout, for example:
+
+```text
+data/datasets/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv
+```
+
+## What The Script Does
+
+For each configured curve CSV, the script:
+
+1. loads the measured transmission-error curve;
+2. extracts the operating point from the CSV filename or from CSV columns;
+3. builds the ONNX input feature row:
+
+   ```text
+   [speed_rpm, oil_temperature_deg, torque_nm]
+   ```
+
+4. runs the selected harmonic amplitude and phase ONNX models;
+5. reconstructs the predicted TE curve from the harmonic components;
+6. plots measured TE and predicted TE on the same graph;
+7. writes output plots, optional predicted-curve CSV files, and a summary CSV.
+
+The default configuration processes four representative curves and writes
+results under:
+
+```text
+output/
+```
+
+## Install
+
+Create and activate a Python environment, then install the dependencies:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt matplotlib
+```
+
+The extra `matplotlib` install is required for plot generation. If
+`requirements.txt` is later updated to include `matplotlib`, the last command
+can become:
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+## Run The Default Example
+
+From the repository root:
+
+```powershell
+python portable_original_onnx_curve_plotter.py
+```
+
+Expected outputs:
+
+```text
+output/plots/*.png
+output/predicted_curves/*_predicted.csv
+output/portable_original_onnx_curve_summary.csv
+```
+
+The summary CSV contains one row per processed curve with the operating point,
+point count, plot path, prediction CSV path, and error metrics:
+
+```text
+mae_deg
+rmse_deg
+mean_error_pct
+p95_error_pct
+```
+
+## Configure The Curves To Process
+
+Edit the `USER CONFIGURATION` block at the top of
+`portable_original_onnx_curve_plotter.py`.
+
+To process explicit CSV files:
+
+```python
+CURVE_CSV_PATH_LIST = [
+    "data/datasets/Test_25degree/100rpm/100.0rpm100.0Nm25.0deg.csv",
+    "data/datasets/Test_35degree/800rpm/800.0rpm1800.0Nm35.0deg.csv",
+]
+```
+
+To process every CSV in a folder:
+
+```python
+CURVE_CSV_PATH_LIST = []
+CURVE_CSV_DIRECTORY_PATH = "data/datasets/Test_25degree"
+CURVE_CSV_GLOB_PATTERN = "*.csv"
+PROCESS_CURVE_DIRECTORY_RECURSIVELY = True
+```
+
+To write outputs somewhere else:
+
+```python
+OUTPUT_DIRECTORY_PATH = "output/my_run"
+```
+
+## Select Harmonics
+
+By default, the script uses every harmonic represented by the configured paper
+best forward ONNX model list:
+
+```python
+SELECTED_HARMONIC_ORDER_LIST = None
+```
+
+To use only the simplified sparse subset discussed in the RCIM paper notes:
+
+```python
+SELECTED_HARMONIC_ORDER_LIST = [0, 1, 39, 40]
+```
+
+For a non-zero harmonic, both an amplitude model and a phase model must be
+available. Harmonic `0` only needs an amplitude model because it is the
+constant curve offset term.
+
+## Use A New Custom CSV
+
+A custom curve CSV must provide:
+
+- angular position in degrees;
+- measured transmission error in degrees;
+- operating point metadata: speed, torque, and oil temperature.
+
+The script accepts the original dataset column names:
+
+```text
+Poisition_Output_Reducer_Fw
+Transmission_Error_Fw
+```
+
+It also accepts simpler aliases such as:
+
+```text
+angular_position_deg
+transmission_error_deg
+speed_rpm
+torque_nm
+oil_temperature_deg
+```
+
+If the CSV does not contain speed, torque, and temperature columns, the script
+tries to parse them from the filename pattern:
+
+```text
+<speed>rpm<torque>Nm<temperature>deg.csv
+```
 
 Example:
 
-```
-# Ensure Inputs are Properly Normalized Before Forward Pass
-```
-
----
-
-## Dataset
-
-The training and validation datasets are derived from a dedicated RV reducer Test Rig.
-
-Data includes:
-
-* Input shaft angle
-* Output shaft angle
-* Measured RTE
-* Torque
-* Temperature
-* Operational conditions
-
-Two dataset categories are used:
-
-1. Transmission Error Dataset (preprocessed and validated)
-2. Complete Raw Dataset (full experimental recordings)
-
-Preprocessing steps:
-
-* Synchronization of encoder signals
-* Noise filtering
-* Outlier rejection
-* Feature normalization
-* Cycle segmentation
-
----
-
-## PINN Formulation
-
-The network predicts:
-
-```
-RTE_hat = f_theta(x)
+```text
+800.0rpm1800.0Nm35.0deg.csv
 ```
 
-where `x` includes angular position and optional operating conditions.
+If neither the CSV columns nor the filename provide the operating point, set
+these values manually in the configuration block:
 
-### Loss Function
-
-The total loss is defined as:
-
-```
-L_total = L_data + lambda_phys * L_physics + lambda_reg * L_reg
-```
-
-Where:
-
-* `L_data`: Mean Squared Error between measured and predicted RTE
-* `L_physics`: Constraint residuals derived from analytical RTE equations
-* `L_reg`: Weight regularization term
-
-### Physics Constraints Include
-
-* Multi-loop kinematic closure relations
-* Speed ratio consistency
-* Error transfer coefficient relations
-* Stage coupling constraints
-
-This ensures that the learned function respects the mechanical structure of the RV reducer.
-
----
-
-## Model Architecture
-
-Default architecture:
-
-* Fully Connected Network
-* 3–6 Hidden Layers
-* 64–256 Neurons per layer
-* Tanh or SiLU activation
-* Optional residual connections
-
-The architecture is selected to ensure:
-
-* Smooth function approximation
-* Stable real-time execution
-* Straightforward translation to PLC Structured Text
-
----
-
-## Training
-
-Training is performed using PyTorch Lightning.
-
-### Features
-
-* Automatic check-pointing
-* TensorBoard logging
-* Early stopping
-* Learning rate scheduling
-* Reproducible seeds
-
-### Example Command
-
-```
-python training/train.py --config configs/pinn_default.yaml
+```python
+DEFAULT_SPEED_RPM = 800.0
+DEFAULT_TORQUE_NM = 1800.0
+DEFAULT_OIL_TEMPERATURE_DEG = 35.0
 ```
 
----
+## Use Different ONNX Models
 
-## Evaluation Metrics
+The ONNX paths are hardcoded in:
 
-* Peak-to-peak RTE error
-* RMS error
-* Frequency-domain consistency
-* Generalization across operating conditions
-* Comparison with analytical model
+```python
+ONNX_TARGET_CONFIGURATION_LIST = [
+    ("amplitude", 0, "SVR", "models/exact_onnx_paper_release/SVR/ampl/SVR_ampl0.onnx"),
+    ...
+]
+```
 
----
+Each entry has this structure:
 
-## TwinCAT 3 Deployment
+```text
+(target_kind, harmonic_order, model_family_label, model_path)
+```
 
-The trained model can be exported in two ways:
+Use:
 
-### 1. ONNX Export
+- `target_kind = "amplitude"` for amplitude models;
+- `target_kind = "phase"` for phase models;
+- `harmonic_order = 0, 1, 3, 39, 40, ...`;
+- `model_path` as either a path relative to the repository root or an absolute
+  path.
 
-* Used for C++ or runtime integration
+## Reconstruction Formula
 
-### 2. Structured Text Export
+For harmonic `0`, the predicted amplitude is used as the constant term:
 
-* Automatic generation of fully connected forward pass
-* Deterministic execution
-* Fixed-point or floating-point compatible
+```text
+TE_0(theta) = amplitude_0
+```
 
-TwinCAT integration features:
+For every non-zero harmonic:
 
-* Real-time execution inside PLC task
-* Online RTE compensation
-* Integration with encoder inputs
-* Compatibility with ATI F/T sensor system
+```text
+cosine_coefficient_h = amplitude_h * cos(phase_h)
+sine_coefficient_h = -amplitude_h * sin(phase_h)
+```
 
----
+The reconstructed curve is:
 
-## Real-Time Considerations
+```text
+TE(theta) = amplitude_0
+          + sum_h(
+              cosine_coefficient_h * cos(h * theta)
+              + sine_coefficient_h * sin(h * theta)
+            )
+```
 
-* Deterministic inference time
-* Limited network depth for PLC compatibility
-* No dynamic memory allocation
-* Precomputed normalization constants
+`theta` is the angular position converted from degrees to radians.
 
----
+## Notes
 
-## Validation Strategy
-
-1. Offline validation against test bench measurements
-2. Frequency-domain comparison
-3. Stress testing under varying torque and temperature
-4. Online compensation validation in PLC
-
----
-
-## Research Contribution
-
-* Hybrid analytical–data-driven modeling approach
-* Industrial PLC deployment of PINNs
-* Comparative analysis with classical RTE models
-* Practical application in high-precision robotics
-
----
-
-## Requirements
-
-* Python 3.10+
-* PyTorch
-* PyTorch Lightning
-* NumPy
-* SciPy
-* TwinCAT 3 (for deployment phase)
-
----
-
-## Future Work
-
-* Extension to dynamic torque-dependent RTE
-* Adaptive online learning
-* Integration with digital twin models
-* Multi-axis robot joint compensation
-
----
-
-## Author
-
-Davide Ferrari
-
----
-
-## License
-
-Specify appropriate license (e.g., MIT, BSD-3, or proprietary industrial use).
+- This branch is for offline ONNX curve plotting and inspection.
+- It does not train models.
+- It does not import the full Track 2 repository pipeline.
+- It does not require the original repository package layout.
+- Generated files under `output/` can be deleted and regenerated at any time.
