@@ -46,6 +46,36 @@ error, or by experimental repeatability limits.
 | Repeatability check | Per-condition variance for repeated experiments, if available | Tests whether the target mean is deterministic enough for direct regression. |
 | Model-family comparison | Component-level comparison for available polynomial, `ONNX`, `ET`, `SVR`, and repository candidates | Confirms whether the issue is family-specific or common to the target data. |
 
+## Prepared Entry Point
+
+The first input-table preparation script is available at:
+
+- `scripts/reports/analysis/build_track2_component_offset_identification_inputs.py`
+
+Smoke-test command:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_component_offset_identification_inputs.py --max-files 2 --run-id 2026-06-09-18-22-15__track2_component_offset_identification_inputs_smoke --skip-report
+```
+
+Full input-table command:
+
+```powershell
+conda run -n pinns_env python -B scripts/reports/analysis/build_track2_component_offset_identification_inputs.py
+```
+
+The script prepares:
+
+- `track2_component_offset_per_curve_components.csv`;
+- `track2_component_offset_condition_summary.csv`;
+- `track2_component_offset_identification_inputs_summary.yaml`;
+- a lightweight Markdown input report unless `--skip-report` is set.
+
+The script computes measured curve mean / harmonic `0` proxy plus selected
+harmonic coefficients for orders `0`, `1`, `3`, `39`, `40`, `78`, `81`,
+`156`, `162`, and `240`. These tables are inputs for the later surface plots
+and outlier analysis; they do not prove that `a_0` is the confirmed cause.
+
 ## Documentation Corrections To Defer Until Evidence
 
 - Do not state that `a_0` / `Component 0` is the confirmed cause of the
@@ -73,4 +103,3 @@ the next approved step is:
 - a multi-head shape/offset architecture;
 - or no new offset-specific model because the issue is mainly repeatability or
   non-`a_0` component behavior.
-

@@ -1,0 +1,11 @@
+input_run_id: 2026-06-09-18-39-13__track2_component_offset_identification_inputs
+report_path: doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md
+asset_path_list:
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/harmonic_magnitude_summary.png
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/h0_surface_backward_25deg.png
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/h0_surface_backward_30deg.png
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/h0_surface_backward_35deg.png
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/h0_surface_forward_25deg.png
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/h0_surface_forward_30deg.png
+- doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/assets/h0_surface_forward_35deg.png
+decision: h0_priority_suspect_not_sole_confirmed_cause

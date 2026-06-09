@@ -200,6 +200,11 @@ This folder contains the internal project documents derived from the reference P
   harmonics, condition/regime behavior, or experimental repeatability limits
   before opening another training campaign.
 
+- [reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-09%5D/track2_component_offset_identification_diagnostic.md)
+  `Track 2` measured component-offset diagnostic showing harmonic zero as the
+  largest average measured component while preserving the conclusion that it
+  is a priority suspect, not the sole confirmed cause.
+
 - [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the
   `Track 2` forward curve evaluator, including raw parity and mean-centered

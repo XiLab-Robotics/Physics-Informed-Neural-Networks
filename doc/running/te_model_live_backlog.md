@@ -35,8 +35,8 @@ Historical rationale and approval history remain in:
   the completed `Track 2G` candidates before deciding whether to continue the
   loss-only branch or move to multi-head shape/offset training.
 - Parallel Diagnostic Focus: run the separate component-offset identification
-  analysis before treating `a_0` / `Component 0` as the confirmed source of the
-  observed curve offset.
+  analysis against `Track 2D` signed model-offset rows before treating `a_0` /
+  `Component 0` as the confirmed source of the observed curve offset.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -55,6 +55,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
 - `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
 - `doc/reports/analysis/track2/component_offset_identification_plan/[2026-06-09]/track2_component_offset_identification_plan.md`
+- `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md`
 - `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
@@ -203,7 +204,7 @@ Next planned diagnostic and training decision branches:
 | `Track 2D Mean-Offset Full-Matrix Audit` | Apply raw, offset, centered-shape, amplitude, harmonic phase, and condition-stratified metrics to the full official Track 2 candidate matrix. | completed |
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
-| Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | approved separate analysis plan |
+| Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | first measured-component diagnostic completed; compare against Track 2D signed model offset next |
 | Multi-task / multi-head model branch | Shared causal trunk with separate offset / low-frequency and centered-shape heads summed into final TE. | candidate after audit |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 

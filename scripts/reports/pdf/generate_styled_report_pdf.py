@@ -150,6 +150,9 @@ TRACK2_MEAN_CENTERED_TOP_TABLE_CLASS_NAME = "report-table report-table-track2-me
 TRACK2_MEAN_CENTERED_GROUP_TABLE_CLASS_NAME = "report-table report-table-track2-mean-centered-group"
 TRACK2D_MEAN_OFFSET_TABLE_CLASS_NAME = "report-table report-table-track2d-mean-offset"
 TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e-offset-feasibility"
+TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
+TRACK2_COMPONENT_TEMPERATURE_DIRECTION_TABLE_CLASS_NAME = "report-table report-table-track2-component-temperature-direction"
+TRACK2_COMPONENT_H0_EXTREME_TABLE_CLASS_NAME = "report-table report-table-track2-component-h0-extreme"
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-targets"
 TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-metrics"
 TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-curves"
@@ -380,6 +383,34 @@ TRACK2E_OFFSET_FEASIBILITY_TABLE_HEADER_CELLS = (
     "Gain [%]",
     "Explain [%]",
     "Best Group",
+)
+
+TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_HEADER_CELLS = (
+    "Harmonic",
+    "Mean Abs Amp [deg]",
+    "P95 Abs Amp [deg]",
+    "Max Abs Amp [deg]",
+)
+
+TRACK2_COMPONENT_TEMPERATURE_DIRECTION_TABLE_HEADER_CELLS = (
+    "Direction",
+    "Temp",
+    "Curves",
+    "Mean h0",
+    "Std h0",
+    "Min h0",
+    "Max h0",
+)
+
+TRACK2_COMPONENT_H0_EXTREME_TABLE_HEADER_CELLS = (
+    "Rank",
+    "Direction",
+    "Speed",
+    "Torque",
+    "Temp",
+    "h0",
+    "P2P",
+    "File",
 )
 
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS = (
@@ -874,6 +905,21 @@ REPORT_STYLESHEET = """
     .report-table-generic th:nth-child(9), .report-table-generic td:nth-child(9) { width: 15%; }
     .report-table-generic th:nth-child(10), .report-table-generic td:nth-child(10) { width: 7%; }
     .report-table-generic th:nth-child(11), .report-table-generic td:nth-child(11) { width: 5%; }
+
+    .report-table-track2-component-harmonic-summary th,
+    .report-table-track2-component-harmonic-summary td { width: 25%; }
+
+    .report-table-track2-component-temperature-direction th,
+    .report-table-track2-component-temperature-direction td { width: 14.2857%; }
+
+    .report-table-track2-component-h0-extreme th:nth-child(1), .report-table-track2-component-h0-extreme td:nth-child(1) { width: 5%; }
+    .report-table-track2-component-h0-extreme th:nth-child(2), .report-table-track2-component-h0-extreme td:nth-child(2) { width: 10%; }
+    .report-table-track2-component-h0-extreme th:nth-child(3), .report-table-track2-component-h0-extreme td:nth-child(3) { width: 10%; }
+    .report-table-track2-component-h0-extreme th:nth-child(4), .report-table-track2-component-h0-extreme td:nth-child(4) { width: 10%; }
+    .report-table-track2-component-h0-extreme th:nth-child(5), .report-table-track2-component-h0-extreme td:nth-child(5) { width: 10%; }
+    .report-table-track2-component-h0-extreme th:nth-child(6), .report-table-track2-component-h0-extreme td:nth-child(6) { width: 10%; }
+    .report-table-track2-component-h0-extreme th:nth-child(7), .report-table-track2-component-h0-extreme td:nth-child(7) { width: 10%; }
+    .report-table-track2-component-h0-extreme th:nth-child(8), .report-table-track2-component-h0-extreme td:nth-child(8) { width: 35%; }
 
     .report-table-wave1-high-order-artifact th:nth-child(1), .report-table-wave1-high-order-artifact td:nth-child(1) { width: 20%; }
     .report-table-wave1-high-order-artifact th:nth-child(2), .report-table-wave1-high-order-artifact td:nth-child(2) { width: 80%; }
@@ -3477,6 +3523,15 @@ def resolve_standard_table_class_name(
     """ Resolve Standard Table Class Name """
 
     normalized_header_cells = tuple(header_cells)
+
+    if normalized_header_cells == TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_HEADER_CELLS:
+        return TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_COMPONENT_TEMPERATURE_DIRECTION_TABLE_HEADER_CELLS:
+        return TRACK2_COMPONENT_TEMPERATURE_DIRECTION_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2_COMPONENT_H0_EXTREME_TABLE_HEADER_CELLS:
+        return TRACK2_COMPONENT_H0_EXTREME_TABLE_CLASS_NAME
 
     if normalized_header_cells == TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS:
         return TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME
