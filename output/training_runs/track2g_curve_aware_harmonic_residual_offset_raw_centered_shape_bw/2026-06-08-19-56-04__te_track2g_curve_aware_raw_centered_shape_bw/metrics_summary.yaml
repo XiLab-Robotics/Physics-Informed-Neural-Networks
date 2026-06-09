@@ -1,0 +1,86 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-08-18-36-30_006_06_raw_centered_shape_bw.yaml
+experiment:
+  model_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2g_curve_aware_raw_centered_shape_bw
+  output_run_name: te_track2g_curve_aware_raw_centered_shape_bw
+  run_instance_id: 2026-06-08-19-56-04__te_track2g_curve_aware_raw_centered_shape_bw
+  output_artifact_kind: training_run
+  base_model_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw\2026-06-08-19-56-04__te_track2g_curve_aware_raw_centered_shape_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw\2026-06-08-19-56-04__te_track2g_curve_aware_raw_centered_shape_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=078-val_mae=0.00373978.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  frozen_parameter_count: 0
+  total_parameter_count: 85747
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.05231683701276779
+  val_mae: 0.0037397819105535746
+  val_rmse: 0.004333906341344118
+  val_pointwise_loss: 0.042356301099061966
+  val_centered_curve_shape_loss: 0.028166791424155235
+  val_curve_offset_loss: 0.014189506880939007
+  val_curve_amplitude_loss: 0.20875698328018188
+  val_sparse_harmonic_shape_loss: 0.0006810534978285432
+  val_structured_mae: 0.012191559188067913
+  val_structured_rmse: 0.013595380820333958
+  val_residual_offset_mean_abs: 0.011486613191664219
+test_metrics:
+  test_loss: 0.03573684021830559
+  test_mae: 0.0034647234715521336
+  test_rmse: 0.003998350817710161
+  test_pointwise_loss: 0.030823225155472755
+  test_centered_curve_shape_loss: 0.013903822749853134
+  test_curve_offset_loss: 0.01691940613090992
+  test_curve_amplitude_loss: 0.08501195907592773
+  test_sparse_harmonic_shape_loss: 0.0003151718119625002
+  test_structured_mae: 0.011984899640083313
+  test_structured_rmse: 0.013121269643306732
+  test_residual_offset_mean_abs: 0.010766275227069855
+comparison_payload:
+  model_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2g_curve_aware_raw_centered_shape_bw
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0037397819105535746
+  val_rmse: 0.004333906341344118
+  test_mae: 0.0034647234715521336
+  test_rmse: 0.003998350817710161
+  deployment_notes: ''
+  interpretability_notes: ''

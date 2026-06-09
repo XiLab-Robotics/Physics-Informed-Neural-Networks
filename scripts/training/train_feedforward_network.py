@@ -231,6 +231,7 @@ def print_training_configuration_summary(training_config: dict) -> None:
         print_key_value("Sequence Stride", dataset_config.get("sequence_stride"), value_color=Fore.YELLOW)
         print_key_value("Sequence Target Position", dataset_config.get("sequence_target_position"), value_color=Fore.YELLOW)
         print_key_value("Maximum Sequences Per Curve", dataset_config.get("maximum_sequences_per_curve"), value_color=Fore.YELLOW)
+    print_key_value("Shuffle Training Batch Elements", dataset_config.get("shuffle_training_batch_elements", True), value_color=Fore.YELLOW)
     print_key_value("Num Workers", dataset_config["num_workers"], value_color=Fore.YELLOW)
     print_key_value("Pin Memory", dataset_config["pin_memory"], value_color=Fore.YELLOW)
 
@@ -290,10 +291,11 @@ def print_training_configuration_summary(training_config: dict) -> None:
         "lstm_sequence",
         "periodic_gru_sequence",
         "periodic_lstm_sequence",
-        "residual_harmonic_gru_sequence",
-        "residual_harmonic_lstm_sequence",
-        "sequential_residual_offset_probe",
-    ]:
+            "residual_harmonic_gru_sequence",
+            "residual_harmonic_lstm_sequence",
+            "sequential_residual_offset_probe",
+            "curve_aware_harmonic_residual_offset_probe",
+        ]:
         if normalized_model_type in [
             "periodic_gru_sequence",
             "periodic_lstm_sequence",
@@ -318,6 +320,17 @@ def print_training_configuration_summary(training_config: dict) -> None:
             print_key_value("Offset Bidirectional", model_config.get("offset_bidirectional", False), value_color=Fore.YELLOW)
             print_key_value("Offset Readout Position", model_config.get("offset_readout_position", "center"), value_color=Fore.YELLOW)
             print_key_value("Offset Scale", model_config.get("offset_scale", 1.0), value_color=Fore.YELLOW)
+        elif normalized_model_type == "curve_aware_harmonic_residual_offset_probe":
+            print_key_value("Harmonic Order", model_config["harmonic_order"], value_color=Fore.YELLOW)
+            print_key_value("Harmonic Index List", model_config.get("harmonic_index_list"), value_color=Fore.YELLOW)
+            print_key_value("Coefficient Mode", model_config.get("coefficient_mode", "linear_conditioned"), value_color=Fore.YELLOW)
+            print_key_value("Offset Hidden Size", model_config.get("offset_hidden_size", 96), value_color=Fore.YELLOW)
+            print_key_value("Offset Num Layers", model_config.get("offset_num_layers", 2), value_color=Fore.YELLOW)
+            print_key_value("Offset Dropout Probability", model_config.get("offset_dropout_probability", 0.10), value_color=Fore.YELLOW)
+            print_key_value("Offset Bidirectional", model_config.get("offset_bidirectional", False), value_color=Fore.YELLOW)
+            print_key_value("Offset Readout Position", model_config.get("offset_readout_position", "center"), value_color=Fore.YELLOW)
+            print_key_value("Offset Scale", model_config.get("offset_scale", 1.0), value_color=Fore.YELLOW)
+            print_key_value("Freeze Structured Branch", model_config.get("freeze_structured_branch", False), value_color=Fore.YELLOW)
         else:
             print_key_value("Hidden Size", model_config["hidden_size"], value_color=Fore.YELLOW)
             print_key_value("Num Layers", model_config.get("num_layers", 2), value_color=Fore.YELLOW)
@@ -339,6 +352,10 @@ def print_training_configuration_summary(training_config: dict) -> None:
     print_key_value("Log Every N Steps", optimization_config["log_every_n_steps"], value_color=Fore.YELLOW)
     print_key_value("Fast Dev Run", optimization_config["fast_dev_run"], value_color=Fore.YELLOW)
     print_key_value("Deterministic", optimization_config["deterministic"], value_color=Fore.YELLOW)
+    if isinstance(optimization_config.get("loss"), dict):
+        loss_config = optimization_config["loss"]
+        print_key_value("Loss Profile", loss_config.get("profile", "pointwise_control"), value_color=Fore.YELLOW)
+        print_key_value("Loss Weights", loss_config.get("weights", {}), value_color=Fore.YELLOW)
 
     # Print Runtime Configuration
     print_subsection_header("Runtime")

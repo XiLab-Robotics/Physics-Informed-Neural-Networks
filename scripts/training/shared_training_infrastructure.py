@@ -647,6 +647,7 @@ def create_datamodule_from_training_config(training_config: dict[str, Any]) -> T
         sequence_stride=int(training_config["dataset"].get("sequence_stride", 1)),
         sequence_target_position=str(training_config["dataset"].get("sequence_target_position", "center")),
         maximum_sequences_per_curve=training_config["dataset"].get("maximum_sequences_per_curve"),
+        shuffle_training_batch_elements=bool(training_config["dataset"].get("shuffle_training_batch_elements", True)),
         num_workers=int(training_config["dataset"]["num_workers"]),
         pin_memory=bool(training_config["dataset"]["pin_memory"]),
         use_non_blocking_transfer=bool(runtime_config["use_non_blocking_transfer"]),
@@ -694,6 +695,7 @@ def create_regression_module_from_training_config(
         learning_rate=float(training_config["training"]["learning_rate"]),
         weight_decay=float(training_config["training"]["weight_decay"]),
         normalization_statistics=normalization_statistics,
+        loss_configuration=training_config["training"].get("loss", {}),
     )
 
 def initialize_training_components(

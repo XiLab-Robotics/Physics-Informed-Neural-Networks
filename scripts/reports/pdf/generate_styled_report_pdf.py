@@ -45,6 +45,7 @@ HERO_NOTE_TEXT = (
 REPORT_SPECIFIC_SUBTITLE_DICTIONARY = {
     "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report": "Track 2 Campaign Closeout",
     "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report": "Track 2 Campaign Closeout",
+    "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": "Track 2 Campaign Closeout",
 }
 
 # Report Styles
@@ -130,6 +131,10 @@ WAVE2_TEMPORAL_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-wave2-t
 WAVE2_TEMPORAL_REGISTRY_TABLE_CLASS_NAME = "report-table report-table-wave2-temporal-registry"
 TRACK2F_BRANCH_RESULTS_TABLE_CLASS_NAME = "report-table report-table-track2f-branch-results"
 TRACK2F_SCALAR_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-track2f-scalar-leaderboard"
+TRACK2G_BRANCH_RESULTS_TABLE_CLASS_NAME = "report-table report-table-track2g-branch-results"
+TRACK2G_LOSS_LEADERBOARD_TABLE_CLASS_NAME = "report-table report-table-track2g-loss-leaderboard"
+TRACK2G_BASELINE_COMPARISON_TABLE_CLASS_NAME = "report-table report-table-track2g-baseline-comparison"
+TRACK2G_REGISTRY_EFFECTS_TABLE_CLASS_NAME = "report-table report-table-track2g-registry-effects"
 TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME = "report-table report-table-track2-best-model-collage"
 TRACK2_OFFICIAL_VERIFICATION_RULE_TABLE_CLASS_NAME = "report-table report-table-track2-official-verification-rule"
 TRACK2_OFFICIAL_PIPELINE_COVERAGE_TABLE_CLASS_NAME = "report-table report-table-track2-official-pipeline-coverage"
@@ -475,6 +480,11 @@ REPORT_SPECIFIC_FORCED_PAGE_BREAK_SECTION_SLUGS = {
     },
     "track2_curve_payload_diagnostics_report": {
         "candidate-diagnostic-ranking",
+    },
+    "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report": {
+        "baseline-comparison",
+        "execution-summary",
+        "registry-effects",
     },
     "track2_forward_reference_curve_comparison_report": {
         "pairwise-predicted-curve-differences",
@@ -967,6 +977,52 @@ REPORT_STYLESHEET = """
     .report-table-track2f-scalar-leaderboard th:nth-child(6), .report-table-track2f-scalar-leaderboard td:nth-child(6) { width: 8%; }
     .report-table-track2f-scalar-leaderboard th:nth-child(7), .report-table-track2f-scalar-leaderboard td:nth-child(7) { width: 8%; }
     .report-table-track2f-scalar-leaderboard th:nth-child(8), .report-table-track2f-scalar-leaderboard td:nth-child(8) { width: 10%; }
+
+    .report-table-track2g-branch-results,
+    .report-table-track2g-loss-leaderboard,
+    .report-table-track2g-baseline-comparison,
+    .report-table-track2g-registry-effects {
+      font-size: 6.65pt;
+      line-height: 1.15;
+    }
+
+    .report-table-track2g-branch-results th,
+    .report-table-track2g-branch-results td,
+    .report-table-track2g-loss-leaderboard th,
+    .report-table-track2g-loss-leaderboard td,
+    .report-table-track2g-baseline-comparison th,
+    .report-table-track2g-baseline-comparison td,
+    .report-table-track2g-registry-effects th,
+    .report-table-track2g-registry-effects td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2g-branch-results th:nth-child(1), .report-table-track2g-branch-results td:nth-child(1) { width: 9%; }
+    .report-table-track2g-branch-results th:nth-child(2), .report-table-track2g-branch-results td:nth-child(2) { width: 37%; }
+    .report-table-track2g-branch-results th:nth-child(3), .report-table-track2g-branch-results td:nth-child(3) { width: 18%; }
+    .report-table-track2g-branch-results th:nth-child(4), .report-table-track2g-branch-results td:nth-child(4) { width: 12%; }
+    .report-table-track2g-branch-results th:nth-child(5), .report-table-track2g-branch-results td:nth-child(5) { width: 12%; }
+    .report-table-track2g-branch-results th:nth-child(6), .report-table-track2g-branch-results td:nth-child(6) { width: 12%; }
+
+    .report-table-track2g-loss-leaderboard th:nth-child(1), .report-table-track2g-loss-leaderboard td:nth-child(1) { width: 5%; }
+    .report-table-track2g-loss-leaderboard th:nth-child(2), .report-table-track2g-loss-leaderboard td:nth-child(2) { width: 8%; }
+    .report-table-track2g-loss-leaderboard th:nth-child(3), .report-table-track2g-loss-leaderboard td:nth-child(3) { width: 25.5%; }
+    .report-table-track2g-loss-leaderboard th:nth-child(4), .report-table-track2g-loss-leaderboard td:nth-child(4) { width: 25.5%; }
+    .report-table-track2g-loss-leaderboard th:nth-child(5), .report-table-track2g-loss-leaderboard td:nth-child(5) { width: 12%; }
+    .report-table-track2g-loss-leaderboard th:nth-child(6), .report-table-track2g-loss-leaderboard td:nth-child(6) { width: 12%; }
+    .report-table-track2g-loss-leaderboard th:nth-child(7), .report-table-track2g-loss-leaderboard td:nth-child(7) { width: 12%; }
+
+    .report-table-track2g-baseline-comparison th:nth-child(1), .report-table-track2g-baseline-comparison td:nth-child(1) { width: 8%; }
+    .report-table-track2g-baseline-comparison th:nth-child(2), .report-table-track2g-baseline-comparison td:nth-child(2) { width: 27%; }
+    .report-table-track2g-baseline-comparison th:nth-child(3), .report-table-track2g-baseline-comparison td:nth-child(3) { width: 11%; }
+    .report-table-track2g-baseline-comparison th:nth-child(4), .report-table-track2g-baseline-comparison td:nth-child(4) { width: 32%; }
+    .report-table-track2g-baseline-comparison th:nth-child(5), .report-table-track2g-baseline-comparison td:nth-child(5) { width: 11%; }
+    .report-table-track2g-baseline-comparison th:nth-child(6), .report-table-track2g-baseline-comparison td:nth-child(6) { width: 11%; }
+
+    .report-table-track2g-registry-effects th:nth-child(1), .report-table-track2g-registry-effects td:nth-child(1) { width: 33.333%; }
+    .report-table-track2g-registry-effects th:nth-child(2), .report-table-track2g-registry-effects td:nth-child(2) { width: 33.333%; }
+    .report-table-track2g-registry-effects th:nth-child(3), .report-table-track2g-registry-effects td:nth-child(3) { width: 33.333%; }
 
     .report-table-track2-best-model-collage {
       font-size: 6.85pt;
@@ -3012,6 +3068,10 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
         TRACK1_OVERNIGHT_COMPLETED_TABLE_CLASS_NAME,
         TRACK1_OVERNIGHT_DELTA_TABLE_CLASS_NAME,
         TRACK1_OVERNIGHT_BLOCK_WINNER_TABLE_CLASS_NAME,
+        TRACK2G_BRANCH_RESULTS_TABLE_CLASS_NAME,
+        TRACK2G_LOSS_LEADERBOARD_TABLE_CLASS_NAME,
+        TRACK2G_BASELINE_COMPARISON_TABLE_CLASS_NAME,
+        TRACK2G_REGISTRY_EFFECTS_TABLE_CLASS_NAME,
         TRACK2_BEST_MODEL_COLLAGE_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_SCALAR_WINNER_TABLE_CLASS_NAME,
         REPOSITORY_STATUS_HPO_LEADER_TABLE_CLASS_NAME,
@@ -3075,6 +3135,19 @@ def normalize_report_specific_header_cell(header_cell: str, table_class_name: st
             return "Campaign or<br>Update"
         if header_cell == "Candidate Scope":
             return "Candidate<br>Scope"
+
+    if table_class_name in {
+        TRACK2G_BRANCH_RESULTS_TABLE_CLASS_NAME,
+        TRACK2G_LOSS_LEADERBOARD_TABLE_CLASS_NAME,
+        TRACK2G_BASELINE_COMPARISON_TABLE_CLASS_NAME,
+        TRACK2G_REGISTRY_EFFECTS_TABLE_CLASS_NAME,
+    }:
+        if header_cell == "Loss Profile":
+            return "Loss<br>Profile"
+        if header_cell == "Track 2G MAE":
+            return "Track 2G<br><span class=\"metric-unit\">MAE</span>"
+        if table_class_name == TRACK2G_REGISTRY_EFFECTS_TABLE_CLASS_NAME and header_cell == "Best Run":
+            return "Best Run"
 
     if table_class_name in {
         TRACK2_CURVE_FIRST_RANKING_TABLE_CLASS_NAME,
@@ -3614,6 +3687,36 @@ def resolve_standard_table_class_name(
             == ("Rank", "Surface", "Run", "Family", "Test MAE", "Test RMSE", "Val MAE", "Params")
         ):
             return TRACK2F_SCALAR_LEADERBOARD_TABLE_CLASS_NAME
+
+    # Resolve Track 2G Curve-Aware Closeout Table Profiles
+    if report_stem == "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report":
+
+        if (
+            current_section_slug == "directional-branch-results"
+            and normalized_header_cells
+            == ("Surface", "Candidate", "Loss Profile", "Test MAE", "Test RMSE", "Val MAE")
+        ):
+            return TRACK2G_BRANCH_RESULTS_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "loss-profile-leaderboard"
+            and normalized_header_cells
+            == ("Rank", "Surface", "Candidate", "Loss Profile", "Test MAE", "Test RMSE", "Val MAE")
+        ):
+            return TRACK2G_LOSS_LEADERBOARD_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "baseline-comparison"
+            and normalized_header_cells
+            == ("Surface", "Track 2G Best", "Track 2G MAE", "Track 2F-Bis Ref.", "Ref. MAE", "Delta")
+        ):
+            return TRACK2G_BASELINE_COMPARISON_TABLE_CLASS_NAME
+
+        if (
+            current_section_slug == "registry-effects"
+            and normalized_header_cells == ("Registry Scope", "Best Run", "Test MAE")
+        ):
+            return TRACK2G_REGISTRY_EFFECTS_TABLE_CLASS_NAME
 
     # Resolve Track 2 Best-Model Collage Summary Tables
     if (
@@ -4370,6 +4473,7 @@ def render_markdown_body(markdown_text: str, markdown_path: Path) -> tuple[str, 
                     "2026-05-28-11-35-34_wave2c_residual_harmonic_temporal_hybrid_campaign_results_report",
                     "2026-06-04-12-28-46_track2f_offset_aware_probe_campaign_results_report",
                     "2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report",
+                    "2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report",
                 }
                 and not (
                     report_stem == "2026-04-22-01-08-33_track1_mlp_residual_cell_final_closure_campaign_results_report"

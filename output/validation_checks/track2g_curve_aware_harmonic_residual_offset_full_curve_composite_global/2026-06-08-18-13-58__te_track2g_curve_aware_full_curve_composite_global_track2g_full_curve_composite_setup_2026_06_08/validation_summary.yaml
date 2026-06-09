@@ -1,0 +1,26 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\track2g_curve_aware_training\campaigns\2026-06-08_track2g_curve_aware_training_campaign\queue\10_full_curve_composite_global.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global\2026-06-08-18-13-58__te_track2g_curve_aware_full_curve_composite_global_track2g_full_curve_composite_setup_2026_06_08
+experiment:
+  run_name: te_track2g_curve_aware_full_curve_composite_global
+  output_run_name: te_track2g_curve_aware_full_curve_composite_global_track2g_full_curve_composite_setup_2026_06_08
+  run_instance_id: 2026-06-08-18-13-58__te_track2g_curve_aware_full_curve_composite_global_track2g_full_curve_composite_setup_2026_06_08
+  model_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 29.60553550720215
+  mae: 0.09650769829750061
+  rmse: 0.12388154864311218

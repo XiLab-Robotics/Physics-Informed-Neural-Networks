@@ -1,0 +1,85 @@
+paths:
+  dataset_config_path: config/training/track2g_curve_aware_training/campaigns/2026-06-08_track2g_curve_aware_training_campaign/dataset_variants/transmission_error_dataset_fw.yaml
+  output_root: output/training_runs/track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw
+experiment:
+  run_name: te_track2g_curve_aware_raw_centered_shape_fw
+  model_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw
+  model_type: curve_aware_harmonic_residual_offset_probe
+metadata:
+  campaign_name: track2g_curve_aware_training_campaign_2026_06_08
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md
+  phase_name: track2g_curve_aware_training
+  campaign_config_id: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw
+  queue_index: 5
+  intervention: curve_aware_loss
+  loss_profile: raw_centered_shape
+  training_variant: Fw
+  direction_scope_label: forward_only
+  use_forward_direction: true
+  use_backward_direction: false
+  runtime_input_contract: current point state plus supported short causal sequence history only
+  promotion_rule: Candidate must return through official Track 2 curve-first verification.
+  harmonic_basis: sparse_rcim
+  harmonic_index_list: &id001
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  notes: Curve-aware profile emphasizing mean-centered waveform shape and sparse non-DC harmonics.
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  shuffle_training_batch_elements: false
+  num_workers: 8
+  pin_memory: true
+model:
+  input_size: 5
+  output_size: 1
+  harmonic_order: 240
+  coefficient_mode: linear_conditioned
+  harmonic_index_list: *id001
+  offset_hidden_size: 96
+  offset_num_layers: 2
+  offset_dropout_probability: 0.1
+  offset_bidirectional: false
+  offset_readout_position: center
+  offset_scale: 1.0
+  freeze_structured_branch: false
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: false
+  loss:
+    profile: raw_centered_shape
+    weights:
+      point: 1.0
+      centered: 0.35
+      offset: 0.0
+      amplitude: 0.0
+      harmonic: 0.15
+    harmonic_index_list: *id001
+runtime:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true

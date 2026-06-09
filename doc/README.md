@@ -262,6 +262,12 @@ This folder contains the internal project documents derived from the reference P
   Plan the repository-independent original paper `ONNX` curve plotter for
   user-provided curve `CSV` files and sparse harmonic selections.
 
+- [technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md](./technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md)
+  Plan the `Track 2G` curve-aware training branch after `Track 2F` and
+  `Track 2F-bis`, preserving causal point or short-history runtime inputs
+  while testing composite curve loss and multi-head shape/offset modeling for
+  separate `global`, `Fw`, and `Bw` decision surfaces.
+
 - [technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md](./technical/2026-06/2026-06-08/2026-06-08-13-46-58_track2_forward_reference_curve_comparison_report.md)
   Plan the combined forward `Track 2` reference-curve comparison report across
   paper-original, paper-retuned, full original `ONNX`, and sparse original
@@ -2188,6 +2194,11 @@ This folder contains the internal project documents derived from the reference P
   `Track 2` verification refresh across clean and harmonic candidates for
   `global`, `Fw`, and `Bw`.
 
+- [scripts/campaigns/track2/run_track2g_curve_aware_training_campaign.md](./scripts/campaigns/track2/run_track2g_curve_aware_training_campaign.md)
+  Script-level documentation for the prepared Track 2G curve-aware training
+  launcher across pointwise-control, centered-shape, offset, and full
+  composite loss profiles for `global`, `Fw`, and `Bw`.
+
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
   Script-level documentation for the one-batch validation check used by the shared Wave 0 training infrastructure.
 
@@ -2252,6 +2263,22 @@ This folder contains the internal project documents derived from the reference P
 
 - [reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-04-23-08-24_track2f_bi_da4c30ce_te_track2f_bis_harmonic_residua_7fa047ef_validation_setup_report.md)
   One-batch validation setup report for the Track 2F-bis harmonic-offset
+  `global` entry.
+
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_ca617bbd_te_track2g_curve_aware_pointwis_239993a2_validation_setup_report.md)
+  One-batch validation setup report for the Track 2G pointwise-control
+  `global` entry.
+
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_b85b1190_te_track2g_curve_aware_raw_cent_9365d702_validation_setup_report.md)
+  One-batch validation setup report for the Track 2G raw plus centered-shape
+  `global` entry.
+
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_1430b431_te_track2g_curve_aware_raw_offs_951f470e_validation_setup_report.md)
+  One-batch validation setup report for the Track 2G raw plus offset
+  `global` entry.
+
+- [reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md](./reports/analysis/validation_checks/2026-06-08-18-14-31_track2g_cu_3c0ce19b_te_track2g_curve_aware_full_cur_f7e39520_validation_setup_report.md)
+  One-batch validation setup report for the Track 2G full composite curve-loss
   `global` entry.
 
 - [guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md](./guide/Neural%20Network%20Foundations/Neural%20Network%20Foundations.md)
@@ -2369,6 +2396,11 @@ This folder contains the internal project documents derived from the reference P
   Styled PDF export of the unified residual-harmonic network guide.
 
 #### Latest Campaign Plans
+
+- [reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md)
+  Preliminary campaign plan for the `Track 2G` curve-aware training probe,
+  testing pointwise-control, centered-shape, offset, and full composite loss
+  profiles across `global`, `Fw`, and `Bw`.
 
 - [reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2F-bis` harmonic-offset probe that
@@ -2548,6 +2580,13 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md](./reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md)
+  Final results report for the completed `Track 2G` curve-aware training
+  campaign, including separate `global`, `Fw`, and `Bw` branch winners,
+  loss-profile interpretation, registry effects, and the boundary that
+  official `Track 2` curve verification remains a separate
+  operator-launched workflow.
 
 - [reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md](./reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md)
   Final results report for the completed-after-repair `Track 2F-bis`

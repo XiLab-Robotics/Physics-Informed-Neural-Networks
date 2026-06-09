@@ -1,0 +1,39 @@
+schema_version: 1
+model_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_bw
+selection_policy:
+  primary_metric: test_mae
+  first_tie_breaker: test_rmse
+  second_tie_breaker: val_mae
+  third_tie_breaker: trainable_parameter_count
+  direction: minimize
+updated_at: '2026-06-08T21:06:56'
+entry_count: 1
+entry_list:
+- run_instance_id: 2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw
+  run_name: te_track2g_curve_aware_raw_offset_bw
+  output_run_name: te_track2g_curve_aware_raw_offset_bw
+  output_artifact_kind: training_run
+  model_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_bw
+  base_model_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0037512213457375765
+  val_rmse: 0.004350916016846895
+  test_mae: 0.00347148347645998
+  test_rmse: 0.003991666715592146
+  output_directory: output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw
+  best_checkpoint_path: output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=076-val_mae=0.00375122.ckpt
+  metrics_path: output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw/metrics_summary.yaml
+  report_path: output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw/training_test_report.md
+  selection_policy:
+    primary_metric: test_mae
+    first_tie_breaker: test_rmse
+    second_tie_breaker: val_mae
+    third_tie_breaker: trainable_parameter_count
+    direction: minimize
+  selected_at: '2026-06-08T21:06:56'

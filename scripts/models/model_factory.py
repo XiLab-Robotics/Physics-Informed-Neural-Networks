@@ -216,7 +216,7 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
         )
 
     # Create Track 2F-Bis Harmonic Residual-Offset Probe
-    if normalized_model_type == "harmonic_residual_offset_probe":
+    if normalized_model_type in ["harmonic_residual_offset_probe", "curve_aware_harmonic_residual_offset_probe"]:
         return HarmonicResidualOffsetNetwork(
             input_size=int(model_configuration["input_size"]),
             output_size=int(model_configuration.get("output_size", 1)),

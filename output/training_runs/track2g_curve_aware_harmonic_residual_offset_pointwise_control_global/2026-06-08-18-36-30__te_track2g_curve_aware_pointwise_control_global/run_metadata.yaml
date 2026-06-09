@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2g_curve_aware_harmonic_residual_offset_pointwise_control_global
+base_model_family: track2g_curve_aware_harmonic_residual_offset_pointwise_control_global
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_track2g_curve_aware_pointwise_control_global
+run_instance_id: 2026-06-08-18-36-30__te_track2g_curve_aware_pointwise_control_global
+output_directory: output\training_runs\track2g_curve_aware_harmonic_residual_offset_pointwise_control_global\2026-06-08-18-36-30__te_track2g_curve_aware_pointwise_control_global

@@ -1,83 +1,45 @@
 status: none
 campaign_name:
-cleared_at: '2026-06-05T16:49:50+02:00'
-clear_reason: completed_track2f_bis_campaign_removed_from_running_state_after_repair_closeout
+cleared_at: '2026-06-09T01:56:25+02:00'
+clear_reason: completed_track2g_curve_aware_training_campaign_removed_from_running_state_after_closeout
 last_completed_campaign:
-  campaign_name: track2f_bis_harmonic_offset_probe_campaign_2026_06_04
-  status: completed_after_repair
-  original_campaign_output_directory: output/training_campaigns/2026-06-04-23-31-57_track2f_bis_harmonic_offset_probe_campaign_2026_06_04
-  repair_campaign_output_directory: output/training_campaigns/2026-06-05-16-07-17_track2f_bis_harmonic_offset_probe_repair_2026_06_05
-  planning_report_path: doc/reports/campaign_plans/track2/2026-06-04-22-57-04_track2f_bis_harmonic_offset_probe_campaign_plan_report.md
-  technical_document_path: doc/technical/2026-06/2026-06-04/2026-06-04-21-14-52_track2f_bis_harmonic_offset_probe.md
-  runner_fix_technical_document_path: doc/technical/2026-06/2026-06-05/2026-06-05-15-56-59_track2f_bis_campaign_runner_model_type_fix.md
-  closeout_report_path: doc/reports/campaign_results/track2/2026-06-05-16-49-50_track2f_bis_harmonic_offset_probe_campaign_results_report.md
-  original_completed_run_count: 3
-  original_failed_run_count: 3
-  repaired_completed_run_count: 3
-  repaired_failed_run_count: 0
-  effective_completed_candidate_count: 6
-  unresolved_failed_run_count: 0
-  track2_status: official_track2_refresh_completed
-  track2_completed_at: '2026-06-08T17:08:26+02:00'
-  track2_matrix_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
-  track2_official_verification_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md
-  track2_best_model_collage_report_path: doc/reports/analysis/track2/best_model_collage_report/[2026-06-08]/track2_best_model_collage_report.md
-  track2_multi_model_curve_comparison_report_path: doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-08]/track2_multi_model_curve_comparison_report.md
+  campaign_name: track2g_curve_aware_training_campaign_2026_06_08
+  status: completed
+  campaign_output_directory: output/training_campaigns/2026-06-08-18-36-30_track2g_curve_aware_training_campaign_2026_06_08
+  planning_report_path: doc/reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md
+  technical_document_path: doc/technical/2026-06/2026-06-08/2026-06-08-17-59-03_track2g_curve_aware_training_plan.md
+  closeout_report_path: doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md
+  completed_run_count: 12
+  failed_run_count: 0
+  track2_status: pending_separate_operator_refresh
   branch_candidate_list:
   - surface: global
-    intervention: clean_baseline
-    run_name: te_track2f_bis_clean_residual_offset_global
-    run_instance_id: 2026-06-04-23-31-57__te_track2f_bis_clean_residual_offset_global
-    model_family: track2f_bis_clean_sequential_residual_offset_global
-    model_type: sequential_residual_offset_probe
-    test_mae: 0.0035279763396829367
-    test_rmse: 0.004010066390037537
-    val_mae: 0.0037169386632740498
-  - surface: global
-    intervention: harmonic_offset
-    run_name: te_track2f_bis_harmonic_residual_offset_global
-    run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_global
-    model_family: track2f_bis_harmonic_residual_offset_global
-    model_type: harmonic_residual_offset_probe
-    test_mae: 0.003537735203281045
-    test_rmse: 0.003932197578251362
-    val_mae: 0.003658934263512492
+    loss_profile: full_curve_composite
+    run_name: te_track2g_curve_aware_full_curve_composite_global
+    run_instance_id: 2026-06-08-21-06-56__te_track2g_curve_aware_full_curve_composite_global
+    model_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global
+    model_type: curve_aware_harmonic_residual_offset_probe
+    test_mae: 0.003345235949382186
+    test_rmse: 0.0037126089446246624
+    val_mae: 0.0036158901639282703
   - surface: Fw
-    intervention: clean_baseline
-    run_name: te_track2f_bis_clean_residual_offset_fw
-    run_instance_id: 2026-06-04-23-43-38__te_track2f_bis_clean_residual_offset_fw
-    model_family: track2f_bis_clean_sequential_residual_offset_fw
-    model_type: sequential_residual_offset_probe
-    test_mae: 0.0034461263567209244
-    test_rmse: 0.003971843980252743
-    val_mae: 0.003474122378975153
-  - surface: Fw
-    intervention: harmonic_offset
-    run_name: te_track2f_bis_harmonic_residual_offset_fw
-    run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_fw
-    model_family: track2f_bis_harmonic_residual_offset_fw
-    model_type: harmonic_residual_offset_probe
-    test_mae: 0.0028616469353437424
-    test_rmse: 0.0033336810301989317
-    val_mae: 0.0029414519667625427
+    loss_profile: raw_centered_shape
+    run_name: te_track2g_curve_aware_raw_centered_shape_fw
+    run_instance_id: 2026-06-08-19-45-16__te_track2g_curve_aware_raw_centered_shape_fw
+    model_family: track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_fw
+    model_type: curve_aware_harmonic_residual_offset_probe
+    test_mae: 0.0031812870875000954
+    test_rmse: 0.0035711326636373997
+    val_mae: 0.003250579349696636
   - surface: Bw
-    intervention: clean_baseline
-    run_name: te_track2f_bis_clean_residual_offset_bw
-    run_instance_id: 2026-06-04-23-48-53__te_track2f_bis_clean_residual_offset_bw
-    model_family: track2f_bis_clean_sequential_residual_offset_bw
-    model_type: sequential_residual_offset_probe
-    test_mae: 0.0035396674647927284
-    test_rmse: 0.004203124437481165
-    val_mae: 0.0038196418900042772
-  - surface: Bw
-    intervention: harmonic_offset
-    run_name: te_track2f_bis_harmonic_residual_offset_bw
-    run_instance_id: 2026-06-04-23-58-31__te_track2f_bis_harmonic_residual_offset_bw
-    model_family: track2f_bis_harmonic_residual_offset_bw
-    model_type: harmonic_residual_offset_probe
-    test_mae: 0.0033360894303768873
-    test_rmse: 0.003934947773814201
-    val_mae: 0.003555009141564369
+    loss_profile: pointwise_control
+    run_name: te_track2g_curve_aware_pointwise_control_bw
+    run_instance_id: 2026-06-08-19-08-39__te_track2g_curve_aware_pointwise_control_bw
+    model_family: track2g_curve_aware_harmonic_residual_offset_pointwise_control_bw
+    model_type: curve_aware_harmonic_residual_offset_probe
+    test_mae: 0.003429918782785535
+    test_rmse: 0.003944811876863241
+    val_mae: 0.003749386640265584
 protected_file_list: []
 queue_config_path_list: []
 launch_command_list: []

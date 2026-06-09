@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_bw
+base_model_family: track2g_curve_aware_harmonic_residual_offset_raw_offset_bw
+training_variant: Bw
+direction_scope_label: backward_only
+use_forward_direction: false
+use_backward_direction: true
+run_name: te_track2g_curve_aware_raw_offset_bw
+run_instance_id: 2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw
+output_directory: output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_offset_bw\2026-06-08-20-51-35__te_track2g_curve_aware_raw_offset_bw

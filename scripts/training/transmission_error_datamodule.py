@@ -353,6 +353,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         sequence_stride: int = 1,
         sequence_target_position: str = "center",
         maximum_sequences_per_curve: int | None = None,
+        shuffle_training_batch_elements: bool = True,
         num_workers: int = 0,
         pin_memory: bool = False,
         use_non_blocking_transfer: bool = False,
@@ -370,6 +371,8 @@ class TransmissionErrorDataModule(LightningDataModule):
             sequence_stride: Step between consecutive temporal windows.
             sequence_target_position: Window point aligned with the target.
             maximum_sequences_per_curve: Optional cap on windows per curve.
+            shuffle_training_batch_elements: Whether training batches should
+                shuffle points or windows after curve-level collation.
             num_workers: PyTorch dataloader worker count.
             pin_memory: Whether dataloaders should pin host memory.
             use_non_blocking_transfer: Whether device transfer should request
@@ -396,6 +399,7 @@ class TransmissionErrorDataModule(LightningDataModule):
         self.sequence_stride = sequence_stride
         self.sequence_target_position = sequence_target_position
         self.maximum_sequences_per_curve = maximum_sequences_per_curve
+        self.shuffle_training_batch_elements = shuffle_training_batch_elements
         self.num_workers = num_workers
         self.pin_memory = pin_memory
         self.use_non_blocking_transfer = use_non_blocking_transfer
@@ -579,7 +583,7 @@ class TransmissionErrorDataModule(LightningDataModule):
             num_workers=self.num_workers,
             persistent_workers=(self.num_workers > 0),
             pin_memory=self.pin_memory,
-            collate_fn=self._build_collate_function(shuffle_batch_elements=True),
+            collate_fn=self._build_collate_function(shuffle_batch_elements=self.shuffle_training_batch_elements),
         )
 
     def val_dataloader(self) -> DataLoader:

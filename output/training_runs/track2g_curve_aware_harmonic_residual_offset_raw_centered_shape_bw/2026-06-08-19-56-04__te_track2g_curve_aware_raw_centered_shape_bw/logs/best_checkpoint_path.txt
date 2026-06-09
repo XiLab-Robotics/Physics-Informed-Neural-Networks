@@ -1,0 +1,1 @@
+C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2g_curve_aware_harmonic_residual_offset_raw_centered_shape_bw\2026-06-08-19-56-04__te_track2g_curve_aware_raw_centered_shape_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=078-val_mae=0.00373978.ckpt

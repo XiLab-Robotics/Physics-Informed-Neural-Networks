@@ -24,6 +24,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         learning_rate: float = 1.0e-3,
         weight_decay: float = 1.0e-4,
         normalization_statistics: NormalizationStatistics | None = None,
+        loss_configuration: dict | None = None,
     ) -> None:
         """Initialize the TE regression LightningModule.
 
@@ -35,6 +36,8 @@ class TransmissionErrorRegressionModule(LightningModule):
             weight_decay: AdamW weight decay.
             normalization_statistics: Optional normalization tensors loaded at
                 construction time.
+            loss_configuration: Optional composite loss configuration used by
+                curve-aware campaign branches.
         """
 
         super().__init__()
@@ -51,6 +54,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Save Model And Loss
         self.regression_model = regression_model
         self.loss_function = nn.MSELoss()
+        self.loss_configuration = self._normalize_loss_configuration(loss_configuration or {})
 
         # Register Normalization Buffers
         self.register_buffer("input_feature_mean", torch.zeros(input_feature_dim, dtype=torch.float32))
@@ -63,6 +67,158 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         # Load Normalization Statistics If Available At Construction Time
         if normalization_statistics is not None: self.set_normalization_statistics(normalization_statistics)
+
+    def _normalize_loss_configuration(self, loss_configuration: dict) -> dict[str, object]:
+
+        """Normalize optional curve-aware loss settings."""
+
+        # Resolve Loss Profile And Weights
+        loss_profile = str(loss_configuration.get("profile", "pointwise_control")).strip().lower()
+        weight_dictionary = dict(loss_configuration.get("weights", {}))
+        harmonic_index_list = list(loss_configuration.get("harmonic_index_list", []))
+
+        return {
+            "profile": loss_profile,
+            "point_weight": float(weight_dictionary.get("point", 1.0)),
+            "centered_weight": float(weight_dictionary.get("centered", 0.0)),
+            "offset_weight": float(weight_dictionary.get("offset", 0.0)),
+            "amplitude_weight": float(weight_dictionary.get("amplitude", 0.0)),
+            "harmonic_weight": float(weight_dictionary.get("harmonic", 0.0)),
+            "harmonic_index_list": [int(harmonic_index) for harmonic_index in harmonic_index_list if int(harmonic_index) > 0],
+        }
+
+    def compute_curve_aware_loss_dictionary(
+        self,
+        batch_dictionary: dict[str, torch.Tensor],
+        batch_output_dictionary: dict[str, torch.Tensor],
+        pointwise_loss: torch.Tensor,
+    ) -> dict[str, torch.Tensor]:
+
+        """Compute optional curve-aware loss terms from collated curve groups."""
+
+        # Extract Configured Weights
+        point_weight = float(self.loss_configuration["point_weight"])
+        centered_weight = float(self.loss_configuration["centered_weight"])
+        offset_weight = float(self.loss_configuration["offset_weight"])
+        amplitude_weight = float(self.loss_configuration["amplitude_weight"])
+        harmonic_weight = float(self.loss_configuration["harmonic_weight"])
+        harmonic_index_list = list(self.loss_configuration["harmonic_index_list"])
+
+        # Initialize Loss Terms
+        zero_loss = pointwise_loss * 0.0
+        centered_shape_loss = zero_loss
+        curve_offset_loss = zero_loss
+        curve_amplitude_loss = zero_loss
+        sparse_harmonic_shape_loss = zero_loss
+
+        curve_count_tensor = batch_dictionary.get("curve_count", None)
+        count_per_curve_tensor = batch_dictionary.get("sequence_count_per_curve", batch_dictionary.get("point_count_per_curve", None))
+        can_compute_curve_terms = isinstance(count_per_curve_tensor, torch.Tensor) and int(count_per_curve_tensor.numel()) > 0
+
+        # Compute Curve Terms Only When The Collate Function Preserved Per-Curve Counts
+        if can_compute_curve_terms:
+            prediction_tensor = batch_output_dictionary["prediction_tensor"]
+            target_tensor = batch_output_dictionary["target_tensor"]
+            angular_position_tensor = batch_dictionary["angular_position_deg"].to(prediction_tensor.device).float()
+            count_per_curve_tensor = count_per_curve_tensor.to(prediction_tensor.device).long()
+
+            centered_loss_list: list[torch.Tensor] = []
+            offset_loss_list: list[torch.Tensor] = []
+            amplitude_loss_list: list[torch.Tensor] = []
+            harmonic_loss_list: list[torch.Tensor] = []
+            start_index = 0
+
+            # Walk Contiguous Per-Curve Segments In The Collated Batch
+            for curve_count in count_per_curve_tensor.tolist():
+                end_index = start_index + int(curve_count)
+                curve_prediction_tensor = prediction_tensor[start_index:end_index]
+                curve_target_tensor = target_tensor[start_index:end_index]
+                curve_angle_tensor = angular_position_tensor[start_index:end_index]
+                start_index = end_index
+
+                if int(curve_prediction_tensor.numel()) == 0:
+                    continue
+
+                prediction_mean_tensor = torch.mean(curve_prediction_tensor, dim=0, keepdim=True)
+                target_mean_tensor = torch.mean(curve_target_tensor, dim=0, keepdim=True)
+                centered_prediction_tensor = curve_prediction_tensor - prediction_mean_tensor
+                centered_target_tensor = curve_target_tensor - target_mean_tensor
+
+                centered_loss_list.append(torch.mean(torch.square(centered_prediction_tensor - centered_target_tensor)))
+                offset_loss_list.append(torch.mean(torch.square(prediction_mean_tensor - target_mean_tensor)))
+
+                prediction_amplitude_tensor = torch.max(curve_prediction_tensor, dim=0).values - torch.min(curve_prediction_tensor, dim=0).values
+                target_amplitude_tensor = torch.max(curve_target_tensor, dim=0).values - torch.min(curve_target_tensor, dim=0).values
+                amplitude_loss_list.append(torch.mean(torch.square(prediction_amplitude_tensor - target_amplitude_tensor)))
+
+                if harmonic_index_list:
+                    harmonic_loss_list.append(
+                        self.compute_sparse_harmonic_shape_loss(
+                            curve_angle_tensor,
+                            centered_prediction_tensor,
+                            centered_target_tensor,
+                            harmonic_index_list,
+                        )
+                    )
+
+            if centered_loss_list:
+                centered_shape_loss = torch.stack(centered_loss_list).mean()
+                curve_offset_loss = torch.stack(offset_loss_list).mean()
+                curve_amplitude_loss = torch.stack(amplitude_loss_list).mean()
+                if harmonic_loss_list:
+                    sparse_harmonic_shape_loss = torch.stack(harmonic_loss_list).mean()
+
+        # Combine Weighted Terms
+        total_loss = (
+            point_weight * pointwise_loss
+            + centered_weight * centered_shape_loss
+            + offset_weight * curve_offset_loss
+            + amplitude_weight * curve_amplitude_loss
+            + harmonic_weight * sparse_harmonic_shape_loss
+        )
+
+        return {
+            "loss": total_loss,
+            "pointwise_loss": pointwise_loss,
+            "centered_curve_shape_loss": centered_shape_loss,
+            "curve_offset_loss": curve_offset_loss,
+            "curve_amplitude_loss": curve_amplitude_loss,
+            "sparse_harmonic_shape_loss": sparse_harmonic_shape_loss,
+            "curve_aware_curve_count": torch.as_tensor(
+                int(curve_count_tensor) if isinstance(curve_count_tensor, int) else int(count_per_curve_tensor.numel()) if can_compute_curve_terms else 0,
+                device=pointwise_loss.device,
+                dtype=torch.float32,
+            ),
+        }
+
+    def compute_sparse_harmonic_shape_loss(
+        self,
+        angular_position_tensor: torch.Tensor,
+        centered_prediction_tensor: torch.Tensor,
+        centered_target_tensor: torch.Tensor,
+        harmonic_index_list: list[int],
+    ) -> torch.Tensor:
+
+        """Compare centered prediction and truth on sparse sine/cosine terms."""
+
+        # Prepare Angle Tensor In Radians
+        angle_radian_tensor = torch.deg2rad(angular_position_tensor.reshape(-1, 1))
+        prediction_vector = centered_prediction_tensor.reshape(-1, 1)
+        target_vector = centered_target_tensor.reshape(-1, 1)
+        harmonic_loss_list: list[torch.Tensor] = []
+
+        # Compare Projection Coefficients For Each Harmonic
+        for harmonic_index in harmonic_index_list:
+            sine_basis_tensor = torch.sin(float(harmonic_index) * angle_radian_tensor)
+            cosine_basis_tensor = torch.cos(float(harmonic_index) * angle_radian_tensor)
+            prediction_sine_coefficient = torch.mean(prediction_vector * sine_basis_tensor, dim=0)
+            target_sine_coefficient = torch.mean(target_vector * sine_basis_tensor, dim=0)
+            prediction_cosine_coefficient = torch.mean(prediction_vector * cosine_basis_tensor, dim=0)
+            target_cosine_coefficient = torch.mean(target_vector * cosine_basis_tensor, dim=0)
+            harmonic_loss_list.append(torch.mean(torch.square(prediction_sine_coefficient - target_sine_coefficient)))
+            harmonic_loss_list.append(torch.mean(torch.square(prediction_cosine_coefficient - target_cosine_coefficient)))
+
+        return torch.stack(harmonic_loss_list).mean()
 
     def set_normalization_statistics(self, normalization_statistics: NormalizationStatistics) -> None:
 
@@ -193,13 +349,21 @@ class TransmissionErrorRegressionModule(LightningModule):
         # Forward Pass
         normalized_prediction_tensor, auxiliary_output_dictionary = self.forward_regression_model(input_tensor, normalized_input_tensor)
 
-        # Compute Loss In Normalized Space
-        loss = self.loss_function(normalized_prediction_tensor, normalized_target_tensor)
-
         # Denormalize Predictions For Interpretable Metrics
         prediction_tensor = self.denormalize_target_tensor(normalized_prediction_tensor)
         mae = torch.mean(torch.abs(prediction_tensor - target_tensor))
         rmse = torch.sqrt(torch.mean(torch.square(prediction_tensor - target_tensor)))
+
+        # Compute Pointwise And Optional Curve-Aware Loss Terms
+        pointwise_loss = self.loss_function(normalized_prediction_tensor, normalized_target_tensor)
+        loss_dictionary = self.compute_curve_aware_loss_dictionary(
+            batch_dictionary=batch_dictionary,
+            batch_output_dictionary={
+                "prediction_tensor": normalized_prediction_tensor,
+                "target_tensor": normalized_target_tensor,
+            },
+            pointwise_loss=pointwise_loss,
+        )
 
         # Create Batch Output Dictionary
         batch_output_dictionary = {
@@ -209,13 +373,13 @@ class TransmissionErrorRegressionModule(LightningModule):
             "normalized_target_tensor": normalized_target_tensor,
             "normalized_prediction_tensor": normalized_prediction_tensor,
             "prediction_tensor": prediction_tensor,
-            "loss": loss,
             "mae": mae,
             "rmse": rmse,
         }
 
         # Merge Optional Auxiliary Prediction Tensors Returned By Structured Models
         batch_output_dictionary.update(auxiliary_output_dictionary)
+        batch_output_dictionary.update(loss_dictionary)
         return batch_output_dictionary
 
     def compute_loss(self, batch_dictionary: dict[str, torch.Tensor], log_prefix: str) -> torch.Tensor:
@@ -243,6 +407,11 @@ class TransmissionErrorRegressionModule(LightningModule):
         self.log(f"{log_prefix}_loss", loss, on_step=False, on_epoch=True, prog_bar=True, batch_size=batch_size)
         self.log(f"{log_prefix}_mae", mae, on_step=False, on_epoch=True, prog_bar=(log_prefix != "train"), batch_size=batch_size)
         self.log(f"{log_prefix}_rmse", rmse, on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(f"{log_prefix}_pointwise_loss", batch_output_dictionary["pointwise_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(f"{log_prefix}_centered_curve_shape_loss", batch_output_dictionary["centered_curve_shape_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(f"{log_prefix}_curve_offset_loss", batch_output_dictionary["curve_offset_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(f"{log_prefix}_curve_amplitude_loss", batch_output_dictionary["curve_amplitude_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
+        self.log(f"{log_prefix}_sparse_harmonic_shape_loss", batch_output_dictionary["sparse_harmonic_shape_loss"], on_step=False, on_epoch=True, prog_bar=False, batch_size=batch_size)
 
         # Log Structured-Only Diagnostics When Available
         structured_prediction_tensor = batch_output_dictionary.get("structured_prediction_tensor")

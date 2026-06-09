@@ -24,16 +24,17 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Track 2F-bis` harmonic-offset probe official
-  `Track 2` verification refresh complete.
+- Current Completed Wave: `Track 2G` curve-aware training campaign closeout
+  complete; official `Track 2` verification refresh is pending as a separate
+  operator-approved step.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: use the completed `Track 2F-bis` official verification to
-  select the next curve-aware loss or multi-task shape/offset branch while
-  keeping `Fw`, `Bw`, and `global` surfaces parallel.
+- Current Focus: run a separate official `Track 2` verification refresh for
+  the completed `Track 2G` candidates before deciding whether to continue the
+  loss-only branch or move to multi-head shape/offset training.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -49,6 +50,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/mean_centered_collage_report/[2026-06-02]/track2_mean_centered_collage_report.md`
 - `doc/reports/analysis/track2/mean_offset_full_matrix_audit/[2026-06-03]/track2d_mean_offset_full_matrix_audit.md`
 - `doc/reports/analysis/track2/offset_predictability_feasibility/[2026-06-03]/track2e_offset_predictability_feasibility.md`
+- `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
 - `doc/reports/analysis/Training Results Master Summary.md`
@@ -214,10 +216,10 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- prepare a campaign plan for a small direction-parallel offset-aware probe
-  that compares a post-hoc `direction_torque` baseline, a sequential causal
-  residual-offset head, and a multi-head shape/offset loss on selected `Fw`,
-  `Bw`, and `global` starting candidates.
+- run the separate official Track 2 refresh for the completed Track 2G
+  direction-parallel candidate set, then decide whether the next modeling gate
+  should continue loss-only curve-aware training or move to the explicit
+  multi-head shape/offset branch.
 
 ## Completed
 
