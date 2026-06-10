@@ -22,6 +22,9 @@ error, or by experimental repeatability limits.
 | `Track 2E` finds `direction_torque` as the strongest conservative causal grouping. | Offset has an operating-condition signal. | Full operating-condition grouping can overstate deployable predictability when it collapses to one curve. |
 | Colleague feedback reports possible `Component 0` repeatability variation. | Experimental variability may affect the target itself, especially preload or state-dependent initialization. | The reported variation must be treated as external evidence until matched against repository data or imported repeat measurements. |
 | `Track 2F`, `Track 2F-bis`, and `Track 2G` test offset-aware and curve-aware branches. | Offset-aware modeling helps in some branches but has not closed the full curve-following gap. | Further training should wait for the component-identification result unless explicitly approved as a separate branch. |
+| Measured h0 diagnostic is complete. | Harmonic zero / `h0` is the largest average measured component and the correct mean-like channel to inspect. | This does not prove that `h0` is the only source of model offset failures. |
+| `Track 2D` h0/error cross-check is complete. | Large absolute measured `h0` does not reliably identify the cases where models have the largest mean-offset errors. | Filtering or reweighting high-`h0` curves alone is not a sufficient plan. |
+| Predicted-mean h0 surface diagnostic is complete. | The actionable symptom is model-side mean-surface bias or compression against measured `h0`. | The diagnostic does not yet select the best modeling intervention. |
 
 ## Analysis Questions
 
@@ -97,9 +100,12 @@ This diagnostic should run in parallel with, but separate from, the operator
 workflow that closes or refreshes `Track 2G`. Its result should decide whether
 the next approved step is:
 
-- dataset filtering or robust target aggregation;
-- explicit causal offset calibration;
-- a component-specific `a_0` model;
-- a multi-head shape/offset architecture;
-- or no new offset-specific model because the issue is mainly repeatability or
-  non-`a_0` component behavior.
+- a `Track 2H` dispersion-aware probe stage with robust losses, quantile or
+  probabilistic regression, mixture-density heads, and latent-state /
+  hysteresis-aware models;
+- `Wave 3` hybrid structured models that separate stable middle harmonics from
+  fragile low-order and high-order components;
+- `Wave 4` first-PINN formulation to test soft physics, periodicity,
+  smoothness, harmonic-consistency, and operating-condition constraints;
+- or a later integrated multi-task / multi-head architecture after the smaller
+  probes identify which mechanisms are worth combining.

@@ -215,6 +215,11 @@ This folder contains the internal project documents derived from the reference P
   `h0` to identify candidate-specific bias, slope compression, and
   direction/regime offset behavior.
 
+- [reports/analysis/track2/dispersion_aware_wave_roadmap/[2026-06-10]/track2_dispersion_aware_wave_roadmap.md](./reports/analysis/track2/dispersion_aware_wave_roadmap/%5B2026-06-10%5D/track2_dispersion_aware_wave_roadmap.md)
+  `Track 2` roadmap that inserts dispersion-aware probes, `Wave 3` hybrid
+  structured models, and `Wave 4` first-PINN work before the integrated
+  multi-task / multi-head architecture.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -284,6 +289,13 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-06-10
+
+- [technical/2026-06/2026-06-10/2026-06-10-15-18-10_track2_dispersion_aware_wave_roadmap.md](./technical/2026-06/2026-06-10/2026-06-10-15-18-10_track2_dispersion_aware_wave_roadmap.md)
+  Technical note for updating the `Track 2` roadmap with dispersion-aware
+  probes, hybrid structured models, first-PINN work, and a later integrated
+  multi-task / multi-head stage.
 
 #### 2026-06-09
 

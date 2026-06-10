@@ -5,9 +5,10 @@
 - Generated At: `2026-06-10T15:40:00`
 - Program State: active.
 - Current Completed Wave: `Track 2G` curve-aware training campaign closeout
-  and official `Track 2` verification refresh complete.
-- Current Focus: prepare the next explicit multi-head shape/offset branch,
-  using `Track 2G` as the verified loss-only curve-aware control.
+  complete.
+- Current Focus: prepare the staged dispersion-aware `Track 2` modeling plan;
+  keep the official `Track 2G` verification refresh as a separate
+  operator-approved refresh.
 - Active Campaign Status: `none`
 - Active Campaign Name: ``
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -213,7 +214,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Track 2G. Curve-Aware Training | status: campaign completed and official `Track 2` refresh completed;; families: pointwise-control, raw plus centered-shape, raw plus offset, and full composite curve-aware harmonic residual-offset probes;; strongest Track 2G forward candidate: `track2g_curve_aware_raw_centered_shape_Fw`;; strongest Track 2G backward candidate: `track2g_curve_aware_pointwise_control_Bw`;; strongest Track 2G global candidate: `track2g_curve_aware_full_curve_composite_global`;; Track 2 decision: verified exploratory baseline, not promoted;; design conclusion: loss-only curve-aware tuning is not the next primary branch; move toward explicit multi-head shape/offset modeling. |
+| Wave 3. Hybrid Structured Models | status: pending after `Track 2H` dispersion-aware probes;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack; test condition-conditioned residual structure and grouped stable/fragile harmonic treatment; prepare the repository-owned deployable predictor package after the research branch identifies a viable structure.
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -223,7 +224,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 3. Hybrid Structured Models | status: pending;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack;; prepare the repository-owned deployable predictor package. |
+| Wave 3. Hybrid Structured Models | status: pending after `Track 2H` dispersion-aware probes;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; compare hybrid structured predictors against the paper-style harmonic stack; test condition-conditioned residual structure and grouped stable/fragile harmonic treatment; prepare the repository-owned deployable predictor package after the research branch identifies a viable structure. |
 
 Low-priority exploratory families currently listed in the backlog:
 
@@ -233,7 +234,8 @@ Low-priority exploratory families currently listed in the backlog:
 - `Neural ODE`
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
-| Wave 4. PINN Formulation And First PINN | status: pending;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline and; keep online compensation execution out of Wave 4 unless Track 3 is |
+
+| Wave 4. PINN Formulation And First PINN | status: pending after `Wave 3` and before integrated multi-head modeling;; mandatory rule: prepare or justify `global`, `forward`, and `backward`; paper-reproduction scope:; prepare PINN-side model and loss formulations for later offline evaluation; test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints; keep online compensation execution out of Wave 4 unless Track 3 is explicitly promoted first.
 
 Low-priority exploratory families currently listed in the backlog:
 

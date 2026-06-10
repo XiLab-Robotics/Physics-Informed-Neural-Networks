@@ -31,13 +31,13 @@ Historical rationale and approval history remain in:
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: run a separate official `Track 2` verification refresh for
-  the completed `Track 2G` candidates before deciding whether to continue the
-  loss-only branch or move to multi-head shape/offset training.
+- Current Focus: document and prepare the staged dispersion-aware `Track 2`
+  modeling branch after the completed `h0` diagnostics; the separate official
+  `Track 2G` verification refresh remains an operator-approved refresh step.
 - Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
-  predicted-mean versus measured-h0 diagnostics are complete; next planning
-  should choose an offset/mean-surface intervention while keeping centered
-  shape, amplitude, and phase metrics separate.
+  predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
+  correct mean-like channel to inspect, but not the confirmed sole cause of the
+  offset failures.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -208,7 +208,10 @@ Next planned diagnostic and training decision branches:
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
-| Multi-task / multi-head model branch | Shared causal trunk with separate offset / low-frequency and centered-shape heads summed into final TE. | candidate after audit |
+| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | planned before the integrated multi-head branch |
+| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | planned after `Track 2H` probes |
+| `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | planned after `Wave 3` |
+| Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
 The `Track 2E` offset-predictability feasibility diagnostic is complete in:
@@ -226,13 +229,17 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- run the separate official Track 2 refresh for the completed Track 2G
-  direction-parallel candidate set, then decide whether the next modeling gate
-  should continue loss-only curve-aware training or move to the explicit
-  multi-head shape/offset branch.
-- in parallel, run the approved component-offset identification diagnostic
-  before any documentation or training plan states that `a_0` / `Component 0`
-  is the confirmed cause of the curve-offset symptom.
+- keep the official Track 2 refresh for the completed Track 2G
+  direction-parallel candidate set as a separate operator-approved refresh;
+- open the `Track 2H` dispersion-aware probe plan before the next training
+  campaign, covering robust regression, quantile or probabilistic regression,
+  mixture-density heads, and latent-state / hysteresis-aware models;
+- treat `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
+  as evidence-generating branches before the integrated multi-task /
+  multi-head architecture;
+- do not document `a_0` / `Component 0` as the confirmed sole cause unless
+  repeatability, component-level error, and model-side surface diagnostics
+  support that conclusion.
 
 ## Completed
 
@@ -489,12 +496,19 @@ Official closeout package:
 
 ### Planned Next Step
 
-After the completed `Track 2B`, `Track 2C`, mean-centered collage, and
-`Track 2D` full-matrix diagnostics, the active next step is:
+After the completed `Track 2B`, `Track 2C`, mean-centered collage,
+`Track 2D` full-matrix, h0/error cross-check, and predicted-mean h0 surface
+diagnostics, the active next step is:
 
-- choose the first direction-parallel offset-aware training or calibration
-  branch before any new training campaign, without changing the model input
-  contract.
+- prepare `Track 2H` dispersion-aware modeling probes before any integrated
+  multi-head campaign;
+- test robust regression, quantile or probabilistic regression,
+  mixture-density heads, and latent-state / hysteresis-aware models on the
+  same direction-separated promotion surface;
+- then execute `Wave 3` hybrid structured models and `Wave 4` first-PINN work
+  as separate evidence-generating branches;
+- only after those probes decide which mechanisms belong in the integrated
+  multi-task / multi-head architecture.
 
 The previous temporal refresh answered three concrete questions:
 
@@ -511,9 +525,10 @@ Default decision path after Track 2 closeout:
   compensation-relevant candidates;
 - use completed `Track 2D Mean-Offset Full-Matrix Audit` before changing model
   families, checkpoint monitors, or training losses;
-- choose among offset-aware checkpoint selection, curve-aware
-  loss terms, a multi-task / multi-head offset-shape structure, or sequential
-  residual offset calibration;
+- use the completed h0 diagnostics to keep `h0` as the primary mean-surface
+  channel while avoiding the unsupported claim that it is the only cause;
+- test dispersion-aware losses and heads, hybrid structured models, and a
+  first PINN before committing to a large integrated multi-head architecture;
 - preserve causal runtime inputs: point-level state, optional short past
   history, and causal derived features only;
 - keep `Wave 2` temporal models as verified exploratory baselines;
@@ -895,20 +910,30 @@ Entry rule:
 ### Wave 3. Hybrid Structured Models
 
 - status: pending;
+- updated priority: execute after `Track 2H` dispersion-aware probes and
+  before the integrated multi-task / multi-head campaign;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
   - compare hybrid structured predictors against the paper-style harmonic stack;
-  - prepare the repository-owned deployable predictor package.
+  - test condition-conditioned residual structure and separate treatment of
+    stable middle harmonics versus fragile low-order and high-order harmonics;
+  - prepare the repository-owned deployable predictor package after the
+    research branch has identified a viable structure.
 
 ### Wave 4. PINN Formulation And First PINN
 
 - status: pending;
+- updated priority: execute after `Wave 3` as a separate evidence-generating
+  branch before the integrated multi-head architecture;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
   - prepare PINN-side model and loss formulations for later offline and
     deployment evaluation;
+  - test whether soft physics, periodicity, smoothness, harmonic-consistency,
+    and operating-condition constraints reduce offset and fragile-harmonic
+    errors;
   - keep online compensation execution out of Wave 4 unless Track 3 is
     explicitly promoted first.
 
