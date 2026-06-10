@@ -157,6 +157,8 @@ TRACK2D_H0_SURFACE_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2d
 TRACK2D_H0_CANDIDATE_METRIC_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-candidate-metric"
 TRACK2D_H0_CANDIDATE_OVERLAP_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-candidate-overlap"
 TRACK2D_H0_QUADRANT_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-quadrant"
+TRACK2D_PREDICTED_MEAN_CANDIDATE_TABLE_CLASS_NAME = "report-table report-table-track2d-predicted-mean-candidate"
+TRACK2D_PREDICTED_MEAN_DIRECTION_TABLE_CLASS_NAME = "report-table report-table-track2d-predicted-mean-direction"
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-targets"
 TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-metrics"
 TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-curves"
@@ -460,6 +462,26 @@ TRACK2D_H0_QUADRANT_TABLE_HEADER_CELLS = (
     "High Error + High h0",
     "High Error + Normal h0",
     "Normal Error + High h0",
+)
+
+TRACK2D_PREDICTED_MEAN_CANDIDATE_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Surface",
+    "Bias",
+    "Mean AE",
+    "P90 AE",
+    "Corr",
+    "Slope",
+    "Intercept",
+)
+
+TRACK2D_PREDICTED_MEAN_DIRECTION_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Direction",
+    "Bias",
+    "Mean AE",
+    "Corr",
+    "Slope",
 )
 
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS = (
@@ -1026,6 +1048,50 @@ REPORT_STYLESHEET = """
     .report-table-track2d-h0-quadrant td:nth-child(3),
     .report-table-track2d-h0-quadrant th:nth-child(4),
     .report-table-track2d-h0-quadrant td:nth-child(4) { width: 20%; }
+
+    .report-table-track2d-predicted-mean-candidate,
+    .report-table-track2d-predicted-mean-direction {
+      font-size: 6.55pt;
+      line-height: 1.12;
+    }
+
+    .report-table-track2d-predicted-mean-candidate th,
+    .report-table-track2d-predicted-mean-candidate td,
+    .report-table-track2d-predicted-mean-direction th,
+    .report-table-track2d-predicted-mean-direction td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2d-predicted-mean-candidate th:nth-child(1),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(1) { width: 31%; }
+    .report-table-track2d-predicted-mean-candidate th:nth-child(2),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(2) { width: 9%; }
+    .report-table-track2d-predicted-mean-candidate th:nth-child(3),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(3),
+    .report-table-track2d-predicted-mean-candidate th:nth-child(4),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(4),
+    .report-table-track2d-predicted-mean-candidate th:nth-child(5),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(5),
+    .report-table-track2d-predicted-mean-candidate th:nth-child(6),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(6),
+    .report-table-track2d-predicted-mean-candidate th:nth-child(7),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(7),
+    .report-table-track2d-predicted-mean-candidate th:nth-child(8),
+    .report-table-track2d-predicted-mean-candidate td:nth-child(8) { width: 10%; }
+
+    .report-table-track2d-predicted-mean-direction th:nth-child(1),
+    .report-table-track2d-predicted-mean-direction td:nth-child(1) { width: 34%; }
+    .report-table-track2d-predicted-mean-direction th:nth-child(2),
+    .report-table-track2d-predicted-mean-direction td:nth-child(2) { width: 16%; }
+    .report-table-track2d-predicted-mean-direction th:nth-child(3),
+    .report-table-track2d-predicted-mean-direction td:nth-child(3),
+    .report-table-track2d-predicted-mean-direction th:nth-child(4),
+    .report-table-track2d-predicted-mean-direction td:nth-child(4),
+    .report-table-track2d-predicted-mean-direction th:nth-child(5),
+    .report-table-track2d-predicted-mean-direction td:nth-child(5),
+    .report-table-track2d-predicted-mean-direction th:nth-child(6),
+    .report-table-track2d-predicted-mean-direction td:nth-child(6) { width: 12.5%; }
 
     .report-table-wave1-high-order-artifact th:nth-child(1), .report-table-wave1-high-order-artifact td:nth-child(1) { width: 20%; }
     .report-table-wave1-high-order-artifact th:nth-child(2), .report-table-wave1-high-order-artifact td:nth-child(2) { width: 80%; }
@@ -3653,6 +3719,12 @@ def resolve_standard_table_class_name(
 
     if normalized_header_cells == TRACK2D_H0_QUADRANT_TABLE_HEADER_CELLS:
         return TRACK2D_H0_QUADRANT_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_PREDICTED_MEAN_CANDIDATE_TABLE_HEADER_CELLS:
+        return TRACK2D_PREDICTED_MEAN_CANDIDATE_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_PREDICTED_MEAN_DIRECTION_TABLE_HEADER_CELLS:
+        return TRACK2D_PREDICTED_MEAN_DIRECTION_TABLE_CLASS_NAME
 
     if normalized_header_cells == TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS:
         return TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME

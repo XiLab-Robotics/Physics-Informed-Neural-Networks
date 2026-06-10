@@ -210,9 +210,18 @@ This folder contains the internal project documents derived from the reference P
   curve-mean patterns to test whether large model offset failures coincide
   with large `h0` cases.
 
+- [reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-10%5D/track2d_predicted_mean_h0_surface_diagnostic.md)
+  Diagnostic comparing `Track 2D` predicted mean surfaces against measured
+  `h0` to identify candidate-specific bias, slope compression, and
+  direction/regime offset behavior.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
+
+- [technical/2026-06/2026-06-10/2026-06-10-12-51-19_track2d_predicted_mean_h0_surface_diagnostic.md](./technical/2026-06/2026-06-10/2026-06-10-12-51-19_track2d_predicted_mean_h0_surface_diagnostic.md)
+  Technical plan for comparing `Track 2D` `predicted_mean_deg` surfaces against
+  measured `h0` after the h0 magnitude cross-check.
 
 - [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the

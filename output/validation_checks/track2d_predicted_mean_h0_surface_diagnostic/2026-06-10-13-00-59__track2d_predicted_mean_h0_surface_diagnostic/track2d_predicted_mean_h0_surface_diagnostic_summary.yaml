@@ -1,0 +1,7 @@
+run_id: 2026-06-10-13-00-59__track2d_predicted_mean_h0_surface_diagnostic
+report_path: doc/reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md
+selected_candidate_count: 39
+median_mean_bias_deg: -6.9505e-05
+median_mean_abs_offset_error_deg: 0.003106701
+median_predicted_vs_measured_slope: 0.976925095
+decision: model_predicted_mean_surface_requires_dedicated_offset_intervention
