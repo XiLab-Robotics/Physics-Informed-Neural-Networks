@@ -292,6 +292,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-10
 
+- [technical/2026-06/2026-06-10/2026-06-10-16-18-08_rebase_documentation_repair.md](./technical/2026-06/2026-06-10/2026-06-10-16-18-08_rebase_documentation_repair.md)
+  Technical note for repairing documentation-only rebase artifacts in the
+  training master summary after combining `Track 2G` official verification
+  with the dispersion-aware roadmap update.
+
 - [technical/2026-06/2026-06-10/2026-06-10-15-18-10_track2_dispersion_aware_wave_roadmap.md](./technical/2026-06/2026-06-10/2026-06-10-15-18-10_track2_dispersion_aware_wave_roadmap.md)
   Technical note for updating the `Track 2` roadmap with dispersion-aware
   probes, hybrid structured models, first-PINN work, and a later integrated
