@@ -205,6 +205,15 @@ This folder contains the internal project documents derived from the reference P
   largest average measured component while preserving the conclusion that it
   is a priority suspect, not the sole confirmed cause.
 
+- [reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md](./reports/analysis/track2/component_offset_identification/%5B2026-06-09%5D/track2d_h0_offset_crosscheck.md)
+  Cross-check of `Track 2D` signed offset errors against measured `h0` /
+  curve-mean patterns to test whether large model offset failures coincide
+  with large `h0` cases.
+
+- [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
+  Technical plan for cross-checking `Track 2D` signed offset errors against
+  measured `h0` / curve-mean patterns and outliers.
+
 - [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the
   `Track 2` forward curve evaluator, including raw parity and mean-centered

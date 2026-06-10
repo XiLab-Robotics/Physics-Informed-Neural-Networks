@@ -1,0 +1,8 @@
+run_id: 2026-06-09-20-09-16__track2d_h0_offset_crosscheck
+report_path: doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md
+joined_row_count: 12416
+candidate_count: 111
+surface_count: 3
+median_abs_error_vs_abs_h0_correlation: -0.01520228
+median_top_decile_overlap_lift_vs_random_decile: 1.0
+decision: h0_magnitude_not_sufficient_as_sole_offset_error_explanation

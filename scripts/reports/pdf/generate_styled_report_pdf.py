@@ -153,6 +153,10 @@ TRACK2E_OFFSET_FEASIBILITY_TABLE_CLASS_NAME = "report-table report-table-track2e
 TRACK2_COMPONENT_HARMONIC_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2-component-harmonic-summary"
 TRACK2_COMPONENT_TEMPERATURE_DIRECTION_TABLE_CLASS_NAME = "report-table report-table-track2-component-temperature-direction"
 TRACK2_COMPONENT_H0_EXTREME_TABLE_CLASS_NAME = "report-table report-table-track2-component-h0-extreme"
+TRACK2D_H0_SURFACE_SUMMARY_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-surface-summary"
+TRACK2D_H0_CANDIDATE_METRIC_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-candidate-metric"
+TRACK2D_H0_CANDIDATE_OVERLAP_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-candidate-overlap"
+TRACK2D_H0_QUADRANT_TABLE_CLASS_NAME = "report-table report-table-track2d-h0-quadrant"
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-targets"
 TRACK2_ORIGINAL_ONNX_METRICS_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-metrics"
 TRACK2_ORIGINAL_ONNX_CURVES_TABLE_CLASS_NAME = "report-table report-table-track2-original-onnx-curves"
@@ -411,6 +415,51 @@ TRACK2_COMPONENT_H0_EXTREME_TABLE_HEADER_CELLS = (
     "h0",
     "P2P",
     "File",
+)
+
+TRACK2D_H0_SURFACE_SUMMARY_TABLE_HEADER_CELLS = (
+    "Surface",
+    "Rows",
+    "Mean Abs Offset",
+    "Mean Abs h0",
+    "Abs Corr",
+    "Overlap Lift",
+    "Max Delta",
+)
+
+TRACK2D_H0_LARGEST_OFFSET_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Rows",
+    "Mean Abs Offset",
+    "Mean Abs h0",
+    "Abs Corr",
+    "Overlap Lift",
+)
+
+TRACK2D_H0_OVERLAP_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Rows",
+    "Abs Corr",
+    "High Error",
+    "High h0",
+    "Overlap",
+    "Lift",
+)
+
+TRACK2D_H0_ABSOLUTE_CORRELATION_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "Rows",
+    "Abs Corr",
+    "Signed Corr",
+    "Mean Abs Offset",
+    "Mean Abs h0",
+)
+
+TRACK2D_H0_QUADRANT_TABLE_HEADER_CELLS = (
+    "Candidate",
+    "High Error + High h0",
+    "High Error + Normal h0",
+    "Normal Error + High h0",
 )
 
 TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS = (
@@ -920,6 +969,63 @@ REPORT_STYLESHEET = """
     .report-table-track2-component-h0-extreme th:nth-child(6), .report-table-track2-component-h0-extreme td:nth-child(6) { width: 10%; }
     .report-table-track2-component-h0-extreme th:nth-child(7), .report-table-track2-component-h0-extreme td:nth-child(7) { width: 10%; }
     .report-table-track2-component-h0-extreme th:nth-child(8), .report-table-track2-component-h0-extreme td:nth-child(8) { width: 35%; }
+
+    .report-table-track2d-h0-surface-summary th,
+    .report-table-track2d-h0-surface-summary td { width: 14.2857%; }
+
+    .report-table-track2d-h0-candidate-metric,
+    .report-table-track2d-h0-candidate-overlap,
+    .report-table-track2d-h0-quadrant {
+      font-size: 6.45pt;
+      line-height: 1.12;
+    }
+
+    .report-table-track2d-h0-candidate-metric th,
+    .report-table-track2d-h0-candidate-metric td,
+    .report-table-track2d-h0-candidate-overlap th,
+    .report-table-track2d-h0-candidate-overlap td,
+    .report-table-track2d-h0-quadrant th,
+    .report-table-track2d-h0-quadrant td {
+      padding: 3px 3px;
+      vertical-align: middle;
+    }
+
+    .report-table-track2d-h0-candidate-metric th:nth-child(1),
+    .report-table-track2d-h0-candidate-metric td:nth-child(1) { width: 40%; }
+    .report-table-track2d-h0-candidate-metric th:nth-child(2),
+    .report-table-track2d-h0-candidate-metric td:nth-child(2),
+    .report-table-track2d-h0-candidate-metric th:nth-child(3),
+    .report-table-track2d-h0-candidate-metric td:nth-child(3),
+    .report-table-track2d-h0-candidate-metric th:nth-child(4),
+    .report-table-track2d-h0-candidate-metric td:nth-child(4),
+    .report-table-track2d-h0-candidate-metric th:nth-child(5),
+    .report-table-track2d-h0-candidate-metric td:nth-child(5),
+    .report-table-track2d-h0-candidate-metric th:nth-child(6),
+    .report-table-track2d-h0-candidate-metric td:nth-child(6) { width: 12%; }
+
+    .report-table-track2d-h0-candidate-overlap th:nth-child(1),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(1) { width: 40%; }
+    .report-table-track2d-h0-candidate-overlap th:nth-child(2),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(2),
+    .report-table-track2d-h0-candidate-overlap th:nth-child(3),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(3),
+    .report-table-track2d-h0-candidate-overlap th:nth-child(4),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(4),
+    .report-table-track2d-h0-candidate-overlap th:nth-child(5),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(5),
+    .report-table-track2d-h0-candidate-overlap th:nth-child(6),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(6),
+    .report-table-track2d-h0-candidate-overlap th:nth-child(7),
+    .report-table-track2d-h0-candidate-overlap td:nth-child(7) { width: 10%; }
+
+    .report-table-track2d-h0-quadrant th:nth-child(1),
+    .report-table-track2d-h0-quadrant td:nth-child(1) { width: 40%; }
+    .report-table-track2d-h0-quadrant th:nth-child(2),
+    .report-table-track2d-h0-quadrant td:nth-child(2),
+    .report-table-track2d-h0-quadrant th:nth-child(3),
+    .report-table-track2d-h0-quadrant td:nth-child(3),
+    .report-table-track2d-h0-quadrant th:nth-child(4),
+    .report-table-track2d-h0-quadrant td:nth-child(4) { width: 20%; }
 
     .report-table-wave1-high-order-artifact th:nth-child(1), .report-table-wave1-high-order-artifact td:nth-child(1) { width: 20%; }
     .report-table-wave1-high-order-artifact th:nth-child(2), .report-table-wave1-high-order-artifact td:nth-child(2) { width: 80%; }
@@ -3532,6 +3638,21 @@ def resolve_standard_table_class_name(
 
     if normalized_header_cells == TRACK2_COMPONENT_H0_EXTREME_TABLE_HEADER_CELLS:
         return TRACK2_COMPONENT_H0_EXTREME_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_H0_SURFACE_SUMMARY_TABLE_HEADER_CELLS:
+        return TRACK2D_H0_SURFACE_SUMMARY_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_H0_LARGEST_OFFSET_TABLE_HEADER_CELLS:
+        return TRACK2D_H0_CANDIDATE_METRIC_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_H0_OVERLAP_TABLE_HEADER_CELLS:
+        return TRACK2D_H0_CANDIDATE_OVERLAP_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_H0_ABSOLUTE_CORRELATION_TABLE_HEADER_CELLS:
+        return TRACK2D_H0_CANDIDATE_METRIC_TABLE_CLASS_NAME
+
+    if normalized_header_cells == TRACK2D_H0_QUADRANT_TABLE_HEADER_CELLS:
+        return TRACK2D_H0_QUADRANT_TABLE_CLASS_NAME
 
     if normalized_header_cells == TRACK2_ORIGINAL_ONNX_TARGET_TABLE_HEADER_CELLS:
         return TRACK2_ORIGINAL_ONNX_TARGET_TABLE_CLASS_NAME

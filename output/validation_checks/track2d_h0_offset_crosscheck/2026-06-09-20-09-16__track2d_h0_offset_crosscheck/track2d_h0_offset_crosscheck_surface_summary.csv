@@ -1,0 +1,4 @@
+group_name,group_value,curve_count,mean_abs_offset_error_deg,p90_abs_offset_error_deg,mean_abs_h0_deg,p90_abs_h0_deg,signed_error_vs_h0_corr,abs_error_vs_abs_h0_corr,top_decile_error_count,top_decile_h0_count,top_decile_overlap_count,top_decile_overlap_given_error,top_decile_overlap_lift_vs_random_decile,max_truth_mean_join_delta_deg
+surface,Bw,3977,0.004371597,0.009592200,0.026320177,0.051431216,-0.437216536,-0.088454798,398,410,59,0.148241206,1.482412060,0.000000501
+surface,Fw,5141,0.003219497,0.005756000,0.058517596,0.085034870,-0.117401266,0.018126479,515,530,90,0.174757282,1.747572816,0.000000478
+surface,global,3298,0.003853304,0.006804200,0.042418887,0.079006352,-0.112788347,-0.004429606,330,340,34,0.103030303,1.030303030,0.000000501
