@@ -11,7 +11,10 @@ last_completed_campaign:
   closeout_report_path: doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md
   completed_run_count: 12
   failed_run_count: 0
-  track2_status: pending_separate_operator_refresh
+  track2_status: completed_official_verification_refresh
+  track2_refresh_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-10]/track2_official_model_verification_report.md
+  track2_refresh_matrix_report_path: doc/reports/analysis/track2/Track 2 Directional Model Comparison.md
+  track2_refresh_decision: verified_exploratory_baseline_not_promoted
   branch_candidate_list:
   - surface: global
     loss_profile: full_curve_composite

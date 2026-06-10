@@ -24,17 +24,16 @@ Historical rationale and approval history remain in:
 - Program State: active.
 - Active Campaign State: no protected prepared or active campaign is currently
   registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Track 2G` curve-aware training campaign closeout
-  complete; official `Track 2` verification refresh is pending as a separate
-  operator-approved step.
+- Current Completed Wave: `Track 2G` curve-aware training campaign and
+  official `Track 2` verification refresh are complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: run a separate official `Track 2` verification refresh for
-  the completed `Track 2G` candidates before deciding whether to continue the
-  loss-only branch or move to multi-head shape/offset training.
+- Current Focus: prepare the next explicit multi-head shape/offset branch,
+  using the completed `Track 2G` loss-only curve-aware branch as the latest
+  verified exploratory baseline.
 - Current Best Implemented Families: tracked separately for `Fw`, `Bw`, and
   `global`; scalar and curve-first surfaces are not a single ranking.
 - Current Best Implemented Run Registry:
@@ -43,7 +42,9 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-08]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-10]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-09]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-09]/track2_multi_model_curve_comparison_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -216,10 +217,9 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- run the separate official Track 2 refresh for the completed Track 2G
-  direction-parallel candidate set, then decide whether the next modeling gate
-  should continue loss-only curve-aware training or move to the explicit
-  multi-head shape/offset branch.
+- prepare the explicit multi-head shape/offset branch. `Track 2G` shows that
+  loss-only curve-aware tuning is a valid exploratory control, but it did not
+  promote a new `Fw`, `Bw`, or `global` best model in official `Track 2`.
 
 ## Completed
 

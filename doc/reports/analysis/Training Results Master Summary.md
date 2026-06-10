@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-09T01:56:25`
+- Generated At: `2026-06-10T15:40:00`
 - Program State: active.
 - Current Completed Wave: `Track 2G` curve-aware training campaign closeout
-  complete.
-- Current Focus: prepare the separate official `Track 2` verification refresh
-  for the completed Track 2G candidates.
+  and official `Track 2` verification refresh complete.
+- Current Focus: prepare the next explicit multi-head shape/offset branch,
+  using `Track 2G` as the verified loss-only curve-aware control.
 - Active Campaign Status: `none`
 - Active Campaign Name: ``
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -204,6 +204,16 @@ Low-priority exploratory families currently listed in the backlog:
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
 | Track 2F-Bis. Harmonic-Offset Probe | status: campaign completed after runner registration repair; official; families:; `track2f_bis_clean_sequential_residual_offset_global`;; `track2f_bis_clean_sequential_residual_offset_fw`;; `track2f_bis_clean_sequential_residual_offset_bw`;; `track2f_bis_harmonic_residual_offset_global`;; `track2f_bis_harmonic_residual_offset_fw`;; `track2f_bis_harmonic_residual_offset_bw`;; closeout report:; official verification report:; clean global candidate:; harmonic global candidate:; clean forward candidate:; harmonic forward candidate:; clean backward candidate:; harmonic backward candidate:; strongest Track 2F-bis forward candidate:; strongest Track 2F-bis backward candidate:; strongest Track 2F-bis global candidate:; Track 2 decision: verified exploratory baseline, not promoted over the; design conclusion: harmonic forcing helps the direction-specific `Fw` and |
+
+Low-priority exploratory families currently listed in the backlog:
+
+- `low priority.`
+- `Lightweight Transformer`
+- `State-Space Sequence Model`
+- `Neural ODE`
+- `Hamiltonian-Inspired Model`
+- `optional Kernel Ridge / Gaussian Process benchmark`
+| Track 2G. Curve-Aware Training | status: campaign completed and official `Track 2` refresh completed;; families: pointwise-control, raw plus centered-shape, raw plus offset, and full composite curve-aware harmonic residual-offset probes;; strongest Track 2G forward candidate: `track2g_curve_aware_raw_centered_shape_Fw`;; strongest Track 2G backward candidate: `track2g_curve_aware_pointwise_control_Bw`;; strongest Track 2G global candidate: `track2g_curve_aware_full_curve_composite_global`;; Track 2 decision: verified exploratory baseline, not promoted;; design conclusion: loss-only curve-aware tuning is not the next primary branch; move toward explicit multi-head shape/offset modeling. |
 
 Low-priority exploratory families currently listed in the backlog:
 
