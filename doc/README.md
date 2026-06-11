@@ -268,6 +268,11 @@ This folder contains the internal project documents derived from the reference P
   Detailed design for planetary-style mesh-force, load-sharing, and
   loaded-static-TE exploratory constraints.
 
+- [reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md](./reports/analysis/wave4/mmt_equation_diagnostic/%5B2026-06-11%5D/wave4a_mmt_equation_diagnostic.md)
+  First `Wave 4A` MMT equation-chain diagnostic report, summarizing the
+  demonstration `RTE` mean, peak-to-peak amplitude, dominant harmonics, and
+  Track 2 suspicious-harmonic probe.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -349,6 +354,11 @@ This folder contains the internal project documents derived from the reference P
   Plan the separate operator-launched official `Track 2` verification refresh
   for the nine completed `Track 2H` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
+
+- [technical/2026-06/2026-06-11/2026-06-11-19-25-32_wave3_wave4_parallel_hardening.md](./technical/2026-06/2026-06-11/2026-06-11-19-25-32_wave3_wave4_parallel_hardening.md)
+  Technical note for hardening the `Wave 3` skeleton toward training-smoke
+  readiness and adding the first `Wave 4A` MMT diagnostic report generator
+  while `Track 2H` continues separately.
 
 - [technical/2026-06/2026-06-11/2026-06-11-15-10-02_wave3_wave4_embryonic_skeletons.md](./technical/2026-06/2026-06-11/2026-06-11-15-10-02_wave3_wave4_embryonic_skeletons.md)
   Technical note for preparing `Wave 3` and `Wave 4` embryonic skeletons as
@@ -2315,10 +2325,18 @@ This folder contains the internal project documents derived from the reference P
   checker. It validates implementation readiness without queueing or launching
   training.
 
+- [scripts/campaigns/wave3/wave3_training_smoke_ready_checks.md](./scripts/campaigns/wave3/wave3_training_smoke_ready_checks.md)
+  Script-level documentation for the dry-run `Wave 3` training-smoke-ready
+  checker. It runs one-batch validation without creating a campaign queue.
+
 - [scripts/campaigns/wave4/wave4_embryonic_skeleton_checks.md](./scripts/campaigns/wave4/wave4_embryonic_skeleton_checks.md)
   Script-level documentation for the dry-run `Wave 4A` embryonic skeleton
   checker. It validates implementation readiness without queueing or launching
   training.
+
+- [scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md](./scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md)
+  Script-level documentation for the `Wave 4A` MMT equation diagnostic report
+  generator.
 
 - [scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md](./scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md)
   Script-level documentation for the prepared Wave 1 high-order harmonic
@@ -2566,6 +2584,10 @@ This folder contains the internal project documents derived from the reference P
   Preliminary campaign plan for the `Track 2H` dispersion-aware modeling
   probes across robust, probabilistic, mixture, and causal latent-state
   candidate groups.
+
+- [reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
+  Preliminary plan for a non-campaign `Wave 3` training-smoke-ready hardening
+  pass plus the first `Wave 4A` MMT equation diagnostic report generator.
 
 - [reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
   Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic model,
@@ -2857,6 +2879,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
+  Preliminary plan for hardening the `Wave 3` skeleton with one-batch
+  training-stack validation and generating the first `Wave 4A` MMT equation
+  diagnostic report.
 
 - [reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
   Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic skeletons as

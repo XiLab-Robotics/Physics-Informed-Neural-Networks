@@ -98,10 +98,26 @@ scaffolding, but it remains explicitly not campaign-ready.
 | Validator | `scripts/campaigns/wave3/validate_wave3_embryonic_skeleton_package.py` checks metadata, factory construction, and point/sequence forward passes. |
 | Dry-run launcher | `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
 
+## Training-Smoke-Ready Status
+
+The `wave3_harmonic_prior_residual` skeleton has also passed the shared
+one-batch training setup using a validation-only generated config.
+
+| Item | Status |
+| --- | --- |
+| Training-stack validator | `scripts/campaigns/wave3/validate_wave3_training_smoke_ready.py` generates a complete validation-only config and calls `validate_training_setup.py`. |
+| Dry-run wrapper | `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1` runs compile plus one-batch validation only. |
+| Final validation artifact | `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`. |
+| Final validation report | `doc/reports/analysis/validation_checks/2026-06-11-19-44-47_wave3_ha_e99d96f1_te_wave3_harmonic_prior_r_2d4f1fe7_validation_setup_report.md`. |
+| Batch mode | sequence batch, `384` samples, sequence length `33`, input feature dimension `5`, target dimension `1`. |
+| Finite checks | loss, `MAE`, `RMSE`, and prediction tensor all passed. |
+
+This moves the first Wave 3 candidate from implementation-ready to
+training-smoke-ready, but it remains not campaign-ready.
+
 Before Wave 3 can become campaign-ready, the project still needs the `Track 2H`
-loss-policy result, a real one-batch training smoke pass, and an approved
-campaign plan with queue size, surfaces, launch mode, protected files, and
-active-campaign state.
+loss-policy result and an approved campaign plan with queue size, surfaces,
+launch mode, protected files, and active-campaign state.
 
 ## Comparison Plan
 

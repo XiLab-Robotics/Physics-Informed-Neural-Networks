@@ -1,0 +1,39 @@
+run_id: 2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic
+report_path: doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md
+sample_count: 720
+rte_arcsec_mean: -565.6289314042431
+rte_arcsec_peak_to_peak: 525.2015022140474
+dominant_harmonic_index_list:
+- 18
+- 342
+- 78
+- 114
+- 228
+- 306
+- 42
+- 36
+- 264
+- 150
+- 72
+- 192
+dominant_harmonic_amplitude_arcsec_list:
+- 152.4513563174053
+- 34.35891443124378
+- 25.198140050029007
+- 23.733271069190415
+- 20.154401688134417
+- 18.248470278211943
+- 17.787604657185952
+- 17.38686543784765
+- 14.068604112405184
+- 12.770179346972801
+- 11.644816088111364
+- 11.517364954473152
+suspicious_track2_harmonic_index_list:
+- 0
+- 1
+- 156
+- 162
+- 240
+campaign_readiness: not_campaign_ready
+decision: diagnostic_only_until_parameter_inventory_and_dataset_calibration

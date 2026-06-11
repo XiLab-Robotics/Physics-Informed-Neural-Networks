@@ -135,6 +135,25 @@ diagnostic scaffolding, but it remains explicitly not campaign-ready.
 | Validator | `scripts/campaigns/wave4/validate_wave4_embryonic_skeleton_package.py` checks metadata and MMT demonstration-summary generation. |
 | Dry-run launcher | `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
 
+## Wave 4A Diagnostic Status
+
+The first `Wave 4A` diagnostic report has been generated from the
+repository-owned MMT equation-chain demonstration.
+
+| Item | Status |
+| --- | --- |
+| Report builder | `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`. |
+| Markdown report | `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`. |
+| Companion artifacts | `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`. |
+| Demonstration mean | `-565.628931` arcsec. |
+| Demonstration peak-to-peak | `525.201502` arcsec. |
+| Dominant demonstration harmonic | harmonic `18`, amplitude `152.451356` arcsec. |
+| Suspicious Track 2 harmonics checked | `0`, `1`, `156`, `162`, and `240`. |
+
+The diagnostic confirms that the MMT chain is callable and auditable, but it
+does not yet prove dataset causality. The result remains diagnostic-only until
+the MMT parameter inventory and leakage-safe dataset calibration are resolved.
+
 Before Wave 4 can become campaign-ready, the project still needs the MMT
 parameter inventory, a decision on whether `Wave 4A` is diagnostic-only or
 feature/loss material, `Track 2H` loss-policy evidence, Wave 3 smoke evidence,

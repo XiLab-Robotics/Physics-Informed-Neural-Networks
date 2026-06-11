@@ -1,0 +1,28 @@
+schema_version: 1
+config_path: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\wave3_training_smoke_ready\generated_configs\wave3_harmonic_prior_residual_training_smoke_ready.yaml
+output_directory: C:\Users\XiLabTRig\Documents\Physics-Informed Machine Learning\StandardML
+  - Codex\output\validation_checks\wave3_harmonic_prior_residual\2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final
+experiment:
+  run_name: te_wave3_harmonic_prior_residual_training_smoke_ready
+  output_run_name: te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final
+  run_instance_id: 2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final
+  model_family: wave3_harmonic_prior_residual
+  model_type: wave3_harmonic_prior_residual
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 6.789910793304443
+  mae: 0.09820017963647842
+  rmse: 0.12121975421905518

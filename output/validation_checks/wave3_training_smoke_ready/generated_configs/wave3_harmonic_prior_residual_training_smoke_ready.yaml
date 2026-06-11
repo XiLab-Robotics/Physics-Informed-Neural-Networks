@@ -1,0 +1,107 @@
+paths:
+  dataset_config_path: config/training/track2g_curve_aware_training/campaigns/2026-06-08_track2g_curve_aware_training_campaign/dataset_variants/transmission_error_dataset_global.yaml
+  output_root: output/training_runs/track2g_curve_aware_harmonic_residual_offset_pointwise_control_global
+experiment:
+  run_name: te_wave3_harmonic_prior_residual_training_smoke_ready
+  model_family: wave3_harmonic_prior_residual
+  model_type: wave3_harmonic_prior_residual
+metadata:
+  phase_name: wave3_parallel_hardening
+  implementation_status: training_smoke_ready
+  campaign_readiness: not_campaign_ready
+  source_template_path: config/training/wave3_embryonic_skeleton/wave3_harmonic_prior_residual_template.yaml
+  source_base_config_path: config/training/track2g_curve_aware_training/campaigns/2026-06-08_track2g_curve_aware_training_campaign/queue/01_pointwise_control_global.yaml
+  blocked_by:
+  - track2h_loss_policy
+  - real_wave3_campaign_plan
+  - active_campaign_state_gate
+  training_variant: global
+  direction_scope_label: bidirectional
+  use_forward_direction: true
+  use_backward_direction: true
+dataset:
+  curve_batch_size: 2
+  point_stride: 1
+  maximum_points_per_curve: null
+  collate_mode: sequence
+  sequence_length: 33
+  sequence_stride: 4
+  sequence_target_position: center
+  maximum_sequences_per_curve: 192
+  shuffle_training_batch_elements: false
+  num_workers: 0
+  pin_memory: false
+model:
+  model_family: wave3_harmonic_prior_residual
+  input_size: 5
+  output_size: 1
+  harmonic_order: 240
+  coefficient_mode: linear_conditioned
+  harmonic_index_list:
+  - 0
+  - 1
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  - 156
+  - 162
+  - 240
+  low_order_harmonic_index_list:
+  - 0
+  - 1
+  stable_middle_harmonic_index_list:
+  - 3
+  - 39
+  - 40
+  - 78
+  - 81
+  high_order_harmonic_index_list:
+  - 156
+  - 162
+  - 240
+  residual_hidden_size:
+  - 96
+  - 64
+  residual_activation_name: GELU
+  residual_dropout_probability: 0.05
+  residual_use_layer_norm: true
+  residual_scale: 1.0
+  readout_position: center
+  freeze_structured_branch: false
+training:
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  min_epochs: 20
+  max_epochs: 260
+  patience: 40
+  min_delta: 1.0e-05
+  log_every_n_steps: 1
+  fast_dev_run: false
+  deterministic: true
+  loss:
+    profile: pointwise_control
+    weights:
+      point: 1.0
+      centered: 0.0
+      offset: 0.0
+      amplitude: 0.0
+      harmonic: 0.0
+    harmonic_index_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+runtime:
+  accelerator: cpu
+  devices: 1
+  precision: '32'
+  benchmark: false
+  use_non_blocking_transfer: true

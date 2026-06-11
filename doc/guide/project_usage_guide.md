@@ -30,6 +30,10 @@ At the moment, the implemented workflows are:
   `RV` reducer transmission-error model in MATLAB and Python;
 - dry-run embryonic `Wave 3` and `Wave 4` skeleton checks that validate model
   and diagnostic scaffolds without creating queues or launching training;
+- a dry-run `Wave 3` training-smoke-ready check that runs one-batch validation
+  without creating a campaign;
+- a `Wave 4A` MMT equation diagnostic report generator for harmonic-summary
+  inspection before PINN integration;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
@@ -189,10 +193,19 @@ The current usage flow mainly relies on these folders:
   skeleton. It compiles and validates the scaffold without queueing or
   launching training.
 
+- `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`
+  Dry-run check launcher for the `Wave 3` harmonic-prior residual one-batch
+  training-stack validation. It writes validation artifacts but does not create
+  a campaign queue or launch training.
+
 - `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
   It compiles and validates the scaffold without queueing or launching
   training.
+
+- `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`
+  Report generator for the `Wave 4A` MMT equation-chain diagnostic. It writes
+  a Markdown report and companion harmonic tables without training a model.
 
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.

@@ -15,3 +15,4 @@ repository reporting workflow.
    build_track2_original_onnx_fw_collage_report
    build_track2_sparse_original_onnx_variants_report
    build_track2_forward_reference_curve_comparison_report
+   build_wave4a_mmt_equation_diagnostic_report
