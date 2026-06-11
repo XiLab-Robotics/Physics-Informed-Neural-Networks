@@ -80,6 +80,16 @@ representation remain:
 | `Wave 4F` | `cycloid_contact_force_pinn` | Use cycloid-pin contact, profile modification, contact-force, and loaded-TE relations as soft constraints. | Exploratory; requires cycloid geometry/contact assumptions. |
 | `Wave 4G` | `planetary_mesh_force_lste_pinn` | Test mesh-force, loaded static TE, elastic support, and planetary branch interaction constraints. | Exploratory; useful if support/load-sharing effects align with observed harmonics. |
 
+Detailed design reports:
+
+- `doc/reports/analysis/wave4/Wave 4A MMT Equation Diagnostic Design.md`;
+- `doc/reports/analysis/wave4/Wave 4B MMT Feature Generator Design.md`;
+- `doc/reports/analysis/wave4/Wave 4C MMT Soft Constraint PINN Design.md`;
+- `doc/reports/analysis/wave4/Wave 4D Mesh Stiffness Loaded TE PINN Design.md`;
+- `doc/reports/analysis/wave4/Wave 4E Backlash Preload State PINN Design.md`;
+- `doc/reports/analysis/wave4/Wave 4F Cycloid Contact Force PINN Design.md`;
+- `doc/reports/analysis/wave4/Wave 4G Planetary Mesh Force LSTE PINN Design.md`.
+
 ## MMT Equation Integration Path
 
 The MMT paper equations are now repository-owned through:

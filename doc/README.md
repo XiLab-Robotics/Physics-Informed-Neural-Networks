@@ -240,6 +240,34 @@ This folder contains the internal project documents derived from the reference P
   TE data fit, periodicity, smoothness, harmonic consistency, condition-surface
   consistency, and residual regularization boundaries.
 
+- [reports/analysis/wave4/Wave 4A MMT Equation Diagnostic Design.md](./reports/analysis/wave4/Wave%204A%20MMT%20Equation%20Diagnostic%20Design.md)
+  Detailed design for using the repository-owned MMT equation reproduction as
+  a Track 2 analytical diagnostic before feature or PINN integration.
+
+- [reports/analysis/wave4/Wave 4B MMT Feature Generator Design.md](./reports/analysis/wave4/Wave%204B%20MMT%20Feature%20Generator%20Design.md)
+  Detailed design for turning MMT subsystem terms, harmonic summaries, and
+  calibrated analytical residuals into leakage-safe feature candidates.
+
+- [reports/analysis/wave4/Wave 4C MMT Soft Constraint PINN Design.md](./reports/analysis/wave4/Wave%204C%20MMT%20Soft%20Constraint%20PINN%20Design.md)
+  Detailed design for adding weak MMT equation residuals to a curve or
+  harmonic-plus-residual neural model.
+
+- [reports/analysis/wave4/Wave 4D Mesh Stiffness Loaded TE PINN Design.md](./reports/analysis/wave4/Wave%204D%20Mesh%20Stiffness%20Loaded%20TE%20PINN%20Design.md)
+  Detailed design for exploratory time-varying mesh stiffness and loaded-static
+  transmission-error constraints.
+
+- [reports/analysis/wave4/Wave 4E Backlash Preload State PINN Design.md](./reports/analysis/wave4/Wave%204E%20Backlash%20Preload%20State%20PINN%20Design.md)
+  Detailed design for backlash, preload, direction-transition, and latent-state
+  constraints targeting local dispersion.
+
+- [reports/analysis/wave4/Wave 4F Cycloid Contact Force PINN Design.md](./reports/analysis/wave4/Wave%204F%20Cycloid%20Contact%20Force%20PINN%20Design.md)
+  Detailed design for cycloid-pin contact-force, profile-modification, and
+  loaded-TE exploratory constraints.
+
+- [reports/analysis/wave4/Wave 4G Planetary Mesh Force LSTE PINN Design.md](./reports/analysis/wave4/Wave%204G%20Planetary%20Mesh%20Force%20LSTE%20PINN%20Design.md)
+  Detailed design for planetary-style mesh-force, load-sharing, and
+  loaded-static-TE exploratory constraints.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -330,6 +358,10 @@ This folder contains the internal project documents derived from the reference P
   Technical note for expanding `Wave 4` into staged MMT-equation,
   mesh-stiffness, loaded-TE, backlash/preload, cycloid-contact, and
   planetary-LSTE exploratory PINN branches.
+
+- [technical/2026-06/2026-06-11/2026-06-11-14-59-42_wave4_subbranch_design_package.md](./technical/2026-06/2026-06-11/2026-06-11-14-59-42_wave4_subbranch_design_package.md)
+  Technical note for creating the complete `Wave 4A` through `Wave 4G`
+  sub-branch design package.
 
 - [technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md)
   Technical note for opening the non-invasive `Wave 3` hybrid structured
