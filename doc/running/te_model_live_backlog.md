@@ -210,8 +210,8 @@ Next planned diagnostic and training decision branches:
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss campaign and official Track 2 refresh completed; verified exploratory baseline, not promoted |
-| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | planned after `Track 2H` probes |
-| `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | planned after `Wave 3` |
+| `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | `wave3_harmonic_prior_residual` skeleton is training-smoke-ready; real campaign packaging waits for `Track 2H` closeout |
+| `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 4A` MMT diagnostic is generated and diagnostic-only; parameter inventory and calibration gate remain open |
 | Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
@@ -235,7 +235,10 @@ Recommended next gate:
   hysteresis-aware models;
 - treat `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
   as evidence-generating branches before the integrated multi-task /
-  multi-head architecture;
+  multi-head architecture; `Wave 3` now resumes from the
+  `wave3_harmonic_prior_residual` training-smoke-ready scaffold, while
+  `Wave 4` resumes from the `Wave 4A` MMT diagnostic-only report and
+  parameter-inventory gate;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
   support that conclusion.
@@ -948,9 +951,20 @@ Entry rule:
 
 ### Wave 3. Hybrid Structured Models
 
-- status: pending;
-- updated priority: execute after `Track 2H` dispersion-aware probes and
-  before the integrated multi-task / multi-head campaign;
+- status: pre-implemented, training-smoke-ready, not campaign-ready;
+- current scaffold:
+  - model type: `wave3_harmonic_prior_residual`;
+  - model class:
+    `scripts/models/wave3_harmonic_prior_residual_network.py`;
+  - dry-run skeleton checker:
+    `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1`;
+  - training-smoke-ready checker:
+    `scripts/campaigns/wave3/run_wave3_training_smoke_ready_checks.ps1`;
+  - final one-batch validation artifact:
+    `output/validation_checks/wave3_harmonic_prior_residual/2026-06-11-19-44-20__te_wave3_harmonic_prior_residual_training_smoke_ready_wave3_training_smoke_ready_final/validation_summary.yaml`;
+- updated priority: after `Track 2H` closeout, package the first real Wave 3
+  campaign from the training-smoke-ready scaffold before the integrated
+  multi-task / multi-head campaign;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -959,12 +973,32 @@ Entry rule:
     stable middle harmonics versus fragile low-order and high-order harmonics;
   - prepare the repository-owned deployable predictor package after the
     research branch has identified a viable structure.
+- next implementation steps:
+  - consume `Track 2H` results to choose the robust-loss default or confirm
+    pointwise control;
+  - prepare real `global`, `Fw`, and `Bw` campaign YAMLs only after the
+    campaign-plan gate;
+  - preserve the validation-only config under
+    `output/validation_checks/wave3_training_smoke_ready/generated_configs/`
+    as the starting template, not as a queue file;
+  - keep `active_training_campaign.yaml` unchanged until an approved Wave 3
+    campaign package exists.
 
 ### Wave 4. PINN Formulation And First PINN
 
-- status: pending;
-- updated priority: execute after `Wave 3` as a separate evidence-generating
-  branch before the integrated multi-head architecture;
+- status: pre-implemented at `Wave 4A` diagnostic level, not campaign-ready;
+- current scaffold:
+  - diagnostic adapter:
+    `scripts/models/wave4_mmt_diagnostic_adapter.py`;
+  - diagnostic report builder:
+    `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`;
+  - generated diagnostic report:
+    `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
+  - companion artifacts:
+    `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`;
+- updated priority: execute `Wave 4A` parameter inventory and dataset-aligned
+  diagnostic calibration after the `Wave 3` smoke/campaign decision, then
+  decide whether `Wave 4B` features or `Wave 4C` soft losses are justified;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -975,6 +1009,16 @@ Entry rule:
     errors;
   - keep online compensation execution out of Wave 4 unless Track 3 is
     explicitly promoted first.
+- next implementation steps:
+  - build the MMT parameter inventory: known rig/reducer constants,
+    configurable values, train-only calibratable values, and unavailable
+    quantities;
+  - compare MMT diagnostic signatures against dataset-aligned curve summaries
+    without leakage;
+  - decide whether the MMT path remains diagnostic-only, becomes a feature
+    generator (`Wave 4B`), or becomes a weak soft-constraint loss (`Wave 4C`);
+  - do not treat the current demonstration harmonic summary as dataset
+    causality.
 
 ### Wave 5. Cross-Wave Comparison And Best Solution
 

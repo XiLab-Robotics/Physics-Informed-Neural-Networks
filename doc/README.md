@@ -355,6 +355,11 @@ This folder contains the internal project documents derived from the reference P
   for the nine completed `Track 2H` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
 
+- [technical/2026-06/2026-06-11/2026-06-11-19-54-42_wave3_wave4_backlog_state_alignment.md](./technical/2026-06/2026-06-11/2026-06-11-19-54-42_wave3_wave4_backlog_state_alignment.md)
+  Technical note for aligning the operational backlog and training master
+  summary with the committed `Wave 3` training-smoke-ready and `Wave 4A`
+  diagnostic-only pre-implementation state.
+
 - [technical/2026-06/2026-06-11/2026-06-11-19-25-32_wave3_wave4_parallel_hardening.md](./technical/2026-06/2026-06-11/2026-06-11-19-25-32_wave3_wave4_parallel_hardening.md)
   Technical note for hardening the `Wave 3` skeleton toward training-smoke
   readiness and adding the first `Wave 4A` MMT diagnostic report generator
