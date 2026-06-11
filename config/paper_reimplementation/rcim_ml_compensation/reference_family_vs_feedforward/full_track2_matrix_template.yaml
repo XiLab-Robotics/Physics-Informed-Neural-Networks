@@ -308,6 +308,25 @@ comparison:
           global_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_global
           fw_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_fw
           bw_family: track2g_curve_aware_harmonic_residual_offset_full_curve_composite_bw
+    track2h_registry_models:
+      family_registry_root: output/registries/families
+      source_label: track2h_dispersion_aware_modeling_registry
+      base_family_list:
+        - candidate_id_prefix: track2h_mae_robust
+          candidate_family: track2h_mae_robust
+          global_family: track2h_dispersion_aware_mae_robust_global
+          fw_family: track2h_dispersion_aware_mae_robust_fw
+          bw_family: track2h_dispersion_aware_mae_robust_bw
+        - candidate_id_prefix: track2h_smooth_l1_robust
+          candidate_family: track2h_smooth_l1_robust
+          global_family: track2h_dispersion_aware_smooth_l1_robust_global
+          fw_family: track2h_dispersion_aware_smooth_l1_robust_fw
+          bw_family: track2h_dispersion_aware_smooth_l1_robust_bw
+        - candidate_id_prefix: track2h_log_cosh_robust
+          candidate_family: track2h_log_cosh_robust
+          global_family: track2h_dispersion_aware_log_cosh_robust_global
+          fw_family: track2h_dispersion_aware_log_cosh_robust_fw
+          bw_family: track2h_dispersion_aware_log_cosh_robust_bw
 evaluation:
   selected_harmonics:
     - 0

@@ -154,6 +154,26 @@ TRACK2G_FAMILY_CONFIGURATION_LIST = [
         "bw_family": "track2g_curve_aware_harmonic_residual_offset_full_curve_composite_bw",
     },
 ]
+TRACK2H_FAMILY_CONFIGURATION_LIST = [
+    {
+        "candidate_id_prefix": "track2h_mae_robust",
+        "candidate_family": "track2h_mae_robust",
+        "fw_family": "track2h_dispersion_aware_mae_robust_fw",
+        "bw_family": "track2h_dispersion_aware_mae_robust_bw",
+    },
+    {
+        "candidate_id_prefix": "track2h_smooth_l1_robust",
+        "candidate_family": "track2h_smooth_l1_robust",
+        "fw_family": "track2h_dispersion_aware_smooth_l1_robust_fw",
+        "bw_family": "track2h_dispersion_aware_smooth_l1_robust_bw",
+    },
+    {
+        "candidate_id_prefix": "track2h_log_cosh_robust",
+        "candidate_family": "track2h_log_cosh_robust",
+        "fw_family": "track2h_dispersion_aware_log_cosh_robust_fw",
+        "bw_family": "track2h_dispersion_aware_log_cosh_robust_bw",
+    },
+]
 FORWARD_REFERENCE_CANDIDATE_ID_LIST = [
     "paper_original_best_Fw",
     "paper_retuned_best_Fw",
@@ -483,6 +503,40 @@ def build_track2g_registry_candidate_configuration_list(family_registry_root: Pa
     return candidate_configuration_list
 
 
+def build_track2h_registry_candidate_configuration_list(family_registry_root: Path) -> list[dict[str, Any]]:
+
+    """Build current-registry Track 2H robust-loss candidates."""
+
+    registry_root_text = shared_training_infrastructure.format_project_relative_path(
+        shared_training_infrastructure.resolve_runtime_project_relative_path(family_registry_root)
+    ).replace("\\", "/")
+    candidate_configuration_list: list[dict[str, Any]] = []
+
+    for family_configuration in TRACK2H_FAMILY_CONFIGURATION_LIST:
+        candidate_id_prefix = str(family_configuration["candidate_id_prefix"])
+        candidate_family = str(family_configuration["candidate_family"])
+        surface_family_dictionary = {
+            "Fw": str(family_configuration["fw_family"]),
+            "Bw": str(family_configuration["bw_family"]),
+        }
+        for candidate_surface, registry_family_name in surface_family_dictionary.items():
+            allowed_direction_list = ["forward"]
+            if candidate_surface == "Bw":
+                allowed_direction_list = ["backward"]
+            candidate_configuration_list.append(
+                {
+                    "candidate_id": f"{candidate_id_prefix}_{candidate_surface}",
+                    "candidate_family": candidate_family,
+                    "candidate_kind": "wave1_registry_model",
+                    "candidate_source_label": "track2h_dispersion_aware_modeling_registry",
+                    "candidate_surface": candidate_surface,
+                    "family_registry_path": f"{registry_root_text}/{registry_family_name}/latest_family_best.yaml",
+                    "allowed_direction_list": allowed_direction_list,
+                }
+            )
+    return candidate_configuration_list
+
+
 def build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
     campaign_leaderboard_path: Path,
     output_directory: Path,
@@ -591,6 +645,7 @@ def resolve_report_candidate_configuration_list(
         + build_track2f_registry_candidate_configuration_list(family_registry_root)
         + build_track2f_bis_registry_candidate_configuration_list(family_registry_root)
         + build_track2g_registry_candidate_configuration_list(family_registry_root)
+        + build_track2h_registry_candidate_configuration_list(family_registry_root)
         + build_periodic_mlp_harmonic_campaign_candidate_configuration_list(
             periodic_mlp_harmonic_campaign_leaderboard_path,
             output_directory,
@@ -639,6 +694,14 @@ def build_base_comparison_group_list() -> list[ReportComparisonGroup]:
     track2g_backward_candidate_id_list = [
         f"{family_configuration['candidate_id_prefix']}_Bw"
         for family_configuration in TRACK2G_FAMILY_CONFIGURATION_LIST
+    ]
+    track2h_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in TRACK2H_FAMILY_CONFIGURATION_LIST
+    ]
+    track2h_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in TRACK2H_FAMILY_CONFIGURATION_LIST
     ]
     return [
         ReportComparisonGroup(
@@ -723,6 +786,18 @@ def build_base_comparison_group_list() -> list[ReportComparisonGroup]:
             group_id="backward_track2g",
             group_title="Backward Track 2G Curve-Aware Training Overlay",
             candidate_id_list=track2g_backward_candidate_id_list,
+            selection_mode="backward",
+        ),
+        ReportComparisonGroup(
+            group_id="forward_track2h",
+            group_title="Forward Track 2H Robust-Loss Overlay",
+            candidate_id_list=track2h_forward_candidate_id_list,
+            selection_mode="forward",
+        ),
+        ReportComparisonGroup(
+            group_id="backward_track2h",
+            group_title="Backward Track 2H Robust-Loss Overlay",
+            candidate_id_list=track2h_backward_candidate_id_list,
             selection_mode="backward",
         ),
     ]
@@ -1076,6 +1151,14 @@ def build_full_comparison_group_list(
         f"{family_configuration['candidate_id_prefix']}_Bw"
         for family_configuration in TRACK2G_FAMILY_CONFIGURATION_LIST
     ]
+    track2h_forward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Fw"
+        for family_configuration in TRACK2H_FAMILY_CONFIGURATION_LIST
+    ]
+    track2h_backward_candidate_id_list = [
+        f"{family_configuration['candidate_id_prefix']}_Bw"
+        for family_configuration in TRACK2H_FAMILY_CONFIGURATION_LIST
+    ]
     screened_forward_candidate_id_list = select_screened_wave1_candidate_id_list(
         wave1_forward_candidate_id_list,
         "forward",
@@ -1178,6 +1261,26 @@ def build_full_comparison_group_list(
                     "track1_best_Bw",
                     "tree_bw",
                 ] + track2g_backward_candidate_id_list,
+                selection_mode="backward",
+            ),
+            ReportComparisonGroup(
+                group_id="forward_reference_tree_track2h",
+                group_title="Forward Reference Tree And Track 2H Overlay",
+                candidate_id_list=[
+                    "paper_retuned_best_Fw",
+                    "track1_best_Fw",
+                    "tree_fw",
+                ] + track2h_forward_candidate_id_list,
+                selection_mode="forward",
+            ),
+            ReportComparisonGroup(
+                group_id="backward_reference_tree_track2h",
+                group_title="Backward Reference Tree And Track 2H Overlay",
+                candidate_id_list=[
+                    "paper_retuned_best_Bw",
+                    "track1_best_Bw",
+                    "tree_bw",
+                ] + track2h_backward_candidate_id_list,
                 selection_mode="backward",
             ),
         ]

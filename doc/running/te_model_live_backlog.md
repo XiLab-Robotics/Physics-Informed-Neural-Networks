@@ -25,16 +25,15 @@ Historical rationale and approval history remain in:
 - Active Campaign State: no prepared or active campaign is currently protected
   in `doc/running/active_training_campaign.yaml`.
 - Current Completed Wave: `Track 2H` robust-loss dispersion-aware campaign
-  closeout is complete; official `Track 2` verification refresh is pending as
-  a separate optional operator-approved workflow.
+  closeout and official `Track 2` verification refresh are complete.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: prepare the optional official `Track 2` refresh for the nine
-  completed `Track 2H` robust-loss candidates, then decide whether the next
-  dispersion-aware package should move to quantile/probabilistic regression.
+- Current Focus: prepare the next dispersion-aware `Track 2H` package around
+  quantile or probabilistic regression, with robust losses retained as a
+  validated ingredient rather than a sufficient solution.
 - Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -47,9 +46,9 @@ Historical rationale and approval history remain in:
 Current canonical status reports:
 
 - `doc/reports/analysis/rcim_paper_reference/RCIM Paper Reference Benchmark.md`
-- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-10]/track2_official_model_verification_report.md`
-- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-09]/track2_best_model_collage_report.md`
-- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-09]/track2_multi_model_curve_comparison_report.md`
+- `doc/reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md`
+- `doc/reports/analysis/track2/best_model_collage_report/[2026-06-11]/track2_best_model_collage_report.md`
+- `doc/reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-11]/track2_multi_model_curve_comparison_report.md`
 - `doc/reports/analysis/track2/Track 2 Directional Model Comparison.md`
 - `doc/reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md`
 - `doc/reports/analysis/track2/curve_payload_diagnostics_report/[2026-05-28]/track2_curve_payload_diagnostics_report.md`
@@ -210,7 +209,7 @@ Next planned diagnostic and training decision branches:
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
-| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss campaign completed with 9/9 runs, 0 failures, and optional official Track 2 refresh pending |
+| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss campaign and official Track 2 refresh completed; verified exploratory baseline, not promoted |
 | `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | planned after `Track 2H` probes |
 | `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | planned after `Wave 3` |
 | Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
@@ -231,11 +230,9 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- prepare a separate operator-launched official `Track 2` verification refresh
-  for the nine completed `Track 2H` robust-loss candidates;
-- after robust-loss Track 2 verification, prepare the next `Track 2H` package
-  in staged order: quantile or probabilistic regression, mixture-density
-  heads, then latent-state / hysteresis-aware models;
+- prepare the next `Track 2H` package in staged order: quantile or
+  probabilistic regression, mixture-density heads, then latent-state /
+  hysteresis-aware models;
 - treat `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
   as evidence-generating branches before the integrated multi-task /
   multi-head architecture;
@@ -502,11 +499,12 @@ After the completed `Track 2B`, `Track 2C`, mean-centered collage,
 `Track 2D` full-matrix, h0/error cross-check, and predicted-mean h0 surface
 diagnostics, the active next step is:
 
-- launch or enqueue the prepared `Track 2H` robust-loss dispersion-aware
-  package before any integrated multi-head campaign;
-- test robust regression, quantile or probabilistic regression,
-  mixture-density heads, and latent-state / hysteresis-aware models on the
-  same direction-separated promotion surface;
+- prepare a new `Track 2H` quantile or probabilistic regression package before
+  any integrated multi-head campaign;
+- test quantile or probabilistic regression, mixture-density heads, and
+  latent-state / hysteresis-aware models on the same direction-separated
+  promotion surface, with robust losses retained as the first verified
+  dispersion-aware baseline;
 - then execute `Wave 3` hybrid structured models and `Wave 4` first-PINN work
   as separate evidence-generating branches;
 - only after those probes decide which mechanisms belong in the integrated
@@ -911,8 +909,8 @@ Entry rule:
 
 ### Track 2H. Dispersion-Aware Robust-Loss Probe
 
-- status: robust-loss campaign completed; official `Track 2` matrix refresh is
-  pending as a separate optional operator-approved workflow;
+- status: robust-loss campaign completed; official `Track 2` matrix refresh
+  completed as a `141`-candidate direction-aware verification package;
 - families:
   - `track2h_dispersion_aware_mae_robust_global`;
   - `track2h_dispersion_aware_mae_robust_fw`;
@@ -925,6 +923,8 @@ Entry rule:
   - `track2h_dispersion_aware_log_cosh_robust_bw`;
 - closeout report:
   `doc/reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`;
+- official verification report:
+  `doc/reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md`;
 - robust global candidate:
   `te_track2h_mae_robust_global`, scalar test MAE `0.003406 deg`;
 - robust forward candidate:
@@ -933,12 +933,18 @@ Entry rule:
   `te_track2h_smooth_l1_robust_bw`, scalar test MAE `0.003074 deg`;
 - campaign scalar winner:
   `te_track2h_smooth_l1_robust_bw`;
-- Track 2 decision: pending; the normal campaign closeout did not run the
-  heavy official verification matrix;
+- Track 2 strongest forward candidate:
+  `track2h_mae_robust_Fw`, Track 2 MAE `0.003134 deg`;
+- Track 2 strongest backward candidate:
+  `track2h_smooth_l1_robust_Bw`, Track 2 MAE `0.003078 deg`;
+- Track 2 strongest global candidate:
+  `track2h_mae_robust_global`, Track 2 MAE `0.003401 deg`;
+- Track 2 decision: verified exploratory baseline, not promoted over the
+  accepted direction-parallel leaders;
 - design conclusion: robust losses are useful enough to keep in the
-  dispersion-aware plan, especially on `Bw`, but they must be checked on the
-  curve-first Track 2 surface before becoming the default ingredient for the
-  future multi-task / multi-head model branch.
+  dispersion-aware plan, especially on `Bw`, but are not sufficient by
+  themselves; the next package should move to quantile or probabilistic
+  regression before mixture-density and latent-state variants.
 
 ### Wave 3. Hybrid Structured Models
 

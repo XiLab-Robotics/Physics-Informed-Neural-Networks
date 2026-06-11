@@ -1,6 +1,6 @@
 status: none
-updated_at: '2026-06-11T14:01:57+02:00'
-notes: No prepared or active training campaign is currently protected. Track 2H robust-loss closeout is complete; official Track 2 verification remains a separate optional operator-approved workflow.
+updated_at: '2026-06-11T21:03:11+02:00'
+notes: No prepared or active training campaign is currently protected. Track 2H robust-loss closeout and official Track 2 verification refresh are complete.
 last_completed_campaign:
   campaign_name: track2h_dispersion_aware_modeling_campaign_2026_06_10
   completed_at: '2026-06-11T14:01:57+02:00'
@@ -14,7 +14,18 @@ last_completed_campaign:
   best_scalar_family: track2h_dispersion_aware_smooth_l1_robust_bw
   best_scalar_test_mae: 0.003073683939874172
   program_winner_changed: false
-  track2_status: pending_optional_official_verification_refresh
+  track2_status: official_verification_refresh_completed
+  track2_completed_at: '2026-06-11T21:03:11+02:00'
+  track2_matrix_output_directory: output/validation_checks/track2_reference_comparison/2026-06-11-15-04-04__track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11
+  track2_official_report_path: doc/reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md
+  track2_decision: verified_exploratory_baseline_not_promoted
+  track2_candidate_count: 141
+  track2_best_track2h_forward_candidate: track2h_mae_robust_Fw
+  track2_best_track2h_forward_mae: 0.003134158586207828
+  track2_best_track2h_backward_candidate: track2h_smooth_l1_robust_Bw
+  track2_best_track2h_backward_mae: 0.0030777849191923035
+  track2_best_track2h_global_candidate: track2h_mae_robust_global
+  track2_best_track2h_global_mae: 0.0034014783802143165
   branch_best_list:
   - surface: global
     run_name: te_track2h_mae_robust_global

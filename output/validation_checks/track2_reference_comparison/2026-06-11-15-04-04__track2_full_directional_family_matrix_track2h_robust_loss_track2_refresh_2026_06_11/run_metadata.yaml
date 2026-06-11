@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: track2_reference_comparison
+base_model_family: track2_reference_comparison
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11
+run_instance_id: 2026-06-11-15-04-04__track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11
+output_directory: output\validation_checks\track2_reference_comparison\2026-06-11-15-04-04__track2_full_directional_family_matrix_track2h_robust_loss_track2_refresh_2026_06_11

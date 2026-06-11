@@ -1117,6 +1117,15 @@ def build_generated_candidate_configuration_list(training_config: dict[str, Any]
             )
         )
 
+    track2h_configuration = generation_configuration.get("track2h_registry_models", {})
+    if track2h_configuration:
+        candidate_configuration_list.extend(
+            build_registry_candidate_configuration_list(
+                track2h_configuration,
+                "track2h_dispersion_aware_modeling_registry",
+            )
+        )
+
     wave1_export_configuration = generation_configuration.get("wave1_exported_models", {})
     if wave1_export_configuration:
         exported_model_root = str(wave1_export_configuration["exported_model_root"]).rstrip("/")
@@ -2336,6 +2345,27 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "track2f_offset_aware_probe_registry",
         include_global_models=True,
     )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2F-Bis Harmonic-Offset Forward And Global Models",
+        "forward",
+        "track2f_bis_harmonic_offset_probe_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2G Curve-Aware Forward And Global Models",
+        "forward",
+        "track2g_curve_aware_training_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H Robust-Loss Forward And Global Models",
+        "forward",
+        "track2h_dispersion_aware_modeling_registry",
+        include_global_models=True,
+    )
 
     report_line_list.extend(
         [
@@ -2371,6 +2401,27 @@ def build_track2_directional_comparison_report_markdown(comparison_summary: dict
         "Track 2F Offset-Aware Backward And Global Models",
         "backward",
         "track2f_offset_aware_probe_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2F-Bis Harmonic-Offset Backward And Global Models",
+        "backward",
+        "track2f_bis_harmonic_offset_probe_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2G Curve-Aware Backward And Global Models",
+        "backward",
+        "track2g_curve_aware_training_registry",
+        include_global_models=True,
+    )
+    append_grouped_direction_table(
+        report_line_list,
+        "Track 2H Robust-Loss Backward And Global Models",
+        "backward",
+        "track2h_dispersion_aware_modeling_registry",
         include_global_models=True,
     )
 

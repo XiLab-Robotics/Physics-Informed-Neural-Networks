@@ -2,12 +2,12 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-11T14:01:59`
+- Generated At: `2026-06-11T21:03:11`
 - Program State: active.
 - Current Completed Wave: `Track 2H` robust-loss dispersion-aware campaign
-  closeout is complete.
-- Current Focus: optional official `Track 2` verification refresh for the nine
-  completed `Track 2H` robust-loss candidates.
+  closeout and official `Track 2` verification refresh are complete.
+- Current Focus: prepare the next dispersion-aware `Track 2H` package around
+  quantile or probabilistic regression.
 - Active Campaign Status: `none`
 - Active Campaign Name: `none`
 - Current Program Winner: `te_periodic_gru_sequence_remote_Bw` | Family `periodic_gru_sequence_bw` | Test MAE `0.002344`
@@ -21,6 +21,9 @@
 - Latest campaign closeout: `Track 2H` robust losses completed `9/9` runs with
   `0` failures; best scalar run is `te_track2h_smooth_l1_robust_bw` with test
   MAE `0.003074`.
+- Latest official Track 2 refresh: `Track 2H` robust losses were accepted into
+  the `141`-candidate matrix as a verified exploratory baseline; they were not
+  promoted over the current direction-parallel leaders.
 
 ## Current Project Status
 
@@ -166,6 +169,7 @@ Low-priority exploratory families currently listed in the backlog:
 - `Hamiltonian-Inspired Model`
 - `optional Kernel Ridge / Gaussian Process benchmark`
 | Track 2. Directional Offline Comparison | direction-aware loader and candidate matrix: completed;; recovered original forward candidates: included;; retuned forward and backward candidates: included;; `Track 1` forward and backward candidates: included;; `Wave 1` `global`, `forward`, and `backward` exports: included;; `Wave 2` temporal `global`, `forward`, and `backward` registry candidates:; grouped source tables: completed;; composite best-reference visibility: completed;; direction/truth and preview audit: completed;; official model-verification report: completed;; curve-first reranking policy: planned as the next analysis branch;; status: closed. |
+| Track 2H. Dispersion-Aware Robust-Loss Probe | campaign completed with 9/9 runs and 0 failures;; official Track 2 refresh completed in the 141-candidate matrix;; strongest Track 2H forward: `track2h_mae_robust_Fw` MAE 0.003134;; strongest Track 2H backward: `track2h_smooth_l1_robust_Bw` MAE 0.003078;; strongest Track 2H global: `track2h_mae_robust_global` MAE 0.003401;; Track 2 decision: verified exploratory baseline, not promoted;; next step: quantile or probabilistic dispersion-aware package. |
 
 Low-priority exploratory families currently listed in the backlog:
 

@@ -147,25 +147,25 @@ This folder contains the internal project documents derived from the reference P
   `harmonic_regression`, paper-original reference-bank reconstruction, and
   mean-centered diagnostic interpretation.
 
-- [reports/analysis/track2/official_model_verification_report/[2026-06-10]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-10%5D/track2_official_model_verification_report.md)
-  Official `Track 2` model-verification report accepting `Track 2G` as a
-  verified exploratory curve-aware training baseline without promoting it over
-  the current direction-parallel `Track 2` leaders.
+- [reports/analysis/track2/official_model_verification_report/[2026-06-11]/track2_official_model_verification_report.md](./reports/analysis/track2/official_model_verification_report/%5B2026-06-11%5D/track2_official_model_verification_report.md)
+  Official `Track 2` model-verification report accepting `Track 2H` robust
+  losses as a verified exploratory baseline without promoting them over the
+  current direction-parallel `Track 2` leaders.
 
 - [reports/analysis/track2/wave2_temporal_model_refresh_plan/[2026-05-24]/track2_wave2_temporal_model_refresh_plan.md](./reports/analysis/track2/wave2_temporal_model_refresh_plan/%5B2026-05-24%5D/track2_wave2_temporal_model_refresh_plan.md)
   Operational refresh plan for adding the completed `Wave 2`
   temporal-model candidates to the official `Track 2` verification matrix,
   visual reports, and update ledger.
 
-- [reports/analysis/track2/best_model_collage_report/[2026-06-09]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-09%5D/track2_best_model_collage_report.md)
+- [reports/analysis/track2/best_model_collage_report/[2026-06-11]/track2_best_model_collage_report.md](./reports/analysis/track2/best_model_collage_report/%5B2026-06-11%5D/track2_best_model_collage_report.md)
   Styled `Track 2` visual report with four-curve collages for the current best
   reference, Track 1, Wave 1, Wave 2, Wave 2C, Track 2F, Track 2F-bis, and
-  Track 2G candidates.
+  Track 2G and Track 2H candidates.
 
-- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-09]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-09%5D/track2_multi_model_curve_comparison_report.md)
+- [reports/analysis/track2/multi_model_curve_comparison_report/[2026-06-11]/track2_multi_model_curve_comparison_report.md](./reports/analysis/track2/multi_model_curve_comparison_report/%5B2026-06-11%5D/track2_multi_model_curve_comparison_report.md)
   Styled `Track 2` overlay report comparing original TE curves against
   reference best models and screened Wave 1, Wave 2, Wave 2C, Track 2F,
-  Track 2F-bis, and Track 2G models.
+  Track 2F-bis, Track 2G, and Track 2H models.
 
 - [reports/analysis/track2/curve_first_reranking_report/[2026-05-28]/track2_curve_first_reranking_report.md](./reports/analysis/track2/curve_first_reranking_report/%5B2026-05-28%5D/track2_curve_first_reranking_report.md)
   `Track 2B` curve-first reranking report that ranks accepted `Track 2`
@@ -294,6 +294,13 @@ This folder contains the internal project documents derived from the reference P
   Technical sum-up of the completed remote-strong `large-v3` plus `openai/gpt-oss-20b` video campaign across the 11 canonical TwinCAT/TestRig videos.
 
 ### Technical Documents
+
+#### 2026-06-11
+
+- [technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md](./technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md)
+  Plan the separate operator-launched official `Track 2` verification refresh
+  for the nine completed `Track 2H` robust-loss candidates, preserving
+  `global`, `Fw`, and `Bw` as parallel decision surfaces.
 
 #### 2026-06-10
 
@@ -2271,6 +2278,11 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/track2/run_track2g_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2g_track2_verification_refresh.md)
   Script-level documentation for the operator-launched Track 2G official
   `Track 2` verification refresh across all twelve curve-aware candidates for
+  `global`, `Fw`, and `Bw`.
+
+- [scripts/campaigns/track2/run_track2h_track2_verification_refresh.md](./scripts/campaigns/track2/run_track2h_track2_verification_refresh.md)
+  Script-level documentation for the operator-launched Track 2H official
+  `Track 2` verification refresh across all nine robust-loss candidates for
   `global`, `Fw`, and `Bw`.
 
 - [scripts/training/validate_training_setup.md](./scripts/training/validate_training_setup.md)
