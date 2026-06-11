@@ -67,6 +67,11 @@ This folder contains the internal project documents derived from the reference P
 
 ### Analysis Reports
 
+- [reports/analysis/mmt_te_modeling/MMT TE Modeling Equation Extraction And Reimplementation Plan.md](./reports/analysis/mmt_te_modeling/MMT%20TE%20Modeling%20Equation%20Extraction%20And%20Reimplementation%20Plan.md)
+  Equation extraction, implementation notes, MATLAB/Python reproduction entry
+  points, and dataset-evaluation plan for the analytical `MMT_TEModeling`
+  `RV` reducer transmission-error model.
+
 - [reports/analysis/rcim_paper_reference/RCIM Paper Reference Archive Parity Interpretation.md](./reports/analysis/rcim_paper_reference/RCIM%20Paper%20Reference%20Archive%20Parity%20Interpretation.md)
   Canonical interpretation of the repository-local parity check across
   `models/paper_reference/rcim_original`, `rcim_retuned`, and `rcim_track1`.
@@ -242,6 +247,11 @@ This folder contains the internal project documents derived from the reference P
 - [technical/2026-06/2026-06-10/2026-06-10-12-51-19_track2d_predicted_mean_h0_surface_diagnostic.md](./technical/2026-06/2026-06-10/2026-06-10-12-51-19_track2d_predicted_mean_h0_surface_diagnostic.md)
   Technical plan for comparing `Track 2D` `predicted_mean_deg` surfaces against
   measured `h0` after the h0 magnitude cross-check.
+
+- [technical/2026-06/2026-06-11/2026-06-11-12-32-58_mmt_te_modeling_equation_reimplementation.md](./technical/2026-06/2026-06-11/2026-06-11-12-32-58_mmt_te_modeling_equation_reimplementation.md)
+  Technical plan for extracting the `MMT_TEModeling` equations, creating
+  MATLAB and Python analytical reimplementation scripts, and planning dataset
+  evaluation against repository TE curves.
 
 - [reports/analysis/track2/original_onnx_offset_diagnostic/[2026-06-04]/track2_original_onnx_offset_diagnostic.md](./reports/analysis/track2/original_onnx_offset_diagnostic/%5B2026-06-04%5D/track2_original_onnx_offset_diagnostic.md)
   Diagnostic replay of the recovered paper-original `ONNX` release through the

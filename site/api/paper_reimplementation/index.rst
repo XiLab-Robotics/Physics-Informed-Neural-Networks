@@ -6,6 +6,7 @@ Paper Reimplementation API
 
    exact_paper_model_bank_support
    harmonic_wise_support
+   mmt_te_modeling_reproduction
    original_dataset_exact_model_bank_support
    recovered_original_workflow_create_dataframe
    recovered_original_workflow_evaluate_models

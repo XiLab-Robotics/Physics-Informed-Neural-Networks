@@ -26,6 +26,8 @@ At the moment, the implemented workflows are:
 - coordinated short PowerShell and Bash launchers for the paper-faithful
   `Track 1` reproduction campaign, including a Linux surface for the Unimore
   Aries clone;
+- analytical `MMT_TEModeling` equation-chain reproduction scripts for the
+  `RV` reducer transmission-error model in MATLAB and Python;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
@@ -170,6 +172,15 @@ The current usage flow mainly relies on these folders:
   Repository-independent original `ONNX` curve plotter. Edit the hardcoded
   top-of-file configuration to point at copied `ONNX` models and custom curve
   `CSV` files, then run it without importing repository modules.
+
+- `scripts/paper_reimplementation/mmt_te_modeling/mmt_te_modeling_reproduction.py`
+  Python implementation of the analytical equations extracted from
+  `reference/MMT_TEModeling.pdf`, including a smoke-test `RV-80E`
+  equation-chain demonstration and harmonic summary.
+
+- `scripts/paper_reimplementation/mmt_te_modeling/mmt_te_modeling_reproduction.m`
+  MATLAB analogue of the same `MMT_TEModeling` analytical equation-chain
+  reproduction script.
 
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.
