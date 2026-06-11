@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: validation_check
+model_family: track2h_dispersion_aware_mae_robust_global
+base_model_family: track2h_dispersion_aware_mae_robust_global
+training_variant: global
+direction_scope_label: bidirectional
+use_forward_direction: true
+use_backward_direction: true
+run_name: te_track2h_mae_robust_global_track2h_mae_global_one_batch_validation
+run_instance_id: 2026-06-11-11-24-22__te_track2h_mae_robust_global_track2h_mae_global_one_batch_validation
+output_directory: output\validation_checks\track2h_dispersion_aware_mae_robust_global\2026-06-11-11-24-22__te_track2h_mae_robust_global_track2h_mae_global_one_batch_validation

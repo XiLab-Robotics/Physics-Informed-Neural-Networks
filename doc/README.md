@@ -220,6 +220,11 @@ This folder contains the internal project documents derived from the reference P
   structured models, and `Wave 4` first-PINN work before the integrated
   multi-task / multi-head architecture.
 
+- [reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
+  Preliminary `Track 2H` campaign plan for robust, quantile/probabilistic,
+  mixture-density, and latent-state / hysteresis-aware modeling probes before
+  the integrated multi-task / multi-head branch.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -291,6 +296,11 @@ This folder contains the internal project documents derived from the reference P
 ### Technical Documents
 
 #### 2026-06-10
+
+- [technical/2026-06/2026-06-10/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probes.md](./technical/2026-06/2026-06-10/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probes.md)
+  Technical plan for the `Track 2H` dispersion-aware modeling probe branch,
+  covering robust losses, uncertainty heads, mixture-density heads, and
+  causal latent-state / hysteresis-aware features.
 
 - [technical/2026-06/2026-06-10/2026-06-10-16-18-08_rebase_documentation_repair.md](./technical/2026-06/2026-06-10/2026-06-10-16-18-08_rebase_documentation_repair.md)
   Technical note for repairing documentation-only rebase artifacts in the
@@ -2461,6 +2471,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### Latest Campaign Plans
 
+- [reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-10-16-56-36_track2h_dispersion_aware_modeling_probe_campaign_plan_report.md)
+  Preliminary campaign plan for the `Track 2H` dispersion-aware modeling
+  probes across robust, probabilistic, mixture, and causal latent-state
+  candidate groups.
+
 - [reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2G` curve-aware training probe,
   testing pointwise-control, centered-shape, offset, and full composite loss
@@ -2644,6 +2659,13 @@ This folder contains the internal project documents derived from the reference P
   Technical rule document for the new `doc/reports/` topic-root, dated-bundle, and readable-filename convention.
 
 #### Campaign Results
+
+- [reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md](./reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md)
+  Final results report for the completed `Track 2H` robust-loss
+  dispersion-aware campaign, including separate `global`, `Fw`, and `Bw`
+  branch winners, robust-loss interpretation, registry effects, and the
+  boundary that official `Track 2` curve verification remains a separate
+  operator-launched workflow.
 
 - [reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md](./reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md)
   Final results report for the completed `Track 2G` curve-aware training

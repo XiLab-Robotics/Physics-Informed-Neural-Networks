@@ -8,6 +8,7 @@ from lightning.pytorch import LightningModule
 # Import PyTorch Utilities
 import torch
 import torch.nn as nn
+import torch.nn.functional as torch_functional
 
 # Import DataModule Utilities
 from scripts.training.transmission_error_datamodule import NormalizationStatistics
@@ -53,7 +54,6 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         # Save Model And Loss
         self.regression_model = regression_model
-        self.loss_function = nn.MSELoss()
         self.loss_configuration = self._normalize_loss_configuration(loss_configuration or {})
 
         # Register Normalization Buffers
@@ -74,11 +74,15 @@ class TransmissionErrorRegressionModule(LightningModule):
 
         # Resolve Loss Profile And Weights
         loss_profile = str(loss_configuration.get("profile", "pointwise_control")).strip().lower()
+        pointwise_loss_name = str(loss_configuration.get("pointwise_loss", "mse")).strip().lower()
         weight_dictionary = dict(loss_configuration.get("weights", {}))
         harmonic_index_list = list(loss_configuration.get("harmonic_index_list", []))
+        huber_delta = float(loss_configuration.get("huber_delta", loss_configuration.get("smooth_l1_beta", 1.0)))
 
         return {
             "profile": loss_profile,
+            "pointwise_loss": pointwise_loss_name,
+            "huber_delta": huber_delta,
             "point_weight": float(weight_dictionary.get("point", 1.0)),
             "centered_weight": float(weight_dictionary.get("centered", 0.0)),
             "offset_weight": float(weight_dictionary.get("offset", 0.0)),
@@ -86,6 +90,32 @@ class TransmissionErrorRegressionModule(LightningModule):
             "harmonic_weight": float(weight_dictionary.get("harmonic", 0.0)),
             "harmonic_index_list": [int(harmonic_index) for harmonic_index in harmonic_index_list if int(harmonic_index) > 0],
         }
+
+    def compute_pointwise_prediction_loss(self, prediction_tensor: torch.Tensor, target_tensor: torch.Tensor) -> torch.Tensor:
+
+        """Compute the configured normalized-space pointwise regression loss."""
+
+        # Resolve Pointwise Loss Name
+        pointwise_loss_name = str(self.loss_configuration["pointwise_loss"])
+        error_tensor = prediction_tensor - target_tensor
+
+        # Dispatch Supported Losses
+        if pointwise_loss_name in ["mse", "l2", "mean_squared_error"]:
+            return torch.mean(torch.square(error_tensor))
+
+        if pointwise_loss_name in ["mae", "l1", "mean_absolute_error"]:
+            return torch.mean(torch.abs(error_tensor))
+
+        if pointwise_loss_name in ["smooth_l1", "huber"]:
+            huber_delta = float(self.loss_configuration["huber_delta"])
+            assert huber_delta > 0.0, f"Huber Delta must be positive | {huber_delta}"
+            return torch_functional.huber_loss(prediction_tensor, target_tensor, reduction="mean", delta=huber_delta)
+
+        if pointwise_loss_name in ["log_cosh", "logcosh"]:
+            absolute_error_tensor = torch.abs(error_tensor)
+            return torch.mean(absolute_error_tensor + torch_functional.softplus(-2.0 * absolute_error_tensor) - torch.log(torch.tensor(2.0, device=absolute_error_tensor.device)))
+
+        raise ValueError(f"Unsupported pointwise loss | {pointwise_loss_name}")
 
     def compute_curve_aware_loss_dictionary(
         self,
@@ -355,7 +385,7 @@ class TransmissionErrorRegressionModule(LightningModule):
         rmse = torch.sqrt(torch.mean(torch.square(prediction_tensor - target_tensor)))
 
         # Compute Pointwise And Optional Curve-Aware Loss Terms
-        pointwise_loss = self.loss_function(normalized_prediction_tensor, normalized_target_tensor)
+        pointwise_loss = self.compute_pointwise_prediction_loss(normalized_prediction_tensor, normalized_target_tensor)
         loss_dictionary = self.compute_curve_aware_loss_dictionary(
             batch_dictionary=batch_dictionary,
             batch_output_dictionary={

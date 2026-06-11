@@ -1,0 +1,26 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\track2h_dispersion_aware_modeling\campaigns\2026-06-10_track2h_dispersion_aware_modeling_campaign\queue\01_mae_robust_global.yaml
+output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\validation_checks\track2h_dispersion_aware_mae_robust_global\2026-06-11-11-24-22__te_track2h_mae_robust_global_track2h_mae_global_one_batch_validation
+experiment:
+  run_name: te_track2h_mae_robust_global
+  output_run_name: te_track2h_mae_robust_global_track2h_mae_global_one_batch_validation
+  run_instance_id: 2026-06-11-11-24-22__te_track2h_mae_robust_global_track2h_mae_global_one_batch_validation
+  model_family: track2h_dispersion_aware_mae_robust_global
+  model_type: curve_aware_harmonic_residual_offset_probe
+batch_summary:
+  batch_mode: sequence
+  point_batch_size: 0
+  sequence_batch_size: 384
+  sequence_length: 33
+  input_feature_dim: 5
+  target_feature_dim: 1
+  curve_count: 2
+checks:
+  finite_loss: true
+  finite_mae: true
+  finite_rmse: true
+  finite_prediction_tensor: true
+metrics:
+  loss: 2.0535569190979004
+  mae: 0.09553182870149612
+  rmse: 0.11571940034627914

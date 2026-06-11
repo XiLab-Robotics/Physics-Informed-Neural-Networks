@@ -1,0 +1,86 @@
+schema_version: 1
+config_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\config\training\queue\running\2026-06-11-11-51-10_009_09_log_cosh_robust_bw.yaml
+experiment:
+  model_family: track2h_dispersion_aware_log_cosh_robust_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_log_cosh_robust_bw
+  output_run_name: te_track2h_log_cosh_robust_bw
+  run_instance_id: 2026-06-11-13-51-00__te_track2h_log_cosh_robust_bw
+  output_artifact_kind: training_run
+  base_model_family: track2h_dispersion_aware_log_cosh_robust_bw
+  training_variant: Bw
+  direction_scope_label: backward_only
+  use_forward_direction: false
+  use_backward_direction: true
+artifacts:
+  output_directory: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_dispersion_aware_log_cosh_robust_bw\2026-06-11-13-51-00__te_track2h_log_cosh_robust_bw
+  best_checkpoint_path: C:\Users\Martina Salami\Documents\Davide\Physics-Informed-Neural-Networks\output\training_runs\track2h_dispersion_aware_log_cosh_robust_bw\2026-06-11-13-51-00__te_track2h_log_cosh_robust_bw\checkpoints\curve_aware_harmonic_residual_offset_probe-epoch=046-val_mae=0.00377404.ckpt
+dataset_split:
+  train_curve_count: 678
+  validation_curve_count: 194
+  test_curve_count: 97
+model_summary:
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  frozen_parameter_count: 0
+  total_parameter_count: 85747
+runtime_config:
+  accelerator: auto
+  devices: auto
+  precision: '32'
+  benchmark: true
+  use_non_blocking_transfer: true
+normalization_statistics:
+  input_feature_mean:
+  - 179.98097229003906
+  - 497.85809326171875
+  - 896.0145874023438
+  - 30.364091873168945
+  - -1.0
+  input_feature_std:
+  - 103.92329406738281
+  - 466.8043212890625
+  - 543.8323974609375
+  - 4.080519199371338
+  - 9.999999974752427e-07
+  target_mean:
+  - 0.022425448521971703
+  target_std:
+  - 0.024957336485385895
+validation_metrics:
+  val_loss: 0.02062263712286949
+  val_mae: 0.0037740436382591724
+  val_rmse: 0.004371612332761288
+  val_pointwise_loss: 0.02062263712286949
+  val_centered_curve_shape_loss: 0.028583277016878128
+  val_curve_offset_loss: 0.015144956298172474
+  val_curve_amplitude_loss: 0.22100940346717834
+  val_sparse_harmonic_shape_loss: 0.0006925740744918585
+  val_structured_mae: 0.018265018239617348
+  val_structured_rmse: 0.020015742629766464
+  val_residual_offset_mean_abs: 0.01811317354440689
+test_metrics:
+  test_loss: 0.015147451311349869
+  test_mae: 0.0034810411743819714
+  test_rmse: 0.004029027186334133
+  test_pointwise_loss: 0.015147451311349869
+  test_centered_curve_shape_loss: 0.014008828438818455
+  test_curve_offset_loss: 0.017113706097006798
+  test_curve_amplitude_loss: 0.092519611120224
+  test_sparse_harmonic_shape_loss: 0.00031785445753484964
+  test_structured_mae: 0.02057153731584549
+  test_structured_rmse: 0.022976906970143318
+  test_residual_offset_mean_abs: 0.02024851180613041
+comparison_payload:
+  model_family: track2h_dispersion_aware_log_cosh_robust_bw
+  model_type: curve_aware_harmonic_residual_offset_probe
+  run_name: te_track2h_log_cosh_robust_bw
+  backbone_name: HarmonicResidualOffsetNetwork
+  trainable_parameter_count: 85747
+  total_parameter_count: 85747
+  val_mae: 0.0037740436382591724
+  val_rmse: 0.004371612332761288
+  test_mae: 0.0034810411743819714
+  test_rmse: 0.004029027186334133
+  deployment_notes: ''
+  interpretability_notes: ''

@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_kind: training_run
+model_family: track2h_dispersion_aware_smooth_l1_robust_fw
+base_model_family: track2h_dispersion_aware_smooth_l1_robust_fw
+training_variant: Fw
+direction_scope_label: forward_only
+use_forward_direction: true
+use_backward_direction: false
+run_name: te_track2h_smooth_l1_robust_fw
+run_instance_id: 2026-06-11-12-48-44__te_track2h_smooth_l1_robust_fw
+output_directory: output\training_runs\track2h_dispersion_aware_smooth_l1_robust_fw\2026-06-11-12-48-44__te_track2h_smooth_l1_robust_fw

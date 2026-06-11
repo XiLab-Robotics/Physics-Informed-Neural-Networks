@@ -22,18 +22,19 @@ Historical rationale and approval history remain in:
 ## Current Status
 
 - Program State: active.
-- Active Campaign State: no protected prepared or active campaign is currently
-  registered in `doc/running/active_training_campaign.yaml`.
-- Current Completed Wave: `Track 2G` curve-aware training campaign and
-  official `Track 2` verification refresh are complete.
+- Active Campaign State: no prepared or active campaign is currently protected
+  in `doc/running/active_training_campaign.yaml`.
+- Current Completed Wave: `Track 2H` robust-loss dispersion-aware campaign
+  closeout is complete; official `Track 2` verification refresh is pending as
+  a separate optional operator-approved workflow.
 - Current Completed Track: `Track 1` RCIM paper-faithful model bank, closed as
   a faithful full-bank reproduction surface for Tables `2`-`5`.
 - Current Completed Track: `Track 2` official offline model-verification
   report, closed as the canonical direction-aware verification surface for new
   model families.
-- Current Focus: document and prepare the staged dispersion-aware `Track 2`
-  modeling branch after the completed `h0` diagnostics; the separate official
-  `Track 2G` verification refresh remains an operator-approved refresh step.
+- Current Focus: prepare the optional official `Track 2` refresh for the nine
+  completed `Track 2H` robust-loss candidates, then decide whether the next
+  dispersion-aware package should move to quantile/probabilistic regression.
 - Parallel Diagnostic Focus: component-offset, `Track 2D` h0 cross-check, and
   predicted-mean versus measured-h0 diagnostics are complete; `h0` is the
   correct mean-like channel to inspect, but not the confirmed sole cause of the
@@ -59,6 +60,7 @@ Current canonical status reports:
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2_component_offset_identification_diagnostic.md`
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-09]/track2d_h0_offset_crosscheck.md`
 - `doc/reports/analysis/track2/component_offset_identification/[2026-06-10]/track2d_predicted_mean_h0_surface_diagnostic.md`
+- `doc/reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`
 - `doc/reports/campaign_results/track2/2026-06-09-01-56-25_track2g_curve_aware_training_campaign_results_report.md`
 - `doc/reports/analysis/wave1/Wave 1 - Closeout Status.md`
 - `doc/reports/analysis/te_modeling/Curve-First TE Training Strategy.md`
@@ -208,7 +210,7 @@ Next planned diagnostic and training decision branches:
 | Offset-aware checkpoint selection | Monitor curve-bias, centered-shape, P95, harmonic phase, then scalar `val_mae`. | next decision candidate |
 | Curve-aware loss branch | Add pointwise, bias, centered-shape, slope, harmonic amplitude, and harmonic phase terms while preserving causal inputs. | next decision candidate |
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
-| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | planned before the integrated multi-head branch |
+| `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss campaign completed with 9/9 runs, 0 failures, and optional official Track 2 refresh pending |
 | `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | planned after `Track 2H` probes |
 | `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | planned after `Wave 3` |
 | Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
@@ -229,11 +231,11 @@ Current `Track 2E` observations:
 
 Recommended next gate:
 
-- keep the official Track 2 refresh for the completed Track 2G
-  direction-parallel candidate set as a separate operator-approved refresh;
-- open the `Track 2H` dispersion-aware probe plan before the next training
-  campaign, covering robust regression, quantile or probabilistic regression,
-  mixture-density heads, and latent-state / hysteresis-aware models;
+- prepare a separate operator-launched official `Track 2` verification refresh
+  for the nine completed `Track 2H` robust-loss candidates;
+- after robust-loss Track 2 verification, prepare the next `Track 2H` package
+  in staged order: quantile or probabilistic regression, mixture-density
+  heads, then latent-state / hysteresis-aware models;
 - treat `Wave 3` hybrid structured models and `Wave 4` first-PINN formulation
   as evidence-generating branches before the integrated multi-task /
   multi-head architecture;
@@ -500,8 +502,8 @@ After the completed `Track 2B`, `Track 2C`, mean-centered collage,
 `Track 2D` full-matrix, h0/error cross-check, and predicted-mean h0 surface
 diagnostics, the active next step is:
 
-- prepare `Track 2H` dispersion-aware modeling probes before any integrated
-  multi-head campaign;
+- launch or enqueue the prepared `Track 2H` robust-loss dispersion-aware
+  package before any integrated multi-head campaign;
 - test robust regression, quantile or probabilistic regression,
   mixture-density heads, and latent-state / hysteresis-aware models on the
   same direction-separated promotion surface;
@@ -906,6 +908,37 @@ Entry rule:
   degrading backward behavior; the next branch should use curve-aware loss or
   multi-task shape/offset training rather than relying on harmonic forcing
   alone.
+
+### Track 2H. Dispersion-Aware Robust-Loss Probe
+
+- status: robust-loss campaign completed; official `Track 2` matrix refresh is
+  pending as a separate optional operator-approved workflow;
+- families:
+  - `track2h_dispersion_aware_mae_robust_global`;
+  - `track2h_dispersion_aware_mae_robust_fw`;
+  - `track2h_dispersion_aware_mae_robust_bw`;
+  - `track2h_dispersion_aware_smooth_l1_robust_global`;
+  - `track2h_dispersion_aware_smooth_l1_robust_fw`;
+  - `track2h_dispersion_aware_smooth_l1_robust_bw`;
+  - `track2h_dispersion_aware_log_cosh_robust_global`;
+  - `track2h_dispersion_aware_log_cosh_robust_fw`;
+  - `track2h_dispersion_aware_log_cosh_robust_bw`;
+- closeout report:
+  `doc/reports/campaign_results/track2/2026-06-11-14-01-57_track2h_dispersion_aware_modeling_campaign_results_report.md`;
+- robust global candidate:
+  `te_track2h_mae_robust_global`, scalar test MAE `0.003406 deg`;
+- robust forward candidate:
+  `te_track2h_mae_robust_fw`, scalar test MAE `0.003146 deg`;
+- robust backward candidate:
+  `te_track2h_smooth_l1_robust_bw`, scalar test MAE `0.003074 deg`;
+- campaign scalar winner:
+  `te_track2h_smooth_l1_robust_bw`;
+- Track 2 decision: pending; the normal campaign closeout did not run the
+  heavy official verification matrix;
+- design conclusion: robust losses are useful enough to keep in the
+  dispersion-aware plan, especially on `Bw`, but they must be checked on the
+  curve-first Track 2 surface before becoming the default ingredient for the
+  future multi-task / multi-head model branch.
 
 ### Wave 3. Hybrid Structured Models
 

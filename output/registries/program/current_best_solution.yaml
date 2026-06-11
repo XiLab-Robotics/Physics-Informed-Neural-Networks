@@ -5,7 +5,7 @@ selection_policy:
   second_tie_breaker: val_mae
   third_tie_breaker: trainable_parameter_count
   direction: minimize
-updated_at: '2026-06-08T22:05:10'
+updated_at: '2026-06-11T14:01:57'
 best_entry:
   run_instance_id: 2026-05-25-17-38-18__te_periodic_gru_sequence_remote_bw
   run_name: te_periodic_gru_sequence_remote_Bw
