@@ -326,6 +326,11 @@ This folder contains the internal project documents derived from the reference P
   Technical note for opening the non-invasive `Wave 4` PINN formulation
   design step while the separate `Track 2H` campaign runs elsewhere.
 
+- [technical/2026-06/2026-06-11/2026-06-11-13-10-10_wave4_pinn_equation_expansion.md](./technical/2026-06/2026-06-11/2026-06-11-13-10-10_wave4_pinn_equation_expansion.md)
+  Technical note for expanding `Wave 4` into staged MMT-equation,
+  mesh-stiffness, loaded-TE, backlash/preload, cycloid-contact, and
+  planetary-LSTE exploratory PINN branches.
+
 - [technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md)
   Technical note for opening the non-invasive `Wave 3` hybrid structured
   model design step while the separate `Track 2H` campaign runs elsewhere.
