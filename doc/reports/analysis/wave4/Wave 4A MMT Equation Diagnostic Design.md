@@ -43,6 +43,16 @@ available or calibrated.
 6. Decide whether the MMT terms are useful as diagnostics, features, losses,
    calibrated baselines, or not useful.
 
+Current implementation state:
+
+- steps `1` and `2` have generated real diagnostic and parameter-inventory
+  artifacts;
+- the parameter inventory report is
+  `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
+- `Wave 4A` remains not campaign-ready because dataset-aligned calibration,
+  contact-geometry reconstruction, and leakage-safe equivalent-error fitting
+  are still open.
+
 ## Leakage Boundaries
 
 - Do not fit equivalent-error parameters on the same condition cells used for

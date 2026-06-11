@@ -273,6 +273,11 @@ This folder contains the internal project documents derived from the reference P
   demonstration `RTE` mean, peak-to-peak amplitude, dominant harmonics, and
   Track 2 suspicious-harmonic probe.
 
+- [reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md](./reports/analysis/wave4/mmt_parameter_inventory/%5B2026-06-11%5D/wave4a_mmt_parameter_inventory.md)
+  `Wave 4A` MMT parameter-inventory report, classifying geometry constants,
+  dataset metadata, train-only equivalent-error channels, blocked contact
+  geometry, and target-only TE boundaries before `Wave 4B` or `Wave 4C`.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -354,6 +359,11 @@ This folder contains the internal project documents derived from the reference P
   Plan the separate operator-launched official `Track 2` verification refresh
   for the nine completed `Track 2H` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
+
+- [technical/2026-06/2026-06-11/2026-06-11-20-29-51_wave4a_mmt_parameter_inventory.md](./technical/2026-06/2026-06-11/2026-06-11-20-29-51_wave4a_mmt_parameter_inventory.md)
+  Technical note for turning the current `Wave 4A` MMT diagnostic-only state
+  into a parameter-inventory and calibration-gate artifact before `Wave 4B`
+  feature generation or `Wave 4C` weak MMT losses.
 
 - [technical/2026-06/2026-06-11/2026-06-11-19-54-42_wave3_wave4_backlog_state_alignment.md](./technical/2026-06/2026-06-11/2026-06-11-19-54-42_wave3_wave4_backlog_state_alignment.md)
   Technical note for aligning the operational backlog and training master
@@ -2342,6 +2352,10 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md](./scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.md)
   Script-level documentation for the `Wave 4A` MMT equation diagnostic report
   generator.
+
+- [scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.md](./scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.md)
+  Script-level documentation for the `Wave 4A` MMT parameter-inventory report
+  builder.
 
 - [scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md](./scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md)
   Script-level documentation for the prepared Wave 1 high-order harmonic

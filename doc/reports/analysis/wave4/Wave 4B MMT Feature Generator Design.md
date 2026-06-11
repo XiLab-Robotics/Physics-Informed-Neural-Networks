@@ -42,13 +42,24 @@ accurate enough alone.
 
 ## Implementation Outline
 
-1. Reuse `Wave 4A` parameter inventory and calibration outputs.
+1. Reuse the generated `Wave 4A` parameter inventory:
+   `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`.
 2. Generate MMT feature tables for train/validation/test splits.
 3. Verify that every feature is computable without target leakage at
    inference time.
 4. Train a lightweight diagnostic model or join features into an existing
    Wave 3 design.
 5. Evaluate whether features reduce Track 2 offset or fragile-harmonic errors.
+
+The first feature package should prioritize:
+
+- locked geometry constants and transfer ratios;
+- causal operating metadata for stratification;
+- train-only calibrated low-speed equivalent-error groups;
+- output-disc assembly error only as a grouped latent or hysteresis-like
+  channel;
+- no measured TE mean, centered curve, or validation residual as an inference
+  feature.
 
 ## Leakage Boundaries
 

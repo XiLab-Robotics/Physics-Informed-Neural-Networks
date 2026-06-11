@@ -152,12 +152,32 @@ repository-owned MMT equation-chain demonstration.
 
 The diagnostic confirms that the MMT chain is callable and auditable, but it
 does not yet prove dataset causality. The result remains diagnostic-only until
-the MMT parameter inventory and leakage-safe dataset calibration are resolved.
+leakage-safe dataset calibration is resolved.
 
-Before Wave 4 can become campaign-ready, the project still needs the MMT
-parameter inventory, a decision on whether `Wave 4A` is diagnostic-only or
-feature/loss material, `Track 2H` loss-policy evidence, Wave 3 smoke evidence,
-and an approved campaign plan for the selected sub-branch.
+## Wave 4A Parameter Inventory Status
+
+The `Wave 4A` parameter inventory has now been generated as a non-campaign
+artifact.
+
+| Item | Status |
+| --- | --- |
+| Report builder | `scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.py`. |
+| Markdown report | `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`. |
+| Companion artifacts | `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`. |
+| Inventory rows | `11`. |
+| Train-only calibratable groups | `5`. |
+| High leakage-risk groups | `3`. |
+
+The inventory separates safe geometry constants from dataset metadata,
+train-only equivalent-error channels, blocked contact geometry, and target-only
+measured TE. It confirms that MMT can continue as a diagnostic and can seed
+`Wave 4B` feature design, but it should not become a calibrated analytical
+baseline or `Wave 4C` loss until dataset-aligned calibration is leakage-safe.
+
+Before Wave 4 can become campaign-ready, the project still needs a decision on
+whether `Wave 4A` remains diagnostic-only or becomes feature/loss material,
+`Track 2H` loss-policy evidence, Wave 3 smoke evidence, dataset-aligned MMT
+calibration checks, and an approved campaign plan for the selected sub-branch.
 
 ## External Equation Families To Explore
 

@@ -2,7 +2,7 @@
 
 ## Executive Snapshot
 
-- Generated At: `2026-06-11T21:03:11`
+- Generated At: `2026-06-11T21:58:38`
 - Program State: active.
 - Current Completed Wave: `Track 2H` robust-loss dispersion-aware campaign
   closeout and official `Track 2` verification refresh are complete.
@@ -145,7 +145,7 @@
 | Track 2. Directional Offline Comparison | official matrix, `Track 2G`, and `Track 2H` refreshes completed | Continue using separate operator-approved refreshes after campaign closeout. |
 | Track 2H. Dispersion-Aware Modeling Probes | robust-loss campaign completed and accepted as verified exploratory baseline, not promoted | Prepare quantile or probabilistic dispersion-aware package, then use robust-loss evidence for `Wave 3` defaults. |
 | Wave 3. Hybrid Structured Models | pre-implemented; `wave3_harmonic_prior_residual` is training-smoke-ready and not campaign-ready | After `Track 2H` closeout, package real `global`, `Fw`, and `Bw` campaign entries from the validation-only scaffold. |
-| Wave 4A. MMT Equation Diagnostic | diagnostic report generated; diagnostic-only and not campaign-ready | Build the MMT parameter inventory and dataset-aligned calibration checks before `Wave 4B` or `Wave 4C`. |
+| Wave 4A. MMT Equation Diagnostic | diagnostic report and parameter inventory generated; diagnostic-only and not campaign-ready | Run dataset-aligned calibration checks before `Wave 4B` or `Wave 4C`. |
 | Wave 4. PINN Formulation And First PINN | design package exists; training implementation waits on `Wave 4A` and `Wave 3` evidence | Decide whether MMT stays diagnostic-only, becomes features in `Wave 4B`, or becomes a weak soft loss in `Wave 4C`. |
 | Integrated multi-task / multi-head branch | deferred | Integrate only mechanisms supported by `Track 2H`, `Wave 3`, and `Wave 4A` evidence. |
 | Wave 5. Cross-Wave Comparison And Best Solution | pending | Compare closed offline waves and `Track 3` results when available. |
@@ -161,6 +161,10 @@ Current non-campaign pre-implementation anchors:
   `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
 - Wave 4A companion artifacts:
   `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`.
+- Wave 4A parameter-inventory report:
+  `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
+- Wave 4A parameter-inventory artifacts:
+  `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`.
 
 Low-priority exploratory families remain deferred:
 

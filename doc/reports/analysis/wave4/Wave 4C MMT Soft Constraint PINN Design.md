@@ -39,11 +39,16 @@ subsystem-contribution behavior.
 
 1. Convert the MMT reproduction into a batch-callable module or differentiable
    approximation.
-2. Start with fixed calibrated equivalent-error parameters from `Wave 4B`.
+2. Start from the `Wave 4A` parameter inventory and fixed calibrated
+   equivalent-error parameters from `Wave 4B`.
 3. Add an optional head that predicts a small equivalent-error vector.
 4. Sweep weak physics weights and compare against data-only control.
 5. Reject the branch if MMT losses reduce validation loss but worsen Track 2
    curve diagnostics.
+
+`Wave 4C` should not be implemented as the next branch until `Wave 4B` proves
+that at least one MMT feature or calibrated equivalent-error group explains
+held-out offset or fragile-harmonic behavior without target leakage.
 
 ## Scaling Risks
 

@@ -1,0 +1,25 @@
+run_id: 2026-06-11-20-29-51__wave4a_mmt_parameter_inventory
+report_path: doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md
+inventory_path: output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/wave4a_mmt_parameter_inventory.csv
+row_count: 11
+availability_counts:
+  available_as_target_only: 1
+  calibratable_train_only: 5
+  known_dataset_metadata: 1
+  known_geometry_constant: 3
+  unavailable_or_ambiguous: 1
+downstream_decision_counts:
+  allowed_for_dataset_aligned_diagnostics: 1
+  allowed_for_diagnostic_and_feature_generation: 1
+  allowed_for_wave4a_diagnostic_and_wave4b_features: 1
+  allowed_for_wave4b_features_and_wave4c_losses: 1
+  candidate_feature_or_weak_loss_after_calibration: 1
+  candidate_for_offset_and_low_frequency_diagnostics: 1
+  candidate_latent_state_or_hysteresis_channel: 1
+  diagnostic_only_until_reconstruction_gate: 1
+  evaluation_target_not_inference_input: 1
+  high_priority_wave4b_and_wave4c_candidate: 1
+  high_priority_wave4b_candidate_features: 1
+high_leakage_risk_count: 3
+campaign_readiness: not_campaign_ready
+decision: wave4a_inventory_complete_wave4b_wave4c_require_dataset_aligned_calibration

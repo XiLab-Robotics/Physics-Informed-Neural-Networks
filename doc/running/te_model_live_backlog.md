@@ -211,7 +211,7 @@ Next planned diagnostic and training decision branches:
 | Component-offset identification | Test whether curve offset is dominated by `a_0` / `Component 0`, multiple components, condition/regime behavior, or experimental repeatability limits. | measured `h0`, signed-offset cross-check, and predicted-mean surface diagnostics completed; `h0` is the right mean channel, but the actionable issue is model-side mean-surface bias/compression |
 | `Track 2H` dispersion-aware modeling probes | Test robust losses, quantile or probabilistic heads, mixture-density heads, and latent-state or hysteresis-aware features on the offset and fragile-harmonic problem. | robust-loss campaign and official Track 2 refresh completed; verified exploratory baseline, not promoted |
 | `Wave 3` hybrid structured models | Combine harmonic structure, condition-conditioned residual learning, and explicit grouped treatment of stable and fragile harmonic bands. | `wave3_harmonic_prior_residual` skeleton is training-smoke-ready; real campaign packaging waits for `Track 2H` closeout |
-| `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 4A` MMT diagnostic is generated and diagnostic-only; parameter inventory and calibration gate remain open |
+| `Wave 4` PINN formulation and first PINN | Test soft physics, periodicity, smoothness, harmonic-consistency, and operating-condition constraints in a first narrow PINN branch. | `Wave 4A` MMT diagnostic and parameter inventory are generated; dataset-aligned calibration and `Wave 4B` / `Wave 4C` decision gates remain open |
 | Integrated multi-task / multi-head model branch | Shared causal trunk with separate offset, low-frequency, centered-shape, uncertainty or mixture, and optional structured-residual heads. | deferred until `Track 2H`, `Wave 3`, and `Wave 4` identify which mechanisms should be integrated |
 | Sequential residual calibration branch | Current best causal model plus second causal residual or offset calibrator trained on model error. | candidate after audit |
 
@@ -237,8 +237,8 @@ Recommended next gate:
   as evidence-generating branches before the integrated multi-task /
   multi-head architecture; `Wave 3` now resumes from the
   `wave3_harmonic_prior_residual` training-smoke-ready scaffold, while
-  `Wave 4` resumes from the `Wave 4A` MMT diagnostic-only report and
-  parameter-inventory gate;
+  `Wave 4` resumes from the `Wave 4A` MMT diagnostic report, completed
+  parameter inventory, and dataset-aligned calibration gate;
 - do not document `a_0` / `Component 0` as the confirmed sole cause unless
   repeatability, component-level error, and model-side surface diagnostics
   support that conclusion.
@@ -992,13 +992,19 @@ Entry rule:
     `scripts/models/wave4_mmt_diagnostic_adapter.py`;
   - diagnostic report builder:
     `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`;
+  - parameter-inventory report builder:
+    `scripts/reports/analysis/build_wave4a_mmt_parameter_inventory_report.py`;
   - generated diagnostic report:
     `doc/reports/analysis/wave4/mmt_equation_diagnostic/[2026-06-11]/wave4a_mmt_equation_diagnostic.md`;
+  - generated parameter-inventory report:
+    `doc/reports/analysis/wave4/mmt_parameter_inventory/[2026-06-11]/wave4a_mmt_parameter_inventory.md`;
   - companion artifacts:
     `output/validation_checks/wave4_mmt_equation_diagnostic/2026-06-11-19-25-32__wave4a_mmt_equation_diagnostic/`;
-- updated priority: execute `Wave 4A` parameter inventory and dataset-aligned
-  diagnostic calibration after the `Wave 3` smoke/campaign decision, then
-  decide whether `Wave 4B` features or `Wave 4C` soft losses are justified;
+  - parameter-inventory artifacts:
+    `output/validation_checks/wave4_mmt_parameter_inventory/2026-06-11-20-29-51__wave4a_mmt_parameter_inventory/`;
+- updated priority: execute dataset-aligned diagnostic calibration after the
+  `Wave 3` smoke/campaign decision, then decide whether `Wave 4B` features or
+  `Wave 4C` soft losses are justified;
 - mandatory rule: prepare or justify `global`, `forward`, and `backward`
   surfaces;
 - paper-reproduction scope:
@@ -1009,12 +1015,18 @@ Entry rule:
     errors;
   - keep online compensation execution out of Wave 4 unless Track 3 is
     explicitly promoted first.
+- completed inventory conclusions:
+  - known geometry constants are safe for diagnostics and feature generation;
+  - operating metadata can be used for stratification and causal conditioning;
+  - five equivalent-error groups are train-only calibratable;
+  - contact geometry remains unavailable or ambiguous and blocks calibrated
+    analytical-baseline claims;
+  - measured TE remains target-only and must not become an inference input.
 - next implementation steps:
-  - build the MMT parameter inventory: known rig/reducer constants,
-    configurable values, train-only calibratable values, and unavailable
-    quantities;
   - compare MMT diagnostic signatures against dataset-aligned curve summaries
     without leakage;
+  - design a train-only equivalent-error calibration policy for candidate
+    `Wave 4B` features;
   - decide whether the MMT path remains diagnostic-only, becomes a feature
     generator (`Wave 4B`), or becomes a weak soft-constraint loss (`Wave 4C`);
   - do not treat the current demonstration harmonic summary as dataset
