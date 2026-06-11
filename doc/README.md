@@ -230,6 +230,11 @@ This folder contains the internal project documents derived from the reference P
   prior residual learners, grouped harmonic heads, condition-conditioned
   residual surfaces, and basis-constrained curve decoders.
 
+- [reports/analysis/wave4/Wave 4 PINN Formulation And First PINN.md](./reports/analysis/wave4/Wave%204%20PINN%20Formulation%20And%20First%20PINN.md)
+  Design report for the first `Wave 4` soft-constraint PINN branch, covering
+  TE data fit, periodicity, smoothness, harmonic consistency, condition-surface
+  consistency, and residual regularization boundaries.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -306,6 +311,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the separate operator-launched official `Track 2` verification refresh
   for the nine completed `Track 2H` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
+
+- [technical/2026-06/2026-06-11/2026-06-11-12-23-30_wave4_pinn_formulation_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-23-30_wave4_pinn_formulation_design.md)
+  Technical note for opening the non-invasive `Wave 4` PINN formulation
+  design step while the separate `Track 2H` campaign runs elsewhere.
 
 - [technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md)
   Technical note for opening the non-invasive `Wave 3` hybrid structured
