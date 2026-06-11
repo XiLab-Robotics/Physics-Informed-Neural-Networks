@@ -225,6 +225,11 @@ This folder contains the internal project documents derived from the reference P
   mixture-density, and latent-state / hysteresis-aware modeling probes before
   the integrated multi-task / multi-head branch.
 
+- [reports/analysis/wave3/Wave 3 Hybrid Structured Models.md](./reports/analysis/wave3/Wave%203%20Hybrid%20Structured%20Models.md)
+  Design report for `Wave 3` hybrid structured TE models, covering harmonic
+  prior residual learners, grouped harmonic heads, condition-conditioned
+  residual surfaces, and basis-constrained curve decoders.
+
 - [technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md](./technical/2026-06/2026-06-09/2026-06-09-20-03-08_track2d_h0_offset_crosscheck.md)
   Technical plan for cross-checking `Track 2D` signed offset errors against
   measured `h0` / curve-mean patterns and outliers.
@@ -301,6 +306,10 @@ This folder contains the internal project documents derived from the reference P
   Plan the separate operator-launched official `Track 2` verification refresh
   for the nine completed `Track 2H` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
+
+- [technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-02-00_wave3_hybrid_structured_model_design.md)
+  Technical note for opening the non-invasive `Wave 3` hybrid structured
+  model design step while the separate `Track 2H` campaign runs elsewhere.
 
 #### 2026-06-10
 
