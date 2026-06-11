@@ -1,0 +1,31 @@
+metadata:
+  skeleton_name: wave3_harmonic_prior_residual
+  implementation_status: implementation_ready
+  campaign_readiness: not_campaign_ready
+  blocker_list:
+    - blocked_on_track2h_results
+    - blocked_on_wave3_smoke
+    - requires_real_campaign_plan
+model:
+  model_type: wave3_harmonic_prior_residual
+  model_family: wave3_harmonic_prior_residual
+  input_size: 5
+  output_size: 1
+  harmonic_order: 240
+  coefficient_mode: linear_conditioned
+  harmonic_index_list: [0, 1, 3, 39, 40, 78, 81, 156, 162, 240]
+  low_order_harmonic_index_list: [0, 1]
+  stable_middle_harmonic_index_list: [3, 39, 40, 78, 81]
+  high_order_harmonic_index_list: [156, 162, 240]
+  residual_hidden_size: [96, 64]
+  residual_activation_name: GELU
+  residual_dropout_probability: 0.05
+  residual_use_layer_norm: true
+  residual_scale: 1.0
+  readout_position: center
+  freeze_structured_branch: false
+training_policy:
+  launch_allowed: false
+  queue_allowed: false
+  default_loss_status: blocked_on_track2h_results
+  notes: Embryonic template only. Do not enqueue or launch training.

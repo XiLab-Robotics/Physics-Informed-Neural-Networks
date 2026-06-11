@@ -28,6 +28,8 @@ At the moment, the implemented workflows are:
   Aries clone;
 - analytical `MMT_TEModeling` equation-chain reproduction scripts for the
   `RV` reducer transmission-error model in MATLAB and Python;
+- dry-run embryonic `Wave 3` and `Wave 4` skeleton checks that validate model
+  and diagnostic scaffolds without creating queues or launching training;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
@@ -181,6 +183,16 @@ The current usage flow mainly relies on these folders:
 - `scripts/paper_reimplementation/mmt_te_modeling/mmt_te_modeling_reproduction.m`
   MATLAB analogue of the same `MMT_TEModeling` analytical equation-chain
   reproduction script.
+
+- `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1`
+  Dry-run check launcher for the embryonic `Wave 3` harmonic-prior residual
+  skeleton. It compiles and validates the scaffold without queueing or
+  launching training.
+
+- `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1`
+  Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
+  It compiles and validates the scaffold without queueing or launching
+  training.
 
 - `scripts/training/`
   Static neural and tree training entry points, shared datamodule/regression infrastructure, campaign runner, and validation/smoke-test utilities.

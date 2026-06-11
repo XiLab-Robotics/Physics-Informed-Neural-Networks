@@ -1,0 +1,22 @@
+metadata:
+  skeleton_name: wave4a_mmt_equation_diagnostic
+  implementation_status: implementation_ready
+  campaign_readiness: not_campaign_ready
+  blocker_list:
+    - requires_parameter_inventory
+    - blocked_on_wave4a_diagnostic
+    - requires_real_campaign_plan
+diagnostic:
+  adapter_type: wave4_mmt_diagnostic_adapter
+  sample_count: 720
+  top_harmonic_count: 8
+  output_schema:
+    - sample_count
+    - rte_arcsec_mean
+    - rte_arcsec_peak_to_peak
+    - dominant_harmonic_index_list
+    - dominant_harmonic_amplitude_arcsec_list
+training_policy:
+  launch_allowed: false
+  queue_allowed: false
+  notes: Embryonic diagnostic template only. Do not enqueue or launch training.

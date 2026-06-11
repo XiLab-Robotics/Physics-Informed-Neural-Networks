@@ -85,6 +85,24 @@ The first runnable Wave 3 candidate should be
 This candidate can answer whether the model needs more structure before it
 needs a larger multi-head architecture.
 
+## Embryonic Implementation Status
+
+The first `Wave 3` skeleton has now been materialized as implementation-ready
+scaffolding, but it remains explicitly not campaign-ready.
+
+| Item | Status |
+| --- | --- |
+| Model class | `scripts/models/wave3_harmonic_prior_residual_network.py` exposes `Wave3HarmonicPriorResidualNetwork`. |
+| Factory key | `wave3_harmonic_prior_residual` is registered for construction smoke checks. |
+| Config template | `config/training/wave3_embryonic_skeleton/wave3_harmonic_prior_residual_template.yaml` records `implementation_ready` and `not_campaign_ready`. |
+| Validator | `scripts/campaigns/wave3/validate_wave3_embryonic_skeleton_package.py` checks metadata, factory construction, and point/sequence forward passes. |
+| Dry-run launcher | `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
+
+Before Wave 3 can become campaign-ready, the project still needs the `Track 2H`
+loss-policy result, a real one-batch training smoke pass, and an approved
+campaign plan with queue size, surfaces, launch mode, protected files, and
+active-campaign state.
+
 ## Comparison Plan
 
 | Comparator | Why It Matters |
@@ -111,7 +129,8 @@ accepts these design choices:
 ## Non-Goals
 
 - Do not modify the active `Track 2H` campaign.
-- Do not generate Wave 3 YAML packages or launchers in this design step.
+- Do not treat the embryonic template or dry-run launcher as a real campaign
+  package.
 - Do not claim that `h0` is the only physical cause of offset behavior.
 - Do not merge Wave 3 with the final integrated multi-task / multi-head
   architecture before smaller Wave 3 candidates have been tested.

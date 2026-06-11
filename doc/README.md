@@ -350,6 +350,10 @@ This folder contains the internal project documents derived from the reference P
   for the nine completed `Track 2H` robust-loss candidates, preserving
   `global`, `Fw`, and `Bw` as parallel decision surfaces.
 
+- [technical/2026-06/2026-06-11/2026-06-11-15-10-02_wave3_wave4_embryonic_skeletons.md](./technical/2026-06/2026-06-11/2026-06-11-15-10-02_wave3_wave4_embryonic_skeletons.md)
+  Technical note for preparing `Wave 3` and `Wave 4` embryonic skeletons as
+  implementation-ready but not campaign-ready.
+
 - [technical/2026-06/2026-06-11/2026-06-11-12-23-30_wave4_pinn_formulation_design.md](./technical/2026-06/2026-06-11/2026-06-11-12-23-30_wave4_pinn_formulation_design.md)
   Technical note for opening the non-invasive `Wave 4` PINN formulation
   design step while the separate `Track 2H` campaign runs elsewhere.
@@ -2306,6 +2310,16 @@ This folder contains the internal project documents derived from the reference P
 - [scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md](./scripts/campaigns/run_wave1_directional_best_hyperparameter_search_campaign.md)
   Script-level documentation for the mixed bounded-grid plus Optuna Wave 1 directional best-hyperparameter search launcher.
 
+- [scripts/campaigns/wave3/wave3_embryonic_skeleton_checks.md](./scripts/campaigns/wave3/wave3_embryonic_skeleton_checks.md)
+  Script-level documentation for the dry-run `Wave 3` embryonic skeleton
+  checker. It validates implementation readiness without queueing or launching
+  training.
+
+- [scripts/campaigns/wave4/wave4_embryonic_skeleton_checks.md](./scripts/campaigns/wave4/wave4_embryonic_skeleton_checks.md)
+  Script-level documentation for the dry-run `Wave 4A` embryonic skeleton
+  checker. It validates implementation readiness without queueing or launching
+  training.
+
 - [scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md](./scripts/campaigns/run_wave1_high_order_harmonic_tracking_campaign.md)
   Script-level documentation for the prepared Wave 1 high-order harmonic
   tracking launcher across RCIM sparse, dense `0..240`, and dense `0..360`
@@ -2552,6 +2566,11 @@ This folder contains the internal project documents derived from the reference P
   Preliminary campaign plan for the `Track 2H` dispersion-aware modeling
   probes across robust, probabilistic, mixture, and causal latent-state
   candidate groups.
+
+- [reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
+  Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic model,
+  diagnostic, validator, dry-run launcher, and configuration skeletons without
+  making either wave campaign-ready.
 
 - [reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md](./reports/campaign_plans/track2/2026-06-08-18-01-40_track2g_curve_aware_training_campaign_plan_report.md)
   Preliminary campaign plan for the `Track 2G` curve-aware training probe,
@@ -2838,6 +2857,10 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-15-10-02_wave3_wave4_embryonic_skeleton_plan_report.md)
+  Preliminary plan for preparing `Wave 3` and `Wave 4` embryonic skeletons as
+  implementation-ready but not campaign-ready scaffolds.
 
 - [reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md](./reports/campaign_plans/wave2/2026-05-25-13-34-12_wave2b_harmonic_temporal_hybrid_campaign_plan_report.md)
   Preliminary campaign plan for the `Wave 2B` harmonic-temporal hybrid

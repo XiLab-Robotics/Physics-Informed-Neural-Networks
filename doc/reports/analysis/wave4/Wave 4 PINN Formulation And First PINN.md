@@ -123,6 +123,23 @@ The MMT chain should not be used as a hard equality constraint until the
 contact geometry and equivalent-error inputs are either measured or calibrated
 with a split that prevents condition-cell memorization.
 
+## Embryonic Implementation Status
+
+The first `Wave 4A` skeleton has now been materialized as implementation-ready
+diagnostic scaffolding, but it remains explicitly not campaign-ready.
+
+| Item | Status |
+| --- | --- |
+| Diagnostic adapter | `scripts/models/wave4_mmt_diagnostic_adapter.py` exposes `Wave4MMTDiagnosticAdapter`. |
+| Config template | `config/training/wave4_embryonic_skeleton/wave4a_mmt_equation_diagnostic_template.yaml` records `implementation_ready` and `not_campaign_ready`. |
+| Validator | `scripts/campaigns/wave4/validate_wave4_embryonic_skeleton_package.py` checks metadata and MMT demonstration-summary generation. |
+| Dry-run launcher | `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
+
+Before Wave 4 can become campaign-ready, the project still needs the MMT
+parameter inventory, a decision on whether `Wave 4A` is diagnostic-only or
+feature/loss material, `Track 2H` loss-policy evidence, Wave 3 smoke evidence,
+and an approved campaign plan for the selected sub-branch.
+
 ## External Equation Families To Explore
 
 | Family | Source Signal | Possible Wave 4 Use | Main Risk |
@@ -216,7 +233,8 @@ accepts these choices:
 ## Non-Goals
 
 - Do not modify the active `Track 2H` campaign.
-- Do not generate Wave 4 YAML packages or launchers in this design step.
+- Do not treat the embryonic template or dry-run launcher as a real campaign
+  package.
 - Do not claim that a full analytical RV reducer PINN has been implemented.
 - Do not treat external gear-pair or planetary equations as directly valid for
   the RV reducer without validation against repository curves.

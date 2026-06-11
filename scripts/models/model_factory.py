@@ -19,6 +19,7 @@ from scripts.models.residual_harmonic_temporal_sequence_network import ResidualH
 from scripts.models.sequential_residual_offset_network import SequentialResidualOffsetNetwork
 from scripts.models.temporal_sequence_network import RecurrentSequenceNetwork
 from scripts.models.temporal_sequence_network import TemporalConvolutionNetwork
+from scripts.models.wave3_harmonic_prior_residual_network import Wave3HarmonicPriorResidualNetwork
 
 def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Module:
 
@@ -230,6 +231,26 @@ def create_model(model_type: str, model_configuration: dict[str, Any]) -> nn.Mod
             offset_readout_position=str(model_configuration.get("offset_readout_position", "center")),
             offset_scale=float(model_configuration.get("offset_scale", 1.0)),
             freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
+        )
+
+    # Create Embryonic Wave 3 Harmonic-Prior Residual Skeleton
+    if normalized_model_type == "wave3_harmonic_prior_residual":
+        return Wave3HarmonicPriorResidualNetwork(
+            input_size=int(model_configuration["input_size"]),
+            output_size=int(model_configuration.get("output_size", 1)),
+            harmonic_order=int(model_configuration.get("harmonic_order", 240)),
+            coefficient_mode=str(model_configuration.get("coefficient_mode", "linear_conditioned")),
+            harmonic_index_list=model_configuration.get("harmonic_index_list"),
+            residual_hidden_size=list(model_configuration.get("residual_hidden_size", [96, 64])),
+            residual_activation_name=str(model_configuration.get("residual_activation_name", "GELU")),
+            residual_dropout_probability=float(model_configuration.get("residual_dropout_probability", 0.05)),
+            residual_use_layer_norm=bool(model_configuration.get("residual_use_layer_norm", True)),
+            residual_scale=float(model_configuration.get("residual_scale", 1.0)),
+            readout_position=str(model_configuration.get("readout_position", "center")),
+            freeze_structured_branch=bool(model_configuration.get("freeze_structured_branch", False)),
+            low_order_harmonic_index_list=model_configuration.get("low_order_harmonic_index_list"),
+            stable_middle_harmonic_index_list=model_configuration.get("stable_middle_harmonic_index_list"),
+            high_order_harmonic_index_list=model_configuration.get("high_order_harmonic_index_list"),
         )
 
     # Create Periodic LSTM Sequence Model
