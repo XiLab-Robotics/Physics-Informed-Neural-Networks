@@ -98,6 +98,24 @@ scaffolding, but it remains explicitly not campaign-ready.
 | Validator | `scripts/campaigns/wave3/validate_wave3_embryonic_skeleton_package.py` checks metadata, factory construction, and point/sequence forward passes. |
 | Dry-run launcher | `scripts/campaigns/wave3/run_wave3_embryonic_skeleton_checks.ps1` runs compile and validator checks only. |
 
+## Grouped Harmonic-Heads Skeleton Status
+
+The second `Wave 3` model candidate has now been prepared as a dry-run
+interface skeleton. It remains explicitly not campaign-ready.
+
+| Item | Status |
+| --- | --- |
+| Model class | `scripts/models/wave3_grouped_harmonic_heads_network.py` exposes `Wave3GroupedHarmonicHeadsNetwork`. |
+| Factory key | `wave3_grouped_harmonic_heads` is registered for construction smoke checks. |
+| Config template | `config/training/wave3_embryonic_skeleton/wave3_grouped_harmonic_heads_template.yaml` records `implementation_ready` and `not_campaign_ready`. |
+| Validator | `scripts/campaigns/wave3/validate_wave3_grouped_harmonic_heads_package.py` checks metadata, factory construction, point/sequence forward passes, and auxiliary tensors. |
+| Dry-run launcher | `scripts/campaigns/wave3/run_wave3_grouped_harmonic_heads_checks.ps1` runs compile and validator checks only. |
+
+The grouped-head path separates low-order, stable-middle, and high-order
+harmonic branches before adding a residual shape branch. It is intended to
+test interface viability only until `Track 2H` closeout provides loss-policy
+guidance and a real Wave 3 campaign plan is approved.
+
 ## Training-Smoke-Ready Status
 
 The `wave3_harmonic_prior_residual` skeleton has also passed the shared

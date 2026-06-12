@@ -32,6 +32,8 @@ At the moment, the implemented workflows are:
   and diagnostic scaffolds without creating queues or launching training;
 - a dry-run `Wave 3` training-smoke-ready check that runs one-batch validation
   without creating a campaign;
+- a dry-run `Wave 3` grouped harmonic-heads check that validates the second
+  grouped-head model interface without creating a campaign;
 - a `Wave 4A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
 - a dry-run `Wave 4B` MMT feature-generator check that writes leakage-aware
@@ -199,6 +201,11 @@ The current usage flow mainly relies on these folders:
   Dry-run check launcher for the `Wave 3` harmonic-prior residual one-batch
   training-stack validation. It writes validation artifacts but does not create
   a campaign queue or launch training.
+
+- `scripts/campaigns/wave3/run_wave3_grouped_harmonic_heads_checks.ps1`
+  Dry-run check launcher for the second `Wave 3` grouped harmonic-heads
+  skeleton. It compiles the model, validates factory construction, and runs
+  point/sequence forward checks without queueing or launching training.
 
 - `scripts/campaigns/wave4/run_wave4_embryonic_skeleton_checks.ps1`
   Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.

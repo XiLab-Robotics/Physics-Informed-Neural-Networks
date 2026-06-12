@@ -355,6 +355,11 @@ This folder contains the internal project documents derived from the reference P
 
 #### 2026-06-12
 
+- [technical/2026-06/2026-06-12/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton.md)
+  Technical note for preparing a non-campaign `Wave 3` grouped harmonic-heads
+  skeleton while the separate `Track 2H` quantile / probabilistic campaign
+  runs elsewhere.
+
 - [technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md)
   Technical note for preparing a non-campaign `Wave 4B` MMT feature-generator
   skeleton while the separate `Track 2H` quantile / probabilistic campaign
@@ -2905,6 +2910,11 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave3_wave4/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-12-14-56-27_wave3_grouped_harmonic_heads_skeleton_plan_report.md)
+  Preliminary plan for a non-campaign `Wave 3` grouped harmonic-heads skeleton
+  with factory construction, point/sequence forward checks, and a dry-run
+  launcher.
 
 - [reports/campaign_plans/wave3_wave4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md)
   Preliminary plan for a non-campaign `Wave 4B` MMT feature-generator skeleton

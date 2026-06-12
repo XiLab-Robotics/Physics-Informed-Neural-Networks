@@ -1,0 +1,32 @@
+run_id: 2026-06-12-15-06-34__wave3_grouped_harmonic_heads
+implementation_status: implementation_ready
+campaign_readiness: not_campaign_ready
+template_path: config/training/wave3_embryonic_skeleton/wave3_grouped_harmonic_heads_template.yaml
+output_directory: output/validation_checks/wave3_grouped_harmonic_heads/2026-06-12-15-06-34__wave3_grouped_harmonic_heads
+point_output_shape:
+- 4
+- 1
+sequence_output_shape:
+- 4
+- 1
+auxiliary_key_list:
+- low_order_prediction_tensor
+- stable_middle_prediction_tensor
+- high_order_prediction_tensor
+- grouped_harmonic_prediction_tensor
+- residual_prediction_tensor
+- wave3_grouped_residual_prediction_tensor
+- prediction_tensor
+low_order_harmonic_index_list:
+- 0
+- 1
+stable_middle_harmonic_index_list:
+- 3
+- 39
+- 40
+- 78
+- 81
+high_order_harmonic_index_list:
+- 156
+- 162
+- 240
