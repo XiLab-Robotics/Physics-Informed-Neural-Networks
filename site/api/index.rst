@@ -7,6 +7,7 @@ This section contains the first canonical API slice integrated into the Sphinx p
    :maxdepth: 2
 
    models/index
+   features/index
    paper_reimplementation/index
    training/index
    reports/index

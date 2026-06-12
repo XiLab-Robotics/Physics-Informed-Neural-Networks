@@ -1,0 +1,32 @@
+metadata:
+  skeleton_name: wave4b_mmt_feature_generator
+  implementation_status: implementation_ready
+  campaign_readiness: not_campaign_ready
+  blocker_list:
+    - requires_track2h_quantile_probabilistic_closeout
+    - requires_real_wave4b_campaign_plan
+    - requires_feature_consumer_selection
+feature_generation:
+  generator_type: wave4b_mmt_feature_generator
+  sample_count: 720
+  inference_safe_only: true
+  harmonic_index_list:
+    - 0
+    - 1
+    - 3
+    - 39
+    - 40
+    - 78
+    - 81
+    - 156
+    - 162
+    - 240
+  output_schema:
+    - wave4b_mmt_feature_schema
+    - wave4b_mmt_sample_features
+    - wave4b_mmt_harmonic_features
+training_policy:
+  launch_allowed: false
+  queue_allowed: false
+  registry_update_allowed: false
+  notes: Dry-run feature-generator template only. Do not enqueue or launch training.

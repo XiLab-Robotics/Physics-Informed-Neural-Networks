@@ -1,0 +1,11 @@
+harmonic_index,is_available,mmt_harmonic_amplitude_arcsec,mmt_harmonic_phase_rad,usage_policy
+0,True,565.628931404,0.000000000,inference_safe
+1,True,0.000000000,-2.062556034,inference_safe
+3,True,0.000000000,-2.550460052,inference_safe
+39,True,0.000000000,-2.069477590,inference_safe
+40,True,0.000000000,-0.572253020,inference_safe
+78,True,25.198140050,-0.262658793,inference_safe
+81,True,0.000000000,-1.572767250,inference_safe
+156,True,5.414471632,0.259545888,inference_safe
+162,True,4.236381683,2.830715349,inference_safe
+240,True,2.188342719,-0.584306564,inference_safe

@@ -353,6 +353,13 @@ This folder contains the internal project documents derived from the reference P
 
 ### Technical Documents
 
+#### 2026-06-12
+
+- [technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md](./technical/2026-06/2026-06-12/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton.md)
+  Technical note for preparing a non-campaign `Wave 4B` MMT feature-generator
+  skeleton while the separate `Track 2H` quantile / probabilistic campaign
+  runs elsewhere.
+
 #### 2026-06-11
 
 - [technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md](./technical/2026-06/2026-06-11/2026-06-11-14-57-02_track2h_track2_verification_refresh.md)
@@ -2898,6 +2905,10 @@ This folder contains the internal project documents derived from the reference P
   Final results report for the completed Wave 1 residual-harmonic family optimization campaign, including familywise ranking and the promoted residual-family winner.
 
 #### Campaign Plans
+
+- [reports/campaign_plans/wave3_wave4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-12-13-04-05_wave4b_mmt_feature_generator_skeleton_plan_report.md)
+  Preliminary plan for a non-campaign `Wave 4B` MMT feature-generator skeleton
+  with leakage-aware metadata, validation outputs, and a dry-run launcher.
 
 - [reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md](./reports/campaign_plans/wave3_wave4/2026-06-11-19-25-32_wave3_wave4_parallel_hardening_plan_report.md)
   Preliminary plan for hardening the `Wave 3` skeleton with one-batch

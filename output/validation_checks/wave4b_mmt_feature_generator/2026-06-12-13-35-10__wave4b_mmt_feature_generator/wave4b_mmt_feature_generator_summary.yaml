@@ -1,0 +1,15 @@
+implementation_status: implementation_ready
+campaign_readiness: not_campaign_ready
+sample_count: 720
+schema_feature_count: 12
+sample_feature_row_count: 720
+harmonic_summary_row_count: 10
+inference_safe_feature_count: 6
+blocked_feature_count: 6
+blocker_list:
+- requires_track2h_quantile_probabilistic_closeout
+- requires_real_wave4b_campaign_plan
+- requires_feature_consumer_selection
+run_id: 2026-06-12-13-35-10__wave4b_mmt_feature_generator
+template_path: config/training/wave4_embryonic_skeleton/wave4b_mmt_feature_generator_template.yaml
+output_directory: output/validation_checks/wave4b_mmt_feature_generator/2026-06-12-13-35-10__wave4b_mmt_feature_generator

@@ -34,6 +34,8 @@ At the moment, the implemented workflows are:
   without creating a campaign;
 - a `Wave 4A` MMT equation diagnostic report generator for harmonic-summary
   inspection before PINN integration;
+- a dry-run `Wave 4B` MMT feature-generator check that writes leakage-aware
+  feature schema artifacts without creating a campaign;
 - explicit isolated-mode session management through a repository-owned tooling entry point with locked-file snapshots, staging roots, and manifest/checklist generation;
 - timestamped technical-document scaffolding and index registration through a
   repository-owned tooling entry point;
@@ -202,6 +204,11 @@ The current usage flow mainly relies on these folders:
   Dry-run check launcher for the embryonic `Wave 4A` MMT diagnostic adapter.
   It compiles and validates the scaffold without queueing or launching
   training.
+
+- `scripts/campaigns/wave4/run_wave4b_mmt_feature_generator_checks.ps1`
+  Dry-run check launcher for the `Wave 4B` MMT feature-generator skeleton. It
+  compiles the feature generator, validates leakage labels, and writes sample
+  schema artifacts without queueing or launching training.
 
 - `scripts/reports/analysis/build_wave4a_mmt_equation_diagnostic_report.py`
   Report generator for the `Wave 4A` MMT equation-chain diagnostic. It writes
